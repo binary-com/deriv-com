@@ -1,7 +1,7 @@
 import moment from 'moment'
 // const getLanguage = require('../language').get
-import { LocalStore } from './storage'
-import { getPropertyValue, getStaticHash, isEmptyObject } from './utility'
+import { LocalStore } from '../storage'
+import { getPropertyValue, getStaticHash, isEmptyObject } from '../utility'
 /*
  * Caches WS responses to reduce delay time and number of requests
  * Stores data in LocalStore which is the first one available in: localStorage, sessionStorage, InScriptStore

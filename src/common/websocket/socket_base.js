@@ -1,12 +1,13 @@
 import { SocketCache } from './socket_cache'
+// TODO: add language
 // const getLanguage      = require('../language').get;
-import { State } from './storage'
+import { State } from '../storage'
 import {
     cloneObject,
     getPropertyValue,
     isEmptyObject,
     PromiseClass,
-} from './utility'
+} from '../utility'
 import { getAppId, getSocketURL } from './config'
 
 /*
@@ -25,9 +26,9 @@ const BinarySocketBase = (() => {
     let is_disconnect_called = false
     let is_connected_before = false
 
+    // TODO: add language
     // const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${getLanguage()}`;
-    // const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=en`
-    const socket_url = 'wss://ws.binaryws.com/websockets/v3?app_id=1089'
+    const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=en`
     const timeouts = {}
     const promises = {}
 

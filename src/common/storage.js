@@ -1,5 +1,5 @@
 import { getPropertyValue, isEmptyObject } from './utility'
-import { isProduction } from './config'
+import { isProduction } from './websocket/config'
 
 const Cookies = require('js-cookie')
 

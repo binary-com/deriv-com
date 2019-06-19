@@ -1,5 +1,5 @@
 import { BinarySocketBase } from './socket_base'
-import { getPropertyValue } from './utility'
+import { getPropertyValue } from '../utility'
 
 const BinarySocketGeneral = (() => {
     const onOpen = is_ready => {

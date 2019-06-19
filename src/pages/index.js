@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ThemeContext from '../context/ThemeContext'
+import AppContext from '../context/AppContext'
 
 import Layout from '../components/layout/layout'
 import Image from '../components/elements/image'
@@ -8,7 +8,7 @@ import SEO from '../components/containers/seo'
 class Home extends Component {
     render() {
         return (
-            <ThemeContext.Consumer>
+            <AppContext.Consumer>
                 {theme => (
                     <Layout>
                         <SEO title="Home" />
@@ -23,7 +23,7 @@ class Home extends Component {
                         </div>
                     </Layout>
                 )}
-            </ThemeContext.Consumer>
+            </AppContext.Consumer>
         )
     }
 }

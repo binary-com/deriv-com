@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "author": "Binary.com",
   "dependencies": {
+    "extend": "^3.0.2",
     "gatsby": "^2.9.4",
     "gatsby-image": "^2.1.4",
     "gatsby-plugin-manifest": "^2.1.1",
@@ -12,6 +13,8 @@
     "gatsby-plugin-sharp": "^2.1.5",
     "gatsby-source-filesystem": "^2.0.39",
     "gatsby-transformer-sharp": "^2.1.21",
+    "js-cookie": "^2.2.0",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

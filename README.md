@@ -6,9 +6,10 @@ Deriv.com static content
 
 ## Requirements
 
-- node
-- npm
-- gatsby-cli (npm install -g gatsby-cli)
+-   node
+-   npm
+-   gatsby-cli (npm install -g gatsby-cli)
+-   Prettier setup in your editor https://prettier.io/ (or you can run `npm run format`)
 
 ## 🚀 Quick start
 

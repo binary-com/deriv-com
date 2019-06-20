@@ -2,7 +2,7 @@
     "name": "deriv-com",
     "description": "Deriv.com static content",
     "version": "0.1.0",
-    "author": "Binary.com",
+    "author": "Deriv",
     "dependencies": {
         "extend": "^3.0.2",
         "gatsby": "^2.9.4",

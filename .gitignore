@@ -75,4 +75,4 @@ yarn-error.log
 .next
 
 # VS code
-.vs-code/settings.json
+.vscode/

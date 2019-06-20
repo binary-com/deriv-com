@@ -36,10 +36,10 @@ const BinarySocketGeneral = (() => {
     const handleError = response => {
         const error_code = getPropertyValue(response, ['error', 'code'])
         switch (error_code) {
+            // TODO handle response errors
             case 'WrongResponse':
             case 'InternalServerError':
             case 'RateLimit':
-                break
             case 'InvalidAppID':
                 console.error('Invalid app id')
                 break

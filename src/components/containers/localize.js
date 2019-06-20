@@ -7,4 +7,4 @@ Localize.propTypes = {
     i18n_text: PropTypes.string,
 }
 
-export { Localize }
+export default Localize

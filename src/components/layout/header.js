@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Localize } from '../containers/localize'
+import Localize from '../containers/localize'
 
 const Header = ({ siteTitle }) => (
     <header

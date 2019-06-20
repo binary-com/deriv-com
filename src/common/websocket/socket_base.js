@@ -31,14 +31,7 @@ const BinarySocketBase = (() => {
     const timeouts = {}
     const promises = {}
 
-    const no_duplicate_requests = [
-        'authorize',
-        'get_settings',
-        'residence_list',
-        'landing_company',
-        'payout_currencies',
-        'asset_index',
-    ]
+    const no_duplicate_requests = ['landing_company', 'asset_index']
 
     const sent_requests = {
         items: [],

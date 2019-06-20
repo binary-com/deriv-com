@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Localize } from '../containers/localize'
 
 const Header = ({ siteTitle }) => (
     <header
@@ -9,7 +10,7 @@ const Header = ({ siteTitle }) => (
             marginBottom: `1.45rem`,
         }}
     >
-        <div
+        <nav
             style={{
                 margin: `0 auto`,
                 maxWidth: 960,
@@ -35,7 +36,7 @@ const Header = ({ siteTitle }) => (
                     padding: `0.5rem`,
                 }}
             >
-                Home
+                <Localize i18n_text="Home" />
             </Link>
             <Link
                 to="/about/"
@@ -45,7 +46,7 @@ const Header = ({ siteTitle }) => (
                     padding: `0.5rem`,
                 }}
             >
-                About
+                <Localize i18n_text="About" />
             </Link>
             <Link
                 to="/contact/"
@@ -55,7 +56,7 @@ const Header = ({ siteTitle }) => (
                     padding: `0.5rem`,
                 }}
             >
-                Contact
+                <Localize i18n_text="Contact" />
             </Link>
             <Link
                 to="/terms-and-conditions/"
@@ -65,9 +66,9 @@ const Header = ({ siteTitle }) => (
                     padding: `0.5rem`,
                 }}
             >
-                Terms and Conditions
+                <Localize i18n_text="Terms and Conditions" />
             </Link>
-        </div>
+        </nav>
     </header>
 )
 

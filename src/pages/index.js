@@ -9,7 +9,7 @@ const Home = () => (
     <Layout>
         <SEO title="Home" />
         <h1>
-            <Localize i18n_text="Home" />
+            <Localize translate="Home" />
         </h1>
         <div
             style={{

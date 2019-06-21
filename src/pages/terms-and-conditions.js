@@ -8,7 +8,7 @@ const TermsAndConditions = () => (
     <Layout>
         <SEO title="Terms and Conditions" />
         <h1>
-            <Localize i18n_text="Terms and Conditions" />
+            <Localize translate="Terms and Conditions" />
         </h1>
     </Layout>
 )

@@ -10,7 +10,7 @@ const Home = () => (
             <SEO title="Home" />
             <h1>Home</h1>
             <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-                <Image />
+                <Image img_name='gatsby-astronaut.png' />
             </div>
         </Layout>
     </>

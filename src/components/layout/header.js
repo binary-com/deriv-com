@@ -1,5 +1,4 @@
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components';
 import Image from '../elements/image';
@@ -41,13 +40,14 @@ const LogoWrapper = styled.div`
 const StyledLink = styled((props) => <Link {...props}/>)`
     color: var(--white-color);
     text-decoration: none;
-    padding: ${rem('12px')};
+    padding: 1rem;
 `;
 
 const NavButton = styled.button`
     border: 1px solid var(--main-color);
     color: var(--main-color);
     background-color: transparent;
+    padding: 1rem;
 
     &:active,
     &:focus {
@@ -71,13 +71,13 @@ const Header = ({ siteTitle }) => (
                     Home
                 </StyledLink>
                 <StyledLink to='/about/'>
-                    about
+                    About
                 </StyledLink>
                 <StyledLink to='/contact'>
-                    contact
+                    Contact
                 </StyledLink>
                 <StyledLink to='/terms-and-conditions/'>
-                    terms and conditions
+                    Terms and Conditions
                 </StyledLink>
             </NavCenter>
             <NavRight>
@@ -86,13 +86,5 @@ const Header = ({ siteTitle }) => (
         </Wrapper>
     </StyledHeader>
 )
-
-Header.propTypes = {
-    siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-    siteTitle: ``,
-}
 
 export default Header

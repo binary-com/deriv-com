@@ -34,7 +34,9 @@
         "start": "npm run develop",
         "serve": "gatsby serve",
         "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-        "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+        "deploy": "gatsby build && gh-pages -d public -b master",
+        "deploy-dev": "gatsby build --prefix-paths && gh-pages -d public",
+        "deploy-branch": "PATH_PREFIX=/deriv-com/br/$BRANCH_NAME gatsby build --prefix-paths && gh-pages -d public -e br/$BRANCH_NAME"
     },
     "repository": {
         "type": "git",

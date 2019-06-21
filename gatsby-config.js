@@ -1,5 +1,5 @@
 module.exports = {
-    pathPrefix: '/deriv-com',
+    pathPrefix: process.env.PATH_PREFIX || '/deriv-com/',
     siteMetadata: {
         title: `Deriv.com`,
         description: `Deriv.com gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.`,

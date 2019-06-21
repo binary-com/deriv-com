@@ -59,7 +59,7 @@ const getAppId = () => {
 const getSocketURL = () => {
     let server_url = window.localStorage.getItem('config.server_url')
     if (!server_url) {
-        server_url = `blue.binaryws.com`
+        server_url = 'green.binaryws.com'
     }
     return `wss://${server_url}/websockets/v3`
 }

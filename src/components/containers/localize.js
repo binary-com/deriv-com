@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-const Localize = ({ i18n_text }) => <Fragment>{i18n_text}</Fragment>
+const Localize = ({ translate }) => <Fragment>{translate}</Fragment>
 
 Localize.propTypes = {
-    i18n_text: PropTypes.string,
+    translate: PropTypes.string,
 }
 
 export default Localize

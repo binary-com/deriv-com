@@ -36,7 +36,7 @@ const Header = ({ siteTitle }) => (
                     padding: `0.5rem`,
                 }}
             >
-                <Localize i18n_text="Home" />
+                <Localize translate="Home" />
             </Link>
             <Link
                 to="/about/"
@@ -46,7 +46,7 @@ const Header = ({ siteTitle }) => (
                     padding: `0.5rem`,
                 }}
             >
-                <Localize i18n_text="About" />
+                <Localize translate="About" />
             </Link>
             <Link
                 to="/contact/"
@@ -56,7 +56,7 @@ const Header = ({ siteTitle }) => (
                     padding: `0.5rem`,
                 }}
             >
-                <Localize i18n_text="Contact" />
+                <Localize translate="Contact" />
             </Link>
             <Link
                 to="/terms-and-conditions/"
@@ -66,7 +66,7 @@ const Header = ({ siteTitle }) => (
                     padding: `0.5rem`,
                 }}
             >
-                <Localize i18n_text="Terms and Conditions" />
+                <Localize translate="Terms and Conditions" />
             </Link>
         </nav>
     </header>

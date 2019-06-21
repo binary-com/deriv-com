@@ -8,7 +8,7 @@ const About = () => (
     <Layout>
         <SEO title="About" />
         <h1>
-            <Localize i18n_text="About" />
+            <Localize translate="About" />
         </h1>
     </Layout>
 )

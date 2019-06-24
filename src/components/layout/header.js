@@ -73,13 +73,25 @@ const Header = () => (
                 </Link>
             </NavLeft>
             <NavCenter>
-                <StyledLink to="/trade" activeClassName="active">
+                <StyledLink
+                    to="/trade"
+                    activeClassName="active"
+                    aria-label="Trade"
+                >
                     <Localize translate="Trade" />
                 </StyledLink>
-                <StyledLink to="/about" activeClassName="active">
+                <StyledLink
+                    to="/about"
+                    activeClassName="active"
+                    aria-label="About us"
+                >
                     <Localize translate="About us" />
                 </StyledLink>
-                <StyledLink to="/help-centre" activeClassName="active">
+                <StyledLink
+                    to="/help-centre"
+                    activeClassName="active"
+                    aria-label="Help centres"
+                >
                     <Localize translate="Help centre" />
                 </StyledLink>
             </NavCenter>

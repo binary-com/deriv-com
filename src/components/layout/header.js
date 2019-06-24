@@ -36,6 +36,13 @@ const StyledLink = styled(props => <Link {...props} />)`
     color: var(--white-color);
     text-decoration: none;
     padding: 1rem;
+
+    &:hover {
+        border-bottom: 1px solid var(--main-color);
+    }
+    &.active {
+        border-bottom: 1px solid var(--main-color);
+    }
 `
 
 const NavButton = styled.button`
@@ -60,18 +67,20 @@ const Header = () => (
                 </Link>
             </NavLeft>
             <NavCenter>
-                <StyledLink to="/trade">
+                <StyledLink to="/trade" activeClassName="active">
                     <Localize translate="Trade" />
                 </StyledLink>
-                <StyledLink to="/about">
+                <StyledLink to="/about" activeClassName="active">
                     <Localize translate="About us" />
                 </StyledLink>
-                <StyledLink to="/contact">
+                <StyledLink to="/help-centre" activeClassName="active">
                     <Localize translate="Help centre" />
                 </StyledLink>
             </NavCenter>
             <NavRight>
-                <NavButton>Login</NavButton>
+                <NavButton>
+                    <Localize translate="Login" />
+                </NavButton>
             </NavRight>
         </Wrapper>
     </StyledHeader>

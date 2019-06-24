@@ -4,7 +4,7 @@ import Reset from './reset'
 const GlobalStyle = createGlobalStyle`
     ${Reset}
     body {
-        font-family: 'IBM Plex Sans', 'roboto';
+        font-family: 'IBM Plex Sans', sans-serif;
         margin: 0;
     }
 

@@ -4,13 +4,13 @@ import Layout from '../components/layout/layout'
 import SEO from '../components/containers/seo'
 import Localize from '../components/containers/localize'
 
-const TermsAndConditions = () => (
+const HelpCentre = () => (
     <Layout>
-        <SEO title="Terms and Conditions" />
+        <SEO title="Help centre" />
         <h1>
-            <Localize translate="Terms and Conditions" />
+            <Localize translate="Help Centre" />
         </h1>
     </Layout>
 )
 
-export default TermsAndConditions
+export default HelpCentre

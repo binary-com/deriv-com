@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import ImageWrapper from '../containers/image-wrapper'
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,24 +14,37 @@ import Img from 'gatsby-image'
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
-const Image = () => (
+const Image = ({ img_name, alt, width }) => (
     <StaticQuery
         query={graphql`
             query {
-                placeholderImage: file(
-                    relativePath: { eq: "gatsby-astronaut.png" }
-                ) {
-                    childImageSharp {
-                        fluid(maxWidth: 300) {
-                            ...GatsbyImageSharpFluid
+                allImageSharp {
+                    edges {
+                        node {
+                            fluid(
+                                maxWidth: 1920
+                                srcSetBreakpoints: [400, 600, 960, 1280, 1920]
+                            ) {
+                                ...GatsbyImageSharpFluid
+                                originalName
+                            }
                         }
                     }
                 }
             }
         `}
-        render={data => (
-            <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-        )}
+        render={data => {
+            const image = data.allImageSharp.edges.find(
+                edge => edge.node.fluid.originalName === img_name,
+            )
+            if (!image) return null
+
+            return (
+                <ImageWrapper width={width}>
+                    <Img alt={alt} fluid={image.node.fluid} />
+                </ImageWrapper>
+            )
+        }}
     />
 )
 export default Image

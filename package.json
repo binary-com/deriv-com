@@ -13,6 +13,7 @@
         "gatsby-plugin-sharp": "^2.1.5",
         "gatsby-source-filesystem": "^2.0.39",
         "gatsby-transformer-sharp": "^2.1.21",
+        "gh-pages": "^2.0.1",
         "prop-types": "^15.7.2",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
@@ -37,7 +38,10 @@
         "format": "prettier --write '**/*.{js,jsx}' '*.js'",
         "start": "npm run develop",
         "serve": "gatsby serve",
-        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+        "deploy": "gatsby build && gh-pages -d public -b master",
+        "deploy-dev": "gatsby build --prefix-paths && gh-pages -d public",
+        "deploy-branch": "PATH_PREFIX=/deriv-com/br/$BRANCH_NAME gatsby build --prefix-paths && gh-pages -d public -e br/$BRANCH_NAME"
     },
     "repository": {
         "type": "git",

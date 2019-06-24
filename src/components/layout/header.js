@@ -68,7 +68,7 @@ const Header = () => (
     <StyledHeader>
         <Wrapper>
             <NavLeft>
-                <Link to="/">
+                <Link to="/" aria-label="Home">
                     <LogoHeader />
                 </Link>
             </NavLeft>

@@ -10,9 +10,7 @@ const Home = () => (
         <Layout>
             <SEO title="Home" />
             <h1><Localize translate='Home' /></h1>
-            <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-                <Image img_name='gatsby-astronaut.png' />
-            </div>
+                <Image width='300px' img_name='practice.png' alt='gatsby astronaut' />
         </Layout>
     </>
 )

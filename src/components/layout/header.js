@@ -1,8 +1,8 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components';
-import Image from '../elements/image';
-import Localize from '../containers/localize'
+import Localize from '../containers/localize';
+import LogoHeader from '../../images/svg/logo-header.svg';
 
 const StyledHeader = styled.header`
     background-color: var(--background-color);
@@ -32,12 +32,6 @@ const NavRight = styled.div`
     text-align: right;
 `;
 
-
-const LogoWrapper = styled.div`
-    max-width: 50px;
-
-`;
-
 const StyledLink = styled((props) => <Link {...props}/>)`
     color: var(--white-color);
     text-decoration: none;
@@ -62,9 +56,7 @@ const Header = () => (
         <Wrapper>
             <NavLeft>
                 <Link to='/'>
-                    <LogoWrapper>
-                        <Image img_name='gatsby-icon.png' alt='Deriv.com' />
-                    </LogoWrapper>
+                    <LogoHeader />
                 </Link>
             </NavLeft>
             <NavCenter>

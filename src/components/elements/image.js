@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import ImageWrapper from './image-wrapper';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -13,7 +14,7 @@ import Img from 'gatsby-image'
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
-const Image = ({ img_name, alt }) => (
+const Image = ({ img_name, alt, width }) => (
     <StaticQuery
         query={graphql`
         query {
@@ -33,7 +34,7 @@ const Image = ({ img_name, alt }) => (
             const image = data.allImageSharp.edges.find(edge => edge.node.fluid.originalName === img_name);
             if (!image) return null;
 
-            return <Img alt={alt} fluid={image.node.fluid} />
+            return <ImageWrapper width={width}><Img alt={alt} fluid={image.node.fluid} /></ImageWrapper>
         }
         }
     />

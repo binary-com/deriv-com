@@ -4,13 +4,13 @@ import Layout from '../components/layout/layout'
 import SEO from '../components/containers/seo'
 import Localize from '../components/containers/localize'
 
-const Contact = () => (
+const HelpCentre = () => (
     <Layout>
-        <SEO title="Contact" />
+        <SEO title="Help centre" />
         <h1>
-            <Localize translate="Contact" />
+            <Localize translate="Help Centre" />
         </h1>
     </Layout>
 )
 
-export default Contact
+export default HelpCentre

@@ -44,10 +44,10 @@ const NavButton = styled.button`
     background-color: transparent;
     padding: 1rem;
 
-    &:active,
-    &:focus {
+    &:hover {
         background-color: var(--main-color);
         color: var(--white-color);
+        cursor: pointer;
     }
 `
 
@@ -60,17 +60,14 @@ const Header = () => (
                 </Link>
             </NavLeft>
             <NavCenter>
-                <StyledLink to="/">
-                    <Localize translate="Home" />
+                <StyledLink to="/trade">
+                    <Localize translate="Trade" />
                 </StyledLink>
-                <StyledLink to="/about/">
-                    <Localize translate="About" />
+                <StyledLink to="/about">
+                    <Localize translate="About us" />
                 </StyledLink>
                 <StyledLink to="/contact">
-                    <Localize translate="Contact" />
-                </StyledLink>
-                <StyledLink to="/terms-and-conditions/">
-                    <Localize translate="Terms and Conditions" />
+                    <Localize translate="Help centre" />
                 </StyledLink>
             </NavCenter>
             <NavRight>

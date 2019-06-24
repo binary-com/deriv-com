@@ -14,7 +14,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
     display: flex;
     align-items: center;
-    padding: 1rem 1rem;
+    padding: 2rem 1rem;
 `
 
 const NavLeft = styled.div`
@@ -36,6 +36,9 @@ const StyledLink = styled(props => <Link {...props} />)`
     color: var(--white-color);
     text-decoration: none;
     padding: 1rem;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.25s;
+    margin: 0 0.3rem;
 
     &:hover {
         border-bottom: 1px solid var(--main-color);
@@ -46,14 +49,17 @@ const StyledLink = styled(props => <Link {...props} />)`
 `
 
 const NavButton = styled.button`
-    border: 1px solid var(--main-color);
+    border-radius: 6px;
+    border: 2px solid var(--main-color);
     color: var(--main-color);
     background-color: transparent;
-    padding: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 100%;
 
     &:hover {
         background-color: var(--main-color);
         color: var(--white-color);
+        transition: background-color 0.2s, color 0.2s;
         cursor: pointer;
     }
 `

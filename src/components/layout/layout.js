@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Header from './header'
 import Footer from './footer'
-import GlobalStyle from '../../themes/global-style';
+import GlobalStyle from '../../themes/global-style'
 
 const Layout = ({ children }) => (
     <>

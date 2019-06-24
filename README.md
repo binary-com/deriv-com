@@ -30,3 +30,28 @@ Deriv.com static content
     Your site is now running at `http://localhost:8000`!
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+
+## 📦 GH-pages deployment
+
+1. **Basic name.github.io/deriv-com/**
+
+    ```sh
+    npm run deploy-dev
+    ```
+
+    ⚠️ This will remove your branch deployments
+
+2. **To a specific branch:**
+
+    ```sh
+    BRANCH_NAME=fix_all_the_bugs npm run deploy-branch
+    ```
+
+    - This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs
+    - To cleanup all branches run `npm run deploy-dev`
+
+3. **To CNAME**
+    ```sh
+    npm run deploy
+    ```
+    - Make sure to add static/CNAME in the root of the project

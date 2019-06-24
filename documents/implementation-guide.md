@@ -42,7 +42,8 @@ const _want_extend_ = styled(_component_name_)`
 `
 ```
 
-for further information you can take a look at [Styled Component](https://www.styled-components.com/)
+*noted that we are using `rem` as value where `10px = 1rem`
+*for further information you can take a look at [Styled Component](https://www.styled-components.com/)
 
 ### Image Component
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import ImageWrapper from './image-wrapper'
+import ImageWrapper from '../containers/image-wrapper'
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized

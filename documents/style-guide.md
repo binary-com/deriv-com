@@ -35,11 +35,6 @@ gatsby-config.js
 gatsby-node.js
 ```
 
-This guide is based on presentational and container components.
-If you're not sure of the distinction between them, we recommend you read the
-[Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
-article first.
-
 ## common
 
 The `common` directory contains common javascript to be used for utilities or for websocket calls.

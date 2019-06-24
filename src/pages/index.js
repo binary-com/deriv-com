@@ -10,7 +10,7 @@ const Home = () => (
         <Layout>
             <SEO title="Home" />
             <h1><Localize translate='Home' /></h1>
-                <Image width='300px' img_name='practice.png' alt='gatsby astronaut' />
+            <Image width='300px' img_name='practice.png' alt='gatsby astronaut' />
         </Layout>
     </>
 )

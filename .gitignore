@@ -73,3 +73,6 @@ yarn-error.log
 
 # next.js build output
 .next
+
+# VS code
+.vscode/

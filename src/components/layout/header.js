@@ -2,6 +2,7 @@ import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components';
 import Image from '../elements/image';
+import Localize from '../containers/localize'
 
 const StyledHeader = styled.header`
     background-color: var(--background-color);
@@ -56,7 +57,7 @@ const NavButton = styled.button`
     }
 `
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
     <StyledHeader>
         <Wrapper>
             <NavLeft>
@@ -68,16 +69,16 @@ const Header = ({ siteTitle }) => (
             </NavLeft>
             <NavCenter>
                 <StyledLink to='/'>
-                    Home
+                    <Localize translate='Home' />
                 </StyledLink>
                 <StyledLink to='/about/'>
-                    About
+                    <Localize translate='About' />
                 </StyledLink>
                 <StyledLink to='/contact'>
-                    Contact
+                    <Localize translate='Contact' />
                 </StyledLink>
                 <StyledLink to='/terms-and-conditions/'>
-                    Terms and Conditions
+                    <Localize translate='Terms and Conditions' />
                 </StyledLink>
             </NavCenter>
             <NavRight>

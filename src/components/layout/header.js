@@ -1,83 +1,95 @@
 import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
+import styled from 'styled-components'
 import Localize from '../containers/localize'
+import LogoHeader from '../../images/svg/logo-header.svg'
 
-const Header = ({ siteTitle }) => (
-    <header
-        style={{
-            background: `#000`,
-            marginBottom: `1.45rem`,
-        }}
-    >
-        <nav
-            style={{
-                margin: `0 auto`,
-                maxWidth: 960,
-                padding: `1.45rem 1.0875rem`,
-            }}
-        >
-            <h1 style={{ margin: 0 }}>
-                <Link
-                    to="/"
-                    style={{
-                        color: `white`,
-                        textDecoration: `none`,
-                    }}
-                >
-                    {siteTitle}
+const StyledHeader = styled.header`
+    background-color: var(--color-black);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+`
+
+const Wrapper = styled.div`
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 2rem 1rem;
+`
+
+const NavLeft = styled.div`
+    width: 25%;
+    text-align: left;
+`
+
+const NavCenter = styled.div`
+    width: 50%;
+    text-align: center;
+`
+
+const NavRight = styled.div`
+    width: 25%;
+    text-align: right;
+`
+
+const StyledLink = styled(props => <Link {...props} />)`
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 1rem;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.25s;
+    margin: 0 0.3rem;
+
+    &:hover {
+        border-bottom: 1px solid var(--color-red);
+    }
+    &.active {
+        border-bottom: 1px solid var(--color-red);
+    }
+`
+
+const NavButton = styled.button`
+    border-radius: 6px;
+    border: 2px solid var(--color-red);
+    color: var(--color-red);
+    background-color: transparent;
+    padding: 0.6rem 1.2rem;
+    font-size: 100%;
+
+    &:hover {
+        background-color: var(--color-red);
+        color: var(--color-white);
+        transition: background-color 0.2s, color 0.2s;
+        cursor: pointer;
+    }
+`
+
+const Header = () => (
+    <StyledHeader>
+        <Wrapper>
+            <NavLeft>
+                <Link to="/">
+                    <LogoHeader />
                 </Link>
-            </h1>
-            <Link
-                to="/"
-                style={{
-                    color: `white`,
-                    textDecoration: `none`,
-                    padding: `0.5rem`,
-                }}
-            >
-                <Localize translate="Home" />
-            </Link>
-            <Link
-                to="/about/"
-                style={{
-                    color: `white`,
-                    textDecoration: `none`,
-                    padding: `0.5rem`,
-                }}
-            >
-                <Localize translate="About" />
-            </Link>
-            <Link
-                to="/contact/"
-                style={{
-                    color: `white`,
-                    textDecoration: `none`,
-                    padding: `0.5rem`,
-                }}
-            >
-                <Localize translate="Contact" />
-            </Link>
-            <Link
-                to="/terms-and-conditions/"
-                style={{
-                    color: `white`,
-                    textDecoration: `none`,
-                    padding: `0.5rem`,
-                }}
-            >
-                <Localize translate="Terms and Conditions" />
-            </Link>
-        </nav>
-    </header>
+            </NavLeft>
+            <NavCenter>
+                <StyledLink to="/trade" activeClassName="active">
+                    <Localize translate="Trade" />
+                </StyledLink>
+                <StyledLink to="/about" activeClassName="active">
+                    <Localize translate="About us" />
+                </StyledLink>
+                <StyledLink to="/help-centre" activeClassName="active">
+                    <Localize translate="Help centre" />
+                </StyledLink>
+            </NavCenter>
+            <NavRight>
+                <NavButton>
+                    <Localize translate="Login" />
+                </NavButton>
+            </NavRight>
+        </Wrapper>
+    </StyledHeader>
 )
-
-Header.propTypes = {
-    siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-    siteTitle: ``,
-}
 
 export default Header

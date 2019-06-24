@@ -1,4 +1,6 @@
-import React from 'react'
+import { styled } from 'styled-components'
 
-const Button = ({ text }) => <button>{text}</button>
+const Button = styled.Button`
+    width: 2rem;
+`
 export default Button

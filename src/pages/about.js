@@ -8,7 +8,7 @@ const About = () => (
     <Layout>
         <SEO title="About" />
         <h1>
-            <Localize translate="About" />
+            <Localize translate="About us" />
         </h1>
     </Layout>
 )

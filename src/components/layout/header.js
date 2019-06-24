@@ -5,7 +5,7 @@ import Localize from '../containers/localize'
 import LogoHeader from '../../images/svg/logo-header.svg'
 
 const StyledHeader = styled.header`
-    background-color: var(--background-color);
+    background-color: var(--color-black);
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
 `
 
@@ -33,7 +33,7 @@ const NavRight = styled.div`
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
-    color: var(--white-color);
+    color: var(--color-white);
     text-decoration: none;
     padding: 1rem;
     border-bottom: 1px solid transparent;
@@ -41,24 +41,24 @@ const StyledLink = styled(props => <Link {...props} />)`
     margin: 0 0.3rem;
 
     &:hover {
-        border-bottom: 1px solid var(--main-color);
+        border-bottom: 1px solid var(--color-red);
     }
     &.active {
-        border-bottom: 1px solid var(--main-color);
+        border-bottom: 1px solid var(--color-red);
     }
 `
 
 const NavButton = styled.button`
     border-radius: 6px;
-    border: 2px solid var(--main-color);
-    color: var(--main-color);
+    border: 2px solid var(--color-red);
+    color: var(--color-red);
     background-color: transparent;
     padding: 0.6rem 1.2rem;
     font-size: 100%;
 
     &:hover {
-        background-color: var(--main-color);
-        color: var(--white-color);
+        background-color: var(--color-red);
+        color: var(--color-white);
         transition: background-color 0.2s, color 0.2s;
         cursor: pointer;
     }

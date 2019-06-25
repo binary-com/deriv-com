@@ -3,13 +3,21 @@
     "rules": {
         "strict": 0,
         "camelcase": 0,
-        "no-console": ["error", { "allow": ["warn", "error"] }],
-        "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "no-trailing-spaces": ["warn", { "skipBlankLines": true }],
+        "no-unused-vars": "warn",
+        "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 1 }],
+        "no-param-reassign": ["error", { "props": false }],
+        "one-var": [
+            "warn",
+            { "initialized": "never", "uninitialized": "always" }
+        ],
+        "space-unary-ops": "warn",
         "import/no-extraneous-dependencies": [0, { "extensions": [".jsx"] }],
-        "import/no-useless-path-segments": "error",
+        "import/no-useless-path-segments": "warn",
         "import/prefer-default-export": 0,
         "react/sort-prop-types": [
-            "error",
+            "warn",
             { "ignoreCase": true, "sortShapeProp": true }
         ]
     },

@@ -40,16 +40,16 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "build": "gatsby build",
+        "build": "npm run test && gatsby build",
         "develop": "gatsby develop",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
         "start": "npm run develop",
         "serve": "gatsby serve",
-        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-        "deploy": "gatsby build && gh-pages -d public -b master",
-        "deploy-dev": "gatsby build --prefix-paths && gh-pages -d public",
-        "deploy-branch": "PATH_PREFIX=/deriv-com/br/$BRANCH_NAME gatsby build --prefix-paths && gh-pages -d public -e br/$BRANCH_NAME"
+        "test": "npm run stylelint",
+        "deploy": "npm run build && gh-pages -d public -b master",
+        "deploy-dev": "npm run build --prefix-paths && gh-pages -d public",
+        "deploy-branch": "PATH_PREFIX=/deriv-com/br/$BRANCH_NAME npm run build --prefix-paths && gh-pages -d public -e br/$BRANCH_NAME"
     },
     "repository": {
         "type": "git",

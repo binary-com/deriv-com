@@ -84,7 +84,6 @@ const NavButton = styled.a`
         background-color: var(--color-red);
         color: var(--color-white);
         transition: background-color 0.2s, color 0.2s;
-        cursor: pointer;
     }
 `
 

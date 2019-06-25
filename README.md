@@ -49,9 +49,3 @@ Deriv.com static content
 
     - This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs
     - To cleanup all branches run `npm run deploy-dev`
-
-3. **To CNAME**
-    ```sh
-    npm run deploy
-    ```
-    - Make sure to add static/CNAME in the root of the project

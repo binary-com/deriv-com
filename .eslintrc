@@ -1,0 +1,41 @@
+{
+    "parser": "babel-eslint",
+    "rules": {
+        "strict": 0,
+        "camelcase": 0,
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "no-trailing-spaces": ["warn", { "skipBlankLines": true }],
+        "no-unused-vars": "warn",
+        "no-multiple-empty-lines": ["warn", { "max": 1, "maxEOF": 1 }],
+        "no-param-reassign": ["error", { "props": false }],
+        "one-var": [
+            "warn",
+            { "initialized": "never", "uninitialized": "always" }
+        ],
+        "space-unary-ops": "warn",
+        "import/no-extraneous-dependencies": [0, { "extensions": [".jsx"] }],
+        "import/no-useless-path-segments": "warn",
+        "import/prefer-default-export": 0,
+        "react/sort-prop-types": [
+            "warn",
+            { "ignoreCase": true, "sortShapeProp": true }
+        ]
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
+    ],
+    "env": {
+        "es6": true,
+        "browser": true,
+        "amd": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "version": "16"
+        }
+    }
+}

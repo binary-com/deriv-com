@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import ImageWrapper from '../containers/image-wrapper'
+import PropTypes from 'prop-types'
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -47,4 +48,10 @@ const Image = ({ img_name, alt, width }) => (
         }}
     />
 )
+
+Image.propTypes = {
+    alt: PropTypes.string,
+    img_name: PropTypes.string,
+    width: PropTypes.string,
+}
 export default Image

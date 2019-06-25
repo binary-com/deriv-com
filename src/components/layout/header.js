@@ -37,25 +37,42 @@ const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
     width: 23%;
+    text-align: left;
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
     color: var(--color-white);
     text-decoration: none;
-    padding: 1rem;
-    transition: text-shadow 0.25s, border-bottom 0.25s;
-    margin: 0 0.3rem;
+    padding: 0.5rem 1rem;
+    transition: text-shadow 0.25s;
+    position: relative;
 
+    &::before {
+        content: '';
+        position: absolute;
+        transition: width 0.25s;
+        height: 0.1rem;
+        width: 0;
+        background-color: var(--color-red);
+        bottom: 0;
+    }
     &:hover {
-        text-shadow: 0 0 0.65px var(--color-white),
-            0 0 0.65px var(--color-white);
+        text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
+
+        &::before {
+            width: 1rem;
+        }
     }
     &.active {
-        border-bottom: 1px solid var(--color-red);
+        text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
+
+        &::before {
+            width: 1rem;
+        }
     }
 `
 
-const NavButton = styled.button`
+const NavButton = styled.a`
     border-radius: 6px;
     border: 2px solid var(--color-red);
     color: var(--color-red);
@@ -109,8 +126,10 @@ const Header = () => (
                 </NavLink>
             </NavCenter>
             <NavRight>
-                <NavButton>
-                    <Localize translate="Login" />
+                <NavButton href="https://">
+                    <span>
+                        <Localize translate="Login" />
+                    </span>
                 </NavButton>
             </NavRight>
         </Wrapper>

@@ -50,18 +50,13 @@
         "develop": "gatsby develop",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
+        "eslint": "DEBUG=eslint:cli-engine eslint 'src/**/*.js'",
         "start": "npm run develop",
         "serve": "gatsby serve",
-<<<<<<< HEAD
         "test": "npm run stylelint",
         "deploy": "npm run build && gh-pages -d public -b master",
         "deploy-dev": "npm run build --prefix-paths && gh-pages -d public",
         "deploy-branch": "PATH_PREFIX=/deriv-com/br/$BRANCH_NAME npm run build --prefix-paths && gh-pages -d public -e br/$BRANCH_NAME"
-=======
-        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-        "deploy-dev": "gatsby build --prefix-paths && gh-pages -d public",
-        "deploy-branch": "PATH_PREFIX=/deriv-com/br/$BRANCH_NAME gatsby build --prefix-paths && gh-pages -d public -e br/$BRANCH_NAME"
->>>>>>> 4134d2e818676ea166cbc464ad3b962856bd5edd
     },
     "repository": {
         "type": "git",

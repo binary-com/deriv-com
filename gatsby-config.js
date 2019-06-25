@@ -7,7 +7,6 @@ module.exports = {
         author: 'Deriv.com',
     },
     plugins: [
-        'gatsby-plugin-eslint',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
         {
@@ -43,6 +42,18 @@ module.exports = {
             resolve: 'gatsby-plugin-stylelint',
             options: {
                 emitErrors: false,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-eslint',
+            options: {
+                test: /\.js$|\.jsx$/,
+                exclude: /(node_modules|.cache|public)/,
+                stages: ['develop'],
+                options: {
+                    emitWarning: true,
+                    failOnError: false,
+                },
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality

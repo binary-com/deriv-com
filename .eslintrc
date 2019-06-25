@@ -3,7 +3,7 @@
     "rules": {
         "strict": 0,
         "camelcase": 0,
-        "no-console": "error",
+        "no-console": ["error", { "allow": ["warn", "error"] }],
         "no-trailing-spaces": ["error", { "skipBlankLines": true }],
         "import/no-extraneous-dependencies": [0, { "extensions": [".jsx"] }],
         "import/no-useless-path-segments": "error",
@@ -17,13 +17,17 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:import/errors",
-        "plugin:import/warnings",
-        "plugin:prettier/recommended"
+        "plugin:import/warnings"
     ],
     "env": {
         "es6": true,
         "browser": true,
         "amd": true,
         "node": true
+    },
+    "settings": {
+        "react": {
+            "version": "16"
+        }
     }
 }

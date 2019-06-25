@@ -22,9 +22,10 @@ const NavLeft = styled.div`
     text-align: left;
 `
 
-const NavCenter = styled.div`
+const NavCenter = styled.ul`
     width: 50%;
     text-align: center;
+    padding: 0;
 `
 
 const NavRight = styled.div`
@@ -32,23 +33,46 @@ const NavRight = styled.div`
     text-align: right;
 `
 
+const NavLink = styled.li`
+    list-style-type: none;
+    display: inline-block;
+    width: 23%;
+    text-align: left;
+`
+
 const StyledLink = styled(props => <Link {...props} />)`
     color: var(--color-white);
     text-decoration: none;
-    padding: 1rem;
-    border-bottom: 1px solid transparent;
-    transition: border-bottom 0.25s;
-    margin: 0 0.3rem;
+    padding: 0.5rem 1rem;
+    transition: text-shadow 0.25s;
+    position: relative;
 
+    &::before {
+        content: '';
+        position: absolute;
+        transition: width 0.25s;
+        height: 0.1rem;
+        width: 0;
+        background-color: var(--color-red);
+        bottom: 0;
+    }
     &:hover {
-        border-bottom: 1px solid var(--color-red);
+        text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
+
+        &::before {
+            width: 1rem;
+        }
     }
     &.active {
-        border-bottom: 1px solid var(--color-red);
+        text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
+
+        &::before {
+            width: 1rem;
+        }
     }
 `
 
-const NavButton = styled.button`
+const NavButton = styled.a`
     border-radius: 6px;
     border: 2px solid var(--color-red);
     color: var(--color-red);
@@ -60,7 +84,6 @@ const NavButton = styled.button`
         background-color: var(--color-red);
         color: var(--color-white);
         transition: background-color 0.2s, color 0.2s;
-        cursor: pointer;
     }
 `
 
@@ -68,24 +91,44 @@ const Header = () => (
     <StyledHeader>
         <Wrapper>
             <NavLeft>
-                <Link to="/">
+                <Link to="/" aria-label="Home">
                     <LogoHeader />
                 </Link>
             </NavLeft>
             <NavCenter>
-                <StyledLink to="/trade" activeClassName="active">
-                    <Localize translate="Trade" />
-                </StyledLink>
-                <StyledLink to="/about" activeClassName="active">
-                    <Localize translate="About us" />
-                </StyledLink>
-                <StyledLink to="/help-centre" activeClassName="active">
-                    <Localize translate="Help centre" />
-                </StyledLink>
+                <NavLink>
+                    <StyledLink
+                        to="/trade"
+                        activeClassName="active"
+                        aria-label="Trade"
+                    >
+                        <Localize translate="Trade" />
+                    </StyledLink>
+                </NavLink>
+                <NavLink>
+                    <StyledLink
+                        to="/about"
+                        activeClassName="active"
+                        aria-label="About us"
+                    >
+                        <Localize translate="About us" />
+                    </StyledLink>
+                </NavLink>
+                <NavLink>
+                    <StyledLink
+                        to="/help-centre"
+                        activeClassName="active"
+                        aria-label="Help centres"
+                    >
+                        <Localize translate="Help centre" />
+                    </StyledLink>
+                </NavLink>
             </NavCenter>
             <NavRight>
-                <NavButton>
-                    <Localize translate="Login" />
+                <NavButton href="https://">
+                    <span>
+                        <Localize translate="Login" />
+                    </span>
                 </NavButton>
             </NavRight>
         </Wrapper>

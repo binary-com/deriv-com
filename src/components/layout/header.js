@@ -22,9 +22,10 @@ const NavLeft = styled.div`
     text-align: left;
 `
 
-const NavCenter = styled.div`
+const NavCenter = styled.ul`
     width: 50%;
     text-align: center;
+    padding: 0;
 `
 
 const NavRight = styled.div`
@@ -32,16 +33,21 @@ const NavRight = styled.div`
     text-align: right;
 `
 
+const NavLink = styled.li`
+    list-style-type: none;
+    display: inline-block;
+    width: 23%;
+`
+
 const StyledLink = styled(props => <Link {...props} />)`
     color: var(--color-white);
     text-decoration: none;
     padding: 1rem;
-    border-bottom: 1px solid transparent;
-    transition: border-bottom 0.25s;
+    transition: text-shadow 0.25s, border-bottom 0.25s;
     margin: 0 0.3rem;
 
     &:hover {
-        border-bottom: 1px solid var(--color-red);
+        text-shadow: 0 0 0.65px #fff, 0 0 0.65px #fff;
     }
     &.active {
         border-bottom: 1px solid var(--color-red);
@@ -73,27 +79,33 @@ const Header = () => (
                 </Link>
             </NavLeft>
             <NavCenter>
-                <StyledLink
-                    to="/trade"
-                    activeClassName="active"
-                    aria-label="Trade"
-                >
-                    <Localize translate="Trade" />
-                </StyledLink>
-                <StyledLink
-                    to="/about"
-                    activeClassName="active"
-                    aria-label="About us"
-                >
-                    <Localize translate="About us" />
-                </StyledLink>
-                <StyledLink
-                    to="/help-centre"
-                    activeClassName="active"
-                    aria-label="Help centres"
-                >
-                    <Localize translate="Help centre" />
-                </StyledLink>
+                <NavLink>
+                    <StyledLink
+                        to="/trade"
+                        activeClassName="active"
+                        aria-label="Trade"
+                    >
+                        <Localize translate="Trade" />
+                    </StyledLink>
+                </NavLink>
+                <NavLink>
+                    <StyledLink
+                        to="/about"
+                        activeClassName="active"
+                        aria-label="About us"
+                    >
+                        <Localize translate="About us" />
+                    </StyledLink>
+                </NavLink>
+                <NavLink>
+                    <StyledLink
+                        to="/help-centre"
+                        activeClassName="active"
+                        aria-label="Help centres"
+                    >
+                        <Localize translate="Help centre" />
+                    </StyledLink>
+                </NavLink>
             </NavCenter>
             <NavRight>
                 <NavButton>

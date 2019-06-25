@@ -47,7 +47,8 @@ const StyledLink = styled(props => <Link {...props} />)`
     margin: 0 0.3rem;
 
     &:hover {
-        text-shadow: 0 0 0.65px #fff, 0 0 0.65px #fff;
+        text-shadow: 0 0 0.65px var(--color-white),
+            0 0 0.65px var(--color-white);
     }
     &.active {
         border-bottom: 1px solid var(--color-red);

@@ -5,11 +5,11 @@ import Variables from './variables'
 const GlobalStyle = createGlobalStyle`
     ${Reset}
     ${Variables}
+
     body {
         font-family: 'IBM Plex Sans', sans-serif;
         margin: 0;
     }
-
     * {
         box-sizing: border-box;
         margin: 0;

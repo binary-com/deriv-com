@@ -25,7 +25,11 @@
         "gatsby-plugin-react-svg": "^2.1.1",
         "gatsby-plugin-styled-components": "^3.1.0",
         "prettier": "^1.18.2",
-        "styled-components": "^4.3.2"
+        "styled-components": "^4.3.2",
+        "stylelint": "^10.1.0",
+        "stylelint-config-standard": "^18.3.0",
+        "stylelint-config-styled-components": "^0.1.1",
+        "stylelint-processor-styled-components": "^1.8.0"
     },
     "keywords": [
         "deriv",
@@ -35,7 +39,8 @@
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
-        "format": "prettier --write '**/*.{js,jsx}' '*.js'",
+        "format": "prettier --write '**/*.js' '*.js'",
+        "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
         "start": "npm run develop",
         "serve": "gatsby serve",
         "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",

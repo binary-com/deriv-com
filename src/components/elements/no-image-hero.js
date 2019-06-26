@@ -1,30 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Box } from '@rebass/grid'
+import Container from '../containers/container'
 
 const Wrapper = styled.div`
     width: 100%;
-    margin: 0;
     background-color: var(--color-black);
 `
 
-const NoImageHero = styled.div`
-    width: 75%;
+const NoImageHero = styled(Container)`
     margin: 0 auto;
     display: flex;
     align-items: center;
-    padding: 5rem 1rem;
+    flex-direction: column;
+    align-content: space-around;
+    padding: 5rem 0;
 
     div {
+        padding: 3rem 0;
 
         p {
             color: #ffffff;
             font-size: 24px;
             line-height: 30px;
+            font-weight: 500;
         }
-
         h2 {
-
+            color: #ff444f;
+            text-align: center;
+            font-size: 64px;
+            line-height: 74px;
+            font-weight: bold;
+        }
+        @media (max-width: 1024px) {
+            text-align: center;
+            padding: 3rem 1rem;
         }
     }
 `
@@ -36,7 +45,7 @@ const NoImageHeroWrapper = () => (
             </div>
             <div>
                 <h2>
-                    Go ahead,<br />experience it for yourself. 
+                    Go ahead,<br />experience it for yourself.
                 </h2>
             </div>
         </NoImageHero>

@@ -4,16 +4,14 @@ import styled from 'styled-components'
 import Localize from '../containers/localize'
 import LogoHeader from '../../images/svg/logo-header.svg'
 import Button from '../form/button'
+import Container from '../containers/container'
 
-const StyledHeader = styled.header`
+const StyledNav = styled.nav`
     background-color: var(--color-black);
     border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
 `
 
-const Wrapper = styled.div`
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
+const Wrapper = styled(Container)`
     align-items: center;
     padding: 2rem 1rem;
 `
@@ -75,8 +73,8 @@ const StyledLink = styled(props => <Link {...props} />)`
 
 const NavButton = styled(Button)``
 
-const Header = () => (
-    <StyledHeader>
+const Nav = () => (
+    <StyledNav>
         <Wrapper>
             <NavLeft>
                 <Link to="/" aria-label="Home">
@@ -120,7 +118,7 @@ const Header = () => (
                 </NavButton>
             </NavRight>
         </Wrapper>
-    </StyledHeader>
+    </StyledNav>
 )
 
-export default Header
+export default Nav

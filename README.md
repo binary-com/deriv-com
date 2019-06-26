@@ -44,7 +44,7 @@ Deriv.com static content
 2. **To a specific branch:**
 
     ```sh
-    BRANCH_NAME=fix_all_the_bugs npm run deploy-branch
+    branch_name=fix_all_the_bugs npm run deploy-branch
     ```
 
     - This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs

@@ -24,7 +24,7 @@ class Home extends Component {
                     alt="gatsby astronaut"
                 />
                 <div>
-                    <Button type="secondary">Suka beliat</Button>
+                    <Button type="secondary">secondary button example</Button>
                 </div>
             </Layout>
         )

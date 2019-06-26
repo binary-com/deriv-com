@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Localize from '../containers/localize'
 import LogoHeader from '../../images/svg/logo-header.svg'
+import Button from '../form/button'
 
 const StyledHeader = styled.header`
     background-color: var(--color-black);
@@ -72,20 +73,7 @@ const StyledLink = styled(props => <Link {...props} />)`
     }
 `
 
-const NavButton = styled.a`
-    border-radius: 6px;
-    border: 2px solid var(--color-red);
-    color: var(--color-red);
-    background-color: transparent;
-    padding: 0.6rem 1.2rem;
-    font-size: 100%;
-
-    &:hover {
-        background-color: var(--color-red);
-        color: var(--color-white);
-        transition: background-color 0.2s, color 0.2s;
-    }
-`
+const NavButton = styled(Button)``
 
 const Header = () => (
     <StyledHeader>
@@ -125,7 +113,7 @@ const Header = () => (
                 </NavLink>
             </NavCenter>
             <NavRight>
-                <NavButton href="https://">
+                <NavButton type="primary">
                     <span>
                         <Localize translate="Login" />
                     </span>

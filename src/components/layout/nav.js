@@ -84,8 +84,8 @@ const Nav = () => (
             <NavCenter>
                 <NavLink>
                     <StyledLink
-                        to="/trade"
                         activeClassName="active"
+                        to="/trade/"
                         aria-label="Trade"
                     >
                         <Localize translate="Trade" />
@@ -93,8 +93,8 @@ const Nav = () => (
                 </NavLink>
                 <NavLink>
                     <StyledLink
-                        to="/about"
                         activeClassName="active"
+                        to="/about/"
                         aria-label="About us"
                     >
                         <Localize translate="About us" />
@@ -102,8 +102,8 @@ const Nav = () => (
                 </NavLink>
                 <NavLink>
                     <StyledLink
-                        to="/help-centre"
                         activeClassName="active"
+                        to="/help-centre/"
                         aria-label="Help centres"
                     >
                         <Localize translate="Help centre" />

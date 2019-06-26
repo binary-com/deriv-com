@@ -63,17 +63,6 @@ module.exports = {
                 id: 'portal',
             },
         },
-        {
-            resolve: `gatsby-plugin-nprogress`,
-            options: {
-                // Setting a color is optional.
-                color: `tomato`,
-                // Disable the loading spinner.
-                showSpinner: true,
-                minimum: 0.4,
-                trickle: false,
-            },
-        },
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline
         // 'gatsby-plugin-offline',

@@ -63,10 +63,12 @@ const button_theme = {
     `,
 }
 
-const Button = ({ type = 'primary', children }) => (
+const Button = ({ type = 'primary', children, onClick }) => (
     <>
         <ThemeProvider theme={button_theme}>
-            <StyledButton type={type}>{children}</StyledButton>
+            <StyledButton onClick={onClick} type={type}>
+                {children}
+            </StyledButton>
         </ThemeProvider>
     </>
 )
@@ -76,6 +78,7 @@ Button.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]).isRequired,
+    onClick: PropTypes.func,
     type: PropTypes.string,
 }
 

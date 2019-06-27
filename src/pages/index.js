@@ -5,10 +5,18 @@ import Image from '../components/elements/image'
 import SEO from '../components/containers/seo'
 import Localize from '../components/containers/localize'
 import Button from '../components/form/button'
+import Modal from '../components/elements/modal'
 
 class Home extends Component {
     state = {
-        is_modal_open: false,
+        show_modal: false,
+    }
+
+    toggleModal = e => {
+        e.stopPropagation()
+        this.setState({
+            show_modal: !this.state.show_modal,
+        })
     }
 
     render() {
@@ -24,8 +32,16 @@ class Home extends Component {
                     alt="gatsby astronaut"
                 />
                 <div>
-                    <Button type="secondary">secondary button example</Button>
+                    <Button onClick={this.toggleModal} type="secondary">
+                        secondary button example
+                    </Button>
                 </div>
+                <Modal
+                    toggle={this.toggleModal}
+                    is_open={this.state.show_modal}
+                >
+                    <div>Hello from modal</div>
+                </Modal>
             </Layout>
         )
     }

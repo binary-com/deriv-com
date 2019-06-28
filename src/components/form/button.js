@@ -56,17 +56,19 @@ const button_theme = {
     secondary_color: 'var(--color-white)',
     secondary_bg_color: 'var(--color-red)',
     secondary_shadow:
-        '0 3px 6px rgba(var(--color-black), 0.16), 0 3px 6px rgba(var(--color-black), 0.23)',
+        '0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);',
     secondary_transition: 'transform 0.25s',
     secondary_hover: css`
         transform: translateY(-3px);
     `,
 }
 
-const Button = ({ type = 'primary', children }) => (
+const Button = ({ type = 'primary', children, onClick }) => (
     <>
         <ThemeProvider theme={button_theme}>
-            <StyledButton type={type}>{children}</StyledButton>
+            <StyledButton onClick={onClick} type={type}>
+                {children}
+            </StyledButton>
         </ThemeProvider>
     </>
 )
@@ -76,6 +78,7 @@ Button.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]).isRequired,
+    onClick: PropTypes.func,
     type: PropTypes.string,
 }
 

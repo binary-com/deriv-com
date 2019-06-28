@@ -3,35 +3,6 @@ import { createPortal } from 'react-dom'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const Portal = ({ children }) => {
-    const modalRoot = document.getElementById('portal')
-    const el = document.createElement('div')
-
-    useEffect(() => {
-        modalRoot.appendChild(el)
-    }, [])
-
-    useEffect(() => {
-        return () => modalRoot.removeChild(el)
-    })
-
-    return createPortal(children, el)
-}
-
-const Modal = ({ children, toggle, is_open }) => (
-    <Portal>
-        {is_open && (
-            <ModalWrapper>
-                <ModalCard>
-                    <CloseButton onClick={toggle} />
-                    {children}
-                </ModalCard>
-                <Background onClick={toggle} />
-            </ModalWrapper>
-        )}
-    </Portal>
-)
-
 const ModalWrapper = styled.div`
     position: fixed;
     top: 50%;
@@ -76,11 +47,48 @@ const Background = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    filter: blur(8px);
+    background-color: var(--color-black);
+    opacity: 0.4;
 `
 
+const Modal = ({ children, toggle, is_open }) => (
+    <Portal is_open={is_open}>
+        {is_open && (
+            <ModalWrapper>
+                <ModalCard>
+                    <CloseButton onClick={toggle}>X</CloseButton>
+                    {children}
+                </ModalCard>
+                <Background onClick={toggle} />
+            </ModalWrapper>
+        )}
+    </Portal>
+)
+
+const Portal = ({ children, is_open }) => {
+    const appRoot = document.getElementById('___gatsby')
+    const modalRoot = document.getElementById('modal')
+    const el = document.createElement('div')
+
+    appRoot.style.filter = is_open ? 'blur(2px)' : 'none'
+
+    useEffect(() => {
+        modalRoot.appendChild(el)
+
+        return function cleanup() {
+            modalRoot.removeChild(el)
+        }
+    })
+    return createPortal(children, el)
+}
+
 Modal.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.object).isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]).isRequired,
     is_open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
 }
+
+export default Modal

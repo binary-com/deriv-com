@@ -4,7 +4,6 @@
     "version": "0.1.0",
     "author": "Deriv",
     "dependencies": {
-        "@rebass/grid": "^6.0.0",
         "extend": "^3.0.2",
         "gatsby": "^2.9.4",
         "gatsby-image": "^2.1.4",

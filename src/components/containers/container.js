@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { Flex } from '@rebass/grid'
 
-const Container = styled(Flex)`
+const Container = styled.div`
     max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 2rem 1rem;
 `
-Container.defaultProps = {
-    mx: 'auto',
-}
 
 export default Container

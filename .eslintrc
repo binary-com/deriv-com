@@ -34,6 +34,11 @@
         "node": true
     },
     "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"]
+            }
+        },
         "react": {
             "version": "16"
         }

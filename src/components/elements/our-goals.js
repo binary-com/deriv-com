@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Container from '../containers/container'
-import { Box } from '@rebass/grid'
+import VisionSVG from '../../images/svg/vision.svg'
+import FuseeSVG from '../../images/svg/fusee.svg'
 
 const Wrapper = styled.div`
     width: 100%;
@@ -15,14 +16,34 @@ const OurGoals = styled(Container)`
     padding: 5rem 0;
     flex-wrap: wrap;
 `
-const OurGoalsCard = styled(Box)`
-    max-width: 328px;
+const OurGoalsCard = styled.div`
+    width: 328px;
     height: 356px;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     margin: 0 10px;
-    @media (max-width: 831px) {
+    padding: 40px 56px 46px 56px;
+    position: relative;
+
+    div {
+        max-width: 216px;
+        bottom: 46px;
+        color: #333333;
+        margin-top: 40px;
+
+        p {
+            font-size: 16px;
+            line-height: 24px;
+            margin-top: 8px;
+        }
+        span {
+            font-size: 24px;
+            line-height: 30px;
+            font-weight: 500;
+        }
+    }
+    @media (max-width: 768px) {
         margin: 1rem;
     }
 `
@@ -30,10 +51,28 @@ const OurGoalsCard = styled(Box)`
 const OurGoalsWrapper = () => (
     <Wrapper>
         <OurGoals>
-                <OurGoalsCard width={[1, 1, 4 / 12]}>
-                </OurGoalsCard>
-                <OurGoalsCard width={[1, 1, 4 / 12]}>
-                </OurGoalsCard>
+            <OurGoalsCard>
+                <VisionSVG />
+                <div>
+                    <span>Our vision</span>
+                    <p>
+                        Our vision is to be the world’s most customer-centric,
+                        online trading company; a place where traders come to
+                        find and discover any derivative they want to trade.
+                    </p>
+                </div>
+            </OurGoalsCard>
+            <OurGoalsCard>
+                <FuseeSVG />
+                <div>
+                    <span>Our mission</span>
+                    <p>
+                        Our mission is to offer traders competitive prices along
+                        with the broadest selection of derivatives to trade with
+                        the utmost convenience.
+                    </p>
+                </div>
+            </OurGoalsCard>
         </OurGoals>
     </Wrapper>
 )

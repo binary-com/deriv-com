@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 
-import Layout from '../components/layout/layout'
 import Image from '../components/elements/image'
 import SEO from '../components/containers/seo'
 import Localize from '../components/containers/localize'
 import Button from '../components/form/button'
+import Test from '../components/test'
+import LanguageSwitcher from '../components/language-switcher'
 
 class Home extends Component {
     state = {
@@ -13,11 +14,11 @@ class Home extends Component {
 
     render() {
         return (
-            <Layout>
+            <>
                 <SEO title="Home" />
-                <h1>
-                    <Localize translate="Home" />
-                </h1>
+                <LanguageSwitcher />
+                <Test />
+                <Localize />
                 <Image
                     width="300px"
                     img_name="practice.png"
@@ -26,7 +27,7 @@ class Home extends Component {
                 <div>
                     <Button type="secondary">secondary button example</Button>
                 </div>
-            </Layout>
+            </>
         )
     }
 }

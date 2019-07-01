@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="328" height="132" viewBox="0 0 328 132">
+    <g fill="none" fill-rule="evenodd">
+        <g fill="#85ACB0" font-family="IBMPlexSans, IBM Plex Sans" font-size="9.973">
+            <text>
+                <tspan x="10.745" y="98.649">50k</tspan>
+            </text>
+            <text>
+                <tspan x="3.694" y="10">200K</tspan>
+            </text>
+            <text>
+                <tspan x="3.694" y="39.919">150K</tspan>
+            </text>
+            <text>
+                <tspan x="3.694" y="68.73">100K</tspan>
+            </text>
+        </g>
+        <g fill="#85ACB0" font-family="IBMPlexSans, IBM Plex Sans" font-size="13.297">
+            <text transform="translate(13.248 113.027)">
+                <tspan x="7.653" y="14">2000</tspan>
+            </text>
+            <text transform="translate(13.248 113.027)">
+                <tspan x="73.893" y="14">2005</tspan>
+            </text>
+            <text transform="translate(13.248 113.027)">
+                <tspan x="141.606" y="14">2010</tspan>
+            </text>
+            <text transform="translate(13.248 113.027)">
+                <tspan x="207.847" y="14">2015</tspan>
+            </text>
+            <text transform="translate(13.248 113.027)">
+                <tspan x="274.088" y="14">2018</tspan>
+            </text>
+        </g>
+        <path fill="#85ACB0" fill-opacity=".202" d="M37.425 106.425c11.323-1.21 64.228-6.448 65.647-6.456 11.68-.072 17.181 1.949 24.98 1.62 9.222-.387 12.142-4.185 19.558-4.871 7.415-.687 47.673.686 65.424-3.195 17.75-3.881 12.526-8.715 19.345-11.5 6.82-2.784 15.943-.135 22.568-4.118 6.625-3.984 3.116-9.066 11.544-12.45 8.428-3.385 13.284-4.652 17.307-8.037 2.163-1.82 3.714-16.571 12.728-36.493 1.444-3.19 3.274-7.743 8.181-13.168l-.397 98.668H37.425z"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-width="2.216" d="M36.108 105.303c45-3.98 65.545-5.326 66.964-5.334 11.68-.072 17.181 1.949 24.98 1.62 9.222-.387 12.142-4.185 19.558-4.871 7.415-.687 47.673.686 65.424-3.195 17.75-3.881 12.526-8.715 19.345-11.5 6.82-2.784 15.943-.135 22.568-4.118 6.625-3.984 3.116-9.066 11.544-12.45 8.428-3.385 13.284-4.652 17.307-8.037 2.163-1.82 2.394-12.422 11.408-32.344 1.444-3.19 3.554-8.567 8.461-13.993"/>
+        <g stroke-dasharray="3.491" stroke-linecap="round" stroke-linejoin="round">
+            <g stroke-width="1.164">
+                <path stroke="#85ACB0" d="M303.76 105.215l.55-97.477M236.105 105.215V82.493M170.061 105.215v-8.068"/>
+                <path stroke="#393CCC" d="M102.917 105.215v-4.377"/>
+            </g>
+            <g stroke="#A6A8AB" stroke-opacity=".45" stroke-width="1.108" opacity=".45">
+                <path d="M36.347 6.63H303.8M36.347 65.36H303.8M36.347 36.548H303.8M36.347 95.278H303.8"/>
+            </g>
+        </g>
+        <g fill="#85ACB0" transform="translate(33.48 7.757)">
+            <ellipse cx="3.945" cy="97.514" fill-rule="nonzero" rx="3.302" ry="3.324"/>
+            <ellipse cx="69.438" cy="91.973" fill-rule="nonzero" rx="3.302" ry="3.324"/>
+            <ellipse cx="136.582" cy="88.649" fill-rule="nonzero" rx="3.302" ry="3.324"/>
+            <ellipse cx="202.625" cy="73.135" fill-rule="nonzero" rx="3.302" ry="3.324"/>
+            <ellipse cx="270.239" cy="3.324" rx="3.302" ry="3.324"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="328" height="132" viewBox="0 0 328 132">
+    <g fill="none" fill-rule="evenodd">
+        <g fill="#85ACB0" font-family="IBMPlexSans, IBM Plex Sans" font-size="9.973">
+            <text transform="translate(0 1.02)">
+                <tspan x="6.953" y="95.324">500K</tspan>
+            </text>
+            <text transform="translate(0 1.02)">
+                <tspan x="16.758" y="67.622">1M</tspan>
+            </text>
+            <text transform="translate(0 1.02)">
+                <tspan x="8.062" y="38.811">1.5M</tspan>
+            </text>
+            <text transform="translate(0 1.02)">
+                <tspan x="10.774" y="10">20M</tspan>
+            </text>
+        </g>
+        <path fill="#85ACB0" fill-opacity=".2" d="M40.392 105.407c46.057-.701 128.79-5.274 136.009-5.975 7.219-.702 17.162-.264 34.442-4.23 17.28-3.967 10.44-11.015 17.61-13.676 11.342-4.21 17.69-36.786 26.237-36.786 8.547 0 2.087 4.195 10.326 3.745 5.447-.297 8.434-20.596 12.28-20.596 3.844 0 2.762 5.801 7.735 5.801 10.796 0 14.203-19.61 18.213-28.259l.873 99.976H40.392z"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-width="2.216" d="M38.212 103.975c46.057-.701 130.97-3.842 138.189-4.543 7.219-.702 17.162-.264 34.442-4.23 17.28-3.967 10.44-11.015 17.61-13.676 11.342-4.21 17.69-36.786 26.237-36.786 8.547 0 2.087 4.195 10.326 3.745 5.447-.297 8.434-20.596 12.28-20.596 3.844 0 2.762 5.801 7.735 5.801 10.796 0 14.601-19.432 18.611-28.081"/>
+        <g fill="#85ACB0" font-family="IBMPlexSans, IBM Plex Sans" font-size="13.297">
+            <text transform="translate(16.623 113.733)">
+                <tspan x="7.813" y="14">2000</tspan>
+            </text>
+            <text transform="translate(16.623 113.733)">
+                <tspan x="68.763" y="14">2005</tspan>
+            </text>
+            <text transform="translate(16.623 113.733)">
+                <tspan x="137.47" y="14">2010</tspan>
+            </text>
+            <text transform="translate(16.623 113.733)">
+                <tspan x="203.961" y="14">2015</tspan>
+            </text>
+            <text transform="translate(16.623 113.733)">
+                <tspan x="270.452" y="14">2019</tspan>
+            </text>
+        </g>
+        <g stroke-linecap="round" stroke-linejoin="round">
+            <g stroke="#A6A8AB" stroke-dasharray="3.491" stroke-opacity=".45" stroke-width="1.108" opacity=".446">
+                <path d="M38.81 7.805h264.85M38.81 64.319h264.85M38.81 35.508h264.85M38.81 92.022h264.85"/>
+            </g>
+            <g stroke="#85ACB0">
+                <path stroke-dasharray="3.491" stroke-width="1.164" d="M303.088 105.35l.554-97.545"/>
+                <path stroke-dasharray="3.191" stroke-width="1.064" d="M236.043 104.62V73.282M169.552 104.62v-4.95"/>
+            </g>
+        </g>
+        <g fill="#85ACB0" transform="translate(36.57 3.354)">
+            <ellipse cx="267.072" cy="4.354" rx="3.325" ry="3.324"/>
+            <ellipse cx="199.451" cy="70.919" fill-rule="nonzero" rx="3.302" ry="3.324"/>
+            <ellipse cx="132.96" cy="96.199" fill-rule="nonzero" rx="3.302" ry="3.324"/>
+            <ellipse cx="65.36" cy="98.494" fill-rule="nonzero" rx="3.302" ry="3.324"/>
+            <ellipse cx="3.302" cy="99.641" fill-rule="nonzero" rx="3.302" ry="3.324"/>
+        </g>
+    </g>
+</svg>

@@ -6,6 +6,7 @@ import Localize from '../components/containers/localize'
 import Button from '../components/form/button'
 import Test from '../components/test'
 import LanguageSwitcher from '../components/language-switcher'
+import withIntl from '../components/withIntl'
 
 class Home extends Component {
     state = {
@@ -32,4 +33,4 @@ class Home extends Component {
     }
 }
 
-export default Home
+export default withIntl()(Home)

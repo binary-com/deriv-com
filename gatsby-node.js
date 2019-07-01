@@ -1,11 +1,7 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
 const fs = require('fs-extra')
 const path = require('path')
+const locales = require(`./i18n-config.js`)
+const { removeTrailingSlash } = require(`./src/utils/gatsby-node-helpers`)
 
 exports.onPostBuild = () => {
     fs.copySync(
@@ -13,9 +9,6 @@ exports.onPostBuild = () => {
         path.join(__dirname, '/public/locales'),
     )
 }
-
-const locales = require(`./i18n-config.js`)
-const { removeTrailingSlash } = require(`./src/utils/gatsby-node-helpers`)
 
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions

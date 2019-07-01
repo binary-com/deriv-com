@@ -10,7 +10,6 @@ const WrapWithIntl = () => WrappedComponent => {
 
             if (pageContext) {
                 const current_language = pageContext.locale
-
                 if (current_language && current_language !== i18next.language) {
                     i18next.changeLanguage(current_language)
                 }

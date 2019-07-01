@@ -1,15 +1,9 @@
-const fs = require('fs-extra')
-const path = require('path')
 const locales = require(`./i18n-config.js`)
-const { removeTrailingSlash } = require(`./src/utils/gatsby-node-helpers`)
 
-exports.onPostBuild = () => {
-    fs.copySync(
-        path.join(__dirname, '/src/locales'),
-        path.join(__dirname, '/public/locales'),
-    )
-}
+const removeTrailingSlash = path =>
+    path === `/` ? path : path.replace(/\/$/, ``)
 
+// Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions
 
@@ -17,26 +11,22 @@ exports.onCreatePage = ({ page, actions }) => {
     // So everything in src/pages/
     deletePage(page)
 
-    // Grab the keys (e.g. 'en', 'de' etc) of languages and map over them
+    // map over language keys (e.g. 'en', 'de')
     Object.keys(locales).map(lang => {
         // Use the values defined in "locales" to construct the path
-        const localizedPath = locales[lang].default
+        const localized_path = locales[lang].default
             ? page.path
             : `${locales[lang].path}${page.path}`
 
         return createPage({
             // Pass on everything from the original page
             ...page,
-            // Since page.path returns with a trailing slash (e.g. "/de/")
-            // We want to remove that
-            path: removeTrailingSlash(localizedPath),
+            // Remove trailing slash from page.path (e.g. "/de/")
+            path: removeTrailingSlash(localized_path),
             // Pass in the locale as context to every page
-            // This context also gets passed to the src/components/layout file
-            // This should ensure that the locale is available on every page
             context: {
                 ...page.context,
                 locale: lang,
-                dateFormat: locales[lang].dateFormat,
             },
         })
     })

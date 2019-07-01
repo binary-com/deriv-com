@@ -28,14 +28,8 @@ const GlobalStyle = createGlobalStyle`
         @media ${device.tablet} {
             font-size: 47%; /* 1rem = 7.5px */
         }
-        @media ${device.mobileL} {
-            font-size: 38%; /* 1rem = 6px */
-        }
         @media ${device.mobileM} {
             font-size: 35%; /* 1rem = 5.5px */
-        }
-        @media ${device.mobileS} {
-            font-size: 32%; /* 1rem = 5px */
         }
     }
 `

@@ -13,9 +13,9 @@ class LanguageSwitcher extends Component {
         this.setState({ language: nextProps.i18n.language })
     }
 
-    handleChangeLanguage = lng => {
+    handleChangeLanguage = lang => {
         const { i18n } = this.props
-        i18n.changeLanguage(lng)
+        i18n.changeLanguage(lang)
     }
 
     renderLanguageChoice({ code, label }) {
@@ -40,4 +40,4 @@ class LanguageSwitcher extends Component {
     }
 }
 
-export default withTranslation('messages')(LanguageSwitcher)
+export default withTranslation()(LanguageSwitcher)

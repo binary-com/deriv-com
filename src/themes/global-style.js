@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import Reset from './reset'
 import Variables from './variables'
+import device from './device'
 
 const GlobalStyle = createGlobalStyle`
     ${Reset}
@@ -11,10 +12,22 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
     * {
-        box-sizing: border-box;
         margin: 0;
         padding: 0;
-        font-size: 62.5%; /* 1 rem = 10px */
+    }
+    html {
+        font-size: 62.5%; /* 1rem = 10px */
+        box-sizing: border-box;
+
+        @media ${device.desktopL} {
+            font-size: 75.5%; /* 1rem = 12px */
+        }
+        @media ${device.tablet} {
+            font-size: 50%; /* 1rem = 8px */
+        }
+        @media ${device.mobileM} {
+            font-size: 35%; /* 1rem = 5.5px */
+        }
     }
 `
 

@@ -40,6 +40,7 @@ class Home extends Component {
                 <Modal
                     toggle={this.toggleModal}
                     is_open={this.state.show_modal}
+                    is_blurred={true}
                 >
                     <Signup />
                 </Modal>

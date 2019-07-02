@@ -23,3 +23,4 @@ Layout.propTypes = {
 }
 
 export default Layout
+export { LocaleContext }

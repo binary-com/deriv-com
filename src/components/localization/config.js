@@ -5,10 +5,10 @@ i18n.use(initReactI18next).init({
     fallbackLng: 'en',
     resources: {
         sv: {
-            translations: require('../locales/sv/messages.json'),
+            translations: require('../../translations/sv/messages.json'),
         },
         en: {
-            translations: require('../locales/en/messages.json'),
+            translations: require('../../translations/en/messages.json'),
         },
     },
     // have a common namespace used around the full app

@@ -5,8 +5,8 @@ import SEO from '../components/containers/seo'
 import Localize from '../components/containers/localize'
 import Button from '../components/form/button'
 import Test from '../components/test'
-import LanguageSwitcher from '../components/language-switcher'
-import withIntl from '../components/withIntl'
+import LanguageSwitcher from '../components/localization/language-switcher'
+import withIntl from '../components/localization/withIntl'
 
 class Home extends Component {
     state = {

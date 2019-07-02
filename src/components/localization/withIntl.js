@@ -1,8 +1,9 @@
 import React from 'react'
-import i18next from './config'
 import { I18nextProvider } from 'react-i18next'
+import i18next from './config'
 
-// HOC that renders a translated page
+// HOC that pre renders a page with the translated language
+// Without this HOC the page will be translated on the client side dynamically
 const WrapWithIntl = () => WrappedComponent => {
     const WithIntl = ({ pageContext }, props) => {
         if (pageContext) {

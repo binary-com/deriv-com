@@ -1,4 +1,4 @@
-import { Link } from 'gatsby'
+import Link from '../localization/localized-link'
 import React from 'react'
 import styled from 'styled-components'
 import Localize from '../containers/localize'

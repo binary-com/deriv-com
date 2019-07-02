@@ -17,11 +17,11 @@ class Portal extends Component {
     }
 
     componentDidMount = () => {
-        el_portal_root.appendChild(this.el)
+        el_portal_root.appendChild(this.el_portal)
     }
 
     componentWillUnmount = () => {
-        el_portal_root.removeChild(this.el)
+        el_portal_root.removeChild(this.el_portal)
     }
 
     render() {

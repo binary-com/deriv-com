@@ -4,19 +4,19 @@ import styled from 'styled-components'
 
 const InputWrapper = styled.div`
     position: relative;
-    margin: 2rem 0;
+    width: 100%;
 `
 
 const StyledInput = styled.input`
     background: none;
-    color: var(--color-grey);
+    color: var(--color-black);
     font-size: 1.6rem;
     padding: 1rem 1rem 1rem 0.5rem;
+    width: 95%;
     display: block;
-    width: ${props => props.width};
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid var(--color-grey);
+    border-bottom: 1px solid var(--color-grey-2);
 
     &:focus {
         outline: none;
@@ -79,6 +79,7 @@ Input.propTypes = {
         PropTypes.node,
     ]),
     label: PropTypes.string,
+    width: PropTypes.string,
 }
 
 export default Input

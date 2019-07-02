@@ -52,7 +52,7 @@ const Modal = ({ children, toggle, is_open, is_blurred }) => (
         {is_open && (
             <ModalWrapper>
                 <ModalCard>
-                    <CloseButton width="10" height="10" onClick={toggle} />
+                    <CloseButton onClick={toggle} />
                     {children}
                 </ModalCard>
                 <Background onClick={toggle} />

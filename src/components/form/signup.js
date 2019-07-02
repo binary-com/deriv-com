@@ -2,18 +2,14 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Button from './button'
 import Input from './input'
+import Row from '../containers/row'
+import Facebook from 'images/svg/facebook.svg'
+import Google from 'images/svg/google.svg'
 
-const Row = styled.div`
-    display: flex;
-    flex-wrap: no-wrap;
-    background-color: var(--color-light-grey);
+const SignupWrapper = styled.div`
+    background-color: var(--color-grey-1);
     width: 50vw;
-    height: 60vh;
     border-radius: 6px;
-
-    & > div {
-        flex: 1;
-    }
 `
 
 const LeftContent = styled.div`
@@ -24,7 +20,6 @@ const LeftContent = styled.div`
     color: var(--color-white);
     display: flex;
     flex-direction: column;
-    padding: 1.4rem;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
 `
@@ -39,12 +34,12 @@ const RightContent = styled.div`
 `
 
 const CaptionTitle = styled.h3`
-    font-size: 2rem;
+    font-size: 2.4rem;
     line-height: 1.25;
     max-width: 25rem;
 `
 const CaptionDesc = styled.p`
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     line-height: 1.5;
     padding: 1.6rem;
 `
@@ -53,7 +48,50 @@ const Title = styled.h2`
     font-weight: bold;
     color: var(--color-black);
     text-align: center;
-    font-size: 2.8rem;
+    font-size: 3.2rem;
+    margin: 10rem 0 1.6rem 0;
+`
+
+const InputGroup = styled.div`
+    width: 85%;
+    margin: 2.4rem 0;
+`
+
+const EmailButton = styled(Button)`
+    width: 87%;
+    font-size: 1.6rem;
+    margin-bottom: 4rem;
+`
+
+const SocialButton = styled(Button)`
+    box-shadow: none;
+    background: ${props => {
+        if (props.social === 'google') return 'var(--color-white)'
+        if (props.social === 'facebook') return 'var(--color-blue)'
+    }};
+    padding: 1rem;
+    margin: 0 0.5rem;
+`
+
+const Text = styled.p`
+    text-align: left;
+    font-size: 1.6rem;
+    color: var(--color-grey);
+    margin: 0 2.4rem;
+    align-self: start;
+`
+
+const SocialWrapper = styled(Row)`
+    width: 90%;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+    margin-bottom: 4rem;
+`
+
+const LoginText = styled(Text)`
+    text-align: center;
+    align-self: center;
+    margin-bottom: 8rem;
 `
 
 class Signup extends Component {
@@ -78,7 +116,7 @@ class Signup extends Component {
 
     render() {
         return (
-            <>
+            <SignupWrapper>
                 <Row>
                     <LeftContent>
                         <CaptionTitle>
@@ -91,29 +129,38 @@ class Signup extends Component {
                     </LeftContent>
                     <RightContent>
                         <Title>Sign up for free now!</Title>
-                        <Input
-                            name="email"
-                            type="email"
-                            value={this.state.email}
-                            label="email"
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                        <Button onClick={this.emailSignup} type="secondary">
+                        <InputGroup>
+                            <Input
+                                name="email"
+                                type="text"
+                                value={this.state.email}
+                                label="Email"
+                                onChange={this.handleInputChange}
+                                required
+                            />
+                        </InputGroup>
+                        <EmailButton
+                            onClick={this.emailSignup}
+                            type="secondary"
+                        >
                             Create a free account
-                        </Button>
-                        <label>Or sign up with</label>
-                        <div>
-                            <button>Google</button>
-                            <button>Facebook</button>
-                        </div>
+                        </EmailButton>
+                        <Text>Or sign up with</Text>
+                        <SocialWrapper>
+                            <SocialButton social="google" type="secondary">
+                                <Google />
+                            </SocialButton>
+                            <SocialButton social="facebook" type="secondary">
+                                <Facebook />
+                            </SocialButton>
+                        </SocialWrapper>
 
-                        <p>
+                        <LoginText>
                             Already have an account? <a href="#">Log in.</a>
-                        </p>
+                        </LoginText>
                     </RightContent>
                 </Row>
-            </>
+            </SignupWrapper>
         )
     }
 }

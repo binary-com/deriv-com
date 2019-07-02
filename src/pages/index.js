@@ -6,6 +6,7 @@ import SEO from '../components/containers/seo'
 import Localize from '../components/containers/localize'
 import Button from '../components/form/button'
 import Modal from '../components/elements/modal'
+import Signup from '../components/form/signup'
 
 class Home extends Component {
     state = {
@@ -40,7 +41,7 @@ class Home extends Component {
                     toggle={this.toggleModal}
                     is_open={this.state.show_modal}
                 >
-                    <div>Hello from modal</div>
+                    <Signup />
                 </Modal>
             </Layout>
         )

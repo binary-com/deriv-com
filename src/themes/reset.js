@@ -91,7 +91,6 @@ const Reset = css`
         padding: 0;
         border: 0;
         font: inherit;
-        font-size: 100%;
         vertical-align: baseline;
     }
 

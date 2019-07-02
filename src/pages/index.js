@@ -39,6 +39,7 @@ class Home extends Component {
                 <Modal
                     toggle={this.toggleModal}
                     is_open={this.state.show_modal}
+                    is_blurred={true}
                 >
                     <div>Hello from modal</div>
                 </Modal>

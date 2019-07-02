@@ -7,11 +7,11 @@ const Container = styled.div`
     align-items: center;
     padding: 2rem 1rem;
 
-    @media ${device.laptop} {
+    @media ${device.desktop} {
         max-width: 1024px;
     }
 
-    @media ${device.desktop} {
+    @media ${device.desktopL} {
         max-width: 1400px;
     }
 `

@@ -6,31 +6,32 @@ import FuseeSVG from '../../images/svg/fusee.svg'
 
 const Wrapper = styled.div`
     width: 100%;
-    background-image: linear-gradient(to bottom, #e8e8e8, #ffffff);
+    background-image: linear-gradient(to bottom, #e8e8e8, --color-white);
 `
 const OurGoals = styled(Container)`
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 5rem 0;
+    padding: 8rem 0;
     flex-wrap: wrap;
 `
 const OurGoalsCard = styled.div`
     width: 328px;
-    height: 356px;
+    min-height: 356px;
+    box-sizing: border-box;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    margin: 0 10px;
-    padding: 40px 56px 46px 56px;
+    background-color: --color-white;
+    margin: 0 1rem;
+    padding: 4rem 5.6rem 4.6rem 5.6rem;
     position: relative;
 
     div {
         max-width: 216px;
-        bottom: 46px;
+        bottom: 4.6rem;
         color: #333333;
-        margin-top: 40px;
+        margin-top: 4rem;
 
         p {
             font-size: 16px;

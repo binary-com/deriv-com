@@ -13,13 +13,13 @@ const NoImageHero = styled(Container)`
     align-items: center;
     flex-direction: column;
     align-content: space-around;
-    padding: 5rem 0;
+    padding: 7rem 0 7.8rem 0;
 
     div {
-        padding: 3rem 0;
-
+        padding: 5rem 0;
+        
         p {
-            color: #ffffff;
+            color: --color-white;
             font-size: 24px;
             line-height: 30px;
             font-weight: 500;

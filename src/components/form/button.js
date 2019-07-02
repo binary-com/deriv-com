@@ -63,12 +63,10 @@ const button_theme = {
     `,
 }
 
-const Button = ({ type = 'primary', children, onClick }) => (
+const Button = ({ children, ...props }) => (
     <>
         <ThemeProvider theme={button_theme}>
-            <StyledButton onClick={onClick} type={type}>
-                {children}
-            </StyledButton>
+            <StyledButton {...props}>{children}</StyledButton>
         </ThemeProvider>
     </>
 )

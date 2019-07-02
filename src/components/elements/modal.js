@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Portal from '../containers/portal'
+import Close from 'images/svg/close.svg'
 
 const ModalWrapper = styled.div`
     position: fixed;
@@ -17,23 +18,18 @@ const ModalWrapper = styled.div`
 
 const ModalCard = styled.div`
     position: relative;
-    min-width: 32rem;
     z-index: 10;
-    margin-bottom: 10rem;
-    background: white;
-    border-radius: 5px;
-    padding: 1.5rem;
+    border-radius: 6px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 `
 
-const CloseButton = styled.button`
+const CloseButton = styled(Close)`
     position: absolute;
     top: 0;
     right: 0;
     border: none;
     background: transparent;
-    padding: 10px;
-    content: 'X';
+    padding: 0.5rem;
     color: var(--color-black);
 
     &:hover {
@@ -56,7 +52,7 @@ const Modal = ({ children, toggle, is_open, is_blurred }) => (
         {is_open && (
             <ModalWrapper>
                 <ModalCard>
-                    <CloseButton onClick={toggle}>X</CloseButton>
+                    <CloseButton width="10" height="10" onClick={toggle} />
                     {children}
                 </ModalCard>
                 <Background onClick={toggle} />

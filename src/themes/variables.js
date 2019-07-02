@@ -6,6 +6,8 @@ const Variables = css`
         --color-white: #ffffff;
         --color-red: #ff444f;
         --color-light-grey: #f4f4f4;
+        --color-grey: #9b9b9b;
+        --color-green: #85acb0;
     }
 `
 

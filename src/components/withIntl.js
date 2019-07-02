@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import i18next from './config'
 import { I18nextProvider } from 'react-i18next'
 

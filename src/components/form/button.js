@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
     border-radius: 6px;
+    padding: 1rem;
+    font-size: 100%;
     border: ${props => {
         if (props.type === 'primary') return props.theme.primary_border
         if (props.type === 'secondary') return props.theme.secondary_border
@@ -20,8 +22,6 @@ const StyledButton = styled.button`
         if (props.type === 'primary') return props.theme.primary_shadow
         if (props.type === 'secondary') return props.theme.secondary_shadow
     }};
-    padding: 0.6rem 1.2rem;
-    font-size: 100%;
     transition: ${props => {
         if (props.type === 'primary') return props.theme.primary_transition
         if (props.type === 'secondary') return props.theme.secondary_transition

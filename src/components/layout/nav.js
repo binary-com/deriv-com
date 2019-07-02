@@ -12,8 +12,7 @@ const StyledNav = styled.nav`
 `
 
 const Wrapper = styled(Container)`
-    align-items: center;
-    padding: 2rem 1rem;
+    font-size: 1.6rem;
 `
 
 const NavLeft = styled.div`
@@ -71,7 +70,10 @@ const StyledLink = styled(props => <Link {...props} />)`
     }
 `
 
-const NavButton = styled(Button)``
+const NavButton = styled(Button)`
+    font-weight: bold;
+    padding: 1.4rem 1.6rem;
+`
 
 const Nav = () => (
     <StyledNav>

@@ -51,8 +51,8 @@ const Background = styled.div`
     opacity: 0.4;
 `
 
-const Modal = ({ children, toggle, is_open }) => (
-    <Portal is_open={is_open}>
+const Modal = ({ children, toggle, is_open, is_blurred }) => (
+    <Portal is_open={is_open} is_blurred={is_blurred}>
         {is_open && (
             <ModalWrapper>
                 <ModalCard>
@@ -70,6 +70,7 @@ Modal.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]).isRequired,
+    is_blurred: PropTypes.bool,
     is_open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
 }

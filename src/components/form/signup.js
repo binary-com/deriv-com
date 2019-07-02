@@ -94,6 +94,12 @@ const LoginText = styled(Text)`
     margin-bottom: 8rem;
 `
 
+const LoginLink = styled.a`
+    color: var(--color-red);
+    text-decoration: none;
+    cursor: pointer;
+`
+
 class Signup extends Component {
     state = {
         email: '',
@@ -112,6 +118,11 @@ class Signup extends Component {
     emailSignup = () => {
         // eslint-disable-next-line no-console
         console.log(this.state.email)
+    }
+
+    handleLogin = () => {
+        // eslint-disable-next-line no-console
+        console.log('Hi login')
     }
 
     render() {
@@ -156,7 +167,10 @@ class Signup extends Component {
                         </SocialWrapper>
 
                         <LoginText>
-                            Already have an account? <a href="#">Log in.</a>
+                            Already have an account?{' '}
+                            <LoginLink onClick={this.handleLogin}>
+                                Log in.
+                            </LoginLink>
                         </LoginText>
                     </RightContent>
                 </Row>

@@ -5,6 +5,10 @@ import PropTypes from 'prop-types'
 // Use a ternary operator to make sure that the document object is defined
 const portalRoot =
     typeof document !== `undefined` ? document.getElementById('modal') : null
+const gatsbyRoot =
+    typeof document !== `undefined`
+        ? document.getElementById('___gatsby')
+        : null
 
 class Portal extends Component {
     constructor() {
@@ -13,10 +17,6 @@ class Portal extends Component {
         this.el =
             typeof document !== `undefined`
                 ? document.createElement('div')
-                : null
-        this.app =
-            typeof document !== `undefined`
-                ? document.createElement('___gatsby')
                 : null
     }
 
@@ -30,10 +30,9 @@ class Portal extends Component {
 
     render() {
         const { children, is_open } = this.props
-        if (this.app) {
-            this.app.style.filter = is_open ? 'blur(2px)' : 'none'
+        if (gatsbyRoot) {
+            gatsbyRoot.style.filter = is_open ? 'blur(2px)' : 'none'
         }
-
         // Check that this.el is not null before using ReactDOM.createPortal
         if (this.el) {
             return ReactDOM.createPortal(children, this.el)

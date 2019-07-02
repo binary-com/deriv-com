@@ -15,9 +15,9 @@ const Link = ({ to, ...props }) => {
     // Because otherwise this would add a trailing slash
     const path = locales[locale].default
         ? to
-        : `${locales[locale].path}${is_index ? `` : `${to}`}`
+        : `/${locales[locale].path}${is_index ? `` : `${to}`}`
 
-    return <GatsbyLink {...props} to={`/${path}`} />
+    return <GatsbyLink {...props} to={`${path}`} />
 }
 
 export default Link

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next'
+import { Link as GatsbyLink } from 'gatsby'
 
+// TODO: refactor this component
 class LanguageSwitcher extends Component {
     constructor(props) {
         super(props)
@@ -12,16 +14,15 @@ class LanguageSwitcher extends Component {
         this.setState({ language: nextProps.i18n.language })
     }
 
-    handleChangeLanguage = lang => {
-        const { i18n } = this.props
-        i18n.changeLanguage(lang)
-    }
-
     renderLanguageChoice({ code, label }) {
         return (
-            <button key={code} onClick={() => this.handleChangeLanguage(code)}>
+            <GatsbyLink
+                key={code}
+                to={`${code === 'en' ? '/' : '/' + code}`}
+                hrefLang={code}
+            >
                 {label}
-            </button>
+            </GatsbyLink>
         )
     }
 

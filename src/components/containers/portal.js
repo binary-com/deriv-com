@@ -30,7 +30,7 @@ class Portal extends Component {
         if (el_gatsby_root && is_blurred) {
             el_gatsby_root.style.filter = is_open ? blur_style : 'none'
         }
-        if (this.el_div) {
+        if (this.el_portal) {
             return ReactDOM.createPortal(children, this.el_portal)
         }
 

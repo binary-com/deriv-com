@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import { createPortal } from 'react-dom'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Portal from '../containers/portal'
 
 const ModalWrapper = styled.div`
     position: fixed;
@@ -64,23 +64,6 @@ const Modal = ({ children, toggle, is_open }) => (
         )}
     </Portal>
 )
-
-const Portal = ({ children, is_open }) => {
-    const appRoot = document.getElementById('___gatsby')
-    const modalRoot = document.getElementById('modal')
-    const el = document.createElement('div')
-
-    appRoot.style.filter = is_open ? 'blur(2px)' : 'none'
-
-    useEffect(() => {
-        modalRoot.appendChild(el)
-
-        return function cleanup() {
-            modalRoot.removeChild(el)
-        }
-    })
-    return createPortal(children, el)
-}
 
 Modal.propTypes = {
     children: PropTypes.oneOfType([

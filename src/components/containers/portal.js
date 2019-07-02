@@ -3,35 +3,38 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 const has_document = typeof document !== 'undefined'
-const portalRoot = has_document ? document.getElementById('modal') : null
-const gatsbyRoot = has_document ? document.getElementById('___gatsby') : null
+const el_portal_root = has_document ? document.getElementById('modal') : null
+const el_gatsby_root = has_document
+    ? document.getElementById('___gatsby')
+    : null
+const blur_style = 'blur(2px)'
 
 class Portal extends Component {
     constructor() {
         super()
 
-        this.el = has_document ? document.createElement('div') : null
+        this.el_portal = has_document ? document.createElement('div') : null
     }
 
     componentDidMount = () => {
-        portalRoot.appendChild(this.el)
+        el_portal_root.appendChild(this.el)
     }
 
     componentWillUnmount = () => {
-        portalRoot.removeChild(this.el)
+        el_portal_root.removeChild(this.el)
     }
 
     render() {
         const { children, is_open, is_blurred } = this.props
 
-        if (gatsbyRoot && is_blurred) {
-            gatsbyRoot.style.filter = is_open ? 'blur(2px)' : 'none'
+        if (el_gatsby_root && is_blurred) {
+            el_gatsby_root.style.filter = is_open ? blur_style : 'none'
         }
-        if (this.el) {
-            return ReactDOM.createPortal(children, this.el)
-        } else {
-            return null
+        if (this.el_div) {
+            return ReactDOM.createPortal(children, this.el_portal)
         }
+
+        return null
     }
 }
 

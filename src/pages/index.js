@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import Image from '../components/elements/image'
 import SEO from '../components/containers/seo'
 import Button from '../components/form/button'
-import Test from '../components/test'
 import LanguageSwitcher from '../components/localization/language-switcher'
 import withIntl from '../components/localization/withIntl'
 import { localize } from '../components/localization/config'
@@ -18,7 +17,6 @@ class Home extends Component {
             <Layout>
                 <SEO title="Home" />
                 <LanguageSwitcher />
-                <Test />
                 <Image
                     width="300px"
                     img_name="practice.png"

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next'
 import { Link as GatsbyLink } from 'gatsby'
+import language_config from '../../../i18n-config'
 
-// TODO: refactor this component
+const languages = Object.keys(language_config)
 class LanguageSwitcher extends Component {
     constructor(props) {
         super(props)
         const { i18n } = this.props
+        // TODO: use state for active language styling
         this.state = { language: i18n.language }
     }
 
@@ -14,30 +16,21 @@ class LanguageSwitcher extends Component {
         this.setState({ language: nextProps.i18n.language })
     }
 
-    renderLanguageChoice({ code, label }) {
+    renderLanguageChoice(lang, id) {
+        const { display_name, is_default } = language_config[lang]
+        const to = `/${is_default ? '' : lang}`
+
         return (
-            <GatsbyLink
-                key={code}
-                to={`${code === 'en' ? '/' : '/' + code}`}
-                hrefLang={code}
-            >
-                {label}
-            </GatsbyLink>
+            <li key={id}>
+                <GatsbyLink to={to} hrefLang={lang}>
+                    {display_name}
+                </GatsbyLink>
+            </li>
         )
     }
 
     render() {
-        const languages = [
-            { code: 'en', label: 'English' },
-            { code: 'sv', label: 'Svenska' },
-            { code: 'de', label: 'Deutch' },
-        ]
-
-        return (
-            <div>
-                {languages.map(language => this.renderLanguageChoice(language))}
-            </div>
-        )
+        return <ul>{languages.map(this.renderLanguageChoice)}</ul>
     }
 }
 

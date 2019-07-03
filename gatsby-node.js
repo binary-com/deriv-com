@@ -1,4 +1,4 @@
-const locales = require(`./i18n-config.js`)
+const language_config = require(`./i18n-config.js`)
 
 const removeTrailingSlash = path =>
     path === `/` ? path : path.replace(/\/$/, ``)
@@ -11,12 +11,10 @@ exports.onCreatePage = ({ page, actions }) => {
     // So everything in src/pages/
     deletePage(page)
 
-    // map over language keys (e.g. 'en', 'de')
-    Object.keys(locales).map(lang => {
+    Object.keys(language_config).map(lang => {
         // Use the values defined in "locales" to construct the path
-        const localized_path = locales[lang].default
-            ? page.path
-            : `${locales[lang].path}${page.path}`
+        const { path, is_default } = language_config[lang]
+        const localized_path = is_default ? page.path : `${path}${page.path}`
 
         return createPage({
             // Pass on everything from the original page

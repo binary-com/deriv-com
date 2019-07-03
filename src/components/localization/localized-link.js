@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { LocaleContext } from './locale-context'
-import locales from '../../../i18n-config'
+import language_config from '../../../i18n-config'
 
-// Use the globally available context to choose the right path
-const Link = ({ to, ...props }) => {
+const LocalizedLink = ({ to, ...props }) => {
+    // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
     const is_index = to === `/`
 
@@ -12,11 +12,10 @@ const Link = ({ to, ...props }) => {
     // If it's another language, add the "path"
     // However, if the homepage/index page is linked don't add the "to"
     // Because otherwise this would add a trailing slash
-    const path = locales[locale].default
-        ? to
-        : `/${locales[locale].path}${is_index ? `` : `${to}`}`
+    const { is_default, path } = language_config[locale]
+    const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
 
-    return <GatsbyLink {...props} to={`${path}`} />
+    return <GatsbyLink {...props} to={`${path_to}`} />
 }
 
-export default Link
+export default LocalizedLink

@@ -5,7 +5,6 @@ const program = require('commander')
 const crc32 = require('crc-32').str
 const fs = require('fs')
 const glob = require('glob')
-// const static_strings = require('./crowdin/app-static-strings')
 
 program
     .version('0.1.0')
@@ -25,6 +24,7 @@ const getKeyHash = string => crc32(string)
  * Compile
  */
 extractTranslations();
+
 function extractTranslations() {
     (async () => {
         try {
@@ -58,9 +58,6 @@ function extractTranslations() {
                     console.log(e);
                 }
             }
-    
-            // Push static strings to list of messages to be added to JSON
-            // messages.push(...static_strings);
     
             // Hash the messages and set the key-value pair for json
             for (let i = 0; i < messages.length; i++) {

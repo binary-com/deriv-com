@@ -71,7 +71,7 @@ class Signup extends Component {
         e.preventDefault()
         const target = e.target
         const value = target.value
-        const name = target.name
+        const {name, value} = e.target
 
         this.setState({
             [name]: value,

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const StyledButton = styled.button`
     border-radius: 6px;
     padding: 1rem;
-    font-size: 100%;
+    font-size: 1.6rem;
     border: ${props => {
         if (props.type === 'primary') return props.theme.primary_border
         if (props.type === 'secondary') return props.theme.secondary_border

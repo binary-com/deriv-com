@@ -1,10 +1,8 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { localize } from './localization/config'
 
 function Test() {
-    const { t } = useTranslation()
-
-    return <h1>{t('Greeting')}</h1>
+    return <h1>{localize('About us')}</h1>
 }
 
 export default Test

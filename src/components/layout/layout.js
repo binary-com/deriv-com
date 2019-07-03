@@ -3,18 +3,14 @@ import PropTypes from 'prop-types'
 
 import Nav from './nav'
 import Footer from './footer'
-import GlobalStyle from '../../themes/global-style'
 
-const LocaleContext = React.createContext()
-
-const Layout = ({ children, pageContext: { locale } }) => {
+const Layout = ({ children }) => {
     return (
-        <LocaleContext.Provider value={{ locale }}>
-            <GlobalStyle />
+        <>
             <Nav />
             <main>{children}</main>
             <Footer />
-        </LocaleContext.Provider>
+        </>
     )
 }
 
@@ -23,4 +19,3 @@ Layout.propTypes = {
 }
 
 export default Layout
-export { LocaleContext }

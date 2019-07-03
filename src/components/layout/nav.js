@@ -1,10 +1,10 @@
 import Link from '../localization/localized-link'
 import React from 'react'
 import styled from 'styled-components'
-import Localize from '../containers/localize'
 import LogoHeader from '../../images/svg/logo-header.svg'
 import Button from '../form/button'
 import Container from '../containers/container'
+import { localize } from '../localization/config'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
@@ -88,7 +88,7 @@ const Nav = () => (
                         activeClassName="active"
                         aria-label="Trade"
                     >
-                        <Localize translate="Trade" />
+                        {localize('Trade')}
                     </StyledLink>
                 </NavLink>
                 <NavLink>
@@ -97,24 +97,22 @@ const Nav = () => (
                         activeClassName="active"
                         aria-label="About us"
                     >
-                        <Localize translate="About us" />
+                        {localize('About us')}
                     </StyledLink>
                 </NavLink>
                 <NavLink>
                     <StyledLink
                         to="/help-centre"
                         activeClassName="active"
-                        aria-label="Help centres"
+                        aria-label="Help centre"
                     >
-                        <Localize translate="Help centre" />
+                        {localize('Help centre')}
                     </StyledLink>
                 </NavLink>
             </NavCenter>
             <NavRight>
                 <NavButton type="primary">
-                    <span>
-                        <Localize translate="Login" />
-                    </span>
+                    <span>{localize('Login')}</span>
                 </NavButton>
             </NavRight>
         </Wrapper>

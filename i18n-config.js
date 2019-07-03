@@ -6,4 +6,7 @@ module.exports = {
     sv: {
         path: 'sv',
     },
+    de: {
+        path: 'de',
+    },
 }

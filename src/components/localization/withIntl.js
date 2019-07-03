@@ -12,7 +12,6 @@ const WrapWithIntl = () => WrappedComponent => {
                 i18next.changeLanguage(current_language)
             }
         }
-
         return (
             <I18nextProvider i18n={i18next}>
                 <WrappedComponent {...props} language={i18next.language} />

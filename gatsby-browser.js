@@ -1,16 +1,11 @@
-import React from 'react'
-import Layout from './src/components/layout/layout'
+import { WrapPagesWithLocaleContext } from './src/components/localization/locale-context'
 import { BinarySocketGeneral } from './src/common/websocket/socket_general'
 import { NetworkMonitorBase } from './src/common/websocket/network_base'
+import './src/components/localization/config'
 import 'typeface-ibm-plex-sans'
-
-// Language passed here from createPages
-const WrapPagesWithLayout = ({ element, props }) => {
-    return <Layout {...props}>{element}</Layout>
-}
 
 export const onInitialClientRender = () => {
     NetworkMonitorBase.init(BinarySocketGeneral)
 }
 
-export const wrapPageElement = WrapPagesWithLayout
+export const wrapPageElement = WrapPagesWithLocaleContext

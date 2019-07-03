@@ -10,18 +10,18 @@ const Title = styled.h2`
     font-weight: bold;
     color: var(--color-black);
     text-align: center;
-    font-size: 3.2rem;
-    margin: 10rem 0 1.6rem 0;
+    font-size: var(--text-size-l);
+    margin: 10rem 0 var(--text-size-s) 0;
 `
 
 const InputGroup = styled.div`
     width: 85%;
-    margin: 2.4rem 0;
+    margin: var(--text-size-m) 0;
 `
 
 const EmailButton = styled(Button)`
     width: 87%;
-    font-size: 1.6rem;
+    font-size: var(--text-size-s);
     margin-bottom: 4rem;
 `
 
@@ -37,16 +37,16 @@ const SocialButton = styled(Button)`
 
 const Text = styled.p`
     text-align: left;
-    font-size: 1.6rem;
+    font-size: var(--text-size-s);
     color: var(--color-grey);
-    margin: 0 2.4rem;
+    margin: 0 var(--text-size-m);
     align-self: start;
 `
 
 const SocialWrapper = styled(Row)`
     width: 90%;
     justify-content: space-between;
-    margin-top: 1.6rem;
+    margin-top: var(--text-size-s);
     margin-bottom: 4rem;
 `
 

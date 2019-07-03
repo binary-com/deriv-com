@@ -10,7 +10,7 @@ const InputWrapper = styled.div`
 const StyledInput = styled.input`
     background: none;
     color: var(--color-black);
-    font-size: 1.6rem;
+    font-size: var(--text-size-s);
     padding: 1rem 1rem 1rem 0.5rem;
     width: 95%;
     display: block;
@@ -58,7 +58,7 @@ const Bar = styled.span`
 
 const StyledLabel = styled.label`
     color: var(--color-grey);
-    font-size: 1.6rem;
+    font-size: var(--text-size-s);
     position: absolute;
     pointer-events: none;
     left: 5px;

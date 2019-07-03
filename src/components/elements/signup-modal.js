@@ -27,14 +27,14 @@ const Content = styled.div`
 `
 
 const CaptionTitle = styled.h3`
-    font-size: 2.4rem;
+    font-size: var(--text-size-m);
     line-height: 1.25;
     max-width: 25rem;
 `
 const CaptionDesc = styled.p`
-    font-size: 1.6rem;
+    font-size: var(--text-size-s);
     line-height: 1.5;
-    padding: 1.6rem;
+    padding: var(--text-size-s);
 `
 
 const SignupModal = () => (

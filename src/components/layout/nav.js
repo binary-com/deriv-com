@@ -38,7 +38,7 @@ const NavLink = styled.li`
     text-align: left;
 `
 
-const StyledLink = styled(props => <Link {...props} />)`
+const StyledLink = styled(Link)`
     color: var(--color-white);
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -49,7 +49,7 @@ const StyledLink = styled(props => <Link {...props} />)`
         content: '';
         position: absolute;
         transition: width 0.25s;
-        height: 0.1rem;
+        height: 0.2rem;
         width: 0;
         background-color: var(--color-red);
         bottom: 0;
@@ -58,14 +58,14 @@ const StyledLink = styled(props => <Link {...props} />)`
         text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
 
         &::before {
-            width: 1rem;
+            width: 1.6rem;
         }
     }
     &.active {
         text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
 
         &::before {
-            width: 1rem;
+            width: 1.6rem;
         }
     }
 `

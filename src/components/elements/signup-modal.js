@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import Row from '../containers/row'
 import Signup from '../form/signup'
+import { Header, Text } from './topography'
 
 const SignupWrapper = styled.article`
     background-color: var(--color-grey-1);
@@ -26,14 +27,10 @@ const Content = styled.div`
             : ''}
 `
 
-const CaptionTitle = styled.h3`
-    font-size: var(--text-size-m);
-    line-height: 1.25;
+const HeaderWrapper = styled(Header)`
     max-width: 25rem;
 `
-const CaptionDesc = styled.p`
-    font-size: var(--text-size-s);
-    line-height: 1.5;
+const CaptionDesc = styled(Text)`
     padding: var(--text-size-s);
 `
 
@@ -41,9 +38,9 @@ const SignupModal = () => (
     <SignupWrapper>
         <Row>
             <Content inverse>
-                <CaptionTitle>
+                <HeaderWrapper as="h4">
                     The ultimate trading experience is just a few clicks away.
-                </CaptionTitle>
+                </HeaderWrapper>
                 <CaptionDesc>Go ahead, try it for yourself.</CaptionDesc>
             </Content>
             <Content>

@@ -5,12 +5,12 @@ import Input from './input'
 import Row from '../containers/row'
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
+import { Header, Text } from '../elements/topography'
 
-const Title = styled.h2`
+const Title = styled(Header)`
     font-weight: bold;
     color: var(--color-black);
     text-align: center;
-    font-size: var(--text-size-l);
     margin: 10rem 0 3rem 0;
 `
 
@@ -27,7 +27,7 @@ const EmailButton = styled(Button)`
 
 const SocialButton = styled(Button)`
     box-shadow: none;
-    flex: inherit;
+    flex: inherit !important;
     width: 49%;
     background: ${props => {
         if (props.provider === 'google') return 'var(--color-white)'
@@ -36,9 +36,8 @@ const SocialButton = styled(Button)`
     padding: 1rem;
 `
 
-const Text = styled.p`
+const MutedText = styled(Text)`
     text-align: left;
-    font-size: var(--text-size-s);
     color: var(--color-grey);
     align-self: start;
 `
@@ -50,7 +49,7 @@ const SocialWrapper = styled(Row)`
     margin-bottom: 4rem;
 `
 
-const LoginText = styled(Text)`
+const LoginText = styled(MutedText)`
     text-align: center;
     align-self: center;
     margin-bottom: 8rem;
@@ -95,7 +94,7 @@ class Signup extends Component {
     render() {
         return (
             <form onSubmit={this.handleEmailSignup}>
-                <Title>Sign up for free now!</Title>
+                <Title as="h3">Sign up for free now!</Title>
                 <InputGroup>
                     <Input
                         id="email"

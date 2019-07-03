@@ -38,6 +38,9 @@ const StyledButton = styled.button`
     &:active {
         outline: 0;
     }
+    & > * {
+        pointer-events: none;
+    }
 `
 
 const button_theme = {

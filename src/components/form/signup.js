@@ -28,8 +28,8 @@ const EmailButton = styled(Button)`
 const SocialButton = styled(Button)`
     box-shadow: none;
     background: ${props => {
-        if (props.social === 'google') return 'var(--color-white)'
-        if (props.social === 'facebook') return 'var(--color-blue)'
+        if (props.provider === 'google') return 'var(--color-white)'
+        if (props.provider === 'facebook') return 'var(--color-blue)'
     }};
     padding: 1rem;
     margin: 0 0.5rem;
@@ -68,6 +68,7 @@ class Signup extends Component {
     }
 
     handleInputChange = e => {
+        e.preventDefault()
         const target = e.target
         const value = target.value
         const name = target.name
@@ -77,9 +78,14 @@ class Signup extends Component {
         })
     }
 
-    emailSignup = () => {
+    handleEmailSignup = () => {
         // eslint-disable-next-line no-console
         console.log(this.state.email)
+    }
+
+    handleSocialSignup = e => {
+        // eslint-disable-next-line no-console
+        console.log(e.target.id)
     }
 
     handleLogin = () => {
@@ -101,16 +107,30 @@ class Signup extends Component {
                         required
                     />
                 </InputGroup>
-                <EmailButton onClick={this.emailSignup} type="secondary">
+                <EmailButton onClick={this.handleEmailSignup} type="secondary">
                     Create a free account
                 </EmailButton>
                 <Text>Or sign up with</Text>
                 <SocialWrapper>
-                    <SocialButton social="google" type="secondary">
-                        <Google />
+                    <SocialButton
+                        onClick={this.handleSocialSignup}
+                        provider="google"
+                        type="secondary"
+                        id="google"
+                    >
+                        <span>
+                            <Google />
+                        </span>
                     </SocialButton>
-                    <SocialButton social="facebook" type="secondary">
-                        <Facebook />
+                    <SocialButton
+                        onClick={this.handleSocialSignup}
+                        provider="facebook"
+                        type="secondary"
+                        id="facebook"
+                    >
+                        <span>
+                            <Facebook />
+                        </span>
                     </SocialButton>
                 </SocialWrapper>
 

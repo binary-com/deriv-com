@@ -3,31 +3,23 @@ import styled from 'styled-components'
 import Row from '../containers/row'
 import Signup from '../form/signup'
 
-const SignupWrapper = styled.div`
+const SignupWrapper = styled.article`
     background-color: var(--color-grey-1);
     width: 50vw;
+    max-width: 80rem;
     border-radius: 6px;
+    overflow: auto;
 `
 
-const LeftContent = styled.div`
-    background: var(--color-black);
+const Content = styled.div`
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: var(--color-white);
-    display: flex;
+    border-radius: 6px;
     flex-direction: column;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-`
-
-const RightContent = styled.div`
-    justify-content: center;
-    align-items: center;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    display: flex;
-    flex-direction: column;
+    background: ${props => (props.inverse ? 'var(--color-black)' : 'inherit')};
+    color: ${props => (props.inverse ? 'var(--color-white)' : 'inherit')};
 `
 
 const CaptionTitle = styled.h3`
@@ -44,15 +36,15 @@ const CaptionDesc = styled.p`
 const SignupModal = () => (
     <SignupWrapper>
         <Row>
-            <LeftContent>
+            <Content inverse>
                 <CaptionTitle>
                     The ultimate trading experience is just a few clicks away.
                 </CaptionTitle>
                 <CaptionDesc>Go ahead, try it for yourself.</CaptionDesc>
-            </LeftContent>
-            <RightContent>
+            </Content>
+            <Content>
                 <Signup />
-            </RightContent>
+            </Content>
         </Row>
     </SignupWrapper>
 )

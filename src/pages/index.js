@@ -6,7 +6,7 @@ import SEO from '../components/containers/seo'
 import Localize from '../components/containers/localize'
 import Button from '../components/form/button'
 import Modal from '../components/elements/modal'
-import Signup from '../components/form/signup'
+import SignupModal from '../components/elements/signup-modal'
 
 class Home extends Component {
     state = {
@@ -42,7 +42,7 @@ class Home extends Component {
                     is_open={this.state.show_modal}
                     is_blurred={true}
                 >
-                    <Signup />
+                    <SignupModal />
                 </Modal>
             </Layout>
         )

@@ -6,44 +6,6 @@ import Row from '../containers/row'
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 
-const SignupWrapper = styled.div`
-    background-color: var(--color-grey-1);
-    width: 50vw;
-    border-radius: 6px;
-`
-
-const LeftContent = styled.div`
-    background: var(--color-black);
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--color-white);
-    display: flex;
-    flex-direction: column;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-`
-
-const RightContent = styled.div`
-    justify-content: center;
-    align-items: center;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    display: flex;
-    flex-direction: column;
-`
-
-const CaptionTitle = styled.h3`
-    font-size: 2.4rem;
-    line-height: 1.25;
-    max-width: 25rem;
-`
-const CaptionDesc = styled.p`
-    font-size: 1.6rem;
-    line-height: 1.5;
-    padding: 1.6rem;
-`
-
 const Title = styled.h2`
     font-weight: bold;
     color: var(--color-black);
@@ -127,54 +89,36 @@ class Signup extends Component {
 
     render() {
         return (
-            <SignupWrapper>
-                <Row>
-                    <LeftContent>
-                        <CaptionTitle>
-                            The ultimate trading experience is just a few clicks
-                            away.
-                        </CaptionTitle>
-                        <CaptionDesc>
-                            Go ahead, try it for yourself.
-                        </CaptionDesc>
-                    </LeftContent>
-                    <RightContent>
-                        <Title>Sign up for free now!</Title>
-                        <InputGroup>
-                            <Input
-                                name="email"
-                                type="text"
-                                value={this.state.email}
-                                label="Email"
-                                onChange={this.handleInputChange}
-                                required
-                            />
-                        </InputGroup>
-                        <EmailButton
-                            onClick={this.emailSignup}
-                            type="secondary"
-                        >
-                            Create a free account
-                        </EmailButton>
-                        <Text>Or sign up with</Text>
-                        <SocialWrapper>
-                            <SocialButton social="google" type="secondary">
-                                <Google />
-                            </SocialButton>
-                            <SocialButton social="facebook" type="secondary">
-                                <Facebook />
-                            </SocialButton>
-                        </SocialWrapper>
+            <>
+                <Title>Sign up for free now!</Title>
+                <InputGroup>
+                    <Input
+                        name="email"
+                        type="text"
+                        value={this.state.email}
+                        label="Email"
+                        onChange={this.handleInputChange}
+                        required
+                    />
+                </InputGroup>
+                <EmailButton onClick={this.emailSignup} type="secondary">
+                    Create a free account
+                </EmailButton>
+                <Text>Or sign up with</Text>
+                <SocialWrapper>
+                    <SocialButton social="google" type="secondary">
+                        <Google />
+                    </SocialButton>
+                    <SocialButton social="facebook" type="secondary">
+                        <Facebook />
+                    </SocialButton>
+                </SocialWrapper>
 
-                        <LoginText>
-                            Already have an account?{' '}
-                            <LoginLink onClick={this.handleLogin}>
-                                Log in.
-                            </LoginLink>
-                        </LoginText>
-                    </RightContent>
-                </Row>
-            </SignupWrapper>
+                <LoginText>
+                    Already have an account?
+                    <LoginLink onClick={this.handleLogin}> Log in.</LoginLink>
+                </LoginText>
+            </>
         )
     }
 }

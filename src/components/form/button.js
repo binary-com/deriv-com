@@ -36,7 +36,7 @@ const StyledButton = styled.button`
     }
     &:focus,
     &:active {
-        outline: 0;
+        outline: none;
     }
     & > * {
         pointer-events: none;

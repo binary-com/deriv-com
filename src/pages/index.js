@@ -20,6 +20,26 @@ class Home extends Component {
         })
     }
 
+    handleEscape = e => {
+        e.stopPropagation()
+        if (e.keyCode === 27) {
+            if (this.state.show_modal) {
+                this.setState({
+                    show_modal: false,
+                })
+            }
+        }
+
+        return
+    }
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleEscape, false)
+    }
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleEscape, false)
+    }
+
     render() {
         return (
             <Layout>

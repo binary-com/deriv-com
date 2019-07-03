@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Row from '../containers/row'
 import Signup from '../form/signup'
 
@@ -16,10 +16,14 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 6px;
     flex-direction: column;
-    background: ${props => (props.inverse ? 'var(--color-black)' : 'inherit')};
-    color: ${props => (props.inverse ? 'var(--color-white)' : 'inherit')};
+    ${props =>
+        props.inverse
+            ? css`
+                  background: var(--color-black);
+                  color: var(--color-white);
+              `
+            : ''}
 `
 
 const CaptionTitle = styled.h3`

@@ -49,6 +49,7 @@ const Bar = styled.span`
         height: 2px;
         width: 0;
         bottom: 0;
+        left: 0;
         position: absolute;
         background: var(--color-green);
         transition: 0.25s ease all;

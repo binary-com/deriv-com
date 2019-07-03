@@ -29,7 +29,6 @@ const Content = styled.div`
 
 const HeaderWrapper = styled(Header)`
     max-width: 25rem;
-    font-weight: normal;
 `
 const CaptionDesc = styled(Text)`
     padding: var(--text-size-s);
@@ -39,7 +38,7 @@ const SignupModal = () => (
     <SignupWrapper>
         <Row>
             <Content inverse>
-                <HeaderWrapper as="h4">
+                <HeaderWrapper as="h4" weight="normal">
                     The ultimate trading experience is just a few clicks away.
                 </HeaderWrapper>
                 <CaptionDesc>Go ahead, try it for yourself.</CaptionDesc>

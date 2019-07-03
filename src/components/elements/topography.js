@@ -1,22 +1,19 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 const createElement = React.createElement
 
-const base = css`
-    line-height: 1.25;
-`
-
 export const Text = styled.p`
-    ${base}
+    font-weight: ${props => props.weight || 'normal'};
+    line-height: ${props => props.lh || '1.25'};
     font-size: var(--text-size-s);
 `
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>
     createElement(as, props, children),
 )`
-    ${base}
-    font-weight: bold;
+    font-weight: ${props => props.weight || 'bold'};
+    line-height: ${props => props.lh || '1.25'};
     font-size: ${props => {
         if (props.as === 'h1') return 'var(--text-size-xxl)'
         if (props.as === 'h2') return 'var(--text-size-xl)'

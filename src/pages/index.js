@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import Image from '../components/elements/image'
 import SEO from '../components/containers/seo'
 import Button from '../components/form/button'
 import LanguageSwitcher from '../components/localization/language-switcher'
@@ -15,13 +14,8 @@ class Home extends Component {
     render() {
         return (
             <Layout>
-                <SEO title="Home" />
+                <SEO title={localize('Home')} />
                 <LanguageSwitcher />
-                <Image
-                    width="300px"
-                    img_name="practice.png"
-                    alt="gatsby astronaut"
-                />
                 <div>
                     <Button type="secondary">
                         {localize('secondary button example')}

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Container from '../containers/container'
-import DubaiSVG from '../../images/svg/dubai.svg'
-import KualaLumpurSVG from '../../images/svg/kuala-lumpur.svg'
-import LabuanSVG from '../../images/svg/labuan.svg'
-import MaltaSVG from '../../images/svg/malta.svg'
-import ParaguaySVG from '../../images/svg/paraguay.svg'
+import DubaiSVG from 'images/svg/dubai.svg'
+import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
+import LabuanSVG from 'images/svg/labuan.svg'
+import MaltaSVG from 'images/svg/malta.svg'
+import ParaguaySVG from 'images/svg/paraguay.svg'
 import Button from '../form/button'
 
 const Wrapper = styled.div`

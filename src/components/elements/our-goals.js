@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Container from '../containers/container'
-import VisionSVG from '../../images/svg/vision.svg'
-import FuseeSVG from '../../images/svg/fusee.svg'
+import VisionSVG from 'images/svg/vision.svg'
+import FuseeSVG from 'images/svg/fusee.svg'
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
     width: 100%;
-    background-image: linear-gradient(to bottom, #e8e8e8, --color-white);
+    background-image: linear-gradient(to bottom, #e8e8e8, var(--color-white));
 `
 const OurGoals = styled(Container)`
     margin: 0 auto;
@@ -16,7 +16,7 @@ const OurGoals = styled(Container)`
     padding: 8rem 0;
     flex-wrap: wrap;
 `
-const OurGoalsCard = styled.div`
+const OurGoalsCard = styled.article`
     width: 328px;
     min-height: 356px;
     box-sizing: border-box;

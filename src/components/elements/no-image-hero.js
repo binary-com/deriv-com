@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Container from '../containers/container'
+import device from 'themes/device'
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
     width: 100%;
     background-color: var(--color-black);
 `
@@ -19,19 +20,19 @@ const NoImageHero = styled(Container)`
         padding: 5rem 0;
         
         p {
-            color: --color-white;
+            color: var(--color-white);
             font-size: 24px;
             line-height: 30px;
             font-weight: 500;
         }
         h2 {
-            color: #ff444f;
+            color: var(--color-red);
             text-align: center;
             font-size: 64px;
             line-height: 74px;
             font-weight: bold;
         }
-        @media (max-width: 1024px) {
+        @media ${device.laptop} {
             text-align: center;
             padding: 3rem 1rem;
         }

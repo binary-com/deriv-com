@@ -11,40 +11,40 @@ const Title = styled.h2`
     color: var(--color-black);
     text-align: center;
     font-size: var(--text-size-l);
-    margin: 10rem 0 var(--text-size-s) 0;
+    margin: 10rem 0 3rem 0;
 `
 
 const InputGroup = styled.div`
-    width: 85%;
+    width: 100%;
     margin: var(--text-size-m) 0;
 `
 
 const EmailButton = styled(Button)`
-    width: 87%;
+    width: 100%;
     font-size: var(--text-size-s);
     margin-bottom: 4rem;
 `
 
 const SocialButton = styled(Button)`
     box-shadow: none;
+    flex: inherit;
+    width: 49%;
     background: ${props => {
         if (props.provider === 'google') return 'var(--color-white)'
         if (props.provider === 'facebook') return 'var(--color-blue)'
     }};
     padding: 1rem;
-    margin: 0 0.5rem;
 `
 
 const Text = styled.p`
     text-align: left;
     font-size: var(--text-size-s);
     color: var(--color-grey);
-    margin: 0 var(--text-size-m);
     align-self: start;
 `
 
 const SocialWrapper = styled(Row)`
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
     margin-top: var(--text-size-s);
     margin-bottom: 4rem;

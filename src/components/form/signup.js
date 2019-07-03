@@ -133,7 +133,6 @@ class Signup extends Component {
                         </span>
                     </SocialButton>
                 </SocialWrapper>
-
                 <LoginText>
                     Already have an account?
                     <LoginLink onClick={this.handleLogin}> Log in.</LoginLink>

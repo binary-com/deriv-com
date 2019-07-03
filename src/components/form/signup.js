@@ -78,7 +78,8 @@ class Signup extends Component {
         })
     }
 
-    handleEmailSignup = () => {
+    handleEmailSignup = e => {
+        e.preventDefault()
         // eslint-disable-next-line no-console
         console.log(this.state.email)
     }
@@ -95,10 +96,11 @@ class Signup extends Component {
 
     render() {
         return (
-            <>
+            <form onSubmit={this.handleEmailSignup}>
                 <Title>Sign up for free now!</Title>
                 <InputGroup>
                     <Input
+                        id="email"
                         name="email"
                         type="text"
                         value={this.state.email}
@@ -107,16 +109,15 @@ class Signup extends Component {
                         required
                     />
                 </InputGroup>
-                <EmailButton onClick={this.handleEmailSignup} type="secondary">
-                    Create a free account
-                </EmailButton>
+                <EmailButton secondary>Create a free account</EmailButton>
                 <Text>Or sign up with</Text>
                 <SocialWrapper>
                     <SocialButton
                         onClick={this.handleSocialSignup}
                         provider="google"
-                        type="secondary"
                         id="google"
+                        type="button"
+                        secondary
                     >
                         <span>
                             <Google />
@@ -125,8 +126,9 @@ class Signup extends Component {
                     <SocialButton
                         onClick={this.handleSocialSignup}
                         provider="facebook"
-                        type="secondary"
                         id="facebook"
+                        type="button"
+                        secondary
                     >
                         <span>
                             <Facebook />
@@ -137,7 +139,7 @@ class Signup extends Component {
                     Already have an account?
                     <LoginLink onClick={this.handleLogin}> Log in.</LoginLink>
                 </LoginText>
-            </>
+            </form>
         )
     }
 }

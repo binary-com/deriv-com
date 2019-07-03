@@ -113,7 +113,7 @@ const Nav = () => (
                 </NavLink>
             </NavCenter>
             <NavRight>
-                <NavButton type="primary">
+                <NavButton primary>
                     <span>
                         <Localize translate="Login" />
                     </span>

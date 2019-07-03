@@ -53,7 +53,7 @@ class Home extends Component {
                     alt="gatsby astronaut"
                 />
                 <div>
-                    <Button onClick={this.toggleModal} type="secondary">
+                    <Button onClick={this.toggleModal} secondary>
                         secondary button example
                     </Button>
                 </div>

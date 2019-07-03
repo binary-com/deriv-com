@@ -66,11 +66,11 @@ const StyledLabel = styled.label`
     transition: 0.25s ease all;
 `
 
-const Input = ({ label, ...props }) => (
+const Input = ({ label, id, ...props }) => (
     <InputWrapper>
         <StyledInput {...props} />
         <Bar />
-        <StyledLabel>{label}</StyledLabel>
+        <StyledLabel htmlFor={id}>{label}</StyledLabel>
     </InputWrapper>
 )
 
@@ -79,6 +79,7 @@ Input.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]),
+    id: PropTypes.string,
     label: PropTypes.string,
     width: PropTypes.string,
 }

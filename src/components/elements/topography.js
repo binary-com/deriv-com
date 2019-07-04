@@ -7,6 +7,10 @@ export const Text = styled.p`
     font-weight: ${props => props.weight || 'normal'};
     line-height: ${props => props.lh || '1.25'};
     font-size: var(--text-size-s);
+    text-align: ${props => props.align || 'left'};
+
+    /* prettier-ignore */
+    color: var(--color-${props => props.color || 'black'});
 `
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>
@@ -14,6 +18,10 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
 )`
     font-weight: ${props => props.weight || 'bold'};
     line-height: ${props => props.lh || '1.25'};
+    text-align: ${props => props.align || 'left'};
+
+    /* prettier-ignore */
+    color: var(--color-${props => props.color || 'black'});
     font-size: ${props => {
         if (props.as === 'h1') return 'var(--text-size-xxl)'
         if (props.as === 'h2') return 'var(--text-size-xl)'

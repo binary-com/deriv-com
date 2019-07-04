@@ -103,7 +103,7 @@ class Signup extends Component {
                     />
                 </InputGroup>
                 <EmailButton secondary>Create a free account</EmailButton>
-                <Text>Or sign up with</Text>
+                <Text color="grey">Or sign up with</Text>
                 <SocialWrapper>
                     <SocialButton
                         onClick={this.handleSocialSignup}

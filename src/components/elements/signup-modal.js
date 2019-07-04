@@ -38,10 +38,17 @@ const SignupModal = () => (
     <SignupWrapper>
         <Row>
             <Content inverse>
-                <HeaderWrapper as="h4" weight="normal">
+                <HeaderWrapper
+                    as="h4"
+                    weight="normal"
+                    color="white"
+                    align="center"
+                >
                     The ultimate trading experience is just a few clicks away.
                 </HeaderWrapper>
-                <CaptionDesc>Go ahead, try it for yourself.</CaptionDesc>
+                <CaptionDesc color="white">
+                    Go ahead, try it for yourself.
+                </CaptionDesc>
             </Content>
             <Content>
                 <Signup />

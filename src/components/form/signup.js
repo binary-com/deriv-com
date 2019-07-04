@@ -62,6 +62,10 @@ class Signup extends Component {
         email: '',
     }
 
+    validateEmail = email => ({
+        email: email.length === 0,
+    })
+
     handleInputChange = e => {
         e.preventDefault()
         const { name, value } = e.target
@@ -88,6 +92,10 @@ class Signup extends Component {
     }
 
     render() {
+        const { email } = this.state
+        const errors = this.validateEmail(email)
+        const is_valid = !Object.keys(errors).some(x => errors[x])
+
         return (
             <Form onSubmit={this.handleEmailSignup}>
                 <Title as="h3">Sign up for free now!</Title>
@@ -98,11 +106,14 @@ class Signup extends Component {
                         type="text"
                         value={this.state.email}
                         label="Email"
+                        placeholder="example@mail.com"
                         onChange={this.handleInputChange}
                         required
                     />
                 </InputGroup>
-                <EmailButton secondary>Create a free account</EmailButton>
+                <EmailButton secondary disabled={is_valid ? false : true}>
+                    Create a free account
+                </EmailButton>
                 <Text color="grey">Or sign up with</Text>
                 <SocialWrapper>
                     <SocialButton

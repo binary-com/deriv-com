@@ -45,6 +45,13 @@ const StyledButton = styled.button`
                 }
             `
     }}
+    ${props => {
+        if (props.disabled)
+            return css`
+                pointer-events: none;
+                background: var(--color-grey);
+            `
+    }}
 `
 
 const Button = ({ children, ...props }) => (

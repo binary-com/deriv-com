@@ -18,6 +18,10 @@ const StyledInput = styled.input`
     border-radius: 0;
     border-bottom: 1px solid var(--color-grey-2);
 
+    &::placeholder {
+        opacity: 0;
+        transition: opacity 0.25s;
+    }
     &:focus {
         outline: none;
 
@@ -28,6 +32,9 @@ const StyledInput = styled.input`
         }
         & ~ span::before {
             width: 100%;
+        }
+        &::placeholder {
+            opacity: 0.5;
         }
     }
     &:valid {

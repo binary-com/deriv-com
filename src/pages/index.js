@@ -20,24 +20,10 @@ class Home extends Component {
         })
     }
 
-    handleEscape = e => {
-        e.stopPropagation()
-        if (e.keyCode === 27) {
-            if (this.state.show_modal) {
-                this.setState({
-                    show_modal: false,
-                })
-            }
-        }
-
-        return
-    }
-
-    componentDidMount() {
-        document.addEventListener('keydown', this.handleEscape, false)
-    }
-    componentWillUnmount() {
-        document.removeEventListener('keydown', this.handleEscape, false)
+    closeModal = () => {
+        this.setState({
+            show_modal: false,
+        })
     }
 
     render() {
@@ -61,6 +47,7 @@ class Home extends Component {
                     toggle={this.toggleModal}
                     is_open={this.state.show_modal}
                     is_blurred={true}
+                    closeModal={this.closeModal}
                 >
                     <SignupModal />
                 </Modal>

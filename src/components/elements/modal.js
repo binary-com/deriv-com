@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Portal from '../containers/portal'
@@ -15,14 +15,12 @@ const ModalWrapper = styled.div`
     justify-content: center;
     align-items: center;
 `
-
 const ModalCard = styled.div`
     position: relative;
     z-index: 10;
     border-radius: 6px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 `
-
 const CloseButton = styled(Close)`
     position: absolute;
     top: 0;
@@ -36,7 +34,6 @@ const CloseButton = styled(Close)`
         cursor: pointer;
     }
 `
-
 const Background = styled.div`
     position: absolute;
     width: 100%;
@@ -47,25 +44,42 @@ const Background = styled.div`
     opacity: 0.4;
 `
 
-const Modal = ({ children, toggle, is_open, is_blurred }) => (
-    <Portal is_open={is_open} is_blurred={is_blurred}>
-        {is_open && (
-            <ModalWrapper>
-                <ModalCard>
-                    <CloseButton onClick={toggle} />
-                    {children}
-                </ModalCard>
-                <Background onClick={toggle} />
-            </ModalWrapper>
-        )}
-    </Portal>
-)
+const Modal = ({ children, toggle, is_open, is_blurred, closeModal }) => {
+    const handleEscape = e => {
+        if (e.keyCode === 27) {
+            closeModal()
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('keydown', handleEscape, false)
+
+        return () => {
+            document.removeEventListener('keydown', handleEscape, false)
+        }
+    }, [])
+
+    return (
+        <Portal is_open={is_open} is_blurred={is_blurred}>
+            {is_open && (
+                <ModalWrapper>
+                    <ModalCard>
+                        <CloseButton onClick={toggle} />
+                        {children}
+                    </ModalCard>
+                    <Background onClick={toggle} />
+                </ModalWrapper>
+            )}
+        </Portal>
+    )
+}
 
 Modal.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]).isRequired,
+    closeModal: PropTypes.func,
     is_blurred: PropTypes.bool,
     is_open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,

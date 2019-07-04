@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import * as yup from 'yup'
+import { Formik } from 'formik'
 import Button from './button'
 import Input from './input'
 import Row from '../containers/row'
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 import { Header, Text } from '../elements/topography'
+import ErrorIcon from 'images/svg/error-icon.svg'
 
 const Title = styled(Header)`
     font-weight: bold;
@@ -17,6 +20,7 @@ const Form = styled.form`
     max-width: 90%;
 `
 const InputGroup = styled.div`
+    position: relative;
     width: 100%;
     margin: var(--text-size-m) 0;
 `
@@ -24,6 +28,17 @@ const EmailButton = styled(Button)`
     width: 100%;
     font-size: var(--text-size-s);
     margin-bottom: 4rem;
+`
+
+const StyledError = styled(ErrorIcon)`
+    position: absolute;
+    right: 0.8rem;
+    top: 1.2rem;
+`
+
+const ErrorMessages = styled(Text)`
+    padding-left: 0.8rem;
+    font-size: 1.2rem;
 `
 const SocialButton = styled(Button)`
     box-shadow: none;
@@ -57,28 +72,17 @@ const LoginLink = styled.a`
     cursor: pointer;
 `
 
+const signup_schema = yup.object().shape({
+    email: yup
+        .string()
+        .email('Invalid email address')
+        .required('Email is Required.'),
+})
+
 class Signup extends Component {
-    state = {
-        email: '',
-    }
-
-    validateEmail = email => ({
-        email: email.length === 0,
-    })
-
-    handleInputChange = e => {
-        e.preventDefault()
-        const { name, value } = e.target
-
-        this.setState({
-            [name]: value,
-        })
-    }
-
-    handleEmailSignup = e => {
-        e.preventDefault()
+    handleEmailSignup = email => {
         // eslint-disable-next-line no-console
-        console.log(this.state.email)
+        console.log(email)
     }
 
     handleSocialSignup = e => {
@@ -92,58 +96,94 @@ class Signup extends Component {
     }
 
     render() {
-        const { email } = this.state
-        const errors = this.validateEmail(email)
-        const is_valid = !Object.keys(errors).some(x => errors[x])
-
         return (
-            <Form onSubmit={this.handleEmailSignup}>
-                <Title as="h3">Sign up for free now!</Title>
-                <InputGroup>
-                    <Input
-                        id="email"
-                        name="email"
-                        type="text"
-                        value={this.state.email}
-                        label="Email"
-                        placeholder="example@mail.com"
-                        onChange={this.handleInputChange}
-                        required
-                    />
-                </InputGroup>
-                <EmailButton secondary disabled={is_valid ? false : true}>
-                    Create a free account
-                </EmailButton>
-                <Text color="grey">Or sign up with</Text>
-                <SocialWrapper>
-                    <SocialButton
-                        onClick={this.handleSocialSignup}
-                        provider="google"
-                        id="google"
-                        type="button"
-                        secondary
-                    >
-                        <span>
-                            <Google />
-                        </span>
-                    </SocialButton>
-                    <SocialButton
-                        onClick={this.handleSocialSignup}
-                        provider="facebook"
-                        id="facebook"
-                        type="button"
-                        secondary
-                    >
-                        <span>
-                            <Facebook />
-                        </span>
-                    </SocialButton>
-                </SocialWrapper>
-                <LoginText>
-                    Already have an account?
-                    <LoginLink onClick={this.handleLogin}> Log in.</LoginLink>
-                </LoginText>
-            </Form>
+            <Formik
+                initialValues={{ email: '' }}
+                validationSchema={signup_schema}
+                onSubmit={(values, { setSubmitting }) => {
+                    // eslint-disable-next-line no-console
+                    this.handleEmailSignup(values.email)
+                    setSubmitting(false)
+                }}
+            >
+                {({
+                    values,
+                    errors,
+                    touched,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    isValid,
+                }) => (
+                    <Form onSubmit={handleSubmit}>
+                        <Title as="h3">Sign up for free now!</Title>
+                        <InputGroup>
+                            <Input
+                                id="email"
+                                name="email"
+                                type="text"
+                                value={values.email}
+                                label="Email"
+                                placeholder="example@mail.com"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                required
+                            />
+                            {errors.email && touched.email && (
+                                <>
+                                    <ErrorMessages
+                                        lh="1.4"
+                                        align="left"
+                                        color="red-1"
+                                    >
+                                        {errors.email}
+                                    </ErrorMessages>
+                                    <StyledError />
+                                </>
+                            )}
+                        </InputGroup>
+                        <EmailButton
+                            type="submit"
+                            secondary
+                            disabled={!isValid}
+                        >
+                            Create a free account
+                        </EmailButton>
+                        <Text color="grey">Or sign up with</Text>
+                        <SocialWrapper>
+                            <SocialButton
+                                onClick={this.handleSocialSignup}
+                                provider="google"
+                                id="google"
+                                type="button"
+                                secondary
+                            >
+                                <span>
+                                    <Google />
+                                </span>
+                            </SocialButton>
+                            <SocialButton
+                                onClick={this.handleSocialSignup}
+                                provider="facebook"
+                                id="facebook"
+                                type="button"
+                                secondary
+                            >
+                                <span>
+                                    <Facebook />
+                                </span>
+                            </SocialButton>
+                        </SocialWrapper>
+                        <LoginText>
+                            Already have an account?
+                            <LoginLink onClick={this.handleLogin}>
+                                {' '}
+                                Log in.
+                            </LoginLink>
+                        </LoginText>
+                    </Form>
+                )}
+            </Formik>
         )
     }
 }

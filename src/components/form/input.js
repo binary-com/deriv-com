@@ -21,6 +21,7 @@ const StyledInput = styled.input`
     &::placeholder {
         opacity: 0;
         transition: opacity 0.25s;
+        padding-left: 0.3rem;
     }
     &:focus {
         outline: none;
@@ -68,7 +69,7 @@ const StyledLabel = styled.label`
     font-size: var(--text-size-s);
     position: absolute;
     pointer-events: none;
-    left: 5px;
+    left: 8px;
     top: 10px;
     transition: 0.25s ease all;
 `

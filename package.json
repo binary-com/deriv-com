@@ -29,6 +29,7 @@
         "eslint-loader": "^2.1.2",
         "eslint-plugin-import": "^2.18.0",
         "eslint-plugin-react": "^7.14.0",
+        "formik": "^1.5.7",
         "gatsby-plugin-eslint": "^2.0.5",
         "gatsby-plugin-react-svg": "^2.1.1",
         "gatsby-plugin-styled-components": "^3.1.0",
@@ -41,7 +42,8 @@
         "stylelint-config-standard": "^18.3.0",
         "stylelint-config-styled-components": "^0.1.1",
         "stylelint-processor-styled-components": "^1.8.0",
-        "stylelint-webpack-plugin": "^0.10.5"
+        "stylelint-webpack-plugin": "^0.10.5",
+        "yup": "^0.27.0"
     },
     "keywords": [
         "deriv",

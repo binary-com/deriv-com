@@ -6,6 +6,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     padding: 2rem 1rem;
+    width: 80%;
 
     @media ${device.desktop} {
         max-width: 1024px;

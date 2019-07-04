@@ -6,6 +6,7 @@ import SEO from '../components/containers/seo'
 import Localize from '../components/containers/localize'
 import Button from '../components/form/button'
 import Modal from '../components/elements/modal'
+import SignupModal from '../components/elements/signup-modal'
 
 class Home extends Component {
     state = {
@@ -16,6 +17,12 @@ class Home extends Component {
         e.stopPropagation()
         this.setState({
             show_modal: !this.state.show_modal,
+        })
+    }
+
+    closeModal = () => {
+        this.setState({
+            show_modal: false,
         })
     }
 
@@ -32,7 +39,7 @@ class Home extends Component {
                     alt="gatsby astronaut"
                 />
                 <div>
-                    <Button onClick={this.toggleModal} type="secondary">
+                    <Button onClick={this.toggleModal} secondary>
                         secondary button example
                     </Button>
                 </div>
@@ -40,8 +47,9 @@ class Home extends Component {
                     toggle={this.toggleModal}
                     is_open={this.state.show_modal}
                     is_blurred={true}
+                    closeModal={this.closeModal}
                 >
-                    <div>Hello from modal</div>
+                    <SignupModal />
                 </Modal>
             </Layout>
         )

@@ -13,18 +13,18 @@ const Title = styled(Header)`
     text-align: center;
     margin: 10rem 0 3rem 0;
 `
-
+const Form = styled.form`
+    max-width: 90%;
+`
 const InputGroup = styled.div`
     width: 100%;
     margin: var(--text-size-m) 0;
 `
-
 const EmailButton = styled(Button)`
     width: 100%;
     font-size: var(--text-size-s);
     margin-bottom: 4rem;
 `
-
 const SocialButton = styled(Button)`
     box-shadow: none;
     flex: inherit !important;
@@ -35,26 +35,22 @@ const SocialButton = styled(Button)`
     }};
     padding: 1rem;
 `
-
 const MutedText = styled(Text)`
     text-align: left;
     color: var(--color-grey);
     align-self: start;
 `
-
 const SocialWrapper = styled(Row)`
     width: 100%;
     justify-content: space-between;
     margin-top: var(--text-size-s);
     margin-bottom: 4rem;
 `
-
 const LoginText = styled(MutedText)`
     text-align: center;
     align-self: center;
     margin-bottom: 8rem;
 `
-
 const LoginLink = styled.a`
     color: var(--color-red);
     text-decoration: none;
@@ -93,7 +89,7 @@ class Signup extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleEmailSignup}>
+            <Form onSubmit={this.handleEmailSignup}>
                 <Title as="h3">Sign up for free now!</Title>
                 <InputGroup>
                     <Input
@@ -136,7 +132,7 @@ class Signup extends Component {
                     Already have an account?
                     <LoginLink onClick={this.handleLogin}> Log in.</LoginLink>
                 </LoginText>
-            </form>
+            </Form>
         )
     }
 }

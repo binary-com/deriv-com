@@ -2,8 +2,7 @@ import React from 'react'
 
 import SEO from '../components/containers/seo'
 import Layout from '../components/layout/layout'
-import withIntl from '../components/localization/withIntl'
-import { localize } from '../components/localization/config'
+import { localize, WithIntl } from '../components/localization'
 
 const About = () => (
     <Layout>
@@ -12,4 +11,4 @@ const About = () => (
     </Layout>
 )
 
-export default withIntl()(About)
+export default WithIntl()(About)

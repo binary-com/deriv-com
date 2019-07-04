@@ -1,5 +1,5 @@
 import React from 'react'
-import { localize } from '../localization/config'
+import { localize } from '../localization'
 
 const Footer = () => (
     <footer>

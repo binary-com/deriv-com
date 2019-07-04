@@ -4,8 +4,8 @@ import i18next from './config'
 
 // HOC that pre renders a page with the translated language
 // Without this HOC the page will be translated on the client side dynamically
-const WrapWithIntl = () => WrappedComponent => {
-    const WithIntl = ({ pageContext }, props) => {
+export const WithIntl = () => WrappedComponent => {
+    const WrapWithIntl = ({ pageContext }, props) => {
         if (pageContext) {
             const current_language = pageContext.locale
             if (current_language && current_language !== i18next.language) {
@@ -18,6 +18,5 @@ const WrapWithIntl = () => WrappedComponent => {
             </I18nextProvider>
         )
     }
-    return WithIntl
+    return WrapWithIntl
 }
-export default WrapWithIntl

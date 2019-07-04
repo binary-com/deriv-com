@@ -3,7 +3,7 @@ import { Link as GatsbyLink } from 'gatsby'
 import { LocaleContext } from './locale-context'
 import language_config from '../../../i18n-config'
 
-const LocalizedLink = ({ to, ...props }) => {
+export const LocalizedLink = ({ to, ...props }) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
     const is_index = to === `/`
@@ -17,5 +17,3 @@ const LocalizedLink = ({ to, ...props }) => {
 
     return <GatsbyLink {...props} to={`${path_to}`} />
 }
-
-export default LocalizedLink

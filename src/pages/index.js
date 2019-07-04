@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 
 import SEO from '../components/containers/seo'
 import Button from '../components/form/button'
-import LanguageSwitcher from '../components/localization/language-switcher'
-import withIntl from '../components/localization/withIntl'
-import { localize } from '../components/localization/config'
+import {
+    localize,
+    WithIntl,
+    LanguageSwitcher,
+} from '../components/localization'
 import Layout from '../components/layout/layout'
 class Home extends Component {
     state = {
@@ -26,4 +28,4 @@ class Home extends Component {
     }
 }
 
-export default withIntl()(Home)
+export default WithIntl()(Home)

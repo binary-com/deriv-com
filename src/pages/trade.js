@@ -1,8 +1,7 @@
 import React from 'react'
 import SEO from '../components/containers/seo'
 import Layout from '../components/layout/layout'
-import withIntl from '../components/localization/withIntl'
-import { localize } from '../components/localization/config'
+import { localize, WithIntl } from '../components/localization'
 
 const Trade = () => (
     <Layout>
@@ -11,4 +10,4 @@ const Trade = () => (
     </Layout>
 )
 
-export default withIntl()(Trade)
+export default WithIntl()(Trade)

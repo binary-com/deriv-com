@@ -1,10 +1,9 @@
-import Link from '../localization/localized-link'
+import { LocalizedLink, localize } from '../localization'
 import React from 'react'
 import styled from 'styled-components'
 import LogoHeader from '../../images/svg/logo-header.svg'
 import Button from '../form/button'
 import Container from '../containers/container'
-import { localize } from '../localization/config'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
@@ -39,7 +38,7 @@ const NavLink = styled.li`
     text-align: left;
 `
 
-const StyledLink = styled(props => <Link {...props} />)`
+const StyledLink = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-white);
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -77,9 +76,9 @@ const Nav = () => (
     <StyledNav>
         <Wrapper>
             <NavLeft>
-                <Link to="/" aria-label="Home">
+                <LocalizedLink to="/" aria-label="Home">
                     <LogoHeader />
-                </Link>
+                </LocalizedLink>
             </NavLeft>
             <NavCenter>
                 <NavLink>

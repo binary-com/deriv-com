@@ -4,7 +4,8 @@ import { Link as GatsbyLink } from 'gatsby'
 import language_config from '../../../i18n-config'
 
 const languages = Object.keys(language_config)
-class LanguageSwitcher extends Component {
+
+class LanguageSwitch extends Component {
     constructor(props) {
         super(props)
         const { i18n } = this.props
@@ -34,4 +35,4 @@ class LanguageSwitcher extends Component {
     }
 }
 
-export default withTranslation()(LanguageSwitcher)
+export const LanguageSwitcher = withTranslation()(LanguageSwitch)

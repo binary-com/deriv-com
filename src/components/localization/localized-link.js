@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
 import { LocaleContext } from './locale-context'
 import language_config from '../../../i18n-config'
@@ -16,4 +17,9 @@ export const LocalizedLink = ({ to, ...props }) => {
     const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
 
     return <GatsbyLink {...props} to={`${path_to}`} />
+}
+
+LocalizedLink.propTypes = {
+    props: PropTypes.object,
+    to: PropTypes.string.isRequired,
 }

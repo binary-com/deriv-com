@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { withTranslation } from 'react-i18next'
 import { Link as GatsbyLink } from 'gatsby'
 import language_config from '../../../i18n-config'
@@ -36,3 +37,9 @@ class LanguageSwitch extends Component {
 }
 
 export const LanguageSwitcher = withTranslation()(LanguageSwitch)
+
+LanguageSwitch.propTypes = {
+    i18n: PropTypes.shape({
+        language: PropTypes.string,
+    }),
+}

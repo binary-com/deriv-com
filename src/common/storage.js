@@ -1,0 +1,146 @@
+import { getPropertyValue, isEmptyObject } from './utility'
+
+const getObject = function(key) {
+    return JSON.parse(this.getItem(key) || '{}')
+}
+
+const setObject = function(key, value) {
+    if (value && value instanceof Object) {
+        this.setItem(key, JSON.stringify(value))
+    }
+}
+
+if (typeof Storage !== 'undefined') {
+    Storage.prototype.getObject = getObject
+    Storage.prototype.setObject = setObject
+}
+
+const isStorageSupported = storage => {
+    if (typeof storage === 'undefined') {
+        return false
+    }
+
+    const test_key = 'test'
+    try {
+        storage.setItem(test_key, '1')
+        storage.removeItem(test_key)
+        return true
+    } catch (e) {
+        return false
+    }
+}
+
+const Store = function(storage) {
+    this.storage = storage
+    this.storage.getObject = getObject
+    this.storage.setObject = setObject
+}
+
+Store.prototype = {
+    get(key) {
+        return this.storage.getItem(key) || undefined
+    },
+    set(key, value) {
+        if (typeof value !== 'undefined') {
+            this.storage.setItem(key, value)
+        }
+    },
+    getObject(key) {
+        return typeof this.storage.getObject === 'function' // Prevent runtime error in IE
+            ? this.storage.getObject(key)
+            : JSON.parse(this.storage.getItem(key) || '{}')
+    },
+    setObject(key, value) {
+        if (typeof this.storage.setObject === 'function') {
+            // Prevent runtime error in IE
+            this.storage.setObject(key, value)
+        } else {
+            this.storage.setItem(key, JSON.stringify(value))
+        }
+    },
+    remove(key) {
+        this.storage.removeItem(key)
+    },
+    clear() {
+        this.storage.clear()
+    },
+}
+
+const InScriptStore = function(object) {
+    this.store = typeof object !== 'undefined' ? object : {}
+}
+
+InScriptStore.prototype = {
+    get(key) {
+        return getPropertyValue(this.store, key)
+    },
+    set(k, value, obj = this.store) {
+        let key = k
+        if (!Array.isArray(key)) key = [key]
+        if (key.length > 1) {
+            if (!(key[0] in obj) || isEmptyObject(obj[key[0]])) obj[key[0]] = {}
+            this.set(key.slice(1), value, obj[key[0]])
+        } else {
+            obj[key[0]] = value
+        }
+    },
+    getObject(key) {
+        return JSON.parse(this.get(key) || '{}')
+    },
+    setObject(key, value) {
+        this.set(key, JSON.stringify(value))
+    },
+    remove(...keys) {
+        keys.forEach(key => {
+            delete this.store[key]
+        })
+    },
+    clear() {
+        this.store = {}
+    },
+    has(key) {
+        return this.get(key) !== undefined
+    },
+    keys() {
+        return Object.keys(this.store)
+    },
+    call(key) {
+        if (typeof this.get(key) === 'function') this.get(key)()
+    },
+}
+
+const State = new InScriptStore()
+State.prototype = InScriptStore.prototype
+/**
+ * Shorthand function to get values from response object of State
+ *
+ * @param {String} pathname
+ *     e.g. getResponse('authorize.currency') == get(['response', 'authorize', 'authorize', 'currency'])
+ */
+State.prototype.getResponse = function(pathname) {
+    let path = pathname
+    if (typeof path === 'string') {
+        const keys = path.split('.')
+        path = ['response', keys[0]].concat(keys)
+    }
+    return this.get(path)
+}
+State.set('response', {})
+
+let SessionStore, LocalStore
+
+if (isStorageSupported(window.localStorage)) {
+    LocalStore = new Store(window.localStorage)
+}
+if (isStorageSupported(window.sessionStorage)) {
+    SessionStore = new Store(window.sessionStorage)
+}
+
+if (!LocalStore) {
+    LocalStore = new InScriptStore()
+}
+if (!SessionStore) {
+    SessionStore = new InScriptStore()
+}
+
+export { isStorageSupported, State, SessionStore, LocalStore }

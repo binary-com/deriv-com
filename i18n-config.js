@@ -1,5 +1,6 @@
 module.exports = {
     en: {
+        // language for the root path e.g. for www.deriv.com
         is_default: true,
         path: 'en',
         display_name: 'English',

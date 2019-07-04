@@ -18,7 +18,7 @@ const NoImageHero = styled(Container)`
 
     div {
         padding: 5rem 0;
-        
+
         p {
             color: var(--color-white);
             font-size: 24px;
@@ -42,14 +42,23 @@ const NoImageHeroWrapper = () => (
     <Wrapper>
         <NoImageHero>
             <div>
-                <p>Deriv is a new trading platform created by Binary Group Ltd., a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.</p>
+                <p>
+                    Deriv is a new trading platform created by Binary Group
+                    Ltd., a multi-award winning pioneer in online trading. It’s
+                    built upon 20 years of experience, customer focus, and
+                    technical innovation. With our powerful yet simple trading
+                    experience and tools, new and professional traders alike can
+                    understand risk and make better trading decisions.
+                </p>
             </div>
             <div>
                 <h2>
-                    Go ahead,<br />experience it for yourself.
+                    Go ahead,
+                    <br />
+                    experience it for yourself.
                 </h2>
             </div>
         </NoImageHero>
     </Wrapper>
 )
-export default NoImageHeroWrapper;
+export default NoImageHeroWrapper

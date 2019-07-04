@@ -4,6 +4,7 @@ import SEO from '../components/containers/seo'
 import Button from '../components/form/button'
 import Layout from '../components/layout/layout'
 import Modal from '../components/elements/modal'
+import SignupModal from '../components/elements/signup-modal'
 import { localize, WithIntl } from '../components/localization'
 
 class Home extends Component {
@@ -18,12 +19,18 @@ class Home extends Component {
         })
     }
 
+    closeModal = () => {
+        this.setState({
+            show_modal: false,
+        })
+    }
+
     render() {
         return (
             <Layout>
                 <SEO title={localize('Home')} />
                 <div>
-                    <Button onClick={this.toggleModal} type="secondary">
+                    <Button onClick={this.toggleModal} secondary>
                         secondary button example
                     </Button>
                 </div>
@@ -31,8 +38,9 @@ class Home extends Component {
                     toggle={this.toggleModal}
                     is_open={this.state.show_modal}
                     is_blurred={true}
+                    closeModal={this.closeModal}
                 >
-                    <div>Hello from modal</div>
+                    <SignupModal />
                 </Modal>
             </Layout>
         )

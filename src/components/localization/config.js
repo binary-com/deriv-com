@@ -5,21 +5,28 @@ import language_config from '../../../i18n-config'
 
 i18n.use(initReactI18next).init({
     fallbackLng: 'en',
+    // TODO: Optimize translation file loading with GraphQL
+    // TODO: Enable this when translations are ready
     resources: {
-        sv: {
-            translations: require('../../translations/sv/messages.json'),
-        },
-        en: {
-            translations: require('../../translations/en/messages.json'),
-        },
-        de: {
-            translations: require('../../translations/de/messages.json'),
-        },
+        // en: { translations: require('../../translations/en.json') },
+        // de: { translations: require('../../translations/de.json') },
+        // es: { translations: require('../../translations/es.json') },
+        // fr: { translations: require('../../translations/fr.json') },
+        // id: { translations: require('../../translations/id.json') },
+        // it: { translations: require('../../translations/it.json') },
+        // pl: { translations: require('../../translations/pl.json') },
+        // pt: { translations: require('../../translations/pt.json') },
+        // ru: { translations: require('../../translations/ru.json') },
+        // th: { translations: require('../../translations/th.json') },
+        // vi: { translations: require('../../translations/vi.json') },
+        // zh_zn: { translations: require('../../translations/zh_zn.json') },
+        // zh_tw: { translations: require('../../translations/zh_tw.json') },
     },
     ns: ['translations'],
     defaultNS: 'translations',
 
-    debug: true,
+    // To investigate react-i18next translation issues enable this
+    debug: false,
 
     interpolation: {
         escapeValue: false,

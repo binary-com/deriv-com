@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 
 import SEO from '../components/containers/seo'
 import Button from '../components/form/button'
-import {
-    localize,
-    WithIntl,
-    LanguageSwitcher,
-} from '../components/localization'
+import { localize, WithIntl } from '../components/localization'
 import Layout from '../components/layout/layout'
 class Home extends Component {
     state = {
@@ -17,7 +13,6 @@ class Home extends Component {
         return (
             <Layout>
                 <SEO title={localize('Home')} />
-                <LanguageSwitcher />
                 <div>
                     <Button type="secondary">
                         {localize('secondary button example')}

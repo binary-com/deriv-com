@@ -59,8 +59,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-portal`,
             options: {
-                key: 'portal',
-                id: 'portal',
+                key: 'modal',
+                id: 'modal',
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality

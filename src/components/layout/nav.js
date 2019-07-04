@@ -83,27 +83,27 @@ const Nav = () => (
             <NavCenter>
                 <NavLink>
                     <StyledLink
-                        to="/trade"
                         activeClassName="active"
-                        aria-label="Trade"
+                        to="/trade/"
+                        aria-label={localize('Trade')}
                     >
                         {localize('Trade')}
                     </StyledLink>
                 </NavLink>
                 <NavLink>
                     <StyledLink
-                        to="/about"
                         activeClassName="active"
-                        aria-label="About us"
+                        to="/about/"
+                        aria-label={localize('About us')}
                     >
                         {localize('About us')}
                     </StyledLink>
                 </NavLink>
                 <NavLink>
                     <StyledLink
-                        to="/help-centre"
                         activeClassName="active"
-                        aria-label="Help centre"
+                        to="/help-centre/"
+                        aria-label={localize('Help centre')}
                     >
                         {localize('Help centre')}
                     </StyledLink>

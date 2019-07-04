@@ -1,36 +1,7 @@
-import React, { useEffect } from 'react'
-import { createPortal } from 'react-dom'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-
-const Portal = ({ children }) => {
-    const modalRoot = document.getElementById('portal')
-    const el = document.createElement('div')
-
-    useEffect(() => {
-        modalRoot.appendChild(el)
-    }, [])
-
-    useEffect(() => {
-        return () => modalRoot.removeChild(el)
-    })
-
-    return createPortal(children, el)
-}
-
-const Modal = ({ children, toggle, is_open }) => (
-    <Portal>
-        {is_open && (
-            <ModalWrapper>
-                <ModalCard>
-                    <CloseButton onClick={toggle} />
-                    {children}
-                </ModalCard>
-                <Background onClick={toggle} />
-            </ModalWrapper>
-        )}
-    </Portal>
-)
+import Portal from '../containers/portal'
 
 const ModalWrapper = styled.div`
     position: fixed;
@@ -76,11 +47,32 @@ const Background = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    filter: blur(8px);
+    background-color: var(--color-black);
+    opacity: 0.4;
 `
 
+const Modal = ({ children, toggle, is_open, is_blurred }) => (
+    <Portal is_open={is_open} is_blurred={is_blurred}>
+        {is_open && (
+            <ModalWrapper>
+                <ModalCard>
+                    <CloseButton onClick={toggle}>X</CloseButton>
+                    {children}
+                </ModalCard>
+                <Background onClick={toggle} />
+            </ModalWrapper>
+        )}
+    </Portal>
+)
+
 Modal.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.object).isRequired,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]).isRequired,
+    is_blurred: PropTypes.bool,
     is_open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
 }
+
+export default Modal

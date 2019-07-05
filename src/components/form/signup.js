@@ -100,10 +100,11 @@ class Signup extends Component {
             <Formik
                 initialValues={{ email: '' }}
                 validationSchema={signup_schema}
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(values, actions) => {
                     // eslint-disable-next-line no-console
+                    console.log(actions)
                     this.handleEmailSignup(values.email)
-                    setSubmitting(false)
+                    actions.setSubmitting(false)
                 }}
             >
                 {({
@@ -113,9 +114,9 @@ class Signup extends Component {
                     handleChange,
                     handleBlur,
                     handleSubmit,
-                    isValid,
+                    isSubmitting,
                 }) => (
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit} noValidate>
                         <Title as="h3">Sign up for free now!</Title>
                         <InputGroup>
                             <Input
@@ -129,7 +130,7 @@ class Signup extends Component {
                                 onBlur={handleBlur}
                                 required
                             />
-                            {errors.email && touched.email && (
+                            {errors.email && (touched.email || isSubmitting) && (
                                 <>
                                     <ErrorMessages
                                         lh="1.4"
@@ -142,11 +143,7 @@ class Signup extends Component {
                                 </>
                             )}
                         </InputGroup>
-                        <EmailButton
-                            type="submit"
-                            secondary
-                            disabled={!isValid}
-                        >
+                        <EmailButton type="submit" secondary>
                             Create a free account
                         </EmailButton>
                         <Text color="grey">Or sign up with</Text>

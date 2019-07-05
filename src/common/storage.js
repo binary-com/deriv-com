@@ -157,15 +157,15 @@ CookieStorage.prototype = {
         }
         this.initialized = true
     },
-    write(val, expireDate, isSecure) {
+    write(val, expiry_date, is_secure) {
         if (!this.initialized) this.read()
         this.value = val
-        if (expireDate) this.expires = expireDate
+        if (expiry_date) this.expires = expiry_date
         Cookies.set(this.cookie_name, this.value, {
             expires: this.expires,
             path: this.path,
             domain: this.domain,
-            secure: !!isSecure,
+            secure: !!is_secure,
         })
     },
     get(key) {

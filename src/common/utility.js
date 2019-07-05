@@ -1,4 +1,8 @@
 const extend = require('extend')
+const moment = require('moment')
+
+const toISOFormat = date =>
+    date instanceof moment ? date.format('YYYY-MM-DD') : ''
 
 const isEmptyObject = obj => {
     let is_empty = true
@@ -32,4 +36,10 @@ class PromiseClass {
     }
 }
 
-export { isEmptyObject, cloneObject, getPropertyValue, PromiseClass }
+export {
+    isEmptyObject,
+    cloneObject,
+    getPropertyValue,
+    PromiseClass,
+    toISOFormat,
+}

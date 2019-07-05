@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import { Formik } from 'formik'
+import Cookies from 'js-cookie'
 import Button from './button'
 import Input from './input'
 import Row from '../containers/row'
@@ -10,6 +11,9 @@ import Google from 'images/svg/google.svg'
 import { Header, Text } from '../elements/topography'
 import ErrorIcon from 'images/svg/error-icon.svg'
 import { localize } from '../localization'
+import TrafficSource from 'common/traffic-source'
+import { State, LocalStore } from 'common/storage'
+import { BinarySocketBase } from 'common/websocket/socket_base'
 
 const Title = styled(Header)`
     font-weight: bold;
@@ -81,9 +85,61 @@ const signup_schema = yup.object().shape({
 })
 
 class Signup extends Component {
+    checkCountry = req => {
+        const clients_country = State.getResponse(
+            'website_status.clients_country',
+        )
+
+        if (
+            clients_country !== 'my' ||
+            /@binary\.com$/.test(req.verify_email)
+        ) {
+            return true
+        }
+
+        return false
+    }
+
+    getVerifyEmailRequest = email => {
+        const utm_data = TrafficSource.getData()
+        const affiliate_token = Cookies.getJSON('affiliate_tracking')
+        const signup_device = LocalStore.get('signup_device')
+        const date_first_contact = LocalStore.get('date_first_contact')
+
+        return {
+            verify_email: email,
+            type: 'account_opening',
+            url_parameters: {
+                utm_source: TrafficSource.getSource(utm_data),
+                ...(utm_data.utm_campaign && {
+                    utm_medium: utm_data.utm_medium,
+                    utm_campaign: utm_data.utm_campaign,
+                }),
+                ...(affiliate_token && { affiliate_token: affiliate_token.t }),
+                ...(signup_device && { signup_device: signup_device }),
+                ...(date_first_contact && {
+                    date_first_contact: date_first_contact,
+                }),
+            },
+        }
+    }
     handleEmailSignup = email => {
-        // eslint-disable-next-line no-console
-        console.log(email)
+        const verify_email_req = this.getVerifyEmailRequest(email)
+        if (this.checkCountry(verify_email_req)) {
+            BinarySocketBase.send(verify_email_req)
+                .then(res => {
+                    // eslint-disable-next-line no-console
+                    console.log(res)
+                    // show success image
+                })
+                .catch(err => {
+                    // eslint-disable-next-line no-console
+                    console.log(err)
+                    // show error message
+                })
+        } else {
+            // this country is not eligible for signup
+        }
     }
 
     handleSocialSignup = e => {
@@ -95,6 +151,8 @@ class Signup extends Component {
         // eslint-disable-next-line no-console
         console.log('Hi login')
     }
+
+    // TODO: change formik to https://codepen.io/nathansebhastian/pen/pGoqOV basic form implementation
 
     render() {
         return (

@@ -1,7 +1,6 @@
-import { Link } from 'gatsby'
+import { LocalizedLink, localize } from '../localization'
 import React from 'react'
 import styled from 'styled-components'
-import Localize from '../containers/localize'
 import LogoHeader from '../../images/svg/logo-header.svg'
 import Button from '../form/button'
 import Container from '../containers/container'
@@ -38,7 +37,7 @@ const NavLink = styled.li`
     text-align: left;
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(LocalizedLink)`
     color: var(--color-white);
     text-decoration: none;
     padding: 0.5rem 1rem;
@@ -79,44 +78,42 @@ const Nav = () => (
     <StyledNav>
         <Wrapper>
             <NavLeft>
-                <Link to="/" aria-label="Home">
+                <LocalizedLink to="/" aria-label={localize('Home')}>
                     <LogoHeader />
-                </Link>
+                </LocalizedLink>
             </NavLeft>
             <NavCenter>
                 <NavLink>
                     <StyledLink
                         activeClassName="active"
                         to="/trade/"
-                        aria-label="Trade"
+                        aria-label={localize('Trade')}
                     >
-                        <Localize translate="Trade" />
+                        {localize('Trade')}
                     </StyledLink>
                 </NavLink>
                 <NavLink>
                     <StyledLink
                         activeClassName="active"
                         to="/about/"
-                        aria-label="About us"
+                        aria-label={localize('About us')}
                     >
-                        <Localize translate="About us" />
+                        {localize('About us')}
                     </StyledLink>
                 </NavLink>
                 <NavLink>
                     <StyledLink
                         activeClassName="active"
                         to="/help-centre/"
-                        aria-label="Help centres"
+                        aria-label={localize('Help centre')}
                     >
-                        <Localize translate="Help centre" />
+                        {localize('Help centre')}
                     </StyledLink>
                 </NavLink>
             </NavCenter>
             <NavRight>
                 <NavButton primary>
-                    <span>
-                        <Localize translate="Login" />
-                    </span>
+                    <span>{localize('Login')}</span>
                 </NavButton>
             </NavRight>
         </Wrapper>

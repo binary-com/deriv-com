@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import GlobalStyle from '../../themes/global-style'
+import GlobalStyle from 'themes/global-style'
 
 export const LocaleContext = React.createContext()
 

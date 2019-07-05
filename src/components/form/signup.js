@@ -102,8 +102,6 @@ class Signup extends Component {
                 initialValues={{ email: '' }}
                 validationSchema={signup_schema}
                 onSubmit={(values, actions) => {
-                    // eslint-disable-next-line no-console
-                    console.log(actions)
                     this.handleEmailSignup(values.email)
                     actions.setSubmitting(false)
                 }}
@@ -115,7 +113,6 @@ class Signup extends Component {
                     handleChange,
                     handleBlur,
                     handleSubmit,
-                    isSubmitting,
                 }) => (
                     <Form onSubmit={handleSubmit} noValidate>
                         <Title as="h3">Sign up for free now!</Title>
@@ -131,7 +128,7 @@ class Signup extends Component {
                                 onBlur={handleBlur}
                                 required
                             />
-                            {errors.email && (touched.email || isSubmitting) && (
+                            {errors.email && touched.email && (
                                 <>
                                     <ErrorMessages
                                         lh="1.4"

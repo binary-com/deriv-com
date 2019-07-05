@@ -5,6 +5,7 @@ module.exports = {
         description:
             'Deriv.com gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
         author: 'Deriv.com',
+        siteUrl: 'https://www.deriv.com',
     },
     plugins: [
         'gatsby-plugin-react-helmet',
@@ -18,18 +19,19 @@ module.exports = {
         },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
+        'gatsby-plugin-sitemap',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
                 name: 'Deriv',
                 short_name: 'Deriv',
                 description:
-                    'Deriv gives everyone an easy way to participate in the financial markets.',
+                    'Deriv gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 start_url: '/',
                 background_color: '#0e0e0e',
                 theme_color: '#ff444f',
                 display: 'standalone',
-                icon: './favicons/favicon-192x192.png',
+                icon: './favicons/favicon-512x512.png',
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
                 //     {

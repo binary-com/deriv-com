@@ -29,15 +29,15 @@ module.exports = {
                 background_color: '#0e0e0e',
                 theme_color: '#ff444f',
                 display: 'standalone',
-                icon: `/favicons/favicon-192x192.png`,
+                icon: './favicons/favicon-192x192.png',
                 // TODO: add translations and support for language routes e.g:
                 // localize: [
                 //     {
-                //       start_url: `/de/`,
-                //       lang: `de`,
-                //       name: `Die coole Anwendung`,
-                //       short_name: `Coole Anwendung`,
-                //       description: `Die Anwendung macht coole Dinge und macht Ihr Leben besser.`,
+                //       start_url: '/de/',
+                //       lang: 'de',
+                //       name: 'Die coole Anwendung',
+                //       short_name: 'Coole Anwendung',
+                //       description: 'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
                 //     },
                 //   ],
             },

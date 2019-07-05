@@ -1,16 +1,14 @@
 import React from 'react'
 
-import Layout from '../components/layout/layout'
 import SEO from '../components/containers/seo'
-import Localize from '../components/containers/localize'
+import Layout from '../components/layout/layout'
+import { localize, WithIntl } from '../components/localization'
 
 const About = () => (
     <Layout>
-        <SEO title="About" />
-        <h1>
-            <Localize translate="About us" />
-        </h1>
+        <SEO title={localize('About us')} />
+        <h1>{localize('About us')}</h1>
     </Layout>
 )
 
-export default About
+export default WithIntl()(About)

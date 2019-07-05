@@ -9,6 +9,7 @@ import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 import { Header, Text } from '../elements/topography'
 import ErrorIcon from 'images/svg/error-icon.svg'
+import { localize } from '../localization'
 
 const Title = styled(Header)`
     font-weight: bold;
@@ -124,8 +125,8 @@ class Signup extends Component {
                                 name="email"
                                 type="text"
                                 value={values.email}
-                                label="Email"
-                                placeholder="example@mail.com"
+                                label={localize('Email')}
+                                placeholder={localize('example@mail.com')}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 required
@@ -144,9 +145,9 @@ class Signup extends Component {
                             )}
                         </InputGroup>
                         <EmailButton type="submit" secondary>
-                            Create a free account
+                            {localize('Create a free account')}
                         </EmailButton>
-                        <Text color="grey">Or sign up with</Text>
+                        <Text color="grey">{localize('Or sign up with')}</Text>
                         <SocialWrapper>
                             <SocialButton
                                 onClick={this.handleSocialSignup}
@@ -172,10 +173,10 @@ class Signup extends Component {
                             </SocialButton>
                         </SocialWrapper>
                         <LoginText>
-                            Already have an account?
+                            {localize('Already have an account?')}
                             <LoginLink onClick={this.handleLogin}>
                                 {' '}
-                                Log in.
+                                {localize('Log in.')}
                             </LoginLink>
                         </LoginText>
                     </Form>

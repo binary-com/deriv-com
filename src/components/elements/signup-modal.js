@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import Row from '../containers/row'
 import Signup from '../form/signup'
 import { Header, Text } from './topography'
+import { localize } from '../localization'
 
 const SignupWrapper = styled.article`
     background-color: var(--color-grey-1);
@@ -44,10 +45,12 @@ const SignupModal = () => (
                     color="white"
                     align="center"
                 >
-                    The ultimate trading experience is just a few clicks away.
+                    {localize(
+                        'The ultimate trading experience is just a few clicks away.',
+                    )}
                 </HeaderWrapper>
                 <CaptionDesc color="white">
-                    Go ahead, try it for yourself.
+                    {localize('Go ahead, try it for yourself.')}
                 </CaptionDesc>
             </Content>
             <Content>

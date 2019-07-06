@@ -279,7 +279,11 @@ const OurGoals = () => (
 const About = () => (
     <Layout>
         <SEO title={localize('About us')} />
-        <Hero />
+        <Hero
+            header1="Go ahead,"
+            header2="experience it for yourself."
+            paragraph="Deriv is a new trading platform created by Binary Group Ltd., a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions."
+        />
         <OurGoals />
         <OurNumbers />
         <OurLocations />

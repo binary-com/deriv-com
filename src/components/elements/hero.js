@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Container from '../containers/container'
 import device from 'themes/device'
@@ -38,27 +39,26 @@ const NoImageHero = styled(Container)`
         }
     }
 `
-const Hero = () => (
+const Hero = ({ paragraph, header1, header2 }) => (
     <Wrapper>
         <NoImageHero>
             <div>
-                <p>
-                    Deriv is a new trading platform created by Binary Group
-                    Ltd., a multi-award winning pioneer in online trading. It’s
-                    built upon 20 years of experience, customer focus, and
-                    technical innovation. With our powerful yet simple trading
-                    experience and tools, new and professional traders alike can
-                    understand risk and make better trading decisions.
-                </p>
+                <p>{paragraph}</p>
             </div>
             <div>
                 <h2>
-                    Go ahead,
+                    {header1}
                     <br />
-                    experience it for yourself.
+                    {header2}
                 </h2>
             </div>
         </NoImageHero>
     </Wrapper>
 )
+
+Hero.propTypes = {
+    header1: PropTypes.string,
+    header2: PropTypes.string,
+    paragraph: PropTypes.string,
+}
 export default Hero

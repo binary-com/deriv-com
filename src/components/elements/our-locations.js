@@ -93,7 +93,7 @@ const OurLocationsWrapper = () => {
                     </h3>
                 </Location>
             </OurLocations>
-            <Button type="secondary">Start with free practice account</Button>
+            <Button secondary>Start with free practice account</Button>
         </Wrapper>
     )
 }

@@ -1,10 +1,9 @@
 import React from 'react'
+import { localize } from '../localization'
 
 const Footer = () => (
     <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <p>{localize('Footer')}</p>
     </footer>
 )
 export default Footer

@@ -6,6 +6,7 @@ import Row from '../containers/row'
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 import { Header, Text } from '../elements/topography'
+import { localize } from '../localization'
 
 const Title = styled(Header)`
     font-weight: bold;
@@ -90,7 +91,7 @@ class Signup extends Component {
     render() {
         return (
             <Form onSubmit={this.handleEmailSignup}>
-                <Title as="h3">Sign up for free now!</Title>
+                <Title as="h3">{localize('Sign up for free now!')}</Title>
                 <InputGroup>
                     <Input
                         id="email"
@@ -102,8 +103,10 @@ class Signup extends Component {
                         required
                     />
                 </InputGroup>
-                <EmailButton secondary>Create a free account</EmailButton>
-                <Text color="grey">Or sign up with</Text>
+                <EmailButton secondary>
+                    {localize('Create a free account')}
+                </EmailButton>
+                <Text color="grey">{localize('Or sign up with')}</Text>
                 <SocialWrapper>
                     <SocialButton
                         onClick={this.handleSocialSignup}
@@ -129,8 +132,10 @@ class Signup extends Component {
                     </SocialButton>
                 </SocialWrapper>
                 <LoginText>
-                    Already have an account?
-                    <LoginLink onClick={this.handleLogin}> Log in.</LoginLink>
+                    {localize('Already have an account?')}
+                    <LoginLink onClick={this.handleLogin}>
+                        {localize('Log in')}
+                    </LoginLink>
                 </LoginText>
             </Form>
         )

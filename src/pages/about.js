@@ -10,7 +10,6 @@ import OurLocationsWrapper from '../components/elements/our-locations'
 const About = () => (
     <Layout>
         <SEO title={localize('About us')} />
-        <h1>{localize('About us')}</h1>
         <NoImageHeroWrapper />
         <OurGoalsWrapper />
         <OurNumbersWrapper />

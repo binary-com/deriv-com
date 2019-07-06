@@ -5,20 +5,20 @@ import VisionSVG from 'images/svg/vision.svg'
 import FuseeSVG from 'images/svg/fusee.svg'
 import Card from './card.js'
 
-const Wrapper = styled.section`
+const OurGoalsWrapper = styled.section`
     width: 100%;
     background-image: linear-gradient(to bottom, #e8e8e8, var(--color-white));
 `
-const OurGoals = styled(Container)`
+const OurGoalsContainer = styled(Container)`
     padding: 8rem 0;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
 `
 
-const OurGoalsWrapper = () => (
-    <Wrapper>
-        <OurGoals>
+const OurGoals = () => (
+    <OurGoalsWrapper>
+        <OurGoalsContainer>
             <Card
                 Icon={VisionSVG}
                 title="Our vision"
@@ -35,7 +35,7 @@ const OurGoalsWrapper = () => (
                 the utmost convenience."
                 lastCard
             />
-        </OurGoals>
-    </Wrapper>
+        </OurGoalsContainer>
+    </OurGoalsWrapper>
 )
-export default OurGoalsWrapper
+export default OurGoals

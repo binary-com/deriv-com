@@ -35,7 +35,7 @@ const CardWrapper = styled.article`
         margin: 1rem;
     }
 `
-
+// firstCard and lastCard are managing margins for first and last card
 const Card = ({ Icon, title, content, firstCard, lastCard }) => {
     return (
         <CardWrapper firstCard={firstCard} lastCard={lastCard}>

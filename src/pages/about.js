@@ -203,9 +203,6 @@ const Charts = styled.div`
         line-height: 1.5;
         color: #2a2a2a;
     }
-    g {
-        font-size: 1.4rem;
-    }
 `
 
 const OurNumbers = () => {

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import * as yup from 'yup'
-import { Formik } from 'formik'
 import Cookies from 'js-cookie'
 import Button from './button'
 import Input from './input'
@@ -77,14 +75,46 @@ const LoginLink = styled.a`
     cursor: pointer;
 `
 
-const signup_schema = yup.object().shape({
-    email: yup
-        .string()
-        .email('Invalid email address')
-        .required('Email is Required.'),
-})
+const validation_message = {
+    email: {
+        required: localize('Email is required'),
+        valid: localize('Invalid email address'),
+    },
+}
 
 class Signup extends Component {
+    state = {
+        email: '',
+        is_submitting: false,
+        error_msg: '',
+    }
+
+    handleInputChange = e => {
+        const { name, value } = e.target
+
+        this.setState({
+            [name]: value,
+        })
+        this.validateEmail()
+    }
+
+    validateEmail = () => {
+        const { email } = this.state
+        const required = email.length > 0
+        const valid = /[^@]+@[^.]+\..+/g.test(email)
+
+        if (!required) {
+            this.setState({
+                error_msg: validation_message.email.required,
+            })
+        }
+        if (!valid) {
+            this.setState({
+                error_msg: validation_message.email.valid,
+            })
+        }
+    }
+
     checkCountry = req => {
         const clients_country = State.getResponse(
             'website_status.clients_country',
@@ -123,22 +153,38 @@ class Signup extends Component {
             },
         }
     }
-    handleEmailSignup = email => {
+    handleEmailSignup = e => {
+        e.preventDefault()
+        this.setState({ is_submitting: true })
+
+        const { email } = this.state
+        this.validateEmail()
+
+        if (this.state.error_msg) {
+            this.setState({ is_submitting: false })
+            return
+        }
+
         const verify_email_req = this.getVerifyEmailRequest(email)
+
         if (this.checkCountry(verify_email_req)) {
             BinarySocketBase.send(verify_email_req)
                 .then(res => {
                     // eslint-disable-next-line no-console
                     console.log(res)
+                    this.setState({ is_submitting: false })
                     // show success image
                 })
                 .catch(err => {
                     // eslint-disable-next-line no-console
                     console.log(err)
+                    this.setState({ is_submitting: false })
                     // show error message
                 })
         } else {
             // this country is not eligible for signup
+
+            this.setState({ is_submitting: false })
         }
     }
 
@@ -152,91 +198,67 @@ class Signup extends Component {
         console.log('Hi login')
     }
 
-    // TODO: change formik to https://codepen.io/nathansebhastian/pen/pGoqOV basic form implementation
-
     render() {
         return (
-            <Formik
-                initialValues={{ email: '' }}
-                validationSchema={signup_schema}
-                onSubmit={(values, actions) => {
-                    this.handleEmailSignup(values.email)
-                    actions.setSubmitting(false)
-                }}
-            >
-                {({
-                    values,
-                    errors,
-                    touched,
-                    handleChange,
-                    handleBlur,
-                    handleSubmit,
-                }) => (
-                    <Form onSubmit={handleSubmit} noValidate>
-                        <Title as="h3">Sign up for free now!</Title>
-                        <InputGroup>
-                            <Input
-                                id="email"
-                                name="email"
-                                type="text"
-                                value={values.email}
-                                label={localize('Email')}
-                                placeholder={localize('example@mail.com')}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                required
-                            />
-                            {errors.email && touched.email && (
-                                <>
-                                    <ErrorMessages
-                                        lh="1.4"
-                                        align="left"
-                                        color="red-1"
-                                    >
-                                        {errors.email}
-                                    </ErrorMessages>
-                                    <StyledError />
-                                </>
-                            )}
-                        </InputGroup>
-                        <EmailButton type="submit" secondary>
-                            {localize('Create a free account')}
-                        </EmailButton>
-                        <Text color="grey">{localize('Or sign up with')}</Text>
-                        <SocialWrapper>
-                            <SocialButton
-                                onClick={this.handleSocialSignup}
-                                provider="google"
-                                id="google"
-                                type="button"
-                                secondary
-                            >
-                                <span>
-                                    <Google />
-                                </span>
-                            </SocialButton>
-                            <SocialButton
-                                onClick={this.handleSocialSignup}
-                                provider="facebook"
-                                id="facebook"
-                                type="button"
-                                secondary
-                            >
-                                <span>
-                                    <Facebook />
-                                </span>
-                            </SocialButton>
-                        </SocialWrapper>
-                        <LoginText>
-                            {localize('Already have an account?')}
-                            <LoginLink onClick={this.handleLogin}>
-                                {' '}
-                                {localize('Log in.')}
-                            </LoginLink>
-                        </LoginText>
-                    </Form>
-                )}
-            </Formik>
+            <Form onSubmit={this.handleEmailSignup} noValidate>
+                <Title as="h3">Sign up for free now!</Title>
+                <InputGroup>
+                    <Input
+                        id="email"
+                        name="email"
+                        type="text"
+                        value={this.state.email}
+                        label={localize('Email')}
+                        placeholder={localize('example@mail.com')}
+                        onChange={this.handleInputChange}
+                        onBlur={this.validateEmail}
+                        required
+                    />
+                    {this.state.error_msg && (
+                        <>
+                            <ErrorMessages lh="1.4" align="left" color="red-1">
+                                {this.state.error_msg}
+                            </ErrorMessages>
+                            <StyledError />
+                        </>
+                    )}
+                </InputGroup>
+                <EmailButton type="submit" secondary>
+                    {localize('Create a free account')}
+                </EmailButton>
+                <Text color="grey">{localize('Or sign up with')}</Text>
+                <SocialWrapper>
+                    <SocialButton
+                        onClick={this.handleSocialSignup}
+                        provider="google"
+                        id="google"
+                        type="button"
+                        secondary
+                    >
+                        <span>
+                            <Google />
+                        </span>
+                    </SocialButton>
+                    <SocialButton
+                        onClick={this.handleSocialSignup}
+                        provider="facebook"
+                        id="facebook"
+                        type="button"
+                        secondary
+                    >
+                        <span>
+                            <Facebook />
+                        </span>
+                    </SocialButton>
+                </SocialWrapper>
+                <LoginText>
+                    {localize('Already have an account?')}
+                    <LoginLink onClick={this.handleLogin}>
+                        {' '}
+                        {localize('Log in.')}
+                    </LoginLink>
+                </LoginText>
+            </Form>
         )
     }
 }

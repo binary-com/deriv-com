@@ -1,8 +1,10 @@
 const extend = require('extend')
-const moment = require('moment')
 
 const toISOFormat = date =>
-    date instanceof moment ? date.format('YYYY-MM-DD') : ''
+    date instanceof Date
+        ? `${date.getUTCFullYear()}-${date.getUTCMonth() +
+              1}-${date.getUTCDate()}`
+        : ''
 
 const hasWindow = () => typeof window !== 'undefined'
 

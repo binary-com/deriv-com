@@ -4,7 +4,6 @@ import { NetworkMonitorBase } from './src/common/websocket/network_base'
 import { BinarySocketBase } from './src/common/websocket/socket_base'
 import { toISOFormat } from './src/common/utility'
 import { LocalStore } from './src/common/storage'
-import moment from 'moment'
 import TrafficSource from './src/common/traffic-source'
 import isMobile from './src/common/os-detect'
 import './src/components/localization/config'
@@ -17,7 +16,7 @@ export const onInitialClientRender = () => {
         BinarySocketBase.wait('time').then(response => {
             LocalStore.set(
                 'date_first_contact',
-                toISOFormat(moment(response.time * 1000).utc()),
+                toISOFormat(new Date(response.time * 1000)),
             )
         })
     }

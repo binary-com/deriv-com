@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import { LocaleContext } from '../localization'
+import { LocaleContext, localize } from '../localization'
 import TradingImage from '../../images/common/practice.png'
 
 function SEO({ description, meta, title }) {
@@ -34,6 +34,21 @@ function SEO({ description, meta, title }) {
                 {
                     name: 'description',
                     content: metaDescription,
+                },
+                {
+                    name: 'keywords',
+                    content: localize(
+                        'binary options, forex, forex trading, online trading, financial trading, binary trading, index trading, trading indices, forex trades, trading commodities, binary options strategy, binary broker, binary bet, binary options trading platform, binary strategy, finance, investment, trading',
+                    ),
+                },
+                {
+                    name: 'viewport',
+                    content:
+                        'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+                },
+                {
+                    name: 'google',
+                    content: 'notranslate',
                 },
                 {
                     property: 'og:title',

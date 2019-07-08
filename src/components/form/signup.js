@@ -171,17 +171,19 @@ class Signup extends Component {
             },
         }
     }
+
     handleEmailSignup = e => {
         e.preventDefault()
         this.setState({ is_submitting: true })
-
-        const { email } = this.state
         this.validateEmail()
 
         if (this.state.error_msg) {
             this.setState({ is_submitting: false })
+
             return
         }
+
+        const { email } = this.state
         const verify_email_req = this.getVerifyEmailRequest(email)
 
         if (this.checkCountry(verify_email_req)) {
@@ -224,7 +226,7 @@ class Signup extends Component {
         return (
             <>
                 {!this.state.submit_status && (
-                    <Form onSubmit={this.handleEmailSignup} noValidate>
+                    <Form onSubmit={e => this.handleEmailSignup(e)} noValidate>
                         <Title as="h3" weight="normal">
                             Sign up for free now!
                         </Title>
@@ -263,7 +265,7 @@ class Signup extends Component {
                         <Text color="grey">{localize('Or sign up with')}</Text>
                         <SocialWrapper>
                             <SocialButton
-                                onClick={this.handleSocialSignup}
+                                onClick={e => this.handleSocialSignup(e)}
                                 provider="google"
                                 id="google"
                                 type="button"
@@ -274,7 +276,7 @@ class Signup extends Component {
                                 </span>
                             </SocialButton>
                             <SocialButton
-                                onClick={this.handleSocialSignup}
+                                onClick={e => this.handleSocialSignup(e)}
                                 provider="facebook"
                                 id="facebook"
                                 type="button"
@@ -287,7 +289,7 @@ class Signup extends Component {
                         </SocialWrapper>
                         <LoginText>
                             {localize('Already have an account?')}
-                            <LoginLink onClick={this.handleLogin}>
+                            <LoginLink onClick={() => this.handleLogin()}>
                                 {' '}
                                 {localize('Log in.')}
                             </LoginLink>

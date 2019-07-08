@@ -4,6 +4,8 @@ const moment = require('moment')
 const toISOFormat = date =>
     date instanceof moment ? date.format('YYYY-MM-DD') : ''
 
+const hasWindow = () => typeof window !== 'undefined'
+
 const isEmptyObject = obj => {
     let is_empty = true
     if (obj && obj instanceof Object) {
@@ -39,6 +41,7 @@ class PromiseClass {
 export {
     isEmptyObject,
     cloneObject,
+    hasWindow,
     getPropertyValue,
     PromiseClass,
     toISOFormat,

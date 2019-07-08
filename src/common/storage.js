@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { getPropertyValue, isEmptyObject } from './utility'
+import { getPropertyValue, isEmptyObject, hasWindow } from './utility'
 import { isProduction } from './websocket/config'
 
 const getObject = function(key) {
@@ -191,18 +191,20 @@ CookieStorage.prototype = {
 
 let SessionStore, LocalStore
 
-if (isStorageSupported(window.localStorage)) {
-    LocalStore = new Store(window.localStorage)
-}
-if (isStorageSupported(window.sessionStorage)) {
-    SessionStore = new Store(window.sessionStorage)
-}
+if (hasWindow()) {
+    if (isStorageSupported(window.localStorage)) {
+        LocalStore = new Store(window.localStorage)
+    }
+    if (isStorageSupported(window.sessionStorage)) {
+        SessionStore = new Store(window.sessionStorage)
+    }
 
-if (!LocalStore) {
-    LocalStore = new InScriptStore()
-}
-if (!SessionStore) {
-    SessionStore = new InScriptStore()
+    if (!LocalStore) {
+        LocalStore = new InScriptStore()
+    }
+    if (!SessionStore) {
+        SessionStore = new InScriptStore()
+    }
 }
 
 export { CookieStorage, isStorageSupported, LocalStore, SessionStore, State }

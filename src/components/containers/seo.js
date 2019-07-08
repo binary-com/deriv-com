@@ -5,7 +5,26 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import TradingImage from '../../images/common/practice.png'
 
-function SEO({ description, meta, title }) {
+const AntiClickjack = () => (
+    <>
+        <style id="antiClickjack">{'body{display:none !important;}'}</style>
+        <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+                __html: `
+                if (self === top) {
+                    var antiClickjack = document.getElementById("antiClickjack");
+                    antiClickjack.parentNode.removeChild(antiClickjack);
+                } else {
+                    top.location = self.location;
+                }
+            `,
+            }}
+        />
+    </>
+)
+
+const SEO = ({ description, meta, title }) => {
     const { site } = useStaticQuery(
         graphql`
             query {
@@ -99,7 +118,9 @@ function SEO({ description, meta, title }) {
                     content: metaDescription,
                 },
             ].concat(meta)}
-        />
+        >
+            <AntiClickjack />
+        </Helmet>
     )
 }
 

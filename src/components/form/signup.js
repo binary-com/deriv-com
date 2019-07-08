@@ -303,7 +303,7 @@ class Signup extends Component {
                             img_name="open-email.png"
                             alt="something"
                             width="80%"
-                            my="3rem"
+                            my="1.6rem"
                         />
                         <Text align="center">
                             {localize(

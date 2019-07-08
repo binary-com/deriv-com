@@ -13,6 +13,7 @@ import TrafficSource from 'common/traffic-source'
 import { State, LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Image from '../elements/image'
+import Login from 'common/login'
 
 const Title = styled(Header)`
     margin: 10rem 0 3rem 0;
@@ -205,19 +206,18 @@ class Signup extends Component {
                 })
         } else {
             // this country is not eligible for signup
-
             this.setState({ is_submitting: false, submit_status: 'invalid' })
         }
     }
 
     handleSocialSignup = e => {
-        // eslint-disable-next-line no-console
-        console.log(e.target.id)
+        e.preventDefault()
+        Login.initOneAll(e.target.id)
     }
 
-    handleLogin = () => {
-        // eslint-disable-next-line no-console
-        console.log('Hi login')
+    handleLogin = e => {
+        e.preventDefault()
+        Login.redirectToLogin()
     }
 
     render() {

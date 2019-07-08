@@ -39,12 +39,12 @@ const SEO = ({ description, meta, title }) => {
         `,
     )
     const metaDescription = description || site.siteMetadata.description
-    const { locale } = React.useContext(LocaleContext)
+    const { locale: lang } = React.useContext(LocaleContext)
 
     return (
         <Helmet
             htmlAttributes={{
-                locale,
+                lang,
             }}
             title={title}
             titleTemplate={`%s | ${site.siteMetadata.title}`}
@@ -62,8 +62,7 @@ const SEO = ({ description, meta, title }) => {
                 },
                 {
                     name: 'viewport',
-                    content:
-                        'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+                    content: 'width=device-width, initial-scale=1.0',
                 },
                 {
                     name: 'google',
@@ -87,7 +86,7 @@ const SEO = ({ description, meta, title }) => {
                 },
                 {
                     property: 'og:locale',
-                    content: locale,
+                    content: lang,
                 },
                 {
                     property: 'og:image',

@@ -12,6 +12,7 @@ import { localize } from '../localization'
 import TrafficSource from 'common/traffic-source'
 import { State, LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
+import Image from '../elements/image'
 
 const Title = styled(Header)`
     font-weight: bold;
@@ -22,6 +23,11 @@ const Title = styled(Header)`
 const Form = styled.form`
     max-width: 90%;
 `
+const SuccessWrapper = styled.div`
+    align-items: center;
+    justify-content: center;
+    max-width: 26.5rem;
+`
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
@@ -31,6 +37,10 @@ const EmailButton = styled(Button)`
     width: 100%;
     font-size: var(--text-size-s);
     margin-bottom: 4rem;
+`
+
+const StyledImage = styled(Image)`
+    margin: 4rem 0;
 `
 
 const StyledError = styled(ErrorIcon)`
@@ -87,6 +97,7 @@ class Signup extends Component {
         email: '',
         is_submitting: false,
         error_msg: '',
+        submit_status: '',
     }
 
     handleInputChange = e => {
@@ -102,7 +113,10 @@ class Signup extends Component {
         const { email } = this.state
         const required = email.length > 0
         const valid = /[^@]+@[^.]+\..+/g.test(email)
-
+        if (required && valid) {
+            this.setState({ error_msg: null })
+            return
+        }
         if (!required) {
             this.setState({
                 error_msg: validation_message.email.required,
@@ -164,7 +178,6 @@ class Signup extends Component {
             this.setState({ is_submitting: false })
             return
         }
-
         const verify_email_req = this.getVerifyEmailRequest(email)
 
         if (this.checkCountry(verify_email_req)) {
@@ -172,19 +185,19 @@ class Signup extends Component {
                 .then(res => {
                     // eslint-disable-next-line no-console
                     console.log(res)
-                    this.setState({ is_submitting: false })
+                    this.setState({ is_submitting: false, status: 'success' })
                     // show success image
                 })
                 .catch(err => {
                     // eslint-disable-next-line no-console
                     console.log(err)
-                    this.setState({ is_submitting: false })
+                    this.setState({ is_submitting: false, status: 'error' })
                     // show error message
                 })
         } else {
             // this country is not eligible for signup
 
-            this.setState({ is_submitting: false })
+            this.setState({ is_submitting: false, status: 'invalid' })
         }
     }
 
@@ -200,65 +213,94 @@ class Signup extends Component {
 
     render() {
         return (
-            <Form onSubmit={this.handleEmailSignup} noValidate>
-                <Title as="h3">Sign up for free now!</Title>
-                <InputGroup>
-                    <Input
-                        id="email"
-                        name="email"
-                        type="text"
-                        value={this.state.email}
-                        label={localize('Email')}
-                        placeholder={localize('example@mail.com')}
-                        onChange={this.handleInputChange}
-                        onBlur={this.validateEmail}
-                        required
-                    />
-                    {this.state.error_msg && (
-                        <>
-                            <ErrorMessages lh="1.4" align="left" color="red-1">
-                                {this.state.error_msg}
-                            </ErrorMessages>
-                            <StyledError />
-                        </>
-                    )}
-                </InputGroup>
-                <EmailButton type="submit" secondary>
-                    {localize('Create a free account')}
-                </EmailButton>
-                <Text color="grey">{localize('Or sign up with')}</Text>
-                <SocialWrapper>
-                    <SocialButton
-                        onClick={this.handleSocialSignup}
-                        provider="google"
-                        id="google"
-                        type="button"
-                        secondary
-                    >
-                        <span>
-                            <Google />
-                        </span>
-                    </SocialButton>
-                    <SocialButton
-                        onClick={this.handleSocialSignup}
-                        provider="facebook"
-                        id="facebook"
-                        type="button"
-                        secondary
-                    >
-                        <span>
-                            <Facebook />
-                        </span>
-                    </SocialButton>
-                </SocialWrapper>
-                <LoginText>
-                    {localize('Already have an account?')}
-                    <LoginLink onClick={this.handleLogin}>
-                        {' '}
-                        {localize('Log in.')}
-                    </LoginLink>
-                </LoginText>
-            </Form>
+            <>
+                {!this.state.status && (
+                    <Form onSubmit={this.handleEmailSignup} noValidate>
+                        <Title as="h3">Sign up for free now!</Title>
+                        <InputGroup>
+                            <Input
+                                id="email"
+                                name="email"
+                                type="text"
+                                value={this.state.email}
+                                label={localize('Email')}
+                                placeholder={localize('example@mail.com')}
+                                onChange={this.handleInputChange}
+                                onBlur={this.validateEmail}
+                                required
+                            />
+                            {this.state.error_msg && (
+                                <>
+                                    <ErrorMessages
+                                        lh="1.4"
+                                        align="left"
+                                        color="red-1"
+                                    >
+                                        {this.state.error_msg}
+                                    </ErrorMessages>
+                                    <StyledError />
+                                </>
+                            )}
+                        </InputGroup>
+                        <EmailButton
+                            type="submit"
+                            secondary
+                            disabled={this.state.is_submitting}
+                        >
+                            {localize('Create a free account')}
+                        </EmailButton>
+                        <Text color="grey">{localize('Or sign up with')}</Text>
+                        <SocialWrapper>
+                            <SocialButton
+                                onClick={this.handleSocialSignup}
+                                provider="google"
+                                id="google"
+                                type="button"
+                                secondary
+                            >
+                                <span>
+                                    <Google />
+                                </span>
+                            </SocialButton>
+                            <SocialButton
+                                onClick={this.handleSocialSignup}
+                                provider="facebook"
+                                id="facebook"
+                                type="button"
+                                secondary
+                            >
+                                <span>
+                                    <Facebook />
+                                </span>
+                            </SocialButton>
+                        </SocialWrapper>
+                        <LoginText>
+                            {localize('Already have an account?')}
+                            <LoginLink onClick={this.handleLogin}>
+                                {' '}
+                                {localize('Log in.')}
+                            </LoginLink>
+                        </LoginText>
+                    </Form>
+                )}
+                {this.state.status === 'success' && (
+                    <SuccessWrapper>
+                        <Header as="h3" align="center">
+                            {localize('Check your email')}
+                        </Header>
+                        <StyledImage
+                            img_name="open-email.png"
+                            alt="something"
+                            width="100%"
+                        />
+                        <Text align="center">
+                            {localize(
+                                'Please check your email and click on the link provided to verify your email address.',
+                            )}
+                        </Text>
+                    </SuccessWrapper>
+                )}
+            </>
         )
     }
 }

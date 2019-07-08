@@ -19,6 +19,52 @@ const Variables = css`
         --text-size-l: 3.2rem;
         --text-size-xl: 4.8rem;
         --text-size-xxl: 6.4rem;
+
+        /* keyframes */
+        @keyframes rotates {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes sweep {
+            0% {
+                clip-path: polygon(
+                    0% 0%,
+                    0% 0%,
+                    0% 0%,
+                    50% 50%,
+                    0% 0%,
+                    0% 0%,
+                    0% 0%
+                );
+            }
+            50% {
+                clip-path: polygon(
+                    0% 0%,
+                    0% 100%,
+                    0% 100%,
+                    50% 50%,
+                    100% 0%,
+                    100% 0%,
+                    0% 0%
+                );
+            }
+            100% {
+                clip-path: polygon(
+                    0% 0%,
+                    0% 100%,
+                    100% 100%,
+                    50% 50%,
+                    100% 100%,
+                    100% 0%,
+                    0% 0%
+                );
+            }
+        }
     }
 `
 

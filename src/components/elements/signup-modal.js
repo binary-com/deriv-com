@@ -7,10 +7,14 @@ import { localize } from '../localization'
 
 const SignupWrapper = styled.article`
     background-color: var(--color-grey-1);
-    width: 50vw;
     max-width: 80rem;
+    height: 57.3rem;
     border-radius: 6px;
     overflow: auto;
+`
+
+const ModalRow = styled(Row)`
+    height: 100%;
 `
 
 const Content = styled.div`
@@ -37,7 +41,7 @@ const CaptionDesc = styled(Text)`
 
 const SignupModal = () => (
     <SignupWrapper>
-        <Row>
+        <ModalRow>
             <Content inverse>
                 <HeaderWrapper
                     as="h4"
@@ -56,7 +60,7 @@ const SignupModal = () => (
             <Content>
                 <Signup />
             </Content>
-        </Row>
+        </ModalRow>
     </SignupWrapper>
 )
 

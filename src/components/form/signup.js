@@ -6,7 +6,7 @@ import Input from './input'
 import Row from '../containers/row'
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
-import { Header, Text } from '../elements/topography'
+import { Header, Text } from '../elements/typography'
 import ErrorIcon from 'images/svg/error-icon.svg'
 import { localize } from '../localization'
 import TrafficSource from 'common/traffic-source'
@@ -15,13 +15,10 @@ import { BinarySocketBase } from 'common/websocket/socket_base'
 import Image from '../elements/image'
 
 const Title = styled(Header)`
-    font-weight: bold;
-    color: var(--color-black);
-    text-align: center;
     margin: 10rem 0 3rem 0;
 `
 const Form = styled.form`
-    max-width: 90%;
+    width: 80%;
 `
 const SuccessWrapper = styled.div`
     align-items: center;
@@ -47,6 +44,8 @@ const StyledError = styled(ErrorIcon)`
     position: absolute;
     right: 0.8rem;
     top: 1.2rem;
+    height: 1.6rem;
+    width: 1.6rem;
 `
 
 const ErrorMessages = styled(Text)`
@@ -56,12 +55,17 @@ const ErrorMessages = styled(Text)`
 const SocialButton = styled(Button)`
     box-shadow: none;
     flex: inherit !important;
-    width: 49%;
+    width: 48%;
     background: ${props => {
         if (props.provider === 'google') return 'var(--color-white)'
         if (props.provider === 'facebook') return 'var(--color-blue)'
     }};
     padding: 1rem;
+
+    svg {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
 `
 const MutedText = styled(Text)`
     text-align: left;
@@ -216,7 +220,9 @@ class Signup extends Component {
             <>
                 {!this.state.status && (
                     <Form onSubmit={this.handleEmailSignup} noValidate>
-                        <Title as="h3">Sign up for free now!</Title>
+                        <Title as="h3" weight="normal">
+                            Sign up for free now!
+                        </Title>
                         <InputGroup>
                             <Input
                                 id="email"

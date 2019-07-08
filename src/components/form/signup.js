@@ -24,6 +24,9 @@ const SuccessWrapper = styled.div`
     align-items: center;
     justify-content: center;
     max-width: 26.5rem;
+    height: 57.3rem;
+    display: flex;
+    flex-direction: column;
 `
 const InputGroup = styled.div`
     position: relative;
@@ -34,10 +37,6 @@ const EmailButton = styled(Button)`
     width: 100%;
     font-size: var(--text-size-s);
     margin-bottom: 4rem;
-`
-
-const StyledImage = styled(Image)`
-    margin: 4rem 0;
 `
 
 const StyledError = styled(ErrorIcon)`
@@ -189,19 +188,25 @@ class Signup extends Component {
                 .then(res => {
                     // eslint-disable-next-line no-console
                     console.log(res)
-                    this.setState({ is_submitting: false, status: 'success' })
+                    this.setState({
+                        is_submitting: false,
+                        submit_status: 'success',
+                    })
                     // show success image
                 })
                 .catch(err => {
                     // eslint-disable-next-line no-console
                     console.log(err)
-                    this.setState({ is_submitting: false, status: 'error' })
+                    this.setState({
+                        is_submitting: false,
+                        submit_status: 'error',
+                    })
                     // show error message
                 })
         } else {
             // this country is not eligible for signup
 
-            this.setState({ is_submitting: false, status: 'invalid' })
+            this.setState({ is_submitting: false, submit_status: 'invalid' })
         }
     }
 
@@ -218,7 +223,7 @@ class Signup extends Component {
     render() {
         return (
             <>
-                {!this.state.status && (
+                {!this.state.submit_status && (
                     <Form onSubmit={this.handleEmailSignup} noValidate>
                         <Title as="h3" weight="normal">
                             Sign up for free now!
@@ -289,15 +294,16 @@ class Signup extends Component {
                         </LoginText>
                     </Form>
                 )}
-                {this.state.status === 'success' && (
+                {this.state.submit_status === 'success' && (
                     <SuccessWrapper>
-                        <Header as="h3" align="center">
+                        <Header as="h3" align="center" weight="normal">
                             {localize('Check your email')}
                         </Header>
-                        <StyledImage
+                        <Image
                             img_name="open-email.png"
                             alt="something"
-                            width="100%"
+                            width="80%"
+                            my="3rem"
                         />
                         <Text align="center">
                             {localize(

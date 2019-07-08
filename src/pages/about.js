@@ -6,6 +6,7 @@ import { localize, WithIntl } from '../components/localization'
 import Hero from '../components/elements/hero.js'
 import Container from '../components/containers/container.js'
 import Card from '../components/elements/card.js'
+import { Header } from '../components/elements/topography.js'
 
 import DubaiSVG from 'images/svg/dubai.svg'
 import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
@@ -21,31 +22,21 @@ import FuseeSVG from 'images/svg/fusee.svg'
 
 const OurLocationsWrapper = styled.div`
     width: 100%;
-    background-color: --color-white;
+    background-color: var(--color-white);
     text-align: center;
     padding: 8rem 0;
 
-    h1 {
-        height: 60px;
-        font-size: 48px;
-        font-weight: bold;
-        line-height: 1.25;
-        color: #2a2a2a;
-    }
     button {
         margin-top: 4rem;
-        width: 30rem;
-        height: 4.8rem;
-        font-size: 16px;
+        padding: 1.2rem 2.5rem;
     }
 `
 const OurLocationsContainer = styled(Container)`
-    margin: 0 auto;
     padding: 4rem 0 0 0;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
-    grid-column-gap: 20px;
+    grid-column-gap: 2rem;
     grid-template-areas:
         'kll kll kll kll dl dl dl dl pl pl pl pl'
         '. . ml ml ml ml ll ll ll ll . .';
@@ -54,68 +45,70 @@ const OurLocationsContainer = styled(Container)`
 const Location = styled.div`
     grid-area: ${props => props.location};
 
-    h3 {
+    p {
         margin-top: 0.5rem;
-        font-size: 20px;
+        font-size: 2rem;
         line-height: 1.5;
-        color: #2a2a2a;
+        color: var(--color-black-2);
     }
 `
 
 const OurLocations = () => {
     return (
         <OurLocationsWrapper>
-            <h1>Our Locations</h1>
+            <Header as="h2" align="center" color='black-2'>
+                {localize('Our Locations')}
+            </Header>
             <OurLocationsContainer>
                 <Location location="kll">
                     <KualaLumpurSVG />
-                    <h3>
-                        Kuala Lumpur,
+                    <p>
+                        {localize('Kuala Lumpur')},
                         <br />
-                        Malaysia
-                    </h3>
+                        {localize('Malaysia')}
+                    </p>
                 </Location>
                 <Location location="dl">
                     <DubaiSVG />
-                    <h3>Dubai</h3>
+                    <p>{localize('Dubai')}</p>
                 </Location>
                 <Location location="pl">
                     <ParaguaySVG />
-                    <h3>
-                        Asunción,
+                    <p>
+                        {localize('Asunción')},
                         <br />
-                        Paraguay
-                    </h3>
+                        {localize('Paraguay')}
+                    </p>
                 </Location>
                 <Location location="ml">
                     <MaltaSVG />
-                    <h3>
-                        Birkirkara,
+                    <p>
+                        {localize('Birkirkara')},
                         <br />
-                        Malta
-                    </h3>
+                        {localize('Malta')}
+                    </p>
                 </Location>
                 <Location location="ll">
                     <LabuanSVG />
-                    <h3>
-                        Labuan,
+                    <p>
+                        {localize('Labuan')},
                         <br />
-                        Malaysia
-                    </h3>
+                        {localize('Malaysia')}
+                    </p>
                 </Location>
             </OurLocationsContainer>
-            <Button secondary>Start with free practice account</Button>
+            <Button secondary>
+                {localize('Start with free practice account')}
+            </Button>
         </OurLocationsWrapper>
     )
 }
 
-const OurNumbersWrapper = styled.div`
+const OurNumbersWrapper = styled.section`
     width: 100%;
     background-color: --color-white;
 `
 const OurNumbersContainer = styled(Container)`
-    margin: 0 auto;
-    display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 8rem 0;
@@ -129,32 +122,18 @@ const OurNumbersContainer = styled(Container)`
         font-weight: bold;
         line-height: 1.5;
         text-align: right;
-        color: #85acb0;
+        color: var(--color-green);
     }
-    h2 {
-        height: 60px;
-        font-size: 48px;
-        font-weight: bold;
-        line-height: 1.25;
-        text-align: center;
-        color: #2a2a2a;
-    }
-    p {
-        height: 74px;
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 1.25;
-        text-align: center;
-        color: #333333;
+    h4 {
         margin-top: 0.8rem;
     }
     span {
         margin-top: 2rem;
         height: 30px;
-        font-size: 20px;
+        font-size: 2rem;
         line-height: 1.5;
         text-align: right;
-        color: #2a2a2a;
+        color: var(--color-black-2);
     }
 `
 
@@ -166,14 +145,15 @@ const ChartContainer = styled.div`
     flex-wrap: wrap;
     margin-top: 4rem;
 
-    span {
+    p {
         width: 100%;
         height: 40px;
         font-size: 32px;
         font-weight: bold;
         line-height: 1.25;
         text-align: right;
-        color: #2a2a2a;
+        color: var(--color-black-2);
+        margin-top: 2rem;
     }
 
     @media (max-width: 981px) {
@@ -192,16 +172,14 @@ const Charts = styled.div`
 
     h3 {
         margin-top: 2.4rem;
-        font-size: 32px;
-        font-weight: bold;
-        color: #85acb0;
-        line-height: 1.5;
     }
-    span {
+    p {
         height: 30px;
-        font-size: 20px;
+        font-size: 2rem;
         line-height: 1.5;
-        color: #2a2a2a;
+        color: var(--color-black-2);
+        margin-top: 0;
+        font-weight: normal;
     }
 `
 
@@ -209,30 +187,30 @@ const OurNumbers = () => {
     return (
         <OurNumbersWrapper>
             <OurNumbersContainer>
-                <h2>Our Numbers</h2>
-                <p>
-                    Our powerful platform and intuitive tools make it easy for
-                    users to make profitable trading decisions. We’ll let the
-                    numbers do the talking.
-                </p>
+                <Header as='h2' color='black-2' align='center'>{localize('Our Numbers')}</Header>
+                <Header as='h4' color='black-3' align='center'>
+                    {localize(
+                        'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
+                    )}
+                </Header>
                 <ChartContainer>
                     <Charts>
                         <TradingAccountsOpenedSVG />
-                        <h3>704,293</h3>
-                        <span>Trading accounts opened</span>
+                        <Header as='h3' color='green' align='right' lh='1.5'>704,293</Header>
+                        <p>{localize('Trading accounts opened')}</p>
                     </Charts>
                     <Charts>
                         <TradeLastMonthSVG />
-                        <h3>19,514,921</h3>
-                        <span>Trades last month</span>
+                        <Header as='h3' color='green' align='right' lh='1.5'>19,514,921</Header>
+                        <p>{localize('Trades last month')}</p>
                     </Charts>
                     <Charts>
                         <TotalTradeTurnoverSVG />
-                        <h3>USD 6,049,936,768</h3>
-                        <span>Total trade turnover</span>
+                        <Header as='h3' color='green' align='right' lh='1.5'>USD 6,049,936,768</Header>
+                        <p>{localize('Total trade turnover')}</p>
                     </Charts>
                     <h1>USD 13,499,439</h1>
-                    <span>Withdrawn last month</span>
+                    <p>{localize('Withdrawn last month')}</p>
                 </ChartContainer>
             </OurNumbersContainer>
         </OurNumbersWrapper>
@@ -241,13 +219,20 @@ const OurNumbers = () => {
 
 const OurGoalsWrapper = styled.section`
     width: 100%;
-    background-image: linear-gradient(to bottom, #e8e8e8, var(--color-white));
+    background-image: linear-gradient(to bottom, var(--color-grey-2), var(--color-white));
 `
 const OurGoalsContainer = styled(Container)`
     padding: 8rem 0;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+
+    article:first-child {
+        margin-left: 0;
+    }
+    article:last-child {
+        margin-right: 0;
+    }
 `
 
 const OurGoals = () => (
@@ -255,19 +240,17 @@ const OurGoals = () => (
         <OurGoalsContainer>
             <Card
                 Icon={VisionSVG}
-                title="Our vision"
-                content="Our vision is to be the world’s most customer-centric,
-                        online trading company; a place where traders come to
-                        find and discover any derivative they want to trade."
-                firstCard
+                title={localize('Our vision')}
+                content={localize(
+                    'Our vision is to be the world’s most customer-centric, online trading company; a place where traders come to find and discover any derivative they want to trade.',
+                )}
             />
             <Card
                 Icon={FuseeSVG}
-                title="Our mission"
-                content="Our mission is to offer traders competitive prices along
-                with the broadest selection of derivatives to trade with
-                the utmost convenience."
-                lastCard
+                title={localize('Our mission')}
+                content={localize(
+                    'Our mission is to offer traders competitive prices along with the broadest selection of derivatives to trade with the utmost convenience.',
+                )}
             />
         </OurGoalsContainer>
     </OurGoalsWrapper>
@@ -277,9 +260,11 @@ const About = () => (
     <Layout>
         <SEO title={localize('About us')} />
         <Hero
-            header1="Go ahead,"
-            header2="experience it for yourself."
-            paragraph="Deriv is a new trading platform created by Binary Group Ltd., a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions."
+            header_part_1={localize('Go ahead,')}
+            header_part_2={localize('experience it for yourself.')}
+            paragraph={localize(
+                'Deriv is a new trading platform created by Binary Group Ltd., a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+            )}
         />
         <OurGoals />
         <OurNumbers />

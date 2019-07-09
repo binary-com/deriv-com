@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
-
-import SEO from 'components/containers/seo'
-import Container from 'components/containers/container'
 import queryString from 'query-string'
 
 const Redirect = ({ location }) => {
     useEffect(() => {
         const config = queryString.parseUrl(location.href)
-        const action = config.query.action
-        const token = config.query.code
+        const { action, code: token } = config.query
         const string_params = queryString.stringify(config.query)
 
         const actions_map = {
@@ -25,12 +21,7 @@ const Redirect = ({ location }) => {
         }
     }, [])
 
-    return (
-        <Container>
-            <SEO title="About" />
-            <h1>Hi Redirect</h1>
-        </Container>
-    )
+    return <></>
 }
 
 Redirect.propTypes = {

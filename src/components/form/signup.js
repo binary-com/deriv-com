@@ -89,13 +89,6 @@ const LoginLink = styled.a`
     cursor: pointer;
 `
 
-const validation_message = {
-    email: {
-        required: localize('Email is required'),
-        valid: localize('Invalid email address'),
-    },
-}
-
 class Signup extends Component {
     state = {
         email: '',
@@ -123,12 +116,12 @@ class Signup extends Component {
         }
         if (!required) {
             this.setState({
-                error_msg: validation_message.email.required,
+                error_msg: localize('Email is required'),
             })
         }
         if (!valid) {
             this.setState({
-                error_msg: validation_message.email.valid,
+                error_msg: localize('Invalid email address'),
             })
         }
     }

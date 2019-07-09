@@ -6,7 +6,6 @@ import Layout from '../components/layout/layout'
 import Modal from '../components/elements/modal'
 import SignupModal from '../components/elements/signup-modal'
 import { localize, WithIntl } from '../components/localization'
-// import Image from 'components/elements/image'
 
 class Home extends Component {
     state = {
@@ -34,11 +33,6 @@ class Home extends Component {
                     <Button onClick={this.toggleModal} secondary>
                         secondary button example
                     </Button>
-                    {/* <Image
-                        img_name="open-email.png"
-                        alt="something"
-                        width="300px"
-                    /> */}
                 </div>
                 <Modal
                     toggle={this.toggleModal}

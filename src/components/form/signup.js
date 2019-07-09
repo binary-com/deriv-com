@@ -115,11 +115,11 @@ class Signup extends Component {
 
     validateEmail = () => {
         const { email } = this.state
-        const required = email.length > 0
+        const required = email.length
         const valid = /[^@]+@[^.]+\..+/g.test(email)
+
         if (required && valid) {
-            this.setState({ error_msg: null })
-            return
+            return this.setState({ error_msg: null })
         }
         if (!required) {
             this.setState({
@@ -137,11 +137,9 @@ class Signup extends Component {
         const clients_country = State.getResponse(
             'website_status.clients_country',
         )
+        const is_binary_email = /@binary\.com$/.test(req.verify_email)
 
-        if (
-            clients_country !== 'my' ||
-            /@binary\.com$/.test(req.verify_email)
-        ) {
+        if (clients_country !== 'my' || is_binary_email) {
             return true
         }
 
@@ -178,36 +176,20 @@ class Signup extends Component {
         this.validateEmail()
 
         if (this.state.error_msg) {
-            this.setState({ is_submitting: false })
-
-            return
+            return this.setState({ is_submitting: false })
         }
 
         const { email } = this.state
         const verify_email_req = this.getVerifyEmailRequest(email)
 
         if (this.checkCountry(verify_email_req)) {
-            BinarySocketBase.send(verify_email_req)
-                .then(res => {
-                    // eslint-disable-next-line no-console
-                    console.log(res)
-                    this.setState({
-                        is_submitting: false,
-                        submit_status: 'success',
-                    })
-                    // show success image
+            BinarySocketBase.send(verify_email_req).then(() => {
+                this.setState({
+                    is_submitting: false,
+                    submit_status: 'success',
                 })
-                .catch(err => {
-                    // eslint-disable-next-line no-console
-                    console.log(err)
-                    this.setState({
-                        is_submitting: false,
-                        submit_status: 'error',
-                    })
-                    // show error message
-                })
+            })
         } else {
-            // this country is not eligible for signup
             this.setState({ is_submitting: false, submit_status: 'invalid' })
         }
     }
@@ -226,9 +208,9 @@ class Signup extends Component {
         return (
             <>
                 {!this.state.submit_status && (
-                    <Form onSubmit={e => this.handleEmailSignup(e)} noValidate>
+                    <Form onSubmit={this.handleEmailSignup} noValidate>
                         <Title as="h3" weight="normal">
-                            Sign up for free now!
+                            {localize('Sign up for free now!')}
                         </Title>
                         <InputGroup>
                             <Input
@@ -237,9 +219,10 @@ class Signup extends Component {
                                 type="text"
                                 value={this.state.email}
                                 label={localize('Email')}
-                                placeholder={localize('example@mail.com')}
+                                placeholder={'example@mail.com'}
                                 onChange={this.handleInputChange}
                                 onBlur={this.validateEmail}
+                                autofocus
                                 required
                             />
                             {this.state.error_msg && (
@@ -265,7 +248,7 @@ class Signup extends Component {
                         <Text color="grey">{localize('Or sign up with')}</Text>
                         <SocialWrapper>
                             <SocialButton
-                                onClick={e => this.handleSocialSignup(e)}
+                                onClick={this.handleSocialSignup}
                                 provider="google"
                                 id="google"
                                 type="button"
@@ -276,7 +259,7 @@ class Signup extends Component {
                                 </span>
                             </SocialButton>
                             <SocialButton
-                                onClick={e => this.handleSocialSignup(e)}
+                                onClick={this.handleSocialSignup}
                                 provider="facebook"
                                 id="facebook"
                                 type="button"
@@ -289,7 +272,7 @@ class Signup extends Component {
                         </SocialWrapper>
                         <LoginText>
                             {localize('Already have an account?')}
-                            <LoginLink onClick={() => this.handleLogin()}>
+                            <LoginLink onClick={this.handleLogin}>
                                 {' '}
                                 {localize('Log in.')}
                             </LoginLink>
@@ -303,7 +286,7 @@ class Signup extends Component {
                         </Header>
                         <Image
                             img_name="open-email.png"
-                            alt="something"
+                            alt="Email image"
                             width="80%"
                             my="1.6rem"
                         />

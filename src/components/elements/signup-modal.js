@@ -32,7 +32,7 @@ const Content = styled.div`
 `
 
 const HeaderWrapper = styled(Header)`
-    max-width: 80%;
+    max-width: 75%;
 `
 const CaptionDesc = styled(Text)`
     padding: var(--text-size-s);

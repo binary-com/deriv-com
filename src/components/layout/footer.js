@@ -1,19 +1,18 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { localize } from '../localization'
+import { LocalizedLink, localize } from '../localization'
 import styled from 'styled-components'
 import device from 'themes/device'
 import Container from '../containers/container'
-import Logo from '../../images/svg/logo.svg'
-import YouTube from "../../images/svg/youtube.svg";
-import Twitter from "../../images/svg/twitter.svg";
-import Telegram from "../../images/svg/telegram.svg";
-import Reddit from "../../images/svg/reddit.svg";
-import Facebook from "../../images/svg/social-facebook.svg";
-import Labuan from "../../images/svg/footer-labuan.svg";
-import FSC from "../../images/svg/fsc.svg";
-import Vanuatu from "../../images/svg/footer-vanuatu.svg";
-import Warning from "../../images/svg/warning.svg";
+import Logo from 'images/svg/logo.svg'
+import YouTube from 'images/svg/youtube.svg';
+import Twitter from 'images/svg/twitter.svg';
+import Telegram from 'images/svg/telegram.svg';
+import Reddit from 'images/svg/reddit.svg';
+import Facebook from 'images/svg/social-facebook.svg';
+import Labuan from 'images/svg/footer-labuan.svg';
+import FSC from 'images/svg/fsc.svg';
+import Vanuatu from 'images/svg/footer-vanuatu.svg';
+import Warning from 'images/svg/warning.svg';
 
 const FooterNavGrid = styled.div`
     display: grid;
@@ -93,7 +92,7 @@ const RiskNote = styled.section`
         margin-bottom: 1.1rem;
     }
 `
-const StyledLink = styled(props => <Link {...props} />)`
+const StyledLink = styled(props => <LocalizedLink {...props} />)`
     display: block;
     color: var(--color-red);
     text-decoration: none;
@@ -192,7 +191,7 @@ const Footer = () => (
                                 </StyledLink>
                             </div>
                             <Social>
-                                <p>{localize('folow us on')}</p>
+                                <p>{localize('Folow us on')}</p>
                                 <YouTube />
                                 <Twitter />
                                 <Telegram />

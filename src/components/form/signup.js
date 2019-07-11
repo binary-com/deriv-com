@@ -15,6 +15,7 @@ import { BinarySocketBase } from 'common/websocket/socket_base'
 import Image from '../elements/image'
 import Login from 'common/login'
 import Wrapper from '../containers/wrapper'
+import Container from '../containers/container'
 
 const Title = styled(Header)`
     margin: 10rem 0 3rem 0;
@@ -22,12 +23,10 @@ const Title = styled(Header)`
 const Form = styled.form`
     width: 80%;
 `
-const SuccessWrapper = styled.div`
-    align-items: center;
+const SuccessWrapper = styled(Container)`
     justify-content: center;
     max-width: 26.5rem;
     height: 57.3rem;
-    display: flex;
     flex-direction: column;
 `
 const InputGroup = styled.div`

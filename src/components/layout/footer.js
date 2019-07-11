@@ -191,7 +191,7 @@ const Footer = () => (
                                 </StyledLink>
                             </div>
                             <Social>
-                                <p>{localize('Folow us on')}</p>
+                                <p>{localize('Follow us on')}</p>
                                 <YouTube />
                                 <Twitter />
                                 <Telegram />

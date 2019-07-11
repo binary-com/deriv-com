@@ -3,7 +3,7 @@ import { LocalizedLink, localize } from '../localization'
 import styled from 'styled-components'
 import device from 'themes/device'
 import Container from '../containers/container'
-import Logo from 'images/svg/logo.svg'
+import Logo from 'images/svg/deriv.svg'
 import YouTube from 'images/svg/youtube.svg';
 import Twitter from 'images/svg/twitter.svg';
 import Telegram from 'images/svg/telegram.svg';

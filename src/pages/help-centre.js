@@ -13,12 +13,6 @@ const SearchIcon = styled(SearchSVG)`
     top: 3px;
 `
 
-// TODO: add this as prop?
-const SearchContainer = styled(Container)`
-    flex-direction: column;
-    align-items: normal;
-`
-
 const SearchForm = styled.form`
     position: relative;
     padding-left: 64px;
@@ -42,7 +36,7 @@ const Backdrop = styled.section`
     padding: 12rem 0;
 `
 
-const SearchContent = styled.div`
+const TableOfContents = styled.div`
     display: flex;
     padding: 8rem 0;
     width: 100%;
@@ -55,7 +49,7 @@ const ResultWrapper = styled.div`
     margin-top: 4rem;
 
     > :first-child {
-        margin-bottom: ${props => props.list_spacing || '1.6rem'};
+        margin-bottom: 1.6rem;
     }
 `
 const suggested_topics = [
@@ -64,63 +58,13 @@ const suggested_topics = [
     'Opening an MT5 account',
 ]
 
-const SearchSuccess = () => (
-    <>
-        <Header as="h3" color="white">
-            {'Topic Suggestions'}
-        </Header>
-        <UL>
-            {suggested_topics.map((topic, idx) => (
-                <ListLink key={idx} color="white">
-                    {topic}
-                </ListLink>
-            ))}
-        </UL>
-    </>
-)
-
-const BulletList = styled.ul`
-    list-style: unset;
-    color: var(--color-white);
-
-    > *:not(:last-child) {
-        padding-bottom: 0.8rem;
-    }
-`
-const ErrorHeader = styled(Header)`
-    color: var(--color-white);
-    font-size: 2rem;
-`
-const SearchError = () => (
-    <>
-        <ErrorHeader as="h5">
-            {'Sorry, we couldn’t find any results matching “asdfghj”.'}
-        </ErrorHeader>
-        <Text color="green">Search tips:</Text>
-        <BulletList>
-            <li>
-                <Text color="white">Check your spelling and try again</Text>
-            </li>
-            <li>
-                <Text color="white">Try another keyword</Text>
-            </li>
-            <li>
-                <Text color="white">
-                    Keep your search term short as our search capabilities works
-                    best with short search terms
-                </Text>
-            </li>
-        </BulletList>
-    </>
-)
-
 const HelpCentre = () => {
-    const has_results = false
+    const has_results = true
     return (
         <Layout>
             <SEO title={localize('Help centre')} />
             <Backdrop>
-                <SearchContainer>
+                <Container alignItems="normal" flexDirection="column">
                     <SearchForm>
                         <SearchIcon />
                         <Search placeholder={localize('How can we help?')} />
@@ -129,10 +73,10 @@ const HelpCentre = () => {
                         {has_results && <SearchSuccess />}
                         {!has_results && <SearchError />}
                     </ResultWrapper>
-                </SearchContainer>
+                </Container>
             </Backdrop>
-            <Container>
-                <SearchContent>
+            <Container alignItems="normal" flexDirection="column">
+                <TableOfContents>
                     <TextLink.Group>
                         <TextLink.List
                             header="Account"
@@ -163,11 +107,65 @@ const HelpCentre = () => {
                             ]}
                         />
                     </TextLink.Group>
-                </SearchContent>
+                </TableOfContents>
             </Container>
         </Layout>
     )
 }
+
+const SearchSuccess = () => (
+    <>
+        <Header as="h3" color="white">
+            {'Topic Suggestions'}
+        </Header>
+        <ListNoBullets>
+            {suggested_topics.map((topic, idx) => (
+                <ListLink key={idx} color="white">
+                    {topic}
+                </ListLink>
+            ))}
+        </ListNoBullets>
+    </>
+)
+
+const BulletList = styled.ul`
+    list-style: unset;
+    color: var(--color-white);
+    font-size: var(--text-size-s);
+    margin-top: 0.8rem;
+    margin-left: 2rem;
+
+    > *:not(:last-child) {
+        padding-bottom: 0.8rem;
+    }
+`
+const ErrorHeader = styled(Header)`
+    color: var(--color-white);
+    font-size: 2rem;
+    padding-bottom: 0.8rem;
+`
+const SearchError = () => (
+    <>
+        <ErrorHeader as="h5">
+            Sorry, we couldn’t find any results matching “asdfghj”.
+        </ErrorHeader>
+        <Text color="green">Search tips:</Text>
+        <BulletList>
+            <li>
+                <Text color="white">Check your spelling and try again</Text>
+            </li>
+            <li>
+                <Text color="white">Try another keyword</Text>
+            </li>
+            <li>
+                <Text color="white">
+                    Keep your search term short as our search capabilities works
+                    best with short search terms
+                </Text>
+            </li>
+        </BulletList>
+    </>
+)
 
 const TextLink = ({ children }) => <>{children}</>
 
@@ -192,8 +190,9 @@ const ListLink = styled.p`
 const HeaderWrapper = styled.div`
     margin-bottom: 1.6rem;
 `
-const UL = styled.ul`
+const ListNoBullets = styled.ul`
     margin-bottom: 4.2rem;
+    list-style: none;
 
     > *:not(:last-child) {
         padding-bottom: 1.6rem;
@@ -206,13 +205,13 @@ TextLink.List = function List({ header, links }) {
             <HeaderWrapper>
                 <Header as="h3">{header}</Header>
             </HeaderWrapper>
-            <UL>
+            <ListNoBullets>
                 {links.map((link, idx) => (
                     <li key={idx}>
                         <ListLink>{link} </ListLink>
                     </li>
                 ))}
-            </UL>
+            </ListNoBullets>
         </>
     )
 }

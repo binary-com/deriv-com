@@ -10,10 +10,11 @@ import { Header, Text } from '../elements/typography'
 import ErrorIcon from 'images/svg/error-icon.svg'
 import { localize } from '../localization'
 import TrafficSource from 'common/traffic-source'
-import { State, LocalStore } from 'common/storage'
+import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Image from '../elements/image'
 import Login from 'common/login'
+import Wrapper from '../containers/wrapper'
 
 const Title = styled(Header)`
     margin: 10rem 0 3rem 0;
@@ -89,6 +90,21 @@ const LoginLink = styled.a`
     cursor: pointer;
 `
 
+const EmailImgWrapper = styled(Wrapper)`
+    display: flex;
+    justify-content: center;
+`
+
+const validateEmail = email => {
+    const required = email.length
+    const valid = /[^@]+@[^.]+\..+/g.test(email)
+
+    if (!required) return localize('Email is required')
+    if (!valid) return localize('Invalid email address')
+
+    return null
+}
+
 class Signup extends Component {
     state = {
         email: '',
@@ -97,46 +113,24 @@ class Signup extends Component {
         submit_status: '',
     }
 
+    handleValidation = param => {
+        if (!param) return
+
+        const message = typeof param === 'object' ? param.target.value : param
+
+        this.setState({
+            error_msg: validateEmail(message),
+        })
+    }
+
     handleInputChange = e => {
         const { name, value } = e.target
 
         this.setState({
             [name]: value,
         })
-        this.validateEmail()
-    }
 
-    validateEmail = () => {
-        const { email } = this.state
-        const required = email.length
-        const valid = /[^@]+@[^.]+\..+/g.test(email)
-
-        if (required && valid) {
-            return this.setState({ error_msg: null })
-        }
-        if (!required) {
-            this.setState({
-                error_msg: localize('Email is required'),
-            })
-        }
-        if (!valid) {
-            this.setState({
-                error_msg: localize('Invalid email address'),
-            })
-        }
-    }
-
-    checkCountry = req => {
-        const clients_country = State.getResponse(
-            'website_status.clients_country',
-        )
-        const is_binary_email = /@binary\.com$/.test(req.verify_email)
-
-        if (clients_country !== 'my' || is_binary_email) {
-            return true
-        }
-
-        return false
+        this.handleValidation(value)
     }
 
     getVerifyEmailRequest = email => {
@@ -166,7 +160,7 @@ class Signup extends Component {
     handleEmailSignup = e => {
         e.preventDefault()
         this.setState({ is_submitting: true })
-        this.validateEmail()
+        this.handleValidation(this.state.email)
 
         if (this.state.error_msg) {
             return this.setState({ is_submitting: false })
@@ -175,16 +169,12 @@ class Signup extends Component {
         const { email } = this.state
         const verify_email_req = this.getVerifyEmailRequest(email)
 
-        if (this.checkCountry(verify_email_req)) {
-            BinarySocketBase.send(verify_email_req).then(() => {
-                this.setState({
-                    is_submitting: false,
-                    submit_status: 'success',
-                })
+        BinarySocketBase.send(verify_email_req).then(() => {
+            this.setState({
+                is_submitting: false,
+                submit_status: 'success',
             })
-        } else {
-            this.setState({ is_submitting: false, submit_status: 'invalid' })
-        }
+        })
     }
 
     handleSocialSignup = e => {
@@ -214,8 +204,8 @@ class Signup extends Component {
                                 label={localize('Email')}
                                 placeholder={'example@mail.com'}
                                 onChange={this.handleInputChange}
-                                onBlur={this.validateEmail}
-                                autofocus
+                                onBlur={this.handleValidation}
+                                autoFocus
                                 required
                             />
                             {this.state.error_msg && (
@@ -277,12 +267,16 @@ class Signup extends Component {
                         <Header as="h3" align="center" weight="normal">
                             {localize('Check your email')}
                         </Header>
-                        <Image
-                            img_name="open-email.png"
-                            alt="Email image"
-                            width="80%"
-                            my="1.6rem"
-                        />
+                        <EmailImgWrapper
+                            width="100%"
+                            margin={{ top: '2.2rem', bottom: '1.6rem' }}
+                        >
+                            <Image
+                                img_name="open-email.png"
+                                alt="Email image"
+                                width="80%"
+                            />
+                        </EmailImgWrapper>
                         <Text align="center">
                             {localize(
                                 'Please check your email and click on the link provided to verify your email address.',

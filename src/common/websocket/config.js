@@ -20,7 +20,7 @@ const domain_config = {
         app_id: 11780,
     },
     local: {
-        hostname: 'localhost.deriv.com',
+        hostname: 'localhost',
         app_id: 10613,
     },
 }

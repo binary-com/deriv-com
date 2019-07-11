@@ -96,7 +96,9 @@ const EmailImgWrapper = styled(Wrapper)`
 
 const validateEmail = email => {
     const required = email.length
-    const valid = /[^@]+@[^.]+\..+/g.test(email)
+    const valid = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(
+        email,
+    )
 
     if (!required) return localize('Email is required')
     if (!valid) return localize('Invalid email address')

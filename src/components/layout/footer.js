@@ -24,7 +24,7 @@ const FooterNavGrid = styled.div`
         grid-row-gap: 2rem;
     }
 `
-const FooterNav = styled.div`
+const FooterNav = styled.nav`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
@@ -93,7 +93,7 @@ const RiskNote = styled.section`
     }
 `
 const StyledLink = styled(props => <LocalizedLink {...props} />)`
-    display: block;
+    display: table;
     color: var(--color-red);
     text-decoration: none;
     font-size: 1.4rem;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Container from '../containers/container'
 import device from 'themes/device'
-import {Header} from './topography.js'
+import { Header } from './typography.js'
 
 const Wrapper = styled.section`
     width: 100%;
@@ -28,10 +28,12 @@ const Hero = ({ paragraph, header_part_1, header_part_2 }) => (
     <Wrapper>
         <NoImageHero>
             <div>
-                <Header as='h4' color='white' weight='500'>{paragraph}</Header>
+                <Header as="h4" color="white" weight="500">
+                    {paragraph}
+                </Header>
             </div>
             <div>
-                <Header as='h1' color='red' align='center'>
+                <Header as="h1" color="red" align="center">
                     {header_part_1}
                     <br />
                     {header_part_2}

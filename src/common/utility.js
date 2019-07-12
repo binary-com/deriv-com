@@ -1,5 +1,20 @@
 const extend = require('extend')
 
+const toISOFormat = date => {
+    if (date instanceof Date) {
+        const utc_year = date.getUTCFullYear()
+        const utc_month =
+            (date.getUTCMonth() + 1 < 10 ? '0' : '') + (date.getMonth() + 1)
+        const utc_date = (date.getUTCDate() < 10 ? '0' : '') + date.getUTCDate()
+
+        return `${utc_year}-${utc_month}-${utc_date}`
+    }
+
+    return ''
+}
+
+const hasWindow = () => typeof window !== 'undefined'
+
 const isEmptyObject = obj => {
     let is_empty = true
     if (obj && obj instanceof Object) {
@@ -32,4 +47,11 @@ class PromiseClass {
     }
 }
 
-export { isEmptyObject, cloneObject, getPropertyValue, PromiseClass }
+export {
+    isEmptyObject,
+    cloneObject,
+    hasWindow,
+    getPropertyValue,
+    PromiseClass,
+    toISOFormat,
+}

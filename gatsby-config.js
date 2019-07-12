@@ -54,12 +54,6 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-stylelint',
-            options: {
-                emitErrors: false,
-            },
-        },
-        {
             resolve: 'gatsby-plugin-eslint',
             options: {
                 test: /\.js$|\.jsx$/,

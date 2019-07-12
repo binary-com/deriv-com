@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import SEO from '../components/containers/seo'
 import Layout from '../components/layout/layout'
 import { localize, WithIntl } from '../components/localization'
 import Hero from '../components/elements/hero.js'
 import Container from '../components/containers/container.js'
 import Card from '../components/elements/card.js'
-import { Header } from '../components/elements/topography.js'
+import { Header } from '../components/elements/typography.js'
+import Modal from '../components/elements/modal'
+import SignupModal from '../components/elements/signup-modal'
 
 import DubaiSVG from 'images/svg/dubai.svg'
 import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
@@ -53,10 +56,10 @@ const Location = styled.div`
     }
 `
 
-const OurLocations = () => {
+const OurLocations = ({ toggleModal }) => {
     return (
         <OurLocationsWrapper>
-            <Header as="h2" align="center" color='black-2'>
+            <Header as="h2" align="center" color="black-2">
                 {localize('Our Locations')}
             </Header>
             <OurLocationsContainer>
@@ -97,7 +100,7 @@ const OurLocations = () => {
                     </p>
                 </Location>
             </OurLocationsContainer>
-            <Button secondary>
+            <Button secondary onClick={toggleModal}>
                 {localize('Start with free practice account')}
             </Button>
         </OurLocationsWrapper>
@@ -187,8 +190,10 @@ const OurNumbers = () => {
     return (
         <OurNumbersWrapper>
             <OurNumbersContainer>
-                <Header as='h2' color='black-2' align='center'>{localize('Our Numbers')}</Header>
-                <Header as='h4' color='black-3' align='center'>
+                <Header as="h2" color="black-2" align="center">
+                    {localize('Our Numbers')}
+                </Header>
+                <Header as="h4" color="black-3" align="center">
                     {localize(
                         'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                     )}
@@ -196,17 +201,23 @@ const OurNumbers = () => {
                 <ChartContainer>
                     <Charts>
                         <TradingAccountsOpenedSVG />
-                        <Header as='h3' color='green' align='right' lh='1.5'>704,293</Header>
+                        <Header as="h3" color="green" align="right" lh="1.5">
+                            704,293
+                        </Header>
                         <p>{localize('Trading accounts opened')}</p>
                     </Charts>
                     <Charts>
                         <TradeLastMonthSVG />
-                        <Header as='h3' color='green' align='right' lh='1.5'>19,514,921</Header>
+                        <Header as="h3" color="green" align="right" lh="1.5">
+                            19,514,921
+                        </Header>
                         <p>{localize('Trades last month')}</p>
                     </Charts>
                     <Charts>
                         <TotalTradeTurnoverSVG />
-                        <Header as='h3' color='green' align='right' lh='1.5'>USD 6,049,936,768</Header>
+                        <Header as="h3" color="green" align="right" lh="1.5">
+                            USD 6,049,936,768
+                        </Header>
                         <p>{localize('Total trade turnover')}</p>
                     </Charts>
                     <h1>USD 13,499,439</h1>
@@ -219,7 +230,11 @@ const OurNumbers = () => {
 
 const OurGoalsWrapper = styled.section`
     width: 100%;
-    background-image: linear-gradient(to bottom, var(--color-grey-2), var(--color-white));
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-grey-2),
+        var(--color-white)
+    );
 `
 const OurGoalsContainer = styled(Container)`
     padding: 8rem 0;
@@ -256,20 +271,53 @@ const OurGoals = () => (
     </OurGoalsWrapper>
 )
 
-const About = () => (
-    <Layout>
-        <SEO title={localize('About us')} />
-        <Hero
-            header_part_1={localize('Go ahead,')}
-            header_part_2={localize('experience it for yourself.')}
-            paragraph={localize(
-                'Deriv is a new trading platform created by Binary Group Ltd., a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
-            )}
-        />
-        <OurGoals />
-        <OurNumbers />
-        <OurLocations />
-    </Layout>
-)
+class About extends Component {
+    state = {
+        show_modal: false,
+    }
+
+    toggleModal = e => {
+        e.stopPropagation()
+        this.setState({
+            show_modal: !this.state.show_modal,
+        })
+    }
+
+    closeModal = () => {
+        this.setState({
+            show_modal: false,
+        })
+    }
+
+    render() {
+        return (
+            <Layout>
+                <SEO title={localize('About us')} />
+                <Hero
+                    header_part_1={localize('Go ahead,')}
+                    header_part_2={localize('experience it for yourself.')}
+                    paragraph={localize(
+                        'Deriv is a new trading platform created by Binary Group Ltd., a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                    )}
+                />
+                <OurGoals />
+                <OurNumbers />
+                <OurLocations toggleModal={this.toggleModal} />
+                <Modal
+                    toggle={this.toggleModal}
+                    is_open={this.state.show_modal}
+                    is_blurred={true}
+                    closeModal={this.closeModal}
+                >
+                    <SignupModal />
+                </Modal>
+            </Layout>
+        )
+    }
+}
+
+OurLocations.propTypes = {
+    toggleModal: PropTypes.func,
+}
 
 export default WithIntl()(About)

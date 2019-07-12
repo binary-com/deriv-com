@@ -23,10 +23,9 @@ const Title = styled(Header)`
 const Form = styled.form`
     width: 80%;
 `
-const SuccessWrapper = styled(Container)`
+const ResponseWrapper = styled(Container)`
     justify-content: center;
     max-width: 26.5rem;
-    height: 57.3rem;
     flex-direction: column;
 `
 const InputGroup = styled.div`
@@ -110,8 +109,9 @@ class Signup extends Component {
     state = {
         email: '',
         is_submitting: false,
-        error_msg: '',
+        email_error_msg: '',
         submit_status: '',
+        submit_error_msg: '',
     }
 
     handleValidation = param => {
@@ -120,7 +120,7 @@ class Signup extends Component {
         const message = typeof param === 'object' ? param.target.value : param
 
         this.setState({
-            error_msg: validateEmail(message),
+            email_error_msg: validateEmail(message),
         })
     }
 
@@ -163,14 +163,22 @@ class Signup extends Component {
         this.setState({ is_submitting: true })
         this.handleValidation(this.state.email)
 
-        if (this.state.error_msg) {
+        if (this.state.email_error_msg) {
             return this.setState({ is_submitting: false })
         }
 
         const { email } = this.state
         const verify_email_req = this.getVerifyEmailRequest(email)
 
-        BinarySocketBase.send(verify_email_req).then(() => {
+        BinarySocketBase.send(verify_email_req).then(response => {
+            if (response.error) {
+                return this.setState({
+                    is_submitting: false,
+                    submit_status: 'error',
+                    submit_error_msg: response.error.message,
+                })
+            }
+
             this.setState({
                 is_submitting: false,
                 submit_status: 'success',
@@ -209,14 +217,14 @@ class Signup extends Component {
                                 autoFocus
                                 required
                             />
-                            {this.state.error_msg && (
+                            {this.state.email_error_msg && (
                                 <>
                                     <ErrorMessages
                                         lh="1.4"
                                         align="left"
                                         color="red-1"
                                     >
-                                        {this.state.error_msg}
+                                        {this.state.email_error_msg}
                                     </ErrorMessages>
                                     <StyledError />
                                 </>
@@ -264,7 +272,7 @@ class Signup extends Component {
                     </Form>
                 )}
                 {this.state.submit_status === 'success' && (
-                    <SuccessWrapper>
+                    <ResponseWrapper>
                         <Header as="h3" align="center" weight="normal">
                             {localize('Check your email')}
                         </Header>
@@ -283,8 +291,16 @@ class Signup extends Component {
                                 'Please check your email and click on the link provided to verify your email address.',
                             )}
                         </Text>
-                    </SuccessWrapper>
+                    </ResponseWrapper>
                 )}
+                {this.state.submit_status === 'error' &&
+                    this.state.submit_error_msg && (
+                        <ResponseWrapper>
+                            <Text align="center">
+                                {this.state.submit_error_msg}
+                            </Text>
+                        </ResponseWrapper>
+                    )}
             </>
         )
     }

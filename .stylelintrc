@@ -12,7 +12,7 @@
         "color-hex-length": "long",
         "max-empty-lines": 4,
         "value-list-comma-newline-after": null,
-        "max-nesting-depth": 2,
+        "max-nesting-depth": 3,
         "indentation": 4,
         "rule-empty-line-before": [
             "always",

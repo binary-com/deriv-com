@@ -11,13 +11,18 @@ const StyledInput = styled.input`
     background: none;
     color: var(--color-black);
     font-size: var(--text-size-s);
-    padding: 1rem 1rem 1rem 0.5rem;
+    padding: 1rem 1rem 1rem 0.8rem;
     width: 95%;
     display: block;
     border: none;
     border-radius: 0;
     border-bottom: 1px solid var(--color-grey-2);
 
+    &::placeholder {
+        opacity: 0;
+        transition: opacity 0.25s;
+        padding-left: 0.3rem;
+    }
     &:focus {
         outline: none;
 
@@ -28,6 +33,9 @@ const StyledInput = styled.input`
         }
         & ~ span::before {
             width: 100%;
+        }
+        &::placeholder {
+            opacity: 0.5;
         }
     }
     &:valid {
@@ -61,7 +69,7 @@ const StyledLabel = styled.label`
     font-size: var(--text-size-s);
     position: absolute;
     pointer-events: none;
-    left: 5px;
+    left: 8px;
     top: 10px;
     transition: 0.25s ease all;
 `

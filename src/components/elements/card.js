@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {Text, Header} from './topography.js'
+import { Text, Header } from './typography.js'
 import device from 'themes/device'
 
 const CardWrapper = styled.article`
@@ -34,8 +34,10 @@ const Card = ({ Icon, title, content }) => {
         <CardWrapper>
             <Icon />
             <div>
-                <Header as='h4' weight='500'>{title}</Header>
-                <Text className='content'>{content}</Text>
+                <Header as="h4" weight="500">
+                    {title}
+                </Header>
+                <Text className="content">{content}</Text>
             </div>
         </CardWrapper>
     )

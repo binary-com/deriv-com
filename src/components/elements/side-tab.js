@@ -1,8 +1,14 @@
 import React from 'react'
-import { localize } from '../localization'
+// import { localize } from '../localization'
+import Wrapper from '../containers/wrapper'
+// import styled from 'styled-components'
 
-const SideTab = () => {
-    return <div>{localize('something here dude')}</div>
+const Tabs = () => {
+    return <Wrapper></Wrapper>
 }
 
-export default SideTab
+const Tab = () => {
+    return <Wrapper></Wrapper>
+}
+
+export default Tabs

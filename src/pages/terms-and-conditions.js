@@ -11,7 +11,7 @@ class TermsAndConditions extends Component {
         return (
             <Layout>
                 <SEO title={localize('Home')} />
-                <Container>
+                <Container align="left">
                     <SideTab />
                     <div>{localize('Hello terms and conditions')}</div>
                 </Container>

@@ -22,7 +22,7 @@ Deriv.com static content
 2.  **To start developing:**
 
     ```sh
-    gatsby develop
+    npm start
     ```
 
 3.  **Open the source code and start editing!**

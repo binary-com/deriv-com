@@ -2,15 +2,18 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import Row from '../containers/row'
 import Signup from '../form/signup'
-import { Header, Text } from './topography'
+import { Header, Text } from './typography'
 import { localize } from '../localization'
 
 const SignupWrapper = styled.article`
     background-color: var(--color-grey-1);
-    width: 50vw;
     max-width: 80rem;
     border-radius: 6px;
     overflow: auto;
+`
+
+const ModalRow = styled(Row)`
+    height: 100%;
 `
 
 const Content = styled.div`
@@ -29,7 +32,7 @@ const Content = styled.div`
 `
 
 const HeaderWrapper = styled(Header)`
-    max-width: 80%;
+    max-width: 75%;
 `
 const CaptionDesc = styled(Text)`
     padding: var(--text-size-s);
@@ -37,7 +40,7 @@ const CaptionDesc = styled(Text)`
 
 const SignupModal = () => (
     <SignupWrapper>
-        <Row>
+        <ModalRow>
             <Content inverse>
                 <HeaderWrapper
                     as="h4"
@@ -49,14 +52,14 @@ const SignupModal = () => (
                         'The ultimate trading experience is just a few clicks away.',
                     )}
                 </HeaderWrapper>
-                <CaptionDesc color="white">
+                <CaptionDesc color="white" align="center">
                     {localize('Go ahead, try it for yourself.')}
                 </CaptionDesc>
             </Content>
             <Content>
                 <Signup />
             </Content>
-        </Row>
+        </ModalRow>
     </SignupWrapper>
 )
 

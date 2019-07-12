@@ -45,6 +45,22 @@ const StyledButton = styled.button`
                 }
             `
     }}
+    ${props => {
+        if (props.disabled)
+            return css`
+                pointer-events: none;
+                background: var(--color-grey);
+            `
+        if (props.loading)
+            return css`
+                width: 8rem;
+                height: 8rem;
+                border: 10 px solid var(--color-black);
+                border-radius: 50%;
+                animation: sweep 1s linear alternate infinite,
+                    rotates 0.8s linear infinite;
+            `
+    }}
 `
 
 const Button = ({ children, ...props }) => (

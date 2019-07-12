@@ -7,7 +7,8 @@ import { localize } from '../localization'
 
 const SignupWrapper = styled.article`
     background-color: var(--color-grey-1);
-    max-width: 80rem;
+    width: 80rem;
+    height: 57.3rem;
     border-radius: 6px;
     overflow: auto;
 `

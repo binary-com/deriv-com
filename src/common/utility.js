@@ -1,10 +1,17 @@
 const extend = require('extend')
 
-const toISOFormat = date =>
-    date instanceof Date
-        ? `${date.getUTCFullYear()}-${date.getUTCMonth() +
-              1}-${date.getUTCDate()}`
-        : ''
+const toISOFormat = date => {
+    if (date instanceof Date) {
+        const utc_year = date.getUTCFullYear()
+        const utc_month =
+            (date.getUTCMonth() + 1 < 10 ? '0' : '') + (date.getMonth() + 1)
+        const utc_date = (date.getUTCDate() < 10 ? '0' : '') + date.getUTCDate()
+
+        return `${utc_year}-${utc_month}-${utc_date}`
+    }
+
+    return ''
+}
 
 const hasWindow = () => typeof window !== 'undefined'
 

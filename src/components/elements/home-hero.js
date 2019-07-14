@@ -9,7 +9,6 @@ import img from 'images/common/header-trade.png'
 
 const Wrapper = styled.section`
     width: 100%;
-    background-color: var(--color-black);
     padding: 2rem 0;
     min-height: 55rem;
     background: var(--color-black) url(${img});
@@ -44,7 +43,7 @@ const Grid = styled.section`
     .hero-left {
         text-align: left;
 
-        .subheader{
+        .subheader {
             margin-top: 1rem;
         }
     }
@@ -59,7 +58,7 @@ const Grid = styled.section`
             box-sizing: border-box;
             text-align: center;
             padding: 0.5rem 0;
-    
+
             form {
                 margin-top: -7rem;
                 margin-bottom: -1rem;

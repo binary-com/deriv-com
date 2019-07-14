@@ -55,6 +55,9 @@ const Dtrader = styled.div`
     grid-gap: 2rem;
     padding: 0;
 
+    p {
+        margin-bottom: 1.2rem
+    }
     @media ${device.lg} {
         grid-template-columns: 1fr;
         grid-row-gap: 3rem;
@@ -168,23 +171,38 @@ class Home extends Component {
                         <Dtrader>
                             <StyledCard
                                 Icon={SuperiorPlatform}
-                                title={localize('Superior Trading Platform')}
-                                content={localize(
-                                    'A revolutionary platform for all traders. Access the world’s most traded markets and assets. 100+ instruments.',
+                                title={localize('Superior trading platform')}
+                                content_1={localize(
+                                    'A revolutionary platform for all traders.',
+                                )}
+                                content_2={localize(
+                                    'Access the world’s most traded markets and assets.',
+                                )}
+                                content_3={localize(
+                                    '100+ instruments.',
                                 )}
                             />
                             <StyledCard
                                 Icon={PatentedTech}
-                                title={localize('Patented Pricing Technology')}
-                                content={localize(
-                                    'Real-time, two-way pricing. Powered by our patented algorithms. Transparency guaranteed.',
+                                title={localize('Patented pricing technology')}
+                                content_1={localize(
+                                    'Real-time, two-way pricing.',
+                                )}
+                                content_2={localize(
+                                    'Powered by our patented algorithms.',
+                                )}
+                                content_3={localize(
+                                    'Transparency guaranteed.',
                                 )}
                             />
                             <StyledCard
                                 Icon={Intuitive}
-                                title={localize('Intuitive and Customisable')}
-                                content={localize(
-                                    'Easy-to-use and powerful trading environment. Trade the way you want with customisable charts, analytic tools, and themes.',
+                                title={localize('Intuitive and customisable')}
+                                content_1={localize(
+                                    'Easy-to-use and powerful trading environment.',
+                                )}
+                                content_2={localize(
+                                    'Trade the way you want with customisable charts, analytic tools, and themes.',
                                 )}
                             />
                         </Dtrader>
@@ -235,7 +253,7 @@ class Home extends Component {
                                 {localize('Create a free demo account')}
                                 </Button>
                             </div>
-                            <div>slider</div>
+                            <div></div>
                         </WhyDeriv>
                     </Container>
                 </GreySection>

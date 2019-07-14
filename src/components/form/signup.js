@@ -22,6 +22,7 @@ const Title = styled(Header)`
 `
 const Form = styled.form`
     width: 80%;
+    margin: 0 auto;
 `
 const ResponseWrapper = styled(Container)`
     justify-content: center;
@@ -237,7 +238,7 @@ class Signup extends Component {
                         >
                             {localize('Create a free account')}
                         </EmailButton>
-                        <Text color="grey">{localize('Or sign up with')}</Text>
+                        <Text color="grey" className='social-signup'>{localize('Or sign up with')}</Text>
                         <SocialWrapper>
                             <SocialButton
                                 onClick={this.handleSocialSignup}
@@ -262,7 +263,7 @@ class Signup extends Component {
                                 </span>
                             </SocialButton>
                         </SocialWrapper>
-                        <LoginText>
+                        <LoginText className='already'>
                             {localize('Already have an account?')}
                             <LoginLink onClick={this.handleLogin}>
                                 {' '}

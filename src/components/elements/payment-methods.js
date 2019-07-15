@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Visa from 'images/svg/visa.svg'
 import Master from 'images/svg/mastercard.svg'
 import Neteller from 'images/svg/neteller.svg'
-import Paysec from 'images/svg/paysec.svg'
 import Skrill from 'images/svg/skrill.svg'
 
 const Grid = styled.article`
@@ -23,7 +22,6 @@ const PaymentMethods = () => (
         <Visa />
         <Master />
         <Neteller />
-        <Paysec />
         <Skrill />
     </Grid>
 )

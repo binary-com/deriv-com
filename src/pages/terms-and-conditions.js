@@ -32,34 +32,61 @@ class TermsAndConditions extends Component {
     render() {
         return (
             <Layout>
-                <SEO title={localize('Home')} />
+                <SEO title={localize('Terms and conditions')} />
                 <Container align="left">
                     <SideTab>
-                        <StyledSection label="Terms and conditions">
+                        <StyledSection
+                            label="tnc"
+                            text={localize('Terms and conditions')}
+                        >
                             <General />
                         </StyledSection>
-                        <StyledSection label="Data feed">
+                        <StyledSection
+                            label="data-feed"
+                            text={localize('Data feed')}
+                        >
                             <DataFeed />
                         </StyledSection>
-                        <StyledSection label="Security and privacy">
+                        <StyledSection
+                            label="security-privacy"
+                            text={localize('Security and privacy')}
+                        >
                             <SecurityAndPrivacy />
                         </StyledSection>
-                        <StyledSection label="Conflicts policy">
+                        <StyledSection
+                            label="conflict-policy"
+                            text={localize('Conflicts policy')}
+                        >
                             <ConflictsPolicy />
                         </StyledSection>
-                        <StyledSection label="Copyright">
+                        <StyledSection
+                            label="copyright"
+                            text={localize('Copyright')}
+                        >
                             <Copyright />
                         </StyledSection>
-                        <StyledSection label="Complaints and disputes">
+                        <StyledSection
+                            label="complaint-dispute"
+                            text={localize('Complaints and disputes')}
+                        >
                             <ComplaintsAndDisputes />
                         </StyledSection>
-                        <StyledSection label="Risk disclaimer">
+                        <StyledSection
+                            label="risk-disclaimer"
+                            text={localize('Risk disclaimer')}
+                        >
                             <RiskDisclaimer />
                         </StyledSection>
-                        <StyledSection label="Order execution">
+                        <StyledSection
+                            label="order-execution"
+                            text={localize('Order execution')}
+                        >
                             <OrderExecution />
                         </StyledSection>
-                        <StyledSection label="Payment agents">
+                        <StyledSection
+                            label="payment-agent"
+                            text={localize('Payment agents')}
+                        >
                             <PaymentAgents />
                         </StyledSection>
                     </SideTab>

@@ -32,14 +32,14 @@ class Tab extends Component {
     render() {
         const {
             onClick,
-            props: { active_tab, label },
+            props: { active_tab, label, text },
         } = this
 
         const className = active_tab === label ? 'tab-active' : ''
 
         return (
             <StyledTab className={className} onClick={onClick}>
-                {label}
+                {text}
                 <Hr />
             </StyledTab>
         )
@@ -50,6 +50,7 @@ Tab.propTypes = {
     active_tab: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
+    text: PropTypes.string.isRequired,
 }
 
 export default Tab

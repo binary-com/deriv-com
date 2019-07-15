@@ -7,7 +7,7 @@ import Skrill from 'images/svg/skrill.svg'
 
 const Grid = styled.article`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     max-width: 100%;
 

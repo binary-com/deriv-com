@@ -297,7 +297,7 @@ class About extends Component {
                     header_part_1={localize('Go ahead,')}
                     header_part_2={localize('experience it for yourself.')}
                     paragraph={localize(
-                        'Deriv is a new trading platform created by Binary Group Ltd., a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                        'Deriv is a new trading platform created by Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
                     )}
                 />
                 <OurGoals />

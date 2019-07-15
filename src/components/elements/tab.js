@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Text } from 'components/elements/typography'
 
 const StyledTab = styled.li`
-    color: var(--color-grey);
     cursor: pointer;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--color-grey);
 
+    & > p {
+        color: var(--color-grey);
+    }
     &.tab-active {
-        color: var(--color-red);
+        border-bottom: 1px solid var(--color-red);
 
-        & > hr {
-            border-color: var(--color-red);
+        & > p {
+            color: var(--color-red);
         }
     }
-`
-
-const Hr = styled.hr`
-    border: 0;
-    margin: 0.5em 0;
-    border-bottom: 1px solid var(--color-grey);
 `
 
 class Tab extends Component {
@@ -39,8 +38,7 @@ class Tab extends Component {
 
         return (
             <StyledTab className={className} onClick={onClick}>
-                {text}
-                <Hr />
+                <Text>{text}</Text>
             </StyledTab>
         )
     }

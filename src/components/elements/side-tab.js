@@ -8,6 +8,7 @@ import { navigate } from '@reach/router'
 
 const StyledSideTab = styled(Wrapper)`
     padding: 0;
+    display: flex;
 `
 
 const TabList = styled.ol`
@@ -15,9 +16,7 @@ const TabList = styled.ol`
     list-style: none;
 `
 
-const TabContent = styled.div`
-    padding: 0;
-`
+const TabContent = styled.div``
 
 class SideTab extends Component {
     state = {
@@ -66,9 +65,7 @@ class SideTab extends Component {
                 </TabList>
                 <TabContent>
                     {children.map(child =>
-                        child.props.label === active_tab
-                            ? child.props.children
-                            : undefined,
+                        child.props.label === active_tab ? child : undefined,
                     )}
                 </TabContent>
             </StyledSideTab>

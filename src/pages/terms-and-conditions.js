@@ -1,94 +1,93 @@
 import React, { Component } from 'react'
 import SideTab from 'components/elements/side-tab'
 import { localize, WithIntl } from '../components/localization'
-import Layout from '../components/layout/layout'
-import SEO from '../components/containers/seo'
+import Layout from 'components/layout/layout'
+import SEO from 'components/containers/seo'
 import Container from 'components/containers/container'
 import styled from 'styled-components'
+import { Header, Text } from 'components/elements/typography'
 
 const StyledSection = styled.section`
-    padding: 0;
+    padding-left: 8rem;
 `
 
-const General = () => <div>General</div>
+const General = () => (
+    <StyledSection>
+        <Header as="h2">{localize('Terms and Conditions')}</Header>
+        <Text lh="1.5">Version 1. Last modified 01-08-2019.</Text>
+        <Text lh="1.5">
+            It is the responsibility of each Client to read and understand this
+            legal notice and the terms and conditions pursuant to which an
+            acquisition of financial contracts via this site is governed.
+        </Text>
+    </StyledSection>
+)
 
-const DataFeed = () => <div>DataFeed</div>
+const DataFeed = () => <StyledSection>DataFeed</StyledSection>
 
-const SecurityAndPrivacy = () => <div>SecurityAndPrivacy</div>
+const SecurityAndPrivacy = () => (
+    <StyledSection>SecurityAndPrivacy</StyledSection>
+)
 
-const ConflictsPolicy = () => <div>ConflictsPolicy</div>
+const ConflictsPolicy = () => <StyledSection>ConflictsPolicy</StyledSection>
 
-const Copyright = () => <div>Copyright</div>
+const Copyright = () => <StyledSection>Copyright</StyledSection>
 
-const ComplaintsAndDisputes = () => <div>ComplaintsAndDisputes</div>
+const ComplaintsAndDisputes = () => (
+    <StyledSection>ComplaintsAndDisputes</StyledSection>
+)
 
-const RiskDisclaimer = () => <div>RiskDisclaimer</div>
+const RiskDisclaimer = () => <StyledSection>RiskDisclaimer</StyledSection>
 
-const OrderExecution = () => <div>OrderExecution</div>
+const OrderExecution = () => <StyledSection>OrderExecution</StyledSection>
 
-const PaymentAgents = () => <div>PaymentAgents</div>
+const PaymentAgents = () => <StyledSection>PaymentAgents</StyledSection>
+
 class TermsAndConditions extends Component {
     state = {}
     render() {
         return (
             <Layout>
                 <SEO title={localize('Terms and conditions')} />
-                <Container align="left">
+                <Container
+                    align="left"
+                    justify="left"
+                    padding={{ top: '6rem', bottom: '6rem' }}
+                >
                     <SideTab>
-                        <StyledSection
-                            label="tnc"
-                            text={localize('Terms and conditions')}
-                        >
-                            <General />
-                        </StyledSection>
-                        <StyledSection
-                            label="data-feed"
-                            text={localize('Data feed')}
-                        >
-                            <DataFeed />
-                        </StyledSection>
-                        <StyledSection
+                        <General label="general" text="Terms and conditions" />
+                        <DataFeed label="data-feed" text="Data feed" />
+                        <SecurityAndPrivacy
                             label="security-privacy"
-                            text={localize('Security and privacy')}
-                        >
-                            <SecurityAndPrivacy />
-                        </StyledSection>
-                        <StyledSection
+                            text="Security and privacy"
+                        />
+
+                        <ConflictsPolicy
                             label="conflict-policy"
-                            text={localize('Conflicts policy')}
-                        >
-                            <ConflictsPolicy />
-                        </StyledSection>
-                        <StyledSection
-                            label="copyright"
-                            text={localize('Copyright')}
-                        >
-                            <Copyright />
-                        </StyledSection>
-                        <StyledSection
-                            label="complaint-dispute"
-                            text={localize('Complaints and disputes')}
-                        >
-                            <ComplaintsAndDisputes />
-                        </StyledSection>
-                        <StyledSection
+                            text="Conflicts policy"
+                        />
+
+                        <Copyright label="copyright" text="Copyright" />
+
+                        <ComplaintsAndDisputes
+                            label="complain-dispute"
+                            text="Complaints and disputes"
+                        />
+
+                        <RiskDisclaimer
                             label="risk-disclaimer"
-                            text={localize('Risk disclaimer')}
-                        >
-                            <RiskDisclaimer />
-                        </StyledSection>
-                        <StyledSection
+                            text="Risk disclaimer"
+                        />
+
+                        <OrderExecution
                             label="order-execution"
-                            text={localize('Order execution')}
-                        >
-                            <OrderExecution />
-                        </StyledSection>
-                        <StyledSection
+                            text="Order execution"
+                        />
+
+                        <PaymentAgents
                             label="payment-agent"
-                            text={localize('Payment agents')}
-                        >
-                            <PaymentAgents />
-                        </StyledSection>
+                            text="Payment agents"
+                        />
                     </SideTab>
                 </Container>
             </Layout>

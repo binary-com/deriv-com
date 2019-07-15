@@ -207,7 +207,7 @@ const Footer = () => (
                 <LegalRow>
                     <div>
                         <p>{localize('The financial products offered by this website is offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines.')}</p>
-                        <p>{localize('This website\'s services are accessible worldwide except in certain countries such as the USA, Canada, Hong Kong, Japan, or to persons under age 18.')}</p>
+                        <p>{localize('This website\'s services are not made available in certain countries such as the USA, Canada, Hong Kong, Japan, or to persons under age 18.')}</p>
                     </div>
                     <div>
                         <span>

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Text, Header } from './typography.js'
+import { Header } from './typography.js'
 import device from 'themes/device'
 
 const CardWrapper = styled.article`
@@ -33,9 +33,9 @@ const StyledCard = ({ Icon, title, content_1, content_2, content_3 }) => {
                 </Header>
             </div>
             <div className='card-content'>
-                <Text color="black-3" lh="1.55">{content_1}</Text>
-                <Text color="black-3" lh="1.55">{content_2}</Text>
-                <Text color="black-3" lh="1.55">{content_3}</Text>
+                <Header as="h5" color="black-3" lh="1.55" weight="normal">{content_1}</Header>
+                <Header as="h5" color="black-3" lh="1.55" weight="normal">{content_2}</Header>
+                <Header as="h5" color="black-3" lh="1.55" weight="normal">{content_3}</Header>
             </div>
         </CardWrapper>
     )

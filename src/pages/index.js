@@ -55,7 +55,7 @@ const Dtrader = styled.div`
     grid-gap: 2rem;
     padding: 0;
 
-    p {
+    h5 {
         margin-bottom: 1.2rem
     }
     @media ${device.lg} {

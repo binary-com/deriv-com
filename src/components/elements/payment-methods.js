@@ -9,7 +9,7 @@ const Grid = styled.article`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
-    max-width: 100%;
+    width: 100%;
 
     * {
         max-width: 100%;

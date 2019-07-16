@@ -7,9 +7,26 @@ const Wrapper = styled.div`
     background-color: var(--color-white);
     min-height: 41.8rem;
     border-radius: 1rem;
+    position: relative;
+    height: 41.8rem;
 
     .bullet-area {
-        padding-top: 5.6rem;
+        position: absolute;
+        bottom: 5.8rem;
+        
+        button {
+            margin-top: 0;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 1rem;
+            margin-right: 1.25rem;
+            outline: none;
+        }
+    }
+    .background {
+        position: absolute;
+        right: 0;
+        bottom: 0;
     }
 `
 
@@ -24,7 +41,8 @@ class Carousel extends React.Component {
     }
 
     render() {
-        const ActiveSlide = this.state.active_slide
+        const ActiveSlide = this.state.active_slide;
+        const Background = this.props.background;
         return (
             <Wrapper className='carousel-container'>
                 <ActiveSlide />
@@ -37,12 +55,14 @@ class Carousel extends React.Component {
                         />
                     ))}
                 </div>
+                <Background className='background'/>
             </Wrapper>
         )
     }
 }
 
 Carousel.propTypes = {
+    background: PropTypes.func,
     slides: PropTypes.array,
 }
 export default Carousel

@@ -8,8 +8,9 @@ import SignupModal from '../components/elements/signup-modal'
 import { localize, WithIntl } from '../components/localization'
 import Carousel from '../components/elements/carousel'
 import styled from 'styled-components'
-import Container from '../components/containers/container'
 import { Header } from '../components/elements/typography.js'
+import CarouselBackground from 'images/svg/abstract.svg'
+import ChecklistLogo from 'images/svg/checklist.svg'
 
 const HomeCarouselWrapper = styled.div`
     background-color: var(--color-grey-1);
@@ -19,7 +20,7 @@ const HomeCarouselContainer = styled.div`
     width: 90%;
     margin-left: 20.8rem;
     margin-right: 0;
-    display:flex;
+    display: flex;
     max-width: 123.2rem;
     padding: 5.8rem 0 5.4rem 0;
     padding-top: 5.8rem;
@@ -33,7 +34,7 @@ const HomeCarouselContainer = styled.div`
         width: 32.8rem;
         margin-right: 10.7rem;
     }
-    .carousel-container{
+    .carousel-container {
         box-sizing: border-box;
         width: 100%;
         max-width: 79.7rem;
@@ -43,7 +44,45 @@ const HomeCarouselContainer = styled.div`
         margin-top: 4rem;
     }
 `
-const Carousel1 = () => <div>slide 1</div>
+const Slide1 = styled.section`
+    div {
+        display: inline-flex;
+        margin-top: 4rem;
+        width: 100%;
+
+        p {
+            height: 30px;
+            font-size: 20px;
+            color: var(--color-black-2);
+            line-height: 1.5;
+            margin-left: 1.6rem;
+        }
+    }
+
+    div:first-child {
+        margin-top: 0;
+    }
+`
+const Carousel1 = () => (
+    <Slide1>
+        <div>
+            <ChecklistLogo />
+            <p>Patented, licensed, and regulated</p>
+        </div>
+        <div>
+            <ChecklistLogo />
+            <p>Short- to long-term trades</p>
+        </div>
+        <div>
+            <ChecklistLogo />
+            <p>Reliable customer support</p>
+        </div>
+        <div>
+            <ChecklistLogo />
+            <p>Privacy guaranteed</p>
+        </div>
+    </Slide1>
+)
 const Carousel2 = () => <div>slide 2</div>
 
 class Home extends Component {
@@ -90,7 +129,10 @@ class Home extends Component {
                             </Header>
                             <Button secondary>See a demo</Button>
                         </div>
-                        <Carousel slides={[Carousel1, Carousel2]} />
+                        <Carousel
+                            slides={[Carousel1, Carousel2]}
+                            background={CarouselBackground}
+                        />
                     </HomeCarouselContainer>
                 </HomeCarouselWrapper>
             </Layout>

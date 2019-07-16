@@ -1,12 +1,43 @@
 import React, { Component } from 'react'
+import { navigate } from '@reach/router'
 import styled from 'styled-components'
 import SEO from '../components/containers/seo'
 import Layout from '../components/layout/layout'
-import { localize, WithIntl } from '../components/localization'
+import { localize, WithIntl, LocalizedLink } from '../components/localization'
 import Container from '../components/containers/container'
 import SearchSVG from 'images/svg/search.svg'
-import { Header, Text } from '../components/elements/topography.js'
+import { Header, Text, LinkText } from '../components/elements/topography.js'
 import matchSorter from 'match-sorter'
+
+const HelpArticle = ({ header, paragraphs, children }) => (
+    <>
+        <Header as="h3">{header}</Header>
+        {paragraphs.map((text, idx) => (
+            <Text key={idx}>{text}</Text>
+        ))}
+        {children}
+    </>
+)
+
+const OpeningAnAccount = () => (
+    <HelpArticle paragraphs={['This is how you open an account']} />
+)
+
+const WhoCanOpenAnAccount = () => (
+    <HelpArticle
+        paragraphs={[
+            'You may only open an account with us on these conditions:',
+        ]}
+    />
+)
+
+const MakingADeposit = () => (
+    <HelpArticle paragraphs={['Select deposit method and deposit']} />
+)
+
+const MakingAWithDrawal = () => (
+    <HelpArticle paragraphs={['Select deposit method and withdraw']} />
+)
 
 const SearchIcon = styled(SearchSVG)`
     position: absolute;
@@ -53,44 +84,20 @@ const ResultWrapper = styled.div`
         margin-bottom: 1.6rem;
     }
 `
+const ListWrapper = styled.div`
+    ${Header} {
+        margin-bottom: 1.6rem;
+    }
+`
 
-const HelpArticle = ({ header, paragraphs, children }) => (
-    <>
-        <Header as="h3">{header}</Header>
-        {paragraphs.map((text, idx) => (
-            <Text key={idx}>{text}</Text>
-        ))}
-        {children}
-    </>
-)
+const ListNoBullets = styled.ul`
+    margin-bottom: 4.2rem;
+    list-style: none;
 
-const CanITrade = () => (
-    <HelpArticle
-        paragraphs={[
-            'Yes if you are a non-EU citizen and sign up as a expert trader.',
-        ]}
-    />
-)
-
-const OpeningAnAccount = () => (
-    <HelpArticle paragraphs={['This is how you open an account']} />
-)
-
-const WhoCanOpenAnAccount = () => (
-    <HelpArticle
-        paragraphs={[
-            'You may only open an account with us on these conditions:',
-        ]}
-    />
-)
-
-const MakingADeposit = () => (
-    <HelpArticle paragraphs={['Select deposit method and deposit']} />
-)
-
-const MakingAWithDrawal = () => (
-    <HelpArticle paragraphs={['Select deposit method and withdraw']} />
-)
+    > *:not(:last-child) {
+        padding-bottom: 1.6rem;
+    }
+`
 
 const articles = [
     {
@@ -99,13 +106,17 @@ const articles = [
             {
                 title: 'Who can open an account?',
                 keywords: ['account', 'how', 'who'],
+                category: 'Account',
                 sub_category: 'Opening an account',
+                label: 'who-can-open-an-account',
                 content: <WhoCanOpenAnAccount />,
             },
             {
                 title: 'Opening an account',
                 keywords: ['account', 'how', 'who'],
+                category: 'Account',
                 sub_category: 'Opening an account',
+                label: 'opening-an-account',
                 content: <OpeningAnAccount />,
             },
         ],
@@ -116,23 +127,43 @@ const articles = [
             {
                 title: 'Making a deposit',
                 keywords: ['deposit', 'make'],
+                category: 'Deposits and withdrawals',
                 sub_category: 'Deposits',
+                label: 'making-a-deposit',
                 content: <MakingADeposit />,
             },
             {
                 title: 'Withdrawal processing time',
                 keywords: ['Withdrawal', 'take', 'money'],
+                category: 'Deposits and withdrawals',
                 sub_category: 'Withdrawals',
+                label: 'withdrawal-processing-time',
                 content: <MakingAWithDrawal />,
             },
         ],
     },
 ]
 
+const getRelatedArticles = (article_list, selected_article) =>
+    article_list.filter(
+        article =>
+            article.sub_category === selected_article.sub_category &&
+            article.title !== selected_article.title,
+    )
+
+const getAllArticles = articles =>
+    articles.map(category => category.articles).flat()
+
 class HelpCentre extends Component {
-    state = {
-        search: '',
-        selected_article: null,
+    constructor(props) {
+        super(props)
+        const all_articles = getAllArticles(articles)
+
+        this.state = {
+            search: '',
+            selected_article: null,
+            all_articles,
+        }
     }
 
     handleInputChange = e => {
@@ -141,53 +172,70 @@ class HelpCentre extends Component {
         this.setState({ [name]: value.trim() })
     }
 
+    handleSubmit = e => e.preventDefault()
+
     handleSelectArticle = article => {
+        navigate(`#${article.label}`)
         this.setState({ selected_article: article })
     }
 
-    render() {
-        const all_articles = articles
-            .map(category =>
-                category.articles.map(article => ({
-                    ...article,
-                    category: category.category,
-                })),
+    componentDidMount = () => {
+        const current_label = location.hash ? location.hash.substring(1) : ''
+        if (current_label) {
+            const selected_article = this.state.all_articles.find(
+                article => article.label === current_label,
             )
-            .flat()
+            this.setState({ selected_article })
+        }
+    }
 
-        const { search, selected_article } = this.state
+    componentDidUpdate = () => {
+        const current_label = location.hash ? location.hash.substring(1) : ''
+        if (!current_label && this.state.selected_article) {
+            this.setState({ selected_article: null })
+        }
+    }
+
+    render() {
+        const { search, selected_article, all_articles } = this.state
         const filtered_articles = matchSorter(all_articles, search, {
             keys: ['title', 'sub_category', 'keywords'],
         })
         const has_results = !!filtered_articles.length
-        console.log('search: ', this.state.search)
-        console.log('all_articles: ', all_articles)
-        console.log('filtered: ', filtered_articles)
 
         return (
             <Layout>
                 <SEO title={localize('Help centre')} />
-                <Backdrop>
-                    <Container alignItems="normal" flexDirection="column">
-                        <SearchForm>
-                            <SearchIcon />
-                            <Search
-                                name="search"
-                                onChange={this.handleInputChange}
-                                placeholder={localize('How can we help?')}
-                            />
-                        </SearchForm>
-                        <ResultWrapper>
-                            {has_results && (
-                                <SearchSuccess
-                                    suggested_topics={filtered_articles}
-                                    onClick={this.handleSelectArticle}
+                {!selected_article && (
+                    <Backdrop>
+                        <Container alignItems="normal" flexDirection="column">
+                            <SearchForm
+                                onSubmit={this.handleSubmit}
+                                autoComplete="off"
+                            >
+                                <SearchIcon />
+                                <Search
+                                    name="search"
+                                    onChange={this.handleInputChange}
+                                    placeholder={localize('How can we help?')}
+                                    data-lpignore="true"
                                 />
-                            )}
-                            {!has_results && <SearchError search={search} />}
-                        </ResultWrapper>
-                    </Container>
-                </Backdrop>
+                            </SearchForm>
+                            <ResultWrapper>
+                                {has_results && search.length && (
+                                    <SearchSuccess
+                                        suggested_topics={filtered_articles}
+                                        onClick={this.handleSelectArticle}
+                                        max_length={3}
+                                    />
+                                )}
+                                {!has_results && (
+                                    <SearchError search={search} />
+                                )}
+                            </ResultWrapper>
+                        </Container>
+                    </Backdrop>
+                )}
                 <Container alignItems="normal" flexDirection="column">
                     {!selected_article && (
                         <TableOfContents>
@@ -197,31 +245,54 @@ class HelpCentre extends Component {
                             />
                         </TableOfContents>
                     )}
-                    {selected_article && <Article article={selected_article} />}
+                    {selected_article && (
+                        <Article
+                            article={selected_article}
+                            all_articles={all_articles}
+                            onClick={this.handleSelectArticle}
+                        />
+                    )}
                 </Container>
             </Layout>
         )
     }
 }
 
-const Article = ({ article }) => article.content
+const Article = ({ article, all_articles, onClick }) => {
+    const related_articles = getRelatedArticles(all_articles, article)
+    const has_related_articles = !!related_articles.length
 
-const SearchSuccess = ({ suggested_topics, onClick }) => (
+    return (
+        <>
+            <TableOfContents>
+                <div>
+                    <LocalizedLink to="/help-centre/">
+                        Back to Help topics
+                    </LocalizedLink>
+                    <Header as="h3">{`${article.category} - ${article.title}`}</Header>
+                    {article.content}
+                </div>
+                {has_related_articles && (
+                    <ListWrapper>
+                        <Header as="h3">Related topics</Header>
+                        <LinkList list={related_articles} onClick={onClick} />
+                    </ListWrapper>
+                )}
+            </TableOfContents>
+        </>
+    )
+}
+
+const SearchSuccess = ({ suggested_topics, onClick, max_length }) => (
     <>
         <Header as="h3" color="white">
             Topic Suggestions
         </Header>
-        <ListNoBullets>
-            {suggested_topics.slice(0, 3).map((topic, idx) => (
-                <ListLink
-                    key={idx}
-                    color="white"
-                    onClick={() => onClick(topic)}
-                >
-                    {topic.title}
-                </ListLink>
-            ))}
-        </ListNoBullets>
+        <LinkList
+            list={suggested_topics.slice(0, max_length)}
+            onClick={onClick}
+            link_style={{ color: 'white', size: '2rem' }}
+        />
     </>
 )
 
@@ -265,73 +336,27 @@ const SearchError = ({ search }) => (
     </>
 )
 
-const TextLink = ({ children }) => <>{children}</>
+const ArticleList = ({ articles, onClick }) => (
+    <>
+        {articles.map((category, idx) => (
+            <ListWrapper key={idx}>
+                <Header as="h3">{category.category}</Header>
+                <LinkList list={category.articles} onClick={onClick} />
+            </ListWrapper>
+        ))}
+    </>
+)
 
-TextLink.Group = function Group({ children }) {
-    return <div>{children}</div>
-}
-
-// TODO: add to topography
-const ListLink = styled.p`
-    /* prettier-ignore */
-    color: var(--color-${props => props.color || 'black'});
-    font-size: 2rem;
-    line-height: 1.5;
-
-    &:hover {
-        color: var(--color-red);
-        text-decoration: underline;
-        cursor: pointer;
-    }
-`
-
-const HeaderWrapper = styled.div`
-    margin-bottom: 1.6rem;
-`
-const ListNoBullets = styled.ul`
-    margin-bottom: 4.2rem;
-    list-style: none;
-
-    > *:not(:last-child) {
-        padding-bottom: 1.6rem;
-    }
-`
-
-TextLink.List = function List({ header, links, onClick }) {
-    return (
-        <>
-            <HeaderWrapper>
-                <Header as="h3">{header}</Header>
-            </HeaderWrapper>
-            <ListNoBullets>
-                {links.map((link, idx) => (
-                    <li key={idx}>
-                        <ListLink onClick={() => onClick(link)}>
-                            {link.title}
-                        </ListLink>
-                    </li>
-                ))}
-            </ListNoBullets>
-        </>
-    )
-}
-
-const ArticleList = ({ articles, onClick }) => {
-    return (
-        <>
-            {articles.map((category, idx) => {
-                return (
-                    <TextLink.Group key={idx}>
-                        <TextLink.List
-                            header={category.category}
-                            links={category.articles}
-                            onClick={onClick}
-                        />
-                    </TextLink.Group>
-                )
-            })}
-        </>
-    )
-}
+const LinkList = ({ list, onClick, link_style }) => (
+    <ListNoBullets>
+        {list.map((item, idx) => (
+            <li key={idx}>
+                <LinkText {...link_style} onClick={() => onClick(item)}>
+                    {item.title}
+                </LinkText>
+            </li>
+        ))}
+    </ListNoBullets>
+)
 
 export default WithIntl()(HelpCentre)

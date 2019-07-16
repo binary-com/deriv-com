@@ -13,6 +13,21 @@ export const Text = styled.p`
     color: var(--color-${props => props.color || 'black'});
 `
 
+export const LinkText = styled.a`
+    /* prettier-ignore */
+    color: var(--color-${props => props.color || 'black'});
+    font-size: ${props => props.size || 'var(--text-size-s)'};
+    line-height: ${props => props.lh || '1.5'};
+    display: block;
+
+    &:hover {
+        color: var(--color-red);
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+`
+
 export const Header = styled(({ as = 'h1', children, ...props }) =>
     createElement(as, props, children),
 )`

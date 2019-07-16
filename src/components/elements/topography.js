@@ -25,7 +25,6 @@ export const LinkText = styled.a`
         text-decoration: underline;
         cursor: pointer;
     }
-
 `
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>

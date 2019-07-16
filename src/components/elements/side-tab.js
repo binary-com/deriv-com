@@ -17,7 +17,7 @@ const TabList = styled.ol`
 `
 
 const TabContent = styled.div`
-    flex: 0.8;
+    flex: 1;
 `
 
 class SideTab extends Component {

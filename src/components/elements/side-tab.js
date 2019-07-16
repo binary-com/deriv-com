@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { localize } from '../localization'
 import Wrapper from '../containers/wrapper'
 import Tab from './tab'
 import PropTypes from 'prop-types'

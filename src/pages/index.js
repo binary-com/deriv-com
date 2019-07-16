@@ -30,7 +30,7 @@ const StyledCard = styled.article`
     * {
         max-width: 100%;
     }
-    .card-title {
+    h4 {
         margin-top: 2.4rem;
         margin-bottom: 1rem;
     }
@@ -304,60 +304,48 @@ class Home extends Component {
                         <Dtrader>
                             <StyledCard>
                                 <SuperiorPlatform />
-                                <div className='card-title'>
-                                    <Header as="h4" weight="500">
-                                        {localize('Superior trading platform')}
-                                    </Header>
-                                </div>
-                                <div className='card-content'>
-                                    <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                        {localize('A revolutionary platform for all traders.')}
-                                    </Header>
-                                    <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                        {localize('Access the world’s most traded markets and assets.')}
-                                    </Header>
-                                    <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                        {localize('100+ instruments.')}
-                                    </Header>
-                                </div>
-                            </StyledCard>
+                                <Header as="h4" weight="500">
+                                    {localize('Superior trading platform')}
+                                </Header>
+                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                    {localize('A revolutionary platform for all traders.')}
+                                </Header>
+                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                    {localize('Access the world’s most traded markets and assets.')}
+                                </Header>
+                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                    {localize('100+ instruments.')}
+                                </Header>
+                        </StyledCard>
                             <StyledCard>
                                 <PatentedTech />
-                                <div className='card-title'>
-                                    <Header as="h4" weight="500">
-                                        {localize('Superior trading platform')}
-                                    </Header>
-                                </div>
-                                <div className='card-content'>
-                                    <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                        {localize('A revolutionary platform for all traders.')}
-                                    </Header>
-                                    <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                        {localize('Access the world’s most traded markets and assets.')}
-                                    </Header>
-                                    <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                        {localize('100+ instruments.')}
-                                    </Header>
-                                </div>
+                                <Header as="h4" weight="500">
+                                    {localize('Superior trading platform')}
+                                </Header>
+                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                    {localize('A revolutionary platform for all traders.')}
+                                </Header>
+                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                    {localize('Access the world’s most traded markets and assets.')}
+                                </Header>
+                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                    {localize('100+ instruments.')}
+                                </Header>
                             </StyledCard>
                             <StyledCard>
                                 <Intuitive />
-                                <div className='card-title'>
-                                    <Header as="h4" weight="500">
-                                        {localize('Superior trading platform')}
-                                    </Header>
-                                </div>
-                                <div className='card-content'>
-                                    <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                        {localize('A revolutionary platform for all traders.')}
-                                    </Header>
-                                    <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                        {localize('Access the world’s most traded markets and assets.')}
-                                    </Header>
-                                    <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                        {localize('100+ instruments.')}
-                                    </Header>
-                                </div>
+                                <Header as="h4" weight="500">
+                                    {localize('Superior trading platform')}
+                                </Header>
+                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                    {localize('A revolutionary platform for all traders.')}
+                                </Header>
+                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                    {localize('Access the world’s most traded markets and assets.')}
+                                </Header>
+                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                    {localize('100+ instruments.')}
+                                </Header>
                             </StyledCard>
                         </Dtrader>
                     </Container>

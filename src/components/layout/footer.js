@@ -142,7 +142,7 @@ const Footer = () => (
                             <h4>{localize('Company')}</h4>
                             <StyledLink
                                 activeClassName="active"
-                                to="/about"
+                                to="/about/"
                                 aria-label={localize('About us')}
                             >
                                 {localize('About us')}
@@ -154,7 +154,7 @@ const Footer = () => (
                             <h4>{localize('Support')}</h4>
                             <StyledLink
                                 activeClassName="active"
-                                to="/help-centre"
+                                to="/help-centre/"
                                 aria-label={localize('Help Centre')}
                             >
                                 {localize('Help Centre')}
@@ -171,7 +171,7 @@ const Footer = () => (
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
-                                to="/terms-and-conditions"
+                                to="/terms-and-conditions/"
                                 aria-label={localize('Terms and Conditions')}
                             >
                                 {localize('Terms and Conditions')}

@@ -38,7 +38,7 @@ class Tab extends Component {
 
         return (
             <StyledTab className={className} onClick={onClick}>
-                <Text>{text}</Text>
+                <Text weight="500">{text}</Text>
             </StyledTab>
         )
     }

@@ -7,17 +7,13 @@ const GlobalStyle = createGlobalStyle`
     ${Reset}
     ${Variables}
 
-    body {
-        font-family: 'IBM Plex Sans', sans-serif;
-        margin: 0;
-    }
     * {
-        margin: 0;
-        padding: 0;
+        &, &::before, &::after {
+            box-sizing: border-box;
+        }
     }
     html {
         font-size: 62.5%; /* 1rem = 10px */
-        box-sizing: border-box;
 
         @media ${device.desktopL} {
             font-size: 75.5%; /* 1rem = 12px */
@@ -28,6 +24,11 @@ const GlobalStyle = createGlobalStyle`
         @media ${device.mobileM} {
             font-size: 35%; /* 1rem = 5.5px */
         }
+    }
+    body {
+        font-family: 'IBM Plex Sans', sans-serif;
+        margin: 0;
+        padding: 0;
     }
 `
 

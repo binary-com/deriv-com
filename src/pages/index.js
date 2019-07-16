@@ -46,7 +46,7 @@ const Card = styled.article`
     div {
         margin-top: 2.4rem;
     }
-    @media ${device.tabletS} {
+    @media ${device.sm} {
         text-align: center;
     }
 `

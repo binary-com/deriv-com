@@ -8,29 +8,6 @@ const BaseElement = css`
 
     /* prettier-ignore */
     color: var(--color-${props => props.color || 'black-3'});
-    ${props => {
-        let margins = ''
-        if (props.margin) {
-            Object.keys(props.margin).forEach(margin => {
-                switch (margin) {
-                    case 'vertical':
-                        margins += `margin-top: ${props.margin[margin]};`
-                        margins += `margin-bottom: ${props.margin[margin]};`
-                        break
-                    case 'horizontal':
-                        margins += `margin-left: ${props.margin[margin]};`
-                        margins += `margin-right: ${props.margin[margin]};`
-                        break
-                    default:
-                        margins += `margin-${margin}: ${props.margin[margin]};`
-                }
-            })
-        } else {
-            margins = 'margin: 0 auto;'
-        }
-
-        return margins
-    }}
 `
 
 export const Text = styled.p`

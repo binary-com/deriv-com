@@ -15,7 +15,13 @@ const HomeCarouselWrapper = styled.div`
     background-color: var(--color-grey-1);
     display: flex;
 `
-const HomeCarouselContainer = styled(Container)`
+const HomeCarouselContainer = styled.div`
+    width: 90%;
+    margin-left: 20.8rem;
+    margin-right: 0;
+    display:flex;
+    max-width: 123.2rem;
+    padding: 5.8rem 0 5.4rem 0;
     padding-top: 5.8rem;
     padding-bottom: 5.4rem;
     justify-content: space-between;
@@ -24,13 +30,13 @@ const HomeCarouselContainer = styled(Container)`
     .context-container {
         margin-top: 3.8rem;
         color: var(--color-black-2);
-        max-width: 32.8rem;
+        width: 32.8rem;
+        margin-right: 10.7rem;
     }
     .carousel-container{
-        position: absolute;
-        right: 0;
-        width: 79.7rem;
         box-sizing: border-box;
+        width: 100%;
+        max-width: 79.7rem;
     }
     button {
         width: 13.5rem;

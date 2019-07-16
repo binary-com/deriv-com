@@ -53,7 +53,7 @@ const Card = styled.article`
 `
 const HeroWrapper = styled.section`
     width: 100%;
-    padding: 2rem 0;
+    padding: 4rem 0 2rem ;
     min-height: 55rem;
     background: var(--color-black) url(${img});
     background-repeat: no-repeat;

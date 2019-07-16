@@ -11,7 +11,6 @@ import { localize, WithIntl } from '../components/localization'
 import Signup from '../components/form/signup'
 import img from 'images/common/header-trade.png'
 import { Header, Text } from '../components/elements/typography.js'
-import Logo from 'images/svg/deriv.svg'
 import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
 import Intuitive from 'images/svg/intuitive.svg'
@@ -161,6 +160,18 @@ const DtraderSection = styled.section`
         var(--color-white)
     );
     border-bottom: 1px solid var(--color-grey-2);
+
+    h2 {
+        text-align: center;
+
+        & ::before {
+            content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='34' viewBox='0 0 38 36' aria-labelledby='deriv-icon-title'%3E%3Ctitle id='deriv-icon-title'%3EDeriv icon%3C/title%3E%3Cdefs%3E%3ClinearGradient id='deriv_a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FF6544'/%3E%3Cstop offset='100%25' stop-color='%23FF4449'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='nonzero'%3E%3Cpath fill='url(%23deriv_a)' d='M8.244 0v.039L21.94 18 0 35.961V36h22.154c6.466 0 12.076-4.498 13.53-10.848l1.833-8.01a14.081 14.081 0 0 0-2.663-11.859A13.843 13.843 0 0 0 23.99 0H8.244z'/%3E%3Cpath fill='%23B51A31' d='M21.93 18.036L12.298 36H0z'/%3E%3C/g%3E%3C/svg%3E");
+            width: 14rem;
+        }
+    }
+    h3 {
+        border: 1px solid #444444;
+    }
 `
 const Dtrader = styled.div`
     width: 100%;
@@ -297,7 +308,7 @@ class Home extends Component {
                 <Hero />
                 <DtraderSection>
                     <SectionHeader>
-                        <h2><Logo /> {localize('DTrader')}</h2>
+                        <h2>{localize('DTrader')}</h2>
                         <h3>{localize('All you need to get started')}</h3>
                     </SectionHeader>
                     <Container>

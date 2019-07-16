@@ -4,10 +4,11 @@ import Visa from 'images/svg/visa.svg'
 import Master from 'images/svg/mastercard.svg'
 import Neteller from 'images/svg/neteller.svg'
 import Skrill from 'images/svg/skrill.svg'
+import Bitcoin from 'images/svg/bitcoin.svg'
 
 const Grid = styled.article`
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 2rem;
     width: 100%;
 
@@ -23,6 +24,7 @@ const PaymentMethods = () => (
         <Master />
         <Neteller />
         <Skrill />
+        <Bitcoin />
     </Grid>
 )
 

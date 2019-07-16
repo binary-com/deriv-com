@@ -6,6 +6,39 @@ import Layout from '../components/layout/layout'
 import Modal from '../components/elements/modal'
 import SignupModal from '../components/elements/signup-modal'
 import { localize, WithIntl } from '../components/localization'
+import Carousel from '../components/elements/carousel'
+import styled from 'styled-components'
+import Container from '../components/containers/container'
+import { Header } from '../components/elements/typography.js'
+
+const HomeCarouselWrapper = styled.div`
+    background-color: var(--color-grey-1);
+    display: flex;
+`
+const HomeCarouselContainer = styled(Container)`
+    padding-top: 5.8rem;
+    padding-bottom: 5.4rem;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .context-container {
+        margin-top: 3.8rem;
+        color: var(--color-black-2);
+        max-width: 32.8rem;
+    }
+    .carousel-container{
+        position: absolute;
+        right: 0;
+        width: 79.7rem;
+        box-sizing: border-box;
+    }
+    button {
+        width: 13.5rem;
+        margin-top: 4rem;
+    }
+`
+const Carousel1 = () => <div>slide 1</div>
+const Carousel2 = () => <div>slide 2</div>
 
 class Home extends Component {
     state = {
@@ -42,6 +75,18 @@ class Home extends Component {
                 >
                     <SignupModal />
                 </Modal>
+                <HomeCarouselWrapper>
+                    <HomeCarouselContainer>
+                        <div className="context-container">
+                            <Header as="h2">Why choose Deriv?</Header>
+                            <Header as="h4" weight="500">
+                                Your one-stop shop for online trading.
+                            </Header>
+                            <Button secondary>See a demo</Button>
+                        </div>
+                        <Carousel slides={[Carousel1, Carousel2]} />
+                    </HomeCarouselContainer>
+                </HomeCarouselWrapper>
             </Layout>
         )
     }

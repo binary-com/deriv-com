@@ -11,15 +11,67 @@ const StyledSection = styled.section`
     padding-left: 8rem;
 `
 
+const StyledOrder = styled.ol`
+    list-style: decimal;
+`
+
 const General = () => (
     <StyledSection>
-        <Header as="h2">{localize('Terms and Conditions')}</Header>
-        <Text lh="1.5">Version 1. Last modified 01-08-2019.</Text>
-        <Text lh="1.5">
+        <Header as="h2" color="black">
+            {localize('Terms and Conditions')}
+        </Header>
+        <Text margin={{ vertical: '2.4rem' }}>
+            Version 1. Last modified 01-08-2019.
+        </Text>
+        <Text margin={{ bottom: '3.2rem' }}>
             It is the responsibility of each Client to read and understand this
             legal notice and the terms and conditions pursuant to which an
             acquisition of financial contracts via this site is governed.
         </Text>
+        <Header as="h4">
+            {localize('A.  Introduction and scope of the agreement')}
+        </Header>
+        <StyledOrder>
+            <li>
+                <Text margin={{ vertical: '0.8rem' }}>
+                    By accessing and using Deriv.com, you accept and agree to be
+                    bound by these terms and conditions. It is your
+                    responsibility to read and understand the following terms
+                    and conditions. These terms and conditions may be
+                    supplemented from time to time by additional terms and
+                    conditions applicable to a particular company or products.
+                </Text>
+            </li>
+            <li>
+                <Text margin={{ vertical: '0.8rem' }}>
+                    The terms “We”, “Us”, and “Our” shall denote Binary (SVG)
+                    Ltd, Binary (Europe) Ltd, Binary (IOM) Ltd, and Binary
+                    Investments (Europe) Ltd.
+                </Text>
+            </li>
+            <li>
+                <Text margin={{ vertical: '0.8rem' }}>
+                    The services offered on Deriv are only suitable for you if
+                    you are able to bear the loss of all the money you invest
+                    and if you understand and have experienced the risks
+                    involved in the acquisition of such contracts. International
+                    currency or commodity prices are highly volatile and
+                    difficult to predict. Due to such volatility, no contract
+                    purchased in Our system (whether or not the payout exceeds
+                    the premium amount) can be considered a safe contract.
+                </Text>
+            </li>
+            <li>
+                <Text margin={{ vertical: '0.8rem' }}>
+                    The terms and conditions are provided in several languages.
+                    We attempt, as much as possible, to provide a faithful
+                    translation from the English version, reflecting the same
+                    principles. In the event of any differences between the
+                    English version of the Deriv website and any other language,
+                    the English version shall prevail.
+                </Text>
+            </li>
+        </StyledOrder>
     </StyledSection>
 )
 

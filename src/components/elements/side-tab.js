@@ -12,11 +12,13 @@ const StyledSideTab = styled(Wrapper)`
 `
 
 const TabList = styled.ol`
-    padding-left: 0;
+    width: 24rem;
     list-style: none;
 `
 
-const TabContent = styled.div``
+const TabContent = styled.div`
+    flex: 0.8;
+`
 
 class SideTab extends Component {
     state = {
@@ -31,6 +33,18 @@ class SideTab extends Component {
         this.setState({
             active_tab: current_label,
         })
+    }
+
+    componentDidUpdate() {
+        const current_label = location.hash
+            ? location.hash.substring(1)
+            : this.props.children[0].props.label
+
+        if (current_label !== this.state.active_tab) {
+            this.setState({
+                active_tab: current_label,
+            })
+        }
     }
 
     onClickTabItem = tab => {

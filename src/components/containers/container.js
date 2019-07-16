@@ -10,7 +10,7 @@ const Container = styled.div`
         let margins = ''
         if (props.margin) {
             Object.keys(props.margin).forEach(margin => {
-                margins += `margin-${margin}: ${props.margin[margin]}`
+                margins += `margin-${margin}: ${props.margin[margin]};`
             })
         } else {
             margins = 'margin: 0 auto;'

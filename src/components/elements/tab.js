@@ -6,10 +6,10 @@ import { Text } from 'components/elements/typography'
 const StyledTab = styled.li`
     cursor: pointer;
     padding: 1.8rem 0;
-    border-bottom: 1px solid var(--color-grey);
+    border-bottom: 1px solid var(--color-red-2);
 
     & > p {
-        color: var(--color-grey);
+        color: var(--color-red-2);
     }
     &.tab-active {
         border-bottom: 1px solid var(--color-red);

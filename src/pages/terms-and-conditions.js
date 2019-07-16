@@ -26,15 +26,15 @@ const General = () => (
         <Header as="h2" color="black">
             {localize('Terms and Conditions')}
         </Header>
-        <Text margin={{ vertical: '2.4rem' }}>
+        <Text margin={{ vertical: '2rem' }}>
             {localize('Version 1. Last modified 01-08-2019.')}
         </Text>
-        <Text>
+        <Text margin={{ vertical: '2rem' }}>
             {localize(
                 'It is the responsibility of each Client to read and understand this legal notice and the terms and conditions pursuant to which an acquisition of financial contracts via this site is governed.',
             )}
         </Text>
-        <Header as="h4" margin={{ top: '3.2rem' }}>
+        <Header as="h4" weight="500">
             {localize('A.  Introduction and scope of the agreement')}
         </Header>
         <StyledOrder type="decimal">
@@ -67,7 +67,7 @@ const General = () => (
                 </Text>
             </li>
         </StyledOrder>
-        <Header as="h4" margin={{ top: '3.2rem' }}>
+        <Header as="h4" weight="500" margin={{ top: '3.2rem' }}>
             {localize('B. Governing laws and jurisdiction')}
         </Header>
         <StyledOrder type="decimal">
@@ -107,7 +107,7 @@ const General = () => (
                 </Text>
             </li>
         </StyledOrder>
-        <Header as="h4" margin={{ top: '3.2rem' }}>
+        <Header as="h4" weight="500" margin={{ top: '3.2rem' }}>
             {localize('C. Communication')}
         </Header>
         <StyledOrder type="decimal">
@@ -126,7 +126,7 @@ const General = () => (
                 </Text>
             </li>
         </StyledOrder>
-        <Header as="h4" margin={{ top: '3.2rem' }}>
+        <Header as="h4" weight="500" margin={{ top: '3.2rem' }}>
             {localize('D. Account Management')}
         </Header>
         <StyledOrder type="decimal">
@@ -216,33 +216,35 @@ const DataFeed = () => (
         <Header as="h2" color="black">
             {localize('Data feed')}
         </Header>
-        <Text margin={{ vertical: '2.4rem' }}>
+        <Text margin={{ vertical: '2rem' }}>
             {localize(
                 'Here is some information about the data feeds used by the Company.',
             )}
         </Text>
-        <Header as="h4">{localize('Differences with other data feeds')}</Header>
-        <Text margin={{ vertical: '1.8rem' }}>
+        <Header as="h4" weight="500">
+            {localize('Differences with other data feeds')}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
             {localize(
                 "The Company's data feed may at times differ slightly from other data feeds found on the Internet (who may themselves differ from each other). Reasons for differences in feed providers include:",
             )}
         </Text>
-        <Text margin={{ vertical: '1.8rem' }}>
+        <Text margin={{ vertical: '2rem' }}>
             {localize(
                 "For forex: The forex market is an OTC (over the counter) market, where banks and other major financial institutions trade currencies amongst themselves without there being any central clearing house. Accordingly, there is no 'official' price source for forex quotes. Different data feeds will contain quotes from a different sub-set of international banks. Accordingly, prices may differ among providers, depending on which bank(s) they obtain prices from.",
             )}
         </Text>
-        <Text margin={{ vertical: '1.8rem' }}>
+        <Text margin={{ vertical: '2rem' }}>
             {localize(
                 "Market-closing times: The client is asked to refer to Trading times page for the exact time of settlement for all contracts. Other websites may adopt a different convention (for example, some websites choose 4 o'clock NY time or 5 o'clock London time). As a result, the open, high, low, and closing prices displayed on the Company's website may differ from those on other websites, due to the market-closing time convention.",
             )}
         </Text>
-        <Text margin={{ vertical: '1.8rem' }}>
+        <Text margin={{ vertical: '2rem' }}>
             {localize(
                 "Use of bid/ask prices: When the market is illiquid, the data feed may contain many bid and ask prices, without there actually being any traded price for quite a while. By taking an average of the bid/ask price (i.e. bid + ask, divided by 2), a market quote is generated that reflects the current market, without it actually being a traded price. The Company's system will generate prices from these bid and ask prices, whereas other websites might not. As a result, the Company's website might display ticks that do not appear in the data feeds of other websites.",
             )}
         </Text>
-        <Text margin={{ vertical: '1.8rem' }}>
+        <Text margin={{ vertical: '2rem' }}>
             {localize(
                 "The Company's data feed is designed to be one of the best and most robust available for a trading environment.",
             )}
@@ -251,22 +253,234 @@ const DataFeed = () => (
 )
 
 const SecurityAndPrivacy = () => (
-    <StyledSection>SecurityAndPrivacy</StyledSection>
+    <StyledSection>
+        <Header as="h2" color="black">
+            {localize('Security and privacy')}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "The Company recognises the importance of protecting the client's personal and financial information.",
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "All the information that the Company obtains about the client assists the Company in servicing the client and the client's account. The Company knows that the client may be concerned about what the Company does with this information.",
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "The Company has outlined the Company's privacy practices for the client as follows:",
+            )}
+        </Text>
+        <Header as="h4" weight="500">
+            {localize('Use of information')}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'The Company operates in full compliance with the General Data Protection Regulation (GDPR) and other applicable Data Protection laws. These regulatory measures place obligations on users of personal data like the Company. They also lay down the principles for fair and lawful processing of all the information that the Company acquires.',
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "It is the Company's commitment to safeguard the client's privacy online at all times. The Company only uses the client's personal information to help the Company service the client's account, to improve the Company's services to the client, and to provide the client with products that the client has requested. The Company does not sell the client's personal information to third parties, but the Company may provide it to payment providers to facilitate transactions on the client's account.",
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "The client's personal information is used primarily as a way of validating the client as the legitimate account owner and proper recipient of withdrawal payments. The Company also uses this information to process the client's trades. The Company collects from the client all personal and financial data directly relating to the client when the client fills in the Company's account opening form. In all instances, the client has either a legal or a contractual obligation to provide the Company with the information. If such information is not provided, the Company will be unable to provide the client with its services.",
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "The Company reserves the right to request further information from the client whenever deemed appropriate under the circumstances. For example, the Company may ask the client to send the Company additional acceptable documents to confirm the authenticity of the client's account details or of any withdrawal request.",
+            )}
+        </Text>
+    </StyledSection>
 )
 
-const ConflictsPolicy = () => <StyledSection>ConflictsPolicy</StyledSection>
+const ConflictsPolicy = () => (
+    <StyledSection>
+        <Header as="h2" color="black">
+            {localize('Summary of the Conflicts policy')}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'The Company provides here a summary of the policy that the Company maintains in order to manage conflicts of interest in respect of the duties that the Company owes to clients.',
+            )}
+        </Text>
+        <Header as="h4" weight="500">
+            {localize('General')}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "Due to the nature of the Company's business as a trading counterparty, the Company's profits are tied to the net revenue generated by clients through trading. However, the Company aims to establish, maintain, and operate effective organisational and administrative arrangements with a view to taking all reasonable steps to prevent conflicts of interest from constituting or giving rise to a material risk of damage to the interests of clients.",
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'Due to the high degree of risk involved, which could result in the loss of the entire investment, the Company has adequate internal procedures in place to ensure that the client is in all cases treated fairly and that the risk of damage to client interests will be mitigated.',
+            )}
+        </Text>
+        <Header as="h4" weight="500">
+            {localize("The Company's policy")}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "The Company aims to keep a record of the kinds of activity that the Company carries on in which a material conflict could arise or has arisen. The Company also maintains procedures to manage actual or potential conflicts. This includes procedures to maintain appropriate independence among members of the Company's staff who are involved in potentially conflicting activities. Such independence-upholding procedures can be followed, for example, through the operation of information barriers, physical separation of staff, the segregation of duties and responsibilities, and the maintenance of a policy of independence, which requires the Company's staff, when providing services to a client, to act in the best interests of the client and to disregard any conflicts of interest, or in some circumstances, to decline to act for a client or potential client in order to avoid conflicts of interest.",
+            )}
+        </Text>
+    </StyledSection>
+)
 
-const Copyright = () => <StyledSection>Copyright</StyledSection>
+const Copyright = () => (
+    <StyledSection>
+        <Header as="h2" color="black">
+            {localize('Copyright')}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'The Deriv.com website is protected by certain copyrights.',
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'The materials comprising the Deriv.com website (including without limitation all articles, text, images, logos, compilation, systems, code, and design) are under Copyright 1999-2019 Binary Group of companies with all rights reserved.',
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'Such materials may be copied and distributed on a limited basis for noncommercial purposes only, provided that any material copied remains intact and that all copies include the following notice in a clearly visible position: “Copyright 1999-2019 Binary Ltd. All rights reserved.”',
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'These materials may not be copied or redistributed for commercial purposes or for compensation of any kind without prior written permission from a Binary Group company.',
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'Deriv.com and the bull/bear logo are registered trademarks.',
+            )}
+        </Text>
+    </StyledSection>
+)
 
 const ComplaintsAndDisputes = () => (
-    <StyledSection>ComplaintsAndDisputes</StyledSection>
+    <StyledSection>
+        <Header as="h2" color="black">
+            {localize('Complaints and disputes')}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "If the client would like to file a complaint with regards to the Company's service, the client can contact the Company at complaints@deriv.com, providing any relevant details relating to the client's complaint. The Company will investigate the client's enquiry and a response will be given. The Company usually provides a final response within 15 working days from receipt of all relevant details.",
+            )}
+        </Text>
+    </StyledSection>
 )
 
-const RiskDisclaimer = () => <StyledSection>RiskDisclaimer</StyledSection>
+const RiskDisclaimer = () => (
+    <StyledSection>
+        <Header as="h2" color="black">
+            {localize('Risk disclaimer')}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'This notice provides the client with information about the risks associated with the contracts the client may purchase through services provided by Binary.com services.',
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'Binary Group members are sometimes referred to collectively as "Binary.com" or "the Company".',
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "This notice does not explain all of the risks involved in investments or similar products or how such risks relate to the client's personal circumstances. It is important that the client fully understand the risks involved before making a decision to enter into a trade with the Company.",
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "If the client chooses to enter into a contract with the Company, it is important that the client remains aware of the risks involved, that the client has adequate investment resources to bear such risks, and that the client monitors the client's positions carefully.",
+            )}
+        </Text>
+    </StyledSection>
+)
 
-const OrderExecution = () => <StyledSection>OrderExecution</StyledSection>
+const OrderExecution = () => (
+    <StyledSection>
+        <Header as="h2" color="black">
+            {localize('Summary of the order execution policy')}
+        </Header>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "The Company has a general duty to conduct its business with the client honestly, fairly, and professionally and to act in the client's best interests when opening and closing Binary Options trades with the client.",
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                "More specifically, when the Company enters into a Binary Option trade with the client (each, a \"Contract\"), the Company has a duty to provide the client with 'best execution'. Best execution means that the Company must take reasonable steps to obtain the best possible result for the client when executing a client order. This document provides a summary of the Company's best execution policy.",
+            )}
+        </Text>
+        <Text margin={{ vertical: '2rem' }}>
+            {localize(
+                'This policy applies to clients classified as retail or professional. Clients classified as eligible counterparties are outside the scope of this policy.',
+            )}
+        </Text>
+    </StyledSection>
+)
 
-const PaymentAgents = () => <StyledSection>PaymentAgents</StyledSection>
+const PaymentAgents = () => (
+    <StyledSection>
+        <Header as="h2" color="black">
+            {localize('Payment agents terms and conditions')}
+        </Header>
+        <Header as="h4" weight="500" margin={{ top: '2rem' }}>
+            {localize('A. Scope of agreement')}
+        </Header>
+        <StyledOrder type="decimal">
+            <li>
+                <Text margin={{ vertical: '0.8rem' }}>
+                    {localize(
+                        'This agreement is between Deriv (SVG) Ltd (hereinafter referred to as "the Company" or "Deriv.com") and Payment Agent (hereinafter referred to as "the Agent"), both of whom agree to be bound by this agreement.',
+                    )}
+                </Text>
+            </li>
+            <li>
+                <Text margin={{ vertical: '0.8rem' }}>
+                    {localize(
+                        'The Company and the Agent (hereinafter referred to as "the Parties") desire to enter into this agreement whereby the Company will offer to its clients local payment processing services through the Agent within a territory as specified in Section D of this agreement.',
+                    )}
+                </Text>
+            </li>
+        </StyledOrder>
+        <Header as="h4" weight="500" margin={{ top: '3.2rem' }}>
+            {localize('B. General')}
+        </Header>
+        <StyledOrder type="decimal">
+            <li>
+                <Text margin={{ vertical: '0.8rem' }}>
+                    {localize(
+                        'This agreement constitutes the entire agreement between the Parties and no earlier representation, arrangement, or agreement, whether written or oral, relating to any matter dealt with in this agreement between the Parties, shall have any force or effect before the Commencement Date.',
+                    )}
+                </Text>
+            </li>
+            <li>
+                <Text margin={{ vertical: '0.8rem' }}>
+                    {localize(
+                        'This agreement is supplied to the Agent in English. In the event that there is a difference between the English version and any translated versions of this document, the English version shall prevail. The Company shall not be liable for any loss or damage whatsoever caused by an error, inaccuracy, or misspelling and, as a result, by misunderstanding or misinterpretation of any of the terms or conditions or clauses or provisions of any translated versions of this agreement.',
+                    )}
+                </Text>
+            </li>
+            <li>
+                <Text margin={{ vertical: '0.8rem' }}>
+                    {localize(
+                        'Each Party shall do anything reasonably required by the other Party to give effect to the provisions of this agreement.',
+                    )}
+                </Text>
+            </li>
+        </StyledOrder>
+    </StyledSection>
+)
 
 class TermsAndConditions extends Component {
     state = {}

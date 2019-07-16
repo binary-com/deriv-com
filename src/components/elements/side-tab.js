@@ -12,7 +12,7 @@ const StyledSideTab = styled(Wrapper)`
 `
 
 const TabList = styled.ol`
-    width: 24rem;
+    width: 19rem;
     list-style: none;
 `
 

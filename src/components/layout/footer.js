@@ -31,6 +31,7 @@ const FooterNav = styled.nav`
     width: 100%;
 `
 const FooterSocket = styled.section`
+    box-shadow: inset 0 1px 0 0 var(--color-grey-2);
     background-color: var(--color-white);
     padding: 2rem 0;
 

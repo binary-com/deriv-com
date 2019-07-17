@@ -15,6 +15,9 @@ const StyledButton = styled.button`
     &:active {
         outline: none;
     }
+    &:active {
+        transform: scale(0.95);
+    }
     & > * {
         pointer-events: none;
     }
@@ -25,7 +28,7 @@ const StyledButton = styled.button`
                 border: 2px solid var(--color-red);
                 color: var(--color-red);
                 background: transparent;
-                transition: background-color 0.25s, color 0.25s;
+                transition: all 0.25s;
 
                 &:hover {
                     background-color: var(--color-red);
@@ -37,12 +40,10 @@ const StyledButton = styled.button`
                 border: none;
                 color: var(--color-white);
                 background: var(--color-red);
-                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-                    0 3px 6px rgba(0, 0, 0, 0.23);
-                transition: transform 0.25s;
+                transition: all 0.25s;
 
                 &:hover {
-                    transform: translateY(-3px);
+                    background-color: var(--color-red-3);
                 }
             `
     }}

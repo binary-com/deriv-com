@@ -5,15 +5,15 @@ import device from 'themes/device'
 import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
 import Logo from 'images/svg/deriv.svg'
-import YouTube from 'images/svg/youtube.svg';
-import Twitter from 'images/svg/twitter.svg';
-import Telegram from 'images/svg/telegram.svg';
-import Reddit from 'images/svg/reddit.svg';
-import Facebook from 'images/svg/social-facebook.svg';
-import Labuan from 'images/svg/footer-labuan.svg';
-import FSC from 'images/svg/fsc.svg';
-import Vanuatu from 'images/svg/footer-vanuatu.svg';
-import Warning from 'images/svg/warning.svg';
+import YouTube from 'images/svg/youtube.svg'
+import Twitter from 'images/svg/twitter.svg'
+import Telegram from 'images/svg/telegram.svg'
+import Reddit from 'images/svg/reddit.svg'
+import Facebook from 'images/svg/social-facebook.svg'
+import Labuan from 'images/svg/footer-labuan.svg'
+import FSC from 'images/svg/fsc.svg'
+import Vanuatu from 'images/svg/footer-vanuatu.svg'
+import Warning from 'images/svg/warning.svg'
 
 const FooterNavGrid = styled.div`
     display: grid;
@@ -32,6 +32,7 @@ const FooterNav = styled.nav`
     width: 100%;
 `
 const FooterSocket = styled.section`
+    box-shadow: inset 0 1px 0 0 var(--color-grey-2);
     background-color: var(--color-white);
     padding: 2rem 0;
 
@@ -76,7 +77,7 @@ const LegalRow = styled.div`
 `
 const RiskNote = styled.section`
     background-color: var(--color-black);
-    padding: 1.4rem 0; 
+    padding: 1.4rem 0;
     color: var(--color-white);
     line-height: 1.2rem;
 
@@ -231,8 +232,14 @@ const Footer = () => (
         <RiskNote>
             <Container>
                 <div>
-                    <h4><Warning /> {localize('Risk Warning')}</h4>
-                    <p>{localize('The financial products offered via this website include binary options, contracts for difference ("CFD") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about Responsible Trading.')}</p>
+                    <h4>
+                        <Warning /> {localize('Risk Warning')}
+                    </h4>
+                    <p>
+                        {localize(
+                            'The financial products offered via this website include binary options, contracts for difference ("CFD") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about Responsible Trading.',
+                        )}
+                    </p>
                 </div>
             </Container>
         </RiskNote>

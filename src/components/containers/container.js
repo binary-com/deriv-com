@@ -4,8 +4,10 @@ import device from 'themes/device'
 const Container = styled.div`
     margin: 0 auto;
     display: flex;
-    align-items: center;
+    align-items: ${props => (props.align ? props.align : 'center')};
     padding: 2rem 1rem;
+    justify-content: ${props => (props.justify ? props.justify : 'center')};
+    flex-direction: ${props => (props.direction ? props.direction : 'row')};
     width: 80%;
 
     @media ${device.xl} {

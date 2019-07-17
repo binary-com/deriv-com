@@ -1,125 +1,147 @@
 import React, { Component } from 'react'
-import { navigate } from '@reach/router'
+import matchSorter from 'match-sorter'
 import styled from 'styled-components'
+import { navigate } from '@reach/router'
 import SEO from '../components/containers/seo'
 import Layout from '../components/layout/layout'
 import { localize, WithIntl, LocalizedLink } from '../components/localization'
 import Container from '../components/containers/container'
-import SearchIcon from 'images/svg/search.svg'
 import { Header, Text, LinkText } from '../components/elements/topography.js'
-import matchSorter from 'match-sorter'
-
-const Li = styled(Text).attrs({
-    as: 'li',
-})``
+import SearchIcon from 'images/svg/search.svg'
+import CrossIcon from 'images/svg/cross.svg'
 
 const WhoCanOpenAnAccount = () => (
     <>
-        <Text>You may only open an account with us on these conditions:</Text>
-        <BulletList>
-            <Li>You have read the Legal Terms and Conditions in full.</Li>
+        <Text>
+            {localize(
+                'You may only open an account with us on these conditions:',
+            )}
+        </Text>
+        <Ul>
             <Li>
-                You understand that you will be buying and selling financial
-                contracts subject to these terms and conditions.
+                {localize(
+                    'You have read the Legal Terms and Conditions in full.',
+                )}
             </Li>
             <Li>
-                You have read our privacy statement and give us your consent to
-                process your personal information.
+                {localize(
+                    'You understand that you will be buying and selling financial contracts subject to these terms and conditions.',
+                )}
             </Li>
             <Li>
-                You are over 18 years of age, unless you are an Estonian
-                resident whereby you would have to be over 21.
+                {localize(
+                    'You have read our privacy statement and give us your consent to process your personal information.',
+                )}
             </Li>
             <Li>
-                You are not resident in a restricted country such as Canada,
-                Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta,
-                Paraguay, United Arab Emirates, USA or any other restricted
-                country which has been identified by the Financial Action Task
-                Force (FATF) as having strategic deficiencies.
+                {localize(
+                    'You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.',
+                )}
             </Li>
             <Li>
-                You have enough experience and knowledge in financial trading to
-                be able to evaluate the merits and risks of acquiring financial
-                contracts via this site. You have not relied on any information
-                contained in this site to make that evaluation.
+                {localize(
+                    'You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
+                )}
             </Li>
-        </BulletList>
+            <Li>
+                {localize(
+                    'You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation.',
+                )}
+            </Li>
+        </Ul>
     </>
 )
 
 const OpeningAnAccount = () => (
     <>
-        <Text>There are three ways to open an account. You can</Text>
-        <OrderedList>
-            <Li>
-                Enter your email address on the homepage and click “Create free
-                account”
-            </Li>
-            <Li>Create an account with your Google login</Li>
-            <Li>Create an account with your Facebook login</Li>
-        </OrderedList>
         <Text>
-            You will have a practice account to start with. You can upgrade to a
-            real money account after opening a practice account.
+            {localize('There are three ways to open an account. You can')}
+        </Text>
+        <Ol>
+            <Li>
+                {localize(
+                    'Enter your email address on the homepage and click “Create free account”',
+                )}
+            </Li>
+            <Li>{localize('Create an account with your Google login')}</Li>
+            <Li>{localize('Create an account with your Facebook login')}</Li>
+        </Ol>
+        <Text>
+            {localize(
+                'You will have a practice account to start with. You can upgrade to a real money account after opening a practice account.',
+            )}
         </Text>
     </>
 )
 
 const ChangingPersonalDetails = () => (
     <Text>
-        If you'd like to change your name, date of birth, country of residence,
-        or email address, please submit a ticket and attach your proof of
-        identity and proof of address.
+        {localize(
+            'If you’d like to change your name, date of birth, country of residence, or email address, please submit a ticket and attach your proof of identity and proof of address.',
+        )}
     </Text>
 )
 
 const RecoveringYourPassword = () => (
     <>
         <Text>
-            If you can’t remember your password, you can reset it by following
-            these steps:
+            {localize(
+                'If you can’t remember your password, you can reset it by following these steps:',
+            )}
         </Text>
-        <OrderedList>
-            <Li>Go to the login page.</Li>
+        <Ol>
+            <Li>{localize('Go to the login page.')}</Li>
             <Li>
-                Click on the "Reset your password link" near the bottom of the
-                page.
+                {localize(
+                    'Click on the "Reset your password link" near the bottom of the page.',
+                )}
             </Li>
             <Li>
-                Enter your email address. You’ll receive a verification link in
-                your inbox.
+                {localize(
+                    'Enter your email address. You’ll receive a verification link in your inbox.',
+                )}
             </Li>
-            <Li>Click on the verification link to set your new password.</Li>
-        </OrderedList>
+            <Li>
+                {localize(
+                    'Click on the verification link to set your new password.',
+                )}
+            </Li>
+        </Ol>
         <Text>
-            If you have a real money account, you must also check the box
-            labelled "I have a Real Money Account" and verify your date of
-            birth.
+            {localize(
+                'If you have a real money account, you must also check the box labelled "I have a Real Money Account" and verify your date of birth.',
+            )}
         </Text>
     </>
 )
 
 const AuthenticatingYourAccount = () => (
-    <Text>Authenticate your account on the verification page.</Text>
+    <Text>
+        {localize('Authenticate your account on the verification page.')}
+    </Text>
 )
 
 const MakingADeposit = () => (
     <>
         <Text>
-            Click on the Cashier tab and choose your preferred deposit method.
+            {localize(
+                'Click on the Cashier tab and choose your preferred deposit method.',
+            )}
         </Text>
         <Text>
-            Our list of supported payment methods includes bank wire,
-            credit/debit cards, e-wallets, and cryptocurrencies.
+            {localize(
+                'Our list of supported payment methods includes bank wire,credit/debit cards, e-wallets, and cryptocurrencies.',
+            )}
         </Text>
         <Text>
-            You may also manage your funds through a payment agent if the
-            service is available in your country.
+            {localize(
+                'You may also manage your funds through a payment agent if the service is available in your country.',
+            )}
         </Text>
         <Text>
-            You can deposit or withdraw a minimum of USD/EUR/GBP/AUD 5 using
-            e-wallets. Other payment methods will have different minimum
-            amounts. These amounts are stated on the payment methods page.
+            {localize(
+                'You can deposit or withdraw a minimum of USD/EUR/GBP/AUD 5 using e-wallets. Other payment methods will have different minimum amounts. These amounts are stated on the payment methods page.',
+            )}
         </Text>
     </>
 )
@@ -127,22 +149,23 @@ const MakingADeposit = () => (
 const ExpiredVerificationLink = () => (
     <>
         <Text>
-            We will occasionally prompt you to verify your account by sending
-            you a verification link. This is to make sure it’s you and that your
-            account hasn’t been compromised.
+            {localize(
+                'We will occasionally prompt you to verify your account by sending you a verification link. This is to make sure it’s you and that your account hasn’t been compromised.',
+            )}
         </Text>
         <Text>
-            If your verification link has expired, try withdrawing or logging in
-            again.
+            {localize(
+                'If your verification link has expired, try withdrawing or logging in again.',
+            )}
         </Text>
     </>
 )
 
 const WithdrawalProcessingTime = () => (
     <Text>
-        We process all your deposits and withdrawals within 24 hours. However,
-        your bank or money transfer service may require additional time to
-        process your request.
+        {localize(
+            'We process all your deposits and withdrawals within 24 hours. However, your bank or money transfer service may require additional time to process your request.',
+        )}
     </Text>
 )
 
@@ -242,6 +265,12 @@ const SearchIconBig = styled(SearchIcon)`
     top: 3px;
 `
 
+const SearchCrossIcon = styled(CrossIcon)`
+    :hover {
+        cursor: pointer;
+    }
+`
+
 const SearchForm = styled.form`
     position: relative;
     padding-left: 6.4rem;
@@ -281,20 +310,7 @@ const ResultWrapper = styled.div`
         margin-bottom: 1.6rem;
     }
 `
-const ListWrapper = styled.div`
-    ${Header} {
-        margin-bottom: 1.6rem;
-    }
-`
 
-const ListNoBullets = styled.ul`
-    margin-bottom: 4.2rem;
-    list-style: none;
-
-    > *:not(:last-child) {
-        padding-bottom: 1.6rem;
-    }
-`
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
@@ -311,7 +327,7 @@ class HelpCentre extends Component {
     handleInputChange = e => {
         e.preventDefault()
         const { name, value } = e.target
-        this.setState({ [name]: value.trim() })
+        this.setState({ [name]: `${value.trim()}` })
     }
 
     handleSubmit = e => e.preventDefault()
@@ -329,6 +345,8 @@ class HelpCentre extends Component {
         this.setState(prevState => ({
             show_search: !prevState.show_search,
         }))
+
+    clearSearch = () => this.setState({ search: '' })
 
     componentDidMount = () => {
         const current_label = location.hash ? location.hash.substring(1) : ''
@@ -374,10 +392,16 @@ class HelpCentre extends Component {
                                 <Search
                                     autoFocus
                                     name="search"
+                                    value={search}
                                     onChange={this.handleInputChange}
                                     placeholder={localize('How can we help?')}
                                     data-lpignore="true"
                                 />
+                                {search.length && (
+                                    <SearchCrossIcon
+                                        onClick={this.clearSearch}
+                                    />
+                                )}
                             </SearchForm>
                             <ResultWrapper>
                                 {has_results && search.length && (
@@ -441,6 +465,7 @@ const StyledLink = styled(LocalizedLink)`
         content: '<';
         display: inline-block;
         margin-right: 4px;
+        font-weight: 300;
         text-decoration: none;
     }
 `
@@ -457,13 +482,21 @@ const SmallSearchIcon = styled(SearchIcon)`
     }
 `
 
+const ListWrapper = styled.div`
+    ${Header} {
+        margin-bottom: 1.6rem;
+    }
+`
+
 const Article = ({ article, all_articles, onClick, toggleSearch }) => {
     const related_articles = getRelatedArticles(all_articles, article)
 
     return (
         <>
             <LeftRightContainer>
-                <StyledLink to="/help-centre/">Back to Help topics</StyledLink>
+                <StyledLink to="/help-centre/">
+                    {localize('Back to Help topics')}
+                </StyledLink>
                 <SmallSearchIcon onClick={toggleSearch} />
             </LeftRightContainer>
             <LeftRightContainer padding="4.5rem 0">
@@ -473,7 +506,7 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
                 </ArticleContent>
                 {!!related_articles.length && (
                     <ListWrapper>
-                        <Header as="h3">Related topics</Header>
+                        <Header as="h3">{localize('Related topics')}</Header>
                         <LinkList list={related_articles} onClick={onClick} />
                     </ListWrapper>
                 )}
@@ -485,7 +518,7 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
 const SearchSuccess = ({ suggested_topics, onClick, max_length }) => (
     <>
         <Header as="h3" color="white">
-            Topic Suggestions
+            {localize('Topic Suggestions')}
         </Header>
         <LinkList
             list={suggested_topics.slice(0, max_length)}
@@ -495,7 +528,7 @@ const SearchSuccess = ({ suggested_topics, onClick, max_length }) => (
     </>
 )
 
-const BulletList = styled.ul`
+const Ul = styled.ul`
     list-style: unset;
     color: var(--color-white);
     font-size: var(--text-size-s);
@@ -507,11 +540,15 @@ const BulletList = styled.ul`
     }
 `
 
-const OrderedList = styled(BulletList).attrs({
+const Ol = styled(Ul).attrs({
     as: 'ol',
 })`
     list-style-type: decimal;
 `
+
+const Li = styled(Text).attrs({
+    as: 'li',
+})``
 
 const ErrorHeader = styled(Header)`
     font-size: 2rem;
@@ -523,15 +560,18 @@ const SearchError = ({ search }) => (
         <ErrorHeader as="h5" color="white">
             {`Sorry, we couldn’t find any results matching “${search}”.`}
         </ErrorHeader>
-        <Text color="green">Search tips:</Text>
-        <BulletList>
-            <Li color="white">Check your spelling and try again</Li>
-            <Li color="white">Try another keyword</Li>
+        <Text color="green">{localize('Search tips:')}</Text>
+        <Ul>
             <Li color="white">
-                Keep your search term short as our search capabilities works
-                best with short search terms
+                {localize('Check your spelling and try again')}
             </Li>
-        </BulletList>
+            <Li color="white">{localize('Try another keyword')}</Li>
+            <Li color="white">
+                {localize(
+                    'Keep your search term short as our search capabilities works best with short search terms',
+                )}
+            </Li>
+        </Ul>
     </>
 )
 
@@ -549,6 +589,15 @@ const ArticleList = ({ articles, onClick }) => (
         ))}
     </>
 )
+
+const ListNoBullets = styled.ul`
+    margin-bottom: 4.2rem;
+    list-style: none;
+
+    > *:not(:last-child) {
+        padding-bottom: 1.6rem;
+    }
+`
 
 const LinkList = ({ list, onClick, link_style }) => (
     <ListNoBullets>

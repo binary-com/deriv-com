@@ -27,8 +27,7 @@ const StyledInput = styled.input`
         outline: none;
 
         & ~ label {
-            top: -1.2rem;
-            font-size: 1.2rem;
+            transform: translate(-0.6rem, -2rem) scale(0.7);
             color: var(--color-green);
         }
         & ~ span::before {
@@ -40,8 +39,7 @@ const StyledInput = styled.input`
     }
     &:valid {
         & ~ label {
-            top: -1.2rem;
-            font-size: 1.2rem;
+            transform: translate(-0.6rem, -2rem) scale(0.7);
             color: var(--color-green);
         }
     }
@@ -61,6 +59,7 @@ const Bar = styled.span`
         position: absolute;
         background: var(--color-green);
         transition: 0.25s ease all;
+        transform: translateZ(0);
     }
 `
 
@@ -69,9 +68,10 @@ const StyledLabel = styled.label`
     font-size: var(--text-size-s);
     position: absolute;
     pointer-events: none;
-    left: 8px;
-    top: 10px;
+    left: 0.8rem;
+    top: 1rem;
     transition: 0.25s ease all;
+    transform: translateZ(0);
 `
 
 const Input = ({ label, id, ...props }) => (

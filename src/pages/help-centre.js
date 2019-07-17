@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
@@ -130,7 +131,7 @@ const MakingADeposit = () => (
         </Text>
         <Text>
             {localize(
-                'Our list of supported payment methods includes bank wire,credit/debit cards, e-wallets, and cryptocurrencies.',
+                'Our list of supported payment methods includes bank wire, credit/debit cards, e-wallets, and cryptocurrencies.',
             )}
         </Text>
         <Text>
@@ -259,6 +260,11 @@ const getAllArticles = articles =>
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
+const Backdrop = styled.section`
+    background-color: var(--color-black);
+    padding: 12rem 0;
+`
+
 const SearchIconBig = styled(SearchIcon)`
     position: absolute;
     left: 0;
@@ -289,11 +295,6 @@ const Search = styled.input`
     }
 `
 
-const Backdrop = styled.section`
-    background-color: var(--color-black);
-    padding: 12rem 0;
-`
-
 const LeftRightContainer = styled.div`
     display: flex;
     padding: ${props => props.padding || ''};
@@ -317,9 +318,9 @@ class HelpCentre extends Component {
         const all_articles = getAllArticles(articles)
 
         this.state = {
+            all_articles,
             search: '',
             selected_article: null,
-            all_articles,
             show_search: true,
         }
     }
@@ -514,6 +515,12 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
         </>
     )
 }
+Article.propTypes = {
+    all_articles: PropTypes.array,
+    article: PropTypes.object,
+    onClick: PropTypes.func,
+    toggleSearch: PropTypes.func,
+}
 
 const SearchSuccess = ({ suggested_topics, onClick, max_length }) => (
     <>
@@ -527,6 +534,11 @@ const SearchSuccess = ({ suggested_topics, onClick, max_length }) => (
         />
     </>
 )
+SearchSuccess.propTypes = {
+    max_length: PropTypes.number,
+    onClick: PropTypes.func,
+    suggested_topics: PropTypes.array,
+}
 
 const Ul = styled.ul`
     list-style: unset;
@@ -558,7 +570,10 @@ const ErrorHeader = styled(Header)`
 const SearchError = ({ search }) => (
     <>
         <ErrorHeader as="h5" color="white">
-            {`Sorry, we couldn’t find any results matching “${search}”.`}
+            {localize(
+                `Sorry, we couldn’t find any results matching “${search}”.`,
+                { search },
+            )}
         </ErrorHeader>
         <Text color="green">{localize('Search tips:')}</Text>
         <Ul>
@@ -574,6 +589,9 @@ const SearchError = ({ search }) => (
         </Ul>
     </>
 )
+SearchError.propTypes = {
+    search: PropTypes.string,
+}
 
 const ArticleList = ({ articles, onClick }) => (
     <>
@@ -589,6 +607,10 @@ const ArticleList = ({ articles, onClick }) => (
         ))}
     </>
 )
+ArticleList.propTypes = {
+    articles: PropTypes.array.isRequired,
+    onClick: PropTypes.func,
+}
 
 const ListNoBullets = styled.ul`
     margin-bottom: 4.2rem;
@@ -610,5 +632,10 @@ const LinkList = ({ list, onClick, link_style }) => (
         ))}
     </ListNoBullets>
 )
+LinkList.propTypes = {
+    link_style: PropTypes.object,
+    list: PropTypes.array.isRequired,
+    onClick: PropTypes.func,
+}
 
 export default WithIntl()(HelpCentre)

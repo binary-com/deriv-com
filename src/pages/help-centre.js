@@ -9,7 +9,9 @@ import SearchIcon from 'images/svg/search.svg'
 import { Header, Text, LinkText } from '../components/elements/topography.js'
 import matchSorter from 'match-sorter'
 
-const Li = styled(Text).withComponent('li')
+const Li = styled(Text).attrs({
+    as: 'li',
+})``
 
 const WhoCanOpenAnAccount = () => (
     <>
@@ -323,11 +325,10 @@ class HelpCentre extends Component {
         })
     }
 
-    showSearch = () => {
+    toggleSearch = () =>
         this.setState(prevState => ({
             show_search: !prevState.show_search,
         }))
-    }
 
     componentDidMount = () => {
         const current_label = location.hash ? location.hash.substring(1) : ''
@@ -407,7 +408,7 @@ class HelpCentre extends Component {
                             article={selected_article}
                             all_articles={all_articles}
                             onClick={this.handleSelectArticle}
-                            showSearch={this.showSearch}
+                            toggleSearch={this.toggleSearch}
                         />
                     )}
                 </Container>
@@ -456,14 +457,14 @@ const SmallSearchIcon = styled(SearchIcon)`
     }
 `
 
-const Article = ({ article, all_articles, onClick, showSearch }) => {
+const Article = ({ article, all_articles, onClick, toggleSearch }) => {
     const related_articles = getRelatedArticles(all_articles, article)
 
     return (
         <>
             <LeftRightContainer>
                 <StyledLink to="/help-centre/">Back to Help topics</StyledLink>
-                <SmallSearchIcon onClick={showSearch} />
+                <SmallSearchIcon onClick={toggleSearch} />
             </LeftRightContainer>
             <LeftRightContainer padding="4.5rem 0">
                 <ArticleContent>

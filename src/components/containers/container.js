@@ -8,11 +8,11 @@ const Container = styled.div`
     padding: 2rem 1rem;
     width: 80%;
 
-    @media ${device.desktop} {
+    @media ${device.xl} {
         max-width: 1024px;
     }
 
-    @media ${device.desktopL} {
+    @media ${device.xxl} {
         max-width: 1400px;
     }
 `

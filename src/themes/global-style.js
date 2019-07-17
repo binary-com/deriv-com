@@ -15,13 +15,13 @@ const GlobalStyle = createGlobalStyle`
     html {
         font-size: 62.5%; /* 1rem = 10px */
 
-        @media ${device.desktopL} {
+        @media ${device.xxl} {
             font-size: 75.5%; /* 1rem = 12px */
         }
-        @media ${device.tablet} {
+        @media ${device.md} {
             font-size: 50%; /* 1rem = 8px */
         }
-        @media ${device.mobileM} {
+        @media ${device.sm} {
             font-size: 35%; /* 1rem = 5.5px */
         }
     }

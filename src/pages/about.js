@@ -193,7 +193,7 @@ const OurNumbers = () => {
                 <Header as="h2" color="black-2" align="center">
                     {localize('Our Numbers')}
                 </Header>
-                <Header as="h4" color="black-3" align="center">
+                <Header as="h4" color="black-3" align="center" weight="500">
                     {localize(
                         'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                     )}

@@ -11,29 +11,35 @@ const StyledInput = styled.input`
     background: none;
     color: var(--color-black);
     font-size: var(--text-size-s);
-    padding: 1rem 1rem 1rem 0.5rem;
+    padding: 1rem 1rem 1rem 0.8rem;
     width: 95%;
     display: block;
     border: none;
     border-radius: 0;
     border-bottom: 1px solid var(--color-grey-2);
 
+    &::placeholder {
+        opacity: 0;
+        transition: opacity 0.25s;
+        padding-left: 0.3rem;
+    }
     &:focus {
         outline: none;
 
         & ~ label {
-            top: -1.2rem;
-            font-size: 1.2rem;
+            transform: translate(-0.6rem, -2rem) scale(0.7);
             color: var(--color-green);
         }
         & ~ span::before {
             width: 100%;
         }
+        &::placeholder {
+            opacity: 0.5;
+        }
     }
     &:valid {
         & ~ label {
-            top: -1.2rem;
-            font-size: 1.2rem;
+            transform: translate(-0.6rem, -2rem) scale(0.7);
             color: var(--color-green);
         }
     }
@@ -53,6 +59,7 @@ const Bar = styled.span`
         position: absolute;
         background: var(--color-green);
         transition: 0.25s ease all;
+        transform: translateZ(0);
     }
 `
 
@@ -61,9 +68,10 @@ const StyledLabel = styled.label`
     font-size: var(--text-size-s);
     position: absolute;
     pointer-events: none;
-    left: 5px;
-    top: 10px;
+    left: 0.8rem;
+    top: 1rem;
     transition: 0.25s ease all;
+    transform: translateZ(0);
 `
 
 const Input = ({ label, id, ...props }) => (

@@ -6,7 +6,7 @@ import SEO from '../components/containers/seo'
 import Layout from '../components/layout/layout'
 import { localize, WithIntl, LocalizedLink } from '../components/localization'
 import Container from '../components/containers/container'
-import { Header, Text, LinkText } from '../components/elements/topography.js'
+import { Header, Text, LinkText } from '../components/elements/typography'
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 
@@ -383,7 +383,7 @@ class HelpCentre extends Component {
                 <SEO title={localize('Help centre')} />
                 {show_search && (
                     <Backdrop>
-                        <Container alignItems="normal" flexDirection="column">
+                        <Container align="normal" direction="column">
                             <SearchForm
                                 onSubmit={this.handleSubmit}
                                 autoComplete="off"
@@ -418,7 +418,7 @@ class HelpCentre extends Component {
                         </Container>
                     </Backdrop>
                 )}
-                <Container alignItems="normal" flexDirection="column">
+                <Container align="normal" direction="column">
                     {!selected_article && (
                         <LeftRightContainer padding="8rem 0">
                             <ArticleList

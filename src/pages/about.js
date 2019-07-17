@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import SEO from '../components/containers/seo'
 import Layout from '../components/layout/layout'
 import { localize, WithIntl } from '../components/localization'
 import Hero from '../components/elements/hero.js'
 import Container from '../components/containers/container.js'
 import Card from '../components/elements/card.js'
-import { Header } from '../components/elements/topography.js'
+import { Header } from '../components/elements/typography.js'
+import Modal from '../components/elements/modal'
+import SignupModal from '../components/elements/signup-modal'
 
 import DubaiSVG from 'images/svg/dubai.svg'
 import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
@@ -53,7 +56,7 @@ const Location = styled.div`
     }
 `
 
-const OurLocations = () => {
+const OurLocations = ({ toggleModal }) => {
     return (
         <OurLocationsWrapper>
             <Header as="h2" align="center" color="black-2">
@@ -97,7 +100,7 @@ const OurLocations = () => {
                     </p>
                 </Location>
             </OurLocationsContainer>
-            <Button secondary>
+            <Button secondary onClick={toggleModal}>
                 {localize('Start with free practice account')}
             </Button>
         </OurLocationsWrapper>
@@ -268,20 +271,53 @@ const OurGoals = () => (
     </OurGoalsWrapper>
 )
 
-const About = () => (
-    <Layout>
-        <SEO title={localize('About us')} />
-        <Hero
-            header_part_1={localize('Go ahead,')}
-            header_part_2={localize('experience it for yourself.')}
-            paragraph={localize(
-                'Deriv is a new trading platform created by Binary Group Ltd., a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
-            )}
-        />
-        <OurGoals />
-        <OurNumbers />
-        <OurLocations />
-    </Layout>
-)
+class About extends Component {
+    state = {
+        show_modal: false,
+    }
+
+    toggleModal = e => {
+        e.stopPropagation()
+        this.setState({
+            show_modal: !this.state.show_modal,
+        })
+    }
+
+    closeModal = () => {
+        this.setState({
+            show_modal: false,
+        })
+    }
+
+    render() {
+        return (
+            <Layout>
+                <SEO title={localize('About us')} />
+                <Hero
+                    header_part_1={localize('Go ahead,')}
+                    header_part_2={localize('experience it for yourself.')}
+                    paragraph={localize(
+                        'Deriv is a new trading platform created by Binary Group Ltd., a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                    )}
+                />
+                <OurGoals />
+                <OurNumbers />
+                <OurLocations toggleModal={this.toggleModal} />
+                <Modal
+                    toggle={this.toggleModal}
+                    is_open={this.state.show_modal}
+                    is_blurred={true}
+                    closeModal={this.closeModal}
+                >
+                    <SignupModal />
+                </Modal>
+            </Layout>
+        )
+    }
+}
+
+OurLocations.propTypes = {
+    toggleModal: PropTypes.func,
+}
 
 export default WithIntl()(About)

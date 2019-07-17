@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Text, Header } from './topography.js'
+import { Text, Header } from './typography.js'
 import device from 'themes/device'
 
 const CardWrapper = styled.article`
-    width: 328px;
+    width: ${props => (props.width ? props.width : '328px')};
     min-height: 356px;
     box-sizing: border-box;
     border-radius: 4px;
@@ -29,9 +29,9 @@ const CardWrapper = styled.article`
     }
 `
 
-const Card = ({ Icon, title, content }) => {
+const Card = ({ Icon, title, content, width }) => {
     return (
-        <CardWrapper>
+        <CardWrapper width={width}>
             <Icon />
             <div>
                 <Header as="h4" weight="500">
@@ -47,6 +47,7 @@ Card.propTypes = {
     content: PropTypes.string,
     Icon: PropTypes.func,
     title: PropTypes.string,
+    width: PropTypes.string,
 }
 
 export default Card

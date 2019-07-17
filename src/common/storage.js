@@ -1,4 +1,6 @@
-import { getPropertyValue, isEmptyObject } from './utility'
+import Cookies from 'js-cookie'
+import { getPropertyValue, isEmptyObject, hasWindow } from './utility'
+import { isProduction } from './websocket/config'
 
 const getObject = function(key) {
     return JSON.parse(this.getItem(key) || '{}')
@@ -127,20 +129,82 @@ State.prototype.getResponse = function(pathname) {
 }
 State.set('response', {})
 
+const CookieStorage = function(cookie_name, cookie_domain) {
+    const hostname = window.location.hostname
+
+    this.initialized = false
+    this.cookie_name = cookie_name
+    this.domain =
+        cookie_domain ||
+        (isProduction()
+            ? `.${hostname
+                  .split('.')
+                  .slice(-2)
+                  .join('.')}`
+            : hostname)
+    this.path = '/'
+    this.expires = new Date('Thu, 1 Jan 2037 12:00:00 GMT')
+    this.value = {}
+}
+
+CookieStorage.prototype = {
+    read() {
+        const cookie_value = Cookies.get(this.cookie_name)
+        try {
+            this.value = cookie_value ? JSON.parse(cookie_value) : {}
+        } catch (e) {
+            this.value = {}
+        }
+        this.initialized = true
+    },
+    write(val, expiry_date, is_secure) {
+        if (!this.initialized) this.read()
+        this.value = val
+        if (expiry_date) this.expires = expiry_date
+        Cookies.set(this.cookie_name, this.value, {
+            expires: this.expires,
+            path: this.path,
+            domain: this.domain,
+            secure: !!is_secure,
+        })
+    },
+    get(key) {
+        if (!this.initialized) this.read()
+        return this.value[key]
+    },
+    set(key, val) {
+        if (!this.initialized) this.read()
+        this.value[key] = val
+        Cookies.set(this.cookie_name, this.value, {
+            expires: new Date(this.expires),
+            path: this.path,
+            domain: this.domain,
+        })
+    },
+    remove() {
+        Cookies.remove(this.cookie_name, {
+            path: this.path,
+            domain: this.domain,
+        })
+    },
+}
+
 let SessionStore, LocalStore
 
-if (isStorageSupported(window.localStorage)) {
-    LocalStore = new Store(window.localStorage)
-}
-if (isStorageSupported(window.sessionStorage)) {
-    SessionStore = new Store(window.sessionStorage)
+if (hasWindow()) {
+    if (isStorageSupported(window.localStorage)) {
+        LocalStore = new Store(window.localStorage)
+    }
+    if (isStorageSupported(window.sessionStorage)) {
+        SessionStore = new Store(window.sessionStorage)
+    }
+
+    if (!LocalStore) {
+        LocalStore = new InScriptStore()
+    }
+    if (!SessionStore) {
+        SessionStore = new InScriptStore()
+    }
 }
 
-if (!LocalStore) {
-    LocalStore = new InScriptStore()
-}
-if (!SessionStore) {
-    SessionStore = new InScriptStore()
-}
-
-export { isStorageSupported, State, SessionStore, LocalStore }
+export { CookieStorage, isStorageSupported, LocalStore, SessionStore, State }

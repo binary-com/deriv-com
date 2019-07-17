@@ -9,19 +9,13 @@ const Wrapper = styled.div`
     border-radius: 1rem;
     position: relative;
     height: 41.8rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 79.7rem;
 
     .bullet-area {
         position: absolute;
         bottom: 5.8rem;
-        
-        button {
-            margin-top: 0;
-            width: 1rem;
-            height: 1rem;
-            border-radius: 1rem;
-            margin-right: 1.25rem;
-            outline: none;
-        }
     }
     .background {
         position: absolute;
@@ -30,32 +24,57 @@ const Wrapper = styled.div`
     }
 `
 
+const Bullet = styled.button`
+    margin-top: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    margin-right: 1.25rem;
+    outline: none;
+    cursor: pointer;
+    ${props => {
+        return props.is_active === 'active'
+            ? `background-color: var(--color-black-2);
+            border-color: var(--color-black-2);`
+            : `background-color: var(--color-grey-1);
+        border-color: var(--color-grey-1);`
+    }}
+`
+
 class Carousel extends React.Component {
     state = {
         active_slide: this.props.slides[0],
+        active_bullet: 'bullet-0',
     }
-    slidesClicked = e => {
+    handleClick = e => {
         this.setState({
             active_slide: this.props.slides[e.target.name],
+            active_bullet: 'bullet-' + e.target.name,
         })
+        e.target.add
     }
 
     render() {
-        const ActiveSlide = this.state.active_slide;
-        const Background = this.props.background;
+        const ActiveSlide = this.state.active_slide
+        const Background = this.props.background
         return (
-            <Wrapper className='carousel-container'>
+            <Wrapper>
                 <ActiveSlide />
                 <div className="bullet-area">
                     {this.props.slides.map((Slide, index) => (
-                        <button
+                        <Bullet
                             name={index}
                             key={index}
-                            onClick={e => this.slidesClicked(e)}
+                            is_active={
+                                this.state.active_bullet === 'bullet-' + index
+                                    ? 'active'
+                                    : 'not-active'
+                            }
+                            onClick={e => this.handleClick(e)}
                         />
                     ))}
                 </div>
-                <Background className='background'/>
+                <Background className="background" />
             </Wrapper>
         )
     }

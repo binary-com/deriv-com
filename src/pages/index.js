@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import styled from 'styled-components'
 import SEO from '../components/containers/seo'
 import Button from '../components/form/button'
 import Layout from '../components/layout/layout'
@@ -7,12 +7,11 @@ import Modal from '../components/elements/modal'
 import SignupModal from '../components/elements/signup-modal'
 import { localize, WithIntl } from '../components/localization'
 import Carousel from '../components/elements/carousel'
-import styled from 'styled-components'
 import { Header } from '../components/elements/typography.js'
 import CarouselBackground from 'images/svg/abstract.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
 
-const HomeCarouselWrapper = styled.div`
+const HomeCarouselWrapper = styled.section`
     background-color: var(--color-grey-1);
     display: flex;
 `
@@ -34,31 +33,44 @@ const HomeCarouselContainer = styled.div`
         width: 32.8rem;
         margin-right: 10.7rem;
     }
-    .carousel-container {
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 79.7rem;
-    }
-    button {
-        width: 13.5rem;
-        margin-top: 4rem;
-    }
+
+`
+
+const DemoButton = styled(Button)`
+    width: 13.5rem;
+    margin-top: 4rem;
 `
 const Slide1 = styled.section`
     div {
         display: inline-flex;
         margin-top: 4rem;
         width: 100%;
+        position: relative;
+        animation-name: slide;
+        animation-duration: 0.3s;
+        animation-timing-function: linear;
 
         p {
+            margin-left: 1.6rem;
             height: 30px;
             font-size: 20px;
             color: var(--color-black-2);
             line-height: 1.5;
-            margin-left: 1.6rem;
         }
     }
-
+    @keyframes slide {
+        0% {
+            margin-left: 12.6rem;
+            opacity: 0;
+        }
+        70% {
+            opacity: 0.2;
+        }
+        100% {
+            margin-left: 0;
+            opacity: 1;
+        }
+    }
     div:first-child {
         margin-top: 0;
     }
@@ -67,23 +79,38 @@ const Carousel1 = () => (
     <Slide1>
         <div>
             <ChecklistLogo />
-            <p>Patented, licensed, and regulated</p>
+            <p>{localize('Patented, licensed, and regulated')}</p>
         </div>
         <div>
             <ChecklistLogo />
-            <p>Short- to long-term trades</p>
+            <p>{localize('Short- to long-term trades')}</p>
         </div>
         <div>
             <ChecklistLogo />
-            <p>Reliable customer support</p>
+            <p>{localize('Reliable customer support')}</p>
         </div>
         <div>
             <ChecklistLogo />
-            <p>Privacy guaranteed</p>
+            <p>{localize('Privacy guaranteed')}</p>
         </div>
     </Slide1>
 )
-const Carousel2 = () => <div>slide 2</div>
+const Carousel2 = () => (
+    <Slide1>
+        <div>
+            <ChecklistLogo />
+            <p>{localize('Patented, licensed, and regulated')}</p>
+        </div>
+        <div>
+            <ChecklistLogo />
+            <p>{localize('Short- to long-term trades')}</p>
+        </div>
+        <div>
+            <ChecklistLogo />
+            <p>{localize('Reliable customer support')}</p>
+        </div>
+    </Slide1>
+)
 
 class Home extends Component {
     state = {
@@ -109,7 +136,7 @@ class Home extends Component {
                 <SEO title={localize('Home')} />
                 <div>
                     <Button onClick={this.toggleModal} secondary>
-                        secondary button example
+                        {localize('secondary button example')}
                     </Button>
                 </div>
                 <Modal
@@ -123,11 +150,11 @@ class Home extends Component {
                 <HomeCarouselWrapper>
                     <HomeCarouselContainer>
                         <div className="context-container">
-                            <Header as="h2">Why choose Deriv?</Header>
+                            <Header as="h2">{localize('Why choose Deriv?')}</Header>
                             <Header as="h4" weight="500">
-                                Your one-stop shop for online trading.
+                               {localize('Your one-stop shop for online trading.')}
                             </Header>
-                            <Button secondary>See a demo</Button>
+                            <DemoButton secondary>{localize('See a demo')}</DemoButton>
                         </div>
                         <Carousel
                             slides={[Carousel1, Carousel2]}

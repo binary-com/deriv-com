@@ -54,7 +54,7 @@
     "license": "Apache License 2.0",
     "scripts": {
         "build": "npm run test && gatsby build --prefix-paths",
-        "develop": "sudo gatsby develop -p 80",
+        "develop": "gatsby develop -p 80",
         "format": "prettier --write '**/*.js' '*.js'",
         "eslint": "DEBUG=eslint:cli-engine eslint 'src/**/*.js'",
         "start": "npm run develop",

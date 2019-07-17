@@ -5,46 +5,42 @@ import SEO from '../components/containers/seo'
 import Layout from '../components/layout/layout'
 import { localize, WithIntl, LocalizedLink } from '../components/localization'
 import Container from '../components/containers/container'
-import SearchSVG from 'images/svg/search.svg'
+import SearchIcon from 'images/svg/search.svg'
 import { Header, Text, LinkText } from '../components/elements/topography.js'
 import matchSorter from 'match-sorter'
 
-const ArticleListText = styled(Text).attrs({
-    as: 'li',
-})``
+const Li = styled(Text).withComponent('li')
 
 const WhoCanOpenAnAccount = () => (
     <>
         <Text>You may only open an account with us on these conditions:</Text>
         <BulletList>
-            <ArticleListText>
-                You have read the Legal Terms and Conditions in full.
-            </ArticleListText>
-            <ArticleListText>
+            <Li>You have read the Legal Terms and Conditions in full.</Li>
+            <Li>
                 You understand that you will be buying and selling financial
                 contracts subject to these terms and conditions.
-            </ArticleListText>
-            <ArticleListText>
+            </Li>
+            <Li>
                 You have read our privacy statement and give us your consent to
                 process your personal information.
-            </ArticleListText>
-            <ArticleListText>
+            </Li>
+            <Li>
                 You are over 18 years of age, unless you are an Estonian
                 resident whereby you would have to be over 21.
-            </ArticleListText>
-            <ArticleListText>
+            </Li>
+            <Li>
                 You are not resident in a restricted country such as Canada,
                 Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta,
                 Paraguay, United Arab Emirates, USA or any other restricted
                 country which has been identified by the Financial Action Task
                 Force (FATF) as having strategic deficiencies.
-            </ArticleListText>
-            <ArticleListText>
+            </Li>
+            <Li>
                 You have enough experience and knowledge in financial trading to
                 be able to evaluate the merits and risks of acquiring financial
                 contracts via this site. You have not relied on any information
                 contained in this site to make that evaluation.
-            </ArticleListText>
+            </Li>
         </BulletList>
     </>
 )
@@ -53,16 +49,12 @@ const OpeningAnAccount = () => (
     <>
         <Text>There are three ways to open an account. You can</Text>
         <OrderedList>
-            <ArticleListText>
+            <Li>
                 Enter your email address on the homepage and click “Create free
                 account”
-            </ArticleListText>
-            <ArticleListText>
-                Create an account with your Google login
-            </ArticleListText>
-            <ArticleListText>
-                Create an account with your Facebook login
-            </ArticleListText>
+            </Li>
+            <Li>Create an account with your Google login</Li>
+            <Li>Create an account with your Facebook login</Li>
         </OrderedList>
         <Text>
             You will have a practice account to start with. You can upgrade to a
@@ -86,18 +78,16 @@ const RecoveringYourPassword = () => (
             these steps:
         </Text>
         <OrderedList>
-            <ArticleListText>Go to the login page.</ArticleListText>
-            <ArticleListText>
+            <Li>Go to the login page.</Li>
+            <Li>
                 Click on the "Reset your password link" near the bottom of the
                 page.
-            </ArticleListText>
-            <ArticleListText>
+            </Li>
+            <Li>
                 Enter your email address. You’ll receive a verification link in
                 your inbox.
-            </ArticleListText>
-            <ArticleListText>
-                Click on the verification link to set your new password.
-            </ArticleListText>
+            </Li>
+            <Li>Click on the verification link to set your new password.</Li>
         </OrderedList>
         <Text>
             If you have a real money account, you must also check the box
@@ -244,7 +234,7 @@ const getAllArticles = articles =>
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
-const SearchIcon = styled(SearchSVG)`
+const SearchIconBig = styled(SearchIcon)`
     position: absolute;
     left: 0;
     top: 3px;
@@ -252,7 +242,7 @@ const SearchIcon = styled(SearchSVG)`
 
 const SearchForm = styled.form`
     position: relative;
-    padding-left: 64px;
+    padding-left: 6.4rem;
 `
 
 const Search = styled.input`
@@ -273,15 +263,15 @@ const Backdrop = styled.section`
     padding: 12rem 0;
 `
 
-const TableOfContents = styled.div`
+const LeftRightContainer = styled.div`
     display: flex;
-    padding: 8rem 0;
-    width: 100%;
+    padding: ${props => props.padding || ''};
 
     > :first-child {
         margin-right: auto;
     }
 `
+
 const ResultWrapper = styled.div`
     margin-top: 4rem;
 
@@ -363,6 +353,7 @@ class HelpCentre extends Component {
             selected_article,
             show_search,
         } = this.state
+
         const filtered_articles = matchSorter(all_articles, search, {
             keys: ['title', 'sub_category', 'keywords'],
         })
@@ -378,7 +369,7 @@ class HelpCentre extends Component {
                                 onSubmit={this.handleSubmit}
                                 autoComplete="off"
                             >
-                                <SearchIcon />
+                                <SearchIconBig />
                                 <Search
                                     autoFocus
                                     name="search"
@@ -404,12 +395,12 @@ class HelpCentre extends Component {
                 )}
                 <Container alignItems="normal" flexDirection="column">
                     {!selected_article && (
-                        <TableOfContents>
+                        <LeftRightContainer padding="8rem 0">
                             <ArticleList
                                 articles={articles}
                                 onClick={this.handleSelectArticle}
                             />
-                        </TableOfContents>
+                        </LeftRightContainer>
                     )}
                     {selected_article && (
                         <Article
@@ -424,17 +415,6 @@ class HelpCentre extends Component {
         )
     }
 }
-
-const ArticleWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-
-    svg {
-        &:hover {
-            cursor: pointer;
-        }
-    }
-`
 
 const ArticleContent = styled.div`
     width: 60%;
@@ -452,30 +432,51 @@ const ArticleContent = styled.div`
     }
 `
 
+const StyledLink = styled(LocalizedLink)`
+    font-size: 2rem;
+    color: var(--color-red);
+
+    &::before {
+        content: '<';
+        display: inline-block;
+        margin-right: 4px;
+        text-decoration: none;
+    }
+`
+
+const SmallSearchIcon = styled(SearchIcon)`
+    height: 27px;
+    width: 27px;
+
+    use {
+        fill: var(--color-green);
+    }
+    &:hover {
+        cursor: pointer;
+    }
+`
+
 const Article = ({ article, all_articles, onClick, showSearch }) => {
     const related_articles = getRelatedArticles(all_articles, article)
-    const has_related_articles = !!related_articles.length
 
     return (
         <>
-            <ArticleWrapper>
-                <LocalizedLink to="/help-centre/">
-                    Back to Help topics
-                </LocalizedLink>
-                <SearchSVG onClick={showSearch} />
-            </ArticleWrapper>
-            <TableOfContents>
+            <LeftRightContainer>
+                <StyledLink to="/help-centre/">Back to Help topics</StyledLink>
+                <SmallSearchIcon onClick={showSearch} />
+            </LeftRightContainer>
+            <LeftRightContainer padding="4.5rem 0">
                 <ArticleContent>
                     <Header as="h3">{`${article.category} - ${article.title}`}</Header>
                     {article.content}
                 </ArticleContent>
-                {has_related_articles && (
+                {!!related_articles.length && (
                     <ListWrapper>
                         <Header as="h3">Related topics</Header>
                         <LinkList list={related_articles} onClick={onClick} />
                     </ListWrapper>
                 )}
-            </TableOfContents>
+            </LeftRightContainer>
         </>
     )
 }
@@ -504,6 +505,7 @@ const BulletList = styled.ul`
         padding-bottom: 0.8rem;
     }
 `
+
 const OrderedList = styled(BulletList).attrs({
     as: 'ol',
 })`
@@ -511,26 +513,23 @@ const OrderedList = styled(BulletList).attrs({
 `
 
 const ErrorHeader = styled(Header)`
-    color: var(--color-white);
     font-size: 2rem;
     padding-bottom: 0.8rem;
 `
 
 const SearchError = ({ search }) => (
     <>
-        <ErrorHeader as="h5">
+        <ErrorHeader as="h5" color="white">
             {`Sorry, we couldn’t find any results matching “${search}”.`}
         </ErrorHeader>
         <Text color="green">Search tips:</Text>
         <BulletList>
-            <ArticleListText color="white">
-                Check your spelling and try again
-            </ArticleListText>
-            <ArticleListText color="white">Try another keyword</ArticleListText>
-            <ArticleListText color="white">
+            <Li color="white">Check your spelling and try again</Li>
+            <Li color="white">Try another keyword</Li>
+            <Li color="white">
                 Keep your search term short as our search capabilities works
                 best with short search terms
-            </ArticleListText>
+            </Li>
         </BulletList>
     </>
 )

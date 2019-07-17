@@ -24,7 +24,7 @@ const CardWrapper = styled.article`
             margin-top: 8px;
         }
     }
-    @media ${device.tablet} {
+    @media ${device.sm} {
         margin: 1rem;
     }
 `

@@ -135,6 +135,17 @@ const HeroGrid = styled.section`
         text-align: center;
     }
 `
+const Section = styled.section`
+    width: 100%;
+    padding: 2rem 0;
+
+`
+const GreySection = styled.section`
+    width: 100%;
+    background-color: var(--color-grey-1);
+    padding: 2rem 0;
+
+`
 const SectionHeader = styled.div`
     margin-top: 8rem;
     margin-bottom: 2rem;
@@ -150,6 +161,13 @@ const SectionHeader = styled.div`
         font-size: var(--text-size-m);
         font-weight: 500;
     }
+`
+const SectionDivider = styled.section`
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-grey-2);
+
 `
 const DtraderSection = styled.section`
     width: 100%;
@@ -168,9 +186,6 @@ const DtraderSection = styled.section`
             content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='34' viewBox='0 0 38 36' aria-labelledby='deriv-icon-title'%3E%3Ctitle id='deriv-icon-title'%3EDeriv icon%3C/title%3E%3Cdefs%3E%3ClinearGradient id='deriv_a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FF6544'/%3E%3Cstop offset='100%25' stop-color='%23FF4449'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='nonzero'%3E%3Cpath fill='url(%23deriv_a)' d='M8.244 0v.039L21.94 18 0 35.961V36h22.154c6.466 0 12.076-4.498 13.53-10.848l1.833-8.01a14.081 14.081 0 0 0-2.663-11.859A13.843 13.843 0 0 0 23.99 0H8.244z'/%3E%3Cpath fill='%23B51A31' d='M21.93 18.036L12.298 36H0z'/%3E%3C/g%3E%3C/svg%3E");
             width: 14rem;
         }
-    }
-    h3 {
-        border: 1px solid #444444;
     }
 `
 const Dtrader = styled.div`
@@ -212,12 +227,6 @@ const Works = styled.section`
         grid-row-gap: 8rem;
         text-align: center;
     }
-`
-const GreySection = styled.section`
-    width: 100%;
-    background-color: var(--color-grey-1);
-    padding: 2rem 0;
-
 `
 const PaymentSection = styled.section`
     width: 100%;
@@ -412,6 +421,17 @@ class Home extends Component {
                         </Card>
                     </Works>
                 </Container>
+                <SectionDivider />
+                <Section>
+                    <SectionHeader>
+                        <Header as="h2" align="center" color="black-2">
+                            {localize('Markets')}
+                        </Header>
+                        <Header as="h4" align="center" color="black-2" weight="500">
+                            {localize('Over 100 assets available across five leading markets.')}
+                        </Header>
+                    </SectionHeader>
+                </Section>
                 <GreySection>
                     <Container>
                         <WhyDeriv>

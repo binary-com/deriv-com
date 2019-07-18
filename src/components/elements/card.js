@@ -12,6 +12,15 @@ const CardStyle = css`
     background-color: var(--color-white);
 `
 
+const IconContainer = styled.div`
+    margin: 2.5rem 0;
+    height: 16rem;
+    width: 24rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
 const CardTypeOneWrapper = styled.article`
     ${CardStyle}
     width: ${props => (props.width ? props.width : '32.8rem')};
@@ -33,27 +42,20 @@ const CardTypeOneWrapper = styled.article`
 const CardTypeTwoWrapper = styled.article`
     ${CardStyle}
     width: ${props => (props.width ? props.width : '50.2rem')};
-    min-height: 42.7rem;
+    height: 41.7rem;
     padding: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
 
-    svg {
-        margin: 2.4rem 0;
-    }
     p {
-        font-size: 20px;
-        line-height: 1.5;
-        color: var(--color-black-2);
+        font-size: 2rem;
 
         a {
             color: var(--color-red);
             text-decoration: none;
         }
     }
-
 `
 
 export const CardTypeOne = ({ Icon, title, content, width }) => {
@@ -72,8 +74,10 @@ export const CardTypeOne = ({ Icon, title, content, width }) => {
 
 export const CardTypeTwo = ({ Icon, title, width, children }) => (
     <CardTypeTwoWrapper width={width}>
-        <Header as="h3">{title}</Header>
-        <Icon />
+        <Header as="h3" align="center">
+            {title}
+        </Header>
+        <IconContainer>{Icon}</IconContainer>
         {children}
     </CardTypeTwoWrapper>
 )
@@ -90,7 +94,7 @@ CardTypeTwo.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]),
-    Icon: PropTypes.func,
+    Icon: PropTypes.object,
     title: PropTypes.string,
     width: PropTypes.string,
 }

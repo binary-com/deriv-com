@@ -164,7 +164,7 @@ const Footer = () => (
                             <h4>{localize('Legal')}</h4>
                             <StyledLink
                                 activeClassName="active"
-                                to="/"
+                                to="/regulatory/"
                                 aria-label={localize('Regulatory Information')}
                             >
                                 {localize('Regulatory Information')}

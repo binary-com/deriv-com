@@ -172,74 +172,78 @@ const WithdrawalProcessingTime = () => (
 
 const articles = [
     {
-        category: 'Account',
+        category: localize('Account'),
         articles: [
             {
-                title: 'Who can open an account?',
-                keywords: ['account', 'how', 'who'],
-                category: 'Account',
-                sub_category: 'Opening an account',
+                title: localize('Who can open an account?'),
+                keywords: [localize('how'), localize('who')],
+                category: localize('Account'),
+                sub_category: localize('Opening an account'),
                 label: 'who-can-open-an-account',
                 content: <WhoCanOpenAnAccount />,
             },
             {
-                title: 'Opening an account',
+                title: localize('Opening an account'),
                 keywords: ['account', 'how', 'who'],
-                category: 'Account',
-                sub_category: 'Opening an account',
+                category: localize('Account'),
+                sub_category: localize('Opening an account'),
                 label: 'opening-an-account',
                 content: <OpeningAnAccount />,
             },
             {
-                title: 'Changing your personal details',
-                keywords: ['change', 'name', 'residence', 'email'],
-                category: 'Account',
-                sub_category: 'Managing your account',
+                title: localize('Changing your personal details'),
+                keywords: [
+                    localize('name'),
+                    localize('residence'),
+                    localize('email'),
+                ],
+                category: localize('Account'),
+                sub_category: localize('Managing your account'),
                 label: 'changing-your-personal-details',
                 content: <ChangingPersonalDetails />,
             },
             {
-                title: 'Recovering your password',
-                keywords: ['change', 'name', 'login'],
-                category: 'Account',
-                sub_category: 'Managing your account',
+                title: localize('Recovering your password'),
+                keywords: [localize('change'), localize('login')],
+                category: localize('Account'),
+                sub_category: localize('Managing your account'),
                 label: 'recovering-your-password',
                 content: <RecoveringYourPassword />,
             },
             {
-                title: 'Authenticating your account',
-                keywords: ['change', 'verify'],
-                category: 'Account',
-                sub_category: 'Managing your account',
+                title: localize('Authenticating your account'),
+                keywords: [localize('verify')],
+                category: localize('Account'),
+                sub_category: localize('Managing your account'),
                 label: 'recovering-your-password',
                 content: <AuthenticatingYourAccount />,
             },
         ],
     },
     {
-        category: 'Deposits and withdrawals',
+        category: localize('Deposits and withdrawals'),
         articles: [
             {
-                title: 'Making a deposit',
-                keywords: ['deposit', 'make'],
-                category: 'Deposits and withdrawals',
-                sub_category: 'Deposits',
+                title: localize('Making a deposit'),
+                keywords: [],
+                category: localize('Deposits and withdrawals'),
+                sub_category: localize('Deposits'),
                 label: 'making-a-deposit',
                 content: <MakingADeposit />,
             },
             {
-                title: 'Expired verification link',
-                keywords: ['verify'],
-                category: 'Deposits and withdrawals',
-                sub_category: 'Deposits',
+                title: localize('Expired verification link'),
+                keywords: [localize('verify')],
+                category: localize('Deposits and withdrawals'),
+                sub_category: localize('Deposits'),
                 label: 'expired-verification-link',
                 content: <ExpiredVerificationLink />,
             },
             {
-                title: 'Withdrawal processing time',
+                title: localize('Withdrawal processing time'),
                 keywords: ['Withdrawal', 'take', 'money'],
-                category: 'Deposits and withdrawals',
-                sub_category: 'Withdrawals',
+                category: localize('Deposits and withdrawals'),
+                sub_category: localize('Withdrawals'),
                 label: 'withdrawal-processing-time',
                 content: <WithdrawalProcessingTime />,
             },
@@ -260,7 +264,14 @@ const getAllArticles = articles =>
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
-const Backdrop = styled.section`
+const SearchSection = styled.section`
+    ${Backdrop} {
+        max-height: ${props => (props.slideInOrOut ? '500px' : '0')};
+        transition: max-height 0.2s cubic-bezier(0, 1, 0.5, 1);
+        overflow: hidden;
+    }
+`
+const Backdrop = styled.div`
     background-color: var(--color-black);
     padding: 12rem 0;
 `
@@ -382,7 +393,7 @@ class HelpCentre extends Component {
         return (
             <Layout>
                 <SEO title={localize('Help centre')} />
-                {show_search && (
+                <SearchSection slideInOrOut={show_search}>
                     <Backdrop>
                         <Container align="normal" direction="column">
                             <SearchForm
@@ -418,7 +429,7 @@ class HelpCentre extends Component {
                             </ResultWrapper>
                         </Container>
                     </Backdrop>
-                )}
+                </SearchSection>
                 <Container align="normal" direction="column">
                     {!selected_article && (
                         <LeftRightContainer padding="8rem 0">

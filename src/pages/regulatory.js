@@ -42,7 +42,6 @@ const FlexWrapper = styled(Container)`
         flex-shrink: 0;
         width: 48%;
         margin: 1rem;
-        height: 41.7rem;
     }
 `
 

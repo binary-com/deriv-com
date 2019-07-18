@@ -42,7 +42,7 @@ const CardTypeOneWrapper = styled.article`
 const CardTypeTwoWrapper = styled.article`
     ${CardStyle}
     width: ${props => (props.width ? props.width : '50.2rem')};
-    height: 41.7rem;
+    min-height: 41.7rem;
     padding: 4rem;
     display: flex;
     flex-direction: column;

@@ -16,6 +16,7 @@ import Image from '../elements/image'
 import Login from 'common/login'
 import Wrapper from '../containers/wrapper'
 import Container from '../containers/container'
+import PropTypes from 'prop-types'
 
 const Title = styled(Header)`
     margin: 10rem 0 3rem 0;
@@ -214,7 +215,7 @@ class Signup extends Component {
                                 placeholder={'example@mail.com'}
                                 onChange={this.handleInputChange}
                                 onBlur={this.handleValidation}
-                                autoFocus
+                                autoFocus={this.props.autofocus || true}
                                 required
                             />
                             {this.state.email_error_msg && (
@@ -304,6 +305,10 @@ class Signup extends Component {
             </>
         )
     }
+}
+
+Signup.propTypes = {
+    autofocus: PropTypes.string,
 }
 
 export default Signup

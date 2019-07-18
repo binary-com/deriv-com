@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="322" viewBox="0 0 280 322" aria-labelledby="abstract-icon-title">
+ <title id="abstract-icon-title">Abstract icon</title>
+    <g fill="none" fill-rule="evenodd" opacity=".4">
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M280 169.867v43.866l-37.333-21.929v-.016z"/>
+        <path fill="#002A38" fill-rule="nonzero" d="M241.733 191.333v43.843l-.03.024-37.303-21.925z"/>
+        <path fill="#8D0015" fill-rule="nonzero" d="M241.733 191.776v.064l-37.302 21.893-.031-.023v-43.843z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M241.733 104.533V148.4L204.4 126.479v-.024z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M241.733 147.933v.04l-37.286 21.894-.047-.032V126z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M241.733 147.467v43.866L204.4 169.396z"/>
+        <path fill="#FF8332" fill-rule="nonzero" d="M241.733 61.125L204.4 83.067V39.216l.031-.016z"/>
+        <path fill="#85ACB0" fill-rule="nonzero" d="M241.733 234.267v43.866L204.4 256.204v-.016zM241.733 278.604v.032l-37.286 21.897-.047-.031v-43.835z"/>
+        <path fill="#FF650A" fill-rule="nonzero" d="M241.733 278.133V322L204.4 300.067z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M204.4 39.2v43.867l-37.333-21.93v-.016zM241.733 60.667v43.866L204.4 82.604v-.016zM241.733 234.73L204.4 256.666v-43.851l.031-.016z"/>
+        <path fill="#333" fill-rule="nonzero" d="M241.733 191.333v43.843l-.03.024-37.303-21.925z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M241.733 191.776v.064l-37.302 21.893-.031-.023v-43.843z"/>
+        <path fill="#8D0015" fill-rule="nonzero" d="M204.4 169.867v43.866l-37.333-21.929v-.016z"/>
+        <path fill="#8D0015" fill-rule="nonzero" d="M204.4 213.27v.04l-37.279 21.89-.054-.032v-43.835zM241.733 191.776v.064l-37.302 21.893-.031-.023v-43.843zM167.067 191.333v43.843l-.032.024-37.302-21.925z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M167.067 191.776v.064l-37.303 21.893-.03-.023v-43.843zM167.067 104.533V148.4l-37.334-21.921v-.024z"/>
+        <path fill="#333" fill-rule="nonzero" d="M167.067 147.933v.04l-37.287 21.894-.047-.032V126z"/>
+        <path fill="#333" fill-rule="nonzero" d="M167.067 147.467v43.866l-37.334-21.937z"/>
+        <path fill="#85ACB0" fill-rule="nonzero" d="M204.4 169.396l-37.333 21.937v-43.85l.03-.016z"/>
+        <path fill="#E5E5E5" fill-rule="nonzero" d="M204.4 126.463L167.067 148.4v-43.85l.023-.017z"/>
+        <path fill="#85ACB0" fill-rule="nonzero" d="M204.4 126v43.843l-.031.024-37.302-21.93zM172.667 33.6v13.067h-.008l-11.192-6.53z"/>
+        <path fill="#FF7145" fill-rule="nonzero" d="M204.4 82.58v.064l-37.302 21.89-.031-.017v-43.85z"/>
+        <path fill="#BCCDCE" fill-rule="nonzero" d="M167.067 234.267v43.866l-37.334-21.929v-.016zM167.067 278.604v.032l-37.287 21.897-.047-.031v-43.835z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M167.067 278.133V322l-37.334-21.933zM204.4 300.067L167.067 322v-43.85l.03-.017z"/>
+        <path fill="#333" fill-rule="nonzero" d="M204.4 256.667v43.843l-.031.023-37.302-21.933zM204.4 256.18v.064l-37.302 21.89-.031-.017v-43.85z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M204.4 169.867v43.866l-37.333-21.929v-.016z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M204.4 213.27v.04l-37.279 21.89-.054-.032v-43.835z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M204.4 212.8v43.867l-37.333-21.938z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M241.733 234.73L204.4 256.666v-43.851l.031-.016z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M241.733 191.776v.064l-37.302 21.893-.031-.023v-43.843zM167.067 61.114v.063l-37.303 21.89-.03-.016V39.2z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M167.067 234.73l-37.334 21.937v-43.851l.032-.016z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M167.067 191.333v43.843l-.032.024-37.302-21.925z"/>
+        <path d="M167.067 191.776v.064l-37.303 21.893-.03-.023v-43.843z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M128.8 169.867v43.866l-37.333-21.929v-.016z"/>
+        <path fill="#FF650A" fill-rule="nonzero" d="M128.8 213.27v.04L91.513 235.2l-.046-.032v-43.835z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M167.067 191.776v.064l-37.303 21.893-.03-.023v-43.843z"/>
+        <path fill="#85ACB0" fill-rule="nonzero" d="M91.467 104.533V148.4l-37.334-21.921v-.024z"/>
+        <path fill="#FF7145" fill-rule="nonzero" d="M128.8 169.396l-37.333 21.937v-43.85l.03-.016z"/>
+        <path fill="#FF8332" fill-rule="nonzero" d="M66.267 169.867l-17.734 10.266v-20.525l.016-.008z"/>
+        <path fill="#E5E5E5" fill-rule="nonzero" d="M211.867 23.796l-8.4 5.137V18.667z"/>
+        <path fill="#FF7145" fill-rule="nonzero" d="M128.8 126v43.843l-.039.024-37.294-21.93z"/>
+        <path fill="#85ACB0" fill-rule="nonzero" d="M128.8 126.443v.071L91.498 148.4l-.031-.024v-43.843z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M128.8 82.133V126l-37.333-21.921v-.024z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M167.067 104.043v.071L129.764 126l-.03-.024V82.133z"/>
+        <path fill="#333" fill-rule="nonzero" d="M91.467 17.733V61.6L54.133 39.67v-.023z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M128.8 82.596l-37.333 21.937v-43.85l.03-.016z"/>
+        <path fill="#FF8332" fill-rule="nonzero" d="M149.333 10.259L131.6 20.533V0h.016z"/>
+        <path fill="#E5E5E5" fill-rule="nonzero" d="M41.067 49l-12.134 7V42.008l.008-.008z"/>
+        <path fill="#FF7145" fill-rule="nonzero" d="M128.8 39.2v43.843l-.039.024-37.294-21.93z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M128.8 39.639v.071L91.498 61.6l-.031-.016v-43.85z"/>
+        <path fill="#E5E5E5" fill-rule="nonzero" d="M91.467 234.267v43.866l-37.334-21.929v-.016z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M128.8 300.067L91.467 322v-43.85l.03-.017zM37.333 248.73L0 270.666v-43.851l.031-.016z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M128.8 256.667v43.843l-.039.023L91.467 278.6zM128.8 256.18v.064l-37.302 21.89-.031-.017v-43.85z"/>
+        <path fill="#BCCDCE" fill-rule="nonzero" d="M128.8 169.867v43.866l-37.333-21.929v-.016z"/>
+        <path fill="#C7E5E5" fill-rule="nonzero" d="M128.8 213.27v.04L91.513 235.2l-.046-.032v-43.835z"/>
+        <path fill="#FF7145" fill-rule="nonzero" d="M128.8 212.8v43.867l-37.333-21.938z"/>
+        <path fill="#FF444F" fill-rule="nonzero" d="M167.067 234.73l-37.334 21.937v-43.851l.032-.016z"/>
+        <path fill="#BCCDCE" fill-rule="nonzero" d="M167.067 191.776v.064l-37.303 21.893-.03-.023v-43.843z"/>
+    </g>
+</svg>

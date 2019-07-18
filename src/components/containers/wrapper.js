@@ -1,25 +1,10 @@
 import styled from 'styled-components'
+import { Margins, Paddings } from 'themes/function'
 
 const Wrapper = styled.div`
     width: ${props => (props.width ? props.width : '')};
-    ${props => {
-        if (props.margin) {
-            let margins = ''
-            Object.keys(props.margin).forEach(direction => {
-                margins += `margin-${direction}: ${props.margin[direction]};`
-            })
-            return margins
-        }
-    }}
-    ${props => {
-        if (props.padding) {
-            let paddings = ''
-            Object.keys(props.margin).forEach(direction => {
-                paddings += `padding-${direction}: ${props.padding[direction]};`
-            })
-            return paddings
-        }
-    }}
+    ${Margins}
+    ${Paddings}
 `
 
 export default Wrapper

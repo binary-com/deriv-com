@@ -1,27 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
 import device from 'themes/device'
 
-const CardWrapper = styled.article`
-    width: ${props => (props.width ? props.width : '328px')};
-    min-height: 356px;
+const CardStyle = css`
+    min-height: 35.6rem;
     box-sizing: border-box;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     background-color: var(--color-white);
+`
+
+const CardTypeOneWrapper = styled.article`
+    ${CardStyle}
+    width: ${props => (props.width ? props.width : '32.8rem')};
     padding: 4rem 5.6rem 4.6rem 5.6rem;
-    position: relative;
     margin: 0 1rem;
 
     div {
-        max-width: 216px;
-        bottom: 4.6rem;
         margin-top: 4rem;
 
         .content {
-            margin-top: 8px;
+            margin-top: 0.8rem;
         }
     }
     @media ${device.tablet} {
@@ -29,9 +30,35 @@ const CardWrapper = styled.article`
     }
 `
 
-const Card = ({ Icon, title, content, width }) => {
+const CardTypeTwoWrapper = styled.article`
+    ${CardStyle}
+    width: ${props => (props.width ? props.width : '50.2rem')};
+    min-height: 42.7rem;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    svg {
+        margin: 2.4rem 0;
+    }
+    p {
+        font-size: 20px;
+        line-height: 1.5;
+        color: var(--color-black-2);
+
+        a {
+            color: var(--color-red);
+            text-decoration: none;
+        }
+    }
+
+`
+
+export const CardTypeOne = ({ Icon, title, content, width }) => {
     return (
-        <CardWrapper width={width}>
+        <CardTypeOneWrapper width={width}>
             <Icon />
             <div>
                 <Header as="h4" weight="500">
@@ -39,15 +66,31 @@ const Card = ({ Icon, title, content, width }) => {
                 </Header>
                 <Text className="content">{content}</Text>
             </div>
-        </CardWrapper>
+        </CardTypeOneWrapper>
     )
 }
 
-Card.propTypes = {
+export const CardTypeTwo = ({ Icon, title, width, children }) => (
+    <CardTypeTwoWrapper width={width}>
+        <Header as="h3">{title}</Header>
+        <Icon />
+        {children}
+    </CardTypeTwoWrapper>
+)
+
+CardTypeOne.propTypes = {
     content: PropTypes.string,
     Icon: PropTypes.func,
     title: PropTypes.string,
     width: PropTypes.string,
 }
 
-export default Card
+CardTypeTwo.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]),
+    Icon: PropTypes.func,
+    title: PropTypes.string,
+    width: PropTypes.string,
+}

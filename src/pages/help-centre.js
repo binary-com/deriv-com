@@ -266,8 +266,9 @@ const getAllArticles = articles =>
 
 const SearchSection = styled.section`
     ${Backdrop} {
-        max-height: ${props => (props.slideInOrOut ? '500px' : '0')};
-        transition: max-height 0.2s cubic-bezier(0, 1, 0.5, 1);
+        max-height: ${props => (props.show ? '1000px' : '0')};
+        transition: ${props =>
+            props.has_transition ? 'max-height 0.8s ease-in-out' : 'none'};
         overflow: hidden;
     }
 `
@@ -332,7 +333,8 @@ class HelpCentre extends Component {
             all_articles,
             search: '',
             selected_article: null,
-            show_search: true,
+            search_has_transition: false,
+            toggle_search: true,
         }
     }
 
@@ -348,14 +350,16 @@ class HelpCentre extends Component {
         navigate(`#${article.label}`)
         this.setState({
             selected_article: article,
-            show_search: false,
+            toggle_search: false,
+            search_has_transition: false,
             search: '',
         })
     }
 
     toggleSearch = () =>
         this.setState(prevState => ({
-            show_search: !prevState.show_search,
+            toggle_search: !prevState.toggle_search,
+            search_has_transition: true,
         }))
 
     clearSearch = () => this.setState({ search: '' })
@@ -366,14 +370,23 @@ class HelpCentre extends Component {
             const selected_article = this.state.all_articles.find(
                 article => article.label === current_label,
             )
-            this.setState({ selected_article, show_search: false })
+            this.setState({
+                selected_article,
+                toggle_search: false,
+                search_has_transition: false,
+            })
         }
     }
 
     componentDidUpdate = () => {
         const current_label = location.hash ? location.hash.substring(1) : ''
+
         if (!current_label && this.state.selected_article) {
-            this.setState({ selected_article: null, show_search: true })
+            this.setState({
+                selected_article: null,
+                toggle_search: true,
+                search_has_transition: false,
+            })
         }
     }
 
@@ -382,18 +395,21 @@ class HelpCentre extends Component {
             all_articles,
             search,
             selected_article,
-            show_search,
+            toggle_search,
+            search_has_transition,
         } = this.state
 
         const filtered_articles = matchSorter(all_articles, search, {
             keys: ['title', 'sub_category', 'keywords'],
         })
         const has_results = !!filtered_articles.length
-
         return (
             <Layout>
                 <SEO title={localize('Help centre')} />
-                <SearchSection slideInOrOut={show_search}>
+                <SearchSection
+                    show={toggle_search}
+                    has_transition={search_has_transition}
+                >
                     <Backdrop>
                         <Container align="normal" direction="column">
                             <SearchForm
@@ -430,27 +446,55 @@ class HelpCentre extends Component {
                         </Container>
                     </Backdrop>
                 </SearchSection>
-                <Container align="normal" direction="column">
-                    {!selected_article && (
-                        <LeftRightContainer padding="8rem 0">
-                            <ArticleList
-                                articles={articles}
-                                onClick={this.handleSelectArticle}
-                            />
-                        </LeftRightContainer>
-                    )}
-                    {selected_article && (
-                        <Article
-                            article={selected_article}
-                            all_articles={all_articles}
-                            onClick={this.handleSelectArticle}
-                            toggleSearch={this.toggleSearch}
-                        />
-                    )}
-                </Container>
+                <ArticleSection
+                    articles={articles}
+                    all_articles={all_articles}
+                    selected_article={selected_article}
+                    handleSelectArticle={this.handleSelectArticle}
+                    toggleSearch={this.toggleSearch}
+                />
             </Layout>
         )
     }
+}
+
+// Eslint fails to recognize display names in React.memo
+// eslint-disable-next-line react/display-name
+const ArticleSection = React.memo(function ArticleSection({
+    articles,
+    all_articles,
+    handleSelectArticle,
+    selected_article,
+    toggleSearch,
+}) {
+    return (
+        <Container align="normal" direction="column">
+            {!selected_article && (
+                <LeftRightContainer padding="8rem 0">
+                    <ArticleList
+                        articles={articles}
+                        onClick={handleSelectArticle}
+                    />
+                </LeftRightContainer>
+            )}
+            {selected_article && (
+                <Article
+                    article={selected_article}
+                    all_articles={all_articles}
+                    onClick={handleSelectArticle}
+                    toggleSearch={toggleSearch}
+                />
+            )}
+        </Container>
+    )
+})
+ArticleSection.propTypes = {
+    all_articles: PropTypes.array,
+    article: PropTypes.object,
+    articles: PropTypes.array,
+    handleSelectArticle: PropTypes.func,
+    selected_article: PropTypes.object,
+    toggleSearch: PropTypes.func,
 }
 
 const ArticleContent = styled.div`

@@ -26,21 +26,19 @@ const HomeCarouselContainer = styled.div`
     padding-bottom: 5.4rem;
     justify-content: space-between;
     align-items: flex-start;
-
-    .context-container {
-        margin-top: 3.8rem;
-        color: var(--color-black-2);
-        width: 32.8rem;
-        margin-right: 10.7rem;
-    }
-
+`
+const ContextContainer = styled.div`
+    margin-top: 3.8rem;
+    color: var(--color-black-2);
+    width: 32.8rem;
+    margin-right: 10.7rem;
 `
 
 const DemoButton = styled(Button)`
     width: 13.5rem;
     margin-top: 4rem;
 `
-const Slide1 = styled.section`
+const Slide = styled.section`
     div {
         display: inline-flex;
         margin-top: 4rem;
@@ -76,7 +74,27 @@ const Slide1 = styled.section`
     }
 `
 const Carousel1 = () => (
-    <Slide1>
+    <Slide>
+        <div>
+            <ChecklistLogo />
+            <p>{localize('Exclusive synthetic market available 24/7')}</p>
+        </div>
+        <div>
+            <ChecklistLogo />
+            <p>{localize('USD 5 minimum deposit')}</p>
+        </div>
+        <div>
+            <ChecklistLogo />
+            <p>{localize('Stakes as low as USD 0.35')}</p>
+        </div>
+        <div>
+            <ChecklistLogo />
+            <p>{localize('Payouts up to USD 50,000')}</p>
+        </div>
+    </Slide>
+)
+const Carousel2 = () => (
+    <Slide>
         <div>
             <ChecklistLogo />
             <p>{localize('Patented, licensed, and regulated')}</p>
@@ -93,23 +111,7 @@ const Carousel1 = () => (
             <ChecklistLogo />
             <p>{localize('Privacy guaranteed')}</p>
         </div>
-    </Slide1>
-)
-const Carousel2 = () => (
-    <Slide1>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Patented, licensed, and regulated')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Short- to long-term trades')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Reliable customer support')}</p>
-        </div>
-    </Slide1>
+    </Slide>
 )
 
 class Home extends Component {
@@ -149,13 +151,19 @@ class Home extends Component {
                 </Modal>
                 <HomeCarouselWrapper>
                     <HomeCarouselContainer>
-                        <div className="context-container">
-                            <Header as="h2">{localize('Why choose Deriv?')}</Header>
-                            <Header as="h4" weight="500">
-                               {localize('Your one-stop shop for online trading.')}
+                        <ContextContainer>
+                            <Header as="h2">
+                                {localize('Why choose Deriv?')}
                             </Header>
-                            <DemoButton secondary>{localize('See a demo')}</DemoButton>
-                        </div>
+                            <Header as="h4" weight="500">
+                                {localize(
+                                    'Your one-stop shop for online trading.',
+                                )}
+                            </Header>
+                            <DemoButton secondary>
+                                {localize('See a demo')}
+                            </DemoButton>
+                        </ContextContainer>
                         <Carousel
                             slides={[Carousel1, Carousel2]}
                             background={CarouselBackground}

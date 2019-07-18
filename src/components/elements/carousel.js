@@ -13,17 +13,16 @@ const Wrapper = styled.div`
     width: 100%;
     max-width: 79.7rem;
 
-    .bullet-area {
-        position: absolute;
-        bottom: 5.8rem;
-    }
-    .background {
+    & > svg {
         position: absolute;
         right: 0;
         bottom: 0;
     }
 `
-
+const BulletArea = styled.div`
+    position: absolute;
+    bottom: 5.8rem;
+`
 const Bullet = styled.button`
     margin-top: 0;
     width: 1rem;
@@ -34,8 +33,8 @@ const Bullet = styled.button`
     cursor: pointer;
     ${props => {
         return props.is_active === 'active'
-            ? `background-color: var(--color-black-2);
-            border-color: var(--color-black-2);`
+            ? `background-color: var(--color-black-4);
+            border-color: var(--color-black-4);`
             : `background-color: var(--color-grey-1);
         border-color: var(--color-grey-1);`
     }}
@@ -60,7 +59,7 @@ class Carousel extends React.Component {
         return (
             <Wrapper>
                 <ActiveSlide />
-                <div className="bullet-area">
+                <BulletArea>
                     {this.props.slides.map((Slide, index) => (
                         <Bullet
                             name={index}
@@ -73,8 +72,8 @@ class Carousel extends React.Component {
                             onClick={e => this.handleClick(e)}
                         />
                     ))}
-                </div>
-                <Background className="background" />
+                </BulletArea>
+                <Background />
             </Wrapper>
         )
     }

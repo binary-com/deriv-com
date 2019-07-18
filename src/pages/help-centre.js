@@ -256,7 +256,7 @@ const SearchSection = styled.section`
     ${Backdrop} {
         max-height: ${props => (props.show ? '1000px' : '0')};
         transition: ${props =>
-            props.has_transition ? 'max-height 0.8s ease-in-out' : 'none'};
+            props.has_transition ? 'max-height 0.6s ease-in-out' : 'none'};
         overflow: hidden;
     }
 `
@@ -537,7 +537,7 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
 
     return (
         <>
-            <LeftRightContainer>
+            <LeftRightContainer padding="8px 0 0 0">
                 <StyledLink to="/help-centre/">
                     {localize('Back to Help topics')}
                 </StyledLink>
@@ -551,7 +551,11 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
                 {!!related_articles.length && (
                     <ListWrapper>
                         <Header as="h3">{localize('Related topics')}</Header>
-                        <LinkList list={related_articles} onClick={onClick} />
+                        <LinkList
+                            list={related_articles}
+                            onClick={onClick}
+                            link_style={{ size: '2rem' }}
+                        />
                     </ListWrapper>
                 )}
             </LeftRightContainer>

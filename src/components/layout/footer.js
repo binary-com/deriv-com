@@ -14,6 +14,11 @@ import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
 
+const FooterWrapper = styled.footer`
+    ${Container} {
+        padding: 2rem 1rem;
+    }
+`
 const FooterNavGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -120,7 +125,7 @@ const Social = styled.div`
 `
 
 const Footer = () => (
-    <footer>
+    <FooterWrapper>
         <FooterSocket>
             <Container>
                 <FooterNavGrid>
@@ -242,6 +247,6 @@ const Footer = () => (
                 </div>
             </Container>
         </RiskNote>
-    </footer>
+    </FooterWrapper>
 )
 export default Footer

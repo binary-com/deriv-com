@@ -12,6 +12,7 @@ const StyledNav = styled.nav`
 
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
+    padding: 2rem 1rem;
 `
 
 const NavLeft = styled.div`

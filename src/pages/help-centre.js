@@ -176,7 +176,6 @@ const articles = [
         articles: [
             {
                 title: localize('Who can open an account?'),
-                keywords: [localize('how'), localize('who')],
                 category: localize('Account'),
                 sub_category: localize('Opening an account'),
                 label: 'who-can-open-an-account',
@@ -184,7 +183,6 @@ const articles = [
             },
             {
                 title: localize('Opening an account'),
-                keywords: ['account', 'how', 'who'],
                 category: localize('Account'),
                 sub_category: localize('Opening an account'),
                 label: 'opening-an-account',
@@ -192,11 +190,6 @@ const articles = [
             },
             {
                 title: localize('Changing your personal details'),
-                keywords: [
-                    localize('name'),
-                    localize('residence'),
-                    localize('email'),
-                ],
                 category: localize('Account'),
                 sub_category: localize('Managing your account'),
                 label: 'changing-your-personal-details',
@@ -204,7 +197,6 @@ const articles = [
             },
             {
                 title: localize('Recovering your password'),
-                keywords: [localize('change'), localize('login')],
                 category: localize('Account'),
                 sub_category: localize('Managing your account'),
                 label: 'recovering-your-password',
@@ -212,7 +204,6 @@ const articles = [
             },
             {
                 title: localize('Authenticating your account'),
-                keywords: [localize('verify')],
                 category: localize('Account'),
                 sub_category: localize('Managing your account'),
                 label: 'recovering-your-password',
@@ -225,7 +216,6 @@ const articles = [
         articles: [
             {
                 title: localize('Making a deposit'),
-                keywords: [],
                 category: localize('Deposits and withdrawals'),
                 sub_category: localize('Deposits'),
                 label: 'making-a-deposit',
@@ -233,7 +223,6 @@ const articles = [
             },
             {
                 title: localize('Expired verification link'),
-                keywords: [localize('verify')],
                 category: localize('Deposits and withdrawals'),
                 sub_category: localize('Deposits'),
                 label: 'expired-verification-link',
@@ -241,7 +230,6 @@ const articles = [
             },
             {
                 title: localize('Withdrawal processing time'),
-                keywords: ['Withdrawal', 'take', 'money'],
                 category: localize('Deposits and withdrawals'),
                 sub_category: localize('Withdrawals'),
                 label: 'withdrawal-processing-time',
@@ -400,7 +388,7 @@ class HelpCentre extends Component {
         } = this.state
 
         const filtered_articles = matchSorter(all_articles, search, {
-            keys: ['title', 'sub_category', 'keywords'],
+            keys: ['title', 'sub_category'],
         })
         const has_results = !!filtered_articles.length
         return (

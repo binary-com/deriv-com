@@ -109,7 +109,7 @@ const OurLocations = ({ toggleModal }) => {
 
 const OurNumbersWrapper = styled.section`
     width: 100%;
-    background-color: --color-white;
+    background-color: var(--color-white);
 `
 const OurNumbersContainer = styled(Container)`
     flex-direction: row;

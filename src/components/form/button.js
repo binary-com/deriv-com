@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
     border-radius: 6px;
-    padding: 1rem;
+    padding: 1.5rem;
     font-size: var(--text-size-s);
 
     &:hover {

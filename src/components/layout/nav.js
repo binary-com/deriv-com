@@ -17,22 +17,30 @@ const StyledNav = styled.nav`
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 1rem;
+
+    @media (max-width: 1250px) {
+    }
 `
 
 const NavLeft = styled.div`
-    width: 25%;
+    width: 27%;
     text-align: left;
+
 `
 
 const NavCenter = styled.ul`
-    width: 50%;
+    width: 52%;
     text-align: center;
     padding: 0;
 `
 
 const NavRight = styled.div`
-    width: 25%;
+    width: 21%;
     text-align: right;
+    position: relative;
+    overflow: hidden;
+    height: 5rem;
+
 `
 
 const NavLink = styled.li`
@@ -76,86 +84,95 @@ const StyledLink = styled(LocalizedLink)`
 const NavButton = styled(Button)`
     font-weight: bold;
     padding: 1.4rem var(--text-size-s);
+    position: absolute;
+    left: 0;
     ${props => {
-        if (props.hide)
+        if (props.margin)
             return `
-        margin-left: 1rem;
-        min-width:16.2rem;
+        min-width:12.2rem;
+        left: 9rem;
         `
     }}
-`
-const NavButtonContainer = styled.div`
-    display: flex;
-    overflow: hidden;
-    margin-left: 17rem;
 
     ${props => {
-        console.log(props.show)
-        return props.show ? 'margin-left: 0' : 'maragin-left: 17rem'
+        if (!props.margin && props.move)
+            return `
+            left: 13rem;
+        `
     }}
+
+    ${props => {
+        if (props.margin && props.move)
+            return `
+        min-width:12.2rem;
+        left: 22rem;
+        `
+    }}
+
 `
 
-const Nav = () => {
-    let show = false
-    const handleScroll = () => {
-        window.scrollY > 72 ? (show = true) : (show = false)
-        console.log(show)
+class Nav extends React.Component {
+    state = {
+        move: false,
     }
-
-    useEffect(() => {
-        document.addEventListener('scroll', handleScroll, false)
-    })
-    console.log(show)
-    return (
-        <StyledNav>
-            <Wrapper>
-                <NavLeft>
-                    <LocalizedLink to="/" aria-label={localize('Home')}>
-                        <LogoHeader />
-                    </LocalizedLink>
-                </NavLeft>
-                <NavCenter>
-                    <NavLink>
-                        <StyledLink
-                            activeClassName="active"
-                            to="/trade/"
-                            aria-label={localize('Trade')}
-                        >
-                            {localize('Trade')}
-                        </StyledLink>
-                    </NavLink>
-                    <NavLink>
-                        <StyledLink
-                            activeClassName="active"
-                            to="/about/"
-                            aria-label={localize('About us')}
-                        >
-                            {localize('About us')}
-                        </StyledLink>
-                    </NavLink>
-                    <NavLink>
-                        <StyledLink
-                            activeClassName="active"
-                            to="/help-centre/"
-                            aria-label={localize('Help centre')}
-                        >
-                            {localize('Help centre')}
-                        </StyledLink>
-                    </NavLink>
-                </NavCenter>
-                <NavRight>
-                    {show && <NavButtonContainer show={show}>
-                        <NavButton primary>
+    handleScroll = () => {
+        window.scrollY > 120
+            ? this.setState({ move: true })
+            : this.setState({ move: false })
+    }
+    componentDidMount() {
+        document.addEventListener('scroll', this.handleScroll, false)
+    }
+    render() {
+        return (
+            <StyledNav>
+                <Wrapper>
+                    <NavLeft>
+                        <LocalizedLink to="/" aria-label={localize('Home')}>
+                            <LogoHeader />
+                        </LocalizedLink>
+                    </NavLeft>
+                    <NavCenter>
+                        <NavLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/trade/"
+                                aria-label={localize('Trade')}
+                            >
+                                {localize('Trade')}
+                            </StyledLink>
+                        </NavLink>
+                        <NavLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/about/"
+                                aria-label={localize('About us')}
+                            >
+                                {localize('About us')}
+                            </StyledLink>
+                        </NavLink>
+                        <NavLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/help-centre/"
+                                aria-label={localize('Help centre')}
+                            >
+                                {localize('Help centre')}
+                            </StyledLink>
+                        </NavLink>
+                    </NavCenter>
+                    <NavRight>
+                        <NavButton primary move={this.state.move}>
                             <span>{localize('Login')}</span>
                         </NavButton>
-                        <NavButton primary>
-                            <span>{localize('Try 1 month free')}</span>
+                        <NavButton primary margin move={this.state.move}>
+                            <span>{localize('Try for free')}</span>
                         </NavButton>
-                    </NavButtonContainer>}
-                </NavRight>
-            </Wrapper>
-        </StyledNav>
-    )
+                    </NavRight>
+                </Wrapper>
+            </StyledNav>
+        )
+    }
 }
 
 export default Nav

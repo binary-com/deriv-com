@@ -6,7 +6,7 @@ import Layout from '../components/layout/layout'
 import { localize, WithIntl } from '../components/localization'
 import Hero from '../components/elements/hero.js'
 import Container from '../components/containers/container.js'
-import { CardTypeOne } from '../components/elements/card.js'
+import { Card } from '../components/elements/card.js'
 import { Header } from '../components/elements/typography.js'
 import Modal from '../components/elements/modal'
 import SignupModal from '../components/elements/signup-modal'
@@ -109,7 +109,7 @@ const OurLocations = ({ toggleModal }) => {
 
 const OurNumbersWrapper = styled.section`
     width: 100%;
-    background-color: --color-white;
+    background-color: var(--color-white);
 `
 const OurNumbersContainer = styled(Container)`
     flex-direction: row;
@@ -253,14 +253,14 @@ const OurGoalsContainer = styled(Container)`
 const OurGoals = () => (
     <OurGoalsWrapper>
         <OurGoalsContainer>
-            <CardTypeOne
+            <Card
                 Icon={VisionSVG}
                 title={localize('Our vision')}
                 content={localize(
                     'Our vision is to be the world’s most customer-centric, online trading company; a place where traders come to find and discover any derivative they want to trade.',
                 )}
             />
-            <CardTypeOne
+            <Card
                 Icon={FuseeSVG}
                 title={localize('Our mission')}
                 content={localize(

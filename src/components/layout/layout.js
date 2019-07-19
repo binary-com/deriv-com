@@ -5,10 +5,11 @@ import styled from 'styled-components'
 import Nav from './nav'
 import Footer from './footer'
 
+const Main = styled.main`
+    padding-top: 7.2rem;
+`
+
 const Layout = ({ children }) => {
-    const Main = styled.main`
-        padding-top: 7.2rem;
-    `
     return (
         <>
             <Nav />

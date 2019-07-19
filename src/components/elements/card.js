@@ -39,6 +39,9 @@ const CardChildrenWrapper = styled.article`
     flex-direction: column;
     align-items: center;
 
+    ${Header} {
+        text-align: center;
+    }
     p {
         font-size: 2rem;
 
@@ -50,6 +53,9 @@ const CardChildrenWrapper = styled.article`
                 text-decoration: underline;
             }
         }
+    }
+    svg {
+        margin: 2.5rem 0;
     }
 `
 
@@ -67,10 +73,17 @@ export const Card = ({ Icon, title, content, width }) => {
     )
 }
 
-export const CardChildren = ({ Icon, title, width, children }) => (
+export const CardChildren = ({
+    Icon,
+    title,
+    width,
+    children,
+    icon_width,
+    icon_height,
+}) => (
     <CardChildrenWrapper width={width}>
         <Header as="h3">{title}</Header>
-        <Icon />
+        <Icon width={icon_width} height={icon_height} />
         {children}
     </CardChildrenWrapper>
 )
@@ -87,7 +100,9 @@ CardChildren.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]),
-    Icon: PropTypes.object,
+    Icon: PropTypes.func,
+    icon_height: PropTypes.string,
+    icon_width: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
 }

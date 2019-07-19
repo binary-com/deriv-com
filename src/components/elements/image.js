@@ -15,7 +15,7 @@ import PropTypes from 'prop-types'
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
-const Image = ({ img_name, alt, width, my, mx }) => (
+const Image = ({ img_name, alt, width }) => (
     <StaticQuery
         query={graphql`
             query {
@@ -41,7 +41,7 @@ const Image = ({ img_name, alt, width, my, mx }) => (
             if (!image) return null
 
             return (
-                <ImageWrapper width={width} my={my} mx={mx}>
+                <ImageWrapper width={width}>
                     <Img alt={alt} fluid={image.node.fluid} />
                 </ImageWrapper>
             )
@@ -52,8 +52,6 @@ const Image = ({ img_name, alt, width, my, mx }) => (
 Image.propTypes = {
     alt: PropTypes.string,
     img_name: PropTypes.string,
-    mx: PropTypes.string,
-    my: PropTypes.string,
     width: PropTypes.string,
 }
 export default Image

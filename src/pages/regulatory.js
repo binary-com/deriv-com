@@ -6,7 +6,7 @@ import { localize, WithIntl } from '../components/localization'
 import Hero from 'components/elements/hero'
 import Container from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography'
-import { CardTypeTwo } from 'components/elements/card.js'
+import { CardChildren } from 'components/elements/card.js'
 import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import MFSA from 'images/svg/mfsa.svg'
@@ -65,19 +65,23 @@ const Regulatory = () => (
                     )}
                 </StyledText>
                 <FlexWrapper>
-                    <CardTypeTwo
-                        Icon={<SVG />}
+                    <CardChildren
+                        Icon={SVG}
                         title={localize('Binary (SVG) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
                     >
                         <Text align="center">
                             {localize(
                                 'Binary (SVG) Ltd is registered in St. Vincent and the Grenadines.',
                             )}
                         </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<Vanuatu width="240" height="160" />}
+                    </CardChildren>
+                    <CardChildren
+                        Icon={Vanuatu}
                         title={localize('Binary (V) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
                     >
                         <Text align="center">
                             {localize(
@@ -85,10 +89,12 @@ const Regulatory = () => (
                             )}{' '}
                             <a href="">{localize('view license')}</a>
                         </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<MFSA />}
+                    </CardChildren>
+                    <CardChildren
+                        Icon={MFSA}
                         title={localize('Binary Investments (Europe) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
                     >
                         <Text align="center">
                             {localize(
@@ -100,10 +106,12 @@ const Regulatory = () => (
                             </a>
                             ).
                         </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<FSC width="240" height="160" />}
+                    </CardChildren>
+                    <CardChildren
+                        Icon={FSC}
                         title={localize('Binary (BVI) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
                     >
                         <Text align="center">
                             {localize(
@@ -111,10 +119,12 @@ const Regulatory = () => (
                             )}{' '}
                             <a href="">{localize('view licence.')}</a>
                         </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<Labuan width="200" height="120" />}
+                    </CardChildren>
+                    <CardChildren
+                        Icon={Labuan}
                         title={localize('Binary (FX) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
                     >
                         <Text align="center">
                             {localize(
@@ -126,7 +136,7 @@ const Regulatory = () => (
                             </a>
                             ).
                         </Text>
-                    </CardTypeTwo>
+                    </CardChildren>
                 </FlexWrapper>
             </StyledContainer>
         </RegulatoryWrapper>

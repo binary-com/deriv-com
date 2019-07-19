@@ -33,27 +33,24 @@ const CardWrapper = styled.article`
 const CardChildrenWrapper = styled.article`
     ${CardStyle}
     width: ${props => (props.width ? props.width : '50.2rem')};
-    min-height: 42.7rem;
+    min-height: 41.7rem;
     padding: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
 
-    svg {
-        margin: 2.4rem 0;
-    }
     p {
-        font-size: 20px;
-        line-height: 1.5;
-        color: var(--color-black-2);
+        font-size: 2rem;
 
         a {
             color: var(--color-red);
             text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
-
 `
 
 export const Card = ({ Icon, title, content, width }) => {
@@ -90,7 +87,7 @@ CardChildren.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]),
-    Icon: PropTypes.func,
+    Icon: PropTypes.object,
     title: PropTypes.string,
     width: PropTypes.string,
 }

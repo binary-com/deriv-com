@@ -12,7 +12,7 @@ const CardStyle = css`
     background-color: var(--color-white);
 `
 
-const CardTypeOneWrapper = styled.article`
+const CardWrapper = styled.article`
     ${CardStyle}
     width: ${props => (props.width ? props.width : '32.8rem')};
     padding: 4rem 5.6rem 4.6rem 5.6rem;
@@ -30,7 +30,7 @@ const CardTypeOneWrapper = styled.article`
     }
 `
 
-const CardTypeTwoWrapper = styled.article`
+const CardChildrenWrapper = styled.article`
     ${CardStyle}
     width: ${props => (props.width ? props.width : '50.2rem')};
     min-height: 42.7rem;
@@ -56,9 +56,9 @@ const CardTypeTwoWrapper = styled.article`
 
 `
 
-export const CardTypeOne = ({ Icon, title, content, width }) => {
+export const Card = ({ Icon, title, content, width }) => {
     return (
-        <CardTypeOneWrapper width={width}>
+        <CardWrapper width={width}>
             <Icon />
             <div>
                 <Header as="h4" weight="500">
@@ -66,26 +66,26 @@ export const CardTypeOne = ({ Icon, title, content, width }) => {
                 </Header>
                 <Text className="content">{content}</Text>
             </div>
-        </CardTypeOneWrapper>
+        </CardWrapper>
     )
 }
 
-export const CardTypeTwo = ({ Icon, title, width, children }) => (
-    <CardTypeTwoWrapper width={width}>
+export const CardChildren = ({ Icon, title, width, children }) => (
+    <CardChildrenWrapper width={width}>
         <Header as="h3">{title}</Header>
         <Icon />
         {children}
-    </CardTypeTwoWrapper>
+    </CardChildrenWrapper>
 )
 
-CardTypeOne.propTypes = {
+Card.propTypes = {
     content: PropTypes.string,
     Icon: PropTypes.func,
     title: PropTypes.string,
     width: PropTypes.string,
 }
 
-CardTypeTwo.propTypes = {
+CardChildren.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,

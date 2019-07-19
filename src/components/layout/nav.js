@@ -1,5 +1,5 @@
 import { LocalizedLink, localize } from '../localization'
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import LogoHeader from '../../images/svg/logo-header.svg'
 import Button from '../form/button'
@@ -7,7 +7,6 @@ import Container from '../containers/container'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
     height: 7.2rem;
     position: fixed;
     width: 100%;
@@ -17,37 +16,35 @@ const StyledNav = styled.nav`
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 1rem;
-
-    @media (max-width: 1250px) {
-    }
+    justify-content: space-between;
 `
 
 const NavLeft = styled.div`
-    width: 27%;
     text-align: left;
-
 `
 
 const NavCenter = styled.ul`
-    width: 52%;
     text-align: center;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
 `
 
 const NavRight = styled.div`
-    width: 21%;
-    text-align: right;
-    position: relative;
     overflow: hidden;
+    width: 21.5rem;
+    position: relative;
     height: 5rem;
-
 `
 
 const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
-    width: 23%;
     text-align: left;
+
+    ${props => {
+        if (props.margin) return 'margin: 0 4rem;'
+    }}
 `
 
 const StyledLink = styled(LocalizedLink)`
@@ -87,38 +84,35 @@ const NavButton = styled(Button)`
     position: absolute;
     left: 0;
     ${props => {
-        if (props.margin)
+        if (props.movable_button) {
             return `
-        min-width:12.2rem;
-        left: 9rem;
-        `
+            left: 9rem;
+            min-width:12.2rem;
+            border: 0.2rem solid var(--color-red)
+            `
+        }
     }}
+`
+const NavRightContainer = styled.div`
+    position: absolute;
+    left: 13rem;
+    transition: left 0.8s;
 
     ${props => {
-        if (!props.margin && props.move)
-            return `
-            left: 13rem;
-        `
+        if(props.enable_move) {
+            return 'left: 0rem;'
+        }
     }}
-
-    ${props => {
-        if (props.margin && props.move)
-            return `
-        min-width:12.2rem;
-        left: 22rem;
-        `
-    }}
-
 `
 
 class Nav extends React.Component {
     state = {
-        move: false,
+        enable_move: false,
     }
     handleScroll = () => {
         window.scrollY > 120
-            ? this.setState({ move: true })
-            : this.setState({ move: false })
+            ? this.setState({ enable_move: true })
+            : this.setState({ enable_move: false })
     }
     componentDidMount() {
         document.addEventListener('scroll', this.handleScroll, false)
@@ -142,7 +136,7 @@ class Nav extends React.Component {
                                 {localize('Trade')}
                             </StyledLink>
                         </NavLink>
-                        <NavLink>
+                        <NavLink margin>
                             <StyledLink
                                 activeClassName="active"
                                 to="/about/"
@@ -162,12 +156,14 @@ class Nav extends React.Component {
                         </NavLink>
                     </NavCenter>
                     <NavRight>
-                        <NavButton primary move={this.state.move}>
-                            <span>{localize('Login')}</span>
-                        </NavButton>
-                        <NavButton primary margin move={this.state.move}>
-                            <span>{localize('Try for free')}</span>
-                        </NavButton>
+                        <NavRightContainer enable_move={this.state.enable_move}>
+                            <NavButton primary>
+                                <span>{localize('Login')}</span>
+                            </NavButton>
+                            <NavButton secondary movable_button>
+                                <span>{localize('Try for free')}</span>
+                            </NavButton>
+                        </NavRightContainer>
                     </NavRight>
                 </Wrapper>
             </StyledNav>

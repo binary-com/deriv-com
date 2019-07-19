@@ -54,6 +54,10 @@ const CardTypeTwoWrapper = styled.article`
         a {
             color: var(--color-red);
             text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 `

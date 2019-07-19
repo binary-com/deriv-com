@@ -579,7 +579,7 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
 
     return (
         <>
-            <LeftRightContainer padding="8px 0 0 0">
+            <LeftRightContainer padding="9px 0 0 0">
                 <StyledLink to="/help-centre/">
                     {localize('Back to Help topics')}
                 </StyledLink>

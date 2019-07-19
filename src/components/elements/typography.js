@@ -22,7 +22,6 @@ export const LinkText = styled.a`
     color: var(--color-${props => props.color || 'black'});
     font-size: ${props => props.size || 'var(--text-size-s)'};
     line-height: ${props => props.lh || '1.5'};
-    display: block;
 
     &:hover {
         color: var(--color-red);

@@ -252,9 +252,11 @@ const getAllArticles = articles =>
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
+const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
+
 const SearchSection = styled.section`
     ${Backdrop} {
-        max-height: ${props => (props.show ? '1000px' : '0')};
+        max-height: ${props => (props.show ? '100rem' : '0')};
         transition: ${props =>
             props.has_transition ? 'max-height 0.6s ease-in-out' : 'none'};
         overflow: hidden;
@@ -312,6 +314,93 @@ const ResultWrapper = styled.div`
     }
 `
 
+const ArticleContent = styled.div`
+    width: 60%;
+
+    > *:not(:last-child) {
+        margin-top: 0;
+        padding-bottom: 0.8rem;
+    }
+    ${Header} {
+        margin-bottom: 1.6rem;
+    }
+    ${Text} {
+        color: var(--color-black-3);
+        line-height: 1.5;
+    }
+`
+
+const StyledLink = styled(LocalizedLink)`
+    font-size: 2rem;
+    color: var(--color-red);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+    &::before {
+        content: '<';
+        display: inline-block;
+        margin-right: 0.4rem;
+        font-weight: 300;
+        text-decoration: none;
+    }
+`
+
+const SmallSearchIcon = styled(SearchIcon)`
+    height: 27px;
+    width: 27px;
+
+    use {
+        fill: var(--color-green);
+    }
+    &:hover {
+        cursor: pointer;
+    }
+`
+
+const ListWrapper = styled.div`
+    ${Header} {
+        margin-bottom: 1.6rem;
+    }
+`
+
+const Ul = styled.ul`
+    list-style: unset;
+    color: var(--color-white);
+    font-size: var(--text-size-s);
+    margin-top: 0.8rem;
+    margin-left: 2rem;
+
+    > *:not(:last-child) {
+        padding-bottom: 0.8rem;
+    }
+`
+
+const Ol = styled(Ul).attrs({
+    as: 'ol',
+})`
+    list-style-type: decimal;
+`
+
+const Li = styled(Text).attrs({
+    as: 'li',
+})``
+
+const ErrorHeader = styled(Header)`
+    font-size: 2rem;
+    padding-bottom: 0.8rem;
+`
+
+const ListNoBullets = styled.ul`
+    margin-bottom: 4.2rem;
+    list-style: none;
+
+    > *:not(:last-child) {
+        padding-bottom: 1.6rem;
+    }
+`
+
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
@@ -353,7 +442,7 @@ class HelpCentre extends Component {
     clearSearch = () => this.setState({ search: '' })
 
     componentDidMount = () => {
-        const current_label = location.hash ? location.hash.substring(1) : ''
+        const current_label = getLocationHash()
         if (current_label) {
             const selected_article = this.state.all_articles.find(
                 article => article.label === current_label,
@@ -367,7 +456,7 @@ class HelpCentre extends Component {
     }
 
     componentDidUpdate = () => {
-        const current_label = location.hash ? location.hash.substring(1) : ''
+        const current_label = getLocationHash()
 
         if (!current_label && this.state.selected_article) {
             this.setState({
@@ -485,53 +574,6 @@ ArticleSection.propTypes = {
     toggleSearch: PropTypes.func,
 }
 
-const ArticleContent = styled.div`
-    width: 60%;
-
-    > *:not(:last-child) {
-        margin-top: 0;
-        padding-bottom: 0.8rem;
-    }
-    ${Header} {
-        margin-bottom: 1.6rem;
-    }
-    ${Text} {
-        color: var(--color-black-3);
-        line-height: 1.5;
-    }
-`
-
-const StyledLink = styled(LocalizedLink)`
-    font-size: 2rem;
-    color: var(--color-red);
-
-    &::before {
-        content: '<';
-        display: inline-block;
-        margin-right: 4px;
-        font-weight: 300;
-        text-decoration: none;
-    }
-`
-
-const SmallSearchIcon = styled(SearchIcon)`
-    height: 27px;
-    width: 27px;
-
-    use {
-        fill: var(--color-green);
-    }
-    &:hover {
-        cursor: pointer;
-    }
-`
-
-const ListWrapper = styled.div`
-    ${Header} {
-        margin-bottom: 1.6rem;
-    }
-`
-
 const Article = ({ article, all_articles, onClick, toggleSearch }) => {
     const related_articles = getRelatedArticles(all_articles, article)
 
@@ -551,7 +593,7 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
                 {!!related_articles.length && (
                     <ListWrapper>
                         <Header as="h3">{localize('Related topics')}</Header>
-                        <LinkList
+                        <ListWithLinks
                             list={related_articles}
                             onClick={onClick}
                             link_style={{ size: '2rem' }}
@@ -574,7 +616,7 @@ const SearchSuccess = ({ suggested_topics, onClick, max_length }) => (
         <Header as="h3" color="white">
             {localize('Topic Suggestions')}
         </Header>
-        <LinkList
+        <ListWithLinks
             list={suggested_topics.slice(0, max_length)}
             onClick={onClick}
             link_style={{ color: 'white', size: '2rem' }}
@@ -586,33 +628,6 @@ SearchSuccess.propTypes = {
     onClick: PropTypes.func,
     suggested_topics: PropTypes.array,
 }
-
-const Ul = styled.ul`
-    list-style: unset;
-    color: var(--color-white);
-    font-size: var(--text-size-s);
-    margin-top: 0.8rem;
-    margin-left: 2rem;
-
-    > *:not(:last-child) {
-        padding-bottom: 0.8rem;
-    }
-`
-
-const Ol = styled(Ul).attrs({
-    as: 'ol',
-})`
-    list-style-type: decimal;
-`
-
-const Li = styled(Text).attrs({
-    as: 'li',
-})``
-
-const ErrorHeader = styled(Header)`
-    font-size: 2rem;
-    padding-bottom: 0.8rem;
-`
 
 const SearchError = ({ search }) => (
     <>
@@ -645,7 +660,7 @@ const ArticleList = ({ articles, onClick }) => (
         {articles.map((category, idx) => (
             <ListWrapper key={idx}>
                 <Header as="h3">{category.category}</Header>
-                <LinkList
+                <ListWithLinks
                     link_style={{ size: '2rem' }}
                     list={category.articles}
                     onClick={onClick}
@@ -659,16 +674,7 @@ ArticleList.propTypes = {
     onClick: PropTypes.func,
 }
 
-const ListNoBullets = styled.ul`
-    margin-bottom: 4.2rem;
-    list-style: none;
-
-    > *:not(:last-child) {
-        padding-bottom: 1.6rem;
-    }
-`
-
-const LinkList = ({ list, onClick, link_style }) => (
+const ListWithLinks = ({ list, onClick, link_style }) => (
     <ListNoBullets>
         {list.map((item, idx) => (
             <li key={idx}>
@@ -679,7 +685,7 @@ const LinkList = ({ list, onClick, link_style }) => (
         ))}
     </ListNoBullets>
 )
-LinkList.propTypes = {
+ListWithLinks.propTypes = {
     link_style: PropTypes.object,
     list: PropTypes.array.isRequired,
     onClick: PropTypes.func,

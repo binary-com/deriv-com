@@ -56,7 +56,7 @@
         "build": "npm run test && gatsby build --prefix-paths",
         "develop": "gatsby develop -p 80",
         "format": "prettier --write '**/*.js' '*.js'",
-        "eslint": "DEBUG=eslint:cli-engine eslint 'src/**/*.js'",
+        "eslint": "DEBUG=eslint:cli-engine eslint 'src/**/*.js' --fix",
         "start": "npm run develop",
         "serve": "gatsby serve",
         "test": "npm run eslint",

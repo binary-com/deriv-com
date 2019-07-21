@@ -132,7 +132,7 @@ const Footer = () => (
                             <h4>{localize('Trade')}</h4>
                             <StyledLink
                                 activeClassName="active"
-                                to="/"
+                                to="/keep-safe/"
                                 aria-label={localize('Keep Safe')}
                             >
                                 {localize('Keep Safe')}

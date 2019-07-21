@@ -6,7 +6,7 @@ import Layout from '../components/layout/layout'
 import { localize, WithIntl } from '../components/localization'
 import Hero from '../components/elements/hero.js'
 import Container from '../components/containers/container.js'
-import Card from '../components/elements/card.js'
+import { Card } from '../components/elements/card.js'
 import { Header } from '../components/elements/typography.js'
 import Modal from '../components/elements/modal'
 import SignupModal from '../components/elements/signup-modal'
@@ -109,7 +109,7 @@ const OurLocations = ({ toggleModal }) => {
 
 const OurNumbersWrapper = styled.section`
     width: 100%;
-    background-color: --color-white;
+    background-color: var(--color-white);
 `
 const OurNumbersContainer = styled(Container)`
     flex-direction: row;
@@ -193,7 +193,7 @@ const OurNumbers = () => {
                 <Header as="h2" color="black-2" align="center">
                     {localize('Our Numbers')}
                 </Header>
-                <Header as="h4" color="black-3" align="center">
+                <Header as="h4" color="black-3" align="center" weight="500">
                     {localize(
                         'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                     )}
@@ -294,10 +294,9 @@ class About extends Component {
             <Layout>
                 <SEO title={localize('About us')} />
                 <Hero
-                    header_part_1={localize('Go ahead,')}
-                    header_part_2={localize('experience it for yourself.')}
+                    header={localize('About us')}
                     paragraph={localize(
-                        'Deriv is a new trading platform created by Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                        'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
                     )}
                 />
                 <OurGoals />

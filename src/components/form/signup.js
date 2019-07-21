@@ -29,6 +29,7 @@ const ResponseWrapper = styled(Container)`
     justify-content: center;
     max-width: 26.5rem;
     flex-direction: column;
+    padding: 2rem 1rem;
 `
 const InputGroup = styled.div`
     position: relative;

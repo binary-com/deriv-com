@@ -15,6 +15,11 @@ import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
 
+const FooterWrapper = styled.footer`
+    ${Container} {
+        padding: 2rem 1rem;
+    }
+`
 const FooterNavGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -121,94 +126,86 @@ const Social = styled.div`
 `
 
 const Footer = () => (
-    <footer>
+    <FooterWrapper>
         <FooterSocket>
             <Container>
                 <FooterNavGrid>
-                        <FooterNav>
-                            <div>
-                                <Logo />
-                            </div>
-                            <div>
-                                <Header as="h4">
-                                    {localize('Trade')}
-                                </Header>
-                                <StyledLink
-                                    activeClassName="active"
-                                    to="/"
-                                    aria-label={localize('Keep Safe')}
-                                >
-                                    {localize('Keep Safe')}
-                                </StyledLink>
-                            </div>
-                            <div>
-                                <Header as="h4">
-                                    {localize('Company')}
-                                </Header>
-                                <StyledLink
-                                    activeClassName="active"
-                                    to="/about"
-                                    aria-label={localize('About us')}
-                                >
-                                    {localize('About us')}
-                                </StyledLink>
-                            </div>
-                        </FooterNav>
-                        <FooterNav>
-                            <div>
-                                <Header as="h4">
-                                    {localize('Support')}
-                                </Header>
-                                <StyledLink
-                                    activeClassName="active"
-                                    to="/help-centre"
-                                    aria-label={localize('Help Centre')}
-                                >
-                                    {localize('Help Centre')}
-                                </StyledLink>
-                            </div>
-                            <div>
-                                <Header as="h4">
-                                    {localize('Legal')}
-                                </Header>
-                                <StyledLink
-                                    activeClassName="active"
-                                    to="/"
-                                    aria-label={localize('Regulatory Information')}
-                                >
-                                    {localize('Regulatory Information')}
-                                </StyledLink>
-                                <StyledLink
-                                    activeClassName="active"
-                                    to="/"
-                                    aria-label={localize('Terms and Conditions')}
-                                >
-                                    {localize('Terms and Conditions')}
-                                </StyledLink>
-                                <StyledLink
-                                    activeClassName="active"
-                                    to="/"
-                                    aria-label={localize('Security and Privacy')}
-                                >
-                                    {localize('Security and Privacy')}
-                                </StyledLink>
-                                <StyledLink
-                                    activeClassName="active"
-                                    to="/"
-                                    aria-label={localize('Responsible Trading')}
-                                >
-                                    {localize('Responsible Trading')}
-                                </StyledLink>
-                            </div>
-                            <Social>
-                                <p>{localize('Follow us on')}</p>
-                                <YouTube />
-                                <Twitter />
-                                <Telegram />
-                                <Reddit />
-                                <Facebook />
-                            </Social>
-                        </FooterNav>
+                    <FooterNav>
+                        <div>
+                            <Logo />
+                        </div>
+                        <div>
+                            <h4>{localize('Trade')}</h4>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/keep-safe/"
+                                aria-label={localize('Keep Safe')}
+                            >
+                                {localize('Keep Safe')}
+                            </StyledLink>
+                        </div>
+                        <div>
+                            <h4>{localize('Company')}</h4>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/about/"
+                                aria-label={localize('About us')}
+                            >
+                                {localize('About us')}
+                            </StyledLink>
+                        </div>
+                    </FooterNav>
+                    <FooterNav>
+                        <div>
+                            <h4>{localize('Support')}</h4>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/help-centre/"
+                                aria-label={localize('Help Centre')}
+                            >
+                                {localize('Help Centre')}
+                            </StyledLink>
+                        </div>
+                        <div>
+                            <h4>{localize('Legal')}</h4>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/regulatory/"
+                                aria-label={localize('Regulatory Information')}
+                            >
+                                {localize('Regulatory Information')}
+                            </StyledLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/terms-and-conditions/"
+                                aria-label={localize('Terms and Conditions')}
+                            >
+                                {localize('Terms and Conditions')}
+                            </StyledLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/"
+                                aria-label={localize('Security and Privacy')}
+                            >
+                                {localize('Security and Privacy')}
+                            </StyledLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/"
+                                aria-label={localize('Responsible Trading')}
+                            >
+                                {localize('Responsible Trading')}
+                            </StyledLink>
+                        </div>
+                        <Social>
+                            <p>{localize('Follow us on')}</p>
+                            <YouTube />
+                            <Twitter />
+                            <Telegram />
+                            <Reddit />
+                            <Facebook />
+                        </Social>
+                    </FooterNav>
                 </FooterNavGrid>
             </Container>
         </FooterSocket>
@@ -243,6 +240,6 @@ const Footer = () => (
                 </div>
             </Container>
         </RiskNote>
-    </footer>
+    </FooterWrapper>
 )
 export default Footer

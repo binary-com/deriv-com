@@ -12,6 +12,7 @@ import SignupModal from '../components/elements/signup-modal'
 import Container from '../components/containers/container'
 import { Card } from '../components/elements/card.js'
 import { Divider } from '../components/elements/divider'
+import { StyledLink } from '../components/elements/link'
 import { Header, Text } from '../components/elements/typography.js'
 import { localize, WithIntl } from '../components/localization'
 
@@ -203,8 +204,11 @@ const KeepSafe = () => {
                         <Card min_height="0rem" width="41.5rem">
                             <Text color="black-3" lh="1.55">
                                 {localize(
-                                    'Trading derivatives can involve substantial risks. Don’t trade with money you can’t afford to lose and never trade with borrowed money. Learn about Responsible Trading.',
+                                    'Trading derivatives can involve substantial risks. Don’t trade with money you can’t afford to lose and never trade with borrowed money. Learn about ',
                                 )}
+                                <StyledLink to="/responsible-trading/">
+                                    {localize('Responsible Trading.')}
+                                </StyledLink>
                             </Text>
                         </Card>
                         <Card min_height="0rem" width="41.5rem">

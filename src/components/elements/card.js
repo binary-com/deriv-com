@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Text, Header } from './typography.js'
 import device from 'themes/device'
+import { Text, Header } from './typography.js'
 
 const CardStyle = css`
     box-sizing: border-box;
@@ -94,8 +94,13 @@ export const CardChildren = ({
 )
 
 Card.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]),
     content: PropTypes.string,
     Icon: PropTypes.func,
+    min_height: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
 }

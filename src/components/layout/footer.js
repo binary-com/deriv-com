@@ -15,17 +15,13 @@ import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
 
-const FooterWrapper = styled.footer`
-    ${Container} {
-        padding: 2rem 1rem;
-    }
-`
 const FooterNavGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
+    padding: 2rem 0;
 
-    @media ${device.md} {
+    @media ${device.tabletL} {
         grid-template-columns: 1fr;
         grid-row-gap: 2rem;
     }
@@ -51,10 +47,10 @@ const FooterSocket = styled.section`
 const Legal = styled.section`
     background-color: var(--color-grey-1);
     width: 100%;
-    padding: 2rem 0;
+    padding: 3rem 0;
 
     p {
-        margin-bottom: 1.8rem;
+        margin: 1rem 0;
         line-height: 1.8rem;
         color: var(--color-grey-3);
         font-size: 1.2rem;
@@ -66,18 +62,17 @@ const LegalRow = styled.div`
     grid-column-gap: 2rem;
     width: 100%;
 
-    @media ${device.md} {
-        grid-template-columns: 1fr;
-        grid-column-gap: 0;
-    }
-
-    div * {
+    * {
         align-self: center;
         justify-self: center;
     }
     span {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+    }
+    @media ${device.tabletL} {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
     }
 `
 const RiskNote = styled.section`
@@ -115,18 +110,17 @@ const Social = styled.div`
     color: var(--color-grey-3);
     padding: 0 2rem;
 
-    @media ${device.md} {
-        padding: 0;
-    }
-
     svg {
         margin-top: 0.8rem;
         margin-right: 0.8rem;
     }
+    @media ${device.tabletL} {
+        padding: 0;
+    }
 `
 
 const Footer = () => (
-    <FooterWrapper>
+    <footer>
         <FooterSocket>
             <Container>
                 <FooterNavGrid>
@@ -135,20 +129,24 @@ const Footer = () => (
                             <Logo />
                         </div>
                         <div>
-                            <h4>{localize('Trade')}</h4>
+                            <Header as="h4">
+                                {localize('Trade')}
+                            </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/keep-safe/"
+                                to="/"
                                 aria-label={localize('Keep Safe')}
                             >
                                 {localize('Keep Safe')}
                             </StyledLink>
                         </div>
                         <div>
-                            <h4>{localize('Company')}</h4>
+                            <Header as="h4">
+                                {localize('Company')}
+                            </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/about/"
+                                to="/about"
                                 aria-label={localize('About us')}
                             >
                                 {localize('About us')}
@@ -157,20 +155,24 @@ const Footer = () => (
                     </FooterNav>
                     <FooterNav>
                         <div>
-                            <h4>{localize('Support')}</h4>
+                            <Header as="h4">
+                                {localize('Support')}
+                            </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/help-centre/"
+                                to="/help-centre"
                                 aria-label={localize('Help Centre')}
                             >
                                 {localize('Help Centre')}
                             </StyledLink>
                         </div>
                         <div>
-                            <h4>{localize('Legal')}</h4>
+                            <Header as="h4">
+                                {localize('Legal')}
+                            </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/regulatory/"
+                                to="/"
                                 aria-label={localize('Regulatory Information')}
                             >
                                 {localize('Regulatory Information')}
@@ -240,6 +242,6 @@ const Footer = () => (
                 </div>
             </Container>
         </RiskNote>
-    </FooterWrapper>
+    </footer>
 )
 export default Footer

@@ -1,18 +1,26 @@
-const breakpoint = {
-    xs: '576px',
-    sm: '768px',
-    md: '992px',
-    lg: '1200px',
-    xl: '1980px',
+const size = {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tabletS: '576px',
+    tablet: '768px',
+    tabletL: '992px',
+    laptop: '1024px',
+    laptopL: '1440px',
+    desktop: '1980px',
 }
 
 const device = {
-    xs: `(max-width: ${breakpoint.xs})`,
-    sm: `(max-width: ${breakpoint.sm})`,
-    md: `(max-width: ${breakpoint.md})`,
-    lg: `(max-width: ${breakpoint.lg})`,
-    xl: `(max-width: ${breakpoint.xl})`,
-    xxl: `(min-width: ${breakpoint.xl})`,
+    mobileS: `(max-width: ${size.mobileS})`,
+    mobileM: `(max-width: ${size.mobileM})`,
+    mobileL: `(max-width: ${size.mobileL})`,
+    tabletS: `(max-width: ${size.tabletS})`,
+    tablet: `(max-width: ${size.tablet})`,
+    tabletL: `(max-width: ${size.tabletL})`,
+    laptop: `(max-width: ${size.laptop})`,
+    laptopL: `(max-width: ${size.laptopL})`,
+    desktop: `(max-width: ${size.desktop})`,
+    desktopL: `(min-width: ${size.desktop})`,
 }
 
 export default device

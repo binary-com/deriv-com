@@ -7,6 +7,7 @@ import Skrill from 'images/svg/skrill.svg'
 import Bitcoin from 'images/svg/bitcoin.svg'
 
 const Grid = styled.article`
+    padding: 2rem 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 2rem;

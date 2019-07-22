@@ -9,11 +9,10 @@ const Container = styled.div`
     flex-direction: ${props => (props.direction ? props.direction : 'row')};
     width: 80%;
 
-    @media ${device.xl} {
+    @media ${device.desktop} {
         max-width: 1024px;
     }
-
-    @media ${device.xxl} {
+    @media ${device.desktopL} {
         max-width: 1400px;
     }
 `

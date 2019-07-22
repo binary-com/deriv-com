@@ -14,14 +14,15 @@ const GlobalStyle = createGlobalStyle`
     }
     html {
         font-size: 62.5%; /* 1rem = 10px */
+        box-sizing: border-box;
 
-        @media ${device.xxl} {
+        @media ${device.desktopL} {
             font-size: 75.5%; /* 1rem = 12px */
         }
-        @media ${device.md} {
+        @media ${device.tablet} {
             font-size: 50%; /* 1rem = 8px */
         }
-        @media ${device.sm} {
+        @media ${device.mobileM} {
             font-size: 35%; /* 1rem = 5.5px */
         }
     }

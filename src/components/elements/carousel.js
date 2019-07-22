@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     box-sizing: border-box;
     width: 100%;
     max-width: 79.7rem;
-
+    
     & > svg {
         position: absolute;
         right: 0;

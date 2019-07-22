@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="no-centralised-market-icon-title">
+    <title id='no-centralised-market-icon-title'>No centralised market icon</title>
+    <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+        <path stroke="#0E0E0E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 23.19L27.587 36M40.876 23.19L35 36"/>
+        <path fill="#0E0E0E" fill-rule="nonzero" d="M35.862 15H27a1 1 0 0 0 0 2h8.862a1 1 0 0 0 0-2z"/>
+        <path fill="#85ACB0" fill-rule="nonzero" d="M32 56.075v-8.15c0-.51-.448-.925-1-.925s-1 .414-1 .925v8.15c0 .51.448.925 1 .925s1-.414 1-.925z"/>
+        <circle cx="31" cy="59" r="3" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.135 52.836L28 46"/>
+        <circle cx="18" cy="55" r="3" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M42 53l-7-7"/>
+        <circle cx="45" cy="55" r="3" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <ellipse cx="31.522" cy="42.69" stroke="#FF444F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" rx="4.431" ry="4.5"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 16h9"/>
+        <circle cx="3" cy="16" r="3" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 27l5.755-7"/>
+        <circle cx="11" cy="30" r="3" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.853 5.925L17 11"/>
+        <circle cx="11" cy="3" r="3" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <ellipse cx="19.431" cy="15.5" stroke="#FF444F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" rx="4.431" ry="4.5"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M55.908 16h-8"/>
+        <ellipse cx="59" cy="16.047" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" rx="3" ry="3.047"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M51.185 27.54l-5.278-7.75"/>
+        <circle cx="53" cy="30" r="3" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M51 6l-5.093 5"/>
+        <circle cx="53" cy="3" r="3" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <ellipse cx="43.431" cy="15.5" stroke="#FF444F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" rx="4.431" ry="4.5"/>
+    </g>
+</svg>

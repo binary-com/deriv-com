@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import SEO from '../components/containers/seo'
@@ -6,7 +6,7 @@ import Button from '../components/form/button'
 import Layout from '../components/layout/layout'
 import device from 'themes/device'
 import Container from '../components/containers/container'
-import Modal from '../components/elements/modal'
+import Modal, { useModal } from '../components/elements/modal'
 import Signup from '../components/form/signup'
 import SignupModal from '../components/elements/signup-modal'
 import { localize, WithIntl } from '../components/localization'
@@ -520,263 +520,241 @@ const Carousel2 = () => (
     </Slide>
 )
 
-class Home extends Component {
-    state = {
-        show_modal: false,
-        active_tab: '',
-    }
+const Home = () => {
+    const [show_modal, toggleModal, closeModal] = useModal()
 
-    toggleModal = e => {
-        e.stopPropagation()
-        this.setState({
-            show_modal: !this.state.show_modal,
-        })
-    }
-
-    closeModal = () => {
-        this.setState({
-            show_modal: false,
-        })
-    }
-
-    render() {
-        return (
-            <Layout>
-                <SEO title={localize('Home')} />
-                <Hero />
-                <DtraderSection>
-                    <SectionHeader>
-                        <Header as="h2" alaign="center">
-                            {localize('DTrader')}
-                        </Header>
-                        <Header as="h3" align="center">
-                            {localize('All you need to get started')}
-                        </Header>
-                    </SectionHeader>
-                    <Container>
-                        <Dtrader>
-                            <StyledCard>
-                                <SuperiorPlatform />
-                                <Header as="h4" weight="500">
-                                    {localize('Superior trading platform')}
-                                </Header>
-                                <Header
-                                    as="h5"
-                                    color="black-3"
-                                    lh="1.55"
-                                    weight="normal"
-                                >
-                                    {localize(
-                                        'A revolutionary platform for all traders.',
-                                    )}
-                                </Header>
-                                <Header
-                                    as="h5"
-                                    color="black-3"
-                                    lh="1.55"
-                                    weight="normal"
-                                >
-                                    {localize(
-                                        'Access the world’s most traded markets and assets.',
-                                    )}
-                                </Header>
-                                <Header
-                                    as="h5"
-                                    color="black-3"
-                                    lh="1.55"
-                                    weight="normal"
-                                >
-                                    {localize('100+ instruments.')}
-                                </Header>
-                            </StyledCard>
-                            <StyledCard>
-                                <PatentedTech />
-                                <Header as="h4" weight="500">
-                                    {localize('Superior trading platform')}
-                                </Header>
-                                <Header
-                                    as="h5"
-                                    color="black-3"
-                                    lh="1.55"
-                                    weight="normal"
-                                >
-                                    {localize(
-                                        'A revolutionary platform for all traders.',
-                                    )}
-                                </Header>
-                                <Header
-                                    as="h5"
-                                    color="black-3"
-                                    lh="1.55"
-                                    weight="normal"
-                                >
-                                    {localize(
-                                        'Access the world’s most traded markets and assets.',
-                                    )}
-                                </Header>
-                                <Header
-                                    as="h5"
-                                    color="black-3"
-                                    lh="1.55"
-                                    weight="normal"
-                                >
-                                    {localize('100+ instruments.')}
-                                </Header>
-                            </StyledCard>
-                            <StyledCard>
-                                <Intuitive />
-                                <Header as="h4" weight="500">
-                                    {localize('Superior trading platform')}
-                                </Header>
-                                <Header
-                                    as="h5"
-                                    color="black-3"
-                                    lh="1.55"
-                                    weight="normal"
-                                >
-                                    {localize(
-                                        'A revolutionary platform for all traders.',
-                                    )}
-                                </Header>
-                                <Header
-                                    as="h5"
-                                    color="black-3"
-                                    lh="1.55"
-                                    weight="normal"
-                                >
-                                    {localize(
-                                        'Access the world’s most traded markets and assets.',
-                                    )}
-                                </Header>
-                                <Header
-                                    as="h5"
-                                    color="black-3"
-                                    lh="1.55"
-                                    weight="normal"
-                                >
-                                    {localize('100+ instruments.')}
-                                </Header>
-                            </StyledCard>
-                        </Dtrader>
-                    </Container>
-                    <Cta>
-                        <Button onClick={this.toggleModal} secondary>
-                            {localize('Create a free account')}
-                        </Button>
-                    </Cta>
-                </DtraderSection>
+    return (
+        <Layout>
+            <SEO title={localize('Home')} />
+            <Hero />
+            <DtraderSection>
                 <SectionHeader>
-                    <Header as="h2" align="center" color="black-2">
-                        {localize('How it works')}
+                    <Header as="h2" alaign="center">
+                        {localize('DTrader')}
+                    </Header>
+                    <Header as="h3" align="center">
+                        {localize('All you need to get started')}
                     </Header>
                 </SectionHeader>
-                <Section padding="8">
-                    <Works>
-                        <Card>
-                            <Practice />
-                            <div>
-                                <Header as="h4" weight="500" lh="2.2">
-                                    {localize('Practice')}
-                                </Header>
-                                <Text color="black-3" lh="1.55">
-                                    {localize(
-                                        'Open a demo account with unlimited funds. Start trading for free and practice to hone your skills.',
-                                    )}
-                                </Text>
-                            </div>
-                        </Card>
-                        <Card>
-                            <Trade />
-                            <div>
-                                <Header as="h4" weight="500" lh="2.2">
-                                    {localize('Trade')}
-                                </Header>
-                                <Text color="black-3" lh="1.55">
-                                    {localize(
-                                        'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
-                                    )}
-                                </Text>
-                            </div>
-                        </Card>
-                        <Card>
-                            <Withdraw />
-                            <div>
-                                <Header as="h4" weight="500" lh="2.2">
-                                    {localize('Withdraw')}
-                                </Header>
-                                <Text color="black-3" lh="1.55">
-                                    {localize(
-                                        'Get funds quickly and easily. We support many deposit and withdrawal options.',
-                                    )}
-                                </Text>
-                            </div>
-                        </Card>
-                    </Works>
-                </Section>
-                <Divider />
-                <Section padding="8">
-                    <Markets>
-                        <Header as="h2" align="center">
-                            {localize('Markets')}
-                        </Header>
-                        <Header as="h4" align="center" weight="500">
-                            {localize(
-                                'Over 100 assets available across five leading markets.',
-                            )}
-                        </Header>
-                        <Markettabs>
-                            <SideTab>
-                                <Forex label="forex" text="Forex" />
-                                <Indices label="indices" text="Indices" />
-                                <Commodities
-                                    label="commodities"
-                                    text="Commodities"
-                                />
-                                <Synthetic
-                                    label="synthetic"
-                                    text="Synthetic Indices"
-                                />
-                            </SideTab>
-                        </Markettabs>
-                    </Markets>
-                </Section>
-                <HomeCarouselWrapper>
-                    <HomeCarouselContainer>
-                        <ContextContainer>
-                            <Header as="h2">
-                                {localize('Why choose Deriv?')}
-                            </Header>
+                <Container>
+                    <Dtrader>
+                        <StyledCard>
+                            <SuperiorPlatform />
                             <Header as="h4" weight="500">
+                                {localize('Superior trading platform')}
+                            </Header>
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
                                 {localize(
-                                    'Your one-stop shop for online trading.',
+                                    'A revolutionary platform for all traders.',
                                 )}
                             </Header>
-                            <DemoButton secondary>
-                                {localize('See a demo')}
-                            </DemoButton>
-                        </ContextContainer>
-                        <Carousel
-                            slides={[Carousel1, Carousel2]}
-                            background={CarouselBackground}
-                        />
-                    </HomeCarouselContainer>
-                </HomeCarouselWrapper>
-                <PaymentSection>
-                    <Container>
-                        <PaymentMethods />
-                    </Container>
-                </PaymentSection>
-                <Modal
-                    toggle={this.toggleModal}
-                    is_open={this.state.show_modal}
-                    is_blurred={true}
-                    closeModal={this.closeModal}
-                >
-                    <SignupModal />
-                </Modal>
-            </Layout>
-        )
-    }
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
+                                {localize(
+                                    'Access the world’s most traded markets and assets.',
+                                )}
+                            </Header>
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
+                                {localize('100+ instruments.')}
+                            </Header>
+                        </StyledCard>
+                        <StyledCard>
+                            <PatentedTech />
+                            <Header as="h4" weight="500">
+                                {localize('Superior trading platform')}
+                            </Header>
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
+                                {localize(
+                                    'A revolutionary platform for all traders.',
+                                )}
+                            </Header>
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
+                                {localize(
+                                    'Access the world’s most traded markets and assets.',
+                                )}
+                            </Header>
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
+                                {localize('100+ instruments.')}
+                            </Header>
+                        </StyledCard>
+                        <StyledCard>
+                            <Intuitive />
+                            <Header as="h4" weight="500">
+                                {localize('Superior trading platform')}
+                            </Header>
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
+                                {localize(
+                                    'A revolutionary platform for all traders.',
+                                )}
+                            </Header>
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
+                                {localize(
+                                    'Access the world’s most traded markets and assets.',
+                                )}
+                            </Header>
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
+                                {localize('100+ instruments.')}
+                            </Header>
+                        </StyledCard>
+                    </Dtrader>
+                </Container>
+                <Cta>
+                    <Button onClick={this.toggleModal} secondary>
+                        {localize('Create a free account')}
+                    </Button>
+                </Cta>
+            </DtraderSection>
+            <SectionHeader>
+                <Header as="h2" align="center" color="black-2">
+                    {localize('How it works')}
+                </Header>
+            </SectionHeader>
+            <Section padding="8">
+                <Works>
+                    <Card>
+                        <Practice />
+                        <div>
+                            <Header as="h4" weight="500" lh="2.2">
+                                {localize('Practice')}
+                            </Header>
+                            <Text color="black-3" lh="1.55">
+                                {localize(
+                                    'Open a demo account with unlimited funds. Start trading for free and practice to hone your skills.',
+                                )}
+                            </Text>
+                        </div>
+                    </Card>
+                    <Card>
+                        <Trade />
+                        <div>
+                            <Header as="h4" weight="500" lh="2.2">
+                                {localize('Trade')}
+                            </Header>
+                            <Text color="black-3" lh="1.55">
+                                {localize(
+                                    'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
+                                )}
+                            </Text>
+                        </div>
+                    </Card>
+                    <Card>
+                        <Withdraw />
+                        <div>
+                            <Header as="h4" weight="500" lh="2.2">
+                                {localize('Withdraw')}
+                            </Header>
+                            <Text color="black-3" lh="1.55">
+                                {localize(
+                                    'Get funds quickly and easily. We support many deposit and withdrawal options.',
+                                )}
+                            </Text>
+                        </div>
+                    </Card>
+                </Works>
+            </Section>
+            <Divider />
+            <Section padding="8">
+                <Markets>
+                    <Header as="h2" align="center">
+                        {localize('Markets')}
+                    </Header>
+                    <Header as="h4" align="center" weight="500">
+                        {localize(
+                            'Over 100 assets available across five leading markets.',
+                        )}
+                    </Header>
+                    <Markettabs>
+                        <SideTab>
+                            <Forex label="forex" text="Forex" />
+                            <Indices label="indices" text="Indices" />
+                            <Commodities
+                                label="commodities"
+                                text="Commodities"
+                            />
+                            <Synthetic
+                                label="synthetic"
+                                text="Synthetic Indices"
+                            />
+                        </SideTab>
+                    </Markettabs>
+                </Markets>
+            </Section>
+            <HomeCarouselWrapper>
+                <HomeCarouselContainer>
+                    <ContextContainer>
+                        <Header as="h2">{localize('Why choose Deriv?')}</Header>
+                        <Header as="h4" weight="500">
+                            {localize('Your one-stop shop for online trading.')}
+                        </Header>
+                        <DemoButton secondary>
+                            {localize('See a demo')}
+                        </DemoButton>
+                    </ContextContainer>
+                    <Carousel
+                        slides={[Carousel1, Carousel2]}
+                        background={CarouselBackground}
+                    />
+                </HomeCarouselContainer>
+            </HomeCarouselWrapper>
+            <PaymentSection>
+                <Container>
+                    <PaymentMethods />
+                </Container>
+            </PaymentSection>
+            <Modal
+                toggle={toggleModal}
+                is_open={show_modal}
+                is_blurred={true}
+                closeModal={closeModal}
+            >
+                <SignupModal />
+            </Modal>
+        </Layout>
+    )
 }
 
 TabCol.propTypes = {

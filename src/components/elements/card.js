@@ -25,7 +25,7 @@ const CardWrapper = styled.article`
             margin-top: 0.8rem;
         }
     }
-    @media ${device.tablet} {
+    @media ${device.sm} {
         margin: 1rem;
     }
 `

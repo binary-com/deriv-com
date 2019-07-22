@@ -643,7 +643,7 @@ const Home = () => {
                     </Dtrader>
                 </Container>
                 <Cta>
-                    <Button onClick={this.toggleModal} secondary>
+                    <Button onClick={toggleModal} secondary>
                         {localize('Create a free account')}
                     </Button>
                 </Cta>

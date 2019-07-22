@@ -8,6 +8,7 @@ import Image from '../components/elements/image'
 import Hero from '../components/elements/hero.js'
 import Container from '../components/containers/container'
 import { Card } from '../components/elements/card.js'
+import { Divider } from '../components/elements/divider'
 import { Header, Text } from '../components/elements/typography.js'
 import { localize, WithIntl } from '../components/localization'
 
@@ -20,31 +21,20 @@ import DontShare from 'images/svg/share-deriv.svg'
 import Monitor from 'images/svg/monitor-logins.svg'
 import Antivirus from 'images/svg/install-antivirus.svg'
 
-const Wrapper = styled.section`
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0;
-    /* prettier-ignore */
-    background-color: var(--color-${props => props.color || ''});
+const GrayBackground = styled.div`
+    background-color: var(--color-grey-1);
 `
-const SectionContainer = styled(Container)`
+const SectionContainer = styled(Container).attrs({
+    as: 'section',
+})`
     padding: ${props => props.padding || ''}rem 0;
 `
+const StyledHeader = styled(Header)`
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 1.2rem 2rem 4rem;
+`
 
-const Divider = styled.div`
-    display: block;
-    width: 100%;
-    height: 1px;
-    /* prettier-ignore */
-    background-color: var(--color-${props => props.color || 'black'});
-`
-const Security = styled.div`
-    h4 {
-        max-width: 80rem;
-        margin: 0 auto;
-        padding: 1.2rem 2rem 4rem;
-    }
-`
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -53,11 +43,6 @@ const Grid = styled.div`
 
     @media ${device.tablet} {
         grid-template-columns: repeat(2, 1fr);
-    }
-`
-const GridCol = styled.article`
-    p {
-        margin-top: 0.8rem;
     }
 `
 const Practice = styled.div`
@@ -72,9 +57,6 @@ const Practice = styled.div`
     @media ${device.tablet} {
         grid-template-columns: 1fr;
     }
-    * {
-        max-width: 100%;
-    }
 `
 const Risk = styled.div`
     margin-top: 4rem;
@@ -86,6 +68,11 @@ const Risk = styled.div`
     }
     @media ${device.tablet} {
         flex-direction: column;
+    }
+`
+const GridCol = styled.article`
+    ${Text} {
+        margin-top: 0.8rem;
     }
 `
 const Col = ({ Icon, content }) => (
@@ -111,69 +98,67 @@ const KeepSafe = () => (
             )}
             paragraph_width="61.5rem"
         />
-        <SectionContainer padding="8">
-            <Security>
-                <Header as="h2" align="center">
-                    {localize('Account security')}
-                </Header>
-                <Header as="h4" align="center" weight="500">
-                    {localize(
-                        'Your account security is very important to us. Here are a few ways to enhance your account security:',
+        <SectionContainer padding="8" direction="column">
+            <Header as="h2" align="center">
+                {localize('Account security')}
+            </Header>
+            <StyledHeader as="h4" align="center" weight="500">
+                {localize(
+                    'Your account security is very important to us. Here are a few ways to enhance your account security:',
+                )}
+            </StyledHeader>
+            <Grid>
+                <Col
+                    Icon={Two}
+                    content={localize(
+                        'Enable two-factor authentication on your account.',
                     )}
-                </Header>
-                <Grid>
-                    <Col
-                        Icon={Two}
-                        content={localize(
-                            'Enable two-factor authentication on your account.',
-                        )}
-                    />
-                    <Col
-                        Icon={DifferentPassword}
-                        content={localize(
-                            'Use different passwords for your email and Deriv.com account and set a strong password.',
-                        )}
-                    />
-                    <Col
-                        Icon={Cashier}
-                        content={localize(
-                            'Set a cashier lock password to prevent unauthorised access to your cashier.',
-                        )}
-                    />
-                    <Col
-                        Icon={Browser}
-                        content={localize(
-                            'Always keep your web browser up-to-date. We recommend using the latest version of Google Chrome.',
-                        )}
-                    />
-                    <Col
-                        Icon={Configure}
-                        content={localize(
-                            'Configure your PC and mobile phone to use the Cloudflare DNS by following the instructions on our website.',
-                        )}
-                    />
-                    <Col
-                        Icon={DontShare}
-                        content={localize(
-                            "Don't share your Deriv.com account or payment methods with any other person.",
-                        )}
-                    />
-                    <Col
-                        Icon={Monitor}
-                        content={localize(
-                            'Monitor recent logins to your account using the login history facility.',
-                        )}
-                    />
-                    <Col
-                        Icon={Antivirus}
-                        content={localize(
-                            'Install antivirus software (such as Avast Free Antivirus for Windows and Mac) on your computer.',
-                        )}
-                    />
-                </Grid>
-            </Security>
+                />
+                <Col
+                    Icon={DifferentPassword}
+                    content={localize(
+                        'Use different passwords for your email and Deriv.com account and set a strong password.',
+                    )}
+                />
+                <Col
+                    Icon={Cashier}
+                    content={localize(
+                        'Set a cashier lock password to prevent unauthorised access to your cashier.',
+                    )}
+                />
+                <Col
+                    Icon={Browser}
+                    content={localize(
+                        'Always keep your web browser up-to-date. We recommend using the latest version of Google Chrome.',
+                    )}
+                />
+                <Col
+                    Icon={Configure}
+                    content={localize(
+                        'Configure your PC and mobile phone to use the Cloudflare DNS by following the instructions on our website.',
+                    )}
+                />
+                <Col
+                    Icon={DontShare}
+                    content={localize(
+                        "Don't share your Deriv.com account or payment methods with any other person.",
+                    )}
+                />
+                <Col
+                    Icon={Monitor}
+                    content={localize(
+                        'Monitor recent logins to your account using the login history facility.',
+                    )}
+                />
+                <Col
+                    Icon={Antivirus}
+                    content={localize(
+                        'Install antivirus software (such as Avast Free Antivirus for Windows and Mac) on your computer.',
+                    )}
+                />
+            </Grid>
         </SectionContainer>
-        <Divider color="grey-2" />
+        <Divider />
         <SectionContainer padding="8">
             <Practice>
                 <div>
@@ -193,7 +178,7 @@ const KeepSafe = () => (
                 />
             </Practice>
         </SectionContainer>
-        <Wrapper color="grey-1">
+        <GrayBackground>
             <SectionContainer padding="8" direction="column">
                 <Header as="h2" align="center">
                     {localize('Understand the risks')}
@@ -215,7 +200,7 @@ const KeepSafe = () => (
                     </Card>
                 </Risk>
             </SectionContainer>
-        </Wrapper>
+        </GrayBackground>
     </Layout>
 )
 

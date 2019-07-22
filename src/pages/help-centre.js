@@ -5,9 +5,10 @@ import styled from 'styled-components'
 import { navigate } from '@reach/router'
 import SEO from '../components/containers/seo'
 import Layout from '../components/layout/layout'
-import { localize, WithIntl, LocalizedLink } from '../components/localization'
 import Container from '../components/containers/container'
+import { localize, WithIntl, LocalizedLink } from '../components/localization'
 import { Header, Text, LinkText } from '../components/elements/typography'
+
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 

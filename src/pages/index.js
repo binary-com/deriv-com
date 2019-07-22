@@ -11,6 +11,7 @@ import Signup from '../components/form/signup'
 import SignupModal from '../components/elements/signup-modal'
 import { localize, WithIntl } from '../components/localization'
 import Carousel from '../components/elements/carousel'
+import { Divider } from '../components/elements/divider'
 import SideTab from 'components/elements/side-tab'
 import { Header, Text } from '../components/elements/typography.js'
 import PaymentMethods from '../components/elements/payment-methods.js'
@@ -50,12 +51,6 @@ const Section = styled.section`
         max-width: 1400px;
     }
 `
-const Divider = styled.div`
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: var(--color-${props => props.color || ''});
-`
 const StyledCard = styled.article`
     box-sizing: border-box;
     border-radius: 6px;
@@ -89,7 +84,7 @@ const Card = styled.article`
 `
 const HeroWrapper = styled.section`
     width: 100%;
-    padding: 4rem 0 2rem ;
+    padding: 4rem 0 2rem;
     min-height: 65rem;
     background: var(--color-black) url(${img});
     background-repeat: no-repeat;
@@ -216,7 +211,7 @@ const Dtrader = styled.div`
     padding: 0;
 
     h5 {
-        margin-bottom: 1.2rem
+        margin-bottom: 1.2rem;
     }
     @media ${device.laptop} {
         grid-template-columns: 1fr;
@@ -350,16 +345,18 @@ const Hero = () => (
     <HeroWrapper>
         <Container>
             <HeroGrid>
-                <article className='hero-left'>
+                <article className="hero-left">
                     <Header as="h1" color="white" lh="1.2">
                         {localize('This is your ultimate trading experience')}
                     </Header>
                     <Header as="h4" color="white" weight="500">
-                        {localize('The world’s markets at your fingertips anytime, anywhere.')}
+                        {localize(
+                            'The world’s markets at your fingertips anytime, anywhere.',
+                        )}
                     </Header>
                 </article>
-                <article className='signup'>
-                    <div className='signup-box'>
+                <article className="signup">
+                    <div className="signup-box">
                         <Signup />
                     </div>
                 </article>
@@ -371,27 +368,27 @@ export const TabCol = ({ Icon, content }) => {
     return (
         <TabGridCol>
             <Icon />
-            <Text color="black-3" lh="1.55">{content}</Text>
+            <Text color="black-3" lh="1.55">
+                {content}
+            </Text>
         </TabGridCol>
     )
 }
 const Forex = () => (
     <StyledSection>
         <Text color="black-3" lh="1.55">
-            {localize('A global market for buying, selling, and exchanging currencies.')}
+            {localize(
+                'A global market for buying, selling, and exchanging currencies.',
+            )}
         </Text>
         <TabGrid>
             <TabCol
                 Icon={liquidMarket}
-                content={localize(
-                    'Worlds largest and most liquid market',
-                )}
+                content={localize('Worlds largest and most liquid market')}
             />
             <TabCol
                 Icon={tfs}
-                content={localize(
-                    'Available for trading 24/5',
-                )}
+                content={localize('Available for trading 24/5')}
             />
             <TabCol
                 Icon={Ncm}
@@ -405,20 +402,18 @@ const Forex = () => (
 const Indices = () => (
     <StyledSection>
         <Text color="black-3" lh="1.55">
-            {localize('Selected group of assets used to measure the overall performance of a specific market.')}
+            {localize(
+                'Selected group of assets used to measure the overall performance of a specific market.',
+            )}
         </Text>
         <TabGrid>
             <TabCol
                 Icon={RiskDiversification}
-                content={localize(
-                    'Risk deviersification',
-                )}
+                content={localize('Risk deviersification')}
             />
             <TabCol
                 Icon={MarketCondition}
-                content={localize(
-                    'Movement correlates with market conditions',
-                )}
+                content={localize('Movement correlates with market conditions')}
             />
             <TabCol
                 Icon={PredictMarketTrends}
@@ -432,26 +427,22 @@ const Indices = () => (
 const Commodities = () => (
     <StyledSection>
         <Text color="black-3" lh="1.55">
-            {localize('Raw natural resources that can be bought or sold commercially.')}
+            {localize(
+                'Raw natural resources that can be bought or sold commercially.',
+            )}
         </Text>
         <TabGrid>
             <TabCol
                 Icon={Portfolio}
-                content={localize(
-                    'Portfolio diversification',
-                )}
+                content={localize('Portfolio diversification')}
             />
             <TabCol
                 Icon={StockMarket}
-                content={localize(
-                    'Hedge against the stock market',
-                )}
+                content={localize('Hedge against the stock market')}
             />
             <TabCol
                 Icon={InflationProtection}
-                content={localize(
-                    'Inflation protection',
-                )}
+                content={localize('Inflation protection')}
             />
         </TabGrid>
     </StyledSection>
@@ -459,44 +450,31 @@ const Commodities = () => (
 const Synthetic = () => (
     <StyledSection>
         <Text color="black-3" lh="1.55">
-            {localize('A unique, synthetic market that simulates real-world volatility. Trade with small, fixed stakes for high returns with durations as short as one tick.')}
+            {localize(
+                'A unique, synthetic market that simulates real-world volatility. Trade with small, fixed stakes for high returns with durations as short as one tick.',
+            )}
         </Text>
         <TabGrid>
             <TabCol
                 Icon={tfs}
-                content={localize(
-                    'Available for trading 24/7',
-                )}
+                content={localize('Available for trading 24/7')}
             />
             <TabCol
                 Icon={RealWorld}
-                content={localize(
-                    'Unaffected by real-world news events',
-                )}
+                content={localize('Unaffected by real-world news events')}
             />
             <TabCol
                 Icon={MarketRisk}
-                content={localize(
-                    'Familiarise yourself with market risk',
-                )}
+                content={localize('Familiarise yourself with market risk')}
             />
             <TabCol
                 Icon={SmallStakes}
-                content={localize(
-                    'Small, fixed stakes',
-                )}
+                content={localize('Small, fixed stakes')}
             />
-            <TabCol
-                Icon={HighReturns}
-                content={localize(
-                    'High returns',
-                )}
-            />
+            <TabCol Icon={HighReturns} content={localize('High returns')} />
             <TabCol
                 Icon={ContractDurations}
-                content={localize(
-                    'Contract durations from one tick',
-                )}
+                content={localize('Contract durations from one tick')}
             />
         </TabGrid>
     </StyledSection>
@@ -582,13 +560,32 @@ class Home extends Component {
                                 <Header as="h4" weight="500">
                                     {localize('Superior trading platform')}
                                 </Header>
-                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                    {localize('A revolutionary platform for all traders.')}
+                                <Header
+                                    as="h5"
+                                    color="black-3"
+                                    lh="1.55"
+                                    weight="normal"
+                                >
+                                    {localize(
+                                        'A revolutionary platform for all traders.',
+                                    )}
                                 </Header>
-                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                    {localize('Access the world’s most traded markets and assets.')}
+                                <Header
+                                    as="h5"
+                                    color="black-3"
+                                    lh="1.55"
+                                    weight="normal"
+                                >
+                                    {localize(
+                                        'Access the world’s most traded markets and assets.',
+                                    )}
                                 </Header>
-                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                <Header
+                                    as="h5"
+                                    color="black-3"
+                                    lh="1.55"
+                                    weight="normal"
+                                >
                                     {localize('100+ instruments.')}
                                 </Header>
                             </StyledCard>
@@ -597,13 +594,32 @@ class Home extends Component {
                                 <Header as="h4" weight="500">
                                     {localize('Superior trading platform')}
                                 </Header>
-                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                    {localize('A revolutionary platform for all traders.')}
+                                <Header
+                                    as="h5"
+                                    color="black-3"
+                                    lh="1.55"
+                                    weight="normal"
+                                >
+                                    {localize(
+                                        'A revolutionary platform for all traders.',
+                                    )}
                                 </Header>
-                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                    {localize('Access the world’s most traded markets and assets.')}
+                                <Header
+                                    as="h5"
+                                    color="black-3"
+                                    lh="1.55"
+                                    weight="normal"
+                                >
+                                    {localize(
+                                        'Access the world’s most traded markets and assets.',
+                                    )}
                                 </Header>
-                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                <Header
+                                    as="h5"
+                                    color="black-3"
+                                    lh="1.55"
+                                    weight="normal"
+                                >
                                     {localize('100+ instruments.')}
                                 </Header>
                             </StyledCard>
@@ -612,13 +628,32 @@ class Home extends Component {
                                 <Header as="h4" weight="500">
                                     {localize('Superior trading platform')}
                                 </Header>
-                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                    {localize('A revolutionary platform for all traders.')}
+                                <Header
+                                    as="h5"
+                                    color="black-3"
+                                    lh="1.55"
+                                    weight="normal"
+                                >
+                                    {localize(
+                                        'A revolutionary platform for all traders.',
+                                    )}
                                 </Header>
-                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
-                                    {localize('Access the world’s most traded markets and assets.')}
+                                <Header
+                                    as="h5"
+                                    color="black-3"
+                                    lh="1.55"
+                                    weight="normal"
+                                >
+                                    {localize(
+                                        'Access the world’s most traded markets and assets.',
+                                    )}
                                 </Header>
-                                <Header as="h5" color="black-3" lh="1.55" weight="normal">
+                                <Header
+                                    as="h5"
+                                    color="black-3"
+                                    lh="1.55"
+                                    weight="normal"
+                                >
                                     {localize('100+ instruments.')}
                                 </Header>
                             </StyledCard>
@@ -644,7 +679,9 @@ class Home extends Component {
                                     {localize('Practice')}
                                 </Header>
                                 <Text color="black-3" lh="1.55">
-                                    {localize('Open a demo account with unlimited funds. Start trading for free and practice to hone your skills.')}
+                                    {localize(
+                                        'Open a demo account with unlimited funds. Start trading for free and practice to hone your skills.',
+                                    )}
                                 </Text>
                             </div>
                         </Card>
@@ -655,7 +692,9 @@ class Home extends Component {
                                     {localize('Trade')}
                                 </Header>
                                 <Text color="black-3" lh="1.55">
-                                    {localize('Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.')}
+                                    {localize(
+                                        'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
+                                    )}
                                 </Text>
                             </div>
                         </Card>
@@ -666,31 +705,29 @@ class Home extends Component {
                                     {localize('Withdraw')}
                                 </Header>
                                 <Text color="black-3" lh="1.55">
-                                {localize('Get funds quickly and easily. We support many deposit and withdrawal options.')}
+                                    {localize(
+                                        'Get funds quickly and easily. We support many deposit and withdrawal options.',
+                                    )}
                                 </Text>
                             </div>
                         </Card>
                     </Works>
                 </Section>
-                <Divider color="grey-2" />
+                <Divider />
                 <Section padding="8">
                     <Markets>
                         <Header as="h2" align="center">
                             {localize('Markets')}
                         </Header>
                         <Header as="h4" align="center" weight="500">
-                            {localize('Over 100 assets available across five leading markets.')}
+                            {localize(
+                                'Over 100 assets available across five leading markets.',
+                            )}
                         </Header>
                         <Markettabs>
                             <SideTab>
-                                <Forex
-                                    label="forex"
-                                    text="Forex"
-                                    />
-                                <Indices
-                                    label="indices"
-                                    text="Indices"
-                                    />
+                                <Forex label="forex" text="Forex" />
+                                <Indices label="indices" text="Indices" />
                                 <Commodities
                                     label="commodities"
                                     text="Commodities"

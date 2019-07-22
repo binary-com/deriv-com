@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import LogoHeader from '../../images/svg/logo-header.svg'
 import Button from '../form/button'
 import Container from '../containers/container'
+import Modal from '../elements/modal'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
@@ -99,7 +100,7 @@ const NavRightContainer = styled.div`
     transition: left 0.5s ease-out;
 
     ${props => {
-        if(props.enable_move) {
+        if (props.enable_move) {
             return 'left: 0rem;'
         }
     }}
@@ -108,9 +109,24 @@ const NavRightContainer = styled.div`
 class Nav extends React.Component {
     state = {
         enable_move: false,
+        show_modal: false,
+        active_tab: '',
+    }
+
+    toggleModal = e => {
+        e.stopPropagation()
+        this.setState({
+            show_modal: !this.state.show_modal,
+        })
+    }
+
+    closeModal = () => {
+        this.setState({
+            show_modal: false,
+        })
     }
     handleScroll = () => {
-        window.scrollY > 120
+        window.scrollY > 400
             ? this.setState({ enable_move: true })
             : this.setState({ enable_move: false })
     }
@@ -160,11 +176,17 @@ class Nav extends React.Component {
                             <NavButton primary>
                                 <span>{localize('Login')}</span>
                             </NavButton>
-                            <NavButton secondary movable_button>
+                            <NavButton secondary movable_button onClick={this.toggleModal}>
                                 <span>{localize('Try for free')}</span>
                             </NavButton>
                         </NavRightContainer>
                     </NavRight>
+                    <Modal
+                    toggle={this.toggleModal}
+                    is_open={this.state.show_modal}
+                    is_blurred={true}
+                    closeModal={this.closeModal}
+                ></Modal>
                 </Wrapper>
             </StyledNav>
         )

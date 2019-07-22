@@ -106,6 +106,8 @@ const StyledLink = styled(props => <LocalizedLink {...props} />)`
     }
 `
 const Social = styled.div`
+    /* temporary disabled */ 
+    display: none;
     font-size: 1.2rem;
     color: var(--color-grey-3);
     padding: 0 2rem;
@@ -172,7 +174,7 @@ const Footer = () => (
                             </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/"
+                                to="/regulatory"
                                 aria-label={localize('Regulatory Information')}
                             >
                                 {localize('Regulatory Information')}
@@ -186,14 +188,14 @@ const Footer = () => (
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
-                                to="/"
+                                to="terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and Privacy')}
                             >
                                 {localize('Security and Privacy')}
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
-                                to="/"
+                                to="/responsible-trading"
                                 aria-label={localize('Responsible Trading')}
                             >
                                 {localize('Responsible Trading')}

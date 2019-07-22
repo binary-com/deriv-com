@@ -90,7 +90,7 @@ const Card = styled.article`
 const HeroWrapper = styled.section`
     width: 100%;
     padding: 4rem 0 2rem ;
-    min-height: 55rem;
+    min-height: 65rem;
     background: var(--color-black) url(${img});
     background-repeat: no-repeat;
     background-position: 23% 100%;
@@ -112,6 +112,7 @@ const HeroGrid = styled.section`
     grid-template-columns: 3fr 2fr;
     grid-column-gap: 2rem;
     max-width: 100%;
+    padding-top: 4rem;
 
     article {
         padding: 0;
@@ -123,8 +124,8 @@ const HeroGrid = styled.section`
     .hero-left {
         text-align: left;
 
-        .subheader {
-            margin-top: 1rem;
+        h4 {
+            margin-top: 2rem;
         }
     }
     .signup {
@@ -186,6 +187,7 @@ const SectionHeader = styled.div`
     h3 {
         font-size: var(--text-size-m);
         font-weight: 500;
+        margin-bottom: 4rem;
     }
 `
 const DtraderSection = styled.section`
@@ -196,7 +198,6 @@ const DtraderSection = styled.section`
         var(--color-grey-2),
         var(--color-white)
     );
-
     border-bottom: 1px solid var(--color-grey-2);
     h2 {
         text-align: center;
@@ -204,9 +205,6 @@ const DtraderSection = styled.section`
             content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='34' viewBox='0 0 38 36' aria-labelledby='deriv-icon-title'%3E%3Ctitle id='deriv-icon-title'%3EDeriv icon%3C/title%3E%3Cdefs%3E%3ClinearGradient id='deriv_a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FF6544'/%3E%3Cstop offset='100%25' stop-color='%23FF4449'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='nonzero'%3E%3Cpath fill='url(%23deriv_a)' d='M8.244 0v.039L21.94 18 0 35.961V36h22.154c6.466 0 12.076-4.498 13.53-10.848l1.833-8.01a14.081 14.081 0 0 0-2.663-11.859A13.843 13.843 0 0 0 23.99 0H8.244z'/%3E%3Cpath fill='%23B51A31' d='M21.93 18.036L12.298 36H0z'/%3E%3C/g%3E%3C/svg%3E");
             width: 14rem;
         }
-    }
-    h3 {
-        border: 1px solid #444444;
     }
 `
 const Dtrader = styled.div`
@@ -234,6 +232,7 @@ const Cta = styled.div`
     button {
         padding: 1.6rem 2rem;
         font-weight: bold;
+        margin: 2rem 0;
     }
 `
 const Works = styled.section`
@@ -261,10 +260,10 @@ const StyledSection = styled.section`
     }
 `
 const Markettabs = styled.div`
-    margin: 4rem 0;
+    margin-top: 4rem;
 `
 const TabGrid = styled.div`
-    margin: 2.4rem 0;
+    margin-top: 2.4rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 12rem;
@@ -355,7 +354,7 @@ const Hero = () => (
                     <Header as="h1" color="white" lh="1.2">
                         {localize('This is your ultimate trading experience')}
                     </Header>
-                    <Header as="h4" color="white" weight="500" className='subheader'>
+                    <Header as="h4" color="white" weight="500">
                         {localize('The world’s markets at your fingertips anytime, anywhere.')}
                     </Header>
                 </article>
@@ -592,7 +591,7 @@ class Home extends Component {
                                 <Header as="h5" color="black-3" lh="1.55" weight="normal">
                                     {localize('100+ instruments.')}
                                 </Header>
-                        </StyledCard>
+                            </StyledCard>
                             <StyledCard>
                                 <PatentedTech />
                                 <Header as="h4" weight="500">

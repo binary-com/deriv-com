@@ -26,6 +26,17 @@ import Withdraw from 'images/svg/withdraw.svg'
 import liquidMarket from 'images/svg/liquid-market.svg'
 import tfs from 'images/svg/tfs.svg'
 import Ncm from 'images/svg/no-centralised-market.svg'
+import RiskDiversification from 'images/svg/risk-diversification.svg'
+import MarketCondition from 'images/svg/market-condition.svg'
+import PredictMarketTrends from 'images/svg/predict-market-trends.svg'
+import Portfolio from 'images/svg/portfolio-diversification.svg'
+import StockMarket from 'images/svg/stock-market.svg'
+import InflationProtection from 'images/svg/inflation-protection.svg'
+import RealWorld from 'images/svg/real-world.svg'
+import MarketRisk from 'images/svg/market-risk.svg'
+import SmallStakes from 'images/svg/small-stakes.svg'
+import HighReturns from 'images/svg/volatility-indices.svg'
+import ContractDurations from 'images/svg/contract-durations.svg'
 
 const Section = styled.section`
     margin: 0 auto;
@@ -256,7 +267,8 @@ const TabGrid = styled.div`
     margin: 2.4rem 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 12rem;
+    grid-column-gap: 12rem;
+    grid-row-gap: 4rem;
 `
 const TabGridCol = styled.article`
     padding: 0;
@@ -396,6 +408,26 @@ const Indices = () => (
         <Text color="black-3" lh="1.55">
             {localize('Selected group of assets used to measure the overall performance of a specific market.')}
         </Text>
+        <TabGrid>
+            <TabCol
+                Icon={RiskDiversification}
+                content={localize(
+                    'Risk deviersification',
+                )}
+            />
+            <TabCol
+                Icon={MarketCondition}
+                content={localize(
+                    'Movement correlates with market conditions',
+                )}
+            />
+            <TabCol
+                Icon={PredictMarketTrends}
+                content={localize(
+                    'Predict overall market trends, rather than individual performances',
+                )}
+            />
+        </TabGrid>
     </StyledSection>
 )
 const Commodities = () => (
@@ -403,6 +435,26 @@ const Commodities = () => (
         <Text color="black-3" lh="1.55">
             {localize('Raw natural resources that can be bought or sold commercially.')}
         </Text>
+        <TabGrid>
+            <TabCol
+                Icon={Portfolio}
+                content={localize(
+                    'Portfolio diversification',
+                )}
+            />
+            <TabCol
+                Icon={StockMarket}
+                content={localize(
+                    'Hedge against the stock market',
+                )}
+            />
+            <TabCol
+                Icon={InflationProtection}
+                content={localize(
+                    'Inflation protection',
+                )}
+            />
+        </TabGrid>
     </StyledSection>
 )
 const Synthetic = () => (
@@ -410,6 +462,44 @@ const Synthetic = () => (
         <Text color="black-3" lh="1.55">
             {localize('A unique, synthetic market that simulates real-world volatility. Trade with small, fixed stakes for high returns with durations as short as one tick.')}
         </Text>
+        <TabGrid>
+            <TabCol
+                Icon={tfs}
+                content={localize(
+                    'Available for trading 24/7',
+                )}
+            />
+            <TabCol
+                Icon={RealWorld}
+                content={localize(
+                    'Unaffected by real-world news events',
+                )}
+            />
+            <TabCol
+                Icon={MarketRisk}
+                content={localize(
+                    'Familiarise yourself with market risk',
+                )}
+            />
+            <TabCol
+                Icon={SmallStakes}
+                content={localize(
+                    'Small, fixed stakes',
+                )}
+            />
+            <TabCol
+                Icon={HighReturns}
+                content={localize(
+                    'High returns',
+                )}
+            />
+            <TabCol
+                Icon={ContractDurations}
+                content={localize(
+                    'Contract durations from one tick',
+                )}
+            />
+        </TabGrid>
     </StyledSection>
 )
 const Carousel1 = () => (

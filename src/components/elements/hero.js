@@ -11,7 +11,7 @@ const Wrapper = styled.section`
 
 const StyledHeader = styled(Header)`
     padding: 0.8rem 0;
-    width: ${props => props.pw || ''};
+    width: ${props => props.paragraph_width || ''};
 `
 
 const NoImageHero = styled(Container)`
@@ -30,7 +30,7 @@ const Hero = ({ header, paragraph, paragraph_width }) => (
                 color="white"
                 weight="500"
                 align="center"
-                pw={paragraph_width}
+                paragraph_width={paragraph_width}
             >
                 {paragraph}
             </StyledHeader>

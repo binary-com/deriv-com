@@ -5,7 +5,6 @@ import { Text, Header } from './typography.js'
 import device from 'themes/device'
 
 const CardStyle = css`
-    min-height: 35.6rem;
     box-sizing: border-box;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
@@ -14,6 +13,7 @@ const CardStyle = css`
 
 const CardWrapper = styled.article`
     ${CardStyle}
+    min-height: ${props => (props.min_height ? props.min_height : '35.6rem')};;
     width: ${props => (props.width ? props.width : '32.8rem')};
     padding: 4rem 5.6rem 4.6rem 5.6rem;
     margin: 0 1rem;
@@ -59,16 +59,21 @@ const CardChildrenWrapper = styled.article`
     }
 `
 
-export const Card = ({ Icon, title, content, width }) => {
+export const Card = ({ children, Icon, title, content, width, min_height }) => {
     return (
-        <CardWrapper width={width}>
-            <Icon />
-            <div>
-                <Header as="h4" weight="500">
-                    {title}
-                </Header>
-                <Text className="content">{content}</Text>
-            </div>
+        <CardWrapper width={width} min_height={min_height}>
+            {!children && (
+                <>
+                    <Icon />
+                    <div>
+                        <Header as="h4" weight="500">
+                            {title}
+                        </Header>
+                        <Text className="content">{content}</Text>
+                    </div>
+                </>
+            )}
+            {children && children}
         </CardWrapper>
     )
 }

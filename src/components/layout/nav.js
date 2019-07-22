@@ -87,7 +87,7 @@ const NavButton = styled(Button)`
         if (props.movable_button) {
             return `
             left: 9rem;
-            min-width:12.2rem;
+            min-width:12.4rem;
             border: 0.2rem solid var(--color-red)
             `
         }

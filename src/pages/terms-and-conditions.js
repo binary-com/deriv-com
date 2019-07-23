@@ -499,7 +499,7 @@ class TermsAndConditions extends Component {
             <Layout>
                 <SEO title={localize('Terms and conditions')} />
                 <TncContainer align="left" justify="left">
-                    <SideTab>
+                    <SideTab has_hash_routing>
                         <General label="general" text="Terms and conditions" />
                         <DataFeed label="data-feed" text="Data feed" />
                         <SecurityAndPrivacy

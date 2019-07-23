@@ -40,6 +40,7 @@ const getPropertyValue = (obj, k) => {
 
 const getDerivAppLink = () => 'https://deriv.app/'
 
+const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
 class PromiseClass {
     constructor() {
         this.promise = new Promise((resolve, reject) => {
@@ -55,6 +56,7 @@ export {
     hasWindow,
     getPropertyValue,
     getDerivAppLink,
+    getLocationHash,
     PromiseClass,
     toISOFormat,
 }

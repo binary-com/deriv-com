@@ -107,6 +107,9 @@ class Nav extends React.Component {
     componentDidMount() {
         document.addEventListener('scroll', this.handleScroll, false)
     }
+    componentWillUnmount() {
+        document.removeEventListener('scroll', this.handleScroll, false)
+    }
     render() {
         return (
             <StyledNav>

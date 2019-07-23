@@ -7,34 +7,44 @@ import Container from '../containers/container'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
+    height: 7.2rem;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 `
 
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
+    padding: 1.2rem 1rem;
+    justify-content: space-between;
 `
 
 const NavLeft = styled.div`
-    width: 25%;
     text-align: left;
 `
 
 const NavCenter = styled.ul`
-    width: 50%;
     text-align: center;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
 `
 
 const NavRight = styled.div`
-    width: 25%;
-    text-align: right;
+    overflow: hidden;
+    width: 21.5rem;
+    position: relative;
+    height: 5rem;
 `
 
 const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
-    width: 23%;
     text-align: left;
+
+    ${props => {
+        if (props.margin) return 'margin: 0 4rem;'
+    }}
 `
 
 const StyledLink = styled(LocalizedLink)`
@@ -68,56 +78,97 @@ const StyledLink = styled(LocalizedLink)`
         }
     }
 `
-
 const NavButton = styled(Button)`
     font-weight: bold;
     padding: 1.4rem var(--text-size-s);
+    position: absolute;
+    left: 0;
+    ${props => {
+        if (props.movable_button) {
+            return `
+            left: 9rem;
+            min-width:12.4rem;
+            border: 0.2rem solid var(--color-red)
+            `
+        }
+    }}
+`
+const NavRightContainer = styled.div`
+    position: absolute;
+    left: 13rem;
+    transition: left 0.5s ease-out;
+
+    ${props => {
+        if(props.enable_move) {
+            return 'left: 0rem;'
+        }
+    }}
 `
 
-const Nav = () => (
-    <StyledNav>
-        <Wrapper>
-            <NavLeft>
-                <LocalizedLink to="/" aria-label={localize('Home')}>
-                    <LogoHeader />
-                </LocalizedLink>
-            </NavLeft>
-            <NavCenter>
-                <NavLink>
-                    <StyledLink
-                        activeClassName="active"
-                        to="/trade/"
-                        aria-label={localize('Trade')}
-                    >
-                        {localize('Trade')}
-                    </StyledLink>
-                </NavLink>
-                <NavLink>
-                    <StyledLink
-                        activeClassName="active"
-                        to="/about/"
-                        aria-label={localize('About us')}
-                    >
-                        {localize('About us')}
-                    </StyledLink>
-                </NavLink>
-                <NavLink>
-                    <StyledLink
-                        activeClassName="active"
-                        to="/help-centre/"
-                        aria-label={localize('Help centre')}
-                    >
-                        {localize('Help centre')}
-                    </StyledLink>
-                </NavLink>
-            </NavCenter>
-            <NavRight>
-                <NavButton primary>
-                    <span>{localize('Login')}</span>
-                </NavButton>
-            </NavRight>
-        </Wrapper>
-    </StyledNav>
-)
+class Nav extends React.Component {
+    state = {
+        enable_move: false,
+    }
+    handleScroll = () => {
+        window.scrollY > 120
+            ? this.setState({ enable_move: true })
+            : this.setState({ enable_move: false })
+    }
+    componentDidMount() {
+        document.addEventListener('scroll', this.handleScroll, false)
+    }
+    render() {
+        return (
+            <StyledNav>
+                <Wrapper>
+                    <NavLeft>
+                        <LocalizedLink to="/" aria-label={localize('Home')}>
+                            <LogoHeader />
+                        </LocalizedLink>
+                    </NavLeft>
+                    <NavCenter>
+                        <NavLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/trade/"
+                                aria-label={localize('Trade')}
+                            >
+                                {localize('Trade')}
+                            </StyledLink>
+                        </NavLink>
+                        <NavLink margin>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/about/"
+                                aria-label={localize('About us')}
+                            >
+                                {localize('About us')}
+                            </StyledLink>
+                        </NavLink>
+                        <NavLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/help-centre/"
+                                aria-label={localize('Help centre')}
+                            >
+                                {localize('Help centre')}
+                            </StyledLink>
+                        </NavLink>
+                    </NavCenter>
+                    <NavRight>
+                        <NavRightContainer enable_move={this.state.enable_move}>
+                            <NavButton primary>
+                                <span>{localize('Login')}</span>
+                            </NavButton>
+                            <NavButton secondary movable_button>
+                                <span>{localize('Try for free')}</span>
+                            </NavButton>
+                        </NavRightContainer>
+                    </NavRight>
+                </Wrapper>
+            </StyledNav>
+        )
+    }
+}
 
 export default Nav

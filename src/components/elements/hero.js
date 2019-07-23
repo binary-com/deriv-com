@@ -11,6 +11,7 @@ const Wrapper = styled.section`
 
 const StyledHeader = styled(Header)`
     padding: 0.8rem 0;
+    width: ${props => props.paragraph_width || ''};
 `
 
 const NoImageHero = styled(Container)`
@@ -18,13 +19,19 @@ const NoImageHero = styled(Container)`
     align-content: space-around;
     padding: 8rem 0 10rem 0;
 `
-const Hero = ({ paragraph, header }) => (
+const Hero = ({ header, paragraph, paragraph_width }) => (
     <Wrapper>
         <NoImageHero>
             <StyledHeader as="h1" color="red" align="center">
                 {header}
             </StyledHeader>
-            <StyledHeader as="h4" color="white" weight="500" align="center">
+            <StyledHeader
+                as="h4"
+                color="white"
+                weight="500"
+                align="center"
+                paragraph_width={paragraph_width}
+            >
                 {paragraph}
             </StyledHeader>
         </NoImageHero>
@@ -34,5 +41,6 @@ const Hero = ({ paragraph, header }) => (
 Hero.propTypes = {
     header: PropTypes.string,
     paragraph: PropTypes.string,
+    paragraph_width: PropTypes.string,
 }
 export default Hero

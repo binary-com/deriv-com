@@ -1,12 +1,14 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import { Paddings } from 'themes/function'
 
 const StyledButton = styled.button`
     border-radius: 6px;
     padding: 1.5rem;
     font-size: var(--text-size-s);
     transition: all 0.25s;
+    ${Paddings}
 
     &:hover {
         cursor: pointer;

@@ -1,26 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
-import SEO from '../components/containers/seo'
-import Layout from '../components/layout/layout'
-import { localize, WithIntl } from '../components/localization'
+import SEO from 'components/containers/seo'
+import Layout from 'components/layout/layout'
+import { localize, WithIntl } from 'components/localization'
 import Hero from 'components/elements/hero'
 import Container from 'components/containers/container'
+// import Wrapper from 'components/containers/wrapper'
 import { Header, Text } from 'components/elements/typography'
-import { CardTypeTwo } from 'components/elements/card.js'
-import SVG from 'images/svg/svg.svg'
-import Vanuatu from 'images/svg/footer-vanuatu.svg'
-import MFSA from 'images/svg/mfsa.svg'
-import FSC from 'images/svg/fsc.svg'
-import Labuan from 'images/svg/footer-labuan.svg'
+import { CardStyle } from 'components/elements/card'
 
-const RegulatoryWrapper = styled.section`
-    background-image: linear-gradient(
-        to bottom,
-        var(--color-grey-2),
-        var(--color-white)
-    );
+// import svgs
+import Demo from 'images/svg/demo-icon.svg'
+import HandMoney from 'images/svg/hand-money-icon.svg'
+import BorrowMoney from 'images/svg/borrow-money-icon.svg'
+import Limit from 'images/svg/limit-icon.svg'
+import AvoidTrading from 'images/svg/avoid-trading-icon.svg'
+import PortionWinning from 'images/svg/portion-winning-icon.svg'
+import ChecklistLogo from 'images/svg/checklist.svg'
+
+const GeneralWrapper = styled.section`
+    background: var(--color-white);
     width: 100%;
 `
+
+const ResponsibleWrapper = styled(GeneralWrapper)`
+    border-bottom: 1px solid var(--color-grey-2);
+`
+
 const StyledContainer = styled(Container)`
     flex-direction: column;
     padding: 8rem 0;
@@ -28,7 +34,10 @@ const StyledContainer = styled(Container)`
 
 const StyledText = styled(Text)`
     margin: 0.8rem 0;
-    font-size: 2rem;
+`
+
+const CheckText = styled(StyledText)`
+    margin-left: 2rem;
 `
 
 const FlexWrapper = styled(Container)`
@@ -37,12 +46,41 @@ const FlexWrapper = styled(Container)`
     align-content: stretch;
     justify-content: space-between;
     min-width: 100%;
+`
 
-    & > * {
-        flex-shrink: 0;
-        width: 48%;
-        margin: 1rem;
-    }
+const LimitsWrapper = styled(FlexWrapper)`
+    padding: 4rem 0;
+`
+
+const StyledArticle = styled.article`
+    flex-shrink: 0;
+    width: 31%;
+    margin: 2rem 1rem;
+`
+
+const StyledLimits = styled.article`
+    flex-shrink: 0;
+    width: 48%;
+    margin: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`
+
+const OtherWarningWrapper = styled(GeneralWrapper)`
+    background: var(--color-grey-1);
+`
+
+const StyledCard = styled.article`
+    ${CardStyle}
+    width: 100%;
+    min-height: 0;
+    margin: 4rem;
+    padding: 4rem;
+`
+
+const MarginHeader = styled(Header)`
+    margin-top: 1rem;
 `
 
 const ResponsibleTrading = () => (
@@ -54,82 +92,115 @@ const ResponsibleTrading = () => (
                 'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
             )}
         />
-        <RegulatoryWrapper>
+        <ResponsibleWrapper>
             <StyledContainer>
-                <Header as="h2" color="black-2" align="center">
-                    {localize('Binary Limited')}
-                </Header>
-                <StyledText align="center" lh="1.5">
-                    {localize(
-                        'Binary Limited, with a registered office at 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the following subsidiaries.',
-                    )}
-                </StyledText>
                 <FlexWrapper>
-                    <CardTypeTwo
-                        Icon={<SVG />}
-                        title={localize('Binary (SVG) Ltd')}
-                    >
-                        <Text align="center">
+                    <StyledArticle>
+                        <Demo />
+                        <StyledText>
                             {localize(
-                                'Binary (SVG) Ltd is registered in St. Vincent and the Grenadines.',
+                                'Hone your skill with a free demo account.',
                             )}
-                        </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<Vanuatu width="240" height="160" />}
-                        title={localize('Binary (V) Ltd')}
-                    >
-                        <Text align="center">
+                        </StyledText>
+                    </StyledArticle>
+                    <StyledArticle>
+                        <HandMoney />
+                        <StyledText>
                             {localize(
-                                'Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission -',
-                            )}{' '}
-                            <a href="">{localize('view license')}</a>
-                        </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<MFSA />}
-                        title={localize('Binary Investments (Europe) Ltd')}
-                    >
-                        <Text align="center">
+                                'Only trade with money you can afford to lose.',
+                            )}
+                        </StyledText>
+                    </StyledArticle>
+                    <StyledArticle>
+                        <BorrowMoney />
+                        <StyledText>
+                            {localize('Do not trade with borrowed money.')}
+                        </StyledText>
+                    </StyledArticle>
+                    <StyledArticle>
+                        <Limit />
+                        <StyledText>
                             {localize(
-                                'Binary Investments (Europe) Ltd is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority',
-                            )}{' '}
-                            (
-                            <a href="">
-                                {`${localize('licence no. IS/70156')}`}
-                            </a>
-                            ).
-                        </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<FSC width="240" height="160" />}
-                        title={localize('Binary (BVI) Ltd')}
-                    >
-                        <Text align="center">
+                                'Set a limit for your losses and stick to it.',
+                            )}
+                        </StyledText>
+                    </StyledArticle>
+                    <StyledArticle>
+                        <AvoidTrading />
+                        <StyledText>
                             {localize(
-                                'Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission -',
-                            )}{' '}
-                            <a href="">{localize('view licence.')}</a>
-                        </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<Labuan width="200" height="120" />}
-                        title={localize('Binary (FX) Ltd')}
-                    >
-                        <Text align="center">
+                                'Avoid trading when you’re prone to bad judgement.',
+                            )}
+                        </StyledText>
+                    </StyledArticle>
+                    <StyledArticle>
+                        <PortionWinning />
+                        <StyledText>
                             {localize(
-                                'Binary (FX) Ltd is licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business ',
-                            )}{' '}
-                            (
-                            <a href="">
-                                {`${localize('licence no. MB/18/0024')}`}
-                            </a>
-                            ).
-                        </Text>
-                    </CardTypeTwo>
+                                'Put aside a portion of your winnings to avoid losing it all.',
+                            )}
+                        </StyledText>
+                    </StyledArticle>
                 </FlexWrapper>
+                <hr />
             </StyledContainer>
-        </RegulatoryWrapper>
+        </ResponsibleWrapper>
+        <GeneralWrapper>
+            <StyledContainer>
+                <Header as="h2" align="center">
+                    {localize('Written limits and self-exclusion')}
+                </Header>
+                <MarginHeader as="h4" weight="normal" align="center">
+                    {localize(
+                        'With Deriv, you have the option to implement limits on your trading activities.',
+                    )}
+                </MarginHeader>
+                <LimitsWrapper>
+                    <StyledLimits>
+                        <ChecklistLogo />
+                        <CheckText>
+                            {localize('Limit the amount of money you trade')}
+                        </CheckText>
+                    </StyledLimits>
+                    <StyledLimits>
+                        <ChecklistLogo />
+                        <CheckText>
+                            {localize(
+                                'Limit the amount of time you spend trading',
+                            )}
+                        </CheckText>
+                    </StyledLimits>
+                    <StyledLimits>
+                        <ChecklistLogo />
+                        <CheckText>
+                            {localize('Limit the losses you might incur')}
+                        </CheckText>
+                    </StyledLimits>
+                    <StyledLimits>
+                        <ChecklistLogo />
+                        <CheckText>
+                            {localize(
+                                'Block yourself from trading on our website',
+                            )}
+                        </CheckText>
+                    </StyledLimits>
+                </LimitsWrapper>
+            </StyledContainer>
+        </GeneralWrapper>
+        <OtherWarningWrapper>
+            <StyledContainer>
+                <Header as="h2" align="center">
+                    {localize('Other warnings and regulatory disclosures')}
+                </Header>
+                <StyledCard>
+                    <Text>
+                        {localize(
+                            'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
+                        )}
+                    </Text>
+                </StyledCard>
+            </StyledContainer>
+        </OtherWarningWrapper>
     </Layout>
 )
 

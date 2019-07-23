@@ -6,8 +6,10 @@ import Button from '../components/form/button'
 import Layout from '../components/layout/layout'
 import device from 'themes/device'
 import Container from '../components/containers/container'
+import { Section } from 'components/containers/container'
 import Modal, { useModal } from '../components/elements/modal'
 import Signup from '../components/form/signup'
+import { LoginText } from 'components/form/signup'
 import SignupModal from '../components/elements/signup-modal'
 import { localize, WithIntl } from '../components/localization'
 import Carousel from '../components/elements/carousel'
@@ -42,18 +44,20 @@ import SmallStakes from 'images/svg/small-stakes.svg'
 import HighReturns from 'images/svg/volatility-indices.svg'
 import ContractDurations from 'images/svg/contract-durations.svg'
 
-const Section = styled.section`
-    margin: 0 auto;
-    width: 80%;
-    padding: ${props => props.padding || ''}rem 0;
+const carousel_1_texts = [
+    localize('Exclusive synthetic market available 24/7'),
+    localize('USD 5 minimum deposit'),
+    localize('Stakes as low as USD 0.35'),
+    localize('Payouts up to USD 50,000'),
+]
 
-    @media ${device.desktop} {
-        max-width: 1024px;
-    }
-    @media ${device.desktopL} {
-        max-width: 1400px;
-    }
-`
+const carousel_2_texts = [
+    localize('Patented, licensed, and regulated'),
+    localize('Short- to long-term trades'),
+    localize('Reliable customer support'),
+    localize('Privacy guaranteed'),
+]
+
 const StyledCard = styled.article`
     box-sizing: border-box;
     border-radius: 6px;
@@ -104,6 +108,36 @@ const HeroWrapper = styled.section`
         background-position: -40rem 100%;
     }
 `
+
+const SignupWrapper = styled.article`
+    justify-self: end;
+    min-width: 33rem;
+`
+
+const SignupBox = styled.div`
+    max-width: 33rem;
+    background-color: var(--color-grey-1);
+    border-radius: 6px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 3.2rem 0;
+
+    h3 {
+        font-size: var(--text-size-m);
+        font-weight: 500;
+    }
+    ${LoginText} {
+        display: none;
+    }
+`
+
+const StyledHeader = styled(Header)`
+    margin-top: 2rem;
+`
+
+const StyledSubHeader = styled(Header)`
+    margin-top: 0.8rem;
+`
 const HeroGrid = styled.section`
     width: 100%;
     display: grid;
@@ -112,20 +146,6 @@ const HeroGrid = styled.section`
     max-width: 100%;
     padding-top: 4rem;
 
-    article {
-        padding: 0;
-
-        * {
-            max-width: 100%;
-        }
-    }
-    .hero-left {
-        text-align: left;
-
-        h4 {
-            margin-top: 2rem;
-        }
-    }
     .signup {
         justify-self: end;
         min-width: 33rem;
@@ -138,32 +158,18 @@ const HeroGrid = styled.section`
             text-align: center;
             padding: 0.5rem 0;
 
-            form {
-                margin-top: -7rem;
-                margin-bottom: -1rem;
-            }
             h3 {
                 font-size: var(--text-size-m);
                 font-weight: 500;
             }
-            .already {
+            ${LoginText} {
                 display: none;
-            }
-            .social-signup {
-                margin-top: -2rem;
             }
         }
     }
     @media ${device.laptop} {
         grid-template-columns: 1fr;
         grid-row-gap: 5rem;
-
-        .hero-left * {
-            text-align: center;
-        }
-        .signup {
-            justify-self: center;
-        }
     }
     @media ${device.tabletS} {
         grid-template-columns: 1fr;
@@ -175,18 +181,6 @@ const SectionHeader = styled.div`
     margin-top: 8rem;
     margin-bottom: 2rem;
     text-align: center;
-
-    h2 {
-        font-size: var(--text-size-xl);
-        line-height: 6rem;
-        font-weight: bold;
-        margin-bottom: 0.8rem;
-    }
-    h3 {
-        font-size: var(--text-size-m);
-        font-weight: 500;
-        margin-bottom: 4rem;
-    }
 `
 const DtraderSection = styled.section`
     width: 100%;
@@ -308,6 +302,10 @@ const ContextContainer = styled.div`
     width: 32.8rem;
     margin-right: 10.7rem;
 `
+
+const StyledContainer = styled(Container)`
+    padding: 2rem 0;
+`
 const DemoButton = styled(Button)`
     width: 13.5rem;
     margin-top: 4rem;
@@ -352,21 +350,21 @@ const Hero = () => (
     <HeroWrapper>
         <Container>
             <HeroGrid>
-                <article className="hero-left">
+                <article>
                     <Header as="h1" color="white" lh="1.2">
                         {localize('This is your ultimate trading experience')}
                     </Header>
-                    <Header as="h4" color="white" weight="500">
+                    <StyledHeader as="h4" color="white" weight="500">
                         {localize(
                             'The world’s markets at your fingertips anytime, anywhere.',
                         )}
-                    </Header>
+                    </StyledHeader>
                 </article>
-                <article className="signup">
-                    <div className="signup-box">
+                <SignupWrapper>
+                    <SignupBox>
                         <Signup />
-                    </div>
-                </article>
+                    </SignupBox>
+                </SignupWrapper>
             </HeroGrid>
         </Container>
     </HeroWrapper>
@@ -488,42 +486,22 @@ const Synthetic = () => (
 )
 const Carousel1 = () => (
     <Slide>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Exclusive synthetic market available 24/7')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('USD 5 minimum deposit')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Stakes as low as USD 0.35')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Payouts up to USD 50,000')}</p>
-        </div>
+        {carousel_1_texts.map((content, index) => (
+            <div key={index}>
+                <ChecklistLogo />
+                <p>{content}</p>
+            </div>
+        ))}
     </Slide>
 )
 const Carousel2 = () => (
     <Slide>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Patented, licensed, and regulated')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Short- to long-term trades')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Reliable customer support')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Privacy guaranteed')}</p>
-        </div>
+        {carousel_2_texts.map((content, index) => (
+            <div key={index}>
+                <ChecklistLogo />
+                <p>{content}</p>
+            </div>
+        ))}
     </Slide>
 )
 
@@ -542,14 +520,14 @@ const Home = () => {
             <Hero />
             <DtraderSection>
                 <SectionHeader>
-                    <Header as="h2" alaign="center">
+                    <Header as="h2" align="center" lh="6rem">
                         {localize('DTrader')}
                     </Header>
-                    <Header as="h3" align="center">
+                    <StyledSubHeader as="h4" align="center" weight="500">
                         {localize('All you need to get started')}
-                    </Header>
+                    </StyledSubHeader>
                 </SectionHeader>
-                <Container>
+                <StyledContainer>
                     <Dtrader>
                         <StyledCard>
                             <SuperiorPlatform />
@@ -644,7 +622,7 @@ const Home = () => {
                             </Header>
                         </StyledCard>
                     </Dtrader>
-                </Container>
+                </StyledContainer>
                 <Cta>
                     <Button onClick={toggleModal} secondary>
                         {localize('Create a free account')}
@@ -656,7 +634,7 @@ const Home = () => {
                     {localize('How it works')}
                 </Header>
             </SectionHeader>
-            <Section padding="8">
+            <Section>
                 <Works>
                     <Card>
                         <Practice />
@@ -700,16 +678,16 @@ const Home = () => {
                 </Works>
             </Section>
             <Divider />
-            <Section padding="8">
+            <Section>
                 <Markets>
                     <Header as="h2" align="center">
                         {localize('Markets')}
                     </Header>
-                    <Header as="h4" align="center" weight="500">
+                    <StyledSubHeader as="h4" align="center" weight="500">
                         {localize(
                             'Over 100 assets available across five leading markets.',
                         )}
-                    </Header>
+                    </StyledSubHeader>
                     <Markettabs>
                         <SideTab>
                             <Forex label="forex" text="Forex" />
@@ -730,9 +708,9 @@ const Home = () => {
                 <HomeCarouselContainer>
                     <ContextContainer>
                         <Header as="h2">{localize('Why choose Deriv?')}</Header>
-                        <Header as="h4" weight="500">
+                        <StyledSubHeader as="h4" weight="500">
                             {localize('Your one-stop shop for online trading.')}
-                        </Header>
+                        </StyledSubHeader>
                         <DemoButton onClick={handleExternalLink} secondary>
                             {localize('See a demo')}
                         </DemoButton>

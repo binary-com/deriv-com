@@ -18,9 +18,6 @@ import Wrapper from '../containers/wrapper'
 import Container from '../containers/container'
 import PropTypes from 'prop-types'
 
-const Title = styled(Header)`
-    margin: 10rem 0 3rem 0;
-`
 const Form = styled.form`
     width: 80%;
     margin: 0 auto;
@@ -39,7 +36,7 @@ const InputGroup = styled.div`
 const EmailButton = styled(Button)`
     width: 100%;
     font-size: var(--text-size-s);
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 `
 
 const StyledError = styled(ErrorIcon)`
@@ -69,11 +66,11 @@ const SocialWrapper = styled(Row)`
     width: 100%;
     justify-content: space-between;
     margin-top: var(--text-size-s);
-    margin-bottom: 4rem;
 `
-const LoginText = styled(MutedText)`
+export const LoginText = styled(MutedText)`
     text-align: center;
     align-self: center;
+    margin-top: 4rem;
     margin-bottom: 8rem;
 `
 const LoginLink = styled.a`
@@ -195,9 +192,9 @@ class Signup extends Component {
             <>
                 {!this.state.submit_status && (
                     <Form onSubmit={this.handleEmailSignup} noValidate>
-                        <Title as="h3" weight="normal">
+                        <Header as="h3" weight="normal">
                             {localize('Sign up for free now!')}
-                        </Title>
+                        </Header>
                         <InputGroup>
                             <Input
                                 id="email"
@@ -231,9 +228,7 @@ class Signup extends Component {
                         >
                             {localize('Create a free account')}
                         </EmailButton>
-                        <Text color="grey" className="social-signup">
-                            {localize('Or sign up with')}
-                        </Text>
+                        <Text color="grey">{localize('Or sign up with')}</Text>
                         <SocialWrapper>
                             <SocialButton
                                 onClick={this.handleSocialSignup}
@@ -258,7 +253,7 @@ class Signup extends Component {
                                 </span>
                             </SocialButton>
                         </SocialWrapper>
-                        <LoginText className="already">
+                        <LoginText>
                             {localize('Already have an account?')}
                             <LoginLink onClick={this.handleLogin}>
                                 {' '}

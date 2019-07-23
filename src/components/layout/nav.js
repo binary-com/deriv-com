@@ -5,6 +5,7 @@ import LogoHeader from '../../images/svg/logo-header.svg'
 import Button from '../form/button'
 import Container from '../containers/container'
 import Modal from '../elements/modal'
+import SignupModal from '../elements/signup-modal'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
@@ -176,18 +177,24 @@ class Nav extends React.Component {
                             <NavButton primary>
                                 <span>{localize('Login')}</span>
                             </NavButton>
-                            <NavButton secondary movable_button onClick={this.toggleModal}>
+                            <NavButton
+                                secondary
+                                movable_button
+                                onClick={this.toggleModal}
+                            >
                                 <span>{localize('Try for free')}</span>
                             </NavButton>
                         </NavRightContainer>
                     </NavRight>
-                    <Modal
+                </Wrapper>
+                <Modal
                     toggle={this.toggleModal}
                     is_open={this.state.show_modal}
                     is_blurred={true}
                     closeModal={this.closeModal}
-                ></Modal>
-                </Wrapper>
+                >
+                    <SignupModal />
+                </Modal>
             </StyledNav>
         )
     }

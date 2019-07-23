@@ -193,7 +193,7 @@ const Footer = () => (
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
-                                to="/"
+                                to="/responsible-trading/"
                                 aria-label={localize('Responsible Trading')}
                             >
                                 {localize('Responsible Trading')}

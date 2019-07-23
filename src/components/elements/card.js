@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import device from 'themes/device'
 import { Text, Header } from './typography.js'
 
-const CardStyle = css`
+export const CardStyle = css`
     box-sizing: border-box;
     border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);

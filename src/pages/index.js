@@ -580,7 +580,15 @@ const Home = () => {
                         <StyledCard>
                             <PatentedTech />
                             <Header as="h4" weight="500">
-                                {localize('Superior trading platform')}
+                                {localize('Patented pricing technology')}
+                            </Header>
+                            <Header
+                                as="h5"
+                                color="black-3"
+                                lh="1.55"
+                                weight="normal"
+                            >
+                                {localize('Real-time, two-way pricing.')}
                             </Header>
                             <Header
                                 as="h5"
@@ -589,7 +597,7 @@ const Home = () => {
                                 weight="normal"
                             >
                                 {localize(
-                                    'A revolutionary platform for all traders.',
+                                    'Powered by our patented algorithms.',
                                 )}
                             </Header>
                             <Header
@@ -598,23 +606,13 @@ const Home = () => {
                                 lh="1.55"
                                 weight="normal"
                             >
-                                {localize(
-                                    'Access the world’s most traded markets and assets.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize('100+ instruments.')}
+                                {localize('Transparency guaranteed.')}
                             </Header>
                         </StyledCard>
                         <StyledCard>
                             <Intuitive />
                             <Header as="h4" weight="500">
-                                {localize('Superior trading platform')}
+                                {localize('Intuitive and customisable')}
                             </Header>
                             <Header
                                 as="h5"
@@ -623,7 +621,7 @@ const Home = () => {
                                 weight="normal"
                             >
                                 {localize(
-                                    'A revolutionary platform for all traders.',
+                                    'Easy-to-use and powerful trading environment.',
                                 )}
                             </Header>
                             <Header
@@ -633,16 +631,8 @@ const Home = () => {
                                 weight="normal"
                             >
                                 {localize(
-                                    'Access the world’s most traded markets and assets.',
+                                    'Trade the way you want with customisable charts, analytic tools, and themes.',
                                 )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize('100+ instruments.')}
                             </Header>
                         </StyledCard>
                     </Dtrader>

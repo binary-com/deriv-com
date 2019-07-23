@@ -188,14 +188,14 @@ const Footer = () => (
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
-                                to="/terms-and-conditions/#security-privacy"
+                                to="terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and Privacy')}
                             >
                                 {localize('Security and Privacy')}
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
-                                to="/responsible-trading"
+                                to="/responsible-trading/"
                                 aria-label={localize('Responsible Trading')}
                             >
                                 {localize('Responsible Trading')}

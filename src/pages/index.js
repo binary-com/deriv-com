@@ -17,6 +17,7 @@ import { Divider } from '../components/elements/divider'
 import SideTab from 'components/elements/side-tab'
 import { Header, Text } from '../components/elements/typography.js'
 import PaymentMethods from '../components/elements/payment-methods.js'
+import { Card } from 'components/elements/card'
 
 import { getDerivAppLink } from 'common/utility'
 
@@ -58,37 +59,6 @@ const carousel_2_texts = [
     localize('Privacy guaranteed'),
 ]
 
-const StyledCard = styled.article`
-    box-sizing: border-box;
-    border-radius: 6px;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    background-color: var(--color-white);
-    padding: 4.8rem 5.6rem 2.2rem;
-
-    * {
-        max-width: 100%;
-    }
-    h4 {
-        margin-top: 2.4rem;
-        margin-bottom: 1rem;
-    }
-    @media ${device.tablet} {
-        text-align: center;
-    }
-`
-const Card = styled.article`
-    padding: 1rem;
-
-    * {
-        max-width: 100%;
-    }
-    div {
-        margin-top: 2.4rem;
-    }
-    @media ${device.tablet} {
-        text-align: center;
-    }
-`
 const HeroWrapper = styled.section`
     width: 100%;
     padding: 4rem 0 2rem;
@@ -107,6 +77,10 @@ const HeroWrapper = styled.section`
     @media ${device.tablet} {
         background-position: -40rem 100%;
     }
+`
+const SecondaryHeader = styled(Header)`
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
 `
 
 const SignupWrapper = styled.article`
@@ -252,6 +226,10 @@ const StyledSection = styled.section`
     p {
         font-size: 2rem;
     }
+`
+
+const SecondaryArticle = styled.article`
+    padding: 0 0.5rem;
 `
 const Markettabs = styled.div`
     margin-top: 4rem;
@@ -529,98 +507,41 @@ const Home = () => {
                 </SectionHeader>
                 <StyledContainer>
                     <Dtrader>
-                        <StyledCard>
-                            <SuperiorPlatform />
-                            <Header as="h4" weight="500">
-                                {localize('Superior trading platform')}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
+                        <Card
+                            title={localize('Superior trading platform')}
+                            Icon={SuperiorPlatform}
+                            content={[
+                                localize(
                                     'A revolutionary platform for all traders.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
+                                ),
+                                localize(
                                     'Access the world’s most traded markets and assets.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize('100+ instruments.')}
-                            </Header>
-                        </StyledCard>
-                        <StyledCard>
-                            <PatentedTech />
-                            <Header as="h4" weight="500">
-                                {localize('Patented pricing technology')}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize('Real-time, two-way pricing.')}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
-                                    'Powered by our patented algorithms.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize('Transparency guaranteed.')}
-                            </Header>
-                        </StyledCard>
-                        <StyledCard>
-                            <Intuitive />
-                            <Header as="h4" weight="500">
-                                {localize('Intuitive and customisable')}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
+                                ),
+                                localize('100+ instruments.'),
+                            ]}
+                        />
+
+                        <Card
+                            title={localize('Patented pricing technology')}
+                            Icon={PatentedTech}
+                            content={[
+                                localize('Real-time, two-way pricing.'),
+                                localize('Powered by our patented algorithms.'),
+                                localize('Transparency guaranteed.'),
+                            ]}
+                        />
+                        <Card
+                            title={localize('Intuitive and customisable')}
+                            Icon={Intuitive}
+                            content={[
+                                localize(
                                     'Easy-to-use and powerful trading environment.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
+                                ),
+                                localize(
                                     'Trade the way you want with customisable charts, analytic tools, and themes.',
-                                )}
-                            </Header>
-                        </StyledCard>
+                                ),
+                            ]}
+                        />
                     </Dtrader>
                 </StyledContainer>
                 <Cta>
@@ -634,49 +555,43 @@ const Home = () => {
                     {localize('How it works')}
                 </Header>
             </SectionHeader>
-            <Section>
+            <Container>
                 <Works>
-                    <Card>
+                    <SecondaryArticle>
                         <Practice />
-                        <div>
-                            <Header as="h4" weight="500" lh="2.2">
-                                {localize('Practice')}
-                            </Header>
-                            <Text color="black-3" lh="1.55">
-                                {localize(
-                                    'Open a demo account with unlimited funds. Start trading for free and practice to hone your skills.',
-                                )}
-                            </Text>
-                        </div>
-                    </Card>
-                    <Card>
+                        <SecondaryHeader as="h4" weight="500">
+                            {localize('Practice')}
+                        </SecondaryHeader>
+                        <Text>
+                            {localize(
+                                'Open a demo account with unlimited funds. Start trading for free and practise to hone your skills.',
+                            )}
+                        </Text>
+                    </SecondaryArticle>
+                    <SecondaryArticle>
                         <Trade />
-                        <div>
-                            <Header as="h4" weight="500" lh="2.2">
-                                {localize('Trade')}
-                            </Header>
-                            <Text color="black-3" lh="1.55">
-                                {localize(
-                                    'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
-                                )}
-                            </Text>
-                        </div>
-                    </Card>
-                    <Card>
+                        <SecondaryHeader as="h4" weight="500">
+                            {localize('Trade')}
+                        </SecondaryHeader>
+                        <Text>
+                            {localize(
+                                'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
+                            )}
+                        </Text>
+                    </SecondaryArticle>
+                    <SecondaryArticle>
                         <Withdraw />
-                        <div>
-                            <Header as="h4" weight="500" lh="2.2">
-                                {localize('Withdraw')}
-                            </Header>
-                            <Text color="black-3" lh="1.55">
-                                {localize(
-                                    'Get funds quickly and easily. We support many deposit and withdrawal options.',
-                                )}
-                            </Text>
-                        </div>
-                    </Card>
+                        <SecondaryHeader as="h4" weight="500">
+                            {localize('Withdraw')}
+                        </SecondaryHeader>
+                        <Text>
+                            {localize(
+                                'Get funds quickly and easily. We support many deposit and withdrawal options.',
+                            )}
+                        </Text>
+                    </SecondaryArticle>
                 </Works>
-            </Section>
+            </Container>
             <Divider />
             <Section>
                 <Markets>

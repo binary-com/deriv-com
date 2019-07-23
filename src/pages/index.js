@@ -362,7 +362,7 @@ const Hero = () => (
                 </article>
                 <article className="signup">
                     <div className="signup-box">
-                        <Signup />
+                        <Signup autofocus={false} />
                     </div>
                 </article>
             </HeroGrid>

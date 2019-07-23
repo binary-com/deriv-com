@@ -58,16 +58,7 @@ const SocialButton = styled(Button)`
     box-shadow: none;
     flex: inherit !important;
     width: 48%;
-    background: ${props => {
-        if (props.provider === 'google') return 'var(--color-white)'
-        if (props.provider === 'facebook') return 'var(--color-blue)'
-    }};
     padding: 1rem;
-
-    svg {
-        width: 2.2rem;
-        height: 2.2rem;
-    }
 `
 const MutedText = styled(Text)`
     text-align: left;
@@ -217,7 +208,7 @@ class Signup extends Component {
                                 placeholder={'example@mail.com'}
                                 onChange={this.handleInputChange}
                                 onBlur={this.handleValidation}
-                                autoFocus={this.props.autofocus || true}
+                                autofocus={this.props.autofocus || true}
                                 required
                             />
                             {this.state.email_error_msg && (
@@ -240,14 +231,16 @@ class Signup extends Component {
                         >
                             {localize('Create a free account')}
                         </EmailButton>
-                        <Text color="grey" className='social-signup'>{localize('Or sign up with')}</Text>
+                        <Text color="grey" className="social-signup">
+                            {localize('Or sign up with')}
+                        </Text>
                         <SocialWrapper>
                             <SocialButton
                                 onClick={this.handleSocialSignup}
                                 provider="google"
                                 id="google"
                                 type="button"
-                                secondary
+                                social
                             >
                                 <span>
                                     <Google />
@@ -258,14 +251,14 @@ class Signup extends Component {
                                 provider="facebook"
                                 id="facebook"
                                 type="button"
-                                secondary
+                                social
                             >
                                 <span>
                                     <Facebook />
                                 </span>
                             </SocialButton>
                         </SocialWrapper>
-                        <LoginText className='already'>
+                        <LoginText className="already">
                             {localize('Already have an account?')}
                             <LoginLink onClick={this.handleLogin}>
                                 {' '}

@@ -58,7 +58,7 @@ const SignupModal = () => (
                 </CaptionDesc>
             </Content>
             <Content>
-                <Signup />
+                <Signup autofocus />
             </Content>
         </ModalRow>
     </SignupWrapper>

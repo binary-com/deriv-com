@@ -16,6 +16,8 @@ import SideTab from 'components/elements/side-tab'
 import { Header, Text } from '../components/elements/typography.js'
 import PaymentMethods from '../components/elements/payment-methods.js'
 
+import { getDerivAppLink } from 'common/utility'
+
 import img from 'images/common/header-trade.png'
 import CarouselBackground from 'images/svg/abstract.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
@@ -362,7 +364,7 @@ const Hero = () => (
                 </article>
                 <article className="signup">
                     <div className="signup-box">
-                        <Signup autofocus={false} />
+                        <Signup />
                     </div>
                 </article>
             </HeroGrid>
@@ -527,6 +529,12 @@ const Carousel2 = () => (
 
 const Home = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
+
+    const handleExternalLink = e => {
+        e.preventDefault()
+
+        window.location.href = getDerivAppLink()
+    }
 
     return (
         <Layout>
@@ -725,7 +733,7 @@ const Home = () => {
                         <Header as="h4" weight="500">
                             {localize('Your one-stop shop for online trading.')}
                         </Header>
-                        <DemoButton secondary>
+                        <DemoButton onClick={handleExternalLink} secondary>
                             {localize('See a demo')}
                         </DemoButton>
                     </ContextContainer>

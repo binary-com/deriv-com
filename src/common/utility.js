@@ -38,6 +38,8 @@ const getPropertyValue = (obj, k) => {
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
 
+const getDerivAppLink = () => 'https://deriv.app/'
+
 class PromiseClass {
     constructor() {
         this.promise = new Promise((resolve, reject) => {
@@ -52,6 +54,7 @@ export {
     cloneObject,
     hasWindow,
     getPropertyValue,
+    getDerivAppLink,
     PromiseClass,
     toISOFormat,
 }

@@ -208,7 +208,7 @@ class Signup extends Component {
                                 placeholder={'example@mail.com'}
                                 onChange={this.handleInputChange}
                                 onBlur={this.handleValidation}
-                                autofocus={this.props.autofocus || true}
+                                autoFocus={this.props.autofocus}
                                 required
                             />
                             {this.state.email_error_msg && (

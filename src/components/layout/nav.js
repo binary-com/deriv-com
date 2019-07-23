@@ -6,6 +6,7 @@ import Button from '../form/button'
 import Container from '../containers/container'
 import Modal from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
+import { SharedLinkStyle } from '../localization/localized-link'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
@@ -50,35 +51,7 @@ const NavLink = styled.li`
 `
 
 const StyledLink = styled(LocalizedLink)`
-    color: var(--color-white);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: text-shadow 0.25s;
-    position: relative;
-
-    &::before {
-        content: '';
-        position: absolute;
-        transition: width 0.25s;
-        height: 0.2rem;
-        width: 0;
-        background-color: var(--color-red);
-        bottom: 0;
-    }
-    &:hover {
-        text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
-
-        &::before {
-            width: 1.6rem;
-        }
-    }
-    &.active {
-        text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
-
-        &::before {
-            width: 1.6rem;
-        }
-    }
+    ${SharedLinkStyle}
 `
 const NavButton = styled(Button)`
     font-weight: bold;
@@ -147,7 +120,8 @@ class Nav extends React.Component {
                         <NavLink>
                             <StyledLink
                                 activeClassName="active"
-                                to="/trade/"
+                                to="https://deriv.app"
+                                external_link
                                 aria-label={localize('Trade')}
                             >
                                 {localize('Trade')}

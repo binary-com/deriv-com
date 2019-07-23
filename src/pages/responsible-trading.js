@@ -7,6 +7,7 @@ import Hero from 'components/elements/hero'
 import Container from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography'
 import { CardStyle } from 'components/elements/card'
+import { Divider } from '../components/elements/divider'
 
 // import svgs
 import Demo from 'images/svg/demo-icon.svg'
@@ -20,10 +21,6 @@ import ChecklistLogo from 'images/svg/checklist.svg'
 const GeneralWrapper = styled.section`
     background: var(--color-white);
     width: 100%;
-`
-
-const ResponsibleWrapper = styled(GeneralWrapper)`
-    border-bottom: 1px solid var(--color-grey-2);
 `
 
 const StyledContainer = styled(Container)`
@@ -73,7 +70,6 @@ const OtherWarningWrapper = styled(GeneralWrapper)`
 const StyledCard = styled.article`
     ${CardStyle}
     width: 100%;
-    min-height: 0;
     margin: 4rem;
     padding: 4rem;
 `
@@ -91,7 +87,7 @@ const ResponsibleTrading = () => (
                 'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
             )}
         />
-        <ResponsibleWrapper>
+        <GeneralWrapper>
             <StyledContainer>
                 <FlexWrapper>
                     <StyledArticle>
@@ -143,7 +139,8 @@ const ResponsibleTrading = () => (
                 </FlexWrapper>
                 <hr />
             </StyledContainer>
-        </ResponsibleWrapper>
+        </GeneralWrapper>
+        <Divider />
         <GeneralWrapper>
             <StyledContainer>
                 <Header as="h2" align="center">

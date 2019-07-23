@@ -5,7 +5,6 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Hero from 'components/elements/hero'
 import Container from 'components/containers/container'
-// import Wrapper from 'components/containers/wrapper'
 import { Header, Text } from 'components/elements/typography'
 import { CardStyle } from 'components/elements/card'
 

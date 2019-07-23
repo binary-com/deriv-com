@@ -9,7 +9,7 @@ import Container from '../components/containers/container'
 import { localize, WithIntl } from '../components/localization'
 import { Header, Text, LinkText } from '../components/elements/typography'
 import { StyledLink } from '../components/elements/link'
-
+import { getLocationHash } from '../common/utility'
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 
@@ -253,8 +253,6 @@ const getAllArticles = articles =>
         .map(category => category.articles)
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
-
-const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
 
 const SearchSection = styled.section`
     ${Backdrop} {
@@ -564,7 +562,7 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
     return (
         <>
             <LeftRightContainer padding="9px 0 0 0">
-                <StyledLink to="/help-centre/" has_arrow>
+                <StyledLink to="/help-centre/" has_arrow="true">
                     {localize('Back to Help topics')}
                 </StyledLink>
                 <SmallSearchIcon onClick={toggleSearch} />

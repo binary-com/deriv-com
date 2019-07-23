@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
-import Wrapper from '../containers/wrapper'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
 import { Text } from './typography'
+import Wrapper from '../containers/wrapper'
+import { getLocationHash } from '../../common/utility'
 
 const StyledSideTab = styled(Wrapper)`
     padding: 0;
@@ -50,75 +51,59 @@ const Tab = ({ active_tab, label, onClick, text }) => {
     )
 }
 
-class SideTab extends Component {
-    state = {
-        active_tab: '',
+function useTabs(initial_active_tab = '', has_hash_routing) {
+    const [active_tab, setActiveTab] = useState(initial_active_tab)
+
+    const setTab = tab => {
+        if (tab === active_tab) return
+        setActiveTab(tab)
+
+        if (has_hash_routing) navigate(`#${tab}`)
     }
 
-    componentDidMount() {
-        const current_label = location.hash
-            ? location.hash.substring(1)
-            : this.props.children[0].props.label
+    return [active_tab, setTab]
+}
 
-        this.setState({
-            active_tab: current_label,
+const SideTab = ({ children, has_hash_routing }) => {
+    const first_tab = children[0].props.label
+    const [active_tab, setTab] = useTabs(first_tab, has_hash_routing)
+
+    if (has_hash_routing) {
+        useEffect(() => {
+            const new_tab = getLocationHash() || first_tab
+            setTab(new_tab)
         })
     }
 
-    componentDidUpdate() {
-        const current_label = location.hash
-            ? location.hash.substring(1)
-            : this.props.children[0].props.label
+    return (
+        <StyledSideTab>
+            <TabList>
+                {children.map((child, idx) => {
+                    const { label, text } = child.props
 
-        if (current_label !== this.state.active_tab) {
-            this.setState({
-                active_tab: current_label,
-            })
-        }
-    }
-
-    onClickTabItem = tab => {
-        navigate(`#${tab}`)
-        this.setState({
-            active_tab: tab,
-        })
-    }
-    render() {
-        const {
-            onClickTabItem,
-            props: { children },
-            state: { active_tab },
-        } = this
-
-        return (
-            <StyledSideTab>
-                <TabList>
-                    {children.map((child, index) => {
-                        const { label, text } = child.props
-
-                        return (
-                            <Tab
-                                active_tab={active_tab}
-                                key={index}
-                                label={label}
-                                text={text}
-                                onClick={onClickTabItem}
-                            />
-                        )
-                    })}
-                </TabList>
-                <TabContent>
-                    {children.map(child =>
-                        child.props.label === active_tab ? child : undefined,
-                    )}
-                </TabContent>
-            </StyledSideTab>
-        )
-    }
+                    return (
+                        <Tab
+                            active_tab={active_tab}
+                            key={idx}
+                            label={label}
+                            text={text}
+                            onClick={setTab}
+                        />
+                    )
+                })}
+            </TabList>
+            <TabContent>
+                {children.map(child =>
+                    child.props.label === active_tab ? child : undefined,
+                )}
+            </TabContent>
+        </StyledSideTab>
+    )
 }
 
 SideTab.propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
+    has_hash_routing: PropTypes.bool,
 }
 
 Tab.propTypes = {

@@ -37,7 +37,7 @@ const getPropertyValue = (obj, k) => {
     // else return clone of object to avoid overwriting data
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
-
+const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
 class PromiseClass {
     constructor() {
         this.promise = new Promise((resolve, reject) => {
@@ -52,6 +52,7 @@ export {
     cloneObject,
     hasWindow,
     getPropertyValue,
+    getLocationHash,
     PromiseClass,
     toISOFormat,
 }

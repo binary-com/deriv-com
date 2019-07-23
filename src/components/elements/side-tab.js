@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { navigate } from '@reach/router'
 import { Text } from './typography'
 import Wrapper from '../containers/wrapper'
-import { getLocationHash } from '../../common/utility'
+import { getLocationHash } from 'common/utility'
 
 const StyledSideTab = styled(Wrapper)`
     padding: 0;

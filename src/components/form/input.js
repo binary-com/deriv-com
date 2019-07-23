@@ -78,7 +78,9 @@ const Input = ({ label, id, ...props }) => (
     <InputWrapper>
         <StyledInput {...props} />
         <Bar />
-        <StyledLabel htmlFor={id}>{label}</StyledLabel>
+        <StyledLabel htmlFor={id} for={id}>
+            {label}
+        </StyledLabel>
     </InputWrapper>
 )
 

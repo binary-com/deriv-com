@@ -7,7 +7,7 @@ import Modal, { useModal } from '../../components/elements/modal'
 import SignupModal from '../../components/elements/signup-modal'
 
 import { OurLocations } from './_our-locations'
-import { OurNumbers } from './_our_numbers'
+import { OurNumbers } from './_our-numbers'
 import { OurGoals } from './_our-goals'
 
 const About = () => {

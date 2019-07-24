@@ -106,8 +106,6 @@ class Signup extends Component {
     }
 
     handleValidation = param => {
-        if (!param) return
-
         const message = typeof param === 'object' ? param.target.value : param
 
         this.setState({
@@ -152,13 +150,16 @@ class Signup extends Component {
     handleEmailSignup = e => {
         e.preventDefault()
         this.setState({ is_submitting: true })
-        this.handleValidation(this.state.email)
+        const { email, email_error_msg } = this.state
 
-        if (this.state.email_error_msg) {
+        this.handleValidation(email)
+
+        const has_error_email = validateEmail(email)
+
+        if (has_error_email || email_error_msg) {
             return this.setState({ is_submitting: false })
         }
 
-        const { email } = this.state
         const verify_email_req = this.getVerifyEmailRequest(email)
 
         BinarySocketBase.send(verify_email_req).then(response => {

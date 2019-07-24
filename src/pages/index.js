@@ -6,7 +6,7 @@ import Button from '../components/form/button'
 import Layout from '../components/layout/layout'
 import device from 'themes/device'
 import Container from '../components/containers/container'
-import { Section } from 'components/containers/container'
+import { SectionContainer } from 'components/containers/container'
 import Modal, { useModal } from '../components/elements/modal'
 import Signup from '../components/form/signup'
 import { LoginText } from 'components/form/signup'
@@ -593,7 +593,7 @@ const Home = () => {
                 </Works>
             </Container>
             <Divider />
-            <Section>
+            <SectionContainer>
                 <Markets>
                     <Header as="h2" align="center">
                         {localize('Markets')}
@@ -618,7 +618,7 @@ const Home = () => {
                         </SideTab>
                     </Markettabs>
                 </Markets>
-            </Section>
+            </SectionContainer>
             <HomeCarouselWrapper>
                 <HomeCarouselContainer>
                     <ContextContainer>

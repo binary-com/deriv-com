@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Portal from '../containers/portal'
@@ -88,3 +88,11 @@ Modal.propTypes = {
 }
 
 export default Modal
+
+export function useModal(is_open = false) {
+    const [show_modal, setShowModal] = useState(is_open)
+    const toggleModal = () => setShowModal(!show_modal)
+    const closeModal = () => setShowModal(false)
+
+    return [show_modal, toggleModal, closeModal]
+}

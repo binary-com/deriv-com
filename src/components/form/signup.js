@@ -151,6 +151,7 @@ class Signup extends Component {
         e.preventDefault()
         this.setState({ is_submitting: true })
         const { email, email_error_msg } = this.state
+
         this.handleValidation(email)
 
         const has_error_email = validateEmail(email)

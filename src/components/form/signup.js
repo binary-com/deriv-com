@@ -157,8 +157,7 @@ class Signup extends Component {
         const has_error_email = validateEmail(email)
 
         if (has_error_email || email_error_msg) {
-            this.setState({ is_submitting: false })
-            return
+            return this.setState({ is_submitting: false })
         }
 
         const verify_email_req = this.getVerifyEmailRequest(email)

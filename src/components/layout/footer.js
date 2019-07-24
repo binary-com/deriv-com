@@ -148,7 +148,7 @@ const Footer = () => (
                             </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/about"
+                                to="/about/"
                                 aria-label={localize('About us')}
                             >
                                 {localize('About us')}
@@ -162,7 +162,7 @@ const Footer = () => (
                             </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/help-centre"
+                                to="/help-centre/"
                                 aria-label={localize('Help Centre')}
                             >
                                 {localize('Help Centre')}
@@ -174,7 +174,7 @@ const Footer = () => (
                             </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/regulatory"
+                                to="/regulatory/"
                                 aria-label={localize('Regulatory Information')}
                             >
                                 {localize('Regulatory Information')}

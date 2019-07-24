@@ -11,6 +11,9 @@ export const CardStyle = css`
     background-color: var(--color-white);
 `
 
+const CardContent = styled(Text)`
+    margin-top: 0.8rem;
+`
 const CardWrapper = styled.article`
     ${CardStyle}
     min-height: ${props => (props.min_height ? props.min_height : '35.6rem')};;
@@ -20,10 +23,6 @@ const CardWrapper = styled.article`
 
     div {
         margin-top: 4rem;
-
-        .content {
-            margin-top: 0.8rem;
-        }
     }
     @media ${device.sm} {
         margin: 1rem;
@@ -69,7 +68,13 @@ export const Card = ({ children, Icon, title, content, width, min_height }) => {
                         <Header as="h4" weight="500">
                             {title}
                         </Header>
-                        <Text className="content">{content}</Text>
+                        {Array.isArray(content) ? (
+                            content.map((text, index) => (
+                                <CardContent key={index}>{text}</CardContent>
+                            ))
+                        ) : (
+                            <CardContent>{content}</CardContent>
+                        )}
                     </div>
                 </>
             )}
@@ -98,7 +103,7 @@ Card.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]),
-    content: PropTypes.string,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     Icon: PropTypes.func,
     min_height: PropTypes.string,
     title: PropTypes.string,

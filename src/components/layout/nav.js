@@ -46,7 +46,6 @@ const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
     text-align: left;
-
     ${props => {
         if (props.margin) return 'margin: 0 4rem;'
     }}
@@ -74,7 +73,6 @@ const NavRightContainer = styled.div`
     position: absolute;
     left: 13rem;
     transition: left 0.5s ease-out;
-
     ${props => {
         if (props.enable_move) {
             return 'left: 0rem;'

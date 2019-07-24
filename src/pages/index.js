@@ -6,8 +6,10 @@ import Button from '../components/form/button'
 import Layout from '../components/layout/layout'
 import device from 'themes/device'
 import Container from '../components/containers/container'
+import { SectionContainer } from 'components/containers/container'
 import Modal, { useModal } from '../components/elements/modal'
 import Signup from '../components/form/signup'
+import { LoginText } from 'components/form/signup'
 import SignupModal from '../components/elements/signup-modal'
 import { localize, WithIntl } from '../components/localization'
 import Carousel from '../components/elements/carousel'
@@ -15,6 +17,9 @@ import { Divider } from '../components/elements/divider'
 import SideTab from 'components/elements/side-tab'
 import { Header, Text } from '../components/elements/typography.js'
 import PaymentMethods from '../components/elements/payment-methods.js'
+import { Card } from 'components/elements/card'
+
+import { DERIV_APP_URL } from 'common/utility'
 
 import img from 'images/common/header-trade.png'
 import CarouselBackground from 'images/svg/abstract.svg'
@@ -40,49 +45,20 @@ import SmallStakes from 'images/svg/small-stakes.svg'
 import HighReturns from 'images/svg/volatility-indices.svg'
 import ContractDurations from 'images/svg/contract-durations.svg'
 
-const Section = styled.section`
-    margin: 0 auto;
-    width: 80%;
-    padding: ${props => props.padding || ''}rem 0;
+const carousel_1_text = [
+    localize('Exclusive synthetic market available 24/7'),
+    localize('USD 5 minimum deposit'),
+    localize('Stakes as low as USD 0.35'),
+    localize('Payouts up to USD 50,000'),
+]
 
-    @media ${device.desktop} {
-        max-width: 1024px;
-    }
-    @media ${device.desktopL} {
-        max-width: 1400px;
-    }
-`
-const StyledCard = styled.article`
-    box-sizing: border-box;
-    border-radius: 6px;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    background-color: var(--color-white);
-    padding: 4.8rem 5.6rem 2.2rem;
+const carousel_2_text = [
+    localize('Patented, licensed, and regulated'),
+    localize('Short- to long-term trades'),
+    localize('Reliable customer support'),
+    localize('Privacy guaranteed'),
+]
 
-    * {
-        max-width: 100%;
-    }
-    h4 {
-        margin-top: 2.4rem;
-        margin-bottom: 1rem;
-    }
-    @media ${device.tablet} {
-        text-align: center;
-    }
-`
-const Card = styled.article`
-    padding: 1rem;
-
-    * {
-        max-width: 100%;
-    }
-    div {
-        margin-top: 2.4rem;
-    }
-    @media ${device.tablet} {
-        text-align: center;
-    }
-`
 const HeroWrapper = styled.section`
     width: 100%;
     padding: 4rem 0 2rem;
@@ -102,6 +78,40 @@ const HeroWrapper = styled.section`
         background-position: -40rem 100%;
     }
 `
+const SecondaryHeader = styled(Header)`
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+`
+
+const SignupWrapper = styled.article`
+    justify-self: end;
+    min-width: 33rem;
+`
+
+const SignupBox = styled.div`
+    max-width: 33rem;
+    background-color: var(--color-grey-1);
+    border-radius: 6px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 3.2rem 0;
+
+    h3 {
+        font-size: var(--text-size-m);
+        font-weight: 500;
+    }
+    ${LoginText} {
+        display: none;
+    }
+`
+
+const StyledHeader = styled(Header)`
+    margin-top: 2rem;
+`
+
+const StyledSubHeader = styled(Header)`
+    margin-top: 0.8rem;
+`
 const HeroGrid = styled.section`
     width: 100%;
     display: grid;
@@ -110,20 +120,6 @@ const HeroGrid = styled.section`
     max-width: 100%;
     padding-top: 4rem;
 
-    article {
-        padding: 0;
-
-        * {
-            max-width: 100%;
-        }
-    }
-    .hero-left {
-        text-align: left;
-
-        h4 {
-            margin-top: 2rem;
-        }
-    }
     .signup {
         justify-self: end;
         min-width: 33rem;
@@ -136,32 +132,18 @@ const HeroGrid = styled.section`
             text-align: center;
             padding: 0.5rem 0;
 
-            form {
-                margin-top: -7rem;
-                margin-bottom: -1rem;
-            }
             h3 {
                 font-size: var(--text-size-m);
                 font-weight: 500;
             }
-            .already {
+            ${LoginText} {
                 display: none;
-            }
-            .social-signup {
-                margin-top: -2rem;
             }
         }
     }
     @media ${device.laptop} {
         grid-template-columns: 1fr;
         grid-row-gap: 5rem;
-
-        .hero-left * {
-            text-align: center;
-        }
-        .signup {
-            justify-self: center;
-        }
     }
     @media ${device.tabletS} {
         grid-template-columns: 1fr;
@@ -173,18 +155,6 @@ const SectionHeader = styled.div`
     margin-top: 8rem;
     margin-bottom: 2rem;
     text-align: center;
-
-    h2 {
-        font-size: var(--text-size-xl);
-        line-height: 6rem;
-        font-weight: bold;
-        margin-bottom: 0.8rem;
-    }
-    h3 {
-        font-size: var(--text-size-m);
-        font-weight: 500;
-        margin-bottom: 4rem;
-    }
 `
 const DtraderSection = styled.section`
     width: 100%;
@@ -257,6 +227,10 @@ const StyledSection = styled.section`
         font-size: 2rem;
     }
 `
+
+const SecondaryArticle = styled.article`
+    padding: 0 0.5rem;
+`
 const Markettabs = styled.div`
     margin-top: 4rem;
 `
@@ -306,28 +280,15 @@ const ContextContainer = styled.div`
     width: 32.8rem;
     margin-right: 10.7rem;
 `
+
+const StyledContainer = styled(Container)`
+    padding: 2rem 0;
+`
 const DemoButton = styled(Button)`
     width: 13.5rem;
     margin-top: 4rem;
 `
 const Slide = styled.section`
-    div {
-        display: inline-flex;
-        margin-top: 4rem;
-        width: 100%;
-        position: relative;
-        animation-name: slide;
-        animation-duration: 0.3s;
-        animation-timing-function: linear;
-
-        p {
-            margin-left: 1.6rem;
-            height: 30px;
-            font-size: 20px;
-            color: var(--color-black-2);
-            line-height: 1.5;
-        }
-    }
     @keyframes slide {
         0% {
             margin-left: 12.6rem;
@@ -342,6 +303,23 @@ const Slide = styled.section`
         }
     }
 
+    div {
+        display: inline-flex;
+        margin-top: 4rem;
+        width: 100%;
+        position: relative;
+        animation-name: slide;
+        animation-duration: 0.4s;
+        animation-timing-function: linear;
+
+        p {
+            margin-left: 1.6rem;
+            height: 30px;
+            font-size: 20px;
+            color: var(--color-black-2);
+            line-height: 1.5;
+        }
+    }
     div:first-child {
         margin-top: 0;
     }
@@ -350,21 +328,21 @@ const Hero = () => (
     <HeroWrapper>
         <Container>
             <HeroGrid>
-                <article className="hero-left">
+                <article>
                     <Header as="h1" color="white" lh="1.2">
                         {localize('This is your ultimate trading experience')}
                     </Header>
-                    <Header as="h4" color="white" weight="500">
+                    <StyledHeader as="h4" color="white" weight="500">
                         {localize(
                             'The world’s markets at your fingertips anytime, anywhere.',
                         )}
-                    </Header>
+                    </StyledHeader>
                 </article>
-                <article className="signup">
-                    <div className="signup-box">
+                <SignupWrapper>
+                    <SignupBox>
                         <Signup />
-                    </div>
-                </article>
+                    </SignupBox>
+                </SignupWrapper>
             </HeroGrid>
         </Container>
     </HeroWrapper>
@@ -484,49 +462,25 @@ const Synthetic = () => (
         </TabGrid>
     </StyledSection>
 )
-const Carousel1 = () => (
+const CarouselItems = carousel_text => (
     <Slide>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Exclusive synthetic market available 24/7')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('USD 5 minimum deposit')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Stakes as low as USD 0.35')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Payouts up to USD 50,000')}</p>
-        </div>
-    </Slide>
-)
-const Carousel2 = () => (
-    <Slide>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Patented, licensed, and regulated')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Short- to long-term trades')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Reliable customer support')}</p>
-        </div>
-        <div>
-            <ChecklistLogo />
-            <p>{localize('Privacy guaranteed')}</p>
-        </div>
+        {carousel_text.map((content, index) => (
+            <div key={index}>
+                <ChecklistLogo />
+                <p>{content}</p>
+            </div>
+        ))}
     </Slide>
 )
 
 const Home = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
+
+    const handleExternalLink = e => {
+        e.preventDefault()
+
+        window.location.href = DERIV_APP_URL
+    }
 
     return (
         <Layout>
@@ -534,119 +488,52 @@ const Home = () => {
             <Hero />
             <DtraderSection>
                 <SectionHeader>
-                    <Header as="h2" alaign="center">
+                    <Header as="h2" align="center" lh="6rem">
                         {localize('DTrader')}
                     </Header>
-                    <Header as="h3" align="center">
+                    <StyledSubHeader as="h4" align="center" weight="500">
                         {localize('All you need to get started')}
-                    </Header>
+                    </StyledSubHeader>
                 </SectionHeader>
-                <Container>
+                <StyledContainer>
                     <Dtrader>
-                        <StyledCard>
-                            <SuperiorPlatform />
-                            <Header as="h4" weight="500">
-                                {localize('Superior trading platform')}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
+                        <Card
+                            title={localize('Superior trading platform')}
+                            Icon={SuperiorPlatform}
+                            content={[
+                                localize(
                                     'A revolutionary platform for all traders.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
+                                ),
+                                localize(
                                     'Access the world’s most traded markets and assets.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize('100+ instruments.')}
-                            </Header>
-                        </StyledCard>
-                        <StyledCard>
-                            <PatentedTech />
-                            <Header as="h4" weight="500">
-                                {localize('Superior trading platform')}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
-                                    'A revolutionary platform for all traders.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
-                                    'Access the world’s most traded markets and assets.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize('100+ instruments.')}
-                            </Header>
-                        </StyledCard>
-                        <StyledCard>
-                            <Intuitive />
-                            <Header as="h4" weight="500">
-                                {localize('Superior trading platform')}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
-                                    'A revolutionary platform for all traders.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize(
-                                    'Access the world’s most traded markets and assets.',
-                                )}
-                            </Header>
-                            <Header
-                                as="h5"
-                                color="black-3"
-                                lh="1.55"
-                                weight="normal"
-                            >
-                                {localize('100+ instruments.')}
-                            </Header>
-                        </StyledCard>
+                                ),
+                                localize('100+ instruments.'),
+                            ]}
+                        />
+
+                        <Card
+                            title={localize('Patented pricing technology')}
+                            Icon={PatentedTech}
+                            content={[
+                                localize('Real-time, two-way pricing.'),
+                                localize('Powered by our patented algorithms.'),
+                                localize('Transparency guaranteed.'),
+                            ]}
+                        />
+                        <Card
+                            title={localize('Intuitive and customisable')}
+                            Icon={Intuitive}
+                            content={[
+                                localize(
+                                    'Easy-to-use and powerful trading environment.',
+                                ),
+                                localize(
+                                    'Trade the way you want with customisable charts, analytic tools, and themes.',
+                                ),
+                            ]}
+                        />
                     </Dtrader>
-                </Container>
+                </StyledContainer>
                 <Cta>
                     <Button onClick={toggleModal} secondary>
                         {localize('Create a free account')}
@@ -658,60 +545,54 @@ const Home = () => {
                     {localize('How it works')}
                 </Header>
             </SectionHeader>
-            <Section padding="8">
+            <Container>
                 <Works>
-                    <Card>
+                    <SecondaryArticle>
                         <Practice />
-                        <div>
-                            <Header as="h4" weight="500" lh="2.2">
-                                {localize('Practice')}
-                            </Header>
-                            <Text color="black-3" lh="1.55">
-                                {localize(
-                                    'Open a demo account with unlimited funds. Start trading for free and practice to hone your skills.',
-                                )}
-                            </Text>
-                        </div>
-                    </Card>
-                    <Card>
+                        <SecondaryHeader as="h4" weight="500">
+                            {localize('Practice')}
+                        </SecondaryHeader>
+                        <Text>
+                            {localize(
+                                'Open a demo account with unlimited funds. Start trading for free and practise to hone your skills.',
+                            )}
+                        </Text>
+                    </SecondaryArticle>
+                    <SecondaryArticle>
                         <Trade />
-                        <div>
-                            <Header as="h4" weight="500" lh="2.2">
-                                {localize('Trade')}
-                            </Header>
-                            <Text color="black-3" lh="1.55">
-                                {localize(
-                                    'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
-                                )}
-                            </Text>
-                        </div>
-                    </Card>
-                    <Card>
+                        <SecondaryHeader as="h4" weight="500">
+                            {localize('Trade')}
+                        </SecondaryHeader>
+                        <Text>
+                            {localize(
+                                'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
+                            )}
+                        </Text>
+                    </SecondaryArticle>
+                    <SecondaryArticle>
                         <Withdraw />
-                        <div>
-                            <Header as="h4" weight="500" lh="2.2">
-                                {localize('Withdraw')}
-                            </Header>
-                            <Text color="black-3" lh="1.55">
-                                {localize(
-                                    'Get funds quickly and easily. We support many deposit and withdrawal options.',
-                                )}
-                            </Text>
-                        </div>
-                    </Card>
+                        <SecondaryHeader as="h4" weight="500">
+                            {localize('Withdraw')}
+                        </SecondaryHeader>
+                        <Text>
+                            {localize(
+                                'Get funds quickly and easily. We support many deposit and withdrawal options.',
+                            )}
+                        </Text>
+                    </SecondaryArticle>
                 </Works>
-            </Section>
+            </Container>
             <Divider />
-            <Section padding="8">
+            <SectionContainer>
                 <Markets>
                     <Header as="h2" align="center">
                         {localize('Markets')}
                     </Header>
-                    <Header as="h4" align="center" weight="500">
+                    <StyledSubHeader as="h4" align="center" weight="500">
                         {localize(
                             'Over 100 assets available across five leading markets.',
                         )}
-                    </Header>
+                    </StyledSubHeader>
                     <Markettabs>
                         <SideTab>
                             <Forex label="forex" text="Forex" />
@@ -727,20 +608,23 @@ const Home = () => {
                         </SideTab>
                     </Markettabs>
                 </Markets>
-            </Section>
+            </SectionContainer>
             <HomeCarouselWrapper>
                 <HomeCarouselContainer>
                     <ContextContainer>
                         <Header as="h2">{localize('Why choose Deriv?')}</Header>
-                        <Header as="h4" weight="500">
+                        <StyledSubHeader as="h4" weight="500">
                             {localize('Your one-stop shop for online trading.')}
-                        </Header>
-                        <DemoButton secondary>
+                        </StyledSubHeader>
+                        <DemoButton onClick={handleExternalLink} secondary>
                             {localize('See a demo')}
                         </DemoButton>
                     </ContextContainer>
                     <Carousel
-                        slides={[Carousel1, Carousel2]}
+                        slides={[
+                            () => CarouselItems(carousel_1_text),
+                            () => CarouselItems(carousel_2_text),
+                        ]}
                         background={CarouselBackground}
                     />
                 </HomeCarouselContainer>

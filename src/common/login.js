@@ -26,7 +26,7 @@ const Login = (() => {
 
         return server_url && /qa/.test(server_url)
             ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}`
-            : `https://oauth.binary.com/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}`
+            : `https://oauth.deriv.com/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}`
     }
 
     const socialLoginUrl = (
@@ -60,13 +60,13 @@ const Login = (() => {
             utm_campaign_link,
         )
 
-        window.location.href = social_login_url
+        window.open(social_login_url, '_blank')
     }
 
     return {
         redirectToLogin,
         initOneAll,
-        loginUrl
+        loginUrl,
     }
 })()
 

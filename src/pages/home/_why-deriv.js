@@ -13,7 +13,7 @@ import ChecklistLogo from 'images/svg/checklist.svg'
 const handleExternalLink = e => {
     e.preventDefault()
 
-    window.location.href = DERIV_APP_URL
+    window.open(DERIV_APP_URL, '_blank')
 }
 
 const carousel_1_text = [

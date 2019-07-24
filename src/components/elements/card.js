@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import device from 'themes/device'
 import { Text, Header } from './typography.js'
 
 export const CardStyle = css`
@@ -19,13 +18,10 @@ const CardWrapper = styled.article`
     min-height: ${props => (props.min_height ? props.min_height : '35.6rem')};;
     width: ${props => (props.width ? props.width : '32.8rem')};
     padding: 4rem 5.6rem 4.6rem 5.6rem;
-    margin: 0 1rem;
+    margin: ${props => (props.no_margin ? '0' : '0 1rem')};
 
     div {
         margin-top: 4rem;
-    }
-    @media ${device.sm} {
-        margin: 1rem;
     }
 `
 
@@ -58,9 +54,21 @@ const CardChildrenWrapper = styled.article`
     }
 `
 
-export const Card = ({ children, Icon, title, content, width, min_height }) => {
+export const Card = ({
+    children,
+    Icon,
+    title,
+    content,
+    width,
+    min_height,
+    no_margin,
+}) => {
     return (
-        <CardWrapper width={width} min_height={min_height}>
+        <CardWrapper
+            width={width}
+            min_height={min_height}
+            no_margin={no_margin}
+        >
             {!children && (
                 <>
                     <Icon />
@@ -106,6 +114,7 @@ Card.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     Icon: PropTypes.func,
     min_height: PropTypes.string,
+    no_margin: PropTypes.bool,
     title: PropTypes.string,
     width: PropTypes.string,
 }

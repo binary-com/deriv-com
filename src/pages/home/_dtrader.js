@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import device from 'themes/device'
 import styled from 'styled-components'
 import Button from 'components/form/button'
-import Container from 'components/containers/container'
+import Container, { SectionContainer } from 'components/containers/container'
 import { Card } from 'components/elements/card'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
@@ -13,19 +13,15 @@ import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
 import Intuitive from 'images/svg/intuitive.svg'
 
-const DtraderSectionContainer = styled.section`
-    width: 100%;
-    padding: 2rem 0;
+const DtraderSectionContainer = styled(SectionContainer)`
+    border-bottom: 1px solid var(--color-grey-2);
     background-image: linear-gradient(
         to bottom,
         var(--color-grey-2),
         var(--color-white)
     );
-    border-bottom: 1px solid var(--color-grey-2);
 
     h2 {
-        text-align: center;
-
         &::before {
             content: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='54' height='34' viewBox='0 0 38 36' aria-labelledby='deriv-icon-title'%3E%3Ctitle id='deriv-icon-title'%3EDeriv icon%3C/title%3E%3Cdefs%3E%3ClinearGradient id='deriv_a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FF6544'/%3E%3Cstop offset='100%25' stop-color='%23FF4449'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='none' fill-rule='nonzero'%3E%3Cpath fill='url(%23deriv_a)' d='M8.244 0v.039L21.94 18 0 35.961V36h22.154c6.466 0 12.076-4.498 13.53-10.848l1.833-8.01a14.081 14.081 0 0 0-2.663-11.859A13.843 13.843 0 0 0 23.99 0H8.244z'/%3E%3Cpath fill='%23B51A31' d='M21.93 18.036L12.298 36H0z'/%3E%3C/g%3E%3C/svg%3E");
             width: 14rem;
@@ -48,20 +44,14 @@ const CardWrapper = styled.div`
         grid-row-gap: 3rem;
     }
 `
+
 const Cta = styled.div`
     display: block;
     margin: 0 auto;
     text-align: center;
-    padding: 2rem 0;
-
-    button {
-        padding: 1.6rem 2rem;
-        font-weight: bold;
-        margin: 2rem 0;
-    }
 `
 const StyledContainer = styled(Container)`
-    padding: 2rem 0;
+    padding: 4rem 0;
 `
 
 export const Dtrader = ({ toggleModal }) => (
@@ -86,6 +76,7 @@ export const Dtrader = ({ toggleModal }) => (
                         ),
                         localize('100+ instruments.'),
                     ]}
+                    no_margin
                 />
 
                 <Card
@@ -96,6 +87,7 @@ export const Dtrader = ({ toggleModal }) => (
                         localize('Powered by our patented algorithms.'),
                         localize('Transparency guaranteed.'),
                     ]}
+                    no_margin
                 />
                 <Card
                     title={localize('Intuitive and customisable')}
@@ -108,6 +100,7 @@ export const Dtrader = ({ toggleModal }) => (
                             'Trade the way you want with customisable charts, analytic tools, and themes.',
                         ),
                     ]}
+                    no_margin
                 />
             </CardWrapper>
         </StyledContainer>

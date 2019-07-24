@@ -22,10 +22,6 @@ import SmallStakes from 'images/svg/small-stakes.svg'
 import HighReturns from 'images/svg/volatility-indices.svg'
 import ContractDurations from 'images/svg/contract-durations.svg'
 
-const MarketsWrapper = styled.section`
-    width: 100%;
-    padding: 2rem 0;
-`
 const StyledSection = styled.section`
     padding-left: 8rem;
 
@@ -173,7 +169,7 @@ const Synthetic = () => (
 
 export const Markets = () => (
     <SectionContainer>
-        <MarketsWrapper>
+        <div>
             <Header as="h2" align="center">
                 {localize('Markets')}
             </Header>
@@ -190,6 +186,6 @@ export const Markets = () => (
                     <Synthetic label="synthetic" text="Synthetic Indices" />
                 </SideTab>
             </Markettabs>
-        </MarketsWrapper>
+        </div>
     </SectionContainer>
 )

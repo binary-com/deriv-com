@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
-import Container from 'components/containers/container'
+import Container, { SectionContainer } from 'components/containers/container'
 import { SectionHeader } from './_headers'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
@@ -19,7 +19,8 @@ const Works = styled.section`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
+    grid-template-rows: minmax(3rem, auto);
+    grid-gap: 2rem;
     padding: 2rem 0;
 
     @media ${device.tabletS} {
@@ -31,10 +32,11 @@ const Works = styled.section`
 
 const SecondaryArticle = styled.article`
     padding: 0 0.5rem;
+    min-width: 32.8rem;
 `
 
 export const HowItWorks = () => (
-    <>
+    <SectionContainer>
         <SectionHeader>
             <Header as="h2" align="center" color="black-2">
                 {localize('How it works')}
@@ -77,5 +79,5 @@ export const HowItWorks = () => (
                 </SecondaryArticle>
             </Works>
         </Container>
-    </>
+    </SectionContainer>
 )

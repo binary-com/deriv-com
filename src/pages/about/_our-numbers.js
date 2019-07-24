@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Container from '../../components/containers/container.js'
-import { Header } from '../../components/elements/typography.js'
-import { localize } from '../../components/localization'
+import Container from 'components/containers/container.js'
+import { Header } from 'components/elements/typography.js'
+import { localize } from 'components/localization'
 
 import TradingAccountsOpenedSVG from 'images/svg/trading-accounts-opened.svg'
 import TradeLastMonthSVG from 'images/svg/trades-last-month.svg'

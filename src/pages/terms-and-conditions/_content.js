@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements/typography'
-import { localize } from '../../components/localization'
+import { localize } from 'components/localization'
 
 const StyledSection = styled.section`
     padding-left: 8rem;

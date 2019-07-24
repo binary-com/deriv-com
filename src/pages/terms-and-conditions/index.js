@@ -1,6 +1,6 @@
 import React from 'react'
 import SideTab from 'components/elements/side-tab'
-import { localize, WithIntl } from '../../components/localization'
+import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import SEO from 'components/containers/seo'
 import Container from 'components/containers/container'

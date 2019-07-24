@@ -8,6 +8,7 @@ import Modal, { useModal } from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
 import { SharedLinkStyle } from '../localization/localized-link'
 import { DERIV_APP_URL } from '../../common/utility'
+import Login from 'common/login'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
@@ -80,6 +81,7 @@ const NavRightContainer = styled.div`
         }
     }}
 `
+
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
@@ -99,6 +101,10 @@ const Nav = () => {
             )
         }
     }, [])
+
+    const handleLogin = () => {
+        window.location.href = Login.loginUrl()
+    }
     return (
         <StyledNav>
             <Wrapper>
@@ -139,7 +145,7 @@ const Nav = () => {
                 </NavCenter>
                 <NavRight>
                     <NavRightContainer enable_move={show_button}>
-                        <NavButton primary>
+                        <NavButton onClick={handleLogin} primary>
                             <span>{localize('Login')}</span>
                         </NavButton>
                         <NavButton

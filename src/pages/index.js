@@ -479,7 +479,7 @@ const Home = () => {
     const handleExternalLink = e => {
         e.preventDefault()
 
-        window.location.href = DERIV_APP_URL
+        window.open(DERIV_APP_URL, '_blank')
     }
 
     return (

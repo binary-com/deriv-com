@@ -45,14 +45,14 @@ import SmallStakes from 'images/svg/small-stakes.svg'
 import HighReturns from 'images/svg/volatility-indices.svg'
 import ContractDurations from 'images/svg/contract-durations.svg'
 
-const carousel_1_texts = [
+const carousel_1_text = [
     localize('Exclusive synthetic market available 24/7'),
     localize('USD 5 minimum deposit'),
     localize('Stakes as low as USD 0.35'),
     localize('Payouts up to USD 50,000'),
 ]
 
-const carousel_2_texts = [
+const carousel_2_text = [
     localize('Patented, licensed, and regulated'),
     localize('Short- to long-term trades'),
     localize('Reliable customer support'),
@@ -462,19 +462,9 @@ const Synthetic = () => (
         </TabGrid>
     </StyledSection>
 )
-const Carousel1 = () => (
+const CarouselItems = carousel_text => (
     <Slide>
-        {carousel_1_texts.map((content, index) => (
-            <div key={index}>
-                <ChecklistLogo />
-                <p>{content}</p>
-            </div>
-        ))}
-    </Slide>
-)
-const Carousel2 = () => (
-    <Slide>
-        {carousel_2_texts.map((content, index) => (
+        {carousel_text.map((content, index) => (
             <div key={index}>
                 <ChecklistLogo />
                 <p>{content}</p>
@@ -631,7 +621,10 @@ const Home = () => {
                         </DemoButton>
                     </ContextContainer>
                     <Carousel
-                        slides={[Carousel1, Carousel2]}
+                        slides={[
+                            CarouselItems(carousel_1_text),
+                            CarouselItems(carousel_2_text),
+                        ]}
                         background={CarouselBackground}
                     />
                 </HomeCarouselContainer>

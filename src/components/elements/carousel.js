@@ -59,7 +59,7 @@ class Carousel extends React.Component {
         const Background = this.props.background
         return (
             <Wrapper>
-                <ActiveSlide />
+                {ActiveSlide}
                 <BulletArea>
                     {this.props.slides.map((Slide, index) => (
                         <Bullet
@@ -71,7 +71,7 @@ class Carousel extends React.Component {
                                     : 'not-active'
                             }
                             onClick={e => this.handleClick(e)}
-                            aria-label='carousel-button'
+                            aria-label="carousel-button"
                         />
                     ))}
                 </BulletArea>

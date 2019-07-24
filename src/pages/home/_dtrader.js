@@ -7,6 +7,7 @@ import Container from 'components/containers/container'
 import { Card } from 'components/elements/card'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
+import { SectionHeader, StyledSubHeader } from './_headers'
 
 import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
@@ -31,7 +32,7 @@ const DtraderSectionContainer = styled.section`
         }
     }
 `
-const Dtrader = styled.div`
+const CardWrapper = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -62,16 +63,8 @@ const Cta = styled.div`
 const StyledContainer = styled(Container)`
     padding: 2rem 0;
 `
-const StyledSubHeader = styled(Header)`
-    margin-top: 0.8rem;
-`
-const SectionHeader = styled.div`
-    margin-top: 8rem;
-    margin-bottom: 2rem;
-    text-align: center;
-`
 
-export const DtraderSection = ({ toggleModal }) => (
+export const Dtrader = ({ toggleModal }) => (
     <DtraderSectionContainer>
         <SectionHeader>
             <Header as="h2" align="center" lh="6rem">
@@ -82,7 +75,7 @@ export const DtraderSection = ({ toggleModal }) => (
             </StyledSubHeader>
         </SectionHeader>
         <StyledContainer>
-            <Dtrader>
+            <CardWrapper>
                 <Card
                     title={localize('Superior trading platform')}
                     Icon={SuperiorPlatform}
@@ -116,7 +109,7 @@ export const DtraderSection = ({ toggleModal }) => (
                         ),
                     ]}
                 />
-            </Dtrader>
+            </CardWrapper>
         </StyledContainer>
         <Cta>
             <Button onClick={toggleModal} secondary>
@@ -126,6 +119,6 @@ export const DtraderSection = ({ toggleModal }) => (
     </DtraderSectionContainer>
 )
 
-DtraderSection.propTypes = {
+Dtrader.propTypes = {
     toggleModal: PropTypes.func,
 }

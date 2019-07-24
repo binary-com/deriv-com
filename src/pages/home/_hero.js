@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import Container from 'components/containers/container'
+import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import Signup, { LoginText } from 'components/form/signup'
+import { StyledHeader } from './_headers'
 
 import header_trade_image from 'images/common/header-trade.png'
 
@@ -28,9 +29,6 @@ const HeroWrapper = styled.section`
     }
 `
 
-const StyledHeader = styled(Header)`
-    margin-top: 2rem;
-`
 const HeroGrid = styled.section`
     width: 100%;
     display: grid;

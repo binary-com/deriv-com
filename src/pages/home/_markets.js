@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import SideTab from 'components/elements/side-tab'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers/container'
-import SideTab from 'components/elements/side-tab'
+import { StyledSubHeader } from './_headers'
 
 import liquidMarket from 'images/svg/liquid-market.svg'
 import tfs from 'images/svg/tfs.svg'
@@ -21,10 +22,7 @@ import SmallStakes from 'images/svg/small-stakes.svg'
 import HighReturns from 'images/svg/volatility-indices.svg'
 import ContractDurations from 'images/svg/contract-durations.svg'
 
-const StyledSubHeader = styled(Header)`
-    margin-top: 0.8rem;
-`
-const Markets = styled.section`
+const MarketsWrapper = styled.section`
     width: 100%;
     padding: 2rem 0;
 `
@@ -173,9 +171,9 @@ const Synthetic = () => (
     </StyledSection>
 )
 
-export const MarketSection = () => (
+export const Markets = () => (
     <SectionContainer>
-        <Markets>
+        <MarketsWrapper>
             <Header as="h2" align="center">
                 {localize('Markets')}
             </Header>
@@ -192,6 +190,6 @@ export const MarketSection = () => (
                     <Synthetic label="synthetic" text="Synthetic Indices" />
                 </SideTab>
             </Markettabs>
-        </Markets>
+        </MarketsWrapper>
     </SectionContainer>
 )

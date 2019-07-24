@@ -10,10 +10,10 @@ import { localize, WithIntl } from 'components/localization'
 import { Divider } from 'components/elements/divider'
 
 import { Hero } from './home/_hero'
-import { DtraderSection } from './home/_dtrader'
+import { Dtrader } from './home/_dtrader'
 import { HowItWorks } from './home/_how-it-works'
-import { MarketSection } from './home/_markets'
-import { CarouselSection } from './home/_carousel'
+import { Markets } from './home/_markets'
+import { WhyDeriv } from './home/_why-deriv'
 
 const PaymentSection = styled.section`
     width: 100%;
@@ -27,11 +27,11 @@ const Home = () => {
         <Layout>
             <SEO title={localize('Home')} />
             <Hero />
-            <DtraderSection toggleModal={toggleModal} />
+            <Dtrader toggleModal={toggleModal} />
             <HowItWorks />
             <Divider />
-            <MarketSection />
-            <CarouselSection />
+            <Markets />
+            <WhyDeriv />
             <PaymentSection>
                 <Container>
                     <PaymentMethods />

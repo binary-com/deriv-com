@@ -109,7 +109,7 @@ const CarouselItems = carousel_text => (
         ))}
     </Slide>
 )
-export const CarouselSection = () => (
+export const WhyDeriv = () => (
     <HomeCarouselWrapper>
         <HomeCarouselContainer>
             <ContextContainer>

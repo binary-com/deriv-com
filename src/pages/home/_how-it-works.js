@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
+import Container from 'components/containers/container'
+import { SectionHeader } from './_headers'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import Container from 'components/containers/container'
 
 import Practice from 'images/svg/practice.svg'
 import Trade from 'images/svg/trade.svg'
@@ -12,12 +13,6 @@ import Withdraw from 'images/svg/withdraw.svg'
 const SecondaryHeader = styled(Header)`
     margin-top: 2rem;
     margin-bottom: 0.8rem;
-`
-
-const SectionHeader = styled.div`
-    margin-top: 8rem;
-    margin-bottom: 2rem;
-    text-align: center;
 `
 
 const Works = styled.section`

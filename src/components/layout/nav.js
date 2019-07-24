@@ -54,6 +54,11 @@ const NavLink = styled.li`
 const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
+
+const StyledButton = styled.a`
+    ${SharedLinkStyle}
+    cursor: pointer;
+`
 const NavButton = styled(Button)`
     font-weight: bold;
     padding: 1.4rem var(--text-size-s);
@@ -101,7 +106,11 @@ const Nav = () => {
     }, [])
 
     const handleLogin = () => {
-        window.location.href = Login.loginUrl()
+        window.open(Login.loginUrl(), '_blank')
+    }
+
+    const handleTraderLink = () => {
+        window.open(DERIV_APP_URL, '_blank')
     }
     return (
         <StyledNav>
@@ -113,14 +122,12 @@ const Nav = () => {
                 </NavLeft>
                 <NavCenter>
                     <NavLink>
-                        <StyledLink
-                            activeClassName="active"
-                            to={DERIV_APP_URL}
-                            external_link
+                        <StyledButton
+                            onClick={handleTraderLink}
                             aria-label={localize('Trade')}
                         >
                             {localize('Trade')}
-                        </StyledLink>
+                        </StyledButton>
                     </NavLink>
                     <NavLink margin>
                         <StyledLink

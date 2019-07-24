@@ -7,7 +7,7 @@ import Hero from 'components/elements/hero'
 import Container from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography'
 import { CardStyle } from 'components/elements/card'
-import { Divider } from '../components/elements/divider'
+import { Divider } from 'components/elements/divider'
 
 // import svgs
 import Demo from 'images/svg/demo-icon.svg'

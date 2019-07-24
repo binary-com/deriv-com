@@ -1,29 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import device from 'themes/device'
-import SEO from '../components/containers/seo'
-import Layout from '../components/layout/layout'
-import Image from '../components/elements/image'
-import Hero from '../components/elements/hero.js'
-import Button from '../components/form/button'
-import Modal, { useModal } from '../components/elements/modal'
-import SignupModal from '../components/elements/signup-modal'
-import Container from '../components/containers/container'
-import { Card } from '../components/elements/card.js'
-import { Divider } from '../components/elements/divider'
-import { StyledLink } from '../components/elements/link'
-import { Header, Text } from '../components/elements/typography.js'
-import { localize, WithIntl } from '../components/localization'
-
-import Two from 'images/svg/two-factor.svg'
-import DifferentPassword from 'images/svg/different-password.svg'
-import Cashier from 'images/svg/cashier-lock.svg'
-import Browser from 'images/svg/browser-up-to-date.svg'
-import Configure from 'images/svg/configure-pc.svg'
-import DontShare from 'images/svg/share-deriv.svg'
-import Monitor from 'images/svg/monitor-logins.svg'
-import Antivirus from 'images/svg/install-antivirus.svg'
+import SEO from '../../components/containers/seo'
+import Layout from '../../components/layout/layout'
+import Image from '../../components/elements/image'
+import Hero from '../../components/elements/hero.js'
+import Button from '../../components/form/button'
+import Modal, { useModal } from '../../components/elements/modal'
+import SignupModal from '../../components/elements/signup-modal'
+import Container from '../../components/containers/container'
+import { Card } from '../../components/elements/card.js'
+import { Divider } from '../../components/elements/divider'
+import { StyledLink } from '../../components/elements/link'
+import { Header, Text } from '../../components/elements/typography.js'
+import { localize, WithIntl } from '../../components/localization'
+import { SecurityIconGrid } from './_icon-grid'
 
 const GrayBackground = styled.div`
     background-color: var(--color-grey-1);
@@ -37,17 +28,6 @@ const StyledHeader = styled(Header)`
     max-width: 80rem;
     margin: 0 auto;
     padding: 1.2rem 2rem 4rem;
-`
-
-const Grid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 5rem;
-    grid-row-gap: 2.4rem;
-
-    @media ${device.tablet} {
-        grid-template-columns: repeat(2, 1fr);
-    }
 `
 const Practice = styled.div`
     display: grid;
@@ -81,23 +61,6 @@ const Risk = styled.div`
         flex-direction: column;
     }
 `
-const GridCol = styled.article`
-    ${Text} {
-        margin-top: 0.8rem;
-    }
-`
-const Col = ({ Icon, content }) => (
-    <GridCol>
-        <Icon />
-        <Text color="black-3" lh="1.55">
-            {content}
-        </Text>
-    </GridCol>
-)
-Col.propTypes = {
-    content: PropTypes.string,
-    Icon: PropTypes.func,
-}
 
 const KeepSafe = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -121,56 +84,7 @@ const KeepSafe = () => {
                         'Your account security is very important to us. Here are a few ways to enhance your account security:',
                     )}
                 </StyledHeader>
-                <Grid>
-                    <Col
-                        Icon={Two}
-                        content={localize(
-                            'Enable two-factor authentication on your account.',
-                        )}
-                    />
-                    <Col
-                        Icon={DifferentPassword}
-                        content={localize(
-                            'Use different passwords for your email and Deriv.com account and set a strong password.',
-                        )}
-                    />
-                    <Col
-                        Icon={Cashier}
-                        content={localize(
-                            'Set a cashier lock password to prevent unauthorised access to your cashier.',
-                        )}
-                    />
-                    <Col
-                        Icon={Browser}
-                        content={localize(
-                            'Always keep your web browser up-to-date. We recommend using the latest version of Google Chrome.',
-                        )}
-                    />
-                    <Col
-                        Icon={Configure}
-                        content={localize(
-                            'Configure your PC and mobile phone to use the Cloudflare DNS by following the instructions on our website.',
-                        )}
-                    />
-                    <Col
-                        Icon={DontShare}
-                        content={localize(
-                            "Don't share your Deriv.com account or payment methods with any other person.",
-                        )}
-                    />
-                    <Col
-                        Icon={Monitor}
-                        content={localize(
-                            'Monitor recent logins to your account using the login history facility.',
-                        )}
-                    />
-                    <Col
-                        Icon={Antivirus}
-                        content={localize(
-                            'Install antivirus software (such as Avast Free Antivirus for Windows and Mac) on your computer.',
-                        )}
-                    />
-                </Grid>
+                <SecurityIconGrid />
             </SectionContainer>
             <Divider />
             <SectionContainer padding="8">

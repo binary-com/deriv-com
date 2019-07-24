@@ -1,15 +1,7 @@
-import React, { Component } from 'react'
-import SideTab from 'components/elements/side-tab'
-import { localize, WithIntl } from '../components/localization'
-import Layout from 'components/layout/layout'
-import SEO from 'components/containers/seo'
-import Container from 'components/containers/container'
+import React from 'react'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements/typography'
-
-const TncContainer = styled(Container)`
-    padding: 6rem 0;
-`
+import { localize } from 'components/localization'
 
 const StyledSection = styled.section`
     padding-left: 8rem;
@@ -37,7 +29,7 @@ const StyledOrder = styled.ol`
     }
 `
 
-const General = () => (
+export const General = () => (
     <StyledSection>
         <Header as="h2" color="black">
             {localize('Terms and Conditions')}
@@ -221,7 +213,7 @@ const General = () => (
     </StyledSection>
 )
 
-const DataFeed = () => (
+export const DataFeed = () => (
     <StyledSection>
         <Header as="h2" color="black">
             {localize('Data feed')}
@@ -262,7 +254,7 @@ const DataFeed = () => (
     </StyledSection>
 )
 
-const SecurityAndPrivacy = () => (
+export const SecurityAndPrivacy = () => (
     <StyledSection>
         <Header as="h2" color="black">
             {localize('Security and privacy')}
@@ -308,7 +300,7 @@ const SecurityAndPrivacy = () => (
     </StyledSection>
 )
 
-const ConflictsPolicy = () => (
+export const ConflictsPolicy = () => (
     <StyledSection>
         <Header as="h2" color="black">
             {localize('Summary of the Conflicts policy')}
@@ -342,7 +334,7 @@ const ConflictsPolicy = () => (
     </StyledSection>
 )
 
-const Copyright = () => (
+export const Copyright = () => (
     <StyledSection>
         <Header as="h2" color="black">
             {localize('Copyright')}
@@ -375,7 +367,7 @@ const Copyright = () => (
     </StyledSection>
 )
 
-const ComplaintsAndDisputes = () => (
+export const ComplaintsAndDisputes = () => (
     <StyledSection>
         <Header as="h2" color="black">
             {localize('Complaints and disputes')}
@@ -388,7 +380,7 @@ const ComplaintsAndDisputes = () => (
     </StyledSection>
 )
 
-const RiskDisclaimer = () => (
+export const RiskDisclaimer = () => (
     <StyledSection>
         <Header as="h2" color="black">
             {localize('Risk disclaimer')}
@@ -416,7 +408,7 @@ const RiskDisclaimer = () => (
     </StyledSection>
 )
 
-const OrderExecution = () => (
+export const OrderExecution = () => (
     <StyledSection>
         <Header as="h2" color="black">
             {localize('Summary of the order execution policy')}
@@ -439,7 +431,7 @@ const OrderExecution = () => (
     </StyledSection>
 )
 
-const PaymentAgents = () => (
+export const PaymentAgents = () => (
     <StyledSection>
         <Header as="h2" color="black">
             {localize('Payment agents terms and conditions')}
@@ -491,53 +483,3 @@ const PaymentAgents = () => (
         </StyledOrder>
     </StyledSection>
 )
-
-class TermsAndConditions extends Component {
-    state = {}
-    render() {
-        return (
-            <Layout>
-                <SEO title={localize('Terms and conditions')} />
-                <TncContainer align="left" justify="left">
-                    <SideTab has_hash_routing>
-                        <General label="general" text="Terms and conditions" />
-                        <DataFeed label="data-feed" text="Data feed" />
-                        <SecurityAndPrivacy
-                            label="security-privacy"
-                            text="Security and privacy"
-                        />
-
-                        <ConflictsPolicy
-                            label="conflict-policy"
-                            text="Conflicts policy"
-                        />
-
-                        <Copyright label="copyright" text="Copyright" />
-
-                        <ComplaintsAndDisputes
-                            label="complain-dispute"
-                            text="Complaints and disputes"
-                        />
-
-                        <RiskDisclaimer
-                            label="risk-disclaimer"
-                            text="Risk disclaimer"
-                        />
-
-                        <OrderExecution
-                            label="order-execution"
-                            text="Order execution"
-                        />
-
-                        <PaymentAgents
-                            label="payment-agent"
-                            text="Payment agents"
-                        />
-                    </SideTab>
-                </TncContainer>
-            </Layout>
-        )
-    }
-}
-
-export default WithIntl()(TermsAndConditions)

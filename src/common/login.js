@@ -66,6 +66,7 @@ const Login = (() => {
     return {
         redirectToLogin,
         initOneAll,
+        loginUrl
     }
 })()
 

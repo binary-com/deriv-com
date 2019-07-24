@@ -19,7 +19,7 @@ import { Header, Text } from '../components/elements/typography.js'
 import PaymentMethods from '../components/elements/payment-methods.js'
 import { Card } from 'components/elements/card'
 
-import { getDerivAppLink } from 'common/utility'
+import { DERIV_APP_URL } from 'common/utility'
 
 import img from 'images/common/header-trade.png'
 import CarouselBackground from 'images/svg/abstract.svg'
@@ -479,7 +479,7 @@ const Home = () => {
     const handleExternalLink = e => {
         e.preventDefault()
 
-        window.location.href = getDerivAppLink()
+        window.location.href = DERIV_APP_URL
     }
 
     return (

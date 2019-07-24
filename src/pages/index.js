@@ -289,23 +289,6 @@ const DemoButton = styled(Button)`
     margin-top: 4rem;
 `
 const Slide = styled.section`
-    div {
-        display: inline-flex;
-        margin-top: 4rem;
-        width: 100%;
-        position: relative;
-        animation-name: slide;
-        animation-duration: 0.3s;
-        animation-timing-function: linear;
-
-        p {
-            margin-left: 1.6rem;
-            height: 30px;
-            font-size: 20px;
-            color: var(--color-black-2);
-            line-height: 1.5;
-        }
-    }
     @keyframes slide {
         0% {
             margin-left: 12.6rem;
@@ -320,6 +303,23 @@ const Slide = styled.section`
         }
     }
 
+    div {
+        display: inline-flex;
+        margin-top: 4rem;
+        width: 100%;
+        position: relative;
+        animation-name: slide;
+        animation-duration: 0.4s;
+        animation-timing-function: linear;
+
+        p {
+            margin-left: 1.6rem;
+            height: 30px;
+            font-size: 20px;
+            color: var(--color-black-2);
+            line-height: 1.5;
+        }
+    }
     div:first-child {
         margin-top: 0;
     }
@@ -622,8 +622,8 @@ const Home = () => {
                     </ContextContainer>
                     <Carousel
                         slides={[
-                            CarouselItems(carousel_1_text),
-                            CarouselItems(carousel_2_text),
+                            () => CarouselItems(carousel_1_text),
+                            () => CarouselItems(carousel_2_text),
                         ]}
                         background={CarouselBackground}
                     />

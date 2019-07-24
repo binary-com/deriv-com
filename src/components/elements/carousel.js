@@ -59,7 +59,7 @@ class Carousel extends React.Component {
         const Background = this.props.background
         return (
             <Wrapper>
-                {ActiveSlide}
+                <ActiveSlide />
                 <BulletArea>
                     {this.props.slides.map((Slide, index) => (
                         <Bullet

@@ -60,7 +60,7 @@ const Login = (() => {
             utm_campaign_link,
         )
 
-        window.open(social_login_url, '_blank', 'noopener', 'noreferrer')
+        window.open(social_login_url, '_blank')
     }
 
     return {

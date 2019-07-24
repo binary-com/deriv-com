@@ -479,7 +479,7 @@ const Home = () => {
     const handleExternalLink = e => {
         e.preventDefault()
 
-        window.open(DERIV_APP_URL, '_blank', 'noopener', 'noreferrer')
+        window.open(DERIV_APP_URL, '_blank')
     }
 
     return (

@@ -101,12 +101,7 @@ const Nav = () => {
     }, [])
 
     const handleLogin = () => {
-        window.open(
-            Login.loginUrl(),
-            '_blank',
-            'noopener',
-            'noreferrer',
-        ).href = Login.loginUrl()
+        window.open(Login.loginUrl(), '_blank', 'noopener', 'noreferrer')
     }
     return (
         <StyledNav>

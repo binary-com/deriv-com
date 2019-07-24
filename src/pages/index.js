@@ -176,7 +176,7 @@ const DtraderSection = styled.section`
     }
 `
 const Dtrader = styled.div`
-    width: 100%;
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: minmax(3rem, auto);

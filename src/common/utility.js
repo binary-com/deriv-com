@@ -47,7 +47,10 @@ class PromiseClass {
     }
 }
 
+const DERIV_APP_URL = 'https://deriv.app'
+
 export {
+    DERIV_APP_URL,
     isEmptyObject,
     cloneObject,
     hasWindow,

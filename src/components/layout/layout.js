@@ -9,15 +9,13 @@ const Main = styled.main`
     padding-top: 7.2rem;
 `
 
-const Layout = ({ children }) => {
-    return (
-        <>
-            <Nav />
-            <Main>{children}</Main>
-            <Footer />
-        </>
-    )
-}
+const Layout = ({ children }) => (
+    <>
+        <Nav />
+        <Main>{children}</Main>
+        <Footer />
+    </>
+)
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,

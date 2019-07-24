@@ -32,6 +32,11 @@ const Content = styled.div`
             : ''}
 `
 
+const SignupContent = styled(Content)`
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+`
+
 const HeaderWrapper = styled(Header)`
     max-width: 75%;
 `
@@ -57,9 +62,9 @@ const SignupModal = () => (
                     {localize('Go ahead, try it for yourself.')}
                 </CaptionDesc>
             </Content>
-            <Content>
-                <Signup />
-            </Content>
+            <SignupContent>
+                <Signup autofocus />
+            </SignupContent>
         </ModalRow>
     </SignupWrapper>
 )

@@ -71,7 +71,7 @@ class Carousel extends React.Component {
                                     : 'not-active'
                             }
                             onClick={e => this.handleClick(e)}
-                            aria-label='carousel-button'
+                            aria-label="carousel-button"
                         />
                     ))}
                 </BulletArea>

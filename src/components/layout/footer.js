@@ -106,6 +106,8 @@ const StyledLink = styled(props => <LocalizedLink {...props} />)`
     }
 `
 const Social = styled.div`
+    /* temporary disabled */ 
+    display: none;
     font-size: 1.2rem;
     color: var(--color-grey-3);
     padding: 0 2rem;
@@ -146,7 +148,7 @@ const Footer = () => (
                             </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/about"
+                                to="/about/"
                                 aria-label={localize('About us')}
                             >
                                 {localize('About us')}
@@ -160,7 +162,7 @@ const Footer = () => (
                             </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/help-centre"
+                                to="/help-centre/"
                                 aria-label={localize('Help Centre')}
                             >
                                 {localize('Help Centre')}
@@ -172,7 +174,7 @@ const Footer = () => (
                             </Header>
                             <StyledLink
                                 activeClassName="active"
-                                to="/"
+                                to="/regulatory/"
                                 aria-label={localize('Regulatory Information')}
                             >
                                 {localize('Regulatory Information')}
@@ -186,7 +188,7 @@ const Footer = () => (
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
-                                to="/"
+                                to="terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and Privacy')}
                             >
                                 {localize('Security and Privacy')}

@@ -9,6 +9,7 @@ export const StyledLink = styled(LocalizedLink)`
     &:hover {
         text-decoration: underline;
     }
+
     ${props => {
         if (props.has_arrow)
             return css`

@@ -66,31 +66,6 @@ const Regulatory = () => (
                 </StyledText>
                 <FlexWrapper>
                     <CardChildren
-                        Icon={SVG}
-                        title={localize('Binary (SVG) Ltd')}
-                        icon_width="24rem"
-                        icon_height="16rem"
-                    >
-                        <Text align="center">
-                            {localize(
-                                'Binary (SVG) Ltd is registered in St. Vincent and the Grenadines.',
-                            )}
-                        </Text>
-                    </CardChildren>
-                    <CardChildren
-                        Icon={Vanuatu}
-                        title={localize('Binary (V) Ltd')}
-                        icon_width="24rem"
-                        icon_height="16rem"
-                    >
-                        <Text align="center">
-                            {localize(
-                                'Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission -',
-                            )}{' '}
-                            <a href="">{localize('view license')}</a>
-                        </Text>
-                    </CardChildren>
-                    <CardChildren
                         Icon={MFSA}
                         title={localize('Binary Investments (Europe) Ltd')}
                         icon_width="24rem"
@@ -121,6 +96,19 @@ const Regulatory = () => (
                         </Text>
                     </CardChildren>
                     <CardChildren
+                        Icon={Vanuatu}
+                        title={localize('Binary (V) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
+                    >
+                        <Text align="center">
+                            {localize(
+                                'Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission -',
+                            )}{' '}
+                            <a href="">{localize('view license')}</a>
+                        </Text>
+                    </CardChildren>
+                    <CardChildren
                         Icon={Labuan}
                         title={localize('Binary (FX) Ltd')}
                         icon_width="24rem"
@@ -135,6 +123,18 @@ const Regulatory = () => (
                                 {`${localize('licence no. MB/18/0024')}`}
                             </a>
                             ).
+                        </Text>
+                    </CardChildren>
+                    <CardChildren
+                        Icon={SVG}
+                        title={localize('Binary (SVG) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
+                    >
+                        <Text align="center">
+                            {localize(
+                                'Binary (SVG) Ltd is registered in St. Vincent and the Grenadines.',
+                            )}
                         </Text>
                     </CardChildren>
                 </FlexWrapper>

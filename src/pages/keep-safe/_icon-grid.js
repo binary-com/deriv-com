@@ -13,8 +13,9 @@ import Configure from 'images/svg/configure-pc.svg'
 import DontShare from 'images/svg/share-deriv.svg'
 import Monitor from 'images/svg/monitor-logins.svg'
 import Antivirus from 'images/svg/install-antivirus.svg'
+import Container from 'components/containers/container'
 
-const IconGrid = styled.div`
+const IconGrid = styled(Container)`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 5rem;

@@ -28,7 +28,7 @@ const Hero = ({ header, paragraph, paragraph_width }) => (
             <StyledHeader
                 as="h4"
                 color="white"
-                weight="500"
+                weight="normal"
                 align="center"
                 paragraph_width={paragraph_width}
             >

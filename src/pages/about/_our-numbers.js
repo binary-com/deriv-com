@@ -34,7 +34,7 @@ const OurNumbersContainer = styled(Container)`
     span {
         margin-top: 2rem;
         height: 30px;
-        font-size: 2rem;
+        font-size: var(--text-size-sm);
         line-height: 1.5;
         text-align: right;
         color: var(--color-black-2);
@@ -79,7 +79,7 @@ const Charts = styled.div`
     }
     p {
         height: 30px;
-        font-size: 2rem;
+        font-size: var(--text-size-sm);
         line-height: 1.5;
         color: var(--color-black-2);
         margin-top: 0;

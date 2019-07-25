@@ -2,34 +2,33 @@ import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import SEO from '../../components/containers/seo'
-import Layout from '../../components/layout/layout'
-import Image from '../../components/elements/image'
-import Hero from '../../components/elements/hero.js'
-import Button from '../../components/form/button'
-import Modal, { useModal } from '../../components/elements/modal'
-import SignupModal from '../../components/elements/signup-modal'
-import Container from '../../components/containers/container'
-import { Card } from '../../components/elements/card.js'
-import { Divider } from '../../components/elements/divider'
-import { StyledLink } from '../../components/elements/link'
-import { Header, Text } from '../../components/elements/typography.js'
-import { localize, WithIntl } from '../../components/localization'
+import Layout from 'components/layout/layout'
+import Image from 'components/elements/image'
+import Hero from 'components/elements/hero.js'
+import Button from 'components/form/button'
+import Modal, { useModal } from 'components/elements/modal'
+import SignupModal from 'components/elements/signup-modal'
+import Container, {
+    SectionContainer,
+    FlexGridContainer,
+} from 'components/containers/container'
+import { Card } from 'components/elements/card.js'
+import { Divider } from 'components/elements/divider'
+import { StyledLink } from 'components/elements/link'
+import { Header, Text } from 'components/elements/typography.js'
+import { localize, WithIntl } from 'components/localization'
 import { SecurityIconGrid } from './_icon-grid'
 
 const GrayBackground = styled.div`
     background-color: var(--color-grey-1);
 `
-const SectionContainer = styled(Container).attrs({
-    as: 'section',
-})`
-    padding: ${props => props.padding || ''}rem 0;
-`
+
 const StyledHeader = styled(Header)`
     max-width: 80rem;
     margin: 0 auto;
     padding: 1.2rem 2rem 4rem;
 `
-const Practice = styled.div`
+const Practice = styled(Container)`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 17.4rem;
@@ -49,16 +48,11 @@ const Practice = styled.div`
         grid-template-columns: 1fr;
     }
 `
-const Risk = styled.div`
+const Risk = styled(FlexGridContainer)`
     margin-top: 4rem;
-    display: flex;
-    justify-content: center;
 
     ${Text} {
-        font-size: 2rem;
-    }
-    @media ${device.tablet} {
-        flex-direction: column;
+        font-size: var(--text-size-sm);
     }
 `
 
@@ -87,7 +81,7 @@ const KeepSafe = () => {
                 <SecurityIconGrid />
             </SectionContainer>
             <Divider />
-            <SectionContainer padding="8">
+            <SectionContainer>
                 <Practice>
                     <div>
                         <Header as="h2">
@@ -110,11 +104,11 @@ const KeepSafe = () => {
                 </Practice>
             </SectionContainer>
             <GrayBackground>
-                <SectionContainer padding="8" direction="column">
+                <SectionContainer>
                     <Header as="h2" align="center">
                         {localize('Understand the risks')}
                     </Header>
-                    <Risk>
+                    <Risk justify="center" content_width="41.5rem">
                         <Card min_height="0rem" width="41.5rem">
                             <Text color="black-3" lh="1.55">
                                 {localize(

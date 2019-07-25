@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Hero from 'components/elements/hero'
-import Container from 'components/containers/container'
+import Container, { SectionContainer } from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import { CardChildren } from 'components/elements/card.js'
@@ -14,17 +14,15 @@ import MFSA from 'images/svg/mfsa.svg'
 import FSC from 'images/svg/fsc.svg'
 import Labuan from 'images/svg/footer-labuan.svg'
 
-const RegulatoryWrapper = styled.section`
+const RegulatoryWrapper = styled(SectionContainer)`
     background-image: linear-gradient(
         to bottom,
         var(--color-grey-2),
         var(--color-white)
     );
-    width: 100%;
 `
 const StyledContainer = styled(Container)`
     flex-direction: column;
-    padding: 8rem 0;
 `
 
 const StyledText = styled(Text)`
@@ -38,6 +36,7 @@ const FlexWrapper = styled(Container)`
     align-content: stretch;
     justify-content: space-between;
     min-width: 100%;
+    margin-top: 2.4rem;
 
     & > * {
         flex-shrink: 0;

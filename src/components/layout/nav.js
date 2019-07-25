@@ -60,7 +60,6 @@ const StyledButton = styled.a`
     cursor: pointer;
 `
 const NavButton = styled(Button)`
-    font-weight: bold;
     padding: 1.4rem var(--text-size-s);
     position: absolute;
     left: 0;
@@ -69,7 +68,6 @@ const NavButton = styled(Button)`
             return `
             left: 9rem;
             min-width:12.4rem;
-            border: 0.2rem solid var(--color-red)
             `
         }
     }}

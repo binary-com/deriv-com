@@ -9,6 +9,7 @@ import SignupModal from '../elements/signup-modal'
 import { SharedLinkStyle } from '../localization/localized-link'
 import { DERIV_APP_URL } from '../../common/utility'
 import Login from 'common/login'
+import device from 'themes/device'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
@@ -16,6 +17,9 @@ const StyledNav = styled.nav`
     position: fixed;
     width: 100%;
     z-index: 100;
+    @media ${device.tabletL} {
+        position: relative;
+    }
 `
 
 const Wrapper = styled(Container)`
@@ -26,6 +30,11 @@ const Wrapper = styled(Container)`
 
 const NavLeft = styled.div`
     text-align: left;
+    @media ${device.tabletL} {
+        svg {
+            width:50%
+        }
+    }
 `
 
 const NavCenter = styled.ul`
@@ -33,6 +42,10 @@ const NavCenter = styled.ul`
     padding: 0;
     display: flex;
     justify-content: space-between;
+
+    @media ${device.tabletL} {
+        display: none;
+    }
 `
 
 const NavRight = styled.div`
@@ -40,6 +53,8 @@ const NavRight = styled.div`
     width: 21.5rem;
     position: relative;
     height: 5rem;
+
+    display: none;
 `
 
 const NavLink = styled.li`

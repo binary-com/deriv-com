@@ -79,5 +79,11 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
+        {
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                policy: [{ userAgent: '*', allow: '/' }],
+            },
+        },
     ],
 }

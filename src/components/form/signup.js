@@ -302,7 +302,7 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
-    autofocus: PropTypes.string,
+    autofocus: PropTypes.bool,
 }
 
 export default Signup

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from 'components/form/button'
 import Container, {
@@ -7,6 +6,8 @@ import Container, {
     FlexGridContainer,
 } from 'components/containers/container'
 import { Card } from 'components/elements/card'
+import Modal, { useModal } from 'components/elements/modal'
+import SignupModal from 'components/elements/signup-modal'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import { SectionHeader, StyledSubHeader } from './_headers'
@@ -40,68 +41,78 @@ const StyledContainer = styled(Container)`
     padding: 4rem 0;
 `
 
-export const Dtrader = ({ toggleModal }) => (
-    <DtraderSectionContainer>
-        <SectionHeader>
-            <Header as="h2" align="center" lh="6rem">
-                {localize('DTrader')}
-            </Header>
-            <StyledSubHeader as="h4" align="center" weight="500">
-                {localize('All you need to get started')}
-            </StyledSubHeader>
-        </SectionHeader>
-        <StyledContainer>
-            <FlexGridContainer
-                content_width="32rem"
-                gap="1rem"
-                justify="center"
-            >
-                <Card
-                    title={localize('Superior trading platform')}
-                    Icon={SuperiorPlatform}
-                    content={[
-                        localize('A revolutionary platform for all traders.'),
-                        localize(
-                            'Access the world’s most traded markets and assets.',
-                        ),
-                        localize('100+ instruments.'),
-                    ]}
-                    width="32rem"
-                />
+export const Dtrader = () => {
+    const [show_modal, toggleModal, closeModal] = useModal()
 
-                <Card
-                    title={localize('Patented pricing technology')}
-                    Icon={PatentedTech}
-                    content={[
-                        localize('Real-time, two-way pricing.'),
-                        localize('Powered by our patented algorithms.'),
-                        localize('Transparency guaranteed.'),
-                    ]}
-                    width="32rem"
-                />
-                <Card
-                    title={localize('Intuitive and customisable')}
-                    Icon={Intuitive}
-                    content={[
-                        localize(
-                            'Easy-to-use and powerful trading environment.',
-                        ),
-                        localize(
-                            'Trade the way you want with customisable charts, analytic tools, and themes.',
-                        ),
-                    ]}
-                    width="32rem"
-                />
-            </FlexGridContainer>
-        </StyledContainer>
-        <Cta>
-            <Button onClick={toggleModal} secondary>
-                {localize('Create a free account')}
-            </Button>
-        </Cta>
-    </DtraderSectionContainer>
-)
+    return (
+        <DtraderSectionContainer>
+            <SectionHeader>
+                <Header as="h2" align="center" lh="6rem">
+                    {localize('DTrader')}
+                </Header>
+                <StyledSubHeader as="h4" align="center" weight="500">
+                    {localize('All you need to get started')}
+                </StyledSubHeader>
+            </SectionHeader>
+            <StyledContainer>
+                <FlexGridContainer
+                    content_width="32rem"
+                    gap="1rem"
+                    justify="center"
+                >
+                    <Card
+                        title={localize('Superior trading platform')}
+                        Icon={SuperiorPlatform}
+                        content={[
+                            localize(
+                                'A revolutionary platform for all traders.',
+                            ),
+                            localize(
+                                'Access the world’s most traded markets and assets.',
+                            ),
+                            localize('100+ instruments.'),
+                        ]}
+                        width="32rem"
+                    />
 
-Dtrader.propTypes = {
-    toggleModal: PropTypes.func,
+                    <Card
+                        title={localize('Patented pricing technology')}
+                        Icon={PatentedTech}
+                        content={[
+                            localize('Real-time, two-way pricing.'),
+                            localize('Powered by our patented algorithms.'),
+                            localize('Transparency guaranteed.'),
+                        ]}
+                        width="32rem"
+                    />
+                    <Card
+                        title={localize('Intuitive and customisable')}
+                        Icon={Intuitive}
+                        content={[
+                            localize(
+                                'Easy-to-use and powerful trading environment.',
+                            ),
+                            localize(
+                                'Trade the way you want with customisable charts, analytic tools, and themes.',
+                            ),
+                        ]}
+                        width="32rem"
+                    />
+                </FlexGridContainer>
+            </StyledContainer>
+            <Cta>
+                <Button onClick={toggleModal} secondary>
+                    {localize('Create a free account')}
+                </Button>
+                <Modal
+                    toggle={toggleModal}
+                    is_open={show_modal}
+                    is_blurred={true}
+                    closeModal={closeModal}
+                >
+                    <SignupModal autofocus />
+                </Modal>
+            </Cta>
+        </DtraderSectionContainer>
+    )
 }

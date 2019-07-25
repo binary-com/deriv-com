@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import device from 'themes/device'
 import styled from 'styled-components'
 import Button from 'components/form/button'
 import Container, { SectionContainer } from 'components/containers/container'
@@ -28,20 +27,17 @@ const DtraderSectionContainer = styled(SectionContainer)`
         }
     }
 `
-const CardWrapper = styled.div`
+const CardWrapper = styled(Container)`
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: center;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(3rem, auto);
-    grid-gap: 2rem;
-    padding: 0;
 
-    h5 {
-        margin-bottom: 1.2rem;
-    }
-    @media ${device.laptop} {
-        grid-template-columns: 1fr;
-        grid-row-gap: 3rem;
+    & > * {
+        flex-shrink: 0;
+        margin: 1rem;
+        width: 32rem;
     }
 `
 
@@ -76,7 +72,6 @@ export const Dtrader = ({ toggleModal }) => (
                         ),
                         localize('100+ instruments.'),
                     ]}
-                    no_margin
                 />
 
                 <Card
@@ -87,7 +82,6 @@ export const Dtrader = ({ toggleModal }) => (
                         localize('Powered by our patented algorithms.'),
                         localize('Transparency guaranteed.'),
                     ]}
-                    no_margin
                 />
                 <Card
                     title={localize('Intuitive and customisable')}
@@ -100,7 +94,6 @@ export const Dtrader = ({ toggleModal }) => (
                             'Trade the way you want with customisable charts, analytic tools, and themes.',
                         ),
                     ]}
-                    no_margin
                 />
             </CardWrapper>
         </StyledContainer>

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import device from 'themes/device'
 import Container, { SectionContainer } from 'components/containers/container'
 import { SectionHeader } from './_headers'
 import { Header, Text } from 'components/elements/typography.js'
@@ -15,24 +14,19 @@ const SecondaryHeader = styled(Header)`
     margin-bottom: 0.8rem;
 `
 
-const Works = styled.section`
+const Works = styled(Container)`
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: center;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: minmax(3rem, auto);
-    grid-gap: 2rem;
-    padding: 2rem 0;
-
-    @media ${device.tabletS} {
-        grid-template-columns: 1fr;
-        grid-row-gap: 8rem;
-        text-align: center;
-    }
+    margin-top: 4rem;
 `
 
 const SecondaryArticle = styled.article`
-    padding: 0 0.5rem;
-    min-width: 32.8rem;
+    flex-shrink: 0;
+    margin: 1rem;
+    width: 32rem;
 `
 
 export const HowItWorks = () => (

@@ -101,7 +101,7 @@ const Indices = () => (
         <TabGrid>
             <TabCol
                 Icon={RiskDiversification}
-                content={localize('Risk deviersification')}
+                content={localize('Risk diversification')}
             />
             <TabCol
                 Icon={MarketCondition}
@@ -157,7 +157,7 @@ const Synthetic = () => (
             />
             <TabCol
                 Icon={MarketRisk}
-                content={localize('Familiarise yourself with market risk')}
+                content={localize('Emulates market risks')}
             />
             <TabCol
                 Icon={SmallStakes}

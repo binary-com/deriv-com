@@ -51,7 +51,7 @@ const Regulatory = () => (
         <Hero
             header={localize('Licences and regulations')}
             paragraph={localize(
-                'Deriv operates under the jurisdiction of Binary.com.',
+                'Deriv is a trading platform created and operated by the Binary Group',
             )}
         />
         <RegulatoryWrapper>

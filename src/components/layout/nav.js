@@ -142,9 +142,9 @@ const Nav = () => {
                         <StyledLink
                             activeClassName="active"
                             to="/help-centre/"
-                            aria-label={localize('Help centre')}
+                            aria-label={localize('Help Centre')}
                         >
-                            {localize('Help centre')}
+                            {localize('Help Centre')}
                         </StyledLink>
                     </NavLink>
                 </NavCenter>

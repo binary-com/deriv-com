@@ -3,7 +3,7 @@ import { LocalizedLink, localize } from '../localization'
 import styled from 'styled-components'
 import device from 'themes/device'
 import Container from '../containers/container'
-import { Header, Text } from '../elements/typography.js'
+import { Header, Text, LinkText } from '../elements/typography.js'
 import Logo from 'images/svg/deriv.svg'
 import YouTube from 'images/svg/youtube.svg'
 import Twitter from 'images/svg/twitter.svg'
@@ -14,6 +14,7 @@ import Labuan from 'images/svg/footer-labuan.svg'
 import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
+import Localize from 'components/localization/localize'
 
 const FooterNavGrid = styled.div`
     display: grid;
@@ -106,7 +107,7 @@ const StyledLink = styled(props => <LocalizedLink {...props} />)`
     }
 `
 const Social = styled.div`
-    /* temporary disabled */ 
+    /* temporary disabled */
     display: none;
     font-size: 1.2rem;
     color: var(--color-grey-3);
@@ -131,21 +132,17 @@ const Footer = () => (
                             <Logo />
                         </div>
                         <div>
-                            <Header as="h4">
-                                {localize('Trade')}
-                            </Header>
+                            <Header as="h4">{localize('Trade')}</Header>
                             <StyledLink
                                 activeClassName="active"
                                 to="/keep-safe/"
-                                aria-label={localize('Keep Safe')}
+                                aria-label={localize('Keep safe')}
                             >
-                                {localize('Keep Safe')}
+                                {localize('Keep safe')}
                             </StyledLink>
                         </div>
                         <div>
-                            <Header as="h4">
-                                {localize('Company')}
-                            </Header>
+                            <Header as="h4">{localize('Company')}</Header>
                             <StyledLink
                                 activeClassName="active"
                                 to="/about/"
@@ -157,9 +154,7 @@ const Footer = () => (
                     </FooterNav>
                     <FooterNav>
                         <div>
-                            <Header as="h4">
-                                {localize('Support')}
-                            </Header>
+                            <Header as="h4">{localize('Support')}</Header>
                             <StyledLink
                                 activeClassName="active"
                                 to="/help-centre/"
@@ -169,36 +164,34 @@ const Footer = () => (
                             </StyledLink>
                         </div>
                         <div>
-                            <Header as="h4">
-                                {localize('Legal')}
-                            </Header>
+                            <Header as="h4">{localize('Legal')}</Header>
                             <StyledLink
                                 activeClassName="active"
                                 to="/regulatory/"
-                                aria-label={localize('Regulatory Information')}
+                                aria-label={localize('Regulatory information')}
                             >
-                                {localize('Regulatory Information')}
+                                {localize('Regulatory information')}
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
                                 to="/terms-and-conditions/"
-                                aria-label={localize('Terms and Conditions')}
+                                aria-label={localize('Terms and conditions')}
                             >
-                                {localize('Terms and Conditions')}
+                                {localize('Terms and conditions')}
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
                                 to="terms-and-conditions/#security-privacy"
-                                aria-label={localize('Security and Privacy')}
+                                aria-label={localize('Security and privacy')}
                             >
-                                {localize('Security and Privacy')}
+                                {localize('Security and privacy')}
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
                                 to="/responsible-trading/"
-                                aria-label={localize('Responsible Trading')}
+                                aria-label={localize('Responsible trading')}
                             >
-                                {localize('Responsible Trading')}
+                                {localize('Responsible trading')}
                             </StyledLink>
                         </div>
                         <Social>
@@ -217,8 +210,51 @@ const Footer = () => (
             <Container>
                 <LegalRow>
                     <div>
-                        <Text>{localize('The financial products offered by this website is offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines.')}</Text>
-                        <Text>{localize('This website\'s services are not made available in certain countries such as the USA, Canada, Hong Kong, Japan, or to persons under age 18.')}</Text>
+                        <Text>
+                            <Localize
+                                text="In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        color="red"
+                                        size="1.2rem"
+                                        href="../WS-Binary-Investments-Europe-Limited.pdf"
+                                        target="_blank"
+                                    />,
+                                ]}
+                            />
+                        </Text>
+                        <Text>
+                        <Localize
+                                text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>licence no. SIBA/L/18/1114</1>); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>licence no. MB/18/0024</2>)."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        color="red"
+                                        size="1.2rem"
+                                        href="../List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
+                                        target="_blank"
+                                    />,
+                                    <LinkText
+                                        key={1}
+                                        color="red"
+                                        size="1.2rem"
+                                        href="../BVI_license.pdf"
+                                        target="_blank"
+                                    />,
+                                    <LinkText
+                                        key={2}
+                                        color="red"
+                                        size="1.2rem"
+                                        href="../Labuan-license.pdf"
+                                        target="_blank"
+                                    />,
+                                ]}
+                            />
+                        </Text>
+                        <Text>
+                            {localize("This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.")}
+                        </Text>
                     </div>
                     <div>
                         <span>

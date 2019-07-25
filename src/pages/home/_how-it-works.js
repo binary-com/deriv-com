@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Container, { SectionContainer } from 'components/containers/container'
+import device from 'themes/device'
 import { SectionHeader } from './_headers'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
@@ -27,6 +28,12 @@ const SecondaryArticle = styled.article`
     flex-shrink: 0;
     margin: 1rem;
     width: 32rem;
+
+    @media ${device.mobileL} {
+        & > * {
+            text-align: center;
+        }
+    }
 `
 
 export const HowItWorks = () => (

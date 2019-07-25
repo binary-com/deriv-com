@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Container, { SectionContainer } from 'components/containers/container'
+import Container, {
+    SectionContainer,
+    FlexGridContainer,
+} from 'components/containers/container'
 import device from 'themes/device'
 import { SectionHeader } from './_headers'
 import { Header, Text } from 'components/elements/typography.js'
@@ -15,20 +18,11 @@ const SecondaryHeader = styled(Header)`
     margin-bottom: 0.8rem;
 `
 
-const Works = styled(Container)`
-    flex-wrap: wrap;
-    align-items: stretch;
-    align-content: stretch;
-    justify-content: center;
-    width: 100%;
+const Works = styled(FlexGridContainer)`
     margin-top: 4rem;
 `
 
 const SecondaryArticle = styled.article`
-    flex-shrink: 0;
-    margin: 1rem;
-    width: 32rem;
-
     @media ${device.mobileL} {
         & > * {
             text-align: center;
@@ -44,7 +38,7 @@ export const HowItWorks = () => (
             </Header>
         </SectionHeader>
         <Container>
-            <Works>
+            <Works content_width="32rem" justify="center" gap="1rem">
                 <SecondaryArticle>
                     <Practice />
                     <SecondaryHeader as="h4" weight="500">

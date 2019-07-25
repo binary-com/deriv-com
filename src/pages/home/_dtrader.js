@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from 'components/form/button'
-import Container, { SectionContainer } from 'components/containers/container'
+import Container, {
+    SectionContainer,
+    FlexGridContainer,
+} from 'components/containers/container'
 import { Card } from 'components/elements/card'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
@@ -27,19 +30,6 @@ const DtraderSectionContainer = styled(SectionContainer)`
         }
     }
 `
-const CardWrapper = styled(Container)`
-    flex-wrap: wrap;
-    align-items: stretch;
-    align-content: stretch;
-    justify-content: center;
-    width: 100%;
-
-    & > * {
-        flex-shrink: 0;
-        margin: 1rem;
-        width: 32rem;
-    }
-`
 
 const Cta = styled.div`
     display: block;
@@ -61,7 +51,11 @@ export const Dtrader = ({ toggleModal }) => (
             </StyledSubHeader>
         </SectionHeader>
         <StyledContainer>
-            <CardWrapper>
+            <FlexGridContainer
+                content_width="32rem"
+                gap="1rem"
+                justify="center"
+            >
                 <Card
                     title={localize('Superior trading platform')}
                     Icon={SuperiorPlatform}
@@ -72,6 +66,7 @@ export const Dtrader = ({ toggleModal }) => (
                         ),
                         localize('100+ instruments.'),
                     ]}
+                    width="32rem"
                 />
 
                 <Card
@@ -82,6 +77,7 @@ export const Dtrader = ({ toggleModal }) => (
                         localize('Powered by our patented algorithms.'),
                         localize('Transparency guaranteed.'),
                     ]}
+                    width="32rem"
                 />
                 <Card
                     title={localize('Intuitive and customisable')}
@@ -94,8 +90,9 @@ export const Dtrader = ({ toggleModal }) => (
                             'Trade the way you want with customisable charts, analytic tools, and themes.',
                         ),
                     ]}
+                    width="32rem"
                 />
-            </CardWrapper>
+            </FlexGridContainer>
         </StyledContainer>
         <Cta>
             <Button onClick={toggleModal} secondary>

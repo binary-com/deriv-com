@@ -18,7 +18,6 @@ const CardWrapper = styled.article`
     min-height: ${props => (props.min_height ? props.min_height : '35.6rem')};;
     width: ${props => (props.width ? props.width : '32.8rem')};
     padding: 4rem 5.6rem 4.6rem 5.6rem;
-    margin: ${props => (props.no_margin ? '0' : '0 1rem')};
 
     div {
         margin-top: 4rem;

@@ -53,21 +53,9 @@ const CardChildrenWrapper = styled.article`
     }
 `
 
-export const Card = ({
-    children,
-    Icon,
-    title,
-    content,
-    width,
-    min_height,
-    no_margin,
-}) => {
+export const Card = ({ children, Icon, title, content, width, min_height }) => {
     return (
-        <CardWrapper
-            width={width}
-            min_height={min_height}
-            no_margin={no_margin}
-        >
+        <CardWrapper width={width} min_height={min_height}>
             {!children && (
                 <>
                     <Icon />
@@ -113,7 +101,6 @@ Card.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     Icon: PropTypes.func,
     min_height: PropTypes.string,
-    no_margin: PropTypes.bool,
     title: PropTypes.string,
     width: PropTypes.string,
 }

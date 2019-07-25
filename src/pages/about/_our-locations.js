@@ -39,7 +39,7 @@ const Location = styled.div`
 
     p {
         margin-top: 0.5rem;
-        font-size: 2rem;
+        font-size: var(--text-size-sm);
         line-height: 1.5;
         color: var(--color-black-2);
     }

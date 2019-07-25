@@ -8,7 +8,10 @@ import Hero from 'components/elements/hero.js'
 import Button from 'components/form/button'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-import Container, { SectionContainer } from 'components/containers/container'
+import Container, {
+    SectionContainer,
+    FlexGridContainer,
+} from 'components/containers/container'
 import { Card } from 'components/elements/card.js'
 import { Divider } from 'components/elements/divider'
 import { StyledLink } from 'components/elements/link'
@@ -45,16 +48,11 @@ const Practice = styled(Container)`
         grid-template-columns: 1fr;
     }
 `
-const Risk = styled.div`
+const Risk = styled(FlexGridContainer)`
     margin-top: 4rem;
-    display: flex;
-    justify-content: center;
 
     ${Text} {
-        font-size: 2rem;
-    }
-    @media ${device.tablet} {
-        flex-direction: column;
+        font-size: var(--text-size-sm);
     }
 `
 
@@ -110,7 +108,7 @@ const KeepSafe = () => {
                     <Header as="h2" align="center">
                         {localize('Understand the risks')}
                     </Header>
-                    <Risk>
+                    <Risk justify="center" content_width="41.5rem">
                         <Card min_height="0rem" width="41.5rem">
                             <Text color="black-3" lh="1.55">
                                 {localize(

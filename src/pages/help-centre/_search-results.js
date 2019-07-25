@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { Ul, Li, ListWithLinks } from './_list'
 
 const ErrorHeader = styled(Header)`
-    font-size: 2rem;
+    font-size: var(--text-size-sm);
     padding-bottom: 0.8rem;
 `
 

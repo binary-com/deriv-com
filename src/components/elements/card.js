@@ -17,7 +17,7 @@ const CardWrapper = styled.article`
     ${CardStyle}
     min-height: ${props => (props.min_height ? props.min_height : '35.6rem')};;
     width: ${props => (props.width ? props.width : '32.8rem')};
-    padding: 4rem 5.6rem 4.6rem 5.6rem;
+    padding: 4rem;
 
     div {
         margin-top: 4rem;
@@ -37,7 +37,7 @@ const CardChildrenWrapper = styled.article`
         text-align: center;
     }
     p {
-        font-size: 2rem;
+        font-size: var(--text-size-sm);
 
         a {
             color: var(--color-red);

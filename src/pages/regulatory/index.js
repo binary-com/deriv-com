@@ -27,7 +27,7 @@ const StyledContainer = styled(Container)`
 
 const StyledText = styled(Text)`
     margin: 0.8rem 0;
-    font-size: 2rem;
+    font-size: var(--text-size-sm);
 `
 
 const FlexWrapper = styled(Container)`

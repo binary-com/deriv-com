@@ -26,7 +26,7 @@ const StyledSection = styled.section`
     padding-left: 8rem;
 
     p {
-        font-size: 2rem;
+        font-size: var(--text-size-sm);
     }
 `
 

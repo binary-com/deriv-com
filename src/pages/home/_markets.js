@@ -29,6 +29,11 @@ const StyledSection = styled.section`
         font-size: 2rem;
     }
 `
+
+const MarketSection = styled(SectionContainer)`
+    width: 80%;
+    margin: 0 auto;
+`
 const Markettabs = styled.div`
     margin-top: 4rem;
 `
@@ -168,7 +173,7 @@ const Synthetic = () => (
 )
 
 export const Markets = () => (
-    <SectionContainer>
+    <MarketSection>
         <div>
             <Header as="h2" align="center">
                 {localize('Markets')}
@@ -187,5 +192,5 @@ export const Markets = () => (
                 </SideTab>
             </Markettabs>
         </div>
-    </SectionContainer>
+    </MarketSection>
 )

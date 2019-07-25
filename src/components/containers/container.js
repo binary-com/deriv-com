@@ -17,9 +17,8 @@ const Container = styled.div`
     }
 `
 
-export const SectionContainer = styled(Container).attrs({
-    as: 'section',
-})`
+export const SectionContainer = styled.section`
+    width: 100%;
     padding: 8rem 0;
 `
 

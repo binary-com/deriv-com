@@ -1,7 +1,7 @@
 import { LocalizedLink, localize } from '../localization'
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import LogoHeader from '../../images/svg/logo-header.svg'
+import LogoHeader from 'images/svg/logo-header.svg'
 import Button from '../form/button'
 import Container from '../containers/container'
 import Modal, { useModal } from '../elements/modal'
@@ -10,6 +10,7 @@ import { SharedLinkStyle } from '../localization/localized-link'
 import { DERIV_APP_URL } from '../../common/utility'
 import Login from 'common/login'
 import device from 'themes/device'
+import Hamburger from 'images/svg/hamburger_menu.svg'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
@@ -18,7 +19,7 @@ const StyledNav = styled.nav`
     width: 100%;
     z-index: 100;
     @media ${device.tabletL} {
-        position: relative;
+        height: auto;
     }
 `
 
@@ -99,7 +100,12 @@ const NavRightContainer = styled.div`
         }
     }}
 `
-
+const HamburgerMenu = styled(Hamburger)`
+    display: none;
+    @media ${device.tabletL} {
+        display: block;
+    }
+`
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
@@ -177,6 +183,7 @@ const Nav = () => {
                         </NavButton>
                     </NavRightContainer>
                 </NavRight>
+                <HamburgerMenu />
             </Wrapper>
             <Modal
                 toggle={toggleModal}

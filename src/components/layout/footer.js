@@ -14,6 +14,7 @@ import Labuan from 'images/svg/footer-labuan.svg'
 import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
+import {StyledLink} from '../elements/link'
 
 const FooterContainer = styled(Container)`
     @media ${device.tabletL} {
@@ -143,7 +144,7 @@ const RiskNote = styled.section`
         padding: 3rem 0;
     }
 `
-const StyledLink = styled(props => <LocalizedLink {...props} />)`
+const FooterStyledLink = styled(StyledLink)`
     display: table;
     color: var(--color-red);
     text-decoration: none;
@@ -152,11 +153,6 @@ const StyledLink = styled(props => <LocalizedLink {...props} />)`
 
     &:hover {
         text-decoration: underline;
-    }
-    @media ${device.tabletL} {
-        ${props => {
-            if (props.hidden) return 'display: none;'
-        }}
     }
 `
 const Social = styled.div`
@@ -183,7 +179,7 @@ const Social = styled.div`
         }
     }
     // **********************************************
-    display: none !important;  // REMOVE THIS LATER
+    //display: none !important;
     // **********************************************
 `
 
@@ -207,65 +203,65 @@ const Footer = () => (
                         </Department>
                         <Department grid_name="trade">
                             <Header as="h4">{localize('Trade')}</Header>
-                            <StyledLink
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/keep-safe/"
                                 aria-label={localize('Keep Safe')}
                             >
                                 {localize('Keep Safe')}
-                            </StyledLink>
+                            </FooterStyledLink>
                         </Department>
                         <Department grid_name="company">
                             <Header as="h4">{localize('Company')}</Header>
-                            <StyledLink
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/about/"
                                 aria-label={localize('About Us')}
                             >
                                 {localize('About Us')}
-                            </StyledLink>
+                            </FooterStyledLink>
                         </Department>
                         <Department grid_name="support">
                             <Header as="h4">{localize('Support')}</Header>
-                            <StyledLink
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/help-centre/"
                                 aria-label={localize('Help Centre')}
                             >
                                 {localize('Help Centre')}
-                            </StyledLink>
+                            </FooterStyledLink>
                         </Department>
                         <Department grid_name="legal">
                             <Header as="h4">{localize('Legal')}</Header>
-                            <StyledLink
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/regulatory/"
                                 aria-label={localize('Regulatory Information')}
                             >
                                 {localize('Regulatory Information')}
-                            </StyledLink>
-                            <StyledLink
+                            </FooterStyledLink>
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/terms-and-conditions/"
                                 aria-label={localize('Terms and Conditions')}
                             >
                                 {localize('Terms and Conditions')}
-                            </StyledLink>
-                            <StyledLink
+                            </FooterStyledLink>
+                            <FooterStyledLink
                                 hidden
                                 activeClassName="active"
                                 to="terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and Privacy')}
                             >
                                 {localize('Security and Privacy')}
-                            </StyledLink>
-                            <StyledLink
+                            </FooterStyledLink>
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/responsible-trading/"
                                 aria-label={localize('Responsible Trading')}
                             >
                                 {localize('Responsible Trading')}
-                            </StyledLink>
+                            </FooterStyledLink>
                         </Department>
                         <Department grid_name="social">
                             <Social>

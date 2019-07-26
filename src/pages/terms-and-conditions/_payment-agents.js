@@ -5,13 +5,14 @@ import {
     StyledOrder,
     TncListText,
     StyledHeader,
+    TncText,
 } from './_styles'
 import { localize } from 'components/localization'
 
 export const PaymentAgents = () => (
     <StyledSection>
         <Header as="h2" color="black">
-            {localize('Payment agents terms and conditions')}
+            {localize('Payment agents’ terms and conditions')}
         </Header>
         <StyledHeader as="h4" weight="500" margin={{ top: '2rem' }}>
             {localize('A. Scope of agreement')}
@@ -20,43 +21,104 @@ export const PaymentAgents = () => (
             <li>
                 <TncListText>
                     {localize(
-                        'This agreement is between Deriv (SVG) Ltd (hereinafter referred to as "the Company" or "Deriv.com") and Payment Agent (hereinafter referred to as "the Agent"), both of whom agree to be bound by this agreement.',
+                        'This agreement between you and Us is supplementary to Our terms and conditions, published on Our website, and all clauses, whether appearing here or elsewhere in Our terms and conditions, are true and binding.',
                     )}
                 </TncListText>
             </li>
             <li>
                 <TncListText>
                     {localize(
-                        'The Company and the Agent (hereinafter referred to as "the Parties") desire to enter into this agreement whereby the Company will offer to its clients local payment processing services through the Agent within a territory as specified in Section D of this agreement.',
+                        'Each party shall do anything reasonably required by the other party to give effect to the provisions of this agreement.',
                     )}
                 </TncListText>
             </li>
         </StyledOrder>
         <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
-            {localize('B. General')}
+            {localize('B. Provision of services')}
         </StyledHeader>
         <StyledOrder type="decimal">
             <li>
                 <TncListText>
                     {localize(
-                        'This agreement constitutes the entire agreement between the Parties and no earlier representation, arrangement, or agreement, whether written or oral, relating to any matter dealt with in this agreement between the Parties, shall have any force or effect before the Commencement Date.',
+                        'You may provide your services to those of Our clients who want to deposit and/or withdraw money through you and want to use payment methods that are different from what We accept, including some e-wallet or e-payment methods (from now on referred to as “e-payments), some local currencies (from now on referred to as “local currencies”), or some local bank wire transfers (from now on referred to as “bank wire transfers”).',
                     )}
                 </TncListText>
             </li>
             <li>
                 <TncListText>
                     {localize(
-                        'This agreement is supplied to the Agent in English. In the event that there is a difference between the English version and any translated versions of this document, the English version shall prevail. The Company shall not be liable for any loss or damage whatsoever caused by an error, inaccuracy, or misspelling and, as a result, by misunderstanding or misinterpretation of any of the terms or conditions or clauses or provisions of any translated versions of this agreement.',
+                        'When a client makes deposits through you, the following process takes place:',
                     )}
                 </TncListText>
             </li>
+            <StyledOrder type="lower-alpha">
+                <li>
+                    <TncListText>
+                        {localize(
+                            'The client makes a deposit to you, using e-payments or bank wire transfers.',
+                        )}
+                    </TncListText>
+                </li>
+                <li>
+                    <TncListText>
+                        {localize(
+                            'You receive the deposited amount and make an equal deposit into your Deriv account.',
+                        )}
+                    </TncListText>
+                </li>
+                <li>
+                    <TncListText>
+                        {localize(
+                            'You transfer the deposited amount from your Deriv account to the client’s Deriv account (from now on referred to as the "Deriv Client Account").',
+                        )}
+                    </TncListText>
+                </li>
+            </StyledOrder>
             <li>
                 <TncListText>
                     {localize(
-                        'Each Party shall do anything reasonably required by the other Party to give effect to the provisions of this agreement.',
+                        'When a client makes a withdrawal through you, the following process takes place:',
                     )}
                 </TncListText>
             </li>
+            <StyledOrder type="lower-alpha">
+                <li>
+                    <TncListText>
+                        {localize(
+                            'The client requests a withdrawal from Deriv Client Account.',
+                        )}
+                    </TncListText>
+                </li>
+                <li>
+                    <TncListText>
+                        {localize(
+                            'The requested sum is transferred automatically from the Deriv Client Account into your Deriv account. (If the client has reached their withdrawal limit, the withdrawal request shall not proceed until the required authentication process is completed.',
+                        )}
+                    </TncListText>
+                </li>
+                <li>
+                    <TncListText>
+                        {localize(
+                            'Next, you transfer the requested amount to the client.',
+                        )}
+                    </TncListText>
+                </li>
+                <TncText>
+                    {localize(
+                        'These transactions are not within the scope of this agreement, so if any dispute or potential dispute is caused by such transactions or in connection to them, We shall not be liable to you, the client, or any other person.',
+                    )}
+                </TncText>
+                <li>
+                    <TncListText>
+                        {localize(
+                            'This agreement prohibits you from offering your services to clients who live in the restricted countries listed in the General terms and conditions (the list might change from time to time).',
+                        )}
+                    </TncListText>
+                </li>
+            </StyledOrder>
         </StyledOrder>
+        <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+            {localize('C. Your obligations')}
+        </StyledHeader>
     </StyledSection>
 )

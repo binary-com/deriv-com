@@ -9,6 +9,7 @@ import { StyledHeader } from './_headers'
 import { MobileOnly, LaptopOnly } from '../../components/containers/device-only'
 
 import header_trade_image from 'images/common/header-trade.png'
+import Button from '../../components/form/button'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -24,6 +25,9 @@ const HeroWrapper = styled.section`
     }
     @media ${device.tabletL} {
         background-position: -20rem 100%;
+        min-height: 47rem;
+        background: unset;
+        background-color:black;
     }
     @media ${device.tablet} {
         background-position: -40rem 100%;
@@ -69,6 +73,11 @@ const SignupBox = styled.div`
         display: none;
     }
 `
+const SingupButton = styled(Button)`
+    width: 100%;
+    max-width: 36rem;
+    font-size: var(--text-size-sm);
+`
 
 export const Hero = () => (
     <HeroWrapper>
@@ -83,7 +92,7 @@ export const Hero = () => (
                         </Header>
                     </LaptopOnly>
                     <MobileOnly>
-                        <Header as="h1" color="white" lh="1.2">
+                        <Header font_size='6rem' color="white" lh="1.1">
                             {localize(
                                 'Welcome to the ultimate trading experience',
                             )}
@@ -97,18 +106,29 @@ export const Hero = () => (
                         </StyledHeader>
                     </LaptopOnly>
                     <MobileOnly>
-                        <StyledHeader font_size='2rem' color="white" weight="500">
+                        <StyledHeader
+                            font_size="2rem"
+                            color="white"
+                            weight="500"
+                        >
                             {localize(
                                 'All the world’s markets, one powerful trading platform',
                             )}
                         </StyledHeader>
                     </MobileOnly>
                 </article>
-                <SignupWrapper>
-                    <SignupBox>
-                        <Signup />
-                    </SignupBox>
-                </SignupWrapper>
+                <LaptopOnly>
+                    <SignupWrapper>
+                        <SignupBox>
+                            <Signup />
+                        </SignupBox>
+                    </SignupWrapper>
+                </LaptopOnly>
+                <MobileOnly>
+                    <SingupButton type="submit" secondary>
+                        {localize('Create a free demo account')}
+                    </SingupButton>
+                </MobileOnly>
             </HeroGrid>
         </Container>
     </HeroWrapper>

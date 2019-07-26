@@ -68,13 +68,17 @@ const SignupBox = styled.div`
         display: none;
     }
 `
+
 export const Hero = () => (
     <HeroWrapper>
         <Container>
             <HeroGrid>
                 <article>
-                    <Header as="h1" color="white" lh="1.2">
+                    <Header as="h1" color="white" lh="1.2" laptop_only>
                         {localize('This is your ultimate trading experience')}
+                    </Header>
+                    <Header as="h1" color="white" lh="1.2" mobile_only>
+                        {localize('Welcome to the ultimate trading experience')}
                     </Header>
                     <StyledHeader as="h4" color="white" weight="500">
                         {localize(

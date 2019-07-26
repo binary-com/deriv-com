@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import Container, {
+    SectionContainer,
+    FlexGridContainer,
+} from 'components/containers/container'
 import device from 'themes/device'
-import Container from 'components/containers/container'
 import { SectionHeader } from './_headers'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
@@ -15,33 +18,27 @@ const SecondaryHeader = styled(Header)`
     margin-bottom: 0.8rem;
 `
 
-const Works = styled.section`
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
-    padding: 2rem 0;
-
-    @media ${device.tabletS} {
-        grid-template-columns: 1fr;
-        grid-row-gap: 8rem;
-        text-align: center;
-    }
+const Works = styled(FlexGridContainer)`
+    margin-top: 4rem;
 `
 
 const SecondaryArticle = styled.article`
-    padding: 0 0.5rem;
+    @media ${device.mobileL} {
+        & > * {
+            text-align: center;
+        }
+    }
 `
 
 export const HowItWorks = () => (
-    <>
+    <SectionContainer>
         <SectionHeader>
             <Header as="h2" align="center" color="black-2">
                 {localize('How it works')}
             </Header>
         </SectionHeader>
         <Container>
-            <Works>
+            <Works content_width="32rem" justify="center" gap="1rem">
                 <SecondaryArticle>
                     <Practice />
                     <SecondaryHeader as="h4" weight="500">
@@ -77,5 +74,5 @@ export const HowItWorks = () => (
                 </SecondaryArticle>
             </Works>
         </Container>
-    </>
+    </SectionContainer>
 )

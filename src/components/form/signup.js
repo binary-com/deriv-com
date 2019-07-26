@@ -45,6 +45,7 @@ const StyledError = styled(ErrorIcon)`
     top: 1.2rem;
     height: 1.6rem;
     width: 1.6rem;
+    cursor: pointer;
 `
 
 const ErrorMessages = styled(Text)`
@@ -178,6 +179,8 @@ class Signup extends Component {
         })
     }
 
+    clearEmail = () => this.setState({ email: '', email_error_msg: '' })
+
     handleSocialSignup = e => {
         e.preventDefault()
         Login.initOneAll(e.target.id)
@@ -218,7 +221,7 @@ class Signup extends Component {
                                     >
                                         {this.state.email_error_msg}
                                     </ErrorMessages>
-                                    <StyledError />
+                                    <StyledError onClick={this.clearEmail} />
                                 </>
                             )}
                         </InputGroup>
@@ -299,7 +302,7 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
-    autofocus: PropTypes.string,
+    autofocus: PropTypes.bool,
 }
 
 export default Signup

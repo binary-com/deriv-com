@@ -4,7 +4,10 @@ import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Hero from 'components/elements/hero'
-import Container from 'components/containers/container'
+import Container, {
+    SectionContainer,
+    FlexGridContainer,
+} from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography'
 import { CardStyle } from 'components/elements/card'
 import { Divider } from 'components/elements/divider'
@@ -18,14 +21,8 @@ import AvoidTrading from 'images/svg/avoid-trading-icon.svg'
 import PortionWinning from 'images/svg/portion-winning-icon.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
 
-const GeneralWrapper = styled.section`
-    background: var(--color-white);
-    width: 100%;
-`
-
 const StyledContainer = styled(Container)`
     flex-direction: column;
-    padding: 8rem 0;
 `
 
 const StyledText = styled(Text)`
@@ -34,24 +31,6 @@ const StyledText = styled(Text)`
 
 const CheckText = styled(StyledText)`
     margin-left: 2rem;
-`
-
-const FlexWrapper = styled(Container)`
-    flex-wrap: wrap;
-    align-items: stretch;
-    align-content: stretch;
-    justify-content: space-between;
-    min-width: 100%;
-`
-
-const LimitsWrapper = styled(FlexWrapper)`
-    padding: 4rem 0;
-`
-
-const StyledArticle = styled.article`
-    flex-shrink: 0;
-    width: 31%;
-    margin: 2rem 1rem;
 `
 
 const StyledLimits = styled.article`
@@ -63,8 +42,11 @@ const StyledLimits = styled.article`
     align-items: center;
 `
 
-const OtherWarningWrapper = styled(GeneralWrapper)`
+const OtherWarningWrapper = styled(SectionContainer)`
     background: var(--color-grey-1);
+`
+const MarginWrapper = styled(FlexGridContainer)`
+    margin-top: 4rem;
 `
 
 const StyledCard = styled.article`
@@ -87,80 +69,80 @@ const ResponsibleTrading = () => (
                 'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
             )}
         />
-        <GeneralWrapper>
+        <SectionContainer>
             <StyledContainer>
-                <FlexWrapper>
-                    <StyledArticle>
+                <FlexGridContainer content_width="32.8rem" gap="0.6rem">
+                    <article>
                         <Demo />
                         <StyledText>
                             {localize(
                                 'Hone your skill with a free demo account.',
                             )}
                         </StyledText>
-                    </StyledArticle>
-                    <StyledArticle>
+                    </article>
+                    <article>
                         <HandMoney />
                         <StyledText>
                             {localize(
                                 'Only trade with money you can afford to lose.',
                             )}
                         </StyledText>
-                    </StyledArticle>
-                    <StyledArticle>
+                    </article>
+                    <article>
                         <BorrowMoney />
                         <StyledText>
                             {localize('Do not trade with borrowed money.')}
                         </StyledText>
-                    </StyledArticle>
-                    <StyledArticle>
+                    </article>
+                    <article>
                         <Limit />
                         <StyledText>
                             {localize(
                                 'Set a limit for your losses and stick to it.',
                             )}
                         </StyledText>
-                    </StyledArticle>
-                    <StyledArticle>
+                    </article>
+                    <article>
                         <AvoidTrading />
                         <StyledText>
                             {localize(
                                 'Avoid trading when you’re prone to bad judgement.',
                             )}
                         </StyledText>
-                    </StyledArticle>
-                    <StyledArticle>
+                    </article>
+                    <article>
                         <PortionWinning />
                         <StyledText>
                             {localize(
                                 'Put aside a portion of your winnings to avoid losing it all.',
                             )}
                         </StyledText>
-                    </StyledArticle>
-                </FlexWrapper>
+                    </article>
+                </FlexGridContainer>
                 <hr />
             </StyledContainer>
-        </GeneralWrapper>
+        </SectionContainer>
         <Divider />
-        <GeneralWrapper>
+        <SectionContainer>
             <StyledContainer>
                 <Header as="h2" align="center">
                     {localize('Written limits and self-exclusion')}
                 </Header>
-                <MarginHeader as="h4" weight="normal" align="center">
+                <MarginHeader as="h4" weight="500" align="center">
                     {localize(
                         'With Deriv, you have the option to implement limits on your trading activities.',
                     )}
                 </MarginHeader>
-                <LimitsWrapper>
+                <MarginWrapper content_width="48rem" gap="1rem">
                     <StyledLimits>
                         <ChecklistLogo />
-                        <CheckText>
+                        <CheckText secondary>
                             {localize('Limit the amount of money you trade')}
                         </CheckText>
                     </StyledLimits>
                     <StyledLimits>
                         <ChecklistLogo />
-                        <CheckText>
+                        <CheckText secondary>
                             {localize(
                                 'Limit the amount of time you spend trading',
                             )}
@@ -168,28 +150,28 @@ const ResponsibleTrading = () => (
                     </StyledLimits>
                     <StyledLimits>
                         <ChecklistLogo />
-                        <CheckText>
+                        <CheckText secondary>
                             {localize('Limit the losses you might incur')}
                         </CheckText>
                     </StyledLimits>
                     <StyledLimits>
                         <ChecklistLogo />
-                        <CheckText>
+                        <CheckText secondary>
                             {localize(
                                 'Block yourself from trading on our website',
                             )}
                         </CheckText>
                     </StyledLimits>
-                </LimitsWrapper>
+                </MarginWrapper>
             </StyledContainer>
-        </GeneralWrapper>
+        </SectionContainer>
         <OtherWarningWrapper>
             <StyledContainer>
                 <Header as="h2" align="center">
                     {localize('Other warnings and regulatory disclosures')}
                 </Header>
                 <StyledCard>
-                    <Text>
+                    <Text secondary>
                         {localize(
                             'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
                         )}

@@ -15,11 +15,30 @@ const Container = styled.div`
     @media ${device.desktopL} {
         max-width: 1400px;
     }
+    @media ${device.tabletL} {
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 `
 
-export const SectionContainer = styled(Container).attrs({
-    as: 'section',
-})`
+export const FlexGridContainer = styled(Container)`
+    flex-wrap: wrap;
+    align-items: stretch;
+    align-content: stretch;
+    justify-content: ${props =>
+        props.justify ? props.justify : 'space-between'};
+    width: 100%;
+
+    & > * {
+        flex-shrink: 0;
+        width: ${props => (props.content_width ? props.content_width : '48%')};
+        margin: ${props => (props.gap ? props.gap : '1rem')};
+    }
+`
+
+export const SectionContainer = styled.section`
+    width: 100%;
     padding: 8rem 0;
 `
 

@@ -1,33 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Header, Text } from 'components/elements/typography'
+import {
+    StyledSection,
+    StyledHeader,
+    StyledOrder,
+    TncText,
+    TncListText,
+} from './_styles'
 import { localize } from 'components/localization'
-
-const StyledSection = styled.section`
-    padding-left: 8rem;
-`
-
-const TncText = styled(Text)`
-    margin: 2rem 0;
-`
-
-const TncListText = styled(Text)`
-    margin: 0.8rem 0;
-`
-
-const StyledHeader = styled(Header)`
-    margin-top: 3.2rem;
-`
-
-const StyledOrder = styled.ol`
-    list-style: ${props => props.type || ''};
-    font-size: var(--text-size-s);
-    padding-left: 1.8rem;
-
-    & > li {
-        padding-left: 0.5rem;
-    }
-`
+import { Header } from 'components/elements/typography'
 
 export const General = () => (
     <StyledSection>
@@ -73,7 +53,7 @@ export const General = () => (
                 </TncListText>
             </li>
         </StyledOrder>
-        <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+        <StyledHeader as="h4" weight="500">
             {localize('B. Governing laws and jurisdiction')}
         </StyledHeader>
         <StyledOrder type="decimal">
@@ -113,7 +93,7 @@ export const General = () => (
                 </TncListText>
             </li>
         </StyledOrder>
-        <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+        <StyledHeader as="h4" weight="500">
             {localize('C. Communication')}
         </StyledHeader>
         <StyledOrder type="decimal">
@@ -132,7 +112,7 @@ export const General = () => (
                 </TncListText>
             </li>
         </StyledOrder>
-        <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+        <StyledHeader as="h4" weight="500">
             {localize('D. Account Management')}
         </StyledHeader>
         <StyledOrder type="decimal">
@@ -210,7 +190,7 @@ export const General = () => (
                 </StyledOrder>
             </li>
         </StyledOrder>
-        <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+        <StyledHeader as="h4" weight="500">
             {localize('E. Trades')}
         </StyledHeader>
         <StyledOrder type="decimal">
@@ -387,7 +367,7 @@ export const General = () => (
                     </li>
                 </StyledOrder>
             </li>
-            <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+            <StyledHeader as="h4" weight="500">
                 {localize('F. Client funds')}
             </StyledHeader>
             <StyledOrder type="decimal">
@@ -427,7 +407,7 @@ export const General = () => (
                     </TncListText>
                 </li>
             </StyledOrder>
-            <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+            <StyledHeader as="h4" weight="500">
                 {localize('G. Fraud and money laundering')}
             </StyledHeader>
             <StyledOrder type="decimal">
@@ -516,7 +496,7 @@ export const General = () => (
                     </StyledOrder>
                 </li>
             </StyledOrder>
-            <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+            <StyledHeader as="h4" weight="500">
                 {localize('H. Our rights')}
             </StyledHeader>
             <StyledOrder type="decimal">
@@ -686,7 +666,7 @@ export const General = () => (
                     </TncListText>
                 </li>
             </StyledOrder>
-            <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+            <StyledHeader as="h4" weight="500">
                 {localize('I. Liability')}
             </StyledHeader>
             <StyledOrder type="decimal">
@@ -743,7 +723,7 @@ export const General = () => (
                     </StyledOrder>
                 </li>
             </StyledOrder>
-            <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
+            <StyledHeader as="h4" weight="500">
                 {localize('K. Force Majeure')}
             </StyledHeader>
             <StyledOrder type="decimal">
@@ -755,277 +735,6 @@ export const General = () => (
                     </TncListText>
                 </li>
             </StyledOrder>
-        </StyledOrder>
-    </StyledSection>
-)
-
-export const DataFeed = () => (
-    <StyledSection>
-        <Header as="h2" color="black">
-            {localize('Data feed')}
-        </Header>
-        <TncText>
-            {localize(
-                'Here is some information about the data feeds used by the Company.',
-            )}
-        </TncText>
-        <StyledHeader as="h4" weight="500">
-            {localize('Differences with other data feeds')}
-        </StyledHeader>
-        <TncText>
-            {localize(
-                "The Company's data feed may at times differ slightly from other data feeds found on the Internet (who may themselves differ from each other). Reasons for differences in feed providers include:",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "For forex: The forex market is an OTC (over the counter) market, where banks and other major financial institutions trade currencies amongst themselves without there being any central clearing house. Accordingly, there is no 'official' price source for forex quotes. Different data feeds will contain quotes from a different sub-set of international banks. Accordingly, prices may differ among providers, depending on which bank(s) they obtain prices from.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "Market-closing times: The client is asked to refer to Trading times page for the exact time of settlement for all contracts. Other websites may adopt a different convention (for example, some websites choose 4 o'clock NY time or 5 o'clock London time). As a result, the open, high, low, and closing prices displayed on the Company's website may differ from those on other websites, due to the market-closing time convention.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "Use of bid/ask prices: When the market is illiquid, the data feed may contain many bid and ask prices, without there actually being any traded price for quite a while. By taking an average of the bid/ask price (i.e. bid + ask, divided by 2), a market quote is generated that reflects the current market, without it actually being a traded price. The Company's system will generate prices from these bid and ask prices, whereas other websites might not. As a result, the Company's website might display ticks that do not appear in the data feeds of other websites.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "The Company's data feed is designed to be one of the best and most robust available for a trading environment.",
-            )}
-        </TncText>
-    </StyledSection>
-)
-
-export const SecurityAndPrivacy = () => (
-    <StyledSection>
-        <Header as="h2" color="black">
-            {localize('Security and privacy')}
-        </Header>
-        <TncText>
-            {localize(
-                "The Company recognises the importance of protecting the client's personal and financial information.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "All the information that the Company obtains about the client assists the Company in servicing the client and the client's account. The Company knows that the client may be concerned about what the Company does with this information.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "The Company has outlined the Company's privacy practices for the client as follows:",
-            )}
-        </TncText>
-        <StyledHeader as="h4" weight="500">
-            {localize('Use of information')}
-        </StyledHeader>
-        <TncText>
-            {localize(
-                'The Company operates in full compliance with the General Data Protection Regulation (GDPR) and other applicable Data Protection laws. These regulatory measures place obligations on users of personal data like the Company. They also lay down the principles for fair and lawful processing of all the information that the Company acquires.',
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "It is the Company's commitment to safeguard the client's privacy online at all times. The Company only uses the client's personal information to help the Company service the client's account, to improve the Company's services to the client, and to provide the client with products that the client has requested. The Company does not sell the client's personal information to third parties, but the Company may provide it to payment providers to facilitate transactions on the client's account.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "The client's personal information is used primarily as a way of validating the client as the legitimate account owner and proper recipient of withdrawal payments. The Company also uses this information to process the client's trades. The Company collects from the client all personal and financial data directly relating to the client when the client fills in the Company's account opening form. In all instances, the client has either a legal or a contractual obligation to provide the Company with the information. If such information is not provided, the Company will be unable to provide the client with its services.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "The Company reserves the right to request further information from the client whenever deemed appropriate under the circumstances. For example, the Company may ask the client to send the Company additional acceptable documents to confirm the authenticity of the client's account details or of any withdrawal request.",
-            )}
-        </TncText>
-    </StyledSection>
-)
-
-export const ConflictsPolicy = () => (
-    <StyledSection>
-        <Header as="h2" color="black">
-            {localize('Summary of the Conflicts policy')}
-        </Header>
-        <TncText>
-            {localize(
-                'The Company provides here a summary of the policy that the Company maintains in order to manage conflicts of interest in respect of the duties that the Company owes to clients.',
-            )}
-        </TncText>
-        <StyledHeader as="h4" weight="500">
-            {localize('General')}
-        </StyledHeader>
-        <TncText>
-            {localize(
-                "Due to the nature of the Company's business as a trading counterparty, the Company's profits are tied to the net revenue generated by clients through trading. However, the Company aims to establish, maintain, and operate effective organisational and administrative arrangements with a view to taking all reasonable steps to prevent conflicts of interest from constituting or giving rise to a material risk of damage to the interests of clients.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                'Due to the high degree of risk involved, which could result in the loss of the entire investment, the Company has adequate internal procedures in place to ensure that the client is in all cases treated fairly and that the risk of damage to client interests will be mitigated.',
-            )}
-        </TncText>
-        <StyledHeader as="h4" weight="500">
-            {localize("The Company's policy")}
-        </StyledHeader>
-        <TncText>
-            {localize(
-                "The Company aims to keep a record of the kinds of activity that the Company carries on in which a material conflict could arise or has arisen. The Company also maintains procedures to manage actual or potential conflicts. This includes procedures to maintain appropriate independence among members of the Company's staff who are involved in potentially conflicting activities. Such independence-upholding procedures can be followed, for example, through the operation of information barriers, physical separation of staff, the segregation of duties and responsibilities, and the maintenance of a policy of independence, which requires the Company's staff, when providing services to a client, to act in the best interests of the client and to disregard any conflicts of interest, or in some circumstances, to decline to act for a client or potential client in order to avoid conflicts of interest.",
-            )}
-        </TncText>
-    </StyledSection>
-)
-
-export const Copyright = () => (
-    <StyledSection>
-        <Header as="h2" color="black">
-            {localize('Copyright')}
-        </Header>
-        <TncText>
-            {localize(
-                'The Deriv.com website is protected by certain copyrights.',
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                'The materials comprising the Deriv.com website (including without limitation all articles, text, images, logos, compilation, systems, code, and design) are under Copyright 1999-2019 Binary Group of companies with all rights reserved.',
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                'Such materials may be copied and distributed on a limited basis for noncommercial purposes only, provided that any material copied remains intact and that all copies include the following notice in a clearly visible position: “Copyright 1999-2019 Binary Ltd. All rights reserved.”',
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                'These materials may not be copied or redistributed for commercial purposes or for compensation of any kind without prior written permission from a Binary Group company.',
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                'Deriv.com and the bull/bear logo are registered trademarks.',
-            )}
-        </TncText>
-    </StyledSection>
-)
-
-export const ComplaintsAndDisputes = () => (
-    <StyledSection>
-        <Header as="h2" color="black">
-            {localize('Complaints and disputes')}
-        </Header>
-        <TncText>
-            {localize(
-                "If the client would like to file a complaint with regards to the Company's service, the client can contact the Company at complaints@deriv.com, providing any relevant details relating to the client's complaint. The Company will investigate the client's enquiry and a response will be given. The Company usually provides a final response within 15 working days from receipt of all relevant details.",
-            )}
-        </TncText>
-    </StyledSection>
-)
-
-export const RiskDisclaimer = () => (
-    <StyledSection>
-        <Header as="h2" color="black">
-            {localize('Risk disclaimer')}
-        </Header>
-        <TncText>
-            {localize(
-                'This notice provides the client with information about the risks associated with the contracts the client may purchase through services provided by Binary.com services.',
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                'Binary Group members are sometimes referred to collectively as "Binary.com" or "the Company".',
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "This notice does not explain all of the risks involved in investments or similar products or how such risks relate to the client's personal circumstances. It is important that the client fully understand the risks involved before making a decision to enter into a trade with the Company.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "If the client chooses to enter into a contract with the Company, it is important that the client remains aware of the risks involved, that the client has adequate investment resources to bear such risks, and that the client monitors the client's positions carefully.",
-            )}
-        </TncText>
-    </StyledSection>
-)
-
-export const OrderExecution = () => (
-    <StyledSection>
-        <Header as="h2" color="black">
-            {localize('Summary of the order execution policy')}
-        </Header>
-        <TncText>
-            {localize(
-                "The Company has a general duty to conduct its business with the client honestly, fairly, and professionally and to act in the client's best interests when opening and closing Binary Options trades with the client.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                "More specifically, when the Company enters into a Binary Option trade with the client (each, a \"Contract\"), the Company has a duty to provide the client with 'best execution'. Best execution means that the Company must take reasonable steps to obtain the best possible result for the client when executing a client order. This document provides a summary of the Company's best execution policy.",
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                'This policy applies to clients classified as retail or professional. Clients classified as eligible counterparties are outside the scope of this policy.',
-            )}
-        </TncText>
-    </StyledSection>
-)
-
-export const PaymentAgents = () => (
-    <StyledSection>
-        <Header as="h2" color="black">
-            {localize('Payment agents terms and conditions')}
-        </Header>
-        <StyledHeader as="h4" weight="500" margin={{ top: '2rem' }}>
-            {localize('A. Scope of agreement')}
-        </StyledHeader>
-        <StyledOrder type="decimal">
-            <li>
-                <TncListText>
-                    {localize(
-                        'This agreement is between Deriv (SVG) Ltd (hereinafter referred to as "the Company" or "Deriv.com") and Payment Agent (hereinafter referred to as "the Agent"), both of whom agree to be bound by this agreement.',
-                    )}
-                </TncListText>
-            </li>
-            <li>
-                <TncListText>
-                    {localize(
-                        'The Company and the Agent (hereinafter referred to as "the Parties") desire to enter into this agreement whereby the Company will offer to its clients local payment processing services through the Agent within a territory as specified in Section D of this agreement.',
-                    )}
-                </TncListText>
-            </li>
-        </StyledOrder>
-        <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
-            {localize('B. General')}
-        </StyledHeader>
-        <StyledOrder type="decimal">
-            <li>
-                <TncListText>
-                    {localize(
-                        'This agreement constitutes the entire agreement between the Parties and no earlier representation, arrangement, or agreement, whether written or oral, relating to any matter dealt with in this agreement between the Parties, shall have any force or effect before the Commencement Date.',
-                    )}
-                </TncListText>
-            </li>
-            <li>
-                <TncListText>
-                    {localize(
-                        'This agreement is supplied to the Agent in English. In the event that there is a difference between the English version and any translated versions of this document, the English version shall prevail. The Company shall not be liable for any loss or damage whatsoever caused by an error, inaccuracy, or misspelling and, as a result, by misunderstanding or misinterpretation of any of the terms or conditions or clauses or provisions of any translated versions of this agreement.',
-                    )}
-                </TncListText>
-            </li>
-            <li>
-                <TncListText>
-                    {localize(
-                        'Each Party shall do anything reasonably required by the other Party to give effect to the provisions of this agreement.',
-                    )}
-                </TncListText>
-            </li>
         </StyledOrder>
     </StyledSection>
 )

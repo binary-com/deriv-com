@@ -1,5 +1,5 @@
 import React from 'react'
-import { LocalizedLink, localize } from '../localization'
+import { localize } from '../localization'
 import styled from 'styled-components'
 import device from 'themes/device'
 import Container from '../containers/container'
@@ -15,6 +15,7 @@ import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
 import { StyledLink } from '../elements/link'
+import { LaptopOnly } from '../containers/device-only';
 
 const FooterContainer = styled(Container)`
     @media ${device.tabletL} {
@@ -240,14 +241,15 @@ const Footer = () => (
                             >
                                 {localize('Terms and Conditions')}
                             </FooterStyledLink>
-                            <FooterStyledLink
-                                hidden
+                          <LaptopOnly>
+                          <FooterStyledLink
                                 activeClassName="active"
                                 to="terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and Privacy')}
                             >
                                 {localize('Security and Privacy')}
-                            </FooterStyledLink>
+                            </FooterStyledLink>∏
+                          </LaptopOnly>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/responsible-trading/"

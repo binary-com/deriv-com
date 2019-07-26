@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import device from 'themes/device'
 
 const createElement = React.createElement
 
@@ -9,20 +8,6 @@ const BaseElement = css`
 
     /* prettier-ignore */
     color: var(--color-${props => props.color || 'black-3'});
-`
-export const MobileOnly = css`
-    @media ${device.tabletL} {
-        ${props => {
-            if (props.laptop_only) return 'display: none;'
-        }}
-    }
-`
-export const LaptopOnly = css`
-    @media ${device.laptopS} {
-        ${props => {
-            if (props.mobile_only) return 'display: none;'
-        }}
-    }
 `
 export const Text = styled.p`
     font-weight: ${props => props.weight || 'normal'};
@@ -58,6 +43,4 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
     }};
     line-height: ${props => props.lh || '1.25'};
     ${BaseElement}
-    ${MobileOnly}
-    ${LaptopOnly}
 `

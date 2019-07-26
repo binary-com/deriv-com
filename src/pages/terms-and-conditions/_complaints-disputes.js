@@ -10,7 +10,7 @@ export const ComplaintsAndDisputes = () => (
         </Header>
         <TncText>
             {localize(
-                "If the client would like to file a complaint with regards to the Company's service, the client can contact the Company at complaints@deriv.com, providing any relevant details relating to the client's complaint. The Company will investigate the client's enquiry and a response will be given. The Company usually provides a final response within 15 working days from receipt of all relevant details.",
+                'If you would like to file a complaint with regards to Our services, you can contact Us at complaints@deriv.com. You need to provide any relevant details relating to your complaint. We will investigate your enquiry and respond to you. We usually provide a final response within 15 working days from the day that We receive all relevant details.',
             )}
         </TncText>
     </StyledSection>

@@ -9,18 +9,16 @@ export const Copyright = () => (
             {localize('Copyright')}
         </Header>
         <TncText>
+            {localize('Deriv is protected by certain copyrights.')}
+        </TncText>
+        <TncText>
             {localize(
-                'The Deriv.com website is protected by certain copyrights.',
+                'The materials comprising Deriv (including without limitation all articles, text, images, logos, compilation, systems, code, and design) are under Copyright Deriv 2019 of companies with all rights reserved.',
             )}
         </TncText>
         <TncText>
             {localize(
-                'The materials comprising the Deriv.com website (including without limitation all articles, text, images, logos, compilation, systems, code, and design) are under Copyright 1999-2019 Binary Group of companies with all rights reserved.',
-            )}
-        </TncText>
-        <TncText>
-            {localize(
-                'Such materials may be copied and distributed on a limited basis for noncommercial purposes only, provided that any material copied remains intact and that all copies include the following notice in a clearly visible position: “Copyright 1999-2019 Binary Ltd. All rights reserved.”',
+                'Such materials may be copied and distributed on a limited basis for noncommercial purposes only, provided that any material copied remains intact and that all copies include the following notice in a clearly visible position: "Copyright 1999-2019 Binary Ltd. All rights reserved."',
             )}
         </TncText>
         <TncText>
@@ -29,9 +27,7 @@ export const Copyright = () => (
             )}
         </TncText>
         <TncText>
-            {localize(
-                'Deriv.com and the bull/bear logo are registered trademarks.',
-            )}
+            {localize('Deriv and Deriv logo are registered trademarks.')}
         </TncText>
     </StyledSection>
 )

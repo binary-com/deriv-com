@@ -11,6 +11,7 @@ import { Dtrader } from './home/_dtrader'
 import { HowItWorks } from './home/_how-it-works'
 import { Markets } from './home/_markets'
 import { WhyDeriv } from './home/_why-deriv'
+import { MobileOnly, LaptopOnly } from '../components/containers/device-only'
 
 const PaymentSection = styled.section`
     width: 100%;
@@ -21,16 +22,23 @@ const Home = () => (
     <Layout>
         <SEO title={localize('Home')} />
         <Hero />
-        <Dtrader />
-        <HowItWorks />
-        <Divider />
-        <Markets />
-        <WhyDeriv />
-        <PaymentSection>
-            <Container>
-                <PaymentMethods />
-            </Container>
-        </PaymentSection>
+        <LaptopOnly>
+            <Dtrader />
+            <HowItWorks />
+            <Divider />
+            <Markets />
+            <WhyDeriv />
+        </LaptopOnly>
+        <MobileOnly>
+            <Dtrader />
+        </MobileOnly>
+        <LaptopOnly>
+            <PaymentSection>
+                <Container>
+                    <PaymentMethods />
+                </Container>
+            </PaymentSection>
+        </LaptopOnly>
     </Layout>
 )
 

@@ -6,6 +6,7 @@ import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import { StyledHeader } from './_headers'
+import { MobileOnly, LaptopOnly } from '../../components/containers/device-only'
 
 import header_trade_image from 'images/common/header-trade.png'
 
@@ -74,12 +75,20 @@ export const Hero = () => (
         <Container>
             <HeroGrid>
                 <article>
-                    <Header as="h1" color="white" lh="1.2" laptop_only>
-                        {localize('This is your ultimate trading experience')}
-                    </Header>
-                    <Header as="h1" color="white" lh="1.2" mobile_only>
-                        {localize('Welcome to the ultimate trading experience')}
-                    </Header>
+                    <LaptopOnly>
+                        <Header as="h1" color="white" lh="1.2">
+                            {localize(
+                                'This is your ultimate trading experience',
+                            )}
+                        </Header>
+                    </LaptopOnly>
+                    <MobileOnly>
+                        <Header as="h1" color="white" lh="1.2">
+                            {localize(
+                                'Welcome to the ultimate trading experience',
+                            )}
+                        </Header>
+                    </MobileOnly>
                     <StyledHeader as="h4" color="white" weight="500">
                         {localize(
                             'The world’s markets at your fingertips anytime, anywhere.',

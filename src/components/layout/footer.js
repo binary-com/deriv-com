@@ -1,5 +1,5 @@
 import React from 'react'
-import { LocalizedLink, localize } from '../localization'
+import { localize } from '../localization'
 import styled from 'styled-components'
 import device from 'themes/device'
 import Container from '../containers/container'

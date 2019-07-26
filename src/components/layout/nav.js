@@ -27,6 +27,7 @@ const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 1rem;
     justify-content: space-between;
+    height: 7.2rem;
 `
 
 const NavLeft = styled.div`

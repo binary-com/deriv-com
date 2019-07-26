@@ -14,7 +14,7 @@ import Labuan from 'images/svg/footer-labuan.svg'
 import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
-import {StyledLink} from '../elements/link'
+import { StyledLink } from '../elements/link'
 
 const FooterContainer = styled(Container)`
     @media ${device.tabletL} {
@@ -146,14 +146,8 @@ const RiskNote = styled.section`
 `
 const FooterStyledLink = styled(StyledLink)`
     display: table;
-    color: var(--color-red);
-    text-decoration: none;
     font-size: 1.4rem;
     margin-bottom: 1.8rem;
-
-    &:hover {
-        text-decoration: underline;
-    }
 `
 const Social = styled.div`
     font-size: 1.2rem;
@@ -178,9 +172,8 @@ const Social = styled.div`
             justify-content: space-around;
         }
     }
-    // **********************************************
-    //display: none !important;
-    // **********************************************
+    //TODO: remove this line after having real socal media account
+    display: none !important;
 `
 
 const TextFooter = styled(Text)`

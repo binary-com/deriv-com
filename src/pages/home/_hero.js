@@ -89,11 +89,20 @@ export const Hero = () => (
                             )}
                         </Header>
                     </MobileOnly>
-                    <StyledHeader as="h4" color="white" weight="500">
-                        {localize(
-                            'The world’s markets at your fingertips anytime, anywhere.',
-                        )}
-                    </StyledHeader>
+                    <LaptopOnly>
+                        <StyledHeader as="h4" color="white" weight="500">
+                            {localize(
+                                'The world’s markets at your fingertips anytime, anywhere.',
+                            )}
+                        </StyledHeader>
+                    </LaptopOnly>
+                    <MobileOnly>
+                        <StyledHeader font_size='2rem' color="white" weight="500">
+                            {localize(
+                                'All the world’s markets, one powerful trading platform',
+                            )}
+                        </StyledHeader>
+                    </MobileOnly>
                 </article>
                 <SignupWrapper>
                     <SignupBox>

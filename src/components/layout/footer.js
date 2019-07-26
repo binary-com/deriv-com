@@ -14,24 +14,66 @@ import Labuan from 'images/svg/footer-labuan.svg'
 import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
+import { StyledLink } from '../elements/link'
+
+const FooterContainer = styled(Container)`
+    @media ${device.tabletL} {
+        width: 100%;
+        margin: 0;
+    }
+`
 
 const FooterNavGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     width: 100%;
     padding: 2rem 0;
-
     @media ${device.tabletL} {
-        grid-template-columns: 1fr;
-        grid-row-gap: 2rem;
+        padding: 0;
     }
 `
 const FooterNav = styled.nav`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
     grid-gap: 1rem;
     width: 100%;
+    grid-template-areas: 'logo trade company support legal social';
+    @media ${device.tabletL} {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-gap: 0;
+        grid-template-areas:
+            'logo .'
+            'support company'
+            'trade legal'
+            'social social';
+    }
 `
+const Department = styled.div`
+    grid-area: ${props => props.grid_name};
+    @media ${device.tabletL} {
+        padding: 1.5rem 0 1.5rem 12%;
+        a {
+            margin-bottom: 3.5rem;
+        }
+        a:last-child {
+            margin-bottom: 0;
+        }
+        ${props => {
+            if (props.grid_name === 'social') {
+                return 'padding: 0;'
+            }
+            if (props.grid_name === 'company') {
+                return 'padding-left: 0;'
+            }
+            if (props.grid_name === 'legal') {
+                return 'padding: 1.5rem 0 3rem 0;'
+            }
+        }}
+    }
+`
+
 const FooterSocket = styled.section`
     box-shadow: inset 0 1px 0 0 var(--color-grey-2);
     background-color: var(--color-white);
@@ -42,6 +84,10 @@ const FooterSocket = styled.section`
         font-size: 1.4rem;
         font-weight: 500;
         margin-bottom: 2rem;
+    }
+
+    @media ${device.tabletL} {
+        padding-bottom: 0;
     }
 `
 const Legal = styled.section`
@@ -93,21 +139,17 @@ const RiskNote = styled.section`
         letter-spacing: 1px;
         margin-bottom: 1.1rem;
     }
-`
-const StyledLink = styled(props => <LocalizedLink {...props} />)`
-    display: table;
-    color: var(--color-red);
-    text-decoration: none;
-    font-size: 1.4rem;
-    margin-bottom: 1.8rem;
 
-    &:hover {
-        text-decoration: underline;
+    @media ${device.tabletL} {
+        padding: 3rem 0;
     }
 `
+const FooterStyledLink = styled(StyledLink)`
+    display: table;
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+`
 const Social = styled.div`
-    /* temporary disabled */ 
-    display: none;
     font-size: 1.2rem;
     color: var(--color-grey-3);
     padding: 0 2rem;
@@ -117,108 +159,143 @@ const Social = styled.div`
         margin-right: 0.8rem;
     }
     @media ${device.tabletL} {
-        padding: 0;
+        text-align: center;
+        background-color: var(--color-grey-1);
+        display: flex;
+        flex-direction: column;
+        p {
+            padding-top: 3rem;
+            padding: 3rem 0 0.7rem 0;
+        }
+        div {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+    //TODO: remove this line after having real socal media account
+    display: none !important;
+`
+
+const TextFooter = styled(Text)`
+    ${props => {
+        if (!props.mobile_only) return 'display: none;'
+    }}
+    @media ${device.tabletL} {
+        word-spacing: 2px;
     }
 `
 
 const Footer = () => (
     <footer>
         <FooterSocket>
-            <Container>
+            <FooterContainer>
                 <FooterNavGrid>
                     <FooterNav>
-                        <div>
+                        <Department grid_name="logo">
                             <Logo />
-                        </div>
-                        <div>
-                            <Header as="h4">
-                                {localize('Trade')}
-                            </Header>
-                            <StyledLink
+                        </Department>
+                        <Department grid_name="trade">
+                            <Header as="h4">{localize('Trade')}</Header>
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/keep-safe/"
                                 aria-label={localize('Keep Safe')}
                             >
                                 {localize('Keep Safe')}
-                            </StyledLink>
-                        </div>
-                        <div>
-                            <Header as="h4">
-                                {localize('Company')}
-                            </Header>
-                            <StyledLink
+                            </FooterStyledLink>
+                        </Department>
+                        <Department grid_name="company">
+                            <Header as="h4">{localize('Company')}</Header>
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/about/"
-                                aria-label={localize('About us')}
+                                aria-label={localize('About Us')}
                             >
-                                {localize('About us')}
-                            </StyledLink>
-                        </div>
-                    </FooterNav>
-                    <FooterNav>
-                        <div>
-                            <Header as="h4">
-                                {localize('Support')}
-                            </Header>
-                            <StyledLink
+                                {localize('About Us')}
+                            </FooterStyledLink>
+                        </Department>
+                        <Department grid_name="support">
+                            <Header as="h4">{localize('Support')}</Header>
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/help-centre/"
                                 aria-label={localize('Help Centre')}
                             >
                                 {localize('Help Centre')}
-                            </StyledLink>
-                        </div>
-                        <div>
-                            <Header as="h4">
-                                {localize('Legal')}
-                            </Header>
-                            <StyledLink
+                            </FooterStyledLink>
+                        </Department>
+                        <Department grid_name="legal">
+                            <Header as="h4">{localize('Legal')}</Header>
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/regulatory/"
                                 aria-label={localize('Regulatory Information')}
                             >
                                 {localize('Regulatory Information')}
-                            </StyledLink>
-                            <StyledLink
+                            </FooterStyledLink>
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/terms-and-conditions/"
                                 aria-label={localize('Terms and Conditions')}
                             >
                                 {localize('Terms and Conditions')}
-                            </StyledLink>
-                            <StyledLink
+                            </FooterStyledLink>
+                            <FooterStyledLink
+                                hidden
                                 activeClassName="active"
                                 to="terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and Privacy')}
                             >
                                 {localize('Security and Privacy')}
-                            </StyledLink>
-                            <StyledLink
+                            </FooterStyledLink>
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/responsible-trading/"
                                 aria-label={localize('Responsible Trading')}
                             >
                                 {localize('Responsible Trading')}
-                            </StyledLink>
-                        </div>
-                        <Social>
-                            <p>{localize('Follow us on')}</p>
-                            <YouTube />
-                            <Twitter />
-                            <Telegram />
-                            <Reddit />
-                            <Facebook />
-                        </Social>
+                            </FooterStyledLink>
+                        </Department>
+                        <Department grid_name="social">
+                            <Social>
+                                <p>{localize('Follow us on')}</p>
+                                <div>
+                                    <YouTube />
+                                    <Twitter />
+                                    <Telegram />
+                                    <Reddit />
+                                    <Facebook />
+                                </div>
+                            </Social>
+                        </Department>
                     </FooterNav>
                 </FooterNavGrid>
-            </Container>
+            </FooterContainer>
         </FooterSocket>
         <Legal>
             <Container>
                 <LegalRow>
                     <div>
-                        <Text>{localize('The financial products offered by this website is offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines.')}</Text>
-                        <Text>{localize('This website\'s services are not made available in certain countries such as the USA, Canada, Hong Kong, Japan, or to persons under age 18.')}</Text>
+                        <TextFooter>
+                            {localize(
+                                'The financial products offered by this website is offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines.',
+                            )}
+                        </TextFooter>
+                        <TextFooter>
+                            {localize(
+                                "This website's services are not made available in certain countries such as the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
+                            )}
+                        </TextFooter>
+                        <TextFooter mobile_only>
+                            {localize(
+                                'The financial products offered by this website is offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines.',
+                            )}
+                        </TextFooter>
+                        <TextFooter mobile_only>
+                            {localize(
+                                "This website's services are accessible worldwide except in certain countries such as the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
+                            )}
+                        </TextFooter>
                     </div>
                     <div>
                         <span>

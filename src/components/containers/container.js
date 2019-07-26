@@ -15,6 +15,11 @@ const Container = styled.div`
     @media ${device.desktopL} {
         max-width: 1400px;
     }
+    @media ${device.tabletL} {
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 `
 
 export const FlexGridContainer = styled(Container)`

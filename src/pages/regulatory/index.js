@@ -47,7 +47,10 @@ const FlexWrapper = styled(Container)`
 
 const Regulatory = () => (
     <Layout>
-        <SEO title={localize('Licences and regulations')} />
+        <SEO
+            title={localize('Regulatory information')}
+            description={localize('Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.')}
+        />
         <Hero
             header={localize('Licences and regulations')}
             paragraph={localize(

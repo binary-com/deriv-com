@@ -23,7 +23,10 @@ const TncContainer = styled(Container)`
 
 const TermsAndConditions = () => (
     <Layout>
-        <SEO title={localize('Terms and conditions')} />
+        <SEO
+            title={localize('Terms and conditions')}
+            description={localize('Read our terms and conditions to learn how we manage our data feeds, security, privacy, and more.')}
+        />
         <TncContainer align="left" justify="left">
             <SideTab has_hash_routing>
                 <General label="general" text="Terms and conditions" />

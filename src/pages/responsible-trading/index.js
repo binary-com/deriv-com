@@ -62,7 +62,10 @@ const MarginHeader = styled(Header)`
 
 const ResponsibleTrading = () => (
     <Layout>
-        <SEO title={localize('Responsible trading')} />
+        <SEO
+            title={localize('Responsible trading')}
+            description={localize('Practise responsible trading by understanding the risks involved and how you can manage them by setting limits on your trading activity.')}
+        />
         <Hero
             header={localize('Responsible trading')}
             paragraph={localize(

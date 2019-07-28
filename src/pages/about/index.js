@@ -10,7 +10,10 @@ import { OurGoals } from './_our-goals'
 
 const About = () => (
     <Layout>
-        <SEO title={localize('About us')} />
+        <SEO
+            title={localize('About us')}
+            description={localize('Deriv aims to be the world’s most customer-centric online trading company –– a place where you can find any derivative you want to trade.')}
+        />
         <Hero
             header={localize('About us')}
             paragraph={localize(

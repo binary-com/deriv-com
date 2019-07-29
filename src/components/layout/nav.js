@@ -34,7 +34,7 @@ const NavLeft = styled.div`
     text-align: left;
     @media ${device.tabletL} {
         svg {
-            width:50%
+            width: 50%;
         }
     }
 `
@@ -56,7 +56,9 @@ const NavRight = styled.div`
     position: relative;
     height: 5rem;
 
-    display: none;
+    @media ${device.tabletL} {
+        display: none;
+    }
 `
 
 const NavLink = styled.li`

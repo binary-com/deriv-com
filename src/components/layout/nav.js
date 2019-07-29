@@ -1,7 +1,7 @@
 import { LocalizedLink, localize } from '../localization'
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import LogoHeader from '../../images/svg/logo-header.svg'
+import LogoHeader from 'images/svg/logo-header.svg'
 import Button from '../form/button'
 import Container from '../containers/container'
 import Modal, { useModal } from '../elements/modal'
@@ -9,6 +9,8 @@ import SignupModal from '../elements/signup-modal'
 import { SharedLinkStyle } from '../localization/localized-link'
 import { DERIV_APP_URL } from '../../common/utility'
 import Login from 'common/login'
+import device from 'themes/device'
+import Hamburger from 'images/svg/hamburger_menu.svg'
 
 const StyledNav = styled.nav`
     background-color: var(--color-black);
@@ -16,16 +18,25 @@ const StyledNav = styled.nav`
     position: fixed;
     width: 100%;
     z-index: 100;
+    @media ${device.tabletL} {
+        height: auto;
+    }
 `
 
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 1rem;
     justify-content: space-between;
+    height: 7.2rem;
 `
 
 const NavLeft = styled.div`
     text-align: left;
+    @media ${device.tabletL} {
+        svg {
+            width:50%
+        }
+    }
 `
 
 const NavCenter = styled.ul`
@@ -33,6 +44,10 @@ const NavCenter = styled.ul`
     padding: 0;
     display: flex;
     justify-content: space-between;
+
+    @media ${device.tabletL} {
+        display: none;
+    }
 `
 
 const NavRight = styled.div`
@@ -40,6 +55,8 @@ const NavRight = styled.div`
     width: 21.5rem;
     position: relative;
     height: 5rem;
+
+    display: none;
 `
 
 const NavLink = styled.li`
@@ -82,7 +99,12 @@ const NavRightContainer = styled.div`
         }
     }}
 `
-
+const HamburgerMenu = styled(Hamburger)`
+    display: none;
+    @media ${device.tabletL} {
+        display: block;
+    }
+`
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
@@ -160,6 +182,7 @@ const Nav = () => {
                         </NavButton>
                     </NavRightContainer>
                 </NavRight>
+                <HamburgerMenu />
             </Wrapper>
             <Modal
                 toggle={toggleModal}

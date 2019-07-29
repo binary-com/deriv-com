@@ -11,6 +11,7 @@ import { Dtrader } from './home/_dtrader'
 import { HowItWorks } from './home/_how-it-works'
 import { Markets } from './home/_markets'
 import { WhyDeriv } from './home/_why-deriv'
+import { WhyDerivMobile } from './home/_why-deriv-mobile'
 import { MobileOnly, LaptopOnly } from '../components/containers/device-only'
 
 const PaymentSection = styled.section`
@@ -30,6 +31,7 @@ const Home = () => (
             <WhyDeriv />
         </LaptopOnly>
         <MobileOnly>
+            <WhyDerivMobile />
             <Dtrader />
         </MobileOnly>
         <LaptopOnly>

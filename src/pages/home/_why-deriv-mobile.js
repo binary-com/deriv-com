@@ -2,20 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import Checklist from 'images/svg/checklist.svg'
 import { Header } from '../../components/elements/typography'
+import Button from '../../components/form/button'
+import { localize } from 'components/localization'
 
 const WhyDerivMobileContainer = styled.div`
-    padding: 2rem 0;
-    background-color: var(--color-grey-2);
+    padding: 4rem 0 2rem 0;
+    background-color: var(--color-grey-1);
     );
 `
 const Card = styled.section`
     width: 90%;
     margin: 0 auto;
     min-height: 41.75rem;
-    background-color: var(--color-white);
     padding: 3rem 2rem;
     margin-top: 2rem;
     border-radius: 0.5rem;
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--color-white);
 
     div:first-child {
         margin-top: 0;
@@ -38,9 +41,23 @@ const CardItem = styled.div`
         padding-top: 1%;
     }
 `
+const ButtonWrapper = styled.div`
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3rem;
+`
+
+const SingupButton = styled(Button)`
+    width: 100%;
+    max-width: 36rem;
+    font-size: var(--text-size-sm);
+`
 export const WhyDerivMobile = () => (
     <WhyDerivMobileContainer>
-        <Header align='center' font_size="4rem">Why choose Deriv?</Header>
+        <Header align="center" font_size="4rem">
+            Why choose Deriv?
+        </Header>
         <Card>
             <CardItem>
                 <Checklist />
@@ -79,5 +96,10 @@ export const WhyDerivMobile = () => (
                 </Header>
             </CardItem>
         </Card>
+        <ButtonWrapper>
+            <SingupButton type="submit" secondary>
+                {localize('Create a free demo account')}
+            </SingupButton>
+        </ButtonWrapper>
     </WhyDerivMobileContainer>
 )

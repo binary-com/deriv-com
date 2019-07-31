@@ -35,7 +35,7 @@ const InputGroup = styled.div`
 `
 const EmailButton = styled(Button)`
     width: 100%;
-    font-size: var(--text-size-s);
+    font-size: 1.4rem;
     margin-bottom: 2rem;
 `
 

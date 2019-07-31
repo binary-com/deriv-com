@@ -326,4 +326,6 @@ const Footer = () => (
         </RiskNote>
     </footer>
 )
+
+// TODO: edit footer content
 export default Footer

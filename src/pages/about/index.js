@@ -3,12 +3,27 @@ import { localize, WithIntl } from 'components/localization'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Hero from 'components/elements/hero.js'
+import { Header } from 'components/elements/typography.js'
+import styled from 'styled-components'
+import Button from 'components/form/button'
 
 import { OurLocations } from './_our-locations'
 import { OurNumbers } from './_our-numbers'
 import { OurGoals } from './_our-goals'
 import { MobileOnly, LaptopOnly } from '../../components/containers/device-only'
 
+const Goahead = styled.div`
+    text-align: center;
+    ${Header} {
+        padding: 4rem 2rem;
+        font-size: 6rem;
+    }
+`
+const AccountButton = styled(Button)`
+    width: 90%;
+    max-width: 32rem;
+    margin-bottom: 3.6rem;
+`
 const About = () => (
     <Layout>
         <SEO title={localize('About us')} />
@@ -31,6 +46,14 @@ const About = () => (
         <OurGoals />
         <OurNumbers />
         <OurLocations />
+        <MobileOnly>
+            <Goahead>
+                <Header as="h1" align="center" lh="1.1">
+                    Go ahead, experience it for yourself.
+                </Header>
+                <AccountButton secondary>{localize('Create a free account')}</AccountButton>
+            </Goahead>
+        </MobileOnly>
     </Layout>
 )
 

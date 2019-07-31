@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
+import device from 'themes/device'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -12,6 +13,11 @@ export const CardStyle = css`
 
 const CardContent = styled(Text)`
     margin-top: 0.8rem;
+
+    @media ${device.tabletL} {
+        font-size: 2rem;
+        margin-top: 2.65rem;
+    }
 `
 const CardWrapper = styled.article`
     ${CardStyle}
@@ -21,7 +27,21 @@ const CardWrapper = styled.article`
 
     div {
         margin-top: 4rem;
+        
+            @media ${device.tabletL} {
+                margin-top: 2.7rem;
+
+                ${Header} {
+                font-size:3rem;
+                }
+            }
     }
+
+@media ${device.tabletL} {
+    padding: 3rem;
+    padding-right: 2rem;
+}
+
 `
 
 const CardChildrenWrapper = styled.article`
@@ -35,6 +55,7 @@ const CardChildrenWrapper = styled.article`
 
     ${Header} {
         text-align: center;
+
     }
     p {
         font-size: var(--text-size-sm);

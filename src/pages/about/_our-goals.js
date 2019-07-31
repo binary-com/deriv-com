@@ -6,16 +6,24 @@ import {
 } from 'components/containers/container.js'
 import { Card } from 'components/elements/card.js'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 
 import VisionSVG from 'images/svg/vision.svg'
 import FuseeSVG from 'images/svg/fusee.svg'
 
 const OurGoalsWrapper = styled(SectionContainer)`
+    padding-top: 3rem;
     background-image: linear-gradient(
         to bottom,
         var(--color-grey-2),
         var(--color-white)
     );
+
+    @media ${device.tabletL} {
+        padding-bottom: 3rem;
+        background-image: unset;
+        background-color: var(--color-grey-1);
+    }
 `
 
 export const OurGoals = () => (

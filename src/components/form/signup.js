@@ -56,7 +56,6 @@ const SocialButton = styled(Button)`
     box-shadow: none;
     flex: inherit !important;
     width: 48%;
-    padding: 1rem;
 `
 const MutedText = styled(Text)`
     text-align: left;

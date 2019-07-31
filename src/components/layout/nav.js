@@ -55,6 +55,7 @@ const NavRight = styled.div`
     width: 21.5rem;
     position: relative;
     height: 5rem;
+    top: 10%;
 
     @media ${device.tabletL} {
         display: none;
@@ -79,8 +80,8 @@ const StyledButton = styled.a`
     cursor: pointer;
 `
 const NavButton = styled(Button)`
-    padding: 1.4rem var(--text-size-s);
     position: absolute;
+    border: 2px solid var(--color-red);
     left: 0;
     ${props => {
         if (props.movable_button) {

@@ -152,7 +152,10 @@ class HelpCentre extends Component {
         const has_results = !!filtered_articles.length
         return (
             <Layout>
-                <SEO title={localize('Help centre')} />
+                <SEO
+                    title={localize('Help')}
+                    description={localize('Need help with our products and services? Read our FAQ or ask us a question.')}
+                />
                 <SearchSection
                     show={toggle_search}
                     has_transition={search_has_transition}

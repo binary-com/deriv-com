@@ -13,7 +13,7 @@ const ErrorHeader = styled(Header)`
 export const SearchSuccess = ({ suggested_topics, onClick, max_length }) => (
     <>
         <Header as="h3" color="white">
-            {localize('Topic Suggestions')}
+            {localize('Topic suggestions')}
         </Header>
         <ListWithLinks
             list={suggested_topics.slice(0, max_length)}

@@ -5,17 +5,16 @@ import Layout from 'components/layout/layout'
 import SEO from 'components/containers/seo'
 import Container from 'components/containers/container'
 import styled from 'styled-components'
-import {
-    General,
-    DataFeed,
-    SecurityAndPrivacy,
-    ConflictsPolicy,
-    Copyright,
-    ComplaintsAndDisputes,
-    RiskDisclaimer,
-    OrderExecution,
-    PaymentAgents,
-} from './_content'
+import { General } from './_general'
+import { ComplaintsAndDisputes } from './_complaints-disputes'
+import { ConflictsPolicy } from './_conflicts-policy'
+import { Copyright } from './_copyright.js'
+import { DataFeed } from './_data-feed'
+import { OrderExecution } from './_order-execution.js'
+import { PaymentAgents } from './_payment-agents'
+import { RiskDisclaimer } from './_risk-disclaimer'
+import { SecurityAndPrivacy } from './_security-privacy.js'
+import { Bonuses } from './_bonuses'
 
 const TncContainer = styled(Container)`
     padding: 6rem 0;
@@ -59,6 +58,7 @@ const TermsAndConditions = () => (
                 />
 
                 <PaymentAgents label="payment-agent" text="Payment agents" />
+                <Bonuses label="bonuses" text="Bonuses" />
             </SideTab>
         </TncContainer>
     </Layout>

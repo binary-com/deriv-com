@@ -33,7 +33,16 @@ export const FlexGridContainer = styled(Container)`
     & > * {
         flex-shrink: 0;
         width: ${props => (props.content_width ? props.content_width : '48%')};
-        margin: ${props => (props.gap ? props.gap : '1rem')};
+        margin: ${props => (props.gap ? props.gap : '0 1.5rem')};
+    }
+    & > :nth-child(${props => props.grid}n + 1) {
+        margin-left: 0;
+    }
+    /* stylelint-disable-next-line no-duplicate-selectors */
+    & > :nth-child(${props => parseInt(props.grid) - 1}n + 1) {
+        &:not(:first-child) {
+            margin-right: 0;
+        }
     }
 `
 

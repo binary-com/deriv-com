@@ -278,7 +278,7 @@ const Footer = () => (
         </FooterSocket>
         <Legal>
             <Container>
-                <Show for_show="eu">
+                <Show to="eu">
                     <LegalRow>
                         <div>
                             <TextFooter>
@@ -321,7 +321,7 @@ const Footer = () => (
                         </div>
                     </LegalRow>
                 </Show>
-                <Show for_show="non-eu">
+                <Show to="non-eu">
                     <LegalRow>
                         <div>
                             <TextFooter>

@@ -2,18 +2,13 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import styled from 'styled-components'
 
-const ConditionalShow = styled.div`
-    display: ${props => (props.invisible ? 'none' : 'block')} !important;
-`
-
-const Show = ({ children, for_show }) => {
+const Show = ({ children, to, device }) => {
     const [invisible, setInvisible] = useState(true)
 
     useEffect(() => {
         BinarySocketBase.wait('website_status', 'landing_company').then(() => {
-            switch (for_show) {
+            switch (to) {
                 case 'eu':
                     setInvisible(isEuCountry())
                     break
@@ -24,8 +19,18 @@ const Show = ({ children, for_show }) => {
                     break
             }
         })
+        switch (device) {
+            case 'laptop':
+                //TODO: add breakpoints for laptop > window.innerwidth here, and update setInvisible memoized state
+                break
+            case 'mobile':
+                //TODO: add breakpoints for mobile > window.innerwidth here, and update setInvisible memoized state
+                break
+            default:
+                break
+        }
     })
-    return <ConditionalShow invisible={invisible}>{children}</ConditionalShow>
+    return !invisible ? <div>{children}</div> : null
 }
 
 Show.propTypes = {
@@ -33,6 +38,7 @@ Show.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]).isRequired,
-    for_show: PropTypes.string,
+    device: PropTypes.string,
+    to: PropTypes.string,
 }
 export default Show

@@ -204,7 +204,7 @@ const Footer = () => (
                                 to="/keep-safe/"
                                 aria-label={localize('Keep safe')}
                             >
-                                {localize('Keep Safe')}
+                                {localize('Keep safe')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="company">
@@ -212,9 +212,9 @@ const Footer = () => (
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/about/"
-                                aria-label={localize('About Us')}
+                                aria-label={localize('About us')}
                             >
-                                {localize('About Us')}
+                                {localize('About us')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="support">
@@ -234,14 +234,14 @@ const Footer = () => (
                                 to="/regulatory/"
                                 aria-label={localize('Regulatory information')}
                             >
-                                {localize('Regulatory Information')}
+                                {localize('Regulatory information')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/terms-and-conditions/"
                                 aria-label={localize('Terms and conditions')}
                             >
-                                {localize('Terms and Conditions')}
+                                {localize('Terms and conditions')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 hidden
@@ -249,14 +249,14 @@ const Footer = () => (
                                 to="terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and privacy')}
                             >
-                                {localize('Security and Privacy')}
+                                {localize('Security and privacy')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/responsible-trading/"
                                 aria-label={localize('Responsible trading')}
                             >
-                                {localize('Responsible Trading')}
+                                {localize('Responsible trading')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="social">

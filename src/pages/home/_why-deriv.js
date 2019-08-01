@@ -46,6 +46,9 @@ const HomeCarouselContainer = styled.div`
     justify-content: space-between;
     align-items: flex-start;
 
+    @media ${device.laptop} {
+        margin-left: 10rem;
+    }
     @media ${device.desktopS} {
         margin-left: 44rem;
     }

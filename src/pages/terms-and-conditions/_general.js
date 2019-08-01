@@ -12,7 +12,7 @@ import { Header } from 'components/elements/typography'
 export const General = () => (
     <StyledSection>
         <Header as="h2" color="black">
-            {localize('Terms and Conditions')}
+            {localize('Terms and conditions')}
         </Header>
         <TncText>{localize('Version 1. Last modified 01-08-2019.')}</TncText>
         <TncText>

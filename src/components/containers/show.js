@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
@@ -7,36 +7,25 @@ import styled from 'styled-components'
 const ConditionalShow = styled.div`
     display: ${props => (props.invisible ? 'none' : 'block')} !important;
 `
-class Show extends Component {
-    state = {
-        invisible: true,
-    }
 
-    componentDidMount() {
+const Show = ({ children, for_show }) => {
+    const [invisible, setInvisible] = useState(true)
+
+    useEffect(() => {
         BinarySocketBase.wait('website_status', 'landing_company').then(() => {
-            switch (this.props.for_show) {
+            switch (for_show) {
                 case 'eu':
-                    this.setState({
-                        invisible: isEuCountry(),
-                    })
+                    setInvisible(isEuCountry())
                     break
                 case 'non-eu':
-                    this.setState({
-                        invisible: !isEuCountry(),
-                    })
+                    setInvisible(!isEuCountry())
                     break
                 default:
                     break
             }
         })
-    }
-    render() {
-        return (
-            <ConditionalShow invisible={this.state.invisible}>
-                {this.props.children}
-            </ConditionalShow>
-        )
-    }
+    })
+    return <ConditionalShow invisible={invisible}>{children}</ConditionalShow>
 }
 
 Show.propTypes = {

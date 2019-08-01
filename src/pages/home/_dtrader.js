@@ -51,7 +51,9 @@ export const Dtrader = () => {
                     {localize('DTrader')}
                 </Header>
                 <StyledSubHeader as="h4" align="center" weight="500">
-                    {localize('All you need to get started')}
+                    {localize(
+                        'The platform that helps you make better trading decisions',
+                    )}
                 </StyledSubHeader>
             </SectionHeader>
             <StyledContainer>

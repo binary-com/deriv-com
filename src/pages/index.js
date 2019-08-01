@@ -19,7 +19,10 @@ const PaymentSection = styled.section`
 `
 const Home = () => (
     <Layout>
-        <SEO title={localize('Home')} />
+        <SEO
+            title={localize('Your ultimate online trading experience')}
+            description={localize('Deriv is an online trading company that offers the broadest selection of derivatives with competitive prices.')}
+        />
         <Hero />
         <Dtrader />
         <HowItWorks />

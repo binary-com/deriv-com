@@ -90,7 +90,7 @@ export const OurLocations = () => {
     return (
         <OurLocationsWrapper>
             <Header as="h2" align="center" color="black-2">
-                {localize('Our Locations')}
+                {localize('Our locations')}
             </Header>
             <OurLocationsContainer>
                 {locations.map((location, idx) => (
@@ -109,7 +109,7 @@ export const OurLocations = () => {
                 ))}
             </OurLocationsContainer>
             <Button secondary onClick={toggleModal}>
-                {localize('Start with free practice account')}
+                {localize('Create a free account')}
             </Button>
             <Modal
                 toggle={toggleModal}

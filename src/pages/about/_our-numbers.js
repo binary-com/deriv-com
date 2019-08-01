@@ -108,7 +108,7 @@ export const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
             <Header as="h2" color="black-2" align="center">
-                {localize('Our Numbers')}
+                {localize('Our numbers')}
             </Header>
             <Header as="h4" color="black-3" align="center" weight="500">
                 {localize(

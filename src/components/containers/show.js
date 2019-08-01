@@ -39,28 +39,6 @@ class Show extends Component {
     }
 }
 
-// export default Show;
-// const Show = ({ children, for_show }) => {
-//     let invisible = false
-//     useEffect(() => {
-//         BinarySocketBase.wait('website_status', 'landing_company').then(() => {
-//             switch (for_show) {
-//                 case 'eu':
-//                     invisible = isEuCountry()
-//                     break
-//                 case 'non-eu':
-//                     invisible = !isEuCountry()
-//                     break
-//                 default:
-//                     break
-//             }
-//         })
-
-//         return () => {}
-//     }, [])
-//     return <ConditionalShow invisible={invisible}>{children}</ConditionalShow>
-// }
-
 Show.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),

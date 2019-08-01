@@ -236,7 +236,7 @@ const BinarySocketBase = (() => {
                 // store in State
                 if (
                     !getPropertyValue(response, ['echo_req', 'subscribe']) ||
-                    /balance|website_status/.test(msg_type)
+                    /balance|website_status|landing_company/.test(msg_type)
                 ) {
                     State.set(['response', msg_type], cloneObject(response))
                 }

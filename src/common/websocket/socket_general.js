@@ -1,6 +1,6 @@
 import { BinarySocketBase } from './socket_base'
 import { getPropertyValue } from '../utility'
-
+import { State } from '../storage'
 const BinarySocketGeneral = (() => {
     const onOpen = is_ready => {
         if (is_ready) {
@@ -20,6 +20,12 @@ const BinarySocketGeneral = (() => {
                     is_available = /^up$/i.test(
                         response.website_status.site_status,
                     )
+                    if (!State.getResponse('landing_company')) {
+                        BinarySocketBase.send({
+                            landing_company:
+                                response.website_status.clients_country,
+                        })
+                    }
                     if (is_available && !BinarySocketBase.availability()) {
                         window.location.reload()
                         return

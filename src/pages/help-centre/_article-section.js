@@ -19,8 +19,8 @@ const LeftRightContainer = styled.div`
     display: flex;
     padding: ${props => props.padding || ''};
 
-    > :first-child {
-        margin-right: auto;
+    > * {
+        width: 50%;
     }
 `
 

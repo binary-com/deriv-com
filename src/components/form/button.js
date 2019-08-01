@@ -39,7 +39,7 @@ const StyledButton = styled.button`
             `
         if (props.secondary)
             return css`
-                border: none;
+                border: 2px solid var(--color-red);
                 color: var(--color-white);
                 background: var(--color-red);
 

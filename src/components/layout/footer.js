@@ -1,9 +1,10 @@
 import React from 'react'
-import { localize } from '../localization'
 import styled from 'styled-components'
-import device from 'themes/device'
+import { localize } from '../localization'
 import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
+import { StyledLink } from '../elements/link'
+import device from 'themes/device'
 import Logo from 'images/svg/deriv.svg'
 import YouTube from 'images/svg/youtube.svg'
 import Twitter from 'images/svg/twitter.svg'
@@ -14,7 +15,6 @@ import Labuan from 'images/svg/footer-labuan.svg'
 import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
-import { StyledLink } from '../elements/link'
 
 const FooterContainer = styled(Container)`
     @media ${device.tabletL} {

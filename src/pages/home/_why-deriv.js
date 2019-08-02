@@ -1,6 +1,6 @@
 import React from 'react'
-import device from 'themes/device'
 import styled from 'styled-components'
+import device from 'themes/device'
 import Carousel from 'components/elements/carousel'
 import Button from 'components/form/button'
 import { Header } from 'components/elements/typography.js'

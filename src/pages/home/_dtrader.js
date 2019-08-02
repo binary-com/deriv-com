@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { SectionHeader, StyledSubHeader } from './_headers'
 import Button from 'components/form/button'
 import Container, {
     SectionContainer,
@@ -10,7 +11,6 @@ import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import { SectionHeader, StyledSubHeader } from './_headers'
 
 import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'

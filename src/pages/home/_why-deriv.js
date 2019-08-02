@@ -47,10 +47,10 @@ const HomeCarouselContainer = styled.div`
     align-items: flex-start;
 
     @media ${device.laptop} {
-        margin-left: 10rem;
+        margin-left: 10vw;
     }
     @media ${device.desktopS} {
-        margin-left: 44rem;
+        margin-left: 22.5vw;
     }
 `
 const StyledSubHeader = styled(Header)`

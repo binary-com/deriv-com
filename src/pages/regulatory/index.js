@@ -1,34 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
-import SEO from '../components/containers/seo'
-import Layout from '../components/layout/layout'
-import { localize, WithIntl } from '../components/localization'
+import SEO from 'components/containers/seo'
+import Layout from 'components/layout/layout'
 import Hero from 'components/elements/hero'
-import Container from 'components/containers/container'
+import Container, { SectionContainer } from 'components/containers/container'
+import { localize, WithIntl } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
-import { CardTypeTwo } from 'components/elements/card.js'
+import { CardChildren } from 'components/elements/card.js'
+
 import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import MFSA from 'images/svg/mfsa.svg'
 import FSC from 'images/svg/fsc.svg'
 import Labuan from 'images/svg/footer-labuan.svg'
 
-const RegulatoryWrapper = styled.section`
+const RegulatoryWrapper = styled(SectionContainer)`
     background-image: linear-gradient(
         to bottom,
         var(--color-grey-2),
         var(--color-white)
     );
-    width: 100%;
 `
 const StyledContainer = styled(Container)`
     flex-direction: column;
-    padding: 8rem 0;
 `
 
 const StyledText = styled(Text)`
     margin: 0.8rem 0;
-    font-size: 2rem;
+    font-size: var(--text-size-sm);
 `
 
 const FlexWrapper = styled(Container)`
@@ -37,6 +36,7 @@ const FlexWrapper = styled(Container)`
     align-content: stretch;
     justify-content: space-between;
     min-width: 100%;
+    margin-top: 2.4rem;
 
     & > * {
         flex-shrink: 0;
@@ -47,11 +47,14 @@ const FlexWrapper = styled(Container)`
 
 const Regulatory = () => (
     <Layout>
-        <SEO title={localize('Licences and regulations')} />
+        <SEO
+            title={localize('Regulatory information')}
+            description={localize('Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.')}
+        />
         <Hero
             header={localize('Licences and regulations')}
             paragraph={localize(
-                'Deriv operates under the jurisdiction of Binary.com.',
+                'Deriv is a trading platform created and operated by the Binary Group',
             )}
         />
         <RegulatoryWrapper>
@@ -65,30 +68,11 @@ const Regulatory = () => (
                     )}
                 </StyledText>
                 <FlexWrapper>
-                    <CardTypeTwo
-                        Icon={<SVG />}
-                        title={localize('Binary (SVG) Ltd')}
-                    >
-                        <Text align="center">
-                            {localize(
-                                'Binary (SVG) Ltd is registered in St. Vincent and the Grenadines.',
-                            )}
-                        </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<Vanuatu width="240" height="160" />}
-                        title={localize('Binary (V) Ltd')}
-                    >
-                        <Text align="center">
-                            {localize(
-                                'Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission -',
-                            )}{' '}
-                            <a href="">{localize('view license')}</a>
-                        </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<MFSA />}
+                    <CardChildren
+                        Icon={MFSA}
                         title={localize('Binary Investments (Europe) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
                     >
                         <Text align="center">
                             {localize(
@@ -100,10 +84,12 @@ const Regulatory = () => (
                             </a>
                             ).
                         </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<FSC width="240" height="160" />}
+                    </CardChildren>
+                    <CardChildren
+                        Icon={FSC}
                         title={localize('Binary (BVI) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
                     >
                         <Text align="center">
                             {localize(
@@ -111,10 +97,25 @@ const Regulatory = () => (
                             )}{' '}
                             <a href="">{localize('view licence.')}</a>
                         </Text>
-                    </CardTypeTwo>
-                    <CardTypeTwo
-                        Icon={<Labuan width="200" height="120" />}
+                    </CardChildren>
+                    <CardChildren
+                        Icon={Vanuatu}
+                        title={localize('Binary (V) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
+                    >
+                        <Text align="center">
+                            {localize(
+                                'Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission -',
+                            )}{' '}
+                            <a href="">{localize('view license')}</a>
+                        </Text>
+                    </CardChildren>
+                    <CardChildren
+                        Icon={Labuan}
                         title={localize('Binary (FX) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
                     >
                         <Text align="center">
                             {localize(
@@ -126,7 +127,19 @@ const Regulatory = () => (
                             </a>
                             ).
                         </Text>
-                    </CardTypeTwo>
+                    </CardChildren>
+                    <CardChildren
+                        Icon={SVG}
+                        title={localize('Binary (SVG) Ltd')}
+                        icon_width="24rem"
+                        icon_height="16rem"
+                    >
+                        <Text align="center">
+                            {localize(
+                                'Binary (SVG) Ltd is registered in St. Vincent and the Grenadines.',
+                            )}
+                        </Text>
+                    </CardChildren>
                 </FlexWrapper>
             </StyledContainer>
         </RegulatoryWrapper>

@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import Row from '../containers/row'
 import Signup from '../form/signup'
-import { Header, Text } from './typography'
+import { Header } from './typography'
 import { localize } from '../localization'
 
 const SignupWrapper = styled.article`
@@ -32,11 +32,13 @@ const Content = styled.div`
             : ''}
 `
 
+const SignupContent = styled(Content)`
+    padding-top: 8rem;
+    padding-bottom: 3rem;
+`
+
 const HeaderWrapper = styled(Header)`
     max-width: 75%;
-`
-const CaptionDesc = styled(Text)`
-    padding: var(--text-size-s);
 `
 
 const SignupModal = () => (
@@ -53,13 +55,10 @@ const SignupModal = () => (
                         'The ultimate trading experience is just a few clicks away.',
                     )}
                 </HeaderWrapper>
-                <CaptionDesc color="white" align="center">
-                    {localize('Go ahead, try it for yourself.')}
-                </CaptionDesc>
             </Content>
-            <Content>
-                <Signup />
-            </Content>
+            <SignupContent>
+                <Signup autofocus />
+            </SignupContent>
         </ModalRow>
     </SignupWrapper>
 )

@@ -18,16 +18,15 @@ import Wrapper from '../containers/wrapper'
 import Container from '../containers/container'
 import PropTypes from 'prop-types'
 
-const Title = styled(Header)`
-    margin: 10rem 0 3rem 0;
-`
 const Form = styled.form`
     width: 80%;
+    margin: 0 auto;
 `
 const ResponseWrapper = styled(Container)`
     justify-content: center;
     max-width: 26.5rem;
     flex-direction: column;
+    padding: 2rem 1rem;
 `
 const InputGroup = styled.div`
     position: relative;
@@ -36,8 +35,8 @@ const InputGroup = styled.div`
 `
 const EmailButton = styled(Button)`
     width: 100%;
-    font-size: var(--text-size-s);
-    margin-bottom: 4rem;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
 `
 
 const StyledError = styled(ErrorIcon)`
@@ -46,6 +45,7 @@ const StyledError = styled(ErrorIcon)`
     top: 1.2rem;
     height: 1.6rem;
     width: 1.6rem;
+    cursor: pointer;
 `
 
 const ErrorMessages = styled(Text)`
@@ -56,16 +56,6 @@ const SocialButton = styled(Button)`
     box-shadow: none;
     flex: inherit !important;
     width: 48%;
-    background: ${props => {
-        if (props.provider === 'google') return 'var(--color-white)'
-        if (props.provider === 'facebook') return 'var(--color-blue)'
-    }};
-    padding: 1rem;
-
-    svg {
-        width: 2.2rem;
-        height: 2.2rem;
-    }
 `
 const MutedText = styled(Text)`
     text-align: left;
@@ -76,11 +66,11 @@ const SocialWrapper = styled(Row)`
     width: 100%;
     justify-content: space-between;
     margin-top: var(--text-size-s);
-    margin-bottom: 4rem;
 `
-const LoginText = styled(MutedText)`
+export const LoginText = styled(MutedText)`
     text-align: center;
     align-self: center;
+    margin-top: 4rem;
     margin-bottom: 8rem;
 `
 const LoginLink = styled.a`
@@ -116,8 +106,6 @@ class Signup extends Component {
     }
 
     handleValidation = param => {
-        if (!param) return
-
         const message = typeof param === 'object' ? param.target.value : param
 
         this.setState({
@@ -162,13 +150,16 @@ class Signup extends Component {
     handleEmailSignup = e => {
         e.preventDefault()
         this.setState({ is_submitting: true })
-        this.handleValidation(this.state.email)
+        const { email, email_error_msg } = this.state
 
-        if (this.state.email_error_msg) {
+        this.handleValidation(email)
+
+        const has_error_email = validateEmail(email)
+
+        if (has_error_email || email_error_msg) {
             return this.setState({ is_submitting: false })
         }
 
-        const { email } = this.state
         const verify_email_req = this.getVerifyEmailRequest(email)
 
         BinarySocketBase.send(verify_email_req).then(response => {
@@ -187,6 +178,8 @@ class Signup extends Component {
         })
     }
 
+    clearEmail = () => this.setState({ email: '', email_error_msg: '' })
+
     handleSocialSignup = e => {
         e.preventDefault()
         Login.initOneAll(e.target.id)
@@ -202,9 +195,9 @@ class Signup extends Component {
             <>
                 {!this.state.submit_status && (
                     <Form onSubmit={this.handleEmailSignup} noValidate>
-                        <Title as="h3" weight="normal">
+                        <Header as="h3" weight="normal">
                             {localize('Sign up for free now!')}
-                        </Title>
+                        </Header>
                         <InputGroup>
                             <Input
                                 id="email"
@@ -215,7 +208,7 @@ class Signup extends Component {
                                 placeholder={'example@mail.com'}
                                 onChange={this.handleInputChange}
                                 onBlur={this.handleValidation}
-                                autoFocus={this.props.autofocus || true}
+                                autoFocus={this.props.autofocus}
                                 required
                             />
                             {this.state.email_error_msg && (
@@ -227,7 +220,7 @@ class Signup extends Component {
                                     >
                                         {this.state.email_error_msg}
                                     </ErrorMessages>
-                                    <StyledError />
+                                    <StyledError onClick={this.clearEmail} />
                                 </>
                             )}
                         </InputGroup>
@@ -245,7 +238,7 @@ class Signup extends Component {
                                 provider="google"
                                 id="google"
                                 type="button"
-                                secondary
+                                social
                             >
                                 <span>
                                     <Google />
@@ -256,7 +249,7 @@ class Signup extends Component {
                                 provider="facebook"
                                 id="facebook"
                                 type="button"
-                                secondary
+                                social
                             >
                                 <span>
                                     <Facebook />
@@ -308,7 +301,7 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
-    autofocus: PropTypes.string,
+    autofocus: PropTypes.bool,
 }
 
 export default Signup

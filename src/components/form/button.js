@@ -1,11 +1,15 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+import { Paddings } from 'themes/function'
 
 const StyledButton = styled.button`
     border-radius: 6px;
-    padding: 1rem;
-    font-size: var(--text-size-s);
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+    transition: all 0.25s;
+    font-weight: bold;
+    ${Paddings}
 
     &:hover {
         cursor: pointer;
@@ -27,7 +31,6 @@ const StyledButton = styled.button`
                 border: 2px solid var(--color-red);
                 color: var(--color-red);
                 background: transparent;
-                transition: all 0.25s;
 
                 &:hover {
                     background-color: var(--color-red);
@@ -39,10 +42,33 @@ const StyledButton = styled.button`
                 border: none;
                 color: var(--color-white);
                 background: var(--color-red);
-                transition: all 0.25s;
 
                 &:hover {
                     background-color: var(--color-red-3);
+                    border-color: var(--color-red-3);
+                }
+            `
+        if (props.social)
+            return css`
+                background: ${props => {
+                    if (props.provider === 'google') return 'var(--color-white)'
+                    if (props.provider === 'facebook')
+                        return 'var(--color-blue)'
+                }};
+                border: none;
+
+                svg {
+                    width: 2.2rem;
+                    height: 2.2rem;
+                }
+
+                &:hover {
+                    background: ${props => {
+                        if (props.provider === 'google')
+                            return 'var(--color-grey-4)'
+                        if (props.provider === 'facebook')
+                            return 'var(--color-blue-2)'
+                    }};
                 }
             `
     }}

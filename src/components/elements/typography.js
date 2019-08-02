@@ -12,9 +12,23 @@ const BaseElement = css`
 
 export const Text = styled.p`
     font-weight: ${props => props.weight || 'normal'};
-    font-size: var(--text-size-s);
+    font-size: ${props =>
+        props.secondary ? 'var(--text-size-sm)' : 'var(--text-size-s)'};
     line-height: ${props => props.lh || '1.5'};
     ${BaseElement}
+`
+
+export const LinkText = styled.a`
+    /* prettier-ignore */
+    color: var(--color-${props => props.color || 'black'});
+    font-size: ${props => props.size || 'var(--text-size-s)'};
+    line-height: ${props => props.lh || '1.5'};
+
+    &:hover {
+        color: var(--color-red);
+        text-decoration: underline;
+        cursor: pointer;
+    }
 `
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>

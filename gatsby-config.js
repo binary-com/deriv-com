@@ -72,5 +72,18 @@ module.exports = {
                 id: 'modal',
             },
         },
+        {
+            resolve: 'gatsby-plugin-google-tagmanager',
+            options: {
+                id: 'GTM-NF7884S',
+                includeInDevelopment: false,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                policy: [{ userAgent: '*', allow: '/' }],
+            },
+        },
     ],
 }

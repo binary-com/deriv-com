@@ -31,6 +31,7 @@ const Bullet = styled.button`
     margin-right: 1.25rem;
     outline: none;
     cursor: pointer;
+    padding: 0;
     ${props => {
         return props.is_active === 'active'
             ? `background-color: var(--color-black-4);
@@ -70,6 +71,7 @@ class Carousel extends React.Component {
                                     : 'not-active'
                             }
                             onClick={e => this.handleClick(e)}
+                            aria-label="carousel-button"
                         />
                     ))}
                 </BulletArea>

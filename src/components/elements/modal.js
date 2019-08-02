@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Portal from '../containers/portal'
@@ -25,8 +25,8 @@ const CloseButton = styled(Close)`
     position: absolute;
     top: 0;
     right: 0;
-    width: 1.6rem;
-    height: 1.6rem;
+    width: 2.6rem;
+    height: 2.6rem;
     border: none;
     background: transparent;
     padding: 0.5rem;
@@ -88,3 +88,11 @@ Modal.propTypes = {
 }
 
 export default Modal
+
+export function useModal(is_open = false) {
+    const [show_modal, setShowModal] = useState(is_open)
+    const toggleModal = () => setShowModal(!show_modal)
+    const closeModal = () => setShowModal(false)
+
+    return [show_modal, toggleModal, closeModal]
+}

@@ -19,8 +19,26 @@ const LeftRightContainer = styled.div`
     display: flex;
     padding: ${props => props.padding || ''};
 
+    > :first-child {
+        margin-right: auto;
+    }
+`
+
+const HomeContainer = styled(LeftRightContainer)`
+    > :first-child {
+        margin-right: 0;
+    }
     > * {
         width: 50%;
+    }
+`
+
+const ArticleContainer = styled(LeftRightContainer)`
+    > :first-child {
+        margin-right: 6.5rem;
+    }
+    > * {
+        flex: 1 1 auto;
     }
 `
 
@@ -43,7 +61,7 @@ const SmallSearchIcon = styled(SearchIcon)`
 `
 
 const ArticleContent = styled.div`
-    width: 60%;
+    width: 50%;
 
     > *:not(:last-child) {
         margin-top: 0;
@@ -69,12 +87,12 @@ export const ArticleSection = React.memo(function ArticleSection({
     return (
         <Container align="normal" direction="column">
             {!selected_article && (
-                <LeftRightContainer padding="8rem 0">
+                <HomeContainer padding="8rem 0">
                     <ArticleList
                         articles={articles}
                         onClick={handleSelectArticle}
                     />
-                </LeftRightContainer>
+                </HomeContainer>
             )}
             {selected_article && (
                 <Article
@@ -107,7 +125,7 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
                 </StyledLink>
                 <SmallSearchIcon onClick={toggleSearch} />
             </LeftRightContainer>
-            <LeftRightContainer padding="4.5rem 0">
+            <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
                     <Header as="h3">{`${article.category} - ${article.title}`}</Header>
                     {article.content}
@@ -122,7 +140,7 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
                         />
                     </ListWrapper>
                 )}
-            </LeftRightContainer>
+            </ArticleContainer>
         </>
     )
 }

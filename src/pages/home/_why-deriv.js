@@ -36,7 +36,7 @@ const HomeCarouselWrapper = styled.section`
 `
 const HomeCarouselContainer = styled.div`
     width: 90%;
-    margin-left: 20.8rem;
+    margin-left: 14.3vw;
     margin-right: 0;
     display: flex;
     max-width: 123.2rem;

@@ -283,7 +283,6 @@ const Footer = () => (
         </FooterSocket>
         <Legal>
             <Container>
-<<<<<<< HEAD
                 <Show to="eu">
                     <LegalRow>
                         <div>
@@ -370,34 +369,6 @@ const Footer = () => (
                         </div>
                     </LegalRow>
                 </Show>
-=======
-                <LegalRow>
-                    <div>
-                        <span>
-                            <Vanuatu />
-                            <FSC />
-                            <Labuan />
-                        </span>
-                    </div>
-                    <div>
-                        <TextFooter mobile_only>
-                            {localize(
-                                'In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence no. IS/70156).',
-                            )}
-                        </TextFooter>
-                        <TextFooter mobile_only>
-                            {localize(
-                                'Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (view licence); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (licence no. SIBA/L/18/1114); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (licence no. MB/18/0024).',
-                            )}
-                        </TextFooter>
-                        <TextFooter mobile_only>
-                            {localize(
-                                "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
-                            )}
-                        </TextFooter>
-                    </div>
-                </LegalRow>
->>>>>>> 448281314adb318c981d5d720b4d83a6f78e656c
             </Container>
         </Legal>
         <RiskNote>

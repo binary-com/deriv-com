@@ -4,36 +4,32 @@ import Cookies from 'js-cookie'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 
+const handleEu = (setVisible, to) => is_eu_country => {
+    switch (to) {
+        case 'eu':
+            setVisible(is_eu_country)
+            break
+        case 'non-eu':
+            setVisible(!is_eu_country)
+            break
+        default:
+            break
+    }
+}
+
 const Show = ({ children, to, device }) => {
     const [visible, setVisible] = useState(true)
 
     useEffect(() => {
         if (to) {
-            const switchCaseEu = is_eu_country => {
-                switch (to) {
-                    case 'eu':
-                        setVisible(is_eu_country)
-                        break
-                    case 'non-eu':
-                        setVisible(!is_eu_country)
-                        break
-                    default:
-                        break
-                }
-            }
-
             const clients_country = Cookies.get('clients_country')
-            let is_eu_country = false
-
+            const showEu = handleEu(setVisible, to)
             if (clients_country) {
-                is_eu_country = isEuCountry(clients_country)
-                switchCaseEu(is_eu_country)
+                isEuCountry(clients_country)
+                showEu(isEuCountry(clients_country))
             } else {
                 BinarySocketBase.wait('website_status').then(response => {
-                    is_eu_country = isEuCountry(
-                        response.website_status.clients_country,
-                    )
-                    switchCaseEu(is_eu_country)
+                    showEu(isEuCountry(response.website_status.clients_country))
 
                     /* country_code cookies will be valid for 1 month */
                     Cookies.set(

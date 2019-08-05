@@ -25,7 +25,7 @@ const StyledNav = styled.nav`
 
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
-    padding: 1.2rem 1rem;
+    padding: 1.2rem 0;
     justify-content: space-between;
     height: 7.2rem;
 `
@@ -52,7 +52,7 @@ const NavCenter = styled.ul`
 
 const NavRight = styled.div`
     overflow: hidden;
-    width: 21.5rem;
+    width: 21.4rem;
     position: relative;
     height: 5rem;
     top: 10%;
@@ -94,7 +94,7 @@ const NavButton = styled(Button)`
 `
 const NavRightContainer = styled.div`
     position: absolute;
-    left: 13rem;
+    left: 14rem;
     transition: left 0.5s ease-out;
     ${props => {
         if (props.enable_move) {

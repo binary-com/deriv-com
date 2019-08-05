@@ -36,7 +36,7 @@ const HomeCarouselWrapper = styled.section`
 `
 const HomeCarouselContainer = styled.div`
     width: 90%;
-    margin-left: 20.8rem;
+    margin-left: 14.3vw;
     margin-right: 0;
     display: flex;
     max-width: 123.2rem;
@@ -46,8 +46,11 @@ const HomeCarouselContainer = styled.div`
     justify-content: space-between;
     align-items: flex-start;
 
+    @media ${device.laptop} {
+        margin-left: 10vw;
+    }
     @media ${device.desktopS} {
-        margin-left: 44rem;
+        margin-left: 22.5vw;
     }
 `
 const StyledSubHeader = styled(Header)`

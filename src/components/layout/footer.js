@@ -96,19 +96,24 @@ const FooterSocket = styled.section`
 const Legal = styled.section`
     background-color: var(--color-grey-1);
     width: 100%;
-    padding: 3rem 0;
+    padding: 2.4rem 0;
 
     p {
-        margin: 1rem 0;
+        margin: 1.2rem 0;
         line-height: 1.8rem;
         color: var(--color-grey-3);
         font-size: 1.2rem;
+
+        &:first-child,
+        &:last-child {
+            margin: 0;
+        }
     }
 `
 const LegalRow = styled.div`
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-column-gap: 2rem;
+    grid-template-rows: 1fr;
+    grid-row-gap: 2.4rem;
     width: 100%;
 
     * {
@@ -205,7 +210,7 @@ const Footer = () => (
                                 to="/keep-safe/"
                                 aria-label={localize('Keep safe')}
                             >
-                                {localize('Keep Safe')}
+                                {localize('Keep safe')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="company">
@@ -213,9 +218,9 @@ const Footer = () => (
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/about/"
-                                aria-label={localize('About Us')}
+                                aria-label={localize('About us')}
                             >
-                                {localize('About Us')}
+                                {localize('About us')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="support">
@@ -235,14 +240,14 @@ const Footer = () => (
                                 to="/regulatory/"
                                 aria-label={localize('Regulatory information')}
                             >
-                                {localize('Regulatory Information')}
+                                {localize('Regulatory information')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/terms-and-conditions/"
                                 aria-label={localize('Terms and conditions')}
                             >
-                                {localize('Terms and Conditions')}
+                                {localize('Terms and conditions')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 hidden
@@ -250,14 +255,14 @@ const Footer = () => (
                                 to="terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and privacy')}
                             >
-                                {localize('Security and Privacy')}
+                                {localize('Security and privacy')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/responsible-trading/"
                                 aria-label={localize('Responsible trading')}
                             >
-                                {localize('Responsible Trading')}
+                                {localize('Responsible trading')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="social">
@@ -278,6 +283,7 @@ const Footer = () => (
         </FooterSocket>
         <Legal>
             <Container>
+<<<<<<< HEAD
                 <Show to="eu">
                     <LegalRow>
                         <div>
@@ -364,6 +370,34 @@ const Footer = () => (
                         </div>
                     </LegalRow>
                 </Show>
+=======
+                <LegalRow>
+                    <div>
+                        <span>
+                            <Vanuatu />
+                            <FSC />
+                            <Labuan />
+                        </span>
+                    </div>
+                    <div>
+                        <TextFooter mobile_only>
+                            {localize(
+                                'In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence no. IS/70156).',
+                            )}
+                        </TextFooter>
+                        <TextFooter mobile_only>
+                            {localize(
+                                'Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (view licence); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (licence no. SIBA/L/18/1114); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (licence no. MB/18/0024).',
+                            )}
+                        </TextFooter>
+                        <TextFooter mobile_only>
+                            {localize(
+                                "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
+                            )}
+                        </TextFooter>
+                    </div>
+                </LegalRow>
+>>>>>>> 448281314adb318c981d5d720b4d83a6f78e656c
             </Container>
         </Legal>
         <RiskNote>

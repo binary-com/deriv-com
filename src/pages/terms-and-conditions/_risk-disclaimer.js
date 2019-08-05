@@ -23,11 +23,6 @@ export const RiskDisclaimer = () => (
                 'If you choose to enter into a trade with Us, it is important that you remain aware of the risks involved, have adequate investment resources to bear such risks, and monitor your positions carefully. You should make careful considerations independently, both prior to applying to engage in trade with Deriv and prior to making any individual order.',
             )}
         </TncText>
-        <TncText>
-            {localize(
-                "If the client chooses to enter into a contract with the Company, it is important that the client remains aware of the risks involved, that the client has adequate investment resources to bear such risks, and that the client monitors the client's positions carefully.",
-            )}
-        </TncText>
         <StyledHeader as="h4" weight="500">
             {localize('General risks')}
         </StyledHeader>

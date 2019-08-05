@@ -9,21 +9,6 @@ const Show = ({ children, to, device }) => {
 
     useEffect(() => {
         if (to) {
-            const country_code = Cookies.get('country_code')
-            let is_eu_country = false
-
-            if (country_code) {
-                is_eu_country = isEuCountry(country_code)
-                switchCaseEu(is_eu_country)
-            } else {
-                BinarySocketBase.wait('website_status').then(response => {
-                    is_eu_country = isEuCountry(
-                        response.website_status.country_code,
-                    )
-                    switchCaseEu(is_eu_country)
-                })
-            }
-
             const switchCaseEu = is_eu_country => {
                 switch (to) {
                     case 'eu':
@@ -35,6 +20,28 @@ const Show = ({ children, to, device }) => {
                     default:
                         break
                 }
+            }
+
+            const clients_country = Cookies.get('clients_country')
+            let is_eu_country = false
+
+            if (clients_country) {
+                is_eu_country = isEuCountry(clients_country)
+                switchCaseEu(is_eu_country)
+            } else {
+                BinarySocketBase.wait('website_status').then(response => {
+                    is_eu_country = isEuCountry(
+                        response.website_status.clients_country,
+                    )
+                    switchCaseEu(is_eu_country)
+
+                    /* country_code cookies will be valid for 1 month */
+                    Cookies.set(
+                        'clients_country',
+                        response.website_status.clients_country,
+                        { expires: 30 },
+                    )
+                })
             }
         }
         if (device) {

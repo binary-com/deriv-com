@@ -15,7 +15,7 @@ export const TncListText = styled(Text)`
 `
 
 export const StyledHeader = styled(Header)`
-    margin-top: 2.4rem;
+    margin-top: 3.2rem;
 `
 
 export const StyledOrder = styled.ol`

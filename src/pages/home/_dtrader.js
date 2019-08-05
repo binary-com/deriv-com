@@ -59,8 +59,9 @@ export const Dtrader = () => {
             <StyledContainer>
                 <FlexGridContainer
                     content_width="32rem"
-                    gap="1rem"
+                    gap="1.5rem"
                     justify="center"
+                    grid="3"
                 >
                     <Card
                         title={localize('Superior trading platform')}

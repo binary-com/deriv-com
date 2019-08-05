@@ -20,7 +20,7 @@ const OurGoalsWrapper = styled(SectionContainer)`
 
 export const OurGoals = () => (
     <OurGoalsWrapper>
-        <FlexGridContainer justify="center">
+        <FlexGridContainer justify="center" content_width="32rem">
             <Card
                 Icon={VisionSVG}
                 title={localize('Our vision')}

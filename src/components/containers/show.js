@@ -5,17 +5,17 @@ import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 
 const Show = ({ children, to, device }) => {
-    const [invisible, setInvisible] = useState(true)
+    const [visible, setVisible] = useState(true)
 
     useEffect(() => {
         if (to) {
             const switchCaseEu = is_eu_country => {
                 switch (to) {
                     case 'eu':
-                        setInvisible(is_eu_country)
+                        setVisible(is_eu_country)
                         break
                     case 'non-eu':
-                        setInvisible(!is_eu_country)
+                        setVisible(!is_eu_country)
                         break
                     default:
                         break
@@ -57,7 +57,7 @@ const Show = ({ children, to, device }) => {
             }
         }
     })
-    return !invisible ? <>{children}</> : null
+    return visible ? <>{children}</> : null
 }
 
 Show.propTypes = {

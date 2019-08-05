@@ -39,6 +39,6 @@ Show.propTypes = {
         PropTypes.node,
     ]).isRequired,
     device: PropTypes.oneOf(['mobile', 'laptop'])
-    to: PropTypes.string,
+    to: PropTypes.oneOf(['eu', 'non-eu']),
 }
 export default Show

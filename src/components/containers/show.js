@@ -30,7 +30,7 @@ const Show = ({ children, to, device }) => {
                 break
         }
     })
-    return !invisible ? <div>{children}</div> : null
+    return !invisible ? <>{children}</> : null
 }
 
 Show.propTypes = {

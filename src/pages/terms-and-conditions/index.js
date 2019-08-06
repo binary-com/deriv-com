@@ -1,9 +1,4 @@
 import React from 'react'
-import SideTab from 'components/elements/side-tab'
-import { localize, WithIntl } from 'components/localization'
-import Layout from 'components/layout/layout'
-import SEO from 'components/containers/seo'
-import Container from 'components/containers/container'
 import styled from 'styled-components'
 import { General } from './_general'
 import { ComplaintsAndDisputes } from './_complaints-disputes'
@@ -15,6 +10,11 @@ import { PaymentAgents } from './_payment-agents'
 import { RiskDisclaimer } from './_risk-disclaimer'
 import { SecurityAndPrivacy } from './_security-privacy.js'
 import { Bonuses } from './_bonuses'
+import Container from 'components/containers/container'
+import SEO from 'components/containers/seo'
+import Layout from 'components/layout/layout'
+import { localize, WithIntl } from 'components/localization'
+import SideTab from 'components/elements/side-tab'
 
 const TncContainer = styled(Container)`
     padding: 6rem 0;

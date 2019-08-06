@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import device from 'themes/device'
 import SEO from '../../components/containers/seo'
+import { SecurityIconGrid } from './_icon-grid'
+import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import Image from 'components/elements/image'
 import Hero from 'components/elements/hero.js'
@@ -17,7 +18,6 @@ import { Divider } from 'components/elements/divider'
 import { StyledLink } from 'components/elements/link'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize, WithIntl } from 'components/localization'
-import { SecurityIconGrid } from './_icon-grid'
 
 const GrayBackground = styled.div`
     background-color: var(--color-grey-1);

@@ -7,7 +7,6 @@ import {
 import { Card } from 'components/elements/card.js'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-
 import VisionSVG from 'images/svg/vision.svg'
 import FuseeSVG from 'images/svg/fusee.svg'
 

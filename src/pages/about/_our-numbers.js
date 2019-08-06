@@ -4,7 +4,6 @@ import Container from 'components/containers/container.js'
 import { Header,Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-
 import TradingAccountsOpenedSVG from 'images/svg/trading-accounts-opened.svg'
 import TradeLastMonthSVG from 'images/svg/trades-last-month.svg'
 import TotalTradeTurnoverSVG from 'images/svg/total-trade-turnover.svg'
@@ -18,6 +17,7 @@ const OurNumbersContainer = styled(Container)`
     .bythenumber {
         margin-top: 2rem;
     }
+
     flex-direction: row;
     justify-content: center;
     padding: 8rem 0;

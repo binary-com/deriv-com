@@ -1,51 +1,40 @@
-import React, { Component } from 'react'
+import React from 'react'
+import styled from 'styled-components'
+import { Hero } from './home/_hero'
+import { Dtrader } from './home/_dtrader'
+import { HowItWorks } from './home/_how-it-works'
+import { Markets } from './home/_markets'
+import { WhyDeriv } from './home/_why-deriv'
+import SEO from 'components/containers/seo'
+import Layout from 'components/layout/layout'
+import Container from 'components/containers/container'
+import PaymentMethods from 'components/elements/payment-methods.js'
+import { localize, WithIntl } from 'components/localization'
+import { Divider } from 'components/elements/divider'
 
-import Layout from '../components/layout/layout'
-import Image from '../components/elements/image'
-import SEO from '../components/containers/seo'
-import Localize from '../components/containers/localize'
-import Button from '../components/form/button'
-import Modal from '../components/elements/modal'
+const PaymentSection = styled.section`
+    width: 100%;
+    border-bottom: 1px solid var(--color-grey-1);
+    padding: 2rem 0;
+`
+const Home = () => (
+    <Layout>
+        <SEO
+            title={localize('Your ultimate online trading experience')}
+            description={localize('Deriv is an online trading company that offers the broadest selection of derivatives with competitive prices.')}
+        />
+        <Hero />
+        <Dtrader />
+        <HowItWorks />
+        <Divider />
+        <Markets />
+        <WhyDeriv />
+        <PaymentSection>
+            <Container>
+                <PaymentMethods />
+            </Container>
+        </PaymentSection>
+    </Layout>
+)
 
-class Home extends Component {
-    state = {
-        show_modal: false,
-    }
-
-    toggleModal = e => {
-        e.stopPropagation()
-        this.setState({
-            show_modal: !this.state.show_modal,
-        })
-    }
-
-    render() {
-        return (
-            <Layout>
-                <SEO title="Home" />
-                <h1>
-                    <Localize translate="Home" />
-                </h1>
-                <Image
-                    width="300px"
-                    img_name="practice.png"
-                    alt="gatsby astronaut"
-                />
-                <div>
-                    <Button onClick={this.toggleModal} type="secondary">
-                        secondary button example
-                    </Button>
-                </div>
-                <Modal
-                    toggle={this.toggleModal}
-                    is_open={this.state.show_modal}
-                    is_blurred={true}
-                >
-                    <div>Hello from modal</div>
-                </Modal>
-            </Layout>
-        )
-    }
-}
-
-export default Home
+export default WithIntl()(Home)

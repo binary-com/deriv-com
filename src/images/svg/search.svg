@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 0 48 48" aria-labelledby="search-icon-title">
+    <title id='search-icon-title'>Search icon</title>
+    <defs>
+        <path id="search-path" d="M35.661 33.328l7.856 7.856a1.65 1.65 0 0 1-2.333 2.333l-7.856-7.856a17.822 17.822 0 0 1-11.433 4.128C12.012 39.79 4 31.778 4 21.895S12.012 4 21.895 4s17.894 8.012 17.894 17.895c0 4.347-1.55 8.333-4.128 11.433zm-13.766 2.25c7.557 0 13.684-6.126 13.684-13.683 0-7.558-6.127-13.684-13.684-13.684-7.558 0-13.684 6.126-13.684 13.684 0 7.557 6.126 13.684 13.684 13.684z"/>
+    </defs>
+    <use fill="#FF444F" fill-rule="nonzero" xlink:href="#search-path"/>
+</svg>

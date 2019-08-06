@@ -2,7 +2,9 @@
   deriv-com
 </h1>
 
-Deriv.com static content
+Deriv.com static content 
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cbcd400a-686a-4470-b000-4780f427fee8/deploy-status)](https://app.netlify.com/sites/deriv-com/deploys)
 
 ## Requirements
 
@@ -22,7 +24,7 @@ Deriv.com static content
 2.  **To start developing:**
 
     ```sh
-    gatsby develop
+    npm start
     ```
 
 3.  **Open the source code and start editing!**

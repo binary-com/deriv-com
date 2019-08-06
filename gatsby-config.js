@@ -5,6 +5,7 @@ module.exports = {
         description:
             'Deriv.com gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
         author: 'Deriv.com',
+        siteUrl: 'https://www.deriv.com',
     },
     plugins: [
         'gatsby-plugin-react-helmet',
@@ -18,30 +19,38 @@ module.exports = {
         },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
+        'gatsby-plugin-sitemap',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                name: 'gatsby-starter-default',
-                short_name: 'starter',
+                name: 'Deriv',
+                short_name: 'Deriv',
+                description:
+                    'Deriv gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
                 start_url: '/',
-                background_color: '#663399',
-                theme_color: '#663399',
-                display: 'minimal-ui',
-                icon: 'src/images/common/logo.png', // This path is relative to the root of the site.
+                background_color: '#0e0e0e',
+                theme_color: '#ff444f',
+                display: 'standalone',
+                icon: './favicons/favicon-512x512.png',
+                // TODO: add translations and support for language routes e.g:
+                // localize: [
+                //     {
+                //       start_url: '/de/',
+                //       lang: 'de',
+                //       name: 'Die coole Anwendung',
+                //       short_name: 'Coole Anwendung',
+                //       description: 'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
+                //     },
+                //   ],
             },
         },
+        'gatsby-plugin-offline',
         {
             resolve: 'gatsby-plugin-react-svg',
             options: {
                 rule: {
                     include: /svg/, // See below to configure properly
                 },
-            },
-        },
-        {
-            resolve: 'gatsby-plugin-stylelint',
-            options: {
-                emitErrors: false,
             },
         },
         {
@@ -57,14 +66,32 @@ module.exports = {
             },
         },
         {
+            resolve: 'gatsby-plugin-stylelint',
+            options: {
+                emitErrors: false,
+                files: ['src/**/*.js'],
+                lintDirtyModulesOnly: true,
+            },
+        },
+        {
             resolve: `gatsby-plugin-portal`,
             options: {
                 key: 'modal',
                 id: 'modal',
             },
         },
-        // this (optional) plugin enables Progressive Web App + Offline functionality
-        // To learn more, visit: https://gatsby.dev/offline
-        // 'gatsby-plugin-offline',
+        {
+            resolve: 'gatsby-plugin-google-tagmanager',
+            options: {
+                id: 'GTM-NF7884S',
+                includeInDevelopment: false,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                policy: [{ userAgent: '*', allow: '/' }],
+            },
+        },
     ],
 }

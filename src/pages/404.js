@@ -1,14 +1,15 @@
 import React from 'react'
-
-import Layout from '../components/layout/layout'
-import SEO from '../components/containers/seo'
+import SEO from 'components/containers/seo'
+import Layout from 'components/layout/layout'
+import { localize, WithIntl } from 'components/localization'
 
 const NotFoundPage = () => (
     <Layout>
-        <SEO title="404: Not found" />
-        <h1>NOT FOUND</h1>
-        <p>You just hit a route that doesn&#39;t exist.</p>
+        <SEO title={localize('404: Not found')} />
+        <h1>{localize('NOT FOUND')}</h1>
+        {/* prettier-ignore */}
+        <p>{localize('You just hit a route that doesn\'t exist.')}</p>
     </Layout>
 )
 
-export default NotFoundPage
+export default WithIntl()(NotFoundPage)

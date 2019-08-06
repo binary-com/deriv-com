@@ -1,15 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button from '../../components/form/button'
+import { StyledHeader } from './_headers'
 import device from 'themes/device'
 import Container from 'components/containers/container'
 import Signup, { LoginText } from 'components/form/signup'
-import { Header } from 'components/elements/typography.js'
+import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
-import { StyledHeader } from './_headers'
 import Show from 'components/containers/show'
-
 import header_trade_image from 'images/common/header-trade.png'
-import Button from '../../components/form/button'
 
 const HeroWrapper = styled.section`
     width: 100%;

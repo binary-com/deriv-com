@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Checklist from 'images/svg/checklist.svg'
 import { Header } from '../../components/elements/typography'
 import Button from '../../components/form/button'
 import { localize } from 'components/localization'
+import Checklist from 'images/svg/checklist.svg'
 
 const WhyDerivMobileContainer = styled.div`
     padding: 4rem 0 2rem 0;

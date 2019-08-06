@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
+import { articles } from './_help-articles'
+import { ArticleSection } from './_article-section'
+import { SearchSuccess, SearchError } from './_search-results'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Container from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash } from 'common/utility'
-import { articles } from './_help-articles'
-import { ArticleSection } from './_article-section'
-import { SearchSuccess, SearchError } from './_search-results'
-
+// Icons
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 
@@ -20,6 +20,12 @@ const getAllArticles = articles =>
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
+const Backdrop = styled.div`
+    background-color: var(--color-black);
+`
+const StyledContainer = styled(Container)`
+    padding: 12rem 0;
+`
 const SearchSection = styled.section`
     ${Backdrop} {
         max-height: ${props => (props.show ? '100rem' : '0')};
@@ -27,10 +33,6 @@ const SearchSection = styled.section`
             props.has_transition ? 'max-height 0.6s ease-in-out' : 'none'};
         overflow: hidden;
     }
-`
-const Backdrop = styled.div`
-    background-color: var(--color-black);
-    padding: 12rem 0;
 `
 
 const SearchIconBig = styled(SearchIcon)`
@@ -154,14 +156,16 @@ class HelpCentre extends Component {
             <Layout>
                 <SEO
                     title={localize('Help')}
-                    description={localize('Need help with our products and services? Read our FAQ or ask us a question.')}
+                    description={localize(
+                        'Need help with our products and services? Read our FAQ or ask us a question.',
+                    )}
                 />
                 <SearchSection
                     show={toggle_search}
                     has_transition={search_has_transition}
                 >
                     <Backdrop>
-                        <Container align="normal" direction="column">
+                        <StyledContainer align="normal" direction="column">
                             <SearchForm
                                 onSubmit={this.handleSubmit}
                                 autoComplete="off"
@@ -193,7 +197,7 @@ class HelpCentre extends Component {
                                     <SearchError search={search} />
                                 )}
                             </ResultWrapper>
-                        </Container>
+                        </StyledContainer>
                     </Backdrop>
                 </SearchSection>
                 <ArticleSection

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
-import { LocaleContext } from './locale-context'
-import language_config from '../../../i18n-config'
 import styled, { css } from 'styled-components'
+import language_config from '../../../i18n-config'
+import { LocaleContext } from './locale-context'
 
 export const SharedLinkStyle = css`
     color: var(--color-white);

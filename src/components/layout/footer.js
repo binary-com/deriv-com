@@ -1,9 +1,11 @@
 import React from 'react'
-import { localize } from '../localization'
 import styled from 'styled-components'
-import device from 'themes/device'
+import { localize } from '../localization'
 import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
+import { StyledLink } from '../elements/link'
+import device from 'themes/device'
+// Icons
 import Logo from 'images/svg/deriv.svg'
 import YouTube from 'images/svg/youtube.svg'
 import Twitter from 'images/svg/twitter.svg'
@@ -14,7 +16,6 @@ import Labuan from 'images/svg/footer-labuan.svg'
 import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
-import { StyledLink } from '../elements/link'
 import Show from 'components/containers/show'
 
 const FooterContainer = styled(Container)`
@@ -103,11 +104,6 @@ const Legal = styled.section`
         line-height: 1.8rem;
         color: var(--color-grey-3);
         font-size: 1.2rem;
-
-        &:first-child,
-        &:last-child {
-            margin: 0;
-        }
     }
 `
 const LegalRow = styled.div`
@@ -139,6 +135,11 @@ const RiskNote = styled.section`
         font-size: 1.2rem;
         line-height: 1.8rem;
         text-align: justify;
+
+        &:first-child,
+        &:last-child {
+            margin: 0;
+        }
     }
     h4 {
         text-transform: uppercase;

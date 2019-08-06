@@ -11,8 +11,7 @@ import Container, {
 import { Header, Text } from 'components/elements/typography'
 import { CardStyle } from 'components/elements/card'
 import { Divider } from 'components/elements/divider'
-
-// import svgs
+// Icons
 import Demo from 'images/svg/demo-icon.svg'
 import HandMoney from 'images/svg/hand-money-icon.svg'
 import BorrowMoney from 'images/svg/borrow-money-icon.svg'
@@ -64,7 +63,9 @@ const ResponsibleTrading = () => (
     <Layout>
         <SEO
             title={localize('Responsible trading')}
-            description={localize('Practise responsible trading by understanding the risks involved and how you can manage them by setting limits on your trading activity.')}
+            description={localize(
+                'Practise responsible trading by understanding the risks involved and how you can manage them by setting limits on your trading activity.',
+            )}
         />
         <Hero
             header={localize('Responsible trading')}

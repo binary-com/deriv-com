@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import SideTab from 'components/elements/side-tab'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import { SectionContainer } from 'components/containers/container'
+import Container, { SectionContainer } from 'components/containers/container'
 import { StyledSubHeader } from './_headers'
 
 import liquidMarket from 'images/svg/liquid-market.svg'
@@ -30,10 +30,6 @@ const StyledSection = styled.section`
     }
 `
 
-const MarketSection = styled(SectionContainer)`
-    width: 80%;
-    margin: 0 auto;
-`
 const Markettabs = styled.div`
     margin-top: 4rem;
 `
@@ -42,7 +38,7 @@ const TabGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 12rem;
-    grid-row-gap: 4rem;
+    grid-row-gap: 2rem;
 `
 const TabGridCol = styled.article`
     padding: 0;
@@ -101,7 +97,7 @@ const Indices = () => (
         <TabGrid>
             <TabCol
                 Icon={RiskDiversification}
-                content={localize('Risk deviersification')}
+                content={localize('Risk diversification')}
             />
             <TabCol
                 Icon={MarketCondition}
@@ -157,7 +153,7 @@ const Synthetic = () => (
             />
             <TabCol
                 Icon={MarketRisk}
-                content={localize('Familiarise yourself with market risk')}
+                content={localize('Emulates market risks')}
             />
             <TabCol
                 Icon={SmallStakes}
@@ -173,8 +169,8 @@ const Synthetic = () => (
 )
 
 export const Markets = () => (
-    <MarketSection>
-        <div>
+    <SectionContainer>
+        <Container direction="column">
             <Header as="h2" align="center">
                 {localize('Markets')}
             </Header>
@@ -191,6 +187,6 @@ export const Markets = () => (
                     <Synthetic label="synthetic" text="Synthetic Indices" />
                 </SideTab>
             </Markettabs>
-        </div>
-    </MarketSection>
+        </Container>
+    </SectionContainer>
 )

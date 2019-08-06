@@ -61,7 +61,10 @@ const KeepSafe = () => {
 
     return (
         <Layout>
-            <SEO title={localize('Keep Safe')} />
+            <SEO
+                title={localize('Keep Safe')}
+                description={localize('Learn how to enhance your account security and manage your trading risk.')}
+            />
             <Hero
                 header={localize('Keep safe')}
                 paragraph={localize(

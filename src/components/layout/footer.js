@@ -15,6 +15,7 @@ import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
 import { StyledLink } from '../elements/link'
+import Show from 'components/containers/show'
 
 const FooterContainer = styled(Container)`
     @media ${device.tabletL} {
@@ -54,12 +55,14 @@ const Department = styled.div`
     grid-area: ${props => props.grid_name};
     @media ${device.tabletL} {
         padding: 1.5rem 0 1.5rem 12%;
+
         a {
             margin-bottom: 3.5rem;
         }
         a:last-child {
             margin-bottom: 0;
         }
+
         ${props => {
             if (props.grid_name === 'social') {
                 return 'padding: 0;'
@@ -93,19 +96,24 @@ const FooterSocket = styled.section`
 const Legal = styled.section`
     background-color: var(--color-grey-1);
     width: 100%;
-    padding: 3rem 0;
+    padding: 2.4rem 0;
 
     p {
-        margin: 1rem 0;
+        margin: 1.2rem 0;
         line-height: 1.8rem;
         color: var(--color-grey-3);
         font-size: 1.2rem;
+
+        &:first-child,
+        &:last-child {
+            margin: 0;
+        }
     }
 `
 const LegalRow = styled.div`
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-column-gap: 2rem;
+    grid-template-rows: 1fr;
+    grid-row-gap: 2.4rem;
     width: 100%;
 
     * {
@@ -163,8 +171,8 @@ const Social = styled.div`
         background-color: var(--color-grey-1);
         display: flex;
         flex-direction: column;
+
         p {
-            padding-top: 3rem;
             padding: 3rem 0 0.7rem 0;
         }
         div {
@@ -172,7 +180,8 @@ const Social = styled.div`
             justify-content: space-around;
         }
     }
-    //TODO: remove this line after having real socal media account
+
+    /* TODO: remove this line after having real socal media account */
     display: none !important;
 `
 
@@ -199,9 +208,9 @@ const Footer = () => (
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/keep-safe/"
-                                aria-label={localize('Keep Safe')}
+                                aria-label={localize('Keep safe')}
                             >
-                                {localize('Keep Safe')}
+                                {localize('Keep safe')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="company">
@@ -209,9 +218,9 @@ const Footer = () => (
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/about/"
-                                aria-label={localize('About Us')}
+                                aria-label={localize('About us')}
                             >
-                                {localize('About Us')}
+                                {localize('About us')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="support">
@@ -229,31 +238,31 @@ const Footer = () => (
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/regulatory/"
-                                aria-label={localize('Regulatory Information')}
+                                aria-label={localize('Regulatory information')}
                             >
-                                {localize('Regulatory Information')}
+                                {localize('Regulatory information')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/terms-and-conditions/"
-                                aria-label={localize('Terms and Conditions')}
+                                aria-label={localize('Terms and conditions')}
                             >
-                                {localize('Terms and Conditions')}
+                                {localize('Terms and conditions')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 hidden
                                 activeClassName="active"
                                 to="terms-and-conditions/#security-privacy"
-                                aria-label={localize('Security and Privacy')}
+                                aria-label={localize('Security and privacy')}
                             >
-                                {localize('Security and Privacy')}
+                                {localize('Security and privacy')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/responsible-trading/"
-                                aria-label={localize('Responsible Trading')}
+                                aria-label={localize('Responsible trading')}
                             >
-                                {localize('Responsible Trading')}
+                                {localize('Responsible trading')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="social">
@@ -274,37 +283,62 @@ const Footer = () => (
         </FooterSocket>
         <Legal>
             <Container>
-                <LegalRow>
-                    <div>
-                        <TextFooter>
-                            {localize(
-                                'The financial products offered by this website is offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines.',
-                            )}
-                        </TextFooter>
-                        <TextFooter>
-                            {localize(
-                                "This website's services are not made available in certain countries such as the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
-                            )}
-                        </TextFooter>
-                        <TextFooter mobile_only>
-                            {localize(
-                                'The financial products offered by this website is offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines.',
-                            )}
-                        </TextFooter>
-                        <TextFooter mobile_only>
-                            {localize(
-                                "This website's services are accessible worldwide except in certain countries such as the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
-                            )}
-                        </TextFooter>
-                    </div>
-                    <div>
-                        <span>
-                            <Vanuatu />
-                            <FSC />
-                            <Labuan />
-                        </span>
-                    </div>
-                </LegalRow>
+                <Show to="eu">
+                    <LegalRow>
+                        <div>
+                            <span>
+                                <Vanuatu />
+                                <FSC />
+                                <Labuan />
+                            </span>
+                        </div>
+                        <div>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    'In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence no. IS/70156).',
+                                )}
+                            </TextFooter>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    'In the Isle of Man and the UK, Volatility Indices are offered by Binary (IOM) Ltd., First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, British Isles; licensed and regulated respectively by (1) the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by (2) the Gambling Commission in the UK (licence reference no: 39172).',
+                                )}
+                            </TextFooter>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    "In the rest of the EU, Volatility Indices are offered by Binary (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta; licensed and regulated by (1) the Malta Gaming Authority in Malta (licence no. MGA/B2C/102/2000 issued on 01 August 2018), for UK clients by (2) the UK Gambling Commission (licence reference no: 39495), and for Irish clients by (3) the Revenue Commissioners in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017). View complete Regulatory Information.",
+                                )}
+                            </TextFooter>
+                        </div>
+                    </LegalRow>
+                </Show>
+                <Show to="non-eu">
+                    <LegalRow>
+                        <div>
+                            <span>
+                                <Vanuatu />
+                                <FSC />
+                                <Labuan />
+                            </span>
+                        </div>
+                        <div>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    'In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence no. IS/70156).',
+                                )}
+                            </TextFooter>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    'Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (view licence); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (licence no. SIBA/L/18/1114); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (licence no. MB/18/0024).',
+                                )}
+                            </TextFooter>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
+                                )}
+                            </TextFooter>
+                        </div>
+                    </LegalRow>
+                </Show>
             </Container>
         </Legal>
         <RiskNote>
@@ -323,4 +357,5 @@ const Footer = () => (
         </RiskNote>
     </footer>
 )
+
 export default Footer

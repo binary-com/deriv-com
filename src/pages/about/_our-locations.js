@@ -48,36 +48,30 @@ const Location = styled.div`
 
 const locations = [
     {
-        name: localize('Kuala Lumpur'),
+        name: localize('Cyberjaya,'),
         icon: <KualaLumpurSVG />,
         country: localize('Malaysia'),
         grid: 'kll',
     },
     {
-        name: localize('Dubai'),
+        name: localize('Dubai,'),
         icon: <DubaiSVG />,
         grid: 'dl',
     },
     {
-        name: localize('Asunción'),
+        name: localize('Asunción,'),
         icon: <ParaguaySVG />,
         country: localize('Paraguay'),
         grid: 'pl',
     },
     {
-        name: localize('Kuala Lumpur'),
-        icon: <KualaLumpurSVG />,
-        country: localize('Malaysia'),
-        grid: 'kll',
-    },
-    {
-        name: localize('Birkirkara'),
+        name: localize('Birkirkara,'),
         icon: <MaltaSVG />,
         country: localize('Malta'),
         grid: 'ml',
     },
     {
-        name: localize('Labuan'),
+        name: localize('Labuan,'),
         icon: <LabuanSVG />,
         country: localize('Malaysia'),
         grid: 'll',
@@ -90,7 +84,7 @@ export const OurLocations = () => {
     return (
         <OurLocationsWrapper>
             <Header as="h2" align="center" color="black-2">
-                {localize('Our Locations')}
+                {localize('Our locations')}
             </Header>
             <OurLocationsContainer>
                 {locations.map((location, idx) => (
@@ -109,7 +103,7 @@ export const OurLocations = () => {
                 ))}
             </OurLocationsContainer>
             <Button secondary onClick={toggleModal}>
-                {localize('Start with free practice account')}
+                {localize('Create a free account')}
             </Button>
             <Modal
                 toggle={toggleModal}

@@ -5,9 +5,10 @@ import { Paddings } from 'themes/function'
 
 const StyledButton = styled.button`
     border-radius: 6px;
-    padding: 1.5rem;
-    font-size: var(--text-size-s);
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
     transition: all 0.25s;
+    font-weight: bold;
     ${Paddings}
 
     &:hover {
@@ -38,12 +39,13 @@ const StyledButton = styled.button`
             `
         if (props.secondary)
             return css`
-                border: none;
+                border: 2px solid var(--color-red);
                 color: var(--color-white);
                 background: var(--color-red);
 
                 &:hover {
                     background-color: var(--color-red-3);
+                    border-color: var(--color-red-3);
                 }
             `
         if (props.social)

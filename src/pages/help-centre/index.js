@@ -22,9 +22,10 @@ const getAllArticles = articles =>
 
 const Backdrop = styled.div`
     background-color: var(--color-black);
+`
+const StyledContainer = styled(Container)`
     padding: 12rem 0;
 `
-
 const SearchSection = styled.section`
     ${Backdrop} {
         max-height: ${props => (props.show ? '100rem' : '0')};
@@ -164,7 +165,7 @@ class HelpCentre extends Component {
                     has_transition={search_has_transition}
                 >
                     <Backdrop>
-                        <Container align="normal" direction="column">
+                        <StyledContainer align="normal" direction="column">
                             <SearchForm
                                 onSubmit={this.handleSubmit}
                                 autoComplete="off"
@@ -196,7 +197,7 @@ class HelpCentre extends Component {
                                     <SearchError search={search} />
                                 )}
                             </ResultWrapper>
-                        </Container>
+                        </StyledContainer>
                     </Backdrop>
                 </SearchSection>
                 <ArticleSection

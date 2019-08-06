@@ -7,7 +7,6 @@ import {
     isEmptyObject,
     PromiseClass,
 } from '../utility'
-
 import { getAppId, getSocketURL } from './config'
 
 /*

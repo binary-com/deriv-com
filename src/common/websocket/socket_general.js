@@ -1,5 +1,4 @@
 import { getPropertyValue } from '../utility'
-
 import { BinarySocketBase } from './socket_base'
 
 const BinarySocketGeneral = (() => {

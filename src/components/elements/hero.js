@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Container from '../containers/container'
-
 import { Header } from './typography.js'
 
 const Wrapper = styled.section`

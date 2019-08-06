@@ -9,7 +9,6 @@ import { localize } from '../localization'
 import Image from '../elements/image'
 import Wrapper from '../containers/wrapper'
 import Container from '../containers/container'
-
 import Button from './button'
 import Input from './input'
 

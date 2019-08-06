@@ -56,9 +56,11 @@
                 "groups": [
                     "builtin",
                     "external",
-                    "parent",
-                    "sibling",
-                    "index"
+                    [
+                        "parent",
+                        "sibling",
+                        "index"
+                    ],
                 ],
                 "newlines-between": "always"
             }

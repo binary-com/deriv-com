@@ -21,6 +21,11 @@ const getAllArticles = articles =>
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
+const Backdrop = styled.div`
+    background-color: var(--color-black);
+    padding: 12rem 0;
+`
+
 const SearchSection = styled.section`
     ${Backdrop} {
         max-height: ${props => (props.show ? '100rem' : '0')};
@@ -28,10 +33,6 @@ const SearchSection = styled.section`
             props.has_transition ? 'max-height 0.6s ease-in-out' : 'none'};
         overflow: hidden;
     }
-`
-const Backdrop = styled.div`
-    background-color: var(--color-black);
-    padding: 12rem 0;
 `
 
 const SearchIconBig = styled(SearchIcon)`
@@ -155,7 +156,9 @@ class HelpCentre extends Component {
             <Layout>
                 <SEO
                     title={localize('Help')}
-                    description={localize('Need help with our products and services? Read our FAQ or ask us a question.')}
+                    description={localize(
+                        'Need help with our products and services? Read our FAQ or ask us a question.',
+                    )}
                 />
                 <SearchSection
                     show={toggle_search}

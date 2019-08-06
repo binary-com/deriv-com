@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+
 import { Ul, Li, ListWithLinks } from './_list'
+
 import { Text, Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 

@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
+
 import Row from '../containers/row'
 import { Header, Text } from '../elements/typography'
 import { localize } from '../localization'
 import Image from '../elements/image'
 import Wrapper from '../containers/wrapper'
 import Container from '../containers/container'
+
 import Button from './button'
 import Input from './input'
+
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 import ErrorIcon from 'images/svg/error-icon.svg'

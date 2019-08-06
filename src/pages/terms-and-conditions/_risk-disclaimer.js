@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { StyledSection, TncText, StyledHeader } from './_styles'
+
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 

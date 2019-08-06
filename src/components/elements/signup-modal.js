@@ -1,8 +1,10 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+
 import Row from '../containers/row'
 import Signup from '../form/signup'
 import { localize } from '../localization'
+
 import { Header } from './typography'
 
 const SignupWrapper = styled.article`

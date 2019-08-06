@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Hero from 'components/elements/hero'
@@ -7,7 +8,6 @@ import Container, { SectionContainer } from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import { CardChildren } from 'components/elements/card.js'
-
 import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import MFSA from 'images/svg/mfsa.svg'

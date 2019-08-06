@@ -1,10 +1,12 @@
 import React from 'react'
+
 import {
     StyledSection,
     StyledHeader,
     StyledOrder,
     TncListText,
 } from './_styles'
+
 import { localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 

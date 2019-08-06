@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+
 import { isStorageSupported, LocalStore } from './storage'
 import TrafficSource from './traffic-source'
 import isMobile from './os-detect'

@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import device from 'themes/device'
 import Carousel from 'components/elements/carousel'
 import Button from 'components/form/button'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import { DERIV_APP_URL } from 'common/utility'
-
 import CarouselBackground from 'images/svg/abstract.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
 

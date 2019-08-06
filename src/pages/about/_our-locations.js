@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import Button from 'components/form/button.js'
 import { localize } from 'components/localization'
 import Container from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-
 import DubaiSVG from 'images/svg/dubai.svg'
 import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
 import LabuanSVG from 'images/svg/labuan.svg'

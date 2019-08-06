@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import { StyledHeader } from './_headers'
+
 import device from 'themes/device'
 import Container from 'components/containers/container'
 import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-
 import header_trade_image from 'images/common/header-trade.png'
 
 const HeroWrapper = styled.section`

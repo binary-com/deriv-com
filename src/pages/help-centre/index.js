@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
+
 import { articles } from './_help-articles'
 import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
+
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Container from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash } from 'common/utility'
-
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 

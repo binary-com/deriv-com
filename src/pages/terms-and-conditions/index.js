@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import { General } from './_general'
 import { ComplaintsAndDisputes } from './_complaints-disputes'
 import { ConflictsPolicy } from './_conflicts-policy'
@@ -10,6 +11,7 @@ import { PaymentAgents } from './_payment-agents'
 import { RiskDisclaimer } from './_risk-disclaimer'
 import { SecurityAndPrivacy } from './_security-privacy.js'
 import { Bonuses } from './_bonuses'
+
 import Container from 'components/containers/container'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'

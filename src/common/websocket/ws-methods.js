@@ -1,4 +1,5 @@
 import { isEmptyObject } from '../utility'
+
 import { BinarySocketBase } from './socket_base'
 
 const WS = (() => {

@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
+
 import Wrapper from '../containers/wrapper'
+
 import { Text } from './typography'
+
 import { getLocationHash } from 'common/utility'
 
 const StyledSideTab = styled(Wrapper)`

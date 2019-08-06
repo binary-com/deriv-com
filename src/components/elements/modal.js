@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+
 import Portal from '../containers/portal'
+
 import Close from 'images/svg/close.svg'
 
 const ModalWrapper = styled.div`

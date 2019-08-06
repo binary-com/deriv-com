@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import { Hero } from './home/_hero'
 import { Dtrader } from './home/_dtrader'
 import { HowItWorks } from './home/_how-it-works'
 import { Markets } from './home/_markets'
 import { WhyDeriv } from './home/_why-deriv'
+
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Container from 'components/containers/container'

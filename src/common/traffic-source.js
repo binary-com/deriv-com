@@ -1,4 +1,5 @@
 import queryString from 'query-string'
+
 import { CookieStorage, LocalStore } from './storage'
 
 const TrafficSource = (() => {

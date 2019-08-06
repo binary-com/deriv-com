@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'
 import Container from '../containers/container'
@@ -7,6 +8,7 @@ import Modal, { useModal } from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
 import { SharedLinkStyle } from '../localization/localized-link'
 import { DERIV_APP_URL } from '../../common/utility'
+
 import LogoHeader from 'images/svg/logo-header.svg'
 import Login from 'common/login'
 import device from 'themes/device'

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
+import { size } from 'themes/device.js'
 
 const handleEu = (setVisible, to) => is_eu_country => {
     switch (to) {
@@ -19,7 +20,7 @@ const handleEu = (setVisible, to) => is_eu_country => {
 
 const Show = ({ children, to, device }) => {
     const [visible, setVisible] = useState(true)
-
+    const [deviceVisibility, setdeviceVisibility] = useState(true)
     useEffect(() => {
         if (to) {
             const clients_country = Cookies.get('clients_country')
@@ -43,17 +44,21 @@ const Show = ({ children, to, device }) => {
         if (device) {
             switch (device) {
                 case 'laptop':
-                    //TODO: add breakpoints for laptop > window.innerwidth here, and update setInvisible memoized state
+                    setdeviceVisibility(
+                        window.innerWidth > size.tabletL.slice(0, -2),
+                    )
                     break
                 case 'mobile':
-                    //TODO: add breakpoints for mobile > window.innerwidth here, and update setInvisible memoized state
+                    setdeviceVisibility(
+                        window.innerWidth < size.tabletL.slice(0, -2),
+                    )
                     break
                 default:
                     break
             }
         }
     })
-    return visible ? <>{children}</> : null
+    return visible && deviceVisibility ? <>{children}</> : null
 }
 
 Show.propTypes = {

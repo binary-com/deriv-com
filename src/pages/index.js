@@ -12,7 +12,7 @@ import { HowItWorks } from './home/_how-it-works'
 import { Markets } from './home/_markets'
 import { WhyDeriv } from './home/_why-deriv'
 import { WhyDerivMobile } from './home/_why-deriv-mobile'
-import { MobileOnly, LaptopOnly } from '../components/containers/device-only'
+import Show from 'components/containers/show'
 
 const PaymentSection = styled.section`
     width: 100%;
@@ -23,27 +23,29 @@ const Home = () => (
     <Layout>
         <SEO
             title={localize('Your ultimate online trading experience')}
-            description={localize('Deriv is an online trading company that offers the broadest selection of derivatives with competitive prices.')}
+            description={localize(
+                'Deriv is an online trading company that offers the broadest selection of derivatives with competitive prices.',
+            )}
         />
         <Hero />
-        <LaptopOnly>
+        <Show device='laptop'>
             <Dtrader />
             <HowItWorks />
             <Divider />
             <Markets />
             <WhyDeriv />
-        </LaptopOnly>
-        <MobileOnly>
+        </Show>
+        <Show device='mobile'>
             <WhyDerivMobile />
             <Dtrader />
-        </MobileOnly>
-        <LaptopOnly>
+        </Show>
+        <Show device='laptop'>
             <PaymentSection>
                 <Container>
                     <PaymentMethods />
                 </Container>
             </PaymentSection>
-        </LaptopOnly>
+        </Show>
     </Layout>
 )
 

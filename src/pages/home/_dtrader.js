@@ -15,7 +15,7 @@ import { SectionHeader, StyledSubHeader } from './_headers'
 import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
 import Intuitive from 'images/svg/intuitive.svg'
-import { MobileOnly, LaptopOnly } from '../../components/containers/device-only'
+import Show from 'components/containers/show'
 import TradeLogo from 'images/svg/trade.svg'
 
 const DtraderSectionContainer = styled(SectionContainer)`
@@ -92,15 +92,15 @@ export const Dtrader = () => {
     return (
         <DtraderSectionContainer>
             <SectionHeader>
-                <LaptopOnly>
+                <Show device='laptop'>
                     <Header as="h2" align="center" lh="6rem">
                         {localize('DTrader')}
                     </Header>
                     <StyledSubHeader as="h4" align="center" weight="500">
                         {localize('All you need to get started')}
                     </StyledSubHeader>
-                </LaptopOnly>
-                <MobileOnly>
+                </Show>
+                <Show device='mobile'>
                     <Header
                         font_size="4rem"
                         align="center"
@@ -132,9 +132,9 @@ export const Dtrader = () => {
                             {localize('Learn more')}
                         </SingupButton>
                     </ButtonWrapper>
-                </MobileOnly>
+                </Show>
             </SectionHeader>
-            <LaptopOnly>
+            <Show device='laptop'>
                 <StyledContainer>
                     <FlexGridContainer
                         content_width="32rem"
@@ -194,7 +194,7 @@ export const Dtrader = () => {
                         <SignupModal autofocus />
                     </Modal>
                 </Cta>
-            </LaptopOnly>
+            </Show>
         </DtraderSectionContainer>
     )
 }

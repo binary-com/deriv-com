@@ -6,7 +6,7 @@ import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import { StyledHeader } from './_headers'
-import { MobileOnly, LaptopOnly } from '../../components/containers/device-only'
+import Show from 'components/containers/show'
 
 import header_trade_image from 'images/common/header-trade.png'
 import Button from '../../components/form/button'
@@ -85,28 +85,28 @@ export const Hero = () => (
         <Container>
             <HeroGrid>
                 <article>
-                    <LaptopOnly>
+                    <Show device='laptop'>
                         <Header as="h1" color="white" lh="1.2">
                             {localize(
                                 'This is your ultimate trading experience',
                             )}
                         </Header>
-                    </LaptopOnly>
-                    <MobileOnly>
+                    </Show>
+                    <Show device='mobile'>
                         <Header font_size='6rem' color="white" lh="1.1">
                             {localize(
                                 'Welcome to the ultimate trading experience',
                             )}
                         </Header>
-                    </MobileOnly>
-                    <LaptopOnly>
+                    </Show>
+                    <Show device='laptop'>
                         <StyledHeader as="h4" color="white" weight="500">
                             {localize(
                                 'The world’s markets at your fingertips anytime, anywhere.',
                             )}
                         </StyledHeader>
-                    </LaptopOnly>
-                    <MobileOnly>
+                    </Show>
+                    <Show device='mobile'>
                         <StyledHeader
                             font_size="2rem"
                             color="white"
@@ -116,20 +116,20 @@ export const Hero = () => (
                                 'All the world’s markets, one powerful trading platform',
                             )}
                         </StyledHeader>
-                    </MobileOnly>
+                    </Show>
                 </article>
-                <LaptopOnly>
+                <Show device='laptop'>
                     <SignupWrapper>
                         <SignupBox>
                             <Signup />
                         </SignupBox>
                     </SignupWrapper>
-                </LaptopOnly>
-                <MobileOnly>
+                </Show>
+                <Show device='mobile'>
                     <SingupButton type="submit" secondary>
                         {localize('Create a free demo account')}
                     </SingupButton>
-                </MobileOnly>
+                </Show>
             </HeroGrid>
         </Container>
     </HeroWrapper>

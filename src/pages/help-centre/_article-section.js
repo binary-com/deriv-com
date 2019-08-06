@@ -6,6 +6,7 @@ import { Text, Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { StyledLink } from 'components/elements/link'
 import Container from 'components/containers/container'
+// Icons
 import SearchIcon from 'images/svg/search.svg'
 
 const getRelatedArticles = (article_list, selected_article) =>

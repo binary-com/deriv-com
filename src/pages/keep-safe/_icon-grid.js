@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import device from 'themes/device'
 import { Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
+// Icons
 import Two from 'images/svg/two-factor.svg'
 import DifferentPassword from 'images/svg/different-password.svg'
 import Cashier from 'images/svg/cashier-lock.svg'

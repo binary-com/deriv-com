@@ -6,6 +6,7 @@ import Button from 'components/form/button'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import { DERIV_APP_URL } from 'common/utility'
+// Icons
 import CarouselBackground from 'images/svg/abstract.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
 

@@ -5,6 +5,7 @@ import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
 import device from 'themes/device'
+// Icons
 import Logo from 'images/svg/deriv.svg'
 import YouTube from 'images/svg/youtube.svg'
 import Twitter from 'images/svg/twitter.svg'

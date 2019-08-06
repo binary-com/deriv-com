@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Container from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
+// Icons
 import TradingAccountsOpenedSVG from 'images/svg/trading-accounts-opened.svg'
 import TradeLastMonthSVG from 'images/svg/trades-last-month.svg'
 import TotalTradeTurnoverSVG from 'images/svg/total-trade-turnover.svg'

@@ -6,6 +6,7 @@ import {
 } from 'components/containers/container.js'
 import { Card } from 'components/elements/card.js'
 import { localize } from 'components/localization'
+// Icons
 import VisionSVG from 'images/svg/vision.svg'
 import FuseeSVG from 'images/svg/fusee.svg'
 

@@ -10,6 +10,7 @@ import Layout from 'components/layout/layout'
 import Container from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash } from 'common/utility'
+// Icons
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 

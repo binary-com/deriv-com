@@ -6,6 +6,7 @@ import SideTab from 'components/elements/side-tab'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container'
+// Icons
 import liquidMarket from 'images/svg/liquid-market.svg'
 import tfs from 'images/svg/tfs.svg'
 import Ncm from 'images/svg/no-centralised-market.svg'

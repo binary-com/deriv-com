@@ -11,6 +11,7 @@ import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
+// Icons
 import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
 import Intuitive from 'images/svg/intuitive.svg'

@@ -7,6 +7,7 @@ import Container, { SectionContainer } from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import { CardChildren } from 'components/elements/card.js'
+// Icons
 import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import MFSA from 'images/svg/mfsa.svg'
@@ -48,7 +49,9 @@ const Regulatory = () => (
     <Layout>
         <SEO
             title={localize('Regulatory information')}
-            description={localize('Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.')}
+            description={localize(
+                'Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.',
+            )}
         />
         <Hero
             header={localize('Licences and regulations')}

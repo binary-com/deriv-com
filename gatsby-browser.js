@@ -12,6 +12,7 @@ import 'typeface-ibm-plex-sans'
 export const onInitialClientRender = () => {
     NetworkMonitorBase.init(BinarySocketGeneral)
     TrafficSource.setData()
+
     if (!LocalStore.get('date_first_contact')) {
         BinarySocketBase.wait('time').then(response => {
             LocalStore.set(

@@ -4,7 +4,6 @@ import { localize } from '../localization'
 import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
-
 import device from 'themes/device'
 import Logo from 'images/svg/deriv.svg'
 import YouTube from 'images/svg/youtube.svg'

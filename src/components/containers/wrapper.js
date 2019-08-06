@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import { Margins, Paddings } from 'themes/function'
 
 const Wrapper = styled.div`

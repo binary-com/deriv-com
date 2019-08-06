@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import Container from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'

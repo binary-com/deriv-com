@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import SEO from '../../components/containers/seo'
 import { SecurityIconGrid } from './_icon-grid'
-
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import Image from 'components/elements/image'

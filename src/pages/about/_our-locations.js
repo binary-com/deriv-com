@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import Button from 'components/form/button.js'
 import { localize } from 'components/localization'
 import Container from 'components/containers/container.js'

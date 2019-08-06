@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Nav from './nav'
 import Footer from './footer'
-
 import device from 'themes/device'
 
 const Main = styled.main`

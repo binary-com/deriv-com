@@ -5,7 +5,6 @@ import { navigate } from '@reach/router'
 import { articles } from './_help-articles'
 import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
-
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Container from 'components/containers/container'

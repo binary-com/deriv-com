@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
 import device from 'themes/device'
 import { Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'

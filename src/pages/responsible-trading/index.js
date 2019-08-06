@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'

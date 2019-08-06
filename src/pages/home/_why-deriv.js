@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import device from 'themes/device'
 import Carousel from 'components/elements/carousel'
 import Button from 'components/form/button'

@@ -55,14 +55,12 @@
             {
                 "groups": [
                     "builtin",
-                    [
-                        "external",
-                        "parent",
-                        "sibling",
-                        "index"
-                    ],
+                    "external",
+                    "parent",
+                    "sibling",
+                    "index"
                 ],
-                "newlines-between": "always"
+                "newlines-between": "never"
             }
         ],
         "react/sort-prop-types": [

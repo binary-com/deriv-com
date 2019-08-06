@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import Visa from 'images/svg/visa.svg'
 import Master from 'images/svg/mastercard.svg'
 import Neteller from 'images/svg/neteller.svg'

@@ -6,7 +6,6 @@ import {
     StyledOrder,
     TncListText,
 } from './_styles'
-
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 

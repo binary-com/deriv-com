@@ -10,7 +10,6 @@ import Wrapper from '../containers/wrapper'
 import Container from '../containers/container'
 import Button from './button'
 import Input from './input'
-
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 import ErrorIcon from 'images/svg/error-icon.svg'

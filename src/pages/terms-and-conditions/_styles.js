@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import { Header, Text } from 'components/elements/typography'
 
 export const StyledSection = styled.section`

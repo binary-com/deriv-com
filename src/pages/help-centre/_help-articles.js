@@ -1,6 +1,5 @@
 import React from 'react'
 import { Ol, Ul, Li } from './_list'
-
 import { Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 

@@ -8,7 +8,7 @@ import device from 'themes/device'
 import TradingAccountsOpenedSVG from 'images/svg/trading-accounts-opened.svg'
 import TradeLastMonthSVG from 'images/svg/trades-last-month.svg'
 import TotalTradeTurnoverSVG from 'images/svg/total-trade-turnover.svg'
-import { MobileOnly, LaptopOnly } from '../../components/containers/device-only'
+import Show from 'components/containers/show'
 
 const OurNumbersWrapper = styled.section`
     width: 100%;
@@ -146,8 +146,7 @@ const chart_data = [
 export const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
-<<<<<<< HEAD
-            <LaptopOnly>
+            <Show device='laptop'>
                 <Header as="h2" color="black-2" align="center">
                     {localize('Our Numbers')}
                 </Header>
@@ -156,8 +155,8 @@ export const OurNumbers = () => (
                         'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                     )}
                 </Header>
-            </LaptopOnly>
-            <MobileOnly>
+            </Show>
+            <Show device='mobile'>
                 <Header as="h6" font_size="4rem" color="black-2" align="center">
                     {localize('By the numbers')}
                 </Header>
@@ -174,21 +173,11 @@ export const OurNumbers = () => (
                         'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                     )}
                 </Header>
-            </MobileOnly>
-=======
-            <Header as="h2" color="black-2" align="center">
-                {localize('Our numbers')}
-            </Header>
-            <Header as="h4" color="black-3" align="center" weight="500">
-                {localize(
-                    'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
-                )}
-            </Header>
->>>>>>> m-home
+            </Show>
             <ChartContainer>
                 {chart_data.map((data, idx) => (
                     <Charts key={idx}>
-                        <LaptopOnly>{data.icon}</LaptopOnly>
+                        <Show device='laptop'>{data.icon}</Show>
                         <Header as="h3" color="green" align="right" lh="1.5">
                             {data.amount}
                         </Header>

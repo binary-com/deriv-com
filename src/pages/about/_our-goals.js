@@ -12,7 +12,7 @@ import VisionSVG from 'images/svg/vision.svg'
 import FuseeSVG from 'images/svg/fusee.svg'
 
 const OurGoalsWrapper = styled(SectionContainer)`
-    padding-top: 3rem;
+    padding-top: 3.55rem;
     background-image: linear-gradient(
         to bottom,
         var(--color-grey-2),
@@ -23,6 +23,12 @@ const OurGoalsWrapper = styled(SectionContainer)`
         padding-bottom: 3rem;
         background-image: unset;
         background-color: var(--color-grey-1);
+
+        ${FlexGridContainer} {
+            article:first-child {
+                margin-top: 0;
+            }
+        }
     }
 `
 

@@ -40,6 +40,7 @@ const CardWrapper = styled.article`
 @media ${device.tabletL} {
     padding: 3rem;
     padding-right: 2rem;
+    margin-top: 1.77rem;
 }
 
 `

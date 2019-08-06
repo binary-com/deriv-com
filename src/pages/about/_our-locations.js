@@ -12,7 +12,7 @@ import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
 import LabuanSVG from 'images/svg/labuan.svg'
 import MaltaSVG from 'images/svg/malta.svg'
 import ParaguaySVG from 'images/svg/paraguay.svg'
-import { LaptopOnly } from '../../components/containers/device-only'
+import Show from 'components/containers/show'
 
 const OurLocationsWrapper = styled.div`
     width: 100%;
@@ -83,8 +83,7 @@ export const OurLocations = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
     return (
-<<<<<<< HEAD
-        <LaptopOnly>
+        <Show device='laptop'>
             <OurLocationsWrapper>
                 <Header as="h2" align="center" color="black-2">
                     {localize('Our Locations')}
@@ -117,40 +116,6 @@ export const OurLocations = () => {
                     <SignupModal />
                 </Modal>
             </OurLocationsWrapper>
-        </LaptopOnly>
-=======
-        <OurLocationsWrapper>
-            <Header as="h2" align="center" color="black-2">
-                {localize('Our locations')}
-            </Header>
-            <OurLocationsContainer>
-                {locations.map((location, idx) => (
-                    <Location key={idx} location={location.grid}>
-                        {location.icon}
-                        <p>
-                            {location.name}
-                            {location.country && (
-                                <>
-                                    <br />
-                                    {location.country}
-                                </>
-                            )}
-                        </p>
-                    </Location>
-                ))}
-            </OurLocationsContainer>
-            <Button secondary onClick={toggleModal}>
-                {localize('Create a free account')}
-            </Button>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                is_blurred={true}
-                closeModal={closeModal}
-            >
-                <SignupModal />
-            </Modal>
-        </OurLocationsWrapper>
->>>>>>> m-home
+        </Show>
     )
 }

@@ -59,10 +59,10 @@
                     "parent",
                     "sibling",
                     "index"
-                ]
+                ],
+                "newlines-between": "always"
             }
         ],
-        "newlines-between": "always-and-inside-groups",
         "react/sort-prop-types": [
             "error",
             {

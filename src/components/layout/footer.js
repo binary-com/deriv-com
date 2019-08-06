@@ -102,11 +102,6 @@ const Legal = styled.section`
         line-height: 1.8rem;
         color: var(--color-grey-3);
         font-size: 1.2rem;
-
-        &:first-child,
-        &:last-child {
-            margin: 0;
-        }
     }
 `
 const LegalRow = styled.div`
@@ -138,6 +133,11 @@ const RiskNote = styled.section`
         font-size: 1.2rem;
         line-height: 1.8rem;
         text-align: justify;
+
+        &:first-child,
+        &:last-child {
+            margin: 0;
+        }
     }
     h4 {
         text-transform: uppercase;

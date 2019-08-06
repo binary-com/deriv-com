@@ -33,7 +33,21 @@ export const FlexGridContainer = styled(Container)`
     & > * {
         flex-shrink: 0;
         width: ${props => (props.content_width ? props.content_width : '48%')};
-        margin: ${props => (props.gap ? props.gap : '1rem')};
+        margin: ${props => (props.gap ? props.gap : '0 1.5rem')};
+    }
+
+    /*  Handle no margin on every grid size,
+        for example there are six items, grid size = 3, therefore 1st and 4th will have margin left: 0;
+        and the 3rd and 6th will have margin-right: 0;
+    */
+    & > :nth-child(${props => props.grid}n + 1) {
+        margin-left: 0;
+    }
+    /* stylelint-disable-next-line no-duplicate-selectors */
+    & > :nth-child(${props => parseInt(props.grid) - 1}n + 1) {
+        &:not(:first-child) {
+            margin-right: 0;
+        }
     }
 `
 

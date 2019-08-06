@@ -49,36 +49,30 @@ const Location = styled.div`
 
 const locations = [
     {
-        name: localize('Kuala Lumpur'),
+        name: localize('Cyberjaya,'),
         icon: <KualaLumpurSVG />,
         country: localize('Malaysia'),
         grid: 'kll',
     },
     {
-        name: localize('Dubai'),
+        name: localize('Dubai,'),
         icon: <DubaiSVG />,
         grid: 'dl',
     },
     {
-        name: localize('Asunción'),
+        name: localize('Asunción,'),
         icon: <ParaguaySVG />,
         country: localize('Paraguay'),
         grid: 'pl',
     },
     {
-        name: localize('Kuala Lumpur'),
-        icon: <KualaLumpurSVG />,
-        country: localize('Malaysia'),
-        grid: 'kll',
-    },
-    {
-        name: localize('Birkirkara'),
+        name: localize('Birkirkara,'),
         icon: <MaltaSVG />,
         country: localize('Malta'),
         grid: 'ml',
     },
     {
-        name: localize('Labuan'),
+        name: localize('Labuan,'),
         icon: <LabuanSVG />,
         country: localize('Malaysia'),
         grid: 'll',
@@ -89,6 +83,7 @@ export const OurLocations = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
     return (
+<<<<<<< HEAD
         <LaptopOnly>
             <OurLocationsWrapper>
                 <Header as="h2" align="center" color="black-2">
@@ -123,5 +118,39 @@ export const OurLocations = () => {
                 </Modal>
             </OurLocationsWrapper>
         </LaptopOnly>
+=======
+        <OurLocationsWrapper>
+            <Header as="h2" align="center" color="black-2">
+                {localize('Our locations')}
+            </Header>
+            <OurLocationsContainer>
+                {locations.map((location, idx) => (
+                    <Location key={idx} location={location.grid}>
+                        {location.icon}
+                        <p>
+                            {location.name}
+                            {location.country && (
+                                <>
+                                    <br />
+                                    {location.country}
+                                </>
+                            )}
+                        </p>
+                    </Location>
+                ))}
+            </OurLocationsContainer>
+            <Button secondary onClick={toggleModal}>
+                {localize('Create a free account')}
+            </Button>
+            <Modal
+                toggle={toggleModal}
+                is_open={show_modal}
+                is_blurred={true}
+                closeModal={closeModal}
+            >
+                <SignupModal />
+            </Modal>
+        </OurLocationsWrapper>
+>>>>>>> m-home
     )
 }

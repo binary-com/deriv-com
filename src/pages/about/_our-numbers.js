@@ -146,6 +146,7 @@ const chart_data = [
 export const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
+<<<<<<< HEAD
             <LaptopOnly>
                 <Header as="h2" color="black-2" align="center">
                     {localize('Our Numbers')}
@@ -174,6 +175,16 @@ export const OurNumbers = () => (
                     )}
                 </Header>
             </MobileOnly>
+=======
+            <Header as="h2" color="black-2" align="center">
+                {localize('Our numbers')}
+            </Header>
+            <Header as="h4" color="black-3" align="center" weight="500">
+                {localize(
+                    'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
+                )}
+            </Header>
+>>>>>>> m-home
             <ChartContainer>
                 {chart_data.map((data, idx) => (
                     <Charts key={idx}>

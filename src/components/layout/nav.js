@@ -25,7 +25,7 @@ const StyledNav = styled.nav`
 
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
-    padding: 1.2rem 1rem;
+    padding: 1.2rem 0;
     justify-content: space-between;
     height: 7.2rem;
 `
@@ -34,7 +34,7 @@ const NavLeft = styled.div`
     text-align: left;
     @media ${device.tabletL} {
         svg {
-            width:50%
+            width: 50%;
         }
     }
 `
@@ -52,11 +52,14 @@ const NavCenter = styled.ul`
 
 const NavRight = styled.div`
     overflow: hidden;
-    width: 21.5rem;
+    width: 21.4rem;
     position: relative;
     height: 5rem;
+    top: 10%;
 
-    display: none;
+    @media ${device.tabletL} {
+        display: none;
+    }
 `
 
 const NavLink = styled.li`
@@ -77,23 +80,21 @@ const StyledButton = styled.a`
     cursor: pointer;
 `
 const NavButton = styled(Button)`
-    font-weight: bold;
-    padding: 1.4rem var(--text-size-s);
     position: absolute;
+    border: 2px solid var(--color-red);
     left: 0;
     ${props => {
         if (props.movable_button) {
             return `
             left: 9rem;
             min-width:12.4rem;
-            border: 0.2rem solid var(--color-red)
             `
         }
     }}
 `
 const NavRightContainer = styled.div`
     position: absolute;
-    left: 13rem;
+    left: 14rem;
     transition: left 0.5s ease-out;
     ${props => {
         if (props.enable_move) {
@@ -164,9 +165,9 @@ const Nav = () => {
                         <StyledLink
                             activeClassName="active"
                             to="/help-centre/"
-                            aria-label={localize('Help centre')}
+                            aria-label={localize('Help Centre')}
                         >
-                            {localize('Help centre')}
+                            {localize('Help Centre')}
                         </StyledLink>
                     </NavLink>
                 </NavCenter>

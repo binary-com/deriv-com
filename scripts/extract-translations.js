@@ -15,7 +15,7 @@ program
 /** *********************************************
  * Common
  */
-const globs = ['**/*.js', '**/*.jsx']
+const globs = ['**/*.js']
 
 const getKeyHash = string => crc32(string)
 
@@ -30,22 +30,21 @@ function extractTranslations() {
         try {
             const file_paths = [];
             const messages = [];
-            const i18n_marker = new RegExp(/i18n_default_text={?(?:(?<![\\])['"])(.*?)(?:(?<![\\])['"])}?|(?:localize|\bt)\((?:(?<![\\])['"])(.*?)(?:(?<![\\])['"])\)?/g);
+            const i18n_marker = new RegExp(/i18n_default_text={?(?:(?<![\\])['"])(.*?)(?:(?<![\\])['"])}?|localize\(\s*?(?:(?<![\\])['"])(.*?)(?:(?<![\\])['"])\s*?\)?/gs);
             const messages_json = {};
 
             // Find all file types listed in `globs`
             for (let i = 0; i < globs.length; i++) {
-                let filesFound = glob.sync(`src/${globs[i]}`);
+                let filesFound = glob.sync(`../src/${globs[i]}`);
                 filesFound = filesFound.filter(path => path.indexOf('__tests__') === -1);
                 file_paths.push(...filesFound);
             }
-    
             // Iterate over files and extract all strings from the i18n marker
             for (let i = 0; i < file_paths.length; i++) {
                 if (program.verbose) {
                     console.log(file_paths[i]);
                 }
-    
+
                 try {
                     const file = fs.readFileSync(file_paths[i], 'utf8');
                     let result = i18n_marker.exec(file);
@@ -58,12 +57,12 @@ function extractTranslations() {
                     console.log(e);
                 }
             }
-    
+
             // Hash the messages and set the key-value pair for json
             for (let i = 0; i < messages.length; i++) {
                 messages_json[getKeyHash(messages[i])] = messages[i];
             }
-    
+
             // Add to messages.json
             fs.writeFileSync(
                 path.resolve(__dirname, '../crowdin/messages.json'),

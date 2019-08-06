@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { StyledSubHeader } from './_headers'
 import SideTab from 'components/elements/side-tab'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import { SectionContainer } from 'components/containers/container'
-import { StyledSubHeader } from './_headers'
-
+import Container, { SectionContainer } from 'components/containers/container'
+// Icons
 import liquidMarket from 'images/svg/liquid-market.svg'
 import tfs from 'images/svg/tfs.svg'
 import Ncm from 'images/svg/no-centralised-market.svg'
@@ -30,10 +30,6 @@ const StyledSection = styled.section`
     }
 `
 
-const MarketSection = styled(SectionContainer)`
-    width: 80%;
-    margin: 0 auto;
-`
 const Markettabs = styled.div`
     margin-top: 4rem;
 `
@@ -42,7 +38,7 @@ const TabGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 12rem;
-    grid-row-gap: 4rem;
+    grid-row-gap: 2rem;
 `
 const TabGridCol = styled.article`
     padding: 0;
@@ -173,8 +169,8 @@ const Synthetic = () => (
 )
 
 export const Markets = () => (
-    <MarketSection>
-        <div>
+    <SectionContainer>
+        <Container direction="column">
             <Header as="h2" align="center">
                 {localize('Markets')}
             </Header>
@@ -191,6 +187,6 @@ export const Markets = () => (
                     <Synthetic label="synthetic" text="Synthetic Indices" />
                 </SideTab>
             </Markettabs>
-        </div>
-    </MarketSection>
+        </Container>
+    </SectionContainer>
 )

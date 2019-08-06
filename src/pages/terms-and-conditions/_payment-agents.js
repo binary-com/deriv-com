@@ -1,5 +1,4 @@
 import React from 'react'
-import { Header } from 'components/elements/typography'
 import {
     StyledSection,
     StyledOrder,
@@ -7,6 +6,7 @@ import {
     StyledHeader,
     TncText,
 } from './_styles'
+import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 
 export const PaymentAgents = () => (

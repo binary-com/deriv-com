@@ -3,7 +3,6 @@ import {
     StyledSection,
     StyledHeader,
     StyledOrder,
-    TncText,
     TncListText,
 } from './_styles'
 import { localize } from 'components/localization'
@@ -12,14 +11,8 @@ import { Header } from 'components/elements/typography'
 export const General = () => (
     <StyledSection>
         <Header as="h2" color="black">
-            {localize('Terms and Conditions')}
+            {localize('Terms and conditions')}
         </Header>
-        <TncText>{localize('Version 1. Last modified 01-08-2019.')}</TncText>
-        <TncText>
-            {localize(
-                'It is the responsibility of each Client to read and understand this legal notice and the terms and conditions pursuant to which an acquisition of financial contracts via this site is governed.',
-            )}
-        </TncText>
         <StyledHeader as="h4" weight="500">
             {localize('A.  Introduction and scope of the agreement')}
         </StyledHeader>

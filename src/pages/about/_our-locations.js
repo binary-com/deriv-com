@@ -6,7 +6,7 @@ import Container from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-
+// Icons
 import DubaiSVG from 'images/svg/dubai.svg'
 import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
 import LabuanSVG from 'images/svg/labuan.svg'
@@ -48,36 +48,30 @@ const Location = styled.div`
 
 const locations = [
     {
-        name: localize('Kuala Lumpur'),
+        name: localize('Cyberjaya,'),
         icon: <KualaLumpurSVG />,
         country: localize('Malaysia'),
         grid: 'kll',
     },
     {
-        name: localize('Dubai'),
+        name: localize('Dubai,'),
         icon: <DubaiSVG />,
         grid: 'dl',
     },
     {
-        name: localize('Asunción'),
+        name: localize('Asunción,'),
         icon: <ParaguaySVG />,
         country: localize('Paraguay'),
         grid: 'pl',
     },
     {
-        name: localize('Kuala Lumpur'),
-        icon: <KualaLumpurSVG />,
-        country: localize('Malaysia'),
-        grid: 'kll',
-    },
-    {
-        name: localize('Birkirkara'),
+        name: localize('Birkirkara,'),
         icon: <MaltaSVG />,
         country: localize('Malta'),
         grid: 'ml',
     },
     {
-        name: localize('Labuan'),
+        name: localize('Labuan,'),
         icon: <LabuanSVG />,
         country: localize('Malaysia'),
         grid: 'll',

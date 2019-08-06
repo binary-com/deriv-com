@@ -1,12 +1,11 @@
 import React from 'react'
+import { OurLocations } from './_our-locations'
+import { OurNumbers } from './_our-numbers'
+import { OurGoals } from './_our-goals'
 import { localize, WithIntl } from 'components/localization'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Hero from 'components/elements/hero.js'
-
-import { OurLocations } from './_our-locations'
-import { OurNumbers } from './_our-numbers'
-import { OurGoals } from './_our-goals'
 
 const About = () => (
     <Layout>

@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { SectionHeader } from './_headers'
 import Container, {
     SectionContainer,
     FlexGridContainer,
 } from 'components/containers/container'
 import device from 'themes/device'
-import { SectionHeader } from './_headers'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-
+// Icons
 import Practice from 'images/svg/practice.svg'
 import Trade from 'images/svg/trade.svg'
 import Withdraw from 'images/svg/withdraw.svg'

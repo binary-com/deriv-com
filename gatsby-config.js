@@ -66,6 +66,14 @@ module.exports = {
             },
         },
         {
+            resolve: 'gatsby-plugin-stylelint',
+            options: {
+                emitErrors: false,
+                files: ['src/**/*.js'],
+                lintDirtyModulesOnly: true,
+            },
+        },
+        {
             resolve: `gatsby-plugin-portal`,
             options: {
                 key: 'modal',

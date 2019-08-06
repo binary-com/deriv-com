@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { StyledSubHeader } from './_headers'
 import SideTab from 'components/elements/side-tab'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container'
-import { StyledSubHeader } from './_headers'
-
+// Icons
 import liquidMarket from 'images/svg/liquid-market.svg'
 import tfs from 'images/svg/tfs.svg'
 import Ncm from 'images/svg/no-centralised-market.svg'

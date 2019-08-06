@@ -3,22 +3,72 @@
     "rules": {
         "strict": 0,
         "camelcase": 0,
-        "no-console": ["error", { "allow": ["warn", "error"] }],
-        "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "no-trailing-spaces": [
+            "error",
+            {
+                "skipBlankLines": true
+            }
+        ],
         "no-unused-vars": "error",
-        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
-        "no-param-reassign": ["error", { "props": false }],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1,
+                "maxEOF": 1
+            }
+        ],
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
         "one-var": [
             "error",
-            { "initialized": "never", "uninitialized": "always" }
+            {
+                "initialized": "never",
+                "uninitialized": "always"
+            }
         ],
         "space-unary-ops": "error",
-        "import/no-extraneous-dependencies": [0, { "extensions": [".jsx"] }],
+        "import/no-extraneous-dependencies": [
+            0,
+            {
+                "extensions": [
+                    ".jsx"
+                ]
+            }
+        ],
         "import/no-useless-path-segments": "error",
         "import/prefer-default-export": 0,
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "parent",
+                    "sibling",
+                    "index"
+                ],
+                "newlines-between": "never"
+            }
+        ],
         "react/sort-prop-types": [
             "error",
-            { "ignoreCase": true, "sortShapeProp": true }
+            {
+                "ignoreCase": true,
+                "sortShapeProp": true
+            }
         ]
     },
     "extends": [
@@ -36,7 +86,9 @@
     "settings": {
         "import/resolver": {
             "node": {
-                "paths": ["src"]
+                "paths": [
+                    "src"
+                ]
             }
         },
         "react": {

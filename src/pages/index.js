@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import { Hero } from './home/_hero'
 import { Dtrader } from './home/_dtrader'
 import { HowItWorks } from './home/_how-it-works'

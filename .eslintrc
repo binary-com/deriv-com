@@ -55,8 +55,8 @@
             {
                 "groups": [
                     "builtin",
-                    "external",
                     [
+                        "external",
                         "parent",
                         "sibling",
                         "index"

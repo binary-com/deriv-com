@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withTranslation } from 'react-i18next'
 import { Link as GatsbyLink } from 'gatsby'
-
 import language_config from '../../../i18n-config'
 
 const languages = Object.keys(language_config)

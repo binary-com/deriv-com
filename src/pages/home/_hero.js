@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import { StyledHeader } from './_headers'
 
 import device from 'themes/device'

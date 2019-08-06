@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { StyledSection, TncText } from './_styles'
 
 import { Header } from 'components/elements/typography'

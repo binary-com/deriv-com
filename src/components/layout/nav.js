@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'
 import Container from '../containers/container'

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
-
 import Row from '../containers/row'
 import { Header, Text } from '../elements/typography'
 import { localize } from '../localization'

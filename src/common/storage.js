@@ -1,5 +1,4 @@
 import Cookies from 'js-cookie'
-
 import { getPropertyValue, isEmptyObject, hasWindow } from './utility'
 import { isProduction } from './websocket/config'
 

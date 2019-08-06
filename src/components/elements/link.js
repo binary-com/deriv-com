@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-
 import { LocalizedLink } from '../localization'
 
 export const StyledLink = styled(LocalizedLink)`

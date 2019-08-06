@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import { General } from './_general'
 import { ComplaintsAndDisputes } from './_complaints-disputes'
 import { ConflictsPolicy } from './_conflicts-policy'

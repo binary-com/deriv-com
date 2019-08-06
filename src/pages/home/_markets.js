@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
 import { StyledSubHeader } from './_headers'
 
 import SideTab from 'components/elements/side-tab'

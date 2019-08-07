@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SEO from '../../components/containers/seo'
 import { SecurityIconGrid } from './_icon-grid'
+import Show from 'components/containers/show'
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import Image from 'components/elements/image'
@@ -55,7 +56,23 @@ const Risk = styled(FlexGridContainer)`
         font-size: var(--text-size-sm);
     }
 `
-
+const HeroWrapper = styled.div`
+    @media ${device.tabletL} {
+        div {
+            padding-bottom: 4rem;
+        }
+        h1 {
+            margin-top: 3rem;
+            font-size: 6rem;
+        }
+        h4 {
+            line-height: 3.25rem;
+        }
+    }
+`
+const KeepSafeShow = styled(Show)`
+    
+`
 const KeepSafe = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
@@ -63,24 +80,40 @@ const KeepSafe = () => {
         <Layout>
             <SEO
                 title={localize('Keep Safe')}
-                description={localize('Learn how to enhance your account security and manage your trading risk.')}
-            />
-            <Hero
-                header={localize('Keep safe')}
-                paragraph={localize(
+                description={localize(
                     'Learn how to enhance your account security and manage your trading risk.',
                 )}
-                paragraph_width="61.5rem"
             />
-            <SectionContainer padding="8" direction="column">
-                <Header as="h2" align="center">
-                    {localize('Account security')}
-                </Header>
-                <StyledHeader as="h4" align="center" weight="500">
-                    {localize(
-                        'Your account security is very important to us. Here are a few ways to enhance your account security:',
+            <HeroWrapper>
+                <Hero
+                    header={localize('Keep safe')}
+                    paragraph={localize(
+                        'Learn how to enhance your account security and manage your trading risk.',
                     )}
-                </StyledHeader>
+                    paragraph_max_width="61.5rem"
+                />
+            </HeroWrapper>
+            <SectionContainer padding="8" direction="column">
+                <KeepSafeShow device="laptop">
+                    <Header as="h2" align="center">
+                        {localize('Account security')}
+                    </Header>
+                    <StyledHeader as="h4" align="center" weight="500">
+                        {localize(
+                            'Your account security is very important to us. Here are a few ways to enhance your account security:',
+                        )}
+                    </StyledHeader>
+                </KeepSafeShow>
+                <KeepSafeShow device="mobile">
+                    <Header as="h2" align="left">
+                        {localize('Secure your account')}
+                    </Header>
+                    <StyledHeader as="h4" align="center" weight="500">
+                        {localize(
+                            'To help keep your account secure, we recommend these best practices: ',
+                        )}
+                    </StyledHeader>
+                </KeepSafeShow>
                 <SecurityIconGrid />
             </SectionContainer>
             <Divider />

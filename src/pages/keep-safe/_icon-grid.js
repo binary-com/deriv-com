@@ -21,8 +21,8 @@ const IconGrid = styled(Container)`
     grid-column-gap: 5rem;
     grid-row-gap: 2.4rem;
     grid-template-areas:
-    'Two DifferentPassword Cashier Browser'
-    'Configure DontShare Monitor Antivirus';
+        'Two DifferentPassword Cashier Browser'
+        'Configure DontShare Monitor Antivirus';
 }
 
     @media ${device.tabletL} {
@@ -42,6 +42,7 @@ const GridCol = styled.article`
     grid-area: ${props => props.grid_name};
     ${Text} {
         margin-top: 0.8rem;
+        font-size: 2rem;
     }
 `
 
@@ -55,6 +56,7 @@ const Col = ({ Icon, content, grid_name }) => (
 )
 Col.propTypes = {
     content: PropTypes.string,
+    grid_name: PropTypes.string,
     Icon: PropTypes.func,
 }
 

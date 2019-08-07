@@ -51,7 +51,7 @@ const Practice = styled(Container)`
     }
 `
 const Risk = styled(FlexGridContainer)`
-    margin-top: 4rem;
+    margin-top: 2.7rem;
 
     ${Text} {
         font-size: var(--text-size-sm);
@@ -96,7 +96,9 @@ const SecureWrapper = styled.div`
     }
 `
 const KeepSafeSectionContainer = styled(SectionContainer)`
-    padding: 3.55rem 0;
+    @media ${device.tabletL} {
+        padding: 3.55rem 0;
+    }
 `
 const KeepSafeGirdArea = styled.div`
     @media ${device.tabletL} {
@@ -111,6 +113,23 @@ const KeepSafeGirdArea = styled.div`
 const GridSectionContainer = styled(SectionContainer)`
     grid-area: practice;
 `
+const UnderstandRisk = styled(Header)`
+    @media ${device.tabletL} {
+        text-align: left;
+        padding: 0 5%;
+        font-size: 4rem;
+    }
+`
+const CustomizeHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+        line-height: 2.88rem;
+    }
+`
+const MobileBtn = styled(Button)`
+    font-size: 2rem;
+`
+
 const KeepSafe = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
@@ -131,7 +150,7 @@ const KeepSafe = () => {
                     paragraph_max_width="61.5rem"
                 />
             </HeroWrapper>
-            <KeepSafeSectionContainer padding="8" direction="column">
+            <KeepSafeSectionContainer>
                 <Show device="laptop">
                     <Header as="h2" align="center">
                         {localize('Account security')}
@@ -160,33 +179,49 @@ const KeepSafe = () => {
                 <Divider />
             </Show>
             <KeepSafeGirdArea>
-                <GridSectionContainer>
+                <GridSectionContainer padding="3.55rem 0">
                     <Practice>
                         <div>
                             <Header as="h2">
                                 {localize('Practise with a demo account')}
                             </Header>
-                            <Header as="h4" weight="500">
-                                {localize(
-                                    'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
-                                )}
-                            </Header>
-                            <Button secondary onClick={toggleModal}>
-                                {localize('Create a free account')}
-                            </Button>
+                            <Show device="laptop">
+                                <Header as="h4" weight="500">
+                                    {localize(
+                                        'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
+                                    )}
+                                </Header>
+                            </Show>
+                            <Show device="mobile">
+                                <CustomizeHeader as="h4" weight="500">
+                                    {localize(
+                                        'Use our demo account and learn how to trade, risk-free, by using virtual funds.',
+                                    )}
+                                </CustomizeHeader>
+                            </Show>
+                            <Show device="laptop">
+                                <Button secondary onClick={toggleModal}>
+                                    {localize('Create a free account')}
+                                </Button>
+                            </Show>
                         </div>
                         <Image
                             width="415"
                             img_name="keep-safe-practice.png"
                             alt="Practice"
                         />
+                        <Show device="mobile">
+                            <MobileBtn secondary onClick={toggleModal}>
+                                {localize('Create a free account')}
+                            </MobileBtn>
+                        </Show>
                     </Practice>
                 </GridSectionContainer>
                 <GridGrayBackground>
-                    <SectionContainer>
-                        <Header as="h2" align="center">
+                    <SectionContainer padding="3.55rem 0">
+                        <UnderstandRisk as="h2" align="center">
                             {localize('Understand the risks')}
-                        </Header>
+                        </UnderstandRisk>
                         <Risk justify="center" content_width="41.5rem">
                             <Card min_height="0rem" width="41.5rem">
                                 <Text color="black-3" lh="1.55">

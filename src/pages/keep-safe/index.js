@@ -102,7 +102,6 @@ const KeepSafeGirdArea = styled.div`
     @media ${device.tabletL} {
         display: grid;
         grid-template-row: repeat(2, 1fr);
-        grid-template-rows: auto;
         grid-template-areas:
             'risk'
             'practice';

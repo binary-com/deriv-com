@@ -20,7 +20,8 @@ import { StyledLink } from 'components/elements/link'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize, WithIntl } from 'components/localization'
 
-const GrayBackground = styled.div`
+const GridGrayBackground = styled.div`
+    grid-area: risk;
     background-color: var(--color-grey-1);
 `
 
@@ -55,6 +56,17 @@ const Risk = styled(FlexGridContainer)`
     ${Text} {
         font-size: var(--text-size-sm);
     }
+
+    @media ${device.tabletL} {
+        article {
+            width: 100%;
+            margin: 1.77rem 0 0 0;
+            padding: 3rem 2rem;
+        }
+        article:first-child {
+            margin: 0;
+        }
+    }
 `
 const HeroWrapper = styled.div`
     @media ${device.tabletL} {
@@ -66,12 +78,39 @@ const HeroWrapper = styled.div`
             font-size: 6rem;
         }
         h4 {
+            font-size: 2rem;
             line-height: 3.25rem;
         }
     }
 `
-const KeepSafeShow = styled(Show)`
-    
+const SecureWrapper = styled.div`
+    margin: 0 1.8rem;
+    h2 {
+        font-size: 4rem;
+        padding-right: 10rem;
+    }
+    h4 {
+        font-size: 2rem;
+        padding: 1.77rem 0 3rem 0;
+        line-height: 1.5;
+    }
+`
+const KeepSafeSectionContainer = styled(SectionContainer)`
+    padding: 3.55rem 0;
+`
+const KeepSafeGirdArea = styled.div`
+    @media ${device.tabletL} {
+        display: grid;
+        grid-template-row: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            'risk'
+            'practice';
+    }
+`
+
+const GridSectionContainer = styled(SectionContainer)`
+    grid-area: practice;
 `
 const KeepSafe = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -93,8 +132,8 @@ const KeepSafe = () => {
                     paragraph_max_width="61.5rem"
                 />
             </HeroWrapper>
-            <SectionContainer padding="8" direction="column">
-                <KeepSafeShow device="laptop">
+            <KeepSafeSectionContainer padding="8" direction="column">
+                <Show device="laptop">
                     <Header as="h2" align="center">
                         {localize('Account security')}
                     </Header>
@@ -103,76 +142,82 @@ const KeepSafe = () => {
                             'Your account security is very important to us. Here are a few ways to enhance your account security:',
                         )}
                     </StyledHeader>
-                </KeepSafeShow>
-                <KeepSafeShow device="mobile">
-                    <Header as="h2" align="left">
-                        {localize('Secure your account')}
-                    </Header>
-                    <StyledHeader as="h4" align="center" weight="500">
-                        {localize(
-                            'To help keep your account secure, we recommend these best practices: ',
-                        )}
-                    </StyledHeader>
-                </KeepSafeShow>
-                <SecurityIconGrid />
-            </SectionContainer>
-            <Divider />
-            <SectionContainer>
-                <Practice>
-                    <div>
-                        <Header as="h2">
-                            {localize('Practise with a demo account')}
+                </Show>
+                <Show device="mobile">
+                    <SecureWrapper>
+                        <Header as="h2" align="left">
+                            {localize('Secure your account')}
                         </Header>
-                        <Header as="h4" weight="500">
+                        <StyledHeader as="h4" align="left" weight="500">
                             {localize(
-                                'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
+                                'To help keep your account secure, we recommend these best practices: ',
                             )}
+                        </StyledHeader>
+                    </SecureWrapper>
+                </Show>
+                <SecurityIconGrid />
+            </KeepSafeSectionContainer>
+            <Show device="laptop">
+                <Divider />
+            </Show>
+            <KeepSafeGirdArea>
+                <GridSectionContainer>
+                    <Practice>
+                        <div>
+                            <Header as="h2">
+                                {localize('Practise with a demo account')}
+                            </Header>
+                            <Header as="h4" weight="500">
+                                {localize(
+                                    'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
+                                )}
+                            </Header>
+                            <Button secondary onClick={toggleModal}>
+                                {localize('Create a free account')}
+                            </Button>
+                        </div>
+                        <Image
+                            width="415"
+                            img_name="keep-safe-practice.png"
+                            alt="Practice"
+                        />
+                    </Practice>
+                </GridSectionContainer>
+                <GridGrayBackground>
+                    <SectionContainer>
+                        <Header as="h2" align="center">
+                            {localize('Understand the risks')}
                         </Header>
-                        <Button secondary onClick={toggleModal}>
-                            {localize('Create a free account')}
-                        </Button>
-                    </div>
-                    <Image
-                        width="415"
-                        img_name="keep-safe-practice.png"
-                        alt="Practice"
-                    />
-                </Practice>
-            </SectionContainer>
-            <GrayBackground>
-                <SectionContainer>
-                    <Header as="h2" align="center">
-                        {localize('Understand the risks')}
-                    </Header>
-                    <Risk justify="center" content_width="41.5rem">
-                        <Card min_height="0rem" width="41.5rem">
-                            <Text color="black-3" lh="1.55">
-                                {localize(
-                                    'Trading derivatives can involve substantial risks. Don’t trade with money you can’t afford to lose and never trade with borrowed money. Learn about ',
-                                )}
-                                <StyledLink to="/responsible-trading/">
-                                    {localize('Responsible Trading.')}
-                                </StyledLink>
-                            </Text>
-                        </Card>
-                        <Card min_height="0rem" width="41.5rem">
-                            <Text color="black-3">
-                                {localize(
-                                    'Trading on Deriv.com can become addictive. If you wish to stop trading for a period of time, please use our self-exclusion facilities.',
-                                )}
-                            </Text>
-                        </Card>
-                    </Risk>
-                </SectionContainer>
-            </GrayBackground>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                is_blurred={true}
-                closeModal={closeModal}
-            >
-                <SignupModal />
-            </Modal>
+                        <Risk justify="center" content_width="41.5rem">
+                            <Card min_height="0rem" width="41.5rem">
+                                <Text color="black-3" lh="1.55">
+                                    {localize(
+                                        'Trading derivatives can involve substantial risks. Don’t trade with money you can’t afford to lose and never trade with borrowed money. Learn about ',
+                                    )}
+                                    <StyledLink to="/responsible-trading/">
+                                        {localize('Responsible Trading.')}
+                                    </StyledLink>
+                                </Text>
+                            </Card>
+                            <Card min_height="0rem" width="41.5rem">
+                                <Text color="black-3">
+                                    {localize(
+                                        'Trading on Deriv.com can become addictive. If you wish to stop trading for a period of time, please use our self-exclusion facilities.',
+                                    )}
+                                </Text>
+                            </Card>
+                        </Risk>
+                    </SectionContainer>
+                </GridGrayBackground>
+                <Modal
+                    toggle={toggleModal}
+                    is_open={show_modal}
+                    is_blurred={true}
+                    closeModal={closeModal}
+                >
+                    <SignupModal />
+                </Modal>
+            </KeepSafeGirdArea>
         </Layout>
     )
 }

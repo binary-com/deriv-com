@@ -40,7 +40,7 @@ export const PaymentAgents = () => (
             <li>
                 <TncListText>
                     {localize(
-                        'You may provide your services to those of Our clients who want to deposit and/or withdraw money through you and want to use payment methods that are different from what We accept, including some e-wallet or e-payment methods (from now on referred to as “e-payments), some local currencies (from now on referred to as “local currencies”), or some local bank wire transfers (from now on referred to as “bank wire transfers”).',
+                        'You may provide your services to those of Our clients who want to deposit and/or withdraw money through you and want to use payment methods that are different from what We accept, including some e-wallet or e-payment methods (from now on referred to as “e-payments“), some local currencies (from now on referred to as “local currencies”), or some local bank wire transfers (from now on referred to as “bank wire transfers”).',
                     )}
                 </TncListText>
             </li>
@@ -269,19 +269,27 @@ export const PaymentAgents = () => (
         <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
             {localize('D. Our obligations')}
         </StyledHeader>
-        <TncText>
-            {localize(
-                'If We find any mistakes or flaws related to deposits or withdrawals from or to your Deriv account or Deriv Client Account, We shall take all necessary steps to correct such mistakes or flaws within a reasonable time.',
-            )}
-        </TncText>
+        <StyledOrder type="decimal">
+            <li>
+                <TncListText>
+                    {localize(
+                        'If We find any mistakes or flaws related to deposits or withdrawals from or to your Deriv account or Deriv Client Account, We shall take all necessary steps to correct such mistakes or flaws within a reasonable time.',
+                    )}
+                </TncListText>
+            </li>
+        </StyledOrder>
         <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
             {localize('E. Representations and warranties')}
         </StyledHeader>
-        <TncText>
-            {localize(
-                'On the Commencement Date of this agreement and on the date of each transaction, you must make sure that all the necessary authority, power, consents, licences, or authorisations are in order, and you have taken all necessary actions that make you able to enter into and perform this agreement lawfully.',
-            )}
-        </TncText>
+        <StyledOrder type="decimal">
+            <li>
+                <TncListText>
+                    {localize(
+                        'On the commencement date of this agreement and on the date of each transaction, you must make sure that all the necessary authority, power, consents, licences, or authorisations are in order, and you have taken all necessary actions that make you able to enter into and perform this agreement lawfully.',
+                    )}
+                </TncListText>
+            </li>
+        </StyledOrder>
         <StyledHeader as="h4" weight="500" margin={{ top: '3.2rem' }}>
             {localize('F. On-boarding policy')}
         </StyledHeader>
@@ -325,7 +333,7 @@ export const PaymentAgents = () => (
             <li>
                 <TncListText>
                     {localize(
-                        'The information outlined in Paragraph 1 of this section shall be submitted to affiliates@deriv.com',
+                        'The information outlined in Paragraph 1 of this section shall be submitted to affiliates@deriv.com.',
                     )}
                 </TncListText>
             </li>
@@ -435,7 +443,7 @@ export const PaymentAgents = () => (
             <li>
                 <TncListText>
                     {localize(
-                        'We shall not be responsible or liable to the client as a result of your fraud, omission, negligence, misconduct, or wilful default. Also, if you breach any terms and conditions of this agreement.',
+                        'We shall not be responsible or liable to the client  if you breach any terms and conditions of this agreement or commit fraud, omission errors, negligence, misconduct, or wilful default.',
                     )}
                 </TncListText>
             </li>
@@ -457,11 +465,16 @@ export const PaymentAgents = () => (
         <StyledHeader as="h4" weight="500">
             {localize('I. Modification/amendment')}
         </StyledHeader>
-        <TncText>
-            {localize(
-                'Any modification or amendment of a part or the whole of this agreement shall only be valid if both you and Us accept the changes clearly and without any ambiquity.',
-            )}
-        </TncText>
+        <StyledOrder type="decimal">
+            <li>
+                <TncListText>
+                    {localize(
+                        'Any modification or amendment of a part or the whole of this agreement shall only be valid if both you and We accept the changes clearly and without any ambiguity.',
+                    )}
+                </TncListText>
+            </li>
+
+        </StyledOrder>
         <StyledHeader as="h4" weight="500">
             {localize('J. Confidentiality')}
         </StyledHeader>
@@ -498,10 +511,14 @@ export const PaymentAgents = () => (
         <StyledHeader as="h4" weight="500">
             {localize('K. Termination')}
         </StyledHeader>
-        <TncText>
-            {localize(
-                'Either of the parties may terminate this agreement by giving seven days written notice to the other party.',
-            )}
-        </TncText>
+        <StyledOrder type="decimal">
+            <li>
+                <TncListText>
+                    {localize(
+                        'Either of the parties may terminate this agreement by giving seven days written notice to the other party.',
+                    )}
+                </TncListText>
+            </li>
+        </StyledOrder>
     </StyledSection>
 )

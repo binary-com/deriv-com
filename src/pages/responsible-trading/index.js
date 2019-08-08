@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import SEO from 'components/containers/seo'
+import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Hero from 'components/elements/hero'
@@ -46,6 +47,12 @@ const OtherWarningWrapper = styled(SectionContainer)`
 `
 const MarginWrapper = styled(FlexGridContainer)`
     margin-top: 4rem;
+
+    @media ${device.tabletL} {
+        article {
+            width: 100%;
+        }
+    }
 `
 
 const StyledCard = styled.article`
@@ -72,6 +79,7 @@ const ResponsibleTrading = () => (
             paragraph={localize(
                 'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
             )}
+            mobile_text_align='left'
         />
         <SectionContainer>
             <StyledContainer>

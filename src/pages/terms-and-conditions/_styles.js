@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements/typography'
+import { StyledLink } from 'components/elements/link'
 
 export const StyledSection = styled.section`
     padding-left: 8rem;
@@ -26,4 +27,10 @@ export const StyledOrder = styled.ol`
     & > li {
         padding-left: 0.5rem;
     }
+`
+
+export const TncLink = styled(StyledLink)`
+    font-weight: bold;
+    color: var(--color-black-3);
+    font-size: var(--text-size-s);
 `

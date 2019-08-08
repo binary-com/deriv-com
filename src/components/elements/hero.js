@@ -46,6 +46,7 @@ const Hero = ({ header, paragraph, paragraph_width, mobile_text_align }) => (
 
 Hero.propTypes = {
     header: PropTypes.string,
+    mobile_text_align: PropTypes.string,
     paragraph: PropTypes.string,
     paragraph_width: PropTypes.string,
 }

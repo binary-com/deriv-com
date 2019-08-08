@@ -33,7 +33,7 @@ export const LinkText = styled.a`
 `
 
 export const Header = styled(
-    ({ as = 'h1', children, mobile_text_align, ...props }) =>
+    ({ as = 'h1', children, ...props }) =>
         createElement(as, props, children),
 )`
     font-weight: ${props => props.weight || 'bold'};
@@ -46,7 +46,7 @@ export const Header = styled(
     }};
     line-height: ${props => props.lh || '1.25'};
     ${BaseElement}
-
+    width: 100%;
     @media ${device.tabletL} {
         text-align: ${props => props.mobile_text_align || props.align};
     }

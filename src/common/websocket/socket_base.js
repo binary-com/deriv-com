@@ -27,7 +27,7 @@ const BinarySocketBase = (() => {
 
     // TODO: add language
     // const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${getLanguage()}`;
-    const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=en`
+    const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=en&brand=deriv`
     const timeouts = {}
     const promises = {}
 
@@ -126,7 +126,7 @@ const BinarySocketBase = (() => {
      *      msg_type: {string}   specify the type of request call
      *      callback: {function} to call on response of streaming requests
      */
-    const send = function(data, options = {}) {
+    const send = function (data, options = {}) {
         const promise_obj = options.promise || new PromiseClass()
 
         if (!data || isEmptyObject(data)) return promise_obj.promise

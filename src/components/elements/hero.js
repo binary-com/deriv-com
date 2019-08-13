@@ -13,11 +13,14 @@ const StyledHeader = styled(Header)`
     padding: 0.8rem 0;
     width: ${props => props.paragraph_width || ''};
 `
-
+const Context = styled.span`
+    font-size: 2rem;
+    line-height: 2.9rem;
+`
 const NoImageHero = styled(Container)`
     flex-direction: column;
     align-content: space-around;
-    padding: 8rem 0 10rem 0;
+    padding: 10rem 0 3rem 0;
 `
 const Hero = ({ header, paragraph, paragraph_width }) => (
     <Wrapper>
@@ -32,7 +35,7 @@ const Hero = ({ header, paragraph, paragraph_width }) => (
                 align="center"
                 paragraph_width={paragraph_width}
             >
-                {paragraph}
+                <Context>{paragraph}</Context>
             </StyledHeader>
         </NoImageHero>
     </Wrapper>

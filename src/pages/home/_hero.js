@@ -23,9 +23,9 @@ const HeroWrapper = styled.section`
         background-position: -10rem 100%;
     }
     @media ${device.tabletL} {
+        background: unset;
         background-position: -20rem 100%;
         min-height: 47rem;
-        background: unset;
         background-color:var(--color-black);
         padding-bottom: 7rem;
     }

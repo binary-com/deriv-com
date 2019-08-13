@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { Header } from '../../components/elements/typography'
 import Button from '../../components/form/button'
+import Checklist from 'images/svg/checklist.svg'
 import { localize } from 'components/localization'
 import Checklist from 'images/svg/checklist.svg'
 
 const WhyDerivMobileContainer = styled.div`
     padding: 4rem 0 2rem 0;
     background-color: var(--color-grey-1);
-    );
 `
 const Card = styled.section`
     width: 90%;
@@ -33,7 +33,6 @@ const CardItem = styled.div`
         width: 3rem;
         height: 3rem;
     }
-
     ${Header} {
         margin-left: 2.5rem;
         width: 80%;

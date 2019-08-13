@@ -25,8 +25,8 @@ const Login = (() => {
             }`
 
         return server_url && /qa/.test(server_url)
-            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}`
-            : `https://oauth.deriv.com/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}`
+            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=deriv`
+            : `https://oauth.deriv.com/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=deriv`
     }
 
     const socialLoginUrl = (

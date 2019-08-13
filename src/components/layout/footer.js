@@ -132,10 +132,6 @@ const RiskNote = styled.section`
     line-height: 1.2rem;
 
     p {
-        font-size: 1.2rem;
-        line-height: 1.8rem;
-        text-align: justify;
-
         &:first-child,
         &:last-child {
             margin: 0;
@@ -184,6 +180,15 @@ const Social = styled.div`
 
     /* TODO: remove this line after having real socal media account */
     display: none !important;
+`
+const RiskWarningText = styled.p`
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    text-align: justify;
+
+    @media ${device.tabletL} {
+        font-size: 1.5rem;
+    }
 `
 
 const TextFooter = styled(Text)`
@@ -348,11 +353,11 @@ const Footer = () => (
                     <h4>
                         <Warning /> {localize('Risk Warning')}
                     </h4>
-                    <p>
+                    <RiskWarningText>
                         {localize(
                             'The financial products offered via this website include binary options, contracts for difference ("CFD") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about Responsible Trading.',
                         )}
-                    </p>
+                    </RiskWarningText>
                 </div>
             </Container>
         </RiskNote>

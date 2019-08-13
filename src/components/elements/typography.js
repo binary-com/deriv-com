@@ -9,7 +9,6 @@ const BaseElement = css`
     /* prettier-ignore */
     color: var(--color-${props => props.color || 'black-3'});
 `
-
 export const Text = styled.p`
     font-weight: ${props => props.weight || 'normal'};
     font-size: ${props =>
@@ -41,6 +40,7 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
         if (props.as === 'h3') return 'var(--text-size-l)'
         if (props.as === 'h4') return 'var(--text-size-m)'
         if (props.as === 'h5') return 'var(--text-size-s)'
+        if (props.font_size) return props.font_size
     }};
     line-height: ${props => props.lh || '1.25'};
     ${BaseElement}

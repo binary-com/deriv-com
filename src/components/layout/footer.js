@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize, Localize } from '../localization'
+import { localize } from '../localization'
 import Container from '../containers/container'
-import { Header, Text, LinkText } from '../elements/typography.js'
+import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
 import device from 'themes/device'
 // Icons
@@ -16,6 +16,7 @@ import Labuan from 'images/svg/footer-labuan.svg'
 import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
+import Show from 'components/containers/show'
 
 const FooterContainer = styled(Container)`
     @media ${device.tabletL} {
@@ -118,7 +119,6 @@ const LegalRow = styled.div`
     span {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: 8rem;
     }
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
@@ -128,7 +128,7 @@ const LegalRow = styled.div`
 const RiskNote = styled.section`
     background-color: var(--color-black);
     padding: 1.4rem 0;
-    color: var(--color-grey-1);
+    color: var(--color-white);
     line-height: 1.2rem;
 
     p {
@@ -157,19 +157,6 @@ const FooterStyledLink = styled(StyledLink)`
     display: table;
     font-size: 1.4rem;
     margin-bottom: 1.8rem;
-`
-
-const ResponsibleLink = styled(StyledLink)`
-    color: var(--color-grey-1);
-    font-weight: bold;
-    font-size: 1.2rem;
-`
-
-const FooterLink = styled(LinkText)`
-    color: var(--color-grey-3);
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-decoration: none;
 `
 const Social = styled.div`
     font-size: 1.2rem;
@@ -297,56 +284,62 @@ const Footer = () => (
         </FooterSocket>
         <Legal>
             <Container>
-                <LegalRow>
-                    <div>
-                        <span>
-                            <Vanuatu />
-                            <FSC />
-                            <Labuan />
-                        </span>
-                    </div>
-                    <div>
-                        <TextFooter mobile_only>
-                            <Localize
-                                text="In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
-                                components={[
-                                    <FooterLink
-                                        key={0}
-                                        href="/WS-Binary-Investments-Europe-Limited.pdf"
-                                        target="_blank"
-                                    />,
-                                ]}
-                            />
-                        </TextFooter>
-                        <TextFooter mobile_only>
-                            <Localize
-                                text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>licence no. SIBA/L/18/1114</1>); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>licence no. MB/18/0024</2>)."
-                                components={[
-                                    <FooterLink
-                                        key={0}
-                                        href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
-                                        target="_blank"
-                                    />,
-                                    <FooterLink
-                                        key={1}
-                                        href="/BVI_license.pdf"
-                                        target="_blank"
-                                    />,
-                                    <FooterLink
-                                        key={2}
-                                        href="/Labuan-license.pdf"
-                                        target="_blank"
-                                    />,
-                                ]}
-                            />
-                        </TextFooter>
-                        <TextFooter mobile_only>
-                            {localize(
-                                "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
-                            )}
-                        </TextFooter>
-                    </div>
-                </LegalRow>
+                <Show to="eu">
+                    <LegalRow>
+                        <div>
+                            <span>
+                                <Vanuatu />
+                                <FSC />
+                                <Labuan />
+                            </span>
+                        </div>
+                        <div>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    'In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence no. IS/70156).',
+                                )}
+                            </TextFooter>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    'In the Isle of Man and the UK, Volatility Indices are offered by Binary (IOM) Ltd., First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, British Isles; licensed and regulated respectively by (1) the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by (2) the Gambling Commission in the UK (licence reference no: 39172).',
+                                )}
+                            </TextFooter>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    "In the rest of the EU, Volatility Indices are offered by Binary (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta; licensed and regulated by (1) the Malta Gaming Authority in Malta (licence no. MGA/B2C/102/2000 issued on 01 August 2018), for UK clients by (2) the UK Gambling Commission (licence reference no: 39495), and for Irish clients by (3) the Revenue Commissioners in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017). View complete Regulatory Information.",
+                                )}
+                            </TextFooter>
+                        </div>
+                    </LegalRow>
+                </Show>
+                <Show to="non-eu">
+                    <LegalRow>
+                        <div>
+                            <span>
+                                <Vanuatu />
+                                <FSC />
+                                <Labuan />
+                            </span>
+                        </div>
+                        <div>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    'In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence no. IS/70156).',
+                                )}
+                            </TextFooter>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    'Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (view licence); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (licence no. SIBA/L/18/1114); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (licence no. MB/18/0024).',
+                                )}
+                            </TextFooter>
+                            <TextFooter mobile_only>
+                                {localize(
+                                    "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
+                                )}
+                            </TextFooter>
+                        </div>
+                    </LegalRow>
+                </Show>
             </Container>
         </Legal>
         <RiskNote>
@@ -356,15 +349,9 @@ const Footer = () => (
                         <Warning /> {localize('Risk Warning')}
                     </h4>
                     <p>
-                        <Localize
-                            text='The financial products offered via this website include binary options, contracts for difference ("CFD") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Responsible Trading</0>.'
-                            components={[
-                                <ResponsibleLink
-                                    key={0}
-                                    to="/responsible-trading/"
-                                />,
-                            ]}
-                        />
+                        {localize(
+                            'The financial products offered via this website include binary options, contracts for difference ("CFD") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about Responsible Trading.',
+                        )}
                     </p>
                 </div>
             </Container>

@@ -21,7 +21,7 @@ const handleEu = (setVisible, to) => is_eu_country => {
     }
 }
 
-const Show = ({ children, to='global', device }) => {
+const Show = ({ children, to = 'global', device }) => {
     const [visible, setVisible] = useState(false)
     const [deviceVisibility, setdeviceVisibility] = useState(true)
     useEffect(() => {

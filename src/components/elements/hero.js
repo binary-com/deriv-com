@@ -22,10 +22,15 @@ const NoImageHero = styled(Container)`
     align-content: space-around;
     padding: 10rem 0 3rem 0;
 `
-const Hero = ({ header, paragraph, paragraph_width }) => (
+const Hero = ({ header, paragraph, paragraph_width, mobile_text_align }) => (
     <Wrapper>
         <NoImageHero>
-            <StyledHeader as="h1" color="red" align="center">
+            <StyledHeader
+                as="h1"
+                color="red"
+                align="center"
+                mobile_text_align={mobile_text_align}
+            >
                 {header}
             </StyledHeader>
             <StyledHeader
@@ -34,6 +39,7 @@ const Hero = ({ header, paragraph, paragraph_width }) => (
                 weight="normal"
                 align="center"
                 paragraph_width={paragraph_width}
+                mobile_text_align={mobile_text_align}
             >
                 <Context>{paragraph}</Context>
             </StyledHeader>
@@ -43,6 +49,7 @@ const Hero = ({ header, paragraph, paragraph_width }) => (
 
 Hero.propTypes = {
     header: PropTypes.string,
+    mobile_text_align: PropTypes.string,
     paragraph: PropTypes.string,
     paragraph_width: PropTypes.string,
 }

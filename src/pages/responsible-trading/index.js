@@ -65,7 +65,26 @@ const StyledCard = styled.article`
 const MarginHeader = styled(Header)`
     margin-top: 1rem;
 `
-
+const GuidlineGriidContainer = styled.div`
+    @media ${device.tabletL} {
+        display: grid;
+    }
+`
+const HeroWrapper = styled.div`
+    @media ${device.tabletL} {
+        div{
+            padding: 11rem 0 2.7rem 0;
+        }
+        h4 {
+            font-size: 2rem;
+            line-height: 1.65;
+            padding-right: 0.1rem;
+        }
+        h1 {
+            line-height: 1.1;
+        }
+    }
+`
 const ResponsibleTrading = () => (
     <Layout>
         <SEO
@@ -74,62 +93,66 @@ const ResponsibleTrading = () => (
                 'Practise responsible trading by understanding the risks involved and how you can manage them by setting limits on your trading activity.',
             )}
         />
-        <Hero
-            header={localize('Responsible trading')}
-            paragraph={localize(
-                'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
-            )}
-            mobile_text_align='left'
-        />
+        <HeroWrapper>
+            <Hero
+                header={localize('Responsible trading')}
+                paragraph={localize(
+                    'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
+                )}
+                mobile_text_align="left"
+            />
+        </HeroWrapper>
         <SectionContainer>
             <StyledContainer>
                 <FlexGridContainer content_width="32.8rem" gap="0.6rem">
-                    <article>
-                        <Demo />
-                        <StyledText>
-                            {localize(
-                                'Hone your skill with a free demo account.',
-                            )}
-                        </StyledText>
-                    </article>
-                    <article>
-                        <HandMoney />
-                        <StyledText>
-                            {localize(
-                                'Only trade with money you can afford to lose.',
-                            )}
-                        </StyledText>
-                    </article>
-                    <article>
-                        <BorrowMoney />
-                        <StyledText>
-                            {localize('Do not trade with borrowed money.')}
-                        </StyledText>
-                    </article>
-                    <article>
-                        <Limit />
-                        <StyledText>
-                            {localize(
-                                'Set a limit for your losses and stick to it.',
-                            )}
-                        </StyledText>
-                    </article>
-                    <article>
-                        <AvoidTrading />
-                        <StyledText>
-                            {localize(
-                                'Avoid trading when you’re prone to bad judgement.',
-                            )}
-                        </StyledText>
-                    </article>
-                    <article>
-                        <PortionWinning />
-                        <StyledText>
-                            {localize(
-                                'Put aside a portion of your winnings to avoid losing it all.',
-                            )}
-                        </StyledText>
-                    </article>
+                    <GuidlineGriidContainer>
+                        <article>
+                            <Demo />
+                            <StyledText>
+                                {localize(
+                                    'Hone your skill with a free demo account.',
+                                )}
+                            </StyledText>
+                        </article>
+                        <article>
+                            <HandMoney />
+                            <StyledText>
+                                {localize(
+                                    'Only trade with money you can afford to lose.',
+                                )}
+                            </StyledText>
+                        </article>
+                        <article>
+                            <BorrowMoney />
+                            <StyledText>
+                                {localize('Do not trade with borrowed money.')}
+                            </StyledText>
+                        </article>
+                        <article>
+                            <Limit />
+                            <StyledText>
+                                {localize(
+                                    'Set a limit for your losses and stick to it.',
+                                )}
+                            </StyledText>
+                        </article>
+                        <article>
+                            <AvoidTrading />
+                            <StyledText>
+                                {localize(
+                                    'Avoid trading when you’re prone to bad judgement.',
+                                )}
+                            </StyledText>
+                        </article>
+                        <article>
+                            <PortionWinning />
+                            <StyledText>
+                                {localize(
+                                    'Put aside a portion of your winnings to avoid losing it all.',
+                                )}
+                            </StyledText>
+                        </article>
+                    </GuidlineGriidContainer>
                 </FlexGridContainer>
                 <hr />
             </StyledContainer>

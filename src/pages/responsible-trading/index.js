@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Show from 'components/containers/show'
 import SEO from 'components/containers/seo'
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
@@ -13,6 +12,7 @@ import Container, {
 import { Header, Text } from 'components/elements/typography'
 import { CardStyle } from 'components/elements/card'
 import { Divider } from 'components/elements/divider'
+import Show from 'components/containers/show'
 // Icons
 import Demo from 'images/svg/demo-icon.svg'
 import HandMoney from 'images/svg/hand-money-icon.svg'
@@ -44,10 +44,25 @@ const StyledLimits = styled.article`
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    @media ${device.tabletL} {
+        div {
+            width: 24px;
+            height: 90%;
+
+            svg {
+                width: 24px;
+            }
+        }
+    }
 `
 
 const OtherWarningWrapper = styled(SectionContainer)`
     background: var(--color-grey-1);
+
+    @media ${device.tabletL} {
+        padding: 3.55rem 0;
+    }
 `
 const MarginWrapper = styled(FlexGridContainer)`
     margin-top: 4rem;
@@ -64,10 +79,21 @@ const StyledCard = styled.article`
     width: 100%;
     margin: 4rem;
     padding: 4rem;
+
+    @media ${device.tabletL} {
+        padding 2.66rem 1.77rem;
+    }
 `
 
 const MarginHeader = styled(Header)`
     margin-top: 1rem;
+
+    @media ${device.tabletL} {
+        font-size: 2rem;
+    }
+    ${props => {
+        if (props.as === 'h4') return 'line-height: 3rem;'
+    }}
 `
 const GuidlineGridContainer = styled.div`
     width: 100%;
@@ -121,6 +147,18 @@ const LimitsHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 4rem;
     }
+`
+const LearnMoreText = styled(Text)`
+    font-size: 2rem;
+    text-align: left;
+    width: 100%;
+    @media ${device.tablet} {
+        text-align: center;
+        padding: 0 15%;
+    }
+`
+const OtherWarningHeader = styled(Header)`
+    font-size: 4rem;
 `
 const ResponsibleTrading = () => (
     <Layout>
@@ -200,33 +238,43 @@ const ResponsibleTrading = () => (
                 <LimitsHeader as="h2" align="center" mobile_text_align="left">
                     {localize('Written limits and self-exclusion')}
                 </LimitsHeader>
-                <Show>
-                    <MarginHeader as="h4" weight="500" align="center">
-                        {localize(
-                            'With Deriv, you have the option to implement limits on your trading activities.',
-                        )}
-                    </MarginHeader>
-                </Show>
-                <Show>
+                <Show device="laptop">
                     <MarginHeader
                         as="h4"
                         weight="500"
                         align="center"
+                        mobile_text_align="left"
                     >
                         {localize(
                             'With Deriv, you have the option to implement limits on your trading activities.',
                         )}
                     </MarginHeader>
                 </Show>
+                <Show device="mobile">
+                    <MarginHeader
+                        as="h4"
+                        weight="500"
+                        align="center"
+                        mobile_text_align="left"
+                    >
+                        {localize(
+                            'With Deriv, you have the option to implement limits on your trading activities through our self-exclusion facility. You’ll be able to:',
+                        )}
+                    </MarginHeader>
+                </Show>
                 <MarginWrapper content_width="48rem" gap="1rem">
                     <StyledLimits>
-                        <ChecklistLogo />
+                        <div>
+                            <ChecklistLogo />
+                        </div>
                         <CheckText secondary>
                             {localize('Limit the amount of money you trade')}
                         </CheckText>
                     </StyledLimits>
                     <StyledLimits>
-                        <ChecklistLogo />
+                        <div>
+                            <ChecklistLogo />
+                        </div>
                         <CheckText secondary>
                             {localize(
                                 'Limit the amount of time you spend trading',
@@ -234,34 +282,60 @@ const ResponsibleTrading = () => (
                         </CheckText>
                     </StyledLimits>
                     <StyledLimits>
-                        <ChecklistLogo />
+                        <div>
+                            <ChecklistLogo />
+                        </div>
                         <CheckText secondary>
                             {localize('Limit the losses you might incur')}
                         </CheckText>
                     </StyledLimits>
                     <StyledLimits>
-                        <ChecklistLogo />
+                        <div>
+                            <ChecklistLogo />
+                        </div>
                         <CheckText secondary>
                             {localize(
                                 'Block yourself from trading on our website',
                             )}
                         </CheckText>
                     </StyledLimits>
+                    <Show device="mobile">
+                        <LearnMoreText weight="500">
+                            {localize(
+                                'Learn more about our self-exclusion facility.',
+                            )}
+                        </LearnMoreText>
+                    </Show>
                 </MarginWrapper>
             </StyledContainer>
         </ResponsibleSectionContainer>
         <OtherWarningWrapper>
             <StyledContainer>
-                <Header as="h2" align="center">
+                <OtherWarningHeader
+                    as="h2"
+                    align="center"
+                    mobile_text_align="left"
+                >
                     {localize('Other warnings and regulatory disclosures')}
-                </Header>
-                <StyledCard>
-                    <Text secondary>
-                        {localize(
-                            'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
-                        )}
-                    </Text>
-                </StyledCard>
+                </OtherWarningHeader>
+                <Show device="laptop">
+                    <StyledCard>
+                        <Text secondary>
+                            {localize(
+                                'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
+                            )}
+                        </Text>
+                    </StyledCard>
+                </Show>
+                <Show device="mobile">
+                    <StyledCard>
+                        <Text secondary>
+                            {localize(
+                                'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Refer to our Key Information Documents for the amount of margincrequired for the trading instruments offered on our cwebsite. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
+                            )}
+                        </Text>
+                    </StyledCard>
+                </Show>
             </StyledContainer>
         </OtherWarningWrapper>
     </Layout>

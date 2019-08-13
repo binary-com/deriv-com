@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Show from 'components/containers/show'
 import SEO from 'components/containers/seo'
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
@@ -23,6 +24,9 @@ import ChecklistLogo from 'images/svg/checklist.svg'
 
 const StyledContainer = styled(Container)`
     flex-direction: column;
+    ${FlexGridContainer} {
+        width: 100%;
+    }
 `
 
 const StyledText = styled(Text)`
@@ -65,14 +69,36 @@ const StyledCard = styled.article`
 const MarginHeader = styled(Header)`
     margin-top: 1rem;
 `
-const GuidlineGriidContainer = styled.div`
+const GuidlineGridContainer = styled.div`
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 3rem;
+    grid-template-areas:
+        'demo hand_money borrow_money'
+        'limit avoid_trading portion_winning';
     @media ${device.tabletL} {
-        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 2rem;
+        grid-template-areas:
+            'portion_winning hand_money'
+            'limit demo'
+            'avoid_trading borrow_money';
+    }
+`
+const GuidItem = styled.article`
+    grid-area: ${props => props.grid_name};
+
+    @media ${device.tabletL} {
+        p {
+            font-size: 2rem;
+        }
     }
 `
 const HeroWrapper = styled.div`
     @media ${device.tabletL} {
-        div{
+        div {
             padding: 11rem 0 2.7rem 0;
         }
         h4 {
@@ -83,6 +109,17 @@ const HeroWrapper = styled.div`
         h1 {
             line-height: 1.1;
         }
+    }
+`
+
+const ResponsibleSectionContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 3.55rem 0;
+    }
+`
+const LimitsHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 4rem;
     }
 `
 const ResponsibleTrading = () => (
@@ -102,72 +139,85 @@ const ResponsibleTrading = () => (
                 mobile_text_align="left"
             />
         </HeroWrapper>
-        <SectionContainer>
+        <ResponsibleSectionContainer>
             <StyledContainer>
                 <FlexGridContainer content_width="32.8rem" gap="0.6rem">
-                    <GuidlineGriidContainer>
-                        <article>
+                    <GuidlineGridContainer>
+                        <GuidItem grid_name="demo">
                             <Demo />
                             <StyledText>
                                 {localize(
                                     'Hone your skill with a free demo account.',
                                 )}
                             </StyledText>
-                        </article>
-                        <article>
+                        </GuidItem>
+                        <GuidItem grid_name="hand_money">
                             <HandMoney />
                             <StyledText>
                                 {localize(
                                     'Only trade with money you can afford to lose.',
                                 )}
                             </StyledText>
-                        </article>
-                        <article>
+                        </GuidItem>
+                        <GuidItem grid_name="borrow_money">
                             <BorrowMoney />
                             <StyledText>
                                 {localize('Do not trade with borrowed money.')}
                             </StyledText>
-                        </article>
-                        <article>
+                        </GuidItem>
+                        <GuidItem grid_name="limit">
                             <Limit />
                             <StyledText>
                                 {localize(
                                     'Set a limit for your losses and stick to it.',
                                 )}
                             </StyledText>
-                        </article>
-                        <article>
+                        </GuidItem>
+                        <GuidItem grid_name="avoid_trading">
                             <AvoidTrading />
                             <StyledText>
                                 {localize(
                                     'Avoid trading when you’re prone to bad judgement.',
                                 )}
                             </StyledText>
-                        </article>
-                        <article>
+                        </GuidItem>
+                        <GuidItem grid_name="portion_winning">
                             <PortionWinning />
                             <StyledText>
                                 {localize(
                                     'Put aside a portion of your winnings to avoid losing it all.',
                                 )}
                             </StyledText>
-                        </article>
-                    </GuidlineGriidContainer>
+                        </GuidItem>
+                    </GuidlineGridContainer>
                 </FlexGridContainer>
                 <hr />
             </StyledContainer>
-        </SectionContainer>
+        </ResponsibleSectionContainer>
         <Divider />
-        <SectionContainer>
+        <ResponsibleSectionContainer>
             <StyledContainer>
-                <Header as="h2" align="center">
+                <LimitsHeader as="h2" align="center" mobile_text_align="left">
                     {localize('Written limits and self-exclusion')}
-                </Header>
-                <MarginHeader as="h4" weight="500" align="center">
-                    {localize(
-                        'With Deriv, you have the option to implement limits on your trading activities.',
-                    )}
-                </MarginHeader>
+                </LimitsHeader>
+                <Show>
+                    <MarginHeader as="h4" weight="500" align="center">
+                        {localize(
+                            'With Deriv, you have the option to implement limits on your trading activities.',
+                        )}
+                    </MarginHeader>
+                </Show>
+                <Show>
+                    <MarginHeader
+                        as="h4"
+                        weight="500"
+                        align="center"
+                    >
+                        {localize(
+                            'With Deriv, you have the option to implement limits on your trading activities.',
+                        )}
+                    </MarginHeader>
+                </Show>
                 <MarginWrapper content_width="48rem" gap="1rem">
                     <StyledLimits>
                         <ChecklistLogo />
@@ -199,7 +249,7 @@ const ResponsibleTrading = () => (
                     </StyledLimits>
                 </MarginWrapper>
             </StyledContainer>
-        </SectionContainer>
+        </ResponsibleSectionContainer>
         <OtherWarningWrapper>
             <StyledContainer>
                 <Header as="h2" align="center">

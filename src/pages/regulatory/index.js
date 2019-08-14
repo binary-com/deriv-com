@@ -7,6 +7,7 @@ import Container, { SectionContainer } from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import { CardChildren } from 'components/elements/card.js'
+import device from 'themes/device'
 // Icons
 import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
@@ -20,6 +21,10 @@ const RegulatoryWrapper = styled(SectionContainer)`
         var(--color-grey-2),
         var(--color-white)
     );
+
+    @media ${device.tabletL} {
+        padding-bottom: 4rem;
+    }
 `
 const StyledContainer = styled(Container)`
     flex-direction: column;
@@ -38,10 +43,19 @@ const FlexWrapper = styled(Container)`
     min-width: 100%;
     margin-top: 2.4rem;
 
+    @media ${device.tabletL} {
+        margin-top: 0;
+    }
+
     & > * {
         flex-shrink: 0;
         width: 48%;
         margin: 1rem;
+
+        @media ${device.tabletL} {
+            width: 100%;
+            margin: 2.66rem 0 0 0;
+        }
     }
 `
 
@@ -56,7 +70,7 @@ const Regulatory = () => (
         <Hero
             header={localize('Licences and regulations')}
             paragraph={localize(
-                'Deriv is a trading platform created and operated by the Binary Group',
+                'Deriv operates under the jurisdiction of Binary.com.',
             )}
         />
         <RegulatoryWrapper>

@@ -10,6 +10,7 @@ import Layout from 'components/layout/layout'
 import Container from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash } from 'common/utility'
+import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
@@ -25,6 +26,10 @@ const Backdrop = styled.div`
 `
 const StyledContainer = styled(Container)`
     padding: 12rem 0;
+
+    @media ${device.tabletL} {
+        padding: 10rem 0 2rem 0;
+    }
 `
 const SearchSection = styled.section`
     ${Backdrop} {
@@ -45,11 +50,30 @@ const SearchCrossIcon = styled(CrossIcon)`
     :hover {
         cursor: pointer;
     }
+
+    @media ${device.tabletL} {
+        position: absolute;
+    }
 `
 
 const SearchForm = styled.form`
     position: relative;
     padding-left: 6.4rem;
+
+    @media ${device.tabletL} {
+        padding-left: 4.3rem;
+
+        input {
+            font-size: 3rem;
+            width: 90%;
+            height: 3.55rem;
+        }
+        svg {
+            top:0;
+            width: 2.5rem;
+            height: 3.55rem;
+        }
+    }
 `
 
 const Search = styled.input`
@@ -61,7 +85,7 @@ const Search = styled.input`
     outline: none;
 
     ::placeholder {
-        color: var(--color-grey-3);
+        color: var(--color-black-3);
     }
 `
 

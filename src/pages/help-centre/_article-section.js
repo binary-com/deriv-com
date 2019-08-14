@@ -6,6 +6,7 @@ import { Text, Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { StyledLink } from 'components/elements/link'
 import Container from 'components/containers/container'
+import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 
@@ -31,6 +32,15 @@ const HomeContainer = styled(LeftRightContainer)`
     }
     > * {
         width: 50%;
+
+        @media ${device.tabletL} {
+            width: 100%;
+        }
+    }
+
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        padding: 4rem 0;
     }
 `
 

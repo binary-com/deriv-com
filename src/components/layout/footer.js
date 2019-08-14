@@ -16,7 +16,6 @@ import Labuan from 'images/svg/footer-labuan.svg'
 import FSC from 'images/svg/fsc.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
-import Show from 'components/containers/show'
 
 const FooterContainer = styled(Container)`
     @media ${device.tabletL} {
@@ -108,9 +107,10 @@ const Legal = styled.section`
 `
 const LegalRow = styled.div`
     display: grid;
-    grid-template-rows: 1fr;
-    grid-row-gap: 2.4rem;
+    grid-template-columns: (6, 1fr);
+    grid-column-gap: 1rem;
     width: 100%;
+    grid-template-areas: 'lt lt lt lt li li';
 
     * {
         align-self: center;
@@ -122,12 +122,22 @@ const LegalRow = styled.div`
     }
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
-        grid-column-gap: 0;
+        grid-template-rows: 2fr;
+        grid-row-gap: 2rem;
+        grid-template-areas:
+            'lt'
+            'li';
     }
+`
+const LegalTextWrapper = styled.div`
+    grid-area: lt;
+`
+const LegalIcons = styled.div`
+    grid-area: li;
 `
 const RiskNote = styled.section`
     background-color: var(--color-black);
-    padding: 1.4rem 0;
+    padding: 3.5rem 0;
     color: var(--color-white);
     line-height: 1.2rem;
 
@@ -179,11 +189,11 @@ const Social = styled.div`
     }
 
     /* TODO: remove this line after having real socal media account */
-    display: none !important;
+    // display: none !important;
 `
 const RiskWarningText = styled.p`
-    font-size: 1.2rem;
     line-height: 1.8rem;
+    font-size: 1rem;
     text-align: justify;
 
     @media ${device.tabletL} {
@@ -192,11 +202,10 @@ const RiskWarningText = styled.p`
 `
 
 const TextFooter = styled(Text)`
-    ${props => {
-        if (!props.mobile_only) return 'display: none;'
-    }}
+    font-size: 1.2rem;
+    text-align: justify;
     @media ${device.tabletL} {
-        word-spacing: 2px;
+        font-size: 1.5rem;
     }
 `
 
@@ -289,62 +298,27 @@ const Footer = () => (
         </FooterSocket>
         <Legal>
             <Container>
-                <Show to="eu">
-                    <LegalRow>
-                        <div>
-                            <span>
-                                <Vanuatu />
-                                <FSC />
-                                <Labuan />
-                            </span>
-                        </div>
-                        <div>
-                            <TextFooter mobile_only>
-                                {localize(
-                                    'In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence no. IS/70156).',
-                                )}
-                            </TextFooter>
-                            <TextFooter mobile_only>
-                                {localize(
-                                    'In the Isle of Man and the UK, Volatility Indices are offered by Binary (IOM) Ltd., First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, British Isles; licensed and regulated respectively by (1) the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by (2) the Gambling Commission in the UK (licence reference no: 39172).',
-                                )}
-                            </TextFooter>
-                            <TextFooter mobile_only>
-                                {localize(
-                                    "In the rest of the EU, Volatility Indices are offered by Binary (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta; licensed and regulated by (1) the Malta Gaming Authority in Malta (licence no. MGA/B2C/102/2000 issued on 01 August 2018), for UK clients by (2) the UK Gambling Commission (licence reference no: 39495), and for Irish clients by (3) the Revenue Commissioners in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017). View complete Regulatory Information.",
-                                )}
-                            </TextFooter>
-                        </div>
-                    </LegalRow>
-                </Show>
-                <Show to="non-eu">
-                    <LegalRow>
-                        <div>
-                            <span>
-                                <Vanuatu />
-                                <FSC />
-                                <Labuan />
-                            </span>
-                        </div>
-                        <div>
-                            <TextFooter mobile_only>
-                                {localize(
-                                    'In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence no. IS/70156).',
-                                )}
-                            </TextFooter>
-                            <TextFooter mobile_only>
-                                {localize(
-                                    'Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (view licence); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (licence no. SIBA/L/18/1114); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (licence no. MB/18/0024).',
-                                )}
-                            </TextFooter>
-                            <TextFooter mobile_only>
-                                {localize(
-                                    "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
-                                )}
-                            </TextFooter>
-                        </div>
-                    </LegalRow>
-                </Show>
+                <LegalRow>
+                    <LegalIcons>
+                        <span>
+                            <Vanuatu />
+                            <FSC />
+                            <Labuan />
+                        </span>
+                    </LegalIcons>
+                    <LegalTextWrapper>
+                        <TextFooter>
+                            {localize(
+                                'The financial products offered by this website is offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines.',
+                            )}
+                        </TextFooter>
+                        <TextFooter>
+                            {localize(
+                                'This website‘s services are accessible worldwide except in certain countries such as the USA, Canada, Hong Kong, Japan, or to persons under age 18.',
+                            )}
+                        </TextFooter>
+                    </LegalTextWrapper>
+                </LegalRow>
             </Container>
         </Legal>
         <RiskNote>
@@ -355,7 +329,7 @@ const Footer = () => (
                     </h4>
                     <RiskWarningText>
                         {localize(
-                            'The financial products offered via this website include binary options, contracts for difference ("CFD") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about Responsible Trading.',
+                            'The financial products offered via this website include binary options, contracts for difference ("CFDs") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about Responsible Trading.',
                         )}
                     </RiskWarningText>
                 </div>

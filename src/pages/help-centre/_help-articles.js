@@ -5,11 +5,6 @@ import { localize } from 'components/localization'
 
 const WhoCanOpenAnAccount = () => (
     <>
-        <Text>
-            {localize(
-                'You may only open an account with us on these conditions:',
-            )}
-        </Text>
         <Ul>
             <Li>
                 {localize(

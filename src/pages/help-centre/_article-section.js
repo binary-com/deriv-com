@@ -24,6 +24,14 @@ const LeftRightContainer = styled.div`
     > :first-child {
         margin-right: auto;
     }
+
+    @media ${device.tabletL} {
+        padding-top: 9rem;
+
+        svg {
+            display: none;
+        }
+    }
 `
 
 const HomeContainer = styled(LeftRightContainer)`
@@ -50,6 +58,14 @@ const ArticleContainer = styled(LeftRightContainer)`
     }
     > * {
         flex: 1 1 auto;
+    }
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        width: 100%;
+        padding-top: 2rem;
+        > :first-child {
+            margin-right: 0;
+        }
     }
 `
 
@@ -138,7 +154,7 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
             </LeftRightContainer>
             <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
-                    <Header as="h3">{`${article.category} - ${article.title}`}</Header>
+                    <Header as="h3">{article.category}</Header>
                     {article.content}
                 </ArticleContent>
                 {!!related_articles.length && (

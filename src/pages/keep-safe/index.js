@@ -23,6 +23,15 @@ import { localize, WithIntl } from 'components/localization'
 const GridGrayBackground = styled.div`
     grid-area: risk;
     background-color: var(--color-grey-1);
+    padding: 8rem 0;
+
+    section {
+        padding: 0;
+    }
+
+    @media ${device.tabletL} {
+        padding: 4rem 0;
+    }
 `
 
 const StyledHeader = styled(Header)`
@@ -30,11 +39,22 @@ const StyledHeader = styled(Header)`
     margin: 0 auto;
     padding: 1.2rem 2rem 4rem;
 `
+const PractiseHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 4rem;
+    }
+`
 const Practice = styled(Container)`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 17.4rem;
     grid-row-gap: 2.4rem;
+
+    div:nth-child(2n) {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+    }
 
     ${Header} {
         padding-bottom: 1.6rem;
@@ -111,6 +131,11 @@ const KeepSafeGirdArea = styled.div`
 
 const GridSectionContainer = styled(SectionContainer)`
     grid-area: practice;
+    padding: 8rem 0;
+
+    @media ${device.tabletL} {
+        padding: 4rem 0;
+    }
 `
 const UnderstandRisk = styled(Header)`
     @media ${device.tabletL} {
@@ -181,9 +206,9 @@ const KeepSafe = () => {
                 <GridSectionContainer padding="3.55rem 0">
                     <Practice>
                         <div>
-                            <Header as="h2">
+                            <PractiseHeader as="h2">
                                 {localize('Practise with a demo account')}
-                            </Header>
+                            </PractiseHeader>
                             <Show device="laptop">
                                 <Header as="h4" weight="500">
                                     {localize(

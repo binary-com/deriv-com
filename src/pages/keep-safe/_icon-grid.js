@@ -42,7 +42,11 @@ const GridCol = styled.article`
     grid-area: ${props => props.grid_name};
     ${Text} {
         margin-top: 0.8rem;
-        font-size: 2rem;
+        font-size: 1.6rem;
+
+        @media ${device.tabletL} {
+            font-size: 2rem;
+        }
     }
 `
 

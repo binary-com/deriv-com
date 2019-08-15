@@ -12,6 +12,7 @@ const Wrapper = styled.section`
 const StyledHeader = styled(Header)`
     padding: 0.8rem 0;
     width: ${props => props.paragraph_width || ''};
+    max-width: ${props => props.paragraph_max_width || ''};
 `
 const Context = styled.span`
     font-size: 2rem;
@@ -22,7 +23,13 @@ const NoImageHero = styled(Container)`
     align-content: space-around;
     padding: 10rem 0 3rem 0;
 `
-const Hero = ({ header, paragraph, paragraph_width, mobile_text_align }) => (
+const Hero = ({
+    header,
+    paragraph,
+    paragraph_width,
+    mobile_text_align,
+    paragraph_max_width,
+}) => (
     <Wrapper>
         <NoImageHero>
             <StyledHeader
@@ -39,6 +46,7 @@ const Hero = ({ header, paragraph, paragraph_width, mobile_text_align }) => (
                 weight="normal"
                 align="center"
                 paragraph_width={paragraph_width}
+                paragraph_max_width={paragraph_max_width}
                 mobile_text_align={mobile_text_align}
             >
                 <Context>{paragraph}</Context>
@@ -51,6 +59,7 @@ Hero.propTypes = {
     header: PropTypes.string,
     mobile_text_align: PropTypes.string,
     paragraph: PropTypes.string,
+    paragraph_max_width: PropTypes.string,
     paragraph_width: PropTypes.string,
 }
 export default Hero

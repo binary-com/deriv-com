@@ -5,6 +5,7 @@ import { navigate } from '@reach/router'
 import { articles } from './_help-articles'
 import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
+import DidntFindYourAnswer from './_didnt-find-answer'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Container from 'components/containers/container'
@@ -69,7 +70,7 @@ const SearchForm = styled.form`
             height: 3.55rem;
         }
         svg {
-            top:0;
+            top: 0;
             width: 2.5rem;
             height: 3.55rem;
         }
@@ -231,6 +232,7 @@ class HelpCentre extends Component {
                     handleSelectArticle={this.handleSelectArticle}
                     toggleSearch={this.toggleSearch}
                 />
+                <DidntFindYourAnswer />
             </Layout>
         )
     }

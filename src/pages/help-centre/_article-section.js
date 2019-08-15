@@ -74,6 +74,10 @@ const ListWrapper = styled.div`
     ${Header} {
         margin-bottom: 1.6rem;
     }
+
+    @media ${device.tabletL} {
+        padding-top: 3.55rem;
+    }
 `
 
 const SmallSearchIcon = styled(SearchIcon)`
@@ -101,6 +105,10 @@ const ArticleContent = styled.div`
     ${Text} {
         color: var(--color-black-3);
         line-height: 1.5;
+
+        @media ${device.tabletL} {
+            font-size: 2rem;
+        }
     }
 `
 // Eslint fails to recognize display names in React.memo
@@ -155,10 +163,12 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
             </LeftRightContainer>
             <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
-                    <Show device='laptop'>
-                        <Header as="h3">{article.category} - {article.title}</Header>
+                    <Show device="laptop">
+                        <Header as="h3">
+                            {article.category} - {article.title}
+                        </Header>
                     </Show>
-                    <Show device='mobile'>
+                    <Show device="mobile">
                         <Header as="h3">{article.category}</Header>
                     </Show>
                     {article.content}

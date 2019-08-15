@@ -13,13 +13,16 @@ const handleEu = (setVisible, to) => is_eu_country => {
         case 'non-eu':
             setVisible(!is_eu_country)
             break
+        case 'global':
+            setVisible(true)
+            break
         default:
             break
     }
 }
 
-const Show = ({ children, to, device }) => {
-    const [visible, setVisible] = useState(true)
+const Show = ({ children, to = 'global', device }) => {
+    const [visible, setVisible] = useState(false)
     const [deviceVisibility, setdeviceVisibility] = useState(true)
     useEffect(() => {
         if (to) {

@@ -18,6 +18,7 @@ const device = {
     tabletS: `(max-width: ${size.tabletS})`,
     tablet: `(max-width: ${size.tablet})`,
     tabletL: `(max-width: ${size.tabletL})`,
+    laptopS: `(min-width: ${size.tabletL})`,
     laptop: `(max-width: ${size.laptop})`,
     laptopL: `(max-width: ${size.laptopL})`,
     desktopS: `(min-width: ${size.desktopS})`,

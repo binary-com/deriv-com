@@ -14,16 +14,30 @@ const StyledHeader = styled(Header)`
     width: ${props => props.paragraph_width || ''};
     max-width: ${props => props.paragraph_max_width || ''};
 `
-
+const Context = styled.span`
+    font-size: 2rem;
+    line-height: 2.9rem;
+`
 const NoImageHero = styled(Container)`
     flex-direction: column;
     align-content: space-around;
-    padding: 8rem 0 10rem 0;
+    padding: 10rem 0 3rem 0;
 `
-const Hero = ({ header, paragraph, paragraph_width, paragraph_max_width }) => (
+const Hero = ({
+    header,
+    paragraph,
+    paragraph_width,
+    mobile_text_align,
+    paragraph_max_width,
+}) => (
     <Wrapper>
         <NoImageHero>
-            <StyledHeader as="h1" color="red" align="center">
+            <StyledHeader
+                as="h1"
+                color="red"
+                align="center"
+                mobile_text_align={mobile_text_align}
+            >
                 {header}
             </StyledHeader>
             <StyledHeader
@@ -33,8 +47,9 @@ const Hero = ({ header, paragraph, paragraph_width, paragraph_max_width }) => (
                 align="center"
                 paragraph_width={paragraph_width}
                 paragraph_max_width={paragraph_max_width}
+                mobile_text_align={mobile_text_align}
             >
-                {paragraph}
+                <Context>{paragraph}</Context>
             </StyledHeader>
         </NoImageHero>
     </Wrapper>
@@ -42,6 +57,7 @@ const Hero = ({ header, paragraph, paragraph_width, paragraph_max_width }) => (
 
 Hero.propTypes = {
     header: PropTypes.string,
+    mobile_text_align: PropTypes.string,
     paragraph: PropTypes.string,
     paragraph_max_width: PropTypes.string,
     paragraph_width: PropTypes.string,

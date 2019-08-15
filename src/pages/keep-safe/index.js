@@ -74,7 +74,6 @@ const HeroWrapper = styled.div`
             padding-bottom: 4rem;
         }
         h1 {
-            margin-top: 3rem;
             font-size: 6rem;
         }
         h4 {

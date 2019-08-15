@@ -6,16 +6,29 @@ import {
 } from 'components/containers/container.js'
 import { Card } from 'components/elements/card.js'
 import { localize } from 'components/localization'
-// Icons
+import device from 'themes/device'
 import VisionSVG from 'images/svg/vision.svg'
 import FuseeSVG from 'images/svg/fusee.svg'
 
 const OurGoalsWrapper = styled(SectionContainer)`
+    padding-top: 3.55rem;
     background-image: linear-gradient(
         to bottom,
         var(--color-grey-2),
         var(--color-white)
     );
+
+    @media ${device.tabletL} {
+        padding-bottom: 3rem;
+        background-image: unset;
+        background-color: var(--color-grey-1);
+
+        ${FlexGridContainer} {
+            article:first-child {
+                margin-top: 0;
+            }
+        }
+    }
 `
 
 export const OurGoals = () => (

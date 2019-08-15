@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize } from '../localization'
+import { localize, Localize } from '../localization'
 import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
@@ -219,7 +219,11 @@ const TextFooter = styled(Text)`
         font-size: 1.5rem;
     }
 `
-
+const FooterBoldLink = styled(StyledLink)`
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--color-gray-3);
+`
 const Footer = () => (
     <footer>
         <FooterSocket>
@@ -319,14 +323,20 @@ const Footer = () => (
                     </LegalIcons>
                     <LegalTextWrapper>
                         <TextFooter>
-                            {localize(
-                                'In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence no. IS/70156).',
-                            )}
+                            <Localize
+                                text="In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
+                                components={[<FooterBoldLink key={0} to="#" />]}
+                            />
                         </TextFooter>
                         <TextFooter>
-                            {localize(
-                                'Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (view licence); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (licence no. SIBA/L/18/1114); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (licence no. MB/18/0024).',
-                            )}
+                            <Localize
+                                text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>licence no. SIBA/L/18/1114</1>); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>licence no. MB/18/0024</2>)."
+                                components={[
+                                    <FooterBoldLink key={0} to="#" />,
+                                    <FooterBoldLink key={1} to="#" />,
+                                    <FooterBoldLink key={2} to="#" />,
+                                ]}
+                            />
                         </TextFooter>
                         <TextFooter>
                             {localize(

@@ -7,6 +7,7 @@ import { localize } from 'components/localization'
 import { StyledLink } from 'components/elements/link'
 import Container from 'components/containers/container'
 import device from 'themes/device'
+import Show from 'components/containers/show'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 
@@ -154,7 +155,12 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
             </LeftRightContainer>
             <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
-                    <Header as="h3">{article.category}</Header>
+                    <Show device='laptop'>
+                        <Header as="h3">{article.category} - {article.title}</Header>
+                    </Show>
+                    <Show device='mobile'>
+                        <Header as="h3">{article.category}</Header>
+                    </Show>
                     {article.content}
                 </ArticleContent>
                 {!!related_articles.length && (

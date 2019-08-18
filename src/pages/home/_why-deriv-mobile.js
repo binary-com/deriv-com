@@ -1,9 +1,11 @@
+import Modal, { useModal } from 'components/elements/modal'
+import { localize } from 'components/localization'
+import Checklist from 'images/svg/checklist.svg'
 import React from 'react'
 import styled from 'styled-components'
 import { Header } from '../../components/elements/typography'
 import Button from '../../components/form/button'
-import Checklist from 'images/svg/checklist.svg'
-import { localize } from 'components/localization'
+import SignupModal from 'components/elements/signup-modal'
 
 const WhyDerivMobileContainer = styled.div`
     padding: 4rem 0 2rem 0;
@@ -51,53 +53,64 @@ const SingupButton = styled(Button)`
     max-width: 36rem;
     font-size: var(--text-size-sm);
 `
-export const WhyDerivMobile = () => (
-    <WhyDerivMobileContainer>
-        <Header align="center" font_size="4rem">
-            Why choose Deriv?
-        </Header>
-        <Card>
-            <CardItem>
-                <Checklist />
-                <Header font_size="2rem" lh="2.5rem" weight="400">
-                    Exclusive synthetic market available 24/7
-                </Header>
-            </CardItem>
-            <CardItem>
-                <Checklist />
-                <Header font_size="2rem" lh="2.5rem" weight="400">
-                    USD 5 minimum deposit
-                </Header>
-            </CardItem>
-            <CardItem>
-                <Checklist />
-                <Header font_size="2rem" lh="2.5rem" weight="400">
-                    Stakes as low as USD 0.35
-                </Header>
-            </CardItem>
-            <CardItem>
-                <Checklist />
-                <Header font_size="2rem" lh="2.5rem" weight="400">
-                    Payouts up to USD 50,000
-                </Header>
-            </CardItem>
-            <CardItem>
-                <Checklist />
-                <Header font_size="2rem" lh="2.5rem" weight="400">
-                    Patented, licensed, and regulated
-                </Header>
-            </CardItem>
-            <CardItem>
-                <Checklist />
-                <Header font_size="2rem" lh="2.5rem" weight="400">
-                    Short- to long-term trades
-                </Header>
-            </CardItem>
-        </Card>
-        <ButtonWrapper>
-            <SingupButton type="submit" secondary>
-                {localize('Create a free demo account')}
-            </SingupButton>
-        </ButtonWrapper>
-    </WhyDerivMobileContainer>
-)
+export const WhyDerivMobile = () => {
+    const [show_modal, toggleModal, closeModal] = useModal()
+    return (
+        <WhyDerivMobileContainer>
+            <Header align="center" font_size="4rem">
+                Why choose Deriv?
+            </Header>
+            <Card>
+                <CardItem>
+                    <Checklist />
+                    <Header font_size="2rem" lh="2.5rem" weight="400">
+                        Exclusive synthetic market available 24/7
+                    </Header>
+                </CardItem>
+                <CardItem>
+                    <Checklist />
+                    <Header font_size="2rem" lh="2.5rem" weight="400">
+                        USD 5 minimum deposit
+                    </Header>
+                </CardItem>
+                <CardItem>
+                    <Checklist />
+                    <Header font_size="2rem" lh="2.5rem" weight="400">
+                        Stakes as low as USD 0.35
+                    </Header>
+                </CardItem>
+                <CardItem>
+                    <Checklist />
+                    <Header font_size="2rem" lh="2.5rem" weight="400">
+                        Payouts up to USD 50,000
+                    </Header>
+                </CardItem>
+                <CardItem>
+                    <Checklist />
+                    <Header font_size="2rem" lh="2.5rem" weight="400">
+                        Patented, licensed, and regulated
+                    </Header>
+                </CardItem>
+                <CardItem>
+                    <Checklist />
+                    <Header font_size="2rem" lh="2.5rem" weight="400">
+                        Short- to long-term trades
+                    </Header>
+                </CardItem>
+            </Card>
+            <ButtonWrapper>
+                <SingupButton onClick={toggleModal} secondary>
+                    {localize('Create a free demo account')}
+                </SingupButton>
+                <Modal
+                    toggle={toggleModal}
+                    is_open={show_modal}
+                    is_blurred={true}
+                    closeModal={closeModal}
+                >
+                    <SignupModal autofocus />
+                </Modal>
+            </ButtonWrapper>
+        </WhyDerivMobileContainer>
+    )
+}

@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import LetterSVG from 'images/svg/letter.svg'
 import { FlexGridContainer } from 'components/containers/container'
+import device from 'themes/device'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-grey-1);
@@ -14,20 +15,43 @@ const DFYASection = styled(FlexGridContainer)`
         width: auto;
         cursor: pointer;
     }
-    p {
-        font-size: 3rem;
-        font-weight: bold;
-    }
+`
+const StyledLink = styled(LocalizedLink)`
+    font-size: 3rem;
+    color: var(--color-black-3);
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
     svg {
-        margin-right: 0;
-        padding-right: 2.4rem;
+        margin-right: 2.4rem;
+    }
+    :hover {
+        text-decoration: underline;
+        color: var(--color-red);
+    }
+
+    &::after {
+        content: '>';
+        display: inline-block;
+        margin-left: 0.4rem;
+        font-weight: 300;
+        text-decoration: none;
+        color: var(--color-red);
+    }
+
+    @media ${device.tabletL} {
+        font-size: 2rem;
     }
 `
 const DidntFindYourAnswer = () => (
     <DFYAWrapper>
         <DFYASection>
-            <LetterSVG />
-            <p>{localize('Didn’t find your answer?')}</p>
+            <StyledLink to="#">
+                <LetterSVG />
+                {localize('Didn’t find your answer?')}
+            </StyledLink>
         </DFYASection>
     </DFYAWrapper>
 )

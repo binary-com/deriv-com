@@ -5,7 +5,8 @@ import { navigate } from '@reach/router'
 import { articles } from './_help-articles'
 import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
-import DidntFindYourAnswer from './_didnt-find-answer'
+// TODO: active this line after having mail service
+// import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Container from 'components/containers/container'
@@ -232,7 +233,8 @@ class HelpCentre extends Component {
                     handleSelectArticle={this.handleSelectArticle}
                     toggleSearch={this.toggleSearch}
                 />
-                <DidntFindYourAnswer />
+                {/*TODO: active this line after having mail service*/}
+                {/* {<DidntFindYourAnswerBanner /> } */}
             </Layout>
         )
     }

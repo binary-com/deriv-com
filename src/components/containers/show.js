@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import { size } from 'themes/device.js'
 
 const handleEu = (setVisible, to) => is_eu_country => {
     switch (to) {
@@ -13,55 +12,35 @@ const handleEu = (setVisible, to) => is_eu_country => {
         case 'non-eu':
             setVisible(!is_eu_country)
             break
-        case 'global':
-            setVisible(true)
-            break
         default:
             break
     }
 }
 
-const Show = ({ children, to = 'global', device }) => {
+const Show = ({ children, to }) => {
     const [visible, setVisible] = useState(false)
-    const [deviceVisibility, setdeviceVisibility] = useState(true)
     useEffect(() => {
-        if (to) {
-            const clients_country = Cookies.get('clients_country')
-            const showEu = handleEu(setVisible, to)
-            if (clients_country) {
-                isEuCountry(clients_country)
-                showEu(isEuCountry(clients_country))
-            } else {
-                BinarySocketBase.wait('website_status').then(response => {
-                    showEu(isEuCountry(response.website_status.clients_country))
+        if (!to) return
 
-                    /* country_code cookies will be valid for 1 month */
-                    Cookies.set(
-                        'clients_country',
-                        response.website_status.clients_country,
-                        { expires: 30 },
-                    )
-                })
-            }
-        }
-        if (device) {
-            switch (device) {
-                case 'laptop':
-                    setdeviceVisibility(
-                        window.innerWidth > size.tabletL,
-                    )
-                    break
-                case 'mobile':
-                    setdeviceVisibility(
-                        window.innerWidth < size.tabletL,
-                    )
-                    break
-                default:
-                    break
-            }
+        const clients_country = Cookies.get('clients_country')
+        const showEu = handleEu(setVisible, to)
+        if (clients_country) {
+            isEuCountry(clients_country)
+            showEu(isEuCountry(clients_country))
+        } else {
+            BinarySocketBase.wait('website_status').then(response => {
+                showEu(isEuCountry(response.website_status.clients_country))
+
+                /* country_code cookies will be valid for 1 month */
+                Cookies.set(
+                    'clients_country',
+                    response.website_status.clients_country,
+                    { expires: 30 },
+                )
+            })
         }
     })
-    return visible && deviceVisibility ? <>{children}</> : null
+    return visible ? <>{children}</> : null
 }
 
 Show.propTypes = {

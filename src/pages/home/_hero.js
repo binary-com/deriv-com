@@ -84,48 +84,45 @@ export const Hero = () => (
         <Container>
             <HeroGrid>
                 <article>
-                    <MediaQuery minDeviceWidth={size.tabletL}>
+                    <MediaQuery maxDeviceWidth={size.tabletL}>
                         {matches => matches ? <>
-                            <Header as="h1" color="white" lh="1.2">
+                            <Header font_size='6rem' color="white" lh="1.1">
                                 {localize(
-                                    'This is your ultimate trading experience',
+                                    'Welcome to the ultimate trading experience',
                                 )}
                             </Header>
-                            <StyledHeader as="h4" color="white" weight="500">
+                            <StyledHeader
+                                font_size="2rem"
+                                color="white"
+                                weight="500"
+                            >
                                 {localize(
-                                    'The world’s markets at your fingertips anytime, anywhere.',
+                                    'All the world’s markets, one powerful trading platform',
                                 )}
                             </StyledHeader>
                         </> : <>
-                                <Header font_size='6rem' color="white" lh="1.1">
+                                <Header as="h1" color="white" lh="1.2">
                                     {localize(
-                                        'Welcome to the ultimate trading experience',
+                                        'This is your ultimate trading experience',
                                     )}
                                 </Header>
-                                <StyledHeader
-                                    font_size="2rem"
-                                    color="white"
-                                    weight="500"
-                                >
+                                <StyledHeader as="h4" color="white" weight="500">
                                     {localize(
-                                        'All the world’s markets, one powerful trading platform',
+                                        'The world’s markets at your fingertips anytime, anywhere.',
                                     )}
                                 </StyledHeader>
                             </>}
                     </MediaQuery>
                 </article>
-                <MediaQuery minDeviceWidth={size.tabletL}>
-                    {matches => {
-                        // eslint-disable-next-line
-                        console.log(matches)
-                        return matches ? <SignupWrapper>
+                <MediaQuery maxDeviceWidth={size.tabletL}>
+                    {matches => matches ? <SingupButton type="submit" secondary>
+                        {localize('Create a free demo account')}
+                    </SingupButton> : <SignupWrapper>
                             <SignupBox>
                                 <Signup />
                             </SignupBox>
-                        </SignupWrapper> : <SingupButton type="submit" secondary>
-                                {localize('Create a free demo account')}
-                            </SingupButton>
-                    }}
+                        </SignupWrapper>
+                    }
                 </MediaQuery>
             </HeroGrid>
         </Container>

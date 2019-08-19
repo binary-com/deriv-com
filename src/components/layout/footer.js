@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize, Localize } from '../localization'
+import { localize, Localize, LocalizedLink } from '../localization'
 import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
@@ -204,7 +204,7 @@ const Social = styled.div`
 `
 const RiskWarningText = styled.p`
     line-height: 1.8rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: justify;
 
     @media ${device.tabletL} {
@@ -223,6 +223,15 @@ const FooterBoldLink = styled.a`
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--color-gray-3);
+    text-decoration: none;
+
+    :hover {
+        text-decoration: underline;
+    }
+`
+const ResponsibleTradingBoldText = styled(LocalizedLink)`
+    color: var(--color-white);
+    font-weight: bold;
     text-decoration: none;
 
     :hover {
@@ -333,7 +342,7 @@ const Footer = () => (
                                 components={[
                                     <FooterBoldLink
                                         key={0}
-                                        target="_black"
+                                        target="_blank"
                                         href="/WS-Binary-Investments-Europe-Limited.pdf"
                                     />,
                                 ]}
@@ -345,17 +354,17 @@ const Footer = () => (
                                 components={[
                                     <FooterBoldLink
                                         key={0}
-                                        target="_black"
+                                        target="_blank"
                                         href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
                                     />,
                                     <FooterBoldLink
                                         key={1}
-                                        target="_black"
+                                        target="_blank"
                                         href="/BVI_license.pdf"
                                     />,
                                     <FooterBoldLink
                                         key={2}
-                                        target="_black"
+                                        target="_blank"
                                         href="/Labuan-license.pdf"
                                     />,
                                 ]}
@@ -377,9 +386,16 @@ const Footer = () => (
                         <Warning /> {localize('Risk Warning')}
                     </h4>
                     <RiskWarningText>
-                        {localize(
-                            'The financial products offered via this website include binary options, contracts for difference ("CFDs") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about Responsible Trading.',
-                        )}
+                        <Localize
+                            text='The financial products offered via this website include binary options, contracts for difference ("CFDs") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Responsible Trading</0>.'
+                            components={[
+                                <ResponsibleTradingBoldText
+                                    key={0}
+                                    target="_blank"
+                                    to="/responsible-trading/"
+                                />,
+                            ]}
+                        />
                     </RiskWarningText>
                 </div>
             </Container>

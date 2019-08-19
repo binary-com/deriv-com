@@ -28,18 +28,18 @@ const Home = () => (
             )}
         />
         <Hero />
-        <Show device='laptop'>
+        <Show device="laptop">
             <Dtrader />
             <HowItWorks />
             <Divider />
             <Markets />
             <WhyDeriv />
         </Show>
-        <Show device='mobile'>
+        <Show device="mobile">
             <WhyDerivMobile />
             <Dtrader />
         </Show>
-        <Show device='laptop'>
+        <Show device="laptop">
             <PaymentSection>
                 <Container>
                     <PaymentMethods />

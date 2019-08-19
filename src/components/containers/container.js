@@ -53,7 +53,7 @@ export const FlexGridContainer = styled(Container)`
 
 export const SectionContainer = styled.section`
     width: 100%;
-    padding: 8rem 0;
+    padding: ${props => props.padding || '8rem 0'};
 `
 
 export default Container

@@ -115,13 +115,17 @@ export const Hero = () => (
                     </MediaQuery>
                 </article>
                 <MediaQuery minDeviceWidth={size.tabletL}>
-                    {matches => matches ? <SignupWrapper>
-                        <SignupBox>
-                            <Signup />
-                        </SignupBox>
-                    </SignupWrapper> : <SingupButton type="submit" secondary>
-                            {localize('Create a free demo account')}
-                        </SingupButton>}
+                    {matches => {
+                        // eslint-disable-next-line
+                        console.log(matches)
+                        return matches ? <SignupWrapper>
+                            <SignupBox>
+                                <Signup />
+                            </SignupBox>
+                        </SignupWrapper> : <SingupButton type="submit" secondary>
+                                {localize('Create a free demo account')}
+                            </SingupButton>
+                    }}
                 </MediaQuery>
             </HeroGrid>
         </Container>

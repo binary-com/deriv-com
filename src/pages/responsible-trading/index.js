@@ -81,7 +81,7 @@ const StyledCard = styled.article`
     padding: 4rem;
 
     @media ${device.tabletL} {
-        padding 2.66rem 1.77rem;
+        padding: 2.66rem 1.77rem;
     }
 `
 

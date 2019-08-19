@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import MediaQuery from 'react-responsive'
 import Button from '../../components/form/button'
 import { StyledHeader } from './_headers'
-import device from 'themes/device'
+import device, { size } from 'themes/device'
 import Container from 'components/containers/container'
 import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
-import Show from 'components/containers/show'
 import header_trade_image from 'images/common/header-trade.png'
 
 const HeroWrapper = styled.section`
@@ -84,51 +84,45 @@ export const Hero = () => (
         <Container>
             <HeroGrid>
                 <article>
-                    <Show device='laptop'>
-                        <Header as="h1" color="white" lh="1.2">
-                            {localize(
-                                'This is your ultimate trading experience',
-                            )}
-                        </Header>
-                    </Show>
-                    <Show device='mobile'>
-                        <Header font_size='6rem' color="white" lh="1.1">
-                            {localize(
-                                'Welcome to the ultimate trading experience',
-                            )}
-                        </Header>
-                    </Show>
-                    <Show device='laptop'>
-                        <StyledHeader as="h4" color="white" weight="500">
-                            {localize(
-                                'The world’s markets at your fingertips anytime, anywhere.',
-                            )}
-                        </StyledHeader>
-                    </Show>
-                    <Show device='mobile'>
-                        <StyledHeader
-                            font_size="2rem"
-                            color="white"
-                            weight="500"
-                        >
-                            {localize(
-                                'All the world’s markets, one powerful trading platform',
-                            )}
-                        </StyledHeader>
-                    </Show>
+                    <MediaQuery minDeviceWidth={size.tabletL}>
+                        {matches => matches ? <>
+                            <Header as="h1" color="white" lh="1.2">
+                                {localize(
+                                    'This is your ultimate trading experience',
+                                )}
+                            </Header>
+                            <StyledHeader as="h4" color="white" weight="500">
+                                {localize(
+                                    'The world’s markets at your fingertips anytime, anywhere.',
+                                )}
+                            </StyledHeader>
+                        </> : <>
+                                <Header font_size='6rem' color="white" lh="1.1">
+                                    {localize(
+                                        'Welcome to the ultimate trading experience',
+                                    )}
+                                </Header>
+                                <StyledHeader
+                                    font_size="2rem"
+                                    color="white"
+                                    weight="500"
+                                >
+                                    {localize(
+                                        'All the world’s markets, one powerful trading platform',
+                                    )}
+                                </StyledHeader>
+                            </>}
+                    </MediaQuery>
                 </article>
-                <Show device='laptop'>
-                    <SignupWrapper>
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    {matches => matches ? <SignupWrapper>
                         <SignupBox>
                             <Signup />
                         </SignupBox>
-                    </SignupWrapper>
-                </Show>
-                <Show device='mobile'>
-                    <SingupButton type="submit" secondary>
-                        {localize('Create a free demo account')}
-                    </SingupButton>
-                </Show>
+                    </SignupWrapper> : <SingupButton type="submit" secondary>
+                            {localize('Create a free demo account')}
+                        </SingupButton>}
+                </MediaQuery>
             </HeroGrid>
         </Container>
     </HeroWrapper>

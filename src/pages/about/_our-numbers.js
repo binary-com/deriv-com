@@ -146,29 +146,29 @@ const chart_data = [
 export const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
-            <MediaQuery minDeviceWidth={size.tabletL}>
+            <MediaQuery maxDeviceWidth={size.tabletL}>
                 {(matches) => matches ? <>
-                    <Header as="h2" color="black-2" align="center">
-                        {localize('Our Numbers')}
+                    <Header as="h6" font_size="4rem" color="black-2" align="center">
+                        {localize('By the numbers')}
                     </Header>
-                    <Header as="h4" color="black-3" align="center" weight="500">
+                    <Header
+                        as="h6"
+                        font_size="2rem"
+                        lh="1.5"
+                        color="black-3"
+                        align="center"
+                        weight="400"
+                        className="bythenumber"
+                    >
                         {localize(
                             'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                         )}
                     </Header>
                 </> : <>
-                        <Header as="h6" font_size="4rem" color="black-2" align="center">
-                            {localize('By the numbers')}
+                        <Header as="h2" color="black-2" align="center">
+                            {localize('Our Numbers')}
                         </Header>
-                        <Header
-                            as="h6"
-                            font_size="2rem"
-                            lh="1.5"
-                            color="black-3"
-                            align="center"
-                            weight="400"
-                            className="bythenumber"
-                        >
+                        <Header as="h4" color="black-3" align="center" weight="500">
                             {localize(
                                 'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                             )}

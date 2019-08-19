@@ -175,17 +175,9 @@ const KeepSafe = () => {
                 />
             </HeroWrapper>
             <KeepSafeSectionContainer>
-                <MediaQuery minDeviceWidth={size.tabletL}>
-                    {matches => matches ? <>
-                        <Header as="h2" align="center">
-                            {localize('Account security')}
-                        </Header>
-                        <StyledHeader as="h4" align="center" weight="500">
-                            {localize(
-                                'Your account security is very important to us. Here are a few ways to enhance your account security:',
-                            )}
-                        </StyledHeader>
-                    </> : <SecureWrapper>
+                <MediaQuery maxDeviceWidth={size.tabletL}>
+                    {matches => matches ?
+                        <SecureWrapper>
                             <Header as="h2" align="left">
                                 {localize('Secure your account')}
                             </Header>
@@ -194,7 +186,17 @@ const KeepSafe = () => {
                                     'To help keep your account secure, we recommend these best practices: ',
                                 )}
                             </StyledHeader>
-                        </SecureWrapper>}
+                        </SecureWrapper>
+                        : <>
+                            <Header as="h2" align="center">
+                                {localize('Account security')}
+                            </Header>
+                            <StyledHeader as="h4" align="center" weight="500">
+                                {localize(
+                                    'Your account security is very important to us. Here are a few ways to enhance your account security:',
+                                )}
+                            </StyledHeader>
+                        </>}
                 </MediaQuery>
                 <SecurityIconGrid />
             </KeepSafeSectionContainer>
@@ -208,21 +210,21 @@ const KeepSafe = () => {
                             <PractiseHeader as="h2">
                                 {localize('Practise with a demo account')}
                             </PractiseHeader>
-                            <MediaQuery minDeviceWidth={size.tabletL}>
-                                {matches => matches ? <>
-                                    <Header as="h4" weight="500">
-                                        {localize(
-                                            'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
-                                        )}
-                                    </Header>
-                                    <Button secondary onClick={toggleModal}>
-                                        {localize('Create a free account')}
-                                    </Button>
-                                </> : <CustomizeHeader as="h4" weight="500">
-                                        {localize(
-                                            'Use our demo account and learn how to trade, risk-free, by using virtual funds.',
-                                        )}
-                                    </CustomizeHeader>}
+                            <MediaQuery maxDeviceWidth={size.tabletL}>
+                                {matches => matches ? <CustomizeHeader as="h4" weight="500">
+                                    {localize(
+                                        'Use our demo account and learn how to trade, risk-free, by using virtual funds.',
+                                    )}
+                                </CustomizeHeader> : <>
+                                        <Header as="h4" weight="500">
+                                            {localize(
+                                                'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
+                                            )}
+                                        </Header>
+                                        <Button secondary onClick={toggleModal}>
+                                            {localize('Create a free account')}
+                                        </Button>
+                                    </>}
                             </MediaQuery>
                         </div>
                         <Image

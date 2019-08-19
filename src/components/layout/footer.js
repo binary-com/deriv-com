@@ -64,16 +64,16 @@ const Department = styled.div`
         }
 
         ${props => {
-            if (props.grid_name === 'social') {
-                return 'padding: 0;'
-            }
-            if (props.grid_name === 'company') {
-                return 'padding-left: 0;'
-            }
-            if (props.grid_name === 'legal') {
-                return 'padding: 1.5rem 0 3rem 0;'
-            }
-        }}
+        if (props.grid_name === 'social') {
+            return 'padding: 0;'
+        }
+        if (props.grid_name === 'company') {
+            return 'padding-left: 0;'
+        }
+        if (props.grid_name === 'legal') {
+            return 'padding: 1.5rem 0 3rem 0;'
+        }
+    }}
     }
 `
 
@@ -296,7 +296,7 @@ const Footer = () => (
                             <FooterStyledLink
                                 hidden
                                 activeClassName="active"
-                                to="terms-and-conditions/#security-privacy"
+                                to="/terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and privacy')}
                             >
                                 {localize('Security and privacy')}

@@ -28,16 +28,16 @@ const AccountButton = styled(Button)`
 const About = () => (
     <Layout>
         <SEO title={localize('About us')} />
-        <MediaQuery minDeviceWidth={size.tabletL}>
+        <MediaQuery maxDeviceWidth={size.tabletL}>
             {matches => matches ? <Hero
                 header={localize('About us')}
                 paragraph={localize(
-                    'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                    'Deriv is the latest innovation by the Binary Group, powered by 20 years of experience, customer focus, and technical innovation.',
                 )}
             /> : <Hero
                     header={localize('About us')}
                     paragraph={localize(
-                        'Deriv is the latest innovation by the Binary Group, powered by 20 years of experience, customer focus, and technical innovation.',
+                        'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
                     )}
                 />}
         </MediaQuery>

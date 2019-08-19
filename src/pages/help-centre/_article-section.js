@@ -163,10 +163,10 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
             </LeftRightContainer>
             <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
-                    <MediaQuery minDeviceWidth={size.tabletL}>
-                        {matches => matches ? <Header as="h3">
+                    <MediaQuery maxDeviceWidth={size.tabletL}>
+                        {matches => matches ? <Header as="h3">{article.category}</Header> : <Header as="h3">
                             {article.category} - {article.title}
-                        </Header> : <Header as="h3">{article.category}</Header>}
+                        </Header>}
                     </MediaQuery>
                     {article.content}
                 </ArticleContent>

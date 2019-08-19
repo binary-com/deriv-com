@@ -238,7 +238,7 @@ const ResponsibleTrading = () => (
                 <LimitsHeader as="h2" align="center" mobile_text_align="left">
                     {localize('Written limits and self-exclusion')}
                 </LimitsHeader>
-                <MediaQuery minDeviceWidth={size.tabletL}>
+                <MediaQuery maxDeviceWidth={size.tabletL}>
                     {matches => matches ? <MarginHeader
                         as="h4"
                         weight="500"
@@ -246,7 +246,7 @@ const ResponsibleTrading = () => (
                         mobile_text_align="left"
                     >
                         {localize(
-                            'With Deriv, you have the option to implement limits on your trading activities.',
+                            'With Deriv, you have the option to implement limits on your trading activities through our self-exclusion facility. You’ll be able to:',
                         )}
                     </MarginHeader> : <MarginHeader
                         as="h4"
@@ -255,7 +255,7 @@ const ResponsibleTrading = () => (
                         mobile_text_align="left"
                     >
                             {localize(
-                                'With Deriv, you have the option to implement limits on your trading activities through our self-exclusion facility. You’ll be able to:',
+                                'With Deriv, you have the option to implement limits on your trading activities.',
                             )}
                         </MarginHeader>}
                 </MediaQuery>
@@ -315,17 +315,17 @@ const ResponsibleTrading = () => (
                 >
                     {localize('Other warnings and regulatory disclosures')}
                 </OtherWarningHeader>
-                <MediaQuery minDeviceWidth={size.tabletL}>
+                <MediaQuery maxDeviceWidth={size.tabletL}>
                     {matches => matches ? <StyledCard>
                         <Text secondary>
                             {localize(
-                                'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
+                                'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Refer to our Key Information Documents for the amount of margincrequired for the trading instruments offered on our cwebsite. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
                             )}
                         </Text>
                     </StyledCard> : <StyledCard>
                             <Text secondary>
                                 {localize(
-                                    'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Refer to our Key Information Documents for the amount of margincrequired for the trading instruments offered on our cwebsite. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
+                                    'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
                                 )}
                             </Text>
                         </StyledCard>}

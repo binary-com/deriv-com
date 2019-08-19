@@ -115,14 +115,16 @@ export const Hero = () => (
                     </MediaQuery>
                 </article>
                 <MediaQuery maxDeviceWidth={size.tabletL}>
-                    {matches => matches ? <SingupButton type="submit" secondary>
+                    <SingupButton type="submit" secondary>
                         {localize('Create a free demo account')}
-                    </SingupButton> : <SignupWrapper>
-                            <SignupBox>
-                                <Signup />
-                            </SignupBox>
-                        </SignupWrapper>
-                    }
+                    </SingupButton>
+                </MediaQuery>
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    <SignupWrapper>
+                        <SignupBox>
+                            <Signup />
+                        </SignupBox>
+                    </SignupWrapper>
                 </MediaQuery>
             </HeroGrid>
         </Container>

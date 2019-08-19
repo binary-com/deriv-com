@@ -48,12 +48,12 @@ const Show = ({ children, to = 'global', device }) => {
             switch (device) {
                 case 'laptop':
                     setdeviceVisibility(
-                        window.innerWidth > size.tabletL.slice(0, -2),
+                        window.innerWidth > size.tabletL,
                     )
                     break
                 case 'mobile':
                     setdeviceVisibility(
-                        window.innerWidth < size.tabletL.slice(0, -2),
+                        window.innerWidth < size.tabletL,
                     )
                     break
                 default:

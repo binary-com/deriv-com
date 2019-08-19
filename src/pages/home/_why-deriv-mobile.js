@@ -1,10 +1,10 @@
-import Modal, { useModal } from 'components/elements/modal'
-import { localize } from 'components/localization'
-import Checklist from 'images/svg/checklist.svg'
 import React from 'react'
 import styled from 'styled-components'
 import { Header } from '../../components/elements/typography'
 import Button from '../../components/form/button'
+import Modal, { useModal } from 'components/elements/modal'
+import { localize } from 'components/localization'
+import Checklist from 'images/svg/checklist.svg'
 import SignupModal from 'components/elements/signup-modal'
 
 const WhyDerivMobileContainer = styled.div`

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import MediaQuery from 'react-responsive'
 import Button from 'components/form/button.js'
 import { localize } from 'components/localization'
 import Container from 'components/containers/container.js'
@@ -12,7 +13,7 @@ import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
 import LabuanSVG from 'images/svg/labuan.svg'
 import MaltaSVG from 'images/svg/malta.svg'
 import ParaguaySVG from 'images/svg/paraguay.svg'
-import Show from 'components/containers/show'
+import { size } from 'themes/device.js'
 
 const OurLocationsWrapper = styled.div`
     width: 100%;
@@ -83,7 +84,7 @@ export const OurLocations = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
     return (
-        <Show device='laptop'>
+        <MediaQuery minDeviceWidth={size.tabletL}>
             <OurLocationsWrapper>
                 <Header as="h2" align="center" color="black-2">
                     {localize('Our Locations')}
@@ -116,6 +117,6 @@ export const OurLocations = () => {
                     <SignupModal />
                 </Modal>
             </OurLocationsWrapper>
-        </Show>
+        </MediaQuery>
     )
 }

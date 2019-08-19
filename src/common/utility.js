@@ -48,11 +48,11 @@ class PromiseClass {
 }
 
 const deriv_app_url = 'https://deriv.app'
-const deriv_name = 'Deriv'
+const brand_name = 'Deriv'
 
 export {
     deriv_app_url,
-    deriv_name,
+    brand_name,
     isEmptyObject,
     cloneObject,
     hasWindow,

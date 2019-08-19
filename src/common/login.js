@@ -2,7 +2,7 @@ import Cookies from 'js-cookie'
 import { isStorageSupported, LocalStore } from './storage'
 import TrafficSource from './traffic-source'
 import isMobile from './os-detect'
-import { deriv_name } from './utility'
+import { brand_name } from './utility'
 import { getAppId } from './websocket/config'
 
 const Login = (() => {
@@ -26,8 +26,8 @@ const Login = (() => {
             }`
 
         return server_url && /qa/.test(server_url)
-            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${deriv_name.toLowerCase()}`
-            : `https://oauth.deriv.com/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${deriv_name.toLowerCase()}`
+            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}`
+            : `https://oauth.deriv.com/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}`
     }
 
     const socialLoginUrl = (

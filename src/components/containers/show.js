@@ -25,7 +25,6 @@ const Show = ({ children, to }) => {
         const clients_country = Cookies.get('clients_country')
         const showEu = handleEu(setVisible, to)
         if (clients_country) {
-            isEuCountry(clients_country)
             showEu(isEuCountry(clients_country))
         } else {
             BinarySocketBase.wait('website_status').then(response => {

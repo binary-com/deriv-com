@@ -6,6 +6,8 @@ import { Text, Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { StyledLink } from 'components/elements/link'
 import Container from 'components/containers/container'
+import device from 'themes/device'
+import Show from 'components/containers/show'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 
@@ -23,6 +25,14 @@ const LeftRightContainer = styled.div`
     > :first-child {
         margin-right: auto;
     }
+
+    @media ${device.tabletL} {
+        padding-top: 9rem;
+
+        svg {
+            display: none;
+        }
+    }
 `
 
 const HomeContainer = styled(LeftRightContainer)`
@@ -31,6 +41,15 @@ const HomeContainer = styled(LeftRightContainer)`
     }
     > * {
         width: 50%;
+
+        @media ${device.tabletL} {
+            width: 100%;
+        }
+    }
+
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        padding: 4rem 0;
     }
 `
 
@@ -41,11 +60,23 @@ const ArticleContainer = styled(LeftRightContainer)`
     > * {
         flex: 1 1 auto;
     }
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        width: 100%;
+        padding-top: 2rem;
+        > :first-child {
+            margin-right: 0;
+        }
+    }
 `
 
 const ListWrapper = styled.div`
     ${Header} {
         margin-bottom: 1.6rem;
+    }
+
+    @media ${device.tabletL} {
+        padding-top: 3.55rem;
     }
 `
 
@@ -74,6 +105,10 @@ const ArticleContent = styled.div`
     ${Text} {
         color: var(--color-black-3);
         line-height: 1.5;
+
+        @media ${device.tabletL} {
+            font-size: 2rem;
+        }
     }
 `
 // Eslint fails to recognize display names in React.memo
@@ -128,7 +163,14 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
             </LeftRightContainer>
             <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
-                    <Header as="h3">{`${article.category} - ${article.title}`}</Header>
+                    <Show device="laptop">
+                        <Header as="h3">
+                            {article.category} - {article.title}
+                        </Header>
+                    </Show>
+                    <Show device="mobile">
+                        <Header as="h3">{article.category}</Header>
+                    </Show>
                     {article.content}
                 </ArticleContent>
                 {!!related_articles.length && (

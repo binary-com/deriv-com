@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'
 import Container from '../containers/container'
@@ -109,12 +109,19 @@ const HamburgerMenu = styled(Hamburger)`
         display: block;
     }
 `
+const OffCanvasMenuSlideIn = css`
+    right: 0;
+`
+const OffCanvasMenuSlideOut = css`
+    right: -238px;
+`
+
 const OffCanvasMenu = styled.div`
     position: fixed;
-    background-color: red;
+    background-color: var(--color-white);
     top: 0;
     height: 100vh;
-    width: 200px;
+    width: 238px;
     right: 0;
 `
 const handleScroll = (show, hide) => {
@@ -125,6 +132,11 @@ const handleScroll = (show, hide) => {
 const Nav = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
+    const [
+        is_canvas_menu_open,
+        openOffCanvasMenu,
+        closeOffCanvasMenu,
+    ] = moveOffCanvasMenu()
 
     useEffect(() => {
         document.addEventListener('scroll', () =>
@@ -143,6 +155,10 @@ const Nav = () => {
 
     const handleTraderLink = () => {
         window.open(DERIV_APP_URL, '_blank')
+    }
+    const handleHumbergerClick = () => {
+        // document.body.style.overflow = 'hidden'
+        is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
     return (
         <StyledNav>
@@ -194,7 +210,7 @@ const Nav = () => {
                         </NavButton>
                     </NavRightContainer>
                 </NavRight>
-                <HamburgerMenu />
+                <HamburgerMenu onClick={handleHumbergerClick} />
                 <OffCanvasMenu />
             </Wrapper>
             <Modal
@@ -217,4 +233,12 @@ function moveButton(is_visible = false) {
     const hideButton = () => setShowButton(false)
 
     return [show_button, showButton, hideButton]
+}
+
+function moveOffCanvasMenu() {
+    const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(false)
+    const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
+    const closeOffCanvasMenu = () => setOffCanvasMenuPosition(false)
+
+    return [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu]
 }

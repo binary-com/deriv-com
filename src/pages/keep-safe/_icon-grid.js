@@ -23,7 +23,6 @@ const IconGrid = styled(Container)`
     grid-template-areas:
         'Two DifferentPassword Cashier Browser'
         'Configure DontShare Monitor Antivirus';
-}
 
     @media ${device.tabletL} {
         grid-template-columns: repeat(2, 1fr);

@@ -109,6 +109,14 @@ const HamburgerMenu = styled(Hamburger)`
         display: block;
     }
 `
+const OffCanvasMenu = styled.div`
+    position: fixed;
+    background-color: red;
+    top: 0;
+    height: 100vh;
+    width: 200px;
+    right: 0;
+`
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
@@ -187,6 +195,7 @@ const Nav = () => {
                     </NavRightContainer>
                 </NavRight>
                 <HamburgerMenu />
+                <OffCanvasMenu />
             </Wrapper>
             <Modal
                 toggle={toggleModal}

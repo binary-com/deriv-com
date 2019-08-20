@@ -14,7 +14,6 @@ export const Ul = styled.ul`
     > *:not(:last-child) {
         padding-bottom: 0.8rem;
     }
-
     li {
         @media ${device.tabletL} {
             font-size: var(--text-size-sm);

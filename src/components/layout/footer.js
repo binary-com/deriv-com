@@ -193,7 +193,7 @@ const Social = styled.div`
         }
     }
 
-    /* TODO: remove this line after having real socal media account */
+    /* TODO: remove this line after having real social media account */
     display: none !important;
 `
 const RiskWarningText = styled.p`

@@ -146,8 +146,8 @@ export const Dtrader = () => {
             <MediaQuery minDeviceWidth={size.tabletL}>
                 <StyledContainer>
                     <FlexGridContainer
-                        content_width="32rem"
-                        gap="1.5rem"
+                        content_width="32.8rem"
+                        gap="1rem"
                         grid="3"
                         justify="center"
                     >

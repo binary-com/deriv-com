@@ -30,21 +30,20 @@ const Home = () => (
         />
         <Hero />
         <MediaQuery maxDeviceWidth={size.tabletL}>
-            {matches => matches ? <>
-                <WhyDerivMobile />
-                <Dtrader />
-            </> : <>
-                    <Dtrader />
-                    <HowItWorks />
-                    <Divider />
-                    <Markets />
-                    <WhyDeriv />
-                    <PaymentSection>
-                        <Container>
-                            <PaymentMethods />
-                        </Container>
-                    </PaymentSection>
-                </>}
+            <WhyDerivMobile />
+            <Dtrader />
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={size.tabletL}>
+            <Dtrader />
+            <HowItWorks />
+            <Divider />
+            <Markets />
+            <WhyDeriv />
+            <PaymentSection>
+                <Container>
+                    <PaymentMethods />
+                </Container>
+            </PaymentSection>
         </MediaQuery>
     </Layout>
 )

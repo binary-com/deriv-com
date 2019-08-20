@@ -97,46 +97,45 @@ export const Dtrader = () => {
         <DtraderSectionContainer>
             <SectionHeader>
                 <MediaQuery maxDeviceWidth={size.tabletL}>
-                    {matches => matches ? <>
-                        <Header
-                            font_size="4rem"
-                            align="center"
-                            lh="5rem"
-                            className="test"
-                        >
-                            {localize('Trader')}
-                        </Header>
-                        <StyledSubHeader
-                            as="h6"
-                            font_size="2rem"
-                            align="center"
-                            weight="500"
-                            lh="3.25rem"
-                            className="ttt"
-                        >
-                            {localize('The revolutionary platform for all traders')}
-                        </StyledSubHeader>
-                        <MobileCard>
-                            <TradeLogo />
-                            <ul>
-                                <li>Powered by patented algorithms</li>
-                                <li>Intuitive trading interface</li>
-                                <li>Customisable charts and analytic tools</li>
-                            </ul>
-                        </MobileCard>
-                        <ButtonWrapper>
-                            <SingupButton type="submit" secondary>
-                                {localize('Learn more')}
-                            </SingupButton>
-                        </ButtonWrapper>
-                    </> : <>
-                            <Header as="h2" align="center" lh="6rem">
-                                {localize('DTrader')}
-                            </Header>
-                            <StyledSubHeader as="h4" align="center" weight="500">
-                                {localize('All you need to get started')}
-                            </StyledSubHeader>
-                        </>}
+                    <Header
+                        font_size="4rem"
+                        align="center"
+                        lh="5rem"
+                        className="test"
+                    >
+                        {localize('Trader')}
+                    </Header>
+                    <StyledSubHeader
+                        as="h6"
+                        font_size="2rem"
+                        align="center"
+                        weight="500"
+                        lh="3.25rem"
+                        className="ttt"
+                    >
+                        {localize('The revolutionary platform for all traders')}
+                    </StyledSubHeader>
+                    <MobileCard>
+                        <TradeLogo />
+                        <ul>
+                            <li>Powered by patented algorithms</li>
+                            <li>Intuitive trading interface</li>
+                            <li>Customisable charts and analytic tools</li>
+                        </ul>
+                    </MobileCard>
+                    <ButtonWrapper>
+                        <SingupButton type="submit" secondary>
+                            {localize('Learn more')}
+                        </SingupButton>
+                    </ButtonWrapper>
+                </MediaQuery>
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    <Header as="h2" align="center" lh="6rem">
+                        {localize('DTrader')}
+                    </Header>
+                    <StyledSubHeader as="h4" align="center" weight="500">
+                        {localize('All you need to get started')}
+                    </StyledSubHeader>
                 </MediaQuery>
             </SectionHeader>
             <MediaQuery minDeviceWidth={size.tabletL}>

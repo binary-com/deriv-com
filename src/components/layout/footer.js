@@ -200,7 +200,7 @@ const Social = styled.div`
     }
 
     /* TODO: remove this line after having real socal media account */
-    // display: none !important;
+    display: none !important;
 `
 const RiskWarningText = styled.p`
     line-height: 1.8rem;

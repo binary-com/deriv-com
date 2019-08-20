@@ -12,6 +12,7 @@ import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
+import { DERIV_APP_URL } from 'common/utility'
 // Icons
 import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
@@ -93,6 +94,10 @@ const SingupButton = styled(Button)`
 export const Dtrader = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
+    const handleExternalLink = () => {
+        window.open(DERIV_APP_URL, '_blank')
+    }
+
     return (
         <DtraderSectionContainer>
             <SectionHeader>
@@ -124,7 +129,7 @@ export const Dtrader = () => {
                         </ul>
                     </MobileCard>
                     <ButtonWrapper>
-                        <SingupButton type="submit" secondary>
+                        <SingupButton onClick={handleExternalLink} secondary>
                             {localize('Learn more')}
                         </SingupButton>
                     </ButtonWrapper>
@@ -142,7 +147,8 @@ export const Dtrader = () => {
                 <StyledContainer>
                     <FlexGridContainer
                         content_width="32rem"
-                        gap="1rem"
+                        gap="1.5rem"
+                        grid="3"
                         justify="center"
                     >
                         <Card

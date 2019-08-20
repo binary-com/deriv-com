@@ -14,6 +14,7 @@ import TrafficSource from 'common/traffic-source'
 import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
+import { StyledLink } from 'components/elements/link'
 // Icons
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
@@ -48,7 +49,6 @@ const StyledError = styled(ErrorIcon)`
     width: 1.6rem;
     cursor: pointer;
 `
-
 const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
@@ -79,10 +79,20 @@ const LoginLink = styled.a`
     text-decoration: none;
     cursor: pointer;
 `
-
 const EmailImgWrapper = styled(Wrapper)`
     display: flex;
     justify-content: center;
+`
+const ErrorLink = styled(StyledLink)`
+    display: table;
+    font-size: 1.4rem;
+    margin-top: 1.8rem;
+    text-decoration: underline;
+`
+const YourEmail = styled.span`
+    display: inline-block;
+    margin-left: 0.5 rem;
+    margin-right: 0.5rem;
 `
 
 const validateEmail = email => {
@@ -273,19 +283,26 @@ class Signup extends Component {
                         </Header>
                         <EmailImgWrapper
                             width="100%"
-                            margin={{ top: '2.2rem', bottom: '1.6rem' }}
+                            margin={{ top: '1rem', bottom: '1.6rem' }}
                         >
                             <Image
-                                img_name="open-email.png"
+                                img_name="view-email.png"
                                 alt="Email image"
                                 width="80%"
                             />
                         </EmailImgWrapper>
                         <Text align="center">
                             {localize(
-                                'Please check your email and click on the link provided to verify your email address.',
-                            )}
+                                'We\'ve sent a message to')}
+                            <YourEmail>
+                                {this.state.email}
+                            </YourEmail>
+                            {localize(
+                                'with a link to activate your account.')}
                         </Text>
+                        <ErrorLink to="/email-error/">
+                            {localize('Didn\'t receive your email?')}
+                        </ErrorLink>
                     </ResponseWrapper>
                 )}
                 {this.state.submit_status === 'error' &&

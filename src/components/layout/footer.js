@@ -152,12 +152,6 @@ const RiskNote = styled.section`
     color: var(--color-white);
     line-height: 1.2rem;
 
-    p {
-        &:first-child,
-        &:last-child {
-            margin: 0;
-        }
-    }
     h4 {
         text-transform: uppercase;
         font-size: 1.4rem;

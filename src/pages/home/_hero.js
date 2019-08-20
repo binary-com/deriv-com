@@ -85,33 +85,32 @@ export const Hero = () => (
             <HeroGrid>
                 <article>
                     <MediaQuery maxDeviceWidth={size.tabletL}>
-                        {matches => matches ? <>
-                            <Header font_size='6rem' color="white" lh="1.1">
-                                {localize(
-                                    'Welcome to the ultimate trading experience',
-                                )}
-                            </Header>
-                            <StyledHeader
-                                font_size="2rem"
-                                color="white"
-                                weight="500"
-                            >
-                                {localize(
-                                    'All the world’s markets, one powerful trading platform',
-                                )}
-                            </StyledHeader>
-                        </> : <>
-                                <Header as="h1" color="white" lh="1.2">
-                                    {localize(
-                                        'This is your ultimate trading experience',
-                                    )}
-                                </Header>
-                                <StyledHeader as="h4" color="white" weight="500">
-                                    {localize(
-                                        'The world’s markets at your fingertips anytime, anywhere.',
-                                    )}
-                                </StyledHeader>
-                            </>}
+                        <Header font_size='6rem' color="white" lh="1.1">
+                            {localize(
+                                'Welcome to the ultimate trading experience',
+                            )}
+                        </Header>
+                        <StyledHeader
+                            font_size="2rem"
+                            color="white"
+                            weight="500"
+                        >
+                            {localize(
+                                'All the world’s markets, one powerful trading platform',
+                            )}
+                        </StyledHeader>
+                    </MediaQuery>
+                    <MediaQuery minDeviceWidth={size.tabletL}>
+                        <Header as="h1" color="white" lh="1.2">
+                            {localize(
+                                'This is your ultimate trading experience',
+                            )}
+                        </Header>
+                        <StyledHeader as="h4" color="white" weight="500">
+                            {localize(
+                                'The world’s markets at your fingertips anytime, anywhere.',
+                            )}
+                        </StyledHeader>
                     </MediaQuery>
                 </article>
                 <MediaQuery maxDeviceWidth={size.tabletL}>

@@ -120,6 +120,7 @@ const handleScroll = (show, hide) => {
 const Nav = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
+    const buttonHandleScroll = () => handleScroll(showButton, hideButton)
     const [
         is_canvas_menu_open,
         openOffCanvasMenu,
@@ -127,13 +128,11 @@ const Nav = () => {
     ] = moveOffCanvasMenu()
 
     useEffect(() => {
-        document.addEventListener('scroll', () =>
-            handleScroll(showButton, hideButton),
-        )
+        document.addEventListener('scroll', buttonHandleScroll, {
+            passive: true,
+        })
         return () => {
-            document.removeEventListener('scroll', () =>
-                handleScroll(showButton, hideButton),
-            )
+            document.removeEventListener('scroll', buttonHandleScroll)
         }
     }, [])
 

@@ -37,21 +37,25 @@ const OffCanvasMenuContainer = styled.div`
     }
 `
 const OffCanvasMenuWrapper = props => {
+    const canvas = useRef()
+
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()
     }
-    const canvas = useRef()
+
     const outerClick = e => {
         if (!canvas.current.contains(e.target)) {
             props.closeOffCanvasMenu()
-        }
+        } else return
     }
+
     useEffect(() => {
         document.addEventListener('mousedown', outerClick, false)
         return () => {
             document.removeEventListener('mousedown', outerClick, false)
         }
     }, [])
+
     return (
         <OffCanvasMenu
             is_canvas_menu_open={props.is_canvas_menu_open}

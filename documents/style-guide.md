@@ -22,8 +22,13 @@ src
     │   ├── common/
     │   ├── svg/
     ├── pages/
-    │   ├── index.js
+    │   ├── about/
+    │   │   ├── index.js
+    │   │   ├── _component-name.js
+    │   │   ├── ...
+    │   ├── help-centre/
     │   ├── 404.js
+    │   ├── index.js
     │   ├── ...
     ├── themes/
     │   ├── global-style.js
@@ -62,7 +67,19 @@ This directory contains all image resources. all images are handled with `gatsby
 
 ## pages
 
-This directories contains all pages, the name of the file here will be the redirection link to each of the page.
+This directories contains all pages, the name of the directories here will be the route path link to each of the pages.
+
+    ├── pages/
+    │   ├── about/
+    │   │   ├── index.js
+    │   │   ├── _component-name.js
+    │   │   ├── ...
+    │   ├── help-centre/
+    │   ├── 404.js
+    │   ├── index.js
+    │   ├── ...
+
+Inside of directory page for e.g. (about) will have `index.js` as the source to import the components inside directory related to it. Component name must have prefix `_` to avoid webpack treat the file as route path.
 
 ### COMPONENTS
 

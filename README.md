@@ -29,13 +29,7 @@ Deriv.com static content
 2.  **To start developing:**
 
     ```sh
-    npm start // to start development server in port `80`
-    ```
-
-    or
-
-    ```sh
-    gatsby develop // to start development server in port `8000`
+    npm start
     ```
 
 3.  **Open the source code and start editing!**
@@ -43,6 +37,26 @@ Deriv.com static content
     Your site is now running at `http://localhost:8000`!
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+
+## Update translation text
+
+-   Checkout crowdin branch, pull the latest changes, and create new branch from crowdin
+    ```sh
+    git checkout crowdin
+    git pull upstream crowdin
+    git checkout -b [_your_branch_name]
+    ```
+-   Pull the latest changes from dev branch
+    ```sh
+    git pull upstream dev
+    ```
+-   Extract translation text to update `messages.json`
+    ```sh
+    cd scripts/
+    node extract-translations.js
+    ```
+-   Commit changes and make pull request to upstream `crowdin` branch
+-   Merge pull request will trigger crowdin hook to update translation text in crowdin
 
 ## 💫 Deploy
 

@@ -38,7 +38,7 @@ export const HowItWorks = () => (
             </Header>
         </SectionHeader>
         <Container>
-            <Works content_width="32rem" justify="center" gap="1.5rem" grid="3">
+            <Works content_width="32.8rem" justify="center" gap="1rem" grid="3">
                 <SecondaryArticle>
                     <Practice />
                     <SecondaryHeader as="h4" weight="500">

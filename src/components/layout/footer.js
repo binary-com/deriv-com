@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize, Localize } from '../localization'
+import { localize, Localize, LocalizedLink } from '../localization'
 import Container from '../containers/container'
-import { Header, Text, LinkText } from '../elements/typography.js'
+import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
 import device from 'themes/device'
 // Icons
@@ -64,16 +64,16 @@ const Department = styled.div`
         }
 
         ${props => {
-            if (props.grid_name === 'social') {
-                return 'padding: 0;'
-            }
-            if (props.grid_name === 'company') {
-                return 'padding-left: 0;'
-            }
-            if (props.grid_name === 'legal') {
-                return 'padding: 1.5rem 0 3rem 0;'
-            }
-        }}
+        if (props.grid_name === 'social') {
+            return 'padding: 0;'
+        }
+        if (props.grid_name === 'company') {
+            return 'padding-left: 0;'
+        }
+        if (props.grid_name === 'legal') {
+            return 'padding: 1.5rem 0 3rem 0;'
+        }
+    }}
     }
 `
 
@@ -107,9 +107,12 @@ const Legal = styled.section`
 `
 const LegalRow = styled.div`
     display: grid;
-    grid-template-rows: 1fr;
-    grid-row-gap: 2.4rem;
+    grid-template-columns: (1, 1fr);
+    grid-column-gap: 1rem;
     width: 100%;
+    grid-template-areas:
+        'li'
+        'lt';
 
     * {
         align-self: center;
@@ -118,29 +121,37 @@ const LegalRow = styled.div`
     span {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-gap: 8rem;
+        grid-column-gap: 8rem;
+
+        @media ${device.tabletL} {
+            grid-column-gap: 0;
+        }
     }
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
-        grid-column-gap: 0;
+        grid-template-rows: 2fr;
+        grid-row-gap: 2rem;
+        grid-template-areas:
+            'lt'
+            'li';
     }
+`
+const LegalTextWrapper = styled.div`
+    grid-area: lt;
+
+    p:first-child {
+        padding-top: 1.2rem;
+    }
+`
+const LegalIcons = styled.div`
+    grid-area: li;
 `
 const RiskNote = styled.section`
     background-color: var(--color-black);
-    padding: 1.4rem 0;
-    color: var(--color-grey-1);
+    padding: 3.5rem 0;
+    color: var(--color-white);
     line-height: 1.2rem;
 
-    p {
-        font-size: 1.2rem;
-        line-height: 1.8rem;
-        text-align: justify;
-
-        &:first-child,
-        &:last-child {
-            margin: 0;
-        }
-    }
     h4 {
         text-transform: uppercase;
         font-size: 1.4rem;
@@ -157,19 +168,6 @@ const FooterStyledLink = styled(StyledLink)`
     display: table;
     font-size: 1.4rem;
     margin-bottom: 1.8rem;
-`
-
-const ResponsibleLink = styled(StyledLink)`
-    color: var(--color-grey-1);
-    font-weight: bold;
-    font-size: 1.2rem;
-`
-
-const FooterLink = styled(LinkText)`
-    color: var(--color-grey-3);
-    font-weight: bold;
-    font-size: 1.2rem;
-    text-decoration: none;
 `
 const Social = styled.div`
     font-size: 1.2rem;
@@ -195,19 +193,45 @@ const Social = styled.div`
         }
     }
 
-    /* TODO: remove this line after having real socal media account */
+    /* TODO: remove this line after having real social media account */
     display: none !important;
 `
+const RiskWarningText = styled.p`
+    line-height: 1.8rem;
+    font-size: 1.2rem;
+    text-align: justify;
 
-const TextFooter = styled(Text)`
-    ${props => {
-        if (!props.mobile_only) return 'display: none;'
-    }}
     @media ${device.tabletL} {
-        word-spacing: 2px;
+        font-size: 1.5rem;
     }
 `
 
+const TextFooter = styled(Text)`
+    font-size: 1.2rem;
+    text-align: justify;
+    @media ${device.tabletL} {
+        font-size: 1.5rem;
+    }
+`
+const FooterBoldLink = styled.a`
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--color-gray-3);
+    text-decoration: none;
+
+    :hover {
+        text-decoration: underline;
+    }
+`
+const ResponsibleTradingBoldText = styled(LocalizedLink)`
+    color: var(--color-white);
+    font-weight: bold;
+    text-decoration: none;
+
+    :hover {
+        text-decoration: underline;
+    }
+`
 const Footer = () => (
     <footer>
         <FooterSocket>
@@ -266,7 +290,7 @@ const Footer = () => (
                             <FooterStyledLink
                                 hidden
                                 activeClassName="active"
-                                to="terms-and-conditions/#security-privacy"
+                                to="/terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and privacy')}
                             >
                                 {localize('Security and privacy')}
@@ -298,54 +322,55 @@ const Footer = () => (
         <Legal>
             <Container>
                 <LegalRow>
-                    <div>
+                    <LegalIcons>
                         <span>
                             <Vanuatu />
                             <FSC />
                             <Labuan />
                         </span>
-                    </div>
-                    <div>
-                        <TextFooter mobile_only>
+                    </LegalIcons>
+                    <LegalTextWrapper>
+                        <TextFooter>
                             <Localize
                                 text="In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                                 components={[
-                                    <FooterLink
+                                    <FooterBoldLink
                                         key={0}
-                                        href="/WS-Binary-Investments-Europe-Limited.pdf"
                                         target="_blank"
+                                        href="/WS-Binary-Investments-Europe-Limited.pdf"
                                     />,
                                 ]}
                             />
                         </TextFooter>
-                        <TextFooter mobile_only>
+                        <TextFooter>
                             <Localize
                                 text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>licence no. SIBA/L/18/1114</1>); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>licence no. MB/18/0024</2>)."
                                 components={[
-                                    <FooterLink
+                                    <FooterBoldLink
                                         key={0}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
-                                        target="_blank"
                                     />,
-                                    <FooterLink
+                                    <FooterBoldLink
                                         key={1}
+                                        target="_blank"
                                         href="/BVI_license.pdf"
-                                        target="_blank"
                                     />,
-                                    <FooterLink
+                                    <FooterBoldLink
                                         key={2}
-                                        href="/Labuan-license.pdf"
                                         target="_blank"
+                                        href="/Labuan-license.pdf"
                                     />,
                                 ]}
                             />
                         </TextFooter>
-                        <TextFooter mobile_only>
+                        <TextFooter>
                             {localize(
-                                "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
+                                'This website‘s services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.',
                             )}
                         </TextFooter>
-                    </div>
+                    </LegalTextWrapper>
                 </LegalRow>
             </Container>
         </Legal>
@@ -355,17 +380,18 @@ const Footer = () => (
                     <h4>
                         <Warning /> {localize('Risk Warning')}
                     </h4>
-                    <p>
+                    <RiskWarningText>
                         <Localize
-                            text='The financial products offered via this website include binary options, contracts for difference ("CFD") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Responsible Trading</0>.'
+                            text='The financial products offered via this website include binary options, contracts for difference ("CFDs") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Responsible Trading</0>.'
                             components={[
-                                <ResponsibleLink
+                                <ResponsibleTradingBoldText
                                     key={0}
+                                    target="_blank"
                                     to="/responsible-trading/"
                                 />,
                             ]}
                         />
-                    </p>
+                    </RiskWarningText>
                 </div>
             </Container>
         </RiskNote>

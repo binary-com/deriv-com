@@ -1,11 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import MediaQuery from 'react-responsive'
+import Button from '../../components/form/button'
 import { StyledHeader } from './_headers'
-import device from 'themes/device'
+import device, { size } from 'themes/device'
 import Container from 'components/containers/container'
 import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
+import Modal, { useModal } from 'components/elements/modal'
+import SignupModal from 'components/elements/signup-modal'
 import header_trade_image from 'images/common/header-trade.png'
 
 const HeroWrapper = styled.section`
@@ -21,7 +25,11 @@ const HeroWrapper = styled.section`
         background-position: -10rem 100%;
     }
     @media ${device.tabletL} {
+        background: unset;
         background-position: -20rem 100%;
+        min-height: 47rem;
+        background-color: var(--color-black);
+        padding-bottom: 7rem;
     }
     @media ${device.tablet} {
         background-position: -40rem 100%;
@@ -67,26 +75,82 @@ const SignupBox = styled.div`
         display: none;
     }
 `
-export const Hero = () => (
-    <HeroWrapper>
-        <Container>
-            <HeroGrid>
-                <article>
-                    <Header as="h1" color="white" lh="1.2">
-                        {localize('This is your ultimate trading experience')}
-                    </Header>
-                    <StyledHeader as="h4" color="white" weight="500">
-                        {localize(
-                            'The world’s markets at your fingertips anytime, anywhere.',
-                        )}
-                    </StyledHeader>
-                </article>
-                <SignupWrapper>
-                    <SignupBox>
-                        <Signup />
-                    </SignupBox>
-                </SignupWrapper>
-            </HeroGrid>
-        </Container>
-    </HeroWrapper>
-)
+const SingupButton = styled(Button)`
+    width: 100%;
+    max-width: 36rem;
+    font-size: var(--text-size-sm);
+`
+
+export const Hero = () => {
+    const [show_modal, toggleModal, closeModal] = useModal()
+    return (
+        <HeroWrapper>
+            <Container>
+                <HeroGrid>
+                    <article>
+                        <MediaQuery maxDeviceWidth={size.tabletL}>
+                            <Header
+                                font_size="6rem"
+                                color="white"
+                                lh="1.1"
+                            >
+                                {localize(
+                                    'Welcome to the ultimate trading experience',
+                                )}
+                            </Header>
+                            <StyledHeader
+                                font_size="2rem"
+                                color="white"
+                                weight="500"
+                            >
+                                {localize(
+                                    'All the world’s markets, one powerful trading platform',
+                                )}
+                            </StyledHeader>
+                        </MediaQuery>
+                        <MediaQuery minDeviceWidth={size.tabletL}>
+                            <Header as="h1" color="white" lh="1.2">
+                                {localize(
+                                    'This is your ultimate trading experience',
+                                )}
+                            </Header>
+                            <StyledHeader
+                                as="h4"
+                                color="white"
+                                weight="500"
+                            >
+                                {localize(
+                                    'The world’s markets at your fingertips anytime, anywhere.',
+                                )}
+                            </StyledHeader>
+                        </MediaQuery>
+                    </article>
+                    <MediaQuery maxDeviceWidth={size.tabletL}>
+                        <SingupButton
+                            type="submit"
+                            onClick={toggleModal}
+                            secondary
+                        >
+                            {localize('Create a free demo account')}
+                        </SingupButton>
+                        <Modal
+                            toggle={toggleModal}
+                            is_open={show_modal}
+                            is_blurred={true}
+                            closeModal={closeModal}
+                        >
+                            <SignupModal autofocus />
+                        </Modal>
+                    </MediaQuery>
+                    <MediaQuery minDeviceWidth={size.tabletL}>
+                        <SignupWrapper>
+                            <SignupBox>
+                                <Signup />
+                            </SignupBox>
+                        </SignupWrapper>
+                    </MediaQuery>
+                </HeroGrid>
+            </Container>
+        </HeroWrapper>
+    )
+}

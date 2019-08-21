@@ -108,6 +108,7 @@ const HamburgerMenu = styled(Hamburger)`
     display: none;
     @media ${device.tabletL} {
         display: block;
+        cursor: pionter;
     }
 `
 

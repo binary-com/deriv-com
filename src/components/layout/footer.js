@@ -64,16 +64,16 @@ const Department = styled.div`
         }
 
         ${props => {
-            if (props.grid_name === 'social') {
-                return 'padding: 0;'
-            }
-            if (props.grid_name === 'company') {
-                return 'padding-left: 0;'
-            }
-            if (props.grid_name === 'legal') {
-                return 'padding: 1.5rem 0 3rem 0;'
-            }
-        }}
+        if (props.grid_name === 'social') {
+            return 'padding: 0;'
+        }
+        if (props.grid_name === 'company') {
+            return 'padding-left: 0;'
+        }
+        if (props.grid_name === 'legal') {
+            return 'padding: 1.5rem 0 3rem 0;'
+        }
+    }}
     }
 `
 
@@ -152,12 +152,6 @@ const RiskNote = styled.section`
     color: var(--color-white);
     line-height: 1.2rem;
 
-    p {
-        &:first-child,
-        &:last-child {
-            margin: 0;
-        }
-    }
     h4 {
         text-transform: uppercase;
         font-size: 1.4rem;
@@ -199,8 +193,8 @@ const Social = styled.div`
         }
     }
 
-    /* TODO: remove this line after having real socal media account */
-    // display: none !important;
+    /* TODO: remove this line after having real social media account */
+    display: none !important;
 `
 const RiskWarningText = styled.p`
     line-height: 1.8rem;
@@ -296,7 +290,7 @@ const Footer = () => (
                             <FooterStyledLink
                                 hidden
                                 activeClassName="active"
-                                to="terms-and-conditions/#security-privacy"
+                                to="/terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and privacy')}
                             >
                                 {localize('Security and privacy')}
@@ -355,6 +349,7 @@ const Footer = () => (
                                     <FooterBoldLink
                                         key={0}
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                         href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
                                     />,
                                     <FooterBoldLink

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import MediaQuery from 'react-responsive'
 import SEO from '../../components/containers/seo'
 import { SecurityIconGrid } from './_icon-grid'
-import Show from 'components/containers/show'
-import device from 'themes/device'
+import device, { size } from 'themes/device'
 import Layout from 'components/layout/layout'
 import Image from 'components/elements/image'
 import Hero from 'components/elements/hero.js'
@@ -55,7 +55,6 @@ const Practice = styled(Container)`
         flex-direction: column;
         align-self: flex-start;
     }
-
     ${Header} {
         padding-bottom: 1.6rem;
     }
@@ -104,6 +103,7 @@ const HeroWrapper = styled.div`
 `
 const SecureWrapper = styled.div`
     margin: 0 1.8rem;
+
     h2 {
         font-size: 4rem;
         padding-right: 10rem;
@@ -122,7 +122,7 @@ const KeepSafeSectionContainer = styled(SectionContainer)`
 const KeepSafeGirdArea = styled.div`
     @media ${device.tabletL} {
         display: grid;
-        grid-template-row: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         grid-template-areas:
             'risk'
             'practice';
@@ -175,17 +175,7 @@ const KeepSafe = () => {
                 />
             </HeroWrapper>
             <KeepSafeSectionContainer>
-                <Show device="laptop">
-                    <Header as="h2" align="center">
-                        {localize('Account security')}
-                    </Header>
-                    <StyledHeader as="h4" align="center" weight="500">
-                        {localize(
-                            'Your account security is very important to us. Here are a few ways to enhance your account security:',
-                        )}
-                    </StyledHeader>
-                </Show>
-                <Show device="mobile">
+                <MediaQuery maxDeviceWidth={size.tabletL}>
                     <SecureWrapper>
                         <Header as="h2" align="left">
                             {localize('Secure your account')}
@@ -196,12 +186,22 @@ const KeepSafe = () => {
                             )}
                         </StyledHeader>
                     </SecureWrapper>
-                </Show>
+                </MediaQuery>
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    <Header as="h2" align="center">
+                        {localize('Account security')}
+                    </Header>
+                    <StyledHeader as="h4" align="center" weight="500">
+                        {localize(
+                            'Your account security is very important to us. Here are a few ways to enhance your account security:',
+                        )}
+                    </StyledHeader>
+                </MediaQuery>
                 <SecurityIconGrid />
             </KeepSafeSectionContainer>
-            <Show device="laptop">
+            <MediaQuery minDeviceWidth={size.tabletL}>
                 <Divider />
-            </Show>
+            </MediaQuery>
             <KeepSafeGirdArea>
                 <GridSectionContainer padding="3.55rem 0">
                     <Practice>
@@ -209,36 +209,34 @@ const KeepSafe = () => {
                             <PractiseHeader as="h2">
                                 {localize('Practise with a demo account')}
                             </PractiseHeader>
-                            <Show device="laptop">
-                                <Header as="h4" weight="500">
-                                    {localize(
-                                        'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
-                                    )}
-                                </Header>
-                            </Show>
-                            <Show device="mobile">
+                            <MediaQuery maxDeviceWidth={size.tabletL}>
                                 <CustomizeHeader as="h4" weight="500">
                                     {localize(
                                         'Use our demo account and learn how to trade, risk-free, by using virtual funds.',
                                     )}
                                 </CustomizeHeader>
-                            </Show>
-                            <Show device="laptop">
+                            </MediaQuery>
+                            <MediaQuery minDeviceWidth={size.tabletL}>
+                                <Header as="h4" weight="500">
+                                    {localize(
+                                        'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
+                                    )}
+                                </Header>
                                 <Button secondary onClick={toggleModal}>
                                     {localize('Create a free account')}
                                 </Button>
-                            </Show>
+                            </MediaQuery>
                         </div>
                         <Image
                             width="415"
                             img_name="keep-safe-practice.png"
                             alt="Practice"
                         />
-                        <Show device="mobile">
+                        <MediaQuery maxDeviceWidth={size.tabletL}>
                             <MobileBtn secondary onClick={toggleModal}>
                                 {localize('Create a free account')}
                             </MobileBtn>
-                        </Show>
+                        </MediaQuery>
                     </Practice>
                 </GridSectionContainer>
                 <GridGrayBackground>

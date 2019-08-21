@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import MediaQuery from 'react-responsive'
 import { ListWithLinks } from './_list'
 import { Text, Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { StyledLink } from 'components/elements/link'
 import Container from 'components/containers/container'
-import device from 'themes/device'
-import Show from 'components/containers/show'
+import device, { size } from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 
@@ -64,6 +64,7 @@ const ArticleContainer = styled(LeftRightContainer)`
         flex-wrap: wrap;
         width: 100%;
         padding-top: 2rem;
+
         > :first-child {
             margin-right: 0;
         }
@@ -163,14 +164,14 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
             </LeftRightContainer>
             <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
-                    <Show device="laptop">
+                    <MediaQuery maxDeviceWidth={size.tabletL}>
+                        <Header as="h3">{article.category}</Header>
+                    </MediaQuery>
+                    <MediaQuery minDeviceWidth={size.tabletL}>
                         <Header as="h3">
                             {article.category} - {article.title}
                         </Header>
-                    </Show>
-                    <Show device="mobile">
-                        <Header as="h3">{article.category}</Header>
-                    </Show>
+                    </MediaQuery>
                     {article.content}
                 </ArticleContent>
                 {!!related_articles.length && (

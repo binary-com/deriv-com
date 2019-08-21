@@ -144,7 +144,6 @@ const Nav = () => {
         window.open(DERIV_APP_URL, '_blank')
     }
     const handleHumbergerClick = () => {
-        // document.body.style.overflow = 'hidden'
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
     return (

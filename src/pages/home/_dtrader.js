@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import MediaQuery from 'react-responsive'
 import { SectionHeader, StyledSubHeader } from './_headers'
 import Button from 'components/form/button'
 import Container, {
@@ -11,12 +12,13 @@ import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
+import { DERIV_APP_URL } from 'common/utility'
 // Icons
 import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
 import Intuitive from 'images/svg/intuitive.svg'
-import Show from 'components/containers/show'
 import TradeLogo from 'images/svg/trade.svg'
+import { size } from 'themes/device'
 
 const DtraderSectionContainer = styled(SectionContainer)`
     padding: 2rem 0 4rem 0;
@@ -92,18 +94,14 @@ const SingupButton = styled(Button)`
 export const Dtrader = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
+    const handleExternalLink = () => {
+        window.open(DERIV_APP_URL, '_blank')
+    }
+
     return (
         <DtraderSectionContainer>
             <SectionHeader>
-                <Show device='laptop'>
-                    <Header as="h2" align="center" lh="6rem">
-                        {localize('DTrader')}
-                    </Header>
-                    <StyledSubHeader as="h4" align="center" weight="500">
-                        {localize('All you need to get started')}
-                    </StyledSubHeader>
-                </Show>
-                <Show device='mobile'>
+                <MediaQuery maxDeviceWidth={size.tabletL}>
                     <Header
                         font_size="4rem"
                         align="center"
@@ -131,17 +129,26 @@ export const Dtrader = () => {
                         </ul>
                     </MobileCard>
                     <ButtonWrapper>
-                        <SingupButton type="submit" secondary>
+                        <SingupButton onClick={handleExternalLink} secondary>
                             {localize('Learn more')}
                         </SingupButton>
                     </ButtonWrapper>
-                </Show>
+                </MediaQuery>
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    <Header as="h2" align="center" lh="6rem">
+                        {localize('DTrader')}
+                    </Header>
+                    <StyledSubHeader as="h4" align="center" weight="500">
+                        {localize('All you need to get started')}
+                    </StyledSubHeader>
+                </MediaQuery>
             </SectionHeader>
-            <Show device='laptop'>
+            <MediaQuery minDeviceWidth={size.tabletL}>
                 <StyledContainer>
                     <FlexGridContainer
-                        content_width="32rem"
+                        content_width="32.8rem"
                         gap="1rem"
+                        grid="3"
                         justify="center"
                     >
                         <Card
@@ -197,7 +204,7 @@ export const Dtrader = () => {
                         <SignupModal autofocus />
                     </Modal>
                 </Cta>
-            </Show>
+            </MediaQuery>
         </DtraderSectionContainer>
     )
 }

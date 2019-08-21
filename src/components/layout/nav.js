@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'
 import Container from '../containers/container'
 import Modal, { useModal } from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
+import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
 import { SharedLinkStyle } from '../localization/localized-link'
 import { DERIV_APP_URL } from 'common/utility'
 import Login from 'common/login'
@@ -109,21 +110,7 @@ const HamburgerMenu = styled(Hamburger)`
         display: block;
     }
 `
-const OffCanvasMenuSlideIn = css`
-    right: 0;
-`
-const OffCanvasMenuSlideOut = css`
-    right: -238px;
-`
 
-const OffCanvasMenu = styled.div`
-    position: fixed;
-    background-color: var(--color-white);
-    top: 0;
-    height: 100vh;
-    width: 238px;
-    right: 0;
-`
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
@@ -211,7 +198,10 @@ const Nav = () => {
                     </NavRightContainer>
                 </NavRight>
                 <HamburgerMenu onClick={handleHumbergerClick} />
-                <OffCanvasMenu />
+                <OffCanvasMenu
+                    is_canvas_menu_open={is_canvas_menu_open}
+                    closeOffCanvasMenu={closeOffCanvasMenu}
+                />
             </Wrapper>
             <Modal
                 toggle={toggleModal}
@@ -233,12 +223,4 @@ function moveButton(is_visible = false) {
     const hideButton = () => setShowButton(false)
 
     return [show_button, showButton, hideButton]
-}
-
-function moveOffCanvasMenu() {
-    const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(false)
-    const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
-    const closeOffCanvasMenu = () => setOffCanvasMenuPosition(false)
-
-    return [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu]
 }

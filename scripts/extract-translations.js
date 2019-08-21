@@ -30,7 +30,7 @@ function extractTranslations() {
         try {
             const file_paths = [];
             const messages = [];
-            const i18n_marker = new RegExp(/i18n_default_text={?(?:(?<![\\])['"])(.*?)(?:(?<![\\])['"])}?|localize\(\s*?(?:(?<![\\])['"])(.*?)(?:(?<![\\])['"])\s*?\)?/gs);
+            const i18n_marker = new RegExp(/text=(['"])(?:(?<![\\]))(.*?)(?:(?<![\\]))*?\1|localize\(\s*?(['"])\s*(?:(?<![\\]))(.*?)(?:(?<![\\]))\s*\3/gs);
             const messages_json = {};
 
             // Find all file types listed in `globs`
@@ -49,7 +49,7 @@ function extractTranslations() {
                     const file = fs.readFileSync(file_paths[i], 'utf8');
                     let result = i18n_marker.exec(file);
                     while (result != null) {
-                        const extracted = result[1] || result[2]; // If it's index `1`, then it's the first capturing group, otherwise it's the 2nd, referring to `localize()` call
+                        const extracted = result[2] || result[4]; // If it's index `1`, then it's the first capturing group, otherwise it's the 2nd, referring to `localize()` call
                         messages.push(extracted.replace(/\\/g, ''));
                         result = i18n_marker.exec(file);
                     }

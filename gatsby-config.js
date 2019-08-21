@@ -44,7 +44,22 @@ module.exports = {
                 //   ],
             },
         },
-        'gatsby-plugin-offline',
+        {
+            resolve: 'gatsby-plugin-offline',
+            options: {
+                dontCacheBustUrlsMatching: /(\.js$|\.css$|\/static\/)/,
+                runtimeCaching: [
+                    {
+                        urlPattern: /(\.js$|\.css$|\/static\/)/,
+                        handler: `cacheFirst`,
+                    },
+                    {
+                        urlPattern: /^https?:\/\/(www\.deriv\.com|localhost:8000|dev\.deriv\.com).*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+                        handler: `staleWhileRevalidate`,
+                    },
+                ],
+            },
+        },
         {
             resolve: 'gatsby-plugin-react-svg',
             options: {

@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
+import MediaQuery from 'react-responsive'
 import Wrapper from '../containers/wrapper'
 import { Text } from './typography'
 import { getLocationHash } from 'common/utility'
+import device, { size } from 'themes/device'
 
 const StyledSideTab = styled(Wrapper)`
     padding: 0;
@@ -14,6 +16,10 @@ const StyledSideTab = styled(Wrapper)`
 const TabList = styled.ol`
     width: 19rem;
     list-style: none;
+
+    @media ${device.tabletL} {
+        width: 100%;
+    }
 `
 
 const TabContent = styled.div`
@@ -82,21 +88,42 @@ const SideTab = ({ children, has_hash_routing }) => {
                     const { label, text } = child.props
 
                     return (
-                        <Tab
-                            active_tab={active_tab}
-                            key={idx}
-                            label={label}
-                            text={text}
-                            onClick={setTab}
-                        />
+                        <>
+                            <MediaQuery minDeviceWidth={size.tabletL}>
+                                <Tab
+                                    active_tab={active_tab}
+                                    key={idx}
+                                    label={label}
+                                    text={text}
+                                    onClick={setTab}
+                                />
+                            </MediaQuery>
+                            <MediaQuery maxDeviceWidth={size.tabletL}>
+                                {/* add new component instead of this one for mobile */}
+                                <Tab
+                                    active_tab={active_tab}
+                                    key={idx}
+                                    label={label}
+                                    text={text}
+                                    onClick={setTab}
+                                />
+                                <TabContent>
+                                    {child.props.label === active_tab
+                                        ? child
+                                        : undefined}
+                                </TabContent>
+                            </MediaQuery>
+                        </>
                     )
                 })}
             </TabList>
-            <TabContent>
-                {children.map(child =>
-                    child.props.label === active_tab ? child : undefined,
-                )}
-            </TabContent>
+            <MediaQuery minDeviceWidth={size.tabletL}>
+                <TabContent>
+                    {children.map(child =>
+                        child.props.label === active_tab ? child : undefined,
+                    )}
+                </TabContent>
+            </MediaQuery>
         </StyledSideTab>
     )
 }

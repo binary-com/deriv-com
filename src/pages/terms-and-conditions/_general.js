@@ -4,8 +4,9 @@ import {
     StyledHeader,
     StyledOrder,
     TncListText,
+    TncLink,
 } from './_styles'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 
 export const General = () => (
@@ -20,7 +21,7 @@ export const General = () => (
             <li>
                 <TncListText>
                     {localize(
-                        'By accessing and using Deriv, you accept and agree to be bound by these terms and conditions. It is your responsibility to read and understand the following terms and conditions. These terms and conditions may be supplemented from time to time by additional terms and conditions applicable to a particular company or products',
+                        'By accessing and using Deriv, you accept and agree to be bound by these terms and conditions. It is your responsibility to read and understand the following terms and conditions. These terms and conditions may be supplemented from time to time by additional terms and conditions applicable to a particular company or products.',
                     )}
                 </TncListText>
             </li>
@@ -34,7 +35,7 @@ export const General = () => (
             <li>
                 <TncListText>
                     {localize(
-                        'The services offered on Deriv are only suitable for you if you are able to bear the loss of all the money you invest and if you understand and have experienced the risks involved in the acquisition of such trades. International currency or commodity prices are highly volatile and difficult to predict. Due to such volatility, no trade purchased in Our system (whether or not the payout exceeds the premium amount) can be considered a safe trade',
+                        'The services offered on Deriv are only suitable for you if you are able to bear the loss of all the money you invest and if you understand and have experienced the risks involved in the acquisition of such trades. International currency or commodity prices are highly volatile and difficult to predict. Due to such volatility, no trade purchased in Our system (whether or not the payout exceeds the premium amount) can be considered a safe trade.',
                     )}
                 </TncListText>
             </li>
@@ -92,9 +93,9 @@ export const General = () => (
         <StyledOrder type="decimal">
             <li>
                 <TncListText>
-                    {localize(
-                        'You may communicate with Us via Our website, email, phone, or exceptionally by post. Details can be found on the Contact us page of the website.',
-                    )}
+                    <Localize text='You may communicate with Us via Our website, email, phone, or exceptionally by post. Details can be found on the <0>Contact us</0> page of the website.'
+                        components={[<TncLink key={0} to='/help-centre/' />]}
+                    />
                 </TncListText>
             </li>
             <li>
@@ -354,7 +355,7 @@ export const General = () => (
                     <li>
                         <TncListText>
                             {localize(
-                                'Any amendments to the contractual terms of Manifestly Erroneous trades shall be reasonable and fair and may involve closing and/or opening of positions, placing/deleting Orders without your involvement, making changes in Open Positions, deleting trades from trading history, etc. Monies exchanged between you and Us in connection with the Manifestly Erroneous trades shall be returned to the recipient according to the amendments made to the contractual terms and conditions of this agreement.',
+                                'Any amendments to the contractual terms of Manifestly Erroneous trades shall be reasonable and fair and may involve closing and/or opening of positions, placing/deleting orders without your involvement, making changes in open positions, deleting trades from trading history, etc. Monies exchanged between you and Us in connection with the Manifestly Erroneous trades shall be returned to the recipient according to the amendments made to the contractual terms and conditions of this agreement.',
                             )}
                         </TncListText>
                     </li>
@@ -367,15 +368,16 @@ export const General = () => (
                 <li>
                     <TncListText>
                         {localize(
-                            'The money you give Us is not invested in any securities, futures, currencies, derivatives or other investments on your behalf.',
+                            'The money you give Us is not invested in any securities, futures, currencies, derivatives, or other investments on your behalf.',
                         )}
                     </TncListText>
                 </li>
                 <li>
                     <TncListText>
-                        {localize(
-                            'We have various deposit methods available, each with their own processing times. Some methods may not be available for withdrawal. Full details of available methods for deposits and withdrawals, including settlement times, can be seen here.',
-                        )}
+                        { /* TODO: [add-link]: link to payment method page once available */}
+                        <Localize text='We have various deposit methods available, each with their own processing times. Some methods may not be available for withdrawal. Full details of available methods for deposits and withdrawals, including settlement times, can be seen <0>here</0>.'
+                            components={[<TncLink key={0} to='/terms-and-conditions/' />]}
+                        />
                     </TncListText>
                 </li>
                 <li>
@@ -468,7 +470,7 @@ export const General = () => (
                         <li>
                             <TncListText>
                                 {localize(
-                                    'We may, at Our sole discretion or as required by regulation, conduct appropriate "Know Your Customer" (KYC) procedures and ask you to provide proof of identity (such as a notarized copy of passport or other means of identity verification as We judge to be necessary), and We may suspend an account until satisfactory identification information, evidence of identity and address, source of funds, and/or source of wealth have been provided.',
+                                    'We may, at Our sole discretion or as required by regulation, conduct appropriate "Know Your Customer" (KYC) procedures and ask you to provide proof of identity (such as a notarised copy of passport or other means of identity verification as We judge to be necessary), and We may suspend an account until satisfactory identification information, evidence of identity and address, source of funds, and/or source of wealth have been provided.',
                                 )}
                             </TncListText>
                         </li>
@@ -633,7 +635,7 @@ export const General = () => (
                 <li>
                     <TncListText>
                         {localize(
-                            'If your account has no transaction recorded for over 12 months, We reserve the right to charge you a dormant fee of up to USD/EUR/AUD/GBP 25, or equivalent of USD 25 in any other currency as calculated in accordance with the current exchange rate published by www.xe.com or any other recognised data provider as on the date of charging of the fee, and repeat doing so every six months for as long as your account remains dormant.',
+                            'If your account has no recorded transaction for over 12 months, We reserve the right to charge you a dormant fee of up to USD/EUR/AUD/GBP 25, or equivalent of USD 25 in any other currency as calculated in accordance with the current exchange rate published by www.xe.com or any other recognised data provider as on the date of charging of the fee, and repeat doing so every six months for as long as your account remains dormant.',
                         )}
                     </TncListText>
                 </li>
@@ -646,9 +648,9 @@ export const General = () => (
                 </li>
                 <li>
                     <TncListText>
-                        {localize(
-                            'We reserve the right to have risk limits in place, which affect your trading limits and may not be restricted solely to instruments and trade types. We may also impose volume trading limits on your account at Our sole discretion. Trading volume limits can be viewed in the Security & limits section of your account. If your account balance exceeds your maximum account size, please make withdrawals to bring the balance below this limit.',
-                        )}
+                        <Localize text='We reserve the right to have risk limits in place, which affect your trading limits and may not be restricted solely to instruments and trade types. We may also impose volume trading limits on your account at Our sole discretion. Trading volume limits can be viewed in the <0>Security and privacy</0? section of your account. If your account balance exceeds your maximum account size, please make withdrawals to bring the balance below this limit.'
+                            components={[<TncLink key={0} to='/terms-and-conditions/#security-privacy' />]}
+                        />
                     </TncListText>
                 </li>
                 <li>

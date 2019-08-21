@@ -4,9 +4,10 @@ import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Hero from 'components/elements/hero'
 import Container, { SectionContainer } from 'components/containers/container'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import { CardChildren } from 'components/elements/card.js'
+import device from 'themes/device'
 // Icons
 import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
@@ -20,6 +21,10 @@ const RegulatoryWrapper = styled(SectionContainer)`
         var(--color-grey-2),
         var(--color-white)
     );
+
+    @media ${device.tabletL} {
+        padding-bottom: 4rem;
+    }
 `
 const StyledContainer = styled(Container)`
     flex-direction: column;
@@ -38,10 +43,19 @@ const FlexWrapper = styled(Container)`
     min-width: 100%;
     margin-top: 2.4rem;
 
+    @media ${device.tabletL} {
+        margin-top: 0;
+    }
+
     & > * {
         flex-shrink: 0;
         width: 48%;
         margin: 1rem;
+
+        @media ${device.tabletL} {
+            width: 100%;
+            margin: 2.66rem 0 0 0;
+        }
     }
 `
 
@@ -56,7 +70,7 @@ const Regulatory = () => (
         <Hero
             header={localize('Licences and regulations')}
             paragraph={localize(
-                'Deriv is a trading platform created and operated by the Binary Group',
+                'Deriv operates under the jurisdiction of Binary.com.',
             )}
         />
         <RegulatoryWrapper>
@@ -77,14 +91,15 @@ const Regulatory = () => (
                         icon_height="16rem"
                     >
                         <Text align="center">
-                            {localize(
-                                'Binary Investments (Europe) Ltd is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority',
-                            )}{' '}
-                            (
-                            <a href="">
-                                {`${localize('licence no. IS/70156')}`}
-                            </a>
-                            ).
+                            <Localize
+                                text='Binary Investments (Europe) Ltd is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>).'
+                                components={[
+                                    <a
+                                        key={0}
+                                        target="_blank"
+                                        href="/WS-Binary-Investments-Europe-Limited.pdf" />
+                                ]}
+                            />
                         </Text>
                     </CardChildren>
                     <CardChildren
@@ -94,10 +109,16 @@ const Regulatory = () => (
                         icon_height="16rem"
                     >
                         <Text align="center">
-                            {localize(
-                                'Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission -',
-                            )}{' '}
-                            <a href="">{localize('view licence.')}</a>
+                            <Localize
+                                text='Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence.</0>'
+                                components={[
+                                    <a
+                                        key={0}
+                                        target="_blank"
+                                        href="/BVI_license.pdf"
+                                    />
+                                ]}
+                            />
                         </Text>
                     </CardChildren>
                     <CardChildren
@@ -107,10 +128,17 @@ const Regulatory = () => (
                         icon_height="16rem"
                     >
                         <Text align="center">
-                            {localize(
-                                'Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission -',
-                            )}{' '}
-                            <a href="">{localize('view license')}</a>
+                            <Localize
+                                text='Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>'
+                                components={[
+                                    <a
+                                        key={0}
+                                        target="_blank"
+                                        href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
+                                        rel="noopener noreferrer"
+                                    />
+                                ]}
+                            />
                         </Text>
                     </CardChildren>
                     <CardChildren
@@ -120,14 +148,17 @@ const Regulatory = () => (
                         icon_height="16rem"
                     >
                         <Text align="center">
-                            {localize(
-                                'Binary (FX) Ltd is licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business ',
-                            )}{' '}
-                            (
-                            <a href="">
-                                {`${localize('licence no. MB/18/0024')}`}
-                            </a>
-                            ).
+                            <Localize
+                                text='Binary (FX) Ltd is licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business (<0>licence no. MB/18/0024</0>).'
+                                components={[
+                                    <a
+                                        key={0}
+                                        target="_blank"
+                                        href="/Labuan-license.pdf"
+                                        rel="noopener noreferrer"
+                                    />
+                                ]}
+                            />
                         </Text>
                     </CardChildren>
                     <CardChildren

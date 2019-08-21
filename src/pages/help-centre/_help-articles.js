@@ -5,11 +5,6 @@ import { localize } from 'components/localization'
 
 const WhoCanOpenAnAccount = () => (
     <>
-        <Text>
-            {localize(
-                'You may only open an account with us on these conditions:',
-            )}
-        </Text>
         <Ul>
             <Li>
                 {localize(
@@ -183,7 +178,7 @@ export const articles = [
             {
                 title: localize('Changing your personal details'),
                 category: localize('Account'),
-                sub_category: localize('Managing your account'),
+                sub_category: localize('Opening an account'),
                 label: 'changing-your-personal-details',
                 content: <ChangingPersonalDetails />,
             },
@@ -197,7 +192,7 @@ export const articles = [
             {
                 title: localize('Authenticating your account'),
                 category: localize('Account'),
-                sub_category: localize('Managing your account'),
+                sub_category: localize('Opening an account'),
                 label: 'recovering-your-password',
                 content: <AuthenticatingYourAccount />,
             },

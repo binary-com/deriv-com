@@ -63,9 +63,9 @@ Usage example:
 />
 ```
 
-#### svg file type
+#### (svg) file type
 
-svg willl be located anywhere within `src/images/svg` directory.
+svg will be located anywhere within `src/images/svg` directory.
 SVG will be handled by `gatsby-plugin-react-svg` which overriding `svg-react-loader`, you can take a look at [Gatsby SVG](https://www.gatsbyjs.org/packages/gatsby-plugin-react-svg/)
 
 Usage example:
@@ -74,4 +74,26 @@ Usage example:
 import Logo from '../images/logo-header.svg'
 
 <Logo />
+```
+
+### Translate Text
+
+translation functions and component located within `src/components/localization` directory.
+text translation use `react-i18next`, you can take a look at [react-i18next](https://react.i18next.com/) for more information.
+
+Usage example:
+
+```
+import { localize, Localize } from '../localization'
+
+<p>{localize('text need to be translated')}</p>
+<p><Localize
+        text='your name is <0>{{name}}</0>, <1>view more info</1>'
+        values={{ name: this.state.name || 'jollie' }}
+        components={[
+            <strong key={0} />,
+            <a key={1} href='#' />
+        ]}
+    />
+</p>
 ```

@@ -3,7 +3,7 @@
 import { State } from '../storage'
 import {
     cloneObject,
-    deriv_name,
+    brand_name,
     getPropertyValue,
     isEmptyObject,
     PromiseClass,
@@ -28,7 +28,7 @@ const BinarySocketBase = (() => {
 
     // TODO: add language
     // const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${getLanguage()}`;
-    const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=en&brand=${deriv_name.toLowerCase()}`
+    const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=en&brand=${brand_name.toLowerCase()}`
     const timeouts = {}
     const promises = {}
 

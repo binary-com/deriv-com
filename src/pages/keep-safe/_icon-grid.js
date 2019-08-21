@@ -23,7 +23,6 @@ const IconGrid = styled(Container)`
     grid-template-areas:
         'Two DifferentPassword Cashier Browser'
         'Configure DontShare Monitor Antivirus';
-}
 
     @media ${device.tabletL} {
         grid-template-columns: repeat(2, 1fr);
@@ -40,6 +39,7 @@ const IconGrid = styled(Container)`
 const GridCol = styled.article`
     height: 100%;
     grid-area: ${props => props.grid_name};
+
     ${Text} {
         margin-top: 0.8rem;
         font-size: 1.6rem;

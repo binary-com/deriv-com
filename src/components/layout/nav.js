@@ -119,10 +119,12 @@ const Nav = () => {
     const [show_button, showButton, hideButton] = moveButton()
 
     useEffect(() => {
-        document.addEventListener('scroll', () =>
-            handleScroll(showButton, hideButton),
-        )
+        let did_unmount = false
+        document.addEventListener('scroll', () => {
+            if (!did_unmount) handleScroll(showButton, hideButton)
+        })
         return () => {
+            did_unmount = true
             document.removeEventListener('scroll', () =>
                 handleScroll(showButton, hideButton),
             )

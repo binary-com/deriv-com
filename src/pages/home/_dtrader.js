@@ -12,6 +12,7 @@ import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
+import { DERIV_APP_URL } from 'common/utility'
 // Icons
 import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
@@ -93,57 +94,61 @@ const SingupButton = styled(Button)`
 export const Dtrader = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
+    const handleExternalLink = () => {
+        window.open(DERIV_APP_URL, '_blank')
+    }
+
     return (
         <DtraderSectionContainer>
             <SectionHeader>
                 <MediaQuery maxDeviceWidth={size.tabletL}>
-                    {matches => matches ? <>
-                        <Header
-                            font_size="4rem"
-                            align="center"
-                            lh="5rem"
-                            className="test"
-                        >
-                            {localize('Trader')}
-                        </Header>
-                        <StyledSubHeader
-                            as="h6"
-                            font_size="2rem"
-                            align="center"
-                            weight="500"
-                            lh="3.25rem"
-                            className="ttt"
-                        >
-                            {localize('The revolutionary platform for all traders')}
-                        </StyledSubHeader>
-                        <MobileCard>
-                            <TradeLogo />
-                            <ul>
-                                <li>Powered by patented algorithms</li>
-                                <li>Intuitive trading interface</li>
-                                <li>Customisable charts and analytic tools</li>
-                            </ul>
-                        </MobileCard>
-                        <ButtonWrapper>
-                            <SingupButton type="submit" secondary>
-                                {localize('Learn more')}
-                            </SingupButton>
-                        </ButtonWrapper>
-                    </> : <>
-                            <Header as="h2" align="center" lh="6rem">
-                                {localize('DTrader')}
-                            </Header>
-                            <StyledSubHeader as="h4" align="center" weight="500">
-                                {localize('All you need to get started')}
-                            </StyledSubHeader>
-                        </>}
+                    <Header
+                        font_size="4rem"
+                        align="center"
+                        lh="5rem"
+                        className="test"
+                    >
+                        {localize('Trader')}
+                    </Header>
+                    <StyledSubHeader
+                        as="h6"
+                        font_size="2rem"
+                        align="center"
+                        weight="500"
+                        lh="3.25rem"
+                        className="ttt"
+                    >
+                        {localize('The revolutionary platform for all traders')}
+                    </StyledSubHeader>
+                    <MobileCard>
+                        <TradeLogo />
+                        <ul>
+                            <li>Powered by patented algorithms</li>
+                            <li>Intuitive trading interface</li>
+                            <li>Customisable charts and analytic tools</li>
+                        </ul>
+                    </MobileCard>
+                    <ButtonWrapper>
+                        <SingupButton onClick={handleExternalLink} secondary>
+                            {localize('Learn more')}
+                        </SingupButton>
+                    </ButtonWrapper>
+                </MediaQuery>
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    <Header as="h2" align="center" lh="6rem">
+                        {localize('DTrader')}
+                    </Header>
+                    <StyledSubHeader as="h4" align="center" weight="500">
+                        {localize('All you need to get started')}
+                    </StyledSubHeader>
                 </MediaQuery>
             </SectionHeader>
             <MediaQuery minDeviceWidth={size.tabletL}>
                 <StyledContainer>
                     <FlexGridContainer
-                        content_width="32rem"
+                        content_width="32.8rem"
                         gap="1rem"
+                        grid="3"
                         justify="center"
                     >
                         <Card

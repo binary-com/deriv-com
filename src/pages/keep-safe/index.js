@@ -55,7 +55,6 @@ const Practice = styled(Container)`
         flex-direction: column;
         align-self: flex-start;
     }
-
     ${Header} {
         padding-bottom: 1.6rem;
     }
@@ -104,6 +103,7 @@ const HeroWrapper = styled.div`
 `
 const SecureWrapper = styled.div`
     margin: 0 1.8rem;
+
     h2 {
         font-size: 4rem;
         padding-right: 10rem;
@@ -122,7 +122,7 @@ const KeepSafeSectionContainer = styled(SectionContainer)`
 const KeepSafeGirdArea = styled.div`
     @media ${device.tabletL} {
         display: grid;
-        grid-template-row: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
         grid-template-areas:
             'risk'
             'practice';
@@ -176,27 +176,26 @@ const KeepSafe = () => {
             </HeroWrapper>
             <KeepSafeSectionContainer>
                 <MediaQuery maxDeviceWidth={size.tabletL}>
-                    {matches => matches ?
-                        <SecureWrapper>
-                            <Header as="h2" align="left">
-                                {localize('Secure your account')}
-                            </Header>
-                            <StyledHeader as="h4" align="left" weight="500">
-                                {localize(
-                                    'To help keep your account secure, we recommend these best practices: ',
-                                )}
-                            </StyledHeader>
-                        </SecureWrapper>
-                        : <>
-                            <Header as="h2" align="center">
-                                {localize('Account security')}
-                            </Header>
-                            <StyledHeader as="h4" align="center" weight="500">
-                                {localize(
-                                    'Your account security is very important to us. Here are a few ways to enhance your account security:',
-                                )}
-                            </StyledHeader>
-                        </>}
+                    <SecureWrapper>
+                        <Header as="h2" align="left">
+                            {localize('Secure your account')}
+                        </Header>
+                        <StyledHeader as="h4" align="left" weight="500">
+                            {localize(
+                                'To help keep your account secure, we recommend these best practices: ',
+                            )}
+                        </StyledHeader>
+                    </SecureWrapper>
+                </MediaQuery>
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    <Header as="h2" align="center">
+                        {localize('Account security')}
+                    </Header>
+                    <StyledHeader as="h4" align="center" weight="500">
+                        {localize(
+                            'Your account security is very important to us. Here are a few ways to enhance your account security:',
+                        )}
+                    </StyledHeader>
                 </MediaQuery>
                 <SecurityIconGrid />
             </KeepSafeSectionContainer>
@@ -211,20 +210,21 @@ const KeepSafe = () => {
                                 {localize('Practise with a demo account')}
                             </PractiseHeader>
                             <MediaQuery maxDeviceWidth={size.tabletL}>
-                                {matches => matches ? <CustomizeHeader as="h4" weight="500">
+                                <CustomizeHeader as="h4" weight="500">
                                     {localize(
                                         'Use our demo account and learn how to trade, risk-free, by using virtual funds.',
                                     )}
-                                </CustomizeHeader> : <>
-                                        <Header as="h4" weight="500">
-                                            {localize(
-                                                'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
-                                            )}
-                                        </Header>
-                                        <Button secondary onClick={toggleModal}>
-                                            {localize('Create a free account')}
-                                        </Button>
-                                    </>}
+                                </CustomizeHeader>
+                            </MediaQuery>
+                            <MediaQuery minDeviceWidth={size.tabletL}>
+                                <Header as="h4" weight="500">
+                                    {localize(
+                                        'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
+                                    )}
+                                </Header>
+                                <Button secondary onClick={toggleModal}>
+                                    {localize('Create a free account')}
+                                </Button>
                             </MediaQuery>
                         </div>
                         <Image

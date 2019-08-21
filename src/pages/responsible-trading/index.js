@@ -24,6 +24,7 @@ import ChecklistLogo from 'images/svg/checklist.svg'
 
 const StyledContainer = styled(Container)`
     flex-direction: column;
+
     ${FlexGridContainer} {
         width: 100%;
     }
@@ -79,7 +80,6 @@ const StyledCard = styled.article`
     width: 100%;
     margin: 4rem;
     padding: 4rem;
-
     @media ${device.tabletL} {
         padding: 2.66rem 1.77rem;
     }
@@ -87,10 +87,10 @@ const StyledCard = styled.article`
 
 const MarginHeader = styled(Header)`
     margin-top: 1rem;
-
     @media ${device.tabletL} {
         font-size: 2rem;
     }
+
     ${props => {
         if (props.as === 'h4') return 'line-height: 3rem;'
     }}
@@ -239,7 +239,7 @@ const ResponsibleTrading = () => (
                     {localize('Written limits and self-exclusion')}
                 </LimitsHeader>
                 <MediaQuery maxDeviceWidth={size.tabletL}>
-                    {matches => matches ? <MarginHeader
+                    <MarginHeader
                         as="h4"
                         weight="500"
                         align="center"
@@ -248,16 +248,19 @@ const ResponsibleTrading = () => (
                         {localize(
                             'With Deriv, you have the option to implement limits on your trading activities through our self-exclusion facility. You’ll be able to:',
                         )}
-                    </MarginHeader> : <MarginHeader
+                    </MarginHeader>
+                </MediaQuery>
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    <MarginHeader
                         as="h4"
                         weight="500"
                         align="center"
                         mobile_text_align="left"
                     >
-                            {localize(
-                                'With Deriv, you have the option to implement limits on your trading activities.',
-                            )}
-                        </MarginHeader>}
+                        {localize(
+                            'With Deriv, you have the option to implement limits on your trading activities.',
+                        )}
+                    </MarginHeader>
                 </MediaQuery>
                 <MarginWrapper content_width="48rem" gap="1rem">
                     <StyledLimits>
@@ -316,19 +319,22 @@ const ResponsibleTrading = () => (
                     {localize('Other warnings and regulatory disclosures')}
                 </OtherWarningHeader>
                 <MediaQuery maxDeviceWidth={size.tabletL}>
-                    {matches => matches ? <StyledCard>
+                    <StyledCard>
                         <Text secondary>
                             {localize(
                                 'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Refer to our Key Information Documents for the amount of margincrequired for the trading instruments offered on our cwebsite. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
                             )}
                         </Text>
-                    </StyledCard> : <StyledCard>
-                            <Text secondary>
-                                {localize(
-                                    'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
-                                )}
-                            </Text>
-                        </StyledCard>}
+                    </StyledCard>
+                </MediaQuery>
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    <StyledCard>
+                        <Text secondary>
+                            {localize(
+                                'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
+                            )}
+                        </Text>
+                    </StyledCard>
                 </MediaQuery>
             </StyledContainer>
         </OtherWarningWrapper>

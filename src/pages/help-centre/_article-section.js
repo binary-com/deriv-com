@@ -64,6 +64,7 @@ const ArticleContainer = styled(LeftRightContainer)`
         flex-wrap: wrap;
         width: 100%;
         padding-top: 2rem;
+
         > :first-child {
             margin-right: 0;
         }
@@ -164,9 +165,12 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
             <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
                     <MediaQuery maxDeviceWidth={size.tabletL}>
-                        {matches => matches ? <Header as="h3">{article.category}</Header> : <Header as="h3">
+                        <Header as="h3">{article.category}</Header>
+                    </MediaQuery>
+                    <MediaQuery minDeviceWidth={size.tabletL}>
+                        <Header as="h3">
                             {article.category} - {article.title}
-                        </Header>}
+                        </Header>
                     </MediaQuery>
                     {article.content}
                 </ArticleContent>

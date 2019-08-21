@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text, LinkText } from 'components/elements/typography'
+import device from 'themes/device'
 
 export const Ul = styled.ul`
     list-style: unset;
@@ -12,6 +13,12 @@ export const Ul = styled.ul`
 
     > *:not(:last-child) {
         padding-bottom: 0.8rem;
+    }
+    li {
+        @media ${device.tabletL} {
+            font-size: var(--text-size-sm);
+            font-weight: 300;
+        }
     }
 `
 export const Ol = styled(Ul).attrs({

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import MediaQuery from 'react-responsive'
 import Button from 'components/form/button.js'
 import { localize } from 'components/localization'
 import Container from 'components/containers/container.js'
@@ -12,6 +13,7 @@ import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
 import LabuanSVG from 'images/svg/labuan.svg'
 import MaltaSVG from 'images/svg/malta.svg'
 import ParaguaySVG from 'images/svg/paraguay.svg'
+import { size } from 'themes/device.js'
 
 const OurLocationsWrapper = styled.div`
     width: 100%;
@@ -82,37 +84,39 @@ export const OurLocations = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
     return (
-        <OurLocationsWrapper>
-            <Header as="h2" align="center" color="black-2">
-                {localize('Our locations')}
-            </Header>
-            <OurLocationsContainer>
-                {locations.map((location, idx) => (
-                    <Location key={idx} location={location.grid}>
-                        {location.icon}
-                        <p>
-                            {location.name}
-                            {location.country && (
-                                <>
-                                    <br />
-                                    {location.country}
-                                </>
-                            )}
-                        </p>
-                    </Location>
-                ))}
-            </OurLocationsContainer>
-            <Button secondary onClick={toggleModal}>
-                {localize('Create a free account')}
-            </Button>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                is_blurred={true}
-                closeModal={closeModal}
-            >
-                <SignupModal />
-            </Modal>
-        </OurLocationsWrapper>
+        <MediaQuery minDeviceWidth={size.tabletL}>
+            <OurLocationsWrapper>
+                <Header as="h2" align="center" color="black-2">
+                    {localize('Our Locations')}
+                </Header>
+                <OurLocationsContainer>
+                    {locations.map((location, idx) => (
+                        <Location key={idx} location={location.grid}>
+                            {location.icon}
+                            <p>
+                                {location.name}
+                                {location.country && (
+                                    <>
+                                        <br />
+                                        {location.country}
+                                    </>
+                                )}
+                            </p>
+                        </Location>
+                    ))}
+                </OurLocationsContainer>
+                <Button secondary onClick={toggleModal}>
+                    {localize('Start with free practice account')}
+                </Button>
+                <Modal
+                    toggle={toggleModal}
+                    is_open={show_modal}
+                    is_blurred={true}
+                    closeModal={closeModal}
+                >
+                    <SignupModal />
+                </Modal>
+            </OurLocationsWrapper>
+        </MediaQuery>
     )
 }

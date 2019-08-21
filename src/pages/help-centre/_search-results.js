@@ -4,12 +4,21 @@ import styled from 'styled-components'
 import { Ul, Li, ListWithLinks } from './_list'
 import { Text, Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 
 const ErrorHeader = styled(Header)`
     font-size: var(--text-size-sm);
     padding-bottom: 0.8rem;
-`
 
+    @media ${device.tabletL} {
+        font-weight: normal;
+    }
+`
+const SearchText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+    }
+`
 export const SearchSuccess = ({ suggested_topics, onClick, max_length }) => (
     <>
         <Header as="h3" color="white">
@@ -36,7 +45,7 @@ export const SearchError = ({ search }) => (
                 { search },
             )}
         </ErrorHeader>
-        <Text color="green">{localize('Search tips:')}</Text>
+        <SearchText color="green">{localize('Search tips:')}</SearchText>
         <Ul>
             <Li color="white">
                 {localize('Check your spelling and try again')}

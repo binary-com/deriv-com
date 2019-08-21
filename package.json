@@ -28,6 +28,7 @@
         "react-dom": "^16.8.6",
         "react-helmet": "^5.2.1",
         "react-i18next": "^10.11.5",
+        "react-responsive": "^7.0.0",
         "typeface-ibm-plex-sans": "0.0.75"
     },
     "devDependencies": {

@@ -35,7 +35,7 @@ function extractTranslations() {
             (.*?)                     = is capturing group match all characters, unlimited characters
             \_your_capturing_group_no = is matching capturing group, for e.g. `\1` means that it will match exactly the first capturing group
             \s*                       = it matches any whitespace characters until unlimited times in our case it used to catch `\n` or newline
-            /gs `g` means it will take all of the matches, `s` means it matches even in newline
+            /gs                       = `g` means it will take all of the matches, `s` means it matches even in newline
             */
             const i18n_marker = new RegExp(/text=(['"])(.*?)\1|localize\(\s*?(['"])\s*(.*?)\s*\3/gs);
             const messages_json = {};

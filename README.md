@@ -38,7 +38,7 @@ Deriv.com static content
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-## Update translation text
+## To update translations
 
 -   Checkout crowdin branch, pull the latest changes, and create new branch from crowdin
     ```sh

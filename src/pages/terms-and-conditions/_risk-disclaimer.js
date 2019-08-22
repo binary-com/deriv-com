@@ -1,14 +1,19 @@
 import React from 'react'
-import { StyledSection, StyledHeader, TncListText, StyledOrder } from './_styles'
-import { Header } from 'components/elements/typography'
+import {
+    StyledSection,
+    StyledHeader,
+    TncListText,
+    StyledOrder,
+    StyledTitle,
+} from './_styles'
 import { localize } from 'components/localization'
 
 export const RiskDisclaimer = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Risk disclaimer')}
-        </Header>
-        <StyledOrder type='decimal'>
+        </StyledTitle>
+        <StyledOrder type="decimal">
             <li>
                 <TncListText>
                     {localize(
@@ -36,11 +41,7 @@ export const RiskDisclaimer = () => (
         </StyledHeader>
         <StyledOrder type="decimal">
             <li>
-                <TncListText>
-                    {localize(
-                        'No advice',
-                    )}
-                </TncListText>
+                <TncListText>{localize('No advice')}</TncListText>
             </li>
             <StyledOrder type="lower-alpha">
                 <li>
@@ -59,11 +60,7 @@ export const RiskDisclaimer = () => (
                 </li>
             </StyledOrder>
             <li>
-                <TncListText>
-                    {localize(
-                        'Appropriateness',
-                    )}
-                </TncListText>
+                <TncListText>{localize('Appropriateness')}</TncListText>
             </li>
             <StyledOrder type="lower-alpha">
                 <li>
@@ -75,11 +72,7 @@ export const RiskDisclaimer = () => (
                 </li>
             </StyledOrder>
             <li>
-                <TncListText>
-                    {localize(
-                        'Monitoring positions',
-                    )}
-                </TncListText>
+                <TncListText>{localize('Monitoring positions')}</TncListText>
             </li>
             <StyledOrder type="lower-alpha">
                 <li>
@@ -104,9 +97,7 @@ export const RiskDisclaimer = () => (
             </li>
             <li>
                 <TncListText>
-                    {localize(
-                        'You are warned of the following risks:',
-                    )}
+                    {localize('You are warned of the following risks:')}
                 </TncListText>
             </li>
             <StyledOrder type="lower-alpha">

@@ -61,7 +61,10 @@ const StyledDropDown = styled.li`
         font-size: 2rem;
     }
 `
-const ArrowWrapper = styled(Arrow)``
+const ArrowWrapper = styled(Arrow)`
+    transform: ${props =>
+        props.what_is_active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)'};
+`
 const Tab = ({ active_tab, label, onClick, text }) => {
     const className = active_tab === label ? 'tab-active' : ''
 
@@ -95,13 +98,14 @@ const DropDown = props => {
     }
     return (
         <StyledDropDown onClick={handleClick}>
-            <Text weight="500">{props.text}</Text>
+            <Text>{props.text}</Text>
         </StyledDropDown>
     )
 }
 
 const SideTab = ({ children, has_hash_routing }) => {
-    const first_tab = children[0].props.label
+    const first_tab =
+        window.innerWidth > size.tabletL ? children[0].props.label : '-'
     const [active_tab, setTab] = useTabs(first_tab, has_hash_routing)
 
     if (has_hash_routing) {
@@ -143,7 +147,7 @@ const SideTab = ({ children, has_hash_routing }) => {
                         ) : (
                             <p>-</p>
                         )}
-                        <ArrowWrapper />
+                        <ArrowWrapper what_is_active_tab={active_tab} />
                     </StyledDropDown>
                     {current_active_tab
                         ? undefined

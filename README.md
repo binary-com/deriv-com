@@ -58,12 +58,6 @@ Deriv.com static content
 -   Commit changes and make pull request to upstream `crowdin` branch
 -   Merge pull request will trigger crowdin hook to update translation text in crowdin
 
-## 💫 Deploy
-
-### Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
 ## 📦 GH-pages deployment
 
 1. **Basic name.github.io/deriv-com/**

@@ -12,7 +12,7 @@ import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import { DERIV_APP_URL } from 'common/utility'
+import { deriv_app_url } from 'common/utility'
 // Icons
 import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
@@ -95,7 +95,7 @@ export const Dtrader = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
     const handleExternalLink = () => {
-        window.open(DERIV_APP_URL, '_blank')
+        window.open(deriv_app_url, '_blank')
     }
 
     return (

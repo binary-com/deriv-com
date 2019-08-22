@@ -37,7 +37,7 @@ function extractTranslations() {
             \s*                       = it matches any whitespace characters until unlimited times in our case it used to catch `\n` or newline
             /gs                       = `g` means it will take all of the matches, `s` means it matches even in newline
             */
-            const i18n_marker = new RegExp(/text=(['"])(.*?)\1|localize\(\s*?(['"])\s*(.*?)\s*\3/gs);
+            const i18n_marker = new RegExp(/translate_text=(['"])(.*?)\1|localize\(\s*?(['"])\s*(.*?)\s*\3/gs);
             const messages_json = {};
 
             // Find all file types listed in `globs`

@@ -93,8 +93,9 @@ export const General = () => (
         <StyledOrder type="decimal">
             <li>
                 <TncListText>
-                    <Localize text='You may communicate with Us via Our website, email, phone, or exceptionally by post. Details can be found on the <0>Contact us</0> page of the website.'
-                        components={[<TncLink key={0} to='/help-centre/' />]}
+                    <Localize
+                        translate_text="You may communicate with Us via Our website, email, phone, or exceptionally by post. Details can be found on the <0>Contact us</0> page of the website."
+                        components={[<TncLink key={0} to="/help-centre/" />]}
                     />
                 </TncListText>
             </li>
@@ -374,9 +375,12 @@ export const General = () => (
                 </li>
                 <li>
                     <TncListText>
-                        { /* TODO: [add-link]: link to payment method page once available */}
-                        <Localize text='We have various deposit methods available, each with their own processing times. Some methods may not be available for withdrawal. Full details of available methods for deposits and withdrawals, including settlement times, can be seen <0>here</0>.'
-                            components={[<TncLink key={0} to='/terms-and-conditions/' />]}
+                        {/* TODO: [add-link]: link to payment method page once available */}
+                        <Localize
+                            translate_text="We have various deposit methods available, each with their own processing times. Some methods may not be available for withdrawal. Full details of available methods for deposits and withdrawals, including settlement times, can be seen <0>here</0>."
+                            components={[
+                                <TncLink key={0} to="/terms-and-conditions/" />,
+                            ]}
                         />
                     </TncListText>
                 </li>
@@ -648,8 +652,14 @@ export const General = () => (
                 </li>
                 <li>
                     <TncListText>
-                        <Localize text='We reserve the right to have risk limits in place, which affect your trading limits and may not be restricted solely to instruments and trade types. We may also impose volume trading limits on your account at Our sole discretion. Trading volume limits can be viewed in the <0>Security and privacy</0? section of your account. If your account balance exceeds your maximum account size, please make withdrawals to bring the balance below this limit.'
-                            components={[<TncLink key={0} to='/terms-and-conditions/#security-privacy' />]}
+                        <Localize
+                            translate_text="We reserve the right to have risk limits in place, which affect your trading limits and may not be restricted solely to instruments and trade types. We may also impose volume trading limits on your account at Our sole discretion. Trading volume limits can be viewed in the <0>Security and privacy</0? section of your account. If your account balance exceeds your maximum account size, please make withdrawals to bring the balance below this limit."
+                            components={[
+                                <TncLink
+                                    key={0}
+                                    to="/terms-and-conditions/#security-privacy"
+                                />,
+                            ]}
                         />
                     </TncListText>
                 </li>

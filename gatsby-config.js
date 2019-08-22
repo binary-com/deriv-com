@@ -54,7 +54,7 @@ module.exports = {
                         handler: `cacheFirst`,
                     },
                     {
-                        urlPattern: /^https?:\/\/(deriv\.com|localhost:8000|.+\.netlify\.com|dev\.deriv\.com).*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+                        urlPattern: /^https?:\/\/(deriv\.com|.+\.netlify\.com|dev\.deriv\.com).*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
                         handler: `staleWhileRevalidate`,
                     },
                 ],

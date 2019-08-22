@@ -104,8 +104,14 @@ const DropDown = props => {
 }
 
 const SideTab = ({ children, has_hash_routing }) => {
+    // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
     const first_tab =
-        window.innerWidth > size.tabletL ? children[0].props.label : '-'
+        typeof window !== 'undefined'
+            ? window.innerWidth > size.tabletL
+                ? children[0].props.label
+                : '-'
+            : children[0].props.label
+
     const [active_tab, setTab] = useTabs(first_tab, has_hash_routing)
 
     if (has_hash_routing) {

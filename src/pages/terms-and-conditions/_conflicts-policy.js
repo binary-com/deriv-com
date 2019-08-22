@@ -6,7 +6,6 @@ import {
     TncListText,
     StyledTitle,
 } from './_styles'
-import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 
 export const ConflictsPolicy = () => (

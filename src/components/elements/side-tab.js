@@ -181,6 +181,12 @@ SideTab.propTypes = {
     has_hash_routing: PropTypes.bool,
 }
 
+DropDown.propTypes = {
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    text: PropTypes.string.isRequired,
+}
+
 Tab.propTypes = {
     active_tab: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,

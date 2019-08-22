@@ -42,12 +42,19 @@ const Show = ({ children, to }) => {
     return visible ? <>{children}</> : null
 }
 
+export const Eu = props => <Show {...props} to="eu" />
+
+export const NonEu = props => <Show {...props} to="non-eu" />
+
 Show.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]).isRequired,
-    device: PropTypes.oneOf(['mobile', 'laptop']),
     to: PropTypes.oneOf(['eu', 'non-eu']),
 }
-export default Show
+
+export default {
+    Eu,
+    NonEu,
+}

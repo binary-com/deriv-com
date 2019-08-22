@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import MediaQuery from 'react-responsive'
 import SEO from 'components/containers/seo'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Hero from 'components/elements/hero'
@@ -21,6 +20,7 @@ import Limit from 'images/svg/limit-icon.svg'
 import AvoidTrading from 'images/svg/avoid-trading-icon.svg'
 import PortionWinning from 'images/svg/portion-winning-icon.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
+import Responsive from 'components/containers/responsive'
 
 const StyledContainer = styled(Container)`
     flex-direction: column;
@@ -238,7 +238,7 @@ const ResponsibleTrading = () => (
                 <LimitsHeader as="h2" align="center" mobile_text_align="left">
                     {localize('Written limits and self-exclusion')}
                 </LimitsHeader>
-                <MediaQuery maxDeviceWidth={size.tabletL}>
+                <Responsive.Mobile>
                     <MarginHeader
                         as="h4"
                         weight="500"
@@ -249,8 +249,8 @@ const ResponsibleTrading = () => (
                             'With Deriv, you have the option to implement limits on your trading activities through our self-exclusion facility. You’ll be able to:',
                         )}
                     </MarginHeader>
-                </MediaQuery>
-                <MediaQuery minDeviceWidth={size.tabletL}>
+                </Responsive.Mobile>
+                <Responsive.Desktop>
                     <MarginHeader
                         as="h4"
                         weight="500"
@@ -261,7 +261,7 @@ const ResponsibleTrading = () => (
                             'With Deriv, you have the option to implement limits on your trading activities.',
                         )}
                     </MarginHeader>
-                </MediaQuery>
+                </Responsive.Desktop>
                 <MarginWrapper content_width="48rem" gap="1rem">
                     <StyledLimits>
                         <div>
@@ -299,13 +299,13 @@ const ResponsibleTrading = () => (
                             )}
                         </CheckText>
                     </StyledLimits>
-                    <MediaQuery maxDeviceWidth={size.tabletL}>
+                    <Responsive.Mobile>
                         <LearnMoreText weight="500">
                             {localize(
                                 'Learn more about our self-exclusion facility.',
                             )}
                         </LearnMoreText>
-                    </MediaQuery>
+                    </Responsive.Mobile>
                 </MarginWrapper>
             </StyledContainer>
         </ResponsibleSectionContainer>
@@ -318,7 +318,7 @@ const ResponsibleTrading = () => (
                 >
                     {localize('Other warnings and regulatory disclosures')}
                 </OtherWarningHeader>
-                <MediaQuery maxDeviceWidth={size.tabletL}>
+                <Responsive.Mobile>
                     <StyledCard>
                         <Text secondary>
                             {localize(
@@ -326,8 +326,8 @@ const ResponsibleTrading = () => (
                             )}
                         </Text>
                     </StyledCard>
-                </MediaQuery>
-                <MediaQuery minDeviceWidth={size.tabletL}>
+                </Responsive.Mobile>
+                <Responsive.Desktop>
                     <StyledCard>
                         <Text secondary>
                             {localize(
@@ -335,7 +335,7 @@ const ResponsibleTrading = () => (
                             )}
                         </Text>
                     </StyledCard>
-                </MediaQuery>
+                </Responsive.Desktop>
             </StyledContainer>
         </OtherWarningWrapper>
     </Layout>

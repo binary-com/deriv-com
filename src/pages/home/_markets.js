@@ -76,7 +76,7 @@ const Forex = () => (
             />
             <TabCol
                 Icon={tfs}
-                content={localize('Available for trading 24/5')}
+                content={localize('Available for trading 24/7')}
             />
             <TabCol
                 Icon={Ncm}

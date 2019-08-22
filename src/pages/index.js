@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import MediaQuery from 'react-responsive'
 import { Hero } from './home/_hero'
 import { Dtrader } from './home/_dtrader'
 import { HowItWorks } from './home/_how-it-works'
@@ -13,7 +12,7 @@ import Container from 'components/containers/container'
 import PaymentMethods from 'components/elements/payment-methods.js'
 import { localize, WithIntl } from 'components/localization'
 import { Divider } from 'components/elements/divider'
-import { size } from 'themes/device'
+import Responsive from 'components/containers/responsive'
 
 const PaymentSection = styled.section`
     width: 100%;
@@ -29,11 +28,11 @@ const Home = () => (
             )}
         />
         <Hero />
-        <MediaQuery maxDeviceWidth={size.tabletL}>
+        <Responsive.Mobile>
             <WhyDerivMobile />
             <Dtrader />
-        </MediaQuery>
-        <MediaQuery minDeviceWidth={size.tabletL}>
+        </Responsive.Mobile>
+        <Responsive.Desktop>
             <Dtrader />
             <HowItWorks />
             <Divider />
@@ -44,7 +43,7 @@ const Home = () => (
                     <PaymentMethods />
                 </Container>
             </PaymentSection>
-        </MediaQuery>
+        </Responsive.Desktop>
     </Layout>
 )
 

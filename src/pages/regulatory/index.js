@@ -99,12 +99,13 @@ const Regulatory = () => (
                     >
                         <Text align="center">
                             <Localize
-                                text='Binary Investments (Europe) Ltd is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>).'
+                                translate_text="Binary Investments (Europe) Ltd is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                                 components={[
                                     <a
                                         key={0}
                                         target="_blank"
-                                        href="/WS-Binary-Investments-Europe-Limited.pdf" />
+                                        href="/WS-Binary-Investments-Europe-Limited.pdf"
+                                    />,
                                 ]}
                             />
                         </Text>
@@ -117,13 +118,13 @@ const Regulatory = () => (
                     >
                         <Text align="center">
                             <Localize
-                                text='Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence.</0>'
+                                translate_text="Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence.</0>"
                                 components={[
                                     <a
                                         key={0}
                                         target="_blank"
                                         href="/BVI_license.pdf"
-                                    />
+                                    />,
                                 ]}
                             />
                         </Text>
@@ -136,14 +137,14 @@ const Regulatory = () => (
                     >
                         <Text align="center">
                             <Localize
-                                text='Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>'
+                                translate_text="Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>"
                                 components={[
                                     <a
                                         key={0}
                                         target="_blank"
                                         href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
                                         rel="noopener noreferrer"
-                                    />
+                                    />,
                                 ]}
                             />
                         </Text>
@@ -156,14 +157,14 @@ const Regulatory = () => (
                     >
                         <Text align="center">
                             <Localize
-                                text='Binary (FX) Ltd is licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business (<0>licence no. MB/18/0024</0>).'
+                                translate_text="Binary (FX) Ltd is licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business (<0>licence no. MB/18/0024</0>)."
                                 components={[
                                     <a
                                         key={0}
                                         target="_blank"
                                         href="/Labuan-license.pdf"
                                         rel="noopener noreferrer"
-                                    />
+                                    />,
                                 ]}
                             />
                         </Text>

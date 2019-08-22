@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
 import queryString from 'query-string'
-import { DERIV_APP_URL } from 'common/utility'
+import { deriv_app_url } from 'common/utility'
 
 const Redirect = ({ location }) => {
     useEffect(() => {
@@ -11,7 +11,7 @@ const Redirect = ({ location }) => {
         const string_params = queryString.stringify(config.query)
 
         const actions_map = {
-            signup: { path: DERIV_APP_URL },
+            signup: { path: deriv_app_url },
         }
 
         const redirect_config = actions_map[action]

@@ -7,7 +7,7 @@ import Modal, { useModal } from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
 import { SharedLinkStyle } from '../localization/localized-link'
-import { DERIV_APP_URL } from 'common/utility'
+import { deriv_app_url } from 'common/utility'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
@@ -141,7 +141,7 @@ const Nav = () => {
     }
 
     const handleTraderLink = () => {
-        window.open(DERIV_APP_URL, '_blank')
+        window.open(deriv_app_url, '_blank')
     }
     const handleMenuClick = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()

@@ -5,7 +5,7 @@ import Carousel from 'components/elements/carousel'
 import Button from 'components/form/button'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import { DERIV_APP_URL } from 'common/utility'
+import { deriv_app_url } from 'common/utility'
 // Icons
 import CarouselBackground from 'images/svg/abstract.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
@@ -13,7 +13,7 @@ import ChecklistLogo from 'images/svg/checklist.svg'
 const handleExternalLink = e => {
     e.preventDefault()
 
-    window.open(DERIV_APP_URL, '_blank')
+    window.open(deriv_app_url, '_blank')
 }
 
 const carousel_1_text = [

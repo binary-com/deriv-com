@@ -143,7 +143,7 @@ const Nav = () => {
     const handleTraderLink = () => {
         window.open(DERIV_APP_URL, '_blank')
     }
-    const handleHumbergerClick = () => {
+    const handleMenuClick = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
     return (
@@ -196,7 +196,7 @@ const Nav = () => {
                         </NavButton>
                     </NavRightContainer>
                 </NavRight>
-                <HamburgerMenu onClick={handleHumbergerClick} />
+                <HamburgerMenu onClick={handleMenuClick} />
                 <OffCanvasMenu
                     is_canvas_menu_open={is_canvas_menu_open}
                     closeOffCanvasMenu={closeOffCanvasMenu}

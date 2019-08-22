@@ -18,12 +18,18 @@ src
     │   ├── elements/
     │   ├── form/
     │   ├── layout/
+    │   ├── localization/
     ├── images/
     │   ├── common/
     │   ├── svg/
     ├── pages/
-    │   ├── index.js
+    │   ├── about/
+    │   │   ├── index.js
+    │   │   ├── _component-name.js
+    │   │   ├── ...
+    │   ├── help-centre/
     │   ├── 404.js
+    │   ├── index.js
     │   ├── ...
     ├── themes/
     │   ├── global-style.js
@@ -35,11 +41,11 @@ gatsby-config.js
 gatsby-node.js
 ```
 
-## common
+## Common
 
 The `common` directory contains common javascript to be used for utilities or for websocket calls.
 
-## components
+## Components
 
 All reusable components will be stored in this directory.
 contains React components, of either stateless or stateful varieties.
@@ -52,39 +58,32 @@ Components/
 └── elements/
 └── form/
 └── layout/
+└── localization/
 ```
 
-`containers` used to store specific function component for e.g. (Localization or SEO); `elements` used to store reusable piece of ui component such as card, image, header, wrapper, etc; `form` used to store form component such as button or input; and lastly `layout` used to store main wrapper for pages.
+`containers` used to store specific function component for e.g. (Localization or SEO); `elements` used to store reusable piece of ui component such as card, image, header, wrapper, etc; `form` used to store form component such as button or input; `layout` used to store main wrapper for pages; and lastly `localization` used to store translation functions and components.
 
-## images
+## Images
 
 This directory contains all image resources. all images are handled with `gatsby-image` for `lazy-loading` image purposes. you can take a look at [Gatsby Image](https://www.gatsbyjs.org/packages/gatsby-image/?=gatsby-image) page to understand more about its function and the usage. except for svg will be handled by `gatsby-plugin-react-svg` which overriding `svg-react-loader`, you can take a look at [Gatsby SVG](https://www.gatsbyjs.org/packages/gatsby-plugin-react-svg/) to see its usage.
 
 ## pages
 
-This directories contains all pages, the name of the file here will be the redirection link to each of the page.
-
-### COMPONENTS
-
-This directory contains React components, of either stateless or stateful varieties
-(e.g. `function` or `class` components).
-
-The optimal structure for components is to place files relevant to a component inside
-its own subdirectory, e.g.:
+This directories contains all pages, the name of the directories here will be the route path link to each of the pages.
 
 ```
-Components/
-├── Elements/
-│   ├── full-screen-dialog.jsx
-│   └── mobile-widget.jsx
-└── Form/
-    ├── ContractType/
-    ├── Purchase/
-    ├── TradeParams/
-    ├── form-layout.jsx
-    ├── screen-large.jsx
-    └── screen-small.jsx
+    ├── pages/
+    │   ├── about/
+    │   │   ├── index.js
+    │   │   ├── _component-name.js
+    │   │   ├── ...
+    │   ├── help-centre/
+    │   ├── 404.js
+    │   ├── index.js
+    │   ├── ...
 ```
+
+Inside of directory page for e.g. (about) will have `index.js` as the source to import the components inside directory related to it. Component name must have prefix `_` to avoid webpack treat the file as route path.
 
 #### Do:
 

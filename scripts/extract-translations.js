@@ -30,7 +30,14 @@ function extractTranslations() {
         try {
             const file_paths = [];
             const messages = [];
-            const i18n_marker = new RegExp(/i18n_default_text={?(?:(?<![\\])['"])(.*?)(?:(?<![\\])['"])}?|localize\(\s*?(?:(?<![\\])['"])(.*?)(?:(?<![\\])['"])\s*?\)?/gs);
+            /*
+            (['"])                    = the capturing group of either single quotes or double quotes, at the end must be following of \_your_capturing_group_no
+            (.*?)                     = is capturing group match all characters, unlimited characters
+            \_your_capturing_group_no = is matching capturing group, for e.g. `\1` means that it will match exactly the first capturing group
+            \s*                       = it matches any whitespace characters until unlimited times in our case it used to catch `\n` or newline
+            /gs                       = `g` means it will take all of the matches, `s` means it matches even in newline
+            */
+            const i18n_marker = new RegExp(/translate_text=(['"])(.*?)\1|localize\(\s*?(['"])\s*(.*?)\s*\3/gs);
             const messages_json = {};
 
             // Find all file types listed in `globs`
@@ -49,7 +56,7 @@ function extractTranslations() {
                     const file = fs.readFileSync(file_paths[i], 'utf8');
                     let result = i18n_marker.exec(file);
                     while (result != null) {
-                        const extracted = result[1] || result[2]; // If it's index `1`, then it's the first capturing group, otherwise it's the 2nd, referring to `localize()` call
+                        const extracted = result[2] || result[4]; // If it captures `text=` then it will be index 2, else its index 4 which captures `localize`
                         messages.push(extracted.replace(/\\/g, ''));
                         result = i18n_marker.exec(file);
                     }

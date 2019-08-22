@@ -88,7 +88,7 @@ import { localize, Localize } from '../localization'
 
 <p>{localize('text need to be translated')}</p>
 <p><Localize
-        text='your name is <0>{{name}}</0>, <1>view more info</1>'
+        translate_text='your name is <0>{{name}}</0>, <1>view more info</1>'
         values={{ name: this.state.name || 'jollie' }}
         components={[
             <strong key={0} />,

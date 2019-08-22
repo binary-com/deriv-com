@@ -37,7 +37,7 @@ export const DataFeed = () => (
                     <TncListText>
                         {/* TODO: [add-link]: link to trading times page once available */}
                         <Localize
-                            text="Market-closing times: Please refer to <0>Trading times</0> page for the exact time of settlement for all trades. Other websites may adopt a different convention (for example, some websites choose 4 o'clock NY time or 5 o'clock London time). As a result, the open, high, low, and closing prices displayed on Our website may differ from those on other websites, due to the market-closing-time convention."
+                            translate_text="Market-closing times: Please refer to <0>Trading times</0> page for the exact time of settlement for all trades. Other websites may adopt a different convention (for example, some websites choose 4 o'clock NY time or 5 o'clock London time). As a result, the open, high, low, and closing prices displayed on Our website may differ from those on other websites, due to the market-closing-time convention."
                             components={[
                                 <TncLink
                                     key={0}

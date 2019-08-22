@@ -6,7 +6,7 @@ import Container from '../containers/container'
 import Modal, { useModal } from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
 import { SharedLinkStyle } from '../localization/localized-link'
-import { DERIV_APP_URL } from 'common/utility'
+import { deriv_app_url } from 'common/utility'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
@@ -136,7 +136,7 @@ const Nav = () => {
     }
 
     const handleTraderLink = () => {
-        window.open(DERIV_APP_URL, '_blank')
+        window.open(deriv_app_url, '_blank')
     }
     return (
         <StyledNav>

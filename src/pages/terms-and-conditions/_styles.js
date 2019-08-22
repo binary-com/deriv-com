@@ -9,7 +9,12 @@ export const StyledSection = styled.section`
         padding-left: 0;
     }
 `
-
+export const StyledTitle = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 3rem;
+        margin-top: 2.6rem;
+    }
+`
 export const TncText = styled(Text)`
     margin-top: 0.8rem;
     margin-bottom: 1.6rem;

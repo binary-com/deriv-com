@@ -7,10 +7,17 @@ import Wrapper from '../containers/wrapper'
 import { Text } from './typography'
 import { getLocationHash } from 'common/utility'
 import device, { size } from 'themes/device'
+import Arrow from 'images/svg/arrow-1.svg'
 
 const StyledSideTab = styled(Wrapper)`
     padding: 0;
     display: flex;
+
+    @media ${device.tabletL} {
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
 `
 
 const TabList = styled.ol`
@@ -27,7 +34,6 @@ const TabContent = styled.div`
 `
 
 const StyledTab = styled.li`
-    cursor: pointer;
     padding: 1.8rem 0;
     border-bottom: 1px solid var(--color-red-2);
 
@@ -42,7 +48,20 @@ const StyledTab = styled.li`
         }
     }
 `
+const StyledDropDown = styled.li`
+    padding: 1rem 0;
+    color: var(--color-red);
+    border-bottom: 1px solid var(--color-red);
+    display: flex;
+    justify-content: space-between;
 
+    p {
+        font-size: var(--text-size-s);
+        color: var(--color-red);
+        font-size: 2rem;
+    }
+`
+const ArrowWrapper = styled(Arrow)``
 const Tab = ({ active_tab, label, onClick, text }) => {
     const className = active_tab === label ? 'tab-active' : ''
 
@@ -70,6 +89,17 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
     return [active_tab, setTab]
 }
 
+const DropDown = props => {
+    const handleClick = () => {
+        props.onClick(props.label)
+    }
+    return (
+        <StyledDropDown onClick={handleClick}>
+            <Text weight="500">{props.text}</Text>
+        </StyledDropDown>
+    )
+}
+
 const SideTab = ({ children, has_hash_routing }) => {
     const first_tab = children[0].props.label
     const [active_tab, setTab] = useTabs(first_tab, has_hash_routing)
@@ -81,49 +111,63 @@ const SideTab = ({ children, has_hash_routing }) => {
         })
     }
 
+    const handleReset = () => {
+        setTab('-')
+    }
+    const current_active_tab = children.find(
+        child => child.props.label === active_tab,
+    )
+
     return (
         <StyledSideTab>
             <TabList>
-                {children.map((child, idx) => {
-                    const { label, text } = child.props
+                <MediaQuery minDeviceWidth={size.tabletL}>
+                    {children.map((child, idx) => {
+                        const { label, text } = child.props
+                        return (
+                            <div key={idx}>
+                                <Tab
+                                    active_tab={active_tab}
+                                    label={label}
+                                    text={text}
+                                    onClick={setTab}
+                                />
+                            </div>
+                        )
+                    })}
+                </MediaQuery>
+                <MediaQuery maxDeviceWidth={size.tabletL}>
+                    <StyledDropDown onClick={handleReset}>
+                        {current_active_tab ? (
+                            <p>{current_active_tab.props.text}</p>
+                        ) : (
+                            <p>-</p>
+                        )}
+                        <ArrowWrapper />
+                    </StyledDropDown>
+                    {current_active_tab
+                        ? undefined
+                        : children.map((child, idx) => {
+                              const { label, text } = child.props
 
-                    return (
-                        <>
-                            <MediaQuery minDeviceWidth={size.tabletL}>
-                                <Tab
-                                    active_tab={active_tab}
-                                    key={idx}
-                                    label={label}
-                                    text={text}
-                                    onClick={setTab}
-                                />
-                            </MediaQuery>
-                            <MediaQuery maxDeviceWidth={size.tabletL}>
-                                {/* add new component instead of this one for mobile */}
-                                <Tab
-                                    active_tab={active_tab}
-                                    key={idx}
-                                    label={label}
-                                    text={text}
-                                    onClick={setTab}
-                                />
-                                <TabContent>
-                                    {child.props.label === active_tab
-                                        ? child
-                                        : undefined}
-                                </TabContent>
-                            </MediaQuery>
-                        </>
-                    )
-                })}
+                              return (
+                                  <div key={idx}>
+                                      <DropDown
+                                          text={text}
+                                          onClick={setTab}
+                                          active_tab={active_tab}
+                                          label={label}
+                                      />
+                                  </div>
+                              )
+                          })}
+                </MediaQuery>
             </TabList>
-            <MediaQuery minDeviceWidth={size.tabletL}>
-                <TabContent>
-                    {children.map(child =>
-                        child.props.label === active_tab ? child : undefined,
-                    )}
-                </TabContent>
-            </MediaQuery>
+            <TabContent>
+                {children.map(child =>
+                    child.props.label === active_tab ? child : undefined,
+                )}
+            </TabContent>
         </StyledSideTab>
     )
 }

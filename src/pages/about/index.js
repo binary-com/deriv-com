@@ -32,21 +32,24 @@ const About = () => {
         <Layout>
             <SEO title={localize('About us')} />
             <Responsive.Mobile>
-                <Hero
-                    header={localize('About us')}
-                    paragraph={localize(
-                        'Deriv is the latest innovation by the Binary Group, powered by 20 years of experience, customer focus, and technical innovation.',
-                    )}
-                />
+                {matches =>
+                    matches ? (
+                        <Hero
+                            header={localize('About us')}
+                            paragraph={localize(
+                                'Deriv is the latest innovation by the Binary Group, powered by 20 years of experience, customer focus, and technical innovation.',
+                            )}
+                        />
+                    ) : (
+                        <Hero
+                            header={localize('About us')}
+                            paragraph={localize(
+                                'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                            )}
+                        />
+                    )
+                }
             </Responsive.Mobile>
-            <Responsive.Desktop>
-                <Hero
-                    header={localize('About us')}
-                    paragraph={localize(
-                        'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
-                    )}
-                />
-            </Responsive.Desktop>
             <OurGoals />
             <OurNumbers />
             <OurLocations />

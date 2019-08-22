@@ -47,10 +47,12 @@ class PromiseClass {
     }
 }
 
-const DERIV_APP_URL = 'https://deriv.app'
+const deriv_app_url = 'https://deriv.app'
+const brand_name = 'Deriv'
 
 export {
-    DERIV_APP_URL,
+    deriv_app_url,
+    brand_name,
     isEmptyObject,
     cloneObject,
     hasWindow,

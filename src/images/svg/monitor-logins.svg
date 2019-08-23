@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="monitor-logins-icon-title">
-    <title id="monitor-logins-icon-title">Monitor logins icon</title>
+    <title id="monitor-logins-icon-title">Monitor logins</title>
     <g fill="none" fill-rule="evenodd">
         <path d="M0 0h64v64H0z"/>
         <path fill="#FF444F" fill-rule="nonzero" d="M32.5 36.5h-6a1 1 0 0 0 0 2h7a1 1 0 0 0 1-1v-12a1 1 0 0 0-2 0v11z"/>

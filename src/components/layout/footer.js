@@ -247,6 +247,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/keep-safe/"
                                 aria-label={localize('Keep safe')}
+                                partiallyActive={true}
                             >
                                 {localize('Keep safe')}
                             </FooterStyledLink>
@@ -257,6 +258,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/about/"
                                 aria-label={localize('About us')}
+                                partiallyActive={true}
                             >
                                 {localize('About us')}
                             </FooterStyledLink>
@@ -267,6 +269,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/help-centre/"
                                 aria-label={localize('Help Centre')}
+                                partiallyActive={true}
                             >
                                 {localize('Help Centre')}
                             </FooterStyledLink>
@@ -277,6 +280,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/regulatory/"
                                 aria-label={localize('Regulatory information')}
+                                partiallyActive={true}
                             >
                                 {localize('Regulatory information')}
                             </FooterStyledLink>
@@ -284,6 +288,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/terms-and-conditions/"
                                 aria-label={localize('Terms and conditions')}
+                                partiallyActive={true}
                             >
                                 {localize('Terms and conditions')}
                             </FooterStyledLink>
@@ -292,6 +297,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and privacy')}
+                                partiallyActive={true}
                             >
                                 {localize('Security and privacy')}
                             </FooterStyledLink>
@@ -299,6 +305,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/responsible-trading/"
                                 aria-label={localize('Responsible trading')}
+                                partiallyActive={true}
                             >
                                 {localize('Responsible trading')}
                             </FooterStyledLink>

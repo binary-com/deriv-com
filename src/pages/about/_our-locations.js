@@ -57,6 +57,7 @@ const locations = [
     {
         name: localize('Dubai,'),
         icon: <DubaiSVG />,
+        country: localize('UAE'),
         grid: 'dl',
     },
     {

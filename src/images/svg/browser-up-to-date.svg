@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="browser-icon-title">
-    <title id="browser-icon-title">Browser icon</title>
+    <title id="browser-icon-title">Browser</title>
     <g fill="none" fill-rule="nonzero">
         <path fill="#85ACB0" d="M6 54H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h50a1 1 0 0 1 1 1v5a1 1 0 0 0 2 0V3a3 3 0 0 0-3-3H3a3 3 0 0 0-3 3v50a3 3 0 0 0 3 3h3a1 1 0 0 0 0-2z"/>
         <path fill="#85ACB0" d="M7 24h56a1 1 0 0 0 0-2H7a1 1 0 0 0 0 2zM14 19a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-2a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM24 19a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-2a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM34 19a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0-2a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>

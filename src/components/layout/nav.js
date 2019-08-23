@@ -160,6 +160,7 @@ const Nav = () => {
                             activeClassName="active"
                             to="/about/"
                             aria-label={localize('About us')}
+                            partiallyActive={true}
                         >
                             {localize('About us')}
                         </StyledLink>
@@ -169,6 +170,7 @@ const Nav = () => {
                             activeClassName="active"
                             to="/help-centre/"
                             aria-label={localize('Help Centre')}
+                            partiallyActive={true}
                         >
                             {localize('Help Centre')}
                         </StyledLink>

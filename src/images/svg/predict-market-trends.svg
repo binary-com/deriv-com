@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="predict-market-icon-title">
-    <title id='predict-market-icon-title'>Predict market icon</title>
+    <title id='predict-market-icon-title'>Predict market</title>
     <g fill="none" fill-rule="nonzero">
         <path fill="#85ACB0" d="M54 53.17v3.938a.992.992 0 0 1-1 .984H10c-.552 0-1 .441-1 .985s.448.985 1 .985h43c1.657 0 3-1.323 3-2.954v-3.939a.992.992 0 0 0-1-.984c-.552 0-1 .44-1 .984zM5 1.97h47c.552 0 1-.442 1-.985A.992.992 0 0 0 52 0H5c-.552 0-1 .44-1 .985 0 .543.448.984 1 .984z"/>
         <path fill="#85ACB0" d="M47 59.077v1.97a.992.992 0 0 1-1 .984H3c-.552 0-1-.441-1-.985V5.908a.992.992 0 0 0-1-.985c-.552 0-1 .44-1 .985v55.138C0 62.678 1.343 64 3 64h43c1.657 0 3-1.322 3-2.954v-1.97a.992.992 0 0 0-1-.984c-.552 0-1 .441-1 .985z"/>

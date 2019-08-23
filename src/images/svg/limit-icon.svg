@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="limit-icon">
-    <title id='limit-icon'>Limit icon</title>
+    <title id='limit-icon'>Limit</title>
     <g fill="none" fill-rule="evenodd">
         <path stroke="#85ACB0" stroke-width="1.938" d="M62.969 31.969c0 17.12-13.88 31-31 31-17.121 0-31-13.88-31-31 0-17.121 13.879-31 31-31 17.12 0 31 13.879 31 31z"/>
         <path stroke="#0E0E0E" stroke-width="2" d="M33.969 31.969a2 2 0 1 1-4.002-.002 2 2 0 0 1 4.002.002z"/>

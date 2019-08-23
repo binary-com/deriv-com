@@ -83,7 +83,7 @@ const EmailImgWrapper = styled(Wrapper)`
     display: flex;
     justify-content: center;
 `
-const ErrorLink = styled(StyledLink)`
+const EmailLink = styled(StyledLink)`
     display: table;
     font-size: 1.4rem;
     margin-top: 1.8rem;
@@ -300,9 +300,9 @@ class Signup extends Component {
                             {localize(
                                 'with a link to activate your account.')}
                         </Text>
-                        <ErrorLink to="/email-error/">
+                        <EmailLink to="/check-email/">
                             {localize('Didn\'t receive your email?')}
-                        </ErrorLink>
+                        </EmailLink>
                     </ResponseWrapper>
                 )}
                 {this.state.submit_status === 'error' &&

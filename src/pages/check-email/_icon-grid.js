@@ -37,7 +37,6 @@ const GridCol = styled.article`
         }
     }
 `
-
 const Col = ({ Icon, content }) => (
     <GridCol>
         <Icon />

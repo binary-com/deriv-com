@@ -8,7 +8,7 @@ export const ComplaintsAndDisputes = () => (
         <Header as="h2" color="black">
             {localize('Complaints and disputes')}
         </Header>
-        <StyledOrder type='decimal'>
+        <StyledOrder type="decimal">
             <li>
                 <TncListText>
                     {localize(

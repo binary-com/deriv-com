@@ -174,7 +174,7 @@ class HelpCentre extends Component {
             search_has_transition,
         } = this.state
 
-        const filtered_articles = matchSorter(all_articles, search, {
+        const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
         })
         const has_results = !!filtered_articles.length

@@ -76,7 +76,7 @@ const Forex = () => (
             />
             <TabCol
                 Icon={tfs}
-                content={localize('Available for trading 24/7')}
+                content={localize('Available for trading 24/5')}
             />
             <TabCol
                 Icon={Ncm}
@@ -176,7 +176,7 @@ export const Markets = () => (
             </Header>
             <StyledSubHeader as="h4" align="center" weight="500">
                 {localize(
-                    'Over 100 assets available across four leading markets.',
+                    'Over 100 assets available across five leading markets.',
                 )}
             </StyledSubHeader>
             <Markettabs>

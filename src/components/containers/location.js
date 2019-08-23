@@ -17,7 +17,7 @@ const handleEu = (setVisible, to) => is_eu_country => {
     }
 }
 
-const Country = ({ children, to }) => {
+const Location = ({ children, to }) => {
     const [visible, setVisible] = useState(false)
     useEffect(() => {
         if (!to) return
@@ -42,7 +42,7 @@ const Country = ({ children, to }) => {
     return visible ? <>{children}</> : null
 }
 
-Country.propTypes = {
+Location.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
@@ -50,4 +50,4 @@ Country.propTypes = {
     to: PropTypes.oneOf(['eu', 'non-eu']),
 }
 
-export default Country
+export default Location

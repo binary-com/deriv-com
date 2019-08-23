@@ -24,20 +24,7 @@ const Location = ({ children, to }) => {
 
         const clients_country = Cookies.get('clients_country')
         const showEu = handleEu(setVisible, to)
-        if (clients_country) {
-            showEu(isEuCountry(clients_country))
-        } else {
-            BinarySocketBase.wait('website_status').then(response => {
-                showEu(isEuCountry(response.website_status.clients_country))
-
-                /* country_code cookies will be valid for 1 month */
-                Cookies.set(
-                    'clients_country',
-                    response.website_status.clients_country,
-                    { expires: 30 },
-                )
-            })
-        }
+        showEu(isEuCountry(clients_country))
     })
     return visible ? <>{children}</> : null
 }

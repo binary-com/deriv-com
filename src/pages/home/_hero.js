@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import MediaQuery from 'react-responsive'
 import Button from '../../components/form/button'
 import { StyledHeader } from './_headers'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 import Container from 'components/containers/container'
+import Show from 'components/containers/show'
 import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
+import Modal, { useModal } from 'components/elements/modal'
+import SignupModal from 'components/elements/signup-modal'
 import header_trade_image from 'images/common/header-trade.png'
 
 const HeroWrapper = styled.section`
@@ -26,7 +28,7 @@ const HeroWrapper = styled.section`
         background: unset;
         background-position: -20rem 100%;
         min-height: 47rem;
-        background-color:var(--color-black);
+        background-color: var(--color-black);
         padding-bottom: 7rem;
     }
     @media ${device.tablet} {
@@ -79,14 +81,15 @@ const SingupButton = styled(Button)`
     font-size: var(--text-size-sm);
 `
 
-export const Hero = () => (
-    <HeroWrapper>
-        <Container>
-            <HeroGrid>
-                <article>
-                    <MediaQuery maxDeviceWidth={size.tabletL}>
-                        {matches => matches ? <>
-                            <Header font_size='6rem' color="white" lh="1.1">
+export const Hero = () => {
+    const [show_modal, toggleModal, closeModal] = useModal()
+    return (
+        <HeroWrapper>
+            <Container>
+                <HeroGrid>
+                    <article>
+                        <Show.Mobile>
+                            <Header font_size="6rem" color="white" lh="1.1">
                                 {localize(
                                     'Welcome to the ultimate trading experience',
                                 )}
@@ -100,31 +103,46 @@ export const Hero = () => (
                                     'All the world’s markets, one powerful trading platform',
                                 )}
                             </StyledHeader>
-                        </> : <>
-                                <Header as="h1" color="white" lh="1.2">
-                                    {localize(
-                                        'This is your ultimate trading experience',
-                                    )}
-                                </Header>
-                                <StyledHeader as="h4" color="white" weight="500">
-                                    {localize(
-                                        'The world’s markets at your fingertips anytime, anywhere.',
-                                    )}
-                                </StyledHeader>
-                            </>}
-                    </MediaQuery>
-                </article>
-                <MediaQuery maxDeviceWidth={size.tabletL}>
-                    {matches => matches ? <SingupButton type="submit" secondary>
-                        {localize('Create a free demo account')}
-                    </SingupButton> : <SignupWrapper>
+                        </Show.Mobile>
+                        <Show.Desktop>
+                            <Header as="h1" color="white" lh="1.2">
+                                {localize(
+                                    'This is your ultimate trading experience',
+                                )}
+                            </Header>
+                            <StyledHeader as="h4" color="white" weight="500">
+                                {localize(
+                                    'The world’s markets at your fingertips anytime, anywhere.',
+                                )}
+                            </StyledHeader>
+                        </Show.Desktop>
+                    </article>
+                    <Show.Mobile>
+                        <SingupButton
+                            type="submit"
+                            onClick={toggleModal}
+                            secondary
+                        >
+                            {localize('Create a free demo account')}
+                        </SingupButton>
+                        <Modal
+                            toggle={toggleModal}
+                            is_open={show_modal}
+                            is_blurred={true}
+                            closeModal={closeModal}
+                        >
+                            <SignupModal autofocus />
+                        </Modal>
+                    </Show.Mobile>
+                    <Show.Desktop>
+                        <SignupWrapper>
                             <SignupBox>
                                 <Signup />
                             </SignupBox>
                         </SignupWrapper>
-                    }
-                </MediaQuery>
-            </HeroGrid>
-        </Container>
-    </HeroWrapper>
-)
+                    </Show.Desktop>
+                </HeroGrid>
+            </Container>
+        </HeroWrapper>
+    )
+}

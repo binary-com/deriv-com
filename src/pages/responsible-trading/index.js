@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import MediaQuery from 'react-responsive'
 import SEO from 'components/containers/seo'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Hero from 'components/elements/hero'
@@ -21,9 +20,11 @@ import Limit from 'images/svg/limit-icon.svg'
 import AvoidTrading from 'images/svg/avoid-trading-icon.svg'
 import PortionWinning from 'images/svg/portion-winning-icon.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
+import Show from 'components/containers/show'
 
 const StyledContainer = styled(Container)`
     flex-direction: column;
+
     ${FlexGridContainer} {
         width: 100%;
     }
@@ -79,7 +80,6 @@ const StyledCard = styled.article`
     width: 100%;
     margin: 4rem;
     padding: 4rem;
-
     @media ${device.tabletL} {
         padding: 2.66rem 1.77rem;
     }
@@ -87,10 +87,10 @@ const StyledCard = styled.article`
 
 const MarginHeader = styled(Header)`
     margin-top: 1rem;
-
     @media ${device.tabletL} {
         font-size: 2rem;
     }
+
     ${props => {
         if (props.as === 'h4') return 'line-height: 3rem;'
     }}
@@ -238,8 +238,8 @@ const ResponsibleTrading = () => (
                 <LimitsHeader as="h2" align="center" mobile_text_align="left">
                     {localize('Written limits and self-exclusion')}
                 </LimitsHeader>
-                <MediaQuery maxDeviceWidth={size.tabletL}>
-                    {matches => matches ? <MarginHeader
+                <Show.Mobile>
+                    <MarginHeader
                         as="h4"
                         weight="500"
                         align="center"
@@ -248,17 +248,20 @@ const ResponsibleTrading = () => (
                         {localize(
                             'With Deriv, you have the option to implement limits on your trading activities through our self-exclusion facility. You’ll be able to:',
                         )}
-                    </MarginHeader> : <MarginHeader
+                    </MarginHeader>
+                </Show.Mobile>
+                <Show.Desktop>
+                    <MarginHeader
                         as="h4"
                         weight="500"
                         align="center"
                         mobile_text_align="left"
                     >
-                            {localize(
-                                'With Deriv, you have the option to implement limits on your trading activities.',
-                            )}
-                        </MarginHeader>}
-                </MediaQuery>
+                        {localize(
+                            'With Deriv, you have the option to implement limits on your trading activities.',
+                        )}
+                    </MarginHeader>
+                </Show.Desktop>
                 <MarginWrapper content_width="48rem" gap="1rem">
                     <StyledLimits>
                         <div>
@@ -296,13 +299,13 @@ const ResponsibleTrading = () => (
                             )}
                         </CheckText>
                     </StyledLimits>
-                    <MediaQuery maxDeviceWidth={size.tabletL}>
+                    <Show.Mobile>
                         <LearnMoreText weight="500">
                             {localize(
                                 'Learn more about our self-exclusion facility.',
                             )}
                         </LearnMoreText>
-                    </MediaQuery>
+                    </Show.Mobile>
                 </MarginWrapper>
             </StyledContainer>
         </ResponsibleSectionContainer>
@@ -315,21 +318,24 @@ const ResponsibleTrading = () => (
                 >
                     {localize('Other warnings and regulatory disclosures')}
                 </OtherWarningHeader>
-                <MediaQuery maxDeviceWidth={size.tabletL}>
-                    {matches => matches ? <StyledCard>
+                <Show.Mobile>
+                    <StyledCard>
                         <Text secondary>
                             {localize(
                                 'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Refer to our Key Information Documents for the amount of margincrequired for the trading instruments offered on our cwebsite. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
                             )}
                         </Text>
-                    </StyledCard> : <StyledCard>
-                            <Text secondary>
-                                {localize(
-                                    'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
-                                )}
-                            </Text>
-                        </StyledCard>}
-                </MediaQuery>
+                    </StyledCard>
+                </Show.Mobile>
+                <Show.Desktop>
+                    <StyledCard>
+                        <Text secondary>
+                            {localize(
+                                'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
+                            )}
+                        </Text>
+                    </StyledCard>
+                </Show.Desktop>
             </StyledContainer>
         </OtherWarningWrapper>
     </Layout>

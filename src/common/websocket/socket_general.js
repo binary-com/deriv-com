@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import { getPropertyValue } from '../utility'
 import { BinarySocketBase } from './socket_base'
 
@@ -20,6 +21,13 @@ const BinarySocketGeneral = (() => {
                     is_available = /^up$/i.test(
                         response.website_status.site_status,
                     )
+                    if (!Cookies.get('clients_country')) {
+                        Cookies.set(
+                            'clients_country',
+                            response.website_status.clients_country,
+                            { expires: 30 }, // expires in 30 days
+                        )
+                    }
                     if (is_available && !BinarySocketBase.availability()) {
                         window.location.reload()
                         return

@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 import { isStorageSupported, LocalStore } from './storage'
 import TrafficSource from './traffic-source'
 import isMobile from './os-detect'
+import { brand_name } from './utility'
 import { getAppId } from './websocket/config'
 
 const Login = (() => {
@@ -23,22 +24,6 @@ const Login = (() => {
                 ? `&date_first_contact=${date_first_contact}`
                 : ''
         }`
-
-        return server_url && /qa/.test(server_url)
-            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}`
-            : `https://oauth.deriv.com/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}`
-    }
-
-    const socialLoginUrl = (
-        brand,
-        affiliate_token,
-        utm_source,
-        utm_medium,
-        utm_campaign,
-    ) =>
-        `${loginUrl()}&social_signup=${brand}${affiliate_token}${utm_source}${utm_medium}${utm_campaign}`
-
-    const initOneAll = provider => {
         const affiliate_tracking = Cookies.getJSON('affiliate_tracking')
         const utm_data = TrafficSource.getData()
         const utm_source = TrafficSource.getSource(utm_data)
@@ -52,13 +37,15 @@ const Login = (() => {
         const affiliate_token_link = affiliate_tracking
             ? `&affiliate_token=${affiliate_tracking.t}`
             : ''
-        const social_login_url = socialLoginUrl(
-            provider,
-            affiliate_token_link,
-            utm_source_link,
-            utm_medium_link,
-            utm_campaign_link,
-        )
+        const deriv_app_app_id = 16929;
+
+        return server_url && /qa/.test(server_url)
+            ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_source_link}${utm_medium_link}${utm_campaign_link}`
+            : `https://oauth.deriv.app/oauth2/authorize?app_id=${deriv_app_app_id}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_source_link}${utm_medium_link}${utm_campaign_link}`
+    }
+
+    const initOneAll = provider => {
+        const social_login_url = `${loginUrl()}&social_signup=${provider}`
 
         window.open(social_login_url, '_blank')
     }

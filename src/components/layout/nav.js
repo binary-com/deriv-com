@@ -95,7 +95,7 @@ const NavButton = styled(Button)`
 `
 const NavRightContainer = styled.div`
     position: absolute;
-    left: 14rem;
+    left: 13.8rem;
     transition: left 0.5s ease-out;
     ${props => {
         if (props.enable_move) {

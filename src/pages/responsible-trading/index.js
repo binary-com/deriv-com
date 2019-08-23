@@ -100,6 +100,7 @@ const GuidlineGridContainer = styled.div`
     margin: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
     grid-row-gap: 3rem;
     grid-template-areas:
         'demo hand_money borrow_money'

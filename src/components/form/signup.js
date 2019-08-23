@@ -12,6 +12,7 @@ import Button from './button'
 import Input from './input'
 import TrafficSource from 'common/traffic-source'
 import { LocalStore } from 'common/storage'
+import { sanitize } from 'common/utility'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 // Icons
@@ -118,7 +119,7 @@ class Signup extends Component {
         const { name, value } = e.target
 
         this.setState({
-            [name]: value,
+            [name]: sanitize(value),
         })
 
         this.handleValidation(value)

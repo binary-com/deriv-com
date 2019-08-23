@@ -47,6 +47,8 @@ class PromiseClass {
     }
 }
 
+const sanitize = input => input.replace(/[.*+?^${}()|[\]\\]/g, '')
+
 const deriv_app_url = 'https://deriv.app'
 const brand_name = 'Deriv'
 
@@ -59,5 +61,6 @@ export {
     getPropertyValue,
     getLocationHash,
     PromiseClass,
+    sanitize,
     toISOFormat,
 }

@@ -239,7 +239,9 @@ const Footer = () => (
                 <FooterNavGrid>
                     <FooterNav>
                         <Department grid_name="logo">
-                            <Logo />
+                            <LocalizedLink to="/" aria-label={localize('Home')}>
+                                <Logo />
+                            </LocalizedLink>
                         </Department>
                         <Department grid_name="trade">
                             <Header as="h4">{localize('Trade')}</Header>
@@ -331,9 +333,30 @@ const Footer = () => (
                 <LegalRow>
                     <LegalIcons>
                         <span>
-                            <Vanuatu />
-                            <FSC />
-                            <Labuan />
+                            <a
+                                href="https://www.vfsc.vu/"
+                                aria-label={localize('Vanuatu')}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Vanuatu />
+                            </a>
+                            <a
+                                href="https://www.bvifsc.vg/"
+                                aria-label={localize('FSC')}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FSC />
+                            </a>
+                            <a
+                                href="https://www.labuanibfc.com/"
+                                aria-label={localize('Labuan')}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Labuan />
+                            </a>
                         </span>
                     </LegalIcons>
                     <LegalTextWrapper>

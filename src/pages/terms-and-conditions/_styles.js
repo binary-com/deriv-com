@@ -22,7 +22,7 @@ export const StyledHeader = styled(Header)`
 export const StyledOrder = styled.ol`
     list-style: ${props => props.type || ''};
     font-size: var(--text-size-s);
-    padding-left: 1.8rem;
+    padding-left: 2rem;
 
     & > li {
         padding-left: 0.5rem;

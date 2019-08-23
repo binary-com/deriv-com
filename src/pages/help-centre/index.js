@@ -11,7 +11,7 @@ import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import Container from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
-import { getLocationHash } from 'common/utility'
+import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
@@ -116,7 +116,7 @@ class HelpCentre extends Component {
     handleInputChange = e => {
         e.preventDefault()
         const { name, value } = e.target
-        this.setState({ [name]: `${value.trim()}` })
+        this.setState({ [name]: `${sanitize(value)}` })
     }
 
     handleSubmit = e => e.preventDefault()

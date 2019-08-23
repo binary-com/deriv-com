@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import MediaQuery from 'react-responsive'
 import Button from '../../components/form/button'
 import { StyledHeader } from './_headers'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 import Container from 'components/containers/container'
+import Show from 'components/containers/show'
 import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
@@ -88,12 +88,8 @@ export const Hero = () => {
             <Container>
                 <HeroGrid>
                     <article>
-                        <MediaQuery maxDeviceWidth={size.tabletL}>
-                            <Header
-                                font_size="6rem"
-                                color="white"
-                                lh="1.1"
-                            >
+                        <Show.Mobile>
+                            <Header font_size="6rem" color="white" lh="1.1">
                                 {localize(
                                     'Welcome to the ultimate trading experience',
                                 )}
@@ -107,25 +103,21 @@ export const Hero = () => {
                                     'All the world’s markets, one powerful trading platform',
                                 )}
                             </StyledHeader>
-                        </MediaQuery>
-                        <MediaQuery minDeviceWidth={size.tabletL}>
+                        </Show.Mobile>
+                        <Show.Desktop>
                             <Header as="h1" color="white" lh="1.2">
                                 {localize(
                                     'This is your ultimate trading experience',
                                 )}
                             </Header>
-                            <StyledHeader
-                                as="h4"
-                                color="white"
-                                weight="500"
-                            >
+                            <StyledHeader as="h4" color="white" weight="500">
                                 {localize(
                                     'The world’s markets at your fingertips anytime, anywhere.',
                                 )}
                             </StyledHeader>
-                        </MediaQuery>
+                        </Show.Desktop>
                     </article>
-                    <MediaQuery maxDeviceWidth={size.tabletL}>
+                    <Show.Mobile>
                         <SingupButton
                             type="submit"
                             onClick={toggleModal}
@@ -141,14 +133,14 @@ export const Hero = () => {
                         >
                             <SignupModal autofocus />
                         </Modal>
-                    </MediaQuery>
-                    <MediaQuery minDeviceWidth={size.tabletL}>
+                    </Show.Mobile>
+                    <Show.Desktop>
                         <SignupWrapper>
                             <SignupBox>
                                 <Signup />
                             </SignupBox>
                         </SignupWrapper>
-                    </MediaQuery>
+                    </Show.Desktop>
                 </HeroGrid>
             </Container>
         </HeroWrapper>

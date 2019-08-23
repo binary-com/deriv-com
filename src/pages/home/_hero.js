@@ -4,7 +4,7 @@ import Button from '../../components/form/button'
 import { StyledHeader } from './_headers'
 import device from 'themes/device'
 import Container from 'components/containers/container'
-import Responsive from 'components/containers/responsive'
+import Show from 'components/containers/show'
 import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
@@ -88,7 +88,7 @@ export const Hero = () => {
             <Container>
                 <HeroGrid>
                     <article>
-                        <Responsive.Mobile>
+                        <Show.Mobile>
                             <Header font_size="6rem" color="white" lh="1.1">
                                 {localize(
                                     'Welcome to the ultimate trading experience',
@@ -103,8 +103,8 @@ export const Hero = () => {
                                     'All the world’s markets, one powerful trading platform',
                                 )}
                             </StyledHeader>
-                        </Responsive.Mobile>
-                        <Responsive.Desktop>
+                        </Show.Mobile>
+                        <Show.Desktop>
                             <Header as="h1" color="white" lh="1.2">
                                 {localize(
                                     'This is your ultimate trading experience',
@@ -115,9 +115,9 @@ export const Hero = () => {
                                     'The world’s markets at your fingertips anytime, anywhere.',
                                 )}
                             </StyledHeader>
-                        </Responsive.Desktop>
+                        </Show.Desktop>
                     </article>
-                    <Responsive.Mobile>
+                    <Show.Mobile>
                         <SingupButton
                             type="submit"
                             onClick={toggleModal}
@@ -133,14 +133,14 @@ export const Hero = () => {
                         >
                             <SignupModal autofocus />
                         </Modal>
-                    </Responsive.Mobile>
-                    <Responsive.Desktop>
+                    </Show.Mobile>
+                    <Show.Desktop>
                         <SignupWrapper>
                             <SignupBox>
                                 <Signup />
                             </SignupBox>
                         </SignupWrapper>
-                    </Responsive.Desktop>
+                    </Show.Desktop>
                 </HeroGrid>
             </Container>
         </HeroWrapper>

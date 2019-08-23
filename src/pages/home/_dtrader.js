@@ -17,7 +17,7 @@ import SuperiorPlatform from 'images/svg/superior-trading-platform.svg'
 import PatentedTech from 'images/svg/patented-technology.svg'
 import Intuitive from 'images/svg/intuitive.svg'
 import TradeLogo from 'images/svg/trade.svg'
-import Responsive from 'components/containers/responsive'
+import Show from 'components/containers/show'
 
 const DtraderSectionContainer = styled(SectionContainer)`
     padding: 2rem 0 4rem 0;
@@ -100,7 +100,7 @@ export const Dtrader = () => {
     return (
         <DtraderSectionContainer>
             <SectionHeader>
-                <Responsive.Mobile>
+                <Show.Mobile>
                     <Header
                         font_size="4rem"
                         align="center"
@@ -132,17 +132,17 @@ export const Dtrader = () => {
                             {localize('Learn more')}
                         </SingupButton>
                     </ButtonWrapper>
-                </Responsive.Mobile>
-                <Responsive.Desktop>
+                </Show.Mobile>
+                <Show.Desktop>
                     <Header as="h2" align="center" lh="6rem">
                         {localize('DTrader')}
                     </Header>
                     <StyledSubHeader as="h4" align="center" weight="500">
                         {localize('All you need to get started')}
                     </StyledSubHeader>
-                </Responsive.Desktop>
+                </Show.Desktop>
             </SectionHeader>
-            <Responsive.Desktop>
+            <Show.Desktop>
                 <StyledContainer>
                     <FlexGridContainer
                         content_width="32.8rem"
@@ -203,7 +203,7 @@ export const Dtrader = () => {
                         <SignupModal autofocus />
                     </Modal>
                 </Cta>
-            </Responsive.Desktop>
+            </Show.Desktop>
         </DtraderSectionContainer>
     )
 }

@@ -20,7 +20,7 @@ import Limit from 'images/svg/limit-icon.svg'
 import AvoidTrading from 'images/svg/avoid-trading-icon.svg'
 import PortionWinning from 'images/svg/portion-winning-icon.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
-import Responsive from 'components/containers/responsive'
+import Show from 'components/containers/show'
 
 const StyledContainer = styled(Container)`
     flex-direction: column;
@@ -238,7 +238,7 @@ const ResponsibleTrading = () => (
                 <LimitsHeader as="h2" align="center" mobile_text_align="left">
                     {localize('Written limits and self-exclusion')}
                 </LimitsHeader>
-                <Responsive.Mobile>
+                <Show.Mobile>
                     <MarginHeader
                         as="h4"
                         weight="500"
@@ -249,8 +249,8 @@ const ResponsibleTrading = () => (
                             'With Deriv, you have the option to implement limits on your trading activities through our self-exclusion facility. You’ll be able to:',
                         )}
                     </MarginHeader>
-                </Responsive.Mobile>
-                <Responsive.Desktop>
+                </Show.Mobile>
+                <Show.Desktop>
                     <MarginHeader
                         as="h4"
                         weight="500"
@@ -261,7 +261,7 @@ const ResponsibleTrading = () => (
                             'With Deriv, you have the option to implement limits on your trading activities.',
                         )}
                     </MarginHeader>
-                </Responsive.Desktop>
+                </Show.Desktop>
                 <MarginWrapper content_width="48rem" gap="1rem">
                     <StyledLimits>
                         <div>
@@ -299,13 +299,13 @@ const ResponsibleTrading = () => (
                             )}
                         </CheckText>
                     </StyledLimits>
-                    <Responsive.Mobile>
+                    <Show.Mobile>
                         <LearnMoreText weight="500">
                             {localize(
                                 'Learn more about our self-exclusion facility.',
                             )}
                         </LearnMoreText>
-                    </Responsive.Mobile>
+                    </Show.Mobile>
                 </MarginWrapper>
             </StyledContainer>
         </ResponsibleSectionContainer>
@@ -318,7 +318,7 @@ const ResponsibleTrading = () => (
                 >
                     {localize('Other warnings and regulatory disclosures')}
                 </OtherWarningHeader>
-                <Responsive.Mobile>
+                <Show.Mobile>
                     <StyledCard>
                         <Text secondary>
                             {localize(
@@ -326,8 +326,8 @@ const ResponsibleTrading = () => (
                             )}
                         </Text>
                     </StyledCard>
-                </Responsive.Mobile>
-                <Responsive.Desktop>
+                </Show.Mobile>
+                <Show.Desktop>
                     <StyledCard>
                         <Text secondary>
                             {localize(
@@ -335,7 +335,7 @@ const ResponsibleTrading = () => (
                             )}
                         </Text>
                     </StyledCard>
-                </Responsive.Desktop>
+                </Show.Desktop>
             </StyledContainer>
         </OtherWarningWrapper>
     </Layout>

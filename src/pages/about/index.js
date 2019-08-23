@@ -11,7 +11,7 @@ import { Header } from 'components/elements/typography.js'
 import Button from 'components/form/button'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-import Responsive from 'components/containers/responsive'
+import Show from 'components/containers/show'
 
 const Goahead = styled.div`
     text-align: center;
@@ -31,7 +31,7 @@ const About = () => {
     return (
         <Layout>
             <SEO title={localize('About us')} />
-            <Responsive.Mobile>
+            <Show.Mobile>
                 {matches =>
                     matches ? (
                         <Hero
@@ -49,11 +49,11 @@ const About = () => {
                         />
                     )
                 }
-            </Responsive.Mobile>
+            </Show.Mobile>
             <OurGoals />
             <OurNumbers />
             <OurLocations />
-            <Responsive.Mobile>
+            <Show.Mobile>
                 <Goahead>
                     <Header as="h1" align="center" lh="1.1">
                         Go ahead, experience it for yourself.
@@ -70,7 +70,7 @@ const About = () => {
                         <SignupModal autofocus />
                     </Modal>
                 </Goahead>
-            </Responsive.Mobile>
+            </Show.Mobile>
         </Layout>
     )
 }

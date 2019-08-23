@@ -1,15 +1,47 @@
 import React from 'react'
-import MediaQuery from 'react-responsive'
-import { size } from 'themes/device'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-// TODO: use hooks when `react-responsive` 8.0.0 release stable
-export const Desktop = props => (
-    <MediaQuery {...props} minWidth={size.tabletL} />
-)
+const makeResponsiveComponent = (rulesets, tagName = 'div') =>
+    styled(tagName)`
+        ${buildStyles(rulesets)}
+    `
 
-export const Mobile = props => <MediaQuery {...props} maxWidth={size.tabletL} />
+const buildStyles = rulesets =>
+    rulesets.reduce(
+        (cssString, { constraint, width, rules }) =>
+            `${cssString} @media (${constraint}-width: ${width}) { ${rules} }`,
+        '',
+    )
 
-export default {
-    Desktop,
-    Mobile,
+const buildResponsive = breakpoints => {
+    const rulesets = Object.entries(breakpoints).reduce(
+        (rulesets, [constraint, width]) => [
+            ...rulesets,
+            {
+                constraint,
+                width,
+                rules: 'display: none;',
+            },
+        ],
+        [],
+    )
+
+    return makeResponsiveComponent(rulesets)
 }
+
+const Responsive = ({ min, max, children }) => {
+    const Component = buildResponsive({ min, max })
+    return <Component>{children}</Component>
+}
+
+Responsive.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]),
+    max: PropTypes.string,
+    min: PropTypes.string,
+}
+
+export default Responsive

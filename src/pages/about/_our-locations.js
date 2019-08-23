@@ -6,7 +6,7 @@ import Container from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-import Responsive from 'components/containers/responsive'
+import Show from 'components/containers/show'
 // Icons
 import DubaiSVG from 'images/svg/dubai.svg'
 import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
@@ -83,7 +83,7 @@ export const OurLocations = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
     return (
-        <Responsive.Desktop>
+        <Show.Desktop>
             <OurLocationsWrapper>
                 <Header as="h2" align="center" color="black-2">
                     {localize('Our Locations')}
@@ -116,6 +116,6 @@ export const OurLocations = () => {
                     <SignupModal />
                 </Modal>
             </OurLocationsWrapper>
-        </Responsive.Desktop>
+        </Show.Desktop>
     )
 }

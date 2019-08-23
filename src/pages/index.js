@@ -12,7 +12,7 @@ import Container from 'components/containers/container'
 import PaymentMethods from 'components/elements/payment-methods.js'
 import { localize, WithIntl } from 'components/localization'
 import { Divider } from 'components/elements/divider'
-import Responsive from 'components/containers/responsive'
+import Show from 'components/containers/show'
 
 const PaymentSection = styled.section`
     width: 100%;
@@ -28,11 +28,11 @@ const Home = () => (
             )}
         />
         <Hero />
-        <Responsive.Mobile>
+        <Show.Mobile>
             <WhyDerivMobile />
             <Dtrader />
-        </Responsive.Mobile>
-        <Responsive.Desktop>
+        </Show.Mobile>
+        <Show.Desktop>
             <Dtrader />
             <HowItWorks />
             <Divider />
@@ -43,7 +43,7 @@ const Home = () => (
                     <PaymentMethods />
                 </Container>
             </PaymentSection>
-        </Responsive.Desktop>
+        </Show.Desktop>
     </Layout>
 )
 

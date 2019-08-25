@@ -239,7 +239,9 @@ const Footer = () => (
                 <FooterNavGrid>
                     <FooterNav>
                         <Department grid_name="logo">
-                            <Logo />
+                            <LocalizedLink to="/" aria-label={localize('Home')}>
+                                <Logo />
+                            </LocalizedLink>
                         </Department>
                         <Department grid_name="trade">
                             <Header as="h4">{localize('Trade')}</Header>

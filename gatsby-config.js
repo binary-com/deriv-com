@@ -20,6 +20,7 @@ module.exports = {
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         'gatsby-plugin-sitemap',
+        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
@@ -44,7 +45,6 @@ module.exports = {
                 //   ],
             },
         },
-        'gatsby-plugin-offline',
         {
             resolve: 'gatsby-plugin-react-svg',
             options: {

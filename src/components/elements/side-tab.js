@@ -65,14 +65,18 @@ const ArrowWrapper = styled(Arrow)`
     transform: ${props =>
         props.what_is_active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)'};
 `
-const Tab = ({ active_tab, label, onClick, text }) => {
+const Tab = ({ active_tab, label, onClick, text, mobile }) => {
     const className = active_tab === label ? 'tab-active' : ''
 
     const handleClick = () => {
         onClick(label)
     }
 
-    return (
+    return mobile ? (
+        <StyledDropDown onClick={handleClick}>
+            <Text>{text}</Text>
+        </StyledDropDown>
+    ) : (
         <StyledTab className={className} onClick={handleClick}>
             <Text weight="500">{text}</Text>
         </StyledTab>
@@ -91,17 +95,6 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
     }
 
     return [active_tab, setTab, last_active_tab, setLastActiveTab]
-}
-
-const DropDown = props => {
-    const handleClick = () => {
-        props.onClick(props.label)
-    }
-    return (
-        <StyledDropDown onClick={handleClick}>
-            <Text>{props.text}</Text>
-        </StyledDropDown>
-    )
 }
 
 const SideTab = ({ children, has_hash_routing }) => {
@@ -167,7 +160,8 @@ const SideTab = ({ children, has_hash_routing }) => {
 
                               return (
                                   <div key={idx}>
-                                      <DropDown
+                                      <Tab
+                                          mobile
                                           text={text}
                                           onClick={setTab}
                                           active_tab={active_tab}
@@ -192,15 +186,10 @@ SideTab.propTypes = {
     has_hash_routing: PropTypes.bool,
 }
 
-DropDown.propTypes = {
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    text: PropTypes.string.isRequired,
-}
-
 Tab.propTypes = {
     active_tab: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
+    mobile: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired,
 }

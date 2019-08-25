@@ -28,6 +28,7 @@ const Bullet = styled.button`
     width: 1rem;
     height: 1rem;
     border-radius: 1rem;
+    border: none;
     margin-right: 1.25rem;
     outline: none;
     cursor: pointer;

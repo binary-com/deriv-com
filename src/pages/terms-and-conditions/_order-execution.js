@@ -13,7 +13,7 @@ export const OrderExecution = () => (
         <Header as="h2" color="black">
             {localize('Order execution policy')}
         </Header>
-        <StyledOrder type='decimal'>
+        <StyledOrder type="decimal">
             <li>
                 <TncListText>
                     {localize(
@@ -147,7 +147,9 @@ export const OrderExecution = () => (
                     </li>
                 </StyledOrder>
                 <li>
-                    <TncListText>{localize('Likelihood of execution')}</TncListText>
+                    <TncListText>
+                        {localize('Likelihood of execution')}
+                    </TncListText>
                 </li>
                 <StyledOrder type="lower-roman">
                     <li>
@@ -159,7 +161,9 @@ export const OrderExecution = () => (
                     </li>
                 </StyledOrder>
                 <li>
-                    <TncListText>{localize('Likelihood of settlement')}</TncListText>
+                    <TncListText>
+                        {localize('Likelihood of settlement')}
+                    </TncListText>
                 </li>
                 <StyledOrder type="lower-roman">
                     <li>
@@ -216,7 +220,7 @@ export const OrderExecution = () => (
             <li>
                 <TncListText>
                     {localize(
-                        "We will monitor the effectiveness of Our order execution arrangements and order execution policy. We will assess from time to time whether the venues that We rely upon in pricing our trades on your behalf allow Us to achieve best execution on a consistent basis or whether We need to make changes to Our execution arrangements. We will also review its order execution arrangements and order execution policy in respect of material changes, either regarding one of Our chosen pricing venues or what might otherwise affect Our ability to continue to achieve best execution. Should there be any material changes to Our order execution arrangements or order execution policy, We will notify you.",
+                        'We will monitor the effectiveness of Our order execution arrangements and order execution policy. We will assess from time to time whether the venues that We rely upon in pricing our trades on your behalf allow Us to achieve best execution on a consistent basis or whether We need to make changes to Our execution arrangements. We will also review its order execution arrangements and order execution policy in respect of material changes, either regarding one of Our chosen pricing venues or what might otherwise affect Our ability to continue to achieve best execution. Should there be any material changes to Our order execution arrangements or order execution policy, We will notify you.',
                     )}
                 </TncListText>
             </li>

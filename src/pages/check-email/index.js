@@ -40,13 +40,15 @@ const CheckEmail = () => {
             <SEO
                 title={localize('Check Email')}
                 description={localize(
-                    'If you don\'t see an email from us within a few minutes, a few things could have happened.',
+                    "If you don't see an email from us within a few minutes, a few things could have happened.",
                 )}
             />
             <SectionContainer>
                 <Container>
                     <SectionHeader>
-                        {localize('If you don\'t see an email from us within a few minutes, a few things could have happened:')}
+                        {localize(
+                            "If you don't see an email from us within a few minutes, a few things could have happened:",
+                        )}
                     </SectionHeader>
                     <IconGrid />
                     <Button secondary onClick={toggleModal}>

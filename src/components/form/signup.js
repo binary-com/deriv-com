@@ -295,16 +295,12 @@ class Signup extends Component {
                             />
                         </EmailImgWrapper>
                         <Text align="center">
-                            {localize(
-                                'We\'ve sent a message to')}
-                            <YourEmail>
-                                {this.state.email}
-                            </YourEmail>
-                            {localize(
-                                'with a link to activate your account.')}
+                            {localize("We've sent a message to")}
+                            <YourEmail>{this.state.email}</YourEmail>
+                            {localize('with a link to activate your account.')}
                         </Text>
                         <EmailLink to="/check-email/">
-                            {localize('Didn\'t receive your email?')}
+                            {localize("Didn't receive your email?")}
                         </EmailLink>
                     </ResponseWrapper>
                 )}

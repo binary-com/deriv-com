@@ -105,6 +105,7 @@ const NavRightContainer = styled.div`
     }}
 `
 const HamburgerMenu = styled(Hamburger)`
+    cursor: pointer;
     display: none;
     @media ${device.tabletL} {
         display: block;

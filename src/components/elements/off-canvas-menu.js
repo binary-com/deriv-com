@@ -36,6 +36,10 @@ const OffCanvasMenuContainer = styled.div`
         }
     }
 `
+const BackArrow = styled(Arrow)`
+    cursor: pionter;
+`
+
 const OffCanvasMenuWrapper = props => {
     const canvas = useRef()
 
@@ -62,7 +66,7 @@ const OffCanvasMenuWrapper = props => {
             ref={canvas}
         >
             <OffCanvasMenuContainer>
-                <Arrow onClick={handleArrowClick} />
+                <BackArrow onClick={handleArrowClick} />
                 <div>
                     <StyledLink to="/keep-safe/" onClick={handleArrowClick}>
                         Keep safe

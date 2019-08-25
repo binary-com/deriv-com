@@ -81,6 +81,7 @@ const Tab = ({ active_tab, label, onClick, text }) => {
 
 function useTabs(initial_active_tab = '', has_hash_routing) {
     const [active_tab, setActiveTab] = useState(initial_active_tab)
+    const [last_active_tab, setLastActiveTab] = useState('-')
 
     const setTab = tab => {
         if (tab === active_tab) return
@@ -89,7 +90,7 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
         if (has_hash_routing) navigate(`#${tab}`)
     }
 
-    return [active_tab, setTab]
+    return [active_tab, setTab, last_active_tab, setLastActiveTab]
 }
 
 const DropDown = props => {
@@ -112,7 +113,10 @@ const SideTab = ({ children, has_hash_routing }) => {
                 : '-'
             : children[0].props.label
 
-    const [active_tab, setTab] = useTabs(first_tab, has_hash_routing)
+    const [active_tab, setTab, last_active_tab, setLastActiveTab] = useTabs(
+        first_tab,
+        has_hash_routing,
+    )
 
     if (has_hash_routing) {
         useEffect(() => {
@@ -122,7 +126,8 @@ const SideTab = ({ children, has_hash_routing }) => {
     }
 
     const handleReset = () => {
-        setTab('-')
+        setLastActiveTab(active_tab)
+        active_tab !== '-' ? setTab('-') : setTab(last_active_tab)
     }
     const current_active_tab = children.find(
         child => child.props.label === active_tab,

@@ -22,10 +22,19 @@ export const TncText = styled(Text)`
 
 export const TncListText = styled(Text)`
     margin: 0.8rem 0;
+
+    @media ${device.tabletL} {
+        font-size: var(--text-size-sm);
+    }
 `
 
 export const StyledHeader = styled(Header)`
     margin-top: 3.2rem;
+
+    @media ${device.tabletL} {
+        font-weight: bold;
+        font-size: var(--text-size-sm);
+    }
 `
 
 export const StyledOrder = styled.ol`

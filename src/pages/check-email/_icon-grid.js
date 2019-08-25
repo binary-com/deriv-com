@@ -28,6 +28,7 @@ const GridCol = styled.article`
     column-gap: 2.4rem;
     align-items: center;
     height: 100%;
+
     ${Text} {
         margin-top: 0.8rem;
         font-size: 1.6rem;

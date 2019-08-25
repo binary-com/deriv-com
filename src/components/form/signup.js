@@ -139,6 +139,7 @@ class Signup extends Component {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
         const signup_device = LocalStore.get('signup_device')
         const date_first_contact = LocalStore.get('date_first_contact')
+        const gclid = LocalStore.get('gclid')
 
         return {
             verify_email: email,
@@ -150,6 +151,7 @@ class Signup extends Component {
                     utm_campaign: utm_data.utm_campaign,
                 }),
                 ...(affiliate_token && { affiliate_token: affiliate_token.t }),
+                ...(gclid && { gclid_url: gclid }),
                 ...(signup_device && { signup_device: signup_device }),
                 ...(date_first_contact && {
                     date_first_contact: date_first_contact,

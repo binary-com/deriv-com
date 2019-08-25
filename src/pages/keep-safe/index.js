@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import MediaQuery from 'react-responsive'
-import SEO from '../../components/containers/seo'
 import { SecurityIconGrid } from './_icon-grid'
-import device, { size } from 'themes/device'
+import SEO from 'components/containers/seo'
+import Show from 'components/containers/show'
+import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import Image from 'components/elements/image'
 import Hero from 'components/elements/hero.js'
@@ -175,7 +175,7 @@ const KeepSafe = () => {
                 />
             </HeroWrapper>
             <KeepSafeSectionContainer>
-                <MediaQuery maxDeviceWidth={size.tabletL}>
+                <Show.Mobile>
                     <SecureWrapper>
                         <Header as="h2" align="left">
                             {localize('Secure your account')}
@@ -186,8 +186,8 @@ const KeepSafe = () => {
                             )}
                         </StyledHeader>
                     </SecureWrapper>
-                </MediaQuery>
-                <MediaQuery minDeviceWidth={size.tabletL}>
+                </Show.Mobile>
+                <Show.Desktop>
                     <Header as="h2" align="center">
                         {localize('Account security')}
                     </Header>
@@ -196,12 +196,12 @@ const KeepSafe = () => {
                             'Your account security is very important to us. Here are a few ways to enhance your account security:',
                         )}
                     </StyledHeader>
-                </MediaQuery>
+                </Show.Desktop>
                 <SecurityIconGrid />
             </KeepSafeSectionContainer>
-            <MediaQuery minDeviceWidth={size.tabletL}>
+            <Show.Desktop>
                 <Divider />
-            </MediaQuery>
+            </Show.Desktop>
             <KeepSafeGirdArea>
                 <GridSectionContainer padding="3.55rem 0">
                     <Practice>
@@ -209,14 +209,14 @@ const KeepSafe = () => {
                             <PractiseHeader as="h2">
                                 {localize('Practise with a demo account')}
                             </PractiseHeader>
-                            <MediaQuery maxDeviceWidth={size.tabletL}>
+                            <Show.Mobile>
                                 <CustomizeHeader as="h4" weight="500">
                                     {localize(
                                         'Use our demo account and learn how to trade, risk-free, by using virtual funds.',
                                     )}
                                 </CustomizeHeader>
-                            </MediaQuery>
-                            <MediaQuery minDeviceWidth={size.tabletL}>
+                            </Show.Mobile>
+                            <Show.Desktop>
                                 <Header as="h4" weight="500">
                                     {localize(
                                         'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
@@ -225,18 +225,18 @@ const KeepSafe = () => {
                                 <Button secondary onClick={toggleModal}>
                                     {localize('Create a free account')}
                                 </Button>
-                            </MediaQuery>
+                            </Show.Desktop>
                         </div>
                         <Image
                             width="415"
                             img_name="keep-safe-practice.png"
                             alt="Practice"
                         />
-                        <MediaQuery maxDeviceWidth={size.tabletL}>
+                        <Show.Mobile>
                             <MobileBtn secondary onClick={toggleModal}>
                                 {localize('Create a free account')}
                             </MobileBtn>
-                        </MediaQuery>
+                        </Show.Mobile>
                     </Practice>
                 </GridSectionContainer>
                 <GridGrayBackground>

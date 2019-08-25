@@ -212,6 +212,7 @@ class Signup extends Component {
                                 onChange={this.handleInputChange}
                                 onBlur={this.handleValidation}
                                 autoFocus={this.props.autofocus}
+                                autoComplete="off"
                                 required
                             />
                             {this.state.email_error_msg && (

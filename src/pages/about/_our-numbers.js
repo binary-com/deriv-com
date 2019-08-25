@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import MediaQuery from 'react-responsive'
+import Show from 'components/containers/show'
 import Container from 'components/containers/container.js'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 import TradingAccountsOpenedSVG from 'images/svg/trading-accounts-opened.svg'
 import TradeLastMonthSVG from 'images/svg/trades-last-month.svg'
 import TotalTradeTurnoverSVG from 'images/svg/total-trade-turnover.svg'
@@ -146,7 +146,7 @@ const chart_data = [
 export const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
-            <MediaQuery maxDeviceWidth={size.tabletL}>
+            <Show.Mobile>
                 <Header as="h6" font_size="4rem" color="black-2" align="center">
                     {localize('By the numbers')}
                 </Header>
@@ -163,8 +163,8 @@ export const OurNumbers = () => (
                         'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                     )}
                 </Header>
-            </MediaQuery>
-            <MediaQuery minDeviceWidth={size.tabletL}>
+            </Show.Mobile>
+            <Show.Desktop>
                 <Header as="h2" color="black-2" align="center">
                     {localize('Our Numbers')}
                 </Header>
@@ -173,11 +173,11 @@ export const OurNumbers = () => (
                         'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                     )}
                 </Header>
-            </MediaQuery>
+            </Show.Desktop>
             <ChartContainer>
                 {chart_data.map((data, idx) => (
                     <Charts key={idx}>
-                        <MediaQuery minDeviceWidth={size.tabletL}>{data.icon}</MediaQuery>
+                        <Show.Desktop>{data.icon}</Show.Desktop>
                         <Header as="h3" color="green" align="right" lh="1.5">
                             {data.amount}
                         </Header>

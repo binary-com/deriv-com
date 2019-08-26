@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
-import MediaQuery from 'react-responsive'
 import Wrapper from '../containers/wrapper'
 import { Text } from './typography'
 import { getLocationHash } from 'common/utility'
 import device, { size } from 'themes/device'
+import { Desktop, Mobile } from 'components/containers/show'
 import Arrow from 'images/svg/arrow-1.svg'
 
 const StyledSideTab = styled(Wrapper)`
@@ -129,7 +129,7 @@ const SideTab = ({ children, has_hash_routing }) => {
     return (
         <StyledSideTab>
             <TabList>
-                <MediaQuery minDeviceWidth={size.tabletL}>
+                <Desktop>
                     {children.map((child, idx) => {
                         const { label, text } = child.props
                         return (
@@ -143,8 +143,8 @@ const SideTab = ({ children, has_hash_routing }) => {
                             </div>
                         )
                     })}
-                </MediaQuery>
-                <MediaQuery maxDeviceWidth={size.tabletL}>
+                </Desktop>
+                <Mobile>
                     <StyledDropDown onClick={handleReset}>
                         {current_active_tab ? (
                             <p>{current_active_tab.props.text}</p>
@@ -170,7 +170,7 @@ const SideTab = ({ children, has_hash_routing }) => {
                                   </div>
                               )
                           })}
-                </MediaQuery>
+                </Mobile>
             </TabList>
             <TabContent>
                 {children.map(child =>

@@ -362,384 +362,384 @@ export const General = () => (
                     </li>
                 </StyledOrder>
             </li>
-            <StyledHeader as="h4" weight="500">
-                {localize('F. Client funds')}
-            </StyledHeader>
-            <StyledOrder type="decimal">
-                <li>
-                    <TncListText>
-                        {localize(
-                            'The money you give Us is not invested in any securities, futures, currencies, derivatives, or other investments on your behalf.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {/* TODO: [add-link]: link to payment method page once available */}
-                        <Localize
-                            translate_text="We have various deposit methods available, each with their own processing times. Some methods may not be available for withdrawal. Full details of available methods for deposits and withdrawals, including settlement times, can be seen <0>here</0>."
-                            components={[
-                                <TncLink key={0} to="/terms-and-conditions/" />,
-                            ]}
-                        />
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'You should not use your account as a banking facility and should only make deposits with a view to using funds to place trades. We are not a financial institution, and you will not receive interest on deposits.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'We hold client funds in bank accounts that are separate from the operational accounts, and We have arranged so that the assets in your account will be returned to you in the event of insolvency.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'Internal currency transfers between accounts are allowed up to a maximum of USD 2,500 or equivalent and are subject to a currency conversion fee. Transfers are allowed between any available currency pair.',
-                        )}
-                    </TncListText>
-                </li>
-            </StyledOrder>
-            <StyledHeader as="h4" weight="500">
-                {localize('G. Fraud and money laundering')}
-            </StyledHeader>
-            <StyledOrder type="decimal">
-                <li>
-                    <TncListText>
-                        {localize(
-                            'You shall not use Deriv for the purpose of money laundering.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'We use best-practice anti-money laundering procedures. Funds that originate from criminal activity are not accepted. We are bound to report suspicious transactions to relevant authorities.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'All transactions are checked to prevent money laundering, which may have several effects on you such as:',
-                        )}
-                    </TncListText>
-                    <StyledOrder type="lower-alpha">
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'You must complete the account opening form and provide all requested details to establish your identity, such as valid identification, address, email address, and personal telephone number.',
-                                )}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'Withdrawals may only be paid to the account holder. You must ensure that all necessary details are provided to enable Us to process the withdrawal to the payment method selected.',
-                                )}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize('You must register personally.')}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'You shall not hold or pool third-party funds into your own account that you hold with Us.',
-                                )}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'It is prohibited to sell, transfer, and/or acquire accounts to/from other clients. Transfer of funds among other clients is also prohibited.',
-                                )}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'No withdrawals and/or refunds may be collected on accounts opened under false names or on multiple accounts opened by the same person.',
-                                )}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'We may, at Our sole discretion or as required by regulation, conduct appropriate "Know Your Customer" (KYC) procedures and ask you to provide proof of identity (such as a notarised copy of passport or other means of identity verification as We judge to be necessary), and We may suspend an account until satisfactory identification information, evidence of identity and address, source of funds, and/or source of wealth have been provided.',
-                                )}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'You agree that We may use the personal information that you provide to conduct appropriate anti-fraud checks. The personal information that you provide may be disclosed to a credit reference or fraud prevention agency, which may keep a record of that information.',
-                                )}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'We have the discretion to request information from you to verify your compliance with these terms. If you do not comply with Our reasonable request for information, We may cancel your account and withhold any funds accumulated in it.',
-                                )}
-                            </TncListText>
-                        </li>
-                    </StyledOrder>
-                </li>
-            </StyledOrder>
-            <StyledHeader as="h4" weight="500">
-                {localize('H. Our rights')}
-            </StyledHeader>
-            <StyledOrder type="decimal">
-                <li>
-                    <TncListText>
-                        {localize(
-                            'We reserve the right to suspend the operation of Deriv or some of its sections in the following cases:',
-                        )}
-                    </TncListText>
-                </li>
+        </StyledOrder>
+        <StyledHeader as="h4" weight="500">
+            {localize('F. Client funds')}
+        </StyledHeader>
+        <StyledOrder type="decimal">
+            <li>
+                <TncListText>
+                    {localize(
+                        'The money you give Us is not invested in any securities, futures, currencies, derivatives, or other investments on your behalf.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {/* TODO: [add-link]: link to payment method page once available */}
+                    <Localize
+                        translate_text="We have various deposit methods available, each with their own processing times. Some methods may not be available for withdrawal. Full details of available methods for deposits and withdrawals, including settlement times, can be seen <0>here</0>."
+                        components={[
+                            <TncLink key={0} to="/terms-and-conditions/" />,
+                        ]}
+                    />
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'You should not use your account as a banking facility and should only make deposits with a view to using funds to place trades. We are not a financial institution, and you will not receive interest on deposits.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We hold client funds in bank accounts that are separate from the operational accounts, and We have arranged so that the assets in your account will be returned to you in the event of insolvency.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'Internal currency transfers between accounts are allowed up to a maximum of USD 2,500 or equivalent and are subject to a currency conversion fee. Transfers are allowed between any available currency pair.',
+                    )}
+                </TncListText>
+            </li>
+        </StyledOrder>
+        <StyledHeader as="h4" weight="500">
+            {localize('G. Fraud and money laundering')}
+        </StyledHeader>
+        <StyledOrder type="decimal">
+            <li>
+                <TncListText>
+                    {localize(
+                        'You shall not use Deriv for the purpose of money laundering.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We use best-practice anti-money laundering procedures. Funds that originate from criminal activity are not accepted. We are bound to report suspicious transactions to relevant authorities.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'All transactions are checked to prevent money laundering, which may have several effects on you such as:',
+                    )}
+                </TncListText>
                 <StyledOrder type="lower-alpha">
                     <li>
                         <TncListText>
                             {localize(
-                                'When, as a result of political, economic, military, or monetary events (including unusual market volatility or illiquidity) or any circumstances outside Our control, responsibility, and power, Deriv’s continued operation  is not reasonably practicable without materially and adversely affecting and prejudicing your or Our interests, or if, in Our opinion, a price cannot be calculated for financial trades',
+                                'You must complete the account opening form and provide all requested details to establish your identity, such as valid identification, address, email address, and personal telephone number.',
                             )}
                         </TncListText>
                     </li>
                     <li>
                         <TncListText>
                             {localize(
-                                'When there is a breakdown in the means of communication normally employed in determining the price or value of any of the financial trades or where the price or value of any of the financial trades cannot be promptly or accurately ascertained',
+                                'Withdrawals may only be paid to the account holder. You must ensure that all necessary details are provided to enable Us to process the withdrawal to the payment method selected.',
+                            )}
+                        </TncListText>
+                    </li>
+                    <li>
+                        <TncListText>
+                            {localize('You must register personally.')}
+                        </TncListText>
+                    </li>
+                    <li>
+                        <TncListText>
+                            {localize(
+                                'You shall not hold or pool third-party funds into your own account that you hold with Us.',
                             )}
                         </TncListText>
                     </li>
                     <li>
                         <TncListText>
                             {localize(
-                                'In any event of an error in current prices, published odds, or trading software',
+                                'It is prohibited to sell, transfer, and/or acquire accounts to/from other clients. Transfer of funds among other clients is also prohibited.',
+                            )}
+                        </TncListText>
+                    </li>
+                    <li>
+                        <TncListText>
+                            {localize(
+                                'No withdrawals and/or refunds may be collected on accounts opened under false names or on multiple accounts opened by the same person.',
+                            )}
+                        </TncListText>
+                    </li>
+                    <li>
+                        <TncListText>
+                            {localize(
+                                'We may, at Our sole discretion or as required by regulation, conduct appropriate "Know Your Customer" (KYC) procedures and ask you to provide proof of identity (such as a notarised copy of passport or other means of identity verification as We judge to be necessary), and We may suspend an account until satisfactory identification information, evidence of identity and address, source of funds, and/or source of wealth have been provided.',
+                            )}
+                        </TncListText>
+                    </li>
+                    <li>
+                        <TncListText>
+                            {localize(
+                                'You agree that We may use the personal information that you provide to conduct appropriate anti-fraud checks. The personal information that you provide may be disclosed to a credit reference or fraud prevention agency, which may keep a record of that information.',
+                            )}
+                        </TncListText>
+                    </li>
+                    <li>
+                        <TncListText>
+                            {localize(
+                                'We have the discretion to request information from you to verify your compliance with these terms. If you do not comply with Our reasonable request for information, We may cancel your account and withhold any funds accumulated in it.',
                             )}
                         </TncListText>
                     </li>
                 </StyledOrder>
+            </li>
+        </StyledOrder>
+        <StyledHeader as="h4" weight="500">
+            {localize('H. Our rights')}
+        </StyledHeader>
+        <StyledOrder type="decimal">
+            <li>
+                <TncListText>
+                    {localize(
+                        'We reserve the right to suspend the operation of Deriv or some of its sections in the following cases:',
+                    )}
+                </TncListText>
+            </li>
+            <StyledOrder type="lower-alpha">
                 <li>
                     <TncListText>
                         {localize(
-                            'We have and retain the right to terminate any event or trade, including but not limited to the occurrence of any of the above events.',
+                            'When, as a result of political, economic, military, or monetary events (including unusual market volatility or illiquidity) or any circumstances outside Our control, responsibility, and power, Deriv’s continued operation  is not reasonably practicable without materially and adversely affecting and prejudicing your or Our interests, or if, in Our opinion, a price cannot be calculated for financial trades',
                         )}
                     </TncListText>
                 </li>
                 <li>
                     <TncListText>
                         {localize(
-                            'We reserve the right to make changes to these terms and conditions. Any change to the terms and conditions made whilst Deriv is in operation will not apply retrospectively and will only apply to acquisitions of trades made after such a change. If any material changes to these terms and conditions are made, you will be notified in advance and shall either accept or decline to agree. If you decline to agree, your account may be frozen, suspended, or cancelled. You shall be allowed to withdraw any pending balance on account, subject to KYC verification. In such an event, We may at Our sole discretion close out your open trades at prices We consider fair and reasonable.',
+                            'When there is a breakdown in the means of communication normally employed in determining the price or value of any of the financial trades or where the price or value of any of the financial trades cannot be promptly or accurately ascertained',
                         )}
                     </TncListText>
                 </li>
                 <li>
                     <TncListText>
                         {localize(
-                            'We reserve the right to adjust your account if any trade results in disruption or in case of a miscarried or aborted trade.',
+                            'In any event of an error in current prices, published odds, or trading software',
+                        )}
+                    </TncListText>
+                </li>
+            </StyledOrder>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We have and retain the right to terminate any event or trade, including but not limited to the occurrence of any of the above events.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We reserve the right to make changes to these terms and conditions. Any change to the terms and conditions made whilst Deriv is in operation will not apply retrospectively and will only apply to acquisitions of trades made after such a change. If any material changes to these terms and conditions are made, you will be notified in advance and shall either accept or decline to agree. If you decline to agree, your account may be frozen, suspended, or cancelled. You shall be allowed to withdraw any pending balance on account, subject to KYC verification. In such an event, We may at Our sole discretion close out your open trades at prices We consider fair and reasonable.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We reserve the right to adjust your account if any trade results in disruption or in case of a miscarried or aborted trade.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'Although We have and retain all rights to refuse to do business with you and close your account, We warrant that all contractual obligations that are already made shall be honoured.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We reserve the right to void or amend the contractual terms of any transactions that We reasonably believe are entered into at prices that do not reflect fair market prices or that are entered into at an abnormally low level of risk due to an obvious or palpable error (a “Manifest Error”).',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We reserve the right, in Our sole discretion, to refuse and/or cancel services, refuse and/or reverse the trades of, and charge deposit and/or withdrawal fees to anyone for any reason, including but not limited to the following:',
+                    )}
+                </TncListText>
+            </li>
+            <StyledOrder type="lower-alpha">
+                <li>
+                    <TncListText>
+                        {localize(
+                            'Any instance where We believe that your activity on Deriv may be illegal in your country or state or that it may contravene any laws, regulations, instruments, ordinances, or rules that govern the operation of any exchange, financial market, or financial regulatory environment',
                         )}
                     </TncListText>
                 </li>
                 <li>
                     <TncListText>
                         {localize(
-                            'Although We have and retain all rights to refuse to do business with you and close your account, We warrant that all contractual obligations that are already made shall be honoured.',
+                            'Any instance where We may be approached or contacted by legal authorities or regulators from your country or state',
                         )}
                     </TncListText>
                 </li>
                 <li>
                     <TncListText>
                         {localize(
-                            'We reserve the right to void or amend the contractual terms of any transactions that We reasonably believe are entered into at prices that do not reflect fair market prices or that are entered into at an abnormally low level of risk due to an obvious or palpable error (a “Manifest Error”).',
+                            'Any instance where We may suffer any pecuniary, fiscal, or regulatory disadvantage because of your activities on Deriv',
+                        )}
+                    </TncListText>
+                </li>
+            </StyledOrder>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We have the right to prohibit you from trading on Deriv if you have insider knowledge of any financial market or instrument.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We reserve the right to refuse to do business with you, to discontinue to do business with you, and to reverse your transactions if you do not accept or adhere to the anti-money laundering processes.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We have the right and obligation not to accept the information you have provided if We know or have a reason to believe that it is incorrect, inaccurate, or incomplete. In such cases, We may ask you to clarify or correct the details provided.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We reserve the right to make corrections to interbank trading data in the event of mispriced or typographically incorrect data.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'Should a disruption occur in the data feeds that We cannot readily rectify, We reserve the right to refund the trade purchase.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We reserve the right to cancel/prohibit the use of deposit bonus and/or free bonus promotions at Our own discretion at any time.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'If your account has no recorded transaction for over 12 months, We reserve the right to charge you a dormant fee of up to USD/EUR/AUD/GBP 25, or equivalent of USD 25 in any other currency as calculated in accordance with the current exchange rate published by www.xe.com or any other recognised data provider as on the date of charging of the fee, and repeat doing so every six months for as long as your account remains dormant.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'If you make repeated deposits and withdrawals without placing commensurate trades, We reserve the right to pass on to your account, without prior notice, any bank charges that We have incurred before closing your account.',
+                    )}
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    <Localize
+                        translate_text="We reserve the right to have risk limits in place, which affect your trading limits and may not be restricted solely to instruments and trade types. We may also impose volume trading limits on your account at Our sole discretion. Trading volume limits can be viewed in the <0>Security and privacy</0? section of your account. If your account balance exceeds your maximum account size, please make withdrawals to bring the balance below this limit."
+                        components={[
+                            <TncLink
+                                key={0}
+                                to="/terms-and-conditions/#security-privacy"
+                            />,
+                        ]}
+                    />
+                </TncListText>
+            </li>
+            <li>
+                <TncListText>
+                    {localize(
+                        'We do not tolerate any form of inappropriate behaviour. This includes the usage of offensive language. We reserve the right to terminate or restrict your account if there is any form of inappropriate behaviour on your part.',
+                    )}
+                </TncListText>
+            </li>
+        </StyledOrder>
+        <StyledHeader as="h4" weight="500">
+            {localize('I. Liability')}
+        </StyledHeader>
+        <StyledOrder type="decimal">
+            <li>
+                <TncListText>{localize('Our liability')}</TncListText>
+            </li>
+            <StyledOrder type="lower-alpha">
+                <li>
+                    <TncListText>
+                        {localize(
+                            'Except in the case of Our negligence, fraud, or default, We will not be liable in any way to you in the event of force majeure, or for the act of any government or legal authority, or for the failure of or damage or destruction to Our computer systems, data, or records, or any part thereof, or for delays, losses, errors, or omissions resulting from your failure in, or mismanagement of, any telecommunications, computer equipment, or software or any damages or losses deemed or alleged to have resulted from, or been caused by, Deriv or its content.',
                         )}
                     </TncListText>
                 </li>
                 <li>
                     <TncListText>
                         {localize(
-                            'We reserve the right, in Our sole discretion, to refuse and/or cancel services, refuse and/or reverse the trades of, and charge deposit and/or withdrawal fees to anyone for any reason, including but not limited to the following:',
+                            'Any information given on these pages and/or related emails or newsletters that We have sent you is not intended as financial or investment advice, and We will not accept any liability in this respect.',
                         )}
                     </TncListText>
                 </li>
+                <li>
+                    <TncListText>
+                        {localize(
+                            'Neither We nor any of Our directors, officers, managers, employees, or agents shall be liable for any loss, damage, or debt to you that has arisen directly or indirectly out of or in connection with this agreement.',
+                        )}
+                    </TncListText>
+                </li>
+            </StyledOrder>
+            <li>
+                <TncListText>{localize('Your liability')}</TncListText>
                 <StyledOrder type="lower-alpha">
                     <li>
                         <TncListText>
                             {localize(
-                                'Any instance where We believe that your activity on Deriv may be illegal in your country or state or that it may contravene any laws, regulations, instruments, ordinances, or rules that govern the operation of any exchange, financial market, or financial regulatory environment',
+                                'You agree to be fully and personally liable for the due settlement of every transaction into which you enter, using your account with Us.',
                             )}
                         </TncListText>
                     </li>
                     <li>
                         <TncListText>
                             {localize(
-                                'Any instance where We may be approached or contacted by legal authorities or regulators from your country or state',
+                                'You are responsible for ensuring that you alone control access to the account and that no minors are granted access to trading on Deriv.',
                             )}
                         </TncListText>
                     </li>
                     <li>
                         <TncListText>
                             {localize(
-                                'Any instance where We may suffer any pecuniary, fiscal, or regulatory disadvantage because of your activities on Deriv',
+                                'You also indemnify Us against all costs and losses of any kind whatsoever as may be incurred by Us as a result, direct or indirect, of your failure to comply with any and all of your obligations set forth in this agreement and/or Our enforcement against you of any and all of Our rights under this agreement.',
                             )}
                         </TncListText>
                     </li>
                 </StyledOrder>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'We have the right to prohibit you from trading on Deriv if you have insider knowledge of any financial market or instrument.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'We reserve the right to refuse to do business with you, to discontinue to do business with you, and to reverse your transactions if you do not accept or adhere to the anti-money laundering processes.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'We have the right and obligation not to accept the information you have provided if We know or have a reason to believe that it is incorrect, inaccurate, or incomplete. In such cases, We may ask you to clarify or correct the details provided.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'We reserve the right to make corrections to interbank trading data in the event of mispriced or typographically incorrect data.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'Should a disruption occur in the data feeds that We cannot readily rectify, We reserve the right to refund the trade purchase.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'We reserve the right to cancel/prohibit the use of deposit bonus and/or free bonus promotions at Our own discretion at any time.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'If your account has no recorded transaction for over 12 months, We reserve the right to charge you a dormant fee of up to USD/EUR/AUD/GBP 25, or equivalent of USD 25 in any other currency as calculated in accordance with the current exchange rate published by www.xe.com or any other recognised data provider as on the date of charging of the fee, and repeat doing so every six months for as long as your account remains dormant.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'If you make repeated deposits and withdrawals without placing commensurate trades, We reserve the right to pass on to your account, without prior notice, any bank charges that We have incurred before closing your account.',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        <Localize
-                            translate_text="We reserve the right to have risk limits in place, which affect your trading limits and may not be restricted solely to instruments and trade types. We may also impose volume trading limits on your account at Our sole discretion. Trading volume limits can be viewed in the <0>Security and privacy</0? section of your account. If your account balance exceeds your maximum account size, please make withdrawals to bring the balance below this limit."
-                            components={[
-                                <TncLink
-                                    key={0}
-                                    to="/terms-and-conditions/#security-privacy"
-                                />,
-                            ]}
-                        />
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'We do not tolerate any form of inappropriate behaviour. This includes the usage of offensive language. We reserve the right to terminate or restrict your account if there is any form of inappropriate behaviour on your part.',
-                        )}
-                    </TncListText>
-                </li>
-            </StyledOrder>
-            <StyledHeader as="h4" weight="500">
-                {localize('I. Liability')}
-            </StyledHeader>
-            <StyledOrder type="decimal">
-                <li>
-                    <TncListText>{localize('Our liability')}</TncListText>
-                </li>
-                <StyledOrder type="lower-alpha">
-                    <li>
-                        <TncListText>
-                            {localize(
-                                'Except in the case of Our negligence, fraud, or default, We will not be liable in any way to you in the event of force majeure, or for the act of any government or legal authority, or for the failure of or damage or destruction to Our computer systems, data, or records, or any part thereof, or for delays, losses, errors, or omissions resulting from your failure in, or mismanagement of, any telecommunications, computer equipment, or software or any damages or losses deemed or alleged to have resulted from, or been caused by, Deriv or its content.',
-                            )}
-                        </TncListText>
-                    </li>
-                    <li>
-                        <TncListText>
-                            {localize(
-                                'Any information given on these pages and/or related emails or newsletters that We have sent you is not intended as financial or investment advice, and We will not accept any liability in this respect.',
-                            )}
-                        </TncListText>
-                    </li>
-                    <li>
-                        <TncListText>
-                            {localize(
-                                'Neither We nor any of Our directors, officers, managers, employees, or agents shall be liable for any loss, damage, or debt to you that has arisen directly or indirectly out of or in connection with this agreement.',
-                            )}
-                        </TncListText>
-                    </li>
-                </StyledOrder>
-                <li>
-                    <TncListText>{localize('Your liability')}</TncListText>
-                    <StyledOrder type="lower-alpha">
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'You agree to be fully and personally liable for the due settlement of every transaction into which you enter, using your account with Us.',
-                                )}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'You are responsible for ensuring that you alone control access to the account and that no minors are granted access to trading on Deriv.',
-                                )}
-                            </TncListText>
-                        </li>
-                        <li>
-                            <TncListText>
-                                {localize(
-                                    'You also indemnify Us against all costs and losses of any kind whatsoever as may be incurred by Us as a result, direct or indirect, of your failure to comply with any and all of your obligations set forth in this agreement and/or Our enforcement against you of any and all of Our rights under this agreement.',
-                                )}
-                            </TncListText>
-                        </li>
-                    </StyledOrder>
-                </li>
-            </StyledOrder>
-            <StyledHeader as="h4" weight="500">
-                {localize('K. Force Majeure')}
-            </StyledHeader>
-            <StyledOrder type="decimal">
-                <li>
-                    <TncListText>
-                        {localize(
-                            'No party shall be deemed liable for any failure to meet its obligations under this agreement if it is prevented from performing those obligations by an event of Force Majeure. Force Majeure events are events beyond the control of either of the parties and are not reasonably foreseen; they materially affect the performance of any of the parties’ obligations under this agreement. Force Majeure events may include but are not limited to acts of God, war, state or governmental actions, exchange controls, nationalisations, devaluations, forfeitures, natural disasters, terrorism, and other inevitable, unforeseeable, unanticipated, and unpredicted events that are not dependent upon the will of the parties.',
-                        )}
-                    </TncListText>
-                </li>
-            </StyledOrder>
+            </li>
+        </StyledOrder>
+        <StyledHeader as="h4" weight="500">
+            {localize('K. Force Majeure')}
+        </StyledHeader>
+        <StyledOrder type="decimal">
+            <li>
+                <TncListText>
+                    {localize(
+                        'No party shall be deemed liable for any failure to meet its obligations under this agreement if it is prevented from performing those obligations by an event of Force Majeure. Force Majeure events are events beyond the control of either of the parties and are not reasonably foreseen; they materially affect the performance of any of the parties’ obligations under this agreement. Force Majeure events may include but are not limited to acts of God, war, state or governmental actions, exchange controls, nationalisations, devaluations, forfeitures, natural disasters, terrorism, and other inevitable, unforeseeable, unanticipated, and unpredicted events that are not dependent upon the will of the parties.',
+                    )}
+                </TncListText>
+            </li>
         </StyledOrder>
     </StyledSection>
 )

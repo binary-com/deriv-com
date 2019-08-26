@@ -24,7 +24,7 @@ const Grid = styled(Container)`
 `
 const GridCol = styled.article`
     display: grid;
-    grid-template-columns: 65px 1fr;
+    grid-template-columns: 6.5rem 1fr;
     column-gap: 2.4rem;
     align-items: center;
     height: 100%;

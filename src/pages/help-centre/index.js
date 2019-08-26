@@ -204,6 +204,7 @@ class HelpCentre extends Component {
                                     onChange={this.handleInputChange}
                                     placeholder={localize('How can we help?')}
                                     data-lpignore="true"
+                                    autoComplete="off"
                                 />
                                 {search.length && (
                                     <SearchCrossIcon

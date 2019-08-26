@@ -11,7 +11,7 @@ import { deriv_app_url } from 'common/utility'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
-import LogoHeader from 'images/svg/logo-header.svg'
+import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 
 const StyledNav = styled.nav`
@@ -152,7 +152,7 @@ const Nav = () => {
             <Wrapper>
                 <NavLeft>
                     <LocalizedLink to="/" aria-label={localize('Home')}>
-                        <LogoHeader />
+                        <LogoBeta />
                     </LocalizedLink>
                 </NavLeft>
                 <NavCenter>

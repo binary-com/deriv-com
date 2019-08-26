@@ -20,6 +20,7 @@ module.exports = {
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         'gatsby-plugin-sitemap',
+        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
@@ -42,22 +43,6 @@ module.exports = {
                 //       description: 'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
                 //     },
                 //   ],
-            },
-        },
-        {
-            resolve: 'gatsby-plugin-offline',
-            options: {
-                dontCacheBustUrlsMatching: /(\.js$|\.css$|\/static\/)/,
-                runtimeCaching: [
-                    {
-                        urlPattern: /(\.js$|\.css$|\/static\/)/,
-                        handler: `cacheFirst`,
-                    },
-                    {
-                        urlPattern: /^https?:\/\/(deriv\.com|.+\.netlify\.com|dev\.deriv\.com).*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
-                        handler: `staleWhileRevalidate`,
-                    },
-                ],
             },
         },
         {

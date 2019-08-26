@@ -473,7 +473,6 @@ export const PaymentAgents = () => (
                     )}
                 </TncListText>
             </li>
-
         </StyledOrder>
         <StyledHeader as="h4" weight="500">
             {localize('J. Confidentiality')}

@@ -24,7 +24,9 @@ const TermsAndConditions = () => (
     <Layout>
         <SEO
             title={localize('Terms and conditions')}
-            description={localize('Read our terms and conditions to learn how we manage our data feeds, security, privacy, and more.')}
+            description={localize(
+                'Read our terms and conditions to learn how we manage our data feeds, security, privacy, and more.',
+            )}
         />
         <TncContainer align="left" justify="left">
             <SideTab has_hash_routing>

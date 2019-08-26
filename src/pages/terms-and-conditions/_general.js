@@ -654,7 +654,7 @@ export const General = () => (
             <li>
                 <TncListText>
                     <Localize
-                        translate_text="We reserve the right to have risk limits in place, which affect your trading limits and may not be restricted solely to instruments and trade types. We may also impose volume trading limits on your account at Our sole discretion. Trading volume limits can be viewed in the <0>Security and privacy</0? section of your account. If your account balance exceeds your maximum account size, please make withdrawals to bring the balance below this limit."
+                        translate_text="We reserve the right to have risk limits in place, which affect your trading limits and may not be restricted solely to instruments and trade types. We may also impose volume trading limits on your account at Our sole discretion. Trading volume limits can be viewed in the <0>Security and privacy</0> section of your account. If your account balance exceeds your maximum account size, please make withdrawals to bring the balance below this limit."
                         components={[
                             <TncLink
                                 key={0}

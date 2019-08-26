@@ -278,7 +278,7 @@ const ResponsibleTrading = () => (
                         </div>
                         <CheckText secondary>
                             {localize(
-                                'Limit the amount of time you spend trading',
+                                'Limit the amount of time you spend on trading',
                             )}
                         </CheckText>
                     </StyledLimits>

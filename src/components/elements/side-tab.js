@@ -7,7 +7,7 @@ import { Text } from './typography'
 import { getLocationHash } from 'common/utility'
 import device, { size } from 'themes/device'
 import { Desktop, Mobile } from 'components/containers/show'
-import Arrow from 'images/svg/arrow-1.svg'
+import Path from 'images/svg/path.svg'
 
 const StyledSideTab = styled(Wrapper)`
     padding: 0;
@@ -61,7 +61,7 @@ const StyledDropDown = styled.li`
         font-size: 2rem;
     }
 `
-const ArrowWrapper = styled(Arrow)`
+const PathWrapper = styled(Path)`
     transform: ${props =>
         props.what_is_active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)'};
 `
@@ -151,7 +151,7 @@ const SideTab = ({ children, has_hash_routing }) => {
                         ) : (
                             <p>-</p>
                         )}
-                        <ArrowWrapper what_is_active_tab={active_tab} />
+                        <PathWrapper what_is_active_tab={active_tab} />
                     </StyledDropDown>
                     {current_active_tab
                         ? undefined

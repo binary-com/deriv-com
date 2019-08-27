@@ -8,7 +8,7 @@ export const Copyright = () => (
         <Header as="h2" color="black">
             {localize('Copyright')}
         </Header>
-        <StyledOrder type='decimal'>
+        <StyledOrder type="decimal">
             <li>
                 <TncListText>
                     {localize('Deriv is protected by certain copyrights.')}
@@ -37,7 +37,9 @@ export const Copyright = () => (
             </li>
             <li>
                 <TncListText>
-                    {localize('Deriv and Deriv logo are registered trademarks.')}
+                    {localize(
+                        'Deriv and Deriv logo are registered trademarks.',
+                    )}
                 </TncListText>
             </li>
         </StyledOrder>

@@ -72,7 +72,6 @@ Usage example:
 
 ```js
 import Logo from '../images/logo-header.svg'
-
 ;<Logo />
 ```
 
@@ -121,61 +120,42 @@ const YourCssStyle = styled.div`
 
 #### JS changes
 
-to configure responsiveness based on js changes or different component render, you can use `<MediaQuery />`, for more information, you can take a look at [react-responsive](https://github.com/contra/react-responsive)
+to configure responsiveness based on js changes or different component render, you can use `Show` component in `/containers` directory
 
-Usage example (hooks):
+Usage example (chain):
 
 ```js
-import { useMediaQuery } from 'react-responsive'
-import device, { size } from 'themes/device'
+import Show from 'components/containers/show'
 
-const YourComponent = () => {
-    const isTabletOrMobile = useMediaQuery({ query: device.tabletL })
-    const isDesktopOrLaptop = useMediaQuery({
-        query: `(min-device-width: ${size.tabletL}px)`,
-    })
-
-    return (
-        <div>
-            {isDesktopOrLaptop && (
-                <>
-                    <p>You are desktop or laptop</p>
-                </>
-            )}
-            {isTabletOrMobile && (
-                <>
-                    <p>You are Tablet or mobile</p>
-                </>
-            )}
-        </div>
-    )
-}
+const Example = () => (
+    <div>
+        <h1>Device Test!</h1>
+        <Show.Desktop
+            minDeviceWidth={size.tabletL}
+            device={{ deviceWidth: size.desktopS }}
+        >
+            you are desktop
+        </Show.Desktop>
+        <Show.Mobile>you are mobile</Show.Mobile>
+    </div>
+)
 ```
 
 Usage example (with components):
 
 ```js
-import MediaQuery from 'react-responsive'
-import { size } from 'themes/device'
+import { Desktop, Mobile } from 'components/containers/show'
 
 const Example = () => (
     <div>
         <h1>Device Test!</h1>
-        <MediaQuery
+        <Desktop
             minDeviceWidth={size.tabletL}
             device={{ deviceWidth: size.desktopS }}
         >
-            <p>You are a desktop or laptop</p>
-            <MediaQuery minDeviceWidth={size.desktopL}>
-                <p>You also have a huge screen</p>
-            </MediaQuery>
-        </MediaQuery>
-        <MediaQuery minResolution="2dppx">
-            {/* You can also use a function (render prop) as a child */}
-            {matches =>
-                matches ? <p>You are retina</p> : <p>You are not retina</p>
-            }
-        </MediaQuery>
+            you are desktop
+        </Desktop>
+        <Mobile>you are mobile</Mobile>
     </div>
 )
 ```

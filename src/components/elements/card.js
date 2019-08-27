@@ -91,8 +91,8 @@ export const Card = ({ children, Icon, title, content, width, min_height }) => {
                                 <CardContent key={index}>{text}</CardContent>
                             ))
                         ) : (
-                                <CardContent>{content}</CardContent>
-                            )}
+                            <CardContent>{content}</CardContent>
+                        )}
                     </div>
                 </>
             )}
@@ -109,12 +109,12 @@ export const CardChildren = ({
     icon_width,
     icon_height,
 }) => (
-        <CardChildrenWrapper width={width}>
-            <Header as="h3">{title}</Header>
-            <Icon width={icon_width} height={icon_height} />
-            {children}
-        </CardChildrenWrapper>
-    )
+    <CardChildrenWrapper width={width}>
+        <Header as="h3">{title}</Header>
+        <Icon width={icon_width} height={icon_height} />
+        {children}
+    </CardChildrenWrapper>
+)
 
 Card.propTypes = {
     children: PropTypes.oneOfType([

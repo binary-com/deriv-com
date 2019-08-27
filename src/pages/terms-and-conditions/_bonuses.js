@@ -1,5 +1,10 @@
 import React from 'react'
-import { StyledSection, TncListText, StyledOrder, StyledHeader } from './_styles'
+import {
+    StyledSection,
+    TncListText,
+    StyledOrder,
+    StyledHeader,
+} from './_styles'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 
@@ -125,5 +130,5 @@ export const Bonuses = () => (
                 </TncListText>
             </li>
         </StyledOrder>
-    </StyledSection >
+    </StyledSection>
 )

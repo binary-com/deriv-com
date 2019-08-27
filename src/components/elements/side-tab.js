@@ -7,7 +7,7 @@ import { Text } from './typography'
 import { getLocationHash, isBrowser } from 'common/utility'
 import device, { size } from 'themes/device'
 import { Desktop, Mobile } from 'components/containers/show'
-import Path from 'images/svg/path.svg'
+import Chevron from 'images/svg/chevron.svg'
 
 const StyledSideTab = styled(Wrapper)`
     padding: 0;
@@ -64,9 +64,9 @@ const StyledDropDown = styled.li`
         color: var(--color-red);
     }
 `
-const PathWrapper = styled(Path)`
+const ChevronWrapper = styled(Chevron)`
     transform: ${props =>
-        props.what_is_active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)'};
+        props.active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)'};
 `
 const Tab = ({ active_tab, label, onClick, text, mobile }) => {
     const className = active_tab === label ? 'tab-active' : ''
@@ -155,7 +155,7 @@ const SideTab = ({ children, has_hash_routing }) => {
                         ) : (
                             <StyledActiveTabText>-</StyledActiveTabText>
                         )}
-                        <PathWrapper what_is_active_tab={active_tab} />
+                        <ChevronWrapper active_tab={active_tab} />
                     </StyledDropDown>
                     {current_active_tab
                         ? undefined

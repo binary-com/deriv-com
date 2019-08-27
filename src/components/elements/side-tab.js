@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { navigate } from '@reach/router'
 import Wrapper from '../containers/wrapper'
 import { Text } from './typography'
-import { getLocationHash } from 'common/utility'
+import { getLocationHash, isBrowser } from 'common/utility'
 import device, { size } from 'themes/device'
 import { Desktop, Mobile } from 'components/containers/show'
 import Path from 'images/svg/path.svg'
@@ -34,7 +34,7 @@ const TabContent = styled.div`
 `
 
 const StyledTab = styled.li`
-    cursor: pionter;
+    cursor: pointer;
     padding: 1.8rem 0;
     border-bottom: 1px solid var(--color-red-2);
 
@@ -63,7 +63,6 @@ const StyledDropDown = styled.li`
     ${Text} {
         color: var(--color-red);
     }
-    
 `
 const PathWrapper = styled(Path)`
     transform: ${props =>
@@ -103,12 +102,11 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
 
 const SideTab = ({ children, has_hash_routing }) => {
     // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
-    const first_tab =
-        typeof window !== 'undefined'
-            ? window.innerWidth > size.tabletL
-                ? children[0].props.label
-                : '-'
-            : children[0].props.label
+    const first_tab = isBrowser()
+        ? window.innerWidth > size.tabletL
+            ? children[0].props.label
+            : '-'
+        : children[0].props.label
 
     const [active_tab, setTab, previous_tab, setLastActiveTab] = useTabs(
         first_tab,

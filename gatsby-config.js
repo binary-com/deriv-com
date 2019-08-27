@@ -74,13 +74,6 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-portal`,
-            options: {
-                key: 'modal',
-                id: 'modal',
-            },
-        },
-        {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {
                 id: 'GTM-NF7884S',

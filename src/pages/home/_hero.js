@@ -151,7 +151,7 @@ export const Hero = () => {
                 <Image
                     img_name="header-trade.png"
                     width="90rem"
-                    alt={localize("abstract graph")}
+                    alt={localize('Market line')}
                 />
             </Show.Desktop>
         </HeroWrapper>

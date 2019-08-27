@@ -2,9 +2,9 @@
 
 Summary of the change and/or issue that is fixed.
 
-Fixes:
+Changes:
 
--   issue with item
+-   fixes issue with item
 -   ...
 
 ## Type of change

@@ -20,7 +20,6 @@ module.exports = {
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         'gatsby-plugin-sitemap',
-        'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
@@ -91,6 +90,17 @@ module.exports = {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
                 policy: [{ userAgent: '*', allow: '/' }],
+            },
+        },
+        {
+            resolve: `gatsby-plugin-netlify`,
+            options: {
+                headers: {
+                    '/page-data/*': [
+                        'cache-control: max-age=0,no-cache,no-store,must-revalidate',
+                    ],
+                }, // option to add more headers. `Link` headers are transformed by the below criteria
+                allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
             },
         },
     ],

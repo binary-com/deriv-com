@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Portal from '../containers/portal'
 // Icons
 import Close from 'images/svg/close.svg'
 
@@ -48,7 +47,7 @@ const Background = styled.div`
     opacity: 0.4;
 `
 
-const Modal = ({ children, toggle, is_open, is_blurred, closeModal }) => {
+const Modal = ({ children, toggle, is_open, closeModal }) => {
     const handleEscape = e => {
         if (e.keyCode === 27) {
             closeModal()
@@ -64,17 +63,15 @@ const Modal = ({ children, toggle, is_open, is_blurred, closeModal }) => {
     }, [])
 
     return (
-        <Portal is_open={is_open} is_blurred={is_blurred}>
-            {is_open && (
-                <ModalWrapper>
-                    <ModalCard>
-                        <CloseButton onClick={toggle} />
-                        {children}
-                    </ModalCard>
-                    <Background onClick={toggle} />
-                </ModalWrapper>
-            )}
-        </Portal>
+        is_open && (
+            <ModalWrapper>
+                <ModalCard>
+                    <CloseButton onClick={toggle} />
+                    {children}
+                </ModalCard>
+                <Background onClick={toggle} />
+            </ModalWrapper>
+        )
     )
 }
 

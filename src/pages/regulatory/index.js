@@ -51,6 +51,7 @@ const FlexWrapper = styled(Container)`
 
     @media (max-width: 1249px) {
         justify-content: center;
+
         & > * {
             width: 100%;
             max-width: 50rem;

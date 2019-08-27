@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../../components/form/button'
-import { StyledHeader } from './_headers'
+import { HeroHeader, StyledHeader } from './_headers'
 import device from 'themes/device'
 import Container from 'components/containers/container'
 import Show from 'components/containers/show'
@@ -10,16 +10,13 @@ import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-import header_trade_image from 'images/common/header-trade.png'
+import Image from 'components/elements/image'
 
 const HeroWrapper = styled.section`
     width: 100%;
     padding: 4rem 0 2rem;
     min-height: 65rem;
-    background: var(--color-black) url(${header_trade_image});
-    background-repeat: no-repeat;
-    background-position: 23% 100%;
-    background-size: auto;
+    background: var(--color-black);
 
     @media ${device.laptop} {
         background-position: -10rem 100%;
@@ -39,7 +36,7 @@ const HeroWrapper = styled.section`
 const HeroGrid = styled.section`
     width: 100%;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 2fr 2fr;
     grid-column-gap: 2rem;
     max-width: 100%;
     padding-top: 4rem;
@@ -56,11 +53,14 @@ const HeroGrid = styled.section`
 `
 const SignupWrapper = styled.article`
     justify-self: end;
-    min-width: 33rem;
+
+    @media ${device.laptop} {
+        justify-self: center;
+    }
 `
 
 const SignupBox = styled.div`
-    max-width: 33rem;
+    min-width: 33rem;
     background-color: var(--color-grey-1);
     border-radius: 6px;
     box-sizing: border-box;
@@ -105,16 +105,21 @@ export const Hero = () => {
                             </StyledHeader>
                         </Show.Mobile>
                         <Show.Desktop>
-                            <Header as="h1" color="white" lh="1.2">
+                            <HeroHeader as="h1" color="white" lh="1.2">
                                 {localize(
                                     'This is your ultimate trading experience',
                                 )}
-                            </Header>
-                            <StyledHeader as="h4" color="white" weight="500">
+                            </HeroHeader>
+                            <HeroHeader
+                                as="h4"
+                                color="white"
+                                weight="500"
+                                secondary
+                            >
                                 {localize(
                                     'The world’s markets at your fingertips anytime, anywhere.',
                                 )}
-                            </StyledHeader>
+                            </HeroHeader>
                         </Show.Desktop>
                     </article>
                     <Show.Mobile>
@@ -133,15 +138,22 @@ export const Hero = () => {
                             <SignupModal autofocus />
                         </Modal>
                     </Show.Mobile>
-                    <Show.Desktop>
-                        <SignupWrapper>
+                    <SignupWrapper>
+                        <Show.Desktop>
                             <SignupBox>
                                 <Signup />
                             </SignupBox>
-                        </SignupWrapper>
-                    </Show.Desktop>
+                        </Show.Desktop>
+                    </SignupWrapper>
                 </HeroGrid>
             </Container>
+            <Show.Desktop>
+                <Image
+                    img_name="header-trade.png"
+                    width="90rem"
+                    alt="statistic"
+                />
+            </Show.Desktop>
         </HeroWrapper>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { navigate } from '@reach/router'
 import Wrapper from '../containers/wrapper'
 import { Text } from './typography'
@@ -49,10 +49,12 @@ const StyledTab = styled.li`
         }
     }
 `
-
-const StyledActiveTabText = styled(Text)`
+const TabsText = css`
     font-size: var(--text-size-sm);
     color: var(--color-red);
+`
+const StyledActiveTabText = styled(Text)`
+    ${TabsText}
 `
 const StyledDropDown = styled.li`
     padding: 1rem 0;
@@ -61,7 +63,7 @@ const StyledDropDown = styled.li`
     justify-content: space-between;
 
     ${Text} {
-        color: var(--color-red);
+        ${TabsText}
     }
 `
 const ChevronWrapper = styled(Chevron)`
@@ -128,23 +130,28 @@ const SideTab = ({ children, has_hash_routing }) => {
         child => child.props.label === active_tab,
     )
 
+    const Tabs = props => {
+        return children.map((child, idx) => {
+            const { label, text } = child.props
+            return (
+                <div key={idx}>
+                    <Tab
+                        mobile={props.is_mobile}
+                        text={text}
+                        onClick={setTab}
+                        active_tab={active_tab}
+                        label={label}
+                    />
+                </div>
+            )
+        })
+    }
+
     return (
         <StyledSideTab>
             <TabList>
                 <Desktop>
-                    {children.map((child, idx) => {
-                        const { label, text } = child.props
-                        return (
-                            <div key={idx}>
-                                <Tab
-                                    active_tab={active_tab}
-                                    label={label}
-                                    text={text}
-                                    onClick={setTab}
-                                />
-                            </div>
-                        )
-                    })}
+                    <Tabs />
                 </Desktop>
                 <Mobile>
                     <StyledDropDown onClick={handleReset}>
@@ -157,23 +164,7 @@ const SideTab = ({ children, has_hash_routing }) => {
                         )}
                         <ChevronWrapper active_tab={active_tab} />
                     </StyledDropDown>
-                    {current_active_tab
-                        ? undefined
-                        : children.map((child, idx) => {
-                              const { label, text } = child.props
-
-                              return (
-                                  <div key={idx}>
-                                      <Tab
-                                          mobile
-                                          text={text}
-                                          onClick={setTab}
-                                          active_tab={active_tab}
-                                          label={label}
-                                      />
-                                  </div>
-                              )
-                          })}
+                    {current_active_tab ? undefined : <Tabs is_mobile={true} />}
                 </Mobile>
             </TabList>
             <TabContent>
@@ -188,6 +179,7 @@ const SideTab = ({ children, has_hash_routing }) => {
 SideTab.propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
     has_hash_routing: PropTypes.bool,
+    is_mobile: PropTypes.bool,
 }
 
 Tab.propTypes = {

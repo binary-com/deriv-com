@@ -81,7 +81,6 @@ Modal.propTypes = {
         PropTypes.node,
     ]).isRequired,
     closeModal: PropTypes.func,
-    is_blurred: PropTypes.bool,
     is_open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
 }

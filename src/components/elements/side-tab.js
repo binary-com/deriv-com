@@ -49,18 +49,21 @@ const StyledTab = styled.li`
         }
     }
 `
+
+const StyledActiveTabText = styled(Text)`
+    font-size: var(--text-size-sm);
+    color: var(--color-red);
+`
 const StyledDropDown = styled.li`
     padding: 1rem 0;
-    color: var(--color-red);
     border-bottom: 1px solid var(--color-red);
     display: flex;
     justify-content: space-between;
 
-    p {
-        font-size: var(--text-size-s);
+    ${Text} {
         color: var(--color-red);
-        font-size: 2rem;
     }
+    
 `
 const PathWrapper = styled(Path)`
     transform: ${props =>
@@ -148,9 +151,11 @@ const SideTab = ({ children, has_hash_routing }) => {
                 <Mobile>
                     <StyledDropDown onClick={handleReset}>
                         {current_active_tab ? (
-                            <p>{current_active_tab.props.text}</p>
+                            <StyledActiveTabText>
+                                {current_active_tab.props.text}
+                            </StyledActiveTabText>
                         ) : (
-                            <p>-</p>
+                            <StyledActiveTabText>-</StyledActiveTabText>
                         )}
                         <PathWrapper what_is_active_tab={active_tab} />
                     </StyledDropDown>

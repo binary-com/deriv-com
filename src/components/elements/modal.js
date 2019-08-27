@@ -15,10 +15,11 @@ const ModalWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 200;
 `
 const ModalCard = styled.div`
     position: relative;
-    z-index: 10;
+    z-index: 210;
     border-radius: 6px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 `

@@ -83,7 +83,6 @@ const Input = ({ label, id, ...props }) => (
 )
 
 Input.propTypes = {
-    autoFocus: PropTypes.bool,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,

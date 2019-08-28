@@ -127,12 +127,13 @@ class Signup extends Component {
 
     handleInputChange = e => {
         const { name, value } = e.target
+        const sanitized_value = sanitize(value)
 
         this.setState({
-            [name]: sanitize(value),
+            [name]: sanitized_value,
         })
 
-        this.handleValidation(value)
+        this.handleValidation(sanitized_value)
     }
 
     getVerifyEmailRequest = email => {

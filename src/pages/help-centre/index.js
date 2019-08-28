@@ -192,10 +192,7 @@ class HelpCentre extends Component {
                 >
                     <Backdrop>
                         <StyledContainer align="normal" direction="column">
-                            <SearchForm
-                                onSubmit={this.handleSubmit}
-                                autoComplete="off"
-                            >
+                            <SearchForm onSubmit={this.handleSubmit}>
                                 <SearchIconBig />
                                 <Search
                                     autoFocus

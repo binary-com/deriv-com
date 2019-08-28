@@ -136,6 +136,9 @@ const Reset = css`
         border-collapse: collapse;
         border-spacing: 0;
     }
+    input::-ms-clear {
+        display: none;
+    }
 `
 
 export default Reset

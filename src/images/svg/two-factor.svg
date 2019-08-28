@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="two-factor-icon-title">
-    <title id="two-factor-icon-title">Two factor icon</title>
+    <title id="two-factor-icon-title">Two factor</title>
     <g fill="none" fill-rule="evenodd">
         <path d="M0 0h64v64H0z"/>
         <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 11h30.523"/>

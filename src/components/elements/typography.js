@@ -31,9 +31,8 @@ export const LinkText = styled.a`
     }
 `
 
-export const Header = styled(
-    ({ as = 'h1', children, ...props }) =>
-        createElement(as, props, children),
+export const Header = styled(({ as = 'h1', children, ...props }) =>
+    createElement(as, props, children),
 )`
     font-weight: ${props => props.weight || 'bold'};
     font-size: ${props => {

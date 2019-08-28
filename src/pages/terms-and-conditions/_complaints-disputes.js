@@ -1,14 +1,13 @@
 import React from 'react'
-import { StyledSection, StyledOrder, TncListText } from './_styles'
-import { Header } from 'components/elements/typography'
+import { StyledSection, StyledOrder, TncListText, StyledTitle } from './_styles'
 import { localize } from 'components/localization'
 
 export const ComplaintsAndDisputes = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Complaints and disputes')}
-        </Header>
-        <StyledOrder type='decimal'>
+        </StyledTitle>
+        <StyledOrder type="decimal">
             <li>
                 <TncListText>
                     {localize(

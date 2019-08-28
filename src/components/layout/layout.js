@@ -9,7 +9,7 @@ const Main = styled.main`
     padding-top: 7.2rem;
 
     @media ${device.tabletL} {
-        padding-top: 0;
+        padding-top: 4rem;
     }
 `
 

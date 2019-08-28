@@ -5,15 +5,15 @@ import {
     StyledOrder,
     TncListText,
     TncLink,
+    StyledTitle,
 } from './_styles'
 import { localize, Localize } from 'components/localization'
-import { Header } from 'components/elements/typography'
 
 export const General = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Terms and conditions')}
-        </Header>
+        </StyledTitle>
         <StyledHeader as="h4" weight="500">
             {localize('A.  Introduction and scope of the agreement')}
         </StyledHeader>

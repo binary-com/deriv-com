@@ -4,16 +4,16 @@ import {
     StyledHeader,
     StyledOrder,
     TncListText,
+    StyledTitle,
 } from './_styles'
-import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 
 export const SecurityAndPrivacy = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Security and privacy')}
-        </Header>
-        <StyledOrder type="decimal">
+        </StyledTitle>
+        <StyledOrder type='decimal'>
             <li>
                 <TncListText>
                     {localize(

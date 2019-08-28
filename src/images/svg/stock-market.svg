@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="stock-market-icon-title">
-    <title id='stock-market-icon-title'>Stock market icon</title>
+    <title id='stock-market-icon-title'>Stock market</title>
     <g fill="none" fill-rule="nonzero">
         <path fill="#85ACB0" d="M47.439 32.866H56.3c.544 0 .985.441.985.985v28.042h1.97V33.85a2.954 2.954 0 0 0-2.955-2.954H47.44v1.97z"/>
         <path fill="#85ACB0" d="M52.638 57.068l1.004-.945 4.628 4.982 4.627-4.982 1.014.945-5.641 6.066zM15.754 30.554H7.877a.977.977 0 0 1-.985-.97V1.97H4.923v27.615c0 1.606 1.323 2.908 2.954 2.908h7.877v-1.938z"/>

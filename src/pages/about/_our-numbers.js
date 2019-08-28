@@ -25,7 +25,7 @@ const OurNumbersContainer = styled(Container)`
 
     h1 {
         width: 100%;
-        height: 151px;
+        height: 15.1rem;
         margin-top: 2.4rem;
         font-size: 12.8rem;
         font-weight: bold;
@@ -38,7 +38,7 @@ const OurNumbersContainer = styled(Container)`
     }
     span {
         margin-top: 2rem;
-        height: 30px;
+        height: 3rem;
         font-size: var(--text-size-sm);
         line-height: 1.5;
         text-align: right;
@@ -60,7 +60,7 @@ const ChartContainer = styled.div`
 
     p {
         width: 100%;
-        height: 40px;
+        height: 4rem;
         font-size: 3.2rem;
         font-weight: bold;
         line-height: 1.25;
@@ -98,7 +98,7 @@ const ChartContainer = styled.div`
 `
 
 const Charts = styled.div`
-    width: 328px;
+    width: 32.8rem;
     text-align: right;
 
     h3 {

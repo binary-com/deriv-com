@@ -96,7 +96,7 @@ const NavButton = styled(Button)`
 `
 const NavRightContainer = styled.div`
     position: absolute;
-    left: 14rem;
+    left: 13.8rem;
     transition: left 0.5s ease-out;
     ${props => {
         if (props.enable_move) {
@@ -169,6 +169,7 @@ const Nav = () => {
                             activeClassName="active"
                             to="/about/"
                             aria-label={localize('About us')}
+                            partiallyActive={true}
                         >
                             {localize('About us')}
                         </StyledLink>
@@ -178,6 +179,7 @@ const Nav = () => {
                             activeClassName="active"
                             to="/help-centre/"
                             aria-label={localize('Help Centre')}
+                            partiallyActive={true}
                         >
                             {localize('Help Centre')}
                         </StyledLink>
@@ -206,10 +208,9 @@ const Nav = () => {
             <Modal
                 toggle={toggleModal}
                 is_open={show_modal}
-                is_blurred={true}
                 closeModal={closeModal}
             >
-                <SignupModal />
+                <SignupModal autofocus />
             </Modal>
         </StyledNav>
     )

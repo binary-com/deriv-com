@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="market-condition-icon-title">
-    <title id='market-condition-icon-title'>Market condition icon</title>
+    <title id='market-condition-icon-title'>Market condition</title>
     <g fill="none" fill-rule="nonzero">
         <path fill="#0E0E0E" d="M13 62H7c-.561 0-1-.422-1-.922V32a1 1 0 0 0-2 0v29.078C4 62.701 5.352 64 7 64h6a1 1 0 0 0 0-2z"/>
         <path fill="#0E0E0E" d="M9 36l-4-3.789L1 36v-3.22L5 29l4 3.78zM61 30.838L64 28v3.216L60 35l-4-3.784V28l3 2.838V2.926c0-.47-.541-.926-1.286-.926H52a1 1 0 0 1 0-2h5.714C59.494 0 61 1.268 61 2.926v27.912z"/>

@@ -25,13 +25,13 @@ const Grid = styled.article`
 
 const PaymentMethods = () => (
     <Grid>
-        <Visa />
-        <Master />
-        <Neteller />
-        <Skrill />
-        <Maestro />
         <BankTransfer />
         <InternetBank />
+        <Neteller />
+        <Master />
+        <Visa />
+        <Maestro />
+        <Skrill />
     </Grid>
 )
 

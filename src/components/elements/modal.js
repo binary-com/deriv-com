@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Portal from '../containers/portal'
 // Icons
 import Close from 'images/svg/close.svg'
 
@@ -15,10 +14,11 @@ const ModalWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 200;
 `
 const ModalCard = styled.div`
     position: relative;
-    z-index: 10;
+    z-index: 210;
     border-radius: 6px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 `
@@ -47,7 +47,7 @@ const Background = styled.div`
     opacity: 0.4;
 `
 
-const Modal = ({ children, toggle, is_open, is_blurred, closeModal }) => {
+const Modal = ({ children, toggle, is_open, closeModal }) => {
     const handleEscape = e => {
         if (e.keyCode === 27) {
             closeModal()
@@ -63,17 +63,15 @@ const Modal = ({ children, toggle, is_open, is_blurred, closeModal }) => {
     }, [])
 
     return (
-        <Portal is_open={is_open} is_blurred={is_blurred}>
-            {is_open && (
-                <ModalWrapper>
-                    <ModalCard>
-                        <CloseButton onClick={toggle} />
-                        {children}
-                    </ModalCard>
-                    <Background onClick={toggle} />
-                </ModalWrapper>
-            )}
-        </Portal>
+        is_open && (
+            <ModalWrapper>
+                <ModalCard>
+                    <CloseButton onClick={toggle} />
+                    {children}
+                </ModalCard>
+                <Background onClick={toggle} />
+            </ModalWrapper>
+        )
     )
 }
 
@@ -83,7 +81,6 @@ Modal.propTypes = {
         PropTypes.node,
     ]).isRequired,
     closeModal: PropTypes.func,
-    is_blurred: PropTypes.bool,
     is_open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
 }

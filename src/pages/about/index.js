@@ -33,17 +33,17 @@ const About = () => {
             <SEO title={localize('About us')} />
             <Show.Mobile>
                 <Hero
-                    header={localize('About us')}
+                    header={localize('Do not merge this')}
                     paragraph={localize(
-                        'Deriv is the latest innovation by the Binary Group, powered by 20 years of experience, customer focus, and technical innovation.',
+                        'Testing the cache bust method.',
                     )}
                 />
             </Show.Mobile>
             <Show.Desktop>
                 <Hero
-                    header={localize('About us')}
+                    header={localize('Do not merge this')}
                     paragraph={localize(
-                        'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                        'Testing the cache bust method.',
                     )}
                 />
             </Show.Desktop>

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Row from '../containers/row'
 import Signup from '../form/signup'
@@ -41,7 +42,7 @@ const HeaderWrapper = styled(Header)`
     max-width: 75%;
 `
 
-const SignupModal = () => (
+const SignupModal = ({ autofocus }) => (
     <SignupWrapper>
         <ModalRow>
             <Content inverse>
@@ -57,10 +58,14 @@ const SignupModal = () => (
                 </HeaderWrapper>
             </Content>
             <SignupContent>
-                <Signup autofocus />
+                <Signup autofocus={autofocus} />
             </SignupContent>
         </ModalRow>
     </SignupWrapper>
 )
+
+SignupModal.propTypes = {
+    autofocus: PropTypes.bool,
+}
 
 export default SignupModal

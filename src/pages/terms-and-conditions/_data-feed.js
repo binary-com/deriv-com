@@ -5,15 +5,15 @@ import {
     StyledOrder,
     TncListText,
     TncLink,
+    StyledTitle,
 } from './_styles'
-import { Header } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 
 export const DataFeed = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Data feed')}
-        </Header>
+        </StyledTitle>
         <StyledHeader as="h4" weight="500">
             {localize('A. Differences with other data feeds')}
         </StyledHeader>

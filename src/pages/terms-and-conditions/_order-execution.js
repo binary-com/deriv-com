@@ -4,15 +4,15 @@ import {
     StyledHeader,
     StyledOrder,
     TncListText,
+    StyledTitle,
 } from './_styles'
-import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 
 export const OrderExecution = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Order execution policy')}
-        </Header>
+        </StyledTitle>
         <StyledOrder type="decimal">
             <li>
                 <TncListText>

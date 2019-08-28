@@ -45,7 +45,6 @@ const CheckEmail = () => {
             <Modal
                 toggle={toggleModal}
                 is_open={show_modal}
-                is_blurred={true}
                 closeModal={closeModal}
             >
                 <SignupModal />

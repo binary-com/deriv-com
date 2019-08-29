@@ -73,7 +73,7 @@ const Forex = () => (
         <TabGrid>
             <TabCol
                 Icon={liquidMarket}
-                content={localize("World's largest and most liquid market")}
+                content={localize('World’s largest and most liquid market')}
             />
             <TabCol
                 Icon={tff}

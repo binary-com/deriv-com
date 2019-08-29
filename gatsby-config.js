@@ -97,7 +97,7 @@ module.exports = {
                 directives: {
                     'script-src':
                         "'self' 'unsafe-inline' www.google-analytics.com d33wubrfki0l68.cloudfront.net cdn.trackjs.com www.googletagmanager.com cdn.crowdin.com",
-                    'style-src': "'self' 'unsafe-inline' cdn.crowdin.com ",
+                    'style-src': "'self' 'unsafe-inline'",
                     'img-src': "'self' data: www.google-analytics.com",
                     // you can add your directives or override defaults
                 },

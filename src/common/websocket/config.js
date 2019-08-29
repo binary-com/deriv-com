@@ -13,7 +13,7 @@ const domain_config = {
         app_id: 11780,
     },
     staging: {
-        hostname: 'staging.deriv.com',
+        hostname: 'dev.deriv.com',
         app_id: 16303,
     },
     test: {

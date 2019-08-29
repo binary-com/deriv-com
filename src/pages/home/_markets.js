@@ -177,7 +177,7 @@ export const Markets = () => (
             </Header>
             <StyledSubHeader as="h4" align="center" weight="500">
                 {localize(
-                    'Over 100 assets available across five leading markets.',
+                    'Over 100 assets available across four leading markets.',
                 )}
             </StyledSubHeader>
             <Markettabs>

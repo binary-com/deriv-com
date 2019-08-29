@@ -12,7 +12,6 @@ import Button from './button'
 import Input from './input'
 import TrafficSource from 'common/traffic-source'
 import { LocalStore } from 'common/storage'
-import { sanitize } from 'common/utility'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 import { StyledLink } from 'components/elements/link'
@@ -127,13 +126,12 @@ class Signup extends Component {
 
     handleInputChange = e => {
         const { name, value } = e.target
-        const sanitized_value = sanitize(value)
 
         this.setState({
-            [name]: sanitized_value,
+            [name]: value,
         })
 
-        this.handleValidation(sanitized_value)
+        this.handleValidation(value)
     }
 
     getVerifyEmailRequest = email => {

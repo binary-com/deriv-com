@@ -55,7 +55,10 @@ const StyledButton = styled.button`
                     if (props.provider === 'facebook')
                         return 'var(--color-blue)'
                 }};
-                border: none;
+                border: ${props =>
+                    props.provider === 'google'
+                        ? '1px solid var(--color-grey-5);'
+                        : 'none'};
 
                 svg {
                     width: 2.2rem;

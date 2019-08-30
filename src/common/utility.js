@@ -1,4 +1,4 @@
-const extend = require('extend')
+import extend from 'extend'
 
 const toISOFormat = date => {
     if (date instanceof Date) {
@@ -38,6 +38,10 @@ const getPropertyValue = (obj, k) => {
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
 const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
+
+const getLanguage = () =>
+    typeof localStorage !== 'undefined' ? localStorage.getItem('i18n') : null
+
 class PromiseClass {
     constructor() {
         this.promise = new Promise((resolve, reject) => {
@@ -59,6 +63,7 @@ export {
     cloneObject,
     isBrowser,
     getPropertyValue,
+    getLanguage,
     getLocationHash,
     PromiseClass,
     sanitize,

@@ -9,7 +9,7 @@ import {
     isEmptyObject,
     PromiseClass,
 } from '../utility'
-import { getAppId, getSocketURL } from './config'
+import { getAppId, getSocketURL, isProduction } from './config'
 
 /*
  * An abstraction layer over native javascript WebSocket,
@@ -198,7 +198,10 @@ const BinarySocketBase = (() => {
             config = options
             buffered_sends = []
         }
-        const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${getLanguage()}&brand=${brand_name.toLowerCase()}`
+        // TODO: [translation] remove this condition when production is ready
+        const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${
+            !isProduction() ? getLanguage() : 'en'
+        }&brand=${brand_name.toLowerCase()}`
         clearTimeouts()
         config.wsEvent('init')
 

@@ -9,7 +9,7 @@ import 'typeface-ibm-plex-sans'
 export const onInitialClientRender = () => {
     // Check translation
     // Enable translation
-    if (!isProduction() && window.location.pathname === '/ach') {
+    if (!isProduction() && window.location.pathname === '/ach/') {
         const jipt = document.createElement('script')
         jipt.type = 'text/javascript'
         jipt.text = `

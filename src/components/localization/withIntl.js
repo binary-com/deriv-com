@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { I18nextProvider } from 'react-i18next'
 import i18next from './config'
 import { BinarySocketBase } from 'common/websocket/socket_base'
+import { isProduction } from 'common/websocket/config'
 import { BinarySocketGeneral } from 'common/websocket/socket_general'
 import { NetworkMonitorBase } from 'common/websocket/network_base'
 import { LocalStore } from 'common/storage'
@@ -13,16 +14,22 @@ import { toISOFormat } from 'common/utility'
 
 // Make sure that language is passed on
 const initializeWebsocket = lang => {
-    LocalStore.set('i18n', lang)
-    NetworkMonitorBase.init(BinarySocketGeneral)
+    if (typeof LocalStore !== 'undefined') {
+        // TODO: [translation] remove this condition when production is ready
+        if (!isProduction()) {
+            LocalStore.set('i18n', lang)
+        }
 
-    if (!LocalStore.get('date_first_contact')) {
-        BinarySocketBase.wait('time').then(response => {
-            LocalStore.set(
-                'date_first_contact',
-                toISOFormat(new Date(response.time * 1000)),
-            )
-        })
+        NetworkMonitorBase.init(BinarySocketGeneral)
+
+        if (!LocalStore.get('date_first_contact')) {
+            BinarySocketBase.wait('time').then(response => {
+                LocalStore.set(
+                    'date_first_contact',
+                    toISOFormat(new Date(response.time * 1000)),
+                )
+            })
+        }
     }
 }
 

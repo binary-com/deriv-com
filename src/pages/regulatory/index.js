@@ -43,18 +43,26 @@ const FlexWrapper = styled(Container)`
     min-width: 100%;
     margin-top: 2.4rem;
 
-    @media ${device.tabletL} {
-        margin-top: 0;
-    }
-
     & > * {
         flex-shrink: 0;
         width: 48%;
         margin: 1rem;
+    }
 
-        @media ${device.tabletL} {
+    @media (max-width: 1249px) {
+        justify-content: center;
+
+        & > * {
             width: 100%;
-            margin: 2.66rem 0 0 0;
+            max-width: 50rem;
+        }
+    }
+
+    @media ${device.tabletL} {
+        margin: 2.66rem 0 0 0;
+
+        & > * {
+            margin: 1rem;
         }
     }
 `
@@ -111,7 +119,7 @@ const Regulatory = () => (
                     >
                         <Text align="center">
                             <Localize
-                                translate_text="Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence.</0>"
+                                translate_text="Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
                                 components={[
                                     <a
                                         key={0}
@@ -130,7 +138,7 @@ const Regulatory = () => (
                     >
                         <Text align="center">
                             <Localize
-                                translate_text="Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>"
+                                translate_text="Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>."
                                 components={[
                                     <a
                                         key={0}

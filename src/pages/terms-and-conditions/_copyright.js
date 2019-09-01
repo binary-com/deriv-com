@@ -1,14 +1,13 @@
 import React from 'react'
-import { StyledSection, StyledOrder, TncListText } from './_styles'
-import { Header } from 'components/elements/typography'
+import { StyledSection, StyledOrder, TncListText, StyledTitle } from './_styles'
 import { localize } from 'components/localization'
 
 export const Copyright = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Copyright')}
-        </Header>
-        <StyledOrder type='decimal'>
+        </StyledTitle>
+        <StyledOrder type="decimal">
             <li>
                 <TncListText>
                     {localize('Deriv is protected by certain copyrights.')}
@@ -24,7 +23,7 @@ export const Copyright = () => (
             <li>
                 <TncListText>
                     {localize(
-                        'Such materials may be copied and distributed on a limited basis for noncommercial purposes only, provided that any material copied remains intact and that all copies include the following notice in a clearly visible position: "Copyright 1999-2019 Binary Ltd. All rights reserved."',
+                        'Such materials may be copied and distributed on a limited basis for noncommercial purposes only, provided that any material copied remains intact and that all copies include the following notice in a clearly visible position: "Copyright 2019 Deriv. All rights reserved."',
                     )}
                 </TncListText>
             </li>
@@ -37,7 +36,9 @@ export const Copyright = () => (
             </li>
             <li>
                 <TncListText>
-                    {localize('Deriv and Deriv logo are registered trademarks.')}
+                    {localize(
+                        'Deriv and Deriv logo are registered trademarks.',
+                    )}
                 </TncListText>
             </li>
         </StyledOrder>

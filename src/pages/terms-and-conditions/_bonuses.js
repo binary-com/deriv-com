@@ -1,13 +1,18 @@
 import React from 'react'
-import { StyledSection, TncListText, StyledOrder, StyledHeader } from './_styles'
-import { Header } from 'components/elements/typography'
+import {
+    StyledSection,
+    TncListText,
+    StyledOrder,
+    StyledHeader,
+    StyledTitle,
+} from './_styles'
 import { localize } from 'components/localization'
 
 export const Bonuses = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Bonuses')}
-        </Header>
+        </StyledTitle>
         <StyledHeader as="h4" weight="500">
             {localize('A. Deposit bonus')}
         </StyledHeader>
@@ -125,5 +130,5 @@ export const Bonuses = () => (
                 </TncListText>
             </li>
         </StyledOrder>
-    </StyledSection >
+    </StyledSection>
 )

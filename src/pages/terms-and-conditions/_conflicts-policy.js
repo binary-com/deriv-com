@@ -1,14 +1,19 @@
 import React from 'react'
-import { StyledSection, StyledHeader, StyledOrder, TncListText } from './_styles'
-import { Header } from 'components/elements/typography'
+import {
+    StyledSection,
+    StyledHeader,
+    StyledOrder,
+    TncListText,
+    StyledTitle,
+} from './_styles'
 import { localize } from 'components/localization'
 
 export const ConflictsPolicy = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Conflicts policy')}
-        </Header>
-        <StyledOrder type='decimal'>
+        </StyledTitle>
+        <StyledOrder type="decimal">
             <li>
                 <TncListText>
                     {localize(

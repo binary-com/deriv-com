@@ -5,15 +5,15 @@ import {
     TncListText,
     StyledHeader,
     TncText,
+    StyledTitle,
 } from './_styles'
-import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 
 export const PaymentAgents = () => (
     <StyledSection>
-        <Header as="h2" color="black">
+        <StyledTitle as="h2" color="black">
             {localize('Payment agents’ terms and conditions')}
-        </Header>
+        </StyledTitle>
         <StyledHeader as="h4" weight="500" margin={{ top: '2rem' }}>
             {localize('A. Scope of agreement')}
         </StyledHeader>
@@ -473,7 +473,6 @@ export const PaymentAgents = () => (
                     )}
                 </TncListText>
             </li>
-
         </StyledOrder>
         <StyledHeader as="h4" weight="500">
             {localize('J. Confidentiality')}

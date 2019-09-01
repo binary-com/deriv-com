@@ -13,7 +13,7 @@ const toISOFormat = date => {
     return ''
 }
 
-const hasWindow = () => typeof window !== 'undefined'
+const isBrowser = () => typeof window !== 'undefined'
 
 const isEmptyObject = obj => {
     let is_empty = true
@@ -47,6 +47,8 @@ class PromiseClass {
     }
 }
 
+const sanitize = input => input.replace(/[.*+?^${}()|[\]\\]/g, '')
+
 const deriv_app_url = 'https://deriv.app'
 const brand_name = 'Deriv'
 
@@ -55,9 +57,10 @@ export {
     brand_name,
     isEmptyObject,
     cloneObject,
-    hasWindow,
+    isBrowser,
     getPropertyValue,
     getLocationHash,
     PromiseClass,
+    sanitize,
     toISOFormat,
 }

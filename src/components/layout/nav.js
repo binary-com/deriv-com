@@ -5,12 +5,13 @@ import Button from '../form/button'
 import Container from '../containers/container'
 import Modal, { useModal } from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
+import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
 import { SharedLinkStyle } from '../localization/localized-link'
 import { deriv_app_url } from 'common/utility'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
-import LogoHeader from 'images/svg/logo-header.svg'
+import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 
 const StyledNav = styled.nav`
@@ -95,7 +96,7 @@ const NavButton = styled(Button)`
 `
 const NavRightContainer = styled.div`
     position: absolute;
-    left: 14rem;
+    left: 13.8rem;
     transition: left 0.5s ease-out;
     ${props => {
         if (props.enable_move) {
@@ -104,11 +105,14 @@ const NavRightContainer = styled.div`
     }}
 `
 const HamburgerMenu = styled(Hamburger)`
+    cursor: pointer;
     display: none;
     @media ${device.tabletL} {
         display: block;
+        cursor: pionter;
     }
 `
+
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
@@ -117,17 +121,19 @@ const handleScroll = (show, hide) => {
 const Nav = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
+    const buttonHandleScroll = () => handleScroll(showButton, hideButton)
+    const [
+        is_canvas_menu_open,
+        openOffCanvasMenu,
+        closeOffCanvasMenu,
+    ] = moveOffCanvasMenu()
 
     useEffect(() => {
-        let did_unmount = false
-        document.addEventListener('scroll', () => {
-            if (!did_unmount) handleScroll(showButton, hideButton)
+        document.addEventListener('scroll', buttonHandleScroll, {
+            passive: true,
         })
         return () => {
-            did_unmount = true
-            document.removeEventListener('scroll', () =>
-                handleScroll(showButton, hideButton),
-            )
+            document.removeEventListener('scroll', buttonHandleScroll)
         }
     }, [])
 
@@ -138,12 +144,15 @@ const Nav = () => {
     const handleTraderLink = () => {
         window.open(deriv_app_url, '_blank')
     }
+    const handleMenuClick = () => {
+        is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
+    }
     return (
         <StyledNav>
             <Wrapper>
                 <NavLeft>
                     <LocalizedLink to="/" aria-label={localize('Home')}>
-                        <LogoHeader />
+                        <LogoBeta />
                     </LocalizedLink>
                 </NavLeft>
                 <NavCenter>
@@ -160,6 +169,7 @@ const Nav = () => {
                             activeClassName="active"
                             to="/about/"
                             aria-label={localize('About us')}
+                            partiallyActive={true}
                         >
                             {localize('About us')}
                         </StyledLink>
@@ -169,6 +179,7 @@ const Nav = () => {
                             activeClassName="active"
                             to="/help-centre/"
                             aria-label={localize('Help Centre')}
+                            partiallyActive={true}
                         >
                             {localize('Help Centre')}
                         </StyledLink>
@@ -188,15 +199,18 @@ const Nav = () => {
                         </NavButton>
                     </NavRightContainer>
                 </NavRight>
-                <HamburgerMenu />
+                <HamburgerMenu onClick={handleMenuClick} />
+                <OffCanvasMenu
+                    is_canvas_menu_open={is_canvas_menu_open}
+                    closeOffCanvasMenu={closeOffCanvasMenu}
+                />
             </Wrapper>
             <Modal
                 toggle={toggleModal}
                 is_open={show_modal}
-                is_blurred={true}
                 closeModal={closeModal}
             >
-                <SignupModal />
+                <SignupModal autofocus />
             </Modal>
         </StyledNav>
     )

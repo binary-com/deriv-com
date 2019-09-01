@@ -33,12 +33,9 @@ const Bullet = styled.button`
     outline: none;
     cursor: pointer;
     padding: 0;
+    background-color: var(--color-black-3);
     ${props => {
-        return props.is_active === 'active'
-            ? `background-color: var(--color-black-4);
-            border-color: var(--color-black-4);`
-            : `background-color: var(--color-grey-1);
-        border-color: var(--color-grey-1);`
+        return props.is_active === 'active' ? '' : 'opacity: 0.24;'
     }}
 `
 

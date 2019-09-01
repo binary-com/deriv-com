@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="tff-icon-title">
-    <title id='tff-icon-title'>24/5</title>
+<title id='tff-icon-title'>24/5</title>
     <g fill="none" fill-rule="evenodd">
         <ellipse cx="31.999" cy="32.003" stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" rx="22.044" ry="22.276" transform="rotate(-45.02 32 32.003)"/>
         <path stroke="#85ACB0" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M32 16v-3M32 50v-3M43.307 20.96l1.946-1.893M19 45l2-2M48 31l2.693.053M13 31h3M43 44l2 2M19 18.444l2 2M52.732 12c9.502 9.662 10.986 24.717 3.556 36.076-7.43 11.359-21.74 15.91-34.288 10.906"/>

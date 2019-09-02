@@ -239,7 +239,9 @@ const Footer = () => (
                 <FooterNavGrid>
                     <FooterNav>
                         <Department grid_name="logo">
-                            <Logo />
+                            <LocalizedLink to="/" aria-label={localize('Home')}>
+                                <Logo />
+                            </LocalizedLink>
                         </Department>
                         <Department grid_name="trade">
                             <Header as="h4">{localize('Trade')}</Header>
@@ -247,6 +249,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/keep-safe/"
                                 aria-label={localize('Keep safe')}
+                                partiallyActive={true}
                             >
                                 {localize('Keep safe')}
                             </FooterStyledLink>
@@ -257,6 +260,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/about/"
                                 aria-label={localize('About us')}
+                                partiallyActive={true}
                             >
                                 {localize('About us')}
                             </FooterStyledLink>
@@ -267,6 +271,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/help-centre/"
                                 aria-label={localize('Help Centre')}
+                                partiallyActive={true}
                             >
                                 {localize('Help Centre')}
                             </FooterStyledLink>
@@ -277,6 +282,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/regulatory/"
                                 aria-label={localize('Regulatory information')}
+                                partiallyActive={true}
                             >
                                 {localize('Regulatory information')}
                             </FooterStyledLink>
@@ -284,6 +290,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/terms-and-conditions/"
                                 aria-label={localize('Terms and conditions')}
+                                partiallyActive={true}
                             >
                                 {localize('Terms and conditions')}
                             </FooterStyledLink>
@@ -292,6 +299,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/terms-and-conditions/#security-privacy"
                                 aria-label={localize('Security and privacy')}
+                                partiallyActive={true}
                             >
                                 {localize('Security and privacy')}
                             </FooterStyledLink>
@@ -299,6 +307,7 @@ const Footer = () => (
                                 activeClassName="active"
                                 to="/responsible-trading/"
                                 aria-label={localize('Responsible trading')}
+                                partiallyActive={true}
                             >
                                 {localize('Responsible trading')}
                             </FooterStyledLink>
@@ -324,9 +333,30 @@ const Footer = () => (
                 <LegalRow>
                     <LegalIcons>
                         <span>
-                            <Vanuatu />
-                            <FSC />
-                            <Labuan />
+                            <a
+                                href="https://www.vfsc.vu/"
+                                aria-label={localize('Vanuatu')}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Vanuatu />
+                            </a>
+                            <a
+                                href="https://www.bvifsc.vg/"
+                                aria-label={localize('FSC')}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FSC />
+                            </a>
+                            <a
+                                href="https://www.labuanibfc.com/"
+                                aria-label={localize('Labuan')}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Labuan />
+                            </a>
                         </span>
                     </LegalIcons>
                     <LegalTextWrapper>

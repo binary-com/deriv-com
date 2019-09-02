@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="no-centralised-market-icon-title">
-    <title id='no-centralised-market-icon-title'>No centralised market icon</title>
+    <title id='no-centralised-market-icon-title'>No centralised market</title>
     <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
         <path stroke="#0E0E0E" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 23.19L27.587 36M40.876 23.19L35 36"/>
         <path fill="#0E0E0E" fill-rule="nonzero" d="M35.862 15H27a1 1 0 0 0 0 2h8.862a1 1 0 0 0 0-2z"/>

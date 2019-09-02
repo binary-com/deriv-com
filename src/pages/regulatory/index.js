@@ -119,7 +119,7 @@ const Regulatory = () => (
                     >
                         <Text align="center">
                             <Localize
-                                translate_text="Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence.</0>"
+                                translate_text="Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
                                 components={[
                                     <a
                                         key={0}
@@ -138,7 +138,7 @@ const Regulatory = () => (
                     >
                         <Text align="center">
                             <Localize
-                                translate_text="Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>"
+                                translate_text="Binary (V) Ltd is licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>."
                                 components={[
                                     <a
                                         key={0}

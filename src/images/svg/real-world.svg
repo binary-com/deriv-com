@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="65" height="64" viewBox="0 0 65 64" aria-labelledby="real-world-icon-title">
-    <title id='real-world-icon-title'>Real world icon</title>
+    <title id='real-world-icon-title'>Real world</title>
     <g fill="none" fill-rule="evenodd">
         <path d="M0 0h64v64H0z"/>
         <path fill="#85ACB0" fill-rule="nonzero" d="M36.967 5H8.037C6.36 5 5 6.321 5 7.95v35.046C5 43.551 5.463 44 6.033 44c.57 0 1.033-.45 1.033-1.004V7.951c0-.521.435-.943.971-.943h28.93c.57 0 1.033-.45 1.033-1.004C38 5.449 37.537 5 36.967 5z"/>

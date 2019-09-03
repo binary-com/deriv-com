@@ -11,7 +11,6 @@ class LanguageSwitch extends Component {
     constructor(props) {
         super(props)
         const { i18n } = this.props
-        // TODO: use state for active language styling
         this.state = { language: i18n.language }
     }
 
@@ -33,7 +32,6 @@ class LanguageSwitch extends Component {
     handleSelect = e => {
         const { value } = e.target
         const path = value === '/en' ? '/' : value
-        localStorage.setItem('i18n', value.replace('/', ''))
         navigate(path, { hrefLang: path })
     }
 

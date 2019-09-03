@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { I18nextProvider } from 'react-i18next'
 import i18next from './config'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import { isProduction } from 'common/websocket/config'
 import { BinarySocketGeneral } from 'common/websocket/socket_general'
 import { NetworkMonitorBase } from 'common/websocket/network_base'
 import { LocalStore } from 'common/storage'
@@ -15,12 +14,15 @@ import { toISOFormat } from 'common/utility'
 // Make sure that language is passed on
 const initializeWebsocket = lang => {
     if (typeof LocalStore !== 'undefined') {
-        // TODO: [translation] remove this condition when production is ready
-        if (!isProduction()) {
-            LocalStore.set('i18n', lang)
-        }
+        LocalStore.set('i18n', lang)
 
-        NetworkMonitorBase.init(BinarySocketGeneral)
+        const binary_socket = BinarySocketBase.get()
+        if (!binary_socket || BinarySocketBase.hasReadyState(2, 3)) {
+            NetworkMonitorBase.init(BinarySocketGeneral)
+        } else {
+            binary_socket.close()
+            NetworkMonitorBase.init(BinarySocketGeneral)
+        }
 
         if (!LocalStore.get('date_first_contact')) {
             BinarySocketBase.wait('time').then(response => {
@@ -39,7 +41,7 @@ export const WithIntl = () => WrappedComponent => {
             const current_language = pageContext.locale
             if (current_language && current_language !== i18next.language) {
                 i18next.changeLanguage(current_language)
-                initializeWebsocket()
+                initializeWebsocket(current_language)
             }
         }
         WrapWithIntl.propTypes = {

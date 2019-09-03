@@ -12,7 +12,7 @@ export const ComplaintsAndDisputes = () => (
                 <TncListText>
                     <Localize
                         translate_text="If you would like to file a complaint with regards to Our services, you can contact Us at <0>complaints@deriv.com</0>. You need to provide any relevant details relating to your complaint. We will investigate your enquiry and respond to you. We usually provide a final response within 15 working days from the day that We receive all relevant details."
-                        component={[
+                        components={[
                             <a
                                 key={0}
                                 href="mailto:complaints@deriv.com"

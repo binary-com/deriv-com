@@ -6,10 +6,10 @@ import Footer from './footer'
 import device from 'themes/device'
 
 const Main = styled.main`
-    padding-top: 7.2rem;
+    padding-top: 12rem;
 
     @media ${device.tabletL} {
-        padding-top: 4rem;
+        padding-top: 9rem;
     }
 `
 

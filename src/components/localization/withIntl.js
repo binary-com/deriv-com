@@ -14,23 +14,25 @@ import { toISOFormat } from 'common/utility'
 // Make sure that language is passed on
 const initializeWebsocket = lang => {
     if (typeof LocalStore !== 'undefined') {
-        LocalStore.set('i18n', lang)
+        if (!(LocalStore.get('i18n') === 'ach')) {
+            LocalStore.set('i18n', lang)
 
-        const binary_socket = BinarySocketBase.get()
-        if (!binary_socket || BinarySocketBase.hasReadyState(2, 3)) {
-            NetworkMonitorBase.init(BinarySocketGeneral)
-        } else {
-            binary_socket.close()
-            NetworkMonitorBase.init(BinarySocketGeneral)
-        }
+            const binary_socket = BinarySocketBase.get()
+            if (!binary_socket || BinarySocketBase.hasReadyState(2, 3)) {
+                NetworkMonitorBase.init(BinarySocketGeneral)
+            } else {
+                binary_socket.close()
+                NetworkMonitorBase.init(BinarySocketGeneral)
+            }
 
-        if (!LocalStore.get('date_first_contact')) {
-            BinarySocketBase.wait('time').then(response => {
-                LocalStore.set(
-                    'date_first_contact',
-                    toISOFormat(new Date(response.time * 1000)),
-                )
-            })
+            if (!LocalStore.get('date_first_contact')) {
+                BinarySocketBase.wait('time').then(response => {
+                    LocalStore.set(
+                        'date_first_contact',
+                        toISOFormat(new Date(response.time * 1000)),
+                    )
+                })
+            }
         }
     }
 }
@@ -41,9 +43,7 @@ export const WithIntl = () => WrappedComponent => {
             const current_language = pageContext.locale
             if (current_language && current_language !== i18next.language) {
                 i18next.changeLanguage(current_language)
-                if (!LocalStore.get('i18n').match('ach')) {
-                    initializeWebsocket(current_language)
-                }
+                initializeWebsocket(current_language)
             }
         }
         WrapWithIntl.propTypes = {

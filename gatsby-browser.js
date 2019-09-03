@@ -7,9 +7,9 @@ import './src/components/localization/config'
 import 'typeface-ibm-plex-sans'
 
 export const onInitialClientRender = () => {
-    // Check translation
     // Enable translation
-    if (!isProduction() && window.location.pathname === '/ach/') {
+    // Check if not production and match ach or ach/
+    if (!isProduction() && window.location.pathname.match(/^(ach\/)|ach$/)) {
         const jipt = document.createElement('script')
         jipt.type = 'text/javascript'
         jipt.text = `

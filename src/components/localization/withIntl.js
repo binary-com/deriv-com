@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { I18nextProvider } from 'react-i18next'
 import i18next from './config'
+import { isProduction } from 'common/websocket/config'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { BinarySocketGeneral } from 'common/websocket/socket_general'
 import { NetworkMonitorBase } from 'common/websocket/network_base'
@@ -14,25 +15,27 @@ import { toISOFormat } from 'common/utility'
 // Make sure that language is passed on
 const initializeWebsocket = lang => {
     if (typeof LocalStore !== 'undefined') {
-        if (!(LocalStore.get('i18n') === 'ach')) {
-            LocalStore.set('i18n', lang)
+        if (!isProduction() && !(LocalStore.get('i18n') === 'ach')) {
+            return
+        }
 
-            const binary_socket = BinarySocketBase.get()
-            if (!binary_socket || BinarySocketBase.hasReadyState(2, 3)) {
-                NetworkMonitorBase.init(BinarySocketGeneral)
-            } else {
-                binary_socket.close()
-                NetworkMonitorBase.init(BinarySocketGeneral)
-            }
+        LocalStore.set('i18n', lang)
 
-            if (!LocalStore.get('date_first_contact')) {
-                BinarySocketBase.wait('time').then(response => {
-                    LocalStore.set(
-                        'date_first_contact',
-                        toISOFormat(new Date(response.time * 1000)),
-                    )
-                })
-            }
+        const binary_socket = BinarySocketBase.get()
+        if (!binary_socket || BinarySocketBase.hasReadyState(2, 3)) {
+            NetworkMonitorBase.init(BinarySocketGeneral)
+        } else {
+            binary_socket.close()
+            NetworkMonitorBase.init(BinarySocketGeneral)
+        }
+
+        if (!LocalStore.get('date_first_contact')) {
+            BinarySocketBase.wait('time').then(response => {
+                LocalStore.set(
+                    'date_first_contact',
+                    toISOFormat(new Date(response.time * 1000)),
+                )
+            })
         }
     }
 }

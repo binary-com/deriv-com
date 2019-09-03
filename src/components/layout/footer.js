@@ -9,6 +9,7 @@ import {
 import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
+import { isProduction } from 'common/websocket/config'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv.svg'
@@ -317,7 +318,7 @@ const Footer = () => (
                                 {localize('Responsible trading')}
                             </FooterStyledLink>
                         </Department>
-                        <LanguageSwitcher />
+                        {isProduction() && <LanguageSwitcher />}
                         <Department grid_name="social">
                             <Social>
                                 <p>{localize('Follow us on')}</p>

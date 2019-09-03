@@ -28,6 +28,10 @@ module.exports = {
     },
     de: {
         path: 'de',
+        display_name: 'Deutsch',
+    },
+    pt: {
+        path: 'pt',
         display_name: 'Português',
     },
     ru: {

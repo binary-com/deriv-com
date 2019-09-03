@@ -40,7 +40,7 @@ const getPropertyValue = (obj, k) => {
 const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
 
 const getLanguage = () =>
-    typeof localStorage !== 'undefined' ? localStorage.getItem('i18n') : null
+    typeof localStorage !== 'undefined' ? localStorage.getItem('i18n') : 'en'
 
 class PromiseClass {
     constructor() {

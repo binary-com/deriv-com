@@ -41,7 +41,9 @@ export const WithIntl = () => WrappedComponent => {
             const current_language = pageContext.locale
             if (current_language && current_language !== i18next.language) {
                 i18next.changeLanguage(current_language)
-                initializeWebsocket(current_language)
+                if (!LocalStore.get('i18n').match('ach')) {
+                    initializeWebsocket(current_language)
+                }
             }
         }
         WrapWithIntl.propTypes = {

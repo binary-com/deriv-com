@@ -21,6 +21,7 @@ i18n.use(initReactI18next).init({
         vi: { translations: require('../../translations/vi.json') },
         zh_cn: { translations: require('../../translations/zh_cn.json') },
         zh_tw: { translations: require('../../translations/zh_tw.json') },
+        ach: { translations: require('../../translations/ach.json') },
     },
     ns: ['translations'],
     defaultNS: 'translations',

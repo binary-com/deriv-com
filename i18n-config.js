@@ -54,4 +54,8 @@ module.exports = {
         path: 'zh_tw',
         display_name: '繁體中文',
     },
+    ach: {
+        path: 'ach',
+        display_name: 'Crowdin Translation',
+    },
 }

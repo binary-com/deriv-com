@@ -19,7 +19,9 @@ import IWallet from 'images/svg/payment-i-wallet.svg'
 import Paytrust from 'images/svg/payment-paytrust.svg'
 import Jeton from 'images/svg/payment-jeton.svg'
 
-const PaymentSection = styled(SectionContainer)``
+const PaymentSection = styled(SectionContainer)`
+    padding: 2.4rem 0;
+`
 const CarouselContainer = styled(Container)`
     overflow: hidden;
     justify-content: space-between;
@@ -60,35 +62,42 @@ class PaymentCarousel extends React.Component {
         position: 0,
         transition: true,
     }
-    handleInterval = () => {
-        if (window.scrollY > 2900) {
-            this.setState({
-                transition: true,
-                position: this.state.position - 12.8,
-            })
-            this.timeoutRef = setTimeout(() => {
-                const newPaymentArray = this.state.paymentArray
-                const newPaymentIcon = newPaymentArray.shift()
-                newPaymentArray.push(newPaymentIcon)
-                this.setState({
-                    transition: false,
-                    paymentArray: newPaymentArray,
-                    position: 0,
-                })
-            }, 1100)
+    handler = entries => {
+        for (let entry of entries) {
+            if (entry.isIntersecting) {
+                this.intervalRef = window.setInterval(this.handleInterval, 1700)
+            } else {
+                window.clearTimeout(this.timeoutRef)
+                window.clearInterval(this.intervalRef)
+            }
         }
     }
-    componentDidMount() {
-        this.intervalRef = window.setInterval(this.handleInterval, 3000)
+    handleInterval = () => {
+        this.setState({
+            transition: true,
+            position: this.state.position - 12.8,
+        })
+        this.timeoutRef = setTimeout(() => {
+            const newPaymentArray = this.state.paymentArray
+            const newPaymentIcon = newPaymentArray.shift()
+            newPaymentArray.push(newPaymentIcon)
+            this.setState({
+                transition: false,
+                paymentArray: newPaymentArray,
+                position: 0,
+            })
+        }, 1100)
     }
-    componentWillUnmount() {
-        window.clearTimeout(this.timeoutRef)
-        window.clearInterval(this.intervalRef)
+    componentDidMount() {
+        const node = this.MyRef.current
+        let observer = new IntersectionObserver(this.handler)
+        observer.observe(node)
     }
     render() {
         return (
-            <PaymentSection ref={this.MyRef}>
+            <PaymentSection>
                 <CarouselContainer
+                    ref={this.MyRef}
                     transition={this.state.transition}
                     position={this.state.position}
                 >

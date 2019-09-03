@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby='information-title'>
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title id='information-title'>Information</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Homepage" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3.0---Homepage---have-Binary-account" transform="translate(-311.000000, -16.000000)" fill="#FFAA00" fill-rule="nonzero">
+            <g id="notifications">
+                <g id="icons/notification/ic-informations" transform="translate(311.000000, 16.000000)">
+                    <path d="M16,8 C16,12.418 12.418,16 8,16 C3.582,16 0,12.418 0,8 C0,3.582 3.582,0 8,0 C12.418,0 16,3.582 16,8 Z M8,10 C8.37458803,10 8.68674473,9.7094286 8.71228482,9.3348571 L8.99227992,5.24028571 C9.06606241,4.582 8.60161108,4 8,4 C7.39838892,4 6.93393759,4.582 7.00772008,5.24028571 L7.28771518,9.3348571 C7.31325527,9.7094286 7.62541197,10 8,10 Z M9,12.0115453 L9,11.9884547 C9,11.4298401 8.57575758,11 7.99956083,11 C7.42512077,11 7,11.4307282 7,11.9884547 L7,12.0115453 C7,12.5692718 7.42512077,13 7.99956083,13 C8.57575758,13 9,12.5683837 9,12.0115453 Z" id="icon"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

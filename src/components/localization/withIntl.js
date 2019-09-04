@@ -15,7 +15,7 @@ import { toISOFormat } from 'common/utility'
 // Make sure that language is passed on
 const initializeWebsocket = lang => {
     if (typeof LocalStore !== 'undefined') {
-        if (!isProduction() && !(LocalStore.get('i18n') === 'ach')) {
+        if (!isProduction() && LocalStore.get('i18n') === 'ach') {
             return
         }
 

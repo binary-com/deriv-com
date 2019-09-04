@@ -26,13 +26,14 @@ const domain_config = {
 }
 
 const isProduction = () =>
+    isBrowser() &&
     domain_config.production.hostname === window.location.hostname
 
 const isStaging = () =>
-    domain_config.staging.hostname === window.location.hostname
+    isBrowser() && domain_config.staging.hostname === window.location.hostname
 
 const isLocalHost = () =>
-    domain_config.local.hostname === window.location.hostname
+    isBrowser() && domain_config.local.hostname === window.location.hostname
 
 const getAppId = () => {
     let app_id = null

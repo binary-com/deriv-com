@@ -42,6 +42,11 @@ const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
 const getLanguage = () =>
     typeof localStorage !== 'undefined' ? localStorage.getItem('i18n') : 'en'
 
+const getCrowdin = () =>
+    typeof localStorage !== 'undefined'
+        ? localStorage.getItem('jipt_language_code_deriv-com')
+        : 'en'
+
 class PromiseClass {
     constructor() {
         this.promise = new Promise((resolve, reject) => {
@@ -62,6 +67,7 @@ export {
     isEmptyObject,
     cloneObject,
     isBrowser,
+    getCrowdin,
     getPropertyValue,
     getLanguage,
     getLocationHash,

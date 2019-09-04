@@ -4,6 +4,7 @@ import { State } from '../storage'
 import {
     cloneObject,
     brand_name,
+    getCrowdin,
     getPropertyValue,
     getLanguage,
     isEmptyObject,
@@ -200,7 +201,7 @@ const BinarySocketBase = (() => {
         }
         // TODO: [translation] remove this condition when production is ready
         const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${
-            getLanguage() === 'ach' ? 'en' : getLanguage()
+            getLanguage() === 'ach' ? getCrowdin() : getLanguage()
         }&brand=${brand_name.toLowerCase()}`
         clearTimeouts()
         config.wsEvent('init')

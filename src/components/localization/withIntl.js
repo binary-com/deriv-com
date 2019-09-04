@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { I18nextProvider } from 'react-i18next'
 import i18next from './config'
-import { isProduction } from 'common/websocket/config'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { BinarySocketGeneral } from 'common/websocket/socket_general'
 import { NetworkMonitorBase } from 'common/websocket/network_base'
@@ -15,11 +14,9 @@ import { toISOFormat } from 'common/utility'
 // Make sure that language is passed on
 const initializeWebsocket = lang => {
     if (typeof LocalStore !== 'undefined') {
-        if (!isProduction() && LocalStore.get('i18n') === 'ach') {
-            return
+        if (!(LocalStore.get('i18n') === 'ach')) {
+            LocalStore.set('i18n', lang)
         }
-
-        LocalStore.set('i18n', lang)
 
         const binary_socket = BinarySocketBase.get()
         if (!binary_socket || BinarySocketBase.hasReadyState(2, 3)) {

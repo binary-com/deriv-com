@@ -11,7 +11,6 @@ export const onInitialClientRender = () => {
     // Check if not production and match ach or ach/
     if (!isProduction() && window.location.pathname.match(/^(ach\/)|ach$/)) {
         LocalStore.set('i18n', 'ach')
-        window.location.href = '/'
     }
     if (!isProduction() && LocalStore.get('i18n').match('ach')) {
         const jipt = document.createElement('script')

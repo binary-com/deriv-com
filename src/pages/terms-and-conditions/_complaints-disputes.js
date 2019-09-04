@@ -22,8 +22,6 @@ export const ComplaintsAndDisputes = () => (
                             <TncExternalLink
                                 key={0}
                                 href="mailto:support@deriv.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 external_link
                             />,
                         ]}

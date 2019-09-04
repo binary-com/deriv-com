@@ -76,6 +76,7 @@ class PaymentCarousel extends React.Component {
         }
     }
     handleInterval = () => {
+        const transition_delay = 1100
         this.setState({
             transition: true,
             position: this.state.position - 12.8,
@@ -89,7 +90,7 @@ class PaymentCarousel extends React.Component {
                 paymentArray: newPaymentArray,
                 position: 0,
             })
-        }, 1100)
+        }, transition_delay)
     }
     componentDidMount() {
         const node = this.MyRef.current

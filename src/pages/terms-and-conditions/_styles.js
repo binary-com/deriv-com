@@ -52,3 +52,9 @@ export const TncLink = styled(StyledLink)`
     color: var(--color-black-3);
     font-size: var(--text-size-s);
 `
+
+export const TncExternalLink = styled.a`
+    font-weight: bold;
+    color: var(--color-black-3);
+    font-size: var(--text-size-s);
+`

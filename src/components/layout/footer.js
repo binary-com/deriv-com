@@ -1,9 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize, Localize, LocalizedLink } from '../localization'
+import {
+    localize,
+    Localize,
+    LocalizedLink,
+    LanguageSwitcher,
+} from '../localization'
 import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
+import { isProduction } from 'common/websocket/config'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv.svg'
@@ -312,6 +318,7 @@ const Footer = () => (
                                 {localize('Responsible trading')}
                             </FooterStyledLink>
                         </Department>
+                        {!isProduction() && <LanguageSwitcher />}
                         <Department grid_name="social">
                             <Social>
                                 <p>{localize('Follow us on')}</p>

@@ -13,7 +13,7 @@ const domain_config = {
         app_id: 11780,
     },
     staging: {
-        hostname: 'staging.deriv.com',
+        hostname: 'dev.deriv.com',
         app_id: 16303,
     },
     test: {
@@ -26,13 +26,14 @@ const domain_config = {
 }
 
 const isProduction = () =>
+    isBrowser() &&
     domain_config.production.hostname === window.location.hostname
 
 const isStaging = () =>
-    domain_config.staging.hostname === window.location.hostname
+    isBrowser() && domain_config.staging.hostname === window.location.hostname
 
 const isLocalHost = () =>
-    domain_config.local.hostname === window.location.hostname
+    isBrowser() && domain_config.local.hostname === window.location.hostname
 
 const getAppId = () => {
     let app_id = null

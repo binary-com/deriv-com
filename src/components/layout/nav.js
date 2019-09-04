@@ -21,6 +21,10 @@ const NavWrapper = styled.div`
     z-index: 100;
 `
 
+const LogoLink = styled(LocalizedLink)`
+    text-decoration: none;
+`
+
 const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
@@ -158,9 +162,9 @@ const Nav = () => {
             <StyledNav>
                 <Wrapper>
                     <NavLeft>
-                        <LocalizedLink to="/" aria-label={localize('Home')}>
+                        <LogoLink to="/" aria-label={localize('Home')}>
                             <LogoBeta />
-                        </LocalizedLink>
+                        </LogoLink>
                     </NavLeft>
                     <NavCenter>
                         <NavLink>

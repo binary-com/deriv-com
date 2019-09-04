@@ -4,7 +4,9 @@ import { State } from '../storage'
 import {
     cloneObject,
     brand_name,
+    getCrowdin,
     getPropertyValue,
+    getLanguage,
     isEmptyObject,
     PromiseClass,
 } from '../utility'
@@ -26,9 +28,6 @@ const BinarySocketBase = (() => {
     let is_disconnect_called = false
     let is_connected_before = false
 
-    // TODO: add language
-    // const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${getLanguage()}`;
-    const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=en&brand=${brand_name.toLowerCase()}`
     const timeouts = {}
     const promises = {}
 
@@ -200,6 +199,10 @@ const BinarySocketBase = (() => {
             config = options
             buffered_sends = []
         }
+        // TODO: [translation] remove this condition when production is ready
+        const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${
+            getLanguage() === 'ach' ? getCrowdin() : getLanguage()
+        }&brand=${brand_name.toLowerCase()}`
         clearTimeouts()
         config.wsEvent('init')
 

@@ -4,10 +4,9 @@ import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
 import Row from '../containers/row'
 import { Header, Text } from '../elements/typography'
-import { localize } from '../localization'
+import { localize, Localize } from '../localization'
 import Image from '../elements/image'
 import Wrapper from '../containers/wrapper'
-import Container from '../containers/container'
 import Button from './button'
 import Input from './input'
 import TrafficSource from 'common/traffic-source'
@@ -23,9 +22,10 @@ const Form = styled.form`
     width: 80%;
     margin: 0 auto;
 `
-const ResponseWrapper = styled(Container)`
+const ResponseWrapper = styled.div`
     justify-content: center;
-    max-width: 26.5rem;
+    max-width: 33rem;
+    margin: 0 auto;
     flex-direction: column;
     padding: 2rem 1rem;
 `
@@ -75,11 +75,7 @@ const EmailLink = styled(StyledLink)`
     font-size: 1.4rem;
     margin-top: 1.8rem;
     text-decoration: underline;
-`
-const YourEmail = styled.span`
-    display: inline-block;
-    margin-left: 0.5 rem;
-    margin-right: 0.5rem;
+    width: 100%;
 `
 
 const validateEmail = email => {
@@ -272,9 +268,10 @@ class Signup extends Component {
                             />
                         </EmailImgWrapper>
                         <Text align="center">
-                            {localize("We've sent a message to")}
-                            <YourEmail>{this.state.email}</YourEmail>
-                            {localize('with a link to activate your account.')}
+                            <Localize
+                                translate_text="We've sent a message to {{email}} with a link to activate your account."
+                                values={{ email: this.state.email }}
+                            />
                         </Text>
                         <EmailLink to="/check-email/">
                             {localize("Didn't receive your email?")}

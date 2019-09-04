@@ -34,7 +34,7 @@ class LanguageSwitch extends Component {
         const path = value === '/en' ? '/' : value
         if (path === '/ach') {
             localStorage.setItem('i18n', 'ach')
-            // window.location.href = '/'
+            window.location.href = '/ach'
         } else {
             navigate(path, { hrefLang: path })
         }

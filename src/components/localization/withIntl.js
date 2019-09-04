@@ -14,9 +14,7 @@ import { toISOFormat } from 'common/utility'
 // Make sure that language is passed on
 const initializeWebsocket = lang => {
     if (typeof LocalStore !== 'undefined') {
-        if (!(LocalStore.get('i18n') === 'ach')) {
-            LocalStore.set('i18n', lang)
-        }
+        LocalStore.set('i18n', lang)
 
         const binary_socket = BinarySocketBase.get()
         if (!binary_socket || BinarySocketBase.hasReadyState(2, 3)) {

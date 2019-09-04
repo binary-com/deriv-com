@@ -25,6 +25,7 @@ const PaymentSection = styled(SectionContainer)`
 const CarouselContainer = styled(Container)`
     overflow: hidden;
     justify-content: space-between;
+
     div {
         transition: transform ${props => (props.transition ? '1s' : '0')};
         transform: translate(${props => props.position}rem);
@@ -41,16 +42,16 @@ class PaymentCarousel extends React.Component {
     MyRef = React.createRef()
     state = {
         paymentArray: [
-            { key: 0, Name: IWallet },
-            { key: 1, Name: Jeton },
-            { key: 2, Name: InternetBankTransfer },
-            { key: 3, Name: WebMoney },
-            { key: 4, Name: Mastercard },
-            { key: 5, Name: Visa },
-            { key: 6, Name: Paytrust },
-            { key: 7, Name: Banktransfer },
-            { key: 8, Name: Netller },
-            { key: 9, Name: Skrill },
+            { key: 0, Name: Mastercard },
+            { key: 1, Name: Visa },
+            { key: 2, Name: Paytrust },
+            { key: 3, Name: Banktransfer },
+            { key: 4, Name: Netller },
+            { key: 5, Name: Skrill },
+            { key: 6, Name: IWallet },
+            { key: 7, Name: Jeton },
+            { key: 8, Name: InternetBankTransfer },
+            { key: 9, Name: WebMoney },
             { key: 10, Name: Qiwi },
             { key: 11, Name: Yandex },
             { key: 12, Name: PerfectMoney },
@@ -63,7 +64,8 @@ class PaymentCarousel extends React.Component {
         transition: true,
     }
     handler = entries => {
-        for (let entry of entries) {
+        let entry
+        for (entry of entries) {
             if (entry.isIntersecting) {
                 this.intervalRef = window.setInterval(this.handleInterval, 1700)
             } else {

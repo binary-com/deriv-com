@@ -35,6 +35,12 @@ const PaymentWrapper = styled.div`
     max-width: 9.6rem;
     margin-right: 3.2rem;
 `
+const Payment = props =>
+    props.iconsArray.map(Payment => (
+        <PaymentWrapper key={Payment.key}>
+            <Payment.Component />
+        </PaymentWrapper>
+    ))
 
 class PaymentCarousel extends React.Component {
     intervalRef = undefined
@@ -42,23 +48,23 @@ class PaymentCarousel extends React.Component {
     MyRef = React.createRef()
     state = {
         paymentArray: [
-            { key: 0, Name: Mastercard },
-            { key: 1, Name: Visa },
-            { key: 2, Name: Paytrust },
-            { key: 3, Name: Banktransfer },
-            { key: 4, Name: Netller },
-            { key: 5, Name: Skrill },
-            { key: 6, Name: IWallet },
-            { key: 7, Name: Jeton },
-            { key: 8, Name: InternetBankTransfer },
-            { key: 9, Name: WebMoney },
-            { key: 10, Name: Qiwi },
-            { key: 11, Name: Yandex },
-            { key: 12, Name: PerfectMoney },
-            { key: 13, Name: Maestro },
-            { key: 14, Name: Sticpay },
-            { key: 15, Name: Fasapay },
-            { key: 16, Name: Payscale },
+            { key: 0, Component: Mastercard },
+            { key: 1, Component: Visa },
+            { key: 2, Component: Paytrust },
+            { key: 3, Component: Banktransfer },
+            { key: 4, Component: Netller },
+            { key: 5, Component: Skrill },
+            { key: 6, Component: IWallet },
+            { key: 7, Component: Jeton },
+            { key: 8, Component: InternetBankTransfer },
+            { key: 9, Component: WebMoney },
+            { key: 10, Component: Qiwi },
+            { key: 11, Component: Yandex },
+            { key: 12, Component: PerfectMoney },
+            { key: 13, Component: Maestro },
+            { key: 14, Component: Sticpay },
+            { key: 15, Component: Fasapay },
+            { key: 16, Component: Payscale },
         ],
         position: 0,
         transition: true,
@@ -105,11 +111,7 @@ class PaymentCarousel extends React.Component {
                     transition={this.state.transition}
                     position={this.state.position}
                 >
-                    {this.state.paymentArray.map(Payment => (
-                        <PaymentWrapper key={Payment.key}>
-                            <Payment.Name />
-                        </PaymentWrapper>
-                    ))}
+                    <Payment iconsArray={this.state.paymentArray} />
                 </CarouselContainer>
             </PaymentSection>
         )

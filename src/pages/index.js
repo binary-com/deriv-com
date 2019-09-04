@@ -7,7 +7,7 @@ import { WhyDeriv } from './home/_why-deriv'
 import { WhyDerivMobile } from './home/_why-deriv-mobile'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
-import PaymentCarousel from 'components/elements/payment-carousel'
+import PaymentMethods from 'components/elements/payment-methods'
 import { localize, WithIntl } from 'components/localization'
 import { Divider } from 'components/elements/divider'
 import Show from 'components/containers/show'
@@ -31,7 +31,7 @@ const Home = () => (
             <Divider />
             <Markets />
             <WhyDeriv />
-           <PaymentCarousel />
+           <PaymentMethods />
         </Show.Desktop>
     </Layout>
 )

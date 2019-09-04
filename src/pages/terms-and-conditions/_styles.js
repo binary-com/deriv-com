@@ -57,4 +57,9 @@ export const TncExternalLink = styled.a`
     font-weight: bold;
     color: var(--color-black-3);
     font-size: var(--text-size-s);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
 `

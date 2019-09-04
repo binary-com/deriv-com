@@ -2,39 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { I18nextProvider } from 'react-i18next'
 import i18next from './config'
-import { BinarySocketBase } from 'common/websocket/socket_base'
-import { BinarySocketGeneral } from 'common/websocket/socket_general'
-import { NetworkMonitorBase } from 'common/websocket/network_base'
-import { LocalStore } from 'common/storage'
-import { toISOFormat } from 'common/utility'
+import { initializeWebsocket } from 'common/initial-render-socket'
 
 // HOC that pre renders a page with the translated language
 // Without this HOC the page will be translated on the client side dynamically
-
-// Make sure that language is passed on
-const initializeWebsocket = lang => {
-    if (typeof LocalStore !== 'undefined') {
-        LocalStore.set('i18n', lang)
-
-        const binary_socket = BinarySocketBase.get()
-        if (!binary_socket || BinarySocketBase.hasReadyState(2, 3)) {
-            NetworkMonitorBase.init(BinarySocketGeneral)
-        } else {
-            binary_socket.close()
-            NetworkMonitorBase.init(BinarySocketGeneral)
-        }
-
-        if (!LocalStore.get('date_first_contact')) {
-            BinarySocketBase.wait('time').then(response => {
-                LocalStore.set(
-                    'date_first_contact',
-                    toISOFormat(new Date(response.time * 1000)),
-                )
-            })
-        }
-    }
-}
-
 export const WithIntl = () => WrappedComponent => {
     const WrapWithIntl = ({ pageContext }, props) => {
         if (pageContext) {

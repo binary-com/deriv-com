@@ -168,6 +168,7 @@ const FooterStyledLink = styled(StyledLink)`
     display: table;
     font-size: 1.4rem;
     margin-bottom: 1.8rem;
+    font-weight: 500;
 `
 const Social = styled.div`
     font-size: 1.2rem;

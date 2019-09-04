@@ -5,8 +5,6 @@ import language_config from '../../../i18n-config'
 
 i18n.use(initReactI18next).init({
     fallbackLng: 'en',
-    // TODO: Optimize translation file loading with GraphQL
-    // TODO: Enable this when translations are ready
     resources: {
         en: { translations: require('../../translations/en.json') },
         de: { translations: require('../../translations/de.json') },

@@ -5,7 +5,6 @@ module.exports = {
         path: 'en',
         display_name: 'English',
     },
-    // TODO: uncomment this when translations are ready
     es: {
         path: 'es',
         display_name: 'Español',

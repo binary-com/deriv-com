@@ -318,7 +318,7 @@ const Footer = () => (
                                 {localize('Responsible trading')}
                             </FooterStyledLink>
                         </Department>
-                        {isProduction() && <LanguageSwitcher />}
+                        {!isProduction() && <LanguageSwitcher />}
                         <Department grid_name="social">
                             <Social>
                                 <p>{localize('Follow us on')}</p>

@@ -32,7 +32,7 @@ const CarouselContainer = styled(Container)`
     }
 `
 const PaymentWrapper = styled.div`
-    width: 96px;
+    max-width: 9.6rem;
     margin-right: 3.2rem;
 `
 
@@ -65,6 +65,7 @@ class PaymentCarousel extends React.Component {
     }
     handler = entries => {
         let entry
+
         for (entry of entries) {
             if (entry.isIntersecting) {
                 this.intervalRef = window.setInterval(this.handleInterval, 1700)

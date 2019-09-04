@@ -50,7 +50,7 @@ const TermsAndConditions = () => (
                 <Copyright label="copyright" text="Copyright" />
 
                 <ComplaintsAndDisputes
-                    label="complain-dispute"
+                    label="complaint-dispute"
                     text="Complaints and disputes"
                 />
 

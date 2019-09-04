@@ -39,7 +39,6 @@ const Reset = css`
     samp,
     small,
     strike,
-    strong,
     sub,
     sup,
     tt,

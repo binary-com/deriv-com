@@ -39,7 +39,6 @@ const Reset = css`
     samp,
     small,
     strike,
-    strong,
     sub,
     sup,
     tt,
@@ -135,6 +134,9 @@ const Reset = css`
     table {
         border-collapse: collapse;
         border-spacing: 0;
+    }
+    input::-ms-clear {
+        display: none;
     }
 `
 

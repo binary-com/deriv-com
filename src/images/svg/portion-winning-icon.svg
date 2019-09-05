@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="portion-winning-icon">
-    <title id='portion-winning-icon'>Portion winning icon</title>
+    <title id='portion-winning-icon'>Portion winning</title>
     <g fill="none" fill-rule="evenodd">
         <path fill="#85ACB0" fill-rule="nonzero" d="M52 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM12 47.44a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM12 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2zM52 47.44a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
         <path fill="#85ACB0" fill-rule="nonzero" d="M62 2v56H2V2h60zm.06-2H1.94A1.94 1.94 0 0 0 0 1.94v56.12A1.94 1.94 0 0 0 1.94 60h60.12A1.94 1.94 0 0 0 64 58.06V1.94A1.94 1.94 0 0 0 62.06 0z"/>

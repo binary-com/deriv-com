@@ -7,6 +7,7 @@ import Modal, { useModal } from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
 import { SharedLinkStyle } from '../localization/localized-link'
+import BetaBanner from './beta'
 import { deriv_app_url } from 'common/utility'
 import Login from 'common/login'
 import device from 'themes/device'
@@ -14,12 +15,16 @@ import device from 'themes/device'
 import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 
+const NavWrapper = styled.div`
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+`
+
 const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
-    position: fixed;
     width: 100%;
-    z-index: 100;
     @media ${device.tabletL} {
         height: auto;
     }
@@ -96,7 +101,7 @@ const NavButton = styled(Button)`
 `
 const NavRightContainer = styled.div`
     position: absolute;
-    left: 14rem;
+    left: 13.8rem;
     transition: left 0.5s ease-out;
     ${props => {
         if (props.enable_move) {
@@ -148,70 +153,74 @@ const Nav = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
     return (
-        <StyledNav>
-            <Wrapper>
-                <NavLeft>
-                    <LocalizedLink to="/" aria-label={localize('Home')}>
-                        <LogoBeta />
-                    </LocalizedLink>
-                </NavLeft>
-                <NavCenter>
-                    <NavLink>
-                        <StyledButton
-                            onClick={handleTraderLink}
-                            aria-label={localize('Trade')}
-                        >
-                            {localize('Trade')}
-                        </StyledButton>
-                    </NavLink>
-                    <NavLink margin>
-                        <StyledLink
-                            activeClassName="active"
-                            to="/about/"
-                            aria-label={localize('About us')}
-                        >
-                            {localize('About us')}
-                        </StyledLink>
-                    </NavLink>
-                    <NavLink>
-                        <StyledLink
-                            activeClassName="active"
-                            to="/help-centre/"
-                            aria-label={localize('Help Centre')}
-                        >
-                            {localize('Help Centre')}
-                        </StyledLink>
-                    </NavLink>
-                </NavCenter>
-                <NavRight>
-                    <NavRightContainer enable_move={show_button}>
-                        <NavButton onClick={handleLogin} primary>
-                            <span>{localize('Login')}</span>
-                        </NavButton>
-                        <NavButton
-                            secondary
-                            movable_button
-                            onClick={toggleModal}
-                        >
-                            <span>{localize('Try for free')}</span>
-                        </NavButton>
-                    </NavRightContainer>
-                </NavRight>
-                <HamburgerMenu onClick={handleMenuClick} />
-                <OffCanvasMenu
-                    is_canvas_menu_open={is_canvas_menu_open}
-                    closeOffCanvasMenu={closeOffCanvasMenu}
-                />
-            </Wrapper>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                is_blurred={true}
-                closeModal={closeModal}
-            >
-                <SignupModal />
-            </Modal>
-        </StyledNav>
+        <NavWrapper>
+            <BetaBanner />
+            <StyledNav>
+                <Wrapper>
+                    <NavLeft>
+                        <LocalizedLink to="/" aria-label={localize('Home')}>
+                            <LogoBeta />
+                        </LocalizedLink>
+                    </NavLeft>
+                    <NavCenter>
+                        <NavLink>
+                            <StyledButton
+                                onClick={handleTraderLink}
+                                aria-label={localize('Trade')}
+                            >
+                                {localize('Trade')}
+                            </StyledButton>
+                        </NavLink>
+                        <NavLink margin>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/about/"
+                                aria-label={localize('About us')}
+                                partiallyActive={true}
+                            >
+                                {localize('About us')}
+                            </StyledLink>
+                        </NavLink>
+                        <NavLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/help-centre/"
+                                aria-label={localize('Help Centre')}
+                                partiallyActive={true}
+                            >
+                                {localize('Help Centre')}
+                            </StyledLink>
+                        </NavLink>
+                    </NavCenter>
+                    <NavRight>
+                        <NavRightContainer enable_move={show_button}>
+                            <NavButton onClick={handleLogin} primary>
+                                <span>{localize('Login')}</span>
+                            </NavButton>
+                            <NavButton
+                                secondary
+                                movable_button
+                                onClick={toggleModal}
+                            >
+                                <span>{localize('Try for free')}</span>
+                            </NavButton>
+                        </NavRightContainer>
+                    </NavRight>
+                    <HamburgerMenu onClick={handleMenuClick} />
+                    <OffCanvasMenu
+                        is_canvas_menu_open={is_canvas_menu_open}
+                        closeOffCanvasMenu={closeOffCanvasMenu}
+                    />
+                </Wrapper>
+                <Modal
+                    toggle={toggleModal}
+                    is_open={show_modal}
+                    closeModal={closeModal}
+                >
+                    <SignupModal autofocus />
+                </Modal>
+            </StyledNav>
+        </NavWrapper>
     )
 }
 

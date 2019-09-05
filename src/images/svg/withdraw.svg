@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="240" height="140" viewBox="0 0 240 140" aria-labelledby="withdraw-icon-title">
-    <title id='withdraw-icon-title'>Withdraw icon</title>
+    <title id='withdraw-icon-title'>Withdraw</title>
     <g fill="none" fill-rule="evenodd" transform="translate(13)">
         <path fill="#C7E5E5" fill-rule="nonzero" stroke="#85ACB0" stroke-width="1.003" d="M63.734 22.038l34.434-12.82a3 3 0 0 1 3.858 1.764l28.579 76.755a3 3 0 0 1-1.765 3.858l-34.433 12.82a3 3 0 0 1-3.858-1.764l-28.58-76.755a3 3 0 0 1 1.765-3.858z"/>
         <path fill="#85ACB0" fill-rule="nonzero" d="M83.115 60.966a13.784 13.784 0 1 1 17.434 7.543c-6.896 2.696-14.677-.67-17.434-7.543zm24.518-9.236c-2.206-6.533-9.29-10.042-15.823-7.838-6.534 2.204-10.046 9.286-7.845 15.82 2.202 6.535 9.283 10.05 15.818 7.85l.488-.174c6.358-2.29 9.672-9.287 7.418-15.658h-.056z"/>

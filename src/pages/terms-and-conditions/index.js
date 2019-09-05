@@ -15,9 +15,14 @@ import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import SideTab from 'components/elements/side-tab'
+import device from 'themes/device'
 
 const TncContainer = styled(Container)`
     padding: 6rem 0;
+
+    @media ${device.tabletL} {
+        padding-top: 9rem;
+    }
 `
 
 const TermsAndConditions = () => (
@@ -45,7 +50,7 @@ const TermsAndConditions = () => (
                 <Copyright label="copyright" text="Copyright" />
 
                 <ComplaintsAndDisputes
-                    label="complain-dispute"
+                    label="complaint-dispute"
                     text="Complaints and disputes"
                 />
 

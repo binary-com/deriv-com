@@ -18,7 +18,6 @@ import { StyledLink } from 'components/elements/link'
 // Icons
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
-import ErrorIcon from 'images/svg/error-icon.svg'
 
 const Form = styled.form`
     width: 80%;
@@ -41,18 +40,6 @@ const EmailButton = styled(Button)`
     margin-bottom: 2rem;
 `
 
-const StyledError = styled(ErrorIcon)`
-    position: absolute;
-    right: 0.8rem;
-    top: 1.2rem;
-    height: 1.6rem;
-    width: 1.6rem;
-    cursor: pointer;
-`
-const ErrorMessages = styled(Text)`
-    padding-left: 0.8rem;
-    font-size: 1.2rem;
-`
 const SocialButton = styled(Button)`
     box-shadow: none;
     flex: inherit !important;
@@ -174,7 +161,6 @@ class Signup extends Component {
         }
 
         const verify_email_req = this.getVerifyEmailRequest(email)
-
         BinarySocketBase.send(verify_email_req).then(response => {
             if (response.error) {
                 return this.setState({
@@ -216,27 +202,17 @@ class Signup extends Component {
                                 id="email"
                                 name="email"
                                 type="text"
+                                error={this.state.email_error_msg}
                                 value={this.state.email}
                                 label={localize('Email')}
                                 placeholder={'example@mail.com'}
+                                handleError={this.clearEmail}
                                 onChange={this.handleInputChange}
                                 onBlur={this.handleValidation}
                                 autoFocus={this.props.autofocus}
                                 autoComplete="off"
                                 required
                             />
-                            {this.state.email_error_msg && (
-                                <>
-                                    <ErrorMessages
-                                        lh="1.4"
-                                        align="left"
-                                        color="red-1"
-                                    >
-                                        {this.state.email_error_msg}
-                                    </ErrorMessages>
-                                    <StyledError onClick={this.clearEmail} />
-                                </>
-                            )}
                         </InputGroup>
                         <EmailButton
                             type="submit"

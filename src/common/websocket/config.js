@@ -6,14 +6,14 @@
  * git update-index --assume-unchanged src/javascript/config.js
  *
  */
-import { hasWindow } from '../utility'
+import { isBrowser } from '../utility'
 const domain_config = {
     production: {
         hostname: 'www.deriv.com',
         app_id: 11780,
     },
     staging: {
-        hostname: 'staging.deriv.com',
+        hostname: 'dev.deriv.com',
         app_id: 16303,
     },
     test: {
@@ -26,18 +26,19 @@ const domain_config = {
 }
 
 const isProduction = () =>
+    isBrowser() &&
     domain_config.production.hostname === window.location.hostname
 
 const isStaging = () =>
-    domain_config.staging.hostname === window.location.hostname
+    isBrowser() && domain_config.staging.hostname === window.location.hostname
 
 const isLocalHost = () =>
-    domain_config.local.hostname === window.location.hostname
+    isBrowser() && domain_config.local.hostname === window.location.hostname
 
 const getAppId = () => {
     let app_id = null
     const user_app_id = '' // you can insert Application ID of your registered application here
-    if (hasWindow()) {
+    if (isBrowser()) {
         const config_app_id = window.localStorage.getItem('config.app_id')
         if (config_app_id) {
             app_id = config_app_id
@@ -62,7 +63,7 @@ const getAppId = () => {
 const getSocketURL = () => {
     let server_url
 
-    if (hasWindow()) {
+    if (isBrowser()) {
         server_url = window.localStorage.getItem('config.server_url')
     }
     if (!server_url) {

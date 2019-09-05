@@ -1,4 +1,4 @@
-const extend = require('extend')
+import extend from 'extend'
 
 const toISOFormat = date => {
     if (date instanceof Date) {
@@ -13,7 +13,7 @@ const toISOFormat = date => {
     return ''
 }
 
-const hasWindow = () => typeof window !== 'undefined'
+const isBrowser = () => typeof window !== 'undefined'
 
 const isEmptyObject = obj => {
     let is_empty = true
@@ -38,6 +38,15 @@ const getPropertyValue = (obj, k) => {
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
 const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
+
+const getLanguage = () =>
+    isBrowser() ? localStorage.getItem('i18n') || 'en' : null
+
+const getCrowdin = () =>
+    isBrowser()
+        ? localStorage.getItem('jipt_language_code_deriv-com') || 'en'
+        : null
+
 class PromiseClass {
     constructor() {
         this.promise = new Promise((resolve, reject) => {
@@ -47,6 +56,8 @@ class PromiseClass {
     }
 }
 
+const sanitize = input => input.replace(/[.*+?^${}()|[\]\\]/g, '')
+
 const deriv_app_url = 'https://deriv.app'
 const brand_name = 'Deriv'
 
@@ -55,9 +66,12 @@ export {
     brand_name,
     isEmptyObject,
     cloneObject,
-    hasWindow,
+    isBrowser,
+    getCrowdin,
     getPropertyValue,
+    getLanguage,
     getLocationHash,
     PromiseClass,
+    sanitize,
     toISOFormat,
 }

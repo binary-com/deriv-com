@@ -93,10 +93,9 @@ export const General = () => (
         <StyledOrder type="decimal">
             <li>
                 <TncListText>
-                    <Localize
-                        translate_text="You may communicate with Us via Our website, email, phone, or exceptionally by post. Details can be found on the <0>Contact us</0> page of the website."
-                        components={[<TncLink key={0} to="/help-centre/" />]}
-                    />
+                    {localize(
+                        'You may communicate with Us via Our website, email, phone, or exceptionally by post.',
+                    )}
                 </TncListText>
             </li>
             <li>
@@ -377,12 +376,9 @@ export const General = () => (
             <li>
                 <TncListText>
                     {/* TODO: [add-link]: link to payment method page once available */}
-                    <Localize
-                        translate_text="We have various deposit methods available, each with their own processing times. Some methods may not be available for withdrawal. Full details of available methods for deposits and withdrawals, including settlement times, can be seen <0>here</0>."
-                        components={[
-                            <TncLink key={0} to="/terms-and-conditions/" />,
-                        ]}
-                    />
+                    {localize(
+                        'We have various deposit methods available, each with their own processing times. Some methods may not be available for withdrawal.',
+                    )}
                 </TncListText>
             </li>
             <li>

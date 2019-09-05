@@ -23,6 +23,13 @@ const StyledSideTab = styled(Wrapper)`
 const TabList = styled.ol`
     width: 19rem;
     list-style: none;
+    ${props =>
+        props.is_sticky &&
+        css`
+            position: sticky;
+            height: fit-content;
+            top: 13rem;
+        `}
 
     @media ${device.tabletL} {
         width: 100%;
@@ -102,7 +109,7 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
     return [active_tab, setTab, previous_tab, setLastActiveTab]
 }
 
-const SideTab = ({ children, has_hash_routing }) => {
+const SideTab = ({ children, has_hash_routing, is_sticky }) => {
     // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
     const first_tab = isBrowser()
         ? window.innerWidth > size.tabletL
@@ -149,7 +156,7 @@ const SideTab = ({ children, has_hash_routing }) => {
 
     return (
         <StyledSideTab>
-            <TabList>
+            <TabList is_sticky={is_sticky}>
                 <Desktop>
                     <Tabs />
                 </Desktop>
@@ -180,6 +187,7 @@ SideTab.propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
     has_hash_routing: PropTypes.bool,
     is_mobile: PropTypes.bool,
+    is_sticky: PropTypes.bool,
 }
 
 Tab.propTypes = {

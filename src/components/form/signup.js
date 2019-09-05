@@ -157,7 +157,6 @@ class Signup extends Component {
         }
 
         const verify_email_req = this.getVerifyEmailRequest(email)
-
         BinarySocketBase.send(verify_email_req).then(response => {
             if (response.error) {
                 return this.setState({

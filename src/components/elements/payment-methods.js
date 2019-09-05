@@ -57,6 +57,7 @@ class PaymentMethods extends React.Component {
                     components={this.state.paymentArray}
                     onChange={this.handleNewData}
                     transition_delay={1300}
+                    icon_width={12.8}
                 />
             </PaymentSection>
         )

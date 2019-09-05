@@ -16,17 +16,17 @@ const CarouselWrapper = styled.div`
     max-width: 9.6rem;
     margin-right: 3.2rem;
 `
-const Icons = props =>
-    props.iconsArray.map(Element => (
+const Icons = ({ icon_array }) =>
+    icon_array.map(Element => (
         <CarouselWrapper key={Element.key}>
             <Element.Component />
         </CarouselWrapper>
     ))
 
 class AutoCarousel extends React.Component {
-    intervalRef = undefined
-    timeoutRef = undefined
-    MyRef = React.createRef()
+    interval_ref = undefined
+    timeout_ref = undefined
+    my_ref = React.createRef()
     state = {
         position: 0,
         transition: true,
@@ -35,13 +35,13 @@ class AutoCarousel extends React.Component {
         let entry
         for (entry of entries) {
             if (entry.isIntersecting) {
-                this.intervalRef = window.setInterval(
+                this.interval_ref = window.setInterval(
                     this.handleInterval,
                     this.props.transition_delay,
                 )
             } else {
-                window.clearTimeout(this.timeoutRef)
-                window.clearInterval(this.intervalRef)
+                window.clearTimeout(this.timeout_ref)
+                window.clearInterval(this.interval_ref)
             }
         }
     }
@@ -49,9 +49,9 @@ class AutoCarousel extends React.Component {
     handleInterval = () => {
         this.setState({
             transition: true,
-            position: this.state.position - 12.8,
+            position: this.state.position - this.props.icon_width,
         })
-        this.timeoutRef = setTimeout(() => {
+        this.timeout_ref = setTimeout(() => {
             const newArray = this.props.components
             const newArrayIcon = newArray.shift()
             newArray.push(newArrayIcon)
@@ -65,18 +65,18 @@ class AutoCarousel extends React.Component {
         }, this.props.transition_delay - 100)
     }
     componentDidMount() {
-        const node = this.MyRef.current
+        const node = this.my_ref.current
         let observer = new IntersectionObserver(this.handler)
         observer.observe(node)
     }
     render() {
         return (
             <CarouselContainer
-                ref={this.MyRef}
+                ref={this.my_ref}
                 transition={this.state.transition}
                 position={this.state.position}
             >
-                <Icons iconsArray={this.props.components} />
+                <Icons icon_array={this.props.components} />
             </CarouselContainer>
         )
     }
@@ -84,6 +84,7 @@ class AutoCarousel extends React.Component {
 
 AutoCarousel.propTypes = {
     components: PropTypes.array,
+    icon_width: PropTypes.number,
     onChange: PropTypes.func,
     transition_delay: PropTypes.number,
 }

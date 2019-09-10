@@ -10,13 +10,15 @@ import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-import Image from 'components/elements/image'
+import GlobeVideo from 'images/video/beepingglobe.mp4'
 
 const HeroWrapper = styled.section`
     width: 100%;
+    position: relative;
+    overflow: hidden;
     padding: 4rem 0 2rem;
     min-height: 65rem;
-    background: var(--color-black);
+    background: #000000;
 
     @media ${device.laptop} {
         background-position: -10rem 100%;
@@ -34,6 +36,8 @@ const HeroWrapper = styled.section`
 `
 
 const HeroGrid = styled.section`
+    position: relative;
+    z-index: 2;
     width: 100%;
     display: grid;
     grid-template-columns: 2fr 2fr;
@@ -81,10 +85,29 @@ const SingupButton = styled(Button)`
     font-size: var(--text-size-sm);
 `
 
+const StyledVideo = styled.video`
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+`
+
 export const Hero = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <HeroWrapper>
+            <StyledVideo
+                width="100%"
+                height="100%"
+                preload="auto"
+                loop
+                autoPlay
+                muted
+            >
+                <source src={GlobeVideo} type="video/mp4" />
+            </StyledVideo>
             <Container>
                 <HeroGrid>
                     <article>
@@ -147,13 +170,13 @@ export const Hero = () => {
                     </SignupWrapper>
                 </HeroGrid>
             </Container>
-            <Show.Desktop>
+            {/* <Show.Desktop>
                 <Image
                     img_name="header-trade.png"
                     width="90rem"
                     alt={localize('Market line')}
                 />
-            </Show.Desktop>
+            </Show.Desktop> */}
         </HeroWrapper>
     )
 }

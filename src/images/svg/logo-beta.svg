@@ -22,7 +22,7 @@
         <g id="1-platform/2-pills/BETA/coral_blue" transform="translate(168.000000, 3.000000)">
             <g id="account-label">
                 <rect id="bg" fill="#85ACB0" fill-rule="nonzero" x="0" y="0" width="50" height="20" rx="10"></rect>
-                <text id="label" font-family="IBM Plex Sans" font-size="14" font-weight="normal" linespacing="20" fill="#FFFFFF">
+                <text id="label" text-decoration="none" font-family="IBM Plex Sans" font-size="14" font-weight="normal" linespacing="20" fill="#FFFFFF">
                     <tspan x="8.018" y="14">BETA</tspan>
                 </text>
             </g>

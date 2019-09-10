@@ -1,5 +1,5 @@
 module.exports = {
-    pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
+    // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     siteMetadata: {
         title: 'Deriv.com',
         description:

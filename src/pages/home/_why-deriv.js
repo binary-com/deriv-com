@@ -17,17 +17,17 @@ const handleExternalLink = e => {
 }
 
 const carousel_1_text = [
-    localize('Exclusive synthetic market available 24/7'),
-    localize('USD 5 minimum deposit'),
-    localize('Stakes as low as USD 0.35'),
-    localize('Payouts up to USD 50,000'),
+    'Exclusive synthetic market available 24/7',
+    'USD 5 minimum deposit',
+    'Stakes as low as USD 0.35',
+    'Payouts up to USD 50,000',
 ]
 
 const carousel_2_text = [
-    localize('Patented, licensed, and regulated'),
-    localize('Short- to long-term trades'),
-    localize('Reliable customer support'),
-    localize('Privacy guaranteed'),
+    'Patented, licensed, and regulated',
+    'Short- to long-term trades',
+    'Reliable customer support',
+    'Privacy guaranteed',
 ]
 
 const HomeCarouselWrapper = styled.section`
@@ -107,7 +107,7 @@ const CarouselItems = carousel_text => (
         {carousel_text.map((content, index) => (
             <div key={index}>
                 <ChecklistLogo />
-                <p>{content}</p>
+                <p>{localize(content)}</p>
             </div>
         ))}
     </Slide>

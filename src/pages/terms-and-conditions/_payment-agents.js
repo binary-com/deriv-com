@@ -92,7 +92,7 @@ export const PaymentAgents = () => (
                 <li>
                     <TncListText>
                         {localize(
-                            'The requested sum is transferred automatically from the Deriv Client Account into your Deriv account. (If the client has reached their withdrawal limit, the withdrawal request shall not proceed until the required authentication process is completed.',
+                            'The requested sum is transferred automatically from the Deriv Client Account into your Deriv account. (If the client has reached their withdrawal limit, the withdrawal request shall not proceed until the required authentication process is completed.)',
                         )}
                     </TncListText>
                 </li>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import AutoCarousel2 from 'components/elements/auto-carousel2.js'
+import AutoCarousel from 'components/elements/auto-carousel.js'
 import { SectionContainer } from 'components/containers/container'
 import WebMoney from 'images/svg/payment-webmoney.svg'
 import Sticpay from 'images/svg/payment-sticpay.svg'
@@ -20,9 +20,11 @@ import IWallet from 'images/svg/payment-i-wallet.svg'
 import Paytrust from 'images/svg/payment-paytrust.svg'
 import Jeton from 'images/svg/payment-jeton.svg'
 
+
 const PaymentSection = styled(SectionContainer)`
     padding: 2.4rem 0;
 `
+
 const paymentArray = [
     Mastercard,
     Visa,
@@ -46,13 +48,13 @@ const paymentArray = [
 const PaymentMethods = () => {
     return (
         <PaymentSection>
-            <AutoCarousel2
+            <AutoCarousel
                 items={paymentArray}
-                carousel_width="80%"
-                items_margin={10}
-                transition_duration={1000}
-                transition_delay={500}
-                transition_timing_function='linear'
+                carousel_width="70%"
+                items_padding={32}
+                transition_duration={650}
+                transition_delay={250}
+                transition_timing_function="linear"
             />
         </PaymentSection>
     )

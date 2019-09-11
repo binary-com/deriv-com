@@ -5,6 +5,7 @@ import { HowItWorks } from './home/_how-it-works'
 import { Markets } from './home/_markets'
 import { WhyDeriv } from './home/_why-deriv'
 import { WhyDerivMobile } from './home/_why-deriv-mobile'
+import Payment from './home/_payment-methods'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import PaymentMethods from 'components/elements/payment-methods'
@@ -21,6 +22,7 @@ const Home = () => (
             )}
         />
         <Hero />
+        <Payment />
         <Show.Mobile>
             <WhyDerivMobile />
             <Dtrader />

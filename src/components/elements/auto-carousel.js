@@ -52,15 +52,15 @@ class AutoCarousel extends React.Component {
             position: this.state.position - this.props.icon_width,
         })
         this.timeout_ref = setTimeout(() => {
-            const newArray = this.props.components
-            const newArrayIcon = newArray.shift()
-            newArray.push(newArrayIcon)
+            const new_array = this.props.components
+            const new_array_icon = new_array.shift()
+            new_array.push(new_array_icon)
             this.setState(
                 {
                     transition: false,
                     position: 0,
                 },
-                this.props.onChange(newArray),
+                this.props.onChange(new_array),
             )
         }, this.props.transition_delay - 100)
     }

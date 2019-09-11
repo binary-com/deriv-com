@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import AutoCarousel from 'components/elements/auto-carousel2.js'
+import AutoCarousel2 from 'components/elements/auto-carousel2.js'
 import { SectionContainer } from 'components/containers/container'
 import WebMoney from 'images/svg/payment-webmoney.svg'
 import Sticpay from 'images/svg/payment-sticpay.svg'
@@ -24,29 +24,36 @@ const PaymentSection = styled(SectionContainer)`
     padding: 2.4rem 0;
 `
 const paymentArray = [
-    { key: 0, Component: Mastercard },
-    { key: 1, Component: Visa },
-    { key: 2, Component: Paytrust },
-    { key: 3, Component: Banktransfer },
-    { key: 4, Component: Netller },
-    { key: 5, Component: Skrill },
-    { key: 6, Component: IWallet },
-    { key: 7, Component: Jeton },
-    { key: 8, Component: InternetBankTransfer },
-    { key: 9, Component: WebMoney },
-    { key: 10, Component: Qiwi },
-    { key: 11, Component: Yandex },
-    { key: 12, Component: PerfectMoney },
-    { key: 13, Component: Maestro },
-    { key: 14, Component: Sticpay },
-    { key: 15, Component: Fasapay },
-    { key: 16, Component: Payscale },
+    Mastercard,
+    Visa,
+    Paytrust,
+    Banktransfer,
+    Netller,
+    Skrill,
+    IWallet,
+    Jeton,
+    InternetBankTransfer,
+    WebMoney,
+    Qiwi,
+    Yandex,
+    PerfectMoney,
+    Maestro,
+    Sticpay,
+    Fasapay,
+    Payscale,
 ]
 
 const PaymentMethods = () => {
     return (
         <PaymentSection>
-            <AutoCarousel components={paymentArray} />
+            <AutoCarousel2
+                items={paymentArray}
+                carousel_width="80%"
+                items_margin={10}
+                transition_duration={1000}
+                transition_delay={500}
+                transition_timing_function='linear'
+            />
         </PaymentSection>
     )
 }

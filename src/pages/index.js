@@ -6,6 +6,7 @@ import { Markets } from './home/_markets'
 import { WhyDeriv } from './home/_why-deriv'
 import { WhyDerivMobile } from './home/_why-deriv-mobile'
 import PaymentMethods from './home/_payment-methods'
+import Ticker from './home/_ticker'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -26,6 +27,7 @@ const Home = () => (
             <Dtrader />
         </Show.Mobile>
         <Show.Desktop>
+            <Ticker />
             <Dtrader />
             <HowItWorks />
             <Divider />

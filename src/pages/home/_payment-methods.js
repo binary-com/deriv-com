@@ -24,37 +24,35 @@ const PaymentSection = styled(SectionContainer)`
     padding: 2.4rem 0;
 `
 
-const paymentArray = [
-    Mastercard,
-    Visa,
-    Paytrust,
-    Banktransfer,
-    Netller,
-    Skrill,
-    IWallet,
-    Jeton,
-    InternetBankTransfer,
-    WebMoney,
-    Qiwi,
-    Yandex,
-    PerfectMoney,
-    Maestro,
-    Sticpay,
-    Fasapay,
-    Payscale,
-]
-
 const PaymentMethods = () => {
     return (
         <PaymentSection>
             <AutoCarousel
-                items={paymentArray}
                 carousel_width="70%"
                 items_padding={32}
                 transition_duration={650}
                 transition_delay={250}
                 transition_timing_function="linear"
-            />
+            >
+                <Mastercard />
+                <Visa />
+                <Payscale />
+                <Banktransfer />
+                <Netller />
+                <Skrill />
+                <IWallet />
+                <Jeton />
+                <InternetBankTransfer />
+                <WebMoney />
+                <Qiwi />
+                <Yandex />
+                <PerfectMoney />
+                <Maestro />
+                <Sticpay />
+                <Fasapay />
+                <Payscale />
+                <Paytrust />
+            </AutoCarousel>
         </PaymentSection>
     )
 }

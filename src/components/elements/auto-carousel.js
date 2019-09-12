@@ -65,7 +65,7 @@ class AutoCarousel extends React.Component {
     }
     static getDerivedStateFromProps(props, state) {
         if (state.items.length === 0) {
-            const newItems = props.items.map((item, index) => ({
+            const newItems = props.children.map((item, index) => ({
                 Component: item,
                 key: index,
             }))
@@ -96,7 +96,7 @@ class AutoCarousel extends React.Component {
                                       this.props.transition_timing_function
                                   }
                               >
-                                      <Component />
+                                      {Component}
                               </ItemContainer>
                           ))
                         : null}
@@ -107,7 +107,6 @@ class AutoCarousel extends React.Component {
 }
 AutoCarousel.propTypes = {
     carousel_width: PropTypes.string,
-    items: PropTypes.Array,
     items_padding: PropTypes.number,
     transition_delay:PropTypes.number,
     transition_duration: PropTypes.number,

@@ -20,7 +20,6 @@ import IWallet from 'images/svg/payment-i-wallet.svg'
 import Paytrust from 'images/svg/payment-paytrust.svg'
 import Jeton from 'images/svg/payment-jeton.svg'
 
-
 const PaymentSection = styled(SectionContainer)`
     padding: 2.4rem 0;
 `

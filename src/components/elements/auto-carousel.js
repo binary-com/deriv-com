@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const AutoCarouselSection = styled.section`
     width: ${props => props.width};
@@ -104,5 +105,12 @@ class AutoCarousel extends React.Component {
         )
     }
 }
-
+AutoCarousel.propTypes = {
+    carousel_width: PropTypes.string,
+    items: PropTypes.Array,
+    items_padding: PropTypes.number,
+    transition_delay:PropTypes.number,
+    transition_duration: PropTypes.number,
+    transition_timing_function: PropTypes.string,
+}
 export default AutoCarousel

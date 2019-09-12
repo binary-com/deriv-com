@@ -1,34 +1,29 @@
 import React from 'react'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import { cloneObject } from 'common/utility'
+import AutoCarousel from 'components/elements/auto-carousel'
+import styled from 'styled-components'
 
-class Ticker extends React.Component {
+class Tick extends React.Component {
     state = {
-        items: {
-            R_10: '123232',
-            R_25: '836485763',
-            R_50: '737373',
-            R_75: '982349',
-        },
+        quote: '',
     }
-    subscribe = array_of_symbols => {
+
+    subscribe = symbol => {
         BinarySocketBase.send(
             {
-                ticks: array_of_symbols,
+                ticks: symbol,
                 subscribe: 1,
             },
             { callback: this.updateStateWithResponse },
         )
     }
     updateStateWithResponse = response => {
-        const cloned = cloneObject(this.state.items)
-        cloned[response.tick.symbol] = response.tick.quote
         this.setState({
-            items: cloned,
+            quote: response.tick.quote,
         })
     }
     componentDidMount() {
-        this.subscribe(Object.keys(this.state.items))
+        this.subscribe(this.props.symbol)
     }
     componentWillUnmount() {
         BinarySocketBase.send({
@@ -36,7 +31,41 @@ class Ticker extends React.Component {
         })
     }
     render() {
-        return <div>Ticker</div>
+        const TickWrapper = styled.div`
+            width: 200px;
+        `
+        return (
+            <TickWrapper>
+                <span>
+                    {this.props.symbol}: {this.state.quote}
+                </span>
+            </TickWrapper>
+        )
+    }
+}
+class Ticker extends React.Component {
+    render() {
+        return (
+            <div>
+                <AutoCarousel
+                    carousel_width="100%"
+                    transition_duration={2000}
+                    transition_delay={0}
+                    transition_timing_function="linear"
+                >
+                    <Tick symbol="R_10" />
+                    <Tick symbol="R_25" />
+                    <Tick symbol="R_50" />
+                    <Tick symbol="R_75" />
+                    <Tick symbol="R_10" />
+                    <Tick symbol="R_25" />
+                    <Tick symbol="R_50" />
+                    <Tick symbol="R_75" />
+                    <Tick symbol="R_10" />
+                    <Tick symbol="R_25" />
+                </AutoCarousel>
+            </div>
+        )
     }
 }
 

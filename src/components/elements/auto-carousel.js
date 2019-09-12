@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 
 const AutoCarouselSection = styled.section`
     width: ${props => props.width};
-    overflow: hidden;
     display: flex;
+    justify-content: center;
+    overflow: hidden;
     margin: 0 auto;
-    justify-content: space-between;
 `
 const ItemContainer = styled.div`
     padding: 0 ${props => props.padding / 2}px;
@@ -16,11 +16,11 @@ const ItemContainer = styled.div`
         ${props => props.transition_timing_function};
     transform: translate(-${props => props.movable_item_width}px);
 `
-class AutoCarousel extends React.Component {
+class AutoCarousel extends React.PureComponent {
     interval_ref = undefined
     timeout_ref = undefined
     total_delay =
-        this.props.transition_duration + this.props.transition_delay + 100
+        this.props.transition_duration + this.props.transition_delay + 30
     my_ref = React.createRef()
     constructor(props) {
         super(props)
@@ -57,7 +57,7 @@ class AutoCarousel extends React.Component {
                 items: newItems,
                 movable_item_width: 0,
             })
-        }, this.total_delay - 100)
+        }, this.total_delay - 29)
     }
     componentDidMount() {
         let observer = new IntersectionObserver(this.handler)
@@ -96,7 +96,7 @@ class AutoCarousel extends React.Component {
                                       this.props.transition_timing_function
                                   }
                               >
-                                      {Component}
+                                  {Component}
                               </ItemContainer>
                           ))
                         : null}
@@ -108,7 +108,7 @@ class AutoCarousel extends React.Component {
 AutoCarousel.propTypes = {
     carousel_width: PropTypes.string,
     items_padding: PropTypes.number,
-    transition_delay:PropTypes.number,
+    transition_delay: PropTypes.number,
     transition_duration: PropTypes.number,
     transition_timing_function: PropTypes.string,
 }

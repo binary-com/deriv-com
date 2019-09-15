@@ -30,9 +30,7 @@ const PaymentMethods = () => {
             <AutoCarousel
                 carousel_width="70%"
                 items_padding={32}
-                transition_duration={650}
-                transition_delay={250}
-                transition_timing_function="linear"
+                transition_duration={20000}
             >
                 <Mastercard />
                 <Visa />
@@ -50,7 +48,6 @@ const PaymentMethods = () => {
                 <Maestro />
                 <Sticpay />
                 <Fasapay />
-                <Payscale />
                 <Paytrust />
             </AutoCarousel>
         </PaymentSection>

@@ -14,7 +14,7 @@ const move_items = count_child => keyframes`
         transform: translateX(0);
     }
     100% {
-    transform: translateX(-${count_child}%);
+        transform: translateX(-${count_child}%);
     }
 `
 const ItemContainer = styled.div`
@@ -102,6 +102,10 @@ class AutoCarousel extends React.PureComponent {
 }
 AutoCarousel.propTypes = {
     carousel_width: PropTypes.string,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]).isRequired,
     items_padding: PropTypes.number,
     transition_duration: PropTypes.number,
 }

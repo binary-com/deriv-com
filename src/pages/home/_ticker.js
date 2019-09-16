@@ -1,7 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import AutoCarousel from 'components/elements/auto-carousel'
-import styled from 'styled-components'
 
 const TickWrapper = styled.div`
     width: 200px;
@@ -43,6 +44,9 @@ class Tick extends React.Component {
             </TickWrapper>
         )
     }
+}
+Tick.propTypes = {
+    symbol: PropTypes.string,
 }
 class Ticker extends React.Component {
     render() {

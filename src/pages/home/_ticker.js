@@ -48,26 +48,22 @@ class Tick extends React.Component {
 Tick.propTypes = {
     symbol: PropTypes.string,
 }
-class Ticker extends React.Component {
-    render() {
-        return (
-            <div>
-                <AutoCarousel
-                    carousel_width="100%"
-                    transition_duration={20000}
-                    transition_timing_function="linear"
-                >
-                    <Tick symbol="R_10" />
-                    <Tick symbol="R_25" />
-                    <Tick symbol="R_50" />
-                    <Tick symbol="R_75" />
-                    <Tick symbol="R_100" />
-                    <Tick symbol="RDBEAR" />
-                    <Tick symbol="RDBULL" />
-                </AutoCarousel>
-            </div>
-        )
-    }
+const Ticker = () => {
+    return (
+        <AutoCarousel
+            carousel_width="100%"
+            transition_duration={20000}
+            transition_timing_function="linear"
+        >
+            <Tick symbol="R_10" />
+            <Tick symbol="R_25" />
+            <Tick symbol="R_50" />
+            <Tick symbol="R_75" />
+            <Tick symbol="R_100" />
+            <Tick symbol="RDBEAR" />
+            <Tick symbol="RDBULL" />
+        </AutoCarousel>
+    )
 }
 
 export default Ticker

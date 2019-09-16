@@ -21,7 +21,7 @@ const buildResponsive = breakpoints => {
             {
                 constraint,
                 width,
-                rules: 'display: none;',
+                rules: 'display: none !important;',
             },
         ],
         [],

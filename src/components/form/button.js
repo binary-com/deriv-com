@@ -21,9 +21,6 @@ const StyledButton = styled.button`
     &:active {
         transform: scale(0.95);
     }
-    & > * {
-        pointer-events: none;
-    }
 
     ${props => {
         if (props.primary)

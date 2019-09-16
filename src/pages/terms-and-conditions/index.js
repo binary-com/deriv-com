@@ -34,7 +34,7 @@ const TermsAndConditions = () => (
             )}
         />
         <TncContainer align="left" justify="left">
-            <SideTab has_hash_routing>
+            <SideTab has_hash_routing is_sticky>
                 <General label="general" text="Terms and conditions" />
                 <DataFeed label="data-feed" text="Data feed" />
                 <SecurityAndPrivacy

@@ -58,43 +58,43 @@ export const WhyDerivMobile = () => {
     return (
         <WhyDerivMobileContainer>
             <Header align="center" font_size="4rem">
-                Why choose Deriv?
+                {localize('Why choose Deriv?')}
             </Header>
             <Card>
                 <CardItem>
                     <Checklist />
                     <Header font_size="2rem" lh="2.5rem" weight="400">
-                        Exclusive synthetic market available 24/7
+                        {localize('Exclusive synthetic market available 24/7')}
                     </Header>
                 </CardItem>
                 <CardItem>
                     <Checklist />
                     <Header font_size="2rem" lh="2.5rem" weight="400">
-                        USD 5 minimum deposit
+                        {localize('USD 5 minimum deposit')}
                     </Header>
                 </CardItem>
                 <CardItem>
                     <Checklist />
                     <Header font_size="2rem" lh="2.5rem" weight="400">
-                        Stakes as low as USD 0.35
+                        {localize('Stakes as low as USD 0.35')}
                     </Header>
                 </CardItem>
                 <CardItem>
                     <Checklist />
                     <Header font_size="2rem" lh="2.5rem" weight="400">
-                        Payouts up to USD 50,000
+                        {localize('Payouts up to USD 50,000')}
                     </Header>
                 </CardItem>
                 <CardItem>
                     <Checklist />
                     <Header font_size="2rem" lh="2.5rem" weight="400">
-                        Patented, licensed, and regulated
+                        {localize('Patented, licensed, and regulated')}
                     </Header>
                 </CardItem>
                 <CardItem>
                     <Checklist />
                     <Header font_size="2rem" lh="2.5rem" weight="400">
-                        Short- to long-term trades
+                        {localize('Short to long-term trades')}
                     </Header>
                 </CardItem>
             </Card>

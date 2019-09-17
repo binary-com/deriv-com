@@ -19,7 +19,12 @@ module.exports = {
         },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
-        'gatsby-plugin-sitemap',
+        {
+            resolve: 'gatsby-plugin-sitemap',
+            options: {
+                exclude: ['/redirect', '/*/redirect', '/404', '/*/404', '/404.html', '/*/404.html', '/check-email', '/*/check-email']
+            }
+        },
         'gatsby-plugin-remove-serviceworker',
         {
             resolve: 'gatsby-plugin-manifest',

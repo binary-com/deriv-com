@@ -7,7 +7,7 @@ export const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 
     &:hover {
-        text-decoration: underline;
+        text-decoration: unset;
     }
 
     ${props => {

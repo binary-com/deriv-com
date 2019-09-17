@@ -13,8 +13,12 @@ const Divider = styled.div`
 const TickWrapper = styled.div`
     display: flex;
     justify-content: space-between;
-    padding: 2.7rem 2rem;
-    width: 23.5rem;
+    padding: 2.7rem 0;
+    width: 29rem;
+`
+const StyledText = styled(Text)`
+    width: 100%;
+    text-align: center;
 `
 const Qoute = styled.span`
     font-weight: bold;
@@ -50,10 +54,9 @@ class Tick extends React.Component {
     render() {
         return (
             <TickWrapper>
-                <Divider />
-                <Text>
-                    {this.props.display_name}: <Qoute>{this.state.quote}</Qoute>
-                </Text>
+                <StyledText>
+                    {this.props.display_name}:<Qoute>{this.state.quote}</Qoute>
+                </StyledText>
                 <Divider />
             </TickWrapper>
         )
@@ -66,16 +69,21 @@ Tick.propTypes = {
 }
 const Ticker = () => {
     return (
-        <AutoCarousel carousel_width="100%" transition_duration={20000}>
-            <Tick symbol="frxAUDJPY" display_name="AUD/JPY" />
-            <Tick symbol="frxAUDUSD" display_name="AUD/USD" />
-            <Tick symbol="frxEURAUD" display_name="EUR/AUD" />
-            <Tick symbol="frxEURCAD" display_name="EUR/CAD" />
-            <Tick symbol="frxEURCHF" display_name="EUR/CHF" />
-            <Tick symbol="frxEURGBP" display_name="EUR/GPB" />
-            <Tick symbol="frxEURJPY" display_name="EUR/JPY" />
-        </AutoCarousel>
+        <CarouselWapper>
+            <AutoCarousel carousel_width="100%" transition_duration={20000}>
+                <Tick symbol="R_10" display_name="Volatility 10 Index" />
+                <Tick symbol="R_25" display_name="Volatility 25 Index" />
+                <Tick symbol="R_50" display_name="Volatility 50 Index" />
+                <Tick symbol="R_75" display_name="Volatility 75 Index" />
+                <Tick symbol="R_100" display_name="Volatility 100 Index" />
+                <Tick symbol="RDBULL" display_name="Bull Market Index" />
+                <Tick symbol="RDBEAR" display_name="Bear Market Index" />
+            </AutoCarousel>
+        </CarouselWapper>
     )
 }
-
+const CarouselWapper = styled.div`
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.6rem;
+`
 export default Ticker

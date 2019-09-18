@@ -27,7 +27,7 @@ const Qoute = styled.span`
 `
 class Tick extends React.Component {
     state = {
-        quote: '',
+        quote: '...',
         movement: null,
     }
 
@@ -41,25 +41,32 @@ class Tick extends React.Component {
         )
     }
     updateStateWithResponse = response => {
-        if (this.state.quote > response.tick.quote) {
+        if (response.error) {
             this.setState({
-                quote: response.tick.quote,
-                movement: MovementRed,
-            })
-        } else if (this.state.quote < response.tick.quote) {
-            this.setState({
-                quote: response.tick.quote,
-                movement: MovementGreen,
-            })
-        } else if (this.state.quote === response.tick.quote) {
-            this.setState({
+                quote: '...',
                 movement: null,
             })
         } else {
-            this.setState({
-                quote: response.tick.quote,
-                movement: null,
-            })
+            if (this.state.quote > response.tick.quote) {
+                this.setState({
+                    quote: response.tick.quote,
+                    movement: MovementRed,
+                })
+            } else if (this.state.quote < response.tick.quote) {
+                this.setState({
+                    quote: response.tick.quote,
+                    movement: MovementGreen,
+                })
+            } else if (this.state.quote === response.tick.quote) {
+                this.setState({
+                    movement: null,
+                })
+            } else {
+                this.setState({
+                    quote: response.tick.quote,
+                    movement: null,
+                })
+            }
         }
     }
 

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import AutoCarousel from 'components/elements/auto-carousel'
 import { Text } from 'components/elements/typography.js'
+import Loader from 'components/elements/dot_loader.js'
 import MovementGreen from 'images/svg/price-movement-green.svg'
 import MovementRed from 'images/svg/price-movement-red.svg'
 
@@ -25,9 +26,13 @@ const StyledText = styled(Text)`
 const Qoute = styled.span`
     font-weight: bold;
 `
+const CarouselWapper = styled.div`
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.6rem;
+`
 class Tick extends React.Component {
     state = {
-        quote: '...',
+        quote: null,
         movement: null,
     }
 
@@ -43,7 +48,7 @@ class Tick extends React.Component {
     updateStateWithResponse = response => {
         if (response.error) {
             this.setState({
-                quote: '...',
+                quote: null,
                 movement: null,
             })
         } else {
@@ -85,7 +90,13 @@ class Tick extends React.Component {
             <TickWrapper>
                 <StyledText>
                     {this.props.display_name}:{' '}
-                    <Qoute>{this.state.quote} </Qoute>
+                    <Qoute>
+                        {this.state.quote === null ? (
+                            <Loader />
+                        ) : (
+                            this.state.quote
+                        )}{' '}
+                    </Qoute>
                     {Movement === null ? null : <Movement />}
                 </StyledText>
                 <Divider />
@@ -113,8 +124,5 @@ const Ticker = () => {
         </CarouselWapper>
     )
 }
-const CarouselWapper = styled.div`
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.6rem;
-`
+
 export default Ticker

@@ -44,22 +44,23 @@ class Tick extends React.Component {
         if (this.state.quote > response.tick.quote) {
             this.setState({
                 quote: response.tick.quote,
-                movement: 'lower',
+                movement: MovementRed,
             })
         } else if (this.state.quote < response.tick.quote) {
             this.setState({
                 quote: response.tick.quote,
-                movement: 'higher',
+                movement: MovementGreen,
             })
         } else if (this.state.quote === response.tick.quote) {
             this.setState({
                 movement: null,
             })
-        } else
+        } else {
             this.setState({
                 quote: response.tick.quote,
                 movement: null,
             })
+        }
     }
 
     componentDidMount() {
@@ -72,17 +73,13 @@ class Tick extends React.Component {
     }
 
     render() {
+        const Movement = this.state.movement
         return (
             <TickWrapper>
                 <StyledText>
-                    {this.props.display_name}: <Qoute>{this.state.quote} </Qoute>
-                    {this.state.movement === null ? (
-                        ''
-                    ) : this.state.movement === 'higher' ? (
-                        <MovementGreen />
-                    ) : (
-                        <MovementRed />
-                    )}
+                    {this.props.display_name}:{' '}
+                    <Qoute>{this.state.quote} </Qoute>
+                    {Movement === null ? null : <Movement />}
                 </StyledText>
                 <Divider />
             </TickWrapper>

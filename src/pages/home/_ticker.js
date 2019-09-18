@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import AutoCarousel from 'components/elements/auto-carousel'
 import { Text } from 'components/elements/typography.js'
+import MovementGreen from 'images/svg/price-movement-green.svg'
+import MovementRed from 'images/svg/price-movement-red.svg'
 
 const Divider = styled.div`
     width: 1px;
@@ -25,7 +27,8 @@ const Qoute = styled.span`
 `
 class Tick extends React.Component {
     state = {
-        quote: 'loading...',
+        quote: '',
+        movement: null,
     }
 
     subscribe = symbol => {
@@ -38,10 +41,28 @@ class Tick extends React.Component {
         )
     }
     updateStateWithResponse = response => {
-        this.setState({
-            quote: response.tick.quote,
-        })
+        if (this.state.quote > response.tick.quote) {
+            this.setState({
+                quote: response.tick.quote,
+                movement: 'lower',
+            })
+        } else if (this.state.quote < response.tick.quote) {
+            this.setState({
+                quote: response.tick.quote,
+                movement: 'higher',
+            })
+        } else if (this.state.quote === response.tick.quote) {
+            console.log(this.props.display_name)
+            this.setState({
+                movement: null,
+            })
+        } else
+            this.setState({
+                quote: response.tick.quote,
+                movement: null,
+            })
     }
+
     componentDidMount() {
         this.subscribe(this.props.symbol)
     }
@@ -55,7 +76,14 @@ class Tick extends React.Component {
         return (
             <TickWrapper>
                 <StyledText>
-                    {this.props.display_name}:<Qoute>{this.state.quote}</Qoute>
+                    {this.props.display_name}: <Qoute>{this.state.quote} </Qoute>
+                    {this.state.movement === null ? (
+                        ''
+                    ) : this.state.movement === 'higher' ? (
+                        <MovementGreen />
+                    ) : (
+                        <MovementRed />
+                    )}
                 </StyledText>
                 <Divider />
             </TickWrapper>

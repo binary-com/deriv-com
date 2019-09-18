@@ -52,7 +52,6 @@ class Tick extends React.Component {
                 movement: 'higher',
             })
         } else if (this.state.quote === response.tick.quote) {
-            console.log(this.props.display_name)
             this.setState({
                 movement: null,
             })

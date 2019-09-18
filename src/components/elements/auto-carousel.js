@@ -20,13 +20,16 @@ const move_items = count_child => keyframes`
 const ItemContainer = styled.div`
     padding: 0 ${props => props.padding / 2}px;
     animation-name: ${props =>
-        props.shoudl_carousel_move ? move_items(props.count_child * 100) : ''};
+        props.should_carousel_move ? move_items(props.count_child * 100) : ''};
     animation-duration: ${props => props.transition_duration}ms;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 `
 class AutoCarousel extends React.PureComponent {
+    // carousel_width: define carousel's width by percentage
+    // items_padding: define items padding by pixle
+    // transition_duaration: takes a whole loop, define it by ms
     my_ref = React.createRef()
     constructor(props) {
         super(props)
@@ -34,20 +37,20 @@ class AutoCarousel extends React.PureComponent {
             transition: false,
             items: [],
             carousel_width: 0,
-            shoudl_carousel_move: false,
+            should_carousel_move: false,
         }
     }
-    // every time you observe this the carousel it restart from first component
+    // every time you observe this, the carousel will restart from first child component
     handler = entries => {
         let entry
         for (entry of entries) {
             if (entry.isIntersecting) {
                 this.setState({
-                    shoudl_carousel_move: true,
+                    should_carousel_move: true,
                 })
             } else {
                 this.setState({
-                    shoudl_carousel_move: false,
+                    should_carousel_move: false,
                 })
             }
         }
@@ -79,8 +82,8 @@ class AutoCarousel extends React.PureComponent {
                         ? this.state.items.map(({ Component, key }) => {
                               return (
                                   <ItemContainer
-                                      shoudl_carousel_move={
-                                          this.state.shoudl_carousel_move
+                                      should_carousel_move={
+                                          this.state.should_carousel_move
                                       }
                                       key={key}
                                       padding={this.props.items_padding}

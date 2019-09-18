@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import AutoCarousel from 'components/elements/auto-carousel.js'
 import { SectionContainer } from 'components/containers/container'
+// SVG
 import WebMoney from 'images/svg/payment-webmoney.svg'
 import Sticpay from 'images/svg/payment-sticpay.svg'
 import Banktransfer from 'images/svg/payment-bank-transfer.svg'

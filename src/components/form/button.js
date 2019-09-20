@@ -45,6 +45,16 @@ const StyledButton = styled.button`
                     border-color: var(--color-red-3);
                 }
             `
+        if (props.tertiary)
+            return css`
+                border: 2px solid var(--color-grey-5);
+                color: var(--color-black);
+                background: transparent;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.08);
+                }
+            `
         if (props.social)
             return css`
                 background: ${props => {

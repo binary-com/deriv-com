@@ -1,4 +1,3 @@
-import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
 const dots = keyframes`
@@ -36,5 +35,5 @@ const InitialLoader = styled.span`
         line-height: 1;
     }
 `
-const DotLoader = () => <InitialLoader />
-export default DotLoader
+
+export default InitialLoader

@@ -5,7 +5,7 @@ import { Header } from 'components/elements/typography.js'
 import DtraderTabs from './_dtrader-tabs.js'
 
 const StyledSection = styled(SectionContainer)`
-    background-color: var(--color-grey-6);
+    background-image: linear-gradient(to bottom, var(--color-grey-6), var(--color-white));
 `
 
 const StyledHeader = styled(Header)`

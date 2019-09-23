@@ -7,6 +7,7 @@ import Numbers from './_numbers.js'
 import HowItWorks from './_how-it-works.js'
 import Trading from './_trading.js'
 import Experience from './_experience'
+import OtherPlatform from './_other-platform.js'
 
 const Dtrader = () => {
     return (
@@ -17,6 +18,7 @@ const Dtrader = () => {
             <HowItWorks />
             <Trading />
             <Experience />
+            <OtherPlatform />
         </Layout>
     )
 }

@@ -5,6 +5,9 @@ import { Text } from '../elements/typography'
 // SVG Component
 import ErrorIcon from 'images/svg/error-icon.svg'
 
+const RelativeWrapper = styled.div`
+    position: relative;
+`
 const InputWrapper = styled.div`
     position: relative;
     width: 100%;
@@ -97,7 +100,7 @@ const StyledLabel = styled.label`
 `
 
 const Input = ({ label, id, error, background, handleError, ...props }) => (
-    <>
+    <RelativeWrapper>
         <InputWrapper error={error}>
             <StyledInput id={id} {...props} />
             <StyledLabel background={background} error={error} htmlFor={id}>
@@ -112,7 +115,7 @@ const Input = ({ label, id, error, background, handleError, ...props }) => (
                 <StyledError onClick={handleError} />
             </>
         )}
-    </>
+    </RelativeWrapper>
 )
 
 Input.propTypes = {

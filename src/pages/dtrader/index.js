@@ -2,6 +2,7 @@ import React from 'react'
 import { localize } from 'components/localization'
 import Layout from 'components/layout/layout'
 import SEO from 'components/containers/seo'
+import Show from 'components/containers/show'
 import Hero from './_hero.js'
 import Numbers from './_numbers.js'
 import HowItWorks from './_how-it-works.js'
@@ -14,7 +15,9 @@ const Dtrader = () => {
         <Layout>
             <SEO title={localize('Dtrader')} />
             <Hero />
-            <Numbers />
+            <Show.Desktop>
+                <Numbers />
+            </Show.Desktop>
             <HowItWorks />
             <Trading />
             <Experience />

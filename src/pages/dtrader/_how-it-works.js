@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
-import DtraderTabs from './_dtrader-tabs.js'
+import DtraderVideo from './_dtrader-video.js'
 import Image from 'components/elements/image'
 
 const StyledSection = styled(SectionContainer)`
@@ -52,11 +52,7 @@ const HowItWorks = () => {
                 <StyledHeader as="h2" align="center">
                     Make a trade in 3 easy steps
                 </StyledHeader>
-                <DtraderTabs>
-                    <SelectYourAsset title="Select your asset" />
-                    <FollowTheChart title="Follow the chart" />
-                    <PurchaseYourOption title="Purchase your option" />
-                </DtraderTabs>
+                <DtraderVideo />
             </Container>
         </StyledSection>
     )

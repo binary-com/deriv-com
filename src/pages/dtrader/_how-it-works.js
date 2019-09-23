@@ -3,9 +3,14 @@ import styled from 'styled-components'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import DtraderTabs from './_dtrader-tabs.js'
+import Image from 'components/elements/image'
 
 const StyledSection = styled(SectionContainer)`
-    background-image: linear-gradient(to bottom, var(--color-grey-6), var(--color-white));
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-grey-6),
+        var(--color-white)
+    );
 `
 
 const StyledHeader = styled(Header)`
@@ -16,13 +21,25 @@ const FollowTheChartContainer = styled.div``
 const PurchaseYourOptionContainer = styled.div``
 
 const SelectYourAsset = () => {
-    return <SelectYourAssetContainer>Asset</SelectYourAssetContainer>
+    return (
+        <SelectYourAssetContainer>
+            <Image img_name="group-13.png" alt="Group 13" />
+        </SelectYourAssetContainer>
+    )
 }
 const FollowTheChart = () => {
-    return <FollowTheChartContainer>Chart</FollowTheChartContainer>
+    return (
+        <FollowTheChartContainer>
+            <Image img_name="platform.png" alt="Group 13" />
+        </FollowTheChartContainer>
+    )
 }
 const PurchaseYourOption = () => {
-    return <PurchaseYourOptionContainer>Follow</PurchaseYourOptionContainer>
+    return (
+        <PurchaseYourOptionContainer>
+            <Image img_name="group-13.png" alt="Group 13" />
+        </PurchaseYourOptionContainer>
+    )
 }
 
 const HowItWorks = () => {

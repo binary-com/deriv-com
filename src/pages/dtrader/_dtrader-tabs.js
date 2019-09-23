@@ -22,7 +22,9 @@ const TitleWrapper = styled.div`
     flex-direction: row;
     justify-content: space-around;
 `
-
+const ActiveTab = styled.div`
+    margin-top: 1.6rem;
+`
 const DtraderTabs = props => {
     const [activeTabIndex, setActiveTabIndex] = useTab()
     return (
@@ -45,7 +47,7 @@ const DtraderTabs = props => {
                     </Tab>
                 ))}
             </TitleWrapper>
-            {props.children[activeTabIndex]}
+            <ActiveTab>{props.children[activeTabIndex]}</ActiveTab>
         </Wrapper>
     )
 }

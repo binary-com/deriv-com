@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import DtraderVideo from './_dtrader-video.js'
+import device from 'themes/device.js'
 import Image from 'components/elements/image'
 
 const StyledSection = styled(SectionContainer)`
@@ -15,32 +16,15 @@ const StyledSection = styled(SectionContainer)`
 
 const StyledHeader = styled(Header)`
     margin-top: ${props => (props.as === 'h2' ? '0.8rem' : '0')};
-`
-const SelectYourAssetContainer = styled.div``
-const FollowTheChartContainer = styled.div``
-const PurchaseYourOptionContainer = styled.div``
 
-const SelectYourAsset = () => {
-    return (
-        <SelectYourAssetContainer>
-            <Image img_name="group-13.png" alt="Group 13" />
-        </SelectYourAssetContainer>
-    )
-}
-const FollowTheChart = () => {
-    return (
-        <FollowTheChartContainer>
-            <Image img_name="platform.png" alt="Group 13" />
-        </FollowTheChartContainer>
-    )
-}
-const PurchaseYourOption = () => {
-    return (
-        <PurchaseYourOptionContainer>
-            <Image img_name="group-13.png" alt="Group 13" />
-        </PurchaseYourOptionContainer>
-    )
-}
+    @media ${device.tabletL} {
+        text-align: left;
+        ${props =>
+            props.as === 'h4'
+                ? 'font-size: 20px; font-wight: 500;'
+                : 'font-size: 32px'}
+    }
+`
 
 const HowItWorks = () => {
     return (

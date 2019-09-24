@@ -12,6 +12,8 @@ import Input from 'components/form/input'
 import Button from 'components/form/button'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Modal, { useModal } from 'components/elements/modal'
+import BasicModal from 'components/elements/basic-modal'
+import Login from 'common/login'
 
 const StyledContainer = styled(Container)`
     text-align: center;
@@ -50,6 +52,7 @@ const validationInput = values => {
 
 const ChoosePassword = () => {
     const [token, setToken] = useState('')
+    const [message, setMessage] = useState('')
     const [show_modal, toggleModal, closeModal] = useModal()
 
     useEffect(() => {
@@ -86,18 +89,22 @@ const ChoosePassword = () => {
                         }).then(response => {
                             if (response.error) {
                                 actions.setSubmitting(false)
-                                actions.setStatus({
-                                    error: response.error.message,
-                                })
+                                setMessage(response.error.message)
+                                toggleModal()
                                 return
                             }
 
                             actions.setSubmitting(false)
-                            actions.setStatus({
-                                success: localize(
-                                    'Please check your email and click on the link provided to reset your password.',
+                            setMessage(
+                                localize(
+                                    'Your password has been changed. We will now redirect you to the login page.',
                                 ),
-                            })
+                            )
+                            actions.resetForm()
+                            toggleModal()
+                            setTimeout(() => {
+                                window.open(Login.loginUrl(), '_blank')
+                            }, 3000)
                         })
                     }}
                 >
@@ -133,16 +140,6 @@ const ChoosePassword = () => {
                             <Text align="center" color="red">
                                 {status.error && status.error}
                             </Text>
-                            {status.success && (
-                                <Modal
-                                    toggle={toggleModal}
-                                    is_open={show_modal}
-                                    closeModal={closeModal}
-                                >
-                                    {status.success}
-                                </Modal>
-                            )}
-
                             <ButtonContainer>
                                 <StyledButton secondary disabled={isSubmitting}>
                                     {localize('Reset my password')}
@@ -151,6 +148,15 @@ const ChoosePassword = () => {
                         </StyledForm>
                     )}
                 </Formik>
+                <Modal
+                    toggle={toggleModal}
+                    is_open={show_modal}
+                    closeModal={closeModal}
+                >
+                    <BasicModal>
+                        <Text align="center">{message}</Text>
+                    </BasicModal>
+                </Modal>
             </StyledContainer>
         </LayoutStatic>
     )

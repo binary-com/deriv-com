@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Header } from 'components/elements/typography.js'
 import device from 'themes/device.js'
+import MacBook from 'images/svg/macbook.svg'
 
 const Container = styled.section`
     width: 100%;
@@ -45,31 +46,55 @@ const Step = styled(Header)`
 const Tab = styled.div`
     width: 26rem;
 `
-const TempVideo = styled.div`
+const VideoWrapper = styled.div`
     grid-area: video;
+    margin-top: 1.6rem;
+    position: relative;
 `
-const DtraderTabs = () => {
-    return (
-        <Container>
-            <TabsWrapper>
-                <Tab>
-                    <Step as="h4" lh="1.5" align="center" no_margin>
-                        1. Select your asset
-                    </Step>
-                </Tab>
-                <Tab>
-                    <Step as="h4" lh="1.5" align="center">
-                        2. Follow the chart
-                    </Step>
-                </Tab>
-                <Tab>
-                    <Step as="h4" lh="1.5" align="center">
-                        3. Purchase your option
-                    </Step>
-                </Tab>
-            </TabsWrapper>
-            <TempVideo />
-        </Container>
-    )
+const MacbookFrame = styled(MacBook)`
+    @media ${device.laptopS} {
+        width: 100%;
+        max-height: 591px;
+    }
+`
+const Video = styled.video`
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+`
+class DtraderTabs extends React.Component {
+    render() {
+        return (
+            <Container>
+                <TabsWrapper>
+                    <Tab>
+                        <Step as="h4" lh="1.5" align="center" no_margin>
+                            1. Select your asset
+                        </Step>
+                    </Tab>
+                    <Tab>
+                        <Step as="h4" lh="1.5" align="center">
+                            2. Follow the chart
+                        </Step>
+                    </Tab>
+                    <Tab>
+                        <Step as="h4" lh="1.5" align="center">
+                            3. Purchase your option
+                        </Step>
+                    </Tab>
+                </TabsWrapper>
+                <VideoWrapper>
+                    <MacbookFrame />
+                    <Video autoPlay={true}>
+                        <source src="/Dtrader_GIF.mov" />
+                    </Video>
+                </VideoWrapper>
+            </Container>
+        )
+    }
 }
 export default DtraderTabs

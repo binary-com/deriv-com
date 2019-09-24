@@ -12,12 +12,14 @@ const CardWrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 4rem;
 
     article:first-child {
         margin-right: 2rem;
     }
 
     @media ${device.tablet} {
+        margin-top: 0;
         article:first-child {
             margin-right: 0;
         }

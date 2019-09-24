@@ -35,6 +35,9 @@ const ListNoBullets = styled.ul`
     margin-bottom: 4.2rem;
     list-style: none;
 
+    li {
+        max-width: 32rem;
+    }
     > *:not(:last-child) {
         padding-bottom: 1.6rem;
     }

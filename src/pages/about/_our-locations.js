@@ -8,11 +8,11 @@ import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import Show from 'components/containers/show'
 // Icons
-import DubaiSVG from 'images/svg/dubai.svg'
-import KualaLumpurSVG from 'images/svg/kuala-lumpur.svg'
-import LabuanSVG from 'images/svg/labuan.svg'
-import MaltaSVG from 'images/svg/malta.svg'
-import ParaguaySVG from 'images/svg/paraguay.svg'
+import DubaiGif from 'images/gif/dubai.gif'
+import CyberjayaGif from 'images/gif/cyberjaya.gif'
+import LabuanGif from 'images/gif/labuan.gif'
+import MaltaGif from 'images/gif/malta.gif'
+import ParaguayGif from 'images/gif/paraguay.gif'
 
 const OurLocationsWrapper = styled.div`
     width: 100%;
@@ -50,31 +50,40 @@ const Location = styled.div`
 const locations = [
     {
         name: localize('Cyberjaya,'),
-        icon: <KualaLumpurSVG />,
+        icon: (
+            <img
+                src={CyberjayaGif}
+                style={{
+                    backgroundColor: 'red',
+                    padding: '20px',
+                    maxWidth: '50%',
+                }}
+            />
+        ),
         country: localize('Malaysia'),
         grid: 'kll',
     },
     {
         name: localize('Dubai,'),
-        icon: <DubaiSVG />,
+        icon: <img src={DubaiGif} />,
         country: localize('United Arab Emirates'),
         grid: 'dl',
     },
     {
         name: localize('Asunción,'),
-        icon: <ParaguaySVG />,
+        icon: <img src={ParaguayGif} />,
         country: localize('Paraguay'),
         grid: 'pl',
     },
     {
         name: localize('Birkirkara,'),
-        icon: <MaltaSVG />,
+        icon: <img src={MaltaGif} />,
         country: localize('Malta'),
         grid: 'ml',
     },
     {
         name: localize('Labuan,'),
-        icon: <LabuanSVG />,
+        icon: <img src={LabuanGif} />,
         country: localize('Malaysia'),
         grid: 'll',
     },

@@ -7,7 +7,8 @@ import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import { deriv_app_url } from 'common/utility'
 // Icons
-import CarouselBackground from 'images/svg/abstract.svg'
+import WhyDeriv1 from 'images/svg/why-deriv-1.svg'
+import WhyDeriv2 from 'images/svg/why-deriv-2.svg'
 import ChecklistLogo from 'images/svg/checklist.svg'
 
 const handleExternalLink = e => {
@@ -129,7 +130,7 @@ export const WhyDeriv = () => (
                     () => CarouselItems(carousel_1_text),
                     () => CarouselItems(carousel_2_text),
                 ]}
-                background={CarouselBackground}
+                background={[WhyDeriv1, WhyDeriv2]}
             />
         </HomeCarouselContainer>
     </HomeCarouselWrapper>

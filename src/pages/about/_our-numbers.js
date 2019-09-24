@@ -5,9 +5,9 @@ import Container from 'components/containers/container.js'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import TradingAccountsOpenedSVG from 'images/svg/trading-accounts-opened.svg'
-import TradeLastMonthSVG from 'images/svg/trades-last-month.svg'
-import TotalTradeTurnoverSVG from 'images/svg/total-trade-turnover.svg'
+import TradingAccounts from 'images/gif/trading-accounts.gif'
+import TradingTrades from 'images/gif/trading-trades.gif'
+import TradingTurnover from 'images/gif/trading-turnover.gif'
 
 const OurNumbersWrapper = styled.section`
     width: 100%;
@@ -130,17 +130,17 @@ const chart_data = [
     {
         amount: '704,293',
         text: localize('Trading accounts opened'),
-        icon: <TradingAccountsOpenedSVG />,
+        icon: <img src={TradingAccounts} />,
     },
     {
         amount: '19,514,921',
         text: localize('Trades last month'),
-        icon: <TradeLastMonthSVG />,
+        icon: <img src={TradingTrades} />,
     },
     {
         amount: 'USD 6,049,936,768',
         text: localize('Total trade turnover'),
-        icon: <TotalTradeTurnoverSVG />,
+        icon: <img src={TradingTurnover} />,
     },
 ]
 export const OurNumbers = () => (

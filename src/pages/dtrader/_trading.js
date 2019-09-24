@@ -64,27 +64,29 @@ const CommonSVG = css`
     @media ${device.tabletL} {
         width: 288px;
         margin-top: 4rem;
+        height: 166px;
     }
 `
 const MakeSmarterSVG = styled(MakeSmarterImage)`
     grid-area: msi;
     ${CommonSVG}
-    height: 166px;
+`
+const CommonTradeWhatYouWhant = css`
+    grid-area: twywi1;
+    ${CommonSVG}
+    @media ${device.tabletL} {
+        height: 210px;
+    }
 `
 const TradeWhatYouWantSVG1 = styled(TradeWhatYouWantImage1)`
-    grid-area: twywi1;
-    ${CommonSVG}
-    height: 210px;
+    ${CommonTradeWhatYouWhant}
 `
 const TradeWhatYouWantSVG2 = styled(TradeWhatYouWantImage2)`
-    grid-area: twywi1;
-    ${CommonSVG}
-    height: 210px;
+    ${CommonTradeWhatYouWhant}
 `
 const HowYouWantSVG = styled(HowYouWantImage)`
     grid-area: hywi;
     ${CommonSVG}
-    height: 166px;
 `
 const Trading = () => {
     return (

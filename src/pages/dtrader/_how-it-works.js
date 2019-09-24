@@ -4,7 +4,6 @@ import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import DtraderVideo from './_dtrader-video.js'
 import device from 'themes/device.js'
-import Image from 'components/elements/image'
 
 const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(

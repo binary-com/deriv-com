@@ -1,14 +1,14 @@
 import React from 'react'
-import { localize } from 'components/localization'
-import Layout from 'components/layout/layout'
-import SEO from 'components/containers/seo'
-import Show from 'components/containers/show'
 import Hero from './_hero.js'
 import Numbers from './_numbers.js'
 import HowItWorks from './_how-it-works.js'
 import Trading from './_trading.js'
 import Experience from './_experience'
 import OtherPlatform from './_other-platform.js'
+import Show from 'components/containers/show'
+import SEO from 'components/containers/seo'
+import Layout from 'components/layout/layout'
+import { localize } from 'components/localization'
 
 const Dtrader = () => {
     return (

@@ -28,7 +28,7 @@ const TabsWrapper = styled.div`
 
     @media ${device.tabletL} {
         flex-direction: column;
-        jestify-content: flex-start;
+        justify-content: flex-start;
     }
 `
 const Step = styled(Header)`

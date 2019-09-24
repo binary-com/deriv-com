@@ -14,7 +14,7 @@ import dtrader_logo from 'images/svg/d-trader.svg'
 const HeroContent = styled.div`
     display: flex;
     flex-direction: column;
-    justiufy-content: flex-start;
+    justify-content: flex-start;
     max-width: 40rem;
 
     ${Header} {

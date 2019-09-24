@@ -29,7 +29,7 @@ const Numbers = () => {
                     <Text align='center'>flexible trade duration</Text>
                 </NumberWrapper>
                 <NumberWrapper>
-                    <Header as="h2">>200%</Header>
+                    <Header as="h2">{`&gt;`}200%</Header>
                     <Text align='center'>potential payout</Text>
                 </NumberWrapper>
             </StyledContainer>

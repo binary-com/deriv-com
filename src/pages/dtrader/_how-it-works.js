@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import DtraderVideo from './_dtrader-video.js'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
-import DtraderVideo from './_dtrader-video.js'
 import device from 'themes/device.js'
 
 const StyledSection = styled(SectionContainer)`

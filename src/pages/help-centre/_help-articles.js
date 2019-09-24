@@ -1,7 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Ol, Ul, Li } from './_list'
 import { Text } from 'components/elements/typography'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
+
+const BoldText = styled.span`
+    font-weight: bold;
+`
 
 const WhoCanOpenAnAccount = () => (
     <>
@@ -109,6 +114,111 @@ const AuthenticatingYourAccount = () => (
     </Text>
 )
 
+const HowDoIChangeOrResetMyDerivPassword = () => (
+    <>
+        <Text>
+            {localize(
+                'To change your Deriv password if you’re already logged in:',
+            )}
+        </Text>
+        <Ol>
+            <Li>
+                <Localize
+                    translate_text="Go to <0>Settings > Security and safety > Deriv password.</0>"
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>{localize('Enter your current password and new password.')}</Li>
+            <Li>
+                <Localize
+                    translate_text="Click <0>Change password</0> to confirm."
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+        </Ol>
+        <Text>
+            <br />
+            <Localize
+                translate_text="<0>If you’re logged in:</0>"
+                components={[<BoldText key={0} />]}
+            />
+        </Text>
+        <Ol>
+            <Li>
+                <Localize
+                    translate_text="Go to <0>Settings > Security and safety > Deriv password.</0>"
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>
+                <Localize
+                    translate_text="Click on <0>Forgot your password?</0>"
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>
+                {localize(
+                    'Check your email for a message with the link to reset your password. Check your spam ' +
+                        ' or junk folder if you don’t see it.',
+                )}
+            </Li>
+            <Li>
+                <Localize
+                    translate_text="Click on <0>Reset my password</0> to go to the <0>Choose a new password</0> page. If the button does not work, copy and paste the link from the email into your browser."
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>{localize('Enter your new password.')}</Li>
+            <Li>
+                <Localize
+                    translate_text="Click <0>Save new password</0> to confirm."
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+        </Ol>
+
+        <Text>
+            <br />
+            <Localize
+                translate_text="<0>If you’re not logged in:</0>"
+                components={[<BoldText key={0} />]}
+            />
+        </Text>
+        <Ol>
+            <Li>
+                <Localize
+                    translate_text="Go to <0>Deriv.com > Log in.</0>"
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>
+                <Localize
+                    translate_text="Click on <0>Forgot password?</0>"
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>
+                {localize(
+                    'Check your email for a message with the link to reset your password. Check your spam or junk folder if you don’t see it.',
+                )}
+            </Li>
+            <Li>
+                <Localize
+                    translate_text="Click on <0>Reset my password</0> to go to the <0>Choose a new password</0> page. If the button does not work, copy and paste the link from the email into your browser."
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>{localize('Enter your new password.')}</Li>
+            <Li>
+                <Localize
+                    translate_text="Click <0>Save new password</0> to confirm."
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+        </Ol>
+    </>
+)
+
 const MakingADeposit = () => (
     <>
         <Text>
@@ -157,6 +267,101 @@ const WithdrawalProcessingTime = () => (
     </Text>
 )
 
+const HowDoIWithdrawFundsFromMyDerivAccount = () => (
+    <>
+        <Text>
+            {localize(
+                'To withdraw funds from your Deriv account, please make sure that you’re currently using the correct real account:',
+            )}
+        </Text>
+        <Ol>
+            <Li>
+                <Localize
+                    translate_text="Go to <0>Cashier > Withdraw.</0>"
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>
+                <Localize
+                    translate_text="Click on <0>Request authentication email</0> to receive a verification email."
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>
+                {localize(
+                    'Check your email for a message with the link to withdraw your funds. Check your spam or junk folder if you don’t see it.',
+                )}
+            </Li>
+            <Li>
+                <Localize
+                    translate_text="Click on <0>Authorise & withdraw funds.</0> If the button does not work, copy and paste the verification code from the email into your browser."
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>
+                <Localize
+                    translate_text="On the <0>Make a withdrawal</0> page, enter the amount you wish to withdraw and select your preferred payment method."
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>
+                <Localize
+                    translate_text="Click <0>Withdraw now</0> to confirm."
+                    components={[<BoldText key={0} />]}
+                />
+            </Li>
+            <Li>
+                {localize(
+                    'We will review your withdrawal request and inform you via email once your withdrawal has been successfully processed.',
+                )}
+            </Li>
+        </Ol>
+    </>
+)
+
+const SafeguardResetDerivPassword = () => (
+    <>
+        <Text>
+            {localize(
+                'To keep your account safe from an unauthorised party, we always require you to confirm your identity before we allow you to change or reset your password.\n\nThis is how we do it:',
+            )}
+        </Text>
+        <Ul>
+            <Li>
+                {localize(
+                    'If you’re logged in, you’ll need to enter your current password. This means that if someone else has access to your account while you’re away from your screen, they will not be able to change your password without your permission.',
+                )}
+            </Li>
+            <Li>
+                {localize(
+                    'If you’ve forgotten your current password, we’ll send you an email with the link to reset your password. Ideally, you should be the only person with access to your email and this will help us to confirm your identity. The link will expire after one hour. Please request a new link if you’re using the link after this period.',
+                )}
+            </Li>
+        </Ul>
+        <Text>
+            {localize(
+                'To learn more about security best practices, please go to the Keep safe page.',
+            )}
+        </Text>
+    </>
+)
+
+const SafeguardWithdrawFundsDerivAccount = () => (
+    <>
+        <Text>
+            {localize(
+                'To keep your funds safe from an unauthorised party, we always require you to confirm your identity before you can submit a withdrawal request.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="We do this by sending you an email with a link to <0>withdraw</0> your funds. You can also copy and paste the verification code from the email to the Withdraw page. Ideally, you should be the only person with access to your email and this will help us to confirm your identity. The link will expire after one hour. Please request a new link if you’re using the link after this period."
+                components={[<BoldText key={0} />]}
+            />
+        </Text>
+    </>
+)
+
 export const articles = [
     {
         category: localize('Account'),
@@ -196,6 +401,13 @@ export const articles = [
                 label: 'recovering-your-password',
                 content: <AuthenticatingYourAccount />,
             },
+            {
+                title: localize('How do I change or reset my Deriv password?'),
+                category: localize('Account'),
+                sub_category: localize('Managing your account'),
+                label: 'How-do-I-change-or-reset-my-Deriv-password',
+                content: <HowDoIChangeOrResetMyDerivPassword />,
+            },
         ],
     },
     {
@@ -221,6 +433,40 @@ export const articles = [
                 sub_category: localize('Withdrawals'),
                 label: 'withdrawal-processing-time',
                 content: <WithdrawalProcessingTime />,
+            },
+            {
+                title: localize(
+                    'How do I withdraw funds from my Deriv account?',
+                ),
+                category: localize('Deposits and withdrawals'),
+                sub_category: localize('Withdrawals'),
+                label: 'How-do-I-withdraw-funds-from-my-Deriv-account',
+                content: <HowDoIWithdrawFundsFromMyDerivAccount />,
+            },
+        ],
+    },
+    {
+        category: localize('Privacy and security'),
+        articles: [
+            {
+                title: localize(
+                    'How we safeguard your account when you change or reset your Deriv password',
+                ),
+                category: localize('Privacy and security'),
+                sub_category: localize('Safeguard'),
+                label:
+                    'How-we-safeguard-your-account-when-you-change-or-reset-your-Deriv-password',
+                content: <SafeguardResetDerivPassword />,
+            },
+            {
+                title: localize(
+                    'How we safeguard your account when you withdraw funds from your Deriv account',
+                ),
+                category: localize('Privacy and security'),
+                sub_category: localize('Safeguard'),
+                label:
+                    'How-we-safeguard-your-account-when-you-withdraw-funds-from-your-Deriv-account',
+                content: <SafeguardWithdrawFundsDerivAccount />,
             },
         ],
     },

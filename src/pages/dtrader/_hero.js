@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize, WithIntl } from 'components/localization'
+import { localize } from 'components/localization'
 import Container from 'components/containers/container.js'
+import device from 'themes/device.js'
 import { Header } from 'components/elements/typography.js'
+import Show from 'components/containers/show'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import Image from 'components/elements/image'
@@ -24,12 +26,6 @@ const HeroContent = styled.div`
         margin-top: 0;
     }
 `
-const TempImage = styled.div`
-    width: 589px;
-    height: 327px;
-    background-color: #fff;
-    border-radius: 18px;
-`
 const Wrapper = styled.div`
     background-color: var(--color-black);
     width: 100%;
@@ -42,10 +38,15 @@ const DtraderLogo = styled(dtrader_logo)`
 `
 const TryForFree = styled(Button)`
     border: 2px solid var(--color-red);
-    max-width: 12rem;
+    width: 12rem;
     font-weight: bold;
     line-height: 1.43;
     margin-top: 1.22rem;
+
+    @media ${device.tabletL} {
+        width: 100%;
+        margin-top: 18.5rem;
+    }
 `
 
 const Hero = () => {
@@ -62,7 +63,13 @@ const Hero = () => {
                         {localize('Everything you need and more')}
                     </Header>
                 </HeroContent>
-                <Image img_name="platform.png" alt="Platform" width='58.9rem'/>
+                <Show.Desktop>
+                    <Image
+                        img_name="platform.png"
+                        alt="Platform"
+                        width="58.9rem"
+                    />
+                </Show.Desktop>
             </Container>
             <Container justify="flex-start">
                 <TryForFree secondary onClick={toggleModal}>

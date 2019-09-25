@@ -55,21 +55,20 @@ const resetSubmission = (values, actions) => {
         verify_email: values.email,
         type: 'reset_password',
     }).then(response => {
+        actions.setSubmitting(false)
         if (response.error) {
-            actions.setSubmitting(false)
             actions.setStatus({
                 error: response.error.message,
             })
             return
         }
 
-        actions.setSubmitting(false)
+        actions.resetForm({ email: '' })
         actions.setStatus({
             success: localize(
                 'Please check your email and click on the link provided to reset your password.',
             ),
         })
-        actions.resetForm({})
     })
 }
 
@@ -93,7 +92,6 @@ const ResetPassword = () => (
                 initialStatus={{}}
                 validate={resetValidation}
                 onSubmit={resetSubmission}
-                validateOnChange
             >
                 {({
                     values,
@@ -111,7 +109,7 @@ const ResetPassword = () => (
                                 name="email"
                                 error={errors.email}
                                 value={values.email}
-                                handleError={() => resetForm({ email: '' })}
+                                handleError={resetForm}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 autoComplete="off"

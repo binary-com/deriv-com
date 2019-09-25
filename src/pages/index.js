@@ -31,7 +31,7 @@ const Home = () => (
             <Divider />
             <Markets />
             <WhyDeriv />
-           <PaymentMethods />
+            <PaymentMethods />
         </Show.Desktop>
     </Layout>
 )

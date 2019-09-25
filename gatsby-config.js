@@ -22,8 +22,15 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
-                exclude: ['/404', '/*/404', '/404.html', '/*/404.html', '/check-email', '/*/check-email']
-            }
+                exclude: [
+                    '/404',
+                    '/*/404',
+                    '/404.html',
+                    '/*/404.html',
+                    '/check-email',
+                    '/*/check-email',
+                ],
+            },
         },
         'gatsby-plugin-remove-serviceworker',
         {
@@ -89,6 +96,12 @@ module.exports = {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
                 policy: [{ userAgent: '*', allow: '/' }],
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+            options: {
+                production: true,
             },
         },
     ],

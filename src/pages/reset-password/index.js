@@ -8,6 +8,7 @@ import Container from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography'
 import Input from 'components/form/input'
 import Button from 'components/form/button'
+import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 
 const StyledContainer = styled(Container)`
@@ -36,16 +37,10 @@ const StyledForm = styled(Form)`
     width: 40rem;
 `
 
-const validationInput = values => {
+const resetValidation = values => {
     let errors = {}
 
-    if (!values.email) {
-        errors.email = localize('Email is required')
-    } else if (
-        !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(values.email)
-    ) {
-        errors.email = localize('Invalid email address')
-    }
+    errors.email = validation.email(values.email)
 
     return errors
 }
@@ -68,7 +63,7 @@ const ResetPassword = () => (
             <Formik
                 initialValues={{ email: '' }}
                 initialStatus={{}}
-                validate={validationInput}
+                validate={resetValidation}
                 onSubmit={(values, actions) => {
                     BinarySocketBase.send({
                         verify_email: values.email,

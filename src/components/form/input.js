@@ -9,7 +9,6 @@ const RelativeWrapper = styled.div`
     position: relative;
 `
 const InputWrapper = styled.div`
-    position: relative;
     width: 100%;
     border: 1px solid var(--color-grey-2);
     border-radius: 4px;

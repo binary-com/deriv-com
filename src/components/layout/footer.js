@@ -225,7 +225,7 @@ const FooterBoldLink = styled.a`
     }
 `
 const FooterExtLink = styled.a`
-    display: table;
+    display: ${props => props.display || 'table'};
     font-size: 1.4rem;
     margin-bottom: 1.8rem;
     font-weight: 500;
@@ -271,6 +271,7 @@ const Footer = () => (
                                 {localize('DTrader')}
                             </FooterExtLink>
                             <FooterExtLink
+                                display="none"
                                 href="https://deriv.app/bot"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -279,6 +280,7 @@ const Footer = () => (
                                 {localize('DBot')}
                             </FooterExtLink>
                             <FooterExtLink
+                                display="none"
                                 href="https://deriv.app/mt5"
                                 target="_blank"
                                 rel="noopener noreferrer"

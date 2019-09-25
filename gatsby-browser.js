@@ -11,7 +11,7 @@ const is_browser = typeof window !== 'undefined' && window
 export const onInitialClientRender = () => {
     // Enable translation
     // Check if not production and match ach or ach/
-    if (browser) {
+    if (is_browser) {
         if (
             !isProduction() &&
             window.location.pathname.match(/^(ach\/)|ach$/)

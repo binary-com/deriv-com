@@ -20,6 +20,7 @@ const CardWrapper = styled.div`
 
     @media ${device.tablet} {
         margin-top: 0;
+
         article:first-child {
             margin-right: 0;
         }

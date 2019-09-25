@@ -1,7 +1,7 @@
-import { Header } from 'components/elements/typography.js'
-import MacBook from 'images/svg/macbook.svg'
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { Header } from 'components/elements/typography.js'
+import MacBook from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
 
 const Container = styled.section`
@@ -140,7 +140,6 @@ const ProgressBar = styled.div`
         background-color: var(--color-green);
         position: absolute;
         width: ${props => props.progress_percentage}%;
-
         ${props =>
             props.transition === true
                 ? ' transition: width 0.3s linear;'
@@ -183,30 +182,29 @@ class DtraderTabs extends React.Component {
     }
     componentDidUpdate() {
         if (this.state.transition === false) {
-            requestAnimationFrame(
-                () => {
-                    this.setState({
-                        transition: true
-                    })
-                }
-            )
+            requestAnimationFrame(() => {
+                this.setState({
+                    transition: true,
+                })
+            })
         }
 
         if (!this.my_ref.current.is_playing) {
-            this.my_ref.current.play();
+            this.my_ref.current.play()
         }
     }
     clickHandler = time => {
         this.my_ref.current.currentTime = time
-        this.my_ref.current.pause();
+        this.my_ref.current.pause()
         this.setState({ transition: false })
         this.progressHandler()
     }
     progressHandler = () => {
         this.setState({
-            progress_percentage:
-                Math.ceil((this.my_ref.current.currentTime * 100) /
-                this.my_ref.current.duration),
+            progress_percentage: Math.ceil(
+                (this.my_ref.current.currentTime * 100) /
+                    this.my_ref.current.duration,
+            ),
         })
     }
     render() {
@@ -250,7 +248,7 @@ class DtraderTabs extends React.Component {
                 </TabsWrapper>
                 <VideoWrapper>
                     <MacbookFrame />
-                    <Video ref={this.my_ref} loop={true}>
+                    <Video ref={this.my_ref}>
                         <source src="/Dtrader_GIF.mov" />
                     </Video>
                 </VideoWrapper>

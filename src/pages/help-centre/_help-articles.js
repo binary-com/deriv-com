@@ -1,7 +1,7 @@
 import React from 'react'
 import { Ol, Ul, Li } from './_list'
 import { Text } from 'components/elements/typography'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 
 const WhoCanOpenAnAccount = () => (
     <>
@@ -295,16 +295,11 @@ const HowDoIWithdrawFundsFromMyDerivAccount = () => (
             </Li>
             <Li>
                 <Localize
-                    translate_text="On the <0>Make a withdrawal</0> page, enter the amount you wish to withdraw and select your preferred payment method."
+                    translate_text="On the <0>Withdrawal</0> page, follow the instructions on the screen."
                     components={[<strong key={0} />]}
                 />
             </Li>
-            <Li>
-                <Localize
-                    translate_text="Click <0>Withdraw now</0> to confirm."
-                    components={[<strong key={0} />]}
-                />
-            </Li>
+
             <Li>
                 {localize(
                     'We will review your withdrawal request and inform you via email once your withdrawal has been successfully processed.',
@@ -318,9 +313,10 @@ const SafeguardChangePassword = () => (
     <>
         <Text>
             {localize(
-                'To keep your account safe from an unauthorised party, we always require you to confirm your identity before we allow you to change or reset your password.\n\nThis is how we do it:',
+                'To keep your account safe from an unauthorised party, we always require you to confirm your identity before we allow you to change or reset your password.',
             )}
         </Text>
+        <Text>{localize('This is how we do it:')}</Text>
         <Ul>
             <Li>
                 {localize(
@@ -334,9 +330,12 @@ const SafeguardChangePassword = () => (
             </Li>
         </Ul>
         <Text>
-            {localize(
-                'To learn more about security best practices, please go to the Keep safe page.',
-            )}
+            <Localize
+                translate_text="To learn more about security best practices, please go to the <0>Keep safe</0> page."
+                components={[
+                    <LocalizedLink key={0} target="_blank" to="/keep-safe/" />,
+                ]}
+            />
         </Text>
     </>
 )
@@ -344,18 +343,15 @@ const SafeguardChangePassword = () => (
 const SafeguardWithdrawFunds = () => (
     <>
         <Text>
-       
             {localize(
-              'To keep your funds safe from an unauthorised party, we always require you to confirm your identity before you can submit a withdrawal request.',
+                'To keep your funds safe from an unauthorised party, we always require you to confirm your identity before you can submit a withdrawal request.',
             )}
         </Text>
         <Text>
-           
-          <Localize
+            <Localize
                 translate_text="We do this by sending you an email with a link to <0>withdraw</0> your funds. You can also copy and paste the verification code from the email to the Withdraw page. Ideally, you should be the only person with access to your email and this will help us to confirm your identity. The link will expire after one hour. Please request a new link if you’re using the link after this period."
                 components={[<strong key={0} />]}
             />
-        
         </Text>
     </>
 )

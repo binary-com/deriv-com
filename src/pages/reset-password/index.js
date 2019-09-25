@@ -41,7 +41,11 @@ const StyledForm = styled(Form)`
 const resetValidation = values => {
     let errors = {}
 
-    errors.email = validation.email(values.email)
+    const email_error = validation.email(values.email)
+
+    if (email_error) {
+        errors.email = email_error
+    }
 
     return errors
 }

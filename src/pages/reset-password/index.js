@@ -10,6 +10,7 @@ import Input from 'components/form/input'
 import Button from 'components/form/button'
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
+import Login from 'common/login'
 
 const StyledContainer = styled(Container)`
     text-align: center;
@@ -45,6 +46,28 @@ const resetValidation = values => {
     return errors
 }
 
+const resetSubmission = (values, actions) => {
+    BinarySocketBase.send({
+        verify_email: values.email,
+        type: 'reset_password',
+    }).then(response => {
+        if (response.error) {
+            actions.setSubmitting(false)
+            actions.setStatus({
+                error: response.error.message,
+            })
+            return
+        }
+
+        actions.setSubmitting(false)
+        actions.setStatus({
+            success: localize(
+                'Please check your email and click on the link provided to reset your password.',
+            ),
+        })
+    })
+}
+
 const ResetPassword = () => (
     <LayoutStatic>
         <SEO
@@ -64,27 +87,8 @@ const ResetPassword = () => (
                 initialValues={{ email: '' }}
                 initialStatus={{}}
                 validate={resetValidation}
-                onSubmit={(values, actions) => {
-                    BinarySocketBase.send({
-                        verify_email: values.email,
-                        type: 'reset_password',
-                    }).then(response => {
-                        if (response.error) {
-                            actions.setSubmitting(false)
-                            actions.setStatus({
-                                error: response.error.message,
-                            })
-                            return
-                        }
-
-                        actions.setSubmitting(false)
-                        actions.setStatus({
-                            success: localize(
-                                'Please check your email and click on the link provided to reset your password.',
-                            ),
-                        })
-                    })
-                }}
+                onSubmit={resetSubmission}
+                validateOnChange
             >
                 {({
                     values,
@@ -121,7 +125,10 @@ const ResetPassword = () => (
                             {status.success && status.success}
                         </Text>
                         <ButtonContainer>
-                            <StyledButton tertiary>
+                            <StyledButton
+                                tertiary
+                                onClick={Login.redirectToLogin}
+                            >
                                 {localize('Return to log in')}
                             </StyledButton>
                             <StyledButton secondary disabled={isSubmitting}>

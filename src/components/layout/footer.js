@@ -18,9 +18,6 @@ import Twitter from 'images/svg/twitter.svg'
 import Telegram from 'images/svg/telegram.svg'
 import Reddit from 'images/svg/reddit.svg'
 import Facebook from 'images/svg/social-facebook.svg'
-import Labuan from 'images/svg/footer-labuan.svg'
-import FSC from 'images/svg/fsc.svg'
-import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import Warning from 'images/svg/warning.svg'
 
 const FooterContainer = styled(Container)`
@@ -149,9 +146,6 @@ const LegalTextWrapper = styled.div`
         padding-top: 1.2rem;
     }
 `
-const LegalIcons = styled.div`
-    grid-area: li;
-`
 const RiskNote = styled.section`
     background-color: var(--color-black);
     padding: 3.5rem 0;
@@ -230,6 +224,22 @@ const FooterBoldLink = styled.a`
         text-decoration: underline;
     }
 `
+const FooterExtLink = styled.a`
+    display: ${props => props.display || 'table'};
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+    font-weight: 500;
+    color: var(--color-red);
+    text-decoration: none;
+
+    :hover {
+        text-decoration: underline;
+    }
+    :visited {
+        color: var(--color-red);
+        text-decoration: none;
+    }
+`
 const ResponsibleTradingBoldText = styled(LocalizedLink)`
     color: var(--color-white);
     font-weight: bold;
@@ -252,6 +262,32 @@ const Footer = () => (
                         </Department>
                         <Department grid_name="trade">
                             <Header as="h4">{localize('Trade')}</Header>
+                            <FooterExtLink
+                                href="https://deriv.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={localize('DTrader')}
+                            >
+                                {localize('DTrader')}
+                            </FooterExtLink>
+                            <FooterExtLink
+                                display="none"
+                                href="https://deriv.app/bot"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={localize('DBot')}
+                            >
+                                {localize('DBot')}
+                            </FooterExtLink>
+                            <FooterExtLink
+                                display="none"
+                                href="https://deriv.app/mt5"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={localize('DMT5')}
+                            >
+                                {localize('DMT5')}
+                            </FooterExtLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/keep-safe/"
@@ -339,34 +375,6 @@ const Footer = () => (
         <Legal>
             <Container>
                 <LegalRow>
-                    <LegalIcons>
-                        <span>
-                            <a
-                                href="https://www.vfsc.vu/"
-                                aria-label={localize('Vanuatu')}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Vanuatu />
-                            </a>
-                            <a
-                                href="https://www.bvifsc.vg/"
-                                aria-label={localize('FSC')}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <FSC />
-                            </a>
-                            <a
-                                href="https://www.labuanibfc.com/"
-                                aria-label={localize('Labuan')}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Labuan />
-                            </a>
-                        </span>
-                    </LegalIcons>
                     <LegalTextWrapper>
                         <TextFooter>
                             <Localize

@@ -50,16 +50,7 @@ const Location = styled.div`
 const locations = [
     {
         name: localize('Cyberjaya,'),
-        icon: (
-            <img
-                src={CyberjayaGif}
-                style={{
-                    backgroundColor: 'red',
-                    padding: '20px',
-                    maxWidth: '50%',
-                }}
-            />
-        ),
+        icon: <img src={CyberjayaGif} />,
         country: localize('Malaysia'),
         grid: 'kll',
     },

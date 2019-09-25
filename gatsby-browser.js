@@ -6,7 +6,7 @@ import isMobile from './src/common/os-detect'
 import './src/components/localization/config'
 import 'typeface-ibm-plex-sans'
 
-const browser = typeof window !== 'undefined' && window
+const is_browser = typeof window !== 'undefined' && window
 
 export const onInitialClientRender = () => {
     // Enable translation

@@ -69,6 +69,7 @@ const resetSubmission = (values, actions) => {
                 'Please check your email and click on the link provided to reset your password.',
             ),
         })
+        actions.resetForm({})
     })
 }
 

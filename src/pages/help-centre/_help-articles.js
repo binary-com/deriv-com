@@ -314,7 +314,7 @@ const HowDoIWithdrawFundsFromMyDerivAccount = () => (
     </>
 )
 
-const SafeguardResetDerivPassword = () => (
+const SafeguardChangePassword = () => (
     <>
         <Text>
             {localize(
@@ -341,7 +341,7 @@ const SafeguardResetDerivPassword = () => (
     </>
 )
 
-const SafeguardWithdrawFundsDerivAccount = () => (
+const SafeguardWithdrawFunds = () => (
     <>
         <Text>
        
@@ -448,21 +448,21 @@ export const articles = [
         articles: [
             {
                 title: localize(
-                    'How we safeguard your account when you change or reset your Deriv password',
+                    'Safeguarding your account when you change your password',
                 ),
                 category: localize('Privacy and security'),
                 sub_category: localize('Safeguard'),
-                label: 'safeguard-reset-password',
-                content: <SafeguardResetDerivPassword />,
+                label: 'Safeguarding-account-when-Change-password',
+                content: <SafeguardChangePassword />,
             },
             {
                 title: localize(
-                    'How we safeguard your account when you withdraw funds from your Deriv account',
+                    'Safeguarding your account when you withdraw funds',
                 ),
                 category: localize('Privacy and security'),
                 sub_category: localize('Safeguard'),
-                label: 'safeguard-withdraw-funds',
-                content: <SafeguardWithdrawFundsDerivAccount />,
+                label: 'Safeguarding-account-when-withdraw-funds',
+                content: <SafeguardWithdrawFunds />,
             },
         ],
     },

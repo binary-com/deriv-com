@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-    padding: 5.4rem 0 5.8rem 8.7rem;
+    padding: 4rem 0 4rem 5.6rem;
     background-color: var(--color-white);
     min-height: 41.8rem;
     border-radius: 1rem;
@@ -15,8 +15,8 @@ const Wrapper = styled.div`
 
     & > svg {
         position: absolute;
-        right: 0;
-        bottom: 0;
+        right: 2rem;
+        bottom: 2rem;
     }
 `
 const BulletArea = styled.div`
@@ -42,11 +42,13 @@ const Bullet = styled.button`
 class Carousel extends React.Component {
     state = {
         active_slide: this.props.slides[0],
+        active_background: this.props.background[0],
         active_bullet: 'bullet-0',
     }
     handleClick = e => {
         this.setState({
             active_slide: this.props.slides[e.target.name],
+            active_background: this.props.background[e.target.name],
             active_bullet: 'bullet-' + e.target.name,
         })
         e.target.add
@@ -54,7 +56,7 @@ class Carousel extends React.Component {
 
     render() {
         const ActiveSlide = this.state.active_slide
-        const Background = this.props.background
+        const Background = this.state.active_background
         return (
             <Wrapper>
                 <ActiveSlide />

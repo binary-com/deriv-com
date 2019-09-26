@@ -1,42 +1,44 @@
 import React from 'react'
 import styled from 'styled-components'
-import Container, {
-    FlexGridContainer,
-} from 'components/containers/container'
-import { Card } from 'components/elements/card'
-import { Header } from 'components/elements/typography.js'
+import Button from 'components/form/button.js'
+import { FlexGridContainer } from 'components/containers/container'
+import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 // import device from 'themes/device'
-import DTrader from 'images/svg/dtrader.svg'
-import DMT5 from 'images/svg/dmt5.svg'
 
-const GreyContainer = styled(Container)`
-    background: grey;
+const StyledSection = styled.section`
+    background-color: var(--color-grey-1);
+    width: 100%;
+    padding: 2.4rem 0;
 `
 
-export const TradeWithDbot = () => {
+const StyledDiv = styled.div`
+    text-align: center;
 
+    button {
+        margin-top: 3.2rem;
+    }
+`
+export const TradeWithDbot = () => {
     return (
-        <FlexGridContainer
-            content_width="32.8rem"
-            gap="1rem"
-            grid="3"
-            justify="center"
-        >
-            <Header
-                font_size="4rem"
-                align="center"
-                lh="5rem"
-            >
-                {localize('Trade more efficiently with DBot')}
-            </Header>
-            <Header
-                font_size="4rem"
-                align="center"
-                lh="5rem"
-            >
-                {localize('New to trading?')}
-            </Header>
-        </FlexGridContainer>
+        <StyledSection>
+            <FlexGridContainer align-items="center" gap="1rem" grid="2">
+                <StyledDiv>
+                    <Header font_size="4rem" align="center" lh="5rem">
+                        {localize('Trade more efficiently with DBot')}
+                    </Header>
+                    <Button secondary>{localize('Start building')}</Button>
+                </StyledDiv>
+                <StyledDiv>
+                    <Header font_size="4rem" align="center" lh="5rem">
+                        {localize('New to trading?')}
+                    </Header>
+                    <Text align="center">
+                        {localize('Check out our live demo')}
+                    </Text>
+                    <Button primary>{localize('Go to live demo')}</Button>
+                </StyledDiv>
+            </FlexGridContainer>
+        </StyledSection>
     )
 }

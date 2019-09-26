@@ -98,5 +98,11 @@ module.exports = {
                 policy: [{ userAgent: '*', allow: '/' }],
             },
         },
+        {
+            resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+            options: {
+                production: true,
+            },
+        },
     ],
 }

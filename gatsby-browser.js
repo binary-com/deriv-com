@@ -9,8 +9,15 @@ import 'typeface-ibm-plex-sans'
 export const onInitialClientRender = () => {
     // Enable translation
     // Check if not production and match ach or ach/
-    if (!isProduction() && window.location.pathname.match(/^(ach\/)|ach$/)) {
-        LocalStore.set('i18n', 'ach')
+    const is_browser = typeof window !== 'undefined'
+
+    if (is_browser) {
+        if (
+            !isProduction() &&
+            window.location.pathname.match(/^(ach\/)|ach$/)
+        ) {
+            LocalStore.set('i18n', 'ach')
+        }
     }
     if (!isProduction() && LocalStore.get('i18n').match('ach')) {
         const jipt = document.createElement('script')

@@ -102,7 +102,7 @@ const Video = styled.video`
         width: 794px;
         height: 496px;
         margin-left: -397px;
-        margin-top: -286px;
+        margin-top: -287px;
     }
     @media ${device.laptopL} {
         width: 560px;

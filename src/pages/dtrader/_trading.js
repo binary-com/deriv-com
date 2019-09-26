@@ -63,8 +63,8 @@ const ContentContainer = styled.div`
     }
 `
 const CommonSVG = css`
+    width: 100%;
     @media ${device.tabletL} {
-        width: 288px;
         margin-top: 4rem;
         height: 166px;
     }

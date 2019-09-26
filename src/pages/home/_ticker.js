@@ -45,6 +45,14 @@ class Tick extends React.Component {
             { callback: this.updateStateWithResponse },
         )
     }
+    displayWithAtLeastTwoDecimal(number) {
+        return number.toFixed(
+            Math.max(
+                2,
+                (number.toString().split('.')[1] || []).length,
+            ),
+        )
+    }
     updateStateWithResponse = response => {
         if (response.error) {
             this.setState({
@@ -54,12 +62,12 @@ class Tick extends React.Component {
         } else {
             if (this.state.quote > response.tick.quote) {
                 this.setState({
-                    quote: response.tick.quote,
+                    quote: this.displayWithAtLeastTwoDecimal(response.tick.quote),
                     movement: MovementRed,
                 })
             } else if (this.state.quote < response.tick.quote) {
                 this.setState({
-                    quote: response.tick.quote,
+                    quote: this.displayWithAtLeastTwoDecimal(response.tick.quote),
                     movement: MovementGreen,
                 })
             } else if (this.state.quote === response.tick.quote) {
@@ -68,7 +76,7 @@ class Tick extends React.Component {
                 })
             } else {
                 this.setState({
-                    quote: response.tick.quote,
+                    quote: this.displayWithAtLeastTwoDecimal(response.tick.quote),
                     movement: null,
                 })
             }

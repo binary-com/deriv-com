@@ -1,9 +1,8 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Paddings } from 'themes/function'
 
-const StyledButton = styled.button`
+const Button = styled.button`
     border-radius: 6px;
     padding: 1rem 1.6rem;
     font-size: 1.4rem;
@@ -89,10 +88,6 @@ const StyledButton = styled.button`
             `
     }}
 `
-
-const Button = ({ children, ...props }) => (
-    <StyledButton {...props}>{children}</StyledButton>
-)
 
 Button.propTypes = {
     children: PropTypes.oneOfType([

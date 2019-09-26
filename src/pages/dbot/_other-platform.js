@@ -1,5 +1,5 @@
 import React from 'react'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 import {
     SectionContainer,
     FlexGridContainer,
@@ -7,21 +7,23 @@ import {
 import { Card } from 'components/elements/card'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-// import device from 'themes/device'
 import DTrader from 'images/svg/dtrader.svg'
 import DMT5 from 'images/svg/dmt5.svg'
 
-export const OtherPlatform = () => {
+const StyledHeader = styled(Header)`
+    margin-bottom: 4rem;
+`
 
+export const OtherPlatform = () => {
     return (
         <SectionContainer>
-            <Header
+            <StyledHeader
                 font_size="4rem"
                 align="center"
                 lh="5rem"
             >
                 {localize('Check out our other platforms')}
-            </Header>
+            </StyledHeader>
             <FlexGridContainer
                     content_width="32.8rem"
                     gap="1rem"
@@ -36,6 +38,8 @@ export const OtherPlatform = () => {
                             'Everything you need to trade the markets you want',
                         ),
                     ]}
+                    width="32.8rem"
+                    min_height="27.8rem"
                 />
                 <Card
                     title={localize('DMT5')}
@@ -45,6 +49,8 @@ export const OtherPlatform = () => {
                             'All-in-one platform for FX and CFD trading',
                         ),
                     ]}
+                    width="32.8rem"
+                    min_height="27.8rem"
                 />
             </FlexGridContainer>
         </SectionContainer>

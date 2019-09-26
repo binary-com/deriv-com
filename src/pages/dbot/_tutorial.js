@@ -1,25 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-// import Button from 'components/form/button.js'
 import Image from 'components/elements/image'
-import Container, {
+import {
     SectionContainer,
     FlexGridContainer,
-    GridContainer,
 } from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import device from 'themes/device'
-// const StyledSection = styled.section`
-//     background-color: var(--color-grey-1);
-//     width: 100%;
-//     padding: 2.4rem 0;
-// `
 
-const StyledDiv = styled.div`
-    margin: 0;
-    max-width: 41.5rem;
-`
 const steps = [
     {
         title: localize('Start with a proven strategy'),
@@ -27,6 +15,7 @@ const steps = [
             'Martingale, D’Alembert, Oscar’s Grid, Cuttler’s RSI, Bollinger Bands, and SMA Crossover - load and customise proven strategies or create your own from scratch.',
         ),
         image: 'dbot-strategy.png',
+        alt: 'Strategy',
     },
     {
         title: localize('Build your strategy visually'),
@@ -34,6 +23,7 @@ const steps = [
             'Simply drag, drop, and configure pre-built blocks and indicators onto a canvas to build your bot. No coding needed.',
         ),
         image: 'dbot-build-strategy.png',
+        alt: 'Build bot strategy',
     },
     {
         title: localize('Avoid losses and maximise your profits'),
@@ -41,6 +31,7 @@ const steps = [
             'Use analysis tools and indicators and include take-profit, stop-loss and other smart logic to avoid losses and maximise your profits.',
         ),
         image: 'dbot-analysis-tool.png',
+        alt: 'Analysis tool',
     },
     {
         title: localize('Track your performance'),
@@ -48,6 +39,7 @@ const steps = [
             'See how your bot is performing as it executes each trade and receive notifications via Telegram.',
         ),
         image: 'dbot-track-performance.png',
+        alt: 'Track performace',
     },
     {
         title: localize('Get integrated help'),
@@ -55,6 +47,7 @@ const steps = [
             'Access tutorials, guides, and reference information as you build your bot.',
         ),
         image: 'dbot-integrated-help.png',
+        alt: 'Integrated help',
     },
     {
         title: localize('Save your strategies'),
@@ -62,21 +55,28 @@ const steps = [
             'Enjoy the convenience and security of storing your strategies on your Google Drive.',
         ),
         image: 'dbot-save-strategy.png',
+        alt: 'Save bot strategy',
     },
 ]
 
 const StyledContainer = styled(FlexGridContainer)`
     flex-flow: ${props => props.flexFlow};
-    margin: 0;
+
+    &:not(:last-child) {
+        margin-bottom: 8rem;
+    }
 `
 
-export const StyledHeader = styled(Header)`
-    margin-bottom: 0.8rem;
+const StyledDiv = styled.div`
+    margin: 0;
+    max-width: 41.5rem;
+`
 
-    @media ${device.tabletL} {
-        font-weight: bold;
-        font-size: var(--text-size-sm);
-    }
+const StyledHeader = styled(Header)`
+    margin-bottom: 0.8rem;
+`
+const StyledText = styled(Text)`
+    font-size: 2rem;
 `
 
 export const Tutorial = () => {
@@ -94,12 +94,14 @@ export const Tutorial = () => {
                             flexFlow={idx % 2 === 1 ? 'row-reverse' : 'row'}
                         >
                             <StyledDiv align="flex-start">
-                                <StyledHeader font_size="4rem" align="left" lh="5rem">
+                                <StyledHeader font_size="4.8rem" align="left" lh="5rem">
                                     {step.title}
                                 </StyledHeader>
-                                <Text>{step.subtitle}</Text>
+                                <StyledText>{step.subtitle}</StyledText>
                             </StyledDiv>
-                            <Image img_name={step.image} width="40%" />
+                            <StyledDiv>
+                                <Image img_name={step.image} alt={step.alt} width="41.5rem" />
+                            </StyledDiv>
                         </StyledContainer>
                     ))}
                 </>

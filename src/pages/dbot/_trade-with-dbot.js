@@ -4,13 +4,6 @@ import Button from 'components/form/button.js'
 import { FlexGridContainer } from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-// import device from 'themes/device'
-
-const StyledSection = styled.section`
-    background-color: var(--color-grey-1);
-    width: 100%;
-    padding: 2.4rem 0;
-`
 
 const StyledDiv = styled.div`
     text-align: center;
@@ -19,6 +12,13 @@ const StyledDiv = styled.div`
         margin-top: 3.2rem;
     }
 `
+
+const StyledSection = styled.section`
+    background-color: var(--color-grey-1);
+    width: 100%;
+    padding: 2.4rem 0;
+`
+
 export const TradeWithDbot = () => {
     return (
         <StyledSection>

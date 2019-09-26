@@ -235,7 +235,11 @@ const Nav = () => {
                         </PlatformItem>
                         <PlatformItem>
                             <DBot />
-                            <div onClick={handleTraderLink}>
+                            <div onClick={() => {
+                                handlePlatformsClick()
+                                handleTraderLink()
+                                }}
+                            >
                                 <Text secondary color="black-3" weight="bold">
                                     {localize('DBot')}
                                 </Text>
@@ -248,7 +252,11 @@ const Nav = () => {
                         </PlatformItem>
                         <PlatformItem>
                             <DMT5 />
-                            <div onClick={handleTraderLink}>
+                            <div onClick={() => {
+                                handlePlatformsClick()
+                                handleTraderLink()
+                                }}
+                            >
                                 <Text secondary color="black-3" weight="bold">
                                     {localize('DMT5')}
                                 </Text>

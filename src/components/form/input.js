@@ -5,8 +5,10 @@ import { Text } from '../elements/typography'
 // SVG Component
 import ErrorIcon from 'images/svg/error-icon.svg'
 
-const InputWrapper = styled.div`
+const RelativeWrapper = styled.div`
     position: relative;
+`
+const InputWrapper = styled.div`
     width: 100%;
     border: 1px solid var(--color-grey-2);
     border-radius: 4px;
@@ -91,14 +93,16 @@ const StyledLabel = styled.label`
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
-    background-color: var(--color-grey-1);
+
+    /* prettier-ignore */
+    background-color: var(--color-${props => props.background || 'grey-1'});
 `
 
-const Input = ({ label, id, error, handleError, ...props }) => (
-    <>
+const Input = ({ label, id, error, background, handleError, ...props }) => (
+    <RelativeWrapper>
         <InputWrapper error={error}>
             <StyledInput id={id} {...props} />
-            <StyledLabel error={error} htmlFor={id}>
+            <StyledLabel background={background} error={error} htmlFor={id}>
                 {label}
             </StyledLabel>
         </InputWrapper>
@@ -110,10 +114,11 @@ const Input = ({ label, id, error, handleError, ...props }) => (
                 <StyledError onClick={handleError} />
             </>
         )}
-    </>
+    </RelativeWrapper>
 )
 
 Input.propTypes = {
+    background: PropTypes.string,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,

@@ -55,9 +55,9 @@ const Hero = () => {
         <Wrapper>
             <Container justify="space-between">
                 <HeroContent>
-                    <Header as="h4">
+                    <Header as="h4" weight={500}>
                         <DtraderLogo />
-                        {localize('Dtrader')}
+                        {localize('DTrader')}
                     </Header>
                     <Header as="h1">
                         {localize('Everything you need and more')}

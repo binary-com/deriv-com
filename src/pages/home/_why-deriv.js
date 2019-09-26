@@ -26,8 +26,9 @@ const carousel_1_text = [
 
 const carousel_2_text = [
     'Patented, licensed, and regulated',
-    'Short- to long-term trades',
+    'Risk-free virtual and demo accounts',
     'Reliable customer support',
+    'Short-term to long-term trades',
     'Privacy guaranteed',
 ]
 

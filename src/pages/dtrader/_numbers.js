@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header, Text } from 'components/elements/typography.js'
 
@@ -17,20 +18,20 @@ const Numbers = () => {
         <SectionContainer padding="4.3rem">
             <StyledContainer>
                 <NumberWrapper>
-                    <Header as="h2" align='center'>50+</Header>
-                    <Text align='center'>tradable assets and growing</Text>
+                    <Header as="h2" align='center'>{localize('50+')}</Header>
+                    <Text align='center'>{localize('tradable assets and growing')}</Text>
                 </NumberWrapper>
                 <NumberWrapper>
-                    <Header as="h2">$0.35</Header>
-                    <Text align='center'>low minimum stake</Text>
+                    <Header as="h2">{localize('$0.35')}</Header>
+                    <Text align='center'>{localize('low minimum stake')}</Text>
                 </NumberWrapper>
                 <NumberWrapper>
-                    <Header as="h2">1s - 365d</Header>
-                    <Text align='center'>flexible trade duration</Text>
+                    <Header as="h2">{localize('1s - 365d')}</Header>
+                    <Text align='center'>{localize('flexible trade duration')}</Text>
                 </NumberWrapper>
                 <NumberWrapper>
-                    <Header as="h2">&gt;200%</Header>
-                    <Text align='center'>potential payout</Text>
+                    <Header as="h2">&gt;{localize('200%')}</Header>
+                    <Text align='center'>{localize('potential payout')}</Text>
                 </NumberWrapper>
             </StyledContainer>
         </SectionContainer>

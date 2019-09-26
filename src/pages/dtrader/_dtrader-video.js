@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { localize } from 'components/localization'
 import { Header } from 'components/elements/typography.js'
 import MacBook from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
@@ -219,7 +220,7 @@ class DtraderTabs extends React.Component {
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(0)}
                         >
-                            1. Select your asset
+                            {localize('1. Select your asset')}
                         </Step1>
                     </Tab>
                     <Tab>
@@ -230,7 +231,7 @@ class DtraderTabs extends React.Component {
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(7)}
                         >
-                            2. Follow the chart
+                            {localize('2. Follow the chart')}
                         </Step2>
                     </Tab>
                     <Tab>
@@ -241,13 +242,13 @@ class DtraderTabs extends React.Component {
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(13)}
                         >
-                            3. Purchase your option
+                            {localize('3. Purchase your option')}
                         </Step3>
                     </Tab>
                 </TabsWrapper>
                 <VideoWrapper>
                     <MacbookFrame />
-                    <Video ref={this.my_ref} preload='metadata'>
+                    <Video ref={this.my_ref} preload="metadata">
                         <source src="/Dtrader_GIF.mp4" />
                     </Video>
                 </VideoWrapper>

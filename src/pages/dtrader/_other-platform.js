@@ -32,7 +32,7 @@ const OtherPlatform = () => {
         <SectionContainer>
             <Container direction="column">
                 <Header as="h2" align="center">
-                    Check out our other platforms
+                    {localize('Check out our other platforms')}
                 </Header>
                 <CardWrapper>
                     <Card

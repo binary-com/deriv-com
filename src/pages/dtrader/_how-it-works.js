@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import DtraderVideo from './_dtrader-video.js'
+import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import device from 'themes/device.js'
@@ -30,10 +31,10 @@ const HowItWorks = () => {
         <StyledSection>
             <Container justify="center" direction="column">
                 <StyledHeader as="h4" align="center">
-                    How it works
+                    {localize('How it works')}
                 </StyledHeader>
                 <StyledHeader as="h2" align="center">
-                    Make a trade in 3 easy steps
+                    {localize('Make a trade in 3 easy steps')}
                 </StyledHeader>
                 <DtraderVideo />
             </Container>

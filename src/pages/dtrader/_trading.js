@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { isBrowser } from "../../common/utility.js"
+import { isBrowser } from '../../common/utility.js'
+import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header, Text } from 'components/elements/typography.js'
 import device, { size } from 'themes/device'
@@ -94,11 +95,13 @@ const Trading = () => {
         <StyledSection>
             <StyledContainer>
                 <ContentContainer grid_area="ms">
-                    <Header as="h2">Make smarter trading decisions</Header>
+                    <Header as="h2">
+                        {localize('Make smarter trading decisions')}
+                    </Header>
                     <Text>
-                        Customise your chart with technical indicators and
-                        widgets — everything you need to make smarter trading
-                        decisions.
+                        {localize(
+                            'Customise your chart with technical indicators and widgets — everything you need to make smarter trading decisions.',
+                        )}
                     </Text>
                 </ContentContainer>
                 <MakeSmarterSVG />
@@ -111,20 +114,20 @@ const Trading = () => {
                 ) : null}
                 <ContentContainer grid_area="twyw">
                     <Header as="h2">
-                        Trade what you want, when you want...
+                        {localize('Trade what you want, when you want...')}
                     </Header>
                     <Text>
-                        Forex, indices, commodities and volatility indices —
-                        whether it’s the world markets or synthetic markets that
-                        excite you, you’ll find them here.
+                        {localize(
+                            'Forex, indices, commodities and volatility indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.',
+                        )}
                     </Text>
                 </ContentContainer>
                 <ContentContainer grid_area="hyw">
-                    <Header as="h2">...And how you want</Header>
+                    <Header as="h2">{localize('...And how you want')}</Header>
                     <Text>
-                        Choose from a variety of customisable trade types with
-                        stakes as low as $0.35 and durations as short as a
-                        second.
+                        {localize(
+                            'Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second.',
+                        )}
                     </Text>
                 </ContentContainer>
                 <HowYouWantSVG />

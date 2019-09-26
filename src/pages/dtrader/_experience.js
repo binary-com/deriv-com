@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import device from 'themes/device.js'
 import Show from 'components/containers/show'
@@ -61,26 +62,32 @@ const Experience = () => {
             <StyledContainer justify="space-between">
                 <Content>
                     <StyledHeader as="h2" align="center">
-                        20 years of experience and trust
+                        {localize('20 years of experience and trust')}
                     </StyledHeader>
                     <Text align="center">
-                        Join over a million traders worldwide
+                        {localize('Join over a million traders worldwide')}
                     </Text>
-                    <StyledButton secondary>Try for free</StyledButton>
+                    <StyledButton secondary>
+                        {localize('Try for free')}
+                    </StyledButton>
                 </Content>
                 <StyledContent>
                     <StyledHeader as="h2" align="center">
-                        New to trading?
+                        {localize('New to trading?')}
                     </StyledHeader>
                     <Show.Mobile>
                         <Text align="center">
-                            Start trading on DTrader now.
+                            {localize('Start trading on DTrader now.')}
                         </Text>
                     </Show.Mobile>
                     <Show.Desktop>
-                        <Text align="center">Check out our live demo</Text>
+                        <Text align="center">
+                            {localize('Check out our live demo')}
+                        </Text>
                     </Show.Desktop>
-                    <StyledButton demo>Go to live demo</StyledButton>
+                    <StyledButton demo>
+                        {localize('Go to live demo')}
+                    </StyledButton>
                 </StyledContent>
             </StyledContainer>
         </StyledSection>

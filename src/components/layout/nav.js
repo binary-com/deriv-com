@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'
-import Container from '../containers/container'
+import Container, { GridContainer } from '../containers/container'
 import Modal, { useModal } from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
@@ -11,14 +11,61 @@ import BetaBanner from './beta'
 import { deriv_app_url } from 'common/utility'
 import Login from 'common/login'
 import device from 'themes/device'
+import { Text } from 'components/elements/typography.js'
 // Icons
 import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
 
 const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
+`
+
+const NavDropdown = styled.div`
+    width: 100%;
+    position: absolute;
+    top: -18rem;
+    z-index: -1;
+    background-color: #ffffff;
+    height: 17.8rem;
+    opacity: 0;
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.35s ease-in-out;
+
+    &.is-nav-open {
+        top: 7.2rem;
+        opacity: 1;
+    }
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+
+const NavDropdownGrid = styled(GridContainer)`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    height: 100%;
+    align-items: center;
+`
+
+const PlatformItem = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    padding: 2.4rem 1.6rem;
+    transition: background-color 0.25s;
+    border-radius: 0.8rem;
+    min-height: 13.1rem;
+    align-items: start;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-grey-6);
+    }
 `
 
 const LogoLink = styled(LocalizedLink)`
@@ -29,6 +76,7 @@ const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
+    position: relative;
     @media ${device.tabletL} {
         height: auto;
     }
@@ -89,6 +137,7 @@ const StyledLink = styled(LocalizedLink)`
 const StyledButton = styled.a`
     ${SharedLinkStyle}
     cursor: pointer;
+    user-select: none;
 `
 const NavButton = styled(Button)`
     position: absolute;
@@ -156,10 +205,62 @@ const Nav = () => {
     const handleMenuClick = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
+    const handlePlatformsClick = () => {
+        const switcher = document.getElementById('switcher')
+        switcher.classList.toggle('is-nav-open')
+    }
     return (
         <NavWrapper>
             <BetaBanner />
             <StyledNav>
+                <NavDropdown id="switcher">
+                    <NavDropdownGrid>
+                        <PlatformItem>
+                            <DTrader />
+                            <div
+                                onClick={() => {
+                                    handlePlatformsClick()
+                                    handleTraderLink()
+                                }}
+                            >
+                                <Text secondary color="black-3" weight="bold">
+                                    {localize('DTrader')}
+                                </Text>
+                                <Text color="black-3">
+                                    {localize(
+                                        'Everything you need to trade the markets you want',
+                                    )}
+                                </Text>
+                            </div>
+                        </PlatformItem>
+                        <PlatformItem>
+                            <DBot />
+                            <div onClick={handleTraderLink}>
+                                <Text secondary color="black-3" weight="bold">
+                                    {localize('DBot')}
+                                </Text>
+                                <Text color="black-3">
+                                    {localize(
+                                        'A powerful robot builder to automate your trading strategies',
+                                    )}
+                                </Text>
+                            </div>
+                        </PlatformItem>
+                        <PlatformItem>
+                            <DMT5 />
+                            <div onClick={handleTraderLink}>
+                                <Text secondary color="black-3" weight="bold">
+                                    {localize('DMT5')}
+                                </Text>
+                                <Text color="black-3">
+                                    {localize(
+                                        'An all-in-one platform for FX and CFD trading',
+                                    )}
+                                </Text>
+                            </div>
+                        </PlatformItem>
+                    </NavDropdownGrid>
+                </NavDropdown>
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
@@ -167,10 +268,11 @@ const Nav = () => {
                         </LogoLink>
                     </NavLeft>
                     <NavCenter>
-                        <NavLink>
+                        <NavLink margin>
                             <StyledButton
-                                onClick={handleTraderLink}
+                                onClick={handlePlatformsClick}
                                 aria-label={localize('Trade')}
+                                activeClassName="active"
                             >
                                 {localize('Trade')}
                             </StyledButton>

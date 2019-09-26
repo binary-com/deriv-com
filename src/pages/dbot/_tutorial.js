@@ -9,7 +9,7 @@ import Container, {
 } from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-// import device from 'themes/device'
+import device from 'themes/device'
 // const StyledSection = styled.section`
 //     background-color: var(--color-grey-1);
 //     width: 100%;
@@ -17,11 +17,8 @@ import { localize } from 'components/localization'
 // `
 
 const StyledDiv = styled.div`
-    text-align: center;
-
-    button {
-        margin-top: 3.2rem;
-    }
+    margin: 0;
+    max-width: 41.5rem;
 `
 const steps = [
     {
@@ -57,20 +54,31 @@ const steps = [
         subtitle: localize(
             'Access tutorials, guides, and reference information as you build your bot.',
         ),
-        image: localize('Malaysia'),
+        image: 'dbot-integrated-help.png',
     },
     {
         title: localize('Save your strategies'),
         subtitle: localize(
             'Enjoy the convenience and security of storing your strategies on your Google Drive.',
         ),
-        image: 'hello',
+        image: 'dbot-save-strategy.png',
     },
 ]
 
 const StyledContainer = styled(FlexGridContainer)`
     flex-flow: ${props => props.flexFlow};
+    margin: 0;
 `
+
+export const StyledHeader = styled(Header)`
+    margin-bottom: 0.8rem;
+
+    @media ${device.tabletL} {
+        font-weight: bold;
+        font-size: var(--text-size-sm);
+    }
+`
+
 export const Tutorial = () => {
     return (
         <SectionContainer>
@@ -86,12 +94,12 @@ export const Tutorial = () => {
                             flexFlow={idx % 2 === 1 ? 'row-reverse' : 'row'}
                         >
                             <StyledDiv align="flex-start">
-                                <Header font_size="4rem" align="left" lh="5rem">
+                                <StyledHeader font_size="4rem" align="left" lh="5rem">
                                     {step.title}
-                                </Header>
+                                </StyledHeader>
                                 <Text>{step.subtitle}</Text>
                             </StyledDiv>
-                            <Image img_name={step.image} width="80%" />
+                            <Image img_name={step.image} width="40%" />
                         </StyledContainer>
                     ))}
                 </>

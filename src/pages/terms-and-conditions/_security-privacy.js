@@ -13,7 +13,7 @@ export const SecurityAndPrivacy = () => (
         <StyledTitle as="h2" color="black">
             {localize('Security and privacy')}
         </StyledTitle>
-        <StyledOrder type='decimal'>
+        <StyledOrder type="decimal">
             <li>
                 <TncListText>
                     {localize(

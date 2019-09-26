@@ -112,7 +112,7 @@ Tick.propTypes = {
 const Ticker = () => {
     return (
         <CarouselWapper>
-            <AutoCarousel carousel_width="100%" transition_duration={20000}>
+            <AutoCarousel carousel_width="100%" transition_duration={30000}>
                 <Tick symbol="R_10" display_name="Volatility 10 Index" />
                 <Tick symbol="R_25" display_name="Volatility 25 Index" />
                 <Tick symbol="R_50" display_name="Volatility 50 Index" />

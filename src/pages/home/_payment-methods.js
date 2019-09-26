@@ -31,7 +31,7 @@ const PaymentMethods = () => {
             <AutoCarousel
                 carousel_width="70%"
                 items_padding={32}
-                transition_duration={20000}
+                transition_duration={30000}
             >
                 <Mastercard />
                 <Visa />

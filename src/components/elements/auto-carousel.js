@@ -29,7 +29,7 @@ const ItemsWrapper = styled.div`
         props.total_translate !== 0 && props.should_carousel_move
             ? move_items(props.total_translate)
             : ''};
-    animation-duration: 12000ms;
+    animation-duration: ${props => props.transition_duration}ms;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -95,6 +95,7 @@ class AutoCarousel extends React.PureComponent {
                     {/* We need to render this wrapper two times to fill the empty space at the end of the Carousel's section */}
                     {[0, 1].map(i => (
                         <ItemsWrapper
+                            transition_duration={this.props.transition_duration}
                             key={i}
                             total_translate={this.state.total_translate}
                             should_carousel_move={

@@ -19,9 +19,10 @@ const handleExternalLink = e => {
 
 const carousel_1_text = [
     'Exclusive synthetic market available 24/7',
-    'USD 5 minimum deposit',
     'Stakes as low as USD 0.35',
+    'Trade anywhere, on any device',
     'Payouts up to USD 50,000',
+    'USD 5 minimum deposit',
 ]
 
 const carousel_2_text = [
@@ -85,7 +86,7 @@ const Slide = styled.section`
 
     div {
         display: inline-flex;
-        margin-top: 4rem;
+        margin-top: 3rem;
         width: 100%;
         position: relative;
         animation-name: slide;
@@ -104,6 +105,15 @@ const Slide = styled.section`
         margin-top: 0;
     }
 `
+
+const StyledImage1 = styled(WhyDeriv1)`
+    animation: slide 0.4s linear;
+`
+
+const StyledImage2 = styled(WhyDeriv2)`
+    animation: slide 0.4s linear;
+`
+
 const CarouselItems = carousel_text => (
     <Slide>
         {carousel_text.map((content, index) => (
@@ -131,7 +141,7 @@ export const WhyDeriv = () => (
                     () => CarouselItems(carousel_1_text),
                     () => CarouselItems(carousel_2_text),
                 ]}
-                background={[WhyDeriv1, WhyDeriv2]}
+                background={[StyledImage1, StyledImage2]}
             />
         </HomeCarouselContainer>
     </HomeCarouselWrapper>

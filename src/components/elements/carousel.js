@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-    padding: 5.4rem 0 5.8rem 8.7rem;
+    padding: 4rem 0 4rem 5.6rem;
     background-color: var(--color-white);
     min-height: 41.8rem;
     border-radius: 1rem;

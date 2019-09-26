@@ -58,8 +58,12 @@ const AutomateTradingSection = () => (
                     {localize('Start automating')}
                 </StyledButton>
             </TitleSection>
-            <ImageSection width="60%">
-                <Image img_name="platform-bot.png" alt="Platform bot image" />
+            <ImageSection width="65%">
+                <Image
+                    img_name="platform-bot.png"
+                    alt="Platform bot image"
+                    width="100%"
+                />
             </ImageSection>
         </Container>
     </BackgroundContainer>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { TradeWithDbot } from './_trade-with-dbot'
 import { OtherPlatform } from './_other-platform'
 import AutomateTrading from './_automate-trading.js'
+import Banner from './_banner.js'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -14,6 +15,7 @@ class Dbot extends Component {
             <Layout>
                 <SEO title={localize('Dbot')} />
                 <AutomateTrading />
+                <Banner />
                 <TradeWithDbot />
                 <OtherPlatform />
             </Layout>

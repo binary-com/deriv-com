@@ -9,9 +9,9 @@ import 'typeface-ibm-plex-sans'
 export const onInitialClientRender = () => {
     // Enable translation
     // Check if not production and match ach or ach/
-    const browser = typeof window !== 'undefined'
+    const is_browser = typeof window !== 'undefined'
 
-    if (browser) {
+    if (is_browser) {
         if (
             !isProduction() &&
             window.location.pathname.match(/^(ach\/)|ach$/)

@@ -8,7 +8,7 @@ import OtherPlatform from './_other-platform.js'
 import Show from 'components/containers/show'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
-import { localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 
 const Dtrader = () => {
     return (
@@ -26,4 +26,4 @@ const Dtrader = () => {
     )
 }
 
-export default Dtrader
+export default WithIntl()(Dtrader)

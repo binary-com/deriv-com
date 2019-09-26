@@ -150,7 +150,6 @@ class DtraderTabs extends React.Component {
     my_ref = React.createRef()
     interval_ref = undefined
     state = {
-        is_playing: false,
         current_time: 0,
         progress_percentage: 0,
         transition: true,
@@ -248,7 +247,7 @@ class DtraderTabs extends React.Component {
                 </TabsWrapper>
                 <VideoWrapper>
                     <MacbookFrame />
-                    <Video ref={this.my_ref}>
+                    <Video ref={this.my_ref} preload='metadata'>
                         <source src="/Dtrader_GIF.mov" />
                     </Video>
                 </VideoWrapper>

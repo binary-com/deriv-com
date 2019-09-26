@@ -1,9 +1,9 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { isBrowser } from "../../common/utility.js"
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header, Text } from 'components/elements/typography.js'
 import device, { size } from 'themes/device'
-import { isBrowser } from './../../common/utility.js'
 import MakeSmarterImage from 'images/svg/make-smarter.svg'
 import TradeWhatYouWantImage1 from 'images/svg/trade-what-you-want1.svg'
 import TradeWhatYouWantImage2 from 'images/svg/trade-what-you-want2.svg'

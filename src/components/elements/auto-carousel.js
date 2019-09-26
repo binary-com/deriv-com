@@ -33,6 +33,7 @@ const ItemsWrapper = styled.div`
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    animation-play-state: ${props => props.animation_status};
 `
 class AutoCarousel extends React.PureComponent {
     // carousel_width: define carousel's width by percentage
@@ -47,6 +48,7 @@ class AutoCarousel extends React.PureComponent {
             carousel_width: 0,
             should_carousel_move: false,
             total_translate: 0,
+            animation_status: 'running',
         }
     }
     // every time you observe this, the carousel will restart from first child component
@@ -74,7 +76,13 @@ class AutoCarousel extends React.PureComponent {
         let observer = new IntersectionObserver(this.handler)
         observer.observe(this.my_ref.current)
     }
+    pauseAnimation = () => {
+        this.setState({ animation_status: 'paused' })
+    }
 
+    playAnimation = () => {
+        this.setState({ animation_status: 'running' })
+    }
     static getDerivedStateFromProps(props, state) {
         if (state.items.length === 0) {
             const newItems = props.children.map((item, index) => ({
@@ -91,10 +99,13 @@ class AutoCarousel extends React.PureComponent {
                 <AutoCarouselSection
                     width={this.props.carousel_width}
                     ref={this.my_ref}
+                    onMouseEnter={this.pauseAnimation}
+                    onMouseLeave={this.playAnimation}
                 >
                     {/* We need to render this wrapper two times to fill the empty space at the end of the Carousel's section */}
                     {[0, 1].map(i => (
                         <ItemsWrapper
+                            animation_status={this.state.animation_status}
                             transition_duration={this.props.transition_duration}
                             key={i}
                             total_translate={this.state.total_translate}

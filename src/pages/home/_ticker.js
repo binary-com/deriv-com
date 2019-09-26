@@ -25,6 +25,7 @@ const StyledText = styled(Text)`
 `
 const Qoute = styled.span`
     font-weight: bold;
+    text-decoration: none;
 `
 const CarouselWapper = styled.div`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
@@ -47,10 +48,7 @@ class Tick extends React.Component {
     }
     displayWithAtLeastTwoDecimal(number) {
         return number.toFixed(
-            Math.max(
-                2,
-                (number.toString().split('.')[1] || []).length,
-            ),
+            Math.max(2, (number.toString().split('.')[1] || []).length),
         )
     }
     updateStateWithResponse = response => {
@@ -62,12 +60,16 @@ class Tick extends React.Component {
         } else {
             if (this.state.quote > response.tick.quote) {
                 this.setState({
-                    quote: this.displayWithAtLeastTwoDecimal(response.tick.quote),
+                    quote: this.displayWithAtLeastTwoDecimal(
+                        response.tick.quote,
+                    ),
                     movement: MovementRed,
                 })
             } else if (this.state.quote < response.tick.quote) {
                 this.setState({
-                    quote: this.displayWithAtLeastTwoDecimal(response.tick.quote),
+                    quote: this.displayWithAtLeastTwoDecimal(
+                        response.tick.quote,
+                    ),
                     movement: MovementGreen,
                 })
             } else if (this.state.quote === response.tick.quote) {
@@ -76,7 +78,9 @@ class Tick extends React.Component {
                 })
             } else {
                 this.setState({
-                    quote: this.displayWithAtLeastTwoDecimal(response.tick.quote),
+                    quote: this.displayWithAtLeastTwoDecimal(
+                        response.tick.quote,
+                    ),
                     movement: null,
                 })
             }
@@ -126,8 +130,8 @@ const Ticker = () => {
                 <Tick symbol="R_50" display_name="Volatility 50 Index" />
                 <Tick symbol="R_75" display_name="Volatility 75 Index" />
                 <Tick symbol="R_100" display_name="Volatility 100 Index" />
-                <Tick symbol="RDBULL" display_name="Bull Market Index" />
                 <Tick symbol="RDBEAR" display_name="Bear Market Index" />
+                <Tick symbol="RDBULL" display_name="Bull Market Index" />
             </AutoCarousel>
         </CarouselWapper>
     )

@@ -7,6 +7,7 @@ import Wrapper from 'components/containers/wrapper'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import Button from 'components/form/button'
+import { deriv_bot_app_url } from 'common/utility'
 
 const BackgroundContainer = styled(SectionContainer)`
     background: var(--color-black);
@@ -39,6 +40,10 @@ const StyledButton = styled(Button)`
     width: 16rem;
 `
 
+const handleExternalLink = () => {
+    window.open(deriv_bot_app_url, '_blank')
+}
+
 const AutomateTradingSection = () => (
     <BackgroundContainer>
         <Container>
@@ -54,7 +59,7 @@ const AutomateTradingSection = () => (
                         'Automate your trading ideas without writing code',
                     )}
                 </Header>
-                <StyledButton secondary>
+                <StyledButton secondary onClick={handleExternalLink}>
                     {localize('Start automating')}
                 </StyledButton>
             </TitleSection>

@@ -48,6 +48,7 @@ const steps = [
         ),
         image: 'dbot-integrated-help.png',
         alt: 'Integrated help',
+        width: '29rem',
     },
     {
         title: localize('Save your strategies'),
@@ -56,6 +57,7 @@ const steps = [
         ),
         image: 'dbot-save-strategy.png',
         alt: 'Save bot strategy',
+        width: '32rem',
     },
 ]
 
@@ -70,6 +72,10 @@ const StyledContainer = styled(FlexGridContainer)`
 const StyledDiv = styled.div`
     margin: 0;
     max-width: 41.5rem;
+
+    div {
+        margin: ${props => props.margin};
+    }
 `
 
 const StyledHeader = styled(Header)`
@@ -103,11 +109,11 @@ export const Tutorial = () => {
                                 </StyledHeader>
                                 <StyledText>{step.subtitle}</StyledText>
                             </StyledDiv>
-                            <StyledDiv>
+                            <StyledDiv margin="auto">
                                 <Image
                                     img_name={step.image}
                                     alt={step.alt}
-                                    width="41.5rem"
+                                    width={step.width || '41.5rem'}
                                 />
                             </StyledDiv>
                         </StyledContainer>

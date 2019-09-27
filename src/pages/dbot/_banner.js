@@ -7,6 +7,10 @@ import device from 'themes/device'
 
 const BackgroundContainer = styled.section`
     background: var(--color-white);
+
+    @media ${device.tabletL} {
+        margin: 4rem 0;
+    }
 `
 
 const StyledContainer = styled(FlexGridContainer)`
@@ -17,6 +21,7 @@ const BannerItem = styled.article`
     width: 32.8rem;
     display: flex;
     flex-direction: column;
+    padding: 1.4rem;
 
     @media ${device.tabletS} {
         width: 100%;

@@ -7,6 +7,7 @@ import { localize } from 'components/localization'
 import SideTab from 'components/elements/side-tab'
 import Image from 'components/elements/image'
 import Loader from 'components/elements/loader'
+import device from 'themes/device'
 
 const BackgroundContainer = styled(SectionContainer)`
     background: linear-gradient(
@@ -15,6 +16,17 @@ const BackgroundContainer = styled(SectionContainer)`
         var(--color-white)
     );
     border-bottom: 1px solid var(--color-grey-1);
+
+    @media ${device.tabletL} {
+        margin: 4rem 0;
+    }
+`
+
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: var(--text-size-l);
+        margin-top: 1rem;
+    }
 `
 
 const LoaderContainer = styled.div`
@@ -31,6 +43,9 @@ const AnimatedContainer = styled.div`
         100% {
             transform: translateX(0);
         }
+    }
+    @media ${device.tabletL} {
+        margin: 2rem 0;
     }
 
     animation: slide 0.4s linear;
@@ -55,9 +70,9 @@ const BannerSection = () => {
                 <Header as="h4" align="center">
                     {localize('How it works')}
                 </Header>
-                <Header as="h2" align="center">
+                <StyledHeader as="h2" align="center">
                     {localize('Build a trading robot in 4 easy steps')}
-                </Header>
+                </StyledHeader>
                 <Wrapper width="100%" margin={{ top: '4rem' }}>
                     <SideTab>
                         <SelectAsset

@@ -8,21 +8,47 @@ import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import Button from 'components/form/button'
 import { deriv_bot_app_url } from 'common/utility'
+import device from 'themes/device'
 
 const BackgroundContainer = styled(SectionContainer)`
     background: var(--color-black);
+
+    @media ${device.tabletL} {
+        padding-bottom: 4rem;
+    }
+`
+
+const StyledContainer = styled(Container)`
+    @media ${device.tabletL} {
+        flex-wrap: wrap-reverse;
+    }
 `
 
 const TitleSection = styled.div`
     display: flex;
     flex-direction: column;
     width: 45%;
+
+    @media ${device.tabletL} {
+        width: 100%;
+        align-items: center;
+
+        h1 {
+            font-size: var(--text-size-xl);
+            text-align: center;
+        }
+    }
 `
 
 const ImageSection = styled(Wrapper)`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media ${device.tabletL} {
+        width: 100%;
+        margin: 2rem 0;
+    }
 `
 
 const DbotWrapper = styled.div`
@@ -46,7 +72,7 @@ const handleExternalLink = () => {
 
 const AutomateTradingSection = () => (
     <BackgroundContainer>
-        <Container>
+        <StyledContainer>
             <TitleSection>
                 <DbotWrapper>
                     <StyledDbot />
@@ -70,7 +96,7 @@ const AutomateTradingSection = () => (
                     width="100%"
                 />
             </ImageSection>
-        </Container>
+        </StyledContainer>
     </BackgroundContainer>
 )
 

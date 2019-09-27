@@ -94,13 +94,21 @@ export const Tutorial = () => {
                             flexFlow={idx % 2 === 1 ? 'row-reverse' : 'row'}
                         >
                             <StyledDiv align="flex-start">
-                                <StyledHeader font_size="4.8rem" align="left" lh="5rem">
+                                <StyledHeader
+                                    font_size="4.8rem"
+                                    align="left"
+                                    lh="5rem"
+                                >
                                     {step.title}
                                 </StyledHeader>
                                 <StyledText>{step.subtitle}</StyledText>
                             </StyledDiv>
                             <StyledDiv>
-                                <Image img_name={step.image} alt={step.alt} width="41.5rem" />
+                                <Image
+                                    img_name={step.image}
+                                    alt={step.alt}
+                                    width="41.5rem"
+                                />
                             </StyledDiv>
                         </StyledContainer>
                     ))}

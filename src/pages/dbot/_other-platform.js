@@ -17,19 +17,15 @@ const StyledHeader = styled(Header)`
 export const OtherPlatform = () => {
     return (
         <SectionContainer>
-            <StyledHeader
-                font_size="4rem"
-                align="center"
-                lh="5rem"
-            >
+            <StyledHeader font_size="4rem" align="center" lh="5rem">
                 {localize('Check out our other platforms')}
             </StyledHeader>
             <FlexGridContainer
-                    content_width="32.8rem"
-                    gap="1rem"
-                    grid="3"
-                    justify="center"
-                >
+                content_width="32.8rem"
+                gap="1rem"
+                grid="3"
+                justify="center"
+            >
                 <Card
                     title={localize('DTrader')}
                     Icon={DTrader}
@@ -45,9 +41,7 @@ export const OtherPlatform = () => {
                     title={localize('DMT5')}
                     Icon={DMT5}
                     content={[
-                        localize(
-                            'All-in-one platform for FX and CFD trading',
-                        ),
+                        localize('All-in-one platform for FX and CFD trading'),
                     ]}
                     width="32.8rem"
                     min_height="27.8rem"

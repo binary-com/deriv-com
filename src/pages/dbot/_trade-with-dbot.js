@@ -5,6 +5,7 @@ import { FlexGridContainer } from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import { deriv_app_url, deriv_bot_app_url } from 'common/utility'
+import device from 'themes/device'
 
 const StyledButton = styled(Button)`
     margin-top: 2rem;
@@ -20,6 +21,10 @@ const StyledDiv = styled.div`
 
     button {
         margin-top: 3.2rem;
+    }
+
+    @media ${device.tabletL} {
+        width: 100%;
     }
 `
 

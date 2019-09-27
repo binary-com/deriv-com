@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { FlexGridContainer } from 'components/containers/container'
 import { Text, Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 
 const BackgroundContainer = styled.section`
     background: var(--color-white);
@@ -16,6 +17,10 @@ const BannerItem = styled.article`
     width: 32.8rem;
     display: flex;
     flex-direction: column;
+
+    @media ${device.tabletS} {
+        width: 100%;
+    }
 `
 
 const StyledHeader = styled(Header)`

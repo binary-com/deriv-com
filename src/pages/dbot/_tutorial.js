@@ -7,6 +7,7 @@ import {
 } from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 
 const steps = [
     {
@@ -63,26 +64,49 @@ const steps = [
 
 const StyledContainer = styled(FlexGridContainer)`
     flex-flow: ${props => props.flexFlow};
+    flex-wrap: ${props => props.flexWrap};
 
     &:not(:last-child) {
         margin-bottom: 8rem;
     }
+    @media ${device.tabletL} {
+        margin-right: 0;
+    }
 `
 
 const StyledDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: ${props => props.alignItems};
     margin: 0;
+    width: 100%;
     max-width: 41.5rem;
 
-    div {
-        margin: ${props => props.margin};
+    @media ${device.tabletL} {
+        justify-content: center;
+        max-width: 100%;
     }
 `
 
 const StyledHeader = styled(Header)`
     margin-bottom: 0.8rem;
+
+    @media ${device.tabletL} {
+        text-align: center;
+    }
+    @media ${device.tabletS} {
+        font-size: 3.6rem;
+    }
 `
 const StyledText = styled(Text)`
     font-size: 2rem;
+
+    @media ${device.tabletL} {
+        text-align: center;
+    }
+    @media ${device.tabletS} {
+        font-size: 1.6rem;
+    }
 `
 
 export const Tutorial = () => {
@@ -90,6 +114,7 @@ export const Tutorial = () => {
         <SectionContainer>
             <FlexGridContainer
                 align-items="center"
+                justify="center"
                 content_width="32.8rem"
                 gap="1rem"
             >
@@ -98,6 +123,7 @@ export const Tutorial = () => {
                         <StyledContainer
                             key={idx}
                             flexFlow={idx % 2 === 1 ? 'row-reverse' : 'row'}
+                            flexWrap="wrap-reverse"
                         >
                             <StyledDiv align="flex-start">
                                 <StyledHeader
@@ -109,11 +135,11 @@ export const Tutorial = () => {
                                 </StyledHeader>
                                 <StyledText>{step.subtitle}</StyledText>
                             </StyledDiv>
-                            <StyledDiv margin="auto">
+                            <StyledDiv alignItems="center">
                                 <Image
                                     img_name={step.image}
                                     alt={step.alt}
-                                    width={step.width || '41.5rem'}
+                                    width={step.width || '100%'}
                                 />
                             </StyledDiv>
                         </StyledContainer>

@@ -32,6 +32,11 @@ const StyledHeader = styled(Header)`
 const LoaderContainer = styled.div`
     margin-left: auto;
     width: 80%;
+
+    @media ${device.tabletL} {
+        margin: auto;
+        width: 100%;
+    }
 `
 
 const AnimatedContainer = styled.div`

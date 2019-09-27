@@ -30,8 +30,7 @@ const StyledHeader = styled(Header)`
 `
 
 const LoaderContainer = styled.div`
-    display: flex;
-    align-items: flex-end;
+    margin-left: auto;
     width: 80%;
 `
 

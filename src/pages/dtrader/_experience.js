@@ -38,7 +38,7 @@ const StyledButton = styled(Button)`
     ${props =>
         props.demo
             ? `    background-color: var(--color-grey-1);
-    border-color: var(--color-grey-5);`
+    border:1px solid var(--color-grey-5);`
             : ''}
 `
 const StyledContainer = styled(Container)`

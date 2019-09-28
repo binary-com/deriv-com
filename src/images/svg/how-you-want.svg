@@ -149,7 +149,7 @@
                     <circle cx="3" cy="3" r="6" stroke="#FF444F" stroke-opacity=".64" stroke-width="6" filter="url(#i)"/>
                 </g>
                 <path fill="#FF444F" fill-rule="nonzero" d="M337 112h37v24h-37l-10-12z"/>
-                <text fill="#FFF" font-family="Roboto-Bold, Roboto" font-size="10" font-weight="bold" transform="translate(327 112)">
+                <text fill="#FFF" font-family="Roboto-Bold, Roboto" font-size="10" font-weight="bold" transform="translate(327 113.5)">
                     <tspan x="18.883" y="14">0.00</tspan>
                 </text>
                 <g fill-rule="nonzero">
@@ -232,7 +232,7 @@
             <g mask="url(#hywb)">
                 <path stroke="#FF6444" d="M-360 80.5h683"/>
                 <path fill="#FF6444" fill-rule="nonzero" d="M310 68h64v24h-64z"/>
-                <text fill="#FFF" font-family="Roboto-Bold, Roboto" font-size="12" font-weight="bold" transform="translate(314 71)">
+                <text fill="#FFF" font-family="Roboto-Bold, Roboto" font-size="12" font-weight="bold" transform="translate(314 73)">
                     <tspan x="20.975" y="11">90.00</tspan>
                 </text>
                 <path fill="#FFF" d="M326.5 83a.5.5 0 1 1 0 1h-9a.5.5 0 1 1 0-1h9zm0-3.5a.5.5 0 1 1 0 1h-9a.5.5 0 0 1 0-1h9zm0-3.5a.5.5 0 1 1 0 1h-9a.5.5 0 0 1 0-1h9z"/>

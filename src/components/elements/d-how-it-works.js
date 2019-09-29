@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
+import PropTypes from 'prop-types'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
+import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const StyledSection = styled(SectionContainer)`
@@ -39,6 +40,10 @@ const DHowItWorks = ({ subtitle, Video }) => {
             </Container>
         </StyledSection>
     )
+}
+DHowItWorks.propTypes = {
+    subtitle: PropTypes.string,
+    Video: PropTypes.func,
 }
 
 export default DHowItWorks

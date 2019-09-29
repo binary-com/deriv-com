@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import Container from 'components/containers/container.js'
 import device from 'themes/device.js'
 import { Header } from 'components/elements/typography.js'
@@ -96,5 +97,13 @@ const DHero = ({
         </Wrapper>
     )
 }
-
+DHero.propTypes = {
+    button_text: PropTypes.string,
+    clickRedirect: PropTypes.string,
+    img_alt: PropTypes.string,
+    img_name: PropTypes.string,
+    Logo: PropTypes.func,
+    message: PropTypes.string,
+    title: PropTypes.string,
+}
 export default DHero

@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import Trading from './_trading.js'
-import DHero from 'components/elements/DHero.js'
-import DNumbers from 'components/elements/DNumbers.js'
-import DHowItWorks from 'components/elements/Dhow-it-works.js'
-import DExperience from 'components/elements/DExperience.js'
 import OtherPlatform from './_other-platform.js'
+import DTraderVideo from './_dtrader-video.js'
+import DExperience from 'components/elements/dexperience.js'
+import DHero from 'components/elements/dhero.js'
+import DNumbers from 'components/elements/dnumbers.js'
+import DHowItWorks from 'components/elements/d-how-it-works.js'
 import Show from 'components/containers/show'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import dtrader_logo from 'images/svg/d-trader.svg'
 import { Header, Text } from 'components/elements/typography.js'
-import DTraderVideo from './_dtrader-video.js'
 
 const NumberWrapper = styled.div`
     display: flex;

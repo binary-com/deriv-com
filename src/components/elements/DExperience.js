@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import device from 'themes/device.js'
@@ -65,7 +66,7 @@ const handleExternalLink = () => {
 const openBot = () => {
     window.open('https://www.binary.bot/', '_blank')
 }
-const Experience = ({ title, subtitle, redirect, go_to_live_demo }) => {
+const DExperience = ({ title, subtitle, redirect }) => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <StyledSection padding="4rem 0">
@@ -114,5 +115,10 @@ const Experience = ({ title, subtitle, redirect, go_to_live_demo }) => {
         </StyledSection>
     )
 }
+DExperience.propTypes = {
+    redirect: PropTypes.string,
+    subtitle: PropTypes.string,
+    title: PropTypes.string,
+}
 
-export default Experience
+export default DExperience

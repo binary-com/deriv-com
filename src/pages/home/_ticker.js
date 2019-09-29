@@ -46,11 +46,11 @@ class Tick extends React.Component {
             { callback: this.updateStateWithResponse },
         )
     }
-    displayWithAtLeastTwoDecimal(number) {
-        return number.toFixed(
-            Math.max(2, (number.toString().split('.')[1] || []).length),
-        )
-    }
+    // displayWithAtLeastTwoDecimal(number) {
+    //     return number.toFixed(
+    //         Math.max(2, (number.toString().split('.')[1] || []).length),
+    //     )
+    // }
     updateStateWithResponse = response => {
         if (response.error) {
             this.setState({
@@ -60,16 +60,12 @@ class Tick extends React.Component {
         } else {
             if (this.state.quote > response.tick.quote) {
                 this.setState({
-                    quote: this.displayWithAtLeastTwoDecimal(
-                        response.tick.quote,
-                    ),
+                    quote: response.tick.quote,
                     movement: MovementRed,
                 })
             } else if (this.state.quote < response.tick.quote) {
                 this.setState({
-                    quote: this.displayWithAtLeastTwoDecimal(
-                        response.tick.quote,
-                    ),
+                    quote: response.tick.quote,
                     movement: MovementGreen,
                 })
             } else if (this.state.quote === response.tick.quote) {
@@ -78,9 +74,7 @@ class Tick extends React.Component {
                 })
             } else {
                 this.setState({
-                    quote: this.displayWithAtLeastTwoDecimal(
-                        response.tick.quote,
-                    ),
+                    quote: response.tick.quote,
                     movement: null,
                 })
             }
@@ -102,7 +96,7 @@ class Tick extends React.Component {
             <TickWrapper>
                 <StyledText>
                     {this.props.display_name}:{' '}
-                    <Qoute>
+                    <Qoute x-ms-format-detection='none'>
                         {this.state.quote === null ? (
                             <Loader />
                         ) : (

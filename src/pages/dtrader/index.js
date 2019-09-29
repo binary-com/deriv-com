@@ -4,7 +4,7 @@ import Trading from './_trading.js'
 import DHero from 'components/elements/DHero.js'
 import DNumbers from 'components/elements/DNumbers.js'
 import DHowItWorks from 'components/elements/Dhow-it-works.js'
-import Experience from './_experience'
+import DExperience from 'components/elements/DExperience.js'
 import OtherPlatform from './_other-platform.js'
 import Show from 'components/containers/show'
 import SEO from 'components/containers/seo'
@@ -66,7 +66,11 @@ const Dtrader = () => {
                 Video={DTraderVideo}
             />
             <Trading />
-            <Experience />
+            <DExperience
+                title={localize('20 years of experience and trust')}
+                subtitle={localize('Join over a million traders worldwide')}
+                redirect="signup modal"
+            />
             <OtherPlatform />
         </Layout>
     )

@@ -7,6 +7,7 @@ import { Header, Text } from 'components/elements/typography.js'
 import DTraderVideo from './../dtrader/_dtrader-video.js'
 import DHowItWorks from 'components/elements/d-how-it-works.js'
 import DNumbers from 'components/elements/dnumbers.js'
+import Trading from './_trading.js'
 import Show from 'components/containers/show'
 import SEO from 'components/containers/seo'
 import DHero from 'components/elements/dhero.js'
@@ -58,11 +59,13 @@ const Dtrader = () => {
                 <DNumbers>
                     <DtraderNumbers />
                 </DNumbers>
-                <DHowItWorks
-                    subtitle={localize('Get started with DMT5 in 3 easy steps')}
-                    Video={DTraderVideo}
-                />
             </Show.Desktop>
+            <DHowItWorks
+                subtitle={localize('Get started with DMT5 in 3 easy steps')}
+                Video={DTraderVideo}
+            />
+
+            <Trading />
         </Layout>
     )
 }

@@ -147,7 +147,7 @@ const ProgressBar = styled.div`
                 : 'transition: width 0s linear;'}
     }
 `
-class DtraderTabs extends React.Component {
+class DTraderVideo extends React.Component {
     my_ref = React.createRef()
     interval_ref = undefined
     state = {
@@ -260,4 +260,4 @@ class DtraderTabs extends React.Component {
         )
     }
 }
-export default DtraderTabs
+export default DTraderVideo

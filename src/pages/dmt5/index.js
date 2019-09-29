@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Dmt5Logo from 'images/svg/dmt-5.svg'
+import OtherPlatform from './_other-platform.js'
 import { Header, Text } from 'components/elements/typography.js'
 import DTraderVideo from './../dtrader/_dtrader-video.js'
 import DHowItWorks from 'components/elements/d-how-it-works.js'
 import DNumbers from 'components/elements/dnumbers.js'
 import Trading from './_trading.js'
+import TryMT5 from './_try-mt5.js'
 import Show from 'components/containers/show'
 import SEO from 'components/containers/seo'
 import DHero from 'components/elements/dhero.js'
@@ -64,8 +66,9 @@ const Dtrader = () => {
                 subtitle={localize('Get started with DMT5 in 3 easy steps')}
                 Video={DTraderVideo}
             />
-
             <Trading />
+            <TryMT5 />
+            <OtherPlatform />
         </Layout>
     )
 }

@@ -2,10 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import DHero from 'components/elements/dhero.js'
 import DNumbers from 'components/elements/dnumbers.js'
+import DExperience from 'components/elements/d-experience.js'
 import Show from 'components/containers/show'
 import SEO from 'components/containers/seo'
 import DHowItWorks from 'components/elements/d-how-it-works.js'
 import DTraderVideo from './../dtrader/_dtrader-video.js'
+import OtherPlatform from './_other-platform.js'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import dbot from 'images/svg/d-bot.svg'
@@ -69,6 +71,11 @@ const Dtrader = () => {
                 Video={DTraderVideo}
             />
             <Trading />
+            <DExperience
+                title={localize('Trade more efficiently with DBot')}
+                redirect="bot"
+            />
+            <OtherPlatform />
         </Layout>
     )
 }

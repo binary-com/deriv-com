@@ -146,15 +146,15 @@
                 <path stroke="#FF444F" stroke-dasharray="4" d="M268 124h106"/>
                 <g fill-rule="nonzero" transform="translate(266 121)">
                     <circle cx="3" cy="3" r="3" fill="#FF444F"/>
-                    <circle cx="3" cy="3" r="6" stroke="#FF444F" stroke-opacity=".64" stroke-width="6" filter="url(#i)"/>
+                    <circle cx="3" cy="3" r="6" stroke="#FF444F" stroke-opacity=".64" stroke-width="6" filter="url(#hywi)"/>
                 </g>
                 <path fill="#FF444F" fill-rule="nonzero" d="M337 112h37v24h-37l-10-12z"/>
                 <text fill="#FFF" font-family="Roboto-Bold, Roboto" font-size="10" font-weight="bold" transform="translate(327 113.5)">
                     <tspan x="18.883" y="14">0.00</tspan>
                 </text>
                 <g fill-rule="nonzero">
-                    <path fill="url(#j)" d="M0 0h80v688H0z" transform="translate(-360 -165)"/>
-                    <path fill="url(#k)" d="M0 0h734v80H0z" transform="translate(-360 -165)"/>
+                    <path fill="url(#hywj)" d="M0 0h80v688H0z" transform="translate(-360 -165)"/>
+                    <path fill="url(#hywk)" d="M0 0h734v80H0z" transform="translate(-360 -165)"/>
                 </g>
                 <g>
                     <path fill="#FFF" fill-rule="nonzero" d="M-360 499h734v40h-734z"/>

@@ -4,10 +4,43 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Dmt5Logo from 'images/svg/dmt-5.svg'
 import { Header, Text } from 'components/elements/typography.js'
+import DTraderVideo from './../dtrader/_dtrader-video.js'
+import DHowItWorks from 'components/elements/d-how-it-works.js'
+import DNumbers from 'components/elements/dnumbers.js'
 import Show from 'components/containers/show'
 import SEO from 'components/containers/seo'
 import DHero from 'components/elements/dhero.js'
 
+const NumberWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 328px;
+`
+const DtraderNumbers = () => (
+    <>
+        <NumberWrapper>
+            <Header as="h2" align="center">
+                {localize('70+')}
+            </Header>
+            <Text align="center">
+                {localize('tradable assets and growing')}
+            </Text>
+        </NumberWrapper>
+        <NumberWrapper>
+            <Header as="h2" align="center">
+                {localize('1:1,000')}
+            </Header>
+            <Text align="center">{localize('maximum leverage')}</Text>
+        </NumberWrapper>
+        <NumberWrapper>
+            <Header as="h2" align="center">
+                {localize('30')}
+            </Header>
+            <Text align="center">{localize('maximum lot siz')}</Text>
+        </NumberWrapper>
+    </>
+)
 const Dtrader = () => {
     return (
         <Layout>
@@ -21,6 +54,15 @@ const Dtrader = () => {
                 button_text={localize('Try for free')}
                 clickRedirect="signup modal"
             />
+            <Show.Desktop>
+                <DNumbers>
+                    <DtraderNumbers />
+                </DNumbers>
+                <DHowItWorks
+                    subtitle={localize('Get started with DMT5 in 3 easy steps')}
+                    Video={DTraderVideo}
+                />
+            </Show.Desktop>
         </Layout>
     )
 }

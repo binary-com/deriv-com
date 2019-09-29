@@ -5,7 +5,6 @@ import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header, Text } from 'components/elements/typography.js'
 import device from 'themes/device'
 import MakeSmarterImage from 'images/svg/make-smarter.svg'
-import TradeWhatYouWantImage1 from 'images/svg/trade-what-you-want1.svg'
 import HowYouWantImage from 'images/svg/how-you-want.svg'
 
 const StyledSection = styled(SectionContainer)`
@@ -69,16 +68,6 @@ const CommonSVG = css`
 const MakeSmarterSVG = styled(MakeSmarterImage)`
     grid-area: acci;
     ${CommonSVG}
-`
-const CommonTradeWhatYouWhant = css`
-    grid-area: twywi1;
-    ${CommonSVG}
-    @media ${device.tabletL} {
-        height: 210px;
-    }
-`
-const TradeWhatYouWantSVG1 = styled(TradeWhatYouWantImage1)`
-    ${CommonTradeWhatYouWhant}
 `
 const HowYouWantSVG = styled(HowYouWantImage)`
     grid-area: syni;

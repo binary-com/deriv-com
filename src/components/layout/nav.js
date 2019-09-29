@@ -8,7 +8,6 @@ import SignupModal from '../elements/signup-modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
 import { SharedLinkStyle } from '../localization/localized-link'
 import BetaBanner from './beta'
-import { deriv_app_url } from 'common/utility'
 import Login from 'common/login'
 import device from 'themes/device'
 import { Text } from 'components/elements/typography.js'
@@ -24,7 +23,6 @@ const NavWrapper = styled.div`
     position: fixed;
     z-index: 100;
 `
-
 const NavDropdown = styled.div`
     width: 100%;
     position: absolute;
@@ -51,9 +49,13 @@ const NavDropdownGrid = styled(GridContainer)`
     grid-column-gap: 2rem;
     height: 100%;
     align-items: center;
+
+    .active {
+        background-color: var(--color-grey-6);
+    }
 `
 
-const PlatformItem = styled.div`
+const PlatformItem = styled(LocalizedLink)`
     display: grid;
     grid-template-columns: 1fr 5fr;
     padding: 2.4rem 1.6rem;
@@ -62,6 +64,7 @@ const PlatformItem = styled.div`
     min-height: 13.1rem;
     align-items: start;
     cursor: pointer;
+    text-decoration: none;
 
     &:hover {
         background-color: var(--color-grey-6);
@@ -77,6 +80,7 @@ const StyledNav = styled.nav`
     height: 7.2rem;
     width: 100%;
     position: relative;
+
     @media ${device.tabletL} {
         height: auto;
     }
@@ -91,6 +95,7 @@ const Wrapper = styled(Container)`
 
 const NavLeft = styled.div`
     text-align: left;
+
     @media ${device.tabletL} {
         svg {
             width: 50%;
@@ -165,6 +170,7 @@ const NavRightContainer = styled.div`
 const HamburgerMenu = styled(Hamburger)`
     cursor: pointer;
     display: none;
+
     @media ${device.tabletL} {
         display: block;
         cursor: pionter;
@@ -194,13 +200,8 @@ const Nav = () => {
             document.removeEventListener('scroll', buttonHandleScroll)
         }
     }, [])
-
     const handleLogin = () => {
         window.open(Login.loginUrl(), '_blank')
-    }
-
-    const handleTraderLink = () => {
-        window.open(deriv_app_url, '_blank')
     }
     const handleMenuClick = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
@@ -215,14 +216,14 @@ const Nav = () => {
             <StyledNav>
                 <NavDropdown id="switcher">
                     <NavDropdownGrid>
-                        <PlatformItem>
+                        <PlatformItem
+                            activeClassName="active"
+                            to="/dtrader/"
+                            aria-label={localize('DTrader')}
+                            partiallyActive={true}
+                        >
                             <DTrader />
-                            <div
-                                onClick={() => {
-                                    handlePlatformsClick()
-                                    handleTraderLink()
-                                }}
-                            >
+                            <div>
                                 <Text secondary color="black-3" weight="bold">
                                     {localize('DTrader')}
                                 </Text>
@@ -233,13 +234,14 @@ const Nav = () => {
                                 </Text>
                             </div>
                         </PlatformItem>
-                        <PlatformItem>
+                        <PlatformItem
+                            activeClassName="active"
+                            to="/dbot/"
+                            aria-label={localize('DBot')}
+                            partiallyActive={true}
+                        >
                             <DBot />
-                            <div onClick={() => {
-                                handlePlatformsClick()
-                                handleTraderLink()
-                                }}
-                            >
+                            <div>
                                 <Text secondary color="black-3" weight="bold">
                                     {localize('DBot')}
                                 </Text>
@@ -250,13 +252,14 @@ const Nav = () => {
                                 </Text>
                             </div>
                         </PlatformItem>
-                        <PlatformItem>
+                        <PlatformItem
+                            activeClassName="active"
+                            to="/dmt5/"
+                            aria-label={localize('DMT5')}
+                            partiallyActive={true}
+                        >
                             <DMT5 />
-                            <div onClick={() => {
-                                handlePlatformsClick()
-                                handleTraderLink()
-                                }}
-                            >
+                            <div>
                                 <Text secondary color="black-3" weight="bold">
                                     {localize('DMT5')}
                                 </Text>

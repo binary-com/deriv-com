@@ -46,11 +46,15 @@ class Tick extends React.Component {
             { callback: this.updateStateWithResponse },
         )
     }
-    // displayWithAtLeastTwoDecimal(number) {
-    //     return number.toFixed(
-    //         Math.max(2, (number.toString().split('.')[1] || []).length),
-    //     )
-    // }
+    reformatQuote(number) {
+        // calculate that how many decimal each quote should have, based on pip value
+        return number.toFixed(
+            Math.max(
+                (this.props.pip.toString().split('.')[1] || []).length,
+                (number.toString().split('.')[1] || []).length,
+            ),
+        )
+    }
     updateStateWithResponse = response => {
         if (response.error) {
             this.setState({
@@ -60,12 +64,12 @@ class Tick extends React.Component {
         } else {
             if (this.state.quote > response.tick.quote) {
                 this.setState({
-                    quote: response.tick.quote,
+                    quote: this.reformatQuote(response.tick.quote),
                     movement: MovementRed,
                 })
             } else if (this.state.quote < response.tick.quote) {
                 this.setState({
-                    quote: response.tick.quote,
+                    quote: this.reformatQuote(response.tick.quote),
                     movement: MovementGreen,
                 })
             } else if (this.state.quote === response.tick.quote) {
@@ -74,7 +78,7 @@ class Tick extends React.Component {
                 })
             } else {
                 this.setState({
-                    quote: response.tick.quote,
+                    quote: this.reformatQuote(response.tick.quote),
                     movement: null,
                 })
             }
@@ -96,7 +100,7 @@ class Tick extends React.Component {
             <TickWrapper>
                 <StyledText>
                     {this.props.display_name}:{' '}
-                    <Qoute x-ms-format-detection='none'>
+                    <Qoute>
                         {this.state.quote === null ? (
                             <Loader />
                         ) : (
@@ -113,22 +117,59 @@ class Tick extends React.Component {
 
 Tick.propTypes = {
     display_name: PropTypes.string,
+    pip: PropTypes.number,
     symbol: PropTypes.string,
 }
-const Ticker = () => {
-    return (
-        <CarouselWapper>
-            <AutoCarousel carousel_width="100%" transition_duration={30000}>
-                <Tick symbol="R_10" display_name="Volatility 10 Index" />
-                <Tick symbol="R_25" display_name="Volatility 25 Index" />
-                <Tick symbol="R_50" display_name="Volatility 50 Index" />
-                <Tick symbol="R_75" display_name="Volatility 75 Index" />
-                <Tick symbol="R_100" display_name="Volatility 100 Index" />
-                <Tick symbol="RDBEAR" display_name="Bear Market Index" />
-                <Tick symbol="RDBULL" display_name="Bull Market Index" />
-            </AutoCarousel>
-        </CarouselWapper>
-    )
+
+class Ticker extends React.Component {
+    state = {
+        markets: [],
+    }
+    onActiveSymbolReceive = response => {
+        const random_index = []
+        const random_daily = []
+        response.active_symbols.forEach(symbol => {
+            if (symbol.market === 'volidx') {
+                symbol.submarket === 'random_index'
+                    ? random_index.push(symbol)
+                    : random_daily.push(symbol)
+            }
+        })
+        const active_symbols = random_index.concat(random_daily)
+        this.setState({
+            markets: active_symbols,
+        })
+    }
+    componentDidMount() {
+        BinarySocketBase.send(
+            {
+                active_symbols: 'brief',
+                product_type: 'basic',
+            },
+            { callback: this.onActiveSymbolReceive },
+        )
+    }
+    render() {
+        return (
+            <CarouselWapper>
+                {this.state.markets.length === 0 ? null : (
+                    <AutoCarousel
+                        carousel_width="100%"
+                        transition_duration={30000}
+                    >
+                        {this.state.markets.map(symbol => (
+                            <Tick
+                                key={symbol.symbol}
+                                display_name={symbol.display_name}
+                                symbol={symbol.symbol}
+                                pip={symbol.pip}
+                            ></Tick>
+                        ))}
+                    </AutoCarousel>
+                )}
+            </CarouselWapper>
+        )
+    }
 }
 
 export default Ticker

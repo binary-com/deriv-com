@@ -41,7 +41,7 @@
     <g fill="none" fill-rule="evenodd">
         <g filter="url(#a)" transform="translate(123.587 53.598)">
             <rect width="138.369" height="110.218" fill="#F4F4F6" fill-rule="nonzero" rx="1.909"/>
-            <text fill="#333" font-family="Roboto-Medium, Roboto Medium" font-size="6.68" transform="translate(8.111 7.634)">
+            <text fill="#333" font-family="IBM Plex Sans, sans-serif" font-size="6.68" transform="translate(8.111 7.634)">
                 <tspan x="4.771" y="6.954">Up/Down</tspan>
             </text>
             <g transform="translate(7.634 22.425)">
@@ -52,7 +52,7 @@
                     <g transform="translate(3.817)">
                         <rect width="115.467" height="19.085" fill="#E6E9E9" rx="1.909"/>
                         <path fill="#000" fill-opacity=".8" d="M107.832 12.883a3.34 3.34 0 1 0 0-6.68 3.34 3.34 0 0 0 0 6.68zm0-7.157a3.817 3.817 0 1 1 0 7.634 3.817 3.817 0 0 1 0-7.634zm0 3.34a.239.239 0 0 0-.238.238v1.909a.239.239 0 0 0 .477 0V9.304a.239.239 0 0 0-.239-.238zm0-1.193a.358.358 0 1 0 0 .715.358.358 0 0 0 0-.715z"/>
-                        <text fill="#333" font-family="Roboto-Regular, Roboto" font-size="6.68">
+                        <text fill="#333" font-family="IBM Plex Sans, sans-serif" font-size="6.68">
                             <tspan x="32.445" y="10.771">Rise/Fall</tspan>
                         </text>
                         <g transform="translate(17.177 3.817)">
@@ -80,7 +80,7 @@
                 <g mask="url(#c)">
                     <g transform="translate(3.817 19.563)">
                         <rect width="115.467" height="19.085" fill="#FFF" rx="1.909"/>
-                        <text fill="#333" font-family="Roboto-Regular, Roboto" font-size="6.68">
+                        <text fill="#333" font-family="IBM Plex Sans, sans-serif" font-size="6.68">
                             <tspan x="32.445" y="10.771">Higher/Lower</tspan>
                         </text>
                         <g transform="translate(17.177 3.817)">
@@ -107,7 +107,7 @@
                 </g>
             </g>
             <g>
-                <text fill="#333" font-family="Roboto-Medium, Roboto Medium" font-size="6.68" transform="translate(8.111 68.707)">
+                <text fill="#333" font-family="IBM Plex Sans, sans-serif" font-size="6.68" transform="translate(8.111 68.707)">
                     <tspan x="4.771" y="6.954">Touch/No Touch</tspan>
                 </text>
                 <g transform="translate(7.634 83.499)">
@@ -118,7 +118,7 @@
                     <g mask="url(#m)">
                         <g transform="translate(3.817)">
                             <rect width="115.467" height="19.085" fill="#D6DADB" fill-rule="nonzero" rx="1.909"/>
-                            <text fill="#333" font-family="Roboto-Bold, Roboto" font-size="6.68" font-weight="bold">
+                            <text fill="#333" font-family="IBM Plex Sans, sans-serif" font-size="6.68" font-weight="bold">
                                 <tspan x="32.445" y="10.771">Touch/No Touch</tspan>
                             </text>
                             <g transform="translate(17.177 3.817)">
@@ -156,7 +156,7 @@
                 <g transform="translate(3.545 203.069)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">GBP/CAD</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -180,7 +180,7 @@
                 <g transform="translate(3.545 187.204)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">GBP/USD</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -207,7 +207,7 @@
                 <g transform="translate(3.545 171.34)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">GBP/JPY</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -231,7 +231,7 @@
                 <g transform="translate(3.545 155.474)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">GBP/AUD</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -254,7 +254,7 @@
                 <g transform="translate(3.545 139.61)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">EUR/USD</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -280,7 +280,7 @@
                 <g transform="translate(3.545 123.745)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">EUR/JPY</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -303,7 +303,7 @@
                 <g transform="translate(3.545 107.88)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">EUR/GBP</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -327,7 +327,7 @@
                 <g transform="translate(3.545 92.015)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">EUR/CHF</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -350,7 +350,7 @@
                 <g transform="translate(3.545 76.15)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">EUR/CAD</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -373,7 +373,7 @@
                 <g transform="translate(3.545 60.286)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">EUR/AUD</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -395,7 +395,7 @@
                 <g transform="translate(3.545 44.421)">
                     <rect width="116.97" height="15.865" fill="#0E0E0E" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.965 8.353l1.287-1.204-1.78-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.307-1.715-1.298-1.214c-.241-.226-.162-.448.168-.494l1.792-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#C2C2C2" font-family="Roboto-Regular, Roboto" font-size="5.553">
+                    <text fill="#C2C2C2" font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                         <tspan x="22.211" y="8.966">AUD/USD</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -420,7 +420,7 @@
                 <g transform="translate(3.534 28.557)">
                     <rect width="116.629" height="15.865" fill="#323738" fill-rule="nonzero" rx="1.586"/>
                     <path fill="#C2C2C2" fill-rule="nonzero" d="M111.59 8.353l1.286-1.204-1.779-.248-.813-1.584-.814 1.584-1.78.248 1.287 1.204-.308 1.724 1.615-.815 1.614.815-.308-1.724zm-1.306 1.353l-1.604.81c-.299.15-.494.01-.438-.306l.306-1.715-1.297-1.214c-.242-.226-.163-.448.167-.494l1.793-.25.802-1.56c.15-.292.394-.288.541 0l.802 1.56 1.793.25c.334.046.406.27.167.494l-1.297 1.214.306 1.715c.057.32-.143.455-.438.306l-1.603-.81z"/>
-                    <text fill="#FFF" font-family="Roboto-Bold, Roboto" font-size="7.715" font-weight="bold">
+                    <text fill="#FFF" font-family="IBM Plex Sans, sans-serif" font-size="7.715" font-weight="bold">
                         <tspan x="22.211" y="8.979">AUD/JPY</tspan>
                     </text>
                     <g transform="translate(3.173 3.173)">
@@ -439,12 +439,12 @@
                         <rect width="9.019" height="5.846" x="3.423" y="3.423" stroke="#000" stroke-opacity=".04" stroke-width=".5" rx=".793"/>
                     </g>
                 </g>
-                <g font-family="Roboto-Regular, Roboto" font-size="5.553">
+                <g font-family="IBM Plex Sans, sans-serif" font-size="5.553">
                     <text fill="#6E6E6E" transform="translate(6.346 17.451)">
                         <tspan x="0" y="5">Major Pairs</tspan>
                     </text>
                 </g>
-                <g font-family="Roboto-Bold, Roboto" font-size="5.553" font-weight="bold">
+                <g font-family="IBM Plex Sans, sans-serif" font-size="5.553" font-weight="bold">
                     <text fill="#FFF" transform="translate(6.346 6.346)">
                         <tspan x="0" y="5">Forex</tspan>
                     </text>

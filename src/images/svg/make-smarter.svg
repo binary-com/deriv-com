@@ -62,7 +62,7 @@
                                                             <g id="Group">
                                                                 <polygon id="vertical" fill="#F2F3F4" fill-rule="nonzero" points="15.2 529 16 529 16 0 15.2 0"></polygon>
                                                                 <rect id="shade" fill="url(#linearGradient-7)" fill-rule="nonzero" x="0" y="0" width="31.2" height="16"></rect>
-                                                                <text id="time" font-family="Roboto-Regular, Roboto" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
+                                                                <text id="time" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
                                                                     <tspan x="0.1859375" y="545.6">00:00:00</tspan>
                                                                 </text>
                                                             </g>
@@ -71,7 +71,7 @@
                                                             <g id="Group">
                                                                 <polygon id="vertical" fill="#F2F3F4" fill-rule="nonzero" points="15.2 529 16 529 16 0 15.2 0"></polygon>
                                                                 <rect id="shade" fill="url(#linearGradient-7)" fill-rule="nonzero" x="0" y="0" width="31.2" height="16"></rect>
-                                                                <text id="time" font-family="Roboto-Regular, Roboto" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
+                                                                <text id="time" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
                                                                     <tspan x="0.1859375" y="545.6">00:00:00</tspan>
                                                                 </text>
                                                             </g>
@@ -80,7 +80,7 @@
                                                             <g id="Group">
                                                                 <polygon id="vertical" fill="#F2F3F4" fill-rule="nonzero" points="15.2 529 16 529 16 0 15.2 0"></polygon>
                                                                 <rect id="shade" fill="url(#linearGradient-7)" fill-rule="nonzero" x="0" y="0" width="31.2" height="16"></rect>
-                                                                <text id="time" font-family="Roboto-Regular, Roboto" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
+                                                                <text id="time" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
                                                                     <tspan x="0.1859375" y="545.6">00:00:00</tspan>
                                                                 </text>
                                                             </g>
@@ -89,7 +89,7 @@
                                                             <g id="Group">
                                                                 <polygon id="vertical" fill="#F2F3F4" fill-rule="nonzero" points="15.2 529 16 529 16 0 15.2 0"></polygon>
                                                                 <rect id="shade" fill="url(#linearGradient-7)" fill-rule="nonzero" x="0" y="0" width="31.2" height="16"></rect>
-                                                                <text id="time" font-family="Roboto-Regular, Roboto" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
+                                                                <text id="time" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
                                                                     <tspan x="0.1859375" y="545.6">00:00:00</tspan>
                                                                 </text>
                                                             </g>
@@ -98,7 +98,7 @@
                                                             <g id="Group">
                                                                 <polygon id="vertical" fill="#F2F3F4" fill-rule="nonzero" points="15.2 529 16 529 16 0 15.2 0"></polygon>
                                                                 <rect id="shade" fill="url(#linearGradient-7)" fill-rule="nonzero" x="0" y="0" width="31.2" height="16"></rect>
-                                                                <text id="time" font-family="Roboto-Regular, Roboto" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
+                                                                <text id="time" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
                                                                     <tspan x="0.1859375" y="545.6">00:00:00</tspan>
                                                                 </text>
                                                             </g>
@@ -107,7 +107,7 @@
                                                             <g id="Group">
                                                                 <polygon id="vertical" fill="#F2F3F4" fill-rule="nonzero" points="15.2 529 16 529 16 0 15.2 0"></polygon>
                                                                 <rect id="shade" fill="url(#linearGradient-7)" fill-rule="nonzero" x="0" y="0" width="31.2" height="16"></rect>
-                                                                <text id="time" font-family="Roboto-Regular, Roboto" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
+                                                                <text id="time" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
                                                                     <tspan x="0.1859375" y="545.6">00:00:00</tspan>
                                                                 </text>
                                                             </g>
@@ -116,7 +116,7 @@
                                                             <g id="Group">
                                                                 <polygon id="vertical" fill="#F2F3F4" fill-rule="nonzero" points="15.2 529 16 529 16 0 15.2 0"></polygon>
                                                                 <rect id="shade" fill="url(#linearGradient-7)" fill-rule="nonzero" x="0" y="0" width="31.2" height="16"></rect>
-                                                                <text id="time" font-family="Roboto-Regular, Roboto" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
+                                                                <text id="time" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
                                                                     <tspan x="0.1859375" y="545.6">00:00:00</tspan>
                                                                 </text>
                                                             </g>
@@ -136,7 +136,7 @@
                                                 <path d="M1.6,9.6 L262.423256,9.6" id="line-currenttick-vector" stroke="#FF444F" stroke-width="0.8" stroke-dasharray="3.2"></path>
                                                 <g id="Group" transform="translate(224.823256, 0.000000)">
                                                     <polygon id="bg" fill="#FF444F" fill-rule="nonzero" points="8 0 37.6 0 37.6 19.2 8 19.2 9.0052632e-12 9.6"></polygon>
-                                                    <text id="label" font-family="Roboto-Bold, Roboto" font-size="8" font-weight="bold" linespacing="11.2" fill="#FFFFFF">
+                                                    <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="bold" linespacing="11.2" fill="#FFFFFF">
                                                         <tspan x="14.30625" y="11">0.00</tspan>
                                                     </text>
                                                 </g>
@@ -150,11 +150,11 @@
                                             </g>
                                             <g id="tick-1" transform="translate(21.028571, 176.400000)">
                                                 <circle id="bg" stroke="#1C5AE3" stroke-width="0.8" fill="#FFFFFF" fill-rule="nonzero" cx="4.8" cy="5.6" r="4.8"></circle>
-                                                <text id="label" font-family="Roboto-Regular, Roboto" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
+                                                <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="normal" linespacing="11.2" fill="#333333">
                                                     <tspan x="2.55390625" y="7.4">4</tspan>
                                                 </text>
                                             </g>
-                                            <text id="1/4" font-family="Roboto-Regular, Roboto" font-size="8" font-weight="normal" fill="#1C5AE3">
+                                            <text id="1/4" font-family="IBM Plex Sans, sans-serif" font-size="8" font-weight="normal" fill="#1C5AE3">
                                                 <tspan x="0.487946429" y="145">1/4</tspan>
                                             </text>
                                         </g>
@@ -180,10 +180,10 @@
                                                                 </g>
                                                             </g>
                                                         </g>
-                                                        <text id="Current-Price" font-family="Roboto-Regular, Roboto" font-size="9.6" font-weight="normal" linespacing="14.4">
+                                                        <text id="Current-Price" font-family="IBM Plex Sans, sans-serif" font-size="9.6" font-weight="normal" linespacing="14.4">
                                                             <tspan x="0" y="28.2" fill="#333333">84.54 - 0.14 (0.16%)</tspan>
                                                         </text>
-                                                        <text id="asset" font-family="Roboto-Bold, Roboto" font-size="12.8" font-weight="bold" linespacing="19.2" fill-opacity="0.8">
+                                                        <text id="asset" font-family="IBM Plex Sans, sans-serif" font-size="12.8" font-weight="bold" linespacing="19.2" fill-opacity="0.8">
                                                             <tspan x="0" y="12" fill="#000000">AUD/JPY</tspan>
                                                         </text>
                                                     </g>
@@ -228,7 +228,7 @@
                                                             <g id="ic-mountain" stroke-width="1" fill-rule="evenodd" transform="translate(1.200000, 3.389474)" fill="#333333">
                                                                 <path d="M8.01449498,9.01697999 L15.7324141,0.608510203 C15.9898231,0.328069856 16.4,0.549205609 16.4,0.968421053 L16.4,15.4947368 C16.4,15.7621589 16.2209139,15.9789474 16,15.9789474 L0.8,15.9789474 C0.5790861,15.9789474 0.4,15.7621589 0.4,15.4947368 L0.4,12.5894737 C0.4,12.4610531 0.442142736,12.3378922 0.517157288,12.2470851 L5.31715729,6.43655882 C5.473367,6.24746285 5.726633,6.24746285 5.88284271,6.43655882 L8.01449498,9.01697999 Z M1.2,15.0105263 L15.6,15.0105263 L15.6,2.05564916 L8.26758589,10.0441214 C8.10945457,10.2164013 7.86758996,10.2087018 7.71715729,10.0265991 L5.6,7.46372446 L1.2,12.7900403 L1.2,15.0105263 Z" id="Path-2"></path>
                                                             </g>
-                                                            <text id="30M" font-family="Roboto-Bold, Roboto" font-size="6.4" font-weight="bold" fill="#000000" fill-opacity="0.8">
+                                                            <text id="30M" font-family="IBM Plex Sans, sans-serif" font-size="6.4" font-weight="bold" fill="#000000" fill-opacity="0.8">
                                                                 <tspan x="0" y="6.84210526">30M</tspan>
                                                             </text>
                                                         </g>
@@ -317,7 +317,7 @@
                                                     <g id="ic-mountain" stroke-width="1" fill-rule="evenodd" transform="translate(1.771577, 4.133679)" fill="#333333">
                                                         <path d="M11.8319118,10.9967824 L23.2259845,0.742117019 C23.606001,0.400102122 24.2115509,0.669791283 24.2115509,1.18105127 L24.2115509,18.8968202 C24.2115509,19.2229585 23.9471636,19.4873459 23.6210253,19.4873459 L1.18105127,19.4873459 C0.854912964,19.4873459 0.590525633,19.2229585 0.590525633,18.8968202 L0.590525633,15.3536665 C0.590525633,15.1970493 0.652741548,15.0468468 0.763486586,14.9361018 L7.84979418,7.84979418 C8.08040878,7.61917957 8.45430893,7.61917957 8.68492354,7.84979418 L11.8319118,10.9967824 Z M1.7715769,18.3062946 L23.0304997,18.3062946 L23.0304997,2.50699532 L12.2055535,12.2494469 C11.972102,12.4595532 11.6150339,12.4501632 11.392948,12.2280773 L8.26735886,9.10248822 L1.7715769,15.5982702 L1.7715769,18.3062946 Z" id="Path-2"></path>
                                                     </g>
-                                                    <text id="30M" font-family="Roboto-Bold, Roboto" font-size="7.76119403" font-weight="bold" fill="#000000" fill-opacity="0.8">
+                                                    <text id="30M" font-family="IBM Plex Sans, sans-serif" font-size="7.76119403" font-weight="bold" fill="#000000" fill-opacity="0.8">
                                                         <tspan x="0" y="7.97826087">30M</tspan>
                                                     </text>
                                                 </g>
@@ -397,10 +397,10 @@
                                 <rect id="divider" stroke="none" fill="#F2F3F4" fill-rule="nonzero" mask="url(#mask-17)" x="0" y="115.384615" width="300" height="2.88461538"></rect>
                                 <g id="time-interval" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" mask="url(#mask-17)">
                                     <g transform="translate(11.538462, 135.576923)">
-                                        <text id="Time-interval" font-family="Roboto-Bold, Roboto" font-size="11.5384615" font-weight="bold" linespacing="17.3076923">
+                                        <text id="Time-interval" font-family="IBM Plex Sans, sans-serif" font-size="11.5384615" font-weight="bold" linespacing="17.3076923">
                                             <tspan x="0" y="11" fill="#333333">Time interval</tspan>
                                         </text>
-                                        <g id="icons/system/light/info/ic-info-less" transform="translate(74.278846, 2.884615)" fill-opacity="0.8" fill-rule="evenodd" stroke-width="1">
+                                        <g id="icons/system/light/info/ic-info-less" transform="translate(80, 1.5)" fill-opacity="0.8" fill-rule="evenodd" stroke-width="1">
                                             <g id="Group" fill="#000000">
                                                 <path d="M5.76923077,10.8173077 C8.55720667,10.8173077 10.8173077,8.55720667 10.8173077,5.76923077 C10.8173077,2.98125487 8.55720667,0.721153846 5.76923077,0.721153846 C2.98125487,0.721153846 0.721153846,2.98125487 0.721153846,5.76923077 C0.721153846,8.55720667 2.98125487,10.8173077 5.76923077,10.8173077 Z M5.76923077,0 C8.95548894,0 11.5384615,2.5829726 11.5384615,5.76923077 C11.5384615,8.95548894 8.95548894,11.5384615 5.76923077,11.5384615 C2.5829726,11.5384615 0,8.95548894 0,5.76923077 C0,2.5829726 2.5829726,0 5.76923077,0 Z M5.76923077,5.04807692 C5.57008963,5.04807692 5.40865385,5.20951271 5.40865385,5.40865385 L5.40865385,5.40865385 L5.40865385,8.29326923 C5.40865385,8.49241037 5.57008963,8.65384615 5.76923077,8.65384615 C5.9683719,8.65384615 6.12980769,8.49241037 6.12980769,8.29326923 L6.12980769,8.29326923 L6.12980769,5.40865385 C6.12980769,5.20951271 5.9683719,5.04807692 5.76923077,5.04807692 Z M5.76923077,3.24519231 C5.47051907,3.24519231 5.22836538,3.48734599 5.22836538,3.78605769 C5.22836538,4.0847694 5.47051907,4.32692308 5.76923077,4.32692308 C6.06794247,4.32692308 6.31009615,4.0847694 6.31009615,3.78605769 C6.31009615,3.48734599 6.06794247,3.24519231 5.76923077,3.24519231 Z" id="Combined-Shape"></path>
                                             </g>
@@ -410,7 +410,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="16.6868943" y="13.3269231">1 tick</tspan>
                                                         </text>
                                                     </g>
@@ -420,7 +420,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="6.61785419" y="13.3269231">2 minutes</tspan>
                                                         </text>
                                                     </g>
@@ -430,7 +430,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="6.61785419" y="13.3269231">3 minutes</tspan>
                                                         </text>
                                                     </g>
@@ -440,7 +440,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="6.61785419" y="13.3269231">5 minutes</tspan>
                                                         </text>
                                                     </g>
@@ -452,7 +452,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="3.78324069" y="13.3269231">10 minutes</tspan>
                                                         </text>
                                                     </g>
@@ -462,7 +462,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="3.78324069" y="13.3269231">15 minutes</tspan>
                                                         </text>
                                                     </g>
@@ -472,8 +472,8 @@
                                                 <g id="components/chart-types/interval-time/ic-interval-normal">
                                                     <g id="interval">
                                                         <rect id="Rectangle-17" stroke="#85ACB0" stroke-width="0.721153846" fill="#FFFFFF" fill-rule="nonzero" x="0.360576923" y="0.360576923" width="56.9711538" height="22.3557692" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Bold, Roboto" font-size="10.0961538" font-weight="bold" linespacing="14.4230769" fill="#333333">
-                                                            <tspan x="5" y="14.5">30 minutes</tspan>
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="bold" linespacing="14.4230769" fill="#333333">
+                                                            <tspan x="2.5" y="14.5">30 minutes</tspan>
                                                         </text>
                                                     </g>
                                                 </g>
@@ -482,7 +482,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="14.6114643" y="13.3269231">1 hour</tspan>
                                                         </text>
                                                     </g>
@@ -494,7 +494,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="12.0085496" y="13.3269231">2 hours</tspan>
                                                         </text>
                                                     </g>
@@ -504,7 +504,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="12.0085496" y="13.3269231">4 hours</tspan>
                                                         </text>
                                                     </g>
@@ -514,7 +514,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="12.0085496" y="13.3269231">8 hours</tspan>
                                                         </text>
                                                     </g>
@@ -524,7 +524,7 @@
                                                 <g id="interval">
                                                     <g>
                                                         <rect id="Rectangle-17" fill="#FFFFFF" opacity="0" x="0" y="0" width="57.6923077" height="23.0769231" rx="2.88461538"></rect>
-                                                        <text id="label" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                                        <text id="label" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                                             <tspan x="16.7805598" y="13.3269231">1 day</tspan>
                                                         </text>
                                                     </g>
@@ -541,7 +541,7 @@
                                                 <path d="M14.4230769,0.721153846 L7.21153846,7.21153846 L5.04807692,5.04807692 L0.721153846,9.375 L0.721153846,11.5384615 L14.4230769,11.5384615 L14.4230769,0.721153846 Z" id="Path-2" stroke-width="0.721153846" fill-rule="nonzero"></path>
                                             </g>
                                         </g>
-                                        <text id="Area" font-family="Roboto-Bold, Roboto" font-size="10.0961538" font-weight="bold" linespacing="14.4230769" fill="#333333">
+                                        <text id="Area" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="bold" linespacing="14.4230769" fill="#333333">
                                             <tspan x="18.1732178" y="43.6153846">Area</tspan>
                                         </text>
                                     </g>
@@ -559,7 +559,7 @@
                                                 <path d="M2.52403846,2.16346154 L2.52403846,0" id="Path-57" stroke-width="0.721153846"></path>
                                             </g>
                                         </g>
-                                        <text id="Candle" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                        <text id="Candle" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                             <tspan x="13.2828933" y="43.6153846">Candle</tspan>
                                         </text>
                                     </g>
@@ -577,7 +577,7 @@
                                                 <path d="M2.52403846,2.16346154 L2.52403846,0" id="Path-57" stroke-width="0.721153846"></path>
                                             </g>
                                         </g>
-                                        <text id="Hollow" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                        <text id="Hollow" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                             <tspan x="13.24592" y="43.6153846">Hollow</tspan>
                                         </text>
                                     </g>
@@ -587,7 +587,7 @@
                                             <path d="M5.40865385,0 L5.40830769,10.096 L8.65384615,10.0961538 L8.65384615,10.8173077 L5.40830769,10.817 L5.40865385,12.9807692 L4.6875,12.9807692 L4.68730769,4.326 L1.44230769,4.32692308 L1.44230769,3.60576923 L4.68730769,3.605 L4.6875,0 L5.40865385,0 Z" id="Combined-Shape" fill="#4BB4B3" transform="translate(5.048077, 6.490385) scale(-1, 1) translate(-5.048077, -6.490385) "></path>
                                             <path d="M12.6201923,4.32692308 L12.6198462,14.4229231 L15.8653846,14.4230769 L15.8653846,15.1442308 L12.6198462,15.1439231 L12.6201923,17.3076923 L11.8990385,17.3076923 L11.8988462,8.65292308 L8.65384615,8.65384615 L8.65384615,7.93269231 L11.8988462,7.93192308 L11.8990385,4.32692308 L12.6201923,4.32692308 Z" id="Combined-Shape-Copy" fill="#EC3F3F"></path>
                                         </g>
-                                        <text id="OHLC" font-family="Roboto-Regular, Roboto" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
+                                        <text id="OHLC" font-family="IBM Plex Sans, sans-serif" font-size="10.0961538" font-weight="normal" linespacing="14.4230769" fill="#333333">
                                             <tspan x="16.1354652" y="43.6153846">OHLC</tspan>
                                         </text>
                                     </g>
@@ -600,7 +600,7 @@
                                                     <path d="M8.44254538,0.211141379 C8.72421749,0.492725455 8.72428885,0.949334809 8.44270477,1.23100692 L5.346,4.328 L8.44270477,7.4250938 C8.72428885,7.7067659 8.72421749,8.16337526 8.44254538,8.44495933 C8.16087327,8.72654341 7.70426392,8.72647204 7.42267984,8.44479994 L4.327,5.348 L1.23116631,8.44479994 C0.949582238,8.72647204 0.492972883,8.72654341 0.211300776,8.44495933 C-0.070371332,8.16337526 -0.0704426962,7.7067659 0.211141379,7.4250938 L3.307,4.328 L0.211141379,1.23100692 C-0.0704426962,0.949334809 -0.070371332,0.492725455 0.211300776,0.211141379 C0.492972883,-0.0704426962 0.949582238,-0.070371332 1.23116631,0.211300776 L4.327,3.308 L7.42267984,0.211300776 C7.70426392,-0.070371332 8.16087327,-0.0704426962 8.44254538,0.211141379 Z" id="Combined-Shape"></path>
                                                 </g>
                                             </g>
-                                            <text id="title" font-family="Roboto-Bold, Roboto" font-size="11.5384615" font-weight="bold" linespacing="17.3076923" fill="#333333">
+                                            <text id="title" font-family="IBM Plex Sans, sans-serif" font-size="11.5384615" font-weight="bold" linespacing="17.3076923" fill="#333333">
                                                 <tspan x="11.5384615" y="22.5384615">Chart types</tspan>
                                             </text>
                                         </g>

@@ -473,7 +473,7 @@
                                                     <g id="interval">
                                                         <rect id="Rectangle-17" stroke="#85ACB0" stroke-width="0.721153846" fill="#FFFFFF" fill-rule="nonzero" x="0.360576923" y="0.360576923" width="56.9711538" height="22.3557692" rx="2.88461538"></rect>
                                                         <text id="label" font-family="Roboto-Bold, Roboto" font-size="10.0961538" font-weight="bold" linespacing="14.4230769" fill="#333333">
-                                                            <tspan x="3.40611384" y="13.3269231">30 minutes</tspan>
+                                                            <tspan x="5" y="14.5">30 minutes</tspan>
                                                         </text>
                                                     </g>
                                                 </g>

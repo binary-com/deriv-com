@@ -113,6 +113,7 @@ DHero.propTypes = {
     img_name: PropTypes.string,
     Logo: PropTypes.func,
     message: PropTypes.string,
+    PlatformImage: PropTypes.func,
     title: PropTypes.string,
 }
 export default DHero

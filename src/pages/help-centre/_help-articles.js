@@ -289,7 +289,7 @@ const HowDoIWithdrawFundsFromMyDerivAccount = () => (
             </Li>
             <Li>
                 <Localize
-                    translate_text="Click on <0>Authorise & withdraw funds.</0> If the button does not work, copy and paste the verification code from the email into your browser."
+                    translate_text="Click on <0>Yes, It's me</0>. If the button does not work, copy and paste the verification code from the email into your browser."
                     components={[<strong key={0} />]}
                 />
             </Li>

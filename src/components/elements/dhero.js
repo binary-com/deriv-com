@@ -14,7 +14,7 @@ const HeroContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    max-width: 40rem;
+    max-width: 41.5rem;
 
     ${Header} {
         color: var(--color-white);
@@ -37,7 +37,7 @@ const LogoWrapper = styled.div`
 `
 const TryForFree = styled(Button)`
     border: 2px solid var(--color-red);
-    width: 12rem;
+    max-width: 15.4rem;
     font-weight: bold;
     line-height: 1.43;
     margin-top: 1.22rem;
@@ -58,6 +58,7 @@ const DHero = ({
     img_alt,
     button_text,
     clickRedirect,
+    PlatformImage,
 }) => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
@@ -73,7 +74,15 @@ const DHero = ({
                     <Header as="h1">{message}</Header>
                 </HeroContent>
                 <Show.Desktop>
-                    <Image img_name={img_name} alt={img_alt} width="58.9rem" />
+                    {img_name ? (
+                        <Image
+                            img_name={img_name}
+                            alt={img_alt}
+                            width="58.9rem"
+                        />
+                    ) : (
+                        <PlatformImage />
+                    )}
                 </Show.Desktop>
             </Container>
             <Container justify="flex-start">

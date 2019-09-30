@@ -9,15 +9,20 @@ import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import DTrader from 'images/svg/dtrader.svg'
 import DMT5 from 'images/svg/dmt5.svg'
+import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
     margin-bottom: 4rem;
+
+    @media ${device.tabletS} {
+        font-size: 3.6rem;
+    }
 `
 
 export const OtherPlatform = () => {
     return (
         <SectionContainer>
-            <StyledHeader font_size="4rem" align="center" lh="5rem">
+            <StyledHeader font_size="4.8rem" align="center" lh="5rem">
                 {localize('Check out our other platforms')}
             </StyledHeader>
             <FlexGridContainer

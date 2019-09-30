@@ -28,6 +28,12 @@ const StyledDiv = styled.div`
     }
 `
 
+const StyledHeader = styled(Header)`
+    @media ${device.tabletS} {
+        font-size: 3.6rem;
+    }
+`
+
 const StyledSection = styled.section`
     background-color: var(--color-grey-1);
     width: 100%;
@@ -41,11 +47,11 @@ const handleExternalLink = (is_bot = false) => {
 export const TradeWithDbot = () => {
     return (
         <StyledSection>
-            <FlexGridContainer align-items="center" gap="1rem" grid="2">
+            <FlexGridContainer align-items="center" gap="0" grid="2" content_width="49%">
                 <StyledDiv>
-                    <Header font_size="4rem" align="center" lh="5rem">
+                    <StyledHeader font_size="4.8rem" align="center" lh="6rem">
                         {localize('Trade more efficiently with DBot')}
-                    </Header>
+                    </StyledHeader>
                     <StyledButton
                         secondary
                         onClick={() => handleExternalLink(true)}
@@ -54,9 +60,9 @@ export const TradeWithDbot = () => {
                     </StyledButton>
                 </StyledDiv>
                 <StyledDiv>
-                    <Header font_size="4rem" align="center" lh="5rem">
+                    <StyledHeader font_size="4.8rem" align="center" lh="6rem">
                         {localize('New to trading?')}
-                    </Header>
+                    </StyledHeader>
                     <Text align="center">
                         {localize('Check out our live demo')}
                     </Text>

@@ -1,14 +1,10 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
-import { isBrowser } from '../../common/utility.js'
+import styled from 'styled-components'
 import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header, Text } from 'components/elements/typography.js'
-import device, { size } from 'themes/device'
-import MakeSmarterImage from 'images/svg/make-smarter.svg'
-import TradeWhatYouWantImage1 from 'images/svg/trade-what-you-want1.svg'
-import TradeWhatYouWantImage2 from 'images/svg/trade-what-you-want2.svg'
-import HowYouWantImage from 'images/svg/how-you-want.svg'
+import device from 'themes/device'
+import Image from 'components/elements/image'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -26,7 +22,7 @@ const StyledContainer = styled(Container)`
     grid-row-gap: 2rem;
     grid-template-areas:
         'ms ms ms ms ms . msi msi msi msi msi msi'
-        'twywi1 twywi1 twywi1 twywi1 twywi1 twywi1 . twyw twyw twyw twyw twyw'
+        'twywi twywi twywi twywi twywi twywi . twyw twyw twyw twyw twyw'
         'hyw hyw hyw hyw hyw . hywi hywi hywi hywi hywi hywi';
 
     @media ${device.tabletL} {
@@ -35,7 +31,7 @@ const StyledContainer = styled(Container)`
         grid-template-areas:
             'msi'
             'ms'
-            'twywi1'
+            'twywi'
             'twyw'
             'hywi'
             'hyw';
@@ -62,33 +58,14 @@ const ContentContainer = styled.div`
         }
     }
 `
-const CommonSVG = css`
-    width: 100%;
+
+const ImageContainer = styled.div`
+    grid-area: ${props => props.grid_area};
+
     @media ${device.tabletL} {
         margin-top: 4rem;
-        height: 166px;
+        max-width: 40rem;
     }
-`
-const MakeSmarterSVG = styled(MakeSmarterImage)`
-    grid-area: msi;
-    ${CommonSVG}
-`
-const CommonTradeWhatYouWhant = css`
-    grid-area: twywi1;
-    ${CommonSVG}
-    @media ${device.tabletL} {
-        height: 210px;
-    }
-`
-const TradeWhatYouWantSVG1 = styled(TradeWhatYouWantImage1)`
-    ${CommonTradeWhatYouWhant}
-`
-const TradeWhatYouWantSVG2 = styled(TradeWhatYouWantImage2)`
-    ${CommonTradeWhatYouWhant}
-`
-const HowYouWantSVG = styled(HowYouWantImage)`
-    grid-area: hywi;
-    ${CommonSVG}
 `
 const Trading = () => {
     return (
@@ -104,14 +81,15 @@ const Trading = () => {
                         )}
                     </Text>
                 </ContentContainer>
-                <MakeSmarterSVG />
-                {isBrowser() ? (
-                    window.innerWidth > size.tabletL ? (
-                        <TradeWhatYouWantSVG1 />
-                    ) : (
-                        <TradeWhatYouWantSVG2 />
-                    )
-                ) : null}
+                <ImageContainer grid_area="msi">
+                    <Image img_name="make-smarter.png" alt="Make smarter" />
+                </ImageContainer>
+                <ImageContainer grid_area="twywi">
+                    <Image
+                        img_name="trade-what-you-want.png"
+                        alt="Trade what you want"
+                    />
+                </ImageContainer>
                 <ContentContainer grid_area="twyw">
                     <Header as="h2">
                         {localize('Trade what you want, when you want...')}
@@ -130,7 +108,9 @@ const Trading = () => {
                         )}
                     </Text>
                 </ContentContainer>
-                <HowYouWantSVG />
+                <ImageContainer grid_area="hywi">
+                    <Image img_name="how-you-want.png" alt="How you want" />
+                </ImageContainer>
             </StyledContainer>
         </StyledSection>
     )

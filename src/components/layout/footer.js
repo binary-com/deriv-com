@@ -263,14 +263,14 @@ const Footer = () => (
                         </Department>
                         <Department grid_name="trade">
                             <Header as="h4">{localize('Trade')}</Header>
-                            <FooterExtLink
-                                href="https://deriv.app/"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <FooterStyledLink
+                                activeClassName="active"
+                                to="/dtrader/"
                                 aria-label={localize('DTrader')}
+                                partiallyActive={true}
                             >
                                 {localize('DTrader')}
-                            </FooterExtLink>
+                            </FooterStyledLink>
                             <FooterExtLink
                                 display="none"
                                 href="https://deriv.app/bot"

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { Card } from 'components/elements/card.js'
 import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
@@ -26,7 +27,9 @@ const CardWrapper = styled.div`
         }
     }
 `
-
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`
 const OtherPlatform = () => {
     return (
         <SectionContainer>
@@ -35,24 +38,28 @@ const OtherPlatform = () => {
                     {localize('Check out our other platforms')}
                 </Header>
                 <CardWrapper>
-                    <Card
-                        Icon={DBot}
-                        title={localize('DBot')}
-                        content={localize(
-                            'Powerful robot builder to automate your trading strategies',
-                        )}
-                        width="32.8rem"
-                        min_height="27.8rem"
-                    />
-                    <Card
-                        Icon={DMT5}
-                        title={localize('DMT5')}
-                        content={localize(
-                            'All-in-one platform for FX and CFD trading',
-                        )}
-                        width="32.8rem"
-                        min_height="27.8rem"
-                    />
+                    <StyledLink to='dbot'>
+                        <Card
+                            Icon={DBot}
+                            title={localize('DBot')}
+                            content={localize(
+                                'Powerful robot builder to automate your trading strategies',
+                            )}
+                            width="32.8rem"
+                            min_height="27.8rem"
+                        />
+                    </StyledLink>
+                    <StyledLink to='dmt5'>
+                        <Card
+                            Icon={DMT5}
+                            title={localize('DMT5')}
+                            content={localize(
+                                'All-in-one platform for FX and CFD trading',
+                            )}
+                            width="32.8rem"
+                            min_height="27.8rem"
+                        />
+                    </StyledLink>
                 </CardWrapper>
             </Container>
         </SectionContainer>

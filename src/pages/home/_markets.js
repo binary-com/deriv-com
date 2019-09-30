@@ -184,8 +184,14 @@ export const Markets = () => (
                 <SideTab>
                     <Forex label="forex" text={localize('Forex')} />
                     <Indices label="indices" text={localize('Indices')} />
-                    <Commodities label="commodities" text={localize('Commodities')} />
-                    <Synthetic label="synthetic" text={localize('Synthetic Indices')} />
+                    <Commodities
+                        label="commodities"
+                        text={localize('Commodities')}
+                    />
+                    <Synthetic
+                        label="synthetic"
+                        text={localize('Synthetic Indices')}
+                    />
                 </SideTab>
             </Markettabs>
         </Container>

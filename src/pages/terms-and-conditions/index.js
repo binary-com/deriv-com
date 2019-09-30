@@ -35,7 +35,10 @@ const TermsAndConditions = () => (
         />
         <TncContainer align="left" justify="left">
             <SideTab has_hash_routing is_sticky>
-                <General label="general" text={localize('Terms and conditions')} />
+                <General
+                    label="general"
+                    text={localize('Terms and conditions')}
+                />
                 <DataFeed label="data-feed" text={localize('Data feed')} />
                 <SecurityAndPrivacy
                     label="security-privacy"
@@ -64,7 +67,10 @@ const TermsAndConditions = () => (
                     text={localize('Order execution')}
                 />
 
-                <PaymentAgents label="payment-agent" text={localize('Payment agents')} />
+                <PaymentAgents
+                    label="payment-agent"
+                    text={localize('Payment agents')}
+                />
                 <Bonuses label="bonuses" text={localize('Bonuses')} />
             </SideTab>
         </TncContainer>

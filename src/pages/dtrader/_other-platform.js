@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { Card } from 'components/elements/card.js'
 import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import device from 'themes/device'
-import { Link } from 'gatsby'
 import DBot from 'images/svg/d-bot.svg'
 import DMT5 from 'images/svg/dmt-5.svg'
 

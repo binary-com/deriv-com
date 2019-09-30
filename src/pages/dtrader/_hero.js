@@ -53,7 +53,7 @@ const Hero = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <Wrapper>
-            <Container justify="space-between">
+            <Container justify="space-between" align="flex-start">
                 <HeroContent>
                     <Header as="h4" weight={500}>
                         <DtraderLogo />
@@ -67,7 +67,7 @@ const Hero = () => {
                     <Image
                         img_name="dtrader-platform.png"
                         alt="Platform"
-                        width="58.9rem"
+                        width="53.9rem"
                     />
                 </Show.Desktop>
             </Container>

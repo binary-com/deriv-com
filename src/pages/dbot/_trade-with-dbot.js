@@ -9,15 +9,14 @@ import device from 'themes/device'
 
 const StyledButton = styled(Button)`
     margin-top: 2rem;
-    ${props =>
-        props.demo
-            ? `    background-color: var(--color-grey-1);
-    border-color: var(--color-grey-5);`
-            : ''}
 `
 
 const StyledDiv = styled.div`
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     button {
         margin-top: 3.2rem;
@@ -47,7 +46,12 @@ const handleExternalLink = (is_bot = false) => {
 export const TradeWithDbot = () => {
     return (
         <StyledSection>
-            <FlexGridContainer align-items="center" gap="0" grid="2" content_width="49%">
+            <FlexGridContainer
+                align-items="center"
+                gap="0"
+                grid="2"
+                content_width="49%"
+            >
                 <StyledDiv>
                     <StyledHeader font_size="4.8rem" align="center" lh="6rem">
                         {localize('Trade more efficiently with DBot')}
@@ -67,7 +71,7 @@ export const TradeWithDbot = () => {
                         {localize('Check out our live demo')}
                     </Text>
                     <StyledButton
-                        demo
+                        tertiary
                         onClick={() => handleExternalLink(false)}
                     >
                         {localize('Go to live demo')}

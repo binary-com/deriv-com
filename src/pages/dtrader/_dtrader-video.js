@@ -64,7 +64,7 @@ const Step3 = styled(Header)`
             : 'color: var(--color-red-2); border-bottom: 1px solid var(--color-red-2)'};
 `
 const Tab = styled.div`
-    width: 26rem;
+    width: 27rem;
 `
 const VideoWrapper = styled.div`
     grid-area: video;

@@ -65,7 +65,7 @@ const Hero = () => {
                 </HeroContent>
                 <Show.Desktop>
                     <Image
-                        img_name="platform.png"
+                        img_name="dtrader-platform.png"
                         alt="Platform"
                         width="58.9rem"
                     />

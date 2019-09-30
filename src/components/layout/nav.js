@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'
@@ -113,6 +113,15 @@ const NavRightContainer = styled.div`
         }
     }}
 `
+
+const TestDialog = styled.div`
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    width: 100%;
+    background: var(--color-black);
+    color: var(--color-white);
+`
 const HamburgerMenu = styled(Hamburger)`
     cursor: pointer;
     display: none;
@@ -128,6 +137,8 @@ const handleScroll = (show, hide) => {
 }
 
 const Nav = () => {
+    const dialog_ref = useRef(null)
+    const [dialog_open, setDialogOpen] = useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
     const buttonHandleScroll = () => handleScroll(showButton, hideButton)
@@ -141,8 +152,10 @@ const Nav = () => {
         document.addEventListener('scroll', buttonHandleScroll, {
             passive: true,
         })
+        document.addEventListener('mousedown', handleClickOutside)
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
+            document.removeEventListener('mousedown', handleClickOutside)
         }
     }, [])
 
@@ -156,8 +169,19 @@ const Nav = () => {
     const handleMenuClick = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
+    const handleTestDialog = (is_dialog_open = !dialog_open) => {
+        setDialogOpen(is_dialog_open)
+    }
+    const handleClickOutside = event => {
+        if (dialog_ref.current && !dialog_ref.current.contains(event.target)) {
+            handleTestDialog(false)
+        }
+    }
     return (
         <NavWrapper>
+            {dialog_open && (
+                <TestDialog ref={dialog_ref}>Hi everyone</TestDialog>
+            )}
             <BetaBanner />
             <StyledNav>
                 <Wrapper>
@@ -173,6 +197,14 @@ const Nav = () => {
                                 aria-label={localize('Trade')}
                             >
                                 {localize('Trade')}
+                            </StyledButton>
+                        </NavLink>
+                        <NavLink>
+                            <StyledButton
+                                onClick={handleTestDialog}
+                                aria-label={localize('test')}
+                            >
+                                {localize('Test Dialog')}
                             </StyledButton>
                         </NavLink>
                         <NavLink margin>

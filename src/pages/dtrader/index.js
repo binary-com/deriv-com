@@ -51,8 +51,8 @@ const Dtrader = () => {
                 Logo={dtrader_logo}
                 title={localize('Dtrader')}
                 message={localize('Everything you need and more')}
-                img_name="platform.png"
-                img_alt={localize('Platform')}
+                img_name="dtrader-platform.png"
+                img_alt={localize('DTrdaer Platform')}
                 button_text={localize('Try for free')}
                 clickRedirect="signup modal"
             />

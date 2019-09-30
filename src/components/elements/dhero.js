@@ -73,11 +73,7 @@ const DHero = ({
                     <Header as="h1">{message}</Header>
                 </HeroContent>
                 <Show.Desktop>
-                    <Image
-                        img_name="dtrader-platform.png"
-                        alt="Platform"
-                        width="53.9rem"
-                    />
+                    <Image img_name={img_name} alt={img_alt} width="53.9rem" />
                 </Show.Desktop>
             </Container>
             <Container justify="flex-start">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Wrapper from 'components/containers/wrapper'
 import Container, { SectionContainer } from 'components/containers/container'
@@ -30,6 +31,7 @@ const StyledHeader = styled(Header)`
 `
 
 const LoaderContainer = styled.div`
+    margin-top: 3.8rem;
     margin-left: auto;
     width: 80%;
 
@@ -55,13 +57,9 @@ const AnimatedContainer = styled.div`
     animation: slide 0.4s linear;
 `
 
-const SelectAsset = () => (
+const SelectAsset = ({ alt, img_name }) => (
     <AnimatedContainer>
-        <Image
-            img_name="dbot-macbook.png"
-            alt="Macbook dbot image"
-            width="100%"
-        />
+        <Image img_name={img_name} alt={alt} width="100%" />
     </AnimatedContainer>
 )
 
@@ -81,23 +79,38 @@ const BannerSection = () => {
                     <SideTab>
                         <SelectAsset
                             label="select_asset"
-                            text="1. Select your asset"
-                            onClick={() => setProgress(25)}
+                            text={localize('1. Select your asset')}
+                            onClick={() => setProgress(20)}
+                            img_name="dbot-step1.png"
+                            alt="Step 1"
                         />
                         <SelectAsset
                             label="set_purchase"
-                            text="2. Set purchase conditions"
-                            onClick={() => setProgress(50)}
+                            text={localize('2. Set purchase conditions')}
+                            onClick={() => setProgress(40)}
+                            img_name="dbot-step2.png"
+                            alt="Step 2"
                         />
                         <SelectAsset
-                            label="analyse_result"
-                            text="3. Analyse the result"
-                            onClick={() => setProgress(75)}
+                            label="restart_conditions"
+                            text={localize('3. Set restart conditions')}
+                            onClick={() => setProgress(60)}
+                            img_name="dbot-step3.png"
+                            alt="Step 3"
                         />
                         <SelectAsset
-                            label="repeat"
-                            text="4. Repeat"
+                            label="run_bot"
+                            text={localize('4. Run bot')}
+                            onClick={() => setProgress(80)}
+                            img_name="dbot-step4.png"
+                            alt="Step 4"
+                        />
+                        <SelectAsset
+                            label="check_profit"
+                            text={localize('5. Check profit')}
                             onClick={() => setProgress(100)}
+                            img_name="dbot-step5.png"
+                            alt="Step 5"
                         />
                     </SideTab>
                     <LoaderContainer>
@@ -107,6 +120,11 @@ const BannerSection = () => {
             </Container>
         </BackgroundContainer>
     )
+}
+
+SelectAsset.propTypes = {
+    alt: PropTypes.string,
+    img_name: PropTypes.string,
 }
 
 export default BannerSection

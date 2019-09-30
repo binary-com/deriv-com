@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import DBotPlatform from 'images/svg/dbot-platform.svg'
+import DBotPlatform from 'images/svg/platform-dbot.svg'
 import Dbot from 'images/svg/d-bot.svg'
 import Container, { SectionContainer } from 'components/containers/container'
 import Wrapper from 'components/containers/wrapper'

@@ -32,9 +32,11 @@ const NavDropdownGrid = styled(GridContainer)`
     grid-column-gap: 2rem;
     height: 100%;
     align-items: center;
+    outline: none;
 
     .active {
         border: 0.2rem solid var(--color-green);
+        outline: none;
     }
 `
 
@@ -48,6 +50,7 @@ const PlatformItem = styled(LocalizedLink)`
     align-items: start;
     cursor: pointer;
     text-decoration: none;
+    outline: none;
 
     &:hover {
         background-color: var(--color-grey-6);

@@ -138,6 +138,7 @@ const handleScroll = (show, hide) => {
 
 const Nav = () => {
     const dialog_ref = useRef(null)
+    const link_dialog_ref = useRef(null)
     const [dialog_open, setDialogOpen] = useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
@@ -169,12 +170,16 @@ const Nav = () => {
     const handleMenuClick = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
-    const handleTestDialog = (is_dialog_open = !dialog_open) => {
-        setDialogOpen(is_dialog_open)
+    const handleTestDialog = () => {
+        setDialogOpen(!dialog_open)
     }
     const handleClickOutside = event => {
-        if (dialog_ref.current && !dialog_ref.current.contains(event.target)) {
-            handleTestDialog(false)
+        if (
+            dialog_ref.current &&
+            !dialog_ref.current.contains(event.target) &&
+            !link_dialog_ref.current.contains(event.target)
+        ) {
+            setDialogOpen(false)
         }
     }
     return (
@@ -203,6 +208,7 @@ const Nav = () => {
                             <StyledButton
                                 onClick={handleTestDialog}
                                 aria-label={localize('test')}
+                                ref={link_dialog_ref}
                             >
                                 {localize('Test Dialog')}
                             </StyledButton>

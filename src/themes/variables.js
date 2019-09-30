@@ -12,13 +12,13 @@ const Variables = css`
         --color-red-1: #dd573a;
         --color-red-2: #ffc9cc;
         --color-red-3: #d43e47;
+        --color-grey: #9b9b9b;
         --color-grey-1: #f4f4f4;
         --color-grey-2: #e8e8e8;
         --color-grey-3: #646464;
         --color-grey-4: #fafbfb;
         --color-grey-5: #999999;
-        --color-grey-6: #cacaca;
-        --color-grey: #9b9b9b;
+        --color-grey-6: #e5e5e5;
         --color-green: #85acb0;
         --color-blue: #4c76be;
         --color-blue-2: #365899;

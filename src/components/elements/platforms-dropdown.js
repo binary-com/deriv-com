@@ -57,9 +57,7 @@ const PlatformItem = styled(LocalizedLink)`
 const PlatformsDropdown = () => {
     return (
         <Show.Desktop>
-            <NavDropdown
-            id="switcher"
-            >
+            <NavDropdown id="switcher">
                 <NavDropdownGrid>
                     <PlatformItem
                         activeClassName="active"

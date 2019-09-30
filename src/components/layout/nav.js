@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'
@@ -14,68 +14,56 @@ import device from 'themes/device'
 // Icons
 import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
-
 const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
 `
-
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 `
-
 const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
     position: relative;
-
     @media ${device.tabletL} {
         height: auto;
     }
 `
-
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 0;
     justify-content: space-between;
     height: 7.2rem;
 `
-
 const NavLeft = styled.div`
     text-align: left;
-
     @media ${device.tabletL} {
         svg {
             width: 50%;
         }
     }
 `
-
 const NavCenter = styled.ul`
     text-align: center;
     padding: 0;
     display: flex;
     justify-content: space-between;
-
     @media ${device.tabletL} {
         display: none;
     }
 `
-
 const NavRight = styled.div`
     overflow: hidden;
     width: 21.4rem;
     position: relative;
     height: 5rem;
     top: 10%;
-
     @media ${device.tabletL} {
         display: none;
     }
 `
-
 const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
@@ -84,11 +72,9 @@ const NavLink = styled.li`
         if (props.margin) return 'margin: 0 4rem;'
     }}
 `
-
 const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
-
 const StyledButton = styled.a`
     ${SharedLinkStyle}
     cursor: pointer;
@@ -120,19 +106,27 @@ const NavRightContainer = styled.div`
 const HamburgerMenu = styled(Hamburger)`
     cursor: pointer;
     display: none;
-
     @media ${device.tabletL} {
         display: block;
         cursor: pionter;
     }
 `
-
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
 }
-
 const Nav = () => {
+    const nav_ref = useRef(null)
+    useEffect(() => {
+        const handleClickOutside = e => {
+            if (!nav_ref.current.contains(e.target)) {
+                const switcher = document.getElementById('switcher')
+                switcher.classList.remove('is-nav-open')
+            }
+        }
+        document.addEventListener('click', handleClickOutside)
+        return () => document.removeEventListener('click', handleClickOutside)
+    })
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
     const buttonHandleScroll = () => handleScroll(showButton, hideButton)
@@ -141,7 +135,6 @@ const Nav = () => {
         openOffCanvasMenu,
         closeOffCanvasMenu,
     ] = moveOffCanvasMenu()
-
     useEffect(() => {
         document.addEventListener('scroll', buttonHandleScroll, {
             passive: true,
@@ -161,7 +154,7 @@ const Nav = () => {
         switcher.classList.toggle('is-nav-open')
     }
     return (
-        <NavWrapper>
+        <NavWrapper ref={nav_ref}>
             <BetaBanner />
             <StyledNav>
                 <PlatformsDropdown />
@@ -172,9 +165,8 @@ const Nav = () => {
                         </LogoLink>
                     </NavLeft>
                     <NavCenter>
-                        <NavLink margin>
+                        <NavLink margin onClick={handlePlatformsClick}>
                             <StyledButton
-                                onClick={handlePlatformsClick}
                                 aria-label={localize('Trade')}
                                 activeClassName="active"
                             >
@@ -233,13 +225,10 @@ const Nav = () => {
         </NavWrapper>
     )
 }
-
 export default Nav
-
 function moveButton(is_visible = false) {
     const [show_button, setShowButton] = useState(is_visible)
     const showButton = () => setShowButton(!show_button)
     const hideButton = () => setShowButton(false)
-
     return [show_button, showButton, hideButton]
 }

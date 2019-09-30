@@ -59,10 +59,12 @@ class PromiseClass {
 const sanitize = input => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
 const deriv_app_url = 'https://deriv.app'
+const deriv_bot_app_url = 'https://deriv.app/bot'
 const brand_name = 'Deriv'
 
 export {
     deriv_app_url,
+    deriv_bot_app_url,
     brand_name,
     isEmptyObject,
     cloneObject,

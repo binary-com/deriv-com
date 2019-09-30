@@ -21,7 +21,7 @@ const StyledSideTab = styled(Wrapper)`
 `
 
 const TabList = styled.ol`
-    width: 19rem;
+    width: 20rem;
     list-style: none;
     ${props =>
         props.is_sticky &&
@@ -139,13 +139,16 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
 
     const Tabs = props => {
         return children.map((child, idx) => {
-            const { label, text } = child.props
+            const { label, text, onClick } = child.props
             return (
                 <div key={idx}>
                     <Tab
                         mobile={props.is_mobile}
                         text={text}
-                        onClick={setTab}
+                        onClick={e => {
+                            onClick(e)
+                            setTab(e)
+                        }}
                         active_tab={active_tab}
                         label={label}
                     />

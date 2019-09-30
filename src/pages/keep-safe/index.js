@@ -18,7 +18,7 @@ import { Card } from 'components/elements/card.js'
 import { Divider } from 'components/elements/divider'
 import { StyledLink } from 'components/elements/link'
 import { Header, Text } from 'components/elements/typography.js'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl , Localize} from 'components/localization'
 
 const GridGrayBackground = styled.div`
     grid-area: risk;
@@ -247,12 +247,10 @@ const KeepSafe = () => {
                         <Risk justify="center" content_width="41.5rem">
                             <Card min_height="0rem" width="41.5rem">
                                 <Text color="black-3" lh="1.55">
-                                    {localize(
-                                        'Trading derivatives can involve substantial risks. Don’t trade with money you can’t afford to lose and never trade with borrowed money. Learn about ',
-                                    )}
-                                    <StyledLink to="/responsible-trading/">
-                                        {localize('Responsible Trading.')}
-                                    </StyledLink>
+                                    <Localize
+                                        translate_text="Trading derivatives can involve substantial risks. Don’t trade with money you can’t afford to lose and never trade with borrowed money. Learn about <0>Responsible Trading</0>."
+                                        components={[<StyledLink key={0} target="_blank" to="/responsible-trading/"/>]}
+                                    />
                                 </Text>
                             </Card>
                             <Card min_height="0rem" width="41.5rem">

@@ -35,37 +35,37 @@ const TermsAndConditions = () => (
         />
         <TncContainer align="left" justify="left">
             <SideTab has_hash_routing is_sticky>
-                <General label="general" text="Terms and conditions" />
-                <DataFeed label="data-feed" text="Data feed" />
+                <General label="general" text={localize('Terms and conditions')} />
+                <DataFeed label="data-feed" text={localize('Data feed')} />
                 <SecurityAndPrivacy
                     label="security-privacy"
-                    text="Security and privacy"
+                    text={localize('Security and privacy')}
                 />
 
                 <ConflictsPolicy
                     label="conflict-policy"
-                    text="Conflicts policy"
+                    text={localize('Conflicts policy')}
                 />
 
-                <Copyright label="copyright" text="Copyright" />
+                <Copyright label="copyright" text={localize('Copyright')} />
 
                 <ComplaintsAndDisputes
                     label="complaint-dispute"
-                    text="Complaints and disputes"
+                    text={localize('Complaints and disputes')}
                 />
 
                 <RiskDisclaimer
                     label="risk-disclaimer"
-                    text="Risk disclaimer"
+                    text={localize('Risk disclaimer')}
                 />
 
                 <OrderExecution
                     label="order-execution"
-                    text="Order execution"
+                    text={localize('Order execution')}
                 />
 
-                <PaymentAgents label="payment-agent" text="Payment agents" />
-                <Bonuses label="bonuses" text="Bonuses" />
+                <PaymentAgents label="payment-agent" text={localize('Payment agents')} />
+                <Bonuses label="bonuses" text={localize('Bonuses')} />
             </SideTab>
         </TncContainer>
     </Layout>

@@ -37,7 +37,7 @@ const StyledHeader = styled(Header)`
 const StyledSection = styled.section`
     background-color: var(--color-grey-1);
     width: 100%;
-    padding: 2.4rem 0;
+    padding: 4rem 0;
 `
 
 const handleExternalLink = (is_bot = false) => {

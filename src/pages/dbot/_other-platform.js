@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import {
     SectionContainer,
     FlexGridContainer,
@@ -19,6 +20,10 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`
+
 export const OtherPlatform = () => {
     return (
         <SectionContainer>
@@ -31,26 +36,30 @@ export const OtherPlatform = () => {
                 grid="3"
                 justify="center"
             >
-                <Card
-                    title={localize('DTrader')}
-                    Icon={DTrader}
-                    content={[
-                        localize(
-                            'Everything you need to trade the markets you want',
-                        ),
-                    ]}
-                    width="32.8rem"
-                    min_height="27.8rem"
-                />
-                <Card
-                    title={localize('DMT5')}
-                    Icon={DMT5}
-                    content={[
-                        localize('All-in-one platform for FX and CFD trading'),
-                    ]}
-                    width="32.8rem"
-                    min_height="27.8rem"
-                />
+                <StyledLink to="/dtrader">
+                    <Card
+                        title={localize('DTrader')}
+                        Icon={DTrader}
+                        content={[
+                            localize(
+                                'Everything you need to trade the markets you want',
+                            ),
+                        ]}
+                        width="32.8rem"
+                        min_height="27.8rem"
+                    />
+                </StyledLink>
+                <StyledLink to="/dmt5">
+                    <Card
+                        title={localize('DMT5')}
+                        Icon={DMT5}
+                        content={[
+                            localize('All-in-one platform for FX and CFD trading'),
+                        ]}
+                        width="32.8rem"
+                        min_height="27.8rem"
+                    />
+                </StyledLink>
             </FlexGridContainer>
         </SectionContainer>
     )

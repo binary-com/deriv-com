@@ -1,13 +1,13 @@
 import React from 'react'
 import Hero from './_hero.js'
 import Numbers from './_numbers.js'
-import Show from 'components/containers/show'
-import SEO from 'components/containers/seo'
-import Layout from 'components/layout/layout'
 import HowItWorks from './_how-it-works.js'
 import Experience from './_experience.js'
 import OtherPlatform from './_other-platform.js'
 import Trading from './_trading.js'
+import Layout from 'components/layout/layout'
+import SEO from 'components/containers/seo'
+import Show from 'components/containers/show'
 import { localize, WithIntl } from 'components/localization'
 
 const DMT5 = () => {

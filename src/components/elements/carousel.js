@@ -82,7 +82,7 @@ class Carousel extends React.Component {
 }
 
 Carousel.propTypes = {
-    background: PropTypes.func,
+    background: PropTypes.array,
     slides: PropTypes.array,
 }
 export default Carousel

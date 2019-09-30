@@ -36,6 +36,8 @@ const LeftRightContainer = styled.div`
 `
 
 const HomeContainer = styled(LeftRightContainer)`
+    flex-wrap: wrap;
+
     > :first-child {
         margin-right: 0;
     }

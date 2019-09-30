@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Container, { SectionContainer } from 'components/containers/container'
-import DBotMacbook from 'images/svg/dbot-macbook.svg'
+import DBotMacbook from 'images/svg/dbot-platform.svg'
 import Dbot from 'images/svg/d-bot.svg'
 import Wrapper from 'components/containers/wrapper'
 import { Header } from 'components/elements/typography'

@@ -218,6 +218,7 @@ const FooterBoldLink = styled.a`
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--color-gray-3);
+    color: #646464;
     text-decoration: none;
 
     :hover {

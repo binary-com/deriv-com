@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import DBotPlatform from 'images/svg/platform-dbot.svg'
 import Dbot from 'images/svg/d-bot.svg'
 import Container, { SectionContainer } from 'components/containers/container'
 import Wrapper from 'components/containers/wrapper'
+import Image from 'components/elements/image'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import Button from 'components/form/button'
@@ -90,7 +90,7 @@ const AutomateTradingSection = () => (
                 </StyledButton>
             </TitleSection>
             <ImageSection width="65%">
-                <DBotPlatform />
+                <Image img_name="platform-dbot.png" alt="DBot" width="100%" />
             </ImageSection>
         </StyledContainer>
     </BackgroundContainer>

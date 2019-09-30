@@ -19,7 +19,7 @@ const StyledContainer = styled(Container)`
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;
     grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+    grid-row-gap: 7.5rem;
     grid-template-areas:
         'ms ms ms ms ms . msi msi msi msi msi msi'
         'twywi twywi twywi twywi twywi twywi . twyw twyw twyw twyw twyw';

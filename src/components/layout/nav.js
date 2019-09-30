@@ -165,7 +165,7 @@ const Nav = () => {
                         </LogoLink>
                     </NavLeft>
                     <NavCenter>
-                        <NavLink margin onClick={handlePlatformsClick}>
+                        <NavLink onClick={handlePlatformsClick}>
                             <StyledButton
                                 aria-label={localize('Trade')}
                                 activeClassName="active"

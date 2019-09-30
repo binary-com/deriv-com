@@ -116,6 +116,10 @@ const SEO = ({ description, meta, title }) => {
                     name: 'twitter:description',
                     content: metaDescription,
                 },
+                {
+                    name: 'format-detection',
+                    content: 'telephone=no',
+                },
             ].concat(meta)}
         >
             <AntiClickjack />

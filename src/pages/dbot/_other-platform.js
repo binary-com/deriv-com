@@ -54,7 +54,9 @@ export const OtherPlatform = () => {
                         title={localize('DMT5')}
                         Icon={DMT5}
                         content={[
-                            localize('All-in-one platform for FX and CFD trading'),
+                            localize(
+                                'All-in-one platform for FX and CFD trading',
+                            ),
                         ]}
                         width="32.8rem"
                         min_height="27.8rem"

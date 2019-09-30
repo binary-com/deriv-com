@@ -8,7 +8,7 @@ const NumberWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 24.1rem;
+    width: 32.8rem;
 `
 const StyledContainer = styled(Container)`
     display: flex;
@@ -20,7 +20,7 @@ const Numbers = () => {
             <StyledContainer>
                 <NumberWrapper>
                     <Header as="h2" align="center">
-                        {localize('50+')}
+                        {localize('70+')}
                     </Header>
                     <Text align="center">
                         {localize('tradable assets and growing')}
@@ -28,23 +28,15 @@ const Numbers = () => {
                 </NumberWrapper>
                 <NumberWrapper>
                     <Header as="h2" align="center">
-                        {localize('$0.35')}
+                        {localize('1:1,000')}
                     </Header>
-                    <Text align="center">{localize('low minimum stake')}</Text>
+                    <Text align="center">{localize('maximum leverage')}</Text>
                 </NumberWrapper>
                 <NumberWrapper>
                     <Header as="h2" align="center">
-                        {localize('1s - 365d')}
+                        {localize('30')}
                     </Header>
-                    <Text align="center">
-                        {localize('flexible trade duration')}
-                    </Text>
-                </NumberWrapper>
-                <NumberWrapper>
-                    <Header as="h2" align="center">
-                        &gt;{localize('200%')}
-                    </Header>
-                    <Text align="center">{localize('potential payout')}</Text>
+                    <Text align="center">{localize('maximum lot size')}</Text>
                 </NumberWrapper>
             </StyledContainer>
         </SectionContainer>

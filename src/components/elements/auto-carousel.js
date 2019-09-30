@@ -1,92 +1,152 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
-import Container from 'components/containers/container'
 
-const CarouselContainer = styled(Container)`
+const AutoCarouselSection = styled.section`
+    width: ${props => props.width};
     overflow: hidden;
-    justify-content: space-between;
-
-    div {
-        transition: transform ${props => (props.transition ? '1s' : '0')};
-        transform: translate(${props => props.position}rem);
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+`
+const move_items = total_translate => keyframes`
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-${total_translate}px);
     }
 `
-const CarouselWrapper = styled.div`
-    max-width: 9.6rem;
-    margin-right: 3.2rem;
+const ItemContainer = styled.div`
+    padding: 0 ${props => props.padding / 2}px;
 `
-const Icons = ({ icon_array }) =>
-    icon_array.map(Element => (
-        <CarouselWrapper key={Element.key}>
-            <Element.Component />
-        </CarouselWrapper>
-    ))
-
-class AutoCarousel extends React.Component {
-    interval_ref = undefined
-    timeout_ref = undefined
+const ItemsWrapper = styled.div`
+    width: ${props => props.total_translate};
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    animation-name: ${props =>
+        props.total_translate !== 0 && props.should_carousel_move
+            ? move_items(props.total_translate)
+            : ''};
+    animation-duration: ${props => props.transition_duration}ms;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: ${props => props.animation_status};
+    cursor: default;
+`
+class AutoCarousel extends React.PureComponent {
+    // carousel_width: define carousel's width by percentage
+    // items_padding: define items padding by pixle
+    // transition_duaration: takes a whole loop, define it by ms
     my_ref = React.createRef()
-    state = {
-        position: 0,
-        transition: true,
+    constructor(props) {
+        super(props)
+        this.state = {
+            transition: false,
+            items: [],
+            carousel_width: 0,
+            should_carousel_move: false,
+            total_translate: 0,
+            animation_status: 'running',
+        }
     }
+    // every time you observe this, the carousel will restart from first child component
     handler = entries => {
         let entry
         for (entry of entries) {
             if (entry.isIntersecting) {
-                this.interval_ref = window.setInterval(
-                    this.handleInterval,
-                    this.props.transition_delay,
-                )
+                this.setState({
+                    should_carousel_move: true,
+                })
             } else {
-                window.clearTimeout(this.timeout_ref)
-                window.clearInterval(this.interval_ref)
+                this.setState({
+                    should_carousel_move: false,
+                })
             }
         }
     }
-
-    handleInterval = () => {
-        this.setState({
-            transition: true,
-            position: this.state.position - this.props.icon_width,
-        })
-        this.timeout_ref = setTimeout(() => {
-            const new_array = this.props.components
-            const new_array_icon = new_array.shift()
-            new_array.push(new_array_icon)
-            this.setState(
-                {
-                    transition: false,
-                    position: 0,
-                },
-                this.props.onChange(new_array),
-            )
-        }, this.props.transition_delay - 100)
-    }
     componentDidMount() {
-        const node = this.my_ref.current
+        let total_translate = 0
+        let child
+        for (child of this.my_ref.current.children[0].children) {
+            total_translate = total_translate + child.offsetWidth
+        }
+        this.setState({ total_translate: total_translate })
         let observer = new IntersectionObserver(this.handler)
-        observer.observe(node)
+        observer.observe(this.my_ref.current)
+    }
+    pauseAnimation = () => {
+        this.setState({ animation_status: 'paused' })
+    }
+
+    playAnimation = () => {
+        this.setState({ animation_status: 'running' })
+    }
+    static getDerivedStateFromProps(props, state) {
+        if (state.items.length === 0) {
+            const newItems = props.children.map((item, index) => ({
+                Component: item,
+                key: index,
+            }))
+            return { items: newItems }
+        }
+        return null
     }
     render() {
         return (
-            <CarouselContainer
-                ref={this.my_ref}
-                transition={this.state.transition}
-                position={this.state.position}
-            >
-                <Icons icon_array={this.props.components} />
-            </CarouselContainer>
+            <>
+                <AutoCarouselSection
+                    width={this.props.carousel_width}
+                    ref={this.my_ref}
+                    onMouseEnter={this.pauseAnimation}
+                    onMouseLeave={this.playAnimation}
+                >
+                    {/* We need to render this wrapper two times to fill the empty space at the end of the Carousel's section */}
+                    {[0, 1].map(i => (
+                        <ItemsWrapper
+                            animation_status={this.state.animation_status}
+                            transition_duration={this.props.transition_duration}
+                            key={i}
+                            total_translate={this.state.total_translate}
+                            should_carousel_move={
+                                this.state.should_carousel_move
+                            }
+                        >
+                            {this.state.items !== []
+                                ? this.state.items.map(({ Component, key }) => {
+                                      return (
+                                          <ItemContainer
+                                              key={key}
+                                              padding={this.props.items_padding}
+                                              transition={this.state.transition}
+                                              transition_duration={
+                                                  this.props.transition_duration
+                                              }
+                                              count_child={
+                                                  this.props.children.length
+                                              }
+                                          >
+                                              {Component}
+                                          </ItemContainer>
+                                      )
+                                  })
+                                : null}
+                        </ItemsWrapper>
+                    ))}
+                </AutoCarouselSection>
+            </>
         )
     }
 }
-
 AutoCarousel.propTypes = {
-    components: PropTypes.array,
-    icon_width: PropTypes.number,
-    onChange: PropTypes.func,
-    transition_delay: PropTypes.number,
+    carousel_width: PropTypes.string,
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]).isRequired,
+    items_padding: PropTypes.number,
+    transition_duration: PropTypes.number,
 }
-
 export default AutoCarousel

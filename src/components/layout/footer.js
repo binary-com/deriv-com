@@ -225,22 +225,6 @@ const FooterBoldLink = styled.a`
         text-decoration: underline;
     }
 `
-const FooterExtLink = styled.a`
-    display: ${props => props.display || 'table'};
-    font-size: 1.4rem;
-    margin-bottom: 1.8rem;
-    font-weight: 500;
-    color: var(--color-red);
-    text-decoration: none;
-
-    :hover {
-        text-decoration: underline;
-    }
-    :visited {
-        color: var(--color-red);
-        text-decoration: none;
-    }
-`
 const ResponsibleTradingBoldText = styled(LocalizedLink)`
     color: var(--color-white);
     font-weight: bold;
@@ -271,24 +255,22 @@ const Footer = () => (
                             >
                                 {localize('DTrader')}
                             </FooterStyledLink>
-                            <FooterExtLink
-                                display="none"
-                                href="https://deriv.app/bot"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <FooterStyledLink
+                                activeClassName="active"
+                                to="/dbot/"
                                 aria-label={localize('DBot')}
+                                partiallyActive={true}
                             >
                                 {localize('DBot')}
-                            </FooterExtLink>
-                            <FooterExtLink
-                                display="none"
-                                href="https://deriv.app/mt5"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            </FooterStyledLink>
+                            <FooterStyledLink
+                                activeClassName="active"
+                                to="/dmt5/"
                                 aria-label={localize('DMT5')}
+                                partiallyActive={true}
                             >
                                 {localize('DMT5')}
-                            </FooterExtLink>
+                            </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/keep-safe/"

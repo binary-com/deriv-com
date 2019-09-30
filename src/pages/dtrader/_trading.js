@@ -39,7 +39,6 @@ const StyledContainer = styled(Container)`
 `
 const ContentContainer = styled.div`
     width: 100%;
-    max-width: 41.5rem;
     grid-area: ${props => props.grid_area};
 
     ${Text} {
@@ -63,8 +62,8 @@ const ImageContainer = styled.div`
     grid-area: ${props => props.grid_area};
 
     @media ${device.tabletL} {
-        margin-top: 4rem;
-        max-width: 40rem;
+        margin: 4rem auto;
+        width: 80%;
     }
 `
 const Trading = () => {

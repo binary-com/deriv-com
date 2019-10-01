@@ -11,21 +11,21 @@ import DMT5 from 'images/svg/dmt5-icon.svg'
 const FadeInDown = keyframes`
     from {
         opacity:0;
-        transform: translatey(-18rem);
+        transform: translateY(-18rem);
     }
     to {
         opacity:1;
-        transform: translatey(7.2rem);
+        transform: translateY(7.2rem);
     }
 `
 const FadeOutUp = keyframes`
     from {
         opacity:1;
-        transform: translatey(7.2rem);
+        transform: translateY(7.2rem);
     }
     to {
         opacity:0;
-        transform: translatey(-18rem);
+        transform: translateY(-18rem);
     }
 `
 const NavDropdown = styled.div`
@@ -46,6 +46,7 @@ const NavDropdownGrid = styled(GridContainer)`
     grid-column-gap: 2rem;
     height: 100%;
     align-items: center;
+
     .active {
         border: 0.2rem solid var(--color-green);
     }
@@ -60,6 +61,7 @@ const PlatformItem = styled(LocalizedLink)`
     align-items: start;
     cursor: pointer;
     text-decoration: none;
+
     &:hover {
         background-color: var(--color-grey-6);
     }

@@ -155,7 +155,7 @@ const Nav = () => {
         setHasAnimation(true)
         setIsPlatformsOpen(!is_platforms_open)
     }
-    const handleNormalLink = e => {
+    const handleNormalLink = () => {
         setHasAnimation(false)
     }
     return (

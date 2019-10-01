@@ -18,20 +18,26 @@ const Numbers = () => {
         <SectionContainer padding="4.3rem">
             <StyledContainer>
                 <NumberWrapper>
-                    <Header as="h2" align='center'>{localize('50+')}</Header>
-                    <Text align='center'>{localize('tradable assets and growing')}</Text>
+                    <Header as="h2" align="center">
+                        {localize('50+')}
+                    </Header>
+                    <Text align="center">
+                        {localize('tradable assets and growing')}
+                    </Text>
                 </NumberWrapper>
                 <NumberWrapper>
                     <Header as="h2">{localize('$0.35')}</Header>
-                    <Text align='center'>{localize('low minimum stake')}</Text>
+                    <Text align="center">{localize('low minimum stake')}</Text>
                 </NumberWrapper>
                 <NumberWrapper>
                     <Header as="h2">{localize('1s - 365d')}</Header>
-                    <Text align='center'>{localize('flexible trade duration')}</Text>
+                    <Text align="center">
+                        {localize('flexible trade duration')}
+                    </Text>
                 </NumberWrapper>
                 <NumberWrapper>
                     <Header as="h2">&gt;{localize('200%')}</Header>
-                    <Text align='center'>{localize('potential payout')}</Text>
+                    <Text align="center">{localize('potential payout')}</Text>
                 </NumberWrapper>
             </StyledContainer>
         </SectionContainer>

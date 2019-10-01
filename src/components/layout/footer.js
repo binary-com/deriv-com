@@ -307,7 +307,9 @@ const Footer = () => (
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/regulatory/"
-                                aria-label={localize('Licenses and regulations')}
+                                aria-label={localize(
+                                    'Licenses and regulations',
+                                )}
                                 partiallyActive={true}
                             >
                                 {localize('Licenses and regulations')}

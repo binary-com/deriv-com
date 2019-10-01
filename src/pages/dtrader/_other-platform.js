@@ -38,7 +38,7 @@ const OtherPlatform = () => {
                     {localize('Check out our other platforms')}
                 </Header>
                 <CardWrapper>
-                    <StyledLink to='dbot'>
+                    <StyledLink to="dbot">
                         <Card
                             Icon={DBot}
                             title={localize('DBot')}
@@ -49,7 +49,7 @@ const OtherPlatform = () => {
                             min_height="27.8rem"
                         />
                     </StyledLink>
-                    <StyledLink to='dmt5'>
+                    <StyledLink to="dmt5">
                         <Card
                             Icon={DMT5}
                             title={localize('DMT5')}

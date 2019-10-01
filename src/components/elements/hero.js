@@ -34,7 +34,7 @@ const Hero = ({
         <NoImageHero>
             <StyledHeader
                 as="h1"
-                color="red"
+                color="white"
                 align="center"
                 mobile_text_align={mobile_text_align}
             >

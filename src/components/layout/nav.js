@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'
@@ -6,41 +6,37 @@ import Container from '../containers/container'
 import Modal, { useModal } from '../elements/modal'
 import SignupModal from '../elements/signup-modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
+import PlatformsDropdown from '../elements/platforms-dropdown'
 import { SharedLinkStyle } from '../localization/localized-link'
 import BetaBanner from './beta'
-import { deriv_app_url } from 'common/utility'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
 import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
-
 const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
 `
-
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 `
-
 const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
+    position: relative;
     @media ${device.tabletL} {
         height: auto;
     }
 `
-
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 0;
     justify-content: space-between;
     height: 7.2rem;
 `
-
 const NavLeft = styled.div`
     text-align: left;
     @media ${device.tabletL} {
@@ -49,30 +45,25 @@ const NavLeft = styled.div`
         }
     }
 `
-
 const NavCenter = styled.ul`
     text-align: center;
     padding: 0;
     display: flex;
     justify-content: space-between;
-
     @media ${device.tabletL} {
         display: none;
     }
 `
-
 const NavRight = styled.div`
     overflow: hidden;
     width: 21.4rem;
     position: relative;
     height: 5rem;
     top: 10%;
-
     @media ${device.tabletL} {
         display: none;
     }
 `
-
 const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
@@ -81,14 +72,13 @@ const NavLink = styled.li`
         if (props.margin) return 'margin: 0 4rem;'
     }}
 `
-
 const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
-
 const StyledButton = styled.a`
     ${SharedLinkStyle}
     cursor: pointer;
+    user-select: none;
 `
 const NavButton = styled(Button)`
     position: absolute;
@@ -118,16 +108,27 @@ const HamburgerMenu = styled(Hamburger)`
     display: none;
     @media ${device.tabletL} {
         display: block;
-        cursor: pionter;
+        cursor: pointer;
     }
 `
-
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
 }
-
 const Nav = () => {
+    const nav_ref = useRef(null)
+    const [is_platforms_open, setIsPlatformsOpen] = useState(false)
+    const [has_animation, setHasAnimation] = useState(false)
+    useEffect(() => {
+        const handleClickOutside = e => {
+            if (!nav_ref.current.contains(e.target)) {
+                setIsPlatformsOpen(false)
+            }
+        }
+        document.addEventListener('click', handleClickOutside)
+        return () => document.removeEventListener('click', handleClickOutside)
+    })
+
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
     const buttonHandleScroll = () => handleScroll(showButton, hideButton)
@@ -136,7 +137,6 @@ const Nav = () => {
         openOffCanvasMenu,
         closeOffCanvasMenu,
     ] = moveOffCanvasMenu()
-
     useEffect(() => {
         document.addEventListener('scroll', buttonHandleScroll, {
             passive: true,
@@ -145,21 +145,27 @@ const Nav = () => {
             document.removeEventListener('scroll', buttonHandleScroll)
         }
     }, [])
-
     const handleLogin = () => {
         window.open(Login.loginUrl(), '_blank')
-    }
-
-    const handleTraderLink = () => {
-        window.open(deriv_app_url, '_blank')
     }
     const handleMenuClick = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
+    const handlePlatformsClick = () => {
+        setHasAnimation(true)
+        setIsPlatformsOpen(!is_platforms_open)
+    }
+    const handleNormalLink = () => {
+        setHasAnimation(false)
+    }
     return (
-        <NavWrapper>
+        <NavWrapper ref={nav_ref}>
             <BetaBanner />
             <StyledNav>
+                <PlatformsDropdown
+                    is_open={is_platforms_open}
+                    has_animation={has_animation}
+                />
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
@@ -167,15 +173,15 @@ const Nav = () => {
                         </LogoLink>
                     </NavLeft>
                     <NavCenter>
-                        <NavLink>
+                        <NavLink onClick={handlePlatformsClick}>
                             <StyledButton
-                                onClick={handleTraderLink}
                                 aria-label={localize('Trade')}
+                                activeClassName="active"
                             >
                                 {localize('Trade')}
                             </StyledButton>
                         </NavLink>
-                        <NavLink margin>
+                        <NavLink onClick={handleNormalLink} margin>
                             <StyledLink
                                 activeClassName="active"
                                 to="/about/"
@@ -227,13 +233,10 @@ const Nav = () => {
         </NavWrapper>
     )
 }
-
 export default Nav
-
 function moveButton(is_visible = false) {
     const [show_button, setShowButton] = useState(is_visible)
     const showButton = () => setShowButton(!show_button)
     const hideButton = () => setShowButton(false)
-
     return [show_button, showButton, hideButton]
 }

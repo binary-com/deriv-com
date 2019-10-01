@@ -27,23 +27,17 @@ const Numbers = () => {
                     </Text>
                 </NumberWrapper>
                 <NumberWrapper>
-                    <Header as="h2" align="center">
-                        {localize('$0.35')}
-                    </Header>
+                    <Header as="h2">{localize('$0.35')}</Header>
                     <Text align="center">{localize('low minimum stake')}</Text>
                 </NumberWrapper>
                 <NumberWrapper>
-                    <Header as="h2" align="center">
-                        {localize('1s - 365d')}
-                    </Header>
+                    <Header as="h2">{localize('1s - 365d')}</Header>
                     <Text align="center">
                         {localize('flexible trade duration')}
                     </Text>
                 </NumberWrapper>
                 <NumberWrapper>
-                    <Header as="h2" align="center">
-                        &gt;{localize('200%')}
-                    </Header>
+                    <Header as="h2">&gt;{localize('200%')}</Header>
                     <Text align="center">{localize('potential payout')}</Text>
                 </NumberWrapper>
             </StyledContainer>

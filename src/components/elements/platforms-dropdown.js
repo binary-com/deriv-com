@@ -7,7 +7,7 @@ import { Text } from 'components/elements/typography.js'
 // Icons
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
+//import DMT5 from 'images/svg/dmt5-icon.svg'
 const FadeInDown = keyframes`
     from {
         opacity:0;
@@ -108,6 +108,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                             </Text>
                         </div>
                     </PlatformItem>
+                    {/*}
                     <PlatformItem
                         activeClassName="active"
                         to="/dmt5/"
@@ -126,6 +127,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                             </Text>
                         </div>
                     </PlatformItem>
+                                {*/}
                 </NavDropdownGrid>
             </NavDropdown>
         </Show.Desktop>

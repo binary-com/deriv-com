@@ -44,6 +44,7 @@ const ImageSection = styled(Wrapper)`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 2rem;
 
     @media ${device.tabletL} {
         width: 100%;

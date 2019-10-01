@@ -153,63 +153,63 @@ const ProgressBar = styled.div`
 class DtraderTabs extends React.Component {
     my_ref = React.createRef()
     interval_ref = undefined
-    state = {
-        current_time: 0,
-        progress_percentage: 0,
-        transition: true,
-    }
-    handler = entries => {
-        let entry
-        for (entry of entries) {
-            if (entry.isIntersecting) {
-                this.my_ref.current.play()
-                this.my_ref.current.ontimeupdate = () =>
-                    this.setState({
-                        current_time: this.my_ref.current.currentTime,
-                    })
-                this.progressHandler()
-                this.interval_ref = window.setInterval(
-                    this.progressHandler,
-                    300,
-                )
-            } else {
-                this.my_ref.current.pause()
-                window.clearInterval(this.interval_ref)
-            }
-        }
-    }
-    componentDidMount() {
-        // const node = this.my_ref.current
-        // let observer = new IntersectionObserver(this.handler)
-        // observer.observe(node)
-    }
-    componentDidUpdate() {
-        if (this.state.transition === false) {
-            requestAnimationFrame(() => {
-                this.setState({
-                    transition: true,
-                })
-            })
-        }
+    // state = {
+    //     current_time: 0,
+    //     progress_percentage: 0,
+    //     transition: true,
+    // }
+    // handler = entries => {
+    //     let entry
+    //     for (entry of entries) {
+    //         if (entry.isIntersecting) {
+    //             this.my_ref.current.play()
+    //             this.my_ref.current.ontimeupdate = () =>
+    //                 this.setState({
+    //                     current_time: this.my_ref.current.currentTime,
+    //                 })
+    //             this.progressHandler()
+    //             this.interval_ref = window.setInterval(
+    //                 this.progressHandler,
+    //                 300,
+    //             )
+    //         } else {
+    //             this.my_ref.current.pause()
+    //             window.clearInterval(this.interval_ref)
+    //         }
+    //     }
+    // }
+    // componentDidMount() {
+    //     const node = this.my_ref.current
+    //     let observer = new IntersectionObserver(this.handler)
+    //     observer.observe(node)
+    // }
+    // componentDidUpdate() {
+    //     if (this.state.transition === false) {
+    //         requestAnimationFrame(() => {
+    //             this.setState({
+    //                 transition: true,
+    //             })
+    //         })
+    //     }
 
-        if (!this.my_ref.current.is_playing) {
-            this.my_ref.current.play()
-        }
-    }
-    clickHandler = time => {
-        this.my_ref.current.currentTime = time
-        this.my_ref.current.pause()
-        this.setState({ transition: false })
-        this.progressHandler()
-    }
-    progressHandler = () => {
-        this.setState({
-            progress_percentage: Math.ceil(
-                (this.my_ref.current.currentTime * 100) /
-                    this.my_ref.current.duration,
-            ),
-        })
-    }
+    //     if (!this.my_ref.current.is_playing) {
+    //         this.my_ref.current.play()
+    //     }
+    // }
+    // clickHandler = time => {
+    //     this.my_ref.current.currentTime = time
+    //     this.my_ref.current.pause()
+    //     this.setState({ transition: false })
+    //     this.progressHandler()
+    // }
+    // progressHandler = () => {
+    //     this.setState({
+    //         progress_percentage: Math.ceil(
+    //             (this.my_ref.current.currentTime * 100) /
+    //                 this.my_ref.current.duration,
+    //         ),
+    //     })
+    // }
     render() {
         return (
             <Container>
@@ -220,8 +220,8 @@ class DtraderTabs extends React.Component {
                             lh="1.5"
                             align="center"
                             no_margin
-                            current_time={this.state.current_time}
-                            onClick={() => this.clickHandler(0)}
+                            // current_time={this.state.current_time}
+                            // onClick={() => this.clickHandler(0)}
                         >
                             {localize('1. Sign up with Deriv')}
                         </Step1>
@@ -231,8 +231,8 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             lh="1.5"
                             align="center"
-                            current_time={this.state.current_time}
-                            onClick={() => this.clickHandler(7)}
+                            // current_time={this.state.current_time}
+                            // onClick={() => this.clickHandler(7)}
                         >
                             {localize('2. Create a DMT5 account')}
                         </Step2>
@@ -242,8 +242,8 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             lh="1.5"
                             align="center"
-                            current_time={this.state.current_time}
-                            onClick={() => this.clickHandler(13)}
+                            // current_time={this.state.current_time}
+                            // onClick={() => this.clickHandler(13)}
                         >
                             {localize('3. Fund your account')}
                         </Step3>
@@ -260,10 +260,10 @@ class DtraderTabs extends React.Component {
                             width="53.9rem"
                         />
                 </VideoWrapper>
-                <ProgressBar
+                {/* <ProgressBar
                     progress_percentage={this.state.progress_percentage}
                     transition={this.state.transition}
-                />
+                /> */}
             </Container>
         )
     }

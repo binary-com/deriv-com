@@ -21,8 +21,8 @@ const StyledContainer = styled(Container)`
     grid-column-gap: 2rem;
     grid-row-gap: 7.5rem;
     grid-template-areas:
-        'ms ms ms ms ms . msi msi msi msi msi msi'
-        'twywi twywi twywi twywi twywi twywi . twyw twyw twyw twyw twyw';
+        'msi msi msi msi msi msi ms ms ms ms ms ms'
+        'twyw twyw twyw twyw twyw . twywi twywi twywi twywi twywi twywi';
 
     @media ${device.tabletL} {
         grid-template-columns: repeat(1, 1fr);
@@ -57,6 +57,7 @@ const ContentContainer = styled.div`
 
 const ImageContainer = styled.div`
     grid-area: ${props => props.grid_area};
+    align-self: start;
 
     @media ${device.tabletL} {
         margin: 4rem auto;
@@ -64,7 +65,7 @@ const ImageContainer = styled.div`
     }
 `
 const Row = styled.div`
-    margin-top: ${props=> props.no_margin?'0':'4rem'};
+    margin-top: ${props=> props.test?'0':'4rem'};
 `
 const Trading = () => {
     return (
@@ -74,9 +75,9 @@ const Trading = () => {
                     <Image img_name="dmt-5-mac.png" alt="DMT5 mac" />
                 </ImageContainer>
                 <ContentContainer grid_area="ms">
-                    <Row no_margin>
+                    <Row test>
                         <Header as="h2">{localize('Standard Account')}</Header>
-                        <Text>
+                        <Text secondary>
                             {localize(
                                 'Get started easily with a Standard account for high leverage on your FX trades.',
                             )}
@@ -84,7 +85,7 @@ const Trading = () => {
                     </Row>
                     <Row>
                         <Header as="h2">{localize('Advanced Account')}</Header>
-                        <Text>
+                        <Text secondary>
                             {localize(
                                 "Get your trades placed straight through to the market with an Advanced account - a 100% 'A' book account with tight spreads.",
                             )}
@@ -92,9 +93,9 @@ const Trading = () => {
                     </Row>
                 </ContentContainer>
                 <ContentContainer grid_area="twyw">
-                    <Row>
+                    <Row test>
                         <Header as="h2">{localize('Synthetic Indices')}</Header>
-                        <Text>
+                        <Text secondary>
                             {localize(
                                 'Trade 24/7 with a Synthetic Indices account. Trade indices that simulate the movements of real markets.',
                             )}
@@ -104,7 +105,7 @@ const Trading = () => {
                         <Header as="h2">
                             {localize('Practice with Demo accounts')}
                         </Header>
-                        <Text>
+                        <Text secondary>
                             {localize(
                                 'Create demo accounts (Standard, Advanced or Synthetic Indices) - the best way for you to check out the platform, get familiar with the tools and learn trading techniques.',
                             )}

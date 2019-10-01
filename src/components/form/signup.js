@@ -9,6 +9,7 @@ import Image from '../elements/image'
 import Wrapper from '../containers/wrapper'
 import Button from './button'
 import Input from './input'
+import validation from 'common/validation'
 import TrafficSource from 'common/traffic-source'
 import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
@@ -79,15 +80,9 @@ const EmailLink = styled(StyledLink)`
 `
 
 const validateEmail = email => {
-    const required = email.length
-    const valid = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(
-        email,
-    )
+    const error_message = validation.email(email)
 
-    if (!required) return localize('Email is required')
-    if (!valid) return localize('Invalid email address')
-
-    return null
+    return error_message
 }
 
 class Signup extends Component {

@@ -1,9 +1,8 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Paddings } from 'themes/function'
 
-const StyledButton = styled.button`
+const Button = styled.button`
     border-radius: 6px;
     padding: 1rem 1.6rem;
     font-size: 1.4rem;
@@ -45,6 +44,16 @@ const StyledButton = styled.button`
                     border-color: var(--color-red-3);
                 }
             `
+        if (props.tertiary)
+            return css`
+                border: 2px solid var(--color-grey-5);
+                color: var(--color-black);
+                background: transparent;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.08);
+                }
+            `
         if (props.social)
             return css`
                 background: ${props => {
@@ -76,7 +85,7 @@ const StyledButton = styled.button`
         if (props.disabled)
             return css`
                 pointer-events: none;
-                background: var(--color-grey);
+                opacity: 0.32;
             `
         if (props.loading)
             return css`
@@ -89,10 +98,6 @@ const StyledButton = styled.button`
             `
     }}
 `
-
-const Button = ({ children, ...props }) => (
-    <StyledButton {...props}>{children}</StyledButton>
-)
 
 Button.propTypes = {
     children: PropTypes.oneOfType([

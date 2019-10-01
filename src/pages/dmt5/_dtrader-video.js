@@ -132,24 +132,24 @@ const VideoWrapper = styled.div`
 //         margin-top: -91px;
 //     }
 // `
-const ProgressBar = styled.div`
-    width: 100%;
-    height: 4px;
-    background-color: var(--color-grey-1);
-    position: relative;
+// const ProgressBar = styled.div`
+//     width: 100%;
+//     height: 4px;
+//     background-color: var(--color-grey-1);
+//     position: relative;
 
-    ::after {
-        content: '';
-        height: 4px;
-        background-color: var(--color-green);
-        position: absolute;
-        width: ${props => props.progress_percentage}%;
-        ${props =>
-            props.transition === true
-                ? ' transition: width 0.3s linear;'
-                : 'transition: width 0s linear;'}
-    }
-`
+//     ::after {
+//         content: '';
+//         height: 4px;
+//         background-color: var(--color-green);
+//         position: absolute;
+//         width: ${props => props.progress_percentage}%;
+//         ${props =>
+//             props.transition === true
+//                 ? ' transition: width 0.3s linear;'
+//                 : 'transition: width 0s linear;'}
+//     }
+// `
 class DtraderTabs extends React.Component {
     my_ref = React.createRef()
     interval_ref = undefined

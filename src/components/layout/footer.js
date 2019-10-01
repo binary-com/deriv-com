@@ -263,15 +263,14 @@ const Footer = () => (
                             >
                                 {localize('DBot')}
                             </FooterStyledLink>
-                            {/* TODO: Enable when MT5 page is released */}
-                            {/* <FooterStyledLink
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/dmt5/"
                                 aria-label={localize('DMT5')}
                                 partiallyActive={true}
                             >
                                 {localize('DMT5')}
-                            </FooterStyledLink> */}
+                            </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/keep-safe/"

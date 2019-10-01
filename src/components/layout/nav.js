@@ -108,7 +108,7 @@ const HamburgerMenu = styled(Hamburger)`
     display: none;
     @media ${device.tabletL} {
         display: block;
-        cursor: pionter;
+        cursor: pointer;
     }
 `
 const handleScroll = (show, hide) => {
@@ -117,16 +117,18 @@ const handleScroll = (show, hide) => {
 }
 const Nav = () => {
     const nav_ref = useRef(null)
+    const [is_platforms_open, setIsPlatformsOpen] = useState(false)
+    const [has_animation, setHasAnimation] = useState(false)
     useEffect(() => {
         const handleClickOutside = e => {
             if (!nav_ref.current.contains(e.target)) {
-                const switcher = document.getElementById('switcher')
-                switcher.classList.remove('is-nav-open')
+                setIsPlatformsOpen(false)
             }
         }
         document.addEventListener('click', handleClickOutside)
         return () => document.removeEventListener('click', handleClickOutside)
     })
+
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
     const buttonHandleScroll = () => handleScroll(showButton, hideButton)
@@ -150,14 +152,20 @@ const Nav = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
     const handlePlatformsClick = () => {
-        const switcher = document.getElementById('switcher')
-        switcher.classList.toggle('is-nav-open')
+        setHasAnimation(true)
+        setIsPlatformsOpen(!is_platforms_open)
+    }
+    const handleNormalLink = e => {
+        setHasAnimation(false)
     }
     return (
         <NavWrapper ref={nav_ref}>
             <BetaBanner />
             <StyledNav>
-                <PlatformsDropdown />
+                <PlatformsDropdown
+                    is_open={is_platforms_open}
+                    has_animation={has_animation}
+                />
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
@@ -173,7 +181,7 @@ const Nav = () => {
                                 {localize('Trade')}
                             </StyledButton>
                         </NavLink>
-                        <NavLink margin>
+                        <NavLink onClick={handleNormalLink} margin>
                             <StyledLink
                                 activeClassName="active"
                                 to="/about/"

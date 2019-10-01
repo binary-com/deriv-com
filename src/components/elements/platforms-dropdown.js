@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { LocalizedLink, localize } from '../localization'
 import { GridContainer } from '../containers/container'
 import Show from 'components/containers/show'
@@ -8,38 +8,48 @@ import { Text } from 'components/elements/typography.js'
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
-
+const FadeInDown = keyframes`
+    from {
+        opacity:0;
+        transform: translatey(-18rem);
+    }
+    to {
+        opacity:1;
+        transform: translatey(7.2rem);
+    }
+`
+const FadeOutUp = keyframes`
+    from {
+        opacity:1;
+        transform: translatey(7.2rem);
+    }
+    to {
+        opacity:0;
+        transform: translatey(-18rem);
+    }
+`
 const NavDropdown = styled.div`
     width: 100%;
     position: absolute;
-    top: -18rem;
     z-index: -1;
     background-color: #ffffff;
     height: 17.8rem;
-    opacity: 0;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     transition: all 0.35s ease-in-out;
-
-    &.is-nav-open {
-        top: 7.2rem;
-        opacity: 1;
-    }
+    animation-name: ${props => (props.is_open ? FadeInDown : FadeOutUp)};
+    animation-fill-mode: both;
+    animation-duration: ${props => (props.has_animation ? '0.3s' : '0')};
 `
-
 const NavDropdownGrid = styled(GridContainer)`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 2rem;
     height: 100%;
     align-items: center;
-    outline: none;
-
     .active {
         border: 0.2rem solid var(--color-green);
-        outline: none;
     }
 `
-
 const PlatformItem = styled(LocalizedLink)`
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -50,17 +60,15 @@ const PlatformItem = styled(LocalizedLink)`
     align-items: start;
     cursor: pointer;
     text-decoration: none;
-    outline: none;
-
     &:hover {
         background-color: var(--color-grey-6);
     }
 `
-
-const PlatformsDropdown = () => {
+// eslint-disable-next-line react/prop-types
+const PlatformsDropdown = ({ is_open, has_animation }) => {
     return (
         <Show.Desktop>
-            <NavDropdown id="switcher">
+            <NavDropdown is_open={is_open} has_animation={has_animation}>
                 <NavDropdownGrid>
                     <PlatformItem
                         activeClassName="active"
@@ -121,5 +129,4 @@ const PlatformsDropdown = () => {
         </Show.Desktop>
     )
 }
-
 export default PlatformsDropdown

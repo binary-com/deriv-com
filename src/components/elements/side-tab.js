@@ -146,7 +146,10 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
                         mobile={props.is_mobile}
                         text={text}
                         onClick={e => {
-                            onClick(e)
+                            if (onClick) {
+                                onClick(e)
+                            }
+
                             setTab(e)
                         }}
                         active_tab={active_tab}

@@ -9,7 +9,7 @@ import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import Image from 'components/elements/image'
 import Button from 'components/form/button.js'
-import dmt5_logo from 'images/svg/dmt-5.svg'
+import dmt5_logo from 'images/svg/dmt5-32.svg'
 
 const HeroContent = styled.div`
     display: flex;

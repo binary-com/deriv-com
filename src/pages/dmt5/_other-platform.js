@@ -6,8 +6,8 @@ import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import device from 'themes/device'
-import DTrader from 'images/svg/d-trader.svg'
-import DBot from 'images/svg/d-bot.svg'
+import DTrader from 'images/svg/dtrader-48.svg'
+import DBot from 'images/svg/dbot-48.svg'
 
 const CardWrapper = styled.div`
     display: flex;

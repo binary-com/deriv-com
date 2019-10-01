@@ -26,6 +26,11 @@ const HeroContent = styled.div`
         margin-top: 0;
     }
 `
+const StyledHeader = styled(Header)`
+    color: var(--color-white);
+    display: flex;
+    margin-top: 0;
+`
 const Wrapper = styled.div`
     background-color: var(--color-black);
     width: 100%;
@@ -41,7 +46,7 @@ const TryForFree = styled(Button)`
     width: 12rem;
     font-weight: bold;
     line-height: 1.43;
-    margin-top: 1.22rem;
+    margin-top: 3.2rem;
 
     @media ${device.tabletL} {
         width: 100%;
@@ -53,28 +58,28 @@ const Hero = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <Wrapper>
+            <Container align="flex-start">
+                <StyledHeader as="h4" weight={500}>
+                    <DMT5Logo />
+                    {localize('DMT5')}
+                </StyledHeader>
+            </Container>
             <Container justify="space-between" align="flex-start">
                 <HeroContent>
-                    <Header as="h4" weight={500}>
-                        <DMT5Logo />
-                        {localize('DMT5')}
-                    </Header>
                     <Header as="h1">
                         {localize('The all-in-one FX and CFD trading platform')}
                     </Header>
+                    <TryForFree secondary onClick={toggleModal}>
+                        {localize('Try for free')}
+                    </TryForFree>
                 </HeroContent>
                 <Show.Desktop>
                     <Image
                         img_name="dmt5-platform.png"
                         alt="DMT5 platform"
-                        width="53.9rem"
+                        width="58.9rem"
                     />
                 </Show.Desktop>
-            </Container>
-            <Container justify="flex-start">
-                <TryForFree secondary onClick={toggleModal}>
-                    {localize('Try for free')}
-                </TryForFree>
             </Container>
             <Modal
                 toggle={toggleModal}

@@ -182,10 +182,16 @@ export const Markets = () => (
             </StyledSubHeader>
             <Markettabs>
                 <SideTab>
-                    <Forex label="forex" text="Forex" />
-                    <Indices label="indices" text="Indices" />
-                    <Commodities label="commodities" text="Commodities" />
-                    <Synthetic label="synthetic" text="Synthetic Indices" />
+                    <Forex label="forex" text={localize('Forex')} />
+                    <Indices label="indices" text={localize('Indices')} />
+                    <Commodities
+                        label="commodities"
+                        text={localize('Commodities')}
+                    />
+                    <Synthetic
+                        label="synthetic"
+                        text={localize('Synthetic Indices')}
+                    />
                 </SideTab>
             </Markettabs>
         </Container>

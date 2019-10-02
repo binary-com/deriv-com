@@ -42,9 +42,9 @@ const CardChildrenContainer = styled(SectionContainer)`
     grid-template-rows: auto;
     grid-column-gap: 2rem;
     grid-row-gap: 4rem;
-    grid-template-areas: 
-    'inv inv inv inv fx fx fx fx bvi bvi bvi bvi'
-    'v v v v svg svg svg svg . . . .';
+    grid-template-areas:
+        'inv inv inv inv fx fx fx fx bvi bvi bvi bvi'
+        'v v v v svg svg svg svg . . . .';
 `
 const CardWrapper = styled.div`
     grid-area: ${props => props.grid_area};
@@ -79,8 +79,6 @@ const Regulatory = () => (
                         <CardChildren
                             Icon={MFSA}
                             title={localize('Binary Investments (Europe) Ltd')}
-                            icon_width="15.4rem"
-                            icon_height="10.2rem"
                             width="100%"
                         >
                             <Text align="center">
@@ -101,10 +99,7 @@ const Regulatory = () => (
                         <CardChildren
                             Icon={Labuan}
                             title={localize('Binary (FX) Ltd')}
-                            icon_width="15.4rem"
-                            icon_height="10.2rem"
                             width="100%"
-
                         >
                             <Text align="center">
                                 <Localize
@@ -125,10 +120,7 @@ const Regulatory = () => (
                         <CardChildren
                             Icon={FSC}
                             title={localize('Binary (BVI) Ltd')}
-                            icon_width="15.4rem"
-                            icon_height="10.2rem"
                             width="100%"
-
                         >
                             <Text align="center">
                                 <Localize
@@ -148,10 +140,7 @@ const Regulatory = () => (
                         <CardChildren
                             Icon={Vanuatu}
                             title={localize('Binary (V) Ltd')}
-                            icon_width="15.4rem"
-                            icon_height="10.2rem"
                             width="100%"
-
                         >
                             <Text align="center">
                                 <Localize
@@ -172,10 +161,7 @@ const Regulatory = () => (
                         <CardChildren
                             Icon={SVG}
                             title={localize('Binary (SVG) Ltd')}
-                            icon_width="15.4rem"
-                            icon_height="10.2rem"
                             width="100%"
-
                         >
                             <Text align="center">
                                 {localize(

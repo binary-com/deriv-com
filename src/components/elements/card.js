@@ -73,7 +73,7 @@ const CardChildrenWrapper = styled.article`
         }
     }
     svg {
-        margin-top: 0.2rem 0 0.8rem 0;
+        margin: 0.2rem 0 0.8rem 0;
     }
 `
 
@@ -111,7 +111,7 @@ export const CardChildren = ({
     icon_height,
 }) => (
     <CardChildrenWrapper width={width}>
-        <Header as="h4">{title}</Header>
+        <Header as="h4" weight="500">{title}</Header>
         <Icon width={icon_width} height={icon_height} />
         {children}
     </CardChildrenWrapper>

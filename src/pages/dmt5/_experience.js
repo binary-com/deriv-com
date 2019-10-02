@@ -11,7 +11,7 @@ import Button from 'components/form/button'
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-1);
     @media ${device.tabletL} {
-        padding: 4rem 0 0 0;
+        padding: 4rem 0;
     }
 `
 const Content = styled.div`

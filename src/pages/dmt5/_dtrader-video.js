@@ -46,21 +46,21 @@ const StepCommon = css`
 const Step1 = styled(Header)`
     ${StepCommon}
     ${props =>
-        props.current_time >= 0
+        props.current_step_image === 'dmt-5-step-1.png'
             ? 'color: var(--color-red); border-bottom: 1px solid var(--color-red)'
             : 'color: var(--color-red-2); border-bottom: 1px solid var(--color-red-2)'};
 `
 const Step2 = styled(Header)`
     ${StepCommon}
     ${props =>
-        props.current_time >= 7
+        props.current_step_image === 'dmt-5-step-2.png'
             ? 'color: var(--color-red); border-bottom: 1px solid var(--color-red)'
             : 'color: var(--color-red-2); border-bottom: 1px solid var(--color-red-2)'};
 `
 const Step3 = styled(Header)`
     ${StepCommon}
     ${props =>
-        props.current_time >= 13
+        props.current_step_image === 'dmt-5-step-3.png'
             ? 'color: var(--color-red); border-bottom: 1px solid var(--color-red)'
             : 'color: var(--color-red-2); border-bottom: 1px solid var(--color-red-2)'};
 `
@@ -69,7 +69,7 @@ const Tab = styled.div`
 `
 const VideoWrapper = styled.div`
     grid-area: video;
-    margin-top: 1.6rem;
+    margin-top: 4rem;
     position: relative;
     text-align: center;
     display: flex;
@@ -153,11 +153,12 @@ const VideoWrapper = styled.div`
 class DtraderTabs extends React.Component {
     my_ref = React.createRef()
     interval_ref = undefined
-    // state = {
-    //     current_time: 0,
-    //     progress_percentage: 0,
-    //     transition: true,
-    // }
+    state = {
+        current_step_image: 'dmt-5-step-1.png',
+        // current_time: 0,
+        // progress_percentage: 0,
+        // transition: true,
+    }
     // handler = entries => {
     //     let entry
     //     for (entry of entries) {
@@ -196,12 +197,13 @@ class DtraderTabs extends React.Component {
     //         this.my_ref.current.play()
     //     }
     // }
-    // clickHandler = time => {
-    //     this.my_ref.current.currentTime = time
-    //     this.my_ref.current.pause()
-    //     this.setState({ transition: false })
-    //     this.progressHandler()
-    // }
+    clickHandler = image_name => {
+        // this.my_ref.current.currentTime = time
+        // this.my_ref.current.pause()
+        // this.setState({ transition: false })
+        // this.progressHandler()
+        this.setState({ current_step_image: image_name })
+    }
     // progressHandler = () => {
     //     this.setState({
     //         progress_percentage: Math.ceil(
@@ -221,7 +223,10 @@ class DtraderTabs extends React.Component {
                             align="center"
                             no_margin
                             // current_time={this.state.current_time}
-                            // onClick={() => this.clickHandler(0)}
+                            current_step_image={this.state.current_step_image}
+                            onClick={() =>
+                                this.clickHandler('dmt-5-step-1.png')
+                            }
                         >
                             {localize('1. Sign up with Deriv')}
                         </Step1>
@@ -232,7 +237,10 @@ class DtraderTabs extends React.Component {
                             lh="1.5"
                             align="center"
                             // current_time={this.state.current_time}
-                            // onClick={() => this.clickHandler(7)}
+                            current_step_image={this.state.current_step_image}
+                            onClick={() =>
+                                this.clickHandler('dmt-5-step-2.png')
+                            }
                         >
                             {localize('2. Create a DMT5 account')}
                         </Step2>
@@ -243,7 +251,10 @@ class DtraderTabs extends React.Component {
                             lh="1.5"
                             align="center"
                             // current_time={this.state.current_time}
-                            // onClick={() => this.clickHandler(13)}
+                            current_step_image={this.state.current_step_image}
+                            onClick={() =>
+                                this.clickHandler('dmt-5-step-3.png')
+                            }
                         >
                             {localize('3. Fund your account')}
                         </Step3>
@@ -254,11 +265,11 @@ class DtraderTabs extends React.Component {
                     {/* <Video ref={this.my_ref} preload="metadata" muted>
                         <source src="/Dtrader_GIF.mp4" />
                     </Video> */}
-                        <Image
-                            img_name="dmt-5-mac.png"
-                            alt="DMT5 platform"
-                            width="53.9rem"
-                        />
+                    <Image
+                        img_name={this.state.current_step_image}
+                        alt="DMT5 platform"
+                        width="100%"
+                    />
                 </VideoWrapper>
                 {/* <ProgressBar
                     progress_percentage={this.state.progress_percentage}

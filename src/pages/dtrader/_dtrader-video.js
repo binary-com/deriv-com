@@ -4,6 +4,7 @@ import { localize } from 'components/localization'
 import { Header } from 'components/elements/typography.js'
 import MacBook from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
+import { isBrowser } from 'common/utility'
 
 const Container = styled.section`
     width: 100%;
@@ -160,10 +161,13 @@ class DtraderTabs extends React.Component {
         for (entry of entries) {
             if (entry.isIntersecting) {
                 this.my_ref.current.play()
-                this.my_ref.current.ontimeupdate = () =>
-                    this.setState({
-                        current_time: this.my_ref.current.currentTime,
-                    })
+                this.my_ref.current.ontimeupdate = () => {
+                    if (this.my_ref.current) {
+                        this.setState({
+                            current_time: this.my_ref.current.currentTime,
+                        })
+                    }
+                }
                 this.progressHandler()
                 this.interval_ref = window.setInterval(
                     this.progressHandler,
@@ -175,10 +179,14 @@ class DtraderTabs extends React.Component {
             }
         }
     }
+    observer = isBrowser() && new IntersectionObserver(this.handler)
     componentDidMount() {
         const node = this.my_ref.current
-        let observer = new IntersectionObserver(this.handler)
-        observer.observe(node)
+        this.observer.observe(node)
+    }
+    componentWillUnmount() {
+        window.clearInterval(this.interval_ref)
+        this.observer.disconnect()
     }
     componentDidUpdate() {
         if (this.state.transition === false) {

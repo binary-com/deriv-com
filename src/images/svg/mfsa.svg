@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="154" height="102" viewBox="0 0 154 102">
+<svg xmlns="http://www.w3.org/2000/svg" width="154" height="102" viewBox="0 0 154 102" role="img" aria-labelledby="mfsa-icon">
+    <title id='mfsa-icon'>MFSA</title>
     <g fill="none" fill-rule="evenodd">
         <path d="M0 0h154v102H0z"/>
         <g id="4-illustration/regulatory/mfsa">

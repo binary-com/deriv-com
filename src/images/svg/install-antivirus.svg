@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="install-antivirus-icon-title">
+<svg role="img" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="install-antivirus-icon-title">
     <title id="install-antivirus-icon-title">Install antivirus</title>
     <g fill="none" fill-rule="evenodd">
         <path fill="#85ACB0" fill-rule="nonzero" d="M26.4 38.95H3.046a1.02 1.02 0 0 1-1.015-1.025V3.075A1.02 1.02 0 0 1 3.046 2.05h57.908c.56 0 1.015.459 1.015 1.025V28.7a1.02 1.02 0 0 0 1.016 1.025A1.02 1.02 0 0 0 64 28.7V3.075C64 1.377 62.636 0 60.954 0H3.046C1.364 0 0 1.377 0 3.075v34.85C0 39.623 1.364 41 3.046 41H26.4a1.02 1.02 0 0 0 1.016-1.025A1.02 1.02 0 0 0 26.4 38.95z"/>

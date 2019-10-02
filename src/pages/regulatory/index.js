@@ -46,7 +46,14 @@ const CardChildrenContainer = styled(SectionContainer)`
         'inv inv inv inv fx fx fx fx bvi bvi bvi bvi'
         'v v v v svg svg svg svg . . . .';
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            'inv fx'
+            'svg v'
+            'bvi .';
+    }
+    @media ${device.tabletS} {
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
             'inv'

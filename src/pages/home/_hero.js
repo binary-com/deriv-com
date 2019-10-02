@@ -14,7 +14,7 @@ import Image from 'components/elements/image'
 
 const HeroWrapper = styled.section`
     width: 100%;
-    padding: 4rem 0 0rem;
+    padding: 4rem 0 0;
     min-height: 65rem;
     background: var(--color-black);
 

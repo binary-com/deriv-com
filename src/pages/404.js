@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements/typography'
-import { localize, WithIntl } from 'components/localization'
-import Button from 'components/form/button'
+import { localize, WithIntl, LocalizedLink } from 'components/localization'
 import Wrapper from 'components/containers/wrapper'
 import Image from 'components/elements/image'
 
@@ -38,7 +37,7 @@ const PageNotFound = () => (
             <ImageSection width="50%">
                 <Image
                     img_name="page-not-found.png"
-                    alt=""
+                    alt="Page not found"
                     width="59.4rem"
                     height="48rem"
                 />
@@ -51,9 +50,12 @@ const PageNotFound = () => (
                     )}
                 </Text>
                 <Text>{localize('Error code: 404 page not found')}</Text>
-                <Button onClick={()=>(window.location.href = '/')} secondary>
-                    {localize('Go to the homepage')}
-                </Button>
+                <LocalizedLink
+                    to="/"
+                    aria-label={localize('Go to the homepage')}
+                >
+                 
+                </LocalizedLink>
             </PageNotFoundContainerInfo>
         </PageNotFoundContainer>
     </Layout>

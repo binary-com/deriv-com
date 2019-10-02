@@ -13,6 +13,13 @@ const ImageSection = styled(Wrapper)`
     align-items: center;
 `
 
+const PageNotFoundContainerInfo = styled.div`
+    width: 50%;
+
+    * {
+        margin: 1.6rem 0;
+    }
+`
 const PageNotFoundContainer = styled.div`
     display: flex;
     flex-wrap: nowrap;
@@ -21,15 +28,33 @@ const PageNotFoundContainer = styled.div`
     align-items: center;
     margin: 16rem 0;
 `
+const StyledButton = styled(LocalizedLink)`
+    border-radius: 6px;
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+    transition: all 0.25s;
+    font-weight: bold;
+    border: 2px solid var(--color-red);
+    color: var(--color-white);
+    background: var(--color-red);
+    text-decoration: none;
 
-const PageNotFoundContainerInfo = styled.div`
-    width: 50%;
+    &:hover {
+        background-color: var(--color-red-3);
+        border-color: var(--color-red-3);
+    }
 
-    * {
-        margin: 1.6rem;
+    &:focus,
+    &:active {
+        outline: none;
+    }
+    &:active {
+        transform: scale(0.95);
     }
 `
-
+const ButtonWrappwr = styled.div`
+    margin-top: 2.6rem;
+`
 const PageNotFound = () => (
     <Layout>
         <SEO title={localize('404: Not found')} />
@@ -50,12 +75,11 @@ const PageNotFound = () => (
                     )}
                 </Text>
                 <Text>{localize('Error code: 404 page not found')}</Text>
-                <LocalizedLink
-                    to="/"
-                    aria-label={localize('Go to the homepage')}
-                >
-                 
-                </LocalizedLink>
+                <ButtonWrappwr>
+                    <StyledButton to="/">
+                        {localize('Go to the homepage')}
+                    </StyledButton>
+                </ButtonWrappwr>
             </PageNotFoundContainerInfo>
         </PageNotFoundContainer>
     </Layout>

@@ -45,6 +45,16 @@ const CardChildrenContainer = styled(SectionContainer)`
     grid-template-areas:
         'inv inv inv inv fx fx fx fx bvi bvi bvi bvi'
         'v v v v svg svg svg svg . . . .';
+
+    @media ${device.mobileL} {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+            'inv'
+            'fx'
+            'bvi'
+            'v'
+            'svg';
+    }
 `
 const CardWrapper = styled.div`
     grid-area: ${props => props.grid_area};

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="market-condition-icon-title">
+<svg role="img" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="market-condition-icon-title">
     <title id='market-condition-icon-title'>Market condition</title>
     <g fill="none" fill-rule="nonzero">
         <path fill="#0E0E0E" d="M13 62H7c-.561 0-1-.422-1-.922V32a1 1 0 0 0-2 0v29.078C4 62.701 5.352 64 7 64h6a1 1 0 0 0 0-2z"/>

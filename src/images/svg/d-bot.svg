@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-labelledby='d-bot-logo'>
+<svg role="img" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-labelledby='d-bot-logo'>
     <title id='d-bot-logo'>DBot</title>
     <g fill="none" fill-rule="evenodd">
         <rect width="32" height="32" fill="#FF6444" fill-rule="nonzero" rx="6"/>

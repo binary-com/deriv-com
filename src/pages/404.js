@@ -12,7 +12,6 @@ const ImageSection = styled(Wrapper)`
     justify-content: center;
     align-items: center;
 `
-
 const PageNotFoundContainerInfo = styled.div`
     width: 50%;
 
@@ -28,6 +27,7 @@ const PageNotFoundContainer = styled.div`
     align-items: center;
     margin: 16rem 0;
 `
+ // TODO: Move to button.js and share style
 const StyledButton = styled(LocalizedLink)`
     border-radius: 6px;
     padding: 1rem 1.6rem;
@@ -43,7 +43,6 @@ const StyledButton = styled(LocalizedLink)`
         background-color: var(--color-red-3);
         border-color: var(--color-red-3);
     }
-
     &:focus,
     &:active {
         outline: none;
@@ -52,7 +51,7 @@ const StyledButton = styled(LocalizedLink)`
         transform: scale(0.95);
     }
 `
-const ButtonWrappwr = styled.div`
+const ButtonWrapper = styled.div`
     margin-top: 2.6rem;
 `
 const PageNotFound = () => (
@@ -62,7 +61,7 @@ const PageNotFound = () => (
             <ImageSection width="50%">
                 <Image
                     img_name="page-not-found.png"
-                    alt="Page not found"
+                    alt={localize('Page not found')}
                     width="59.4rem"
                     height="48rem"
                 />
@@ -75,11 +74,11 @@ const PageNotFound = () => (
                     )}
                 </Text>
                 <Text>{localize('Error code: 404 page not found')}</Text>
-                <ButtonWrappwr>
+                <ButtonWrapper>
                     <StyledButton to="/">
                         {localize('Go to the homepage')}
                     </StyledButton>
-                </ButtonWrappwr>
+                </ButtonWrapper>
             </PageNotFoundContainerInfo>
         </PageNotFoundContainer>
     </Layout>

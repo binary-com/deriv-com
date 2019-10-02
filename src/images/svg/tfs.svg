@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="tfs-icon-title">
+<svg role="img" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="tfs-icon-title">
     <title id='tfs-icon-title'>24/7</title>
     <g fill="none" fill-rule="evenodd">
         <path d="M0 0h64v64H0z"/>

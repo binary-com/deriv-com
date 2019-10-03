@@ -42,7 +42,7 @@ const HeaderWrapper = styled(Header)`
     max-width: 75%;
 `
 
-const SignupModal = ({ autofocus }) => (
+const SignupModal = ({ autofocus, closeModal }) => (
     <SignupWrapper>
         <ModalRow>
             <Content inverse>
@@ -58,7 +58,7 @@ const SignupModal = ({ autofocus }) => (
                 </HeaderWrapper>
             </Content>
             <SignupContent>
-                <Signup autofocus={autofocus} />
+                <Signup autofocus={autofocus} closeModal={closeModal} />
             </SignupContent>
         </ModalRow>
     </SignupWrapper>
@@ -66,6 +66,7 @@ const SignupModal = ({ autofocus }) => (
 
 SignupModal.propTypes = {
     autofocus: PropTypes.bool,
+    closeModal: PropTypes.func,
 }
 
 export default SignupModal

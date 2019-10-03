@@ -180,6 +180,12 @@ class Signup extends Component {
         Login.redirectToLogin()
     }
 
+    handleModalClose = () => {
+        const { closeModal } = this.props
+
+        if (closeModal) closeModal()
+    }
+
     render() {
         return (
             <>
@@ -267,7 +273,10 @@ class Signup extends Component {
                                 values={{ email: this.state.email }}
                             />
                         </Text>
-                        <EmailLink to="/check-email/">
+                        <EmailLink
+                            to="/check-email/"
+                            onClick={this.handleModalClose}
+                        >
                             {localize("Didn't receive your email?")}
                         </EmailLink>
                     </ResponseWrapper>
@@ -287,6 +296,7 @@ class Signup extends Component {
 
 Signup.propTypes = {
     autofocus: PropTypes.bool,
+    closeModal: PropTypes.func,
 }
 
 export default Signup

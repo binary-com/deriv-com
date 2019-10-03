@@ -47,6 +47,7 @@ const NavDropdownGrid = styled(GridContainer)`
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 2rem;
     height: 100%;
+    padding: 2.3rem 0;
     align-items: center;
 
     .active {
@@ -60,6 +61,7 @@ const PlatformItem = styled(LocalizedLink)`
     transition: background-color 0.25s;
     border-radius: 0.8rem;
     min-height: 13.1rem;
+    height: 100%;
     align-items: start;
     cursor: pointer;
     text-decoration: none;

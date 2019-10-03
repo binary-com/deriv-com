@@ -165,8 +165,11 @@ const RiskNote = styled.section`
     }
 `
 const FooterStyledLink = styled(StyledLink)`
+    /* This piece of code has been added to handle Edge issue */
+
+    font-size: ${props =>
+        props.edgeIssue ? '1.39rem' : 'var(--text-size-xs)'};
     display: table;
-    font-size: 1.4rem;
     margin-bottom: 1.8rem;
     font-weight: 500;
 `
@@ -263,15 +266,14 @@ const Footer = () => (
                             >
                                 {localize('DBot')}
                             </FooterStyledLink>
-                            {/* TODO: Enable when MT5 page is released */}
-                            {/* <FooterStyledLink
+                            <FooterStyledLink
                                 activeClassName="active"
                                 to="/dmt5/"
                                 aria-label={localize('DMT5')}
                                 partiallyActive={true}
                             >
                                 {localize('DMT5')}
-                            </FooterStyledLink> */}
+                            </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
                                 to="/keep-safe/"
@@ -306,14 +308,15 @@ const Footer = () => (
                         <Department grid_name="legal">
                             <Header as="h4">{localize('Legal')}</Header>
                             <FooterStyledLink
+                                edgeIssue
                                 activeClassName="active"
                                 to="/regulatory/"
                                 aria-label={localize(
-                                    'Licenses and regulations',
+                                    'Regulatory information',
                                 )}
                                 partiallyActive={true}
                             >
-                                {localize('Licenses and regulations')}
+                                {localize('Regulatory information')}
                             </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"

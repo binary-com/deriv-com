@@ -9,7 +9,7 @@ import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import Image from 'components/elements/image'
 import Button from 'components/form/button.js'
-import dtrader_logo from 'images/svg/d-trader.svg'
+import dtrader_logo from 'images/svg/dtrader-32.svg'
 
 const HeroContent = styled.div`
     display: flex;

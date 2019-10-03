@@ -161,7 +161,7 @@ const RiskNote = styled.section`
     }
 
     @media ${device.tabletL} {
-        :thupadding: 3rem 0;
+        padding: 3rem 0;
     }
 `
 const FooterStyledLink = styled(StyledLink)`

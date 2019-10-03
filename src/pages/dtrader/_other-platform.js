@@ -43,7 +43,7 @@ const OtherPlatform = () => {
                             Icon={DBot}
                             title={localize('DBot')}
                             content={localize(
-                                'Powerful robot builder to automate your trading strategies',
+                                'Automate your trading ideas without coding.',
                             )}
                             width="32.8rem"
                             min_height="27.8rem"
@@ -54,7 +54,7 @@ const OtherPlatform = () => {
                             Icon={DMT5}
                             title={localize('DMT5')}
                             content={localize(
-                                'All-in-one platform for FX and CFD trading',
+                                'Trade with the platform of choice for professionals.',
                             )}
                             width="32.8rem"
                             min_height="27.8rem"

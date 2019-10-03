@@ -15,7 +15,7 @@ import ImageWrapper from '../containers/image-wrapper'
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
-const Image = ({ img_name, alt, width }) => (
+const Image = ({ img_name, alt, width, ini_width }) => (
     <StaticQuery
         query={graphql`
             query {
@@ -23,7 +23,7 @@ const Image = ({ img_name, alt, width }) => (
                     edges {
                         node {
                             fluid(
-                                maxWidth: 1920
+                                maxWidth: ${ini_width}
                                 srcSetBreakpoints: [400, 600, 960, 1280, 1920]
                             ) {
                                 ...GatsbyImageSharpFluid
@@ -52,6 +52,7 @@ const Image = ({ img_name, alt, width }) => (
 Image.propTypes = {
     alt: PropTypes.string,
     img_name: PropTypes.string,
+    ini_width: PropTypes.string,
     width: PropTypes.string,
 }
 export default Image

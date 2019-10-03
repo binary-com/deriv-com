@@ -78,6 +78,7 @@ const Hero = () => {
                         img_name="dmt5-platform.png"
                         alt="DMT5 platform"
                         width="58.9rem"
+                        ini_width="400"
                     />
                 </Show.Desktop>
             </Container>

@@ -25,6 +25,8 @@ const Variables = css`
         --color-yellow: #fff2df;
 
         /* sizes */
+        --text-size-xxs: 1.2rem;
+        --text-size-xs: 1.4rem;
         --text-size-s: 1.6rem;
         --text-size-sm: 2rem;
         --text-size-m: 2.4rem;

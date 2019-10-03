@@ -43,7 +43,7 @@ const OtherPlatform = () => {
                             Icon={DTrader}
                             title={localize('DTrader')}
                             content={localize(
-                                'Everything you need to trade the markets you want',
+                                'Start trading now with a powerful, yet easy-to-use platform.',
                             )}
                             width="32.8rem"
                             min_height="27.8rem"
@@ -54,7 +54,7 @@ const OtherPlatform = () => {
                             Icon={DBot}
                             title={localize('DBot')}
                             content={localize(
-                                'Powerful robot builder to automate your trading strategies',
+                                'Automate your trading ideas without coding.',
                             )}
                             width="32.8rem"
                             min_height="27.8rem"

@@ -107,7 +107,7 @@ export const Dtrader = () => {
                         lh="5rem"
                         className="test"
                     >
-                        {localize('Trader')}
+                        {localize('DTrader')}
                     </Header>
                     <StyledSubHeader
                         as="h6"

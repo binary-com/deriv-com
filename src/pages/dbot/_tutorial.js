@@ -11,7 +11,7 @@ import device from 'themes/device'
 
 const steps = [
     {
-        title: localize('Start with a proven strategy'),
+        title: localize('Start with a popular strategy'),
         subtitle: localize(
             'Martingale, D’Alembert, Oscar’s Grid, Cuttler’s RSI, Bollinger Bands, and SMA Crossover - load and customise proven strategies or create your own from scratch.',
         ),
@@ -27,9 +27,9 @@ const steps = [
         alt: 'Build bot strategy',
     },
     {
-        title: localize('Avoid losses and maximise your profits'),
+        title: localize('Maximise profits, limit losses'),
         subtitle: localize(
-            'Use analysis tools and indicators and include take-profit, stop-loss and other smart logic to avoid losses and maximise your profits.',
+            'Use analysis tools and indicators and include take-profit, stop-loss and other smart logic to maximise your profits, and limit losses.',
         ),
         image: 'dbot-analysis-tool.png',
         alt: 'Analysis tool',

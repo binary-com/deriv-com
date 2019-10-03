@@ -56,7 +56,7 @@ const NavCenter = styled.ul`
 `
 const NavRight = styled.div`
     overflow: hidden;
-    width: 21.4rem;
+    width: 22.4rem;
     position: relative;
     height: 5rem;
     top: 10%;
@@ -84,6 +84,7 @@ const NavButton = styled(Button)`
     position: absolute;
     border: 2px solid var(--color-red);
     left: 0;
+    min-width: 8rem;
     ${props => {
         if (props.movable_button) {
             return `
@@ -205,7 +206,7 @@ const Nav = () => {
                     <NavRight>
                         <NavRightContainer enable_move={show_button}>
                             <NavButton onClick={handleLogin} primary>
-                                <span>{localize('Login')}</span>
+                                <span>{localize('Log in')}</span>
                             </NavButton>
                             <NavButton
                                 secondary

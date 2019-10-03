@@ -165,8 +165,11 @@ const RiskNote = styled.section`
     }
 `
 const FooterStyledLink = styled(StyledLink)`
+    /* This piece of code has been added to handle Edge issue */
+
+    font-size: ${props =>
+        props.edgeIssue ? '1.39rem' : 'var(--text-size-xs)'};
     display: table;
-    font-size: 1.4rem;
     margin-bottom: 1.8rem;
     font-weight: 500;
 `
@@ -306,6 +309,7 @@ const Footer = () => (
                         <Department grid_name="legal">
                             <Header as="h4">{localize('Legal')}</Header>
                             <FooterStyledLink
+                                edgeIssue
                                 activeClassName="active"
                                 to="/regulatory/"
                                 aria-label={localize(

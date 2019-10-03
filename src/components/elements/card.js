@@ -21,7 +21,7 @@ const CardContent = styled(Text)`
 `
 const CardWrapper = styled.article`
     ${CardStyle}
-    min-height: ${props => (props.min_height ? props.min_height : '35.6rem')};;
+    min-height: ${props => (props.min_height ? props.min_height : '35.6rem')};
     width: ${props => (props.width ? props.width : '32.8rem')};
     padding: 4rem;
 
@@ -49,8 +49,9 @@ const CardWrapper = styled.article`
 const CardChildrenWrapper = styled.article`
     ${CardStyle}
     width: ${props => (props.width ? props.width : '50.2rem')};
-    min-height: 41.7rem;
-    padding: 4rem;
+    height: 100%;
+    min-height: 26.8rem;
+    padding: 2.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,7 +61,7 @@ const CardChildrenWrapper = styled.article`
 
     }
     p {
-        font-size: var(--text-size-sm);
+        font-size: var(--text-size-s);
 
         a {
             color: var(--color-red);
@@ -72,7 +73,7 @@ const CardChildrenWrapper = styled.article`
         }
     }
     svg {
-        margin: 2.5rem 0;
+        margin: 0.2rem 0 0.8rem 0;
     }
 `
 
@@ -110,7 +111,7 @@ export const CardChildren = ({
     icon_height,
 }) => (
     <CardChildrenWrapper width={width}>
-        <Header as="h3">{title}</Header>
+        <Header as="h4" weight="500">{title}</Header>
         <Icon width={icon_width} height={icon_height} />
         {children}
     </CardChildrenWrapper>

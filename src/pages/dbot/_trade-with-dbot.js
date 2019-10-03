@@ -72,7 +72,7 @@ export const TradeWithDbot = () => {
                     </Text>
                     <StyledButton
                         tertiary
-                        onClick={() => handleExternalLink(false)}
+                        onClick={() => handleExternalLink(true)}
                     >
                         {localize('Go to live demo')}
                     </StyledButton>

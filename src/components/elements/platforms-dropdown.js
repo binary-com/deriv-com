@@ -34,6 +34,8 @@ const NavDropdown = styled.div`
     z-index: -1;
     background-color: #ffffff;
     height: 17.8rem;
+    transform: translateY(-18rem);
+    opacity: 0;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     transition: all 0.35s ease-in-out;
     animation-name: ${props => (props.is_open ? FadeInDown : FadeOutUp)};
@@ -45,6 +47,7 @@ const NavDropdownGrid = styled(GridContainer)`
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 2rem;
     height: 100%;
+    padding: 2.3rem 0;
     align-items: center;
 
     .active {
@@ -58,6 +61,7 @@ const PlatformItem = styled(LocalizedLink)`
     transition: background-color 0.25s;
     border-radius: 0.8rem;
     min-height: 13.1rem;
+    height: 100%;
     align-items: start;
     cursor: pointer;
     text-decoration: none;
@@ -85,7 +89,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                             </Text>
                             <Text color="black-3">
                                 {localize(
-                                    'Everything you need to trade the markets you want',
+                                    'Start trading now with a powerful, yet easy-to-use platform.',
                                 )}
                             </Text>
                         </div>
@@ -103,7 +107,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                             </Text>
                             <Text color="black-3">
                                 {localize(
-                                    'A powerful robot builder to automate your trading strategies',
+                                    'Automate your trading ideas without coding.',
                                 )}
                             </Text>
                         </div>
@@ -122,7 +126,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                             </Text>
                             <Text color="black-3">
                                 {localize(
-                                    'An all-in-one platform for FX and CFD trading',
+                                    'Trade with the platform of choice for professionals.',
                                 )}
                             </Text>
                         </div>
@@ -133,4 +137,4 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
         </Show.Desktop>
     )
 }
-export default PlatformsDropdown
+export default React.memo(PlatformsDropdown)

@@ -8,8 +8,8 @@ import {
 import { Card } from 'components/elements/card'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import DTrader from 'images/svg/dtrader.svg'
-import DMT5 from 'images/svg/dmt5.svg'
+import DTrader from 'images/svg/dtrader-48.svg'
+import DMT5 from 'images/svg/dmt5-48.svg'
 import device from 'themes/device'
 
 const StyledHeader = styled(Header)`

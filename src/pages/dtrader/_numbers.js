@@ -8,6 +8,7 @@ const NumberWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 24.1rem;
 `
 const StyledContainer = styled(Container)`
     display: flex;

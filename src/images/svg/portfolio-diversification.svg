@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="65" height="64" viewBox="0 0 65 64" aria-labelledby="portfolio-icon-title">
+<svg role="img" xmlns="http://www.w3.org/2000/svg" width="65" height="64" viewBox="0 0 65 64" aria-labelledby="portfolio-icon-title">
     <title id='portfolio-icon-title'>Portfolio</title>
     <g fill="none" fill-rule="nonzero">
         <path fill="#85ACB0" d="M25.615 56H2.97C2.437 56 2 55.556 2 55V3c0-.556.437-1 .97-1h51.2c.531 0 .968.444.968 1v19a1 1 0 0 0 2 0V3c0-1.653-1.325-3-2.969-3H2.97C1.326 0 0 1.347 0 3v52c0 1.653 1.326 3 2.97 3h22.645a1 1 0 1 0 0-2z"/>

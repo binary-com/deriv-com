@@ -16,6 +16,7 @@ const Bullet = styled.div`
         position: relative;
 
         p {
+            max-width: 54.1rem;
             margin-left: 1.6rem;
             font-size: var(--text-size-m);
         }
@@ -75,6 +76,16 @@ const HeaderWrapper = styled.div`
     padding-bottom: 4rem;
 `
 
+const AbsoluteImage = styled(Image)`
+    position: absolute;
+`
+
+const ImageContainer = styled.div`
+    margin-top: 2.3rem;
+    position: relative;
+    width: 80%;
+`
+
 const Bullets = ({ carousel_text }) => (
     <Bullet>
         {carousel_text.map(content => (
@@ -126,14 +137,14 @@ const Carousel = ({ slides, header, children }) => {
                     </CarouselContent>
                     {children && children}
                 </LeftContent>
-                <div>
-                    <Image
+                <ImageContainer>
+                    <AbsoluteImage
                         img_name={img_name}
                         alt={img_alt}
-                        width="43rem"
+                        width="50.2rem"
                         height="29.1rem"
                     />
-                </div>
+                </ImageContainer>
             </AnimatedContainer>
             <ChevronContainer onClick={next}>
                 <ChevronRight />

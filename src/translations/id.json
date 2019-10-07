@@ -535,7 +535,7 @@
     "-520571862": "Trading tidak ditawarkan pada jam terakhir perdagangan pasar manapun (untuk pasar forex, pembatasan mungkin akan diperpanjang hingga tiga jam terakhir).",
     "-208432002": "Trading tidak ditawarkan ketika pasar dasar berada di posisi intraday tinggi atau intraday rendah.",
     "-1193083326": "Selama pasar cepat (yaitu periode pergerakan pasar yang sangat cepat), trading mungkin akan ditawarkan dengan harga lebih menguntungkan berbanding dalam kondisi normal.",
-    "-1100318042": "Beberapa batasan tertentu akan dikenakan pada batasan atau tingkat harga kontrak. Pada dasarnya batasan atau tingkat adalah tidak terlalu dekat atau terlalu jauh dari tingkat harga pasar terkini.",
+    "-1100318042": "Beberapa batasan tertentu akan dikenakan pada batasan atau tingkat harga kontrak. Pada dasarnya, batasan atau tingkat tidak akan terlalu dekat atau terlalu jauh dari tingkat harga pasar terkini.",
     "-856051262": "Harga pasar akan diperbaharui paling sering setiap detik. Untuk setiap detiknya, harga pasar akan diperbaharui untuk tik pertama, jika ada, yang diterima pada detik tersebut pada data feed kami.",
     "-250697634": "Pembatasan waktu dikenakan pada ketersediaan trading tertentu.",
     "-2047038646": "Berikut ini adalah ketentuan penggunaan Deriv:",

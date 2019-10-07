@@ -11,6 +11,7 @@ import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import DTrader from 'images/svg/dtrader-48.svg'
 import DMT5 from 'images/svg/dmt5-48.svg'
+import DBot from 'images/svg/dbot-48.svg'
 import device from 'themes/device'
 
 const HeaderWrapper = styled.div`
@@ -70,10 +71,10 @@ export const OtherPlatform = ({ header, subHeader }) => (
                     min_height="22.4rem"
                 />
             </StyledLink>
-            <StyledLink to="/dtrader">
+            <StyledLink to="/dbot">
                 <Card
                     title={localize('DBot')}
-                    Icon={DTrader}
+                    Icon={DBot}
                     content={[
                         localize('Automate your trading ideas without coding.'),
                     ]}

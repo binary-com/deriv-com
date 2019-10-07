@@ -69,7 +69,7 @@ const Tab = styled.div`
 `
 const VideoWrapper = styled.div`
     grid-area: video;
-    margin-top: 1.6rem;
+    margin-top: 4rem;
     position: relative;
     text-align: center;
 `

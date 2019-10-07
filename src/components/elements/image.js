@@ -23,7 +23,7 @@ const Image = ({ img_name, alt, width }) => (
                     edges {
                         node {
                             fluid(
-                                maxWidth: 1920
+                                maxWidth: 1024
                                 srcSetBreakpoints: [400, 600, 960, 1280, 1920]
                             ) {
                                 ...GatsbyImageSharpFluid

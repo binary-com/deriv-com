@@ -47,7 +47,7 @@ const CheckEmail = () => {
                 is_open={show_modal}
                 closeModal={closeModal}
             >
-                <SignupModal />
+                <SignupModal closeModal={closeModal} />
             </Modal>
         </Layout>
     )

@@ -42,7 +42,7 @@ export const OtherPlatform = () => {
                         Icon={DTrader}
                         content={[
                             localize(
-                                'Everything you need to trade the markets you want',
+                                'Start trading now with a powerful, yet easy-to-use platform.',
                             ),
                         ]}
                         width="32.8rem"
@@ -55,7 +55,7 @@ export const OtherPlatform = () => {
                         Icon={DMT5}
                         content={[
                             localize(
-                                'All-in-one platform for FX and CFD trading',
+                                'Trade with the platform of choice for professionals.',
                             ),
                         ]}
                         width="32.8rem"

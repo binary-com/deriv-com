@@ -168,7 +168,9 @@ const FooterStyledLink = styled(StyledLink)`
     /* This piece of code has been added to handle Edge issue */
 
     font-size: ${props =>
-        props.edgeIssue ? '1.39rem' : 'var(--text-size-xs)'};
+        props.edge_resize_font
+            ? props.edge_resize_font
+            : 'var(--text-size-xs)'};
     display: table;
     margin-bottom: 1.8rem;
     font-weight: 500;
@@ -308,12 +310,10 @@ const Footer = () => (
                         <Department grid_name="legal">
                             <Header as="h4">{localize('Legal')}</Header>
                             <FooterStyledLink
-                                edgeIssue
+                                edge_resize_font="1.39rem"
                                 activeClassName="active"
                                 to="/regulatory/"
-                                aria-label={localize(
-                                    'Regulatory information',
-                                )}
+                                aria-label={localize('Regulatory information')}
                                 partiallyActive={true}
                             >
                                 {localize('Regulatory information')}

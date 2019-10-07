@@ -83,7 +83,11 @@ const AbsoluteImage = styled(Image)`
 const ImageContainer = styled.div`
     margin-top: 2.3rem;
     position: relative;
-    width: 80%;
+    width: 40%;
+
+    @media screen and (max-width: 1260px) {
+        width: 80%;
+    }
 `
 
 const Bullets = ({ carousel_text }) => (

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Container from 'components/containers/container'
 import { Text, Header } from 'components/elements/typography.js'
+import Image from 'components/elements/image'
 import ChecklistLogo from 'images/svg/checklist.svg'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
@@ -71,7 +72,7 @@ const ChevronContainer = styled.div`
 `
 
 const HeaderWrapper = styled.div`
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
 `
 
 const Bullets = ({ carousel_text }) => (
@@ -94,7 +95,7 @@ Bullets.propTypes = {
 const Carousel = ({ slides, header, children }) => {
     const [active_slide, setActiveSlide] = useState(0)
     const last_slide = slides.length - 1
-    const { text, img: Image } = slides[active_slide]
+    const { text, img_name, img_alt } = slides[active_slide]
 
     const next = () => {
         if (active_slide === last_slide) return setActiveSlide(0)
@@ -125,7 +126,14 @@ const Carousel = ({ slides, header, children }) => {
                     </CarouselContent>
                     {children && children}
                 </LeftContent>
-                <Image />
+                <div>
+                    <Image
+                        img_name={img_name}
+                        alt={img_alt}
+                        width="43rem"
+                        height="29.1rem"
+                    />
+                </div>
             </AnimatedContainer>
             <ChevronContainer onClick={next}>
                 <ChevronRight />

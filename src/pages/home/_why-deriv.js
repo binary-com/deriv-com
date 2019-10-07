@@ -6,7 +6,6 @@ import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers/container'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-import WhyDeriv1 from 'images/svg/why-deriv-1.svg'
 
 const carousel_data = [
     {
@@ -15,7 +14,8 @@ const carousel_data = [
             localize('Licensed and regulated.'),
             localize('Exclusive synthetic indices, 24/7.'),
         ],
-        img: WhyDeriv1,
+        img_name: 'dtrader-carousel.png',
+        img_alt: localize('DTrader screens'),
     },
     {
         text: [
@@ -25,7 +25,8 @@ const carousel_data = [
                 'Access tools & indicators to make smart trading decisions.',
             ),
         ],
-        img: WhyDeriv1,
+        img_name: 'dbot-carousel.png',
+        img_alt: localize('DBot screens'),
     },
     {
         text: [
@@ -33,7 +34,8 @@ const carousel_data = [
             localize('High leverage, 100% ‘A’ book account.'),
             localize('Trade on mobile, desktop and browser.'),
         ],
-        img: WhyDeriv1,
+        img_name: 'dmt5-carousel.png',
+        img_alt: localize('DMT5 screens'),
     },
 ]
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Hero } from './home/_hero'
-import { Dtrader } from './home/_dtrader'
+import { Trade } from './home/_trade'
 import { HowItWorks } from './home/_how-it-works'
 import { Markets } from './home/_markets'
 import { WhyDeriv } from './home/_why-deriv'
@@ -24,11 +24,12 @@ const Home = () => (
         <Hero />
         <Show.Mobile>
             <WhyDerivMobile />
-            <Dtrader />
+            <Trade />
         </Show.Mobile>
         <Show.Desktop>
             <Ticker />
-            <Dtrader />
+            <Trade />
+            <Divider />
             <HowItWorks />
             <Divider />
             <Markets />

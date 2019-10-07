@@ -29,7 +29,6 @@ const Qoute = styled.span`
 `
 const CarouselWapper = styled.div`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.6rem;
 `
 class Tick extends React.Component {
     state = {

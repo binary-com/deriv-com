@@ -257,7 +257,7 @@ class DtraderTabs extends React.Component {
                 <VideoWrapper>
                     <MacbookFrame />
                     <Video ref={this.my_ref} preload="metadata" muted>
-                        <source src="/Dtrader_GIF.mp4" />
+                        <source src="/Dtrader_GIF.webm" />
                     </Video>
                 </VideoWrapper>
                 <ProgressBar

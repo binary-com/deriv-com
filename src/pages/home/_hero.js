@@ -5,12 +5,10 @@ import { HeroHeader, StyledHeader } from './_headers'
 import device from 'themes/device'
 import Container from 'components/containers/container'
 import Show from 'components/containers/show'
-import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-import Image from 'components/elements/image'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -51,30 +49,11 @@ const HeroGrid = styled.section`
         text-align: center;
     }
 `
-const SignupWrapper = styled.article`
-    justify-self: end;
 
-    @media ${device.laptop} {
-        justify-self: center;
-    }
+const ButtonWrapper = styled.div`
+    margin-top: 3.2rem;
 `
 
-const SignupBox = styled.div`
-    min-width: 33rem;
-    background-color: var(--color-grey-1);
-    border-radius: 6px;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 3.2rem 0;
-
-    h3 {
-        font-size: var(--text-size-m);
-        font-weight: 500;
-    }
-    ${LoginText} {
-        display: none;
-    }
-`
 const SingupButton = styled(Button)`
     width: 100%;
     max-width: 36rem;
@@ -120,6 +99,15 @@ export const Hero = () => {
                                     'The world’s markets at your fingertips anytime, anywhere.',
                                 )}
                             </HeroHeader>
+                            <ButtonWrapper>
+                                <Button
+                                    type="submit"
+                                    onClick={toggleModal}
+                                    secondary
+                                >
+                                    {localize('Create a free account')}
+                                </Button>
+                            </ButtonWrapper>
                         </Show.Desktop>
                     </article>
                     <Show.Mobile>
@@ -128,32 +116,18 @@ export const Hero = () => {
                             onClick={toggleModal}
                             secondary
                         >
-                            {localize('Create a free demo account')}
+                            {localize('Create a free account')}
                         </SingupButton>
-                        <Modal
-                            toggle={toggleModal}
-                            is_open={show_modal}
-                            closeModal={closeModal}
-                        >
-                            <SignupModal autofocus />
-                        </Modal>
                     </Show.Mobile>
-                    <SignupWrapper>
-                        <Show.Desktop>
-                            <SignupBox>
-                                <Signup />
-                            </SignupBox>
-                        </Show.Desktop>
-                    </SignupWrapper>
+                    <Modal
+                        toggle={toggleModal}
+                        is_open={show_modal}
+                        closeModal={closeModal}
+                    >
+                        <SignupModal autofocus />
+                    </Modal>
                 </HeroGrid>
             </Container>
-            <Show.Desktop>
-                <Image
-                    img_name="header-trade.png"
-                    width="90rem"
-                    alt={localize('Market line')}
-                />
-            </Show.Desktop>
         </HeroWrapper>
     )
 }

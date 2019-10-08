@@ -31,6 +31,10 @@ const StyledSection = styled.section`
     }
 `
 
+const StyledContainer = styled(SectionContainer)`
+    height: 71.1rem;
+`
+
 const Markettabs = styled.div`
     margin-top: 4rem;
 `
@@ -170,7 +174,7 @@ const Synthetic = () => (
 )
 
 export const Markets = () => (
-    <SectionContainer>
+    <StyledContainer>
         <Container direction="column">
             <Header as="h2" align="center">
                 {localize('Markets')}
@@ -195,5 +199,5 @@ export const Markets = () => (
                 </SideTab>
             </Markettabs>
         </Container>
-    </SectionContainer>
+    </StyledContainer>
 )

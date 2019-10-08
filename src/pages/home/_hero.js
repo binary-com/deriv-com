@@ -15,6 +15,7 @@ const HeroWrapper = styled.section`
     padding: 4rem 0 0;
     min-height: 65rem;
     background: var(--color-black);
+    position: relative;
 
     @media ${device.laptop} {
         background-position: -10rem 100%;
@@ -29,6 +30,18 @@ const HeroWrapper = styled.section`
     @media ${device.tablet} {
         background-position: -40rem 100%;
     }
+`
+
+const StyledArticle = styled.article`
+    position: relative;
+    z-index: 2;
+`
+
+const VideoWrapper = styled.video`
+    position: absolute;
+    max-width: 76.2rem;
+    height: 52.5rem;
+    right: 3.5rem;
 `
 
 const HeroGrid = styled.section`
@@ -54,19 +67,13 @@ const ButtonWrapper = styled.div`
     margin-top: 3.2rem;
 `
 
-const SingupButton = styled(Button)`
-    width: 100%;
-    max-width: 36rem;
-    font-size: var(--text-size-sm);
-`
-
 export const Hero = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <HeroWrapper>
             <Container>
                 <HeroGrid>
-                    <article>
+                    <StyledArticle>
                         <Show.Mobile>
                             <Header font_size="6rem" color="white" lh="1.1">
                                 {localize(
@@ -109,16 +116,17 @@ export const Hero = () => {
                                 </Button>
                             </ButtonWrapper>
                         </Show.Desktop>
-                    </article>
-                    <Show.Mobile>
-                        <SingupButton
-                            type="submit"
-                            onClick={toggleModal}
-                            secondary
-                        >
-                            {localize('Create a free account')}
-                        </SingupButton>
-                    </Show.Mobile>
+                    </StyledArticle>
+                    <VideoWrapper
+                        width="100%"
+                        height="100%"
+                        autoPlay
+                        muted
+                        playsInline
+                        loop
+                    >
+                        <source src="/coba2.mp4" type="video/mp4" />
+                    </VideoWrapper>
                     <Modal
                         toggle={toggleModal}
                         is_open={show_modal}

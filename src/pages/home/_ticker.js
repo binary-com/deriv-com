@@ -42,9 +42,22 @@ class Tick extends React.Component {
                 ticks: symbol,
                 subscribe: 1,
             },
-            { callback: this.updateStateWithResponse },
+            { callback: this.onSubscribe },
         )
     }
+
+    getHistory = symbol => {
+        BinarySocketBase.send(
+            {
+                ticks_history: symbol,
+                end: 'latest',
+                adjust_start_time: 1,
+                count: 1,
+            },
+            { callback: this.onTicksHistory },
+        )
+    }
+
     reformatQuote(number) {
         // calculate that how many decimal each quote should have, based on pip value
         return number.toFixed(
@@ -54,7 +67,22 @@ class Tick extends React.Component {
             ),
         )
     }
-    updateStateWithResponse = response => {
+
+    onTicksHistory = response => {
+        if (response.error) {
+            this.setState({
+                quote: null,
+                movement: null,
+            })
+        } else {
+            this.setState({
+                quote: this.reformatQuote(response.history.prices[0]),
+                movement: null,
+            })
+        }
+    }
+
+    onSubscribe = response => {
         if (response.error) {
             this.setState({
                 quote: null,
@@ -85,8 +113,16 @@ class Tick extends React.Component {
     }
 
     componentDidMount() {
-        this.subscribe(this.props.symbol)
+        const { symbol, is_exchange_open } = this.props
+
+        if (is_exchange_open) {
+            this.subscribe(symbol)
+        } else {
+            this.getHistory(symbol)
+        }
     }
+
+    // TODO: move to parent to avoid sending 10x
     componentWillUnmount() {
         BinarySocketBase.send({
             forget_all: 'ticks',
@@ -116,27 +152,57 @@ class Tick extends React.Component {
 
 Tick.propTypes = {
     display_name: PropTypes.string,
+    is_exchange_open: PropTypes.bool,
     pip: PropTypes.number,
     symbol: PropTypes.string,
 }
 
+const makeMarkets = active_symbols => {
+    let volatility_count = 4
+    let forex_count = 6
+    const random_index = []
+    const random_daily = []
+    const forex_major_pairs = []
+
+    active_symbols.forEach(symbol => {
+        if (symbol.market === 'volidx') {
+            if (symbol.submarket === 'random_index') {
+                random_index.push(symbol)
+            } else {
+                random_daily.push(symbol)
+            }
+        } else if (
+            symbol.market === 'forex' &&
+            symbol.submarket === 'major_pairs'
+        ) {
+            if (!symbol.exchange_is_open) {
+                volatility_count = 6
+                forex_count = 4
+            }
+            forex_major_pairs.push(symbol)
+        }
+    })
+
+    const volatility_markets = [...random_index, ...random_daily].slice(
+        0,
+        volatility_count,
+    )
+    const forex_markets = [...forex_major_pairs].slice(0, forex_count)
+    const markets = [...volatility_markets, ...forex_markets]
+
+    return {
+        markets,
+    }
+}
 class Ticker extends React.Component {
     state = {
         markets: [],
     }
     onActiveSymbolReceive = response => {
-        const random_index = []
-        const random_daily = []
-        response.active_symbols.forEach(symbol => {
-            if (symbol.market === 'volidx') {
-                symbol.submarket === 'random_index'
-                    ? random_index.push(symbol)
-                    : random_daily.push(symbol)
-            }
-        })
-        const active_symbols = random_index.concat(random_daily)
+        const { markets } = makeMarkets(response.active_symbols)
+
         this.setState({
-            markets: active_symbols,
+            markets,
         })
     }
     componentDidMount() {
@@ -156,14 +222,17 @@ class Ticker extends React.Component {
                         carousel_width="100%"
                         transition_duration={30000}
                     >
-                        {this.state.markets.map(symbol => (
-                            <Tick
-                                key={symbol.symbol}
-                                display_name={symbol.display_name}
-                                symbol={symbol.symbol}
-                                pip={symbol.pip}
-                            ></Tick>
-                        ))}
+                        {this.state.markets.map(symbol => {
+                            return (
+                                <Tick
+                                    key={symbol.symbol}
+                                    display_name={symbol.display_name}
+                                    symbol={symbol.symbol}
+                                    is_exchange_open={!!symbol.exchange_is_open}
+                                    pip={symbol.pip}
+                                ></Tick>
+                            )
+                        })}
                     </AutoCarousel>
                 )}
             </CarouselWapper>

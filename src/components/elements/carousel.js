@@ -45,6 +45,7 @@ const CarouselWrapper = styled.div`
     display: flex;
 `
 const SliderWrapper = styled(Container)`
+    /* TODO: handle carousels with non overflow images  */
     @media ${device.desktop} {
         max-width: 1150px;
     }

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import styled, { keyframes } from 'styled-components'
 import PropTypes from 'prop-types'
+import { isBrowser } from 'common/utility'
 
 const AutoCarouselSection = styled.section`
     width: ${props => props.width};
@@ -37,20 +38,17 @@ const ItemsWrapper = styled.div`
     cursor: default;
 `
 class AutoCarousel extends React.PureComponent {
+    my_ref = createRef()
     // carousel_width: define carousel's width by percentage
     // items_padding: define items padding by pixle
     // transition_duaration: takes a whole loop, define it by ms
-    my_ref = React.createRef()
-    constructor(props) {
-        super(props)
-        this.state = {
-            transition: false,
-            items: [],
-            carousel_width: 0,
-            should_carousel_move: false,
-            total_translate: 0,
-            animation_status: 'running',
-        }
+    state = {
+        transition: false,
+        items: [],
+        carousel_width: 0,
+        should_carousel_move: false,
+        total_translate: 0,
+        animation_status: 'running',
     }
     // every time you observe this, the carousel will restart from first child component
     handler = entries => {
@@ -67,6 +65,7 @@ class AutoCarousel extends React.PureComponent {
             }
         }
     }
+    observer = isBrowser() && new window.IntersectionObserver(this.handler)
     componentDidMount() {
         let total_translate = 0
         let child
@@ -74,8 +73,10 @@ class AutoCarousel extends React.PureComponent {
             total_translate = total_translate + child.offsetWidth
         }
         this.setState({ total_translate: total_translate })
-        let observer = new IntersectionObserver(this.handler)
-        observer.observe(this.my_ref.current)
+        this.observer.observe(this.my_ref.current)
+    }
+    componentWillUnmount() {
+        this.observer.disconnect()
     }
     pauseAnimation = () => {
         this.setState({ animation_status: 'paused' })

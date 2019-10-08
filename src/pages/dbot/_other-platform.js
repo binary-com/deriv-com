@@ -8,8 +8,8 @@ import {
 import { Card } from 'components/elements/card'
 import { Header } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import DTrader from 'images/svg/dtrader.svg'
-import DMT5 from 'images/svg/dmt5.svg'
+import DTrader from 'images/svg/dtrader-48.svg'
+import DMT5 from 'images/svg/dmt5-48.svg'
 import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
@@ -42,7 +42,7 @@ export const OtherPlatform = () => {
                         Icon={DTrader}
                         content={[
                             localize(
-                                'Everything you need to trade the markets you want',
+                                'Start trading now with a powerful, yet easy-to-use platform.',
                             ),
                         ]}
                         width="32.8rem"
@@ -55,7 +55,7 @@ export const OtherPlatform = () => {
                         Icon={DMT5}
                         content={[
                             localize(
-                                'All-in-one platform for FX and CFD trading',
+                                'Trade with the platform of choice for professionals.',
                             ),
                         ]}
                         width="32.8rem"

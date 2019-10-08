@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Dbot from 'images/svg/d-bot.svg'
+import Dbot from 'images/svg/dbot-32.svg'
 import Container, { SectionContainer } from 'components/containers/container'
 import Wrapper from 'components/containers/wrapper'
 import Image from 'components/elements/image'

@@ -6,8 +6,8 @@ import { localize } from 'components/localization'
 import Container, { SectionContainer } from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import device from 'themes/device'
-import DBot from 'images/svg/d-bot.svg'
-import DMT5 from 'images/svg/dmt-5.svg'
+import DBot from 'images/svg/dbot-48.svg'
+import DMT5 from 'images/svg/dmt5-48.svg'
 
 const CardWrapper = styled.div`
     display: flex;
@@ -43,7 +43,7 @@ const OtherPlatform = () => {
                             Icon={DBot}
                             title={localize('DBot')}
                             content={localize(
-                                'Powerful robot builder to automate your trading strategies',
+                                'Automate your trading ideas without coding.',
                             )}
                             width="32.8rem"
                             min_height="27.8rem"
@@ -54,7 +54,7 @@ const OtherPlatform = () => {
                             Icon={DMT5}
                             title={localize('DMT5')}
                             content={localize(
-                                'All-in-one platform for FX and CFD trading',
+                                'Trade with the platform of choice for professionals.',
                             )}
                             width="32.8rem"
                             min_height="27.8rem"

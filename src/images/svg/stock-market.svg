@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="stock-market-icon-title">
+<svg role="img" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="stock-market-icon-title">
     <title id='stock-market-icon-title'>Stock market</title>
     <g fill="none" fill-rule="nonzero">
         <path fill="#85ACB0" d="M47.439 32.866H56.3c.544 0 .985.441.985.985v28.042h1.97V33.85a2.954 2.954 0 0 0-2.955-2.954H47.44v1.97z"/>

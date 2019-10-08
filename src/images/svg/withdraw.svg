@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="240" height="140" viewBox="0 0 240 140" aria-labelledby="withdraw-icon-title">
+<svg role="img" xmlns="http://www.w3.org/2000/svg" width="240" height="140" viewBox="0 0 240 140" aria-labelledby="withdraw-icon-title">
     <title id='withdraw-icon-title'>Withdraw</title>
     <g fill="none" fill-rule="evenodd" transform="translate(13)">
         <path fill="#C7E5E5" fill-rule="nonzero" stroke="#85ACB0" stroke-width="1.003" d="M63.734 22.038l34.434-12.82a3 3 0 0 1 3.858 1.764l28.579 76.755a3 3 0 0 1-1.765 3.858l-34.433 12.82a3 3 0 0 1-3.858-1.764l-28.58-76.755a3 3 0 0 1 1.765-3.858z"/>

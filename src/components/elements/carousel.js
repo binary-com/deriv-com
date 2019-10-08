@@ -6,6 +6,7 @@ import { Text, Header } from 'components/elements/typography.js'
 import Image from 'components/elements/image'
 import ChecklistLogo from 'images/svg/checklist.svg'
 import Chevron from 'images/svg/carousel-chevron.svg'
+import device from 'themes/device'
 
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
@@ -32,12 +33,30 @@ const CarouselContent = styled.div`
     }
 `
 
-const LeftContent = styled.div``
+const LeftContent = styled.div`
+    margin-left: 5%;
+
+    @media (max-width: 1024px) {
+        margin-left: 0;
+    }
+`
 
 const CarouselWrapper = styled.div`
     display: flex;
 `
 const SliderWrapper = styled(Container)`
+    @media ${device.desktop} {
+        max-width: 1150px;
+    }
+    @media ${device.desktopL} {
+        max-width: 1550px;
+    }
+    @media ${device.tabletL} {
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     display: flex;
     margin: 0 auto;
     height: 500px;
@@ -173,6 +192,7 @@ const Carousel = ({ slides, header, children }) => {
             <SliderWrapper ref={ref}>
                 <Slide
                     translate_width={translate_width}
+                    slide_width={slide_width}
                     slides={slides}
                     header={header}
                 >

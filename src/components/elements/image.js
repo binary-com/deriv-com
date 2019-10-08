@@ -26,7 +26,7 @@ const Image = ({ img_name, alt, width }) => (
                                 maxWidth: 1920
                                 srcSetBreakpoints: [400, 600, 960, 1280, 1920]
                             ) {
-                                ...GatsbyImageSharpFluid
+                                ...GatsbyImageSharpFluid_withWebp_noBase64
                                 originalName
                             }
                         }

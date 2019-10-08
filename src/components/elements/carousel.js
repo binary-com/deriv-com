@@ -7,18 +7,24 @@ import Image from 'components/elements/image'
 import ChecklistLogo from 'images/svg/checklist.svg'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
-const Bullet = styled.div`
+const ChevronRight = styled(Chevron)`
+    transform: rotate(180deg);
+`
+
+const CarouselContent = styled.div`
+    display: flex;
+    flex-direction: column;
+
     div {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         margin-top: 3rem;
         width: 100%;
-        position: relative;
 
         p {
-            max-width: 54.1rem;
             margin-left: 1.6rem;
             font-size: var(--text-size-m);
+            white-space: normal;
         }
     }
     div:first-child {
@@ -26,39 +32,16 @@ const Bullet = styled.div`
     }
 `
 
-const ChevronRight = styled(Chevron)`
-    transform: rotate(180deg);
-`
-
-const CarouselContent = styled.div`
-    display: flex;
-    position: relative;
-`
-
 const LeftContent = styled.div``
 
 const CarouselWrapper = styled.div`
     display: flex;
-    position: relative;
 `
-const AnimatedContainer = styled(Container)`
-    @keyframes slide {
-        0% {
-            margin-left: 12.6rem;
-            opacity: 0;
-        }
-        70% {
-            opacity: 0.2;
-        }
-        100% {
-            margin-left: 0;
-            opacity: 1;
-        }
-    }
-
-    animation-name: slide;
-    animation-duration: 0.4s;
-    animation-timing-function: linear;
+const SliderWrapper = styled(Container)`
+    display: flex;
+    margin: 0 auto;
+    height: 500px;
+    overflow: hidden;
 `
 
 const ChevronContainer = styled.div`
@@ -76,50 +59,110 @@ const HeaderWrapper = styled.div`
     padding-bottom: 4rem;
 `
 
-const AbsoluteImage = styled(Image)`
-    position: absolute;
-`
-
 const ImageContainer = styled.div`
+    width: 100%;
     margin-top: 2.3rem;
-    position: relative;
-    width: 40%;
 
-    @media screen and (max-width: 1260px) {
-        width: 80%;
+    @media (max-width: 1150px) {
+        display: none;
     }
 `
 
-const Bullets = ({ carousel_text }) => (
-    <Bullet>
-        {carousel_text.map(content => (
-            <div key={content}>
-                <ChecklistLogo />
-                <Text color="white" weight="500">
-                    {content}
-                </Text>
-            </div>
-        ))}
-    </Bullet>
-)
+const Slide = ({ slides, translate_width, header, children }) => {
+    return (
+        <div
+            style={{
+                transform: `translateX(${translate_width}px)`,
+                transition: 'transform ease-out 0.45s',
+                width: '100%',
+                whiteSpace: 'nowrap',
+            }}
+        >
+            {slides.map((slide, idx) => (
+                <div
+                    style={{ width: '100%', display: 'inline-block' }}
+                    key={idx}
+                >
+                    <div style={{ display: 'flex' }}>
+                        <LeftContent>
+                            <HeaderWrapper>
+                                <Header as="h2" color="white">
+                                    {header}
+                                </Header>
+                            </HeaderWrapper>
+                            <CarouselContent>
+                                {slide.text.map(content => (
+                                    <div key={content}>
+                                        <ChecklistLogo />
+                                        <Text color="white" weight="500">
+                                            {content}
+                                        </Text>
+                                    </div>
+                                ))}
+                            </CarouselContent>
+                            {children && children}
+                        </LeftContent>
+                        <ImageContainer>
+                            <Image
+                                img_name={slide.img_name}
+                                alt={slide.img_alt}
+                                width="100%"
+                            />
+                        </ImageContainer>
+                    </div>
+                </div>
+            ))}
+        </div>
+    )
+}
 
-Bullets.propTypes = {
-    carousel_text: PropTypes.array,
+Slide.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]),
+    header: PropTypes.string,
+    slides: PropTypes.array,
+    translate_width: PropTypes.number,
 }
 
 const Carousel = ({ slides, header, children }) => {
-    const [active_slide, setActiveSlide] = useState(0)
+    const ref = React.useRef(null)
     const last_slide = slides.length - 1
-    const { text, img_name, img_alt } = slides[active_slide]
+
+    const [active_slide, setActiveSlide] = useState(0)
+    const [translate_width, setTranslateWidth] = useState(0)
+    const [slide_width, setSlideWidth] = useState(0)
+
+    const setWidth = () => {
+        const width = ref.current ? ref.current.offsetWidth : 0
+        setSlideWidth(width)
+    }
+
+    React.useEffect(() => {
+        setWidth()
+        window.addEventListener('resize', setWidth)
+        return () => window.removeEventListener('resize', setWidth)
+    }, [ref.current])
 
     const next = () => {
-        if (active_slide === last_slide) return setActiveSlide(0)
-        return setActiveSlide(active_slide + 1)
+        if (active_slide === last_slide) {
+            setActiveSlide(0)
+            setTranslateWidth(0)
+            return
+        }
+        setActiveSlide(active_slide + 1)
+        setTranslateWidth(translate_width - slide_width)
     }
 
     const previous = () => {
-        if (active_slide === 0) return setActiveSlide(last_slide)
-        return setActiveSlide(active_slide - 1)
+        if (active_slide === 0) {
+            setActiveSlide(last_slide)
+            setTranslateWidth(-(slide_width * (slides.length - 1)))
+            return
+        }
+        setActiveSlide(active_slide - 1)
+        setTranslateWidth(translate_width + slide_width)
     }
 
     return (
@@ -127,29 +170,15 @@ const Carousel = ({ slides, header, children }) => {
             <ChevronContainer onClick={previous} left>
                 <Chevron />
             </ChevronContainer>
-            <AnimatedContainer justify="flex-start" align="start">
-                <LeftContent>
-                    {header && (
-                        <HeaderWrapper>
-                            <Header as="h2" color="white">
-                                {header}
-                            </Header>
-                        </HeaderWrapper>
-                    )}
-                    <CarouselContent>
-                        <Bullets carousel_text={text} />
-                    </CarouselContent>
-                    {children && children}
-                </LeftContent>
-                <ImageContainer>
-                    <AbsoluteImage
-                        img_name={img_name}
-                        alt={img_alt}
-                        width="50.2rem"
-                        height="29.1rem"
-                    />
-                </ImageContainer>
-            </AnimatedContainer>
+            <SliderWrapper ref={ref}>
+                <Slide
+                    translate_width={translate_width}
+                    slides={slides}
+                    header={header}
+                >
+                    {children}
+                </Slide>
+            </SliderWrapper>
             <ChevronContainer onClick={next}>
                 <ChevronRight />
             </ChevronContainer>

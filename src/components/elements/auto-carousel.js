@@ -22,7 +22,7 @@ const ItemContainer = styled.div`
     padding: 0 ${props => props.padding / 2}px;
 `
 const ItemsWrapper = styled.div`
-    width: ${props => props.total_translate}px;
+    /* width: TODO: fix this ${props => props.total_translate}px; */
     display: flex;
     justify-content: flex-start;
     margin: 0 auto;

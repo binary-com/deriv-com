@@ -17,14 +17,15 @@ const TickWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 2.7rem 0;
-    width: 290px;
+    width: 36rem;
 `
 const StyledText = styled(Text)`
-    width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 0 auto;
+    font-size: var(--text-size-sm);
 `
 const Qoute = styled.span`
     font-weight: bold;

@@ -67,7 +67,7 @@ const SliderWrapper = styled(Container)`
 
     display: flex;
     margin: 0 auto;
-    height: 500px;
+    height: 100%;
     overflow: hidden;
 `
 

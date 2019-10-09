@@ -106,7 +106,7 @@ const SlideWrapper = styled.div`
     }
 `
 
-const Slide = ({ slides, translate_width, header, children }) => (
+const Slide = ({ slides, translate_width, children }) => (
     <div
         style={{
             transform: `translateX(${translate_width}px)`,
@@ -121,7 +121,7 @@ const Slide = ({ slides, translate_width, header, children }) => (
                     <LeftContent>
                         <HeaderWrapper>
                             <Header as="h2" color="white">
-                                {header}
+                                {slide.header}
                             </Header>
                         </HeaderWrapper>
                         <CarouselContent>
@@ -154,12 +154,11 @@ Slide.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]),
-    header: PropTypes.string,
     slides: PropTypes.array,
     translate_width: PropTypes.number,
 }
 
-const Carousel = ({ slides, header, children }) => {
+const Carousel = ({ slides, children }) => {
     const ref = React.useRef(null)
     const last_slide = slides.length - 1
     const first_slide = 0
@@ -209,7 +208,6 @@ const Carousel = ({ slides, header, children }) => {
                     translate_width={translate_width}
                     slide_width={slide_width}
                     slides={slides}
-                    header={header}
                 >
                     {children}
                 </Slide>
@@ -227,7 +225,6 @@ Carousel.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
     ]),
-    header: PropTypes.string,
     slides: PropTypes.array,
 }
 export default Carousel

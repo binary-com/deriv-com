@@ -22,7 +22,7 @@ const ItemContainer = styled.div`
     padding: 0 ${props => props.padding / 2}px;
 `
 const ItemsWrapper = styled.div`
-    width: ${props => props.total_translate};
+    width: ${props => props.total_translate}px;
     display: flex;
     justify-content: flex-start;
     margin: 0 auto;
@@ -110,8 +110,8 @@ class AutoCarousel extends React.PureComponent {
                         <ItemsWrapper
                             animation_status={this.state.animation_status}
                             transition_duration={this.props.transition_duration}
-                            key={i}
                             total_translate={this.state.total_translate}
+                            key={i}
                             should_carousel_move={
                                 this.state.should_carousel_move
                             }

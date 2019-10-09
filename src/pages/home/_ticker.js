@@ -127,13 +127,6 @@ class Tick extends React.PureComponent {
         }
     }
 
-    // TODO: move to parent to avoid sending 10x
-    componentWillUnmount() {
-        BinarySocketBase.send({
-            forget_all: 'ticks',
-        })
-    }
-
     render() {
         const Movement = this.state.movement
         return (
@@ -222,6 +215,11 @@ class Ticker extends React.Component {
             },
             { callback: this.onActiveSymbolReceive },
         )
+    }
+    componentWillUnmount() {
+        BinarySocketBase.send({
+            forget_all: 'ticks',
+        })
     }
     render() {
         return (

@@ -12,6 +12,8 @@ import Button from 'components/form/button'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 import Show from 'components/containers/show'
+import Image from 'components/elements/image'
+import Wrapper from 'components/containers/wrapper'
 
 const Goahead = styled.div`
     text-align: center;
@@ -26,6 +28,17 @@ const AccountButton = styled(Button)`
     max-width: 32rem;
     margin-bottom: 3.6rem;
 `
+
+const StyledWrapper = styled(Wrapper)`
+    height: 20rem;
+    position: relative;
+`
+
+const ImageWrapper = styled(Wrapper)`
+    position: absolute;
+    bottom: -3rem;
+`
+
 const About = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
@@ -45,7 +58,17 @@ const About = () => {
                     paragraph={localize(
                         'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
                     )}
-                />
+                >
+                    <StyledWrapper>
+                        <ImageWrapper>
+                            <Image
+                                img_name="header-trade.png"
+                                width="90rem"
+                                alt={localize('Market line')}
+                            />
+                        </ImageWrapper>
+                    </StyledWrapper>
+                </Hero>
             </Show.Desktop>
             <OurGoals />
             <OurNumbers />

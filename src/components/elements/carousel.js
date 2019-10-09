@@ -36,8 +36,15 @@ const CarouselContent = styled.div`
 const LeftContent = styled.div`
     margin-left: 5%;
 
-    @media (max-width: 1024px) {
+    /* TODO: handle carousels with non overflow images  */
+    @media (min-width: 1024px) {
         margin-left: 0;
+    }
+    @media screen and (min-width: 1300px) and (max-width: 1420px) {
+        margin-left: 3%;
+    }
+    @media (min-width: 1420px) {
+        margin-left: 5%;
     }
 `
 
@@ -88,53 +95,59 @@ const ImageContainer = styled.div`
     }
 `
 
-const Slide = ({ slides, translate_width, header, children }) => {
-    return (
-        <div
-            style={{
-                transform: `translateX(${translate_width}px)`,
-                transition: 'transform ease-out 0.45s',
-                width: '100%',
-                whiteSpace: 'nowrap',
-            }}
-        >
-            {slides.map((slide, idx) => (
-                <div
-                    style={{ width: '100%', display: 'inline-block' }}
-                    key={idx}
-                >
-                    <div style={{ display: 'flex' }}>
-                        <LeftContent>
-                            <HeaderWrapper>
-                                <Header as="h2" color="white">
-                                    {header}
-                                </Header>
-                            </HeaderWrapper>
-                            <CarouselContent>
-                                {slide.text.map(content => (
-                                    <div key={content}>
-                                        <ChecklistLogo />
-                                        <Text color="white" weight="500">
-                                            {content}
-                                        </Text>
-                                    </div>
-                                ))}
-                            </CarouselContent>
-                            {children && children}
-                        </LeftContent>
-                        <ImageContainer>
-                            <Image
-                                img_name={slide.img_name}
-                                alt={slide.img_alt}
-                                width="100%"
-                            />
-                        </ImageContainer>
-                    </div>
+const SlideWrapper = styled.div`
+    width: 100%;
+    display: inline-block;
+    padding: 0 1px;
+
+    /* stylelint-disable-next-line */
+    > div {
+        display: flex;
+    }
+`
+
+const Slide = ({ slides, translate_width, header, children }) => (
+    <div
+        style={{
+            transform: `translateX(${translate_width}px)`,
+            transition: 'transform ease-out 0.45s',
+            width: '100%',
+            whiteSpace: 'nowrap',
+        }}
+    >
+        {slides.map((slide, idx) => (
+            <SlideWrapper key={idx}>
+                <div>
+                    <LeftContent>
+                        <HeaderWrapper>
+                            <Header as="h2" color="white">
+                                {header}
+                            </Header>
+                        </HeaderWrapper>
+                        <CarouselContent>
+                            {slide.text.map(content => (
+                                <div key={content}>
+                                    <ChecklistLogo />
+                                    <Text color="white" weight="500">
+                                        {content}
+                                    </Text>
+                                </div>
+                            ))}
+                        </CarouselContent>
+                        {children && children}
+                    </LeftContent>
+                    <ImageContainer>
+                        <Image
+                            img_name={slide.img_name}
+                            alt={slide.img_alt}
+                            width="100%"
+                        />
+                    </ImageContainer>
                 </div>
-            ))}
-        </div>
-    )
-}
+            </SlideWrapper>
+        ))}
+    </div>
+)
 
 Slide.propTypes = {
     children: PropTypes.oneOfType([
@@ -149,6 +162,7 @@ Slide.propTypes = {
 const Carousel = ({ slides, header, children }) => {
     const ref = React.useRef(null)
     const last_slide = slides.length - 1
+    const first_slide = 0
 
     const [active_slide, setActiveSlide] = useState(0)
     const [translate_width, setTranslateWidth] = useState(0)
@@ -167,7 +181,7 @@ const Carousel = ({ slides, header, children }) => {
 
     const next = () => {
         if (active_slide === last_slide) {
-            setActiveSlide(0)
+            setActiveSlide(first_slide)
             setTranslateWidth(0)
             return
         }
@@ -176,7 +190,7 @@ const Carousel = ({ slides, header, children }) => {
     }
 
     const previous = () => {
-        if (active_slide === 0) {
+        if (active_slide === first_slide) {
             setActiveSlide(last_slide)
             setTranslateWidth(-(slide_width * (slides.length - 1)))
             return

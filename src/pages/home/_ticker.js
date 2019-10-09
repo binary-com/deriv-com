@@ -157,20 +157,27 @@ Tick.propTypes = {
     symbol: PropTypes.string,
 }
 
-const makeMarkets = active_symbols => {
+//  Fisher-Yates shuffle
+function shuffle(array) {
+    let j, x, i
+    for (i = array.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1))
+        x = array[i]
+        array[i] = array[j]
+        array[j] = x
+    }
+    return array
+}
+
+const getTickerMarkets = active_symbols => {
     let volatility_count = 4
     let forex_count = 6
-    const random_index = []
-    const random_daily = []
-    const forex_major_pairs = []
+    let volidx = []
+    let forex = []
 
     active_symbols.forEach(symbol => {
         if (symbol.market === 'volidx') {
-            if (symbol.submarket === 'random_index') {
-                random_index.push(symbol)
-            } else {
-                random_daily.push(symbol)
-            }
+            volidx.push(symbol)
         } else if (
             symbol.market === 'forex' &&
             symbol.submarket === 'major_pairs'
@@ -179,27 +186,20 @@ const makeMarkets = active_symbols => {
                 volatility_count = 6
                 forex_count = 4
             }
-            forex_major_pairs.push(symbol)
+            forex.push(symbol)
         }
     })
+    if (volidx.length) volidx = shuffle(volidx).slice(0, volatility_count)
+    if (forex.length) forex = forex.slice(0, forex_count)
 
-    const volatility_markets = [...random_index, ...random_daily].slice(
-        0,
-        volatility_count,
-    )
-    const forex_markets = [...forex_major_pairs].slice(0, forex_count)
-    const markets = [...volatility_markets, ...forex_markets]
-
-    return {
-        markets,
-    }
+    return [...volidx, ...forex]
 }
 class Ticker extends React.Component {
     state = {
         markets: [],
     }
     onActiveSymbolReceive = response => {
-        const { markets } = makeMarkets(response.active_symbols)
+        const markets = getTickerMarkets(response.active_symbols)
 
         this.setState({
             markets,

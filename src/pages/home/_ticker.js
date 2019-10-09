@@ -154,7 +154,7 @@ class Ticker extends React.Component {
                 {this.state.markets.length === 0 ? null : (
                     <AutoCarousel
                         carousel_width="100%"
-                        transition_duration={30000}
+                        transition_duration={45000}
                     >
                         {this.state.markets.map(symbol => (
                             <Tick

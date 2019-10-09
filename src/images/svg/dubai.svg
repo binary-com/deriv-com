@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="328" height="200" viewBox="0 0 328 200">
+<svg xmlns="http://www.w3.org/2000/svg" width="328" height="200" viewBox="0 0 328 200" role='img' aria-labelledby='dubai-location'>
+    <title id='dubai-location'>Dubai</title>
     <g fill="none" fill-rule="evenodd" stroke-width="2">
         <path fill="#E7EEEF" stroke="#85ACB0" d="M143.072 178.699V76.6h-8.012v-3.094l8.012-1.856V28.955c20.953 15.676 35.127 34.033 42.522 55.071 7.395 21.039 10.887 35.064 10.476 42.077l-3.08 52.596h-49.918z"/>
         <path fill="#E7EEEF" stroke="#85ACB0" d="M157.266 74.877l24.16-2.567 8.673-6.418-28.496 2.567-10.531 1.284"/>

@@ -170,8 +170,8 @@ function shuffle(array) {
 }
 
 const getTickerMarkets = active_symbols => {
-    let volatility_count = 4
-    let forex_count = 6
+    let volatility_count = 3
+    let forex_count = 7
     let volidx = []
     let forex = []
 
@@ -183,8 +183,8 @@ const getTickerMarkets = active_symbols => {
             symbol.submarket === 'major_pairs'
         ) {
             if (!symbol.exchange_is_open) {
-                volatility_count = 6
-                forex_count = 4
+                volatility_count = 7
+                forex_count = 3
             }
             forex.push(symbol)
         }

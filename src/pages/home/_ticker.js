@@ -26,7 +26,7 @@ const StyledText = styled(Text)`
     align-items: center;
     text-align: center;
 `
-const Qoute = styled.p`
+const Qoute = styled.span`
     font-weight: bold;
     text-decoration: none;
     padding: 0 5px;
@@ -142,9 +142,9 @@ class Tick extends React.PureComponent {
                             this.state.quote
                         )}{' '}
                     </Qoute>
-                    <div style={{ width: '12px' }}>
+                    <span style={{ width: '12px', display: 'block' }}>
                         {Movement === null ? null : <Movement />}
-                    </div>
+                    </span>
                 </StyledText>
                 <Divider />
             </TickWrapper>

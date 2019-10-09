@@ -35,7 +35,8 @@ const ItemsWrapper = styled.div`
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-play-state: ${props => props.animation_status};
-    transform: translateZ(0);
+    transform: translateZ(0) scale(1.0, 1.0);
+    backface-visibility: hidden;
     cursor: default;
 `
 class AutoCarousel extends React.PureComponent {

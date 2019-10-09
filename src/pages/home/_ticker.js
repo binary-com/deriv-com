@@ -190,7 +190,7 @@ const getTickerMarkets = active_symbols => {
         }
     })
     if (volidx.length) volidx = shuffle(volidx).slice(0, volatility_count)
-    if (forex.length) forex = forex.slice(0, forex_count)
+    if (forex.length) forex = shuffle(forex).slice(0, forex_count)
 
     return [...volidx, ...forex]
 }

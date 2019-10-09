@@ -17,20 +17,24 @@ const TickWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 2.7rem 0;
-    width: 29rem;
+    width: 290px;
 `
 const StyledText = styled(Text)`
-    width: 100%;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 `
-const Qoute = styled.span`
+const Qoute = styled.p`
     font-weight: bold;
     text-decoration: none;
+    padding: 0 5px;
 `
 const CarouselWapper = styled.div`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
 `
-class Tick extends React.Component {
+class Tick extends React.PureComponent {
     state = {
         quote: null,
         movement: null,
@@ -89,14 +93,15 @@ class Tick extends React.Component {
                 movement: null,
             })
         } else {
+            const quote = this.reformatQuote(response.tick.quote)
             if (this.state.quote > response.tick.quote) {
                 this.setState({
-                    quote: this.reformatQuote(response.tick.quote),
+                    quote,
                     movement: MovementRed,
                 })
             } else if (this.state.quote < response.tick.quote) {
                 this.setState({
-                    quote: this.reformatQuote(response.tick.quote),
+                    quote,
                     movement: MovementGreen,
                 })
             } else if (this.state.quote === response.tick.quote) {
@@ -105,7 +110,7 @@ class Tick extends React.Component {
                 })
             } else {
                 this.setState({
-                    quote: this.reformatQuote(response.tick.quote),
+                    quote,
                     movement: null,
                 })
             }
@@ -134,15 +139,19 @@ class Tick extends React.Component {
         return (
             <TickWrapper>
                 <StyledText>
-                    {this.props.display_name}:{' '}
                     <Qoute>
+                        <span style={{ fontWeight: 'normal' }}>
+                            {this.props.display_name}:{' '}
+                        </span>
                         {this.state.quote === null ? (
                             <Loader />
                         ) : (
                             this.state.quote
                         )}{' '}
                     </Qoute>
-                    {Movement === null ? null : <Movement />}
+                    <div style={{ width: '12px' }}>
+                        {Movement === null ? null : <Movement />}
+                    </div>
                 </StyledText>
                 <Divider />
             </TickWrapper>
@@ -220,7 +229,7 @@ class Ticker extends React.Component {
                 {this.state.markets.length === 0 ? null : (
                     <AutoCarousel
                         carousel_width="100%"
-                        transition_duration={30000}
+                        transition_duration={37000}
                     >
                         {this.state.markets.map(symbol => {
                             return (

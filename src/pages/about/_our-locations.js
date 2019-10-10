@@ -87,7 +87,7 @@ export const OurLocations = () => {
         <Show.Desktop>
             <OurLocationsWrapper>
                 <Header as="h2" align="center" color="black-2">
-                    {localize('Our Locations')}
+                    {localize('Our locations')}
                 </Header>
                 <OurLocationsContainer>
                     {locations.map((location, idx) => (

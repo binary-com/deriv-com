@@ -128,7 +128,7 @@ const Charts = styled.div`
 
 const chart_data = [
     {
-        amount: '704,293',
+        amount: '704,400+',
         text: localize('Trading accounts opened'),
         icon: <img src={TradingAccounts} />,
     },
@@ -138,7 +138,7 @@ const chart_data = [
         icon: <img src={TradingTrades} />,
     },
     {
-        amount: 'USD 6,049,936,768',
+        amount: 'USD 6,049,935,000+',
         text: localize('Total trade turnover'),
         icon: <img src={TradingTurnover} />,
     },
@@ -166,7 +166,7 @@ export const OurNumbers = () => (
             </Show.Mobile>
             <Show.Desktop>
                 <Header as="h2" color="black-2" align="center">
-                    {localize('Our Numbers')}
+                    {localize('Our numbers')}
                 </Header>
                 <Header as="h4" color="black-3" align="center" weight="500">
                     {localize(

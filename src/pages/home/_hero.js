@@ -125,7 +125,10 @@ export const Hero = () => {
                         playsInline
                         loop
                     >
-                        <source src="/coba2.mp4" type="video/mp4" />
+                        <source
+                            src="/deriv_platform_video.mp4"
+                            type="video/mp4"
+                        />
                     </VideoWrapper>
                     <Modal
                         toggle={toggleModal}

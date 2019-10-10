@@ -5,6 +5,8 @@ import Row from '../containers/row'
 import Signup from '../form/signup'
 import { localize } from '../localization'
 import { Header } from './typography'
+import Show from 'components/containers/show'
+import device from 'themes/device.js'
 
 const SignupWrapper = styled.article`
     background-color: var(--color-grey-1);
@@ -12,6 +14,11 @@ const SignupWrapper = styled.article`
     height: 57.3rem;
     border-radius: 6px;
     overflow: auto;
+
+    @media ${device.tabletL} {
+        width: 300px;
+        height: 42rem;
+    }
 `
 
 const ModalRow = styled(Row)`
@@ -24,6 +31,7 @@ const Content = styled.div`
     align-items: center;
     text-align: center;
     flex-direction: column;
+    height: 100%;
     ${props =>
         props.inverse
             ? css`
@@ -36,6 +44,10 @@ const Content = styled.div`
 const SignupContent = styled(Content)`
     padding-top: 8rem;
     padding-bottom: 3rem;
+
+    @media ${device.tabletL} {
+        padding-top: 6rem;
+    }
 `
 
 const HeaderWrapper = styled(Header)`
@@ -45,18 +57,20 @@ const HeaderWrapper = styled(Header)`
 const SignupModal = ({ autofocus, closeModal }) => (
     <SignupWrapper>
         <ModalRow>
-            <Content inverse>
-                <HeaderWrapper
-                    as="h4"
-                    weight="normal"
-                    color="white"
-                    align="center"
-                >
-                    {localize(
-                        'The ultimate trading experience is just a few clicks away.',
-                    )}
-                </HeaderWrapper>
-            </Content>
+            <Show.Desktop>
+                <Content inverse>
+                    <HeaderWrapper
+                        as="h4"
+                        weight="normal"
+                        color="white"
+                        align="center"
+                    >
+                        {localize(
+                            'The ultimate trading experience is just a few clicks away.',
+                        )}
+                    </HeaderWrapper>
+                </Content>
+            </Show.Desktop>
             <SignupContent>
                 <Signup autofocus={autofocus} closeModal={closeModal} />
             </SignupContent>

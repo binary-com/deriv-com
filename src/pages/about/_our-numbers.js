@@ -128,7 +128,7 @@ const Charts = styled.div`
 
 const chart_data = [
     {
-        amount: '704,400+',
+        amount: '704,000+',
         text: localize('Trading accounts opened'),
         icon: <img src={TradingAccounts} />,
     },

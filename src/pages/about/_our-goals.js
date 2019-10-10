@@ -11,7 +11,6 @@ import VisionSVG from 'images/svg/vision.svg'
 import FuseeSVG from 'images/svg/fusee.svg'
 
 const OurGoalsWrapper = styled(SectionContainer)`
-    padding-top: 3.55rem;
     background-image: linear-gradient(
         to bottom,
         var(--color-grey-2),

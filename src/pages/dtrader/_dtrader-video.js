@@ -69,7 +69,7 @@ const Tab = styled.div`
 `
 const VideoWrapper = styled.div`
     grid-area: video;
-    margin-top: 1.6rem;
+    margin-top: 4rem;
     position: relative;
     text-align: center;
 `
@@ -257,7 +257,8 @@ class DtraderTabs extends React.Component {
                 <VideoWrapper>
                     <MacbookFrame />
                     <Video ref={this.my_ref} preload="metadata" muted>
-                        <source src="/Dtrader_GIF.webm" />
+                        <source src="/Dtrader_GIF.webm" type="video/webm" />
+                        <source src="/Dtrader_GIF.mp4" type="video/mp4" />
                     </Video>
                 </VideoWrapper>
                 <ProgressBar

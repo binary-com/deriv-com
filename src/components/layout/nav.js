@@ -147,7 +147,7 @@ const Nav = () => {
         }
     }, [])
     const handleLogin = () => {
-        window.open(Login.loginUrl(), '_blank')
+        Login.redirectToLogin()
     }
     const handleMenuClick = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()

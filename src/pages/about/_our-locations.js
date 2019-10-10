@@ -106,7 +106,7 @@ export const OurLocations = () => {
                     ))}
                 </OurLocationsContainer>
                 <Button secondary onClick={toggleModal}>
-                    {localize('Start with free practice account')}
+                    {localize('Start with a free practice account')}
                 </Button>
                 <Modal
                     toggle={toggleModal}

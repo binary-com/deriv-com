@@ -15,6 +15,7 @@ import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 import { StyledLink } from 'components/elements/link'
+import device from 'themes/device.js'
 // Icons
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
@@ -61,6 +62,10 @@ export const LoginText = styled(MutedText)`
     align-self: center;
     margin-top: 4rem;
     margin-bottom: 8rem;
+
+    @media ${device.tabletL} {
+        margin-bottom: 0;
+    }
 `
 const LoginLink = styled.a`
     color: var(--color-red);

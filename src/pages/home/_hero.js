@@ -43,6 +43,7 @@ const VideoWrapper = styled.div`
     max-width: 64vw;
     height: 52.5rem;
     right: 1rem;
+    top: 2rem;
 
     @media ${device.laptop} {
         display: none;

@@ -133,7 +133,7 @@ const chart_data = [
         icon: <img src={TradingAccounts} />,
     },
     {
-        amount: '19,514,921',
+        amount: '19,514,000+',
         text: localize('Trades last month'),
         icon: <img src={TradingTrades} />,
     },

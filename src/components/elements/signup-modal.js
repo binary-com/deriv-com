@@ -16,7 +16,7 @@ const SignupWrapper = styled.article`
     overflow: auto;
 
     @media ${device.tabletL} {
-        width: 34rem;
+        width: 300px;
         height: 42rem;
     }
 `

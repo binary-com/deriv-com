@@ -138,11 +138,11 @@ export const Hero = () => {
                                 loop
                             >
                                 <source
-                                    src="/deriv_platform.webm"
+                                    src="/deriv_trading_platform.webm"
                                     type="video/webm"
                                 />
                                 <source
-                                    src="/deriv_platform.mp4"
+                                    src="/deriv_trading_platform.mp4"
                                     type="video/mp4"
                                 />
                             </video>

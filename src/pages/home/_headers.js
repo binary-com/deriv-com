@@ -7,7 +7,8 @@ export const SectionHeader = styled.div`
 `
 
 export const StyledSubHeader = styled(Header)`
-    margin-top: 0.8rem;
+    margin: 0.8rem auto;
+    max-width: ${props => props.maxWidth || ''};
 `
 
 export const StyledHeader = styled(Header)`

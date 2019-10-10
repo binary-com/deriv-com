@@ -25,18 +25,6 @@ const CardWrapper = styled.article`
     width: ${props => (props.width ? props.width : '32.8rem')};
     padding: 4rem;
 
-    div {
-        margin-top: 4rem;
-        
-        @media ${device.tabletL} {
-            margin-top: 2.7rem;
-
-            ${Header} {
-                font-size:3rem;
-            }
-        }
-    }
-
     @media ${device.tabletL} {
         padding: 3rem;
         padding-right: 2rem;
@@ -44,6 +32,17 @@ const CardWrapper = styled.article`
         margin-right: 0;
     }
 
+`
+const ContentWrapper = styled.div`
+    margin-top: 4rem;
+
+    @media ${device.tabletL} {
+        margin-top: 2.7rem;
+
+        ${Header} {
+            font-size: 3rem;
+        }
+    }
 `
 
 const CardChildrenWrapper = styled.article`
@@ -77,29 +76,83 @@ const CardChildrenWrapper = styled.article`
     }
 `
 
-export const Card = ({ children, Icon, title, content, width, min_height }) => {
+const IconContainer = styled.div`
+    display: flex;
+    justify-content: center;
+
+    ${Header} {
+        display: flex;
+        align-items: center;
+        padding-left: 16px;
+    }
+`
+
+const Content = ({ content }) => (
+    <>
+        {Array.isArray(content) ? (
+            content.map(text => <CardContent key={text}>{text}</CardContent>)
+        ) : (
+            <CardContent>{content}</CardContent>
+        )}
+    </>
+)
+
+Content.propTypes = {
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+}
+
+export const Card = ({
+    children,
+    Icon,
+    title,
+    content,
+    width,
+    min_height,
+    is_inline_icon,
+}) => {
     return (
         <CardWrapper width={width} min_height={min_height}>
             {!children && (
                 <>
-                    <Icon />
-                    <div>
-                        <Header as="h4" weight="500">
-                            {title}
-                        </Header>
-                        {Array.isArray(content) ? (
-                            content.map((text, index) => (
-                                <CardContent key={index}>{text}</CardContent>
-                            ))
-                        ) : (
-                            <CardContent>{content}</CardContent>
-                        )}
-                    </div>
+                    {is_inline_icon ? (
+                        <>
+                            <IconContainer>
+                                <Icon />
+                                <Header as="h4" weight="500">
+                                    {title}
+                                </Header>
+                            </IconContainer>
+                            <Content content={content} />
+                        </>
+                    ) : (
+                        <>
+                            <Icon />
+                            <ContentWrapper>
+                                <Header as="h4" weight="500">
+                                    {title}
+                                </Header>
+                                <Content content={content} />
+                            </ContentWrapper>
+                        </>
+                    )}
                 </>
             )}
             {children && children}
         </CardWrapper>
     )
+}
+
+Card.propTypes = {
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.node,
+    ]),
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    Icon: PropTypes.func,
+    is_inline_icon: PropTypes.bool,
+    min_height: PropTypes.string,
+    title: PropTypes.string,
+    width: PropTypes.string,
 }
 
 export const CardChildren = ({
@@ -111,23 +164,13 @@ export const CardChildren = ({
     icon_height,
 }) => (
     <CardChildrenWrapper width={width}>
-        <Header as="h4" weight="500">{title}</Header>
+        <Header as="h4" weight="500">
+            {title}
+        </Header>
         <Icon width={icon_width} height={icon_height} />
         {children}
     </CardChildrenWrapper>
 )
-
-Card.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    Icon: PropTypes.func,
-    min_height: PropTypes.string,
-    title: PropTypes.string,
-    width: PropTypes.string,
-}
 
 CardChildren.propTypes = {
     children: PropTypes.oneOfType([

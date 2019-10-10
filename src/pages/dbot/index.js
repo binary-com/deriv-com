@@ -19,7 +19,7 @@ class Dbot extends Component {
                 <HowItWorks />
                 <Tutorial />
                 <TradeWithDbot />
-                <OtherPlatform />
+                <OtherPlatform exclude="dbot" />
             </Layout>
         )
     }

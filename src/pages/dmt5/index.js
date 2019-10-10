@@ -21,7 +21,7 @@ const DMT5 = () => {
             <HowItWorks />
             <Trading />
             <Experience />
-            <OtherPlatform />
+            <OtherPlatform exclude="dmt5" />
         </Layout>
     )
 }

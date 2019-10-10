@@ -14,6 +14,7 @@ export const Trade = () => (
             subHeader={localize(
                 'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
             )}
+            exclude=""
         />
     </TradeWrapper>
 )

@@ -33,7 +33,7 @@ const StyledSubHeader = styled(Header)`
     max-width: ${props => props.maxWidth || ''};
 `
 
-export const OtherPlatform = ({ header, subHeader }) => (
+export const OtherPlatform = ({ header, subHeader, exclude }) => (
     <SectionContainer>
         <HeaderWrapper>
             <StyledHeader font_size="4.8rem" align="center" lh="5rem">
@@ -58,46 +58,54 @@ export const OtherPlatform = ({ header, subHeader }) => (
             grid="3"
             justify="center"
         >
-            <StyledLink to="/dtrader">
-                <Card
-                    title={localize('DTrader')}
-                    Icon={DTrader}
-                    content={[
-                        localize(
-                            'Start trading now with a powerful, yet easy-to-use platform.',
-                        ),
-                    ]}
-                    is_inline_icon
-                    width="32.8rem"
-                    min_height="22.4rem"
-                />
-            </StyledLink>
-            <StyledLink to="/dbot">
-                <Card
-                    title={localize('DBot')}
-                    Icon={DBot}
-                    content={[
-                        localize('Automate your trading ideas without coding.'),
-                    ]}
-                    is_inline_icon
-                    width="32.8rem"
-                    min_height="22.4rem"
-                />
-            </StyledLink>
-            <StyledLink to="/dmt5">
-                <Card
-                    title={localize('DMT5')}
-                    Icon={DMT5}
-                    content={[
-                        localize(
-                            'Trade with the platform of choice for professionals.',
-                        ),
-                    ]}
-                    is_inline_icon
-                    width="32.8rem"
-                    min_height="22.4rem"
-                />
-            </StyledLink>
+            {exclude.toLowerCase() !== 'dtrader' && (
+                <StyledLink to="/dtrader">
+                    <Card
+                        title={localize('DTrader')}
+                        Icon={DTrader}
+                        content={[
+                            localize(
+                                'Start trading now with a powerful, yet easy-to-use platform.',
+                            ),
+                        ]}
+                        is_inline_icon
+                        width="32.8rem"
+                        min_height="22.4rem"
+                    />
+                </StyledLink>
+            )}
+            {exclude.toLowerCase() !== 'dbot' && (
+                <StyledLink to="/dbot">
+                    <Card
+                        title={localize('DBot')}
+                        Icon={DBot}
+                        content={[
+                            localize(
+                                'Automate your trading ideas without coding.',
+                            ),
+                        ]}
+                        is_inline_icon
+                        width="32.8rem"
+                        min_height="22.4rem"
+                    />
+                </StyledLink>
+            )}
+            {exclude.toLowerCase() !== 'dmt5' && (
+                <StyledLink to="/dmt5">
+                    <Card
+                        title={localize('DMT5')}
+                        Icon={DMT5}
+                        content={[
+                            localize(
+                                'Trade with the platform of choice for professionals.',
+                            ),
+                        ]}
+                        is_inline_icon
+                        width="32.8rem"
+                        min_height="22.4rem"
+                    />
+                </StyledLink>
+            )}
         </FlexGridContainer>
     </SectionContainer>
 )

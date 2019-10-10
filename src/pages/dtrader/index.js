@@ -21,7 +21,7 @@ const Dtrader = () => {
             <HowItWorks />
             <Trading />
             <Experience />
-            <OtherPlatform />
+            <OtherPlatform exclude="dtrader" />
         </Layout>
     )
 }

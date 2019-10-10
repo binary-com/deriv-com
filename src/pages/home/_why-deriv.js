@@ -9,15 +9,17 @@ import SignupModal from 'components/elements/signup-modal'
 
 const carousel_data = [
     {
+        header: 'More reasons you’ll love DTrader',
         text: [
             localize('Choose from the widest range of options.'),
             localize('Licensed and regulated.'),
             localize('Exclusive synthetic indices, 24/7.'),
         ],
-        img_name: 'dtrader-carousel.png',
+        img_name: 'dtrader-screen.png',
         img_alt: localize('DTrader screens'),
     },
     {
+        header: 'More reasons you’ll love DBot',
         text: [
             localize('Drag & drop trading robot builder.'),
             localize('Test trading strategies with unlimited demo accounts.'),
@@ -25,16 +27,17 @@ const carousel_data = [
                 'Access tools & indicators to make smart trading decisions.',
             ),
         ],
-        img_name: 'dbot-carousel.png',
+        img_name: 'dbot-screen.png',
         img_alt: localize('DBot screens'),
     },
     {
+        header: 'More reasons you’ll love DMT5',
         text: [
             localize('Trade 24/7 on DMT5.'),
             localize('High leverage, 100% ‘A’ book account.'),
             localize('Trade on mobile, desktop and browser.'),
         ],
-        img_name: 'dmt5-carousel.png',
+        img_name: 'dmt5-screen.png',
         img_alt: localize('DMT5 screens'),
     },
 ]
@@ -52,10 +55,7 @@ export const WhyDeriv = () => {
 
     return (
         <HomeCarouselWrapper>
-            <Carousel
-                slides={carousel_data}
-                header={localize('More reasons to love Deriv')}
-            >
+            <Carousel slides={carousel_data}>
                 <ButtonWrapper>
                     <Button onClick={toggleModal} secondary>
                         {localize('Create a free account')}

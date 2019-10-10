@@ -111,6 +111,7 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
 )
 
 OtherPlatform.propTypes = {
+    exclude: PropTypes.string,
     header: PropTypes.string,
     subHeader: PropTypes.string,
 }

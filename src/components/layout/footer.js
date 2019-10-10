@@ -276,14 +276,6 @@ const Footer = () => (
                             >
                                 {localize('DMT5')}
                             </FooterStyledLink>
-                            <FooterStyledLink
-                                activeClassName="active"
-                                to="/keep-safe/"
-                                aria-label={localize('Keep safe')}
-                                partiallyActive={true}
-                            >
-                                {localize('Keep safe')}
-                            </FooterStyledLink>
                         </Department>
                         <Department grid_name="company">
                             <Header as="h4">{localize('Company')}</Header>
@@ -305,6 +297,14 @@ const Footer = () => (
                                 partiallyActive={true}
                             >
                                 {localize('Help Centre')}
+                            </FooterStyledLink>
+                            <FooterStyledLink
+                                activeClassName="active"
+                                to="/keep-safe/"
+                                aria-label={localize('Keep safe')}
+                                partiallyActive={true}
+                            >
+                                {localize('Keep safe')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="legal">

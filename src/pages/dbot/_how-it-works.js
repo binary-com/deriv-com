@@ -73,7 +73,7 @@ const BannerSection = () => {
                     {localize('How it works')}
                 </Header>
                 <StyledHeader as="h2" align="center">
-                    {localize('Build a trading robot in 4 easy steps')}
+                    {localize('Build a trading robot in 5 easy steps')}
                 </StyledHeader>
                 <Wrapper width="100%" margin={{ top: '4rem' }}>
                     <SideTab>

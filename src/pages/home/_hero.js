@@ -19,6 +19,7 @@ const HeroWrapper = styled.section`
 
     @media ${device.laptop} {
         background-position: -10rem 100%;
+        min-height: 45rem;
     }
     @media ${device.tabletL} {
         background: unset;
@@ -37,11 +38,15 @@ const StyledArticle = styled.article`
     z-index: 2;
 `
 
-const VideoWrapper = styled.video`
+const VideoWrapper = styled.div`
     position: absolute;
-    max-width: 76.2rem;
+    max-width: 64vw;
     height: 52.5rem;
-    right: 3.5rem;
+    right: 1rem;
+
+    @media ${device.laptop} {
+        display: none;
+    }
 `
 
 const HeroGrid = styled.section`
@@ -54,7 +59,7 @@ const HeroGrid = styled.section`
 
     @media ${device.laptop} {
         grid-template-columns: 1fr;
-        grid-row-gap: 5rem;
+        grid-row-gap: 0;
     }
     @media ${device.tabletS} {
         grid-template-columns: 1fr;
@@ -65,6 +70,10 @@ const HeroGrid = styled.section`
 
 const ButtonWrapper = styled.div`
     margin-top: 3.2rem;
+
+    @media ${device.laptop} {
+        text-align: center;
+    }
 `
 
 export const Hero = () => {
@@ -117,19 +126,23 @@ export const Hero = () => {
                             </ButtonWrapper>
                         </Show.Desktop>
                     </StyledArticle>
-                    <VideoWrapper
-                        width="100%"
-                        height="100%"
-                        autoPlay
-                        muted
-                        playsInline
-                        loop
-                    >
-                        <source
-                            src="/deriv_platform_video.mp4"
-                            type="video/mp4"
-                        />
-                    </VideoWrapper>
+                    <Show.Desktop>
+                        <VideoWrapper>
+                            <video
+                                width="100%"
+                                height="100%"
+                                autoPlay
+                                muted
+                                playsInline
+                                loop
+                            >
+                                <source
+                                    src="/deriv_platform_video.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
+                        </VideoWrapper>
+                    </Show.Desktop>
                     <Modal
                         toggle={toggleModal}
                         is_open={show_modal}

@@ -120,16 +120,6 @@ const Nav = () => {
     const nav_ref = useRef(null)
     const [is_platforms_open, setIsPlatformsOpen] = useState(false)
     const [has_animation, setHasAnimation] = useState(false)
-    useEffect(() => {
-        const handleClickOutside = e => {
-            if (!nav_ref.current.contains(e.target)) {
-                setIsPlatformsOpen(false)
-            }
-        }
-        document.addEventListener('click', handleClickOutside)
-        return () => document.removeEventListener('click', handleClickOutside)
-    })
-
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
     const buttonHandleScroll = () => handleScroll(showButton, hideButton)
@@ -142,8 +132,15 @@ const Nav = () => {
         document.addEventListener('scroll', buttonHandleScroll, {
             passive: true,
         })
+        const handleClickOutside = e => {
+            if (!nav_ref.current.contains(e.target)) {
+                setIsPlatformsOpen(false)
+            }
+        }
+        document.addEventListener('click', handleClickOutside)
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
+            document.removeEventListener('click', handleClickOutside)
         }
     }, [])
     const handleLogin = () => {
@@ -153,8 +150,8 @@ const Nav = () => {
         is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
     const handlePlatformsClick = () => {
-        setHasAnimation(true)
         setIsPlatformsOpen(!is_platforms_open)
+        setHasAnimation(true)
     }
     const handleNormalLink = () => {
         setHasAnimation(false)

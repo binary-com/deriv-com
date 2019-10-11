@@ -5,9 +5,9 @@ import Container from 'components/containers/container.js'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import TradingAccounts from 'images/gif/trading-accounts.gif'
+import TradingAccounts from 'images/gif/trading-accounts-opened.gif'
 import TradingTrades from 'images/gif/trading-trades.gif'
-import TradingTurnover from 'images/gif/trading-turnover.gif'
+import TradingTurnover from 'images/gif/trading-total-turnover.gif'
 
 const OurNumbersWrapper = styled.section`
     width: 100%;

@@ -66,10 +66,10 @@ const ChartContainer = styled.div`
         line-height: 1.25;
         text-align: right;
         color: var(--color-black-2);
-        margin-top: 2rem;
+        margin-top: 0.8rem;
     }
     h1 {
-        font-size: 10rem;
+        font-size: 11rem;
     }
 
     @media (max-width: 981px) {

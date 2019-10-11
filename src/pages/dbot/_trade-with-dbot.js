@@ -6,6 +6,8 @@ import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import { deriv_app_url, deriv_bot_app_url } from 'common/utility'
 import device from 'themes/device'
+import Modal, { useModal } from 'components/elements/modal'
+import SignupModal from 'components/elements/signup-modal'
 
 const StyledButton = styled(Button)`
     margin-top: 2rem;
@@ -44,6 +46,7 @@ const handleExternalLink = (is_bot = false) => {
 }
 
 export const TradeWithDbot = () => {
+    const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <StyledSection>
             <FlexGridContainer
@@ -56,10 +59,7 @@ export const TradeWithDbot = () => {
                     <StyledHeader font_size="4.8rem" align="center" lh="6rem">
                         {localize('Trade more efficiently with DBot')}
                     </StyledHeader>
-                    <StyledButton
-                        secondary
-                        onClick={() => handleExternalLink(true)}
-                    >
+                    <StyledButton secondary onClick={() => toggleModal()}>
                         {localize('Start building')}
                     </StyledButton>
                 </StyledDiv>
@@ -78,6 +78,13 @@ export const TradeWithDbot = () => {
                     </StyledButton>
                 </StyledDiv>
             </FlexGridContainer>
+            <Modal
+                toggle={toggleModal}
+                is_open={show_modal}
+                closeModal={closeModal}
+            >
+                <SignupModal autofocus />
+            </Modal>
         </StyledSection>
     )
 }

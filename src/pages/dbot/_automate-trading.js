@@ -91,7 +91,7 @@ const AutomateTradingSection = () => (
                 </StyledButton>
             </TitleSection>
             <ImageSection width="65%">
-                <Image img_name="platform-dbot.png" alt="DBot" width="100%" />
+                <Image img_name="dbot-platform.png" alt="DBot" width="100%" />
             </ImageSection>
         </StyledContainer>
     </BackgroundContainer>

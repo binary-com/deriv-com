@@ -35,11 +35,6 @@ const Content = styled.div`
 `
 const StyledButton = styled(Button)`
     margin-top: 2rem;
-    ${props =>
-        props.demo
-            ? `    background-color: var(--color-grey-1);
-    border: 2px solid var(--color-grey-5);`
-            : ''}
 `
 const StyledContainer = styled(Container)`
     @media ${device.tabletL} {
@@ -92,7 +87,7 @@ const Experience = () => {
                             {localize('Check out our live demo')}
                         </Text>
                     </Show.Desktop>
-                    <StyledButton demo onClick={handleExternalLink}>
+                    <StyledButton tertiary onClick={handleExternalLink}>
                         {localize('Go to live demo')}
                     </StyledButton>
                 </StyledContent>

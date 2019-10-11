@@ -68,6 +68,9 @@ const ChartContainer = styled.div`
         color: var(--color-black-2);
         margin-top: 2rem;
     }
+    h1 {
+        font-size: 10rem;
+    }
 
     @media (max-width: 981px) {
         justify-content: center;
@@ -87,7 +90,7 @@ const ChartContainer = styled.div`
             }
             h1 {
                 line-height: 1.1;
-                font-size: 6.6rem;
+                font-size: 6.2rem;
                 margin-top: 1.4rem;
             }
             ${Text} {

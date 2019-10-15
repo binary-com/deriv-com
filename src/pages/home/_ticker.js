@@ -88,6 +88,8 @@ class Tick extends React.PureComponent {
     }
 
     onSubscribe = response => {
+        if (!this._ismounted) return
+
         if (response.error) {
             this.setState({
                 quote: null,
@@ -122,9 +124,20 @@ class Tick extends React.PureComponent {
         const { symbol, is_exchange_open } = this.props
 
         if (is_exchange_open) {
+            this._ismounted = true
             this.subscribe(symbol)
         } else {
             this.getHistory(symbol)
+        }
+    }
+
+    componentWillUnmount() {
+        const { is_exchange_open } = this.props
+
+        if (is_exchange_open) {
+            // Anti pattern to prevent subscription callbacks updating state after component has unmounted.
+            // It's excessive to add a subscription manager for the ticker as it will get a single subscription endpoint later.
+            this._ismounted = false
         }
     }
 

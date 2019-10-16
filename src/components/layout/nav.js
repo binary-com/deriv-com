@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'
@@ -55,11 +56,12 @@ const NavCenter = styled.ul`
     }
 `
 const NavRight = styled.div`
+    display: inline-flex;
+    text-align: right;
     overflow: hidden;
-    width: 22.4rem;
-    position: relative;
-    height: 5rem;
-    top: 10%;
+    padding: 0;
+    justify-content: center;
+    transition: all 0.2s;
     @media ${device.tabletL} {
         display: none;
     }
@@ -80,30 +82,22 @@ const StyledButton = styled.a`
     cursor: pointer;
     user-select: none;
 `
-const NavButton = styled(Button)`
-    position: absolute;
-    border: 2px solid var(--color-red);
-    left: 0;
-    min-width: 8rem;
-    ${props => {
-        if (props.movable_button) {
-            return `
-            left: 9rem;
-            min-width:12.4rem;
-            `
+
+const SignupButton = styled(Button)`
+    margin-left: 1.6rem;
+    margin-right: ${props => {
+        if (props.move) {
+            return 0
+        } else {
+            if (props.width.current) {
+                const calculation = props.width.current.offsetWidth / 10
+                return `-${calculation}rem`
+            }
+            return 0
         }
-    }}
+    }};
 `
-const NavRightContainer = styled.div`
-    position: absolute;
-    left: 13.8rem;
-    transition: left 0.5s ease-out;
-    ${props => {
-        if (props.enable_move) {
-            return 'left: 0rem;'
-        }
-    }}
-`
+
 const HamburgerMenu = styled(Hamburger)`
     cursor: pointer;
     display: none;
@@ -116,8 +110,10 @@ const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
 }
+
 const Nav = () => {
     const nav_ref = useRef(null)
+    const button_ref = useRef(null)
     const [is_platforms_open, setIsPlatformsOpen] = useState(false)
     const [has_animation, setHasAnimation] = useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -201,18 +197,18 @@ const Nav = () => {
                         </NavLink>
                     </NavCenter>
                     <NavRight>
-                        <NavRightContainer enable_move={show_button}>
-                            <NavButton onClick={handleLogin} primary>
-                                <span>{localize('Log in')}</span>
-                            </NavButton>
-                            <NavButton
-                                secondary
-                                movable_button
-                                onClick={toggleModal}
-                            >
-                                <span>{localize('Try for free')}</span>
-                            </NavButton>
-                        </NavRightContainer>
+                        <Button onClick={handleLogin} primary>
+                            <span>{localize('Log in')}</span>
+                        </Button>
+                        <SignupButton
+                            secondary
+                            onClick={toggleModal}
+                            move={show_button}
+                            ref={button_ref}
+                            width={button_ref}
+                        >
+                            <span>{localize('Try for free')}</span>
+                        </SignupButton>
                     </NavRight>
                     <HamburgerMenu onClick={handleMenuClick} />
                     <OffCanvasMenu
@@ -232,6 +228,7 @@ const Nav = () => {
     )
 }
 export default Nav
+
 function moveButton(is_visible = false) {
     const [show_button, setShowButton] = useState(is_visible)
     const showButton = () => setShowButton(!show_button)

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react'
-import ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from '../localization'
 import Button from '../form/button'

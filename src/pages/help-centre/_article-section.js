@@ -167,14 +167,15 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
             <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
                     <Show.Mobile>
-                        <Header as="h3">{article.category}</Header>
+                        <Header as="h3">{localize(article.category)}</Header>
                     </Show.Mobile>
                     <Show.Desktop>
                         <Header as="h3">
-                            {article.category} - {article.title}
+                            {localize(article.category)} -{' '}
+                            {localize(article.title)}
                         </Header>
                     </Show.Desktop>
-                    {article.content}
+                    {localize(article.content)}
                 </ArticleContent>
                 {!!related_articles.length && (
                     <ListWrapper>

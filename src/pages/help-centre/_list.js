@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text, LinkText } from 'components/elements/typography'
+import { localize } from 'components/localization'
 import device from 'themes/device'
 
 export const Ul = styled.ul`
@@ -47,7 +48,7 @@ export const ListWithLinks = ({ list, onClick, link_style }) => (
         {list.map((item, idx) => (
             <li key={idx}>
                 <LinkText {...link_style} onClick={() => onClick(item)}>
-                    {item.title}
+                    {localize(item.title)}
                 </LinkText>
             </li>
         ))}

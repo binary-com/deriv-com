@@ -202,7 +202,7 @@ const ArticleList = ({ articles, onClick }) => (
     <>
         {articles.map((category, idx) => (
             <ListWrapper key={idx}>
-                <Header as="h3">{category.category}</Header>
+                <Header as="h3">{localize(category.category)}</Header>
                 <ListWithLinks
                     link_style={{ size: '2rem' }}
                     list={category.articles}

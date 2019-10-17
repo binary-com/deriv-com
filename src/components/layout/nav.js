@@ -157,8 +157,6 @@ const Nav = () => {
     }
     return (
         <NavWrapper ref={nav_ref}>
-            {/* This is the top banner */}
-            {/* <BetaBanner /> */}
             <StyledNav>
                 <PlatformsDropdown
                     is_open={is_platforms_open}

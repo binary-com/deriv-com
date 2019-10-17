@@ -8,7 +8,6 @@ import SignupModal from '../elements/signup-modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
 import PlatformsDropdown from '../elements/platforms-dropdown'
 import { SharedLinkStyle } from '../localization/localized-link'
-import BetaBanner from './beta'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
@@ -158,7 +157,6 @@ const Nav = () => {
     }
     return (
         <NavWrapper ref={nav_ref}>
-            <BetaBanner />
             <StyledNav>
                 <PlatformsDropdown
                     is_open={is_platforms_open}

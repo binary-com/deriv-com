@@ -200,13 +200,32 @@ const getTickerMarkets = active_symbols => {
 class Ticker extends React.Component {
     state = {
         markets: [],
+        shoul_render: true,
     }
     onActiveSymbolReceive = response => {
         const markets = getTickerMarkets(response.active_symbols)
 
-        this.setState({
-            markets,
-        })
+        this.setState(
+            {
+                markets,
+                shoul_render: false,
+            },
+            () => {
+                const symbol_name = this.state.markets.map(
+                    symbol => symbol.symbol,
+                )
+                BinarySocketBase.send(
+                    {
+                        ticks: symbol_name,
+                        subscribe: 1,
+                    },
+                    { callback: this.onTest },
+                )
+            },
+        )
+    }
+    onTest = res => {
+        console.log(res)
     }
     componentDidMount() {
         BinarySocketBase.send(
@@ -221,6 +240,9 @@ class Ticker extends React.Component {
         BinarySocketBase.send({
             forget_all: 'ticks',
         })
+    }
+    shouldComponentUpdate() {
+        return this.state.shoul_render
     }
     render() {
         return (

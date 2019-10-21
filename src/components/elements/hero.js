@@ -7,6 +7,7 @@ import { Header } from './typography.js'
 const Wrapper = styled.section`
     width: 100%;
     background-color: var(--color-black);
+    padding: 8rem;
 `
 
 const StyledHeader = styled(Header)`
@@ -14,27 +15,23 @@ const StyledHeader = styled(Header)`
     width: ${props => props.paragraph_width || ''};
     max-width: ${props => props.paragraph_max_width || ''};
 `
-const Context = styled.span`
-    font-size: 2rem;
-    line-height: 2.9rem;
-`
 const NoImageHero = styled(Container)`
     flex-direction: column;
     align-content: space-around;
-    padding: 10rem 0 3rem 0;
 `
 const Hero = ({
+    children,
     header,
     paragraph,
     paragraph_width,
     mobile_text_align,
     paragraph_max_width,
 }) => (
-    <Wrapper>
+    <Wrapper has_children={!!children}>
         <NoImageHero>
             <StyledHeader
                 as="h1"
-                color="red"
+                color="white"
                 align="center"
                 mobile_text_align={mobile_text_align}
             >
@@ -45,17 +42,20 @@ const Hero = ({
                 color="white"
                 weight="normal"
                 align="center"
+                lh="1.5"
                 paragraph_width={paragraph_width}
                 paragraph_max_width={paragraph_max_width}
                 mobile_text_align={mobile_text_align}
             >
-                <Context>{paragraph}</Context>
+                {paragraph}
             </StyledHeader>
         </NoImageHero>
+        {children}
     </Wrapper>
 )
 
 Hero.propTypes = {
+    children: PropTypes.node,
     header: PropTypes.string,
     mobile_text_align: PropTypes.string,
     paragraph: PropTypes.string,

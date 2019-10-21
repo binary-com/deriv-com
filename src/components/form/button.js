@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Paddings } from 'themes/function'
 
-const StyledButton = styled.button`
+const Button = styled.button`
     border-radius: 6px;
     padding: 1rem 1.6rem;
     font-size: 1.4rem;
@@ -99,7 +99,7 @@ const StyledButton = styled.button`
     }}
 `
 
-StyledButton.propTypes = {
+Button.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
@@ -108,4 +108,4 @@ StyledButton.propTypes = {
     type: PropTypes.string,
 }
 
-export default StyledButton
+export default Button

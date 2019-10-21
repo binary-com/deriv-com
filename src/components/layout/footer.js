@@ -165,8 +165,13 @@ const RiskNote = styled.section`
     }
 `
 const FooterStyledLink = styled(StyledLink)`
+    /* This piece of code has been added to handle Edge issue */
+
+    font-size: ${props =>
+        props.edge_resize_font
+            ? props.edge_resize_font
+            : 'var(--text-size-xs)'};
     display: table;
-    font-size: 1.4rem;
     margin-bottom: 1.8rem;
     font-weight: 500;
 `
@@ -218,26 +223,11 @@ const FooterBoldLink = styled.a`
     font-weight: bold;
     font-size: 1.2rem;
     color: var(--color-gray-3);
+    color: #646464;
     text-decoration: none;
 
     :hover {
         text-decoration: underline;
-    }
-`
-const FooterExtLink = styled.a`
-    display: ${props => props.display || 'table'};
-    font-size: 1.4rem;
-    margin-bottom: 1.8rem;
-    font-weight: 500;
-    color: var(--color-red);
-    text-decoration: none;
-
-    :hover {
-        text-decoration: underline;
-    }
-    :visited {
-        color: var(--color-red);
-        text-decoration: none;
     }
 `
 const ResponsibleTradingBoldText = styled(LocalizedLink)`
@@ -262,39 +252,29 @@ const Footer = () => (
                         </Department>
                         <Department grid_name="trade">
                             <Header as="h4">{localize('Trade')}</Header>
-                            <FooterExtLink
-                                href="https://deriv.app/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={localize('DTrader')}
-                            >
-                                {localize('DTrader')}
-                            </FooterExtLink>
-                            <FooterExtLink
-                                display="none"
-                                href="https://deriv.app/bot"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={localize('DBot')}
-                            >
-                                {localize('DBot')}
-                            </FooterExtLink>
-                            <FooterExtLink
-                                display="none"
-                                href="https://deriv.app/mt5"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={localize('DMT5')}
-                            >
-                                {localize('DMT5')}
-                            </FooterExtLink>
                             <FooterStyledLink
                                 activeClassName="active"
-                                to="/keep-safe/"
-                                aria-label={localize('Keep safe')}
+                                to="/dtrader/"
+                                aria-label={localize('DTrader')}
                                 partiallyActive={true}
                             >
-                                {localize('Keep safe')}
+                                {localize('DTrader')}
+                            </FooterStyledLink>
+                            <FooterStyledLink
+                                activeClassName="active"
+                                to="/dbot/"
+                                aria-label={localize('DBot')}
+                                partiallyActive={true}
+                            >
+                                {localize('DBot')}
+                            </FooterStyledLink>
+                            <FooterStyledLink
+                                activeClassName="active"
+                                to="/dmt5/"
+                                aria-label={localize('DMT5')}
+                                partiallyActive={true}
+                            >
+                                {localize('DMT5')}
                             </FooterStyledLink>
                         </Department>
                         <Department grid_name="company">
@@ -318,10 +298,19 @@ const Footer = () => (
                             >
                                 {localize('Help Centre')}
                             </FooterStyledLink>
+                            <FooterStyledLink
+                                activeClassName="active"
+                                to="/keep-safe/"
+                                aria-label={localize('Keep safe')}
+                                partiallyActive={true}
+                            >
+                                {localize('Keep safe')}
+                            </FooterStyledLink>
                         </Department>
                         <Department grid_name="legal">
                             <Header as="h4">{localize('Legal')}</Header>
                             <FooterStyledLink
+                                edge_resize_font="1.39rem"
                                 activeClassName="active"
                                 to="/regulatory/"
                                 aria-label={localize('Regulatory information')}

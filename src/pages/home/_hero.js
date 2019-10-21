@@ -5,21 +5,21 @@ import { HeroHeader, StyledHeader } from './_headers'
 import device from 'themes/device'
 import Container from 'components/containers/container'
 import Show from 'components/containers/show'
-import Signup, { LoginText } from 'components/form/signup'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
-import Image from 'components/elements/image'
 
 const HeroWrapper = styled.section`
     width: 100%;
-    padding: 4rem 0 2rem;
+    padding: 4rem 0 0;
     min-height: 65rem;
     background: var(--color-black);
+    position: relative;
 
     @media ${device.laptop} {
         background-position: -10rem 100%;
+        min-height: 45rem;
     }
     @media ${device.tabletL} {
         background: unset;
@@ -33,6 +33,23 @@ const HeroWrapper = styled.section`
     }
 `
 
+const StyledArticle = styled.article`
+    position: relative;
+    z-index: 2;
+`
+
+const VideoWrapper = styled.div`
+    position: absolute;
+    max-width: 64vw;
+    height: 52.5rem;
+    right: 1rem;
+    top: 2rem;
+
+    @media ${device.laptop} {
+        display: none;
+    }
+`
+
 const HeroGrid = styled.section`
     width: 100%;
     display: grid;
@@ -43,7 +60,7 @@ const HeroGrid = styled.section`
 
     @media ${device.laptop} {
         grid-template-columns: 1fr;
-        grid-row-gap: 5rem;
+        grid-row-gap: 0;
     }
     @media ${device.tabletS} {
         grid-template-columns: 1fr;
@@ -51,34 +68,13 @@ const HeroGrid = styled.section`
         text-align: center;
     }
 `
-const SignupWrapper = styled.article`
-    justify-self: end;
+
+const ButtonWrapper = styled.div`
+    margin-top: 3.2rem;
 
     @media ${device.laptop} {
-        justify-self: center;
+        text-align: center;
     }
-`
-
-const SignupBox = styled.div`
-    min-width: 33rem;
-    background-color: var(--color-grey-1);
-    border-radius: 6px;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 3.2rem 0;
-
-    h3 {
-        font-size: var(--text-size-m);
-        font-weight: 500;
-    }
-    ${LoginText} {
-        display: none;
-    }
-`
-const SingupButton = styled(Button)`
-    width: 100%;
-    max-width: 36rem;
-    font-size: var(--text-size-sm);
 `
 
 export const Hero = () => {
@@ -87,7 +83,7 @@ export const Hero = () => {
         <HeroWrapper>
             <Container>
                 <HeroGrid>
-                    <article>
+                    <StyledArticle>
                         <Show.Mobile>
                             <Header font_size="6rem" color="white" lh="1.1">
                                 {localize(
@@ -120,40 +116,47 @@ export const Hero = () => {
                                     'The world’s markets at your fingertips anytime, anywhere.',
                                 )}
                             </HeroHeader>
+                            <ButtonWrapper>
+                                <Button
+                                    type="submit"
+                                    onClick={toggleModal}
+                                    secondary
+                                >
+                                    {localize('Create a free account')}
+                                </Button>
+                            </ButtonWrapper>
                         </Show.Desktop>
-                    </article>
-                    <Show.Mobile>
-                        <SingupButton
-                            type="submit"
-                            onClick={toggleModal}
-                            secondary
-                        >
-                            {localize('Create a free demo account')}
-                        </SingupButton>
-                        <Modal
-                            toggle={toggleModal}
-                            is_open={show_modal}
-                            closeModal={closeModal}
-                        >
-                            <SignupModal autofocus />
-                        </Modal>
-                    </Show.Mobile>
-                    <SignupWrapper>
-                        <Show.Desktop>
-                            <SignupBox>
-                                <Signup />
-                            </SignupBox>
-                        </Show.Desktop>
-                    </SignupWrapper>
+                    </StyledArticle>
+                    <Show.Desktop>
+                        <VideoWrapper>
+                            <video
+                                width="100%"
+                                height="100%"
+                                autoPlay
+                                muted
+                                playsInline
+                                loop
+                            >
+                                <source
+                                    src="/deriv_trading_platform.webm"
+                                    type="video/webm"
+                                />
+                                <source
+                                    src="/deriv_trading_platform.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
+                        </VideoWrapper>
+                    </Show.Desktop>
+                    <Modal
+                        toggle={toggleModal}
+                        is_open={show_modal}
+                        closeModal={closeModal}
+                    >
+                        <SignupModal autofocus />
+                    </Modal>
                 </HeroGrid>
             </Container>
-            <Show.Desktop>
-                <Image
-                    img_name="header-trade.png"
-                    width="90rem"
-                    alt={localize('Market line')}
-                />
-            </Show.Desktop>
         </HeroWrapper>
     )
 }

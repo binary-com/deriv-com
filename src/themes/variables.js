@@ -12,18 +12,21 @@ const Variables = css`
         --color-red-1: #dd573a;
         --color-red-2: #ffc9cc;
         --color-red-3: #d43e47;
+        --color-grey: #9b9b9b;
         --color-grey-1: #f4f4f4;
         --color-grey-2: #e8e8e8;
         --color-grey-3: #646464;
         --color-grey-4: #fafbfb;
         --color-grey-5: #999999;
-        --color-grey: #9b9b9b;
+        --color-grey-6: #e6e9e9;
         --color-green: #85acb0;
         --color-blue: #4c76be;
         --color-blue-2: #365899;
         --color-yellow: #fff2df;
 
         /* sizes */
+        --text-size-xxs: 1.2rem;
+        --text-size-xs: 1.4rem;
         --text-size-s: 1.6rem;
         --text-size-sm: 2rem;
         --text-size-m: 2.4rem;

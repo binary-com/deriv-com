@@ -31,6 +31,10 @@ const StyledSection = styled.section`
     }
 `
 
+const StyledContainer = styled(SectionContainer)`
+    height: 71.1rem;
+`
+
 const Markettabs = styled.div`
     margin-top: 4rem;
 `
@@ -170,7 +174,7 @@ const Synthetic = () => (
 )
 
 export const Markets = () => (
-    <SectionContainer>
+    <StyledContainer>
         <Container direction="column">
             <Header as="h2" align="center">
                 {localize('Markets')}
@@ -182,12 +186,18 @@ export const Markets = () => (
             </StyledSubHeader>
             <Markettabs>
                 <SideTab>
-                    <Forex label="forex" text="Forex" />
-                    <Indices label="indices" text="Indices" />
-                    <Commodities label="commodities" text="Commodities" />
-                    <Synthetic label="synthetic" text="Synthetic Indices" />
+                    <Forex label="forex" text={localize('Forex')} />
+                    <Indices label="indices" text={localize('Indices')} />
+                    <Commodities
+                        label="commodities"
+                        text={localize('Commodities')}
+                    />
+                    <Synthetic
+                        label="synthetic"
+                        text={localize('Synthetic Indices')}
+                    />
                 </SideTab>
             </Markettabs>
         </Container>
-    </SectionContainer>
+    </StyledContainer>
 )

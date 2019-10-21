@@ -31,12 +31,36 @@ class LanguageSwitch extends Component {
 
     handleSelect = e => {
         const { value } = e.target
+
         const path = value === '/en' ? '/' : value
         if (path === '/ach') {
             localStorage.setItem('i18n', 'ach')
             window.location.href = '/ach'
         } else {
-            navigate(path, { hrefLang: path })
+            /*
+                can be something like /es/about/
+                or just /about/
+                or just /
+            
+            */
+            const current_path = window.location.pathname
+            let destination_path = path
+
+            const current_lang = localStorage.getItem('i18n') || 'en'
+            if (current_lang === 'en') {
+                destination_path = `${path}${current_path}`
+            } else {
+                /*
+                    non-greedy match
+                    to get the lang path
+                */
+                destination_path = `${path}${current_path.replace(
+                    /\/.+?\//u,
+                    '/',
+                )}`
+            }
+
+            navigate(destination_path, { hrefLang: path })
         }
     }
 

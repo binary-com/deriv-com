@@ -88,7 +88,7 @@ const SignupButton = styled(Button)`
         if (props.move) {
             return 0
         } else {
-            if (props.width.current) {
+            if (props.width.current && props.mounted) {
                 const calculation = props.width.current.offsetWidth / 10
                 return `-${calculation}rem`
             }
@@ -117,6 +117,8 @@ const Nav = () => {
     const [has_animation, setHasAnimation] = useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
+    const [mounted, setMounted] = useState(false)
+
     const buttonHandleScroll = () => handleScroll(showButton, hideButton)
     const [
         is_canvas_menu_open,
@@ -124,6 +126,7 @@ const Nav = () => {
         closeOffCanvasMenu,
     ] = moveOffCanvasMenu()
     useEffect(() => {
+        setMounted(true)
         document.addEventListener('scroll', buttonHandleScroll, {
             passive: true,
         })
@@ -205,6 +208,7 @@ const Nav = () => {
                             move={show_button}
                             ref={button_ref}
                             width={button_ref}
+                            mounted={mounted}
                         >
                             <span>{localize('Try for free')}</span>
                         </SignupButton>

@@ -41,24 +41,15 @@ class LanguageSwitch extends Component {
                 can be something like /es/about/
                 or just /about/
                 or just /
-            
             */
             const current_path = window.location.pathname
-            let destination_path = path
-
             const current_lang = localStorage.getItem('i18n') || 'en'
-            if (current_lang === 'en') {
-                destination_path = `${path}${current_path}`
-            } else {
-                /*
-                    non-greedy match
-                    to get the lang path
-                */
-                destination_path = `${path}${current_path.replace(
-                    /\/.+?\//u,
-                    '/',
-                )}`
-            }
+
+            const destination_path = `${path}${
+                current_lang === 'en'
+                    ? current_path
+                    : current_path.replace(/\/.+?\//u, '/')
+            }`
 
             navigate(destination_path, { hrefLang: path })
         }

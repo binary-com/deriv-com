@@ -1,9 +1,6 @@
 const language_config = require(`./i18n-config.js`)
 const path = require('path')
 
-const removeTrailingSlash = path =>
-    path === `/` ? path : path.replace(/\/$/, ``)
-
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage, deletePage } = actions
@@ -21,7 +18,7 @@ exports.onCreatePage = ({ page, actions }) => {
             // Pass on everything from the original page
             ...page,
             // Remove trailing slash from page.path (e.g. "/de/")
-            path: removeTrailingSlash(localized_path),
+            path: localized_path,
             // Pass in the locale as context to every page
             context: {
                 ...page.context,

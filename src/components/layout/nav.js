@@ -87,8 +87,8 @@ const SignupButton = styled(Button)`
         if (props.move) {
             return 0
         } else {
-            if (props.width.current && props.mounted) {
-                const calculation = props.width.current.offsetWidth / 10
+            if (props.forwardedRef.current && props.mounted) {
+                const calculation = props.forwardedRef.current.offsetWidth / 10
                 return `-${calculation}rem`
             }
             return 0
@@ -205,7 +205,6 @@ const Nav = () => {
                             onClick={toggleModal}
                             move={show_button}
                             ref={button_ref}
-                            width={button_ref}
                             mounted={mounted}
                         >
                             <span>{localize('Try for free')}</span>

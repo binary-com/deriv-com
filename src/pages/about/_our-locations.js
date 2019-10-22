@@ -94,11 +94,11 @@ export const OurLocations = () => {
                         <Location key={idx} location={location.grid}>
                             {location.icon}
                             <p>
-                                {location.name}
+                                {localize(location.name)}
                                 {location.country && (
                                     <>
                                         <br />
-                                        {location.country}
+                                        {localize(location.country)}
                                     </>
                                 )}
                             </p>

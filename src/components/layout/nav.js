@@ -88,8 +88,8 @@ const SignupButton = styled(Button)`
             return 0
         } else {
             if (props.forwardedRef.current && props.mounted) {
-                const calculation = props.forwardedRef.current.offsetWidth / 10
-                return `-${calculation}rem`
+                const calculation = props.forwardedRef.current.offsetWidth + 2
+                return `-${calculation}px`
             }
             return 0
         }

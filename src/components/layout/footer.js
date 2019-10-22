@@ -9,6 +9,9 @@ import {
 import Container from '../containers/container'
 import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
+import NetlifyForm from '../form/netlify-form'
+import Input from '../form/input'
+import Button from '../form/button'
 import { isProduction } from 'common/websocket/config'
 import device from 'themes/device'
 // Icons
@@ -345,6 +348,21 @@ const Footer = () => (
                             </FooterStyledLink>
                         </Department>
                         {!isProduction() && <LanguageSwitcher />}
+                        {!isProduction() && (
+                            <NetlifyForm>
+                                <Input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    label={localize('Email')}
+                                    placeholder={'example@mail.com'}
+                                    required
+                                />
+                                <Button secondary type="submit">
+                                    Signup to our newsletter
+                                </Button>
+                            </NetlifyForm>
+                        )}
                         <Department grid_name="social">
                             <Social>
                                 <p>{localize('Follow us on')}</p>

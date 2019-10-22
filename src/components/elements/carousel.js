@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Container from 'components/containers/container'
 import { Text, Header } from 'components/elements/typography.js'
 import Image from 'components/elements/image'
-import { localize } from 'components/localization'
 import ChecklistLogo from 'images/svg/checklist.svg'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import device from 'themes/device'
@@ -122,7 +121,7 @@ const Slide = ({ slides, translate_width, children }) => (
                     <LeftContent>
                         <HeaderWrapper>
                             <Header as="h2" color="white">
-                                {localize(slide.header)}
+                                {slide.header}
                             </Header>
                         </HeaderWrapper>
                         <CarouselContent>
@@ -130,7 +129,7 @@ const Slide = ({ slides, translate_width, children }) => (
                                 <div key={content}>
                                     <ChecklistLogo />
                                     <Text color="white" weight="500">
-                                        {localize(content)}
+                                        {content}
                                     </Text>
                                 </div>
                             ))}
@@ -140,7 +139,7 @@ const Slide = ({ slides, translate_width, children }) => (
                     <ImageContainer>
                         <Image
                             img_name={slide.img_name}
-                            alt={localize(slide.img_alt)}
+                            alt={slide.img_alt}
                             width="100%"
                         />
                     </ImageContainer>

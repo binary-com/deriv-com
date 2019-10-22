@@ -68,9 +68,6 @@ const Hero = () => {
                     <Header as="h1">
                         {localize('The all-in-one FX and CFD trading platform')}
                     </Header>
-                    <TryForFree secondary onClick={toggleModal}>
-                        {localize('Try for free')}
-                    </TryForFree>
                 </HeroContent>
                 <Show.Desktop>
                     <Image
@@ -79,6 +76,11 @@ const Hero = () => {
                         width="58.9rem"
                     />
                 </Show.Desktop>
+            </Container>
+            <Container justify="flex-start">
+                <TryForFree secondary onClick={toggleModal}>
+                    {localize('Try for free')}
+                </TryForFree>
             </Container>
             <Modal
                 toggle={toggleModal}

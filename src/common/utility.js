@@ -37,7 +37,8 @@ const getPropertyValue = (obj, k) => {
     // else return clone of object to avoid overwriting data
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
-const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
+const getLocationHash = () =>
+    location.hash ? location.hash.substring(1).replace(/\/$/, '') : ''
 
 const getLanguage = () =>
     isBrowser() ? localStorage.getItem('i18n') || 'en' : null

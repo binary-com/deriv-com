@@ -69,12 +69,7 @@ class AutoCarousel extends React.PureComponent {
     }
     observer = isBrowser() && new window.IntersectionObserver(this.handler)
     componentDidMount() {
-        let total_translate = 0
-        let child
-        for (child of this.my_ref.current.children[0].children) {
-            total_translate = total_translate + child.offsetWidth
-        }
-        this.setState({ total_translate: total_translate })
+        this.setState({ total_translate: this.my_ref.current.offsetWidth * 2 })
         this.observer.observe(this.my_ref.current)
     }
     componentWillUnmount() {
@@ -87,16 +82,7 @@ class AutoCarousel extends React.PureComponent {
     playAnimation = () => {
         this.setState({ animation_status: 'running' })
     }
-    static getDerivedStateFromProps(props, state) {
-        if (state.items.length === 0) {
-            const newItems = props.children.map((item, index) => ({
-                Component: item,
-                key: index,
-            }))
-            return { items: newItems }
-        }
-        return null
-    }
+
     render() {
         return (
             <>
@@ -117,25 +103,7 @@ class AutoCarousel extends React.PureComponent {
                                 this.state.should_carousel_move
                             }
                         >
-                            {this.state.items !== []
-                                ? this.state.items.map(({ Component, key }) => {
-                                      return (
-                                          <ItemContainer
-                                              key={key}
-                                              padding={this.props.items_padding}
-                                              transition={this.state.transition}
-                                              transition_duration={
-                                                  this.props.transition_duration
-                                              }
-                                              count_child={
-                                                  this.props.children.length
-                                              }
-                                          >
-                                              {Component}
-                                          </ItemContainer>
-                                      )
-                                  })
-                                : null}
+                            {this.props.children}
                         </ItemsWrapper>
                     ))}
                 </AutoCarouselSection>
@@ -143,6 +111,7 @@ class AutoCarousel extends React.PureComponent {
         )
     }
 }
+
 AutoCarousel.propTypes = {
     carousel_width: PropTypes.string,
     children: PropTypes.oneOfType([

@@ -24,7 +24,9 @@ import Jeton from 'images/svg/payment-jeton.svg'
 const PaymentSection = styled(SectionContainer)`
     padding: 2.4rem 0;
 `
-
+const ItemWrapper = styled.div`
+    padding: 0 1.6rem;
+`
 const PaymentMethods = () => {
     return (
         <PaymentSection>
@@ -33,23 +35,57 @@ const PaymentMethods = () => {
                 items_padding={32}
                 transition_duration={30000}
             >
-                <Mastercard />
-                <Visa />
-                <Payscale />
-                <Banktransfer />
-                <Netller />
-                <Skrill />
-                <IWallet />
-                <Jeton />
-                <InternetBankTransfer />
-                <WebMoney />
-                <Qiwi />
-                <Yandex />
-                <PerfectMoney />
-                <Maestro />
-                <Sticpay />
-                <Fasapay />
-                <Paytrust />
+                <ItemWrapper>
+                    <Mastercard />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Visa />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Payscale />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Banktransfer />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Netller />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Skrill />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <IWallet />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Jeton />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <InternetBankTransfer />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <WebMoney />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Qiwi />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Yandex />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <PerfectMoney />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Maestro />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Sticpay />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Fasapay />
+                </ItemWrapper>
+                <ItemWrapper>
+                    <Paytrust />
+                </ItemWrapper>
             </AutoCarousel>
         </PaymentSection>
     )

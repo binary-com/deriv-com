@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Tick from './_tick.js'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import AutoCarousel from 'components/elements/auto-carousel'
 
@@ -45,49 +46,50 @@ const getTickerMarkets = active_symbols => {
     return [...volidx, ...forex]
 }
 class Ticker extends React.Component {
-    markets = []
     close_symbols = []
     open_symbols = []
 
     state = {
+        markets: [],
         should_update: true,
         quotes: {},
     }
+
     onActiveSymbolReceive = response => {
-        this.markets = getTickerMarkets(response.active_symbols)
+        const markets = getTickerMarkets(response.active_symbols)
+        const quotes = {}
+        markets.forEach(symbol => {
+            quotes[symbol.symbol] = null
+            symbol.exchange_is_open === 1
+                ? this.open_symbols.push(symbol.symbol)
+                : this.close_symbols.push(symbol.symbol)
+        })
         this.setState(
             {
+                markets: markets,
                 should_update: false,
+                quotes: quotes,
             },
-            onMarketsUpdate,
+            this.onMarketsUpdate,
         )
-
-        const onMarketsUpdate = () => {
-            const quotes = {}
-            this.markets.forEach(symbol => {
-                quotes[symbol.symbol] = null
-                symbol.exchange_is_open === 1
-                    ? this.open_symbols.push(symbol.symbol)
-                    : this.close_symbols.push(symbol.symbol)
-            })
-            this.setState({ quotes: quotes })
-            if (close_symbols.length !== 0) {
-                BinarySocketBase.send(
-                    {
-                        ticks: this.close_symbols,
-                        subscribe: 1,
-                    },
-                    { callback: this.onCloseSymbolsReceive },
-                )
-            }
+    }
+    onMarketsUpdate = () => {
+        if (this.close_symbols.length !== 0) {
             BinarySocketBase.send(
                 {
-                    ticks: this.open_symbols,
+                    ticks: this.close_symbols,
                     subscribe: 1,
                 },
-                { callback: this.onOpenSymbolsReceive },
+                { callback: this.onCloseSymbolsReceive },
             )
         }
+        BinarySocketBase.send(
+            {
+                ticks: this.open_symbols,
+                subscribe: 1,
+            },
+            { callback: this.onOpenSymbolsReceive },
+        )
     }
     onCloseSymbolsReceive = response => {
         const quotes = { ...this.state.quotes }
@@ -129,32 +131,53 @@ class Ticker extends React.Component {
             forget_all: 'ticks',
         })
     }
-    shouldComponentUpdate() {
-        return this.state.should_update
-    }
+    // shouldComponentUpdate() {
+    //     return this.state.should_update
+    // }
     render() {
         return (
             <CarouselWapper>
-                {this.markets.length === 0 ? null : (
+                {this.state.markets.length === 0 ? null : (
                     <AutoCarousel
                         carousel_width="100%"
                         transition_duration={37000}
                     >
-                        {this.markets.map(symbol => {
-                            return (
-                                <Tick
-                                    key={symbol.symbol}
-                                    display_name={symbol.display_name}
-                                    pip={symbol.pip}
-                                    quote={this.state.quotes[symbol.symbol]}
-                                ></Tick>
-                            )
-                        })}
+                        <Asghar quotes={this.state.quotes} />
                     </AutoCarousel>
                 )}
             </CarouselWapper>
         )
     }
 }
-
+const Asghar = props => (
+    <>
+        {Object.keys(props.quotes).map(symbol => {
+            return (
+                <Tick
+                    key={symbol}
+                    display_name={symbol}
+                    quote={props.quotes[symbol]}
+                ></Tick>
+            )
+        })}
+    </>
+)
 export default Ticker
+//   Object.keys(this.state.quotes).map(symbol => {
+//       return (
+//           <Tick
+//               key={symbol}
+//               display_name={symbol}
+//               quote={this.state.quotes[symbol]}
+//           ></Tick>
+//       )
+//   })}
+//   this.state.markets.map(symbol => {
+//         return (
+//             <Tick
+//                 key={symbol.symbol}
+//                 display_name={symbol.display_name}
+//                 quote={this.state.quotes[symbol.symbol]}
+//             ></Tick>
+//         )
+//     })}

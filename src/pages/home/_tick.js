@@ -33,7 +33,7 @@ const Qoute = styled.span`
 
 class Tick extends React.Component {
     state = {
-        // quote: null,
+        quote: null,
         movement: null,
     }
     static reformatQuote(number) {
@@ -44,16 +44,16 @@ class Tick extends React.Component {
             ),
         )
     }
-    // static getDerivedStateFromProps(nextProps, prevState) {
+    static getDerivedStateFromProps(nextProps, prevState) {
 
-    //     if (nextProps.quote > prevState.quote) {
-    //         return { quote: nextProps.quote, movement: MovementGreen }
-    //     }
-    //     if (nextProps.quote < prevState.quote) {
-    //         return { quote: nextProps.quote, movement: MovementRed }
-    //     }
-    //     return { movement: null }
-    // }
+        if (nextProps.quote > prevState.quote) {
+            return { quote: nextProps.quote, movement: MovementGreen }
+        }
+        if (nextProps.quote < prevState.quote) {
+            return { quote: nextProps.quote, movement: MovementRed }
+        }
+        return { movement: null }
+    }
     render() {
         const Movement = this.state.movement
         return (
@@ -63,10 +63,10 @@ class Tick extends React.Component {
                         <span style={{ fontWeight: 'normal' }}>
                             {this.props.display_name}:{' '}
                         </span>
-                        {this.props.quote === null ? (
+                        {this.state.quote === null ? (
                             <Loader />
                         ) : (
-                            this.props.quote
+                            this.state.quote
                         )}{' '}
                     </Qoute>
                     <span style={{ width: '12px', display: 'block' }}>

@@ -32,7 +32,6 @@ const PaymentMethods = () => {
         <PaymentSection>
             <AutoCarousel
                 carousel_width="70%"
-                items_padding={32}
                 transition_duration={30000}
             >
                 <ItemWrapper>

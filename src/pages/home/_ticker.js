@@ -51,7 +51,6 @@ class Ticker extends React.Component {
 
     state = {
         markets: [],
-        should_update: true,
         quotes: {},
     }
 
@@ -67,7 +66,6 @@ class Ticker extends React.Component {
         this.setState(
             {
                 markets: markets,
-                should_update: false,
                 quotes: quotes,
             },
             this.onMarketsUpdate,
@@ -131,9 +129,7 @@ class Ticker extends React.Component {
             forget_all: 'ticks',
         })
     }
-    // shouldComponentUpdate() {
-    //     return this.state.should_update
-    // }
+
     render() {
         return (
             <CarouselWapper>
@@ -142,42 +138,27 @@ class Ticker extends React.Component {
                         carousel_width="100%"
                         transition_duration={37000}
                     >
-                        <Asghar quotes={this.state.quotes} />
+                        <TickList
+                            quotes={this.state.quotes}
+                            markets={this.state.markets}
+                        />
                     </AutoCarousel>
                 )}
             </CarouselWapper>
         )
     }
 }
-const Asghar = props => (
+const TickList = props => (
     <>
-        {Object.keys(props.quotes).map(symbol => {
+        {props.markets.map(symbol => {
             return (
                 <Tick
-                    key={symbol}
-                    display_name={symbol}
-                    quote={props.quotes[symbol]}
+                    key={symbol.symbol}
+                    display_name={symbol.display_name}
+                    quote={props.quotes[symbol.symbol]}
                 ></Tick>
             )
         })}
     </>
 )
 export default Ticker
-//   Object.keys(this.state.quotes).map(symbol => {
-//       return (
-//           <Tick
-//               key={symbol}
-//               display_name={symbol}
-//               quote={this.state.quotes[symbol]}
-//           ></Tick>
-//       )
-//   })}
-//   this.state.markets.map(symbol => {
-//         return (
-//             <Tick
-//                 key={symbol.symbol}
-//                 display_name={symbol.display_name}
-//                 quote={this.state.quotes[symbol.symbol]}
-//             ></Tick>
-//         )
-//     })}

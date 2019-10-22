@@ -18,9 +18,6 @@ const move_items = total_translate => keyframes`
         transform: translateX(-${total_translate}px);
     }
 `
-const ItemContainer = styled.div`
-    padding: 0 ${props => props.padding / 2}px;
-`
 const ItemsWrapper = styled.div`
     /* width: TODO: fix this ${props => props.total_translate}px; */
     display: flex;

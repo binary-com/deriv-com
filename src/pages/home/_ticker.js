@@ -17,7 +17,7 @@ const TickWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 2.7rem 0;
-    width: 36rem;
+    width: 38rem;
 `
 const StyledText = styled(Text)`
     display: flex;

@@ -182,7 +182,7 @@ const KeepSafe = () => {
                         </Header>
                         <StyledHeader as="h4" align="left" weight="500">
                             {localize(
-                                'To help keep your account secure, we recommend these best practices: ',
+                                'To help keep your account secure, we recommend these best practices:',
                             )}
                         </StyledHeader>
                     </SecureWrapper>

@@ -358,105 +358,123 @@ const SafeguardWithdrawFunds = () => (
 
 export const articles = [
     {
-        category: localize('Account'),
+        category: <Localize translate_text="Account" />,
         articles: [
             {
-                title: localize('Who can open an account?'),
-                category: localize('Account'),
-                sub_category: localize('Opening an account'),
+                title: <Localize translate_text="Who can open an account?" />,
+                category: <Localize translate_text="Account" />,
+                sub_category: <Localize translate_text="Opening an account" />,
                 label: 'who-can-open-an-account',
                 content: <WhoCanOpenAnAccount />,
             },
             {
-                title: localize('Opening an account'),
-                category: localize('Account'),
-                sub_category: localize('Opening an account'),
+                title: <Localize translate_text="Opening an account" />,
+                category: <Localize translate_text="Account" />,
+                sub_category: <Localize translate_text="Opening an account" />,
                 label: 'opening-an-account',
                 content: <OpeningAnAccount />,
             },
             {
-                title: localize('Changing your personal details'),
-                category: localize('Account'),
-                sub_category: localize('Opening an account'),
+                title: (
+                    <Localize translate_text="Changing your personal details" />
+                ),
+                category: <Localize translate_text="Account" />,
+                sub_category: <Localize translate_text="Opening an account" />,
                 label: 'changing-your-personal-details',
                 content: <ChangingPersonalDetails />,
             },
             {
-                title: localize('Recovering your password'),
-                category: localize('Account'),
-                sub_category: localize('Managing your account'),
+                title: <Localize translate_text="Recovering your password" />,
+                category: <Localize translate_text="Account" />,
+                sub_category: (
+                    <Localize translate_text="Managing your account" />
+                ),
                 label: 'recovering-your-password',
                 content: <RecoveringYourPassword />,
             },
             {
-                title: localize('Authenticating your account'),
-                category: localize('Account'),
-                sub_category: localize('Opening an account'),
+                title: (
+                    <Localize translate_text="Authenticating your account" />
+                ),
+                category: <Localize translate_text="Account" />,
+                sub_category: <Localize translate_text="Opening an account" />,
                 label: 'recovering-your-password',
                 content: <AuthenticatingYourAccount />,
             },
             {
-                title: localize('How do I change or reset my Deriv password?'),
-                category: localize('Account'),
-                sub_category: localize('Managing your account'),
+                title: (
+                    <Localize translate_text="How do I change or reset my Deriv password?" />
+                ),
+                category: <Localize translate_text="Account" />,
+                sub_category: (
+                    <Localize translate_text="Managing your account" />
+                ),
                 label: 'How-do-I-change-or-reset-my-Deriv-password',
                 content: <HowDoIChangeOrResetMyDerivPassword />,
             },
         ],
     },
     {
-        category: localize('Deposits and withdrawals'),
+        category: <Localize translate_text="Deposits and withdrawals" />,
         articles: [
             {
-                title: localize('Making a deposit'),
-                category: localize('Deposits and withdrawals'),
-                sub_category: localize('Deposits'),
+                title: <Localize translate_text="Making a deposit" />,
+                category: (
+                    <Localize translate_text="Deposits and withdrawals" />
+                ),
+                sub_category: <Localize translate_text="Deposits" />,
                 label: 'making-a-deposit',
                 content: <MakingADeposit />,
             },
             {
-                title: localize('Expired verification link'),
-                category: localize('Deposits and withdrawals'),
-                sub_category: localize('Deposits'),
+                title: <Localize translate_text="Expired verification link" />,
+                category: (
+                    <Localize translate_text="Deposits and withdrawals" />
+                ),
+                sub_category: <Localize translate_text="Deposits" />,
                 label: 'expired-verification-link',
                 content: <ExpiredVerificationLink />,
             },
             {
-                title: localize('Withdrawal processing time'),
-                category: localize('Deposits and withdrawals'),
-                sub_category: localize('Withdrawals'),
+                title: <Localize translate_text="Withdrawal processing time" />,
+                category: (
+                    <Localize translate_text="Deposits and withdrawals" />
+                ),
+                sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'withdrawal-processing-time',
                 content: <WithdrawalProcessingTime />,
             },
             {
-                title: localize(
-                    'How do I withdraw funds from my Deriv account?',
+                title: (
+                    <Localize translate_text="How do I withdraw funds from my Deriv account?" />
                 ),
-                category: localize('Deposits and withdrawals'),
-                sub_category: localize('Withdrawals'),
+                category: (
+                    <Localize translate_text="Deposits and withdrawals" />
+                ),
+                sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'How-do-I-withdraw-funds-from-my-Deriv-account',
                 content: <HowDoIWithdrawFundsFromMyDerivAccount />,
             },
         ],
     },
     {
-        category: localize('Privacy and security'),
+        category: <Localize translate_text="Privacy and security" />,
         articles: [
             {
-                title: localize(
-                    'Safeguarding your account when you change your password',
+                title: (
+                    <Localize translate_text="Safeguarding your account when you change your password" />
                 ),
-                category: localize('Privacy and security'),
-                sub_category: localize('Safeguard'),
+                category: <Localize translate_text="Privacy and security" />,
+                sub_category: <Localize translate_text="Safeguard" />,
                 label: 'Safeguarding-account-when-Change-password',
                 content: <SafeguardChangePassword />,
             },
             {
-                title: localize(
-                    'Safeguarding your account when you withdraw funds',
+                title: (
+                    <Localize translate_text="Safeguarding your account when you withdraw funds" />
                 ),
-                category: localize('Privacy and security'),
-                sub_category: localize('Safeguard'),
+                category: <Localize translate_text="Privacy and security" />,
+                sub_category: <Localize translate_text="Safeguard" />,
                 label: 'Safeguarding-account-when-withdraw-funds',
                 content: <SafeguardWithdrawFunds />,
             },

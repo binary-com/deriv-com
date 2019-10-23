@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from 'components/form/button.js'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import Container from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import Modal, { useModal } from 'components/elements/modal'
@@ -49,33 +49,33 @@ const Location = styled.div`
 
 const locations = [
     {
-        name: localize('Cyberjaya,'),
+        name: <Localize translate_text="Cyberjaya," />,
         icon: <CyberjayaSvg />,
-        country: localize('Malaysia'),
+        country: <Localize translate_text="Malaysia" />,
         grid: 'kll',
     },
     {
-        name: localize('Dubai,'),
+        name: <Localize translate_text="Dubai," />,
         icon: <DubaiSvg />,
-        country: localize('United Arab Emirates'),
+        country: <Localize translate_text="United Arab Emirates" />,
         grid: 'dl',
     },
     {
-        name: localize('Asunción,'),
+        name: <Localize translate_text="Asunción," />,
         icon: <ParaguaySvg />,
-        country: localize('Paraguay'),
+        country: <Localize translate_text="Paraguay" />,
         grid: 'pl',
     },
     {
-        name: localize('Birkirkara,'),
+        name: <Localize translate_text="Birkirkara," />,
         icon: <MaltaSvg />,
-        country: localize('Malta'),
+        country: <Localize translate_text="Malta" />,
         grid: 'ml',
     },
     {
-        name: localize('Labuan,'),
+        name: <Localize translate_text="Labuan," />,
         icon: <LabuanSvg />,
-        country: localize('Malaysia'),
+        country: <Localize translate_text="Malaysia" />,
         grid: 'll',
     },
 ]

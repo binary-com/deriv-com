@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import {
     SectionContainer,
     FlexGridContainer,
 } from 'components/containers/container'
 import { Card } from 'components/elements/card'
 import { Header } from 'components/elements/typography.js'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // icons
 import DTrader from 'images/svg/dtrader-48.svg'
@@ -24,7 +23,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 `
 

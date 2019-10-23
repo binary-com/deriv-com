@@ -19,6 +19,9 @@ const GlobalStyle = createGlobalStyle`
         @media ${device.desktopL} {
             font-size: 75.5%; /* 1rem = 12px */
         }
+        @media ${device.laptop} {
+            font-size: 58%; /* 1rem = 9px */
+        }
         @media ${device.tabletL} {
             font-size: 50%; /* 1rem = 8px */
         }

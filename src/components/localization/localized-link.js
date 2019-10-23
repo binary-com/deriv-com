@@ -52,7 +52,7 @@ export const LocalizedLink = ({ to, ...props }) => {
     const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
     if (props.external_link)
         return <ExternalLink href={to}>{props.children}</ExternalLink>
-    return <GatsbyLink {...props} to={`${path_to}`} />
+    return <GatsbyLink {...props} to={`${path_to}/`} />
 }
 
 LocalizedLink.propTypes = {

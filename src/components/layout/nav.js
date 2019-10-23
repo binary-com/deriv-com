@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
 import Button from 'components/form/button'
@@ -46,6 +47,15 @@ const NavLeft = styled.div`
         }
     }
 `
+
+const StaticWrapper = styled.nav`
+    background: var(--color-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10.4rem;
+`
+
 const NavCenter = styled.ul`
     text-align: center;
     padding: 0;
@@ -111,7 +121,7 @@ const handleScroll = (show, hide) => {
     window.scrollY > show_height ? show() : hide()
 }
 
-const Nav = () => {
+export const Nav = () => {
     const nav_ref = useRef(null)
     const button_ref = useRef(null)
     const [is_platforms_open, setIsPlatformsOpen] = useState(false)
@@ -155,6 +165,7 @@ const Nav = () => {
     const handleNormalLink = () => {
         setHasAnimation(false)
     }
+
     return (
         <NavWrapper ref={nav_ref}>
             <StyledNav>
@@ -229,11 +240,22 @@ const Nav = () => {
         </NavWrapper>
     )
 }
-export default Nav
+
+export const NavStatic = () => (
+    <StaticWrapper>
+        <StyledLink to="/">
+            <LogoBeta />
+        </StyledLink>
+    </StaticWrapper>
+)
 
 function moveButton(is_visible = false) {
     const [show_button, setShowButton] = useState(is_visible)
     const showButton = () => setShowButton(!show_button)
     const hideButton = () => setShowButton(false)
     return [show_button, showButton, hideButton]
+}
+
+NavStatic.propTypes = {
+    is_static: PropTypes.bool,
 }

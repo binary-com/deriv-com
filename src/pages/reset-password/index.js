@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Formik, Form } from 'formik'
 import SEO from 'components/containers/seo'
-import LayoutStatic from 'components/layout/layout-static'
+import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Container from 'components/containers/container'
 import { Header, Text } from 'components/elements/typography'
@@ -73,7 +73,7 @@ const resetSubmission = (values, actions) => {
 }
 
 const ResetPassword = () => (
-    <LayoutStatic>
+    <Layout is_static>
         <SEO
             title={localize('Reset password')}
             description={localize('Reset password')}
@@ -147,7 +147,7 @@ const ResetPassword = () => (
                 )}
             </Formik>
         </StyledContainer>
-    </LayoutStatic>
+    </Layout>
 )
 
 export default WithIntl()(ResetPassword)

@@ -2,43 +2,62 @@ import React from 'react'
 import styled from 'styled-components'
 import Carousel from 'components/elements/carousel'
 import Button from 'components/form/button'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { SectionContainer } from 'components/containers/container'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/elements/signup-modal'
 
 const carousel_data = [
     {
-        header: 'More reasons you’ll love DTrader',
+        header: <Localize translate_text="More reasons you’ll love DTrader" />,
         text: [
-            localize('Choose from the widest range of options.'),
-            localize('Licensed and regulated.'),
-            localize('Exclusive synthetic indices, 24/7.'),
+            <Localize
+                key={0}
+                translate_text="Choose from the widest range of options."
+            />,
+            <Localize key={1} translate_text="Licensed and regulated." />,
+            <Localize
+                key={2}
+                translate_text="Exclusive synthetic indices, 24/7."
+            />,
         ],
         img_name: 'dtrader-screen.png',
-        img_alt: localize('DTrader screens'),
+        img_alt: <Localize translate_text="DTrader screens" />,
     },
     {
-        header: 'More reasons you’ll love DBot',
+        header: <Localize translate_text="More reasons you’ll love DBot" />,
         text: [
-            localize('Drag & drop trading robot builder.'),
-            localize('Test trading strategies with unlimited demo accounts.'),
-            localize(
-                'Access tools & indicators to make smart trading decisions.',
-            ),
+            <Localize
+                key={0}
+                translate_text="Drag & drop trading robot builder."
+            />,
+            <Localize
+                key={1}
+                translate_text="Test trading strategies with unlimited demo accounts."
+            />,
+            <Localize
+                key={2}
+                translate_text="Access tools & indicators to make smart trading decisions."
+            />,
         ],
         img_name: 'dbot-screen.png',
-        img_alt: localize('DBot screens'),
+        img_alt: <Localize translate_text="DBot screens" />,
     },
     {
-        header: 'More reasons you’ll love DMT5',
+        header: <Localize translate_text="More reasons you’ll love DMT5" />,
         text: [
-            localize('Trade 24/7 on DMT5.'),
-            localize('High leverage, 100% ‘A’ book account.'),
-            localize('Trade on mobile, desktop and browser.'),
+            <Localize key={0} translate_text="Trade 24/7 on DMT5." />,
+            <Localize
+                key={1}
+                translate_text="High leverage, 100% ‘A’ book account."
+            />,
+            <Localize
+                key={1}
+                translate_text="Trade on mobile, desktop and browser."
+            />,
         ],
         img_name: 'dmt5-screen.png',
-        img_alt: localize('DMT5 screens'),
+        img_alt: <Localize translate_text="DMT5 screens" />,
     },
 ]
 

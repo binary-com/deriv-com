@@ -5,7 +5,7 @@ import Button from 'components/form/button'
 import { localize, Localize } from 'components/localization'
 import { SectionContainer } from 'components/containers/container'
 import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
+import SignupModal from 'components/custom/signup-modal'
 
 const carousel_data = [
     {

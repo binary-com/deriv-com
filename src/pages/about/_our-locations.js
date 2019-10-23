@@ -5,7 +5,7 @@ import { localize, Localize } from 'components/localization'
 import Container from 'components/containers/container.js'
 import { Header } from 'components/elements/typography.js'
 import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
+import SignupModal from 'components/custom/signup-modal'
 import Show from 'components/containers/show'
 // Icons
 import DubaiSvg from 'images/svg/dubai.svg'

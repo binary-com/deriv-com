@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import SEO from '../../components/containers/seo'
 import { IconGrid } from './_icon-grid'
+import SEO from 'components/containers/seo'
 import Button from 'components/form/button'
 import Layout from 'components/layout/layout'
 import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
+import SignupModal from 'components/custom/signup-modal'
 import {
     GridContainer,
     SectionContainer,

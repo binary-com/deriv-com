@@ -9,7 +9,7 @@ import Image from 'components/elements/image'
 import Hero from 'components/elements/hero.js'
 import Button from 'components/form/button'
 import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
+import SignupModal from 'components/custom/signup-modal'
 import Container, {
     SectionContainer,
     FlexGridContainer,

@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { LocalizedLink, localize } from '../localization'
-import Button from '../form/button'
-import Container from '../containers/container'
-import Modal, { useModal } from '../elements/modal'
-import SignupModal from '../elements/signup-modal'
-import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
-import PlatformsDropdown from '../elements/platforms-dropdown'
-import { SharedLinkStyle } from '../localization/localized-link'
+import { LocalizedLink, localize } from 'components/localization'
+import Button from 'components/form/button'
+import Container from 'components/containers/container'
+import Modal, { useModal } from 'components/elements/modal'
+import SignupModal from 'components/custom/signup-modal'
+import OffCanvasMenu, {
+    moveOffCanvasMenu,
+} from 'components/elements/off-canvas-menu'
+import PlatformsDropdown from 'components/custom/platforms-dropdown'
+import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons

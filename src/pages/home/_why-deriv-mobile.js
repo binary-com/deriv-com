@@ -5,7 +5,7 @@ import Button from '../../components/form/button'
 import Modal, { useModal } from 'components/elements/modal'
 import { localize } from 'components/localization'
 import Checklist from 'images/svg/checklist.svg'
-import SignupModal from 'components/elements/signup-modal'
+import SignupModal from 'components/custom/signup-modal'
 
 const WhyDerivMobileContainer = styled.div`
     padding: 4rem 0 2rem 0;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { LocalizedLink, localize } from '../localization'
-import { GridContainer } from '../containers/container'
+import { LocalizedLink, localize } from 'components/localization'
+import { GridContainer } from 'components/containers/container'
 import Show from 'components/containers/show'
 import { Text } from 'components/elements/typography.js'
 // Icons

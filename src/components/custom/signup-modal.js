@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import Row from '../containers/row'
-import Signup from '../form/signup'
-import { localize } from '../localization'
-import { Header } from './typography'
+import Signup from './signup'
 import Show from 'components/containers/show'
+import Row from 'components/containers/row'
+import { localize } from 'components/localization'
+import { Header } from 'components/elements/typography'
 import device from 'themes/device.js'
 
 const SignupWrapper = styled.article`

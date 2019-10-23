@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 import { deriv_app_url, deriv_bot_app_url } from 'common/utility'
 import device from 'themes/device'
 import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
+import SignupModal from 'components/custom/signup-modal'
 
 const StyledButton = styled(Button)`
     margin-top: 2rem;

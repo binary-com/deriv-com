@@ -25,6 +25,7 @@ import ContractDurations from 'images/svg/contract-durations.svg'
 
 const StyledSection = styled.section`
     padding-left: 8rem;
+    width: 80rem;
 
     p {
         font-size: var(--text-size-sm);

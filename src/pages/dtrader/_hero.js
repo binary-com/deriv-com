@@ -38,7 +38,6 @@ const DtraderLogo = styled(dtrader_logo)`
 `
 const TryForFree = styled(Button)`
     border: 2px solid var(--color-red);
-    width: 12rem;
     font-weight: bold;
     line-height: 1.43;
     margin-top: 1.22rem;

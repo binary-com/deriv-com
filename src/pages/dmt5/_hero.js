@@ -43,7 +43,6 @@ const DMT5Logo = styled(dmt5_logo)`
 `
 const TryForFree = styled(Button)`
     border: 2px solid var(--color-red);
-    width: 12rem;
     font-weight: bold;
     line-height: 1.43;
     margin-top: 3.2rem;
@@ -69,9 +68,6 @@ const Hero = () => {
                     <Header as="h1">
                         {localize('The all-in-one FX and CFD trading platform')}
                     </Header>
-                    <TryForFree secondary onClick={toggleModal}>
-                        {localize('Try for free')}
-                    </TryForFree>
                 </HeroContent>
                 <Show.Desktop>
                     <Image
@@ -80,6 +76,11 @@ const Hero = () => {
                         width="58.9rem"
                     />
                 </Show.Desktop>
+            </Container>
+            <Container justify="flex-start">
+                <TryForFree secondary onClick={toggleModal}>
+                    {localize('Try for free')}
+                </TryForFree>
             </Container>
             <Modal
                 toggle={toggleModal}

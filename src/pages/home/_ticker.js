@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import Tick from './_tick.js'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import AutoCarousel from 'components/elements/auto-carousel'
@@ -148,17 +149,24 @@ class Ticker extends React.Component {
         )
     }
 }
-const TickList = props => (
+const TickList = ({ markets, quotes }) => (
     <>
-        {props.markets.map(symbol => {
+        {markets.map(symbol => {
             return (
                 <Tick
                     key={symbol.symbol}
                     display_name={symbol.display_name}
-                    quote={props.quotes[symbol.symbol]}
+                    quote={quotes[symbol.symbol]}
+                    pip={symbol.pip}
                 ></Tick>
             )
         })}
     </>
 )
+
+TickList.propTypes = {
+    markets: PropTypes.array,
+    quotes: PropTypes.object,
+}
+
 export default Ticker

@@ -36,26 +36,32 @@ class Tick extends React.Component {
         quote: null,
         movement: null,
     }
-    static reformatQuote(number) {
-        return number.toFixed(
-            Math.max(
-                (this.props.pip.toString().split('.')[1] || []).length,
-                (number.toString().split('.')[1] || []).length,
-            ),
-        )
-    }
-    static getDerivedStateFromProps(nextProps, prevState) {
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        const reformatQuote = number => {
+            return number.toFixed(
+                Math.max(
+                    (nextProps.pip.toString().split('.')[1] || []).length,
+                    (number.toString().split('.')[1] || []).length,
+                ),
+            )
+        }
         if (nextProps.quote > prevState.quote) {
-            return { quote: nextProps.quote, movement: MovementGreen }
+            return {
+                quote: reformatQuote(nextProps.quote),
+                movement: MovementGreen,
+            }
         }
         if (nextProps.quote < prevState.quote) {
-            return { quote: nextProps.quote, movement: MovementRed }
+            return {
+                quote: reformatQuote(nextProps.quote),
+                movement: MovementRed,
+            }
         }
-        return { movement: null }
+        return { quote: null, movement: null }
     }
     render() {
-        const Movement = this.state.movement
+        // const Movement = this.state.movement
         return (
             <TickWrapper>
                 <StyledText>
@@ -63,14 +69,14 @@ class Tick extends React.Component {
                         <span style={{ fontWeight: 'normal' }}>
                             {this.props.display_name}:{' '}
                         </span>
-                        {this.state.quote === null ? (
+                        {this.props.quote === null ? (
                             <Loader />
                         ) : (
-                            this.state.quote
+                            this.props.quote
                         )}{' '}
                     </Qoute>
                     <span style={{ width: '12px', display: 'block' }}>
-                        {Movement === null ? null : <Movement />}
+                        {/* {Movement === null ? null : <Movement />} */}
                     </span>
                 </StyledText>
                 <Divider />
@@ -83,6 +89,7 @@ Tick.propTypes = {
     display_name: PropTypes.string,
     is_exchange_open: PropTypes.bool,
     pip: PropTypes.number,
+    quote: PropTypes.number,
     symbol: PropTypes.string,
 }
 

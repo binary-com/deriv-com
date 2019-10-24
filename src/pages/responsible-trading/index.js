@@ -12,7 +12,7 @@ import {
 } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { CardStyle } from 'components/elements/card'
-import { Divider } from 'components/elements/divider'
+import Divider from 'components/elements/divider'
 // Icons
 import Demo from 'images/svg/demo-icon.svg'
 import HandMoney from 'images/svg/hand-money-icon.svg'

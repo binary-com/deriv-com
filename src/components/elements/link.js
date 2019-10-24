@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { LocalizedLink } from '../localization'
 
-export const StyledLink = styled(LocalizedLink)`
+const StyledLink = styled(LocalizedLink)`
     font-size: var(--text-size-sm);
     color: var(--color-red);
     text-decoration: none;
@@ -23,3 +23,5 @@ export const StyledLink = styled(LocalizedLink)`
             `
     }}
 `
+
+export default StyledLink

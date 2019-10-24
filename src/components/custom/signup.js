@@ -14,7 +14,7 @@ import TrafficSource from 'common/traffic-source'
 import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
-import { StyledLink } from 'components/elements/link'
+import StyledLink from 'components/elements/link'
 import device from 'themes/device.js'
 // Icons
 import Facebook from 'images/svg/facebook.svg'

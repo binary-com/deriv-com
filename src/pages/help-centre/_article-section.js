@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { ListWithLinks } from './_list'
 import { Text, Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
-import { StyledLink } from 'components/elements/link'
+import StyledLink from 'components/elements/link'
 import { Container, Show } from 'components/containers'
 import device from 'themes/device'
 // Icons

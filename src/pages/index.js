@@ -10,7 +10,7 @@ import Ticker from './home/_ticker'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { Divider } from 'components/elements/divider'
+import Divider from 'components/elements/divider'
 
 const Home = () => (
     <Layout>

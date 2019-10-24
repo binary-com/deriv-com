@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import AutoCarousel from 'components/elements/auto-carousel'
 import { Text } from 'components/elements/typography.js'
-import Loader from 'components/elements/dot_loader.js'
+import Loader from 'components/elements/dot-loader.js'
 import MovementGreen from 'images/svg/price-movement-green.svg'
 import MovementRed from 'images/svg/price-movement-red.svg'
 

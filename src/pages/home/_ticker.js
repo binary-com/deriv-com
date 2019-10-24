@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import EventEmitter from './_event-emitter'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import AutoCarousel from 'components/elements/auto-carousel'
 import { Text } from 'components/elements/typography.js'
@@ -41,28 +42,6 @@ class Tick extends React.PureComponent {
         movement: null,
     }
 
-    subscribe = symbol => {
-        BinarySocketBase.send(
-            {
-                ticks: symbol,
-                subscribe: 1,
-            },
-            { callback: this.onSubscribe },
-        )
-    }
-
-    getHistory = symbol => {
-        BinarySocketBase.send(
-            {
-                ticks_history: symbol,
-                end: 'latest',
-                adjust_start_time: 1,
-                count: 1,
-            },
-            { callback: this.onTicksHistory },
-        )
-    }
-
     reformatQuote(number) {
         // calculate that how many decimal each quote should have, based on pip value
         return number.toFixed(
@@ -73,66 +52,30 @@ class Tick extends React.PureComponent {
         )
     }
 
-    onTicksHistory = response => {
-        if (response.error) {
-            this.setState({
-                quote: null,
-                movement: null,
-            })
-        } else {
-            this.setState({
-                quote: this.reformatQuote(response.history.prices[0]),
-                movement: null,
-            })
-        }
-    }
-
-    onSubscribe = response => {
-        if (response.error) {
-            this.setState({
-                quote: null,
-                movement: null,
-            })
-        } else {
-            const quote = this.reformatQuote(response.tick.quote)
-            if (this.state.quote > response.tick.quote) {
+    componentDidMount() {
+        EventEmitter.subscribe(this.props.symbol, quote => {
+            if (this.state.quote > quote)
                 this.setState({
-                    quote,
+                    quote: quote,
                     movement: MovementRed,
                 })
-            } else if (this.state.quote < response.tick.quote) {
+            else if (this.state.quote < quote)
                 this.setState({
-                    quote,
+                    quote: quote,
                     movement: MovementGreen,
                 })
-            } else if (this.state.quote === response.tick.quote) {
+            else {
                 this.setState({
-                    movement: null,
-                })
-            } else {
-                this.setState({
-                    quote,
                     movement: null,
                 })
             }
-        }
-    }
-
-    componentDidMount() {
-        const { symbol, is_exchange_open } = this.props
-
-        if (is_exchange_open) {
-            this.subscribe(symbol)
-        } else {
-            this.getHistory(symbol)
-        }
+        })
     }
 
     render() {
         const Movement = this.state.movement
         return (
             <TickWrapper>
-                <div>{this.props.quote}</div>
                 <StyledText>
                     <Qoute>
                         <span style={{ fontWeight: 'normal' }}>
@@ -141,7 +84,7 @@ class Tick extends React.PureComponent {
                         {this.state.quote === null ? (
                             <Loader />
                         ) : (
-                            this.state.quote
+                            this.reformatQuote(this.state.quote)
                         )}{' '}
                     </Qoute>
                     <span style={{ width: '12px', display: 'block' }}>
@@ -210,7 +153,6 @@ const getTickerMarkets = active_symbols => {
     }
 }
 class Ticker extends React.Component {
-    quotes = {}
     state = {
         markets: {
             all_symbols: [],
@@ -220,9 +162,6 @@ class Ticker extends React.Component {
     }
     onActiveSymbolReceive = response => {
         const markets = getTickerMarkets(response.active_symbols)
-        markets.all_symbols.forEach(
-            symbol => (this.quotes[symbol.symbol] = null),
-        )
         this.setState(
             {
                 markets,
@@ -244,12 +183,10 @@ class Ticker extends React.Component {
         )
     }
     onOpensymbolsReceive = response => {
-        this.quotes = {
-            ...this.quotes,
-            [response.tick.symbol]: response.tick.quote,
-        }
+        EventEmitter.dispatch(response.tick.symbol, response.tick.quote)
     }
     componentDidMount() {
+        EventEmitter.reset()
         BinarySocketBase.send(
             {
                 active_symbols: 'brief',
@@ -263,42 +200,36 @@ class Ticker extends React.Component {
             forget_all: 'ticks',
         })
     }
+    shouldComponentUpdate() {
+        if (this.count < 20) {
+            this.count += 1
+            return false
+        }
+        this.count = 0
+        return true
+    }
     render() {
-        const TickProvider = React.createContext()
         return (
-            <TickProvider.Provider value={this.quotes}>
-                <CarouselWapper>
-                    {this.state.markets.all_symbols.length === 0 ? null : (
-                        <AutoCarousel
-                            carousel_width="100%"
-                            transition_duration={37000}
-                        >
-                            {this.state.markets.all_symbols.map(symbol => {
-                                return (
-                                    <TickProvider.Consumer key={symbol.symbol}>
-                                        {value => {
-                                            console.log(JSON.stringify(value))
-                                            return (
-                                                <Tick
-                                                    quote={value[symbol.symbol]}
-                                                    display_name={
-                                                        symbol.display_name
-                                                    }
-                                                    symbol={symbol.symbol}
-                                                    is_exchange_open={
-                                                        !!symbol.exchange_is_open
-                                                    }
-                                                    pip={symbol.pip}
-                                                />
-                                            )
-                                        }}
-                                    </TickProvider.Consumer>
-                                )
-                            })}
-                        </AutoCarousel>
-                    )}
-                </CarouselWapper>
-            </TickProvider.Provider>
+            <CarouselWapper>
+                {this.state.markets.all_symbols.length === 0 ? null : (
+                    <AutoCarousel
+                        carousel_width="100%"
+                        transition_duration={37000}
+                    >
+                        {this.state.markets.all_symbols.map(symbol => {
+                            return (
+                                <Tick
+                                    key={symbol.symbol}
+                                    display_name={symbol.display_name}
+                                    symbol={symbol.symbol}
+                                    is_exchange_open={!!symbol.exchange_is_open}
+                                    pip={symbol.pip}
+                                />
+                            )
+                        })}
+                    </AutoCarousel>
+                )}
+            </CarouselWapper>
         )
     }
 }

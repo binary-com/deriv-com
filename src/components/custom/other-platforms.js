@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {
-    SectionContainer,
-    FlexGridContainer,
-} from 'components/containers/container'
+import { SectionContainer, FlexGridContainer } from 'components/containers'
 import { Card } from 'components/elements/card'
 import { Header } from 'components/elements/typography.js'
 import { localize, LocalizedLink } from 'components/localization'

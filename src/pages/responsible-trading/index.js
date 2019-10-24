@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import SEO from 'components/containers/seo'
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Hero from 'components/elements/hero'
-import Container, {
+import {
+    Container,
     SectionContainer,
     FlexGridContainer,
-} from 'components/containers/container'
+    SEO,
+} from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { CardStyle } from 'components/elements/card'
 import { Divider } from 'components/elements/divider'

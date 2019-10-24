@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import Container, { SectionContainer } from 'components/containers/container.js'
+import { Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography.js'
 
 const NumberWrapper = styled.div`

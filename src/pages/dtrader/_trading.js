@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
-import Container, { SectionContainer } from 'components/containers/container.js'
+import { Container, SectionContainer } from 'components/containers'
 import Image from 'components/elements/image'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
@@ -87,14 +87,17 @@ const Trading = () => {
                 </ContentContainer>
                 <ImageContainer grid_area="msi">
                     <ImageWrapper max_width="42rem">
-                        <Image img_name="make-smarter.png" alt={localize("Make smarter")} />
+                        <Image
+                            img_name="make-smarter.png"
+                            alt={localize('Make smarter')}
+                        />
                     </ImageWrapper>
                 </ImageContainer>
                 <ImageContainer grid_area="twywi">
                     <ImageWrapper max_width="50rem">
                         <Image
                             img_name="trade-what-you-want.png"
-                            alt={localize("Trade what you want")}
+                            alt={localize('Trade what you want')}
                         />
                     </ImageWrapper>
                 </ImageContainer>
@@ -118,7 +121,10 @@ const Trading = () => {
                 </ContentContainer>
                 <ImageContainer grid_area="hywi">
                     <ImageWrapper max_width="44.8rem">
-                        <Image img_name="how-you-want.png" alt={localize("How you want")} />
+                        <Image
+                            img_name="how-you-want.png"
+                            alt={localize('How you want')}
+                        />
                     </ImageWrapper>
                 </ImageContainer>
             </StyledContainer>

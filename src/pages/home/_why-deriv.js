@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Carousel from 'components/elements/carousel'
 import Button from 'components/form/button'
 import { localize, Localize } from 'components/localization'
-import { SectionContainer } from 'components/containers/container'
+import { SectionContainer } from 'components/containers'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/custom/signup-modal'
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
-import Row from 'components/containers/row'
+import { FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import Image from 'components/elements/image'
@@ -52,9 +52,8 @@ const MutedText = styled(Text)`
     color: var(--color-grey);
     align-self: start;
 `
-const SocialWrapper = styled(Row)`
+const SocialWrapper = styled(FlexGridContainer)`
     width: 100%;
-    justify-content: space-between;
     margin-top: var(--text-size-s);
 `
 export const LoginText = styled(MutedText)`
@@ -224,7 +223,7 @@ class Signup extends Component {
                             {localize('Create a free account')}
                         </EmailButton>
                         <Text color="grey">{localize('Or sign up with')}</Text>
-                        <SocialWrapper>
+                        <SocialWrapper justify="space-between" gap="0" grid="2">
                             <SocialButton
                                 onClick={this.handleSocialSignup}
                                 provider="google"

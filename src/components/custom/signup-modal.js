@@ -2,8 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Signup from './signup'
-import Show from 'components/containers/show'
-import Row from 'components/containers/row'
+import { FlexGridContainer, Show } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device.js'
@@ -21,7 +20,7 @@ const SignupWrapper = styled.article`
     }
 `
 
-const ModalRow = styled(Row)`
+const ModalRow = styled(FlexGridContainer)`
     height: 100%;
 `
 
@@ -56,7 +55,7 @@ const HeaderWrapper = styled(Header)`
 
 const SignupModal = ({ autofocus, closeModal }) => (
     <SignupWrapper>
-        <ModalRow>
+        <ModalRow gap="0" grid="2">
             <Show.Desktop>
                 <Content inverse>
                     <HeaderWrapper

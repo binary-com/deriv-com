@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import DtraderVideo from './_dtrader-video.js'
 import { localize } from 'components/localization'
-import Container, { SectionContainer } from 'components/containers/container.js'
+import { Container, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements/typography.js'
 import device from 'themes/device.js'
 

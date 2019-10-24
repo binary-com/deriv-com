@@ -5,7 +5,7 @@ import { StyledSubHeader } from './_headers'
 import SideTab from 'components/elements/side-tab'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
-import Container, { SectionContainer } from 'components/containers/container'
+import { Container, SectionContainer } from 'components/containers'
 // Icons
 import liquidMarket from 'images/svg/liquid-market.svg'
 import tff from 'images/svg/tff.svg'

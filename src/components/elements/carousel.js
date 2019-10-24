@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Container from 'components/containers/container'
+import { Container } from 'components/containers'
 import { Text, Header } from 'components/elements/typography.js'
 import Image from 'components/elements/image'
 import ChecklistLogo from 'images/svg/checklist.svg'

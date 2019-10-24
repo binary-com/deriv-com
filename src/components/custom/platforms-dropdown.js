@@ -1,13 +1,13 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
-import { GridContainer } from 'components/containers/container'
-import Show from 'components/containers/show'
+import { GridContainer, Show } from 'components/containers'
 import { Text } from 'components/elements/typography.js'
 // Icons
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
+
 const FadeInDown = keyframes`
     from {
         opacity:0;

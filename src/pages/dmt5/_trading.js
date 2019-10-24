@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import Container, { SectionContainer } from 'components/containers/container.js'
+import { Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography.js'
 import device from 'themes/device'
 import Image from 'components/elements/image'
@@ -71,7 +71,7 @@ const Trading = () => {
     return (
         <StyledSection>
             <StyledContainer>
-                <ImageContainer grid_area="msi" align_self='center'>
+                <ImageContainer grid_area="msi" align_self="center">
                     <Image img_name="dmt-5-mac.png" alt="DMT5 mac" />
                 </ImageContainer>
                 <ContentContainer grid_area="ms">

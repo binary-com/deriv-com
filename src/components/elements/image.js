@@ -1,8 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
-import ImageWrapper from '../containers/image-wrapper'
+
+const ImageWrapper = styled.div`
+    width: ${props => props.width};
+`
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized

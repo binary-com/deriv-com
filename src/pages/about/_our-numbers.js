@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Show from 'components/containers/show'
-import Container from 'components/containers/container.js'
+import { Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'

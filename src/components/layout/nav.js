@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
 import Button from 'components/form/button'
-import Container from 'components/containers/container'
+import { Container } from 'components/containers'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/custom/signup-modal'
 import OffCanvasMenu, {

@@ -6,7 +6,7 @@ import {
     LocalizedLink,
     LanguageSwitcher,
 } from '../localization'
-import Container from '../containers/container'
+import { Container } from '../containers'
 import { Header, Text } from '../elements/typography.js'
 import { StyledLink } from '../elements/link'
 import { isProduction } from 'common/websocket/config'

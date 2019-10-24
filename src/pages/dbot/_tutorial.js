@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Image from 'components/elements/image'
-import {
-    SectionContainer,
-    FlexGridContainer,
-} from 'components/containers/container'
+import { SectionContainer, FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography.js'
 import { localize } from 'components/localization'
 import device from 'themes/device'

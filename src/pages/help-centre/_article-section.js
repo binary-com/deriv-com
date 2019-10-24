@@ -5,9 +5,8 @@ import { ListWithLinks } from './_list'
 import { Text, Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { StyledLink } from 'components/elements/link'
-import Container from 'components/containers/container'
+import { Container, Show } from 'components/containers'
 import device from 'themes/device'
-import Show from 'components/containers/show'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 

@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-    SectionContainer,
-    FlexGridContainer,
-} from 'components/containers/container.js'
+import { SectionContainer, FlexGridContainer } from 'components/containers'
 import { Card } from 'components/elements/card.js'
 import { localize } from 'components/localization'
 import device from 'themes/device'

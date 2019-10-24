@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements/typography.js'
-// import MacBook from 'images/svg/macbook.svg'
 import Image from 'components/elements/image'
 import device from 'themes/device.js'
 

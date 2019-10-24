@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import Container, { SectionContainer } from 'components/containers/container.js'
+import { Container, SectionContainer } from 'components/containers'
 import device from 'themes/device.js'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/custom/signup-modal'

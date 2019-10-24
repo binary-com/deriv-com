@@ -1,8 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SecurityIconGrid } from './_icon-grid'
-import SEO from 'components/containers/seo'
-import Show from 'components/containers/show'
+import {
+    Show,
+    SEO,
+    SectionContainer,
+    FlexGridContainer,
+    Container,
+} from 'components/containers'
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import Image from 'components/elements/image'
@@ -10,10 +15,6 @@ import Hero from 'components/elements/hero.js'
 import Button from 'components/form/button'
 import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/custom/signup-modal'
-import Container, {
-    SectionContainer,
-    FlexGridContainer,
-} from 'components/containers/container'
 import { Card } from 'components/elements/card.js'
 import { Divider } from 'components/elements/divider'
 import { StyledLink } from 'components/elements/link'

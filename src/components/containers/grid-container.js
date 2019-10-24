@@ -1,13 +1,10 @@
 import styled from 'styled-components'
 import device from 'themes/device'
 
-const Container = styled.div`
+const GridContainer = styled.section`
     margin: 0 auto;
-    display: flex;
-    align-items: ${props => (props.align ? props.align : 'center')};
-    justify-content: ${props => (props.justify ? props.justify : 'center')};
-    flex-direction: ${props => (props.direction ? props.direction : 'row')};
     width: 80%;
+    text-align: ${props => props.align || 'left'};
 
     @media ${device.desktop} {
         max-width: 1024px;
@@ -22,4 +19,4 @@ const Container = styled.div`
     }
 `
 
-export default Container
+export default GridContainer

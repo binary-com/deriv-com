@@ -132,6 +132,7 @@ class Tick extends React.PureComponent {
         const Movement = this.state.movement
         return (
             <TickWrapper>
+                <div>{this.props.quote}</div>
                 <StyledText>
                     <Qoute>
                         <span style={{ fontWeight: 'normal' }}>
@@ -177,6 +178,8 @@ const getTickerMarkets = active_symbols => {
     let forex_count = 7
     let volidx = []
     let forex = []
+    let close_symbols = []
+    let open_symbols = []
 
     active_symbols.forEach(symbol => {
         if (symbol.market === 'volidx') {
@@ -194,19 +197,57 @@ const getTickerMarkets = active_symbols => {
     })
     if (volidx.length) volidx = shuffle(volidx).slice(0, volatility_count)
     if (forex.length) forex = shuffle(forex).slice(0, forex_count)
+    ;[...volidx, ...forex].forEach(symbol =>
+        symbol.exchange_is_open === 1
+            ? open_symbols.push(symbol.symbol)
+            : close_symbols.push(symbol.symbol),
+    )
 
-    return [...volidx, ...forex]
+    return {
+        all_symbols: [...volidx, ...forex],
+        open_symbols: open_symbols,
+        close_symbols: close_symbols,
+    }
 }
 class Ticker extends React.Component {
+    quotes = {}
     state = {
-        markets: [],
+        markets: {
+            all_symbols: [],
+            open_symbols: [],
+            close_symbols: [],
+        },
     }
     onActiveSymbolReceive = response => {
         const markets = getTickerMarkets(response.active_symbols)
+        markets.all_symbols.forEach(
+            symbol => (this.quotes[symbol.symbol] = null),
+        )
+        this.setState(
+            {
+                markets,
+            },
+            this.onSymbolsSubscribe,
+        )
+    }
+    onSymbolsSubscribe = () => {
+        if (this.state.markets.close_symbols.length !== 0) {
+            //subscribe tick history
+        }
 
-        this.setState({
-            markets,
-        })
+        BinarySocketBase.send(
+            {
+                ticks: this.state.markets.open_symbols,
+                subscribe: 1,
+            },
+            { callback: this.onOpensymbolsReceive },
+        )
+    }
+    onOpensymbolsReceive = response => {
+        this.quotes = {
+            ...this.quotes,
+            [response.tick.symbol]: response.tick.quote,
+        }
     }
     componentDidMount() {
         BinarySocketBase.send(
@@ -223,27 +264,41 @@ class Ticker extends React.Component {
         })
     }
     render() {
+        const TickProvider = React.createContext()
         return (
-            <CarouselWapper>
-                {this.state.markets.length === 0 ? null : (
-                    <AutoCarousel
-                        carousel_width="100%"
-                        transition_duration={37000}
-                    >
-                        {this.state.markets.map(symbol => {
-                            return (
-                                <Tick
-                                    key={symbol.symbol}
-                                    display_name={symbol.display_name}
-                                    symbol={symbol.symbol}
-                                    is_exchange_open={!!symbol.exchange_is_open}
-                                    pip={symbol.pip}
-                                ></Tick>
-                            )
-                        })}
-                    </AutoCarousel>
-                )}
-            </CarouselWapper>
+            <TickProvider.Provider value={this.quotes}>
+                <CarouselWapper>
+                    {this.state.markets.all_symbols.length === 0 ? null : (
+                        <AutoCarousel
+                            carousel_width="100%"
+                            transition_duration={37000}
+                        >
+                            {this.state.markets.all_symbols.map(symbol => {
+                                return (
+                                    <TickProvider.Consumer key={symbol.symbol}>
+                                        {value => {
+                                            console.log(JSON.stringify(value))
+                                            return (
+                                                <Tick
+                                                    quote={value[symbol.symbol]}
+                                                    display_name={
+                                                        symbol.display_name
+                                                    }
+                                                    symbol={symbol.symbol}
+                                                    is_exchange_open={
+                                                        !!symbol.exchange_is_open
+                                                    }
+                                                    pip={symbol.pip}
+                                                />
+                                            )
+                                        }}
+                                    </TickProvider.Consumer>
+                                )
+                            })}
+                        </AutoCarousel>
+                    )}
+                </CarouselWapper>
+            </TickProvider.Provider>
         )
     }
 }

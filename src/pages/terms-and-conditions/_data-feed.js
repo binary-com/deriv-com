@@ -48,7 +48,7 @@ export const DataFeed = () => (
             <li>
                 <TncListText>
                     {localize(
-                        'Please note that weekend quotes are ignored for the purpose of trade settlement. During weekends, the forex markets may occasionally generate prices; however, these prices are often artificial (traders sometimes take advantage of the illiquidity of the markets during weekends to push prices up or down). To avoid settling prices based on such artificial prices, it is Our policy not to count weekend prices towards trade settlement values (except for Synthetic Indices, which are open during weekends).',
+                        'Please note that weekend quotes are ignored for the purpose of trade settlement. During weekends, the forex markets may occasionally generate prices; however, these prices are often artificial (traders sometimes take advantage of the illiquidity of the markets during weekends to push prices up or down). To avoid settling prices based on such artificial prices, it is Our policy not to count weekend prices towards trade settlement values (except for Volatility Indices, which are open during weekends).',
                     )}
                 </TncListText>
             </li>

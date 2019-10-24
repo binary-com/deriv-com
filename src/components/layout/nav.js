@@ -16,6 +16,7 @@ import device from 'themes/device'
 // Icons
 import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
+
 const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
@@ -95,17 +96,23 @@ const StyledButton = styled.a`
 
 const SignupButton = styled(Button)`
     margin-left: 1.6rem;
-    margin-right: ${props => {
+    ${props => {
         if (props.move) {
-            return 0
+            return 'margin-right: 0;'
         } else {
             if (props.forwardedRef.current && props.mounted) {
-                const calculation = props.forwardedRef.current.offsetWidth + 2
-                return `-${calculation}px`
+                if (props.forwardedRef.current.offsetWidth) {
+                    const calculation =
+                        props.forwardedRef.current.offsetWidth + 2
+                    return `
+                    margin-right: -${calculation}px;
+                `
+                }
+                return 'display: none;'
             }
-            return 0
+            return 'display: none;'
         }
-    }};
+    }}
 `
 
 const HamburgerMenu = styled(Hamburger)`

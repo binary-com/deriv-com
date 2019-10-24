@@ -320,7 +320,7 @@ const Footer = () => (
                             </FooterStyledLink>
                             <FooterStyledLink
                                 activeClassName="active"
-                                to="/terms-and-conditions/"
+                                to="/terms-and-conditions/general"
                                 aria-label={localize('Terms and conditions')}
                                 partiallyActive={true}
                             >
@@ -329,7 +329,7 @@ const Footer = () => (
                             <FooterStyledLink
                                 hidden
                                 activeClassName="active"
-                                to="/terms-and-conditions/#security-privacy"
+                                to="/terms-and-conditions/security-privacy"
                                 aria-label={localize('Security and privacy')}
                                 partiallyActive={true}
                             >

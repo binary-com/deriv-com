@@ -8,6 +8,33 @@ import 'typeface-ibm-plex-sans'
 
 const is_browser = typeof window !== 'undefined'
 
+export const onRouteUpdate = ({ location }) => {
+    anchorScroll(location)
+    return true
+}
+export const shouldUpdateScroll = ({ routerProps: { location } }) => {
+    anchorScroll(location)
+    return true
+}
+
+function anchorScroll(location) {
+    // Check for location so build does not fail
+    if (location.hash) {
+        setTimeout(() => {
+            document
+                .querySelector(`${location.hash}`)
+                .scrollIntoView({ behavior: 'smooth', block: 'start' })
+            // const item = document.querySelector(`${location.hash}`).offsetTop
+            // const mainNavHeight = document.querySelector(`nav`).offsetHeight
+            // window.scrollTo({
+            //     top: item - mainNavHeight,
+            //     left: 0,
+            //     behavior: 'smooth',
+            // })
+        }, 100)
+    }
+}
+
 export const onInitialClientRender = () => {
     // Enable translation
     // Check if not production and match ach or ach/

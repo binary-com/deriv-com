@@ -10,11 +10,11 @@ import { PaymentAgents } from './_payment-agents'
 import { RiskDisclaimer } from './_risk-disclaimer'
 import { SecurityAndPrivacy } from './_security-privacy.js'
 import { Bonuses } from './_bonuses'
+import { localize, WithIntl } from 'components/localization'
 import Container from 'components/containers/container'
 import SEO from 'components/containers/seo'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
 import SideTab from 'components/elements/side-tab'
+import Layout from 'components/layout/layout'
 import device from 'themes/device'
 
 const TncContainer = styled(Container)`
@@ -34,7 +34,7 @@ const TermsAndConditions = () => (
             )}
         />
         <TncContainer align="left" justify="left">
-            <SideTab has_hash_routing is_sticky>
+            <SideTab is_sticky has_hash_routing>
                 <General
                     label="general"
                     text={localize('Terms and conditions')}

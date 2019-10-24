@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { navigate } from '@reach/router'
+import { Link } from 'gatsby'
 import Wrapper from '../containers/wrapper'
+import DropDown from './combobox'
 import { Text } from './typography'
-import { getLocationHash, isBrowser } from 'common/utility'
+import { getLocationHash, getLocationPath, isBrowser } from 'common/utility'
 import device, { size } from 'themes/device'
 import { Desktop, Mobile } from 'components/containers/show'
-import Chevron from 'images/svg/chevron.svg'
 
 const StyledSideTab = styled(Wrapper)`
     padding: 0;
@@ -40,54 +41,57 @@ const TabContent = styled.div`
     flex: 1;
 `
 
-const StyledTab = styled.li`
+const StyledItems = styled.li`
     cursor: pointer;
-    padding: 1.8rem 0;
     border-bottom: 1px solid var(--color-red-2);
 
-    & > p {
+    & > p,
+    a {
         color: var(--color-red-2);
     }
+`
+const StyledTab = styled(StyledItems)`
+    padding: 1.8rem 0;
+
     &.tab-active {
         border-bottom: 1px solid var(--color-red);
 
-        & > p {
+        & > p,
+        a {
             color: var(--color-red);
         }
     }
 `
-const TabsText = css`
-    font-size: var(--text-size-sm);
-    color: var(--color-red);
+const StyledLink = styled(Link)`
+    padding: 1.8rem 0;
+    font-size: var(--text-size-s);
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 1.5rem;
+    display: inline-block;
+    width: 100%;
 `
-const StyledActiveTabText = styled(Text)`
-    ${TabsText}
-`
-const StyledDropDown = styled.li`
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--color-red);
-    display: flex;
-    justify-content: space-between;
+const activeStyle = {
+    color: 'var(--color-red)',
+    borderBottom: '1px solid var(--color-red)',
+}
 
-    ${Text} {
-        ${TabsText}
-    }
-`
-const ChevronWrapper = styled(Chevron)`
-    transform: ${props =>
-        props.active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)'};
-`
-const Tab = ({ active_tab, label, onClick, text, mobile }) => {
+const Tab = ({ active_tab, label, onClick, text, has_link }) => {
     const className = active_tab === label ? 'tab-active' : ''
 
     const handleClick = () => {
         onClick(label)
     }
 
-    return mobile ? (
-        <StyledDropDown onClick={handleClick}>
-            <Text>{text}</Text>
-        </StyledDropDown>
+    return has_link ? (
+        <StyledItems>
+            <StyledLink
+                activeStyle={activeStyle}
+                to={'/terms-and-conditions/' + label}
+            >
+                {text}
+            </StyledLink>
+        </StyledItems>
     ) : (
         <StyledTab className={className} onClick={handleClick}>
             <Text weight="500">{text}</Text>
@@ -97,7 +101,6 @@ const Tab = ({ active_tab, label, onClick, text, mobile }) => {
 
 function useTabs(initial_active_tab = '', has_hash_routing) {
     const [active_tab, setActiveTab] = useState(initial_active_tab)
-    const [previous_tab, setLastActiveTab] = useState('-')
 
     const setTab = tab => {
         if (tab === active_tab) return
@@ -106,44 +109,43 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
         if (has_hash_routing) navigate(`#${tab}`)
     }
 
-    return [active_tab, setTab, previous_tab, setLastActiveTab]
+    return [active_tab, setTab]
 }
 
-const SideTab = ({ children, has_hash_routing, is_sticky }) => {
+const SideTab = ({ children, has_hash_routing, is_sticky, has_link }) => {
     // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
     const first_tab = isBrowser()
         ? window.innerWidth > size.tabletL
             ? children[0].props.label
             : '-'
+        : has_link
+        ? ''
         : children[0].props.label
 
-    const [active_tab, setTab, previous_tab, setLastActiveTab] = useTabs(
-        first_tab,
-        has_hash_routing,
-    )
+    const [active_tab, setTab] = useTabs(first_tab, has_hash_routing)
 
-    if (has_hash_routing) {
+    if (has_hash_routing || has_link) {
         useEffect(() => {
-            const new_tab = getLocationHash() || first_tab
+            const new_tab = getLocationHash() || getLocationPath() || first_tab
             setTab(new_tab)
         })
     }
 
-    const handleReset = () => {
-        setLastActiveTab(active_tab)
-        active_tab !== '-' ? setTab('-') : setTab(previous_tab)
+    const convertRoute = () => {
+        const locationPath = children.find(
+            child =>
+                child.props.label ===
+                (has_link ? getLocationPath() : getLocationHash()),
+        )
+        return locationPath ? locationPath.props.text : ''
     }
-    const current_active_tab = children.find(
-        child => child.props.label === active_tab,
-    )
 
-    const Tabs = props => {
+    const Tabs = () => {
         return children.map((child, idx) => {
             const { label, text, onClick } = child.props
             return (
                 <div key={idx}>
                     <Tab
-                        mobile={props.is_mobile}
                         text={text}
                         onClick={e => {
                             if (onClick) {
@@ -154,6 +156,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
                         }}
                         active_tab={active_tab}
                         label={label}
+                        has_link={has_link}
                     />
                 </div>
             )
@@ -167,17 +170,24 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
                     <Tabs />
                 </Desktop>
                 <Mobile>
-                    <StyledDropDown onClick={handleReset}>
-                        {current_active_tab ? (
-                            <StyledActiveTabText>
-                                {current_active_tab.props.text}
-                            </StyledActiveTabText>
-                        ) : (
-                            <StyledActiveTabText>-</StyledActiveTabText>
-                        )}
-                        <ChevronWrapper active_tab={active_tab} />
-                    </StyledDropDown>
-                    {current_active_tab ? undefined : <Tabs is_mobile={true} />}
+                    <DropDown activeMenu={() => convertRoute()}>
+                        {children.map((child, idx) => {
+                            const { label, text } = child.props
+                            return has_link ? (
+                                <div key={idx} label={label}>
+                                    <StyledLink
+                                        to={'/terms-and-conditions/' + label}
+                                    >
+                                        {text}
+                                    </StyledLink>
+                                </div>
+                            ) : (
+                                <div key={idx} label={label}>
+                                    <Text weight="500">{text}</Text>
+                                </div>
+                            )
+                        })}
+                    </DropDown>
                 </Mobile>
             </TabList>
             <TabContent>
@@ -192,14 +202,14 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
 SideTab.propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
     has_hash_routing: PropTypes.bool,
-    is_mobile: PropTypes.bool,
+    has_link: PropTypes.bool,
     is_sticky: PropTypes.bool,
 }
 
 Tab.propTypes = {
     active_tab: PropTypes.string.isRequired,
+    has_link: PropTypes.bool,
     label: PropTypes.string.isRequired,
-    mobile: PropTypes.bool,
     onClick: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired,
 }

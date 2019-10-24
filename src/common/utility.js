@@ -38,6 +38,15 @@ const getPropertyValue = (obj, k) => {
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
 const getLocationHash = () => (location.hash ? location.hash.substring(1) : '')
+const getLocationPath = () =>
+    location.pathname
+        ? location.pathname.substr(-1) == '/'
+            ? location.pathname
+                  .slice(0, -1)
+                  .split('/')
+                  .pop()
+            : location.pathname.split('/').pop()
+        : ''
 
 const getLanguage = () =>
     isBrowser() ? localStorage.getItem('i18n') || 'en' : null
@@ -73,6 +82,7 @@ export {
     getPropertyValue,
     getLanguage,
     getLocationHash,
+    getLocationPath,
     PromiseClass,
     sanitize,
     toISOFormat,

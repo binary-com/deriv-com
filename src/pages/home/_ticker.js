@@ -171,7 +171,17 @@ class Ticker extends React.Component {
     }
     onSymbolsSubscribe = () => {
         if (this.state.markets.close_symbols.length !== 0) {
-            //subscribe tick history
+            this.state.markets.close_symbols.forEach(symbol => {
+                BinarySocketBase.send(
+                    {
+                        ticks_history: symbol,
+                        end: 'latest',
+                        adjust_start_time: 1,
+                        count: 1,
+                    },
+                    { callback: this.onCloseSymbolsReceive },
+                )
+            })
         }
 
         BinarySocketBase.send(
@@ -179,11 +189,17 @@ class Ticker extends React.Component {
                 ticks: this.state.markets.open_symbols,
                 subscribe: 1,
             },
-            { callback: this.onOpensymbolsReceive },
+            { callback: this.onOpenSymbolsReceive },
         )
     }
-    onOpensymbolsReceive = response => {
+    onOpenSymbolsReceive = response => {
         EventEmitter.dispatch(response.tick.symbol, response.tick.quote)
+    }
+    onCloseSymbolsReceive = response => {
+        EventEmitter.dispatch(
+            response.echo_req.ticks_history,
+            response.history.prices[0],
+        )
     }
     componentDidMount() {
         EventEmitter.reset()

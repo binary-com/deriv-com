@@ -5,7 +5,7 @@ import { Container, Show } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Image, Modal, useModal } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
-import Button from 'components/form/button.js'
+import { Button } from 'components/form'
 import dtrader_logo from 'images/svg/dtrader-32.svg'
 
 const HeroContent = styled.div`

@@ -5,7 +5,7 @@ import { Container, SectionContainer } from 'components/containers'
 import device from 'themes/device.js'
 import { Modal, useModal, Header, Text } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-1);

@@ -21,7 +21,7 @@ import {
     Header,
     Text,
 } from 'components/elements'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 import SignupModal from 'components/custom/signup-modal'
 import { localize, WithIntl, Localize } from 'components/localization'
 

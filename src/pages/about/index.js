@@ -6,7 +6,7 @@ import { OurGoals } from './_our-goals'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Hero, Header, Modal, useModal } from 'components/elements'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 import SignupModal from 'components/custom/signup-modal'
 import { Show, SEO } from 'components/containers'
 

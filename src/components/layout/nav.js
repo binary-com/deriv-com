@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 import { Container } from 'components/containers'
 import {
     Modal,

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { Modal, useModal, Carousel } from 'components/elements'

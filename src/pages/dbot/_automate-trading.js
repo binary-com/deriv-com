@@ -4,7 +4,7 @@ import Dbot from 'images/svg/dbot-32.svg'
 import { Container, SectionContainer, Wrapper } from 'components/containers'
 import { Image, Header } from 'components/elements'
 import { localize } from 'components/localization'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 import { deriv_bot_app_url } from 'common/utility'
 import device from 'themes/device'
 

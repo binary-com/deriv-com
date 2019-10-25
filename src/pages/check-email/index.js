@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { IconGrid } from './_icon-grid'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 import Layout from 'components/layout/layout'
 import { Modal, useModal } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'

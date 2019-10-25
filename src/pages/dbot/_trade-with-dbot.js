@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from 'components/form/button.js'
+import { Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text, Modal, useModal } from 'components/elements'
 import { localize } from 'components/localization'

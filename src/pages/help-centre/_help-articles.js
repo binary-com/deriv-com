@@ -1,6 +1,6 @@
 import React from 'react'
 import { Ol, Ul, Li } from './_list'
-import { Text } from 'components/elements/typography'
+import { Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 
 const WhoCanOpenAnAccount = () => (

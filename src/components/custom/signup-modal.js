@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import Signup from './signup'
 import { FlexGridContainer, Show } from 'components/containers'
 import { localize } from 'components/localization'
-import { Header } from 'components/elements/typography'
+import { Header } from 'components/elements'
 import device from 'themes/device.js'
 
 const SignupWrapper = styled.article`

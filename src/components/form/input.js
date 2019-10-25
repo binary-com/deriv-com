@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Text } from '../elements/typography'
+import { Text } from '../elements'
 // SVG Component
 import ErrorIcon from 'images/svg/error-icon.svg'
 

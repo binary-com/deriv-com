@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from '../../components/form/button'
 import { HeroHeader, StyledHeader } from './_headers'
 import device from 'themes/device'
+import Button from 'components/form/button'
 import { Container, Show } from 'components/containers'
-import { Header } from 'components/elements/typography'
+import { Header, Modal, useModal } from 'components/elements'
 import { localize } from 'components/localization'
-import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/custom/signup-modal'
 
 const HeroWrapper = styled.section`

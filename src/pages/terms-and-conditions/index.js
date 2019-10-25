@@ -13,7 +13,7 @@ import { Bonuses } from './_bonuses'
 import { Container, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import SideTab from 'components/elements/side-tab'
+import { SideTab } from 'components/elements'
 import device from 'themes/device'
 
 const TncContainer = styled(Container)`

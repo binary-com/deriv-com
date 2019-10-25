@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from 'components/form/button.js'
 import { FlexGridContainer } from 'components/containers'
-import { Header, Text } from 'components/elements/typography.js'
+import { Header, Text, Modal, useModal } from 'components/elements'
 import { localize } from 'components/localization'
 import { deriv_app_url, deriv_bot_app_url } from 'common/utility'
 import device from 'themes/device'
-import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/custom/signup-modal'
 
 const StyledButton = styled(Button)`

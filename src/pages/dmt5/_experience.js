@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 import device from 'themes/device.js'
-import Modal, { useModal } from 'components/elements/modal'
+import { Modal, useModal, Header, Text } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
-import { Header, Text } from 'components/elements/typography.js'
 import Button from 'components/form/button'
 
 const StyledSection = styled(SectionContainer)`

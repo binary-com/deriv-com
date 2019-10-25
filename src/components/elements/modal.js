@@ -87,7 +87,7 @@ Modal.propTypes = {
 
 export default Modal
 
-export function useModal(is_open = false) {
+export const useModal = (is_open = false) => {
     const [show_modal, setShowModal] = useState(is_open)
     const toggleModal = () => setShowModal(!show_modal)
     const closeModal = () => setShowModal(false)

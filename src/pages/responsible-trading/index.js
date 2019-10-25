@@ -3,16 +3,13 @@ import styled from 'styled-components'
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import Hero from 'components/elements/hero'
+import { Hero, Header, Text, CardStyle, Divider } from 'components/elements'
 import {
     Container,
     SectionContainer,
     FlexGridContainer,
     SEO,
 } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
-import { CardStyle } from 'components/elements/card'
-import Divider from 'components/elements/divider'
 // Icons
 import Demo from 'images/svg/demo-icon.svg'
 import HandMoney from 'images/svg/hand-money-icon.svg'

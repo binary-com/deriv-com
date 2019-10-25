@@ -4,7 +4,7 @@ import Button from 'components/form/button.js'
 import { localize, Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements/typography.js'
-import Modal, { useModal } from 'components/elements/modal'
+import { Modal, useModal } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 import Show from 'components/containers/show'
 // Icons

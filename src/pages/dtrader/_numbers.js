@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements/typography.js'
+import { Header, Text } from 'components/elements'
 
 const NumberWrapper = styled.div`
     display: flex;

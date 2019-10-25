@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { localize } from 'components/localization'
-import { Header } from 'components/elements/typography.js'
+import { Header } from 'components/elements'
 import MacBook from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
 import { isBrowser } from 'common/utility'

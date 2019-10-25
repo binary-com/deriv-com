@@ -2,11 +2,8 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Container, SectionContainer, Wrapper } from 'components/containers'
-import { Header } from 'components/elements/typography'
+import { Header, Image, LinearLoader, SideTab } from 'components/elements'
 import { localize } from 'components/localization'
-import SideTab from 'components/elements/side-tab'
-import Image from 'components/elements/image'
-import Loader from 'components/elements/loader'
 import device from 'themes/device'
 
 const BackgroundContainer = styled(SectionContainer)`
@@ -113,7 +110,7 @@ const BannerSection = () => {
                         />
                     </SideTab>
                     <LoaderContainer>
-                        <Loader width="80%" progress={progress} />
+                        <LinearLoader width="80%" progress={progress} />
                     </LoaderContainer>
                 </Wrapper>
             </Container>

@@ -79,7 +79,7 @@ const OffCanvasMenuWrapper = props => {
         </OffCanvasMenu>
     )
 }
-export function moveOffCanvasMenu(initState = false) {
+export const moveOffCanvasMenu = (initState = false) => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
     const closeOffCanvasMenu = () => setOffCanvasMenuPosition(false)

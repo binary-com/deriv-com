@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FlexGridContainer } from 'components/containers'
-import { Text, Header } from 'components/elements/typography'
+import { Text, Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 

@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { SEO, Wrapper } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Header, Text } from 'components/elements/typography'
+import { Header, Text, Image } from 'components/elements'
 import { localize, WithIntl, LocalizedLink } from 'components/localization'
-import Image from 'components/elements/image'
 
 const ImageSection = styled(Wrapper)`
     display: flex;

@@ -1,8 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { localize } from 'components/localization'
-import { Header } from 'components/elements/typography.js'
-import Image from 'components/elements/image'
+import { Header, Image } from 'components/elements'
 import device from 'themes/device.js'
 
 const Container = styled.section`

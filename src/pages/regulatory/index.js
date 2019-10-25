@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from 'components/layout/layout'
-import Hero from 'components/elements/hero'
+import { Hero, Header, Text, CardChildren } from 'components/elements'
 import { Container, SectionContainer, SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
-import { Header, Text } from 'components/elements/typography'
-import { CardChildren } from 'components/elements/card.js'
 import device from 'themes/device'
 // Icons
 import SVG from 'images/svg/svg.svg'

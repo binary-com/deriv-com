@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
 import { GridContainer, Show } from 'components/containers'
-import { Text } from 'components/elements/typography.js'
+import { Text } from 'components/elements'
 // Icons
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'

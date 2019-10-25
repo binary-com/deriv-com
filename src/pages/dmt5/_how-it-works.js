@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import DMT5Video from './_dtrader-video.js'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
-import { Header } from 'components/elements/typography.js'
+import { Header } from 'components/elements'
 import device from 'themes/device.js'
 
 const StyledSection = styled(SectionContainer)`

@@ -4,11 +4,13 @@ import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
 import Button from 'components/form/button'
 import { Container } from 'components/containers'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/custom/signup-modal'
-import OffCanvasMenu, {
+import {
+    Modal,
+    useModal,
+    OffCanvasMenu,
     moveOffCanvasMenu,
-} from 'components/elements/off-canvas-menu'
+} from 'components/elements'
+import SignupModal from 'components/custom/signup-modal'
 import PlatformsDropdown from 'components/custom/platforms-dropdown'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'

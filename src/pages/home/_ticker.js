@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import AutoCarousel from 'components/elements/auto-carousel'
-import { Text } from 'components/elements/typography.js'
-import Loader from 'components/elements/dot-loader.js'
+import { AutoCarousel, Text, DotLoader } from 'components/elements'
+// Icon
 import MovementGreen from 'images/svg/price-movement-green.svg'
 import MovementRed from 'images/svg/price-movement-red.svg'
 
@@ -138,7 +137,7 @@ class Tick extends React.PureComponent {
                             {this.props.display_name}:{' '}
                         </span>
                         {this.state.quote === null ? (
-                            <Loader />
+                            <DotLoader />
                         ) : (
                             this.state.quote
                         )}{' '}

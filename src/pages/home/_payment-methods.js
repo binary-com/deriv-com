@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import AutoCarousel from 'components/elements/auto-carousel.js'
+import { AutoCarousel } from 'components/elements'
 import { SectionContainer } from 'components/containers'
 // SVG
 import WebMoney from 'images/svg/payment-webmoney.svg'

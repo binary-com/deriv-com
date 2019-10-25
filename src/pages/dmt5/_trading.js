@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements/typography.js'
+import { Header, Text, Image } from 'components/elements'
 import device from 'themes/device'
-import Image from 'components/elements/image'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);

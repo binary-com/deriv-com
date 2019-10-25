@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withTranslation } from 'react-i18next'
 import { navigate } from 'gatsby'
 import language_config from '../../../i18n-config'
-import StyledSelect from 'components/elements/dropdown'
+import { Dropdown } from 'components/elements'
 
 const languages = Object.keys(language_config)
 
@@ -58,12 +58,12 @@ class LanguageSwitch extends Component {
 
     render() {
         return (
-            <StyledSelect
+            <Dropdown
                 onChange={this.handleSelect}
                 value={`/${this.state.language}`}
             >
                 {languages.map(this.renderLanguageChoice)}
-            </StyledSelect>
+            </Dropdown>
         )
     }
 }

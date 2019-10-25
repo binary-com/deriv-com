@@ -10,15 +10,19 @@ import {
 } from 'components/containers'
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
-import Image from 'components/elements/image'
-import Hero from 'components/elements/hero.js'
+import {
+    Image,
+    Hero,
+    Modal,
+    useModal,
+    Divider,
+    Link,
+    Header,
+    Text,
+} from 'components/elements'
 import Button from 'components/form/button'
-import Modal, { useModal } from 'components/elements/modal'
 import SignupModal from 'components/custom/signup-modal'
 import { Card } from 'components/elements/card.js'
-import Divider from 'components/elements/divider'
-import StyledLink from 'components/elements/link'
-import { Header, Text } from 'components/elements/typography.js'
 import { localize, WithIntl, Localize } from 'components/localization'
 
 const GridGrayBackground = styled.div`
@@ -251,7 +255,7 @@ const KeepSafe = () => {
                                     <Localize
                                         translate_text="Trading derivatives can involve substantial risks. Don’t trade with money you can’t afford to lose and never trade with borrowed money. Learn about <0>Responsible Trading</0>."
                                         components={[
-                                            <StyledLink
+                                            <Link
                                                 key={0}
                                                 target="_blank"
                                                 to="/responsible-trading/"

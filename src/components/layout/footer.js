@@ -7,8 +7,7 @@ import {
     LanguageSwitcher,
 } from '../localization'
 import { Container } from '../containers'
-import { Header, Text } from '../elements/typography.js'
-import StyledLink from '../elements/link'
+import { Header, Text, Link } from '../elements'
 import { isProduction } from 'common/websocket/config'
 import device from 'themes/device'
 // Icons
@@ -164,7 +163,7 @@ const RiskNote = styled.section`
         padding: 3rem 0;
     }
 `
-const FooterStyledLink = styled(StyledLink)`
+const FooterStyledLink = styled(Link)`
     /* This piece of code has been added to handle Edge issue */
 
     font-size: ${props =>

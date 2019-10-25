@@ -1,3 +1,4 @@
+// TODO: (discussion) make nav pure component, and move usage of nav to custom
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'

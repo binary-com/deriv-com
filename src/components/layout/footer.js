@@ -1,3 +1,4 @@
+// TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
 import styled from 'styled-components'
 import {

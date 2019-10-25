@@ -104,16 +104,12 @@ const SignupButton = styled(Button)`
             return 'margin-right: 0;'
         } else {
             if (props.forwardedRef.current && props.mounted) {
-                if (props.forwardedRef.current.offsetWidth) {
-                    const calculation =
-                        props.forwardedRef.current.offsetWidth + 2
-                    return `
+                const calculation = props.forwardedRef.current.offsetWidth + 2
+                return `
                     margin-right: -${calculation}px;
                 `
-                }
-                return 'display: none;'
             }
-            return 'display: none;'
+            return 0
         }
     }}
 `

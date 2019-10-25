@@ -6,7 +6,7 @@ import device from 'themes/device.js'
 import { Header, Image, Modal, useModal } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 import { Button } from 'components/form'
-import dtrader_logo from 'images/svg/dtrader-32.svg'
+import dtrader_logo from 'images/svg/dtrader-icon.svg'
 
 const HeroContent = styled.div`
     display: flex;

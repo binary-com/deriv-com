@@ -6,13 +6,29 @@ import { Card, Header } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // icons
-import DTrader from 'images/svg/dtrader-48.svg'
-import DMT5 from 'images/svg/dmt5-48.svg'
-import DBot from 'images/svg/dbot-48.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DBot from 'images/svg/dbot-icon.svg'
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
 `
+
+const StyledDbot = styled(DBot)`
+    width: 48px;
+    height: 48px;
+`
+
+const StyledDmt5 = styled(DMT5)`
+    width: 48px;
+    height: 48px;
+`
+
+const StyledDTrader = styled(DTrader)`
+    width: 48px;
+    height: 48px;
+`
+
 const StyledHeader = styled(Header)`
     @media ${device.tabletS} {
         font-size: 3.6rem;
@@ -57,7 +73,7 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                 <StyledLink to="/dtrader">
                     <Card
                         title={localize('DTrader')}
-                        Icon={DTrader}
+                        Icon={StyledDTrader}
                         content={[
                             localize(
                                 'Start trading now with a powerful, yet easy-to-use platform.',
@@ -73,7 +89,7 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                 <StyledLink to="/dbot">
                     <Card
                         title={localize('DBot')}
-                        Icon={DBot}
+                        Icon={StyledDbot}
                         content={[
                             localize(
                                 'Automate your trading ideas without coding.',
@@ -89,7 +105,7 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                 <StyledLink to="/dmt5">
                     <Card
                         title={localize('DMT5')}
-                        Icon={DMT5}
+                        Icon={StyledDmt5}
                         content={[
                             localize(
                                 'Trade with the platform of choice for professionals.',

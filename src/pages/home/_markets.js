@@ -7,8 +7,8 @@ import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 // Icons
 import liquidMarket from 'images/svg/liquid-market.svg'
-import tff from 'images/svg/tff.svg'
-import tfs from 'images/svg/tfs.svg'
+import AvailableForex from 'images/svg/available-forex.svg'
+import AvailableSynthetic from 'images/svg/available-synthetic.svg'
 import Ncm from 'images/svg/no-centralised-market.svg'
 import RiskDiversification from 'images/svg/risk-diversification.svg'
 import MarketCondition from 'images/svg/market-condition.svg'
@@ -80,7 +80,7 @@ const Forex = () => (
                 content={localize('World’s largest and most liquid market')}
             />
             <TabCol
-                Icon={tff}
+                Icon={AvailableForex}
                 content={localize('Available for trading 24/5')}
             />
             <TabCol
@@ -149,7 +149,7 @@ const Synthetic = () => (
         </Text>
         <TabGrid>
             <TabCol
-                Icon={tfs}
+                Icon={AvailableSynthetic}
                 content={localize('Available for trading 24/7')}
             />
             <TabCol

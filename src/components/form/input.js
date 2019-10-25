@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
 // SVG Component
-import ErrorIcon from 'images/svg/error-icon.svg'
+import CrossIcon from 'images/svg/cross.svg'
 
 const RelativeWrapper = styled.div`
     position: relative;
@@ -35,7 +35,7 @@ const InputWrapper = styled.div`
         `}
 `
 
-const StyledError = styled(ErrorIcon)`
+const StyledError = styled(CrossIcon)`
     position: absolute;
     right: 0.8rem;
     top: 1.2rem;

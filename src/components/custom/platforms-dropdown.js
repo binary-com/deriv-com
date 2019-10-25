@@ -70,6 +70,7 @@ const PlatformItem = styled(LocalizedLink)`
         background-color: var(--color-grey-6);
     }
 `
+
 // eslint-disable-next-line react/prop-types
 const PlatformsDropdown = ({ is_open, has_animation }) => {
     return (

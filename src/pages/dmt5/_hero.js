@@ -6,7 +6,7 @@ import device from 'themes/device.js'
 import { Header, Modal, useModal, Image } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 import { Button } from 'components/form'
-import dmt5_logo from 'images/svg/dmt5-32.svg'
+import dmt5_logo from 'images/svg/dmt5-icon.svg'
 
 const HeroContent = styled.div`
     display: flex;

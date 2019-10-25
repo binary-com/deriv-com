@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Dbot from 'images/svg/dbot-32.svg'
+import Dbot from 'images/svg/dbot-icon.svg'
 import { Container, SectionContainer, Wrapper } from 'components/containers'
 import { Image, Header } from 'components/elements'
 import { localize } from 'components/localization'

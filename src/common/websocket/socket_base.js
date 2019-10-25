@@ -44,9 +44,7 @@ const BinarySocketBase = (() => {
         },
         remove: msg_type => {
             if (sent_requests.has(msg_type))
-                sent_requests.items.splice(
-                    sent_requests.items.indexOf(msg_type, 1),
-                )
+                sent_requests.items.splice(sent_requests.items.indexOf(msg_type, 1))
         },
     }
 
@@ -72,9 +70,7 @@ const BinarySocketBase = (() => {
         },
         another_exists: (pr, msg_type) =>
             Object.keys(waiting_list.items).some(
-                type =>
-                    type !== msg_type &&
-                    waiting_list.items[type].indexOf(pr) !== -1,
+                type => type !== msg_type && waiting_list.items[type].indexOf(pr) !== -1,
             ),
     }
 
@@ -131,15 +127,10 @@ const BinarySocketBase = (() => {
 
         if (!data || isEmptyObject(data)) return promise_obj.promise
 
-        const msg_type =
-            options.msg_type || no_duplicate_requests.find(c => c in data)
+        const msg_type = options.msg_type || no_duplicate_requests.find(c => c in data)
 
         // Fetch from state
-        if (
-            !options.forced &&
-            msg_type &&
-            no_duplicate_requests.indexOf(msg_type) !== -1
-        ) {
+        if (!options.forced && msg_type && no_duplicate_requests.indexOf(msg_type) !== -1) {
             const last_response = State.get(['response', msg_type])
             if (last_response) {
                 promise_obj.resolve(last_response)
@@ -168,10 +159,7 @@ const BinarySocketBase = (() => {
 
         if (isReady() && is_available && config.isOnline()) {
             is_disconnect_called = false
-            if (
-                !getPropertyValue(data, 'passthrough') &&
-                !getPropertyValue(data, 'verify_email')
-            ) {
+            if (!getPropertyValue(data, 'passthrough') && !getPropertyValue(data, 'verify_email')) {
                 data.passthrough = {}
             }
 
@@ -219,10 +207,7 @@ const BinarySocketBase = (() => {
                 config.onOpen(isReady())
             }
 
-            if (
-                typeof config.onReconnect === 'function' &&
-                is_connected_before
-            ) {
+            if (typeof config.onReconnect === 'function' && is_connected_before) {
                 config.onReconnect()
             }
 
@@ -256,10 +241,7 @@ const BinarySocketBase = (() => {
                 // resolve the wait promise
                 waiting_list.resolve(response)
 
-                if (
-                    getPropertyValue(response, ['error', 'code']) ===
-                    'InvalidAppID'
-                ) {
+                if (getPropertyValue(response, ['error', 'code']) === 'InvalidAppID') {
                     wrong_app_id = getAppId()
                 }
 

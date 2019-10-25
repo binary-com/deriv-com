@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from 'components/form/button.js'
-import { FlexGridContainer } from 'components/containers/container'
-import { Header, Text } from 'components/elements/typography.js'
+import { Button } from 'components/form'
+import { FlexGridContainer } from 'components/containers'
+import { Header, Text, Modal, useModal } from 'components/elements'
 import { localize } from 'components/localization'
 import { deriv_app_url, deriv_bot_app_url } from 'common/utility'
 import device from 'themes/device'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
+import SignupModal from 'components/custom/signup-modal'
 
 const StyledButton = styled(Button)`
     margin-top: 2rem;
@@ -49,12 +48,7 @@ export const TradeWithDbot = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <StyledSection>
-            <FlexGridContainer
-                align-items="center"
-                gap="0"
-                grid="2"
-                content_width="49%"
-            >
+            <FlexGridContainer align-items="center" gap="0" grid="2" content_width="49%">
                 <StyledDiv>
                     <StyledHeader font_size="4.8rem" align="center" lh="6rem">
                         {localize('Trade more efficiently with DBot')}
@@ -67,22 +61,13 @@ export const TradeWithDbot = () => {
                     <StyledHeader font_size="4.8rem" align="center" lh="6rem">
                         {localize('New to trading?')}
                     </StyledHeader>
-                    <Text align="center">
-                        {localize('Check out our live demo')}
-                    </Text>
-                    <StyledButton
-                        tertiary
-                        onClick={() => handleExternalLink(true)}
-                    >
+                    <Text align="center">{localize('Check out our live demo')}</Text>
+                    <StyledButton tertiary onClick={() => handleExternalLink(true)}>
                         {localize('Go to live demo')}
                     </StyledButton>
                 </StyledDiv>
             </FlexGridContainer>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </StyledSection>

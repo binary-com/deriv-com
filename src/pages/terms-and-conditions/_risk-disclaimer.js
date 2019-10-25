@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-    StyledSection,
-    StyledHeader,
-    TncListText,
-    StyledOrder,
-    StyledTitle,
-} from './_styles'
+import { StyledSection, StyledHeader, TncListText, StyledOrder, StyledTitle } from './_styles'
 import { localize } from 'components/localization'
 
 export const RiskDisclaimer = () => (
@@ -96,9 +90,7 @@ export const RiskDisclaimer = () => (
                 </TncListText>
             </li>
             <li>
-                <TncListText>
-                    {localize('You are warned of the following risks:')}
-                </TncListText>
+                <TncListText>{localize('You are warned of the following risks:')}</TncListText>
             </li>
             <StyledOrder type="lower-alpha">
                 <TncListText>

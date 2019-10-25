@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { localize } from 'components/localization'
-import { Header } from 'components/elements/typography.js'
+import { Header } from 'components/elements'
 import MacBook from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
 import { isBrowser } from 'common/utility'
@@ -169,10 +169,7 @@ class DtraderTabs extends React.Component {
                     }
                 }
                 this.progressHandler()
-                this.interval_ref = window.setInterval(
-                    this.progressHandler,
-                    300,
-                )
+                this.interval_ref = window.setInterval(this.progressHandler, 300)
             } else {
                 this.my_ref.current.pause()
                 window.clearInterval(this.interval_ref)
@@ -210,8 +207,7 @@ class DtraderTabs extends React.Component {
     progressHandler = () => {
         this.setState({
             progress_percentage: Math.ceil(
-                (this.my_ref.current.currentTime * 100) /
-                    this.my_ref.current.duration,
+                (this.my_ref.current.currentTime * 100) / this.my_ref.current.duration,
             ),
         })
     }

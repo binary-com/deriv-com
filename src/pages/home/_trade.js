@@ -1,5 +1,5 @@
 import React from 'react'
-import { OtherPlatform } from 'components/elements/other-platforms.js'
+import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
 
 export const Trade = () => (

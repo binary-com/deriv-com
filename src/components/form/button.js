@@ -58,13 +58,10 @@ const Button = styled.button`
             return css`
                 background: ${props => {
                     if (props.provider === 'google') return 'var(--color-white)'
-                    if (props.provider === 'facebook')
-                        return 'var(--color-blue)'
+                    if (props.provider === 'facebook') return 'var(--color-blue)'
                 }};
                 border: ${props =>
-                    props.provider === 'google'
-                        ? '1px solid var(--color-grey-5);'
-                        : 'none'};
+                    props.provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};
 
                 svg {
                     width: 2.2rem;
@@ -73,10 +70,8 @@ const Button = styled.button`
 
                 &:hover {
                     background: ${props => {
-                        if (props.provider === 'google')
-                            return 'var(--color-grey-4)'
-                        if (props.provider === 'facebook')
-                            return 'var(--color-blue-2)'
+                        if (props.provider === 'google') return 'var(--color-grey-4)'
+                        if (props.provider === 'facebook') return 'var(--color-blue-2)'
                     }};
                 }
             `
@@ -93,17 +88,13 @@ const Button = styled.button`
                 height: 8rem;
                 border: 10 px solid var(--color-black);
                 border-radius: 50%;
-                animation: sweep 1s linear alternate infinite,
-                    rotates 0.8s linear infinite;
+                animation: sweep 1s linear alternate infinite, rotates 0.8s linear infinite;
             `
     }}
 `
 
 Button.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
     onClick: PropTypes.func,
     type: PropTypes.string,
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { ListWithLinks } from './_list'
-import { Text, Header, Link } from 'components/elements'
+import { Text, Header, StyledLink } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container, Show } from 'components/containers'
 import device from 'themes/device'
@@ -157,9 +157,9 @@ const Article = ({ article, all_articles, onClick, toggleSearch }) => {
     return (
         <>
             <LeftRightContainer padding="2rem 0 0 0">
-                <Link to="/help-centre/" has_arrow="true">
+                <StyledLink to="/help-centre/" has_arrow="true">
                     {localize('Back to Help topics')}
-                </Link>
+                </StyledLink>
                 <SmallSearchIcon onClick={toggleSearch} />
             </LeftRightContainer>
             <ArticleContainer padding="4.5rem 0">

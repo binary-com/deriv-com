@@ -14,7 +14,7 @@ const OffCanvasMenu = styled.section`
     transition: right 0.4s;
     right: ${props => (props.is_canvas_menu_open ? '0' : '-238px')};
 `
-const StyledLink = styled(LocalizedLink)`
+const StyledLink = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-black);
     margin-top: 3.6rem;
     font-size: 2rem;

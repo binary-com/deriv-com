@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
-import { css } from 'styled-components'
+import styled, { css } from 'styled-components'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 
@@ -36,7 +36,9 @@ export const SharedLinkStyle = css`
         }
     }
 `
-
+const ExternalLink = styled.a`
+    ${SharedLinkStyle}
+`
 export const LocalizedLink = ({ to, ...props }) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
@@ -48,7 +50,8 @@ export const LocalizedLink = ({ to, ...props }) => {
     // Because otherwise this would add a trailing slash
     const { is_default, path } = language_config[locale]
     const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
-    if (props.external_link) return <a href={to}>{props.children}</a>
+    if (props.external_link)
+        return <ExternalLink href={to}>{props.children}</ExternalLink>
     return <GatsbyLink {...props} to={`${path_to}/`} />
 }
 

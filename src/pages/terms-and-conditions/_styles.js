@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Header, Text, Link } from 'components/elements'
+import { Header, Text, StyledLink } from 'components/elements'
 import device from 'themes/device'
 
 export const StyledSection = styled.section`
@@ -46,7 +46,7 @@ export const StyledOrder = styled.ol`
     }
 `
 
-export const TncLink = styled(Link)`
+export const TncLink = styled(StyledLink)`
     font-weight: bold;
     color: var(--color-black-3);
     font-size: var(--text-size-s);

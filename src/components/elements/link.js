@@ -1,7 +1,8 @@
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { LocalizedLink } from '../localization'
 
-const StyledLink = styled(LocalizedLink)`
+export const StyledLink = styled(props => <LocalizedLink {...props} />)`
     font-size: var(--text-size-sm);
     color: var(--color-red);
     text-decoration: none;
@@ -23,5 +24,3 @@ const StyledLink = styled(LocalizedLink)`
             `
     }}
 `
-
-export default StyledLink

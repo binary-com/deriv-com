@@ -6,7 +6,7 @@ import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
 import Hero from './hero'
 import Image from './image'
-import Link from './link'
+import { StyledLink } from './link'
 import LinearLoader from './loader'
 import Modal, { useModal } from './modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from './off-canvas-menu'
@@ -24,7 +24,7 @@ export {
     Dropdown,
     Hero,
     Image,
-    Link,
+    StyledLink,
     LinearLoader,
     Modal,
     useModal,

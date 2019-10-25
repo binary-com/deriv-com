@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Carousel } from 'components/elements'
 import Button from 'components/form/button'
 import { localize, Localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
-import Modal, { useModal } from 'components/elements/modal'
+import { Modal, useModal, Carousel } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 
 const carousel_data = [

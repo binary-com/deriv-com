@@ -47,9 +47,7 @@ class LanguageSwitch extends Component {
             const current_lang = localStorage.getItem('i18n') || 'en'
 
             const destination_path = `${path}${
-                current_lang === 'en'
-                    ? current_path
-                    : current_path.replace(/\/.+?\//u, '/')
+                current_lang === 'en' ? current_path : current_path.replace(/\/.+?\//u, '/')
             }${current_hash}`
 
             navigate(destination_path, { hrefLang: path })
@@ -58,10 +56,7 @@ class LanguageSwitch extends Component {
 
     render() {
         return (
-            <Dropdown
-                onChange={this.handleSelect}
-                value={`/${this.state.language}`}
-            >
+            <Dropdown onChange={this.handleSelect} value={`/${this.state.language}`}>
                 {languages.map(this.renderLanguageChoice)}
             </Dropdown>
         )

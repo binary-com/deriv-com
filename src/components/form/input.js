@@ -119,10 +119,7 @@ const Input = ({ label, id, error, background, handleError, ...props }) => (
 
 Input.propTypes = {
     background: PropTypes.string,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     error: PropTypes.string,
     handleError: PropTypes.func,
     id: PropTypes.string,

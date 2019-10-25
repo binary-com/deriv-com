@@ -69,9 +69,7 @@ export const SecurityIconGrid = () => (
         <Col
             grid_name="Two"
             Icon={Two}
-            content={localize(
-                'Enable two-factor authentication on your account.',
-            )}
+            content={localize('Enable two-factor authentication on your account.')}
         />
         <Col
             grid_name="DifferentPassword"

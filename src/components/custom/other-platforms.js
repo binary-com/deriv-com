@@ -51,24 +51,14 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                 {header ? header : localize('Check out our other platforms')}
             </StyledHeader>
             {subHeader && (
-                <StyledSubHeader
-                    as="h4"
-                    align="center"
-                    weight="500"
-                    maxWidth="67.6rem"
-                >
+                <StyledSubHeader as="h4" align="center" weight="500" maxWidth="67.6rem">
                     {localize(
                         'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
                     )}
                 </StyledSubHeader>
             )}
         </HeaderWrapper>
-        <FlexGridContainer
-            content_width="32.8rem"
-            gap="1rem"
-            grid="3"
-            justify="center"
-        >
+        <FlexGridContainer content_width="32.8rem" gap="1rem" grid="3" justify="center">
             {exclude.toLowerCase() !== 'dtrader' && (
                 <StyledLink to="/dtrader">
                     <Card
@@ -90,11 +80,7 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                     <Card
                         title={localize('DBot')}
                         Icon={StyledDbot}
-                        content={[
-                            localize(
-                                'Automate your trading ideas without coding.',
-                            ),
-                        ]}
+                        content={[localize('Automate your trading ideas without coding.')]}
                         is_inline_icon
                         width="32.8rem"
                         min_height="22.4rem"
@@ -106,11 +92,7 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                     <Card
                         title={localize('DMT5')}
                         Icon={StyledDmt5}
-                        content={[
-                            localize(
-                                'Trade with the platform of choice for professionals.',
-                            ),
-                        ]}
+                        content={[localize('Trade with the platform of choice for professionals.')]}
                         is_inline_icon
                         width="32.8rem"
                         min_height="22.4rem"

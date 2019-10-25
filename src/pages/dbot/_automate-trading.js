@@ -80,9 +80,7 @@ const AutomateTradingSection = () => (
                     </Header>
                 </DbotWrapper>
                 <Header as="h1" color="white">
-                    {localize(
-                        'Automate your trading ideas without writing code',
-                    )}
+                    {localize('Automate your trading ideas without writing code')}
                 </Header>
                 <StyledButton secondary onClick={handleExternalLink}>
                     {localize('Start automating')}

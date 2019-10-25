@@ -12,10 +12,7 @@ export const LocaleContextWrapper = ({ children, pageContext: { locale } }) => (
 )
 
 LocaleContextWrapper.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string,
     }),

@@ -5,12 +5,7 @@ import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container } from 'components/containers'
-import {
-    Modal,
-    useModal,
-    OffCanvasMenu,
-    moveOffCanvasMenu,
-} from 'components/elements'
+import { Modal, useModal, OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 import PlatformsDropdown from 'components/custom/platforms-dropdown'
 import { SharedLinkStyle } from 'components/localization/localized-link'
@@ -137,11 +132,7 @@ export const Nav = () => {
     const [mounted, setMounted] = useState(false)
 
     const buttonHandleScroll = () => handleScroll(showButton, hideButton)
-    const [
-        is_canvas_menu_open,
-        openOffCanvasMenu,
-        closeOffCanvasMenu,
-    ] = moveOffCanvasMenu()
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     useEffect(() => {
         setMounted(true)
         document.addEventListener('scroll', buttonHandleScroll, {
@@ -175,10 +166,7 @@ export const Nav = () => {
     return (
         <NavWrapper ref={nav_ref}>
             <StyledNav>
-                <PlatformsDropdown
-                    is_open={is_platforms_open}
-                    has_animation={has_animation}
-                />
+                <PlatformsDropdown is_open={is_platforms_open} has_animation={has_animation} />
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
@@ -187,10 +175,7 @@ export const Nav = () => {
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handlePlatformsClick}>
-                            <StyledButton
-                                aria-label={localize('Trade')}
-                                activeClassName="active"
-                            >
+                            <StyledButton aria-label={localize('Trade')} activeClassName="active">
                                 {localize('Trade')}
                             </StyledButton>
                         </NavLink>
@@ -235,11 +220,7 @@ export const Nav = () => {
                         closeOffCanvasMenu={closeOffCanvasMenu}
                     />
                 </Wrapper>
-                <Modal
-                    toggle={toggleModal}
-                    is_open={show_modal}
-                    closeModal={closeModal}
-                >
+                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                     <SignupModal autofocus />
                 </Modal>
             </StyledNav>

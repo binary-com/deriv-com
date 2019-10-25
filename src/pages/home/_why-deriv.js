@@ -10,15 +10,9 @@ const carousel_data = [
     {
         header: <Localize translate_text="More reasons you’ll love DTrader" />,
         text: [
-            <Localize
-                key={0}
-                translate_text="Choose from the widest range of options."
-            />,
+            <Localize key={0} translate_text="Choose from the widest range of options." />,
             <Localize key={1} translate_text="Licensed and regulated." />,
-            <Localize
-                key={2}
-                translate_text="Exclusive synthetic indices, 24/7."
-            />,
+            <Localize key={2} translate_text="Exclusive synthetic indices, 24/7." />,
         ],
         img_name: 'dtrader-screen.png',
         img_alt: <Localize translate_text="DTrader screens" />,
@@ -26,10 +20,7 @@ const carousel_data = [
     {
         header: <Localize translate_text="More reasons you’ll love DBot" />,
         text: [
-            <Localize
-                key={0}
-                translate_text="Drag & drop trading robot builder."
-            />,
+            <Localize key={0} translate_text="Drag & drop trading robot builder." />,
             <Localize
                 key={1}
                 translate_text="Test trading strategies with unlimited demo accounts."
@@ -46,14 +37,8 @@ const carousel_data = [
         header: <Localize translate_text="More reasons you’ll love DMT5" />,
         text: [
             <Localize key={0} translate_text="Trade 24/7 on DMT5." />,
-            <Localize
-                key={1}
-                translate_text="High leverage, 100% ‘A’ book account."
-            />,
-            <Localize
-                key={1}
-                translate_text="Trade on mobile, desktop and browser."
-            />,
+            <Localize key={1} translate_text="High leverage, 100% ‘A’ book account." />,
+            <Localize key={1} translate_text="Trade on mobile, desktop and browser." />,
         ],
         img_name: 'dmt5-screen.png',
         img_alt: <Localize translate_text="DMT5 screens" />,
@@ -80,11 +65,7 @@ export const WhyDeriv = () => {
                     </Button>
                 </ButtonWrapper>
             </Carousel>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </HomeCarouselWrapper>

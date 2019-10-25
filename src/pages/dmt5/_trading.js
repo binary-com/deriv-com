@@ -101,9 +101,7 @@ const Trading = () => {
                         </Text>
                     </Row>
                     <Row>
-                        <Header as="h2">
-                            {localize('Practice with Demo accounts')}
-                        </Header>
+                        <Header as="h2">{localize('Practice with Demo accounts')}</Header>
                         <Text secondary>
                             {localize(
                                 'Create demo accounts (Standard, Advanced or Synthetic Indices) - the best way for you to check out the platform, get familiar with the tools and learn trading techniques.',
@@ -112,10 +110,7 @@ const Trading = () => {
                     </Row>
                 </ContentContainer>
                 <ImageContainer grid_area="twywi" align_self="center">
-                    <Image
-                        img_name="dmt-5-ipad-iphone.png"
-                        alt="DMT5 ipad iphone"
-                    />
+                    <Image img_name="dmt-5-ipad-iphone.png" alt="DMT5 ipad iphone" />
                 </ImageContainer>
             </StyledContainer>
         </StyledSection>

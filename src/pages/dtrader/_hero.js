@@ -55,16 +55,10 @@ const Hero = () => {
                         <DtraderLogo />
                         {localize('DTrader')}
                     </Header>
-                    <Header as="h1">
-                        {localize('Everything you need and more')}
-                    </Header>
+                    <Header as="h1">{localize('Everything you need and more')}</Header>
                 </HeroContent>
                 <Show.Desktop>
-                    <Image
-                        img_name="dtrader-platform.png"
-                        alt="Platform"
-                        width="53.9rem"
-                    />
+                    <Image img_name="dtrader-platform.png" alt="Platform" width="53.9rem" />
                 </Show.Desktop>
             </Container>
             <Container justify="flex-start">
@@ -72,11 +66,7 @@ const Hero = () => {
                     {localize('Try for free')}
                 </TryForFree>
             </Container>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </Wrapper>

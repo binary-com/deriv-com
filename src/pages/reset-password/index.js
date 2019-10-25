@@ -72,18 +72,13 @@ const resetSubmission = (values, actions) => {
 
 const ResetPassword = () => (
     <Layout is_static>
-        <SEO
-            title={localize('Reset password')}
-            description={localize('Reset password')}
-        />
+        <SEO title={localize('Reset password')} description={localize('Reset password')} />
         <StyledContainer justify="center" align="center" direction="column">
             <Header as="h2" align="center">
                 {localize('Reset password')}
             </Header>
             <SecondaryHeader as="h4" align="center" weight="500">
-                {localize(
-                    "We'll email you instructions to reset your password.",
-                )}
+                {localize("We'll email you instructions to reset your password.")}
             </SecondaryHeader>
             <Formik
                 initialValues={{ email: '' }}
@@ -126,18 +121,10 @@ const ResetPassword = () => (
                             {status.success && status.success}
                         </Text>
                         <ButtonContainer>
-                            <StyledButton
-                                tertiary
-                                onClick={Login.redirectToLogin}
-                                type="button"
-                            >
+                            <StyledButton tertiary onClick={Login.redirectToLogin} type="button">
                                 {localize('Return to log in')}
                             </StyledButton>
-                            <StyledButton
-                                secondary
-                                disabled={isSubmitting}
-                                type="submit"
-                            >
+                            <StyledButton secondary disabled={isSubmitting} type="submit">
                                 {localize('Reset my password')}
                             </StyledButton>
                         </ButtonContainer>

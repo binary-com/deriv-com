@@ -6,8 +6,7 @@ const FlexGridContainer = styled(Container)`
     flex-wrap: wrap;
     align-items: stretch;
     align-content: stretch;
-    justify-content: ${props =>
-        props.justify ? props.justify : 'space-between'};
+    justify-content: ${props => (props.justify ? props.justify : 'space-between')};
     width: 100%;
 
     & > * {

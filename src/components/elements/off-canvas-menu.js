@@ -61,10 +61,7 @@ const OffCanvasMenuWrapper = props => {
     }, [])
 
     return (
-        <OffCanvasMenu
-            is_canvas_menu_open={props.is_canvas_menu_open}
-            ref={canvas}
-        >
+        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <BackArrow onClick={handleArrowClick} />
                 <div>

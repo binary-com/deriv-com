@@ -28,11 +28,7 @@ const PaymentSection = styled(SectionContainer)`
 const PaymentMethods = () => {
     return (
         <PaymentSection>
-            <AutoCarousel
-                carousel_width="70%"
-                items_padding={32}
-                transition_duration={30000}
-            >
+            <AutoCarousel carousel_width="70%" items_padding={32} transition_duration={30000}>
                 <Mastercard />
                 <Visa />
                 <Payscale />

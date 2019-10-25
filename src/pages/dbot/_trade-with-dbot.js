@@ -48,12 +48,7 @@ export const TradeWithDbot = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <StyledSection>
-            <FlexGridContainer
-                align-items="center"
-                gap="0"
-                grid="2"
-                content_width="49%"
-            >
+            <FlexGridContainer align-items="center" gap="0" grid="2" content_width="49%">
                 <StyledDiv>
                     <StyledHeader font_size="4.8rem" align="center" lh="6rem">
                         {localize('Trade more efficiently with DBot')}
@@ -66,22 +61,13 @@ export const TradeWithDbot = () => {
                     <StyledHeader font_size="4.8rem" align="center" lh="6rem">
                         {localize('New to trading?')}
                     </StyledHeader>
-                    <Text align="center">
-                        {localize('Check out our live demo')}
-                    </Text>
-                    <StyledButton
-                        tertiary
-                        onClick={() => handleExternalLink(true)}
-                    >
+                    <Text align="center">{localize('Check out our live demo')}</Text>
+                    <StyledButton tertiary onClick={() => handleExternalLink(true)}>
                         {localize('Go to live demo')}
                     </StyledButton>
                 </StyledDiv>
             </FlexGridContainer>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </StyledSection>

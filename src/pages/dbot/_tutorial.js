@@ -122,11 +122,7 @@ export const Tutorial = () => {
                             flexWrap="wrap-reverse"
                         >
                             <StyledDiv align="flex-start">
-                                <StyledHeader
-                                    font_size="4.8rem"
-                                    align="left"
-                                    lh="5rem"
-                                >
+                                <StyledHeader font_size="4.8rem" align="left" lh="5rem">
                                     {step.title}
                                 </StyledHeader>
                                 <StyledText>{step.subtitle}</StyledText>

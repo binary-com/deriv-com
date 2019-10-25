@@ -107,9 +107,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                                 {localize('DBot')}
                             </Text>
                             <Text color="black-3">
-                                {localize(
-                                    'Automate your trading ideas without coding.',
-                                )}
+                                {localize('Automate your trading ideas without coding.')}
                             </Text>
                         </div>
                     </PlatformItem>
@@ -126,9 +124,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                                 {localize('DMT5')}
                             </Text>
                             <Text color="black-3">
-                                {localize(
-                                    'Trade with the platform of choice for professionals.',
-                                )}
+                                {localize('Trade with the platform of choice for professionals.')}
                             </Text>
                         </div>
                     </PlatformItem>

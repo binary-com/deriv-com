@@ -26,10 +26,7 @@ const Image = ({ img_name, alt, width }) => (
                 allImageSharp {
                     edges {
                         node {
-                            fluid(
-                                maxWidth: 1024
-                                srcSetBreakpoints: [400, 600, 960, 1280, 1920]
-                            ) {
+                            fluid(maxWidth: 1024, srcSetBreakpoints: [400, 600, 960, 1280, 1920]) {
                                 ...GatsbyImageSharpFluid_withWebp_noBase64
                                 originalName
                             }

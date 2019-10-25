@@ -133,14 +133,8 @@ class Tick extends React.PureComponent {
             <TickWrapper>
                 <StyledText>
                     <Qoute>
-                        <span style={{ fontWeight: 'normal' }}>
-                            {this.props.display_name}:{' '}
-                        </span>
-                        {this.state.quote === null ? (
-                            <DotLoader />
-                        ) : (
-                            this.state.quote
-                        )}{' '}
+                        <span style={{ fontWeight: 'normal' }}>{this.props.display_name}: </span>
+                        {this.state.quote === null ? <DotLoader /> : this.state.quote}{' '}
                     </Qoute>
                     <span style={{ width: '12px', display: 'block' }}>
                         {Movement === null ? null : <Movement />}
@@ -180,10 +174,7 @@ const getTickerMarkets = active_symbols => {
     active_symbols.forEach(symbol => {
         if (symbol.market === 'volidx') {
             volidx.push(symbol)
-        } else if (
-            symbol.market === 'forex' &&
-            symbol.submarket === 'major_pairs'
-        ) {
+        } else if (symbol.market === 'forex' && symbol.submarket === 'major_pairs') {
             if (!symbol.exchange_is_open) {
                 volatility_count = 7
                 forex_count = 3
@@ -225,10 +216,7 @@ class Ticker extends React.Component {
         return (
             <CarouselWapper>
                 {this.state.markets.length === 0 ? null : (
-                    <AutoCarousel
-                        carousel_width="100%"
-                        transition_duration={37000}
-                    >
+                    <AutoCarousel carousel_width="100%" transition_duration={37000}>
                         {this.state.markets.map(symbol => {
                             return (
                                 <Tick

@@ -7,11 +7,7 @@ import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const BackgroundContainer = styled(SectionContainer)`
-    background: linear-gradient(
-        to bottom,
-        var(--color-grey-2),
-        var(--color-white)
-    );
+    background: linear-gradient(to bottom, var(--color-grey-2), var(--color-white));
     border-bottom: 1px solid var(--color-grey-1);
 
     @media ${device.tabletL} {

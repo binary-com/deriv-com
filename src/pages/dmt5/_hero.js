@@ -67,11 +67,7 @@ const Hero = () => {
                     </Header>
                 </HeroContent>
                 <Show.Desktop>
-                    <Image
-                        img_name="dmt5-platform.png"
-                        alt="DMT5 platform"
-                        width="58.9rem"
-                    />
+                    <Image img_name="dmt5-platform.png" alt="DMT5 platform" width="58.9rem" />
                 </Show.Desktop>
             </Container>
             <Container justify="flex-start">
@@ -79,11 +75,7 @@ const Hero = () => {
                     {localize('Try for free')}
                 </TryForFree>
             </Container>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </Wrapper>

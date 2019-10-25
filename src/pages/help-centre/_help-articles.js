@@ -6,11 +6,7 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 const WhoCanOpenAnAccount = () => (
     <>
         <Ul>
-            <Li>
-                {localize(
-                    'You have read the Legal Terms and Conditions in full.',
-                )}
-            </Li>
+            <Li>{localize('You have read the Legal Terms and Conditions in full.')}</Li>
             <Li>
                 {localize(
                     'You understand that you will be buying and selling financial contracts subject to these terms and conditions.',
@@ -42,9 +38,7 @@ const WhoCanOpenAnAccount = () => (
 
 const OpeningAnAccount = () => (
     <>
-        <Text>
-            {localize('There are three ways to open an account. You can')}
-        </Text>
+        <Text>{localize('There are three ways to open an account. You can')}</Text>
         <Ol>
             <Li>
                 {localize(
@@ -80,20 +74,14 @@ const RecoveringYourPassword = () => (
         <Ol>
             <Li>{localize('Go to the login page.')}</Li>
             <Li>
-                {localize(
-                    'Click on the "Reset your password link" near the bottom of the page.',
-                )}
+                {localize('Click on the "Reset your password link" near the bottom of the page.')}
             </Li>
             <Li>
                 {localize(
                     'Enter your email address. You’ll receive a verification link in your inbox.',
                 )}
             </Li>
-            <Li>
-                {localize(
-                    'Click on the verification link to set your new password.',
-                )}
-            </Li>
+            <Li>{localize('Click on the verification link to set your new password.')}</Li>
         </Ol>
         <Text>
             {localize(
@@ -104,18 +92,12 @@ const RecoveringYourPassword = () => (
 )
 
 const AuthenticatingYourAccount = () => (
-    <Text>
-        {localize('Authenticate your account on the verification page.')}
-    </Text>
+    <Text>{localize('Authenticate your account on the verification page.')}</Text>
 )
 
 const HowDoIChangeOrResetMyDerivPassword = () => (
     <>
-        <Text>
-            {localize(
-                'To change your Deriv password if you’re already logged in:',
-            )}
-        </Text>
+        <Text>{localize('To change your Deriv password if you’re already logged in:')}</Text>
         <Ol>
             <Li>
                 <Localize
@@ -217,9 +199,7 @@ const HowDoIChangeOrResetMyDerivPassword = () => (
 const MakingADeposit = () => (
     <>
         <Text>
-            {localize(
-                'Click on the Cashier tab and choose your preferred deposit method.',
-            )}
+            {localize('Click on the Cashier tab and choose your preferred deposit method.')}
         </Text>
         <Text>
             {localize(
@@ -332,9 +312,7 @@ const SafeguardChangePassword = () => (
         <Text>
             <Localize
                 translate_text="To learn more about security best practices, please go to the <0>Keep safe</0> page."
-                components={[
-                    <LocalizedLink key={0} target="_blank" to="/keep-safe/" />,
-                ]}
+                components={[<LocalizedLink key={0} target="_blank" to="/keep-safe/" />]}
             />
         </Text>
     </>
@@ -375,9 +353,7 @@ export const articles = [
                 content: <OpeningAnAccount />,
             },
             {
-                title: (
-                    <Localize translate_text="Changing your personal details" />
-                ),
+                title: <Localize translate_text="Changing your personal details" />,
                 category: <Localize translate_text="Account" />,
                 sub_category: <Localize translate_text="Opening an account" />,
                 label: 'changing-your-personal-details',
@@ -386,29 +362,21 @@ export const articles = [
             {
                 title: <Localize translate_text="Recovering your password" />,
                 category: <Localize translate_text="Account" />,
-                sub_category: (
-                    <Localize translate_text="Managing your account" />
-                ),
+                sub_category: <Localize translate_text="Managing your account" />,
                 label: 'recovering-your-password',
                 content: <RecoveringYourPassword />,
             },
             {
-                title: (
-                    <Localize translate_text="Authenticating your account" />
-                ),
+                title: <Localize translate_text="Authenticating your account" />,
                 category: <Localize translate_text="Account" />,
                 sub_category: <Localize translate_text="Opening an account" />,
                 label: 'recovering-your-password',
                 content: <AuthenticatingYourAccount />,
             },
             {
-                title: (
-                    <Localize translate_text="How do I change or reset my Deriv password?" />
-                ),
+                title: <Localize translate_text="How do I change or reset my Deriv password?" />,
                 category: <Localize translate_text="Account" />,
-                sub_category: (
-                    <Localize translate_text="Managing your account" />
-                ),
+                sub_category: <Localize translate_text="Managing your account" />,
                 label: 'How-do-I-change-or-reset-my-Deriv-password',
                 content: <HowDoIChangeOrResetMyDerivPassword />,
             },
@@ -419,38 +387,28 @@ export const articles = [
         articles: [
             {
                 title: <Localize translate_text="Making a deposit" />,
-                category: (
-                    <Localize translate_text="Deposits and withdrawals" />
-                ),
+                category: <Localize translate_text="Deposits and withdrawals" />,
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'making-a-deposit',
                 content: <MakingADeposit />,
             },
             {
                 title: <Localize translate_text="Expired verification link" />,
-                category: (
-                    <Localize translate_text="Deposits and withdrawals" />
-                ),
+                category: <Localize translate_text="Deposits and withdrawals" />,
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'expired-verification-link',
                 content: <ExpiredVerificationLink />,
             },
             {
                 title: <Localize translate_text="Withdrawal processing time" />,
-                category: (
-                    <Localize translate_text="Deposits and withdrawals" />
-                ),
+                category: <Localize translate_text="Deposits and withdrawals" />,
                 sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'withdrawal-processing-time',
                 content: <WithdrawalProcessingTime />,
             },
             {
-                title: (
-                    <Localize translate_text="How do I withdraw funds from my Deriv account?" />
-                ),
-                category: (
-                    <Localize translate_text="Deposits and withdrawals" />
-                ),
+                title: <Localize translate_text="How do I withdraw funds from my Deriv account?" />,
+                category: <Localize translate_text="Deposits and withdrawals" />,
                 sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'How-do-I-withdraw-funds-from-my-Deriv-account',
                 content: <HowDoIWithdrawFundsFromMyDerivAccount />,

@@ -1,13 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SecurityIconGrid } from './_icon-grid'
-import {
-    Show,
-    SEO,
-    SectionContainer,
-    FlexGridContainer,
-    Container,
-} from 'components/containers'
+import { Show, SEO, SectionContainer, FlexGridContainer, Container } from 'components/containers'
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import {
@@ -232,11 +226,7 @@ const KeepSafe = () => {
                                 </Button>
                             </Show.Desktop>
                         </div>
-                        <Image
-                            width="415"
-                            img_name="keep-safe-practice.png"
-                            alt="Practice"
-                        />
+                        <Image width="415" img_name="keep-safe-practice.png" alt="Practice" />
                         <Show.Mobile>
                             <MobileBtn secondary onClick={toggleModal}>
                                 {localize('Create a free account')}
@@ -274,11 +264,7 @@ const KeepSafe = () => {
                         </Risk>
                     </SectionContainer>
                 </GridGrayBackground>
-                <Modal
-                    toggle={toggleModal}
-                    is_open={show_modal}
-                    closeModal={closeModal}
-                >
+                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                     <SignupModal />
                 </Modal>
             </KeepSafeGirdArea>

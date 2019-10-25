@@ -64,9 +64,7 @@ const Experience = () => {
                     <StyledHeader as="h2" align="center">
                         {localize('20 years of experience and trust')}
                     </StyledHeader>
-                    <Text align="center">
-                        {localize('Join over a million traders worldwide')}
-                    </Text>
+                    <Text align="center">{localize('Join over a million traders worldwide')}</Text>
                     <StyledButton secondary onClick={toggleModal}>
                         {localize('Try for free')}
                     </StyledButton>
@@ -76,25 +74,17 @@ const Experience = () => {
                         {localize('New to trading?')}
                     </StyledHeader>
                     <Show.Mobile>
-                        <Text align="center">
-                            {localize('Start trading on DTrader now.')}
-                        </Text>
+                        <Text align="center">{localize('Start trading on DTrader now.')}</Text>
                     </Show.Mobile>
                     <Show.Desktop>
-                        <Text align="center">
-                            {localize('Check out our live demo')}
-                        </Text>
+                        <Text align="center">{localize('Check out our live demo')}</Text>
                     </Show.Desktop>
                     <StyledButton tertiary onClick={handleExternalLink}>
                         {localize('Go to live demo')}
                     </StyledButton>
                 </StyledContent>
             </StyledContainer>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </StyledSection>

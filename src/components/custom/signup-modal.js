@@ -58,15 +58,8 @@ const SignupModal = ({ autofocus, closeModal }) => (
         <ModalRow gap="0" grid="2">
             <Show.Desktop>
                 <Content inverse>
-                    <HeaderWrapper
-                        as="h4"
-                        weight="normal"
-                        color="white"
-                        align="center"
-                    >
-                        {localize(
-                            'The ultimate trading experience is just a few clicks away.',
-                        )}
+                    <HeaderWrapper as="h4" weight="normal" color="white" align="center">
+                        {localize('The ultimate trading experience is just a few clicks away.')}
                     </HeaderWrapper>
                 </Content>
             </Show.Desktop>

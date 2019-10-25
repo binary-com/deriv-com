@@ -67,13 +67,9 @@ export const Eu = props => <Location {...props} to="eu" />
 
 export const NonEu = props => <Location {...props} to="non-eu" />
 
-export const Mobile = props => (
-    <Responsive {...props} min={`${size.tabletL}px`} />
-)
+export const Mobile = props => <Responsive {...props} min={`${size.tabletL}px`} />
 
-export const Desktop = props => (
-    <Responsive {...props} max={`${size.tabletL}px`} />
-)
+export const Desktop = props => <Responsive {...props} max={`${size.tabletL}px`} />
 
 export default {
     Eu,
@@ -83,18 +79,12 @@ export default {
 }
 
 Location.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     to: PropTypes.oneOf(['eu', 'non-eu']),
 }
 
 Responsive.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     max: PropTypes.string,
     min: PropTypes.string,
 }

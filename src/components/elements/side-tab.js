@@ -74,8 +74,7 @@ const StyledDropDown = styled.li`
     }
 `
 const ChevronWrapper = styled(Chevron)`
-    transform: ${props =>
-        props.active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)'};
+    transform: ${props => (props.active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)')};
 `
 const Tab = ({ active_tab, label, onClick, text, mobile }) => {
     const className = active_tab === label ? 'tab-active' : ''
@@ -133,9 +132,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
         setLastActiveTab(active_tab)
         active_tab !== '-' ? setTab('-') : setTab(previous_tab)
     }
-    const current_active_tab = children.find(
-        child => child.props.label === active_tab,
-    )
+    const current_active_tab = children.find(child => child.props.label === active_tab)
 
     const Tabs = props => {
         return children.map((child, idx) => {
@@ -181,9 +178,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
                 </Mobile>
             </TabList>
             <TabContent>
-                {children.map(child =>
-                    child.props.label === active_tab ? child : undefined,
-                )}
+                {children.map(child => (child.props.label === active_tab ? child : undefined))}
             </TabContent>
         </StyledSideTab>
     )

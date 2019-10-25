@@ -22,9 +22,7 @@ const Numbers = () => {
                     <Header as="h2" align="center">
                         {localize('50+')}
                     </Header>
-                    <Text align="center">
-                        {localize('tradable assets and growing')}
-                    </Text>
+                    <Text align="center">{localize('tradable assets and growing')}</Text>
                 </NumberWrapper>
                 <NumberWrapper>
                     <Header as="h2">{localize('$0.35')}</Header>
@@ -32,9 +30,7 @@ const Numbers = () => {
                 </NumberWrapper>
                 <NumberWrapper>
                     <Header as="h2">{localize('1s - 365d')}</Header>
-                    <Text align="center">
-                        {localize('flexible trade duration')}
-                    </Text>
+                    <Text align="center">{localize('flexible trade duration')}</Text>
                 </NumberWrapper>
                 <NumberWrapper>
                     <Header as="h2">&gt;{localize('200%')}</Header>

@@ -70,24 +70,17 @@ TabCol.propTypes = {
 const Forex = () => (
     <StyledSection>
         <Text color="black-3" lh="1.55">
-            {localize(
-                'A global market for buying, selling, and exchanging currencies.',
-            )}
+            {localize('A global market for buying, selling, and exchanging currencies.')}
         </Text>
         <TabGrid>
             <TabCol
                 Icon={liquidMarket}
                 content={localize('World’s largest and most liquid market')}
             />
-            <TabCol
-                Icon={AvailableForex}
-                content={localize('Available for trading 24/5')}
-            />
+            <TabCol Icon={AvailableForex} content={localize('Available for trading 24/5')} />
             <TabCol
                 Icon={Ncm}
-                content={localize(
-                    'Over-the-counter market with no centralised exchange',
-                )}
+                content={localize('Over-the-counter market with no centralised exchange')}
             />
         </TabGrid>
     </StyledSection>
@@ -100,10 +93,7 @@ const Indices = () => (
             )}
         </Text>
         <TabGrid>
-            <TabCol
-                Icon={RiskDiversification}
-                content={localize('Risk diversification')}
-            />
+            <TabCol Icon={RiskDiversification} content={localize('Risk diversification')} />
             <TabCol
                 Icon={MarketCondition}
                 content={localize('Movement correlates with market conditions')}
@@ -120,23 +110,12 @@ const Indices = () => (
 const Commodities = () => (
     <StyledSection>
         <Text color="black-3" lh="1.55">
-            {localize(
-                'Raw natural resources that can be bought or sold commercially.',
-            )}
+            {localize('Raw natural resources that can be bought or sold commercially.')}
         </Text>
         <TabGrid>
-            <TabCol
-                Icon={Portfolio}
-                content={localize('Portfolio diversification')}
-            />
-            <TabCol
-                Icon={StockMarket}
-                content={localize('Hedge against the stock market')}
-            />
-            <TabCol
-                Icon={InflationProtection}
-                content={localize('Inflation protection')}
-            />
+            <TabCol Icon={Portfolio} content={localize('Portfolio diversification')} />
+            <TabCol Icon={StockMarket} content={localize('Hedge against the stock market')} />
+            <TabCol Icon={InflationProtection} content={localize('Inflation protection')} />
         </TabGrid>
     </StyledSection>
 )
@@ -148,22 +127,10 @@ const Synthetic = () => (
             )}
         </Text>
         <TabGrid>
-            <TabCol
-                Icon={AvailableSynthetic}
-                content={localize('Available for trading 24/7')}
-            />
-            <TabCol
-                Icon={RealWorld}
-                content={localize('Unaffected by real-world news events')}
-            />
-            <TabCol
-                Icon={MarketRisk}
-                content={localize('Emulates market risks')}
-            />
-            <TabCol
-                Icon={SmallStakes}
-                content={localize('Small, fixed stakes')}
-            />
+            <TabCol Icon={AvailableSynthetic} content={localize('Available for trading 24/7')} />
+            <TabCol Icon={RealWorld} content={localize('Unaffected by real-world news events')} />
+            <TabCol Icon={MarketRisk} content={localize('Emulates market risks')} />
+            <TabCol Icon={SmallStakes} content={localize('Small, fixed stakes')} />
             <TabCol Icon={HighReturns} content={localize('High returns')} />
             <TabCol
                 Icon={ContractDurations}
@@ -180,22 +147,14 @@ export const Markets = () => (
                 {localize('Markets')}
             </Header>
             <StyledSubHeader as="h4" align="center" weight="500">
-                {localize(
-                    'Over 100 assets available across four leading markets.',
-                )}
+                {localize('Over 100 assets available across four leading markets.')}
             </StyledSubHeader>
             <Markettabs>
                 <SideTab>
                     <Forex label="forex" text={localize('Forex')} />
                     <Indices label="indices" text={localize('Indices')} />
-                    <Commodities
-                        label="commodities"
-                        text={localize('Commodities')}
-                    />
-                    <Synthetic
-                        label="synthetic"
-                        text={localize('Synthetic Indices')}
-                    />
+                    <Commodities label="commodities" text={localize('Commodities')} />
+                    <Synthetic label="synthetic" text={localize('Synthetic Indices')} />
                 </SideTab>
             </Markettabs>
         </Container>

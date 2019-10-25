@@ -76,10 +76,7 @@ const Modal = ({ children, toggle, is_open, closeModal }) => {
 }
 
 Modal.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
     closeModal: PropTypes.func,
     is_open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,

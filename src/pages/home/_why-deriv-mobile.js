@@ -101,11 +101,7 @@ export const WhyDerivMobile = () => {
                 <SingupButton onClick={toggleModal} secondary>
                     {localize('Create a free demo account')}
                 </SingupButton>
-                <Modal
-                    toggle={toggleModal}
-                    is_open={show_modal}
-                    closeModal={closeModal}
-                >
+                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                     <SignupModal autofocus />
                 </Modal>
             </ButtonWrapper>

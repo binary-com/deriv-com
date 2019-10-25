@@ -8,11 +8,7 @@ import VisionSVG from 'images/svg/vision.svg'
 import FuseeSVG from 'images/svg/fusee.svg'
 
 const OurGoalsWrapper = styled(SectionContainer)`
-    background-image: linear-gradient(
-        to bottom,
-        var(--color-grey-2),
-        var(--color-white)
-    );
+    background-image: linear-gradient(to bottom, var(--color-grey-2), var(--color-white));
 
     @media ${device.tabletL} {
         padding-bottom: 3rem;

@@ -222,9 +222,7 @@ class DtraderTabs extends React.Component {
                             no_margin
                             // current_time={this.state.current_time}
                             current_step_image={this.state.current_step_image}
-                            onClick={() =>
-                                this.clickHandler('dmt-5-step-1.png')
-                            }
+                            onClick={() => this.clickHandler('dmt-5-step-1.png')}
                         >
                             {localize('1. Sign up with Deriv')}
                         </Step1>
@@ -236,9 +234,7 @@ class DtraderTabs extends React.Component {
                             align="center"
                             // current_time={this.state.current_time}
                             current_step_image={this.state.current_step_image}
-                            onClick={() =>
-                                this.clickHandler('dmt-5-step-2.png')
-                            }
+                            onClick={() => this.clickHandler('dmt-5-step-2.png')}
                         >
                             {localize('2. Create a DMT5 account')}
                         </Step2>
@@ -250,9 +246,7 @@ class DtraderTabs extends React.Component {
                             align="center"
                             // current_time={this.state.current_time}
                             current_step_image={this.state.current_step_image}
-                            onClick={() =>
-                                this.clickHandler('dmt-5-step-3.png')
-                            }
+                            onClick={() => this.clickHandler('dmt-5-step-3.png')}
                         >
                             {localize('3. Fund your account')}
                         </Step3>

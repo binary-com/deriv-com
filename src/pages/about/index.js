@@ -56,11 +56,7 @@ const About = () => {
                     <AccountButton onClick={toggleModal} secondary>
                         {localize('Create a free account')}
                     </AccountButton>
-                    <Modal
-                        toggle={toggleModal}
-                        is_open={show_modal}
-                        closeModal={closeModal}
-                    >
+                    <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                         <SignupModal autofocus />
                     </Modal>
                 </Goahead>

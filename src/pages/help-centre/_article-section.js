@@ -125,10 +125,7 @@ export const ArticleSection = React.memo(function ArticleSection({
         <Container align="normal" direction="column">
             {!selected_article && (
                 <HomeContainer padding="8rem 0">
-                    <ArticleList
-                        articles={articles}
-                        onClick={handleSelectArticle}
-                    />
+                    <ArticleList articles={articles} onClick={handleSelectArticle} />
                 </HomeContainer>
             )}
             {selected_article && (

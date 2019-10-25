@@ -38,11 +38,7 @@ const CheckEmail = () => {
                     </Button>
                 </GridContainer>
             </SectionContainer>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal closeModal={closeModal} />
             </Modal>
         </Layout>

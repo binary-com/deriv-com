@@ -169,10 +169,7 @@ class DtraderTabs extends React.Component {
                     }
                 }
                 this.progressHandler()
-                this.interval_ref = window.setInterval(
-                    this.progressHandler,
-                    300,
-                )
+                this.interval_ref = window.setInterval(this.progressHandler, 300)
             } else {
                 this.my_ref.current.pause()
                 window.clearInterval(this.interval_ref)
@@ -210,8 +207,7 @@ class DtraderTabs extends React.Component {
     progressHandler = () => {
         this.setState({
             progress_percentage: Math.ceil(
-                (this.my_ref.current.currentTime * 100) /
-                    this.my_ref.current.duration,
+                (this.my_ref.current.currentTime * 100) / this.my_ref.current.duration,
             ),
         })
     }

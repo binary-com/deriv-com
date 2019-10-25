@@ -4,12 +4,7 @@ import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Hero, Header, Text, CardStyle, Divider } from 'components/elements'
-import {
-    Container,
-    SectionContainer,
-    FlexGridContainer,
-    SEO,
-} from 'components/containers'
+import { Container, SectionContainer, FlexGridContainer, SEO } from 'components/containers'
 // Icons
 import Demo from 'images/svg/demo-icon.svg'
 import HandMoney from 'images/svg/hand-money-icon.svg'
@@ -183,39 +178,29 @@ const ResponsibleTrading = () => (
                         <GuidItem grid_name="demo">
                             <Demo />
                             <StyledText>
-                                {localize(
-                                    'Hone your skill with a free demo account.',
-                                )}
+                                {localize('Hone your skill with a free demo account.')}
                             </StyledText>
                         </GuidItem>
                         <GuidItem grid_name="hand_money">
                             <HandMoney />
                             <StyledText>
-                                {localize(
-                                    'Only trade with money you can afford to lose.',
-                                )}
+                                {localize('Only trade with money you can afford to lose.')}
                             </StyledText>
                         </GuidItem>
                         <GuidItem grid_name="borrow_money">
                             <BorrowMoney />
-                            <StyledText>
-                                {localize('Do not trade with borrowed money.')}
-                            </StyledText>
+                            <StyledText>{localize('Do not trade with borrowed money.')}</StyledText>
                         </GuidItem>
                         <GuidItem grid_name="limit">
                             <Limit />
                             <StyledText>
-                                {localize(
-                                    'Set a limit for your losses and stick to it.',
-                                )}
+                                {localize('Set a limit for your losses and stick to it.')}
                             </StyledText>
                         </GuidItem>
                         <GuidItem grid_name="avoid_trading">
                             <AvoidTrading />
                             <StyledText>
-                                {localize(
-                                    'Avoid trading when you’re prone to bad judgement.',
-                                )}
+                                {localize('Avoid trading when you’re prone to bad judgement.')}
                             </StyledText>
                         </GuidItem>
                         <GuidItem grid_name="portion_winning">
@@ -238,24 +223,14 @@ const ResponsibleTrading = () => (
                     {localize('Written limits and self-exclusion')}
                 </LimitsHeader>
                 <Show.Mobile>
-                    <MarginHeader
-                        as="h4"
-                        weight="500"
-                        align="center"
-                        mobile_text_align="left"
-                    >
+                    <MarginHeader as="h4" weight="500" align="center" mobile_text_align="left">
                         {localize(
                             'With Deriv, you have the option to implement limits on your trading activities through our self-exclusion facility. You’ll be able to:',
                         )}
                     </MarginHeader>
                 </Show.Mobile>
                 <Show.Desktop>
-                    <MarginHeader
-                        as="h4"
-                        weight="500"
-                        align="center"
-                        mobile_text_align="left"
-                    >
+                    <MarginHeader as="h4" weight="500" align="center" mobile_text_align="left">
                         {localize(
                             'With Deriv, you have the option to implement limits on your trading activities.',
                         )}
@@ -275,9 +250,7 @@ const ResponsibleTrading = () => (
                             <ChecklistLogo />
                         </div>
                         <CheckText secondary>
-                            {localize(
-                                'Limit the amount of time you spend on trading',
-                            )}
+                            {localize('Limit the amount of time you spend on trading')}
                         </CheckText>
                     </StyledLimits>
                     <StyledLimits>
@@ -293,16 +266,12 @@ const ResponsibleTrading = () => (
                             <ChecklistLogo />
                         </div>
                         <CheckText secondary>
-                            {localize(
-                                'Block yourself from trading on our website',
-                            )}
+                            {localize('Block yourself from trading on our website')}
                         </CheckText>
                     </StyledLimits>
                     <Show.Mobile>
                         <LearnMoreText weight="500">
-                            {localize(
-                                'Learn more about our self-exclusion facility.',
-                            )}
+                            {localize('Learn more about our self-exclusion facility.')}
                         </LearnMoreText>
                     </Show.Mobile>
                 </MarginWrapper>
@@ -310,11 +279,7 @@ const ResponsibleTrading = () => (
         </ResponsibleSectionContainer>
         <OtherWarningWrapper>
             <StyledContainer>
-                <OtherWarningHeader
-                    as="h2"
-                    align="center"
-                    mobile_text_align="left"
-                >
+                <OtherWarningHeader as="h2" align="center" mobile_text_align="left">
                     {localize('Other warnings and regulatory disclosures')}
                 </OtherWarningHeader>
                 <Show.Mobile>

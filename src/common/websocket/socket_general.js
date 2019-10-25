@@ -18,9 +18,7 @@ const BinarySocketGeneral = (() => {
         switch (response.msg_type) {
             case 'website_status':
                 if (response.website_status) {
-                    is_available = /^up$/i.test(
-                        response.website_status.site_status,
-                    )
+                    is_available = /^up$/i.test(response.website_status.site_status)
                     if (!Cookies.get('clients_country')) {
                         Cookies.set(
                             'clients_country',

@@ -7,11 +7,7 @@ import { Header } from 'components/elements'
 import device from 'themes/device.js'
 
 const StyledSection = styled(SectionContainer)`
-    background-image: linear-gradient(
-        to bottom,
-        var(--color-grey-6),
-        var(--color-white)
-    );
+    background-image: linear-gradient(to bottom, var(--color-grey-6), var(--color-white));
 `
 
 const StyledHeader = styled(Header)`
@@ -19,10 +15,7 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         text-align: left;
-        ${props =>
-            props.as === 'h4'
-                ? 'font-size: 20px; font-wight: 500;'
-                : 'font-size: 32px'}
+        ${props => (props.as === 'h4' ? 'font-size: 20px; font-wight: 500;' : 'font-size: 32px')}
     }
 `
 

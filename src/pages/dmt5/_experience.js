@@ -59,20 +59,14 @@ const Experience = () => {
                         {localize('Try DMT5 with no risk')}
                     </StyledHeader>
                     <Text align="center">
-                        {localize(
-                            'Practise trading with unlimited virtual funds',
-                        )}
+                        {localize('Practise trading with unlimited virtual funds')}
                     </Text>
                     <StyledButton secondary onClick={toggleModal}>
                         {localize('Try for free')}
                     </StyledButton>
                 </Content>
             </StyledContainer>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </StyledSection>

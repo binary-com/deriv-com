@@ -6,12 +6,4 @@ import SEO from './seo'
 import Show from './show'
 import Wrapper from './wrapper'
 
-export {
-    Container,
-    FlexGridContainer,
-    GridContainer,
-    SectionContainer,
-    SEO,
-    Show,
-    Wrapper,
-}
+export { Container, FlexGridContainer, GridContainer, SectionContainer, SEO, Show, Wrapper }

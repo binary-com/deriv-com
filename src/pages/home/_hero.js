@@ -84,42 +84,23 @@ export const Hero = () => {
                     <StyledArticle>
                         <Show.Mobile>
                             <Header font_size="6rem" color="white" lh="1.1">
-                                {localize(
-                                    'Welcome to the ultimate trading experience',
-                                )}
+                                {localize('Welcome to the ultimate trading experience')}
                             </Header>
-                            <StyledHeader
-                                font_size="2rem"
-                                color="white"
-                                weight="500"
-                            >
-                                {localize(
-                                    'All the world’s markets, one powerful trading platform',
-                                )}
+                            <StyledHeader font_size="2rem" color="white" weight="500">
+                                {localize('All the world’s markets, one powerful trading platform')}
                             </StyledHeader>
                         </Show.Mobile>
                         <Show.Desktop>
                             <HeroHeader as="h1" color="white" lh="1.2">
-                                {localize(
-                                    'This is your ultimate trading experience',
-                                )}
+                                {localize('This is your ultimate trading experience')}
                             </HeroHeader>
-                            <HeroHeader
-                                as="h4"
-                                color="white"
-                                weight="500"
-                                secondary
-                            >
+                            <HeroHeader as="h4" color="white" weight="500" secondary>
                                 {localize(
                                     'The world’s markets at your fingertips anytime, anywhere.',
                                 )}
                             </HeroHeader>
                             <ButtonWrapper>
-                                <Button
-                                    type="submit"
-                                    onClick={toggleModal}
-                                    secondary
-                                >
+                                <Button type="submit" onClick={toggleModal} secondary>
                                     {localize('Create a free account')}
                                 </Button>
                             </ButtonWrapper>
@@ -127,30 +108,13 @@ export const Hero = () => {
                     </StyledArticle>
                     <Show.Desktop>
                         <VideoWrapper>
-                            <video
-                                width="100%"
-                                height="100%"
-                                autoPlay
-                                muted
-                                playsInline
-                                loop
-                            >
-                                <source
-                                    src="/deriv_trading_platform.webm"
-                                    type="video/webm"
-                                />
-                                <source
-                                    src="/deriv_trading_platform.mp4"
-                                    type="video/mp4"
-                                />
+                            <video width="100%" height="100%" autoPlay muted playsInline loop>
+                                <source src="/deriv_trading_platform.webm" type="video/webm" />
+                                <source src="/deriv_trading_platform.mp4" type="video/mp4" />
                             </video>
                         </VideoWrapper>
                     </Show.Desktop>
-                    <Modal
-                        toggle={toggleModal}
-                        is_open={show_modal}
-                        closeModal={closeModal}
-                    >
+                    <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                         <SignupModal autofocus />
                     </Modal>
                 </HeroGrid>

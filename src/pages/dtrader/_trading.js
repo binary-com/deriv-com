@@ -75,9 +75,7 @@ const Trading = () => {
         <StyledSection>
             <StyledContainer>
                 <ContentContainer grid_area="ms">
-                    <Header as="h2">
-                        {localize('Make smarter trading decisions')}
-                    </Header>
+                    <Header as="h2">{localize('Make smarter trading decisions')}</Header>
                     <Text secondary>
                         {localize(
                             'Customise your chart with technical indicators and widgets — everything you need to make smarter trading decisions.',
@@ -86,10 +84,7 @@ const Trading = () => {
                 </ContentContainer>
                 <ImageContainer grid_area="msi">
                     <ImageWrapper max_width="42rem">
-                        <Image
-                            img_name="make-smarter.png"
-                            alt={localize('Make smarter')}
-                        />
+                        <Image img_name="make-smarter.png" alt={localize('Make smarter')} />
                     </ImageWrapper>
                 </ImageContainer>
                 <ImageContainer grid_area="twywi">
@@ -101,9 +96,7 @@ const Trading = () => {
                     </ImageWrapper>
                 </ImageContainer>
                 <ContentContainer grid_area="twyw">
-                    <Header as="h2">
-                        {localize('Trade what you want, when you want...')}
-                    </Header>
+                    <Header as="h2">{localize('Trade what you want, when you want...')}</Header>
                     <Text secondary>
                         {localize(
                             'Forex, indices, commodities and volatility indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.',
@@ -120,10 +113,7 @@ const Trading = () => {
                 </ContentContainer>
                 <ImageContainer grid_area="hywi">
                     <ImageWrapper max_width="44.8rem">
-                        <Image
-                            img_name="how-you-want.png"
-                            alt={localize('How you want')}
-                        />
+                        <Image img_name="how-you-want.png" alt={localize('How you want')} />
                     </ImageWrapper>
                 </ImageContainer>
             </StyledContainer>

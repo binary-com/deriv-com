@@ -137,11 +137,7 @@ const Slide = ({ slides, translate_width, children }) => (
                         {children && children}
                     </LeftContent>
                     <ImageContainer>
-                        <Image
-                            img_name={slide.img_name}
-                            alt={slide.img_alt}
-                            width="100%"
-                        />
+                        <Image img_name={slide.img_name} alt={slide.img_alt} width="100%" />
                     </ImageContainer>
                 </div>
             </SlideWrapper>
@@ -150,10 +146,7 @@ const Slide = ({ slides, translate_width, children }) => (
 )
 
 Slide.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     slides: PropTypes.array,
     translate_width: PropTypes.number,
 }
@@ -204,11 +197,7 @@ const Carousel = ({ slides, children }) => {
                 <Chevron />
             </ChevronContainer>
             <SliderWrapper ref={ref}>
-                <Slide
-                    translate_width={translate_width}
-                    slide_width={slide_width}
-                    slides={slides}
-                >
+                <Slide translate_width={translate_width} slide_width={slide_width} slides={slides}>
                     {children}
                 </Slide>
             </SliderWrapper>
@@ -221,10 +210,7 @@ const Carousel = ({ slides, children }) => {
 
 Carousel.propTypes = {
     background: PropTypes.array,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     slides: PropTypes.array,
 }
 export default Carousel

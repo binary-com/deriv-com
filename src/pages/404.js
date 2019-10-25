@@ -73,9 +73,7 @@ const PageNotFound = () => (
                 </Text>
                 <Text>{localize('Error code: 404 page not found')}</Text>
                 <ButtonWrapper>
-                    <StyledButton to="/">
-                        {localize('Go to the homepage')}
-                    </StyledButton>
+                    <StyledButton to="/">{localize('Go to the homepage')}</StyledButton>
                 </ButtonWrapper>
             </PageNotFoundContainerInfo>
         </PageNotFoundContainer>

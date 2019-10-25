@@ -107,11 +107,7 @@ export const OurLocations = () => {
                 <Button secondary onClick={toggleModal}>
                     {localize('Start with a free practice account')}
                 </Button>
-                <Modal
-                    toggle={toggleModal}
-                    is_open={show_modal}
-                    closeModal={closeModal}
-                >
+                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                     <SignupModal autofocus />
                 </Modal>
             </OurLocationsWrapper>

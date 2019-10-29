@@ -154,6 +154,7 @@ class HelpCentre extends Component {
             })
         }
         const all_articles = getAllArticles(articles)
+        console.log(all_articles)
 
         const duplicate_articles = JSON.parse(JSON.stringify(all_articles))
         const translated_articles = duplicate_articles.map(article => {
@@ -191,6 +192,8 @@ class HelpCentre extends Component {
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
         })
+        console.log(filtered_articles)
+        console.log(all_articles)
         const has_results = !!filtered_articles.length
         return (
             <Layout>

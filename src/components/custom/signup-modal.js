@@ -22,6 +22,9 @@ const SignupWrapper = styled.article`
 
 const ModalRow = styled(FlexGridContainer)`
     height: 100%;
+    @media (max-width: 992px) {
+        width: 100%;
+    }
 `
 
 const Content = styled.div`
@@ -47,6 +50,7 @@ const SignupContent = styled(Content)`
 
     @media ${device.tabletL} {
         padding-top: 6rem;
+        width: 100%;
     }
 `
 

@@ -65,11 +65,6 @@ const SearchForm = styled.form`
     @media ${device.tabletL} {
         padding-left: 4.3rem;
 
-        input {
-            font-size: 3rem;
-            width: 90%;
-            height: 3.55rem;
-        }
         svg {
             top: 0;
             width: 2.5rem;
@@ -79,6 +74,7 @@ const SearchForm = styled.form`
 `
 
 const Search = styled.input`
+    width: 95%;
     font-size: 4.4rem;
     font-weight: bold;
     color: var(--color-white);
@@ -88,6 +84,16 @@ const Search = styled.input`
 
     ::placeholder {
         color: var(--color-black-3);
+    }
+    @media ${device.tabletL} {
+        font-size: 3rem;
+        height: 3.55rem;
+    }
+    @media ${device.mobileL} {
+        font-size: 2.5rem;
+    }
+    @media ${device.mobileM} {
+        font-size: 1.95rem;
     }
 `
 

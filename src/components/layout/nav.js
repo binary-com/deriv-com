@@ -35,6 +35,7 @@ const Wrapper = styled(Container)`
     padding: 1.2rem 0;
     justify-content: space-between;
     height: 7.2rem;
+    overflow: hidden;
 `
 const NavLeft = styled.div`
     text-align: left;
@@ -59,7 +60,29 @@ const NavRight = styled.div`
     overflow: hidden;
     padding: 0;
     justify-content: center;
-    transition: all 0.2s;
+    transition: ${props => {
+        if (props.move) {
+            return 'all 0.25s'
+        } else {
+            if (props.has_scrolled) {
+                return 'all 0.25s'
+            }
+            return 'none'
+        }
+    }};
+    transform: translateX(
+        ${props => {
+            if (props.move) {
+                return 0
+            } else {
+                if (props.button_ref.current && props.mounted) {
+                    const calculation = props.button_ref.current.offsetWidth
+                    return `${calculation}px`
+                }
+                return 0
+            }
+        }}
+    );
     @media ${device.tabletL} {
         display: none;
     }
@@ -83,17 +106,6 @@ const StyledButton = styled.a`
 
 const SignupButton = styled(Button)`
     margin-left: 1.6rem;
-    margin-right: ${props => {
-        if (props.move) {
-            return 0
-        } else {
-            if (props.forwardedRef.current && props.mounted) {
-                const calculation = props.forwardedRef.current.offsetWidth + 2
-                return `-${calculation}px`
-            }
-            return 0
-        }
-    }};
 `
 
 const HamburgerMenu = styled(Hamburger)`
@@ -117,8 +129,12 @@ const Nav = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
+    const [has_scrolled, setHasScrolled] = useState(false)
 
-    const buttonHandleScroll = () => handleScroll(showButton, hideButton)
+    const buttonHandleScroll = () => {
+        setHasScrolled(true)
+        handleScroll(showButton, hideButton)
+    }
     const [
         is_canvas_menu_open,
         openOffCanvasMenu,
@@ -196,16 +212,19 @@ const Nav = () => {
                             </StyledLink>
                         </NavLink>
                     </NavCenter>
-                    <NavRight>
+                    <NavRight
+                        move={show_button}
+                        button_ref={button_ref}
+                        mounted={mounted}
+                        has_scrolled={has_scrolled}
+                    >
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
                         <SignupButton
+                            ref={button_ref}
                             secondary
                             onClick={toggleModal}
-                            move={show_button}
-                            ref={button_ref}
-                            mounted={mounted}
                         >
                             <span>{localize('Try for free')}</span>
                         </SignupButton>

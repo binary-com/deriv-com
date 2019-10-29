@@ -143,7 +143,18 @@ class HelpCentre extends Component {
 
     componentDidMount = () => {
         const current_label = getLocationHash()
-        const clone = items => items.map(item => (Array.isArray(item) ? clone(item) : item))
+        const deepClone = arr => {
+            const out = []
+            for (let i = 0, len = arr.length; i < len; i++) {
+                const item = arr[i]
+                const obj = {}
+                for (var k in item) {
+                    obj[k] = item[k]
+                }
+                out.push(obj)
+            }
+            return out
+        }
 
         if (current_label) {
             const selected_article = this.state.all_articles.find(
@@ -157,7 +168,7 @@ class HelpCentre extends Component {
         }
         const all_articles = getAllArticles(articles)
 
-        const duplicate_articles = clone(all_articles)
+        const duplicate_articles = deepClone(all_articles)
         const translated_articles = duplicate_articles.map(article => {
             article.title = localize(article.title.props.translate_text)
             article.sub_category = localize(article.sub_category.props.translate_text)

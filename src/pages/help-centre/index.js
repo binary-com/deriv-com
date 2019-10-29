@@ -151,6 +151,21 @@ class HelpCentre extends Component {
                 search_has_transition: false,
             })
         }
+
+        const duplicate_articles = JSON.parse(
+            JSON.stringify(this.state.all_articles),
+        )
+        const translated_articles = duplicate_articles.map(article => {
+            article.title = localize(article.title.props.translate_text)
+            article.sub_category = localize(
+                article.sub_category.props.translate_text,
+            )
+            return article
+        })
+
+        this.setState({
+            all_articles: translated_articles,
+        })
     }
 
     componentDidUpdate = () => {

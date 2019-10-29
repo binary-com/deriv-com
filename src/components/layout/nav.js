@@ -76,7 +76,7 @@ const NavRight = styled.div`
                 return 0
             } else {
                 if (props.button_ref.current && props.mounted) {
-                    const calculation = props.button_ref.current.offsetWidth
+                    const calculation = props.button_ref.current.offsetWidth + 2
                     return `${calculation}px`
                 }
                 return 0

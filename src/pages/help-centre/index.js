@@ -143,6 +143,8 @@ class HelpCentre extends Component {
 
     componentDidMount = () => {
         const current_label = getLocationHash()
+        const clone = items => items.map(item => (Array.isArray(item) ? clone(item) : item))
+
         if (current_label) {
             const selected_article = this.state.all_articles.find(
                 article => article.label === current_label,
@@ -154,9 +156,8 @@ class HelpCentre extends Component {
             })
         }
         const all_articles = getAllArticles(articles)
-        console.log(all_articles)
 
-        const duplicate_articles = JSON.parse(JSON.stringify(all_articles))
+        const duplicate_articles = clone(all_articles)
         const translated_articles = duplicate_articles.map(article => {
             article.title = localize(article.title.props.translate_text)
             article.sub_category = localize(article.sub_category.props.translate_text)
@@ -192,8 +193,6 @@ class HelpCentre extends Component {
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
         })
-        console.log(filtered_articles)
-        console.log(all_articles)
         const has_results = !!filtered_articles.length
         return (
             <Layout>

@@ -13,10 +13,7 @@ export const onInitialClientRender = () => {
     // Check if not production and match ach or ach/
 
     if (is_browser) {
-        if (
-            !isProduction() &&
-            window.location.pathname.match(/^(ach\/)|ach$/)
-        ) {
+        if (!isProduction() && window.location.pathname.match(/^(ach\/)|ach$/)) {
             LocalStore.set('i18n', 'ach')
         }
         const i18n = LocalStore.get('i18n')

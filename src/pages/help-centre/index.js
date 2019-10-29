@@ -7,9 +7,8 @@ import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 // import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
-import SEO from 'components/containers/seo'
+import { SEO, Container } from 'components/containers'
 import Layout from 'components/layout/layout'
-import Container from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
@@ -36,8 +35,7 @@ const StyledContainer = styled(Container)`
 const SearchSection = styled.section`
     ${Backdrop} {
         max-height: ${props => (props.show ? '100rem' : '0')};
-        transition: ${props =>
-            props.has_transition ? 'max-height 0.6s ease-in-out' : 'none'};
+        transition: ${props => (props.has_transition ? 'max-height 0.6s ease-in-out' : 'none')};
         overflow: hidden;
     }
 `
@@ -207,10 +205,7 @@ class HelpCentre extends Component {
                         'Need help with our products and services? Read our FAQ or ask us a question.',
                     )}
                 />
-                <SearchSection
-                    show={toggle_search}
-                    has_transition={search_has_transition}
-                >
+                <SearchSection show={toggle_search} has_transition={search_has_transition}>
                     <Backdrop>
                         <StyledContainer align="normal" direction="column">
                             <SearchForm onSubmit={this.handleSubmit}>
@@ -224,11 +219,7 @@ class HelpCentre extends Component {
                                     data-lpignore="true"
                                     autoComplete="off"
                                 />
-                                {search.length && (
-                                    <SearchCrossIcon
-                                        onClick={this.clearSearch}
-                                    />
-                                )}
+                                {search.length && <SearchCrossIcon onClick={this.clearSearch} />}
                             </SearchForm>
                             <ResultWrapper>
                                 {has_results && search.length && (
@@ -238,9 +229,7 @@ class HelpCentre extends Component {
                                         max_length={3}
                                     />
                                 )}
-                                {!has_results && (
-                                    <SearchError search={search} />
-                                )}
+                                {!has_results && <SearchError search={search} />}
                             </ResultWrapper>
                         </StyledContainer>
                     </Backdrop>

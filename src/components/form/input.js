@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Text } from '../elements/typography'
+import { Text } from '../elements'
 // SVG Component
-import ErrorIcon from 'images/svg/error-icon.svg'
+import CrossIcon from 'images/svg/cross.svg'
 
 const RelativeWrapper = styled.div`
     position: relative;
@@ -35,7 +35,7 @@ const InputWrapper = styled.div`
         `}
 `
 
-const StyledError = styled(ErrorIcon)`
+const StyledError = styled(CrossIcon)`
     position: absolute;
     right: 0.8rem;
     top: 1.2rem;
@@ -119,10 +119,7 @@ const Input = ({ label, id, error, background, handleError, ...props }) => (
 
 Input.propTypes = {
     background: PropTypes.string,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     error: PropTypes.string,
     handleError: PropTypes.func,
     id: PropTypes.string,

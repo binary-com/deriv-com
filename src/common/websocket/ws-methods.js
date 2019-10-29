@@ -2,8 +2,7 @@ import { isEmptyObject } from '../utility'
 import { BinarySocketBase } from './socket_base'
 
 const WS = (() => {
-    const landingCompany = residence =>
-        BinarySocketBase.send({ landing_company: residence })
+    const landingCompany = residence => BinarySocketBase.send({ landing_company: residence })
     const verifyEmail = email =>
         BinarySocketBase.send({ verifyEmail: email, type: 'account_opening' })
     const sendRequest = (request_object, force_request) =>

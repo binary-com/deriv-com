@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-    StyledSection,
-    StyledHeader,
-    StyledOrder,
-    TncListText,
-    StyledTitle,
-} from './_styles'
+import { StyledSection, StyledHeader, StyledOrder, TncListText, StyledTitle } from './_styles'
 import { localize } from 'components/localization'
 
 export const OrderExecution = () => (
@@ -50,9 +44,7 @@ export const OrderExecution = () => (
             </li>
             <StyledOrder type="lower-alpha">
                 <li>
-                    <TncListText>
-                        {localize('The nature of your trades')}
-                    </TncListText>
+                    <TncListText>{localize('The nature of your trades')}</TncListText>
                 </li>
                 <li>
                     <TncListText>
@@ -147,9 +139,7 @@ export const OrderExecution = () => (
                     </li>
                 </StyledOrder>
                 <li>
-                    <TncListText>
-                        {localize('Likelihood of execution')}
-                    </TncListText>
+                    <TncListText>{localize('Likelihood of execution')}</TncListText>
                 </li>
                 <StyledOrder type="lower-roman">
                     <li>
@@ -161,9 +151,7 @@ export const OrderExecution = () => (
                     </li>
                 </StyledOrder>
                 <li>
-                    <TncListText>
-                        {localize('Likelihood of settlement')}
-                    </TncListText>
+                    <TncListText>{localize('Likelihood of settlement')}</TncListText>
                 </li>
                 <StyledOrder type="lower-roman">
                     <li>

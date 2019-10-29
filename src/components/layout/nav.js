@@ -1,18 +1,20 @@
+// TODO: (discussion) make nav pure component, and move usage of nav to custom
 import React, { useState, useEffect, useRef } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { LocalizedLink, localize } from '../localization'
-import Button from '../form/button'
-import Container from '../containers/container'
-import Modal, { useModal } from '../elements/modal'
-import SignupModal from '../elements/signup-modal'
-import OffCanvasMenu, { moveOffCanvasMenu } from '../elements/off-canvas-menu'
-import PlatformsDropdown from '../elements/platforms-dropdown'
-import { SharedLinkStyle } from '../localization/localized-link'
+import { LocalizedLink, localize } from 'components/localization'
+import { Button } from 'components/form'
+import { Container } from 'components/containers'
+import { Modal, useModal, OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
+import SignupModal from 'components/custom/signup-modal'
+import PlatformsDropdown from 'components/custom/platforms-dropdown'
+import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
 import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
+
 const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
@@ -52,6 +54,15 @@ const NavLeft = styled.div`
         }
     }
 `
+
+const StaticWrapper = styled.nav`
+    background: var(--color-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10.4rem;
+`
+
 const NavCenter = styled.ul`
     text-align: center;
     padding: 0;
@@ -128,7 +139,7 @@ const handleScroll = (show, hide) => {
     window.scrollY > show_height ? show() : hide()
 }
 
-const Nav = () => {
+export const Nav = () => {
     const nav_ref = useRef(null)
     const button_ref = useRef(null)
     const [is_platforms_open, setIsPlatformsOpen] = useState(false)
@@ -142,11 +153,7 @@ const Nav = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
     }
-    const [
-        is_canvas_menu_open,
-        openOffCanvasMenu,
-        closeOffCanvasMenu,
-    ] = moveOffCanvasMenu()
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     useEffect(() => {
         setMounted(true)
         document.addEventListener('scroll', buttonHandleScroll, {
@@ -176,13 +183,11 @@ const Nav = () => {
     const handleNormalLink = () => {
         setHasAnimation(false)
     }
+
     return (
         <NavWrapper ref={nav_ref}>
             <StyledNav>
-                <PlatformsDropdown
-                    is_open={is_platforms_open}
-                    has_animation={has_animation}
-                />
+                <PlatformsDropdown is_open={is_platforms_open} has_animation={has_animation} />
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
@@ -191,10 +196,7 @@ const Nav = () => {
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handlePlatformsClick}>
-                            <StyledButton
-                                aria-label={localize('Trade')}
-                                activeClassName="active"
-                            >
+                            <StyledButton aria-label={localize('Trade')} activeClassName="active">
                                 {localize('Trade')}
                             </StyledButton>
                         </NavLink>
@@ -228,11 +230,7 @@ const Nav = () => {
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
-                        <SignupButton
-                            ref={button_ref}
-                            secondary
-                            onClick={toggleModal}
-                        >
+                        <SignupButton ref={button_ref} secondary onClick={toggleModal}>
                             <span>{localize('Try for free')}</span>
                         </SignupButton>
                     </NavRight>
@@ -242,22 +240,29 @@ const Nav = () => {
                         closeOffCanvasMenu={closeOffCanvasMenu}
                     />
                 </Wrapper>
-                <Modal
-                    toggle={toggleModal}
-                    is_open={show_modal}
-                    closeModal={closeModal}
-                >
+                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                     <SignupModal autofocus />
                 </Modal>
             </StyledNav>
         </NavWrapper>
     )
 }
-export default Nav
+
+export const NavStatic = () => (
+    <StaticWrapper>
+        <StyledLink to="/">
+            <LogoBeta />
+        </StyledLink>
+    </StaticWrapper>
+)
 
 function moveButton(is_visible = false) {
     const [show_button, setShowButton] = useState(is_visible)
     const showButton = () => setShowButton(!show_button)
     const hideButton = () => setShowButton(false)
     return [show_button, showButton, hideButton]
+}
+
+NavStatic.propTypes = {
+    is_static: PropTypes.bool,
 }

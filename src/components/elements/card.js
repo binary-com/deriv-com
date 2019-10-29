@@ -101,15 +101,7 @@ Content.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
 
-export const Card = ({
-    children,
-    Icon,
-    title,
-    content,
-    width,
-    min_height,
-    is_inline_icon,
-}) => {
+export const Card = ({ children, Icon, title, content, width, min_height, is_inline_icon }) => {
     return (
         <CardWrapper width={width} min_height={min_height}>
             {!children && (
@@ -143,10 +135,7 @@ export const Card = ({
 }
 
 Card.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     Icon: PropTypes.func,
     is_inline_icon: PropTypes.bool,
@@ -155,14 +144,7 @@ Card.propTypes = {
     width: PropTypes.string,
 }
 
-export const CardChildren = ({
-    Icon,
-    title,
-    width,
-    children,
-    icon_width,
-    icon_height,
-}) => (
+export const CardChildren = ({ Icon, title, width, children, icon_width, icon_height }) => (
     <CardChildrenWrapper width={width}>
         <Header as="h4" weight="500">
             {title}
@@ -173,10 +155,7 @@ export const CardChildren = ({
 )
 
 CardChildren.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     Icon: PropTypes.func,
     icon_height: PropTypes.string,
     icon_width: PropTypes.string,

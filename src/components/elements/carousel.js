@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Container from 'components/containers/container'
-import { Text, Header } from 'components/elements/typography.js'
-import Image from 'components/elements/image'
+import { Container } from 'components/containers'
+import { Text, Header, Image } from 'components/elements'
+// Icons
 import ChecklistLogo from 'images/svg/checklist.svg'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import device from 'themes/device'
@@ -150,10 +150,7 @@ const Slide = ({ slides, translate_width, children }) => (
 )
 
 Slide.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     slides: PropTypes.array,
     translate_width: PropTypes.number,
 }
@@ -204,11 +201,7 @@ const Carousel = ({ slides, children }) => {
                 <Chevron />
             </ChevronContainer>
             <SliderWrapper ref={ref}>
-                <Slide
-                    translate_width={translate_width}
-                    slide_width={slide_width}
-                    slides={slides}
-                >
+                <Slide translate_width={translate_width} slide_width={slide_width} slides={slides}>
                     {children}
                 </Slide>
             </SliderWrapper>
@@ -221,10 +214,7 @@ const Carousel = ({ slides, children }) => {
 
 Carousel.propTypes = {
     background: PropTypes.array,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     slides: PropTypes.array,
 }
 export default Carousel

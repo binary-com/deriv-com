@@ -14,7 +14,7 @@ const OffCanvasMenu = styled.section`
     transition: right 0.4s;
     right: ${props => (props.is_canvas_menu_open ? '0' : '-238px')};
 `
-const StyledLink = styled(LocalizedLink)`
+const StyledLink = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-black);
     margin-top: 3.6rem;
     font-size: 2rem;
@@ -61,10 +61,7 @@ const OffCanvasMenuWrapper = props => {
     }, [])
 
     return (
-        <OffCanvasMenu
-            is_canvas_menu_open={props.is_canvas_menu_open}
-            ref={canvas}
-        >
+        <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <BackArrow onClick={handleArrowClick} />
                 <div>
@@ -79,7 +76,7 @@ const OffCanvasMenuWrapper = props => {
         </OffCanvasMenu>
     )
 }
-export function moveOffCanvasMenu(initState = false) {
+export const moveOffCanvasMenu = (initState = false) => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
     const closeOffCanvasMenu = () => setOffCanvasMenuPosition(false)

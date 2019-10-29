@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import device from 'themes/device'
-import { Text } from 'components/elements/typography.js'
+import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
 import Two from 'images/svg/two-factor.svg'
@@ -69,9 +69,7 @@ export const SecurityIconGrid = () => (
         <Col
             grid_name="Two"
             Icon={Two}
-            content={localize(
-                'Enable two-factor authentication on your account.',
-            )}
+            content={localize('Enable two-factor authentication on your account.')}
         />
         <Col
             grid_name="DifferentPassword"

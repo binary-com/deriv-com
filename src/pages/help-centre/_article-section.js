@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { ListWithLinks } from './_list'
-import { Text, Header } from 'components/elements/typography'
+import { Text, Header, StyledLink } from 'components/elements'
 import { localize } from 'components/localization'
-import { StyledLink } from 'components/elements/link'
-import Container from 'components/containers/container'
+import { Container, Show } from 'components/containers'
 import device from 'themes/device'
-import Show from 'components/containers/show'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 
@@ -127,10 +125,7 @@ export const ArticleSection = React.memo(function ArticleSection({
         <Container align="normal" direction="column">
             {!selected_article && (
                 <HomeContainer padding="8rem 0">
-                    <ArticleList
-                        articles={articles}
-                        onClick={handleSelectArticle}
-                    />
+                    <ArticleList articles={articles} onClick={handleSelectArticle} />
                 </HomeContainer>
             )}
             {selected_article && (

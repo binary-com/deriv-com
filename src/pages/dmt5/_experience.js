@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import Container, { SectionContainer } from 'components/containers/container.js'
+import { Container, SectionContainer } from 'components/containers'
 import device from 'themes/device.js'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
-import { Header, Text } from 'components/elements/typography.js'
-import Button from 'components/form/button'
+import { Modal, useModal, Header, Text } from 'components/elements'
+import SignupModal from 'components/custom/signup-modal'
+import { Button } from 'components/form'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-1);
@@ -60,20 +59,14 @@ const Experience = () => {
                         {localize('Try DMT5 with no risk')}
                     </StyledHeader>
                     <Text align="center">
-                        {localize(
-                            'Practise trading with unlimited virtual funds',
-                        )}
+                        {localize('Practise trading with unlimited virtual funds')}
                     </Text>
                     <StyledButton secondary onClick={toggleModal}>
                         {localize('Try for free')}
                     </StyledButton>
                 </Content>
             </StyledContainer>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </StyledSection>

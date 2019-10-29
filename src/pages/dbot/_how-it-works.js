@@ -1,21 +1,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Wrapper from 'components/containers/wrapper'
-import Container, { SectionContainer } from 'components/containers/container'
-import { Header } from 'components/elements/typography'
+import { Container, SectionContainer, Wrapper } from 'components/containers'
+import { Header, Image, LinearLoader, SideTab } from 'components/elements'
 import { localize } from 'components/localization'
-import SideTab from 'components/elements/side-tab'
-import Image from 'components/elements/image'
-import Loader from 'components/elements/loader'
 import device from 'themes/device'
 
 const BackgroundContainer = styled(SectionContainer)`
-    background: linear-gradient(
-        to bottom,
-        var(--color-grey-2),
-        var(--color-white)
-    );
+    background: linear-gradient(to bottom, var(--color-grey-2), var(--color-white));
     border-bottom: 1px solid var(--color-grey-1);
 
     @media ${device.tabletL} {
@@ -114,7 +106,7 @@ const BannerSection = () => {
                         />
                     </SideTab>
                     <LoaderContainer>
-                        <Loader width="80%" progress={progress} />
+                        <LinearLoader width="80%" progress={progress} />
                     </LoaderContainer>
                 </Wrapper>
             </Container>

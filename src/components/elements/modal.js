@@ -76,10 +76,7 @@ const Modal = ({ children, toggle, is_open, closeModal }) => {
 }
 
 Modal.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
     closeModal: PropTypes.func,
     is_open: PropTypes.bool.isRequired,
     toggle: PropTypes.func.isRequired,
@@ -87,7 +84,7 @@ Modal.propTypes = {
 
 export default Modal
 
-export function useModal(is_open = false) {
+export const useModal = (is_open = false) => {
     const [show_modal, setShowModal] = useState(is_open)
     const toggleModal = () => setShowModal(!show_modal)
     const closeModal = () => setShowModal(false)

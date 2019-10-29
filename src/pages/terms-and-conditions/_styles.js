@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import { Header, Text } from 'components/elements/typography'
-import { StyledLink } from 'components/elements/link'
+import { Header, Text, StyledLink } from 'components/elements'
 import device from 'themes/device'
 
 export const StyledSection = styled.section`

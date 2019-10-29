@@ -1,12 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
-import Hero from 'components/elements/hero'
-import Container, { SectionContainer } from 'components/containers/container'
+import { Hero, Header, Text, CardChildren } from 'components/elements'
+import { Container, SectionContainer, SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
-import { Header, Text } from 'components/elements/typography'
-import { CardChildren } from 'components/elements/card.js'
 import device from 'themes/device'
 // Icons
 import SVG from 'images/svg/svg.svg'
@@ -16,11 +13,7 @@ import FSC from 'images/svg/fsc.svg'
 import Labuan from 'images/svg/footer-labuan.svg'
 
 const RegulatoryWrapper = styled(SectionContainer)`
-    background-image: linear-gradient(
-        to bottom,
-        var(--color-grey-2),
-        var(--color-white)
-    );
+    background-image: linear-gradient(to bottom, var(--color-grey-2), var(--color-white));
 
     @media ${device.tabletL} {
         padding-bottom: 4rem;
@@ -77,9 +70,7 @@ const Regulatory = () => (
         />
         <Hero
             header={localize('Licences and regulations')}
-            paragraph={localize(
-                'Deriv operates under the jurisdiction of Binary.com.',
-            )}
+            paragraph={localize('Deriv operates under the jurisdiction of Binary.com.')}
         />
         <RegulatoryWrapper>
             <StyledContainer>
@@ -134,20 +125,12 @@ const Regulatory = () => (
                         </CardChildren>
                     </CardWrapper>
                     <CardWrapper grid_area="bvi">
-                        <CardChildren
-                            Icon={FSC}
-                            title={localize('Binary (BVI) Ltd')}
-                            width="100%"
-                        >
+                        <CardChildren Icon={FSC} title={localize('Binary (BVI) Ltd')} width="100%">
                             <Text align="center">
                                 <Localize
                                     translate_text="Binary (BVI) Ltd is licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
                                     components={[
-                                        <a
-                                            key={0}
-                                            target="_blank"
-                                            href="/BVI_license.pdf"
-                                        />,
+                                        <a key={0} target="_blank" href="/BVI_license.pdf" />,
                                     ]}
                                 />
                             </Text>
@@ -175,11 +158,7 @@ const Regulatory = () => (
                         </CardChildren>
                     </CardWrapper>
                     <CardWrapper grid_area="svg" small>
-                        <CardChildren
-                            Icon={SVG}
-                            title={localize('Binary (SVG) Ltd')}
-                            width="100%"
-                        >
+                        <CardChildren Icon={SVG} title={localize('Binary (SVG) Ltd')} width="100%">
                             <Text align="center">
                                 {localize(
                                     'Binary (SVG) Ltd is registered in St. Vincent and the Grenadines.',

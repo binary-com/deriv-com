@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import Container, { SectionContainer } from 'components/containers/container.js'
-import { Header, Text } from 'components/elements/typography.js'
+import { Container, SectionContainer } from 'components/containers'
+import { Header, Text, Image } from 'components/elements'
 import device from 'themes/device'
-import Image from 'components/elements/image'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -71,7 +70,7 @@ const Trading = () => {
     return (
         <StyledSection>
             <StyledContainer>
-                <ImageContainer grid_area="msi" align_self='center'>
+                <ImageContainer grid_area="msi" align_self="center">
                     <Image img_name="dmt-5-mac.png" alt="DMT5 mac" />
                 </ImageContainer>
                 <ContentContainer grid_area="ms">
@@ -102,9 +101,7 @@ const Trading = () => {
                         </Text>
                     </Row>
                     <Row>
-                        <Header as="h2">
-                            {localize('Practice with Demo accounts')}
-                        </Header>
+                        <Header as="h2">{localize('Practice with Demo accounts')}</Header>
                         <Text secondary>
                             {localize(
                                 'Create demo accounts (Standard, Advanced or Synthetic Indices) - the best way for you to check out the platform, get familiar with the tools and learn trading techniques.',
@@ -113,10 +110,7 @@ const Trading = () => {
                     </Row>
                 </ContentContainer>
                 <ImageContainer grid_area="twywi" align_self="center">
-                    <Image
-                        img_name="dmt-5-ipad-iphone.png"
-                        alt="DMT5 ipad iphone"
-                    />
+                    <Image img_name="dmt-5-ipad-iphone.png" alt="DMT5 ipad iphone" />
                 </ImageContainer>
             </StyledContainer>
         </StyledSection>

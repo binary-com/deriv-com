@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
-import TradingImage from '../../images/common/practice.png'
+import TradingImage from 'images/common/practice.png'
 
 const AntiClickjack = () => (
     <>

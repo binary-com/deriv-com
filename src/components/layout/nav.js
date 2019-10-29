@@ -97,7 +97,7 @@ const NavRight = styled.div`
                     const calculation = props.button_ref.current.offsetWidth + 2
                     return `${calculation}px`
                 }
-                return 0
+                return '20rem'
             }
         }}
     );

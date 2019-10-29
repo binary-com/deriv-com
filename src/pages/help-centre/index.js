@@ -106,10 +106,8 @@ const ResultWrapper = styled.div`
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
-        const all_articles = getAllArticles(articles)
-
         this.state = {
-            all_articles,
+            all_articles: [],
             search: '',
             selected_article: null,
             search_has_transition: false,
@@ -155,15 +153,12 @@ class HelpCentre extends Component {
                 search_has_transition: false,
             })
         }
+        const all_articles = getAllArticles(articles)
 
-        const duplicate_articles = JSON.parse(
-            JSON.stringify(this.state.all_articles),
-        )
+        const duplicate_articles = JSON.parse(JSON.stringify(all_articles))
         const translated_articles = duplicate_articles.map(article => {
             article.title = localize(article.title.props.translate_text)
-            article.sub_category = localize(
-                article.sub_category.props.translate_text,
-            )
+            article.sub_category = localize(article.sub_category.props.translate_text)
             return article
         })
 

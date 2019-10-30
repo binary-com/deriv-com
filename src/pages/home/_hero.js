@@ -38,9 +38,9 @@ const StyledArticle = styled.article`
 
 const VideoWrapper = styled.div`
     position: absolute;
-    max-width: 64vw;
+    max-width: 58vw;
     height: 52.5rem;
-    right: 1rem;
+    right: 0;
     top: 2rem;
 
     @media ${device.laptop} {

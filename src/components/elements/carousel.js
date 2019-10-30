@@ -125,8 +125,8 @@ const Slide = ({ slides, translate_width, children }) => (
                             </Header>
                         </HeaderWrapper>
                         <CarouselContent>
-                            {slide.text.map(content => (
-                                <div key={content}>
+                            {slide.text.map((content, idx) => (
+                                <div key={idx}>
                                     <ChecklistLogo />
                                     <Text color="white" weight="500">
                                         {content}
@@ -137,7 +137,11 @@ const Slide = ({ slides, translate_width, children }) => (
                         {children && children}
                     </LeftContent>
                     <ImageContainer>
-                        <Image img_name={slide.img_name} alt={slide.img_alt} width="100%" />
+                        <Image
+                            img_name={slide.img_name}
+                            alt={slide.img_alt.props.translate_text}
+                            width="100%"
+                        />
                     </ImageContainer>
                 </div>
             </SlideWrapper>

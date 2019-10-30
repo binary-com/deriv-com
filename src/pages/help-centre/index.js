@@ -63,11 +63,6 @@ const SearchForm = styled.form`
     @media ${device.tabletL} {
         padding-left: 4.3rem;
 
-        input {
-            font-size: 3rem;
-            width: 90%;
-            height: 3.55rem;
-        }
         svg {
             top: 0;
             width: 2.5rem;
@@ -77,6 +72,7 @@ const SearchForm = styled.form`
 `
 
 const Search = styled.input`
+    width: 95%;
     font-size: 4.4rem;
     font-weight: bold;
     color: var(--color-white);
@@ -86,6 +82,16 @@ const Search = styled.input`
 
     ::placeholder {
         color: var(--color-black-3);
+    }
+    @media ${device.tabletL} {
+        font-size: 3rem;
+        height: 3.55rem;
+    }
+    @media ${device.mobileL} {
+        font-size: 2.5rem;
+    }
+    @media ${device.mobileM} {
+        font-size: 1.95rem;
     }
 `
 
@@ -100,10 +106,8 @@ const ResultWrapper = styled.div`
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
-        const all_articles = getAllArticles(articles)
-
         this.state = {
-            all_articles,
+            all_articles: [],
             search: '',
             selected_article: null,
             search_has_transition: false,
@@ -139,6 +143,19 @@ class HelpCentre extends Component {
 
     componentDidMount = () => {
         const current_label = getLocationHash()
+        const deepClone = arr => {
+            const out = []
+            for (let i = 0, len = arr.length; i < len; i++) {
+                const item = arr[i]
+                const obj = {}
+                for (var k in item) {
+                    obj[k] = item[k]
+                }
+                out.push(obj)
+            }
+            return out
+        }
+
         if (current_label) {
             const selected_article = this.state.all_articles.find(
                 article => article.label === current_label,
@@ -149,6 +166,18 @@ class HelpCentre extends Component {
                 search_has_transition: false,
             })
         }
+        const all_articles = getAllArticles(articles)
+
+        const duplicate_articles = deepClone(all_articles)
+        const translated_articles = duplicate_articles.map(article => {
+            article.title = localize(article.title.props.translate_text)
+            article.sub_category = localize(article.sub_category.props.translate_text)
+            return article
+        })
+
+        this.setState({
+            all_articles: translated_articles,
+        })
     }
 
     componentDidUpdate = () => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Show from 'components/containers/show'
-import Container from 'components/containers/container.js'
-import { Header, Text } from 'components/elements/typography.js'
-import { localize } from 'components/localization'
+import { Container } from 'components/containers'
+import { Header, Text } from 'components/elements'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import TradingAccounts from 'images/gif/trading-accounts-opened.gif'
 import TradingTrades from 'images/gif/trading-trades.gif'
@@ -13,11 +13,11 @@ const OurNumbersWrapper = styled.section`
     width: 100%;
     background-color: var(--color-white);
 `
-const OurNumbersContainer = styled(Container)`
-    .bythenumber {
-        margin-top: 2rem;
-    }
 
+const StyledHeader = styled(Header)`
+    margin-top: 2rem;
+`
+const OurNumbersContainer = styled(Container)`
     flex-direction: row;
     justify-content: center;
     padding: 8rem 0;
@@ -132,17 +132,17 @@ const Charts = styled.div`
 const chart_data = [
     {
         amount: '962,900+',
-        text: localize('Trading accounts opened'),
+        text: <Localize translate_text="Trading accounts opened" />,
         icon: <img src={TradingAccounts} />,
     },
     {
         amount: '27,354,600+',
-        text: localize('Trades last month'),
+        text: <Localize translate_text="Trades last month" />,
         icon: <img src={TradingTrades} />,
     },
     {
         amount: 'USD 6,748,229,300+',
-        text: localize('Total trade turnover'),
+        text: <Localize translate_text="Total trade turnover" />,
         icon: <img src={TradingTurnover} />,
     },
 ]
@@ -153,19 +153,18 @@ export const OurNumbers = () => (
                 <Header as="h6" font_size="4rem" color="black-2" align="center">
                     {localize('By the numbers')}
                 </Header>
-                <Header
+                <StyledHeader
                     as="h6"
                     font_size="2rem"
                     lh="1.5"
                     color="black-3"
                     align="center"
                     weight="400"
-                    className="bythenumber"
                 >
                     {localize(
                         'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
                     )}
-                </Header>
+                </StyledHeader>
             </Show.Mobile>
             <Show.Desktop>
                 <Header as="h2" color="black-2" align="center">

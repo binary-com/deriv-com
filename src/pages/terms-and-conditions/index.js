@@ -45,10 +45,7 @@ const TermsAndConditions = () => (
                     text={localize('Security and privacy')}
                 />
 
-                <ConflictsPolicy
-                    label="conflict-policy"
-                    text={localize('Conflicts policy')}
-                />
+                <ConflictsPolicy label="conflict-policy" text={localize('Conflicts policy')} />
 
                 <Copyright label="copyright" text={localize('Copyright')} />
 
@@ -57,20 +54,11 @@ const TermsAndConditions = () => (
                     text={localize('Complaints and disputes')}
                 />
 
-                <RiskDisclaimer
-                    label="risk-disclaimer"
-                    text={localize('Risk disclaimer')}
-                />
+                <RiskDisclaimer label="risk-disclaimer" text={localize('Risk disclaimer')} />
 
-                <OrderExecution
-                    label="order-execution"
-                    text={localize('Order execution')}
-                />
+                <OrderExecution label="order-execution" text={localize('Order execution')} />
 
-                <PaymentAgents
-                    label="payment-agent"
-                    text={localize('Payment agents')}
-                />
+                <PaymentAgents label="payment-agent" text={localize('Payment agents')} />
                 <Bonuses label="bonuses" text={localize('Bonuses')} />
             </SideTab>
         </TncContainer>

@@ -1,15 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import Container from 'components/containers/container.js'
+import { Container, Show } from 'components/containers'
 import device from 'themes/device.js'
-import { Header } from 'components/elements/typography.js'
-import Show from 'components/containers/show'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
-import Image from 'components/elements/image'
-import Button from 'components/form/button.js'
-import dtrader_logo from 'images/svg/dtrader-32.svg'
+import { Header, Image, Modal, useModal } from 'components/elements'
+import SignupModal from 'components/custom/signup-modal'
+import { Button } from 'components/form'
+import dtrader_logo from 'images/svg/dtrader-icon.svg'
 
 const HeroContent = styled.div`
     display: flex;
@@ -38,7 +35,6 @@ const DtraderLogo = styled(dtrader_logo)`
 `
 const TryForFree = styled(Button)`
     border: 2px solid var(--color-red);
-    width: 12rem;
     font-weight: bold;
     line-height: 1.43;
     margin-top: 1.22rem;
@@ -59,16 +55,10 @@ const Hero = () => {
                         <DtraderLogo />
                         {localize('DTrader')}
                     </Header>
-                    <Header as="h1">
-                        {localize('Everything you need and more')}
-                    </Header>
+                    <Header as="h1">{localize('Everything you need and more')}</Header>
                 </HeroContent>
                 <Show.Desktop>
-                    <Image
-                        img_name="dtrader-platform.png"
-                        alt="Platform"
-                        width="53.9rem"
-                    />
+                    <Image img_name="dtrader-platform.png" alt="Platform" width="53.9rem" />
                 </Show.Desktop>
             </Container>
             <Container justify="flex-start">
@@ -76,11 +66,7 @@ const Hero = () => {
                     {localize('Try for free')}
                 </TryForFree>
             </Container>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </Wrapper>

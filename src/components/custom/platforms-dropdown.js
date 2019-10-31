@@ -1,13 +1,13 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import { LocalizedLink, localize } from '../localization'
-import { GridContainer } from '../containers/container'
-import Show from 'components/containers/show'
-import { Text } from 'components/elements/typography.js'
+import { LocalizedLink, localize } from 'components/localization'
+import { GridContainer, Show } from 'components/containers'
+import { Text } from 'components/elements'
 // Icons
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
+
 const FadeInDown = keyframes`
     from {
         opacity:0;
@@ -70,6 +70,7 @@ const PlatformItem = styled(LocalizedLink)`
         background-color: var(--color-grey-6);
     }
 `
+
 // eslint-disable-next-line react/prop-types
 const PlatformsDropdown = ({ is_open, has_animation }) => {
     return (
@@ -106,9 +107,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                                 {localize('DBot')}
                             </Text>
                             <Text color="black-3">
-                                {localize(
-                                    'Automate your trading ideas without coding.',
-                                )}
+                                {localize('Automate your trading ideas without coding.')}
                             </Text>
                         </div>
                     </PlatformItem>
@@ -125,9 +124,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                                 {localize('DMT5')}
                             </Text>
                             <Text color="black-3">
-                                {localize(
-                                    'Trade with the platform of choice for professionals.',
-                                )}
+                                {localize('Trade with the platform of choice for professionals.')}
                             </Text>
                         </div>
                     </PlatformItem>

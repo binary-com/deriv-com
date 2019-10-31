@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FlexGridContainer } from 'components/containers/container'
-import { Text, Header } from 'components/elements/typography'
+import { FlexGridContainer } from 'components/containers'
+import { Text, Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -39,9 +39,7 @@ const BannerSection = () => (
                 <StyledHeader as="h2" align="center">
                     {localize('5')}
                 </StyledHeader>
-                <Text align="center">
-                    {localize('Pre-built strategies included')}
-                </Text>
+                <Text align="center">{localize('Pre-built strategies included')}</Text>
             </BannerItem>
             <BannerItem>
                 <StyledHeader as="h2" align="center">
@@ -53,9 +51,7 @@ const BannerSection = () => (
                 <StyledHeader as="h2" align="center">
                     {localize('50+')}
                 </StyledHeader>
-                <Text align="center">
-                    {localize('markets to unleash your bot')}
-                </Text>
+                <Text align="center">{localize('markets to unleash your bot')}</Text>
             </BannerItem>
         </StyledContainer>
     </BackgroundContainer>

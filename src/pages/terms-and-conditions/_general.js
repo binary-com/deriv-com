@@ -286,9 +286,7 @@ export const General = () => (
                     </li>
                     <li>
                         <TncListText>
-                            {localize(
-                                'The following are conditions of using Deriv:',
-                            )}
+                            {localize('The following are conditions of using Deriv:')}
                         </TncListText>
                         <StyledOrder type="lower-roman">
                             <li>
@@ -409,9 +407,7 @@ export const General = () => (
         <StyledOrder type="decimal">
             <li>
                 <TncListText>
-                    {localize(
-                        'You shall not use Deriv for the purpose of money laundering.',
-                    )}
+                    {localize('You shall not use Deriv for the purpose of money laundering.')}
                 </TncListText>
             </li>
             <li>
@@ -443,9 +439,7 @@ export const General = () => (
                         </TncListText>
                     </li>
                     <li>
-                        <TncListText>
-                            {localize('You must register personally.')}
-                        </TncListText>
+                        <TncListText>{localize('You must register personally.')}</TncListText>
                     </li>
                     <li>
                         <TncListText>
@@ -652,10 +646,7 @@ export const General = () => (
                     <Localize
                         translate_text="We reserve the right to have risk limits in place, which affect your trading limits and may not be restricted solely to instruments and trade types. We may also impose volume trading limits on your account at Our sole discretion. Trading volume limits can be viewed in the <0>Security and privacy</0> section of your account. If your account balance exceeds your maximum account size, please make withdrawals to bring the balance below this limit."
                         components={[
-                            <TncLink
-                                key={0}
-                                to="/terms-and-conditions/#security-privacy"
-                            />,
+                            <TncLink key={0} to="/terms-and-conditions/#security-privacy" />,
                         ]}
                     />
                 </TncListText>

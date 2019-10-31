@@ -77,7 +77,6 @@ const activeStyle = {
 }
 
 const Tab = ({ active_tab, label, onClick, text, has_link }) => {
-
     const className = active_tab === label ? 'tab-active' : ''
 
     const handleClick = () => {
@@ -86,10 +85,7 @@ const Tab = ({ active_tab, label, onClick, text, has_link }) => {
 
     return has_link ? (
         <StyledItems>
-            <StyledLink
-                activeStyle={activeStyle}
-                to={'/terms-and-conditions/' + label}
-            >
+            <StyledLink activeStyle={activeStyle} to={'/terms-and-conditions/' + label}>
                 {text}
             </StyledLink>
         </StyledItems>
@@ -125,18 +121,20 @@ const SideTab = ({ children, has_hash_routing, is_sticky, has_link }) => {
 
     const [active_tab, setTab] = useTabs(first_tab, has_hash_routing)
 
-    if (has_hash_routing || has_link) {
+    if ((has_hash_routing || has_link) && isBrowser()) {
         useEffect(() => {
             const new_tab = getLocationHash() || getLocationPath() || first_tab
             setTab(new_tab)
         })
-    } 
+    }
 
     const convertRoute = () => {
-        const locationPath = children.find(
-            child =>
-                child.props.label ===
-                (has_link ? getLocationPath() : getLocationHash()),
+        const locationPath = children.find(child =>
+            child.props.label === isBrowser()
+                ? has_link
+                    ? getLocationPath()
+                    : getLocationHash()
+                : ''
         )
         return locationPath ? locationPath.props.text : ''
     }
@@ -176,9 +174,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky, has_link }) => {
                             const { label, text } = child.props
                             return has_link ? (
                                 <div key={idx} label={label}>
-                                    <StyledLink
-                                        to={'/terms-and-conditions/' + label}
-                                    >
+                                    <StyledLink to={'/terms-and-conditions/' + label}>
                                         {text}
                                     </StyledLink>
                                 </div>

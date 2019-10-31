@@ -15,22 +15,16 @@ const Login = (() => {
     const loginUrl = () => {
         const server_url = localStorage.getItem('config.server_url')
         const language = 'en' // TODO: get language function
-        const signup_device =
-            LocalStore.get('signup_device') ||
-            (isMobile() ? 'mobile' : 'desktop')
+        const signup_device = LocalStore.get('signup_device') || (isMobile() ? 'mobile' : 'desktop')
         const date_first_contact = LocalStore.get('date_first_contact')
         const marketing_queries = `&signup_device=${signup_device}${
-            date_first_contact
-                ? `&date_first_contact=${date_first_contact}`
-                : ''
+            date_first_contact ? `&date_first_contact=${date_first_contact}` : ''
         }`
         const affiliate_tracking = Cookies.getJSON('affiliate_tracking')
         const utm_data = TrafficSource.getData()
         const utm_source = TrafficSource.getSource(utm_data)
         const utm_source_link = utm_source ? `&utm_source=${utm_source}` : ''
-        const utm_medium_link = utm_data.utm_medium
-            ? `&utm_medium=${utm_data.utm_medium}`
-            : ''
+        const utm_medium_link = utm_data.utm_medium ? `&utm_medium=${utm_data.utm_medium}` : ''
         const utm_campaign_link = utm_data.utm_campaign
             ? `&utm_campaign=${utm_data.utm_campaign}`
             : ''

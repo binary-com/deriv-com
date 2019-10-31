@@ -18,16 +18,13 @@ const TrafficSource = (() => {
         initCookie()
         const data = cookie.value
         Object.keys(data).map(key => {
-            data[key] = (data[key] || '')
-                .replace(/[^a-zA-Z0-9\s-._]/gi, '')
-                .substring(0, 100)
+            data[key] = (data[key] || '').replace(/[^a-zA-Z0-9\s-._]/gi, '').substring(0, 100)
         })
         return data
     }
 
     // get source in order of precedence
-    const getSource = (utm_data = getData()) =>
-        utm_data.utm_source || utm_data.referrer || 'direct'
+    const getSource = (utm_data = getData()) => utm_data.utm_source || utm_data.referrer || 'direct'
 
     const setData = () => {
         const current_values = getData()
@@ -51,10 +48,7 @@ const TrafficSource = (() => {
         const doc_ref = document.referrer
         let referrer = localStorage.getItem('index_referrer') || doc_ref
         localStorage.removeItem('index_referrer')
-        if (
-            doc_ref &&
-            !new RegExp(window.location.hostname, 'i').test(doc_ref)
-        ) {
+        if (doc_ref && !new RegExp(window.location.hostname, 'i').test(doc_ref)) {
             referrer = doc_ref
         }
         if (

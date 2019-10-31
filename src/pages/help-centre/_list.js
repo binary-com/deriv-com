@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Text, LinkText } from 'components/elements/typography'
+import { Text, LinkText } from 'components/elements'
 import device from 'themes/device'
 
 export const Ul = styled.ul`

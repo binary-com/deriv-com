@@ -11,6 +11,9 @@ Changes:
 
 -   [ ] Bug fix
 -   [ ] New feature
+-   [ ] Refactor code
+-   [ ] Update translation text
 -   [ ] Breaking change
 -   [ ] Dependency update
 -   [ ] This change requires a documentation update
+-   [ ] Release

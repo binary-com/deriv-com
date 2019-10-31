@@ -1,21 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-    SectionContainer,
-    FlexGridContainer,
-} from 'components/containers/container.js'
-import { Card } from 'components/elements/card.js'
+import { SectionContainer, FlexGridContainer } from 'components/containers'
+import { Card } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import VisionSVG from 'images/svg/vision.svg'
 import FuseeSVG from 'images/svg/fusee.svg'
 
 const OurGoalsWrapper = styled(SectionContainer)`
-    background-image: linear-gradient(
-        to bottom,
-        var(--color-grey-2),
-        var(--color-white)
-    );
+    background-image: linear-gradient(to bottom, var(--color-grey-2), var(--color-white));
 
     @media ${device.tabletL} {
         padding-bottom: 3rem;

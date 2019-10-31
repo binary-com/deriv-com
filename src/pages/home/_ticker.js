@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import AutoCarousel from 'components/elements/auto-carousel'
-import { Text } from 'components/elements/typography.js'
-import Loader from 'components/elements/dot_loader.js'
+import { AutoCarousel, Text, DotLoader } from 'components/elements'
+// Icon
 import MovementGreen from 'images/svg/price-movement-green.svg'
 import MovementRed from 'images/svg/price-movement-red.svg'
 
@@ -17,7 +16,7 @@ const TickWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     padding: 2.7rem 0;
-    width: 36rem;
+    width: 38rem;
 `
 const StyledText = styled(Text)`
     display: flex;
@@ -134,14 +133,8 @@ class Tick extends React.PureComponent {
             <TickWrapper>
                 <StyledText>
                     <Qoute>
-                        <span style={{ fontWeight: 'normal' }}>
-                            {this.props.display_name}:{' '}
-                        </span>
-                        {this.state.quote === null ? (
-                            <Loader />
-                        ) : (
-                            this.state.quote
-                        )}{' '}
+                        <span style={{ fontWeight: 'normal' }}>{this.props.display_name}: </span>
+                        {this.state.quote === null ? <DotLoader /> : this.state.quote}{' '}
                     </Qoute>
                     <span style={{ width: '12px', display: 'block' }}>
                         {Movement === null ? null : <Movement />}
@@ -181,10 +174,7 @@ const getTickerMarkets = active_symbols => {
     active_symbols.forEach(symbol => {
         if (symbol.market === 'volidx') {
             volidx.push(symbol)
-        } else if (
-            symbol.market === 'forex' &&
-            symbol.submarket === 'major_pairs'
-        ) {
+        } else if (symbol.market === 'forex' && symbol.submarket === 'major_pairs') {
             if (!symbol.exchange_is_open) {
                 volatility_count = 7
                 forex_count = 3
@@ -226,10 +216,7 @@ class Ticker extends React.Component {
         return (
             <CarouselWapper>
                 {this.state.markets.length === 0 ? null : (
-                    <AutoCarousel
-                        carousel_width="100%"
-                        transition_duration={37000}
-                    >
+                    <AutoCarousel carousel_width="100%" transition_duration={37000}>
                         {this.state.markets.map(symbol => {
                             return (
                                 <Tick

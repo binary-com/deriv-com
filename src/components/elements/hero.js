@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Container from '../containers/container'
 import { Header } from './typography.js'
+import { Container } from 'components/containers'
 
 const Wrapper = styled.section`
     width: 100%;

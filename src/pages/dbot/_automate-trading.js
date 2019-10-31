@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Dbot from 'images/svg/dbot-32.svg'
-import Container, { SectionContainer } from 'components/containers/container'
-import Wrapper from 'components/containers/wrapper'
-import Image from 'components/elements/image'
-import { Header } from 'components/elements/typography'
+import Dbot from 'images/svg/dbot-icon.svg'
+import { Container, SectionContainer, Wrapper } from 'components/containers'
+import { Image, Header } from 'components/elements'
 import { localize } from 'components/localization'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 import { deriv_bot_app_url } from 'common/utility'
 import device from 'themes/device'
 
@@ -82,9 +80,7 @@ const AutomateTradingSection = () => (
                     </Header>
                 </DbotWrapper>
                 <Header as="h1" color="white">
-                    {localize(
-                        'Automate your trading ideas without writing code',
-                    )}
+                    {localize('Automate your trading ideas without writing code')}
                 </Header>
                 <StyledButton secondary onClick={handleExternalLink}>
                     {localize('Start automating')}

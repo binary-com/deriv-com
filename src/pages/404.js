@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import SEO from 'components/containers/seo'
+import { SEO, Wrapper } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Header, Text } from 'components/elements/typography'
+import { Header, Text, Image } from 'components/elements'
 import { localize, WithIntl, LocalizedLink } from 'components/localization'
-import Wrapper from 'components/containers/wrapper'
-import Image from 'components/elements/image'
 
 const ImageSection = styled(Wrapper)`
     display: flex;
@@ -27,7 +25,7 @@ const PageNotFoundContainer = styled.div`
     align-items: center;
     margin: 16rem 0;
 `
- // TODO: Move to button.js and share style
+// TODO: Move to button.js and share style
 const StyledButton = styled(LocalizedLink)`
     border-radius: 6px;
     padding: 1rem 1.6rem;
@@ -75,9 +73,7 @@ const PageNotFound = () => (
                 </Text>
                 <Text>{localize('Error code: 404 page not found')}</Text>
                 <ButtonWrapper>
-                    <StyledButton to="/">
-                        {localize('Go to the homepage')}
-                    </StyledButton>
+                    <StyledButton to="/">{localize('Go to the homepage')}</StyledButton>
                 </ButtonWrapper>
             </PageNotFoundContainerInfo>
         </PageNotFoundContainer>

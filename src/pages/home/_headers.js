@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Header } from 'components/elements/typography.js'
+import { Header } from 'components/elements'
 import device from 'themes/device'
 
 export const SectionHeader = styled.div`

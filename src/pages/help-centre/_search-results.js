@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Ul, Li, ListWithLinks } from './_list'
-import { Text, Header } from 'components/elements/typography'
+import { Text, Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -40,16 +40,11 @@ SearchSuccess.propTypes = {
 export const SearchError = ({ search }) => (
     <>
         <ErrorHeader as="h5" color="white">
-            {localize(
-                'Sorry, we couldn’t find any results matching “{{search}}”.',
-                { search },
-            )}
+            {localize('Sorry, we couldn’t find any results matching “{{search}}”.', { search })}
         </ErrorHeader>
         <SearchText color="green">{localize('Search tips:')}</SearchText>
         <Ul>
-            <Li color="white">
-                {localize('Check your spelling and try again')}
-            </Li>
+            <Li color="white">{localize('Check your spelling and try again')}</Li>
             <Li color="white">{localize('Try another keyword')}</Li>
             <Li color="white">
                 {localize(

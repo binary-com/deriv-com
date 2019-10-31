@@ -1,14 +1,9 @@
+// TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
 import styled from 'styled-components'
-import {
-    localize,
-    Localize,
-    LocalizedLink,
-    LanguageSwitcher,
-} from '../localization'
-import Container from '../containers/container'
-import { Header, Text } from '../elements/typography.js'
-import { StyledLink } from '../elements/link'
+import { localize, Localize, LocalizedLink, LanguageSwitcher } from '../localization'
+import { Container } from '../containers'
+import { Header, Text, StyledLink } from '../elements'
 import { isProduction } from 'common/websocket/config'
 import device from 'themes/device'
 // Icons
@@ -168,9 +163,7 @@ const FooterStyledLink = styled(StyledLink)`
     /* This piece of code has been added to handle Edge issue */
 
     font-size: ${props =>
-        props.edge_resize_font
-            ? props.edge_resize_font
-            : 'var(--text-size-xs)'};
+        props.edge_resize_font ? props.edge_resize_font : 'var(--text-size-xs)'};
     display: table;
     margin-bottom: 1.8rem;
     font-weight: 500;

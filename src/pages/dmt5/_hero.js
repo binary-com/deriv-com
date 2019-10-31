@@ -1,15 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import Container from 'components/containers/container.js'
+import { Container, Show } from 'components/containers'
 import device from 'themes/device.js'
-import { Header } from 'components/elements/typography.js'
-import Show from 'components/containers/show'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
-import Image from 'components/elements/image'
-import Button from 'components/form/button.js'
-import dmt5_logo from 'images/svg/dmt5-32.svg'
+import { Header, Modal, useModal, Image } from 'components/elements'
+import SignupModal from 'components/custom/signup-modal'
+import { Button } from 'components/form'
+import dmt5_logo from 'images/svg/dmt5-icon.svg'
 
 const HeroContent = styled.div`
     display: flex;
@@ -70,11 +67,7 @@ const Hero = () => {
                     </Header>
                 </HeroContent>
                 <Show.Desktop>
-                    <Image
-                        img_name="dmt5-platform.png"
-                        alt="DMT5 platform"
-                        width="58.9rem"
-                    />
+                    <Image img_name="dmt5-platform.png" alt="DMT5 platform" width="58.9rem" />
                 </Show.Desktop>
             </Container>
             <Container justify="flex-start">
@@ -82,11 +75,7 @@ const Hero = () => {
                     {localize('Try for free')}
                 </TryForFree>
             </Container>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </Wrapper>

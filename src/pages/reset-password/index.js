@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Formik, Form } from 'formik'
-import SEO from 'components/containers/seo'
-import LayoutStatic from 'components/layout/layout-static'
+import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import Container from 'components/containers/container'
-import { Header, Text } from 'components/elements/typography'
-import Input from 'components/form/input'
-import Button from 'components/form/button'
+import { Container, SEO } from 'components/containers'
+import { Header, Text } from 'components/elements'
+import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
@@ -73,19 +71,14 @@ const resetSubmission = (values, actions) => {
 }
 
 const ResetPassword = () => (
-    <LayoutStatic>
-        <SEO
-            title={localize('Reset password')}
-            description={localize('Reset password')}
-        />
+    <Layout is_static>
+        <SEO title={localize('Reset password')} description={localize('Reset password')} />
         <StyledContainer justify="center" align="center" direction="column">
             <Header as="h2" align="center">
                 {localize('Reset password')}
             </Header>
             <SecondaryHeader as="h4" align="center" weight="500">
-                {localize(
-                    "We'll email you instructions to reset your password.",
-                )}
+                {localize("We'll email you instructions to reset your password.")}
             </SecondaryHeader>
             <Formik
                 initialValues={{ email: '' }}
@@ -128,18 +121,10 @@ const ResetPassword = () => (
                             {status.success && status.success}
                         </Text>
                         <ButtonContainer>
-                            <StyledButton
-                                tertiary
-                                onClick={Login.redirectToLogin}
-                                type="button"
-                            >
+                            <StyledButton tertiary onClick={Login.redirectToLogin} type="button">
                                 {localize('Return to log in')}
                             </StyledButton>
-                            <StyledButton
-                                secondary
-                                disabled={isSubmitting}
-                                type="submit"
-                            >
+                            <StyledButton secondary disabled={isSubmitting} type="submit">
                                 {localize('Reset my password')}
                             </StyledButton>
                         </ButtonContainer>
@@ -147,7 +132,7 @@ const ResetPassword = () => (
                 )}
             </Formik>
         </StyledContainer>
-    </LayoutStatic>
+    </Layout>
 )
 
 export default WithIntl()(ResetPassword)

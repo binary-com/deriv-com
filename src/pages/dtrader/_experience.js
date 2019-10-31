@@ -1,14 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import Container, { SectionContainer } from 'components/containers/container.js'
+import { Container, SectionContainer, Show } from 'components/containers'
 import device from 'themes/device.js'
-import Show from 'components/containers/show'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
-import { Header, Text } from 'components/elements/typography.js'
+import { Modal, useModal, Header, Text } from 'components/elements'
+import SignupModal from 'components/custom/signup-modal'
 import { deriv_app_url } from 'common/utility'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-1);
@@ -66,9 +64,7 @@ const Experience = () => {
                     <StyledHeader as="h2" align="center">
                         {localize('20 years of experience and trust')}
                     </StyledHeader>
-                    <Text align="center">
-                        {localize('Join over a million traders worldwide')}
-                    </Text>
+                    <Text align="center">{localize('Join over a million traders worldwide')}</Text>
                     <StyledButton secondary onClick={toggleModal}>
                         {localize('Try for free')}
                     </StyledButton>
@@ -78,25 +74,17 @@ const Experience = () => {
                         {localize('New to trading?')}
                     </StyledHeader>
                     <Show.Mobile>
-                        <Text align="center">
-                            {localize('Start trading on DTrader now.')}
-                        </Text>
+                        <Text align="center">{localize('Start trading on DTrader now.')}</Text>
                     </Show.Mobile>
                     <Show.Desktop>
-                        <Text align="center">
-                            {localize('Check out our live demo')}
-                        </Text>
+                        <Text align="center">{localize('Check out our live demo')}</Text>
                     </Show.Desktop>
                     <StyledButton tertiary onClick={handleExternalLink}>
                         {localize('Go to live demo')}
                     </StyledButton>
                 </StyledContent>
             </StyledContainer>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>
         </StyledSection>

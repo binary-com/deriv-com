@@ -4,7 +4,7 @@
 // import styled from 'styled-components'
 // import { localize } from 'components/localization'
 // import LetterSVG from 'images/svg/letter.svg'
-// import { FlexGridContainer } from 'components/containers/container'
+// import { FlexGridContainer } from 'components/containers'
 // import device from 'themes/device'
 
 // const DFYAWrapper = styled.section`

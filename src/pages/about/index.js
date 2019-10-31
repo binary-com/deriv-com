@@ -4,14 +4,11 @@ import { OurLocations } from './_our-locations'
 import { OurNumbers } from './_our-numbers'
 import { OurGoals } from './_our-goals'
 import { localize, WithIntl } from 'components/localization'
-import SEO from 'components/containers/seo'
 import Layout from 'components/layout/layout'
-import Hero from 'components/elements/hero.js'
-import { Header } from 'components/elements/typography.js'
-import Button from 'components/form/button'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
-import Show from 'components/containers/show'
+import { Hero, Header, Modal, useModal } from 'components/elements'
+import { Button } from 'components/form'
+import SignupModal from 'components/custom/signup-modal'
+import { Show, SEO } from 'components/containers'
 
 const Goahead = styled.div`
     text-align: center;
@@ -59,11 +56,7 @@ const About = () => {
                     <AccountButton onClick={toggleModal} secondary>
                         {localize('Create a free account')}
                     </AccountButton>
-                    <Modal
-                        toggle={toggleModal}
-                        is_open={show_modal}
-                        closeModal={closeModal}
-                    >
+                    <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                         <SignupModal autofocus />
                     </Modal>
                 </Goahead>

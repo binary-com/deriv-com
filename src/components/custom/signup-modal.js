@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import Row from '../containers/row'
-import Signup from '../form/signup'
-import { localize } from '../localization'
-import { Header } from './typography'
-import Show from 'components/containers/show'
+import Signup from './signup'
+import { FlexGridContainer, Show } from 'components/containers'
+import { localize } from 'components/localization'
+import { Header } from 'components/elements'
 import device from 'themes/device.js'
 
 const SignupWrapper = styled.article`
@@ -21,8 +20,11 @@ const SignupWrapper = styled.article`
     }
 `
 
-const ModalRow = styled(Row)`
+const ModalRow = styled(FlexGridContainer)`
     height: 100%;
+    @media (max-width: 992px) {
+        width: 100%;
+    }
 `
 
 const Content = styled.div`
@@ -44,9 +46,11 @@ const Content = styled.div`
 const SignupContent = styled(Content)`
     padding-top: 8rem;
     padding-bottom: 3rem;
+    overflow: hidden;
 
     @media ${device.tabletL} {
         padding-top: 6rem;
+        width: 100%;
     }
 `
 
@@ -56,18 +60,11 @@ const HeaderWrapper = styled(Header)`
 
 const SignupModal = ({ autofocus, closeModal }) => (
     <SignupWrapper>
-        <ModalRow>
+        <ModalRow gap="0" grid="2">
             <Show.Desktop>
                 <Content inverse>
-                    <HeaderWrapper
-                        as="h4"
-                        weight="normal"
-                        color="white"
-                        align="center"
-                    >
-                        {localize(
-                            'The ultimate trading experience is just a few clicks away.',
-                        )}
+                    <HeaderWrapper as="h4" weight="normal" color="white" align="center">
+                        {localize('The ultimate trading experience is just a few clicks away.')}
                     </HeaderWrapper>
                 </Content>
             </Show.Desktop>

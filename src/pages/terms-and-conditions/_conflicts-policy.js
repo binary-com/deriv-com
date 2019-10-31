@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-    StyledSection,
-    StyledHeader,
-    StyledOrder,
-    TncListText,
-    StyledTitle,
-} from './_styles'
+import { StyledSection, StyledHeader, StyledOrder, TncListText, StyledTitle } from './_styles'
 import { localize } from 'components/localization'
 
 export const ConflictsPolicy = () => (

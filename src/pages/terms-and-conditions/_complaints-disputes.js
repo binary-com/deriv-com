@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-    StyledSection,
-    StyledOrder,
-    TncListText,
-    StyledTitle,
-    TncExternalLink,
-} from './_styles'
+import { StyledSection, StyledOrder, TncListText, StyledTitle, TncExternalLink } from './_styles'
 import { localize, Localize } from 'components/localization'
 
 export const ComplaintsAndDisputes = () => (

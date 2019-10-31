@@ -5,9 +5,8 @@ import HowItWorks from './_how-it-works.js'
 import Experience from './_experience.js'
 import Trading from './_trading.js'
 import Layout from 'components/layout/layout'
-import { OtherPlatform } from 'components/elements/other-platforms.js'
-import SEO from 'components/containers/seo'
-import Show from 'components/containers/show'
+import { OtherPlatform } from 'components/custom/other-platforms.js'
+import { SEO, Show } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
 const DMT5 = () => {

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { navigate } from '@reach/router'
 import { Link } from 'gatsby'
-import Wrapper from '../containers/wrapper'
 import DropDown from './combobox'
 import { Text } from './typography'
 import { getLocationHash, getLocationPath, isBrowser } from 'common/utility'
 import device, { size } from 'themes/device'
+import { Wrapper } from 'components/containers'
 import { Desktop, Mobile } from 'components/containers/show'
 
 const StyledSideTab = styled(Wrapper)`
@@ -77,6 +77,7 @@ const activeStyle = {
 }
 
 const Tab = ({ active_tab, label, onClick, text, has_link }) => {
+
     const className = active_tab === label ? 'tab-active' : ''
 
     const handleClick = () => {
@@ -129,7 +130,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky, has_link }) => {
             const new_tab = getLocationHash() || getLocationPath() || first_tab
             setTab(new_tab)
         })
-    }
+    } 
 
     const convertRoute = () => {
         const locationPath = children.find(
@@ -191,9 +192,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky, has_link }) => {
                 </Mobile>
             </TabList>
             <TabContent>
-                {children.map(child =>
-                    child.props.label === active_tab ? child : undefined,
-                )}
+                {children.map(child => (child.props.label === active_tab ? child : undefined))}
             </TabContent>
         </StyledSideTab>
     )

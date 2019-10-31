@@ -1,14 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from '../../components/form/button'
 import { HeroHeader, StyledHeader } from './_headers'
 import device from 'themes/device'
-import Container from 'components/containers/container'
-import Show from 'components/containers/show'
-import { Header } from 'components/elements/typography'
+import { Button } from 'components/form'
+import { Container, Show } from 'components/containers'
+import { Header, Modal, useModal } from 'components/elements'
 import { localize } from 'components/localization'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
+import SignupModal from 'components/custom/signup-modal'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -40,9 +38,9 @@ const StyledArticle = styled.article`
 
 const VideoWrapper = styled.div`
     position: absolute;
-    max-width: 64vw;
+    max-width: 58vw;
     height: 52.5rem;
-    right: 1rem;
+    right: 0;
     top: 2rem;
 
     @media ${device.laptop} {
@@ -86,42 +84,23 @@ export const Hero = () => {
                     <StyledArticle>
                         <Show.Mobile>
                             <Header font_size="6rem" color="white" lh="1.1">
-                                {localize(
-                                    'Welcome to the ultimate trading experience',
-                                )}
+                                {localize('Welcome to the ultimate trading experience')}
                             </Header>
-                            <StyledHeader
-                                font_size="2rem"
-                                color="white"
-                                weight="500"
-                            >
-                                {localize(
-                                    'All the world’s markets, one powerful trading platform',
-                                )}
+                            <StyledHeader font_size="2rem" color="white" weight="500">
+                                {localize('All the world’s markets, one powerful trading platform')}
                             </StyledHeader>
                         </Show.Mobile>
                         <Show.Desktop>
                             <HeroHeader as="h1" color="white" lh="1.2">
-                                {localize(
-                                    'This is your ultimate trading experience',
-                                )}
+                                {localize('This is your ultimate trading experience')}
                             </HeroHeader>
-                            <HeroHeader
-                                as="h4"
-                                color="white"
-                                weight="500"
-                                secondary
-                            >
+                            <HeroHeader as="h4" color="white" weight="500" secondary>
                                 {localize(
                                     'The world’s markets at your fingertips anytime, anywhere.',
                                 )}
                             </HeroHeader>
                             <ButtonWrapper>
-                                <Button
-                                    type="submit"
-                                    onClick={toggleModal}
-                                    secondary
-                                >
+                                <Button type="submit" onClick={toggleModal} secondary>
                                     {localize('Create a free account')}
                                 </Button>
                             </ButtonWrapper>
@@ -129,30 +108,13 @@ export const Hero = () => {
                     </StyledArticle>
                     <Show.Desktop>
                         <VideoWrapper>
-                            <video
-                                width="100%"
-                                height="100%"
-                                autoPlay
-                                muted
-                                playsInline
-                                loop
-                            >
-                                <source
-                                    src="/deriv_trading_platform.webm"
-                                    type="video/webm"
-                                />
-                                <source
-                                    src="/deriv_trading_platform.mp4"
-                                    type="video/mp4"
-                                />
+                            <video width="100%" height="100%" autoPlay muted playsInline loop>
+                                <source src="/deriv_trading_platform.webm" type="video/webm" />
+                                <source src="/deriv_trading_platform.mp4" type="video/mp4" />
                             </video>
                         </VideoWrapper>
                     </Show.Desktop>
-                    <Modal
-                        toggle={toggleModal}
-                        is_open={show_modal}
-                        closeModal={closeModal}
-                    >
+                    <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                         <SignupModal autofocus />
                     </Modal>
                 </HeroGrid>

@@ -2,16 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import DtraderVideo from './_dtrader-video.js'
 import { localize } from 'components/localization'
-import Container, { SectionContainer } from 'components/containers/container.js'
-import { Header } from 'components/elements/typography.js'
+import { Container, SectionContainer } from 'components/containers'
+import { Header } from 'components/elements'
 import device from 'themes/device.js'
 
 const StyledSection = styled(SectionContainer)`
-    background-image: linear-gradient(
-        to bottom,
-        var(--color-grey-6),
-        var(--color-white)
-    );
+    background-image: linear-gradient(to bottom, var(--color-grey-6), var(--color-white));
 `
 
 const StyledHeader = styled(Header)`
@@ -19,10 +15,7 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletL} {
         text-align: left;
-        ${props =>
-            props.as === 'h4'
-                ? 'font-size: 20px; font-wight: 500;'
-                : 'font-size: 32px'}
+        ${props => (props.as === 'h4' ? 'font-size: 20px; font-wight: 500;' : 'font-size: 32px')}
     }
 `
 

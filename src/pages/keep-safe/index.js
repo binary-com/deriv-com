@@ -1,23 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SecurityIconGrid } from './_icon-grid'
-import SEO from 'components/containers/seo'
-import Show from 'components/containers/show'
+import { Show, SEO, SectionContainer, FlexGridContainer, Container } from 'components/containers'
 import device from 'themes/device'
 import Layout from 'components/layout/layout'
-import Image from 'components/elements/image'
-import Hero from 'components/elements/hero.js'
-import Button from 'components/form/button'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
-import Container, {
-    SectionContainer,
-    FlexGridContainer,
-} from 'components/containers/container'
-import { Card } from 'components/elements/card.js'
-import { Divider } from 'components/elements/divider'
-import { StyledLink } from 'components/elements/link'
-import { Header, Text } from 'components/elements/typography.js'
+import {
+    Image,
+    Hero,
+    Modal,
+    useModal,
+    Divider,
+    StyledLink,
+    Card,
+    Header,
+    Text,
+} from 'components/elements'
+import { Button } from 'components/form'
+import SignupModal from 'components/custom/signup-modal'
 import { localize, WithIntl, Localize } from 'components/localization'
 
 const GridGrayBackground = styled.div`
@@ -182,7 +181,7 @@ const KeepSafe = () => {
                         </Header>
                         <StyledHeader as="h4" align="left" weight="500">
                             {localize(
-                                'To help keep your account secure, we recommend these best practices: ',
+                                'To help keep your account secure, we recommend these best practices:',
                             )}
                         </StyledHeader>
                     </SecureWrapper>
@@ -227,11 +226,7 @@ const KeepSafe = () => {
                                 </Button>
                             </Show.Desktop>
                         </div>
-                        <Image
-                            width="415"
-                            img_name="keep-safe-practice.png"
-                            alt="Practice"
-                        />
+                        <Image width="415" img_name="keep-safe-practice.png" alt="Practice" />
                         <Show.Mobile>
                             <MobileBtn secondary onClick={toggleModal}>
                                 {localize('Create a free account')}
@@ -269,11 +264,7 @@ const KeepSafe = () => {
                         </Risk>
                     </SectionContainer>
                 </GridGrayBackground>
-                <Modal
-                    toggle={toggleModal}
-                    is_open={show_modal}
-                    closeModal={closeModal}
-                >
+                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                     <SignupModal />
                 </Modal>
             </KeepSafeGirdArea>

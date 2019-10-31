@@ -113,9 +113,7 @@ class AutoCarousel extends React.PureComponent {
                             transition_duration={this.props.transition_duration}
                             total_translate={this.state.total_translate}
                             key={i}
-                            should_carousel_move={
-                                this.state.should_carousel_move
-                            }
+                            should_carousel_move={this.state.should_carousel_move}
                         >
                             {this.state.items !== []
                                 ? this.state.items.map(({ Component, key }) => {
@@ -124,12 +122,8 @@ class AutoCarousel extends React.PureComponent {
                                               key={key}
                                               padding={this.props.items_padding}
                                               transition={this.state.transition}
-                                              transition_duration={
-                                                  this.props.transition_duration
-                                              }
-                                              count_child={
-                                                  this.props.children.length
-                                              }
+                                              transition_duration={this.props.transition_duration}
+                                              count_child={this.props.children.length}
                                           >
                                               {Component}
                                           </ItemContainer>
@@ -145,10 +139,7 @@ class AutoCarousel extends React.PureComponent {
 }
 AutoCarousel.propTypes = {
     carousel_width: PropTypes.string,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
     items_padding: PropTypes.number,
     transition_duration: PropTypes.number,
 }

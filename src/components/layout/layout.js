@@ -1,23 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Nav from './nav'
+import { Nav, NavStatic } from './nav'
 import Footer from './footer'
 
 const Main = styled.main`
     padding-top: 7rem;
 `
 
-const Layout = ({ children }) => (
+const Layout = ({ children, is_static }) => (
     <>
-        <Nav />
+        {is_static ? <NavStatic /> : <Nav />}
         <Main>{children}</Main>
-        <Footer />
+        {!is_static && <Footer />}
     </>
 )
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
+    is_static: PropTypes.bool,
 }
 
 export default Layout

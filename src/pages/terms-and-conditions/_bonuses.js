@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-    StyledSection,
-    TncListText,
-    StyledOrder,
-    StyledHeader,
-    StyledTitle,
-} from './_styles'
+import { StyledSection, TncListText, StyledOrder, StyledHeader, StyledTitle } from './_styles'
 import { localize } from 'components/localization'
 
 export const Bonuses = () => (
@@ -27,16 +21,12 @@ export const Bonuses = () => (
             <StyledOrder type="lower-alpha">
                 <li>
                     <TncListText>
-                        {localize(
-                            'You have made the required minimum deposit.',
-                        )}
+                        {localize('You have made the required minimum deposit.')}
                     </TncListText>
                 </li>
                 <li>
                     <TncListText>
-                        {localize(
-                            'You have reached a turnover that is 5 times the bonus amount.',
-                        )}
+                        {localize('You have reached a turnover that is 5 times the bonus amount.')}
                     </TncListText>
                 </li>
             </StyledOrder>
@@ -70,9 +60,7 @@ export const Bonuses = () => (
             </li>
             <li>
                 <TncListText>
-                    {localize(
-                        'This offer cannot be used in conjunction with any other offer.',
-                    )}
+                    {localize('This offer cannot be used in conjunction with any other offer.')}
                 </TncListText>
             </li>
             <li>
@@ -96,9 +84,7 @@ export const Bonuses = () => (
             </li>
             <li>
                 <TncListText>
-                    {localize(
-                        'It will be released to your account upon approval.',
-                    )}
+                    {localize('It will be released to your account upon approval.')}
                 </TncListText>
             </li>
             <li>
@@ -110,9 +96,7 @@ export const Bonuses = () => (
             </li>
             <li>
                 <TncListText>
-                    {localize(
-                        'This offer cannot be used in conjunction with any other offer.',
-                    )}
+                    {localize('This offer cannot be used in conjunction with any other offer.')}
                 </TncListText>
             </li>
             <li>

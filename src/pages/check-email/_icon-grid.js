@@ -2,14 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import device from 'themes/device'
-import { Text } from 'components/elements/typography.js'
+import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
 import Spam from 'images/svg/spam.svg'
 import Typo from 'images/svg/typo.svg'
 import WorkEmail from 'images/svg/work-email.svg'
 import Firewalls from 'images/svg/firewalls.svg'
-import Container from 'components/containers/container'
+import { Container } from 'components/containers'
 
 const Grid = styled(Container)`
     display: grid;

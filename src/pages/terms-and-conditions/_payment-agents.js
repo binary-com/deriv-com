@@ -84,9 +84,7 @@ export const PaymentAgents = () => (
             <StyledOrder type="lower-alpha">
                 <li>
                     <TncListText>
-                        {localize(
-                            'The client requests a withdrawal from Deriv Client Account.',
-                        )}
+                        {localize('The client requests a withdrawal from Deriv Client Account.')}
                     </TncListText>
                 </li>
                 <li>
@@ -98,9 +96,7 @@ export const PaymentAgents = () => (
                 </li>
                 <li>
                     <TncListText>
-                        {localize(
-                            'Next, you transfer the requested amount to the client.',
-                        )}
+                        {localize('Next, you transfer the requested amount to the client.')}
                     </TncListText>
                 </li>
                 <TncText>
@@ -144,9 +140,7 @@ export const PaymentAgents = () => (
             </li>
             <li>
                 <TncListText>
-                    {localize(
-                        'In providing your services, you shall do the following:',
-                    )}
+                    {localize('In providing your services, you shall do the following:')}
                 </TncListText>
                 <StyledOrder type="lower-alpha">
                     <li>
@@ -188,9 +182,7 @@ export const PaymentAgents = () => (
             </li>
             <li>
                 <TncListText>
-                    {localize(
-                        'If you own or operate a website(s), you shall do the following:',
-                    )}
+                    {localize('If you own or operate a website(s), you shall do the following:')}
                 </TncListText>
                 <StyledOrder type="lower-alpha">
                     <li>
@@ -303,31 +295,21 @@ export const PaymentAgents = () => (
             </li>
             <StyledOrder type="lower-alpha">
                 <li>
-                    <TncListText>
-                        {localize('Name, email address, and contact number')}
-                    </TncListText>
+                    <TncListText>{localize('Name, email address, and contact number')}</TncListText>
+                </li>
+                <li>
+                    <TncListText>{localize('Website URL (if applicable)')}</TncListText>
+                </li>
+                <li>
+                    <TncListText>{localize('A list of accepted payment methods')}</TncListText>
                 </li>
                 <li>
                     <TncListText>
-                        {localize('Website URL (if applicable)')}
+                        {localize('The commissions to be charged on deposits and withdrawals')}
                     </TncListText>
                 </li>
                 <li>
-                    <TncListText>
-                        {localize('A list of accepted payment methods')}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize(
-                            'The commissions to be charged on deposits and withdrawals',
-                        )}
-                    </TncListText>
-                </li>
-                <li>
-                    <TncListText>
-                        {localize('Any other information that We request')}
-                    </TncListText>
+                    <TncListText>{localize('Any other information that We request')}</TncListText>
                 </li>
             </StyledOrder>
             <li>
@@ -358,9 +340,7 @@ export const PaymentAgents = () => (
         <StyledOrder type="decimal">
             <li>
                 <TncListText>
-                    {localize(
-                        'Each of the following events is an “Event of Default”:',
-                    )}
+                    {localize('Each of the following events is an “Event of Default”:')}
                 </TncListText>
             </li>
             <StyledOrder type="lower-alpha">
@@ -415,9 +395,7 @@ export const PaymentAgents = () => (
                 </li>
                 <li>
                     <TncListText>
-                        {localize(
-                            'If you are found to have conducted a criminal offence ',
-                        )}
+                        {localize('If you are found to have conducted a criminal offence ')}
                     </TncListText>
                 </li>
                 <li>
@@ -456,9 +434,7 @@ export const PaymentAgents = () => (
             </li>
             <li>
                 <TncListText>
-                    {localize(
-                        'We shall not supervise any financial services that you provide.',
-                    )}
+                    {localize('We shall not supervise any financial services that you provide.')}
                 </TncListText>
             </li>
         </StyledOrder>

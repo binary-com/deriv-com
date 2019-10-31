@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { withTranslation } from 'react-i18next'
 import { navigate } from 'gatsby'
 import language_config from '../../../i18n-config'
-import StyledSelect from 'components/elements/dropdown'
+import { Dropdown } from 'components/elements'
 
 const languages = Object.keys(language_config)
 
@@ -47,9 +47,7 @@ class LanguageSwitch extends Component {
             const current_lang = localStorage.getItem('i18n') || 'en'
 
             const destination_path = `${path}${
-                current_lang === 'en'
-                    ? current_path
-                    : current_path.replace(/\/.+?\//u, '/')
+                current_lang === 'en' ? current_path : current_path.replace(/\/.+?\//u, '/')
             }${current_hash}`
 
             navigate(destination_path, { hrefLang: path })
@@ -58,12 +56,9 @@ class LanguageSwitch extends Component {
 
     render() {
         return (
-            <StyledSelect
-                onChange={this.handleSelect}
-                value={`/${this.state.language}`}
-            >
+            <Dropdown onChange={this.handleSelect} value={`/${this.state.language}`}>
                 {languages.map(this.renderLanguageChoice)}
-            </StyledSelect>
+            </Dropdown>
         )
     }
 }

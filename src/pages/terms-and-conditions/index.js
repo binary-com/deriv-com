@@ -10,11 +10,10 @@ import { PaymentAgents } from './_payment-agents'
 import { RiskDisclaimer } from './_risk-disclaimer'
 import { SecurityAndPrivacy } from './_security-privacy.js'
 import { Bonuses } from './_bonuses'
-import Container from 'components/containers/container'
-import SEO from 'components/containers/seo'
+import { Container, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import SideTab from 'components/elements/side-tab'
+import { SideTab } from 'components/elements'
 import device from 'themes/device'
 
 const TncContainer = styled(Container)`
@@ -35,20 +34,14 @@ const TermsAndConditions = () => (
         />
         <TncContainer align="left" justify="left">
             <SideTab has_hash_routing is_sticky>
-                <General
-                    label="general"
-                    text={localize('Terms and conditions')}
-                />
+                <General label="general" text={localize('Terms and conditions')} />
                 <DataFeed label="data-feed" text={localize('Data feed')} />
                 <SecurityAndPrivacy
                     label="security-privacy"
                     text={localize('Security and privacy')}
                 />
 
-                <ConflictsPolicy
-                    label="conflict-policy"
-                    text={localize('Conflicts policy')}
-                />
+                <ConflictsPolicy label="conflict-policy" text={localize('Conflicts policy')} />
 
                 <Copyright label="copyright" text={localize('Copyright')} />
 
@@ -57,20 +50,11 @@ const TermsAndConditions = () => (
                     text={localize('Complaints and disputes')}
                 />
 
-                <RiskDisclaimer
-                    label="risk-disclaimer"
-                    text={localize('Risk disclaimer')}
-                />
+                <RiskDisclaimer label="risk-disclaimer" text={localize('Risk disclaimer')} />
 
-                <OrderExecution
-                    label="order-execution"
-                    text={localize('Order execution')}
-                />
+                <OrderExecution label="order-execution" text={localize('Order execution')} />
 
-                <PaymentAgents
-                    label="payment-agent"
-                    text={localize('Payment agents')}
-                />
+                <PaymentAgents label="payment-agent" text={localize('Payment agents')} />
                 <Bonuses label="bonuses" text={localize('Bonuses')} />
             </SideTab>
         </TncContainer>

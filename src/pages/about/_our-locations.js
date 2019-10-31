@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from 'components/form/button.js'
+import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
-import Container from 'components/containers/container.js'
-import { Header } from 'components/elements/typography.js'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
+import { Container } from 'components/containers'
+import { Header, Modal, useModal } from 'components/elements'
+import SignupModal from 'components/custom/signup-modal'
 import Show from 'components/containers/show'
 // Icons
 import DubaiSvg from 'images/svg/dubai.svg'
@@ -108,11 +107,7 @@ export const OurLocations = () => {
                 <Button secondary onClick={toggleModal}>
                     {localize('Start with a free practice account')}
                 </Button>
-                <Modal
-                    toggle={toggleModal}
-                    is_open={show_modal}
-                    closeModal={closeModal}
-                >
+                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                     <SignupModal autofocus />
                 </Modal>
             </OurLocationsWrapper>

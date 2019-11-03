@@ -77,9 +77,7 @@ class Tick extends React.PureComponent {
             <TickWrapper>
                 <StyledText>
                     <Qoute>
-                        <span style={{ fontWeight: 'normal' }}>
-                            {this.props.display_name}:{' '}
-                        </span>
+                        <span style={{ fontWeight: 'normal' }}>{this.props.display_name}: </span>
                         {this.state.quote === null ? (
                             <Loader />
                         ) : (
@@ -126,10 +124,7 @@ const getTickerMarkets = active_symbols => {
     active_symbols.forEach(symbol => {
         if (symbol.market === 'synthetic_index') {
             synthetic.push(symbol)
-        } else if (
-            symbol.market === 'forex' &&
-            symbol.submarket === 'major_pairs'
-        ) {
+        } else if (symbol.market === 'forex' && symbol.submarket === 'major_pairs') {
             if (!symbol.exchange_is_open) {
                 volatility_count = 7
                 forex_count = 3
@@ -197,10 +192,7 @@ class Ticker extends React.Component {
         EventEmitter.dispatch(response.tick.symbol, response.tick.quote)
     }
     onCloseSymbolsReceive = response => {
-        EventEmitter.dispatch(
-            response.echo_req.ticks_history,
-            response.history.prices[0],
-        )
+        EventEmitter.dispatch(response.echo_req.ticks_history, response.history.prices[0])
     }
     componentDidMount() {
         EventEmitter.reset()
@@ -217,22 +209,12 @@ class Ticker extends React.Component {
             forget_all: 'ticks',
         })
     }
-    shouldComponentUpdate() {
-        if (this.count < 20) {
-            this.count += 1
-            return false
-        }
-        this.count = 0
-        return true
-    }
+
     render() {
         return (
             <CarouselWapper>
                 {this.state.markets.all_symbols.length === 0 ? null : (
-                    <AutoCarousel
-                        carousel_width="100%"
-                        transition_duration={37000}
-                    >
+                    <AutoCarousel carousel_width="100%" transition_duration={37000}>
                         {this.state.markets.all_symbols.map(symbol => {
                             return (
                                 <Tick

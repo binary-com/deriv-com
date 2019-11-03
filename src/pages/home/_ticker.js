@@ -1,106 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import EventEmitter from './_event-emitter'
+import Tick from './_tick.js'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import { AutoCarousel, Text, DotLoader } from 'components/elements'
+import { AutoCarousel } from 'components/elements'
 // Icon
-import MovementGreen from 'images/svg/price-movement-green.svg'
-import MovementRed from 'images/svg/price-movement-red.svg'
 
-const Divider = styled.div`
-    width: 1px;
-    height: 2.6rem;
-    background-color: var(--color-grey-6);
-`
-const TickWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding: 2.7rem 0;
-    width: 38rem;
-`
-const StyledText = styled(Text)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0 auto;
-    font-size: var(--text-size-sm);
-`
-const Qoute = styled.span`
-    font-weight: bold;
-    text-decoration: none;
-    padding: 0 5px;
-`
 const CarouselWapper = styled.div`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
 `
-class Tick extends React.PureComponent {
-    state = {
-        quote: null,
-        movement: null,
-    }
-
-    reformatQuote(number) {
-        // calculate that how many decimal each quote should have, based on pip value
-        return number.toFixed(
-            Math.max(
-                (this.props.pip.toString().split('.')[1] || []).length,
-                (number.toString().split('.')[1] || []).length,
-            ),
-        )
-    }
-
-    componentDidMount() {
-        EventEmitter.subscribe(this.props.symbol, quote => {
-            if (this.state.quote > quote)
-                this.setState({
-                    quote: quote,
-                    movement: MovementRed,
-                })
-            else if (this.state.quote < quote)
-                this.setState({
-                    quote: quote,
-                    movement: MovementGreen,
-                })
-            else {
-                this.setState({
-                    movement: null,
-                })
-            }
-        })
-    }
-
-    render() {
-        const Movement = this.state.movement
-        return (
-            <TickWrapper>
-                <StyledText>
-                    <Qoute>
-                        <span style={{ fontWeight: 'normal' }}>{this.props.display_name}: </span>
-                        {this.state.quote === null ? (
-                            <Loader />
-                        ) : (
-                            this.reformatQuote(this.state.quote)
-                        )}{' '}
-                    </Qoute>
-                    <span style={{ width: '12px', display: 'block' }}>
-                        {Movement === null ? null : <Movement />}
-                    </span>
-                </StyledText>
-                <Divider />
-            </TickWrapper>
-        )
-    }
-}
-
-Tick.propTypes = {
-    display_name: PropTypes.string,
-    is_exchange_open: PropTypes.bool,
-    pip: PropTypes.number,
-    symbol: PropTypes.string,
-}
-
 //  Fisher-Yates shuffle
 function shuffle(array) {
     let j, x, i
@@ -122,7 +30,7 @@ const getTickerMarkets = active_symbols => {
     let open_symbols = []
 
     active_symbols.forEach(symbol => {
-        if (symbol.market === 'synthetic_index') {
+        if (symbol.submarket === 'random_index' || symbol.submarket === 'random_daily') {
             synthetic.push(symbol)
         } else if (symbol.market === 'forex' && symbol.submarket === 'major_pairs') {
             if (!symbol.exchange_is_open) {
@@ -136,14 +44,15 @@ const getTickerMarkets = active_symbols => {
         synthetic = shuffle(synthetic).slice(0, volatility_count)
     }
     if (forex.length) forex = shuffle(forex).slice(0, forex_count)
-    ;[...volidx, ...forex].forEach(symbol =>
+    const all_symbols = [...synthetic, ...forex]
+    all_symbols.forEach(symbol =>
         symbol.exchange_is_open === 1
             ? open_symbols.push(symbol.symbol)
             : close_symbols.push(symbol.symbol),
     )
 
     return {
-        all_symbols: [...volidx, ...forex],
+        all_symbols: all_symbols,
         open_symbols: open_symbols,
         close_symbols: close_symbols,
     }
@@ -214,7 +123,7 @@ class Ticker extends React.Component {
         return (
             <CarouselWapper>
                 {this.state.markets.all_symbols.length === 0 ? null : (
-                    <AutoCarousel carousel_width="100%" transition_duration={37000}>
+                    <AutoCarousel carousel_width="100%" transition_duration={40000}>
                         {this.state.markets.all_symbols.map(symbol => {
                             return (
                                 <Tick

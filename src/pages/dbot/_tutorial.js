@@ -1,11 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Image from 'components/elements/image'
-import {
-    SectionContainer,
-    FlexGridContainer,
-} from 'components/containers/container'
-import { Header, Text } from 'components/elements/typography.js'
+import { SectionContainer, FlexGridContainer } from 'components/containers'
+import { Header, Text, Image } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -126,11 +122,7 @@ export const Tutorial = () => {
                             flexWrap="wrap-reverse"
                         >
                             <StyledDiv align="flex-start">
-                                <StyledHeader
-                                    font_size="4.8rem"
-                                    align="left"
-                                    lh="5rem"
-                                >
+                                <StyledHeader font_size="4.8rem" align="left" lh="5rem">
                                     {step.title}
                                 </StyledHeader>
                                 <StyledText>{step.subtitle}</StyledText>

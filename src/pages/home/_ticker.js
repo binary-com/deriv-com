@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import EventEmitter from './_event-emitter'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import AutoCarousel from 'components/elements/auto-carousel'
-import { Text } from 'components/elements/typography.js'
-import Loader from 'components/elements/dot_loader.js'
+import { AutoCarousel, Text, DotLoader } from 'components/elements'
+// Icon
 import MovementGreen from 'images/svg/price-movement-green.svg'
 import MovementRed from 'images/svg/price-movement-red.svg'
 
@@ -119,14 +118,14 @@ function shuffle(array) {
 const getTickerMarkets = active_symbols => {
     let volatility_count = 3
     let forex_count = 7
-    let volidx = []
+    let synthetic = []
     let forex = []
     let close_symbols = []
     let open_symbols = []
 
     active_symbols.forEach(symbol => {
-        if (symbol.market === 'volidx') {
-            volidx.push(symbol)
+        if (symbol.market === 'synthetic_index') {
+            synthetic.push(symbol)
         } else if (
             symbol.market === 'forex' &&
             symbol.submarket === 'major_pairs'
@@ -138,7 +137,9 @@ const getTickerMarkets = active_symbols => {
             forex.push(symbol)
         }
     })
-    if (volidx.length) volidx = shuffle(volidx).slice(0, volatility_count)
+    if (synthetic.length) {
+        synthetic = shuffle(synthetic).slice(0, volatility_count)
+    }
     if (forex.length) forex = shuffle(forex).slice(0, forex_count)
     ;[...volidx, ...forex].forEach(symbol =>
         symbol.exchange_is_open === 1

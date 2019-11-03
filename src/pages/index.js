@@ -7,11 +7,10 @@ import { WhyDeriv } from './home/_why-deriv'
 import { WhyDerivMobile } from './home/_why-deriv-mobile'
 import PaymentMethods from './home/_payment-methods'
 import Ticker from './home/_ticker'
-import SEO from 'components/containers/seo'
+import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { Divider } from 'components/elements/divider'
-import Show from 'components/containers/show'
+import { Divider } from 'components/elements'
 
 const Home = () => (
     <Layout>

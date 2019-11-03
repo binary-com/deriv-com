@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import AutoCarousel from 'components/elements/auto-carousel.js'
-import { SectionContainer } from 'components/containers/container'
+import { AutoCarousel } from 'components/elements'
+import { SectionContainer } from 'components/containers'
 // SVG
 import WebMoney from 'images/svg/payment-webmoney.svg'
 import Sticpay from 'images/svg/payment-sticpay.svg'
@@ -28,11 +28,7 @@ const PaymentSection = styled(SectionContainer)`
 const PaymentMethods = () => {
     return (
         <PaymentSection>
-            <AutoCarousel
-                carousel_width="70%"
-                items_padding={32}
-                transition_duration={30000}
-            >
+            <AutoCarousel carousel_width="70%" items_padding={32} transition_duration={30000}>
                 <Mastercard />
                 <Visa />
                 <Payscale />

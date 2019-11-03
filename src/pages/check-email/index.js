@@ -1,15 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import SEO from '../../components/containers/seo'
 import { IconGrid } from './_icon-grid'
-import Button from 'components/form/button'
+import { Button } from 'components/form'
 import Layout from 'components/layout/layout'
-import Modal, { useModal } from 'components/elements/modal'
-import SignupModal from 'components/elements/signup-modal'
-import {
-    GridContainer,
-    SectionContainer,
-} from 'components/containers/container'
+import { Modal, useModal } from 'components/elements'
+import SignupModal from 'components/custom/signup-modal'
+import { GridContainer, SectionContainer, SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
 const SectionHeader = styled.p`
@@ -42,11 +38,7 @@ const CheckEmail = () => {
                     </Button>
                 </GridContainer>
             </SectionContainer>
-            <Modal
-                toggle={toggleModal}
-                is_open={show_modal}
-                closeModal={closeModal}
-            >
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal closeModal={closeModal} />
             </Modal>
         </Layout>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
-import TradingImage from '../../images/common/practice.png'
+import TradingImage from 'images/common/practice.png'
 
 const AntiClickjack = () => (
     <>
@@ -119,6 +119,10 @@ const SEO = ({ description, meta, title }) => {
                 {
                     name: 'format-detection',
                     content: 'telephone=no',
+                },
+                {
+                    name: 'yandex-verification',
+                    content: '7532efc509888c29',
                 },
             ].concat(meta)}
         >

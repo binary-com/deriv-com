@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" aria-labelledby='d-bot-logo'>
-    <title id='d-bot-logo'>DBot</title>
-    <g fill="none" fill-rule="evenodd">
-        <rect width="48" height="48" fill="#FF6444" fill-rule="nonzero" rx="9"/>
-        <path d="M20.58 19.89a1.268 1.268 0 1 0 0-2.535 1.268 1.268 0 0 0 0 2.535z"/>
-        <path fill="#FFF" fill-rule="nonzero" d="M37.89 23.145v-6.9A7.26 7.26 0 0 0 30.645 9h-5.79v14.145H37.89zM24.855 39h5.79a7.26 7.26 0 0 0 7.245-7.245v-6.9H24.855V39zM17.692 20.85a4.237 4.237 0 1 1 4.155-5.04h1.298V9h-5.79a7.26 7.26 0 0 0-7.245 7.245v15.51A7.26 7.26 0 0 0 17.355 39h5.79V17.407h-1.297a4.238 4.238 0 0 1-4.155 3.443z"/>
-        <path d="M0 0h48v48H0z"/>
-    </g>
-</svg>

@@ -7,9 +7,8 @@ import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 // import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
-import SEO from 'components/containers/seo'
+import { SEO, Container } from 'components/containers'
 import Layout from 'components/layout/layout'
-import Container from 'components/containers/container'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
@@ -36,8 +35,7 @@ const StyledContainer = styled(Container)`
 const SearchSection = styled.section`
     ${Backdrop} {
         max-height: ${props => (props.show ? '100rem' : '0')};
-        transition: ${props =>
-            props.has_transition ? 'max-height 0.6s ease-in-out' : 'none'};
+        transition: ${props => (props.has_transition ? 'max-height 0.6s ease-in-out' : 'none')};
         overflow: hidden;
     }
 `
@@ -65,11 +63,6 @@ const SearchForm = styled.form`
     @media ${device.tabletL} {
         padding-left: 4.3rem;
 
-        input {
-            font-size: 3rem;
-            width: 90%;
-            height: 3.55rem;
-        }
         svg {
             top: 0;
             width: 2.5rem;
@@ -79,6 +72,7 @@ const SearchForm = styled.form`
 `
 
 const Search = styled.input`
+    width: 95%;
     font-size: 4.4rem;
     font-weight: bold;
     color: var(--color-white);
@@ -88,6 +82,16 @@ const Search = styled.input`
 
     ::placeholder {
         color: var(--color-black-3);
+    }
+    @media ${device.tabletL} {
+        font-size: 3rem;
+        height: 3.55rem;
+    }
+    @media ${device.mobileL} {
+        font-size: 2.5rem;
+    }
+    @media ${device.mobileM} {
+        font-size: 1.95rem;
     }
 `
 
@@ -102,10 +106,8 @@ const ResultWrapper = styled.div`
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
-        const all_articles = getAllArticles(articles)
-
         this.state = {
-            all_articles,
+            all_articles: [],
             search: '',
             selected_article: null,
             search_has_transition: false,
@@ -141,6 +143,19 @@ class HelpCentre extends Component {
 
     componentDidMount = () => {
         const current_label = getLocationHash()
+        const deepClone = arr => {
+            const out = []
+            for (let i = 0, len = arr.length; i < len; i++) {
+                const item = arr[i]
+                const obj = {}
+                for (var k in item) {
+                    obj[k] = item[k]
+                }
+                out.push(obj)
+            }
+            return out
+        }
+
         if (current_label) {
             const selected_article = this.state.all_articles.find(
                 article => article.label === current_label,
@@ -151,6 +166,18 @@ class HelpCentre extends Component {
                 search_has_transition: false,
             })
         }
+        const all_articles = getAllArticles(articles)
+
+        const duplicate_articles = deepClone(all_articles)
+        const translated_articles = duplicate_articles.map(article => {
+            article.title = localize(article.title.props.translate_text)
+            article.sub_category = localize(article.sub_category.props.translate_text)
+            return article
+        })
+
+        this.setState({
+            all_articles: translated_articles,
+        })
     }
 
     componentDidUpdate = () => {
@@ -186,10 +213,7 @@ class HelpCentre extends Component {
                         'Need help with our products and services? Read our FAQ or ask us a question.',
                     )}
                 />
-                <SearchSection
-                    show={toggle_search}
-                    has_transition={search_has_transition}
-                >
+                <SearchSection show={toggle_search} has_transition={search_has_transition}>
                     <Backdrop>
                         <StyledContainer align="normal" direction="column">
                             <SearchForm onSubmit={this.handleSubmit}>
@@ -203,11 +227,7 @@ class HelpCentre extends Component {
                                     data-lpignore="true"
                                     autoComplete="off"
                                 />
-                                {search.length && (
-                                    <SearchCrossIcon
-                                        onClick={this.clearSearch}
-                                    />
-                                )}
+                                {search.length && <SearchCrossIcon onClick={this.clearSearch} />}
                             </SearchForm>
                             <ResultWrapper>
                                 {has_results && search.length && (
@@ -217,9 +237,7 @@ class HelpCentre extends Component {
                                         max_length={3}
                                     />
                                 )}
-                                {!has_results && (
-                                    <SearchError search={search} />
-                                )}
+                                {!has_results && <SearchError search={search} />}
                             </ResultWrapper>
                         </StyledContainer>
                     </Backdrop>

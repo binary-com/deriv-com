@@ -2,19 +2,16 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
-import Row from '../containers/row'
-import { Header, Text } from '../elements/typography'
-import { localize, Localize } from '../localization'
-import Image from '../elements/image'
-import Wrapper from '../containers/wrapper'
-import Button from './button'
-import Input from './input'
+import { FlexGridContainer } from 'components/containers'
+import { Header, Text, Image, StyledLink } from 'components/elements'
+import { localize, Localize } from 'components/localization'
+import Wrapper from 'components/containers/wrapper'
+import { Button, Input } from 'components/form'
 import validation from 'common/validation'
 import TrafficSource from 'common/traffic-source'
 import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
-import { StyledLink } from 'components/elements/link'
 import device from 'themes/device.js'
 // Icons
 import Facebook from 'images/svg/facebook.svg'
@@ -52,9 +49,8 @@ const MutedText = styled(Text)`
     color: var(--color-grey);
     align-self: start;
 `
-const SocialWrapper = styled(Row)`
+const SocialWrapper = styled(FlexGridContainer)`
     width: 100%;
-    justify-content: space-between;
     margin-top: var(--text-size-s);
 `
 export const LoginText = styled(MutedText)`
@@ -216,15 +212,11 @@ class Signup extends Component {
                                 required
                             />
                         </InputGroup>
-                        <EmailButton
-                            type="submit"
-                            secondary
-                            disabled={this.state.is_submitting}
-                        >
+                        <EmailButton type="submit" secondary disabled={this.state.is_submitting}>
                             {localize('Create a free account')}
                         </EmailButton>
                         <Text color="grey">{localize('Or sign up with')}</Text>
-                        <SocialWrapper>
+                        <SocialWrapper justify="space-between" gap="0" grid="2">
                             <SocialButton
                                 onClick={this.handleSocialSignup}
                                 provider="google"
@@ -250,10 +242,7 @@ class Signup extends Component {
                         </SocialWrapper>
                         <LoginText>
                             {localize('Already have an account?')}
-                            <LoginLink onClick={this.handleLogin}>
-                                {' '}
-                                {localize('Log in.')}
-                            </LoginLink>
+                            <LoginLink onClick={this.handleLogin}> {localize('Log in.')}</LoginLink>
                         </LoginText>
                     </Form>
                 )}
@@ -262,15 +251,8 @@ class Signup extends Component {
                         <Header as="h3" align="center" weight="normal">
                             {localize('Check your email')}
                         </Header>
-                        <EmailImgWrapper
-                            width="100%"
-                            margin={{ top: '1rem', bottom: '1.6rem' }}
-                        >
-                            <Image
-                                img_name="view-email.png"
-                                alt="Email image"
-                                width="80%"
-                            />
+                        <EmailImgWrapper width="100%" margin={{ top: '1rem', bottom: '1.6rem' }}>
+                            <Image img_name="view-email.png" alt="Email image" width="80%" />
                         </EmailImgWrapper>
                         <Text align="center">
                             <Localize
@@ -278,22 +260,16 @@ class Signup extends Component {
                                 values={{ email: this.state.email }}
                             />
                         </Text>
-                        <EmailLink
-                            to="/check-email/"
-                            onClick={this.handleModalClose}
-                        >
+                        <EmailLink to="/check-email/" onClick={this.handleModalClose}>
                             {localize("Didn't receive your email?")}
                         </EmailLink>
                     </ResponseWrapper>
                 )}
-                {this.state.submit_status === 'error' &&
-                    this.state.submit_error_msg && (
-                        <ResponseWrapper>
-                            <Text align="center">
-                                {this.state.submit_error_msg}
-                            </Text>
-                        </ResponseWrapper>
-                    )}
+                {this.state.submit_status === 'error' && this.state.submit_error_msg && (
+                    <ResponseWrapper>
+                        <Text align="center">{this.state.submit_error_msg}</Text>
+                    </ResponseWrapper>
+                )}
             </>
         )
     }

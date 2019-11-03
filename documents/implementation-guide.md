@@ -159,3 +159,42 @@ const Example = () => (
     </div>
 )
 ```
+
+#### Create new page
+
+to create new page, please create a directory inside `src/pages`. directory name automatically become the new route,
+craete an index.js inside the directory (this is required). To separate into different sections, you can make another js file inside the directory with prefix `_` to avoid creation of new route.
+
+Example directory:
+
+```
+   ├── my-page-name/
+   │   ├── index.js
+   │   ├── _component-name.js
+   │   ├── ...
+```
+
+Every page should wrap within <Layout /> component, and have a child <SEO title='' description='' />.
+It is required to export default your page. and use Higher order component of `WithIntl` from localization to help usage of translation methods.
+
+Usage example:
+
+```js
+import React from 'react'
+import styled from 'styled-components'
+import { localize, WithIntl } from 'components/localization'
+
+const MyPageName = () => {
+    return (
+        <Layout>
+            <SEO
+                title={localize('My page')}
+                description={localize('My page description')}
+            />
+            {/* Your children here */}
+        </Layout>
+    )
+}
+
+export default WithIntl()(About)
+```

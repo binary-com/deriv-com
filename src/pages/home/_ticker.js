@@ -168,16 +168,13 @@ function shuffle(array) {
 const getTickerMarkets = active_symbols => {
     let volatility_count = 3
     let forex_count = 7
-    let synthetic = []
+    let volidx = []
     let forex = []
 
     active_symbols.forEach(symbol => {
-        if (symbol.market === 'synthetic_index') {
-            synthetic.push(symbol)
-        } else if (
-            symbol.market === 'forex' &&
-            symbol.submarket === 'major_pairs'
-        ) {
+        if (symbol.market === 'volidx') {
+            volidx.push(symbol)
+        } else if (symbol.market === 'forex' && symbol.submarket === 'major_pairs') {
             if (!symbol.exchange_is_open) {
                 volatility_count = 7
                 forex_count = 3
@@ -185,12 +182,10 @@ const getTickerMarkets = active_symbols => {
             forex.push(symbol)
         }
     })
-    if (synthetic.length) {
-        synthetic = shuffle(synthetic).slice(0, volatility_count)
-    }
+    if (volidx.length) volidx = shuffle(volidx).slice(0, volatility_count)
     if (forex.length) forex = shuffle(forex).slice(0, forex_count)
 
-    return [...synthetic, ...forex]
+    return [...volidx, ...forex]
 }
 class Ticker extends React.Component {
     state = {

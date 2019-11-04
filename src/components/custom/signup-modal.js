@@ -10,13 +10,13 @@ import device from 'themes/device.js'
 const SignupWrapper = styled.article`
     background-color: var(--color-grey-1);
     width: 80rem;
-    height: 57.3rem;
+    height: 58rem;
     border-radius: 6px;
     overflow: auto;
 
     @media ${device.tabletL} {
         width: 300px;
-        height: 42rem;
+        height: 56rem;
     }
 `
 

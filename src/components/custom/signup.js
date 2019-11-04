@@ -34,7 +34,7 @@ const InputGroup = styled.div`
     margin: var(--text-size-m) 0;
 `
 const EmailButton = styled(Button)`
-    width: 100%;
+    width: auto;
     font-size: 1.4rem;
     margin-bottom: 2rem;
 `
@@ -56,7 +56,7 @@ const SocialWrapper = styled(FlexGridContainer)`
 export const LoginText = styled(MutedText)`
     text-align: center;
     align-self: center;
-    margin-top: 2rem;
+    margin-top: 2.4rem;
 
     @media ${device.tabletL} {
         margin-bottom: 0;
@@ -196,7 +196,7 @@ class Signup extends Component {
             <>
                 {!this.state.submit_status && (
                     <Form onSubmit={this.handleEmailSignup} noValidate>
-                        <Header as="h3" weight="normal">
+                        <Header as="h3" weight="bold">
                             {localize('Sign up for free now!')}
                         </Header>
                         <InputGroup>
@@ -219,7 +219,9 @@ class Signup extends Component {
                         <EmailButton type="submit" secondary disabled={this.state.is_submitting}>
                             {localize('Create a free account')}
                         </EmailButton>
-                        <Text color="grey">{localize('Or sign up with')}</Text>
+                        <Text color="grey" align="center">
+                            {localize('Or sign up with')}
+                        </Text>
                         <SocialWrapper justify="space-between" gap="0" grid="2">
                             <SocialButton
                                 onClick={this.handleSocialSignup}

@@ -97,11 +97,7 @@ const AuthenticatingYourAccount = () => (
 
 const HowDoIChangeOrResetMyDerivPassword = () => (
     <>
-        <Text>
-            {localize(
-                'To change your Deriv password if you’re already logged in and know your password:',
-            )}
-        </Text>
+        <Text>{localize('To change your Deriv password if you’re already logged in:')}</Text>
         <Ol>
             <Li>
                 <Localize
@@ -120,7 +116,7 @@ const HowDoIChangeOrResetMyDerivPassword = () => (
         <Text>
             <br />
             <Localize
-                translate_text="<0>If you’re logged in and can’t remember your password:</0>"
+                translate_text="<0>If you’re logged in:</0>"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -161,7 +157,7 @@ const HowDoIChangeOrResetMyDerivPassword = () => (
         <Text>
             <br />
             <Localize
-                translate_text="<0>If you’re not logged in and can’t remember your password:</0>"
+                translate_text="<0>If you’re not logged in:</0>"
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -217,7 +213,7 @@ const MakingADeposit = () => (
         </Text>
         <Text>
             {localize(
-                'You can deposit or withdraw as little as USD/EUR/GBP/AUD 5 using some e-wallets. The minimum amounts for all other payment methods are specified on the payment methods page.',
+                'You can deposit or withdraw a minimum of USD/EUR/GBP/AUD 5 using e-wallets. Other payment methods will have different minimum amounts. These amounts are stated on the payment methods page.',
             )}
         </Text>
     </>

@@ -1,4 +1,4 @@
-import React, { createRef, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
@@ -93,33 +93,102 @@ const Arrow = styled.svg`
     ${props => props.expanded && 'transform: rotate(-180deg);'}
 `
 
-const Dropdown = ({ label }) => {
+const Dropdown = ({ option_list }) => {
     const SPACEBAR_KEY_CODE = [0, 32]
     const ENTER_KEY_CODE = 13
     const DOWN_ARROW_KEY_CODE = 40
     const UP_ARROW_KEY_CODE = 38
     const ESCAPE_KEY_CODE = 27
-    const dropdown_label = createRef()
     const [is_open, setOpen] = useState(false)
+    const [selected_option, setSelectedOption] = useState('Option 1')
+    const nodes = new Map()
+
+    useEffect(() => {
+        // if (list_item_ref) {
+        //     console.log(list_item_ref)
+        // }
+    })
 
     const toggleListVisibility = e => {
-        if (e.type === 'click') {
+        e.preventDefault()
+        const open_dropdown = SPACEBAR_KEY_CODE.includes(e.keyCode) || e.keyCode === ENTER_KEY_CODE
+        Array.from(nodes.values())
+            .filter(node => node !== null)
+            .forEach(node => getPosition(node))
+
+        if (e.keyCode === ESCAPE_KEY_CODE) {
+            closeList()
+        }
+        if (e.type === 'click' || open_dropdown) {
             setOpen(true)
         }
+        if (e.keyCode === DOWN_ARROW_KEY_CODE) {
+            focusNextListItem(DOWN_ARROW_KEY_CODE)
+        }
+        if (e.keyCode === UP_ARROW_KEY_CODE) {
+            focusNextListItem(UP_ARROW_KEY_CODE)
+        }
+    }
+    const closeList = () => {
+        setOpen(false)
+    }
+    const focusNextListItem = direction => {
+        const activeElement = document.activeElement
+        if (activeElement.id === 'dropdown__selected') {
+            Array.from(nodes.values())[0].focus()
+        } else {
+            const active_nodes = nodes.get(activeElement.id)
+            if (active_nodes) {
+                if (direction === DOWN_ARROW_KEY_CODE) {
+                    active_nodes.nextSibling && active_nodes.nextSibling.focus()
+                } else if (direction === UP_ARROW_KEY_CODE) {
+                    active_nodes.previousSibling && active_nodes.previousSibling.focus()
+                }
+            }
+        }
+    }
+    const getPosition = node => {
+        node.addEventListener('click', e => {
+            e.preventDefault()
+            setSelectedItem(e)
+            closeList()
+        })
+        node.addEventListener('keydown', e => {
+            e.preventDefault()
+            switch (e.keyCode) {
+                case ENTER_KEY_CODE:
+                    setSelectedItem(e)
+                    closeList()
+                    break
+                case DOWN_ARROW_KEY_CODE:
+                    focusNextListItem(DOWN_ARROW_KEY_CODE)
+                    break
+                case UP_ARROW_KEY_CODE:
+                    focusNextListItem(UP_ARROW_KEY_CODE)
+                    break
+                case ESCAPE_KEY_CODE:
+                    closeList()
+                    break
+                default:
+                    break
+            }
+        })
+    }
+    const setSelectedItem = e => {
+        const text = e.target.innerText
+        setSelectedOption(text)
     }
 
     return (
         <DropdownContainer>
-            <DropdownLabel id="dropdown-label">{label}</DropdownLabel>
             <DropdownSelected
                 role="button"
-                aria-labelledby="dropdown-label"
                 id="dropdown__selected"
                 tabIndex="0"
                 onClick={toggleListVisibility}
                 onKeyDown={toggleListVisibility}
             >
-                Option 1
+                {selected_option}
             </DropdownSelected>
             <Arrow width="10" height="5" viewBox="0 0 10 5" fillRule="evenodd" expanded={is_open}>
                 <title>Open drop down</title>
@@ -127,10 +196,20 @@ const Dropdown = ({ label }) => {
             </Arrow>
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
-                    <ListItem tabIndex="0" id="option-1">
+                    <ListItem
+                        tabIndex="0"
+                        id="option-1"
+                        key="option-1"
+                        ref={c => nodes.set('option-1', c)}
+                    >
                         Option 1
                     </ListItem>
-                    <ListItem tabIndex="0" id="option-2">
+                    <ListItem
+                        tabIndex="0"
+                        id="option-2"
+                        key="option-2"
+                        ref={c => nodes.set('option-2', c)}
+                    >
                         Option 2
                     </ListItem>
                 </UnorderedList>
@@ -143,13 +222,5 @@ Dropdown.propTypes = {
     children: PropTypes.node,
     label: PropTypes.string,
 }
-
-// const StyledSelect = styled.select`
-//     color: var(--color-black-3);
-//     border: 1px solid var(--color-grey-1);
-//     padding: 1rem;
-//     margin: 1rem;
-//     background-color: 1px solid var(--color-grey-1);
-// `
 
 export default Dropdown

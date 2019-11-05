@@ -1,32 +1,38 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import Chevron from 'images/svg/chevron-bottom.svg'
 
 const DropdownContainer = styled.ul`
     list-style: none;
     position: relative;
-    border: 1px solid #a2a4b2;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    width: 250px;
-    height: 40px;
+    border: 1px solid var(--color-grey-7);
     cursor: pointer;
-    margin: 100px;
     padding: 0;
+    border-radius: 4px;
+    width: 15.2rem;
+    height: 3.2rem;
+    ${props => props.active && 'border-color: var(--color-green) !important;'}
+
+    &:hover {
+        border-color: var(--color-grey-5);
+    }
 `
 
 const DropdownSelected = styled.li`
     color: var(--color-black-3);
-    padding: 1rem 0;
-    padding-left: 1.5rem;
     list-style-position: inside;
     white-space: nowrap;
     overflow: hidden;
+    padding: 0 1.6rem;
     text-overflow: ellipsis;
-    max-width: 80%;
+    height: 100%;
+    font-size: var(--text-size-xs);
+    display: flex;
+    align-items: center;
 
     &:focus {
-        outline: 1px solid var(--color-green);
+        outline: none;
     }
 `
 
@@ -36,18 +42,24 @@ const ListContainer = styled.li`
 
 const ListItem = styled.li`
     color: var(--color-black-3);
-    padding: 1rem 0;
-    padding-left: 1.5rem;
+    padding: 1rem 1.6rem;
     transition: background-color 0.1s linear, color 0.1s linear;
     list-style-position: inside;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: var(--text-size-xs);
 
-    &:hover,
+    &:hover {
+        background-color: var(--color-grey-6);
+    }
     &:focus {
-        background-color: var(--color-grey-2);
-        color: white;
+        background-color: var(--color-grey-7);
+        font-weight: bold;
+    }
+    &:focus,
+    &:active {
+        outline: none;
     }
 `
 
@@ -58,48 +70,53 @@ const UnorderedList = styled.ul`
     width: 100%;
     position: absolute;
     left: 0;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    box-shadow: 0 3px 2px 0 #a2a4b2;
+    top: 0.8rem;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
     transition: opacity 0.1s cubic-bezier(0, 0, 0.38, 0.9),
         max-height 0.5s cubic-bezier(0, 0, 0.38, 0.9);
     max-height: 0;
     overflow: hidden;
+    background-color: var(--color-white);
     opacity: 0;
     ${props =>
         props.open &&
         css`
             opacity: 1;
             overflow: auto;
-            max-height: 15rem;
+            max-height: 17rem;
         `}
 `
 
-const Arrow = styled.svg`
+const Arrow = styled(Chevron)`
     position: absolute;
-    right: 10px;
-    top: 50%;
+    right: 8px;
+    top: 32%;
     transition: transform 0.2s linear;
-    ${props => props.expanded && 'transform: rotate(-180deg);'}
+    ${props => (props.expanded ? 'transform: rotate(-180deg);' : '')}
 `
 
-const Dropdown = ({ onChange, option_list }) => {
+const Dropdown = ({ default_option, onChange, option_list }) => {
     const SPACEBAR_KEY_CODE = [0, 32]
     const ENTER_KEY_CODE = 13
+    const TAB_KEY_CODE = 9
     const DOWN_ARROW_KEY_CODE = 40
     const UP_ARROW_KEY_CODE = 38
     const ESCAPE_KEY_CODE = 27
     const [is_open, setOpen] = useState(false)
-    const [selected_option, setSelectedOption] = useState('Option 1')
+    const [selected_option, setSelectedOption] = useState('')
     const nodes = new Map()
 
     useEffect(() => {
-        setSelectedOption(option_list[0].text)
+        setSelectedOption(default_option)
     }, [])
 
     const toggleListVisibility = e => {
         e.preventDefault()
-        const open_dropdown = SPACEBAR_KEY_CODE.includes(e.keyCode) || e.keyCode === ENTER_KEY_CODE
+        const open_dropdown =
+            SPACEBAR_KEY_CODE.includes(e.keyCode) ||
+            e.keyCode === ENTER_KEY_CODE ||
+            e.keyCode === TAB_KEY_CODE
         Array.from(nodes.values())
             .filter(node => node !== null)
             .forEach(node => getPosition(node))
@@ -108,7 +125,7 @@ const Dropdown = ({ onChange, option_list }) => {
             closeList()
         }
         if (e.type === 'click' || open_dropdown) {
-            setOpen(true)
+            setOpen(!is_open)
         }
         if (e.keyCode === DOWN_ARROW_KEY_CODE) {
             focusNextListItem(DOWN_ARROW_KEY_CODE)
@@ -122,7 +139,7 @@ const Dropdown = ({ onChange, option_list }) => {
     }
     const focusNextListItem = direction => {
         const activeElement = document.activeElement
-        if (activeElement.id === 'dropdown__selected') {
+        if (activeElement.id === 'selected_dropdown') {
             Array.from(nodes.values())[0].focus()
         } else {
             const active_nodes = nodes.get(activeElement.id)
@@ -150,6 +167,11 @@ const Dropdown = ({ onChange, option_list }) => {
                     onChange(e)
                     closeList()
                     break
+                case TAB_KEY_CODE:
+                    setSelectedItem(e)
+                    onChange(e)
+                    closeList()
+                    break
                 case DOWN_ARROW_KEY_CODE:
                     focusNextListItem(DOWN_ARROW_KEY_CODE)
                     break
@@ -170,20 +192,17 @@ const Dropdown = ({ onChange, option_list }) => {
     }
 
     return (
-        <DropdownContainer>
+        <DropdownContainer active={is_open}>
             <DropdownSelected
                 role="button"
-                id="dropdown__selected"
+                id="selected_dropdown"
                 tabIndex="0"
                 onClick={toggleListVisibility}
                 onKeyDown={toggleListVisibility}
             >
                 {selected_option}
             </DropdownSelected>
-            <Arrow width="10" height="5" viewBox="0 0 10 5" fillRule="evenodd" expanded={is_open}>
-                <title>Open drop down</title>
-                <path d="M10 0L5 5 0 0z" />
-            </Arrow>
+            <Arrow expanded={is_open} />
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
                     {option_list.map(option => (
@@ -203,6 +222,7 @@ const Dropdown = ({ onChange, option_list }) => {
 }
 
 Dropdown.propTypes = {
+    default_option: PropTypes.string,
     onChange: PropTypes.func,
     option_list: PropTypes.array,
 }

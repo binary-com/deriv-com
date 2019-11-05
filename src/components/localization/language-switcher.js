@@ -27,6 +27,10 @@ class LanguageSwitch extends Component {
             text: display_name,
         }
     }
+    getCurrentLanguage() {
+        const { display_name } = language_config[this.state.language]
+        return display_name
+    }
 
     handleSelect = e => {
         const { id } = e.target
@@ -58,6 +62,7 @@ class LanguageSwitch extends Component {
             <Dropdown
                 onChange={this.handleSelect}
                 option_list={languages.map(this.renderLanguageChoice)}
+                default_option={this.getCurrentLanguage()}
             />
         )
     }

@@ -30,16 +30,6 @@ const DropdownSelected = styled.li`
     }
 `
 
-const DropdownLabel = styled.li`
-    position: absolute;
-    top: -9px;
-    left: 15px;
-    background: var(--color-grey-1);
-    color: var(--color-black-3);
-    font-size: var(--text-size-s);
-    font-family: Lato, sans-serif;
-`
-
 const ListContainer = styled.li`
     position: relative;
 `
@@ -104,9 +94,7 @@ const Dropdown = ({ option_list }) => {
     const nodes = new Map()
 
     useEffect(() => {
-        // if (list_item_ref) {
-        //     console.log(list_item_ref)
-        // }
+        setSelectedOption(option_list[0].text)
     })
 
     const toggleListVisibility = e => {
@@ -196,22 +184,16 @@ const Dropdown = ({ option_list }) => {
             </Arrow>
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
-                    <ListItem
-                        tabIndex="0"
-                        id="option-1"
-                        key="option-1"
-                        ref={c => nodes.set('option-1', c)}
-                    >
-                        Option 1
-                    </ListItem>
-                    <ListItem
-                        tabIndex="0"
-                        id="option-2"
-                        key="option-2"
-                        ref={c => nodes.set('option-2', c)}
-                    >
-                        Option 2
-                    </ListItem>
+                    {option_list.map(option => (
+                        <ListItem
+                            tabIndex="0"
+                            id={option.value}
+                            key={option.value}
+                            ref={c => nodes.set(option.value, c)}
+                        >
+                            {option.text}
+                        </ListItem>
+                    ))}
                 </UnorderedList>
             </ListContainer>
         </DropdownContainer>
@@ -219,8 +201,7 @@ const Dropdown = ({ option_list }) => {
 }
 
 Dropdown.propTypes = {
-    children: PropTypes.node,
-    label: PropTypes.string,
+    option_list: PropTypes.array,
 }
 
 export default Dropdown

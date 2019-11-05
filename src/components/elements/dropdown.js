@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Chevron from 'images/svg/chevron-bottom.svg'
@@ -107,9 +107,21 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
     const [is_open, setOpen] = useState(false)
     const [selected_option, setSelectedOption] = useState('')
     const nodes = new Map()
+    const dropdown_ref = useRef(null)
 
     useEffect(() => {
         setSelectedOption(default_option)
+
+        const handleClickOutside = e => {
+            if (!dropdown_ref.current.contains(e.target)) {
+                setOpen(false)
+            }
+        }
+        document.addEventListener('click', handleClickOutside)
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside)
+        }
     }, [])
 
     const toggleListVisibility = e => {
@@ -193,7 +205,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
     }
 
     return (
-        <DropdownContainer active={is_open}>
+        <DropdownContainer active={is_open} ref={dropdown_ref}>
             <DropdownSelected
                 role="button"
                 id="selected_dropdown"

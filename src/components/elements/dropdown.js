@@ -83,7 +83,7 @@ const Arrow = styled.svg`
     ${props => props.expanded && 'transform: rotate(-180deg);'}
 `
 
-const Dropdown = ({ option_list }) => {
+const Dropdown = ({ onChange, option_list }) => {
     const SPACEBAR_KEY_CODE = [0, 32]
     const ENTER_KEY_CODE = 13
     const DOWN_ARROW_KEY_CODE = 40
@@ -95,7 +95,7 @@ const Dropdown = ({ option_list }) => {
 
     useEffect(() => {
         setSelectedOption(option_list[0].text)
-    })
+    }, [])
 
     const toggleListVisibility = e => {
         e.preventDefault()
@@ -139,6 +139,7 @@ const Dropdown = ({ option_list }) => {
         node.addEventListener('click', e => {
             e.preventDefault()
             setSelectedItem(e)
+            onChange(e)
             closeList()
         })
         node.addEventListener('keydown', e => {
@@ -146,6 +147,7 @@ const Dropdown = ({ option_list }) => {
             switch (e.keyCode) {
                 case ENTER_KEY_CODE:
                     setSelectedItem(e)
+                    onChange(e)
                     closeList()
                     break
                 case DOWN_ARROW_KEY_CODE:
@@ -201,6 +203,7 @@ const Dropdown = ({ option_list }) => {
 }
 
 Dropdown.propTypes = {
+    onChange: PropTypes.func,
     option_list: PropTypes.array,
 }
 

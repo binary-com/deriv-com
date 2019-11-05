@@ -12,6 +12,7 @@ const DropdownContainer = styled.ul`
     border-radius: 4px;
     width: 15.2rem;
     height: 3.2rem;
+    top: 25%;
     ${props => props.active && 'border-color: var(--color-green) !important;'}
 
     &:hover {
@@ -74,7 +75,7 @@ const UnorderedList = styled.ul`
     border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
     transition: opacity 0.1s cubic-bezier(0, 0, 0.38, 0.9),
-        max-height 0.5s cubic-bezier(0, 0, 0.38, 0.9);
+        max-height 0.25s cubic-bezier(0, 0, 0.38, 0.9);
     max-height: 0;
     overflow: hidden;
     background-color: var(--color-white);
@@ -91,7 +92,7 @@ const UnorderedList = styled.ul`
 const Arrow = styled(Chevron)`
     position: absolute;
     right: 8px;
-    top: 32%;
+    top: 25%;
     transition: transform 0.2s linear;
     ${props => (props.expanded ? 'transform: rotate(-180deg);' : '')}
 `

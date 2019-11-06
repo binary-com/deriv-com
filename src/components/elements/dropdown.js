@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import Keycodes from 'common/keycodes'
 import Chevron from 'images/svg/chevron-bottom.svg'
 
 const DropdownContainer = styled.ul`
@@ -13,6 +14,8 @@ const DropdownContainer = styled.ul`
     width: 15.2rem;
     height: 3.2rem;
     top: 25%;
+
+    /* ul has no focus attributes, it needs to pass on active props instead */
     ${props => props.active && 'border-color: var(--color-green) !important;'}
 
     &:hover {
@@ -31,10 +34,6 @@ const DropdownSelected = styled.li`
     font-size: var(--text-size-xs);
     display: flex;
     align-items: center;
-
-    &:focus {
-        outline: none;
-    }
 `
 
 const ListContainer = styled.li`
@@ -98,12 +97,6 @@ const Arrow = styled(Chevron)`
 `
 
 const Dropdown = ({ default_option, onChange, option_list }) => {
-    const SPACEBAR_KEY_CODE = [0, 32]
-    const ENTER_KEY_CODE = 13
-    const TAB_KEY_CODE = 9
-    const DOWN_ARROW_KEY_CODE = 40
-    const UP_ARROW_KEY_CODE = 38
-    const ESCAPE_KEY_CODE = 27
     const [is_open, setOpen] = useState(false)
     const [selected_option, setSelectedOption] = useState('')
     const nodes = new Map()
@@ -127,45 +120,52 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
     const toggleListVisibility = e => {
         e.preventDefault()
         const open_dropdown =
-            SPACEBAR_KEY_CODE.includes(e.keyCode) ||
-            e.keyCode === ENTER_KEY_CODE ||
-            e.keyCode === TAB_KEY_CODE
+            e.keyCode === Keycodes.space ||
+            e.keyCode === Keycodes.enter ||
+            e.keyCode === Keycodes.tab
+
+        // adding each item nodes a listener (click and keys)
+        // and filter if there is null nodes in the array
         Array.from(nodes.values())
             .filter(node => node !== null)
-            .forEach(node => getPosition(node))
+            .forEach(node => addItemListener(node))
 
-        if (e.keyCode === ESCAPE_KEY_CODE) {
+        if (e.keyCode === Keycodes.escape) {
             closeList()
         }
         if (e.type === 'click' || open_dropdown) {
             setOpen(!is_open)
         }
-        if (e.keyCode === DOWN_ARROW_KEY_CODE) {
-            focusNextListItem(DOWN_ARROW_KEY_CODE)
+        if (e.keyCode === Keycodes.down_arrow) {
+            focusNextListItem(Keycodes.down_arrow)
         }
-        if (e.keyCode === UP_ARROW_KEY_CODE) {
-            focusNextListItem(UP_ARROW_KEY_CODE)
+        if (e.keyCode === Keycodes.up_arrow) {
+            focusNextListItem(Keycodes.up_arrow)
         }
     }
+
     const closeList = () => {
         setOpen(false)
     }
+
     const focusNextListItem = direction => {
         const activeElement = document.activeElement
+
         if (activeElement.id === 'selected_dropdown') {
             Array.from(nodes.values())[0].focus()
         } else {
             const active_nodes = nodes.get(activeElement.id)
             if (active_nodes) {
-                if (direction === DOWN_ARROW_KEY_CODE) {
+                if (direction === Keycodes.down_arrow) {
                     active_nodes.nextSibling && active_nodes.nextSibling.focus()
-                } else if (direction === UP_ARROW_KEY_CODE) {
+                } else if (direction === Keycodes.up_arrow) {
                     active_nodes.previousSibling && active_nodes.previousSibling.focus()
                 }
             }
         }
     }
-    const getPosition = node => {
+
+    const addItemListener = node => {
         node.addEventListener('click', e => {
             e.preventDefault()
             setSelectedItem(e)
@@ -175,23 +175,23 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
         node.addEventListener('keydown', e => {
             e.preventDefault()
             switch (e.keyCode) {
-                case ENTER_KEY_CODE:
+                case Keycodes.enter:
                     setSelectedItem(e)
                     onChange(e)
                     closeList()
                     break
-                case TAB_KEY_CODE:
+                case Keycodes.tab:
                     setSelectedItem(e)
                     onChange(e)
                     closeList()
                     break
-                case DOWN_ARROW_KEY_CODE:
-                    focusNextListItem(DOWN_ARROW_KEY_CODE)
+                case Keycodes.down_arrow:
+                    focusNextListItem(Keycodes.down_arrow)
                     break
-                case UP_ARROW_KEY_CODE:
-                    focusNextListItem(UP_ARROW_KEY_CODE)
+                case Keycodes.up_arrow:
+                    focusNextListItem(Keycodes.up_arrow)
                     break
-                case ESCAPE_KEY_CODE:
+                case Keycodes.escape:
                     closeList()
                     break
                 default:
@@ -214,8 +214,8 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                 onKeyDown={toggleListVisibility}
             >
                 {selected_option}
+                <Arrow expanded={is_open} />
             </DropdownSelected>
-            <Arrow expanded={is_open} />
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
                     {option_list.map(option => (

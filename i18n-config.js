@@ -55,6 +55,6 @@ module.exports = {
     },
     ach: {
         path: 'ach',
-        display_name: 'Crowdin Translation',
+        display_name: 'Crowdin',
     },
 }

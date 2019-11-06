@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { Scrollbars } from 'react-custom-scrollbars'
 import Keycodes from 'common/keycodes'
 import Chevron from 'images/svg/chevron-bottom.svg'
+import device from 'themes/device'
 
 const DropdownContainer = styled.ul`
     list-style: none;
@@ -12,8 +13,8 @@ const DropdownContainer = styled.ul`
     cursor: pointer;
     padding: 0;
     border-radius: 4px;
-    width: 15.2rem;
-    height: 3.2rem;
+    width: 152px;
+    height: 32px;
     top: 25%;
 
     /* ul has no focus attributes, it needs to pass on active props instead */
@@ -21,6 +22,9 @@ const DropdownContainer = styled.ul`
 
     &:hover {
         border-color: var(--color-grey-5);
+    }
+    @media ${device.tabletL} {
+        width: 136px;
     }
 `
 

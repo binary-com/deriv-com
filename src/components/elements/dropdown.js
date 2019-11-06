@@ -24,6 +24,7 @@ const DropdownContainer = styled.ul`
     }
     @media ${device.tabletL} {
         width: 136px;
+        top: 12px;
     }
 `
 

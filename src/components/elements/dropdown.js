@@ -15,7 +15,6 @@ const DropdownContainer = styled.ul`
     border-radius: 4px;
     width: 152px;
     height: 32px;
-    top: 25%;
 
     /* ul has no focus attributes, it needs to pass on active props instead */
     ${props => props.active && 'border-color: var(--color-green) !important;'}

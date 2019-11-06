@@ -137,7 +137,7 @@ export const Card = ({ children, Icon, title, content, width, min_height, is_inl
 Card.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    Icon: PropTypes.func,
+    Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     is_inline_icon: PropTypes.bool,
     min_height: PropTypes.string,
     title: PropTypes.string,

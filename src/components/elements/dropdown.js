@@ -168,7 +168,6 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
     const addItemListener = node => {
         node.addEventListener('click', e => {
             e.preventDefault()
-            setSelectedItem(e)
             onChange(e)
             closeList()
         })
@@ -176,12 +175,10 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             e.preventDefault()
             switch (e.keyCode) {
                 case Keycodes.enter:
-                    setSelectedItem(e)
                     onChange(e)
                     closeList()
                     break
                 case Keycodes.tab:
-                    setSelectedItem(e)
                     onChange(e)
                     closeList()
                     break
@@ -198,10 +195,6 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                     break
             }
         })
-    }
-    const setSelectedItem = e => {
-        const text = e.target.innerText
-        setSelectedOption(text)
     }
 
     return (

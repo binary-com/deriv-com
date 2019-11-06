@@ -10,18 +10,22 @@ import device from 'themes/device.js'
 const SignupWrapper = styled.article`
     background-color: var(--color-grey-1);
     width: 80rem;
-    height: 57.3rem;
+    height: 58rem;
     border-radius: 6px;
     overflow: auto;
 
     @media ${device.tabletL} {
-        width: 300px;
-        height: 42rem;
+        width: 315px;
+        height: 56rem;
     }
 `
 
 const ModalRow = styled(FlexGridContainer)`
     height: 100%;
+
+    & > * {
+        width: 50%;
+    }
     @media (max-width: 992px) {
         width: 100%;
     }
@@ -55,7 +59,7 @@ const SignupContent = styled(Content)`
 `
 
 const HeaderWrapper = styled(Header)`
-    max-width: 75%;
+    max-width: 90%;
 `
 
 const SignupModal = ({ autofocus, closeModal }) => (

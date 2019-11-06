@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { Scrollbars } from 'react-custom-scrollbars'
 import Keycodes from 'common/keycodes'
 import Chevron from 'images/svg/chevron-bottom.svg'
 
@@ -83,7 +84,6 @@ const UnorderedList = styled.ul`
         props.open &&
         css`
             opacity: 1;
-            overflow: auto;
             max-height: 17rem;
         `}
 `
@@ -211,16 +211,18 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             </DropdownSelected>
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
-                    {option_list.map(option => (
-                        <ListItem
-                            tabIndex="0"
-                            id={option.value}
-                            key={option.value}
-                            ref={c => nodes.set(option.value, c)}
-                        >
-                            {option.text}
-                        </ListItem>
-                    ))}
+                    <Scrollbars style={{ height: '17rem' }}>
+                        {option_list.map(option => (
+                            <ListItem
+                                tabIndex="0"
+                                id={option.value}
+                                key={option.value}
+                                ref={c => nodes.set(option.value, c)}
+                            >
+                                {option.text}
+                            </ListItem>
+                        ))}
+                    </Scrollbars>
                 </UnorderedList>
             </ListContainer>
         </DropdownContainer>

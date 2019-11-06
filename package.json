@@ -25,6 +25,7 @@
         "match-sorter": "^4.0.2",
         "prop-types": "^15.7.2",
         "react": "^16.11.0",
+        "react-custom-scrollbars": "^4.2.1",
         "react-dom": "^16.11.0",
         "react-helmet": "^5.2.1",
         "react-i18next": "^10.13.1",

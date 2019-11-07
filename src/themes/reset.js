@@ -120,6 +120,9 @@ const Reset = css`
     ul {
         list-style: none;
     }
+    li {
+        outline: none;
+    }
     blockquote,
     q {
         quotes: none;

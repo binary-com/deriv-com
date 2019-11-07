@@ -12,6 +12,7 @@ import Modal, { useModal } from './modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from './off-canvas-menu'
 import SideTab from './side-tab'
 import { Text, LinkText, Header } from './typography'
+import InfiniteLoader from './infinite-loader'
 
 export {
     AutoCarousel,
@@ -24,6 +25,7 @@ export {
     Dropdown,
     Hero,
     Image,
+    InfiniteLoader,
     StyledLink,
     LinearLoader,
     Modal,

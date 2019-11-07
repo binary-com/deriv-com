@@ -1,16 +1,27 @@
 import React from 'react'
+import Loadable from 'react-loadable'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import { HowItWorks } from './home/_how-it-works'
 import { Markets } from './home/_markets'
-import { WhyDeriv } from './home/_why-deriv'
 import { WhyDerivMobile } from './home/_why-deriv-mobile'
-import PaymentMethods from './home/_payment-methods'
-import Ticker from './home/_ticker'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { Divider } from 'components/elements'
+import { Divider, InfiniteLoader } from 'components/elements'
+
+const PaymentMethods = Loadable({
+    loader: () => import('./home/_payment-methods'),
+    loading: InfiniteLoader,
+})
+const Ticker = Loadable({
+    loader: () => import('./home/_ticker'),
+    loading: InfiniteLoader,
+})
+const WhyDeriv = Loadable({
+    loader: () => import('./home/_why-deriv'),
+    loading: InfiniteLoader,
+})
 
 const Home = () => (
     <Layout>

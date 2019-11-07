@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { HeroHeader, StyledHeader } from './_headers'
+import { HeroHeader } from './_headers'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Show } from 'components/containers'
-import { Header, Modal, useModal } from 'components/elements'
+import { Modal, useModal } from 'components/elements'
 import { localize } from 'components/localization'
 import SignupModal from 'components/custom/signup-modal'
 
@@ -70,8 +70,14 @@ const HeroGrid = styled.section`
 const ButtonWrapper = styled.div`
     margin-top: 3.2rem;
 
+    ${Button} {
+        font-size: 1.6rem;
+    }
     @media ${device.laptop} {
         text-align: center;
+    }
+    @media ${device.tabletL} {
+        text-align: left;
     }
 `
 
@@ -82,29 +88,17 @@ export const Hero = () => {
             <Container>
                 <HeroGrid>
                     <StyledArticle>
-                        <Show.Mobile>
-                            <Header font_size="6rem" color="white" lh="1.1">
-                                {localize('Welcome to the ultimate trading experience')}
-                            </Header>
-                            <StyledHeader font_size="2rem" color="white" weight="500">
-                                {localize('All the world’s markets, one powerful trading platform')}
-                            </StyledHeader>
-                        </Show.Mobile>
-                        <Show.Desktop>
-                            <HeroHeader as="h1" color="white" lh="1.2">
-                                {localize('This is your ultimate trading experience')}
-                            </HeroHeader>
-                            <HeroHeader as="h4" color="white" weight="500" secondary>
-                                {localize(
-                                    'The world’s markets at your fingertips anytime, anywhere.',
-                                )}
-                            </HeroHeader>
-                            <ButtonWrapper>
-                                <Button type="submit" onClick={toggleModal} secondary>
-                                    {localize('Create a free account')}
-                                </Button>
-                            </ButtonWrapper>
-                        </Show.Desktop>
+                        <HeroHeader as="h1" color="white" lh="1.2">
+                            {localize('This is your ultimate trading experience')}
+                        </HeroHeader>
+                        <HeroHeader as="h4" color="white" weight="500" secondary>
+                            {localize('The world’s markets at your fingertips anytime, anywhere.')}
+                        </HeroHeader>
+                        <ButtonWrapper>
+                            <Button type="submit" onClick={toggleModal} secondary>
+                                {localize('Create a free account')}
+                            </Button>
+                        </ButtonWrapper>
                     </StyledArticle>
                     <Show.Desktop>
                         <VideoWrapper>

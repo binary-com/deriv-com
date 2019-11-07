@@ -1,10 +1,10 @@
 const Keycodes = {
-    space: 32,
-    enter: 13,
-    tab: 9,
-    down_arrow: 40,
-    up_arrow: 38,
-    escape: 27,
+    SPACE: 32,
+    ENTER: 13,
+    TAB: 9,
+    DOWN_ARROW: 40,
+    UP_ARROW: 38,
+    ESCAPE: 27,
 }
 
 export default Keycodes

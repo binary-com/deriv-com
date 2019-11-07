@@ -29,7 +29,6 @@
         "react-helmet": "^5.2.1",
         "react-i18next": "^10.13.1",
         "react-perfect-scrollbar": "^1.5.3",
-        "simplebar-react": "^2.0.2-corejs2-1",
         "typeface-ibm-plex-sans": "0.0.75"
     },
     "devDependencies": {

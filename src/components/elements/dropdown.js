@@ -126,9 +126,9 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
     const toggleListVisibility = e => {
         e.preventDefault()
         const open_dropdown =
-            e.keyCode === Keycodes.space ||
-            e.keyCode === Keycodes.enter ||
-            e.keyCode === Keycodes.tab
+            e.keyCode === Keycodes.SPACE ||
+            e.keyCode === Keycodes.ENTER ||
+            e.keyCode === Keycodes.TAB
 
         // adding each item nodes a listener (click and keys)
         // and filter if there is null nodes in the array
@@ -136,17 +136,17 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             .filter(node => node !== null)
             .forEach(node => addItemListener(node))
 
-        if (e.keyCode === Keycodes.escape) {
+        if (e.keyCode === Keycodes.ESCAPE) {
             closeList()
         }
         if (e.type === 'click' || open_dropdown) {
             setOpen(!is_open)
         }
-        if (e.keyCode === Keycodes.down_arrow) {
-            focusNextListItem(Keycodes.down_arrow)
+        if (e.keyCode === Keycodes.DOWN_ARROW) {
+            focusNextListItem(Keycodes.DOWN_ARROW)
         }
-        if (e.keyCode === Keycodes.up_arrow) {
-            focusNextListItem(Keycodes.up_arrow)
+        if (e.keyCode === Keycodes.UP_ARROW) {
+            focusNextListItem(Keycodes.UP_ARROW)
         }
     }
 
@@ -162,9 +162,9 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
         } else {
             const active_nodes = nodes.get(activeElement.id)
             if (active_nodes) {
-                if (direction === Keycodes.down_arrow) {
+                if (direction === Keycodes.DOWN_ARROW) {
                     active_nodes.nextSibling && active_nodes.nextSibling.focus()
-                } else if (direction === Keycodes.up_arrow) {
+                } else if (direction === Keycodes.UP_ARROW) {
                     active_nodes.previousSibling && active_nodes.previousSibling.focus()
                 }
             }
@@ -180,19 +180,19 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
         node.addEventListener('keydown', e => {
             e.preventDefault()
             switch (e.keyCode) {
-                case Keycodes.enter:
+                case Keycodes.ENTER:
                     onChange(e)
                     closeList()
                     break
-                case Keycodes.tab:
+                case Keycodes.TAB:
                     onChange(e)
                     closeList()
                     break
-                case Keycodes.down_arrow:
-                    focusNextListItem(Keycodes.down_arrow)
+                case Keycodes.DOWN_ARROW:
+                    focusNextListItem(Keycodes.DOWN_ARROW)
                     break
-                case Keycodes.up_arrow:
-                    focusNextListItem(Keycodes.up_arrow)
+                case Keycodes.UP_ARROW:
+                    focusNextListItem(Keycodes.UP_ARROW)
                     break
                 case Keycodes.escape:
                     closeList()

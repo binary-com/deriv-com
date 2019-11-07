@@ -34,7 +34,7 @@ const InputGroup = styled.div`
     margin: var(--text-size-m) 0;
 `
 const EmailButton = styled(Button)`
-    width: 100%;
+    width: auto;
     font-size: 1.4rem;
     margin-bottom: 2rem;
 `
@@ -56,13 +56,17 @@ const SocialWrapper = styled(FlexGridContainer)`
 export const LoginText = styled(MutedText)`
     text-align: center;
     align-self: center;
-    margin-top: 4rem;
-    margin-bottom: 8rem;
+    margin-top: 2.4rem;
 
     @media ${device.tabletL} {
         margin-bottom: 0;
     }
 `
+
+const NoteText = styled(LoginText)`
+    margin-top: 3rem;
+`
+
 const LoginLink = styled.a`
     color: var(--color-red);
     text-decoration: none;
@@ -192,7 +196,7 @@ class Signup extends Component {
             <>
                 {!this.state.submit_status && (
                     <Form onSubmit={this.handleEmailSignup} noValidate>
-                        <Header as="h3" weight="normal">
+                        <Header as="h3" weight="bold">
                             {localize('Sign up for free now!')}
                         </Header>
                         <InputGroup>
@@ -215,7 +219,9 @@ class Signup extends Component {
                         <EmailButton type="submit" secondary disabled={this.state.is_submitting}>
                             {localize('Create a free account')}
                         </EmailButton>
-                        <Text color="grey">{localize('Or sign up with')}</Text>
+                        <Text color="grey" align="center">
+                            {localize('Or sign up with')}
+                        </Text>
                         <SocialWrapper justify="space-between" gap="0" grid="2">
                             <SocialButton
                                 onClick={this.handleSocialSignup}
@@ -244,6 +250,15 @@ class Signup extends Component {
                             {localize('Already have an account?')}
                             <LoginLink onClick={this.handleLogin}> {localize('Log in.')}</LoginLink>
                         </LoginText>
+                        <NoteText>
+                            <Localize
+                                translate_text="Got a <0>Binary.com</0> account? You can <1>log in</1> to <0>Deriv</0> with your <0>Binary.com</0> username and password"
+                                components={[
+                                    <strong key={0} />,
+                                    <LoginLink key={1} onClick={this.handleLogin} />,
+                                ]}
+                            />
+                        </NoteText>
                     </Form>
                 )}
                 {this.state.submit_status === 'success' && (

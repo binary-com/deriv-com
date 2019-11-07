@@ -25,10 +25,11 @@ module.exports = {
         path: 'pl',
         display_name: 'Polish',
     },
-    de: {
-        path: 'de',
-        display_name: 'Deutsch',
-    },
+    // TODO: uncomment when supported
+    // de: {
+    //     path: 'de',
+    //     display_name: 'Deutsch',
+    // },
     pt: {
         path: 'pt',
         display_name: 'Português',
@@ -37,10 +38,11 @@ module.exports = {
         path: 'ru',
         display_name: 'Русский',
     },
-    th: {
-        path: 'th',
-        display_name: 'Thai',
-    },
+    // TODO: uncomment when supported
+    // th: {
+    //     path: 'th',
+    //     display_name: 'Thai',
+    // },
     vi: {
         path: 'vi',
         display_name: 'Tiếng Việt',

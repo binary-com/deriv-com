@@ -6,6 +6,7 @@ import Footer from './footer'
 
 const Main = styled.main`
     padding-top: 7rem;
+    background: var(--color-white);
 `
 
 const Layout = ({ children, is_static }) => (

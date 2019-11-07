@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Scrollbars } from 'react-custom-scrollbars'
+import { Scrollbars } from 'tt-react-custom-scrollbars'
 import Keycodes from 'common/keycodes'
 import Chevron from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
@@ -215,12 +215,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             </DropdownSelected>
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
-                    <Scrollbars
-                        renderView={({ style, ...props }) => (
-                            <div {...props} style={{ ...style, marginRight: '-18px' }} />
-                        )}
-                        style={{ height: '17rem' }}
-                    >
+                    <Scrollbars style={{ height: '17rem' }}>
                         {option_list.map(option => (
                             <ListItem
                                 tabIndex="0"

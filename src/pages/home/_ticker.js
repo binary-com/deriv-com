@@ -5,7 +5,6 @@ import Tick from './_tick.js'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { AutoCarousel } from 'components/elements'
 // Icon
-
 const CarouselWapper = styled.div`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
 `

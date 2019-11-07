@@ -53,7 +53,7 @@ const ButtonWrapper = styled.div`
     margin-top: 4rem;
 `
 
-export const WhyDeriv = () => {
+const WhyDeriv = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
     return (
@@ -71,3 +71,5 @@ export const WhyDeriv = () => {
         </HomeCarouselWrapper>
     )
 }
+
+export default WhyDeriv

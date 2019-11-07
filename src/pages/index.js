@@ -3,10 +3,10 @@ import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import { HowItWorks } from './home/_how-it-works'
 import { Markets } from './home/_markets'
-import { WhyDeriv } from './home/_why-deriv'
+import { WhyDerivLazy } from './home/_why-deriv-lazy'
 import { WhyDerivMobile } from './home/_why-deriv-mobile'
-import PaymentMethods from './home/_payment-methods'
-import Ticker from './home/_ticker'
+import { PaymentMethodsLazy } from './home/_payment-methods-lazy'
+import { TickerLazy } from './home/_ticker-lazy'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -23,17 +23,21 @@ const Home = () => (
         <Hero />
         <Show.Mobile>
             <WhyDerivMobile />
-            <Trade />
         </Show.Mobile>
         <Show.Desktop>
-            <Ticker />
-            <Trade />
+            {/* fetch if desktop on mount */}
+            <TickerLazy />
+        </Show.Desktop>
+        <Trade />
+        <Show.Desktop>
             <Divider />
             <HowItWorks />
             <Divider />
             <Markets />
-            <WhyDeriv />
-            <PaymentMethods />
+            {/* fetch if desktop on mount */}
+            <WhyDerivLazy />
+            {/* fetch if desktop on mount */}
+            <PaymentMethodsLazy />
         </Show.Desktop>
     </Layout>
 )

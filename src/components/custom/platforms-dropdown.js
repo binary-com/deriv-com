@@ -74,8 +74,8 @@ const PlatformItem = styled(LocalizedLink)`
 // eslint-disable-next-line react/prop-types
 const PlatformsDropdown = ({ is_open, has_animation }) => {
     return (
-        <Show.Desktop>
-            <NavDropdown is_open={is_open} has_animation={has_animation}>
+        <NavDropdown is_open={is_open} has_animation={has_animation}>
+            <Show.Desktop>
                 <NavDropdownGrid>
                     <PlatformItem
                         activeClassName="active"
@@ -129,8 +129,8 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
                         </div>
                     </PlatformItem>
                 </NavDropdownGrid>
-            </NavDropdown>
-        </Show.Desktop>
+            </Show.Desktop>
+        </NavDropdown>
     )
 }
 export default React.memo(PlatformsDropdown)

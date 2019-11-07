@@ -215,7 +215,12 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             </DropdownSelected>
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
-                    <Scrollbars style={{ height: '17rem' }}>
+                    <Scrollbars
+                        renderView={({ style, ...props }) => (
+                            <div {...props} style={{ ...style, marginRight: '-18px' }} />
+                        )}
+                        style={{ height: '17rem' }}
+                    >
                         {option_list.map(option => (
                             <ListItem
                                 tabIndex="0"

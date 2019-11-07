@@ -122,7 +122,7 @@ const SEO = ({ description, meta, title }) => {
                 },
                 {
                     name: 'yandex-verification',
-                    content: '7532efc509888c29',
+                    content: '4ddb94bbff872c63',
                 },
             ].concat(meta)}
         >

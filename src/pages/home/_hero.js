@@ -1,12 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import Loadable from 'react-loadable'
 import { HeroHeader } from './_headers'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Show } from 'components/containers'
-import { Modal, useModal } from 'components/elements'
+import { Modal, useModal, InfiniteLoader } from 'components/elements'
 import { localize } from 'components/localization'
 import SignupModal from 'components/custom/signup-modal'
+
+const Video = Loadable({
+    loader: () => import('./_video'),
+    loading: InfiniteLoader,
+})
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -102,10 +108,7 @@ export const Hero = () => {
                     </StyledArticle>
                     <Show.Desktop>
                         <VideoWrapper>
-                            <video width="100%" height="100%" autoPlay muted playsInline loop>
-                                <source src="/deriv_trading_platform.webm" type="video/webm" />
-                                <source src="/deriv_trading_platform.mp4" type="video/mp4" />
-                            </video>
+                            <Video />
                         </VideoWrapper>
                     </Show.Desktop>
                     <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>

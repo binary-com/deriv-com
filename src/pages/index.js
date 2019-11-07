@@ -4,7 +4,6 @@ import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import { HowItWorks } from './home/_how-it-works'
 import { Markets } from './home/_markets'
-import { WhyDerivMobile } from './home/_why-deriv-mobile'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -20,6 +19,10 @@ const Ticker = Loadable({
 })
 const WhyDeriv = Loadable({
     loader: () => import('./home/_why-deriv'),
+    loading: InfiniteLoader,
+})
+const WhyDerivMobile = Loadable({
+    loader: () => import('./home/_why-deriv-mobile'),
     loading: InfiniteLoader,
 })
 

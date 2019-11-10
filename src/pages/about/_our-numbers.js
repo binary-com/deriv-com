@@ -131,17 +131,17 @@ const Charts = styled.div`
 
 const chart_data = [
     {
-        amount: '962,900+',
+        amount: '1,033,339+',
         text: <Localize translate_text="Trading accounts opened" />,
         icon: <img src={TradingAccounts} />,
     },
     {
-        amount: '27,354,600+',
+        amount: '33,098,936+',
         text: <Localize translate_text="Trades last month" />,
         icon: <img src={TradingTrades} />,
     },
     {
-        amount: 'USD 6,748,229,300+',
+        amount: 'USD 6,950,855,573+',
         text: <Localize translate_text="Total trade turnover" />,
         icon: <img src={TradingTurnover} />,
     },
@@ -186,7 +186,7 @@ export const OurNumbers = () => (
                         <p>{data.text}</p>
                     </Charts>
                 ))}
-                <h1>USD 19,566,100+</h1>
+                <h1>USD 22,822,204+</h1>
                 <Text>{localize('Withdrawn last month')}</Text>
             </ChartContainer>
         </OurNumbersContainer>

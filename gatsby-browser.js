@@ -1,3 +1,4 @@
+import { navigate } from 'gatsby'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -13,10 +14,19 @@ export const onInitialClientRender = () => {
     // Check if not production and match ach or ach/
 
     if (is_browser) {
-        if (!isProduction() && window.location.pathname.match(/^(ach\/)|ach$/)) {
-            LocalStore.set('i18n', 'ach')
+        const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
+
+        if (match_ach) {
+            // TODO: remove this line when production ready for translation
+            if (isProduction()) {
+                navigate('/')
+            } else {
+                LocalStore.set('i18n', 'ach')
+            }
         }
+
         const i18n = LocalStore.get('i18n')
+
         if (!isProduction() && i18n && i18n.match('ach')) {
             const jipt = document.createElement('script')
             jipt.type = 'text/javascript'

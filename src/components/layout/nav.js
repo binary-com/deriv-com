@@ -183,14 +183,21 @@ export const Nav = () => {
     const handleNormalLink = () => {
         setHasAnimation(false)
     }
-
     return (
         <NavWrapper ref={nav_ref}>
             <StyledNav>
-                <PlatformsDropdown is_open={is_platforms_open} has_animation={has_animation} />
+                <PlatformsDropdown
+                    is_open={is_platforms_open}
+                    has_animation={has_animation}
+                    onClick={handlePlatformsClick}
+                />
                 <Wrapper>
                     <NavLeft>
-                        <LogoLink to="/" aria-label={localize('Home')}>
+                        <LogoLink
+                            to="/"
+                            aria-label={localize('Home')}
+                            onClick={() => setIsPlatformsOpen(false)}
+                        >
                             <LogoBeta />
                         </LogoLink>
                     </NavLeft>

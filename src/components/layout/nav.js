@@ -2,18 +2,24 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Loadable from 'react-loadable'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container } from 'components/containers'
 import { Modal, useModal, OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
-import PlatformsDropdown from 'components/custom/platforms-dropdown'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
 import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
+
+const Loader = () => <></>
+const PlatformsDropdown = Loadable({
+    loader: () => import('../custom/platforms-dropdown'),
+    loading: Loader,
+})
 
 const NavWrapper = styled.div`
     width: 100%;

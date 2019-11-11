@@ -5,13 +5,14 @@ import { HeroHeader } from './_headers'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Show } from 'components/containers'
-import { Modal, useModal, InfiniteLoader } from 'components/elements'
+import { Modal, useModal } from 'components/elements'
 import { localize } from 'components/localization'
 import SignupModal from 'components/custom/signup-modal'
 
+const Loader = () => <></>
 const Video = Loadable({
     loader: () => import('./_video'),
-    loading: InfiniteLoader,
+    loading: Loader,
 })
 
 const HeroWrapper = styled.section`

@@ -140,7 +140,7 @@ const Synthetic = () => (
     </StyledSection>
 )
 
-export const Markets = () => (
+const Markets = () => (
     <StyledContainer>
         <Container direction="column">
             <Header as="h2" align="center">
@@ -160,3 +160,5 @@ export const Markets = () => (
         </Container>
     </StyledContainer>
 )
+
+export default Markets

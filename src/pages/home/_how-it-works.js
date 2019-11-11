@@ -27,7 +27,7 @@ const SecondaryArticle = styled.article`
     }
 `
 
-export const HowItWorks = () => (
+const HowItWorks = () => (
     <SectionContainer>
         <SectionHeader>
             <Header as="h2" align="center" color="black-2">
@@ -73,3 +73,5 @@ export const HowItWorks = () => (
         </Container>
     </SectionContainer>
 )
+
+export default HowItWorks

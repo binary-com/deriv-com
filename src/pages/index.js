@@ -2,8 +2,6 @@ import React from 'react'
 import Loadable from 'react-loadable'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
-import { HowItWorks } from './home/_how-it-works'
-import { Markets } from './home/_markets'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -25,6 +23,14 @@ const WhyDerivMobile = Loadable({
     loader: () => import('./home/_why-deriv-mobile'),
     loading: InfiniteLoader,
 })
+const HowItWorks = Loadable({
+    loader: () => import('./home/_how-it-works'),
+    loading: InfiniteLoader,
+})
+const Markets = Loadable({
+    loader: () => import('./home/_markets'),
+    loading: InfiniteLoader,
+})
 
 const Home = () => (
     <Layout>
@@ -37,11 +43,12 @@ const Home = () => (
         <Hero />
         <Show.Mobile>
             <WhyDerivMobile />
-            <Trade />
         </Show.Mobile>
         <Show.Desktop>
             <Ticker />
-            <Trade />
+        </Show.Desktop>
+        <Trade />
+        <Show.Desktop>
             <Divider />
             <HowItWorks />
             <Divider />

@@ -33,7 +33,7 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-remove-serviceworker',
+        `gatsby-plugin-offline`,
         {
             resolve: 'gatsby-plugin-manifest',
             options: {

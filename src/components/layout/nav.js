@@ -186,9 +186,11 @@ export const Nav = () => {
     return (
         <NavWrapper ref={nav_ref}>
             <StyledNav>
-                {is_platforms_open && (
-                    <PlatformsDropdown is_open={is_platforms_open} has_animation={has_animation} />
-                )}
+                <PlatformsDropdown
+                    is_open={is_platforms_open}
+                    has_animation={has_animation}
+                    onClick={handlePlatformsClick}
+                />
                 <Wrapper>
                     <NavLeft>
                         <LogoLink

@@ -9,10 +9,6 @@ exports.onCreatePage = ({ page, actions }) => {
     // So everything in src/pages/
     deletePage(page)
 
-    // Checking env variables
-    // eslint-disable-next-line no-console
-    console.log(process.env.GATSBY_ENV)
-
     Object.keys(language_config).map(lang => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]

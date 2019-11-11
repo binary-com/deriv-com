@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
-import { GridContainer, Show } from 'components/containers'
+import { GridContainer } from 'components/containers'
 import { Text } from 'components/elements'
 // Icons
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -72,64 +72,65 @@ const PlatformItem = styled(LocalizedLink)`
 `
 
 // eslint-disable-next-line react/prop-types
-const PlatformsDropdown = ({ is_open, has_animation }) => {
+const PlatformsDropdown = ({ is_open, has_animation, onClick }) => {
     return (
         <NavDropdown is_open={is_open} has_animation={has_animation}>
-            <Show.Desktop>
-                <NavDropdownGrid>
-                    <PlatformItem
-                        activeClassName="active"
-                        to="/dtrader/"
-                        aria-label={localize('DTrader')}
-                        partiallyActive={true}
-                    >
-                        <DTrader />
-                        <div>
-                            <Text secondary color="black-3" weight="bold">
-                                {localize('DTrader')}
-                            </Text>
-                            <Text color="black-3">
-                                {localize(
-                                    'Start trading now with a powerful, yet easy-to-use platform.',
-                                )}
-                            </Text>
-                        </div>
-                    </PlatformItem>
-                    <PlatformItem
-                        activeClassName="active"
-                        to="/dbot/"
-                        aria-label={localize('DBot')}
-                        partiallyActive={true}
-                    >
-                        <DBot />
-                        <div>
-                            <Text secondary color="black-3" weight="bold">
-                                {localize('DBot')}
-                            </Text>
-                            <Text color="black-3">
-                                {localize('Automate your trading ideas without coding.')}
-                            </Text>
-                        </div>
-                    </PlatformItem>
+            <NavDropdownGrid>
+                <PlatformItem
+                    activeClassName="active"
+                    to="/dtrader"
+                    aria-label={localize('DTrader')}
+                    partiallyActive={true}
+                    onClick={onClick}
+                >
+                    <DTrader />
+                    <div>
+                        <Text secondary color="black-3" weight="bold">
+                            {localize('DTrader')}
+                        </Text>
+                        <Text color="black-3">
+                            {localize(
+                                'Start trading now with a powerful, yet easy-to-use platform.',
+                            )}
+                        </Text>
+                    </div>
+                </PlatformItem>
+                <PlatformItem
+                    activeClassName="active"
+                    to="/dbot"
+                    aria-label={localize('DBot')}
+                    partiallyActive={true}
+                    onClick={onClick}
+                >
+                    <DBot />
+                    <div>
+                        <Text secondary color="black-3" weight="bold">
+                            {localize('DBot')}
+                        </Text>
+                        <Text color="black-3">
+                            {localize('Automate your trading ideas without coding.')}
+                        </Text>
+                    </div>
+                </PlatformItem>
 
-                    <PlatformItem
-                        activeClassName="active"
-                        to="/dmt5/"
-                        aria-label={localize('DMT5')}
-                        partiallyActive={true}
-                    >
-                        <DMT5 />
-                        <div>
-                            <Text secondary color="black-3" weight="bold">
-                                {localize('DMT5')}
-                            </Text>
-                            <Text color="black-3">
-                                {localize('Trade with the platform of choice for professionals.')}
-                            </Text>
-                        </div>
-                    </PlatformItem>
-                </NavDropdownGrid>
-            </Show.Desktop>
+                <PlatformItem
+                    activeClassName="active"
+                    to="/dmt5"
+                    aria-label={localize('DMT5')}
+                    partiallyActive={true}
+                    onClick={onClick}
+                >
+                    <DMT5 />
+                    <div>
+                        <Text secondary color="black-3" weight="bold">
+                            {localize('DMT5')}
+                        </Text>
+                        <Text color="black-3">
+                            {localize('Trade with the platform of choice for professionals.')}
+                        </Text>
+                    </div>
+                </PlatformItem>
+            </NavDropdownGrid>
         </NavDropdown>
     )
 }

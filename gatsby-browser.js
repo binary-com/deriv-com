@@ -4,6 +4,7 @@ import { LocalStore } from './src/common/storage'
 import TrafficSource from './src/common/traffic-source'
 import isMobile from './src/common/os-detect'
 import './src/components/localization/config'
+import { initializeWebsocket } from 'common/initial-render-socket'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -12,6 +13,8 @@ export const onInitialClientRender = () => {
     // Check if not production and match ach or ach/
 
     if (is_browser) {
+        const lang = LocalStore.get('i18n')
+        initializeWebsocket(lang)
         if (!isProduction() && window.location.pathname.match(/^(ach\/)|ach$/)) {
             LocalStore.set('i18n', 'ach')
         }

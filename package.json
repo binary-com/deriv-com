@@ -12,6 +12,7 @@
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-google-tagmanager": "^2.1.15",
     "gatsby-plugin-manifest": "^2.2.23",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-robots-txt": "^1.5.0",
@@ -30,8 +31,7 @@
     "react-i18next": "^10.13.1",
     "react-loadable": "^5.5.0",
     "react-perfect-scrollbar": "^1.5.3",
-    "react-responsive": "^8.0.1",
-    "typeface-ibm-plex-sans": "0.0.75"
+    "react-responsive": "^8.0.1"
   },
   "devDependencies": {
     "babel-eslint": "10.0.3",

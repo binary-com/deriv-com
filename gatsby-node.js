@@ -9,10 +9,20 @@ exports.onCreatePage = ({ page, actions }) => {
     // So everything in src/pages/
     deletePage(page)
 
+    // Checking env variables
+    // eslint-disable-next-line no-console
+    console.log(process.env.GATSBY_ENV)
+
     Object.keys(language_config).map(lang => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`
+        const is_production = process.env.GATSBY_ENV === 'production'
+
+        // TODO: remove this after production ready for translation
+        if (is_production) {
+            if (path === 'ach') return
+        }
 
         return createPage({
             // Pass on everything from the original page

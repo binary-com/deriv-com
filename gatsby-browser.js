@@ -18,11 +18,7 @@ export const onInitialClientRender = () => {
 
         if (match_ach) {
             // TODO: remove this line when production ready for translation
-            if (isProduction()) {
-                navigate('/')
-            } else {
-                LocalStore.set('i18n', 'ach')
-            }
+            if (!isProduction()) LocalStore.set('i18n', 'ach')
         }
 
         const i18n = LocalStore.get('i18n')

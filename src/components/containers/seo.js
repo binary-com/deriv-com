@@ -120,6 +120,10 @@ const SEO = ({ description, meta, title }) => {
                     name: 'format-detection',
                     content: 'telephone=no',
                 },
+                {
+                    name: 'yandex-verification',
+                    content: '4ddb94bbff872c63',
+                },
             ].concat(meta)}
         >
             <AntiClickjack />

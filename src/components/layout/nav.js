@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
-import { Container, Show } from 'components/containers'
+import { Container } from 'components/containers'
 import { Modal, useModal, OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 import PlatformsDropdown from 'components/custom/platforms-dropdown'
@@ -186,13 +186,11 @@ export const Nav = () => {
     return (
         <NavWrapper ref={nav_ref}>
             <StyledNav>
-                <Show.Desktop>
-                    <PlatformsDropdown
-                        is_open={is_platforms_open}
-                        has_animation={has_animation}
-                        onClick={handlePlatformsClick}
-                    />
-                </Show.Desktop>
+                <PlatformsDropdown
+                    is_open={is_platforms_open}
+                    has_animation={has_animation}
+                    onClick={handlePlatformsClick}
+                />
                 <Wrapper>
                     <NavLeft>
                         <LogoLink

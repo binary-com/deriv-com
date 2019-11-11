@@ -19,7 +19,6 @@ exports.onCreatePage = ({ page, actions }) => {
         const localized_path = is_default ? page.path : `${path}${page.path}`
         const is_production = process.env.GATSBY_ENV === 'production'
 
-        // TODO: remove this after production ready for translation
         if (is_production) {
             if (path === 'ach') return
         }

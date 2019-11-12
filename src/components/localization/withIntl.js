@@ -9,7 +9,6 @@ import { initializeWebsocket } from 'common/initial-render-socket'
 export const WithIntl = () => WrappedComponent => {
     const WrapWithIntl = ({ pageContext }, props) => {
         const addResources = (pc, language) => {
-            console.log('addResource: ', pc)
             if (pc && pc.localeResources) {
                 if (!i18next.hasResourceBundle(language, 'translation')) {
                     i18next.addResourceBundle(language, 'translation', { ...pc.localeResources })
@@ -20,16 +19,7 @@ export const WithIntl = () => WrappedComponent => {
         if (pageContext) {
             const current_language = pageContext.locale
             if (current_language && current_language !== i18next.language) {
-                // i18next.addResourceBundle(
-                //     current_language,
-                //     'translations',
-                //     { pageContext.localeResources },
-                //     true,
-                //     true,
-                // )
-                console.log(i18next.hasResourceBundle(current_language, 'translation'))
                 addResources(pageContext, current_language)
-                console.log(i18next)
                 i18next.changeLanguage(current_language)
                 if (typeof window !== 'undefined') {
                     initializeWebsocket(current_language)

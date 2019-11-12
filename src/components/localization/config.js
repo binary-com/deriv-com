@@ -6,7 +6,7 @@ import language_config from '../../../i18n-config'
 i18n.use(initReactI18next).init({
     fallbackLng: 'en',
     resources: {
-        en: { translations: require('../../translations/en.json') },
+        // en: { translations: require('../../translations/en.json') },
         // de: { translations: require('../../translations/de.json') },
         // es: { translations: require('../../translations/es.json') },
         // fr: { translations: require('../../translations/fr.json') },

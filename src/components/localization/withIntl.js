@@ -8,11 +8,32 @@ import { initializeWebsocket } from 'common/initial-render-socket'
 // Without this HOC the page will be translated on the client side dynamically
 export const WithIntl = () => WrappedComponent => {
     const WrapWithIntl = ({ pageContext }, props) => {
+        const addResources = (pc, language) => {
+            console.log('addResource: ', pc)
+            if (pc && pc.localeResources) {
+                if (!i18next.hasResourceBundle(language, 'translation')) {
+                    i18next.addResourceBundle(language, 'translation', { ...pc.localeResources })
+                }
+            }
+        }
+
         if (pageContext) {
             const current_language = pageContext.locale
             if (current_language && current_language !== i18next.language) {
+                // i18next.addResourceBundle(
+                //     current_language,
+                //     'translations',
+                //     { pageContext.localeResources },
+                //     true,
+                //     true,
+                // )
+                console.log(i18next.hasResourceBundle(current_language, 'translation'))
+                addResources(pageContext, current_language)
+                console.log(i18next)
                 i18next.changeLanguage(current_language)
-                initializeWebsocket(current_language)
+                if (typeof window !== 'undefined') {
+                    initializeWebsocket(current_language)
+                }
             }
         }
         WrapWithIntl.propTypes = {

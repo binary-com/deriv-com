@@ -5,22 +5,6 @@ import language_config from '../../../i18n-config'
 
 i18n.use(initReactI18next).init({
     fallbackLng: 'en',
-    resources: {
-        // en: { translations: require('../../translations/en.json') },
-        // de: { translations: require('../../translations/de.json') },
-        // es: { translations: require('../../translations/es.json') },
-        // fr: { translations: require('../../translations/fr.json') },
-        // id: { translations: require('../../translations/id.json') },
-        // it: { translations: require('../../translations/it.json') },
-        // pl: { translations: require('../../translations/pl.json') },
-        // pt: { translations: require('../../translations/pt.json') },
-        // ru: { translations: require('../../translations/ru.json') },
-        // th: { translations: require('../../translations/th.json') },
-        // vi: { translations: require('../../translations/vi.json') },
-        // zh_cn: { translations: require('../../translations/zh_cn.json') },
-        // zh_tw: { translations: require('../../translations/zh_tw.json') },
-        // ach: { translations: require('../../translations/ach.json') },
-    },
     ns: ['translations'],
     defaultNS: 'translations',
 

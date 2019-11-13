@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import { I18nextProvider } from 'react-i18next'
 import i18next from './config'
 import { initializeWebsocket } from 'common/initial-render-socket'
+import { isBrowser } from 'common/utility'
 
-// HOC that pre renders a page with the translated language
+// HOC that pre renders a page with the translated language (during build)
 // Without this HOC the page will be translated on the client side dynamically
 export const WithIntl = () => WrappedComponent => {
     const WrapWithIntl = ({ pageContext }, props) => {
         const addResources = (pc, language) => {
             if (pc && pc.localeResources) {
-                if (!i18next.hasResourceBundle(language, 'translation')) {
-                    i18next.addResourceBundle(language, 'translation', { ...pc.localeResources })
+                if (!i18next.hasResourceBundle(language, 'translations')) {
+                    i18next.addResourceBundle(language, 'translations', { ...pc.localeResources })
                 }
             }
         }
@@ -21,7 +22,7 @@ export const WithIntl = () => WrappedComponent => {
             if (current_language && current_language !== i18next.language) {
                 addResources(pageContext, current_language)
                 i18next.changeLanguage(current_language)
-                if (typeof window !== 'undefined') {
+                if (isBrowser) {
                     initializeWebsocket(current_language)
                 }
             }

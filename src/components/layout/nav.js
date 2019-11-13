@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Loadable from 'react-loadable'
+import PlatformsDropdown from '../custom/platforms-dropdown'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container } from 'components/containers'
@@ -14,12 +14,6 @@ import device from 'themes/device'
 // Icons
 import LogoBeta from 'images/svg/logo-beta.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
-
-const Loader = () => <></>
-const PlatformsDropdown = Loadable({
-    loader: () => import('../custom/platforms-dropdown'),
-    loading: Loader,
-})
 
 const NavWrapper = styled.div`
     width: 100%;
@@ -189,21 +183,14 @@ export const Nav = () => {
     const handleNormalLink = () => {
         setHasAnimation(false)
     }
+
     return (
         <NavWrapper ref={nav_ref}>
             <StyledNav>
-                <PlatformsDropdown
-                    is_open={is_platforms_open}
-                    has_animation={has_animation}
-                    onClick={handlePlatformsClick}
-                />
+                <PlatformsDropdown is_open={is_platforms_open} has_animation={has_animation} />
                 <Wrapper>
                     <NavLeft>
-                        <LogoLink
-                            to="/"
-                            aria-label={localize('Home')}
-                            onClick={() => setIsPlatformsOpen(false)}
-                        >
+                        <LogoLink to="/" aria-label={localize('Home')}>
                             <LogoBeta />
                         </LogoLink>
                     </NavLeft>

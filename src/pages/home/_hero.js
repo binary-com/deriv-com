@@ -1,19 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import Loadable from 'react-loadable'
 import { HeroHeader } from './_headers'
+import Video from './_video'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Show } from 'components/containers'
 import { Modal, useModal } from 'components/elements'
 import { localize } from 'components/localization'
 import SignupModal from 'components/custom/signup-modal'
-
-const Loader = () => <></>
-const Video = Loadable({
-    loader: () => import('./_video'),
-    loading: Loader,
-})
 
 const HeroWrapper = styled.section`
     width: 100%;

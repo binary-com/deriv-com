@@ -14,6 +14,11 @@ exports.onCreatePage = ({ page, actions }) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`
+        const is_production = process.env.GATSBY_ENV === 'production'
+
+        if (is_production) {
+            if (path === 'ach') return
+        }
 
         if (!translations_cache[lang]) {
             const translation_json = require(`./src/translations/${lang}`)

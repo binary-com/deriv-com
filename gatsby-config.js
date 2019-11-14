@@ -92,17 +92,5 @@ module.exports = {
                 policy: [{ userAgent: '*', allow: '/' }],
             },
         },
-        {
-            resolve: 'gatsby-plugin-prefetch-google-fonts',
-            options: {
-                fonts: [
-                    {
-                        family: 'IBM Plex Sans',
-                        subsets: ['latin-ext', 'cyrillic', 'cyrillic-ext', 'vietnamese'],
-                        variants: ['300', '400', '500', '700'],
-                    },
-                ],
-            },
-        },
     ],
 }

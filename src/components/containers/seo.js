@@ -124,6 +124,10 @@ const SEO = ({ description, meta, title }) => {
                     name: 'yandex-verification',
                     content: '4ddb94bbff872c63',
                 },
+                {
+                    name: 'referrer',
+                    content: 'origin',
+                },
             ].concat(meta)}
         >
             <AntiClickjack />

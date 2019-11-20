@@ -1,8 +1,8 @@
 import React from 'react'
-import Lottie from 'react-lottie'
+import ReactLottie from 'react-lottie'
 import PropTypes from 'prop-types'
 
-export const LottieWrapper = ({
+export const Lottie = ({
     animationData,
     autoplay = true,
     height = 40,
@@ -25,7 +25,7 @@ export const LottieWrapper = ({
     }
 
     return (
-        <Lottie
+        <ReactLottie
             options={default_options}
             height={height}
             width={width}
@@ -34,7 +34,7 @@ export const LottieWrapper = ({
     )
 }
 
-LottieWrapper.propTypes = {
+Lottie.propTypes = {
     animationData: PropTypes.object.isRequired,
     autoplay: PropTypes.bool,
     height: PropTypes.number,

@@ -12,6 +12,7 @@ import Modal, { useModal } from './modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from './off-canvas-menu'
 import SideTab from './side-tab'
 import { Text, LinkText, Header } from './typography'
+import { LottieWrapper } from './lottie'
 
 export {
     AutoCarousel,
@@ -26,6 +27,7 @@ export {
     Image,
     StyledLink,
     LinearLoader,
+    LottieWrapper,
     Modal,
     useModal,
     OffCanvasMenu,

@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HeroHeader } from './_headers'
-import Video from './_video'
+// import Video from './_video'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Show } from 'components/containers'
-import { Modal, useModal } from 'components/elements'
+import { Modal, useModal, LottieWrapper } from 'components/elements'
 import { localize } from 'components/localization'
 import SignupModal from 'components/custom/signup-modal'
+import animationData from 'images/lottie/11349-static.json'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -41,7 +42,7 @@ const VideoWrapper = styled.div`
     position: absolute;
     max-width: 58vw;
     height: 52.5rem;
-    right: 0;
+    right: 372px;
     top: 2rem;
 
     @media ${device.laptop} {
@@ -103,7 +104,7 @@ export const Hero = () => {
                     </StyledArticle>
                     <Show.Desktop>
                         <VideoWrapper>
-                            <Video />
+                            <LottieWrapper animationData={animationData} width={900} height={500} />
                         </VideoWrapper>
                     </Show.Desktop>
                     <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>

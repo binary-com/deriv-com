@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import { useMediaQuery } from 'react-responsive'
 import { size } from 'themes/device'
 import { isEuCountry } from 'common/country-base'
 
@@ -30,46 +30,19 @@ const Location = ({ children, to }) => {
     return visible ? <>{children}</> : null
 }
 
-const makeResponsiveComponent = (rulesets, tagName = 'div') =>
-    styled(tagName)`
-        ${buildStyles(rulesets)}
-    `
-
-const buildStyles = rulesets =>
-    rulesets.reduce(
-        (cssString, { constraint, width, rules }) =>
-            `${cssString} @media (${constraint}-width: ${width}) { ${rules} }`,
-        '',
-    )
-
-const buildResponsive = breakpoints => {
-    const rulesets = Object.entries(breakpoints).reduce(
-        (rulesets, [constraint, width]) => [
-            ...rulesets,
-            {
-                constraint,
-                width,
-                rules: 'display: none !important;',
-            },
-        ],
-        [],
-    )
-
-    return makeResponsiveComponent(rulesets)
-}
-
-const Responsive = ({ min, max, children }) => {
-    const Component = buildResponsive({ min, max })
-    return <Component>{children}</Component>
-}
-
 export const Eu = props => <Location {...props} to="eu" />
 
 export const NonEu = props => <Location {...props} to="non-eu" />
 
-export const Mobile = props => <Responsive {...props} min={`${size.tabletL}px`} />
+export const Mobile = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: size.tabletL })
+    return isMobile ? children : null
+}
 
-export const Desktop = props => <Responsive {...props} max={`${size.tabletL}px`} />
+export const Desktop = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: size.tabletL })
+    return isDesktop ? children : null
+}
 
 export default {
     Eu,
@@ -81,10 +54,4 @@ export default {
 Location.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     to: PropTypes.oneOf(['eu', 'non-eu']),
-}
-
-Responsive.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    max: PropTypes.string,
-    min: PropTypes.string,
 }

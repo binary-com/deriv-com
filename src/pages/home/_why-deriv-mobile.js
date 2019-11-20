@@ -52,7 +52,7 @@ const SingupButton = styled(Button)`
     max-width: 36rem;
     font-size: var(--text-size-sm);
 `
-export const WhyDerivMobile = () => {
+const WhyDerivMobile = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <WhyDerivMobileContainer>
@@ -108,3 +108,5 @@ export const WhyDerivMobile = () => {
         </WhyDerivMobileContainer>
     )
 }
+
+export default WhyDerivMobile

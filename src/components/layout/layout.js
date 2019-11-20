@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Nav, NavStatic } from './nav'
 import Footer from './footer'
+import { Nav, NavStatic } from './nav'
 
 const Main = styled.main`
     padding-top: 7rem;

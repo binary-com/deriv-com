@@ -7,6 +7,7 @@ import { Nav, NavStatic } from './nav'
 const Main = styled.main`
     padding-top: 7rem;
     background: var(--color-white);
+    height: 100%;
 `
 
 const Layout = ({ children, is_static }) => (

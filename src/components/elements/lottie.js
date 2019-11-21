@@ -2,14 +2,7 @@ import React from 'react'
 import ReactLottie from 'react-lottie'
 import PropTypes from 'prop-types'
 
-export const Lottie = ({
-    animationData,
-    autoplay = true,
-    height = 40,
-    loop = true,
-    onAnimationComplete,
-    width = 40,
-}) => {
+export const Lottie = ({ animationData, autoplay = true, loop = true, onAnimationComplete }) => {
     const default_options = {
         loop,
         autoplay,
@@ -27,9 +20,8 @@ export const Lottie = ({
     return (
         <ReactLottie
             options={default_options}
-            height={height}
-            width={width}
             eventListeners={eventListeners}
+            isClickToPauseDisabled
         />
     )
 }
@@ -37,8 +29,6 @@ export const Lottie = ({
 Lottie.propTypes = {
     animationData: PropTypes.object.isRequired,
     autoplay: PropTypes.bool,
-    height: PropTypes.number,
     loop: PropTypes.bool,
     onAnimationComplete: PropTypes.func,
-    width: PropTypes.number,
 }

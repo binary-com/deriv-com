@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie'
 import queryString from 'query-string'
 import { CookieStorage, LocalStore } from './storage'
 
@@ -12,6 +13,44 @@ const TrafficSource = (() => {
             const now = new Date()
             cookie.expires = now.setMonth(now.getMonth() + 3)
         }
+    }
+
+    const setAffiliateData = () => {
+        const url_params = queryString.parseUrl(window.location.href).query
+        const token = url_params.t
+        if (!token || token.length !== 32) {
+            return false
+        }
+
+        const token_length = token.length
+        const is_subsidiary = /\w{1}/.test(url_params.s)
+
+        const cookie_token = Cookies.getJSON('affiliate_tracking')
+        if (cookie_token) {
+            // Already exposed to some other affiliate.
+            if (is_subsidiary && cookie_token && cookie_token.t) {
+                return false
+            }
+        }
+
+        // Record the affiliate exposure. Overwrite existing cookie, if any.
+        const cookie_hash = {}
+        if (token_length === 32) {
+            cookie_hash.t = token.toString()
+        }
+        if (is_subsidiary) {
+            cookie_hash.s = '1'
+        }
+
+        Cookies.write('affiliate_tracking', cookie_hash, {
+            expires: 365, // expires in 365 days
+            path: '/',
+            domain: `.${location.hostname
+                .split('.')
+                .slice(-2)
+                .join('.')}`,
+        })
+        return true
     }
 
     const getData = () => {
@@ -63,6 +102,7 @@ const TrafficSource = (() => {
 
     return {
         getData,
+        setAffiliateData,
         setData,
         getSource,
     }

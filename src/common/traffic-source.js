@@ -18,10 +18,14 @@ const TrafficSource = (() => {
     const setAffiliateData = () => {
         const url_params = queryString.parseUrl(window.location.href).query
         const token = url_params.t
+
+        if (!token) return false
+
         const token_length = token.length
         const binary_token_length = 32
 
-        if (!token || token_length !== binary_token_length) {
+        // Check if token length is correct
+        if (token_length !== binary_token_length) {
             return false
         }
 

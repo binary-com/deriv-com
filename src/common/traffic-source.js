@@ -18,31 +18,22 @@ const TrafficSource = (() => {
     const setAffiliateData = () => {
         const url_params = queryString.parseUrl(window.location.href).query
         const token = url_params.t
-        if (!token || token.length !== 32) {
+        const token_length = token.length
+        const binary_token_length = 32
+
+        if (!token || token_length !== binary_token_length) {
             return false
         }
 
-        const token_length = token.length
-        const is_subsidiary = /\w{1}/.test(url_params.s)
-
-        const cookie_token = Cookies.getJSON('affiliate_tracking')
-        if (cookie_token) {
-            // Already exposed to some other affiliate.
-            if (is_subsidiary && cookie_token && cookie_token.t) {
+        const affiliate_token = Cookies.getJSON('affiliate_tracking').toString()
+        if (affiliate_token) {
+            // Affiliate token already exists in the cookies
+            if (affiliate_token === token) {
                 return false
             }
         }
 
-        // Record the affiliate exposure. Overwrite existing cookie, if any.
-        const cookie_hash = {}
-        if (token_length === 32) {
-            cookie_hash.t = token.toString()
-        }
-        if (is_subsidiary) {
-            cookie_hash.s = '1'
-        }
-
-        Cookies.write('affiliate_tracking', cookie_hash, {
+        Cookies.write('affiliate_tracking', affiliate_token, {
             expires: 365, // expires in 365 days
             path: '/',
             domain: `.${location.hostname

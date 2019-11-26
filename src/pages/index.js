@@ -1,9 +1,7 @@
 import React from 'react'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
-import PaymentMethods from './home/_payment-methods'
 import WhyDeriv from './home/_why-deriv'
-import Ticker from './home/_ticker'
 import WhyDerivMobile from './home/_why-deriv-mobile'
 import HowItWorks from './home/_how-it-works'
 import Markets from './home/_markets'
@@ -24,9 +22,6 @@ const Home = () => (
         <Show.Mobile>
             <WhyDerivMobile />
         </Show.Mobile>
-        <Show.Desktop>
-            <Ticker />
-        </Show.Desktop>
         <Trade />
         <Show.Desktop>
             <Divider />
@@ -34,7 +29,6 @@ const Home = () => (
             <Divider />
             <Markets />
             <WhyDeriv />
-            <PaymentMethods />
         </Show.Desktop>
     </Layout>
 )

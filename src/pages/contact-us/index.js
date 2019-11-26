@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Header, Text } from '../../components/elements/typography'
 import { NeedHelp } from './_need-help'
 import { ContactWays } from './_contact-ways'
+import { Offices } from './_offices'
+import { Affiliates } from './_affiliates'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
@@ -32,6 +34,8 @@ const ContactUs = () => {
 
             <NeedHelp></NeedHelp>
             <ContactWays></ContactWays>
+            <Offices></Offices>
+            <Affiliates></Affiliates>
         </Layout>
     )
 }

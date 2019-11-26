@@ -29,7 +29,7 @@ const Login = (() => {
             ? `&utm_campaign=${utm_data.utm_campaign}`
             : ''
         const affiliate_token_link = affiliate_tracking
-            ? `&affiliate_token=${affiliate_tracking.t}`
+            ? `&affiliate_token=${affiliate_tracking}`
             : ''
         const deriv_app_app_id = 16929
 

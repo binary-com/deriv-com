@@ -133,7 +133,7 @@ class Signup extends Component {
                     utm_medium: utm_data.utm_medium,
                     utm_campaign: utm_data.utm_campaign,
                 }),
-                ...(affiliate_token && { affiliate_token: affiliate_token.t }),
+                ...(affiliate_token && { affiliate_token: affiliate_token }),
                 ...(gclid && { gclid_url: gclid }),
                 ...(signup_device && { signup_device: signup_device }),
                 ...(date_first_contact && {

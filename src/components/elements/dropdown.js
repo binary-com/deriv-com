@@ -213,7 +213,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                 onKeyDown={toggleListVisibility}
             >
                 {selected_option}
-                <Arrow expanded={is_open} />
+                <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
             </DropdownSelected>
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>

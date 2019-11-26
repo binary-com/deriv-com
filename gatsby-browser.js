@@ -3,7 +3,6 @@ import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import TrafficSource from './src/common/traffic-source'
 import isMobile from './src/common/os-detect'
-import './src/components/localization/config'
 import 'typeface-ibm-plex-sans'
 
 const is_browser = typeof window !== 'undefined'
@@ -37,6 +36,7 @@ export const onInitialClientRender = () => {
 
     // Configure traffic source
     TrafficSource.setData()
+    TrafficSource.setAffiliateData()
 
     if (!LocalStore.get('signup_device')) {
         LocalStore.set('signup_device', isMobile() ? 'mobile' : 'desktop')

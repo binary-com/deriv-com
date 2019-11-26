@@ -21,4 +21,7 @@ export const HeroHeader = styled(Header)`
     @media ${device.laptop} {
         text-align: center;
     }
+    @media ${device.tabletL} {
+        text-align: left;
+    }
 `

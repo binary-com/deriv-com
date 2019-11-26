@@ -1,12 +1,12 @@
+import React from 'react'
+import styled from 'styled-components'
+import { Text } from '../../components/elements/typography'
 import Show from 'components/containers/show'
 import { Header } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import CallUsIcon from 'images/svg/call-us.svg'
 import ChatLiveIcon from 'images/svg/chat-live.svg'
 import EmailUsIcon from 'images/svg/email-us.svg'
-import React from 'react'
-import styled from 'styled-components'
-import { Text } from '../../components/elements/typography'
 
 const Wrapper = styled.section`
     width: 100%;

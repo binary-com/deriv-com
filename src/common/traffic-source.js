@@ -29,7 +29,7 @@ const TrafficSource = (() => {
             return false
         }
 
-        const affiliate_token = Cookies.getJSON('affiliate_tracking').toString()
+        const affiliate_token = Cookies.getJSON('affiliate_tracking')
         if (affiliate_token) {
             // Affiliate token already exists in the cookies
             if (affiliate_token === token) {
@@ -37,7 +37,7 @@ const TrafficSource = (() => {
             }
         }
 
-        Cookies.write('affiliate_tracking', affiliate_token, {
+        Cookies.write('affiliate_tracking', token.toString(), {
             expires: 365, // expires in 365 days
             path: '/',
             domain: `.${location.hostname

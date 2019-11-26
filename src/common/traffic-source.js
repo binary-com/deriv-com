@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie'
 import queryString from 'query-string'
 import { CookieStorage, LocalStore } from './storage'
 
@@ -18,6 +17,7 @@ const TrafficSource = (() => {
     const setAffiliateData = () => {
         const url_params = queryString.parseUrl(window.location.href).query
         const token = url_params.t
+        const affiliate_cookie = new CookieStorage('affiliate_tracking')
 
         if (!token) return false
 
@@ -29,7 +29,7 @@ const TrafficSource = (() => {
             return false
         }
 
-        const affiliate_token = Cookies.getJSON('affiliate_tracking')
+        const affiliate_token = affiliate_cookie.get('affiliate_tracking')
         if (affiliate_token) {
             // Affiliate token already exists in the cookies
             if (affiliate_token === token) {
@@ -37,14 +37,7 @@ const TrafficSource = (() => {
             }
         }
 
-        Cookies.write('affiliate_tracking', token.toString(), {
-            expires: 365, // expires in 365 days
-            path: '/',
-            domain: `.${location.hostname
-                .split('.')
-                .slice(-2)
-                .join('.')}`,
-        })
+        affiliate_cookie.write(token, 365)
         return true
     }
 

@@ -36,6 +36,7 @@ export const onInitialClientRender = () => {
 
     // Configure traffic source
     TrafficSource.setData()
+    TrafficSource.setAffiliateData()
 
     if (!LocalStore.get('signup_device')) {
         LocalStore.set('signup_device', isMobile() ? 'mobile' : 'desktop')

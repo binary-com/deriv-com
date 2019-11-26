@@ -14,6 +14,33 @@ const TrafficSource = (() => {
         }
     }
 
+    const setAffiliateData = () => {
+        const url_params = queryString.parseUrl(window.location.href).query
+        const token = url_params.t
+        const affiliate_cookie = new CookieStorage('affiliate_tracking')
+
+        if (!token) return false
+
+        const token_length = token.length
+        const binary_token_length = 32
+
+        // Check if token length is correct
+        if (token_length !== binary_token_length) {
+            return false
+        }
+
+        const affiliate_token = affiliate_cookie.get('affiliate_tracking')
+        if (affiliate_token) {
+            // Affiliate token already exists in the cookies
+            if (affiliate_token === token) {
+                return false
+            }
+        }
+
+        affiliate_cookie.write(token, 365)
+        return true
+    }
+
     const getData = () => {
         initCookie()
         const data = cookie.value
@@ -63,6 +90,7 @@ const TrafficSource = (() => {
 
     return {
         getData,
+        setAffiliateData,
         setData,
         getSource,
     }

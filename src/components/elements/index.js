@@ -1,4 +1,3 @@
-import AutoCarousel from './auto-carousel'
 import { Card, CardChildren, CardStyle } from './card'
 import Carousel from './carousel'
 import Divider from './divider'
@@ -14,7 +13,6 @@ import SideTab from './side-tab'
 import { Text, LinkText, Header } from './typography'
 
 export {
-    AutoCarousel,
     Card,
     CardChildren,
     CardStyle,

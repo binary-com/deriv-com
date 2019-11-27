@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Text } from '../../components/elements/typography'
-import Show from 'components/containers/show'
-import { Header, Image } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Header } from 'components/elements'
+import { localize } from 'components/localization'
+import device from 'themes/device'
 
 const Wrapper = styled.section`
     width: 100%;
@@ -11,12 +11,19 @@ const Wrapper = styled.section`
     background-color: var(--color-grey-8);
     padding: 5.6rem 12.8rem;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        height: auto;
+    }
 `
 const Content = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 0.8rem;
@@ -28,33 +35,31 @@ const StyledText = styled(Text)`
 
 export const Affiliates = () => {
     return (
-        <Show.Desktop>
-            <Wrapper>
-                <Content>
-                    <StyledHeader as="h3" color="--color-black-3" align="center">
-                        {localize('Public Relations')}
-                    </StyledHeader>
-                    <StyledText secondary weight="bold" color="var(--color-red)">
-                        {localize('publicrelations@deriv.com')}
-                    </StyledText>
-                </Content>
-                <Content>
-                    <StyledHeader as="h3" color="--color-black-3" align="center">
-                        {localize('Affiliates')}
-                    </StyledHeader>
-                    <StyledText secondary weight="bold" color="var(--color-red)">
-                        {localize('affiliates@deriv.com')}
-                    </StyledText>
-                </Content>
-                <Content>
-                    <StyledHeader as="h3" color="--color-black-3" align="center">
-                        {localize('Business development')}
-                    </StyledHeader>
-                    <StyledText secondary weight="bold" color="var(--color-red)">
-                        {localize('businessdev@deriv.com')}
-                    </StyledText>
-                </Content>
-            </Wrapper>
-        </Show.Desktop>
+        <Wrapper>
+            <Content>
+                <StyledHeader as="h3" color="--color-black-3" align="center">
+                    {localize('Public Relations')}
+                </StyledHeader>
+                <StyledText secondary weight="bold" color="var(--color-red)">
+                    {localize('publicrelations@deriv.com')}
+                </StyledText>
+            </Content>
+            <Content>
+                <StyledHeader as="h3" color="--color-black-3" align="center">
+                    {localize('Affiliates')}
+                </StyledHeader>
+                <StyledText secondary weight="bold" color="var(--color-red)">
+                    {localize('affiliates@deriv.com')}
+                </StyledText>
+            </Content>
+            <Content>
+                <StyledHeader as="h3" color="--color-black-3" align="center">
+                    {localize('Business development')}
+                </StyledHeader>
+                <StyledText secondary weight="bold" color="var(--color-red)">
+                    {localize('businessdev@deriv.com')}
+                </StyledText>
+            </Content>
+        </Wrapper>
     )
 }

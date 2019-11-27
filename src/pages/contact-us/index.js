@@ -13,7 +13,7 @@ const HeroWrapper = styled.section`
     width: 100%;
     background-color: var(--color-white);
     padding: 8rem;
-    
+
     * {
         text-align: center;
     }
@@ -24,14 +24,15 @@ const ContactUs = () => {
         <Layout>
             <SEO title={localize('Get in touch')} />
             <HeroWrapper>
-                <Header as="h1" color="--color-black-3">{localize('Get in touch')}</Header>
+                <Header as="h1" color="--color-black-3">
+                    {localize('Get in touch')}
+                </Header>
                 <Text secondary>
                     {localize(
                         "Questions, bug reports, feedback, feature requests – we're here for it all.",
                     )}
                 </Text>
             </HeroWrapper>
-
             <NeedHelp></NeedHelp>
             <ContactWays></ContactWays>
             <Offices></Offices>

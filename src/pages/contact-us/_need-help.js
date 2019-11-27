@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Text } from '../../components/elements/typography'
 import { localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
-import Show from 'components/containers/show'
 import NeedUsIcon from 'images/svg/need-us.svg'
 
 const Wrapper = styled.section`
@@ -59,21 +58,19 @@ const StyledButton = styled(LocalizedLink)`
 
 export const NeedHelp = () => {
     return (
-        <Show.Desktop>
-            <Wrapper>
-                <SectionWrapper>
-                    <Logo></Logo>
-                    <StyledHeader as="h3" align="center" color="--color-black-3">
-                        {localize('Need help?')}
-                    </StyledHeader>
-                    <StyledText align="center">
-                        {localize(
-                            'Try our Help Centre. You’ll find searchable, easy to follow articles to get you going.',
-                        )}
-                    </StyledText>
-                    <StyledButton to="help-centre">{localize('Go to Help Centre')}</StyledButton>
-                </SectionWrapper>
-            </Wrapper>
-        </Show.Desktop>
+        <Wrapper>
+            <SectionWrapper>
+                <Logo></Logo>
+                <StyledHeader as="h3" align="center" color="--color-black-3">
+                    {localize('Need help?')}
+                </StyledHeader>
+                <StyledText align="center">
+                    {localize(
+                        'Try our Help Centre. You’ll find searchable, easy to follow articles to get you going.',
+                    )}
+                </StyledText>
+                <StyledButton to="help-centre">{localize('Go to Help Centre')}</StyledButton>
+            </SectionWrapper>
+        </Wrapper>
     )
 }

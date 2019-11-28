@@ -13,6 +13,7 @@ import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 import device from 'themes/device.js'
+import SignupModel1 from 'components/custom/_signup-model1'
 // Icons
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
@@ -196,69 +197,17 @@ class Signup extends Component {
             <>
                 {!this.state.submit_status && (
                     <Form onSubmit={this.handleEmailSignup} noValidate>
-                        <Header as="h3" weight="bold">
-                            {localize('Sign up for free now!')}
-                        </Header>
-                        <InputGroup>
-                            <Input
-                                id="email"
-                                name="email"
-                                type="text"
-                                error={this.state.email_error_msg}
-                                value={this.state.email}
-                                label={localize('Email')}
-                                placeholder={'example@mail.com'}
-                                handleError={this.clearEmail}
-                                onChange={this.handleInputChange}
-                                onBlur={this.handleValidation}
-                                autoFocus={this.props.autofocus}
-                                autoComplete="off"
-                                required
-                            />
-                        </InputGroup>
-                        <EmailButton type="submit" secondary disabled={this.state.is_submitting}>
-                            {localize('Create a free account')}
-                        </EmailButton>
-                        <Text color="grey" align="center">
-                            {localize('Or sign up with')}
-                        </Text>
-                        <SocialWrapper justify="space-between" gap="0" grid="2">
-                            <SocialButton
-                                onClick={this.handleSocialSignup}
-                                provider="google"
-                                id="google"
-                                type="button"
-                                social
-                            >
-                                <span>
-                                    <Google />
-                                </span>
-                            </SocialButton>
-                            <SocialButton
-                                onClick={this.handleSocialSignup}
-                                provider="facebook"
-                                id="facebook"
-                                type="button"
-                                social
-                            >
-                                <span>
-                                    <Facebook />
-                                </span>
-                            </SocialButton>
-                        </SocialWrapper>
-                        <LoginText>
-                            {localize('Already have an account?')}
-                            <LoginLink onClick={this.handleLogin}> {localize('Log in.')}</LoginLink>
-                        </LoginText>
-                        <NoteText>
-                            <Localize
-                                translate_text="Got a <0>Binary.com</0> account? You can <1>log in</1> to <0>Deriv</0> with your <0>Binary.com</0> username and password"
-                                components={[
-                                    <strong key={0} />,
-                                    <LoginLink key={1} onClick={this.handleLogin} />,
-                                ]}
-                            />
-                        </NoteText>
+                        <SignupModel1
+                            email_error_msg={this.state.email_error_msg}
+                            email={this.state.email}
+                            clearEmail={this.clearEmail}
+                            handleInputChange={this.handleInputChange}
+                            handleValidation={this.handleValidation}
+                            autofocus={this.props.autofocus}
+                            handleSocialSignup={this.handleSocialSignup}
+                            handleLogin={this.handleLogin}
+                            is_submitting={this.state.is_submitting}
+                        ></SignupModel1>
                     </Form>
                 )}
                 {this.state.submit_status === 'success' && (

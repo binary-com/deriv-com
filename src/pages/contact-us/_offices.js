@@ -53,7 +53,7 @@ const Content = styled.div`
     :nth-child(even) {
         margin-left: 8rem;
     }
-    
+
     @media ${device.tablet} {
         width: 100%;
 
@@ -61,7 +61,6 @@ const Content = styled.div`
             margin-left: 0;
         }
     }
-
 `
 const MapIcon = styled(MapSVG)`
     margin-right: 0.8rem;
@@ -118,14 +117,14 @@ export const Offices = () => {
                         </StyledHeader>
                         <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
                         <StyledText width="29.9rem">
-                            <MapIcon></MapIcon>
+                            <MapIcon />
                             {localize('Level 3, W Business Centre,')}
                         </StyledText>
                         <StyledText marginBttom="1.6rem" textIndent="1.5em">
                             {localize('Triq Dun Karm Birkirkara BKR9033 Malta.')}
                         </StyledText>
                         <StyledText>
-                            <PhoneIcon></PhoneIcon>
+                            <PhoneIcon />
                             {localize('+35621316105')}
                         </StyledText>
                     </Content>
@@ -138,15 +137,14 @@ export const Offices = () => {
                         </StyledHeader>
                         <StyledText marginBttom="2.1rem">{localize('Cyberjaya office')}</StyledText>
                         <StyledText>
-                            <MapIcon></MapIcon>
+                            <MapIcon />
                             {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
                         </StyledText>
                         <StyledText marginBttom="1.6rem" textIndent="1.5em">
                             {localize('63000Cyberjaya, Selangor, Malaysia.')}
                         </StyledText>
                         <StyledText>
-                            <PhoneIcon></PhoneIcon>
-                            {localize('+603-8322 8178')}
+                            <PhoneIcon /> {localize('+603-8322 8178')}
                         </StyledText>
                     </Content>
                     <ImageWrapper>
@@ -174,14 +172,14 @@ export const Offices = () => {
                         </StyledHeader>
                         <StyledText marginBttom="2.1rem">{localize('Labuan office')}</StyledText>
                         <StyledText>
-                            <MapIcon></MapIcon>
+                            <MapIcon />
                             {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
                         </StyledText>
                         <StyledText marginBttom="1.6rem" textIndent="1.5em">
                             {localize('Mustapha, 87000, Labuan')}
                         </StyledText>
                         <StyledText>
-                            <PhoneIcon></PhoneIcon>
+                            <PhoneIcon />
                             {localize('+6087-504126')}
                         </StyledText>
                     </Content>
@@ -194,14 +192,14 @@ export const Offices = () => {
                         </StyledHeader>
                         <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
                         <StyledText>
-                            <MapIcon></MapIcon>
+                            <MapIcon />
                             {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
                         </StyledText>
                         <StyledText marginBttom="1.6rem" textIndent="1.5em">
                             {localize('Towers, Dubai, UAE.')}
                         </StyledText>
                         <StyledText>
-                            <PhoneIcon></PhoneIcon>
+                            <PhoneIcon />
                             {localize('+971 4 399 0404')}
                         </StyledText>
                     </Content>
@@ -230,7 +228,7 @@ export const Offices = () => {
                         </StyledHeader>
                         <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
                         <StyledText>
-                            <MapIcon></MapIcon>
+                            <MapIcon />
                             {localize('886, Edificio Australia, Calle Herib, Campos Cervera')}
                         </StyledText>
                         <StyledText textIndent="1.5em">
@@ -240,7 +238,7 @@ export const Offices = () => {
                             {localize('Paraguay')}
                         </StyledText>
                         <StyledText>
-                            <PhoneIcon></PhoneIcon>
+                            <PhoneIcon />
                             {localize('+603-8322 8178')}
                         </StyledText>
                     </Content>

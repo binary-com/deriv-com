@@ -63,7 +63,6 @@ const Splitter = styled.div`
         margin-top: 2rem;
         margin-left: auto;
         margin-right: auto;
-
     }
 `
 // const StyledButton = styled(LocalizedLink)`
@@ -97,7 +96,7 @@ export const ContactWays = () => {
         <Wrapper>
             <Contact>
                 <Logo>
-                    <CallUsIcon></CallUsIcon>
+                    <CallUsIcon />
                 </Logo>
                 <StyledHeader as="h3" align="center" color="--color-black-3">
                     {localize('Call Us')}
@@ -118,7 +117,7 @@ export const ContactWays = () => {
             <Splitter></Splitter>
             <Contact>
                 <Logo>
-                    <EmailUsIcon></EmailUsIcon>
+                    <EmailUsIcon />
                 </Logo>
                 <StyledHeader as="h3" align="center" color="--color-black-3">
                     {localize('Email Us')}

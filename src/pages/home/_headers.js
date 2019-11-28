@@ -6,11 +6,6 @@ export const SectionHeader = styled.div`
     text-align: center;
 `
 
-export const StyledSubHeader = styled(Header)`
-    margin: 0.8rem auto;
-    max-width: ${props => props.maxWidth || ''};
-`
-
 export const StyledHeader = styled(Header)`
     margin-top: 2rem;
 `

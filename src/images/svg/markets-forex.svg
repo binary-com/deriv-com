@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="62" height="65" viewBox="0 0 62 65">
+    <defs>
+        <path id="c" d="M0 0h80v80H0z"/>
+        <linearGradient id="e" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="f" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="g" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="h" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <ellipse id="a" cx="19.286" cy="19.5" rx="15.429" ry="15.6"/>
+        <mask id="i" width="30.857" height="31.2" x="0" y="0" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+        <linearGradient id="j" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="k" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="l" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <ellipse id="b" cx="20.571" cy="20.8" rx="16.714" ry="16.9"/>
+        <mask id="m" width="33.429" height="33.8" x="0" y="0" fill="#fff">
+            <use xlink:href="#b"/>
+        </mask>
+        <linearGradient id="n" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(-8 -7)">
+        <mask id="d" fill="#fff">
+            <use xlink:href="#c"/>
+        </mask>
+        <g mask="url(#d)">
+            <path stroke="url(#e)" stroke-dasharray="5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11.372 2.347c3.411 3.55 3.944 9.08 1.276 13.252C9.981 19.772 4.845 21.444.34 19.606" transform="rotate(16 -129.154 207.827)"/>
+            <path fill="url(#f)" fill-rule="nonzero" d="M11.34 2.347h2.885a.69.69 0 0 0 .617-1l-.225-.449a1 1 0 0 0-.894-.551H10.34a1 1 0 0 0-1 1v3.382a1 1 0 0 0 .553.894l.447.224a.691.691 0 0 0 1-.618V2.347z" transform="rotate(16 -129.154 207.827)"/>
+        </g>
+        <g mask="url(#d)">
+            <path stroke="url(#e)" stroke-dasharray="4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11.952 2.737c3.41 3.55 3.943 9.08 1.276 13.253-2.667 4.172-7.804 5.844-12.309 4.006" transform="rotate(-163 14.793 15.71)"/>
+            <path fill="url(#f)" fill-rule="nonzero" d="M11.92 2.737h2.885a.69.69 0 0 0 .617-1l-.226-.448a1 1 0 0 0-.893-.552h-3.384a1 1 0 0 0-1 1V5.12a1 1 0 0 0 .553.895l.447.223a.691.691 0 0 0 1-.618V2.737z" transform="rotate(-163 14.793 15.71)"/>
+        </g>
+        <g fill-rule="nonzero" mask="url(#d)">
+            <g transform="translate(31.175 7.533)">
+                <ellipse cx="19.286" cy="19.5" stroke="url(#g)" stroke-width="2" rx="18.286" ry="18.5"/>
+                <use fill="#FFF" stroke="url(#h)" stroke-dasharray="10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" mask="url(#i)" xlink:href="#a"/>
+                <path fill="url(#j)" d="M19.286 11.7c.665 0 1.213.475 1.279 1.084l.006.115.263.001c.973-.005 1.9.43 2.575 1.197.605.69.962 1.596 1.013 2.548l.007.239v.42c0 1.08-.388 2.07-1.021 2.793.606.69.963 1.596 1.014 2.548l.007.239v.42c0 2.117-1.487 3.882-3.403 3.99l-.186.006-.27-.001.001.094c0 .667-.575 1.207-1.285 1.207-.666 0-1.214-.475-1.28-1.084L18 27.393v-.094l-2.714.001c-.631 0-1.143-.537-1.143-1.2 0-.619.446-1.128 1.018-1.193l.125-.007v-3.6c-.631 0-1.143-.537-1.143-1.2 0-.619.446-1.128 1.018-1.193l.125-.007v-3.6c-.631 0-1.143-.537-1.143-1.2 0-.619.446-1.128 1.018-1.193l.125-.007.006-.13c.062-.602.547-1.07 1.137-1.07.589 0 1.074.468 1.136 1.07l.006.13.429-.001.007-.115c.065-.609.613-1.084 1.279-1.084zm1.554 9.6l-3.27-.001v3.6l3.27.001c.656 0 1.231-.614 1.297-1.439l.006-.157v-.42c0-.442-.152-.86-.414-1.16a1.198 1.198 0 0 0-.767-.418l-.122-.006zm0-6h-1.315a1.374 1.374 0 0 1-.479 0l-1.475-.001v3.6l3.269.001c.656 0 1.231-.614 1.297-1.439l.006-.157v-.42c0-.442-.152-.86-.414-1.16a1.198 1.198 0 0 0-.767-.418l-.122-.006z"/>
+            </g>
+        </g>
+        <g fill-rule="nonzero" mask="url(#d)">
+            <g transform="translate(8.033 29.633)">
+                <ellipse cx="20.571" cy="20.8" fill="#FFF" stroke="url(#k)" stroke-width="2" rx="19.571" ry="19.8"/>
+                <use fill="#FFF" stroke="url(#l)" stroke-dasharray="10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" mask="url(#m)" xlink:href="#b"/>
+                <path fill="url(#n)" d="M20.967 11.7c.874 0 1.582.627 1.582 1.4v.858c2.29.606 3.956 2.494 3.956 4.725 0 .773-.708 1.4-1.582 1.4-.874 0-1.582-.627-1.582-1.4 0-1.179-1.066-2.13-2.374-2.13-1.025 0-1.902.585-2.233 1.405l7.771 4.069v.798c0 2.233-1.67 4.122-3.961 4.726l.005.941c.005.774-.7 1.404-1.573 1.408-.874.004-1.587-.62-1.591-1.392l-.006-.96c-2.286-.607-3.95-2.494-3.95-4.723 0-.773.708-1.4 1.582-1.4.874 0 1.582.627 1.582 1.4 0 1.178 1.066 2.129 2.374 2.129 1.025 0 1.902-.584 2.233-1.404l-7.771-4.069v-.798c0-2.231 1.667-4.12 3.956-4.725V13.1c0-.773.708-1.4 1.582-1.4z"/>
+            </g>
+        </g>
+    </g>
+</svg>

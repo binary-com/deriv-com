@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Text } from '../../components/elements/typography'
-import Show from 'components/containers/show'
 import { Header } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import CallUsIcon from 'images/svg/call-us.svg'
@@ -19,8 +18,8 @@ const Wrapper = styled.section`
     background-color: var(--color-white);
     padding: 4rem 12.8rem;
 
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
+    @media ${device.tabletS} {
+        flex-direction: column;
         height: auto;
     }
 `
@@ -57,6 +56,15 @@ const Splitter = styled.div`
     height: 24.3rem;
     width: 0.1rem;
     margin-top: 7.8rem;
+
+    @media ${device.tabletS} {
+        width: 24.3rem;
+        height: 0.1rem;
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
 `
 // const StyledButton = styled(LocalizedLink)`
 //     border-radius: 4px;
@@ -107,9 +115,7 @@ export const ContactWays = () => {
                 </StyledText>
                 <StyledLink to="/contact-us/#our_offices"></StyledLink>
             </Contact>
-            <Show.Desktop>
-                <Splitter></Splitter>
-            </Show.Desktop>
+            <Splitter></Splitter>
             <Contact>
                 <Logo>
                     <EmailUsIcon></EmailUsIcon>

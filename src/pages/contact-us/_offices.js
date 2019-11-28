@@ -125,7 +125,7 @@ export const Offices = () => {
                         </StyledText>
                         <StyledText>
                             <PhoneIcon />
-                            {localize('+35621316105')}
+                            +35621316105
                         </StyledText>
                     </Content>
                 </Office>
@@ -144,7 +144,7 @@ export const Offices = () => {
                             {localize('63000Cyberjaya, Selangor, Malaysia.')}
                         </StyledText>
                         <StyledText>
-                            <PhoneIcon /> {localize('+603-8322 8178')}
+                            <PhoneIcon /> +603-8322 8178
                         </StyledText>
                     </Content>
                     <ImageWrapper>
@@ -180,7 +180,7 @@ export const Offices = () => {
                         </StyledText>
                         <StyledText>
                             <PhoneIcon />
-                            {localize('+6087-504126')}
+                            +6087-504126
                         </StyledText>
                     </Content>
                 </Office>
@@ -200,7 +200,7 @@ export const Offices = () => {
                         </StyledText>
                         <StyledText>
                             <PhoneIcon />
-                            {localize('+971 4 399 0404')}
+                            +971 4 399 0404
                         </StyledText>
                     </Content>
                     <ImageWrapper>
@@ -239,7 +239,7 @@ export const Offices = () => {
                         </StyledText>
                         <StyledText>
                             <PhoneIcon />
-                            {localize('+603-8322 8178')}
+                            +603-8322 8178
                         </StyledText>
                     </Content>
                 </Office>

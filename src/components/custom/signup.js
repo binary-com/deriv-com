@@ -13,7 +13,9 @@ import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 import device from 'themes/device.js'
-import SignupModel1 from 'components/custom/_signup-model1'
+import SignupDefault from 'components/custom/_signup-default'
+import SignupSimple from 'components/custom/_signup-simple'
+
 // Icons
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
@@ -91,6 +93,13 @@ const validateEmail = email => {
     return error_message
 }
 
+export const Appearances = {
+    default: 'default',
+    simple: 'simple',
+    threePeople: 'threePeople',
+    womanWhite: 'womanWhite',
+    womanBlack: 'womanBlack',
+}
 class Signup extends Component {
     state = {
         email: '',
@@ -192,22 +201,59 @@ class Signup extends Component {
         if (closeModal) closeModal()
     }
 
+    renderSwitch(param) {
+        switch (param) {
+            case Appearances.default:
+                return (
+                    <SignupDefault
+                        email_error_msg={this.state.email_error_msg}
+                        email={this.state.email}
+                        clearEmail={this.clearEmail}
+                        handleInputChange={this.handleInputChange}
+                        handleValidation={this.handleValidation}
+                        autofocus={this.props.autofocus}
+                        handleSocialSignup={this.handleSocialSignup}
+                        handleLogin={this.handleLogin}
+                        is_submitting={this.state.is_submitting}
+                    ></SignupDefault>
+                )
+            case Appearances.simple:
+                return (
+                    <SignupSimple
+                        email_error_msg={this.state.email_error_msg}
+                        email={this.state.email}
+                        clearEmail={this.clearEmail}
+                        handleInputChange={this.handleInputChange}
+                        handleValidation={this.handleValidation}
+                        autofocus={this.props.autofocus}
+                        handleSocialSignup={this.handleSocialSignup}
+                        handleLogin={this.handleLogin}
+                        is_submitting={this.state.is_submitting}
+                    ></SignupSimple>
+                )
+            default:
+                return (
+                    <SignupDefault
+                        email_error_msg={this.state.email_error_msg}
+                        email={this.state.email}
+                        clearEmail={this.clearEmail}
+                        handleInputChange={this.handleInputChange}
+                        handleValidation={this.handleValidation}
+                        autofocus={this.props.autofocus}
+                        handleSocialSignup={this.handleSocialSignup}
+                        handleLogin={this.handleLogin}
+                        is_submitting={this.state.is_submitting}
+                    ></SignupDefault>
+                )
+        }
+    }
+
     render() {
         return (
             <>
                 {!this.state.submit_status && (
                     <Form onSubmit={this.handleEmailSignup} noValidate>
-                        <SignupModel1
-                            email_error_msg={this.state.email_error_msg}
-                            email={this.state.email}
-                            clearEmail={this.clearEmail}
-                            handleInputChange={this.handleInputChange}
-                            handleValidation={this.handleValidation}
-                            autofocus={this.props.autofocus}
-                            handleSocialSignup={this.handleSocialSignup}
-                            handleLogin={this.handleLogin}
-                            is_submitting={this.state.is_submitting}
-                        ></SignupModel1>
+                        {this.renderSwitch(this.props.appearance)}
                     </Form>
                 )}
                 {this.state.submit_status === 'success' && (
@@ -240,6 +286,7 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
+    appearance: PropTypes.oneOf(Object.keys(Appearances)),
     autofocus: PropTypes.bool,
     closeModal: PropTypes.func,
 }

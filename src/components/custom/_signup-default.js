@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import Login from 'common/login'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
@@ -53,7 +52,7 @@ const LoginLink = styled.a`
     cursor: pointer;
 `
 
-const SignupModel1 = props => {
+const SignupDefault = props => {
     return (
         <>
             <Header as="h3" weight="bold">
@@ -122,4 +121,4 @@ const SignupModel1 = props => {
         </>
     )
 }
-export default SignupModel1
+export default SignupDefault

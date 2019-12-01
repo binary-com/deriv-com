@@ -13,6 +13,7 @@ export const CardStyle = css`
 
 const CardContent = styled(Text)`
     margin-top: 0.8rem;
+    line-height: 1.25;
 
     @media ${device.tabletL} {
         font-size: var(--text-size-sm);
@@ -21,9 +22,10 @@ const CardContent = styled(Text)`
 `
 const CardWrapper = styled.article`
     ${CardStyle}
-    min-height: ${props => (props.min_height ? props.min_height : '35.6rem')};
-    width: ${props => (props.width ? props.width : '32.8rem')};
-    padding: 4rem;
+    min-height: ${props => (props.min_height ? props.min_height : '0')};
+    width: ${props => (props.width ? props.width : '38.4rem')};
+    padding: 1.6rem;
+    border-radius: 6px;
 
     @media ${device.tabletL} {
         padding: 3rem;
@@ -83,17 +85,18 @@ const IconContainer = styled.div`
     ${Header} {
         display: flex;
         align-items: center;
-        padding-left: 16px;
     }
 `
-
+const CardContentContainer = styled.div`
+    margin-left: 1.6rem;
+`
 const Content = ({ content }) => (
     <>
         {Array.isArray(content) ? (
             content.map(text => <CardContent key={text}>{text}</CardContent>)
         ) : (
-            <CardContent>{content}</CardContent>
-        )}
+                <CardContent>{content}</CardContent>
+            )}
     </>
 )
 
@@ -109,24 +112,28 @@ export const Card = ({ children, Icon, title, content, width, min_height, is_inl
                     {is_inline_icon ? (
                         <>
                             <IconContainer>
-                                <Icon />
-                                <Header as="h4" weight="500">
-                                    {title}
-                                </Header>
+                                <div>
+                                    <Icon />
+                                </div>
+                                <CardContentContainer>
+                                    <Header as="h4" weight="bold">
+                                        {title}
+                                    </Header>
+                                    <Content content={content} />
+                                </CardContentContainer>
                             </IconContainer>
-                            <Content content={content} />
                         </>
                     ) : (
-                        <>
-                            <Icon />
-                            <ContentWrapper>
-                                <Header as="h4" weight="500">
-                                    {title}
-                                </Header>
-                                <Content content={content} />
-                            </ContentWrapper>
-                        </>
-                    )}
+                            <>
+                                <Icon />
+                                <ContentWrapper>
+                                    <Header as="h4" weight="bold">
+                                        {title}
+                                    </Header>
+                                    <Content content={content} />
+                                </ContentWrapper>
+                            </>
+                        )}
                 </>
             )}
             {children && children}

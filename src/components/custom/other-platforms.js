@@ -15,18 +15,18 @@ const HeaderWrapper = styled.div`
 `
 
 const StyledDbot = styled(DBot)`
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
 `
 
 const StyledDmt5 = styled(DMT5)`
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
 `
 
 const StyledDTrader = styled(DTrader)`
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
 `
 
 const StyledHeader = styled(Header)`
@@ -58,7 +58,7 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                 </StyledSubHeader>
             )}
         </HeaderWrapper>
-        <FlexGridContainer content_width="32.8rem" gap="1rem" grid="3" justify="center">
+        <FlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
             {exclude.toLowerCase() !== 'dtrader' && (
                 <StyledLink to="/dtrader">
                     <Card
@@ -70,8 +70,6 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                             ),
                         ]}
                         is_inline_icon
-                        width="32.8rem"
-                        min_height="22.4rem"
                     />
                 </StyledLink>
             )}
@@ -82,8 +80,6 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                         Icon={StyledDbot}
                         content={[localize('Automate your trading ideas without coding.')]}
                         is_inline_icon
-                        width="32.8rem"
-                        min_height="22.4rem"
                     />
                 </StyledLink>
             )}
@@ -94,8 +90,6 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                         Icon={StyledDmt5}
                         content={[localize('Trade with the platform of choice for professionals.')]}
                         is_inline_icon
-                        width="32.8rem"
-                        min_height="22.4rem"
                     />
                 </StyledLink>
             )}

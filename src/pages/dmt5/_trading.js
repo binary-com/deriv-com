@@ -8,6 +8,7 @@ import device from 'themes/device'
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
     box-shadow: inset 0 1px 0 0 var(--color-grey-2);
+    padding: 8.8rem 0 18rem 0;
 
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;

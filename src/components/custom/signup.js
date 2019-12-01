@@ -13,7 +13,7 @@ import Login from 'common/login'
 import device from 'themes/device.js'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupSimple from 'components/custom/_signup-simple'
-import SignupDark from 'components/custom/_signup-dark'
+import SignupFlat from 'components/custom/_signup-flat'
 
 const Form = styled.form`
     width: 80%;
@@ -61,7 +61,8 @@ const validateEmail = email => {
 export const Appearances = {
     default: 'default',
     simple: 'simple',
-    dark: 'dark',
+    darkFlat: 'darkFlat',
+    lightFlat: 'lightFlat',
 }
 class Signup extends Component {
     state = {
@@ -165,6 +166,17 @@ class Signup extends Component {
     }
 
     renderSwitch(param) {
+        const parameters = {
+            email_error_msg: this.state.email_error_msg,
+            email: this.state.email,
+            clearEmail: this.clearEmail,
+            handleInputChange: this.handleInputChange,
+            handleValidation: this.handleValidation,
+            autofocus: this.props.autofocus,
+            handleSocialSignup: this.handleSocialSignup,
+            handleLogin: this.handleLogin,
+            is_submitting: this.state.is_submitting,
+        }
         switch (param) {
             case Appearances.default:
                 return (
@@ -194,9 +206,10 @@ class Signup extends Component {
                         is_submitting={this.state.is_submitting}
                     ></SignupSimple>
                 )
-            case Appearances.dark:
+            case Appearances.darkFlat:
                 return (
-                    <SignupDark
+                    <SignupFlat
+                        dark
                         email_error_msg={this.state.email_error_msg}
                         email={this.state.email}
                         clearEmail={this.clearEmail}
@@ -206,11 +219,11 @@ class Signup extends Component {
                         handleSocialSignup={this.handleSocialSignup}
                         handleLogin={this.handleLogin}
                         is_submitting={this.state.is_submitting}
-                    ></SignupDark>
+                    ></SignupFlat>
                 )
-            default:
+            case Appearances.lightFlat:
                 return (
-                    <SignupDefault
+                    <SignupFlat
                         email_error_msg={this.state.email_error_msg}
                         email={this.state.email}
                         clearEmail={this.clearEmail}
@@ -220,7 +233,7 @@ class Signup extends Component {
                         handleSocialSignup={this.handleSocialSignup}
                         handleLogin={this.handleLogin}
                         is_submitting={this.state.is_submitting}
-                    ></SignupDefault>
+                    ></SignupFlat>
                 )
         }
     }

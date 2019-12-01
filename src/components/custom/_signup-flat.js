@@ -13,31 +13,53 @@ const Wrapper = styled.div`
     padding: 3.3rem 8.5rem;
     display: flex;
     flex-direction: row;
-    background-color: var(--color-black);
+    justify-content: flex-end;
+    background-color: ${props => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     height: 26.9rem;
+
+    @media ${device.tabletL} {
+        height: auto;
+    }
 `
 const CenterWrapper = styled.div`
     width: 49rem;
     height: 100%;
-    margin: auto;
+
+    @media ${device.tabletL} {
+        width: 100%;
+    }
 `
 const RightWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 21rem;
-    height: 100%;
     align-items: center;
+    width: 18rem;
+    height: 100%;
+    margin-left: 5.8rem;
+
+    @media ${device.tabletL} {
+        display: none;
+    }
 `
 
 const InputWrapper = styled.div`
     width: 60%;
+
+    @media ${device.mobileL} {
+        width: 100%;
+    }
 `
 const InputGroup = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
     margin-top: 1.6rem;
+
+    @media ${device.mobileL} {
+        height: auto;
+        flex-direction: column;
+    }
 `
 const EmailButton = styled(Button)`
     width: auto;
@@ -53,13 +75,13 @@ const SocialWrapper = styled.div`
 `
 const SocialButton = styled(Button)`
     width: auto;
-    background-color: var(--color-black);
+    background-color: ${props => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     border: none;
 `
 
 const StyledHeader = styled(Header)`
-    width: 49rem;
-    color: var(--color-white);
+    width: auto;
+    color: ${props => (props.dark ? 'var(--color-white)' : 'var(--color-black)')};
 `
 const StyledText = styled(Text)`
     font-size: var(--text-size-xs);
@@ -70,25 +92,37 @@ const DemoButton = styled(Button)`
     margin-top: 2.2rem;
     width: 13.4rem;
 `
+const Splitter = styled.div`
+    background-color: var(--color-grey-3);
+    height: 20rem;
+    width: 0.2rem;
+    margin-top: 1rem;
+
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
 const handleExternalLink = () => {
     window.open(deriv_app_url, '_blank')
 }
 
-const SignupDark = props => {
+const SignupFlat = props => {
     return (
-        <Wrapper>
+        <Wrapper dark={props.dark}>
             <CenterWrapper>
-                <StyledHeader as="h3" weight="bold">
+                <StyledHeader as="h3" weight="bold" dark={props.dark}>
                     {localize('Join over 1 million traders worldwide')}
                 </StyledHeader>
                 <br />
-                <Text color="white">{localize('Get your free account now.')}</Text>
+                <Text color={props.dark ? 'white' : 'black'}>
+                    {localize('Get your free account now.')}
+                </Text>
                 <InputGroup>
                     <InputWrapper>
                         <Input
                             id="email"
                             name="email"
-                            background="black"
+                            background={props.dark ? 'black' : 'white'}
                             type="text"
                             error={props.email_error_msg}
                             value={props.email}
@@ -107,8 +141,11 @@ const SignupDark = props => {
                     </EmailButton>
                 </InputGroup>
                 <SocialWrapper>
-                    <StyledText color="white">{localize('or sign up with')}</StyledText>
+                    <StyledText color={props.dark ? 'white' : 'black'}>
+                        {localize('or sign up with')}
+                    </StyledText>
                     <SocialButton
+                        dark={props.dark}
                         onClick={props.handleSocialSignup}
                         provider="google"
                         id="google"
@@ -120,6 +157,7 @@ const SignupDark = props => {
                         </span>
                     </SocialButton>
                     <SocialButton
+                        dark={props.dark}
                         onClick={props.handleSocialSignup}
                         provider="facebook"
                         id="facebook"
@@ -132,8 +170,9 @@ const SignupDark = props => {
                     </SocialButton>
                 </SocialWrapper>
             </CenterWrapper>
+            <Splitter></Splitter>
             <RightWrapper>
-                <Text secondary color="white">
+                <Text align="left" secondary color={props.dark ? 'white' : 'black'} weight="bold">
                     {localize('Get a taste of the Deriv experience')}
                 </Text>
                 <DemoButton secondary onClick={handleExternalLink}>
@@ -144,9 +183,10 @@ const SignupDark = props => {
     )
 }
 
-SignupDark.propTypes = {
+SignupFlat.propTypes = {
     autofocus: PropTypes.func,
     clearEmail: PropTypes.bool,
+    dark: PropTypes.bool,
     email: PropTypes.string,
     email_error_msg: PropTypes.string,
     handleInputChange: PropTypes.func,
@@ -156,4 +196,4 @@ SignupDark.propTypes = {
     is_submitting: PropTypes.bool,
 }
 
-export default SignupDark
+export default SignupFlat

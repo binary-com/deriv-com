@@ -49,7 +49,7 @@ const About = () => {
             <OurGoals />
             <OurNumbers />
             <OurLocations />
-            <Signup appearance={Appearances.dark}></Signup>
+            <Signup appearance={Appearances.darkFlat}></Signup>
             <Show.Mobile>
                 <Goahead>
                     <Header as="h1" align="center" lh="1.1">

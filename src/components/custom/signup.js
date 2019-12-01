@@ -2,11 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
-import { FlexGridContainer } from 'components/containers'
 import { Header, Text, Image, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Wrapper from 'components/containers/wrapper'
-import { Button, Input } from 'components/form'
 import validation from 'common/validation'
 import TrafficSource from 'common/traffic-source'
 import { LocalStore } from 'common/storage'
@@ -15,10 +13,7 @@ import Login from 'common/login'
 import device from 'themes/device.js'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupSimple from 'components/custom/_signup-simple'
-
-// Icons
-import Facebook from 'images/svg/facebook.svg'
-import Google from 'images/svg/google.svg'
+import SignupDark from 'components/custom/_signup-dark'
 
 const Form = styled.form`
     width: 80%;
@@ -31,30 +26,10 @@ const ResponseWrapper = styled.div`
     flex-direction: column;
     padding: 2rem 1rem;
 `
-const InputGroup = styled.div`
-    position: relative;
-    width: 100%;
-    margin: var(--text-size-m) 0;
-`
-const EmailButton = styled(Button)`
-    width: auto;
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-`
-
-const SocialButton = styled(Button)`
-    box-shadow: none;
-    flex: inherit !important;
-    width: 48%;
-`
 const MutedText = styled(Text)`
     text-align: left;
     color: var(--color-grey);
     align-self: start;
-`
-const SocialWrapper = styled(FlexGridContainer)`
-    width: 100%;
-    margin-top: var(--text-size-s);
 `
 export const LoginText = styled(MutedText)`
     text-align: center;
@@ -64,16 +39,6 @@ export const LoginText = styled(MutedText)`
     @media ${device.tabletL} {
         margin-bottom: 0;
     }
-`
-
-const NoteText = styled(LoginText)`
-    margin-top: 3rem;
-`
-
-const LoginLink = styled.a`
-    color: var(--color-red);
-    text-decoration: none;
-    cursor: pointer;
 `
 const EmailImgWrapper = styled(Wrapper)`
     display: flex;
@@ -96,9 +61,7 @@ const validateEmail = email => {
 export const Appearances = {
     default: 'default',
     simple: 'simple',
-    threePeople: 'threePeople',
-    womanWhite: 'womanWhite',
-    womanBlack: 'womanBlack',
+    dark: 'dark',
 }
 class Signup extends Component {
     state = {
@@ -230,6 +193,20 @@ class Signup extends Component {
                         handleLogin={this.handleLogin}
                         is_submitting={this.state.is_submitting}
                     ></SignupSimple>
+                )
+            case Appearances.dark:
+                return (
+                    <SignupDark
+                        email_error_msg={this.state.email_error_msg}
+                        email={this.state.email}
+                        clearEmail={this.clearEmail}
+                        handleInputChange={this.handleInputChange}
+                        handleValidation={this.handleValidation}
+                        autofocus={this.props.autofocus}
+                        handleSocialSignup={this.handleSocialSignup}
+                        handleLogin={this.handleLogin}
+                        is_submitting={this.state.is_submitting}
+                    ></SignupDark>
                 )
             default:
                 return (

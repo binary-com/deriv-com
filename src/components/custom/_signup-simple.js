@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { Container } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const Wrapper = styled(Container)`
@@ -77,4 +78,15 @@ const SignupSimple = props => {
         </Wrapper>
     )
 }
+
+SignupSimple.propTypes = {
+    autofocus: PropTypes.func,
+    clearEmail: PropTypes.bool,
+    email: PropTypes.string,
+    email_error_msg: PropTypes.string,
+    handleInputChange: PropTypes.func,
+    handleValidation: PropTypes.func,
+    is_submitting: PropTypes.bool,
+}
+
 export default SignupSimple

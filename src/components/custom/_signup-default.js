@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -121,4 +122,17 @@ const SignupDefault = props => {
         </>
     )
 }
+
+SignupDefault.propTypes = {
+    autofocus: PropTypes.func,
+    clearEmail: PropTypes.bool,
+    email: PropTypes.string,
+    email_error_msg: PropTypes.string,
+    handleInputChange: PropTypes.func,
+    handleLogin: PropTypes.func,
+    handleSocialSignup: PropTypes.func,
+    handleValidation: PropTypes.func,
+    is_submitting: PropTypes.bool,
+}
+
 export default SignupDefault

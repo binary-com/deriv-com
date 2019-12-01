@@ -12,7 +12,7 @@ const NumberWrapper = styled.div`
 `
 const StyledContainer = styled(Container)`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 `
 const Numbers = () => {
     return (

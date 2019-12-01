@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import device from 'themes/device'
@@ -20,8 +20,8 @@ const StyledContainer = styled(Container)`
     grid-column-gap: 2rem;
     grid-row-gap: 7.5rem;
     grid-template-areas:
-        ' twywi twywi twywi twywi twywi . ms ms ms ms ms ms'
-        'twyw twyw twyw twyw twyw twyw msi msi msi msi msi msi';
+        ' . twywi twywi twywi twywi . . ms ms ms ms ms'
+        '. twyw twyw twyw twyw twyw . msi msi msi msi msi';
 
     @media ${device.tabletL} {
         grid-template-columns: repeat(1, 1fr);
@@ -64,7 +64,7 @@ const ImageContainer = styled.div`
     }
 `
 const Row = styled.div`
-    margin-top: ${props => (props.test ? '0' : '4rem')};
+    margin-top: ${props => (props.no_margin ? '0' : '4rem')};
 `
 const Trading = () => {
     return (
@@ -74,7 +74,7 @@ const Trading = () => {
                     <Image img_name="dmt-5-mac.png" alt="DMT5 mac" />
                 </ImageContainer>
                 <ContentContainer grid_area="ms">
-                    <Row test>
+                    <Row no_margin>
                         <Header as="h2">{localize('Standard Account')}</Header>
                         <Text secondary>
                             {localize(
@@ -92,7 +92,7 @@ const Trading = () => {
                     </Row>
                 </ContentContainer>
                 <ContentContainer grid_area="twyw">
-                    <Row test>
+                    <Row no_margin>
                         <Header as="h2">{localize('Synthetic Indices')}</Header>
                         <Text secondary>
                             {localize(
@@ -101,7 +101,11 @@ const Trading = () => {
                         </Text>
                     </Row>
                     <Row>
-                        <Header as="h2">{localize('Practice with Demo accounts')}</Header>
+                        <Header as="h2">
+                            <Localize
+                                translate_text="Practice with<0/>Demo accounts"
+                                components={[<br key={0} />]}
+                            /></Header>
                         <Text secondary>
                             {localize(
                                 'Create demo accounts (Standard, Advanced or Synthetic Indices) - the best way for you to check out the platform, get familiar with the tools and learn trading techniques.',

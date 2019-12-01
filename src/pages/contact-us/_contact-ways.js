@@ -19,6 +19,14 @@ const Wrapper = styled.section`
     padding: 4rem 12.8rem;
 
     @media ${device.tabletS} {
+        height: auto;
+    }
+`
+const WaysWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+
+    @media ${device.tabletS} {
         flex-direction: column;
         height: auto;
     }
@@ -54,18 +62,14 @@ const StyledLink = styled(LocalizedLink)`
 const Splitter = styled.div`
     background-color: #d8d8d8;
     height: 24.3rem;
-    width: 0.1rem;
+    width: 0.3rem;
     margin-top: 7.8rem;
 
     @media ${device.tabletS} {
-        width: 24.3rem;
-        height: 0.1rem;
-        margin-top: 2rem;
-        margin-left: auto;
-        margin-right: auto;
+        display: none;
     }
 `
-// const StyledButton = styled(LocalizedLink)`
+// const StyledButton = stßyled(LocalizedLink)`
 //     border-radius: 4px;
 //     width: 11.5rem;
 //     height: 4rem;
@@ -94,39 +98,40 @@ const Splitter = styled.div`
 export const ContactWays = () => {
     return (
         <Wrapper>
-            <Contact>
-                <Logo>
-                    <CallUsIcon />
-                </Logo>
-                <StyledHeader as="h3" align="center" color="--color-black-3">
-                    {localize('Call Us')}
-                </StyledHeader>
-                <StyledText>{localize('International help desk')}</StyledText>
-                <StyledText secondary weight="bold">
-                    {localize('+44 800 011 9847')}
-                </StyledText>
-                <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
-                <StyledText marginBttom="1.9rem">
-                    {localize('Sat-Sun: 8:00am - 5pm GMT')}
-                </StyledText>
-                <StyledText weight="bold" color="var(--color-red)">
-                    {localize('View all global offices ')}
-                </StyledText>
-                <StyledLink to="/contact-us/#our_offices"></StyledLink>
-            </Contact>
-            <Splitter></Splitter>
-            <Contact>
-                <Logo>
-                    <EmailUsIcon />
-                </Logo>
-                <StyledHeader as="h3" align="center" color="--color-black-3">
-                    {localize('Email Us')}
-                </StyledHeader>
-                <StyledText secondary weight="bold" color="var(--color-red)">
-                    {localize('emailhelp@deriv.com')}
-                </StyledText>
-            </Contact>
-            {/* <Splitter></Splitter>
+            <WaysWrapper>
+                <Contact>
+                    <Logo>
+                        <CallUsIcon />
+                    </Logo>
+                    <StyledHeader as="h3" align="center" color="--color-black-3">
+                        {localize('Call Us')}
+                    </StyledHeader>
+                    <StyledText>{localize('International help desk')}</StyledText>
+                    <StyledText secondary weight="bold">
+                        {localize('+44 800 011 9847')}
+                    </StyledText>
+                    <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
+                    <StyledText marginBttom="1.9rem">
+                        {localize('Sat-Sun: 8:00am - 5pm GMT')}
+                    </StyledText>
+                    <StyledText weight="bold" color="var(--color-red)">
+                        {localize('View all global offices ')}
+                    </StyledText>
+                    <StyledLink to="/contact-us/#our_offices"></StyledLink>
+                </Contact>
+                <Splitter></Splitter>
+                <Contact>
+                    <Logo>
+                        <EmailUsIcon />
+                    </Logo>
+                    <StyledHeader as="h3" align="center" color="--color-black-3">
+                        {localize('Email Us')}
+                    </StyledHeader>
+                    <StyledText secondary weight="bold" color="var(--color-red)">
+                        {localize('emailhelp@deriv.com')}
+                    </StyledText>
+                </Contact>
+                {/* <Splitter></Splitter>
                 <Contact>
                     <Logo>
                         <ChatLiveIcon></ChatLiveIcon>
@@ -140,6 +145,7 @@ export const ContactWays = () => {
                     </StyledText>
                     <StyledButton to="/">{localize('Start a chat')}</StyledButton>
                 </Contact> */}
+            </WaysWrapper>
         </Wrapper>
     )
 }

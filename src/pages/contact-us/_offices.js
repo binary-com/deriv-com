@@ -6,7 +6,6 @@ import { getLocationHash } from 'common/utility'
 import { localize } from 'components/localization'
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
-import { Container } from 'components/containers'
 import device from 'themes/device'
 
 const Wrapper = styled.section`
@@ -16,32 +15,38 @@ const Wrapper = styled.section`
     background-color: var(--color-white);
     padding: 8rem 23rem;
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         height: auto;
+        padding: 8rem 10rem;
     }
 `
-const OfficesWrapper = styled(Container)`
+const Wrapper2 = styled.div`
+    width: 100;
+    margin: auto;
+    height: 100%;
+`
+const OfficesWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
 `
 const Office = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    width: 100%;
     height: 27.5rem;
     margin-top: 6.3rem;
+    width: 100%;
 
     :first-child {
         margin-top: 4rem;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         flex-direction: column;
+        justify-content: center;
         height: auto;
-    }
-    @media ${device.laptopL} {
-        justify-content: space-between;
     }
 `
 const StyledHeader = styled(Header)`
@@ -52,9 +57,10 @@ const Content = styled.div`
 
     :nth-child(even) {
         margin-left: 8rem;
+        width: 100%;
     }
 
-    @media ${device.tablet} {
+    @media ${device.laptop} {
         width: 100%;
 
         :nth-child(even) {
@@ -69,10 +75,9 @@ const PhoneIcon = styled(PhoneSVG)`
     margin-right: 0.8rem;
 `
 const ImageWrapper = styled.div`
-    width: 50%;
-    height: 21.2rem;
+    height: 21rem;
 
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
         display: none;
     }
 `
@@ -102,147 +107,153 @@ export const Offices = () => {
                 {localize('Our offices')}
             </StyledHeader>
             <OfficesWrapper>
-                <Office>
-                    <ImageWrapper>
-                        <Image
-                            img_name="map-malta.png"
-                            alt={localize('Malta Office')}
-                            width="100%"
-                            height="100%"
-                        />
-                    </ImageWrapper>
-                    <Content>
-                        <StyledHeader as="h4" color="--color-black-3" align="left">
-                            {localize('Malta')}
-                        </StyledHeader>
-                        <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
-                        <StyledText width="29.9rem">
-                            <MapIcon />
-                            {localize('Level 3, W Business Centre,')}
-                        </StyledText>
-                        <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                            {localize('Triq Dun Karm Birkirkara BKR9033 Malta.')}
-                        </StyledText>
-                        <StyledText>
-                            <PhoneIcon />
-                            +35621316105
-                        </StyledText>
-                    </Content>
-                </Office>
-                <Splitter></Splitter>
-                <Office>
-                    <Content>
-                        <StyledHeader as="h4" color="--color-black-3" align="left">
-                            {localize('Malaysia')}
-                        </StyledHeader>
-                        <StyledText marginBttom="2.1rem">{localize('Cyberjaya office')}</StyledText>
-                        <StyledText>
-                            <MapIcon />
-                            {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
-                        </StyledText>
-                        <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                            {localize('63000Cyberjaya, Selangor, Malaysia.')}
-                        </StyledText>
-                        <StyledText>
-                            <PhoneIcon /> +603-8322 8178
-                        </StyledText>
-                    </Content>
-                    <ImageWrapper>
-                        <Image
-                            img_name="map-cyberjaya.png"
-                            alt={localize('Malaysia Office')}
-                            width="100%"
-                            height="100%"
-                        />
-                    </ImageWrapper>
-                </Office>
-                <Splitter></Splitter>
-                <Office>
-                    <ImageWrapper>
-                        <Image
-                            img_name="map-labuan.png"
-                            alt={localize('Labuan Office')}
-                            width="100%"
-                            height="100%"
-                        />
-                    </ImageWrapper>
-                    <Content>
-                        <StyledHeader as="h4" color="--color-black-3" align="left">
-                            {localize('Malaysia')}
-                        </StyledHeader>
-                        <StyledText marginBttom="2.1rem">{localize('Labuan office')}</StyledText>
-                        <StyledText>
-                            <MapIcon />
-                            {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
-                        </StyledText>
-                        <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                            {localize('Mustapha, 87000, Labuan')}
-                        </StyledText>
-                        <StyledText>
-                            <PhoneIcon />
-                            +6087-504126
-                        </StyledText>
-                    </Content>
-                </Office>
-                <Splitter></Splitter>
-                <Office>
-                    <Content>
-                        <StyledHeader as="h4" color="--color-black-3" align="left">
-                            {localize('Dubai')}
-                        </StyledHeader>
-                        <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
-                        <StyledText>
-                            <MapIcon />
-                            {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
-                        </StyledText>
-                        <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                            {localize('Towers, Dubai, UAE.')}
-                        </StyledText>
-                        <StyledText>
-                            <PhoneIcon />
-                            +971 4 399 0404
-                        </StyledText>
-                    </Content>
-                    <ImageWrapper>
-                        <Image
-                            img_name="map-dubai.png"
-                            alt={localize('Dubai Office')}
-                            width="100%"
-                            height="100%"
-                        />
-                    </ImageWrapper>
-                </Office>
-                <Splitter></Splitter>
-                <Office>
-                    <ImageWrapper>
-                        <Image
-                            img_name="map-paraguay.png"
-                            alt={localize('paraguay Office')}
-                            width="100%"
-                            height="100%"
-                        />
-                    </ImageWrapper>
-                    <Content>
-                        <StyledHeader as="h4" color="--color-black-3" align="left">
-                            {localize('Paraguay')}
-                        </StyledHeader>
-                        <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
-                        <StyledText>
-                            <MapIcon />
-                            {localize('886, Edificio Australia, Calle Herib, Campos Cervera')}
-                        </StyledText>
-                        <StyledText textIndent="1.5em">
-                            {localize('y Tregnaghi, Distriti de Stma, Trinidad, Asuncion,')}
-                        </StyledText>
-                        <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                            {localize('Paraguay')}
-                        </StyledText>
-                        <StyledText>
-                            <PhoneIcon />
-                            +603-8322 8178
-                        </StyledText>
-                    </Content>
-                </Office>
+                <Wrapper2>
+                    <Office>
+                        <ImageWrapper>
+                            <Image
+                                img_name="map-malta.png"
+                                alt={localize('Malta Office')}
+                                width="49rem"
+                                height="100%"
+                            />
+                        </ImageWrapper>
+                        <Content>
+                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                                {localize('Malta')}
+                            </StyledHeader>
+                            <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
+                            <StyledText width="29.9rem">
+                                <MapIcon />
+                                {localize('Level 3, W Business Centre,')}
+                            </StyledText>
+                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                {localize('Triq Dun Karm Birkirkara BKR9033 Malta.')}
+                            </StyledText>
+                            <StyledText>
+                                <PhoneIcon />
+                                +35621316105
+                            </StyledText>
+                        </Content>
+                    </Office>
+                    <Splitter></Splitter>
+                    <Office>
+                        <Content>
+                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                                {localize('Malaysia')}
+                            </StyledHeader>
+                            <StyledText marginBttom="2.1rem">
+                                {localize('Cyberjaya office')}
+                            </StyledText>
+                            <StyledText>
+                                <MapIcon />
+                                {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
+                            </StyledText>
+                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                {localize('63000Cyberjaya, Selangor, Malaysia.')}
+                            </StyledText>
+                            <StyledText>
+                                <PhoneIcon /> +603-8322 8178
+                            </StyledText>
+                        </Content>
+                        <ImageWrapper>
+                            <Image
+                                img_name="map-cyberjaya.png"
+                                alt={localize('Malaysia Office')}
+                                width="49rem"
+                                height="100%"
+                            />
+                        </ImageWrapper>
+                    </Office>
+                    <Splitter></Splitter>
+                    <Office>
+                        <ImageWrapper>
+                            <Image
+                                img_name="map-labuan.png"
+                                alt={localize('Labuan Office')}
+                                width="49rem"
+                                height="100%"
+                            />
+                        </ImageWrapper>
+                        <Content>
+                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                                {localize('Malaysia')}
+                            </StyledHeader>
+                            <StyledText marginBttom="2.1rem">
+                                {localize('Labuan office')}
+                            </StyledText>
+                            <StyledText>
+                                <MapIcon />
+                                {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
+                            </StyledText>
+                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                {localize('Mustapha, 87000, Labuan')}
+                            </StyledText>
+                            <StyledText>
+                                <PhoneIcon />
+                                +6087-504126
+                            </StyledText>
+                        </Content>
+                    </Office>
+                    <Splitter></Splitter>
+                    <Office>
+                        <Content>
+                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                                {localize('Dubai')}
+                            </StyledHeader>
+                            <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
+                            <StyledText>
+                                <MapIcon />
+                                {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
+                            </StyledText>
+                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                {localize('Towers, Dubai, UAE.')}
+                            </StyledText>
+                            <StyledText>
+                                <PhoneIcon />
+                                +971 4 399 0404
+                            </StyledText>
+                        </Content>
+                        <ImageWrapper>
+                            <Image
+                                img_name="map-dubai.png"
+                                alt={localize('Dubai Office')}
+                                width="49rem"
+                                height="100%"
+                            />
+                        </ImageWrapper>
+                    </Office>
+                    <Splitter></Splitter>
+                    <Office>
+                        <ImageWrapper>
+                            <Image
+                                img_name="map-paraguay.png"
+                                alt={localize('paraguay Office')}
+                                width="49rem"
+                                height="100%"
+                            />
+                        </ImageWrapper>
+                        <Content>
+                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                                {localize('Paraguay')}
+                            </StyledHeader>
+                            <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
+                            <StyledText>
+                                <MapIcon />
+                                {localize('886, Edificio Australia, Calle Herib, Campos Cervera')}
+                            </StyledText>
+                            <StyledText textIndent="1.5em">
+                                {localize('y Tregnaghi, Distriti de Stma, Trinidad, Asuncion,')}
+                            </StyledText>
+                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                {localize('Paraguay')}
+                            </StyledText>
+                            <StyledText>
+                                <PhoneIcon />
+                                +603-8322 8178
+                            </StyledText>
+                        </Content>
+                    </Office>
+                </Wrapper2>
             </OfficesWrapper>
         </Wrapper>
     )

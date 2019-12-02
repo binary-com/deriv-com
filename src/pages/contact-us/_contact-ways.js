@@ -45,7 +45,6 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
-    color: ${props => props.color || 'var(--color-black-3)'};
 `
 const Logo = styled.div`
     margin-bottom: 1.4rem;
@@ -104,7 +103,7 @@ export const ContactWays = () => {
                     <Logo>
                         <CallUsIcon />
                     </Logo>
-                    <StyledHeader as="h3" align="center" color="--color-black-3">
+                    <StyledHeader as="h3" align="center">
                         {localize('Call Us')}
                     </StyledHeader>
                     <StyledText>{localize('International help desk')}</StyledText>
@@ -115,7 +114,7 @@ export const ContactWays = () => {
                     <StyledText marginBttom="1.9rem">
                         {localize('Sat-Sun: 8:00am - 5pm GMT')}
                     </StyledText>
-                    <StyledText weight="bold" color="var(--color-red)">
+                    <StyledText weight="bold" color="red">
                         {localize('View all global offices ')}
                     </StyledText>
                     <StyledLink to="/contact-us/#our_offices"></StyledLink>
@@ -125,10 +124,10 @@ export const ContactWays = () => {
                     <Logo>
                         <EmailUsIcon />
                     </Logo>
-                    <StyledHeader as="h3" align="center" color="--color-black-3">
+                    <StyledHeader as="h3" align="center">
                         {localize('Email Us')}
                     </StyledHeader>
-                    <StyledText secondary weight="bold" color="var(--color-red)">
+                    <StyledText secondary weight="bold" color="red">
                         {localize('emailhelp@deriv.com')}
                     </StyledText>
                 </Contact>
@@ -140,7 +139,7 @@ export const ContactWays = () => {
                     <Logo>
                         <ChatLiveIcon></ChatLiveIcon>
                     </Logo>
-                    <StyledHeader as="h3" align="center" color="--color-black-3">
+                    <StyledHeader as="h3" align="center">
                         {localize('Chat live')}
                     </StyledHeader>
                     <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>

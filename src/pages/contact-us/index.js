@@ -24,7 +24,7 @@ const ContactUs = () => {
         <Layout>
             <SEO title={localize('Get in touch')} />
             <HeroWrapper>
-                <Header as="h1" color="--color-black-3">
+                <Header as="h1">
                     {localize('Get in touch')}
                 </Header>
                 <Text secondary>

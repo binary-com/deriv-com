@@ -61,7 +61,7 @@ export const NeedHelp = () => {
         <Wrapper>
             <SectionWrapper>
                 <Logo></Logo>
-                <StyledHeader as="h3" align="center" color="--color-black-3">
+                <StyledHeader as="h3" align="center">
                     {localize('Need help?')}
                 </StyledHeader>
                 <StyledText align="center">

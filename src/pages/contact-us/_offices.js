@@ -103,7 +103,7 @@ export const Offices = () => {
     })
     return (
         <Wrapper>
-            <StyledHeader as="h3" align="center" color="--color-black-3" id="our_offices">
+            <StyledHeader as="h3" align="center" id="our_offices">
                 {localize('Our offices')}
             </StyledHeader>
             <OfficesWrapper>
@@ -118,7 +118,7 @@ export const Offices = () => {
                             />
                         </ImageWrapper>
                         <Content>
-                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                            <StyledHeader as="h4" align="left">
                                 {localize('Malta')}
                             </StyledHeader>
                             <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
@@ -138,7 +138,7 @@ export const Offices = () => {
                     <Splitter></Splitter>
                     <Office>
                         <Content>
-                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                            <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
                             </StyledHeader>
                             <StyledText marginBttom="2.1rem">
@@ -175,7 +175,7 @@ export const Offices = () => {
                             />
                         </ImageWrapper>
                         <Content>
-                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                            <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
                             </StyledHeader>
                             <StyledText marginBttom="2.1rem">
@@ -197,7 +197,7 @@ export const Offices = () => {
                     <Splitter></Splitter>
                     <Office>
                         <Content>
-                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                            <StyledHeader as="h4" align="left">
                                 {localize('Dubai')}
                             </StyledHeader>
                             <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
@@ -233,7 +233,7 @@ export const Offices = () => {
                             />
                         </ImageWrapper>
                         <Content>
-                            <StyledHeader as="h4" color="--color-black-3" align="left">
+                            <StyledHeader as="h4" align="left">
                                 {localize('Paraguay')}
                             </StyledHeader>
                             <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '../../components/elements/typography'
+import { Text } from 'components/elements/typography'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -30,33 +30,32 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
-    color: ${props => props.color || 'var(--color-black-3)'};
 `
 
 export const Affiliates = () => {
     return (
         <Wrapper>
             <Content>
-                <StyledHeader as="h3" color="--color-black-3" align="center">
+                <StyledHeader as="h3" align="center">
                     {localize('Public Relations')}
                 </StyledHeader>
-                <StyledText secondary weight="bold" color="var(--color-red)">
+                <StyledText secondary weight="bold" color="red">
                     {localize('publicrelations@deriv.com')}
                 </StyledText>
             </Content>
             <Content>
-                <StyledHeader as="h3" color="--color-black-3" align="center">
+                <StyledHeader as="h3" align="center">
                     {localize('Affiliates')}
                 </StyledHeader>
-                <StyledText secondary weight="bold" color="var(--color-red)">
+                <StyledText secondary weight="bold" color="red">
                     {localize('affiliates@deriv.com')}
                 </StyledText>
             </Content>
             <Content>
-                <StyledHeader as="h3" color="--color-black-3" align="center">
+                <StyledHeader as="h3" align="center">
                     {localize('Business development')}
                 </StyledHeader>
-                <StyledText secondary weight="bold" color="var(--color-red)">
+                <StyledText secondary weight="bold" color="red">
                     {localize('businessdev@deriv.com')}
                 </StyledText>
             </Content>

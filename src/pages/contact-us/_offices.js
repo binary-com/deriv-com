@@ -149,7 +149,7 @@ export const Offices = () => {
                                 {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
                             </StyledText>
                             <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                                {localize('63000Cyberjaya, Selangor, Malaysia.')}
+                                {localize('63000 Cyberjaya, Selangor, Malaysia.')}
                             </StyledText>
                             <StyledText>
                                 <PhoneIcon /> +603-8322 8178

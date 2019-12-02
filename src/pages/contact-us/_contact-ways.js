@@ -69,6 +69,7 @@ const Splitter = styled.div`
         display: none;
     }
 `
+// TODO: This section will be added shortly when the back-end gets ready.
 // const StyledButton = stßyled(LocalizedLink)`
 //     border-radius: 4px;
 //     width: 11.5rem;
@@ -131,7 +132,10 @@ export const ContactWays = () => {
                         {localize('emailhelp@deriv.com')}
                     </StyledText>
                 </Contact>
-                {/* <Splitter></Splitter>
+
+                {/*
+                // TODO: This section will be added shortly when the back-end gets ready.
+                <Splitter></Splitter>
                 <Contact>
                     <Logo>
                         <ChatLiveIcon></ChatLiveIcon>

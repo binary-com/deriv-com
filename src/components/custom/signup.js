@@ -178,63 +178,18 @@ class Signup extends Component {
             is_submitting: this.state.is_submitting,
         }
         switch (param) {
-            case Appearances.default:
-                return (
-                    <SignupDefault
-                        email_error_msg={this.state.email_error_msg}
-                        email={this.state.email}
-                        clearEmail={this.clearEmail}
-                        handleInputChange={this.handleInputChange}
-                        handleValidation={this.handleValidation}
-                        autofocus={this.props.autofocus}
-                        handleSocialSignup={this.handleSocialSignup}
-                        handleLogin={this.handleLogin}
-                        is_submitting={this.state.is_submitting}
-                    ></SignupDefault>
-                )
             case Appearances.simple:
-                return (
-                    <SignupSimple
-                        email_error_msg={this.state.email_error_msg}
-                        email={this.state.email}
-                        clearEmail={this.clearEmail}
-                        handleInputChange={this.handleInputChange}
-                        handleValidation={this.handleValidation}
-                        autofocus={this.props.autofocus}
-                        handleSocialSignup={this.handleSocialSignup}
-                        handleLogin={this.handleLogin}
-                        is_submitting={this.state.is_submitting}
-                    ></SignupSimple>
-                )
-            case Appearances.darkFlat:
-                return (
-                    <SignupFlat
-                        dark
-                        email_error_msg={this.state.email_error_msg}
-                        email={this.state.email}
-                        clearEmail={this.clearEmail}
-                        handleInputChange={this.handleInputChange}
-                        handleValidation={this.handleValidation}
-                        autofocus={this.props.autofocus}
-                        handleSocialSignup={this.handleSocialSignup}
-                        handleLogin={this.handleLogin}
-                        is_submitting={this.state.is_submitting}
-                    ></SignupFlat>
-                )
+                return <SignupSimple parameters={parameters}></SignupSimple>
             case Appearances.lightFlat:
-                return (
-                    <SignupFlat
-                        email_error_msg={this.state.email_error_msg}
-                        email={this.state.email}
-                        clearEmail={this.clearEmail}
-                        handleInputChange={this.handleInputChange}
-                        handleValidation={this.handleValidation}
-                        autofocus={this.props.autofocus}
-                        handleSocialSignup={this.handleSocialSignup}
-                        handleLogin={this.handleLogin}
-                        is_submitting={this.state.is_submitting}
-                    ></SignupFlat>
+            case Appearances.darkFlat:
+                return param == Appearances.darkFlat ? (
+                    <SignupFlat dark parameters={parameters}></SignupFlat>
+                ) : (
+                    <SignupFlat parameters={parameters}></SignupFlat>
                 )
+            case Appearances.default:
+            default:
+                return <SignupDefault parameters={parameters}></SignupDefault>
         }
     }
 

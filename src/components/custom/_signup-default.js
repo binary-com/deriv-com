@@ -64,19 +64,19 @@ const SignupDefault = props => {
                     id="email"
                     name="email"
                     type="text"
-                    error={props.email_error_msg}
-                    value={props.email}
+                    error={props.parameters.email_error_msg}
+                    value={props.parameters.email}
                     label={localize('Email')}
                     placeholder={'example@mail.com'}
-                    handleError={props.clearEmail}
-                    onChange={props.handleInputChange}
-                    onBlur={props.handleValidation}
-                    autoFocus={props.autofocus}
+                    handleError={props.parameters.clearEmail}
+                    onChange={props.parameters.handleInputChange}
+                    onBlur={props.parameters.handleValidation}
+                    autoFocus={props.parameters.autofocus}
                     autoComplete="off"
                     required
                 />
             </InputGroup>
-            <EmailButton type="submit" secondary disabled={props.is_submitting}>
+            <EmailButton type="submit" secondary disabled={props.parameters.is_submitting}>
                 {localize('Create a free account')}
             </EmailButton>
             <Text color="grey" align="center">
@@ -84,7 +84,7 @@ const SignupDefault = props => {
             </Text>
             <SocialWrapper justify="space-between" gap="0" grid="2">
                 <SocialButton
-                    onClick={props.handleSocialSignup}
+                    onClick={props.parameters.handleSocialSignup}
                     provider="google"
                     id="google"
                     type="button"
@@ -95,7 +95,7 @@ const SignupDefault = props => {
                     </span>
                 </SocialButton>
                 <SocialButton
-                    onClick={props.handleSocialSignup}
+                    onClick={props.parameters.handleSocialSignup}
                     provider="facebook"
                     id="facebook"
                     type="button"
@@ -108,14 +108,14 @@ const SignupDefault = props => {
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}
-                <LoginLink onClick={props.handleLogin}> {localize('Log in.')}</LoginLink>
+                <LoginLink onClick={props.parameters.handleLogin}> {localize('Log in.')}</LoginLink>
             </LoginText>
             <NoteText>
                 <Localize
                     translate_text="Got a <0>Binary.com</0> account? You can <1>log in</1> to <0>Deriv</0> with your <0>Binary.com</0> username and password"
                     components={[
                         <strong key={0} />,
-                        <LoginLink key={1} onClick={props.handleLogin} />,
+                        <LoginLink key={1} onClick={props.parameters.handleLogin} />,
                     ]}
                 />
             </NoteText>
@@ -124,15 +124,7 @@ const SignupDefault = props => {
 }
 
 SignupDefault.propTypes = {
-    autofocus: PropTypes.func,
-    clearEmail: PropTypes.bool,
-    email: PropTypes.string,
-    email_error_msg: PropTypes.string,
-    handleInputChange: PropTypes.func,
-    handleLogin: PropTypes.func,
-    handleSocialSignup: PropTypes.func,
-    handleValidation: PropTypes.func,
-    is_submitting: PropTypes.bool,
+    parameters: PropTypes.object,
 }
 
 export default SignupDefault

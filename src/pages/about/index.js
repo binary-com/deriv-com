@@ -9,7 +9,6 @@ import { Hero, Header, Modal, useModal } from 'components/elements'
 import { Button } from 'components/form'
 import SignupModal from 'components/custom/signup-modal'
 import { Show, SEO } from 'components/containers'
-import Signup, { Appearances } from 'components/custom/signup'
 
 const Goahead = styled.div`
     text-align: center;
@@ -24,7 +23,6 @@ const AccountButton = styled(Button)`
     max-width: 32rem;
     margin-bottom: 3.6rem;
 `
-
 const About = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
@@ -49,7 +47,6 @@ const About = () => {
             <OurGoals />
             <OurNumbers />
             <OurLocations />
-            <Signup appearance={Appearances.darkFlat}></Signup>
             <Show.Mobile>
                 <Goahead>
                     <Header as="h1" align="center" lh="1.1">

@@ -3,90 +3,77 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { Container } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
-const Wrapper = styled(Container)`
+const InputGroup = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 44rem;
 
     @media ${device.mobileL} {
         flex-direction: column;
     }
 `
-const StyledHeader = styled(Header)`
-    width: auto;
+const InputWrapper = styled.div`
+    width: 75%;
+
+    @media ${device.mobileL} {
+        width: 100%;
+    }
+`
+const StyledHeader = styled(Text)`
+    font-size: 2.7rem;
+    width: 28.8rem;
 
     @media ${device.mobileL} {
         text-align: center;
     }
 `
-const InputGroup = styled.div`
-    position: relative;
-    width: 36.1rem;
-    margin: var(--text-size-m) 0;
-    margin-left: 4.7rem;
-`
-const EmailButton = styled(Button)`
-    width: auto;
-    font-size: 1.4rem;
-    border-radius: 4px;
-    margin-left: 0.8rem;
-`
-const MutedText = styled(Text)`
-    text-align: left;
-    color: var(--color-grey);
-    align-self: start;
-`
-export const LoginText = styled(MutedText)`
-    text-align: center;
-    align-self: center;
-    margin-top: 2.4rem;
 
-    @media ${device.tabletL} {
-        margin-bottom: 0;
-    }
+const EmailButton = styled(Button)`
+    margin-left: 0.8rem;
+    height: 4rem;
 `
 const SignupSimple = props => {
     return (
-        <Wrapper>
-            <StyledHeader as="h3" weight="bold">
+        <Container>
+            <StyledHeader weight="bold">
                 {localize('Ready to join us?')}
                 <br></br>
                 {localize('Try for free ')}
             </StyledHeader>
-
             <InputGroup>
-                <Input
-                    id="email"
-                    name="email"
-                    type="text"
-                    error={props.email_error_msg}
-                    value={props.email}
-                    label={localize('Email')}
-                    placeholder={'example@mail.com'}
-                    handleError={props.clearEmail}
-                    onChange={props.handleInputChange}
-                    onBlur={props.handleValidation}
-                    autoFocus={props.autofocus}
-                    autoComplete="off"
-                    required
-                />
+                <InputWrapper>
+                    <Input
+                        id="email"
+                        name="email"
+                        type="text"
+                        error={props.parameters.email_error_msg}
+                        value={props.parameters.email}
+                        label={localize('E-mail address')}
+                        placeholder={'example@.parameters.com'}
+                        handleError={props.parameters.clearEmail}
+                        onChange={props.parameters.handleInputChange}
+                        onBlur={props.parameters.handleValidation}
+                        autoFocus={props.parameters.autofocus}
+                        autoComplete="off"
+                        background="white"
+                        required
+                    />
+                </InputWrapper>
+                <EmailButton type="submit" secondary disabled={props.parameters.is_submitting}>
+                    {localize('Sign up')}
+                </EmailButton>
             </InputGroup>
-            <EmailButton type="submit" secondary disabled={props.is_submitting}>
-                {localize('Sign up')}
-            </EmailButton>
-        </Wrapper>
+        </Container>
     )
 }
 
 SignupSimple.propTypes = {
-    autofocus: PropTypes.func,
-    clearEmail: PropTypes.bool,
-    email: PropTypes.string,
-    email_error_msg: PropTypes.string,
-    handleInputChange: PropTypes.func,
-    handleValidation: PropTypes.func,
-    is_submitting: PropTypes.bool,
+    parameters: PropTypes.object,
 }
 
 export default SignupSimple

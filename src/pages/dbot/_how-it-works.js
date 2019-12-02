@@ -5,6 +5,7 @@ import { Container, SectionContainer, Wrapper } from 'components/containers'
 import { Header, Image, LinearLoader, SideTab } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import DBotVideo from './_dbot-video.js'
 
 const BackgroundContainer = styled(SectionContainer)`
     background: linear-gradient(to bottom, var(--color-grey-2), var(--color-white));
@@ -67,48 +68,7 @@ const BannerSection = () => {
                 <StyledHeader as="h2" align="center">
                     {localize('Build a trading robot in 5 easy steps')}
                 </StyledHeader>
-                <Wrapper width="100%" margin={{ top: '4rem' }}>
-                    <SideTab>
-                        <SelectAsset
-                            label="select_asset"
-                            text={localize('1. Select your asset')}
-                            onClick={() => setProgress(20)}
-                            img_name="dbot-step1.png"
-                            alt="Step 1"
-                        />
-                        <SelectAsset
-                            label="set_purchase"
-                            text={localize('2. Set purchase conditions')}
-                            onClick={() => setProgress(40)}
-                            img_name="dbot-step2.png"
-                            alt="Step 2"
-                        />
-                        <SelectAsset
-                            label="restart_conditions"
-                            text={localize('3. Set restart conditions')}
-                            onClick={() => setProgress(60)}
-                            img_name="dbot-step3.png"
-                            alt="Step 3"
-                        />
-                        <SelectAsset
-                            label="run_bot"
-                            text={localize('4. Run bot')}
-                            onClick={() => setProgress(80)}
-                            img_name="dbot-step4.png"
-                            alt="Step 4"
-                        />
-                        <SelectAsset
-                            label="check_profit"
-                            text={localize('5. Check profit')}
-                            onClick={() => setProgress(100)}
-                            img_name="dbot-step5.png"
-                            alt="Step 5"
-                        />
-                    </SideTab>
-                    <LoaderContainer>
-                        <LinearLoader width="80%" progress={progress} />
-                    </LoaderContainer>
-                </Wrapper>
+                <DBotVideo />
             </Container>
         </BackgroundContainer>
     )

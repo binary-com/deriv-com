@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Tutorial } from './_tutorial'
 import { TradeWithDbot } from './_trade-with-dbot'
-import AutomateTrading from './_automate-trading'
+import Hero from './_hero'
 import Banner from './_banner'
 import HowItWorks from './_how-it-works'
 import { SEO } from 'components/containers'
@@ -14,7 +14,7 @@ class Dbot extends Component {
         return (
             <Layout>
                 <SEO title={localize('Dbot')} />
-                <AutomateTrading />
+                <Hero />
                 <Banner />
                 <HowItWorks />
                 <Tutorial />

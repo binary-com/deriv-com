@@ -21,7 +21,6 @@ const BannerItem = styled.article`
     width: 32.8rem;
     display: flex;
     flex-direction: column;
-    padding: 1.4rem;
 
     @media ${device.tabletS} {
         width: 100%;
@@ -34,7 +33,7 @@ const StyledHeader = styled(Header)`
 
 const BannerSection = () => (
     <BackgroundContainer>
-        <StyledContainer gap="0">
+        <StyledContainer gap="0" justify='space-evenly'>
             <BannerItem>
                 <StyledHeader as="h2" align="center">
                     {localize('5')}

@@ -20,7 +20,7 @@ const Wrapper = styled.section`
         padding: 8rem 10rem;
     }
 `
-const Wrapper2 = styled.div`
+const OfficeWrapper = styled.div`
     width: 100;
     margin: auto;
     height: 100%;
@@ -98,7 +98,7 @@ export const Offices = () => {
                 document
                     .querySelector('#' + getLocationHash())
                     .scrollIntoView({ behavior: 'smooth', block: 'start' })
-            }, 10)
+            }, 100)
         }
     })
     return (
@@ -107,7 +107,7 @@ export const Offices = () => {
                 {localize('Our offices')}
             </StyledHeader>
             <OfficesWrapper>
-                <Wrapper2>
+                <OfficeWrapper>
                     <Office>
                         <ImageWrapper>
                             <Image
@@ -121,7 +121,7 @@ export const Offices = () => {
                             <StyledHeader as="h4" align="left">
                                 {localize('Malta')}
                             </StyledHeader>
-                            <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
+                            <br />
                             <StyledText width="29.9rem">
                                 <MapIcon />
                                 {localize('Level 3, W Business Centre,')}
@@ -141,9 +141,7 @@ export const Offices = () => {
                             <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
                             </StyledHeader>
-                            <StyledText marginBttom="2.1rem">
-                                {localize('Cyberjaya office')}
-                            </StyledText>
+                            <br />
                             <StyledText>
                                 <MapIcon />
                                 {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
@@ -178,9 +176,7 @@ export const Offices = () => {
                             <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
                             </StyledHeader>
-                            <StyledText marginBttom="2.1rem">
-                                {localize('Labuan office')}
-                            </StyledText>
+                            <br />
                             <StyledText>
                                 <MapIcon />
                                 {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
@@ -200,7 +196,7 @@ export const Offices = () => {
                             <StyledHeader as="h4" align="left">
                                 {localize('Dubai')}
                             </StyledHeader>
-                            <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
+                            <br />
                             <StyledText>
                                 <MapIcon />
                                 {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
@@ -236,7 +232,7 @@ export const Offices = () => {
                             <StyledHeader as="h4" align="left">
                                 {localize('Paraguay')}
                             </StyledHeader>
-                            <StyledText marginBttom="2.1rem">{localize('Office')}</StyledText>
+                            <br />
                             <StyledText>
                                 <MapIcon />
                                 {localize('886, Edificio Australia, Calle Herib, Campos Cervera')}
@@ -253,7 +249,7 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                     </Office>
-                </Wrapper2>
+                </OfficeWrapper>
             </OfficesWrapper>
         </Wrapper>
     )

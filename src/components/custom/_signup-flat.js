@@ -118,7 +118,6 @@ const SignupFlat = ({
     handleValidation,
     autofocus,
     handleSocialSignup,
-    handleLogin,
     is_submitting,
     dark,
 }) => {

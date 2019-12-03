@@ -23,13 +23,11 @@ const HeroWrapper = styled.section`
 const ContactUs = () => {
     useEffect(() => {
         if (getLocationHash()) {
-            var elmnt = document.getElementById('our_offices')
-            elmnt.scrollIntoView()
-            // setTimeout(() => {
-            //     document
-            //         .querySelector('#' + getLocationHash())
-            //         .scrollIntoView({ behavior: 'smooth' })
-            // }, 100)
+            setTimeout(() => {
+                document
+                    .querySelector('#' + getLocationHash())
+                    .scrollIntoView({ behavior: 'smooth' })
+            }, 100)
         }
     })
     return (

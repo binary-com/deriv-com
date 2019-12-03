@@ -21,13 +21,13 @@ const SearchText = styled(Text)`
 `
 export const SearchSuccess = ({ suggested_topics, onClick, max_length }) => (
     <>
-        <Header as="h3" color="white">
+        <Header as="h3" color="black">
             {localize('Topic suggestions')}
         </Header>
         <ListWithLinks
             list={suggested_topics.slice(0, max_length)}
             onClick={onClick}
-            link_style={{ color: 'white', size: '2rem' }}
+            link_style={{ color: 'black', size: '2rem' }}
         />
     </>
 )

@@ -8,6 +8,7 @@ import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 // import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import { SEO, Container } from 'components/containers'
+import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
@@ -23,11 +24,11 @@ const getAllArticles = articles =>
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
 const Backdrop = styled.div`
-    background-color: var(--color-black);
+    padding: 8rem;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-grey-8);
 `
 const StyledContainer = styled(Container)`
-    padding: 12rem 0;
-
     @media ${device.tabletL} {
         padding: 10rem 0 2rem 0;
     }
@@ -40,13 +41,10 @@ const SearchSection = styled.section`
     }
 `
 
-const SearchIconBig = styled(SearchIcon)`
-    position: absolute;
-    left: 0;
-    top: 3px;
-`
-
 const SearchCrossIcon = styled(CrossIcon)`
+    width: 2.3rem;
+    height: 2.3rem;
+
     :hover {
         cursor: pointer;
     }
@@ -59,9 +57,11 @@ const SearchCrossIcon = styled(CrossIcon)`
 const SearchForm = styled.form`
     position: relative;
     padding-left: 6.4rem;
+    border: 1px solid var(--color-grey-8);
+    border-radius: 6px;
 
     @media ${device.tabletL} {
-        padding-left: 4.3rem;
+        padding-left: 5.3rem;
 
         svg {
             top: 0;
@@ -70,18 +70,25 @@ const SearchForm = styled.form`
         }
     }
 `
-
+const SearchIconBig = styled(SearchIcon)`
+    width: 2.3rem;
+    height: 2.3rem;
+    position: absolute;
+    left: 3rem;
+    top: 2.4rem;
+`
 const Search = styled.input`
     width: 95%;
-    font-size: 4.4rem;
-    font-weight: bold;
-    color: var(--color-white);
-    background-color: var(--color-black);
+    font-size: var(--text-size-m);
+    font-weight: 500;
+    color: var(--color-black);
+    background-color: var(--color-white);
     border: none;
     outline: none;
+    height: 7.2rem;
 
     ::placeholder {
-        color: var(--color-black-3);
+        color: var(--color-grey-8);
     }
     @media ${device.tabletL} {
         font-size: 3rem;
@@ -96,13 +103,14 @@ const Search = styled.input`
 `
 
 const ResultWrapper = styled.div`
-    margin-top: 4rem;
-
     > :first-child {
+        margin-top: 4rem;
         margin-bottom: 1.6rem;
     }
 `
-
+const StyledHeader = styled(Header)`
+    margin-bottom: 4rem;
+`
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
@@ -216,6 +224,7 @@ class HelpCentre extends Component {
                 <SearchSection show={toggle_search} has_transition={search_has_transition}>
                     <Backdrop>
                         <StyledContainer align="normal" direction="column">
+                            <StyledHeader as="h1">{localize('How can we help?')}</StyledHeader>
                             <SearchForm onSubmit={this.handleSubmit}>
                                 <SearchIconBig />
                                 <Search
@@ -223,7 +232,7 @@ class HelpCentre extends Component {
                                     name="search"
                                     value={search}
                                     onChange={this.handleInputChange}
-                                    placeholder={localize('How can we help?')}
+                                    placeholder={localize('Try “Trade”')}
                                     data-lpignore="true"
                                     autoComplete="off"
                                 />

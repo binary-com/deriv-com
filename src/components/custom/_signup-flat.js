@@ -16,13 +16,20 @@ const Wrapper = styled.div`
     justify-content: flex-end;
     background-color: ${props => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     height: 26.9rem;
+    width: 100%;
 
     @media ${device.tabletL} {
         height: auto;
     }
 `
+const FormWrapper = styled(Wrapper)`
+    background-color: transparent;
+    padding: 0;
+    height: 100%;
+    width: 70%;
+`
 const CenterWrapper = styled.div`
-    width: 49rem;
+    width: 70%;
     height: 100%;
 
     @media ${device.tabletL} {
@@ -34,7 +41,7 @@ const RightWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 18rem;
+    width: 25%;
     height: 100%;
     margin-left: 5.8rem;
 
@@ -87,7 +94,7 @@ const StyledText = styled(Text)`
 `
 const DemoButton = styled(Button)`
     margin-top: 2.2rem;
-    width: 13.4rem;
+    width: auto;
 `
 const Splitter = styled.div`
     background-color: ${props => (props.dark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)')};
@@ -106,77 +113,88 @@ const handleExternalLink = () => {
 const SignupFlat = props => {
     return (
         <Wrapper dark={props.dark}>
-            <CenterWrapper>
-                <StyledHeader as="h3" weight="bold" color={props.dark ? 'white' : 'black'}>
-                    {localize('Join over 1 million traders worldwide')}
-                </StyledHeader>
-                <br />
-                <Text color={props.dark ? 'white' : 'black'}>
-                    {localize('Get your free account now.')}
-                </Text>
-                <InputGroup>
-                    <InputWrapper>
-                        <Input
-                            id="email"
-                            name="email"
-                            background={props.dark ? 'black' : 'white'}
-                            inputColor={props.dark ? 'grey-7' : 'black'}
-                            type="text"
-                            error={props.parameters.email_error_msg}
-                            value={props.parameters.email}
-                            label={localize('Email address')}
-                            placeholder={'example@mail.com'}
-                            handleError={props.parameters.clearEmail}
-                            onChange={props.parameters.handleInputChange}
-                            onBlur={props.parameters.handleValidation}
-                            autoFocus={props.parameters.autofocus}
-                            autoComplete="off"
-                            required
-                        />
-                    </InputWrapper>
-                    <EmailButton type="submit" secondary disabled={props.parameters.is_submitting}>
-                        {localize('Sign up')}
-                    </EmailButton>
-                </InputGroup>
-                <SocialWrapper>
-                    <StyledText color={props.dark ? 'white' : 'black'}>
-                        {localize('or sign up with')}
-                    </StyledText>
-                    <SocialButton
-                        dark={props.dark}
-                        onClick={props.parameters.handleSocialSignup}
-                        provider="google"
-                        id="google"
-                        type="button"
-                        social
+            <FormWrapper>
+                <CenterWrapper>
+                    <StyledHeader as="h3" weight="bold" color={props.dark ? 'white' : 'black'}>
+                        {localize('Join over 1 million traders worldwide')}
+                    </StyledHeader>
+                    <br />
+                    <Text color={props.dark ? 'white' : 'black'}>
+                        {localize('Get your free account now.')}
+                    </Text>
+                    <InputGroup>
+                        <InputWrapper>
+                            <Input
+                                id="email"
+                                name="email"
+                                background={props.dark ? 'black' : 'white'}
+                                inputColor={props.dark ? 'grey-7' : 'black'}
+                                type="text"
+                                error={props.parameters.email_error_msg}
+                                value={props.parameters.email}
+                                label={localize('Email address')}
+                                placeholder={'example@mail.com'}
+                                handleError={props.parameters.clearEmail}
+                                onChange={props.parameters.handleInputChange}
+                                onBlur={props.parameters.handleValidation}
+                                autoFocus={props.parameters.autofocus}
+                                autoComplete="off"
+                                required
+                            />
+                        </InputWrapper>
+                        <EmailButton
+                            type="submit"
+                            secondary
+                            disabled={props.parameters.is_submitting}
+                        >
+                            {localize('Sign up')}
+                        </EmailButton>
+                    </InputGroup>
+                    <SocialWrapper>
+                        <StyledText color={props.dark ? 'white' : 'black'}>
+                            {localize('or sign up with')}
+                        </StyledText>
+                        <SocialButton
+                            dark={props.dark}
+                            onClick={props.parameters.handleSocialSignup}
+                            provider="google"
+                            id="google"
+                            type="button"
+                            social
+                        >
+                            <span>
+                                <Google />
+                            </span>
+                        </SocialButton>
+                        <SocialButton
+                            dark={props.dark}
+                            onClick={props.parameters.handleSocialSignup}
+                            provider="facebook"
+                            id="facebook"
+                            type="button"
+                            social
+                        >
+                            <span>
+                                <Facebook />
+                            </span>
+                        </SocialButton>
+                    </SocialWrapper>
+                </CenterWrapper>
+                <Splitter dark={props.dark}></Splitter>
+                <RightWrapper>
+                    <Text
+                        align="center"
+                        secondary
+                        color={props.dark ? 'white' : 'black'}
+                        weight="bold"
                     >
-                        <span>
-                            <Google />
-                        </span>
-                    </SocialButton>
-                    <SocialButton
-                        dark={props.dark}
-                        onClick={props.parameters.handleSocialSignup}
-                        provider="facebook"
-                        id="facebook"
-                        type="button"
-                        social
-                    >
-                        <span>
-                            <Facebook />
-                        </span>
-                    </SocialButton>
-                </SocialWrapper>
-            </CenterWrapper>
-            <Splitter dark={props.dark}></Splitter>
-            <RightWrapper>
-                <Text align="left" secondary color={props.dark ? 'white' : 'black'} weight="bold">
-                    {localize('Get a taste of the Deriv experience')}
-                </Text>
-                <DemoButton secondary onClick={handleExternalLink}>
-                    {localize('See live demo')}
-                </DemoButton>
-            </RightWrapper>
+                        {localize('Get a taste of the Deriv experience')}
+                    </Text>
+                    <DemoButton secondary onClick={handleExternalLink}>
+                        {localize('See live demo')}
+                    </DemoButton>
+                </RightWrapper>
+            </FormWrapper>
         </Wrapper>
     )
 }

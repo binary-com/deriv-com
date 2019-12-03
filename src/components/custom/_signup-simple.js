@@ -7,6 +7,9 @@ import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
+const Wrapper = styled.div`
+    padding: 4rem 0;
+`
 const InputGroup = styled.div`
     display: flex;
     flex-direction: row;
@@ -39,36 +42,38 @@ const EmailButton = styled(Button)`
 `
 const SignupSimple = props => {
     return (
-        <Container>
-            <StyledHeader weight="bold">
-                {localize('Ready to join us?')}
-                <br></br>
-                {localize('Try for free ')}
-            </StyledHeader>
-            <InputGroup>
-                <InputWrapper>
-                    <Input
-                        id="email"
-                        name="email"
-                        type="text"
-                        error={props.parameters.email_error_msg}
-                        value={props.parameters.email}
-                        label={localize('E-mail address')}
-                        placeholder={'example@.parameters.com'}
-                        handleError={props.parameters.clearEmail}
-                        onChange={props.parameters.handleInputChange}
-                        onBlur={props.parameters.handleValidation}
-                        autoFocus={props.parameters.autofocus}
-                        autoComplete="off"
-                        background="white"
-                        required
-                    />
-                </InputWrapper>
-                <EmailButton type="submit" secondary disabled={props.parameters.is_submitting}>
-                    {localize('Sign up')}
-                </EmailButton>
-            </InputGroup>
-        </Container>
+        <Wrapper>
+            <Container>
+                <StyledHeader weight="bold">
+                    {localize('Ready to join us?')}
+                    <br></br>
+                    {localize('Try for free ')}
+                </StyledHeader>
+                <InputGroup>
+                    <InputWrapper>
+                        <Input
+                            id="email"
+                            name="email"
+                            type="text"
+                            error={props.parameters.email_error_msg}
+                            value={props.parameters.email}
+                            label={localize('E-mail address')}
+                            placeholder={'example@.parameters.com'}
+                            handleError={props.parameters.clearEmail}
+                            onChange={props.parameters.handleInputChange}
+                            onBlur={props.parameters.handleValidation}
+                            autoFocus={props.parameters.autofocus}
+                            autoComplete="off"
+                            background="white"
+                            required
+                        />
+                    </InputWrapper>
+                    <EmailButton type="submit" secondary disabled={props.parameters.is_submitting}>
+                        {localize('Sign up')}
+                    </EmailButton>
+                </InputGroup>
+            </Container>
+        </Wrapper>
     )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Header, Text } from '../../components/elements/typography'
 import { NeedHelp } from './_need-help'
@@ -8,6 +8,7 @@ import { Affiliates } from './_affiliates'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
+import { getLocationHash } from 'common/utility'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -20,6 +21,17 @@ const HeroWrapper = styled.section`
 `
 
 const ContactUs = () => {
+    useEffect(() => {
+        if (getLocationHash()) {
+            var elmnt = document.getElementById('our_offices')
+            elmnt.scrollIntoView()
+            // setTimeout(() => {
+            //     document
+            //         .querySelector('#' + getLocationHash())
+            //         .scrollIntoView({ behavior: 'smooth' })
+            // }, 100)
+        }
+    })
     return (
         <Layout>
             <SEO title={localize('Get in touch')} />

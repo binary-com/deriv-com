@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Text } from '../../components/elements/typography'
 import { Header, Image } from 'components/elements'
-import { getLocationHash } from 'common/utility'
 import { localize } from 'components/localization'
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
@@ -92,15 +91,6 @@ const Splitter = styled.div`
     width: 98rem;
 `
 export const Offices = () => {
-    useEffect(() => {
-        if (getLocationHash()) {
-            setTimeout(() => {
-                document
-                    .querySelector('#' + getLocationHash())
-                    .scrollIntoView({ behavior: 'smooth', block: 'start' })
-            }, 100)
-        }
-    })
     return (
         <Wrapper>
             <StyledHeader as="h3" align="center" id="our_offices">

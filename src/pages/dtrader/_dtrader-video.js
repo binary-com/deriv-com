@@ -130,31 +130,12 @@ const Video = styled.video`
         margin-top: -91px;
     }
 `
-const ProgressBar = styled.div`
-    width: 100%;
-    height: 4px;
-    background-color: var(--color-grey-1);
-    position: relative;
 
-    ::after {
-        content: '';
-        height: 4px;
-        background-color: var(--color-green);
-        position: absolute;
-        width: ${props => props.progress_percentage}%;
-        ${props =>
-            props.transition === true
-                ? ' transition: width 0.3s linear;'
-                : 'transition: width 0s linear;'}
-    }
-`
 class DtraderTabs extends React.Component {
     my_ref = React.createRef()
     interval_ref = undefined
     state = {
         current_time: 0,
-        progress_percentage: 0,
-        transition: true,
     }
     handler = entries => {
         let entry
@@ -168,8 +149,6 @@ class DtraderTabs extends React.Component {
                         })
                     }
                 }
-                this.progressHandler()
-                this.interval_ref = window.setInterval(this.progressHandler, 300)
             } else {
                 this.my_ref.current.pause()
                 window.clearInterval(this.interval_ref)
@@ -186,14 +165,6 @@ class DtraderTabs extends React.Component {
         this.observer.disconnect()
     }
     componentDidUpdate() {
-        if (this.state.transition === false) {
-            requestAnimationFrame(() => {
-                this.setState({
-                    transition: true,
-                })
-            })
-        }
-
         if (!this.my_ref.current.is_playing) {
             this.my_ref.current.play()
         }
@@ -201,15 +172,6 @@ class DtraderTabs extends React.Component {
     clickHandler = time => {
         this.my_ref.current.currentTime = time
         this.my_ref.current.pause()
-        this.setState({ transition: false })
-        this.progressHandler()
-    }
-    progressHandler = () => {
-        this.setState({
-            progress_percentage: Math.ceil(
-                (this.my_ref.current.currentTime * 100) / this.my_ref.current.duration,
-            ),
-        })
     }
     render() {
         return (
@@ -257,10 +219,6 @@ class DtraderTabs extends React.Component {
                         <source src="/Dtrader_GIF.mp4" type="video/mp4" />
                     </Video>
                 </VideoWrapper>
-                <ProgressBar
-                    progress_percentage={this.state.progress_percentage}
-                    transition={this.state.transition}
-                />
             </Container>
         )
     }

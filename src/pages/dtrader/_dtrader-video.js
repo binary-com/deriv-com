@@ -12,11 +12,12 @@ const Container = styled.section`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: 4rem;
 
     @media ${device.tabletL} {
+        margin-top: 0;
         flex-direction: column-reverse;
         justify-content: center;
-        width: 100%;
     }
 `
 const TabsWrapper = styled.div`
@@ -31,8 +32,10 @@ const TabsWrapper = styled.div`
     }
 `
 const StepCommon = css`
-    font-weight: 500;
+    font-weight: bold;
     cursor: pointer;
+    padding-left: 1.8rem;
+    margin-top: 3rem;
     @media ${device.tabletL} {
         text-align: left;
         border: none;
@@ -41,24 +44,25 @@ const StepCommon = css`
 `
 const Step1 = styled(Header)`
     ${StepCommon}
+    margin-top: 0;
     ${props =>
-        props.current_time >= 0
-            ? 'color: var(--color-red); border-bottom: 1px solid var(--color-red)'
-            : 'color: var(--color-red-2); border-bottom: 1px solid var(--color-red-2)'};
+        props.current_time >= 0 && props.current_time < 7
+            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
+            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
 `
 const Step2 = styled(Header)`
     ${StepCommon}
     ${props =>
-        props.current_time >= 7
-            ? 'color: var(--color-red); border-bottom: 1px solid var(--color-red)'
-            : 'color: var(--color-red-2); border-bottom: 1px solid var(--color-red-2)'};
+        props.current_time >= 7 && props.current_time < 13
+            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
+            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
 `
 const Step3 = styled(Header)`
     ${StepCommon}
     ${props =>
         props.current_time >= 13
-            ? 'color: var(--color-red); border-bottom: 1px solid var(--color-red)'
-            : 'color: var(--color-red-2); border-bottom: 1px solid var(--color-red-2)'};
+            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
+            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
 `
 const Tab = styled.div`
     width: 100%;
@@ -67,6 +71,11 @@ const VideoWrapper = styled.div`
     position: relative;
     width: 100%;
     height: 42.1rem;
+
+    @media ${device.mobileL} {
+        height: 24rem;
+        margin-top: 2rem;
+    }
 `
 const MacbookFrame = styled(MacBook)`
     position: absolute;
@@ -79,23 +88,6 @@ const Video = styled.video`
     top: 5.5%;
     height: 77%;
     left: 11.5%;
-
-
-    @media ${device.laptop} {
-        top: 6.5%;
-    }
-    @media ${device.tabletL} {
-        top: 5.7%;
-    }
-    @media ${device.mobileL} {
-        top: 7.4%;
-    }
-    @media ${device.mobileM} {
-        top: 8%;
-    }
-    @media ${device.mobileS} {
-        top: 8.4%;
-    }
 `
 
 class DtraderTabs extends React.Component {
@@ -168,8 +160,8 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step1
                             as="h4"
-                            lh="1.5"
-                            align="center"
+                            lh="1"
+                            align="left"
                             no_margin
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(0)}
@@ -180,8 +172,8 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step2
                             as="h4"
-                            lh="1.5"
-                            align="center"
+                            lh="1"
+                            align="left"
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(7)}
                         >
@@ -191,8 +183,8 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step3
                             as="h4"
-                            lh="1.5"
-                            align="center"
+                            lh="1"
+                            align="left"
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(13)}
                         >

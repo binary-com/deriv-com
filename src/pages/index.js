@@ -50,7 +50,7 @@ const Home = () => {
             </Show.Desktop>
             <Signup appearance={Appearances.lightFlat}></Signup>
             <Signup appearance={Appearances.darkFlat}></Signup>
-                <Signup appearance={Appearances.simple}></Signup>
+            <Signup appearance={Appearances.simple}></Signup>
             <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>

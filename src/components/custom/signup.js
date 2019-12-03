@@ -179,17 +179,17 @@ class Signup extends Component {
         }
         switch (param) {
             case Appearances.simple:
-                return <SignupSimple parameters={parameters}></SignupSimple>
+                return <SignupSimple {...parameters}></SignupSimple>
             case Appearances.lightFlat:
             case Appearances.darkFlat:
                 return param == Appearances.darkFlat ? (
-                    <SignupFlat dark parameters={parameters}></SignupFlat>
+                    <SignupFlat dark {...parameters}></SignupFlat>
                 ) : (
-                    <SignupFlat parameters={parameters}></SignupFlat>
+                    <SignupFlat {...parameters}></SignupFlat>
                 )
             case Appearances.default:
             default:
-                return <SignupDefault parameters={parameters}></SignupDefault>
+                return <SignupDefault {...parameters}></SignupDefault>
         }
     }
 

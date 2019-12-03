@@ -40,7 +40,17 @@ const EmailButton = styled(Button)`
     margin-left: 0.8rem;
     height: 4rem;
 `
-const SignupSimple = props => {
+const SignupSimple = ({
+    email_error_msg,
+    email,
+    clearEmail,
+    handleInputChange,
+    handleValidation,
+    autofocus,
+    handleSocialSignup,
+    handleLogin,
+    is_submitting,
+}) => {
     return (
         <Wrapper>
             <Container>
@@ -55,20 +65,20 @@ const SignupSimple = props => {
                             id="email"
                             name="email"
                             type="text"
-                            error={props.parameters.email_error_msg}
-                            value={props.parameters.email}
+                            error={email_error_msg}
+                            value={email}
                             label={localize('E-mail address')}
                             placeholder={'example@.parameters.com'}
-                            handleError={props.parameters.clearEmail}
-                            onChange={props.parameters.handleInputChange}
-                            onBlur={props.parameters.handleValidation}
-                            autoFocus={props.parameters.autofocus}
+                            handleError={clearEmail}
+                            onChange={handleInputChange}
+                            onBlur={handleValidation}
+                            autoFocus={autofocus}
                             autoComplete="off"
                             background="white"
                             required
                         />
                     </InputWrapper>
-                    <EmailButton type="submit" secondary disabled={props.parameters.is_submitting}>
+                    <EmailButton type="submit" secondary disabled={is_submitting}>
                         {localize('Sign up')}
                     </EmailButton>
                 </InputGroup>
@@ -78,7 +88,15 @@ const SignupSimple = props => {
 }
 
 SignupSimple.propTypes = {
-    parameters: PropTypes.object,
+    autofocus: PropTypes.bool,
+    clearEmail: PropTypes.bool,
+    email: PropTypes.string,
+    email_error_msg: PropTypes.string,
+    handleInputChange: PropTypes.func,
+    handleLogin: PropTypes.func,
+    handleSocialSignup: PropTypes.func,
+    handleValidation: PropTypes.func,
+    is_submitting: PropTypes.bool,
 }
 
 export default SignupSimple

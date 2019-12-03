@@ -110,16 +110,27 @@ const handleExternalLink = () => {
     window.open(deriv_app_url, '_blank')
 }
 
-const SignupFlat = props => {
+const SignupFlat = ({
+    email_error_msg,
+    email,
+    clearEmail,
+    handleInputChange,
+    handleValidation,
+    autofocus,
+    handleSocialSignup,
+    handleLogin,
+    is_submitting,
+    dark,
+}) => {
     return (
-        <Wrapper dark={props.dark}>
+        <Wrapper dark={dark}>
             <FormWrapper>
                 <CenterWrapper>
-                    <StyledHeader as="h3" weight="bold" color={props.dark ? 'white' : 'black'}>
+                    <StyledHeader as="h3" weight="bold" color={dark ? 'white' : 'black'}>
                         {localize('Join over 1 million traders worldwide')}
                     </StyledHeader>
                     <br />
-                    <Text color={props.dark ? 'white' : 'black'}>
+                    <Text color={dark ? 'white' : 'black'}>
                         {localize('Get your free account now.')}
                     </Text>
                     <InputGroup>
@@ -127,36 +138,32 @@ const SignupFlat = props => {
                             <Input
                                 id="email"
                                 name="email"
-                                background={props.dark ? 'black' : 'white'}
-                                inputColor={props.dark ? 'grey-7' : 'black'}
+                                background={dark ? 'black' : 'white'}
+                                inputColor={dark ? 'grey-7' : 'black'}
                                 type="text"
-                                error={props.parameters.email_error_msg}
-                                value={props.parameters.email}
+                                error={email_error_msg}
+                                value={email}
                                 label={localize('Email address')}
                                 placeholder={'example@mail.com'}
-                                handleError={props.parameters.clearEmail}
-                                onChange={props.parameters.handleInputChange}
-                                onBlur={props.parameters.handleValidation}
-                                autoFocus={props.parameters.autofocus}
+                                handleError={clearEmail}
+                                onChange={handleInputChange}
+                                onBlur={handleValidation}
+                                autoFocus={autofocus}
                                 autoComplete="off"
                                 required
                             />
                         </InputWrapper>
-                        <EmailButton
-                            type="submit"
-                            secondary
-                            disabled={props.parameters.is_submitting}
-                        >
+                        <EmailButton type="submit" secondary disabled={is_submitting}>
                             {localize('Sign up')}
                         </EmailButton>
                     </InputGroup>
                     <SocialWrapper>
-                        <StyledText color={props.dark ? 'white' : 'black'}>
+                        <StyledText color={dark ? 'white' : 'black'}>
                             {localize('or sign up with')}
                         </StyledText>
                         <SocialButton
-                            dark={props.dark}
-                            onClick={props.parameters.handleSocialSignup}
+                            dark={dark}
+                            onClick={handleSocialSignup}
                             provider="google"
                             id="google"
                             type="button"
@@ -167,8 +174,8 @@ const SignupFlat = props => {
                             </span>
                         </SocialButton>
                         <SocialButton
-                            dark={props.dark}
-                            onClick={props.parameters.handleSocialSignup}
+                            dark={dark}
+                            onClick={handleSocialSignup}
                             provider="facebook"
                             id="facebook"
                             type="button"
@@ -180,14 +187,9 @@ const SignupFlat = props => {
                         </SocialButton>
                     </SocialWrapper>
                 </CenterWrapper>
-                <Splitter dark={props.dark}></Splitter>
+                <Splitter dark={dark}></Splitter>
                 <RightWrapper>
-                    <Text
-                        align="center"
-                        secondary
-                        color={props.dark ? 'white' : 'black'}
-                        weight="bold"
-                    >
+                    <Text align="center" secondary color={dark ? 'white' : 'black'} weight="bold">
                         {localize('Get a taste of the Deriv experience')}
                     </Text>
                     <DemoButton secondary onClick={handleExternalLink}>
@@ -200,8 +202,16 @@ const SignupFlat = props => {
 }
 
 SignupFlat.propTypes = {
+    autofocus: PropTypes.bool,
+    clearEmail: PropTypes.bool,
     dark: PropTypes.bool,
-    parameters: PropTypes.object,
+    email: PropTypes.string,
+    email_error_msg: PropTypes.string,
+    handleInputChange: PropTypes.func,
+    handleLogin: PropTypes.func,
+    handleSocialSignup: PropTypes.func,
+    handleValidation: PropTypes.func,
+    is_submitting: PropTypes.bool,
 }
 
 export default SignupFlat

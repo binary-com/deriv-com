@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Container, SectionContainer, Wrapper } from 'components/containers'
-import { Header, Image, LinearLoader, SideTab } from 'components/elements'
+import DBotVideo from './_dbot-video.js'
+import { Container, SectionContainer } from 'components/containers'
+import { Header, Image } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import DBotVideo from './_dbot-video.js'
 
 const BackgroundContainer = styled(SectionContainer)`
     background: linear-gradient(to bottom, var(--color-grey-2), var(--color-white));
@@ -23,16 +23,16 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const LoaderContainer = styled.div`
-    margin-top: 3.8rem;
-    margin-left: auto;
-    width: 80%;
+// const LoaderContainer = styled.div`
+//     margin-top: 3.8rem;
+//     margin-left: auto;
+//     width: 80%;
 
-    @media ${device.tabletL} {
-        margin: auto;
-        width: 100%;
-    }
-`
+//     @media ${device.tabletL} {
+//         margin: auto;
+//         width: 100%;
+//     }
+// `
 
 const AnimatedContainer = styled.div`
     @keyframes slide {
@@ -57,7 +57,7 @@ const SelectAsset = ({ alt, img_name }) => (
 )
 
 const BannerSection = () => {
-    const [progress, setProgress] = useState(25)
+    // const [progress, setProgress] = useState(25)
 
     return (
         <BackgroundContainer>

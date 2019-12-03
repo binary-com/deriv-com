@@ -20,9 +20,9 @@ const StyledContainer = styled(Container)`
     grid-column-gap: 2rem;
     grid-row-gap: 8rem;
     grid-template-areas:
-        'ms ms ms ms ms . msi msi msi msi msi msi'
-        'twywi twywi twywi twywi twywi twywi . twyw twyw twyw twyw twyw'
-        'hyw hyw hyw hyw hyw . hywi hywi hywi hywi hywi hywi';
+        '. ms ms ms ms ms msi msi msi msi msi .'
+        '. twywi twywi twywi twywi twywi . twyw  twyw twyw twyw twyw'
+        '. hyw hyw hyw hyw hyw hywi hywi hywi hywi hywi .';
 
     @media ${device.tabletL} {
         grid-template-columns: repeat(1, 1fr);

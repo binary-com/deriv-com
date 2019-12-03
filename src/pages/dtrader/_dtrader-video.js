@@ -8,26 +8,22 @@ import { isBrowser } from 'common/utility'
 
 const Container = styled.section`
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: auto;
-    grid-column-gap: 2rem;
-    grid-template-areas:
-        'tabs'
-        'video';
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
     @media ${device.tabletL} {
-        grid-template-areas:
-            'video'
-            'tabs';
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 100%;
     }
 `
 const TabsWrapper = styled.div`
-    grid-area: tabs;
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-top: 4rem;
+    flex-direction: column;
+    width: 100%;
+    max-width: 38.4rem;
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -65,69 +61,40 @@ const Step3 = styled(Header)`
             : 'color: var(--color-red-2); border-bottom: 1px solid var(--color-red-2)'};
 `
 const Tab = styled.div`
-    width: 27rem;
+    width: 100%;
 `
 const VideoWrapper = styled.div`
-    grid-area: video;
-    margin-top: 4rem;
     position: relative;
-    text-align: center;
+    width: 100%;
+    height: 42.1rem;
 `
 const MacbookFrame = styled(MacBook)`
-    @media ${device.laptopS} {
-        width: 1024px;
-        height: 755px;
-    }
-    @media ${device.laptopL} {
-        width: 970px;
-        height: 450px;
-    }
-    @media ${device.laptop} {
-        width: 700px;
-        height: 370px;
-    }
-    @media ${device.tablet} {
-        width: 500px;
-        height: 332px;
-    }
-    @media ${device.tabletS} {
-        width: 288px;
-        height: 167px;
-    }
+    position: absolute;
+    width: 100%;
+    height: 100%;
 `
 const Video = styled.video`
     position: absolute;
-    left: 50%;
-    top: 50%;
-    @media ${device.laptopS} {
-        width: 794px;
-        height: 496px;
-        margin-left: -397px;
-        margin-top: -287px;
-    }
-    @media ${device.laptopL} {
-        width: 560px;
-        height: 350px;
-        margin-left: -280px;
-        margin-top: -202px;
-    }
+    width: 77%;
+    top: 5.5%;
+    height: 77%;
+    left: 11.5%;
+
+
     @media ${device.laptop} {
-        width: 459px;
-        height: 288px;
-        margin-left: -228px;
-        margin-top: -167px;
+        top: 6.5%;
     }
-    @media ${device.tablet} {
-        width: 388px;
-        height: 244px;
-        margin-left: -192px;
-        margin-top: -141px;
+    @media ${device.tabletL} {
+        top: 5.7%;
     }
-    @media ${device.tabletS} {
-        width: 206px;
-        height: 161px;
-        margin-left: -104px;
-        margin-top: -91px;
+    @media ${device.mobileL} {
+        top: 7.4%;
+    }
+    @media ${device.mobileM} {
+        top: 8%;
+    }
+    @media ${device.mobileS} {
+        top: 8.4%;
     }
 `
 
@@ -136,6 +103,8 @@ class DtraderTabs extends React.Component {
     interval_ref = undefined
     state = {
         current_time: 0,
+        progress_percentage: 0,
+        transition: true,
     }
     handler = entries => {
         let entry
@@ -149,6 +118,8 @@ class DtraderTabs extends React.Component {
                         })
                     }
                 }
+                this.progressHandler()
+                this.interval_ref = window.setInterval(this.progressHandler, 300)
             } else {
                 this.my_ref.current.pause()
                 window.clearInterval(this.interval_ref)
@@ -165,6 +136,14 @@ class DtraderTabs extends React.Component {
         this.observer.disconnect()
     }
     componentDidUpdate() {
+        if (this.state.transition === false) {
+            requestAnimationFrame(() => {
+                this.setState({
+                    transition: true,
+                })
+            })
+        }
+
         if (!this.my_ref.current.is_playing) {
             this.my_ref.current.play()
         }
@@ -172,6 +151,15 @@ class DtraderTabs extends React.Component {
     clickHandler = time => {
         this.my_ref.current.currentTime = time
         this.my_ref.current.pause()
+        this.setState({ transition: false })
+        this.progressHandler()
+    }
+    progressHandler = () => {
+        this.setState({
+            progress_percentage: Math.ceil(
+                (this.my_ref.current.currentTime * 100) / this.my_ref.current.duration,
+            ),
+        })
     }
     render() {
         return (

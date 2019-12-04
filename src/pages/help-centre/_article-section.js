@@ -16,6 +16,18 @@ const getRelatedArticles = (article_list, selected_article) =>
             article.title !== selected_article.title,
     )
 
+const Wrapper = styled.section`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 8rem 12.8rem;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+    }
+`
+
 const LeftRightContainer = styled.div`
     display: flex;
     padding: ${props => props.padding || ''};
@@ -34,14 +46,13 @@ const LeftRightContainer = styled.div`
 `
 
 const HomeContainer = styled(LeftRightContainer)`
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 
     > :first-child {
         margin-right: 0;
     }
     > * {
-        width: 50%;
-
+        
         @media ${device.tabletL} {
             width: 100%;
         }
@@ -122,11 +133,11 @@ export const ArticleSection = React.memo(function ArticleSection({
     toggleSearch,
 }) {
     return (
-        <Container align="normal" direction="column">
+        <Wrapper>
             {!selected_article && (
-                <HomeContainer padding="8rem 0">
+                // <HomeContainer padding="8rem 0">
                     <ArticleList articles={articles} onClick={handleSelectArticle} />
-                </HomeContainer>
+                // </HomeContainer>
             )}
             {selected_article && (
                 <Article
@@ -136,7 +147,7 @@ export const ArticleSection = React.memo(function ArticleSection({
                     toggleSearch={toggleSearch}
                 />
             )}
-        </Container>
+        </Wrapper>
     )
 })
 ArticleSection.propTypes = {

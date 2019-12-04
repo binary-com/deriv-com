@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import DMT5Animation from './dmt5_edited.json'
-import { deriv_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Container, Show } from 'components/containers'
 import device from 'themes/device.js'
@@ -63,18 +62,9 @@ const LottieWrapper = styled.div`
     max-width: 557px;
     max-height: 340px;
 `
-const GoToLiveDemo = styled(Button)`
-    border: 2px solid var(--color-black-5);
-    font-weight: bold;
-    line-height: 1.43;
-    margin: 3.3rem 0 0 2.4rem;
-    background-color: var(--color-black);
-`
+
 const Hero = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
-    const handleRedirect = () => {
-        window.open(deriv_app_url, '_blank')
-    }
     return (
         <Wrapper>
             <StyledContainer>

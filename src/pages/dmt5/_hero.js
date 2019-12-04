@@ -1,23 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
+import DMT5Animation from './dmt5_edited.json'
+import { deriv_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Container, Show } from 'components/containers'
 import device from 'themes/device.js'
-import { Header, Modal, useModal, Image } from 'components/elements'
+import { Header, Modal, useModal } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 import { Button } from 'components/form'
 import dmt5_logo from 'images/svg/dmt5-icon.svg'
+import { Lottie } from 'components/elements/lottie.js'
 
 const HeroContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    max-width: 40rem;
+    max-width: 41.5rem;
 
     ${Header} {
         color: var(--color-white);
         display: flex;
-        margin-top: 0.8rem;
+        margin-top: 1.6rem;
     }
     h4:first-child {
         margin-top: 0;
@@ -50,19 +53,28 @@ const TryForFree = styled(Button)`
     }
 `
 const StyledContainer = styled(Container)`
-    width: 55%;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: flex-start;
-    flex-direction: column;
-`
-const ContentHolder = styled.div`
-    display: flex;
-    width: 100%;
     flex-direction: row;
-    justify-content: space-between;
+`
+const LottieWrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    max-width: 557px;
+    max-height: 340px;
+`
+const GoToLiveDemo = styled(Button)`
+    border: 2px solid var(--color-black-5);
+    font-weight: bold;
+    line-height: 1.43;
+    margin: 3.3rem 0 0 2.4rem;
+    background-color: var(--color-black);
 `
 const Hero = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
+    const handleRedirect = () => {
+        window.open(deriv_app_url, '_blank')
+    }
     return (
         <Wrapper>
             <StyledContainer>
@@ -71,20 +83,23 @@ const Hero = () => {
                         <DMT5Logo />
                         {localize('DMT5')}
                     </StyledHeader>
-                </div>
-                <ContentHolder>
                     <HeroContent>
                         <Header as="h1">
                             {localize('The all-in-one FX and CFD trading platform')}
                         </Header>
                     </HeroContent>
+                    <TryForFree secondary onClick={toggleModal}>
+                        {localize('Join us for free')}
+                    </TryForFree>
+                </div>
+                <div>
                     <Show.Desktop>
-                        <Image img_name="dmt5-platform.png" alt="DMT5 platform" width="58.9rem" />
+                        <LottieWrapper>
+                            <Lottie animationData={DMT5Animation} />
+                        </LottieWrapper>
                     </Show.Desktop>
-                </ContentHolder>
-                <TryForFree secondary onClick={toggleModal}>
-                    {localize('Join us for free')}
-                </TryForFree>
+
+                </div>
             </StyledContainer>
             <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />

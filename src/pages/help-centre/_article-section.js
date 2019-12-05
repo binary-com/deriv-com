@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { ListWithLinks } from './_list'
-import { Text, Header, StyledLink } from 'components/elements'
 import { localize } from 'components/localization'
-import { Container, Show } from 'components/containers'
+import { Text, Header } from 'components/elements'
+import { Show } from 'components/containers'
 import device from 'themes/device'
-// Icons
-import SearchIcon from 'images/svg/search.svg'
 
 const getRelatedArticles = (article_list, selected_article) =>
     article_list.filter(
@@ -45,25 +43,6 @@ const LeftRightContainer = styled.div`
     }
 `
 
-const HomeContainer = styled(LeftRightContainer)`
-    flex-wrap: nowrap;
-
-    > :first-child {
-        margin-right: 0;
-    }
-    > * {
-        
-        @media ${device.tabletL} {
-            width: 100%;
-        }
-    }
-
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
-        padding: 4rem 0;
-    }
-`
-
 const ArticleContainer = styled(LeftRightContainer)`
     > :first-child {
         margin-right: 6.5rem;
@@ -89,18 +68,6 @@ const ListWrapper = styled.div`
 
     @media ${device.tabletL} {
         padding-top: 3.55rem;
-    }
-`
-
-const SmallSearchIcon = styled(SearchIcon)`
-    height: 27px;
-    width: 27px;
-
-    use {
-        fill: var(--color-green);
-    }
-    &:hover {
-        cursor: pointer;
     }
 `
 
@@ -134,11 +101,7 @@ export const ArticleSection = React.memo(function ArticleSection({
 }) {
     return (
         <Wrapper>
-            {!selected_article && (
-                // <HomeContainer padding="8rem 0">
-                    <ArticleList articles={articles} onClick={handleSelectArticle} />
-                // </HomeContainer>
-            )}
+            {!selected_article && <ArticleList articles={articles} onClick={handleSelectArticle} />}
             {selected_article && (
                 <Article
                     article={selected_article}
@@ -159,17 +122,11 @@ ArticleSection.propTypes = {
     toggleSearch: PropTypes.func,
 }
 
-const Article = ({ article, all_articles, onClick, toggleSearch }) => {
+const Article = ({ article, all_articles, onClick }) => {
     const related_articles = getRelatedArticles(all_articles, article)
 
     return (
         <>
-            <LeftRightContainer padding="2rem 0 0 0">
-                <StyledLink to="/help-centre/" has_arrow="true">
-                    {localize('Back to Help topics')}
-                </StyledLink>
-                <SmallSearchIcon onClick={toggleSearch} />
-            </LeftRightContainer>
             <ArticleContainer padding="4.5rem 0">
                 <ArticleContent>
                     <Show.Mobile>

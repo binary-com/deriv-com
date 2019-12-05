@@ -92,5 +92,17 @@ module.exports = {
                 policy: [{ userAgent: '*', allow: '/' }],
             },
         },
+        {
+            resolve: `gatsby-plugin-breadcrumb`,
+            options: {
+                defaultCrumb: {
+                    location: {
+                        state: { crumbClicked: false },
+                        pathname: '/',
+                    },
+                    crumbSeparator: ' > ',
+                },
+            },
+        },
     ],
 }

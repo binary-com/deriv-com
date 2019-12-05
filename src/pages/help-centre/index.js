@@ -11,7 +11,7 @@ import { Contact } from './_contact-us'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, LocalizedLink } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
@@ -259,6 +259,7 @@ class HelpCentre extends Component {
                     handleSelectArticle={this.handleSelectArticle}
                     toggleSearch={this.toggleSearch}
                 />
+                <LocalizedLink to="/help-centre/article/">HELLO</LocalizedLink>
                 <Contact></Contact>
                 {/*TODO: active this line after having mail service*/}
                 {/* {<DidntFindYourAnswerBanner /> } */}

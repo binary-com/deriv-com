@@ -129,7 +129,7 @@ export const Offices = () => {
                     <Office>
                         <Content>
                             <StyledHeader as="h4" align="left">
-                                {localize('Malaysia')}
+                                {localize('Malaysian')}
                             </StyledHeader>
                             <br />
                             <StyledText>
@@ -164,7 +164,7 @@ export const Offices = () => {
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
-                                {localize('Malaysia')}
+                                {localize('Labuan')}
                             </StyledHeader>
                             <br />
                             <StyledText>

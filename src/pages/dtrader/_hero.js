@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import DTraderAnimation from './dtrader-edited.json'
+import DTraderAnimation from './dtrader-animation.json'
 import { deriv_app_url } from 'common/utility'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Container, Show } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Modal, useModal } from 'components/elements'
@@ -15,7 +15,7 @@ const HeroContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    max-width: 41.5rem;
+    max-width: 58.4rem;
 
     ${Header} {
         color: var(--color-white);
@@ -53,15 +53,15 @@ const TryForFree = styled(Button)`
     }
 `
 const StyledContainer = styled(Container)`
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
 `
 const LottieWrapper = styled.div`
     width: 100%;
     height: 100%;
-    max-width: 557px;
-    max-height: 340px;
+    max-width: 584px;
+    max-height: 375px;
 `
 const GoToLiveDemo = styled(Button)`
     border: 2px solid var(--color-black-5);
@@ -85,7 +85,10 @@ const Hero = () => {
                     </StyledHeader>
                     <HeroContent>
                         <Header as="h1">
-                            {localize('Everything you need and more')}
+                            <Localize
+                                translate_text="Everything you <0/>need<0/>and more"
+                                components={<br key={0} />}
+                            />
                         </Header>
                     </HeroContent>
                     <TryForFree secondary onClick={toggleModal}>

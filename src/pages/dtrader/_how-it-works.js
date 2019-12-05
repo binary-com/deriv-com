@@ -6,10 +6,6 @@ import { Container, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device.js'
 
-const StyledSection = styled(SectionContainer)`
-    background-image: linear-gradient(to bottom, var(--color-grey-6), var(--color-white));
-`
-
 const StyledHeader = styled(Header)`
     margin-top: ${props => (props.as === 'h2' ? '0.8rem' : '0')};
 
@@ -21,7 +17,7 @@ const StyledHeader = styled(Header)`
 
 const HowItWorks = () => {
     return (
-        <StyledSection>
+        <SectionContainer>
             <Container justify="center" direction="column">
                 <StyledHeader as="h4" align="center">
                     {localize('How it works')}
@@ -31,7 +27,7 @@ const HowItWorks = () => {
                 </StyledHeader>
                 <DtraderVideo />
             </Container>
-        </StyledSection>
+        </SectionContainer>
     )
 }
 

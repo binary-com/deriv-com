@@ -15,18 +15,18 @@ const HeaderWrapper = styled.div`
 `
 
 const StyledDbot = styled(DBot)`
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
 `
 
 const StyledDmt5 = styled(DMT5)`
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
 `
 
 const StyledDTrader = styled(DTrader)`
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
 `
 
 const StyledHeader = styled(Header)`
@@ -58,10 +58,12 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                 </StyledSubHeader>
             )}
         </HeaderWrapper>
-        <FlexGridContainer content_width="32.8rem" gap="1rem" grid="3" justify="center">
+        <FlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
             {exclude.toLowerCase() !== 'dtrader' && (
                 <StyledLink to="/dtrader">
                     <Card
+                        cover_background='var(--color-red)'
+                        cover_content={localize('Discover DTrader now')}
                         title={localize('DTrader')}
                         Icon={StyledDTrader}
                         content={[
@@ -70,32 +72,33 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                             ),
                         ]}
                         is_inline_icon
-                        width="32.8rem"
-                        min_height="22.4rem"
+                        min_height="11.6rem"
                     />
                 </StyledLink>
             )}
             {exclude.toLowerCase() !== 'dbot' && (
                 <StyledLink to="/dbot">
                     <Card
+                        cover_background='var(--color-orange)'
+                        cover_content={localize('Discover DBot now')}
                         title={localize('DBot')}
                         Icon={StyledDbot}
                         content={[localize('Automate your trading ideas without coding.')]}
                         is_inline_icon
-                        width="32.8rem"
-                        min_height="22.4rem"
+                        min_height="11.6rem"
                     />
                 </StyledLink>
             )}
             {exclude.toLowerCase() !== 'dmt5' && (
                 <StyledLink to="/dmt5">
                     <Card
+                        cover_background='var(--color-green)'
+                        cover_content={localize('Discover DMT5 now')}
                         title={localize('DMT5')}
                         Icon={StyledDmt5}
                         content={[localize('Trade with the platform of choice for professionals.')]}
                         is_inline_icon
-                        width="32.8rem"
-                        min_height="22.4rem"
+                        min_height="11.6rem"
                     />
                 </StyledLink>
             )}

@@ -3,7 +3,6 @@ import Hero from './_hero.js'
 import Numbers from './_numbers.js'
 import HowItWorks from './_how-it-works.js'
 import Trading from './_trading.js'
-import Experience from './_experience'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { Show, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -19,7 +18,6 @@ const Dtrader = () => {
             </Show.Desktop>
             <HowItWorks />
             <Trading />
-            <Experience />
             <OtherPlatform exclude="dtrader" />
         </Layout>
     )

@@ -11,7 +11,7 @@ const Container = styled.section`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 4rem;
 
     @media ${device.tabletL} {
@@ -25,44 +25,32 @@ const TabsWrapper = styled.div`
     flex-direction: column;
     width: 100%;
     max-width: 38.4rem;
+    margin-top: 6rem;
 
     @media ${device.tabletL} {
         flex-direction: column;
         justify-content: flex-start;
+        margin-top: 0;
     }
 `
 const StepCommon = css`
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;
-    margin-top: 3rem;
+    margin-top: 2.4rem;
     @media ${device.tabletL} {
         text-align: left;
         border: none;
         margin-top: ${props => (props.no_margin ? '0' : '2rem')};
     }
 `
-const Step1 = styled(Header)`
+const Step = styled(Header)`
     ${StepCommon}
     margin-top: 0;
     ${props =>
-        props.current_time >= 0 && props.current_time < 7
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
-`
-const Step2 = styled(Header)`
-    ${StepCommon}
-    ${props =>
-        props.current_time >= 7 && props.current_time < 13
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
-`
-const Step3 = styled(Header)`
-    ${StepCommon}
-    ${props =>
-        props.current_time >= 13
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
+        props.start_time < props.current_time && props.current_time < props.end_time
+            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
+            : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
 `
 const Tab = styled.div`
     width: 100%;
@@ -70,7 +58,7 @@ const Tab = styled.div`
 const VideoWrapper = styled.div`
     position: relative;
     width: 100%;
-    height: 42.1rem;
+    height: 49rem;
 
     @media ${device.mobileL} {
         height: 24rem;
@@ -158,38 +146,44 @@ class DtraderTabs extends React.Component {
             <Container>
                 <TabsWrapper>
                     <Tab>
-                        <Step1
+                        <Step
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
                             no_margin
+                            start_time={0}
+                            end_time={7}
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(0)}
                         >
                             {localize('1. Select your asset')}
-                        </Step1>
+                        </Step>
                     </Tab>
                     <Tab>
-                        <Step2
+                        <Step
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
+                            start_time={7}
+                            end_time={13}
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(7)}
                         >
                             {localize('2. Follow the chart')}
-                        </Step2>
+                        </Step>
                     </Tab>
                     <Tab>
-                        <Step3
+                        <Step
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
+                            start_time={13}
+                            end_time={30}
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(13)}
                         >
                             {localize('3. Purchase your option')}
-                        </Step3>
+                        </Step>
                     </Tab>
                 </TabsWrapper>
                 <VideoWrapper>

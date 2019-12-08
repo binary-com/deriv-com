@@ -87,7 +87,7 @@ const Hero = () => {
                         <Header as="h1">
                             <Localize
                                 translate_text="Everything you <0/>need<0/>and more"
-                                components={<br key={0} />}
+                                components={[<br key={0} />]}
                             />
                         </Header>
                     </HeroContent>

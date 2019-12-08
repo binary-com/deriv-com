@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
-    box-shadow: inset 0 1px 0 0 var(--color-grey-2);
+    box-shadow: inset 1px 0 0 1px var(--color-grey-2);
 
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;
@@ -20,9 +20,9 @@ const StyledContainer = styled(Container)`
     grid-column-gap: 2rem;
     grid-row-gap: 8rem;
     grid-template-areas:
-        '. ms ms ms ms ms msi msi msi msi msi .'
-        '. twywi twywi twywi twywi twywi . twyw  twyw twyw twyw twyw'
-        '. hyw hyw hyw hyw hyw hywi hywi hywi hywi hywi .';
+        'ms ms ms ms ms ms msi msi msi msi msi msi'
+        'twywi twywi twywi twywi twywi twywi twyw twyw  twyw twyw twyw twyw'
+        'hyw hyw hyw hyw hyw hyw hywi hywi hywi hywi hywi hywi';
 
     @media ${device.tabletL} {
         grid-template-columns: repeat(1, 1fr);
@@ -38,6 +38,7 @@ const StyledContainer = styled(Container)`
 `
 const ContentContainer = styled.div`
     width: 100%;
+    height: 75%;
     grid-area: ${props => props.grid_area};
 
     ${Text} {
@@ -70,13 +71,22 @@ const ImageWrapper = styled.div`
     max-height: 30rem;
     margin: 0 auto;
 `
+const StyledHeader = styled(Header)`
+    font-size: 3.6rem;
+`
 const Trading = () => {
     return (
         <StyledSection>
             <StyledContainer>
                 <ContentContainer grid_area="ms">
-                    <Header as="h2">{localize('Make smarter trading decisions')}</Header>
-                    <Text secondary>
+                    <StyledHeader as="h2">
+                        <Localize
+                            translate_text='Make smarter<0/>trading decisions'
+                            components={[
+                                <br key={0} />
+                            ]}
+                        /></StyledHeader>
+                    <Text>
                         {localize(
                             'Customise your chart with technical indicators and widgets — everything you need to make smarter trading decisions.',
                         )}
@@ -96,16 +106,28 @@ const Trading = () => {
                     </ImageWrapper>
                 </ImageContainer>
                 <ContentContainer grid_area="twyw">
-                    <Header as="h2">{localize('Trade what you want, when you want...')}</Header>
-                    <Text secondary>
+                    <StyledHeader as="h2">
+                        <Localize
+                            translate_text='Trade what you want,<0/>when you want...'
+                            components={[
+                                <br key={0} />
+                            ]}
+                        /></StyledHeader>
+                    <Text>
                         {localize(
                             'Forex, indices, commodities and volatility indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.',
                         )}
                     </Text>
                 </ContentContainer>
                 <ContentContainer grid_area="hyw">
-                    <Header as="h2">{localize('...And how you want')}</Header>
-                    <Text secondary>
+                    <StyledHeader as="h2">
+                        <Localize
+                            translate_text='...And<0/>how you want'
+                            components={[
+                                <br key={0} />
+                            ]}
+                        /></StyledHeader>
+                    <Text>
                         {localize(
                             'Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second.',
                         )}

@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import DTraderAnimation from 'pages/dtrader/dtrader-animation.json'
+import PropTypes from 'prop-types'
 import { deriv_app_url } from 'common/utility'
-import { localize, Localize } from 'components/localization'
+import { localize } from 'components/localization'
 import { Container, Show } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Modal, useModal } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 import { Button } from 'components/form'
-import dtrader_logo from 'images/svg/dtrader-icon.svg'
 import { Lottie } from 'components/elements/lottie.js'
 
 const HeroContent = styled.div`
@@ -37,9 +36,6 @@ const Wrapper = styled.div`
     padding: 10rem 0;
     display: flex;
     flex-direction: column;
-`
-const DTraderLogo = styled(dtrader_logo)`
-    margin-right: 1.6rem;
 `
 const TryForFree = styled(Button)`
     border: 2px solid var(--color-red);
@@ -70,17 +66,20 @@ const GoToLiveDemo = styled(Button)`
     margin: 3.3rem 0 0 2.4rem;
     background-color: var(--color-black);
 `
-const DHero = ({ title, content, join_us_for_free, go_to_live_demo }) => {
+const DHero = ({ title, content, join_us_for_free, go_to_live_demo, start_automating, Logo, animation }) => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const handleRedirect = () => {
         window.open(deriv_app_url, '_blank')
     }
+    const DLogo = styled(Logo)`
+        margin-right: 1.6rem;
+    `
     return (
         <Wrapper>
             <StyledContainer>
                 <div>
                     <StyledHeader as="h4" weight={500}>
-                        <DTraderLogo />
+                        <DLogo />
                         {title}
                     </StyledHeader>
                     <HeroContent>
@@ -91,6 +90,9 @@ const DHero = ({ title, content, join_us_for_free, go_to_live_demo }) => {
                     {join_us_for_free ? (<TryForFree secondary onClick={toggleModal}>
                         {localize('Join us for free')}
                     </TryForFree>) : null}
+                    {start_automating ? (<TryForFree secondary onClick={toggleModal}>
+                        {localize('Start automating')}
+                    </TryForFree>) : null}
                     {go_to_live_demo ? (<GoToLiveDemo secondary onClick={handleRedirect}>
                         {localize('Go to live demo')}
                     </GoToLiveDemo>) : null}
@@ -98,10 +100,9 @@ const DHero = ({ title, content, join_us_for_free, go_to_live_demo }) => {
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>
-                            <Lottie animationData={DTraderAnimation} />
+                            <Lottie animationData={animation} />
                         </LottieWrapper>
                     </Show.Desktop>
-
                 </div>
             </StyledContainer>
             <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
@@ -109,6 +110,16 @@ const DHero = ({ title, content, join_us_for_free, go_to_live_demo }) => {
             </Modal>
         </Wrapper>
     )
+}
+
+DHero.propTypes = {
+    animation: PropTypes.object,
+    content: PropTypes.string,
+    go_to_live_demo: PropTypes.bool,
+    join_us_for_free: PropTypes.bool,
+    Logo: PropTypes.object,
+    start_automating: PropTypes.bool,
+    title: PropTypes.string,
 }
 
 export default DHero

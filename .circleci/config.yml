@@ -1,0 +1,19 @@
+orbs:
+  docker: circleci/docker@0.5.13
+  k8s: circleci/kubernetes@0.7.0
+version: 2.1
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - docker/build:
+          image: ${DOCKHUB_ORGANISATION}/deriv-com
+      - docker/check
+      - docker/push:
+          image: ${DOCKHUB_ORGANISATION}/deriv-com
+      - k8s/install-kubectl
+      - run:
+          command: |
+            echo $CA_CRT | base64 --decode > ca.crt
+            kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/deriv-com deriv-com-container=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1}

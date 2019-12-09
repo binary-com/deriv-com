@@ -1,7 +1,7 @@
 import React from 'react'
 // import { OtherPlatform } from 'components/custom/other-platforms.js'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Text } from 'components/elements/typography.js'
@@ -63,7 +63,6 @@ const Card = styled.div`
     padding: 4rem;
     display: flex;
     flex-direction: column;
-    margin: 0 1rem;
 `
 const IconContainer = styled.div`
     width: 100%;
@@ -78,6 +77,10 @@ const IconContainer = styled.div`
 `
 const Content = styled(Text)`
     width: 100%;
+`
+const StyledLink = styled(LocalizedLink)`
+    margin: 0 1rem;
+    text-decoration: none;
 `
 export const Trade = () => (
     // TODO: after home page rebuild, uncomment these codes
@@ -101,39 +104,45 @@ export const Trade = () => (
                 </Header>
             </div>
             <CardContainer>
-                <Card>
-                    <IconContainer>
-                        <DTraderLogo />
-                        <Header as="h4" weight="500">
-                            {localize('DTrader')}
-                        </Header>
-                    </IconContainer>
-                    <Content>
-                        {localize('Start trading now with a powerful, yet easy-to-use platform.')}
-                    </Content>
-                </Card>
-                <Card>
-                    <IconContainer>
-                        <DBotLogo />
-                        <Header as="h4" weight="500">
-                            {localize('DBot')}
-                        </Header>
-                    </IconContainer>
-                    <Content>
-                        {localize('Automate your trading ideas without coding.')}
-                    </Content>
-                </Card>
-                <Card>
-                    <IconContainer>
-                        <DMT5Logo />
-                        <Header as="h4" weight="500">
-                            {localize('DMT5')}
-                        </Header>
-                    </IconContainer>
-                    <Content>
-                        {localize('Trade with the platform of choice for professionals.')}
-                    </Content>
-                </Card>
+                <StyledLink to='/dtrader'>
+                    <Card>
+                        <IconContainer>
+                            <DTraderLogo />
+                            <Header as="h4" weight="500">
+                                {localize('DTrader')}
+                            </Header>
+                        </IconContainer>
+                        <Content>
+                            {localize('Start trading now with a powerful, yet easy-to-use platform.')}
+                        </Content>
+                    </Card>
+                </StyledLink>
+                <StyledLink to='/dbot'>
+                    <Card>
+                        <IconContainer>
+                            <DBotLogo />
+                            <Header as="h4" weight="500">
+                                {localize('DBot')}
+                            </Header>
+                        </IconContainer>
+                        <Content>
+                            {localize('Automate your trading ideas without coding.')}
+                        </Content>
+                    </Card>
+                </StyledLink>
+                <StyledLink to='/dmt5'>
+                    <Card>
+                        <IconContainer>
+                            <DMT5Logo />
+                            <Header as="h4" weight="500">
+                                {localize('DMT5')}
+                            </Header>
+                        </IconContainer>
+                        <Content>
+                            {localize('Trade with the platform of choice for professionals.')}
+                        </Content>
+                    </Card>
+                </StyledLink>
             </CardContainer>
         </StyledSection>
     </StyledContainer>

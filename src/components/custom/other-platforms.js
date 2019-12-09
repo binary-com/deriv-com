@@ -44,9 +44,9 @@ const StyledSubHeader = styled(Header)`
     max-width: ${props => props.maxWidth || ''};
 `
 
-export const OtherPlatform = ({ header, subHeader, exclude }) => (
-    <SectionContainer>
-        <HeaderWrapper>
+export const OtherPlatform = ({ header, subHeader, exclude, nav }) => (
+    <SectionContainer padding='0'>
+        {nav ? null : (<HeaderWrapper>
             <StyledHeader font_size="4.8rem" align="center" lh="5rem">
                 {header ? header : localize('Check out our other platforms')}
             </StyledHeader>
@@ -57,7 +57,7 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
                     )}
                 </StyledSubHeader>
             )}
-        </HeaderWrapper>
+        </HeaderWrapper>)}
         <FlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
             {exclude.toLowerCase() !== 'dtrader' && (
                 <StyledLink to="/dtrader">
@@ -109,5 +109,6 @@ export const OtherPlatform = ({ header, subHeader, exclude }) => (
 OtherPlatform.propTypes = {
     exclude: PropTypes.string,
     header: PropTypes.string,
+    nav: PropTypes.bool,
     subHeader: PropTypes.string,
 }

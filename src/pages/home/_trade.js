@@ -4,8 +4,24 @@ import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
+import { Text } from 'components/elements/typography.js'
 import device from 'themes/device'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import DBot from 'images/svg/dbot-icon.svg'
 
+const DMT5Logo = styled(DMT5)`
+    width: 48px;
+    height: 48px;
+`
+const DTraderLogo = styled(DTrader)`
+    width: 48px;
+    height: 48px;
+`
+const DBotLogo = styled(DBot)`
+    width: 48px;
+    height: 48px;
+`
 const StyledContainer = styled(Container)`
     @media ${device.laptop} {
         width: 100%;
@@ -17,10 +33,6 @@ const CardContainer = styled.section`
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 4rem;
-
-    div {
-        margin:0 1rem;
-    }
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -51,6 +63,21 @@ const Card = styled.div`
     padding: 4rem;
     display: flex;
     flex-direction: column;
+    margin: 0 1rem;
+`
+const IconContainer = styled.div`
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    h4 {
+        padding-left: 1.6rem;
+    }
+`
+const Content = styled(Text)`
+    width: 100%;
 `
 export const Trade = () => (
     // TODO: after home page rebuild, uncomment these codes
@@ -74,7 +101,39 @@ export const Trade = () => (
                 </Header>
             </div>
             <CardContainer>
-                <Card></Card>
+                <Card>
+                    <IconContainer>
+                        <DTraderLogo />
+                        <Header as="h4" weight="500">
+                            {localize('DTrader')}
+                        </Header>
+                    </IconContainer>
+                    <Content>
+                        {localize('Start trading now with a powerful, yet easy-to-use platform.')}
+                    </Content>
+                </Card>
+                <Card>
+                    <IconContainer>
+                        <DBotLogo />
+                        <Header as="h4" weight="500">
+                            {localize('DBot')}
+                        </Header>
+                    </IconContainer>
+                    <Content>
+                        {localize('Automate your trading ideas without coding.')}
+                    </Content>
+                </Card>
+                <Card>
+                    <IconContainer>
+                        <DMT5Logo />
+                        <Header as="h4" weight="500">
+                            {localize('DMT5')}
+                        </Header>
+                    </IconContainer>
+                    <Content>
+                        {localize('Trade with the platform of choice for professionals.')}
+                    </Content>
+                </Card>
             </CardContainer>
         </StyledSection>
     </StyledContainer>

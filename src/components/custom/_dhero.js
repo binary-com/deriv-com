@@ -66,6 +66,9 @@ const GoToLiveDemo = styled(Button)`
     margin: 3.3rem 0 0 2.4rem;
     background-color: var(--color-black);
 `
+const StyledContent = styled(Header)`
+    font-size: 5.6rem;
+`
 const DHero = ({ title, content, join_us_for_free, go_to_live_demo, start_automating, Logo, animation }) => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const handleRedirect = () => {
@@ -83,9 +86,9 @@ const DHero = ({ title, content, join_us_for_free, go_to_live_demo, start_automa
                         {title}
                     </StyledHeader>
                     <HeroContent>
-                        <Header as="h1">
+                        <StyledContent as="h1">
                             {content}
-                        </Header>
+                        </StyledContent>
                     </HeroContent>
                     {join_us_for_free ? (<TryForFree secondary onClick={toggleModal}>
                         {localize('Join us for free')}

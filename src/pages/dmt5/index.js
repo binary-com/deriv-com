@@ -9,7 +9,7 @@ import Layout from 'components/layout/layout'
 import dmt5_logo from 'images/svg/dmt5-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 
 const DMT5 = () => {
     return (
@@ -17,7 +17,7 @@ const DMT5 = () => {
             <SEO title={localize('DMT5')} />
             <DHero
                 title={localize('DMT5')}
-                content={localize('The all-in-one FX and CFD trading platform')}
+                content={<Localize translate_text="The all-in-one FX<0/>and CFD trading<0/>platform" components={[<br key={0} />]} />}
                 join_us_for_free
                 Logo={dmt5_logo}
                 animation={DMT5Animation}

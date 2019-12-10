@@ -52,7 +52,7 @@ const CardWrapper = styled.article`
     overflow: hidden;
     min-height: ${props => (props.min_height ? props.min_height : '0')};
     width: ${props => (props.width ? props.width : '38.4rem')};
-    padding: 1.8rem 2rem 1.4rem 1.2rem;
+    padding: ${props => props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem'};
     border-radius: 6px;
 
     :hover ${CardCover} {
@@ -139,9 +139,9 @@ Content.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
 
-export const Card = ({ children, Icon, title, content, width, min_height, is_inline_icon, cover_background, cover_content }) => {
+export const Card = ({ children, Icon, title, content, width, min_height, is_inline_icon, cover_background, cover_content, padding }) => {
     return (
-        <CardWrapper width={width} min_height={min_height}>
+        <CardWrapper width={width} min_height={min_height} padding={padding}>
             {!children && (
                 <>
                     {is_inline_icon ? (
@@ -194,6 +194,7 @@ Card.propTypes = {
     Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     is_inline_icon: PropTypes.bool,
     min_height: PropTypes.string,
+    padding: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
 }

@@ -1,15 +1,21 @@
 import React from 'react'
-import Numbers from './_numbers.js'
 import HowItWorks from './_how-it-works.js'
 import Trading from './_trading.js'
 import DTraderAnimation from './dtrader-animation.json'
 import DHero from 'components/custom/_dhero.js'
+import DNumber from 'components/custom/_dnumbers.js'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { Show, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import dtrader_logo from 'images/svg/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
 
+const items = [
+    { title: '50+', subtitle: 'tradable assets and growing' },
+    { title: '$0.35', subtitle: 'low minimum stake' },
+    { title: '1s - 365d', subtitle: 'flexible trade duration' },
+    { title: '>200%', subtitle: 'potential payout' },
+]
 const Dtrader = () => {
     return (
         <Layout>
@@ -23,7 +29,7 @@ const Dtrader = () => {
                 animation={DTraderAnimation}
             />
             <Show.Desktop>
-                <Numbers />
+                <DNumber items={items} justify='space-around' />
             </Show.Desktop>
             <HowItWorks />
             <Trading />

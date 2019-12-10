@@ -11,12 +11,12 @@ const Page2 = () => {
             <div>
                 <Breadcrumb
                     location={window.location}
-                    crumbLabel="Who can open an account"
+                    crumbLabel="page 2"
                     crumbStyle={{ color: '#666' }}
                     crumbActiveStyle={{ color: 'orange' }}
                 />
-                <h2>hhi this is page 2</h2>
-                <Link to="/">PAGE2</Link>
+                <h2> this is page 2</h2>
+                <Link to="/">HOME</Link>
             </div>
         </Layout>
     )

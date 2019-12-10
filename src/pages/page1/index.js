@@ -5,24 +5,29 @@ import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 
-const Page1 = () => {
-    return (
-        <Layout>
-            <div>
-                <Breadcrumb
-                    location={window.location}
-                    crumbLabel="Account"
-                    crumbStyle={{ color: '#666' }}
-                    crumbActiveStyle={{ color: 'orange' }}
-                />
-                <h2>HELLO</h2>
-                <Link to="/page1/page2">PAGE2</Link>
-            </div>
-        </Layout>
-    )
-}
+const Page1 = ({
+    pageContext: {
+        breadcrumb: { crumbs },
+    },
+}) => (
+    <Layout>
+        <div>
+            <Breadcrumb
+                crumbs={crumbs}
+                crumbLabel="Page1"
+                crumbStyle={{ color: '#666' }}
+                crumbActiveStyle={{ color: 'orange' }}
+            />
+            <h2>HELLO First PAGE1</h2>
+            <Link to="page2">PAGE2</Link>
+        </div>
+    </Layout>
+)
 
 Page1.propTypes = {
-    location: PropTypes.string,
+    // location: PropTypes.string,
+    pageContext: PropTypes.shape({
+        breadcrumb: PropTypes.string,
+    }),
 }
 export default WithIntl()(Page1)

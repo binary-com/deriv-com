@@ -108,7 +108,7 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
     return [active_tab, setTab, previous_tab, setLastActiveTab]
 }
 
-const SideTab = ({ children, has_hash_routing, is_sticky }) => {
+const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange }) => {
     // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
     const first_tab = isBrowser()
         ? window.innerWidth > size.tabletL
@@ -133,7 +133,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
         active_tab !== '-' ? setTab('-') : setTab(previous_tab)
     }
     const current_active_tab = children.find(child => child.props.label === active_tab)
-
+    if (onTabChange) onTabChange(current_active_tab)
     const Tabs = props => {
         return children.map((child, idx) => {
             const { label, text, onClick } = child.props

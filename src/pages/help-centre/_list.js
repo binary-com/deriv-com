@@ -1,6 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 import { Text, LinkText } from 'components/elements'
 import device from 'themes/device'
 
@@ -42,13 +43,20 @@ const ListNoBullets = styled.ul`
         padding-bottom: 1.6rem;
     }
 `
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+    font-size: var(--text-size-sm);
+`
 export const ListWithLinks = ({ list, onClick, link_style }) => (
     <ListNoBullets>
         {list.map((item, idx) => (
             <li key={idx}>
+                <StyledLink to="/help-centre/account-article">{item.title}</StyledLink>
+                {/* 
                 <LinkText {...link_style} onClick={() => onClick(item)}>
                     {item.title}
-                </LinkText>
+                </LinkText> */}
             </li>
         ))}
     </ListNoBullets>

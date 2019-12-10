@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import { articles } from './_help-articles'
 import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
@@ -11,7 +12,7 @@ import { Contact } from './_contact-us'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl, LocalizedLink } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
@@ -216,6 +217,13 @@ class HelpCentre extends Component {
         const has_results = !!filtered_articles.length
         return (
             <Layout>
+                <Breadcrumb
+                    location={window.location}
+                    crumbLabel="Help Centre"
+                    crumbStyle={{ color: '#333333' }}
+                    crumbActiveStyle={{ color: '#d6d6d6' }}
+                    crumbSeparator=" > "
+                />
                 <SEO
                     title={localize('Help')}
                     description={localize(
@@ -252,6 +260,8 @@ class HelpCentre extends Component {
                         </StyledContainer>
                     </Backdrop>
                 </SearchSection>
+                {/* <Link to="/help-centre/account-article">Account</Link> */}
+
                 <ArticleSection
                     articles={articles}
                     all_articles={all_articles}
@@ -259,7 +269,6 @@ class HelpCentre extends Component {
                     handleSelectArticle={this.handleSelectArticle}
                     toggleSearch={this.toggleSearch}
                 />
-                <LocalizedLink to="/help-centre/article/">HELLO</LocalizedLink>
                 <Contact></Contact>
                 {/*TODO: active this line after having mail service*/}
                 {/* {<DidntFindYourAnswerBanner /> } */}

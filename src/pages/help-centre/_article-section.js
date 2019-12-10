@@ -102,14 +102,14 @@ export const ArticleSection = React.memo(function ArticleSection({
     return (
         <Wrapper>
             {!selected_article && <ArticleList articles={articles} onClick={handleSelectArticle} />}
-            {selected_article && (
+            {/* {selected_article && (
                 <Article
                     article={selected_article}
                     all_articles={all_articles}
                     onClick={handleSelectArticle}
                     toggleSearch={toggleSearch}
                 />
-            )}
+            )} */}
         </Wrapper>
     )
 })
@@ -142,6 +142,7 @@ const Article = ({ article, all_articles, onClick }) => {
                 {!!related_articles.length && (
                     <ListWrapper>
                         <Header as="h3">{localize('Related topics')}</Header>
+
                         <ListWithLinks
                             list={related_articles}
                             onClick={onClick}

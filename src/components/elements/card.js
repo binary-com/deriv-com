@@ -152,7 +152,7 @@ export const Card = ({ children, Icon, title, content, width, min_height, is_inl
                                         {cover_content}
                                     </h4>
                                     <h4>
-                                        &gt;
+                                        &gt;{/* &gt return ">"  */}
                                     </h4>
                                 </div>
                             </CardCover>

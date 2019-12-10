@@ -52,7 +52,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
         <NavDropdown is_open={is_open} has_animation={has_animation}>
             <Show.Desktop>
                 <StyledContainer>
-                    <OtherPlatform exclude="" nav/>
+                    <OtherPlatform exclude="" is_nav/>
                 </StyledContainer>
             </Show.Desktop>
         </NavDropdown>

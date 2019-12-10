@@ -44,9 +44,9 @@ const StyledSubHeader = styled(Header)`
     max-width: ${props => props.maxWidth || ''};
 `
 
-export const OtherPlatform = ({ header, subHeader, exclude, nav }) => (
+export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
     <SectionContainer padding='0'>
-        {nav ? null : (<HeaderWrapper>
+        {is_nav ? null : (<HeaderWrapper>
             <StyledHeader font_size="4.8rem" align="center" lh="5rem">
                 {header ? header : localize('Check out our other platforms')}
             </StyledHeader>
@@ -109,6 +109,6 @@ export const OtherPlatform = ({ header, subHeader, exclude, nav }) => (
 OtherPlatform.propTypes = {
     exclude: PropTypes.string,
     header: PropTypes.string,
-    nav: PropTypes.bool,
+    is_nav: PropTypes.bool,
     subHeader: PropTypes.string,
 }

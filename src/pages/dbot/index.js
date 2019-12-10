@@ -2,15 +2,20 @@ import React, { Component } from 'react'
 import { Tutorial } from './_tutorial'
 import DBotAnimation from './dbot-animation.json'
 import { TradeWithDbot } from './_trade-with-dbot'
-import Banner from './_banner'
 import HowItWorks from './_how-it-works'
 import DHero from 'components/custom/_dhero.js'
+import DNumber from 'components/custom/_dnumbers.js'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 
+const items = [
+    { title: '5', subtitle: 'Pre-built strategies included' },
+    { title: 'FREE', subtitle: 'zero cost to build' },
+    { title: '50+', subtitle: 'markets to unleash your bot' }
+]
 class Dbot extends Component {
     render() {
         return (
@@ -24,7 +29,7 @@ class Dbot extends Component {
                     Logo={dbot_logo}
                     animation={DBotAnimation}
                 />
-                <Banner />
+                <DNumber items={items} justify='space-around' />
                 <HowItWorks />
                 <Tutorial />
                 <TradeWithDbot />

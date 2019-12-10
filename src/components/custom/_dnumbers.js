@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import PropTypes from 'prop-types'
 
 const NumberWrapper = styled.div`
     display: flex;
@@ -20,8 +20,8 @@ const DNumbers = ({ items, justify }) => {
     return (
         <SectionContainer padding="4.3rem">
             <StyledContainer justify={justify}>
-                {items.map(item => (
-                    <NumberWrapper>
+                {items.map((item, index) => (
+                    <NumberWrapper key={index}>
                         <Header as="h2" align="center">
                             {localize(item.title)}
                         </Header>
@@ -32,7 +32,7 @@ const DNumbers = ({ items, justify }) => {
     )
 }
 
-DNumbers.prototype = {
+DNumbers.propTypes = {
     items: PropTypes.array,
     justify: PropTypes.string,
 }

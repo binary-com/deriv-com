@@ -117,7 +117,7 @@ const DHero = ({ title, content, join_us_for_free, go_to_live_demo, start_automa
 
 DHero.propTypes = {
     animation: PropTypes.object,
-    content: PropTypes.string,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.object,

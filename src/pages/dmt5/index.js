@@ -11,6 +11,11 @@ import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 
+const numbers = [
+    { title: '70+', subtitle: 'tradable assets and growing' },
+    { title: '1:1,000', subtitle: 'maximum leverage' },
+    { title: '30', subtitle: 'maximum lot size' },
+]
 const DMT5 = () => {
     return (
         <Layout>
@@ -23,7 +28,7 @@ const DMT5 = () => {
                 animation={DMT5Animation}
             />
             <Show.Desktop>
-                <Numbers />
+                <Numbers items={numbers} justify='space-around' />
             </Show.Desktop>
             <HowItWorks />
             <Trading />

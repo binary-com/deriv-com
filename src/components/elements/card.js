@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
 import device from 'themes/device'
+import Arrow from 'images/svg/card-arrow.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -37,6 +38,7 @@ const CardCover = styled.div`
         justify-content: space-between;
         width: 100%;
         padding: 0 1.6rem;
+        align-items: center;
 
         h4 {
             color: var(--color-white);
@@ -151,9 +153,7 @@ export const Card = ({ children, Icon, title, content, width, min_height, is_inl
                                     <h4>
                                         {cover_content}
                                     </h4>
-                                    <h4>
-                                        &gt;{/* &gt return ">"  */}
-                                    </h4>
+                                    <Arrow />
                                 </div>
                             </CardCover>
                             <IconContainer>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
-import { Container, Show } from 'components/containers'
+import { Container } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Modal, useModal, Image } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
@@ -66,9 +66,9 @@ const Hero = () => {
                         {localize('The all-in-one FX and CFD trading platform')}
                     </Header>
                 </HeroContent>
-                <Show.Desktop>
-                    <Image img_name="dmt5-platform.png" alt="DMT5 platform" width="58.9rem" />
-                </Show.Desktop>
+                {/* <Show.Desktop> */}
+                <Image img_name="dmt5-platform.png" alt="DMT5 platform" width="58.9rem" />
+                {/* </Show.Desktop> */}
             </Container>
             <Container justify="flex-start">
                 <TryForFree secondary onClick={toggleModal}>

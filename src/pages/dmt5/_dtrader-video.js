@@ -4,7 +4,7 @@ import { localize } from 'components/localization'
 import { Header, Image } from 'components/elements'
 import device from 'themes/device.js'
 
-const Container = styled.div`
+const Container = styled.section`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);

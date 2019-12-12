@@ -7,7 +7,7 @@ import Experience from './_experience.js'
 import Trading from './_trading.js'
 import Layout from 'components/layout/layout'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
-import { SEO, Show } from 'components/containers'
+import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
 const PlatformContainer = styled.div`
@@ -19,9 +19,9 @@ const DMT5 = () => {
         <Layout>
             <SEO title={localize('DMT5')} />
             <Hero />
-            <Show.Desktop>
-                <Numbers />
-            </Show.Desktop>
+            {/* <Show.Desktop> */}
+            <Numbers />
+            {/* </Show.Desktop> */}
             <HowItWorks />
             <Trading />
             <Experience />

@@ -7,7 +7,7 @@ const GridContainer = styled.section`
     text-align: ${props => props.align || 'left'};
 
     @media ${device.desktop} {
-        max-width: 1024px;
+        max-width: 1200px;
     }
     @media ${device.desktopL} {
         max-width: 1400px;

@@ -36,14 +36,14 @@ const About = () => {
                     )}
                 />
             </Show.Mobile>
-            <Show.Desktop>
-                <Hero
-                    header={localize('About us')}
-                    paragraph={localize(
-                        'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
-                    )}
-                />
-            </Show.Desktop>
+            {/* <Show.Desktop> */}
+            <Hero
+                header={localize('About us')}
+                paragraph={localize(
+                    'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                )}
+            />
+            {/* </Show.Desktop> */}
             <OurGoals />
             <OurNumbers />
             <OurLocations />

@@ -4,7 +4,7 @@ import { OurLocations } from './_our-locations'
 import { OurNumbers } from './_our-numbers'
 import { OurGoals } from './_our-goals'
 import { localize, WithIntl } from 'components/localization'
-// import Layout from 'components/layout/layout'
+import Layout from 'components/layout/layout'
 import { Hero, Header, Modal, useModal } from 'components/elements'
 import { Button } from 'components/form'
 import SignupModal from 'components/custom/signup-modal'
@@ -26,7 +26,7 @@ const AccountButton = styled(Button)`
 const About = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
-        <>
+        <Layout>
             <SEO title={localize('About us')} />
             <Show.Mobile>
                 <Hero
@@ -60,7 +60,7 @@ const About = () => {
                     </Modal>
                 </Goahead>
             </Show.Mobile>
-        </>
+        </Layout>
     )
 }
 

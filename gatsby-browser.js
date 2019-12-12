@@ -1,4 +1,3 @@
-import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import TrafficSource from './src/common/traffic-source'
@@ -42,5 +41,3 @@ export const onInitialClientRender = () => {
         LocalStore.set('signup_device', isMobile() ? 'mobile' : 'desktop')
     }
 }
-
-export const wrapPageElement = WrapPagesWithLocaleContext

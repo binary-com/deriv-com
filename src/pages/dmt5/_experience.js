@@ -9,6 +9,7 @@ import { Button } from 'components/form'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-1);
+
     @media ${device.tabletL} {
         padding: 4rem 0;
     }

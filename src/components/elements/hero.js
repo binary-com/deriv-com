@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Header } from './typography.js'
 import { Container } from 'components/containers'
 

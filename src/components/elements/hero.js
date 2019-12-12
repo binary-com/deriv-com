@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Header } from './typography.js'
 import { Container } from 'components/containers'
 
-const Wrapper = styled.section`
+const Wrapper = styled.div`
     width: 100%;
     background-color: var(--color-black);
     padding: 8rem;

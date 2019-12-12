@@ -170,6 +170,7 @@ const ArticleList = ({ articles, onClick }) => (
                     link_style={{ size: '2rem' }}
                     list={category.articles}
                     onClick={onClick}
+                    categoryLink={'/help-centre/' + category.categoryCode + '-article'}
                 />
             </ListWrapper>
         ))}

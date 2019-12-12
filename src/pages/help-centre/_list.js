@@ -48,19 +48,31 @@ const StyledLink = styled(Link)`
     color: black;
     font-size: var(--text-size-sm);
 `
-export const ListWithLinks = ({ list, onClick, link_style }) => (
-    <ListNoBullets>
-        {list.map((item, idx) => (
-            <li key={idx}>
-                <StyledLink to="/help-centre/account-article">{item.title}</StyledLink>
-                {/* 
+
+export const ListWithLinks = ({ list, onClick, link_style, categoryLink }) => {
+    function renderSwitch(category) {
+        switch (category) {
+            case '':
+                break
+
+            default:
+                break
+        }
+    }
+    return (
+        <ListNoBullets>
+            {list.map((item, idx) => (
+                <li key={idx}>
+                    <StyledLink to={categoryLink}>{item.title}</StyledLink>
+                    {/* 
                 <LinkText {...link_style} onClick={() => onClick(item)}>
                     {item.title}
                 </LinkText> */}
-            </li>
-        ))}
-    </ListNoBullets>
-)
+                </li>
+            ))}
+        </ListNoBullets>
+    )
+}
 ListWithLinks.propTypes = {
     link_style: PropTypes.object,
     list: PropTypes.array.isRequired,

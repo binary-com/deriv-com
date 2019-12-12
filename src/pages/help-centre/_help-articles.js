@@ -341,6 +341,7 @@ const SafeguardWithdrawFunds = () => (
 export const articles = [
     {
         category: <Localize translate_text="Account" />,
+        categoryCode:"account",
         articles: [
             {
                 title: <Localize translate_text="Who can open an account?" />,
@@ -388,6 +389,7 @@ export const articles = [
     },
     {
         category: <Localize translate_text="Deposits and withdrawals" />,
+        categoryCode:"deposit",
         articles: [
             {
                 title: <Localize translate_text="Making a deposit" />,
@@ -421,6 +423,7 @@ export const articles = [
     },
     {
         category: <Localize translate_text="Privacy and security" />,
+        categoryCode:"privacy",
         articles: [
             {
                 title: (

@@ -3,7 +3,8 @@ import styled, { css } from 'styled-components'
 import { LocalizedLink } from '../localization'
 
 export const StyledLink = styled(props => <LocalizedLink {...props} />)`
-    font-size: var(--text-size-sm);
+    font-size: ${props => props.size || 'var(--text-size-sm)'};
+    font-weight: ${props => props.weight || 'normal'};
     color: var(--color-red);
     text-decoration: none;
 

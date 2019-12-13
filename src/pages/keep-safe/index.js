@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { SecurityIconGrid } from './_icon-grid'
 import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
-//import device from 'themes/device'
 import Layout from 'components/layout/layout'
 import {
     Modal,

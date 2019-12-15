@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import HowItWorks from './_how-it-works.js'
 import Trading from './_trading.js'
 import DTraderAnimation from './dtrader-animation.json'
@@ -16,6 +17,9 @@ const items = [
     { title: '1s - 365d', subtitle: 'flexible trade duration' },
     { title: '>200%', subtitle: 'potential payout' },
 ]
+const PlatformContainer = styled.div`
+    padding: 8rem 0;
+`
 const Dtrader = () => {
     return (
         <Layout>
@@ -33,7 +37,9 @@ const Dtrader = () => {
             </Show.Desktop>
             <HowItWorks />
             <Trading />
-            <OtherPlatform exclude="dtrader" />
+            <PlatformContainer>
+                <OtherPlatform exclude="dtrader" />
+            </PlatformContainer>
         </Layout>
     )
 }

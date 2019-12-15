@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import DMT5Animation from './dmt5-animation.json'
 import HowItWorks from './_how-it-works.js'
 import Experience from './_experience.js'
@@ -16,6 +17,10 @@ const items = [
     { title: '1:1,000', subtitle: 'maximum leverage' },
     { title: '30', subtitle: 'maximum lot size' },
 ]
+const PlatformContainer = styled.div`
+    padding: 8rem 0;
+`
+
 const DMT5 = () => {
     return (
         <Layout>
@@ -33,7 +38,9 @@ const DMT5 = () => {
             <HowItWorks />
             <Trading />
             <Experience />
-            <OtherPlatform exclude="dmt5" />
+            <PlatformContainer>
+                <OtherPlatform exclude="dmt5" />
+            </PlatformContainer>
         </Layout>
     )
 }

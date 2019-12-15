@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import { Tutorial } from './_tutorial'
 import DBotAnimation from './dbot-animation.json'
 import { TradeWithDbot } from './_trade-with-dbot'
@@ -16,6 +17,9 @@ const items = [
     { title: 'FREE', subtitle: 'zero cost to build' },
     { title: '50+', subtitle: 'markets to unleash your bot' }
 ]
+const PlatformContainer = styled.div`
+    padding: 8rem 0;
+`
 class Dbot extends Component {
     render() {
         return (
@@ -33,7 +37,9 @@ class Dbot extends Component {
                 <HowItWorks />
                 <Tutorial />
                 <TradeWithDbot />
-                <OtherPlatform exclude="dbot" />
+                <PlatformContainer>
+                    <OtherPlatform exclude="dbot" />
+                </PlatformContainer>
             </Layout>
         )
     }

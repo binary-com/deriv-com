@@ -23,7 +23,6 @@ const AccountButton = styled(Button)`
     max-width: 32rem;
     margin-bottom: 3.6rem;
 `
-
 const About = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (

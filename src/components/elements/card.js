@@ -3,27 +3,63 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
 import device from 'themes/device'
+import Arrow from 'images/svg/card-arrow.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
-    border-radius: 4px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     background-color: var(--color-white);
 `
 
 const CardContent = styled(Text)`
     margin-top: 0.8rem;
+    line-height: 1.25;
 
     @media ${device.tabletL} {
         font-size: var(--text-size-sm);
         margin-top: 2.65rem;
     }
 `
+const CardCover = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: ${props => props.background_color};
+    border-radius: 6px;
+    left: -100%;
+    top: 0;
+    transition: left 0.3s linear;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 1.6rem;
+        align-items: center;
+
+        h4 {
+            color: var(--color-white);
+            font-size: 2.8rem;
+            font-weight: bold;
+            line-height: 1.25;
+        }
+    }
+`
 const CardWrapper = styled.article`
     ${CardStyle}
-    min-height: ${props => (props.min_height ? props.min_height : '35.6rem')};
-    width: ${props => (props.width ? props.width : '32.8rem')};
-    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+    min-height: ${props => (props.min_height ? props.min_height : '0')};
+    width: ${props => (props.width ? props.width : '38.4rem')};
+    padding: ${props => props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem'};
+    border-radius: 6px;
+
+    :hover ${CardCover} {
+        left: 0;
+    }
 
     @media ${device.tabletL} {
         padding: 3rem;
@@ -55,6 +91,9 @@ const CardChildrenWrapper = styled.article`
     flex-direction: column;
     align-items: center;
 
+    &:hover ${CardCover} {
+        left: 0;
+    }
     ${Header} {
         text-align: center;
 
@@ -83,17 +122,18 @@ const IconContainer = styled.div`
     ${Header} {
         display: flex;
         align-items: center;
-        padding-left: 16px;
     }
 `
-
+const CardContentContainer = styled.div`
+    margin-left: 1.6rem;
+`
 const Content = ({ content }) => (
     <>
         {Array.isArray(content) ? (
             content.map(text => <CardContent key={text}>{text}</CardContent>)
         ) : (
-            <CardContent>{content}</CardContent>
-        )}
+                <CardContent>{content}</CardContent>
+            )}
     </>
 )
 
@@ -101,32 +141,44 @@ Content.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
 
-export const Card = ({ children, Icon, title, content, width, min_height, is_inline_icon }) => {
+export const Card = ({ children, Icon, title, content, width, min_height, is_inline_icon, cover_background, cover_content, padding }) => {
     return (
-        <CardWrapper width={width} min_height={min_height}>
+        <CardWrapper width={width} min_height={min_height} padding={padding}>
             {!children && (
                 <>
                     {is_inline_icon ? (
                         <>
+                            <CardCover background_color={cover_background}>
+                                <div>
+                                    <h4>
+                                        {cover_content}
+                                    </h4>
+                                    <Arrow />
+                                </div>
+                            </CardCover>
                             <IconContainer>
-                                <Icon />
-                                <Header as="h4" weight="500">
-                                    {title}
-                                </Header>
+                                <div>
+                                    <Icon />
+                                </div>
+                                <CardContentContainer>
+                                    <Header as="h4" weight="bold">
+                                        {title}
+                                    </Header>
+                                    <Content content={content} />
+                                </CardContentContainer>
                             </IconContainer>
-                            <Content content={content} />
                         </>
                     ) : (
-                        <>
-                            <Icon />
-                            <ContentWrapper>
-                                <Header as="h4" weight="500">
-                                    {title}
-                                </Header>
-                                <Content content={content} />
-                            </ContentWrapper>
-                        </>
-                    )}
+                            <>
+                                <Icon />
+                                <ContentWrapper>
+                                    <Header as="h4" weight="bold">
+                                        {title}
+                                    </Header>
+                                    <Content content={content} />
+                                </ContentWrapper>
+                            </>
+                        )}
                 </>
             )}
             {children && children}
@@ -137,9 +189,12 @@ export const Card = ({ children, Icon, title, content, width, min_height, is_inl
 Card.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    cover_background: PropTypes.string,
+    cover_content: PropTypes.string,
     Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     is_inline_icon: PropTypes.bool,
     min_height: PropTypes.string,
+    padding: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
 }

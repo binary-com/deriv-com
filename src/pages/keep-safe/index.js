@@ -120,7 +120,7 @@ const KeepSafe = () => {
                                 <CheckedIcon />
                             </CssGridColumn>
                             <CssGridColumn>
-                                <Text color="black-3" lh="1.55" margin="0.3rem 0 0">
+                                <Text lh="1.55" margin="0.3rem 0 0">
                                     {localize('Trading on Deriv.com can become addictive. If you wish to stop trading for a period of time, please use our self-exclusion facilities')}
                                 </Text>
                             </CssGridColumn>

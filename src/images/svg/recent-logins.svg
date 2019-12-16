@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<svg role="img" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="recent-logins-icon-title">
+    <title id='recent-logins-icon-title'>Recent Logins</title>
     <defs>
         <linearGradient id="a" x1="0%" y1="100%" y2="0%">
             <stop offset="0%" stop-color="#FF444F"/>

@@ -54,7 +54,7 @@ const GridCol = styled.article`
 const Col = ({ Icon, content }) => (
     <GridCol>
         <Icon />
-        <Text color="black-3" lh="1.55">
+        <Text lh="1.55">
             {content}
         </Text>
     </GridCol>

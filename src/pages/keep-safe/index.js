@@ -24,12 +24,6 @@ const StyledHeader = styled(Header)`
     margin: 0 auto;
     padding: 1.2rem 2rem 4rem;
 `
-const Cta = styled(Button)`
-    font-size: var(--text-size-xs);
-    line-height: 1.6rem;
-    border-radius: 0.4rem;
-    padding: 1rem 1.6rem;
-`
 const Card = styled.div`
     padding: 2.4rem;
     border-radius: 6px;
@@ -78,9 +72,9 @@ const KeepSafe = () => {
                             'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
                         )}
                     </StyledHeader>
-                    <Cta secondary onClick={toggleModal}>
+                    <Button secondary onClick={toggleModal}>
                         {localize('Create a free account')}
-                    </Cta>
+                    </Button>
                 </GridContainer>
             </Section>
             <Section>

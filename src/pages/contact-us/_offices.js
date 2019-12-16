@@ -14,15 +14,10 @@ const Wrapper = styled.section`
     background-color: var(--color-white);
     padding: 8rem 23rem;
 
-    @media ${device.laptop} {
+    @media ${device.laptopL} {
         height: auto;
-        padding: 8rem 10rem;
+        padding: 8rem 1rem;
     }
-`
-const OfficeWrapper = styled.div`
-    width: 100;
-    margin: auto;
-    height: 100%;
 `
 const OfficesWrapper = styled.div`
     display: flex;
@@ -30,6 +25,17 @@ const OfficesWrapper = styled.div`
     width: 100%;
     height: 100%;
 `
+
+const OfficeWrapper = styled.div`
+    margin: auto;
+    height: 100%;
+
+    @media ${device.tabletL} {
+        margin: 0;
+        width: auto;
+    }
+`
+
 const Office = styled.div`
     display: flex;
     flex-direction: row;
@@ -44,7 +50,6 @@ const Office = styled.div`
 
     @media ${device.laptop} {
         flex-direction: column;
-        justify-content: center;
         height: auto;
     }
 `
@@ -55,7 +60,7 @@ const Content = styled.div`
     width: 50%;
 
     :nth-child(even) {
-        margin-left: 8rem;
+        margin-left: 2.4rem;
         width: 100%;
     }
 
@@ -89,11 +94,15 @@ const Splitter = styled.div`
     background-color: #d8d8d8;
     height: 0.1rem;
     width: 98rem;
+
+    @media ${device.tabletL} {
+        width: auto;
+    }
 `
 export const Offices = () => {
     return (
         <Wrapper>
-            <StyledHeader as="h3" align="center" id="our_offices">
+            <StyledHeader as="h3" align="center">
                 {localize('Our offices')}
             </StyledHeader>
             <OfficesWrapper>
@@ -129,7 +138,7 @@ export const Offices = () => {
                     <Office>
                         <Content>
                             <StyledHeader as="h4" align="left">
-                                {localize('Malaysian')}
+                                {localize('Malaysia')}
                             </StyledHeader>
                             <br />
                             <StyledText>

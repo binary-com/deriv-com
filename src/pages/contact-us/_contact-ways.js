@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Text } from '../../components/elements/typography'
 import { Header } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
+import { localize } from 'components/localization'
 import CallUsIcon from 'images/svg/call-us.svg'
 // import ChatLiveIcon from 'images/svg/chat-live.svg'
 import EmailUsIcon from 'images/svg/email-us.svg'
@@ -48,15 +48,6 @@ const StyledText = styled(Text)`
 `
 const Logo = styled.div`
     margin-bottom: 1.4rem;
-`
-const StyledLink = styled(LocalizedLink)`
-    text-decoration: none;
-    transform: rotate(45deg);
-    border: solid var(--color-red);
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 4px;
-    cursor: pointer;
 `
 const Splitter = styled.div`
     background-color: #d8d8d8;
@@ -114,10 +105,6 @@ export const ContactWays = () => {
                     <StyledText marginBttom="1.9rem">
                         {localize('Sat-Sun: 8:00am - 5pm GMT')}
                     </StyledText>
-                    <StyledText weight="bold" color="red">
-                        {localize('View all global offices ')}
-                    </StyledText>
-                    <StyledLink to="/contact-us/#our_offices"></StyledLink>
                 </Contact>
                 <Splitter></Splitter>
                 <Contact>

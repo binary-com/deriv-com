@@ -27,9 +27,10 @@ const NavDropdown = styled.div`
     display: flex;
     width: 100%;
     position: absolute;
+    padding: 0.6rem 0;
     z-index: -1;
+    height: fit-content;
     background-color: #ffffff;
-    height: 17.8rem;
     transform: translateY(-18rem);
     opacity: 0;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
@@ -52,7 +53,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
         <NavDropdown is_open={is_open} has_animation={has_animation}>
             <Show.Desktop>
                 <StyledContainer>
-                    <OtherPlatform exclude="" is_nav/>
+                    <OtherPlatform exclude="" is_nav />
                 </StyledContainer>
             </Show.Desktop>
         </NavDropdown>

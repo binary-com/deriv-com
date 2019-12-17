@@ -81,6 +81,10 @@ const Content = styled(Text)`
 const StyledLink = styled(LocalizedLink)`
     margin: 0 1rem;
     text-decoration: none;
+
+    @media ${device.laptopS} {
+        margin: 1rem 1rem;
+    }
 `
 export const Trade = () => (
     // TODO: after home page rebuild, uncomment these codes
@@ -94,17 +98,19 @@ export const Trade = () => (
     <StyledContainer>
         <StyledSection>
             <div>
-                <Header as='h2' align='center'>
+                <Header as="h2" align="center">
                     {localize('Trade the way you like')}
                 </Header>
             </div>
             <div>
-                <Header as='h4' align='center' weight='500'>
-                    {localize('Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.')}
+                <Header as="h4" align="center" weight="500">
+                    {localize(
+                        'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
+                    )}
                 </Header>
             </div>
             <CardContainer>
-                <StyledLink to='/dtrader'>
+                <StyledLink to="/dtrader">
                     <Card>
                         <IconContainer>
                             <DTraderLogo />
@@ -113,11 +119,13 @@ export const Trade = () => (
                             </Header>
                         </IconContainer>
                         <Content>
-                            {localize('Start trading now with a powerful, yet easy-to-use platform.')}
+                            {localize(
+                                'Start trading now with a powerful, yet easy-to-use platform.',
+                            )}
                         </Content>
                     </Card>
                 </StyledLink>
-                <StyledLink to='/dbot'>
+                <StyledLink to="/dbot">
                     <Card>
                         <IconContainer>
                             <DBotLogo />
@@ -125,12 +133,10 @@ export const Trade = () => (
                                 {localize('DBot')}
                             </Header>
                         </IconContainer>
-                        <Content>
-                            {localize('Automate your trading ideas without coding.')}
-                        </Content>
+                        <Content>{localize('Automate your trading ideas without coding.')}</Content>
                     </Card>
                 </StyledLink>
-                <StyledLink to='/dmt5'>
+                <StyledLink to="/dmt5">
                     <Card>
                         <IconContainer>
                             <DMT5Logo />

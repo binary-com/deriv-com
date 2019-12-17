@@ -14,6 +14,7 @@ import device from 'themes/device.js'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupSimple from 'components/custom/_signup-simple'
 import SignupFlat from 'components/custom/_signup-flat'
+import SignupPublic from 'components/custom/_signup-public'
 
 const Form = styled.form`
     width: 80%;
@@ -63,6 +64,7 @@ export const Appearances = {
     simple: 'simple',
     darkFlat: 'darkFlat',
     lightFlat: 'lightFlat',
+     public: 'public',
 }
 class Signup extends Component {
     state = {
@@ -180,6 +182,8 @@ class Signup extends Component {
         switch (param) {
             case Appearances.simple:
                 return <SignupSimple {...parameters}></SignupSimple>
+            case Appearances.public:
+                return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:
             case Appearances.darkFlat:
                 return param == Appearances.darkFlat ? (

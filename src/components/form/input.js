@@ -10,7 +10,7 @@ const RelativeWrapper = styled.div`
 `
 const InputWrapper = styled.div`
     width: 100%;
-    border: 1px solid var(--color-grey-2);
+    border: ${props => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
 
     &:hover {
@@ -46,7 +46,7 @@ const StyledError = styled(CrossIcon)`
 
 const StyledInput = styled.input`
     background: none;
-    color: var(--color-${props => props.inputColor || 'black'});
+    color: var(--color- ${props => props.inputColor || 'black'});
     font-size: var(--text-size-s);
     padding: 1rem 1rem 1rem 0.8rem;
     width: 95%;
@@ -98,9 +98,9 @@ const StyledLabel = styled.label`
     background-color: var(--color-${props => props.background || 'grey-1'});
 `
 
-const Input = ({ label, id, error, background, handleError, ...props }) => (
+const Input = ({ label, border, id, error, background, handleError, ...props }) => (
     <RelativeWrapper>
-        <InputWrapper error={error}>
+        <InputWrapper border={border} error={error}>
             <StyledInput id={id} {...props} />
             <StyledLabel background={background} error={error} htmlFor={id}>
                 {label}
@@ -119,6 +119,7 @@ const Input = ({ label, id, error, background, handleError, ...props }) => (
 
 Input.propTypes = {
     background: PropTypes.string,
+    border: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     error: PropTypes.string,
     handleError: PropTypes.func,

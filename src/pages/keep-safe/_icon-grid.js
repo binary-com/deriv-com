@@ -42,7 +42,7 @@ const Col = ({ Icon, content }) => (
 )
 Col.propTypes = {
     content: PropTypes.string,
-    Icon: PropTypes.func,
+    Icon: PropTypes.elementType,
 }
 
 export const SecurityIconGrid = () => (

@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import DMT5Video from './_dtrader-video.js'
+import DMT5Video from './_dmt5-video.js'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device.js'
 
 const StyledSection = styled(SectionContainer)`
-    background-image: linear-gradient(to bottom, var(--color-grey-6), var(--color-white));
+    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
 `
 
 const StyledHeader = styled(Header)`

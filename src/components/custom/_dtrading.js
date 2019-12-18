@@ -40,7 +40,7 @@ const ImageWrapper = styled.div`
     margin-right: ${props => props.margin_right};
 `
 const StyledHeader = styled(Header)`
-    margin-top: 4rem;
+    margin-top: ${props => props.second_title_margin ? '2.4rem' : '4rem'};
     font-size: 3.6rem;
     line-height: 1.25;
 `
@@ -50,12 +50,12 @@ const Row = styled.div`
     display: flex;
     margin-top: 4rem;
 `
-export const DTradingSingle = ({ trading }) => {
+const DTrading = ({ trading, reverse, two_title }) => {
     return (
         <StyledSection>
             <StyledContainer>
                 {trading.map((item, index) => {
-                    let is_even = index % 2 === 0
+                    let is_even = reverse ? (index + 1) % 2 === 0 : index % 2 === 0
                     return (<>
                         <Row flex_direction={is_even ? 'row' : 'row-reverse'}>
                             <Content margin_right={is_even ? '2.4rem' : '0'}>
@@ -63,6 +63,12 @@ export const DTradingSingle = ({ trading }) => {
                                     {item.title}
                                 </StyledHeader>
                                 <Text>{item.subtitle}</Text>
+                                {two_title ? (<>
+                                    <StyledHeader second_title_margin>
+                                        {item.second_title}
+                                    </StyledHeader>
+                                    <Text>{item.second_subtitle}</Text>
+                                </>) : null}
                             </Content>
                             <ImageWrapper margin_right={is_even ? '0' : '2.4rem'}>
                                 <Image img_name={item.image_name} alt={item.image_alt} width='100%' />
@@ -75,6 +81,10 @@ export const DTradingSingle = ({ trading }) => {
     )
 }
 
-DTradingSingle.propTypes = {
+DTrading.propTypes = {
+    reverse: PropTypes.bool,
     trading: PropTypes.array,
+    two_title: PropTypes.bool,
 }
+
+export default DTrading

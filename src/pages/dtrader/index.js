@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import HowItWorks from './_how-it-works.js'
 import DTraderAnimation from './dtrader-animation.json'
-import { DTradingSingle } from 'components/custom/_dtrading.js'
+import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
@@ -41,7 +41,7 @@ const trading = [
                 <br key={0} />
             ]}
         />,
-        subtitle: 'Forex, indices, commodities and volatility indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.',
+        subtitle: localize('Forex, indices, commodities and volatility indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.'),
         image_name: 'trade-what-you-want.png',
         image_alt: 'Trade what you want'
     },
@@ -52,7 +52,7 @@ const trading = [
                 <br key={0} />
             ]}
         />,
-        subtitle: 'Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second.',
+        subtitle: localize('Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second.'),
         image_name: 'how-you-want.png',
         image_alt: 'How you want',
     }
@@ -76,7 +76,7 @@ const Dtrader = () => {
                 <DNumber items={items} justify='space-around' />
             </Show.Desktop>
             <HowItWorks />
-            <DTradingSingle trading={trading} />
+            <DTrading trading={trading} />
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>

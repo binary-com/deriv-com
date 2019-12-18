@@ -2,8 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import DMT5Animation from './dmt5-animation.json'
 import HowItWorks from './_how-it-works.js'
-import Experience from './_experience.js'
-import Trading from './_trading.js'
+import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
 import Layout from 'components/layout/layout'
@@ -20,6 +19,24 @@ const items = [
 const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
+const trading = [
+    {
+        title: localize('DMT5 Standard Account'),
+        subtitle: localize('Get started easily with a DMT5 Standard account for high leverage on your forex trades.'),
+        second_title: localize('DMT5 Advanced Account'),
+        second_subtitle: localize("Get your trades placed straight through to the market with a DMT5 Advanced account — a 100% A-Book account with tight spreads."),
+        image_name: 'dmt-5-ipad-iphone.png',
+        image_alt: 'DMT5 mac'
+    },
+    {
+        title: localize('DMT5 Synthetic Indices'),
+        subtitle: localize('Trade 24/7 with a Synthetic Indices account. Trade indices that simulate the movements of real markets.'),
+        second_title: localize('Practice with Demo accounts'),
+        second_subtitle: localize('Create demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.'),
+        image_name: 'dmt-5-mac.png',
+        image_alt: 'DMT5 ipad iphone'
+    },
+]
 
 const DMT5 = () => {
     return (
@@ -36,8 +53,7 @@ const DMT5 = () => {
                 <DNumber items={items} justify='space-around' />
             </Show.Desktop>
             <HowItWorks />
-            <Trading />
-            <Experience />
+            <DTrading trading={trading} reverse two_title />
             <PlatformContainer>
                 <OtherPlatform exclude="dmt5" />
             </PlatformContainer>

@@ -43,40 +43,12 @@ const StepCommon = css`
         margin-top: ${props => (props.no_margin ? '0' : '2rem')};
     }
 `
-const Step1 = styled(Header)`
+const Step = styled(Header)`
     ${StepCommon}
     ${props =>
-        props.current_step_image === 'dbot-step1.png'
+        props.current_step_image === props.image_name
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
-`
-const Step2 = styled(Header)`
-    ${StepCommon}
-    ${props =>
-        props.current_step_image === 'dbot-step2.png'
-            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
-`
-const Step3 = styled(Header)`
-    ${StepCommon}
-    ${props =>
-        props.current_step_image === 'dbot-step3.png'
-            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
-`
-const Step4 = styled(Header)`
-    ${StepCommon}
-    ${props =>
-        props.current_step_image === 'dbot-step4.png'
-            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
-`
-const Step5 = styled(Header)`
-    ${StepCommon}
-    ${props =>
-        props.current_step_image === 'dbot-step5.png'
-            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
+            : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
 `
 
 class DtraderTabs extends React.Component {
@@ -93,60 +65,65 @@ class DtraderTabs extends React.Component {
             <Container>
                 <TabsWrapper>
                     <Tab>
-                        <Step1
+                        <Step
                             as="h4"
                             lh="1.5"
                             align="left"
                             no_margin
+                            image_name='dbot-step1.png'
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step1.png')}
                         >
                             {localize('1. Select your asset')}
-                        </Step1>
+                        </Step>
                     </Tab>
                     <Tab>
-                        <Step2
+                        <Step
                             as="h4"
                             lh="1.5"
                             align="left"
+                            image_name='dbot-step2.png'
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step2.png')}
                         >
                             {localize('2. Set purchase conditions')}
-                        </Step2>
+                        </Step>
                     </Tab>
                     <Tab>
-                        <Step3
+                        <Step
                             as="h4"
                             lh="1.5"
                             align="left"
+                            image_name='dbot-step3.png'
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step3.png')}
                         >
                             {localize('3. Set restart conditions')}
-                        </Step3>
+                        </Step>
                     </Tab>
                     <Tab>
-                        <Step4
+                        <Step
                             as="h4"
                             lh="1.5"
                             align="left"
+                            image_name='dbot-step4.png'
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step4.png')}
                         >
                             {localize('4. Run bot')}
-                        </Step4>
+                        </Step>
                     </Tab>
                     <Tab>
-                        <Step5
+                        <Step
                             as="h4"
                             lh="1.5"
                             align="left"
+                            image_name='dbot-step5.png'
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step5.png')}
                         >
                             {localize('5. Check profit')}
-                        </Step5>
+                        </Step>
                     </Tab>
                 </TabsWrapper>
                 <VideoWrapper>

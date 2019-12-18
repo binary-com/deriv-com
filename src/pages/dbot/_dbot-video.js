@@ -1,8 +1,10 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { deriv_bot_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Header, Image } from 'components/elements'
 import device from 'themes/device.js'
+import { Button } from 'components/form'
 
 const Container = styled.section`
     width: 100%;
@@ -50,6 +52,18 @@ const Step = styled(Header)`
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
 `
+const GoToLiveDemo = styled(Button)`
+    border: 2px solid var(--color-red);
+    font-weight: bold;
+    line-height: 1.43;
+    width: 100%;
+    margin-top: 4rem;
+    max-width: 14.2rem;
+
+    @media ${device.tabletL} {
+        max-width: 100%;
+    }
+`
 
 class DtraderTabs extends React.Component {
     my_ref = React.createRef()
@@ -59,6 +73,9 @@ class DtraderTabs extends React.Component {
     }
     clickHandler = image_name => {
         this.setState({ current_step_image: image_name })
+    }
+    handleRedirect = () => {
+        window.open(deriv_bot_app_url, '_blank')
     }
     render() {
         return (
@@ -125,6 +142,9 @@ class DtraderTabs extends React.Component {
                             {localize('5. Check profit')}
                         </Step>
                     </Tab>
+                    <GoToLiveDemo secondary onClick={this.handleRedirect}>
+                        {localize('Go to live demo')}
+                    </GoToLiveDemo>
                 </TabsWrapper>
                 <VideoWrapper>
                     <Image

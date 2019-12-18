@@ -4,7 +4,8 @@ import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import MacBook from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
-import { isBrowser } from 'common/utility'
+import { isBrowser, deriv_app_url } from 'common/utility'
+import { Button } from 'components/form'
 
 const Container = styled.section`
     width: 100%;
@@ -81,6 +82,18 @@ const Video = styled.video`
     height: 77%;
     left: 11.5%;
 `
+const GoToLiveDemo = styled(Button)`
+    border: 2px solid var(--color-red);
+    font-weight: bold;
+    line-height: 1.43;
+    width: 100%;
+    margin-top: 4rem;
+    max-width: 14.2rem;
+
+    @media ${device.tabletL} {
+        max-width: 100%;
+    }
+`
 
 class DtraderTabs extends React.Component {
     my_ref = React.createRef()
@@ -138,6 +151,9 @@ class DtraderTabs extends React.Component {
         this.setState({ transition: false })
         this.progressHandler()
     }
+    handleRedirect = () => {
+        window.open(deriv_app_url, '_blank')
+    }
     progressHandler = () => {
         this.setState({
             progress_percentage: Math.ceil(
@@ -189,6 +205,9 @@ class DtraderTabs extends React.Component {
                             {localize('3. Purchase your option')}
                         </Step>
                     </Tab>
+                    <GoToLiveDemo secondary onClick={this.handleRedirect}>
+                        {localize('Go to live demo')}
+                    </GoToLiveDemo>
                 </TabsWrapper>
                 <VideoWrapper>
                     <MacbookFrame />

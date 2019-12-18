@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import DMT5Animation from './dmt5-animation.json'
-import HowItWorks from './_how-it-works.js'
+import DMT5Video from './_dmt5-video.js'
+import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
@@ -52,7 +53,7 @@ const DMT5 = () => {
             <Show.Desktop>
                 <DNumber items={items} justify='space-around' />
             </Show.Desktop>
-            <HowItWorks />
+            <DHowItWorks Video={DMT5Video} title='Get started with DMT5 in 3 easy steps' />
             <DTrading trading={trading} reverse two_title />
             <PlatformContainer>
                 <OtherPlatform exclude="dmt5" />

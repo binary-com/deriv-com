@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Header, Image } from 'components/elements'
 import device from 'themes/device.js'
@@ -10,55 +10,44 @@ const Container = styled.section`
     flex-direction: row;
     justify-content: flex-start;
     margin-top: 4rem;
-    align-items: center;
+    align-items: flex-start;
 
     @media ${device.tabletL} {
         flex-direction: column-reverse;
         justify-content: center;
     }
 `
+const Tab = styled.div`
+    width: 100%;
+    margin-top: 2.4rem;
+`
 const TabsWrapper = styled.div`
     width: 40.7rem;
     margin-right: 2.6rem;
+    margin-top: 6rem;
+
+    div:first-child {
+        margin-top: 0;
+    }
 `
 const VideoWrapper = styled.div`
-    max-width: 67.5rem;
+    max-width: 77.6rem;
     width: 100%;
 `
-const Tab = styled.div`
-    width: 100%;
-    margin-top: 3rem;
-`
-const StepCommon = css`
-    font-weight: bold;
+const Step = styled(Header)`
+    font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;
+    ${props =>
+        props.image_name === props.current_image
+            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
+            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
+
     @media ${device.tabletL} {
         text-align: left;
         border: none;
         margin-top: ${props => (props.no_margin ? '0' : '2rem')};
     }
-`
-const Step1 = styled(Header)`
-    ${StepCommon}
-    ${props =>
-        props.current_step_image === 'dmt-5-step-1.png'
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
-`
-const Step2 = styled(Header)`
-    ${StepCommon}
-    ${props =>
-        props.current_step_image === 'dmt-5-step-2.png'
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
-`
-const Step3 = styled(Header)`
-    ${StepCommon}
-    ${props =>
-        props.current_step_image === 'dmt-5-step-3.png'
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
 `
 
 class DtraderTabs extends React.Component {
@@ -75,38 +64,41 @@ class DtraderTabs extends React.Component {
             <Container>
                 <TabsWrapper>
                     <Tab>
-                        <Step1
+                        <Step
                             as="h4"
                             lh="1"
                             align="left"
                             no_margin
-                            current_step_image={this.state.current_step_image}
+                            image_name='dmt-5-step-1.png'
+                            current_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dmt-5-step-1.png')}
                         >
                             {localize('1. Sign up with Deriv')}
-                        </Step1>
+                        </Step>
                     </Tab>
                     <Tab>
-                        <Step2
+                        <Step
                             as="h4"
                             lh="1"
                             align="left"
-                            current_step_image={this.state.current_step_image}
+                            image_name='dmt-5-step-2.png'
+                            current_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dmt-5-step-2.png')}
                         >
                             {localize('2. Create a DMT5 account')}
-                        </Step2>
+                        </Step>
                     </Tab>
                     <Tab>
-                        <Step3
+                        <Step
                             as="h4"
                             lh="1"
                             align="left"
-                            current_step_image={this.state.current_step_image}
+                            image_name='dmt-5-step-3.png'
+                            current_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dmt-5-step-3.png')}
                         >
                             {localize('3. Fund your account')}
-                        </Step3>
+                        </Step>
                     </Tab>
                 </TabsWrapper>
                 <VideoWrapper>

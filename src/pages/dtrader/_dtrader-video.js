@@ -20,13 +20,20 @@ const Container = styled.section`
         justify-content: center;
     }
 `
+const Tab = styled.div`
+    width: 100%;
+    margin-top: 2.4rem;
+`
 const TabsWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 38.4rem;
     margin-top: 6rem;
-
+    
+    div:first-child {
+        margin-top: 0;
+    }
     @media ${device.tabletL} {
         flex-direction: column;
         justify-content: flex-start;
@@ -37,7 +44,6 @@ const StepCommon = css`
     font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;
-    margin-top: 2.4rem;
     @media ${device.tabletL} {
         text-align: left;
         border: none;
@@ -52,9 +58,7 @@ const Step = styled(Header)`
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
 `
-const Tab = styled.div`
-    width: 100%;
-`
+
 const VideoWrapper = styled.div`
     position: relative;
     width: 100%;

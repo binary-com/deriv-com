@@ -120,7 +120,7 @@ DHero.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     join_us_for_free: PropTypes.bool,
-    Logo: PropTypes.object,
+    Logo: PropTypes.func,
     start_automating: PropTypes.bool,
     title: PropTypes.string,
 }

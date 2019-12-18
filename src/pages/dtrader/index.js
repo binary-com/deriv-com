@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import HowItWorks from './_how-it-works.js'
 import DTraderAnimation from './dtrader-animation.json'
+import DtraderVideo from './_dtrader-video.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
+import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DNumber from 'components/custom/_dnumbers.js'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { Show, SEO } from 'components/containers'
@@ -75,7 +76,7 @@ const Dtrader = () => {
             <Show.Desktop>
                 <DNumber items={items} justify='space-around' />
             </Show.Desktop>
-            <HowItWorks />
+            <DHowItWorks Video={DtraderVideo} title='Make a trade in 3 easy steps' />
             <DTrading trading={trading} />
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />

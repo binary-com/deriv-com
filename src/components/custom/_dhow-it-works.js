@@ -1,6 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import DtraderVideo from './_dtrader-video.js'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
@@ -16,7 +16,7 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const HowItWorks = () => {
+const DHowItWorks = ({ Video, title }) => {
     return (
         <SectionContainer>
             <Container justify="center" direction="column">
@@ -24,12 +24,16 @@ const HowItWorks = () => {
                     {localize('How it works')}
                 </StyledHeader>
                 <StyledHeader as="h2" align="center" font_size='3.6rem'>
-                    {localize('Make a trade in 3 easy steps')}
+                    {localize(title)}
                 </StyledHeader>
-                <DtraderVideo />
+                <Video />
             </Container>
         </SectionContainer>
     )
 }
 
-export default HowItWorks
+DHowItWorks.propTypes = {
+    title: PropTypes.string,
+    Video: PropTypes.func,
+}
+export default DHowItWorks

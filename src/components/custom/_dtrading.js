@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
-import { localize } from 'components/localization'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -16,18 +16,31 @@ const StyledSection = styled(SectionContainer)`
 const StyledContainer = styled(Container)`
     display: flex;
     flex-direction: column;
+
+    div:first-child {
+        margin-top: 0;
+    }
 `
 const Content = styled.div`
     width: 100%;
     max-width: 58.8rem;
     display: flex;
     flex-direction: column;
-    margin-right: 2.4rem;
+    margin-right: ${props => props.margin_right};
+
+    ${Text} {
+        margin-top: 0.8rem;
+    }
 `
+
 const ImageWrapper = styled.div`
-    display: grid;
+    max-width: 58.8rem;
+    width: 100%;
+    max-height: 30rem;
+    margin-right: ${props => props.margin_right};
 `
 const StyledHeader = styled(Header)`
+    margin-top: 4rem;
     font-size: 3.6rem;
     line-height: 1.25;
 `
@@ -35,25 +48,33 @@ const Row = styled.div`
     flex-direction: ${props => props.flex_direction};
     width: 100%;
     display: flex;
+    margin-top: 4rem;
 `
 export const DTradingSingle = ({ trading }) => {
     return (
         <StyledSection>
             <StyledContainer>
-                {trading.map((item, index) => (<>
-                    <Row flex_direction={index % 2 === 0 ? 'row' : 'row-reverse'}>
-                        <Content>
-                            <StyledHeader>
-                                {item.title}
-                            </StyledHeader>
-                            <Text>{item.subtitle}</Text>
-                        </Content>
-                        <ImageWrapper>
-                            <Image img_name={item.image_name} alt={item.image_alt} />
-                        </ImageWrapper>
-                    </Row>
-                </>))}
+                {trading.map((item, index) => {
+                    let is_even = index % 2 === 0
+                    return (<>
+                        <Row flex_direction={is_even ? 'row' : 'row-reverse'}>
+                            <Content margin_right={is_even ? '2.4rem' : '0'}>
+                                <StyledHeader>
+                                    {item.title}
+                                </StyledHeader>
+                                <Text>{item.subtitle}</Text>
+                            </Content>
+                            <ImageWrapper margin_right={is_even ? '0' : '2.4rem'}>
+                                <Image img_name={item.image_name} alt={item.image_alt} width='100%' />
+                            </ImageWrapper>
+                        </Row>
+                    </>)
+                })}
             </StyledContainer>
         </StyledSection >
     )
+}
+
+DTradingSingle.propTypes = {
+    trading: PropTypes.array,
 }

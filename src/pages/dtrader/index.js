@@ -25,7 +25,12 @@ const trading = [
                 <br key={0} />
             ]}
         />,
-        subtitle: 'Customise your chart with technical indicators and widgets — everything you need to make smarter trading decisions.',
+        subtitle: <Localize
+            translate_text='Customise your chart with technical indicators and widgets — everything you<0/>need to make smarter trading decisions.'
+            components={[
+                <br key={0} />
+            ]}
+        />,
         image_name: 'make-smarter.png',
         image_alt: 'Make smarter'
     },

@@ -61,6 +61,7 @@ const steps = [
 const StyledContainer = styled(FlexGridContainer)`
     flex-flow: ${props => props.flexFlow};
     flex-wrap: ${props => props.flexWrap};
+    justify-content: space-around;
 
     &:not(:last-child) {
         margin-bottom: 8rem;
@@ -77,9 +78,9 @@ const StyledDiv = styled.div`
     margin: 0;
     width: 100%;
     max-width: 41.5rem;
-
+    justify-content: center;
+    
     @media ${device.tabletL} {
-        justify-content: center;
         max-width: 100%;
     }
 `

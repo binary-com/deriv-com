@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Container, SectionContainer, Wrapper } from 'components/containers'
-import { Header, Image, LinearLoader, SideTab } from 'components/elements'
+import DBotVideo from './_dbot-video.js'
+import { Container, SectionContainer } from 'components/containers'
+import { Header, Image } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -22,16 +23,16 @@ const StyledHeader = styled(Header)`
     }
 `
 
-const LoaderContainer = styled.div`
-    margin-top: 3.8rem;
-    margin-left: auto;
-    width: 80%;
+// const LoaderContainer = styled.div`
+//     margin-top: 3.8rem;
+//     margin-left: auto;
+//     width: 80%;
 
-    @media ${device.tabletL} {
-        margin: auto;
-        width: 100%;
-    }
-`
+//     @media ${device.tabletL} {
+//         margin: auto;
+//         width: 100%;
+//     }
+// `
 
 const AnimatedContainer = styled.div`
     @keyframes slide {
@@ -56,7 +57,7 @@ const SelectAsset = ({ alt, img_name }) => (
 )
 
 const BannerSection = () => {
-    const [progress, setProgress] = useState(25)
+    // const [progress, setProgress] = useState(25)
 
     return (
         <BackgroundContainer>
@@ -67,48 +68,7 @@ const BannerSection = () => {
                 <StyledHeader as="h2" align="center">
                     {localize('Build a trading robot in 5 easy steps')}
                 </StyledHeader>
-                <Wrapper width="100%" margin={{ top: '4rem' }}>
-                    <SideTab>
-                        <SelectAsset
-                            label="select_asset"
-                            text={localize('1. Select your asset')}
-                            onClick={() => setProgress(20)}
-                            img_name="dbot-step1.png"
-                            alt="Step 1"
-                        />
-                        <SelectAsset
-                            label="set_purchase"
-                            text={localize('2. Set purchase conditions')}
-                            onClick={() => setProgress(40)}
-                            img_name="dbot-step2.png"
-                            alt="Step 2"
-                        />
-                        <SelectAsset
-                            label="restart_conditions"
-                            text={localize('3. Set restart conditions')}
-                            onClick={() => setProgress(60)}
-                            img_name="dbot-step3.png"
-                            alt="Step 3"
-                        />
-                        <SelectAsset
-                            label="run_bot"
-                            text={localize('4. Run bot')}
-                            onClick={() => setProgress(80)}
-                            img_name="dbot-step4.png"
-                            alt="Step 4"
-                        />
-                        <SelectAsset
-                            label="check_profit"
-                            text={localize('5. Check profit')}
-                            onClick={() => setProgress(100)}
-                            img_name="dbot-step5.png"
-                            alt="Step 5"
-                        />
-                    </SideTab>
-                    <LoaderContainer>
-                        <LinearLoader width="80%" progress={progress} />
-                    </LoaderContainer>
-                </Wrapper>
+                <DBotVideo />
             </Container>
         </BackgroundContainer>
     )

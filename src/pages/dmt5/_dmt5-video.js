@@ -40,8 +40,8 @@ const Step = styled(Header)`
     padding-left: 1.8rem;
     ${props =>
         props.image_name === props.current_image
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
-            : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
+            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
+            : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
 
     @media ${device.tabletL} {
         text-align: left;
@@ -66,7 +66,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
                             no_margin
                             image_name='dmt-5-step-1.png'
@@ -79,7 +79,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
                             image_name='dmt-5-step-2.png'
                             current_image={this.state.current_step_image}
@@ -91,7 +91,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
                             image_name='dmt-5-step-3.png'
                             current_image={this.state.current_step_image}

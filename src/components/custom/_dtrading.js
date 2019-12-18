@@ -31,6 +31,10 @@ const Content = styled.div`
     ${Text} {
         margin-top: 0.8rem;
     }
+
+    @media ${device.tabletL} {
+        margin: 0 auto;
+    }
 `
 
 const ImageWrapper = styled.div`
@@ -38,17 +42,29 @@ const ImageWrapper = styled.div`
     width: 100%;
     max-height: 30rem;
     margin-right: ${props => props.margin_right};
+
+    @media ${device.tabletL} {
+        margin: 2rem auto;
+    }
 `
 const StyledHeader = styled(Header)`
     margin-top: ${props => props.second_title_margin ? '2.4rem' : '4rem'};
     font-size: 3.6rem;
     line-height: 1.25;
+
+    @media ${device.tabletL} {
+        margin-top: 0;
+    }
 `
 const Row = styled.div`
     flex-direction: ${props => props.flex_direction};
     width: 100%;
     display: flex;
     margin-top: 4rem;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+    }
 `
 const DTrading = ({ trading, reverse, two_title }) => {
     return (

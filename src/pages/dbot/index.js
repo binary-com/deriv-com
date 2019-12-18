@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import DBotAnimation from './dbot-animation.json'
-import HowItWorks from './_how-it-works'
+import DBotVideo from './_dbot-video.js'
+import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
@@ -113,7 +114,7 @@ class Dbot extends Component {
                     animation={DBotAnimation}
                 />
                 <DNumber items={items} justify='space-around' />
-                <HowItWorks />
+                <DHowItWorks Video={DBotVideo} title='Build a trading robot in 5 easy steps' />
                 <DTrading trading={trading} />
                 <PlatformContainer>
                     <OtherPlatform exclude="dbot" />

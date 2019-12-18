@@ -17,20 +17,24 @@ const Container = styled.section`
         justify-content: center;
     }
 `
+const Tab = styled.div`
+    width: 100%;
+    margin-top: 2.4rem;
+`
 const TabsWrapper = styled.div`
     width: 40.7rem;
     margin-right: 2.6rem;
+
+    div:first-child {
+        margin-top: 0;
+    }
 `
 const VideoWrapper = styled.div`
     max-width: 67.5rem;
     width: 100%;
 `
-const Tab = styled.div`
-    width: 100%;
-    margin-top: 3rem;
-`
 const StepCommon = css`
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;
     @media ${device.tabletL} {
@@ -43,35 +47,35 @@ const Step1 = styled(Header)`
     ${StepCommon}
     ${props =>
         props.current_step_image === 'dbot-step1.png'
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
+            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
 `
 const Step2 = styled(Header)`
     ${StepCommon}
     ${props =>
         props.current_step_image === 'dbot-step2.png'
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
+            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
 `
 const Step3 = styled(Header)`
     ${StepCommon}
     ${props =>
         props.current_step_image === 'dbot-step3.png'
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
+            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
 `
 const Step4 = styled(Header)`
     ${StepCommon}
     ${props =>
         props.current_step_image === 'dbot-step4.png'
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
+            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
 `
 const Step5 = styled(Header)`
     ${StepCommon}
     ${props =>
         props.current_step_image === 'dbot-step5.png'
-            ? 'color: var(--color-black-3); border-left: 5px solid var(--color-red)'
+            ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 5px solid rgb(0, 0, 0, 0)'};
 `
 
@@ -91,7 +95,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step1
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
                             no_margin
                             current_step_image={this.state.current_step_image}
@@ -103,7 +107,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step2
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step2.png')}
@@ -114,7 +118,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step3
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step3.png')}
@@ -125,7 +129,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step4
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step4.png')}
@@ -136,7 +140,7 @@ class DtraderTabs extends React.Component {
                     <Tab>
                         <Step5
                             as="h4"
-                            lh="1"
+                            lh="1.5"
                             align="left"
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step5.png')}

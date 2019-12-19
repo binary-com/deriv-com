@@ -2,20 +2,18 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
-import { FlexGridContainer } from 'components/containers'
 import { Header, Text, Image, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Wrapper from 'components/containers/wrapper'
-import { Button, Input } from 'components/form'
 import validation from 'common/validation'
 import TrafficSource from 'common/traffic-source'
 import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 import device from 'themes/device.js'
-// Icons
-import Facebook from 'images/svg/facebook.svg'
-import Google from 'images/svg/google.svg'
+import SignupDefault from 'components/custom/_signup-default'
+import SignupSimple from 'components/custom/_signup-simple'
+import SignupFlat from 'components/custom/_signup-flat'
 
 const Form = styled.form`
     width: 80%;
@@ -28,30 +26,10 @@ const ResponseWrapper = styled.div`
     flex-direction: column;
     padding: 2rem 1rem;
 `
-const InputGroup = styled.div`
-    position: relative;
-    width: 100%;
-    margin: var(--text-size-m) 0;
-`
-const EmailButton = styled(Button)`
-    width: auto;
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-`
-
-const SocialButton = styled(Button)`
-    box-shadow: none;
-    flex: inherit !important;
-    width: 48%;
-`
 const MutedText = styled(Text)`
     text-align: left;
     color: var(--color-grey);
     align-self: start;
-`
-const SocialWrapper = styled(FlexGridContainer)`
-    width: 100%;
-    margin-top: var(--text-size-s);
 `
 export const LoginText = styled(MutedText)`
     text-align: center;
@@ -61,16 +39,6 @@ export const LoginText = styled(MutedText)`
     @media ${device.tabletL} {
         margin-bottom: 0;
     }
-`
-
-const NoteText = styled(LoginText)`
-    margin-top: 3rem;
-`
-
-const LoginLink = styled.a`
-    color: var(--color-red);
-    text-decoration: none;
-    cursor: pointer;
 `
 const EmailImgWrapper = styled(Wrapper)`
     display: flex;
@@ -90,6 +58,12 @@ const validateEmail = email => {
     return error_message
 }
 
+export const Appearances = {
+    default: 'default',
+    simple: 'simple',
+    darkFlat: 'darkFlat',
+    lightFlat: 'lightFlat',
+}
 class Signup extends Component {
     state = {
         email: '',
@@ -191,74 +165,40 @@ class Signup extends Component {
         if (closeModal) closeModal()
     }
 
+    renderSwitch(param) {
+        const parameters = {
+            email_error_msg: this.state.email_error_msg,
+            email: this.state.email,
+            clearEmail: this.clearEmail,
+            handleInputChange: this.handleInputChange,
+            handleValidation: this.handleValidation,
+            autofocus: this.props.autofocus,
+            handleSocialSignup: this.handleSocialSignup,
+            handleLogin: this.handleLogin,
+            is_submitting: this.state.is_submitting,
+        }
+        switch (param) {
+            case Appearances.simple:
+                return <SignupSimple {...parameters}></SignupSimple>
+            case Appearances.lightFlat:
+            case Appearances.darkFlat:
+                return param == Appearances.darkFlat ? (
+                    <SignupFlat dark {...parameters}></SignupFlat>
+                ) : (
+                    <SignupFlat {...parameters}></SignupFlat>
+                )
+            case Appearances.default:
+            default:
+                return <SignupDefault {...parameters}></SignupDefault>
+        }
+    }
+
     render() {
         return (
             <>
                 {!this.state.submit_status && (
                     <Form onSubmit={this.handleEmailSignup} noValidate>
-                        <Header as="h3" weight="bold">
-                            {localize('Sign up for free now!')}
-                        </Header>
-                        <InputGroup>
-                            <Input
-                                id="email"
-                                name="email"
-                                type="text"
-                                error={this.state.email_error_msg}
-                                value={this.state.email}
-                                label={localize('Email')}
-                                placeholder={'example@mail.com'}
-                                handleError={this.clearEmail}
-                                onChange={this.handleInputChange}
-                                onBlur={this.handleValidation}
-                                autoFocus={this.props.autofocus}
-                                autoComplete="off"
-                                required
-                            />
-                        </InputGroup>
-                        <EmailButton type="submit" secondary disabled={this.state.is_submitting}>
-                            {localize('Create a free account')}
-                        </EmailButton>
-                        <Text color="grey" align="center">
-                            {localize('Or sign up with')}
-                        </Text>
-                        <SocialWrapper justify="space-between" gap="0" grid="2">
-                            <SocialButton
-                                onClick={this.handleSocialSignup}
-                                provider="google"
-                                id="google"
-                                type="button"
-                                social
-                            >
-                                <span>
-                                    <Google />
-                                </span>
-                            </SocialButton>
-                            <SocialButton
-                                onClick={this.handleSocialSignup}
-                                provider="facebook"
-                                id="facebook"
-                                type="button"
-                                social
-                            >
-                                <span>
-                                    <Facebook />
-                                </span>
-                            </SocialButton>
-                        </SocialWrapper>
-                        <LoginText>
-                            {localize('Already have an account?')}
-                            <LoginLink onClick={this.handleLogin}> {localize('Log in.')}</LoginLink>
-                        </LoginText>
-                        <NoteText>
-                            <Localize
-                                translate_text="Got a <0>Binary.com</0> account? You can <1>log in</1> to <0>Deriv</0> with your <0>Binary.com</0> username and password"
-                                components={[
-                                    <strong key={0} />,
-                                    <LoginLink key={1} onClick={this.handleLogin} />,
-                                ]}
-                            />
-                        </NoteText>
+                        {this.renderSwitch(this.props.appearance)}
                     </Form>
                 )}
                 {this.state.submit_status === 'success' && (
@@ -291,6 +231,7 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
+    appearance: PropTypes.oneOf(Object.keys(Appearances)),
     autofocus: PropTypes.bool,
     closeModal: PropTypes.func,
 }

@@ -78,7 +78,7 @@ const Trading = () => {
                         <Header as="h2">{localize('Standard Account')}</Header>
                         <Text secondary>
                             {localize(
-                                'Get started easily with a Standard account for high leverage on your FX trades.',
+                                'The Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility. Trade commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs with high leverage.',
                             )}
                         </Text>
                     </Row>
@@ -86,7 +86,7 @@ const Trading = () => {
                         <Header as="h2">{localize('Advanced Account')}</Header>
                         <Text secondary>
                             {localize(
-                                "Get your trades placed straight through to the market with an Advanced account - a 100% 'A' book account with tight spreads.",
+                                'The Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes.',
                             )}
                         </Text>
                     </Row>
@@ -96,7 +96,7 @@ const Trading = () => {
                         <Header as="h2">{localize('Synthetic Indices')}</Header>
                         <Text secondary>
                             {localize(
-                                'Trade 24/7 with a Synthetic Indices account. Trade indices that simulate the movements of real markets.',
+                                'The Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. Available for trading 24/7 and audited for fairness by an independent third party.',
                             )}
                         </Text>
                     </Row>

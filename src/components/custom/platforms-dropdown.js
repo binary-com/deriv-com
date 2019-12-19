@@ -27,7 +27,9 @@ const NavDropdown = styled.div`
     display: flex;
     width: 100%;
     position: absolute;
+    padding: 0.6rem 0;
     z-index: -1;
+    height: fit-content;
     background-color: #ffffff;
     transform: translateY(-18rem);
     opacity: 0;

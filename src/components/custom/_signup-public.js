@@ -21,17 +21,36 @@ const Wrapper = styled.div`
 
 const FormWrapper = styled(Wrapper)`
     position: absolute;
+    padding-left: 32.4rem;
+    padding-right: 12rem;
+    height: 100%;
+
+    @media ${device.laptop} {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    @media ${device.tablet} {
+        background-color: #bccdce;
+    }
 `
 
 const SignupBackground = styled(SignupImg)`
+    height: fit-content;
 
-    @media ${device.tabletL} {
-        height: fit-content;
+    @media ${device.laptop} {
+        height: auto;
+    }
+    @media ${device.tablet} {
+        display: none;
     }
 `
 
 const LeftWrapper = styled.div`
     margin-top: 4rem;
+
+    @media ${device.tablet} {
+        padding-left: 5rem;
+    }
 `
 const RightWrapper = styled.div`
     display: flex;
@@ -39,6 +58,10 @@ const RightWrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
+
+    @media ${device.tablet} {
+        display: none;
+    }
 `
 
 const InputWrapper = styled.div`
@@ -72,11 +95,19 @@ const SocialButton = styled(Button)`
 
 const StyledHeader = styled(Header)`
     width: ${props => props.width || '48.6rem'};
+
+    @media ${device.tablet} {
+        width: auto;
+    }
 `
 const StyledText = styled(Text)`
     font-size: var(--text-size-xs);
     width: auto;
     margin-right: 4rem;
+
+    @media ${device.tablet} {
+        width: auto;
+    }
 `
 const DemoButton = styled(Button)`
     margin-top: 2.2rem;

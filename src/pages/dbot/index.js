@@ -8,6 +8,7 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
+import Signup, { Appearances } from 'components/custom/signup'
 
 class Dbot extends Component {
     render() {
@@ -20,6 +21,7 @@ class Dbot extends Component {
                 <Tutorial />
                 <TradeWithDbot />
                 <OtherPlatform exclude="dbot" />
+                <Signup appearance={Appearances.public}></Signup>
             </Layout>
         )
     }

@@ -5,6 +5,7 @@ import WhyDeriv from './home/_why-deriv'
 import WhyDerivMobile from './home/_why-deriv-mobile'
 import HowItWorks from './home/_how-it-works'
 import Markets from './home/_markets'
+import WhatOurClientsSay from './home/_what-our-clients-say'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -28,6 +29,7 @@ const Home = () => (
             <HowItWorks />
             <Divider />
             <Markets />
+            <WhatOurClientsSay />
             <WhyDeriv />
         </Show.Desktop>
     </Layout>

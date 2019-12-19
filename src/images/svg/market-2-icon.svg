@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="69" height="54" viewBox="0 0 69 54">
+    <defs>
+        <linearGradient id="b" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="c" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="d" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="e" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <circle id="a" cx="16.652" cy="24.652" r="10.652"/>
+        <mask id="f" width="21.304" height="21.304" x="0" y="0" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+        <linearGradient id="g" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="h" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="i" x1="-45.344%" x2="71.097%" y1="-67.24%" y2="61.91%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="41.067%" stop-color="#FF6344"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="j" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path d="M-8-14h80v80H-8z"/>
+        <g fill-rule="nonzero" transform="translate(-.928 -.812)">
+            <path fill="#FFF" stroke="url(#b)" stroke-width="2" d="M2.942 1.812h27.42v46.696H2.942z"/>
+            <rect width="29.449" height="1.043" x="1.928" y="1.812" fill="#FFF" stroke="url(#c)" stroke-width="2" rx=".522"/>
+            <rect width="29.449" height="1.043" x="1.928" y="47.812" fill="#FFF" stroke="url(#c)" stroke-width="2" rx=".522"/>
+            <rect width="29.699" height="8.395" x="1.803" y="20.962" fill="#FFF" stroke="url(#d)" stroke-width="1.75" rx="1"/>
+            <circle cx="16.652" cy="24.652" r="7.772" fill="#FFF" stroke="url(#e)" stroke-width="1.5"/>
+            <use stroke="url(#e)" stroke-dasharray="16" stroke-linecap="round" stroke-width="2" mask="url(#f)" xlink:href="#a"/>
+            <path fill="#FFF" stroke="url(#g)" stroke-width="2" d="M16.652 21.712c.23-.37.477-.756.742-1.16a.9.9 0 0 1-1.494-.017l.836-.549-.548-.836-.837.548.549.836c.269.411.52.804.752 1.178z"/>
+        </g>
+        <path fill="#FFF" fill-rule="nonzero" stroke="url(#h)" stroke-width="1.75" d="M1.302 9.632h17.412l-3.416-8.368a.625.625 0 0 0-.578-.389H5.297a.625.625 0 0 0-.579.389L1.302 9.632z" transform="translate(24.482 33.804)"/>
+        <path stroke="url(#i)" stroke-linecap="round" d="M11.301 3.196h2.5l2.5 6" transform="translate(24.482 33.804)"/>
+        <path stroke="url(#j)" stroke-linecap="round" d="M9.301 3.196h-2" transform="translate(24.482 33.804)"/>
+        <g>
+            <path fill="#FFF" fill-rule="nonzero" stroke="url(#h)" stroke-width="1.75" d="M1.302 9.632h17.412l-3.416-8.368a.625.625 0 0 0-.578-.389H5.297a.625.625 0 0 0-.579.389L1.302 9.632z" transform="translate(40.783 33.804)"/>
+            <path stroke="url(#i)" stroke-linecap="round" d="M11.301 3.196h2.5l2.5 6" transform="translate(40.783 33.804)"/>
+            <path stroke="url(#j)" stroke-linecap="round" d="M9.301 3.196h-2" transform="translate(40.783 33.804)"/>
+        </g>
+        <g>
+            <path fill="#FFF" fill-rule="nonzero" stroke="url(#h)" stroke-width="1.75" d="M1.302 9.632h17.412l-3.416-8.368a.625.625 0 0 0-.578-.389H5.297a.625.625 0 0 0-.579.389L1.302 9.632z" transform="translate(16.482 42.804)"/>
+            <path stroke="url(#i)" stroke-linecap="round" d="M11.301 3.196h2.5l2.5 6" transform="translate(16.482 42.804)"/>
+            <path stroke="url(#j)" stroke-linecap="round" d="M9.301 3.196h-2" transform="translate(16.482 42.804)"/>
+            <g>
+                <path fill="#FFF" fill-rule="nonzero" stroke="url(#h)" stroke-width="1.75" d="M1.302 9.632h17.412l-3.416-8.368a.625.625 0 0 0-.578-.389H5.297a.625.625 0 0 0-.579.389L1.302 9.632z" transform="translate(32.482 42.804)"/>
+                <path stroke="url(#i)" stroke-linecap="round" d="M11.301 3.196h2.5l2.5 6" transform="translate(32.482 42.804)"/>
+                <path stroke="url(#j)" stroke-linecap="round" d="M9.301 3.196h-2" transform="translate(32.482 42.804)"/>
+            </g>
+            <g>
+                <path fill="#FFF" fill-rule="nonzero" stroke="url(#h)" stroke-width="1.75" d="M1.302 9.632h17.412l-3.416-8.368a.625.625 0 0 0-.578-.389H5.297a.625.625 0 0 0-.579.389L1.302 9.632z" transform="translate(48.482 42.804)"/>
+                <path stroke="url(#i)" stroke-linecap="round" d="M11.301 3.196h2.5l2.5 6" transform="translate(48.482 42.804)"/>
+                <path stroke="url(#j)" stroke-linecap="round" d="M9.301 3.196h-2" transform="translate(48.482 42.804)"/>
+            </g>
+        </g>
+        <g>
+            <path fill="#FFF" fill-rule="nonzero" stroke="url(#h)" stroke-width="1.75" d="M1.302 9.632h17.412l-3.416-8.368a.625.625 0 0 0-.578-.389H5.297a.625.625 0 0 0-.579.389L1.302 9.632z" transform="translate(32.482 24.804)"/>
+            <path stroke="url(#i)" stroke-linecap="round" d="M11.301 3.196h2.5l2.5 6" transform="translate(32.482 24.804)"/>
+            <path stroke="url(#j)" stroke-linecap="round" d="M9.301 3.196h-2" transform="translate(32.482 24.804)"/>
+        </g>
+    </g>
+</svg>

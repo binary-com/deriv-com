@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70" height="54" viewBox="0 0 70 54">
+    <defs>
+        <linearGradient id="b" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="c" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="d" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="e" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="f" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <ellipse id="a" cx="17.856" cy="10.437" rx="6.457" ry="6.5"/>
+        <mask id="g" width="12.913" height="13" x="0" y="0" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+        <linearGradient id="h" x1=".667%" x2="121.051%" y1="73.342%" y2="-100.537%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="i" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="j" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="k" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+        <linearGradient id="l" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#FF6544"/>
+            <stop offset="100%" stop-color="#FF4449"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path d="M-4-17h80v80H-4z"/>
+        <path stroke="url(#b)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M48 33H8a3 3 0 0 0-3 3v31a3 3 0 0 0 3 3h62a3 3 0 0 0 3-3V36a3 3 0 0 0-3-3H59" transform="translate(-4 -17)"/>
+        <g stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path stroke="url(#c)" d="M13.322 1.638l6.582-.02-.02 6.582" transform="scale(-1 1) rotate(-84 -20.626 46.695)"/>
+            <path stroke="url(#d)" d="M15.98 2.086l2.721 37.359-16.164.112L.568 63.419" transform="rotate(39 36.912 63.947)"/>
+        </g>
+        <g stroke-width="2" transform="translate(20 22)">
+            <ellipse cx="17.856" cy="10.437" stroke="url(#e)" rx="8.978" ry="9.045"/>
+            <use stroke="url(#f)" stroke-dasharray="9" stroke-linecap="round" mask="url(#g)" transform="rotate(-24 17.856 10.437)" xlink:href="#a"/>
+            <path stroke="url(#h)" stroke-linecap="round" stroke-linejoin="round" d="M10.225 16.937l-8.804 8.864"/>
+        </g>
+        <path stroke="url(#i)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M57 66v-6" transform="translate(-4 -17)"/>
+        <path stroke="url(#j)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M60 66V54" transform="translate(-4 -17)"/>
+        <path stroke="url(#k)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M63 66v-9" transform="translate(-4 -17)"/>
+        <path stroke="url(#l)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M66 66v-5" transform="translate(-4 -17)"/>
+        <path stroke="url(#i)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M69 66v-6" transform="translate(-4 -17)"/>
+    </g>
+</svg>

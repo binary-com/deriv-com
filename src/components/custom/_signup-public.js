@@ -130,9 +130,6 @@ const SignupPublic = ({
 }) => {
     return (
         <Wrapper>
-            {/* <object type="image/svg+xml" data={SignupImg}>
-                it's a rocketship!
-            </object> */}
             <SignupBackground></SignupBackground>
             <FormWrapper>
                 <LeftWrapper>
@@ -198,7 +195,7 @@ const SignupPublic = ({
                     <StyledHeader font_size="2.8rem" width="28.2rem" align="center">
                         {localize('Get a taste of the Deriv experience')}
                     </StyledHeader>
-                    <DemoButton tertiary PonClick={handleExternalLink}>
+                    <DemoButton tertiary onClick={handleExternalLink}>
                         {localize('See live demo')}
                     </DemoButton>
                 </RightWrapper>

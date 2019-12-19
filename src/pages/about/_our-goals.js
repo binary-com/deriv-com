@@ -33,6 +33,8 @@ export const OurGoals = () => (
                     'Our vision is to be the world’s most customer-centric, online trading company; a place where traders come to find and discover any derivative they want to trade.',
                 )}
                 width="32rem"
+                min_height="38.5rem"
+                padding='4rem'
             />
             <Card
                 Icon={FuseeSVG}
@@ -41,6 +43,8 @@ export const OurGoals = () => (
                     'Our mission is to offer traders competitive prices along with the broadest selection of derivatives to trade with the utmost convenience.',
                 )}
                 width="32rem"
+                min_height="38.5rem"
+                padding='4rem'
             />
         </FlexGridContainer>
     </OurGoalsWrapper>

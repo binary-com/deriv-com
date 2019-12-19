@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import Hero from './_hero.js'
 import Numbers from './_numbers.js'
 import HowItWorks from './_how-it-works.js'
@@ -10,6 +11,9 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Signup, { Appearances } from 'components/custom/signup'
 
+const PlatformContainer = styled.div`
+    padding: 8rem 0;
+`
 const Dtrader = () => {
     return (
         <Layout>
@@ -21,7 +25,9 @@ const Dtrader = () => {
             <HowItWorks />
             <Trading />
             <Experience />
-            <OtherPlatform exclude="dtrader" />
+            <PlatformContainer>
+                <OtherPlatform exclude="dtrader" />
+            </PlatformContainer>
             <Signup appearance={Appearances.public}></Signup>
         </Layout>
     )

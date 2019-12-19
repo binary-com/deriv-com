@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import Hero from './_hero.js'
 import Numbers from './_numbers.js'
 import HowItWorks from './_how-it-works.js'
@@ -9,6 +10,10 @@ import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import Signup, { Appearances } from 'components/custom/signup'
+
+const PlatformContainer = styled.div`
+    padding: 8rem 0;
+`
 
 const DMT5 = () => {
     return (
@@ -21,7 +26,9 @@ const DMT5 = () => {
             <HowItWorks />
             <Trading />
             <Experience />
-            <OtherPlatform exclude="dmt5" />
+            <PlatformContainer>
+                <OtherPlatform exclude="dmt5" />
+            </PlatformContainer>
             <Signup appearance={Appearances.public}></Signup>
         </Layout>
     )

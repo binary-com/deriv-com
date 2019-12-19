@@ -38,9 +38,6 @@ const Wrapper = styled.div`
     flex-direction: column;
 `
 const TryForFree = styled(Button)`
-    border: 2px solid var(--color-red);
-    font-weight: bold;
-    line-height: 1.43;
     margin-top: 3.3rem;
 
     @media ${device.tabletL} {
@@ -60,11 +57,9 @@ const LottieWrapper = styled.div`
     max-height: 375px;
 `
 const GoToLiveDemo = styled(Button)`
-    border: 2px solid var(--color-black-5);
-    font-weight: bold;
-    line-height: 1.43;
+    color: var(--color-white);
+    border-color: var(--color-black-5);
     margin: 3.3rem 0 0 2.4rem;
-    background-color: var(--color-black);
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
@@ -96,7 +91,7 @@ const DHero = ({ title, content, join_us_for_free, go_to_live_demo, start_automa
                     {start_automating ? (<TryForFree secondary onClick={toggleModal}>
                         {localize('Start automating')}
                     </TryForFree>) : null}
-                    {go_to_live_demo ? (<GoToLiveDemo secondary onClick={handleRedirect}>
+                    {go_to_live_demo ? (<GoToLiveDemo tertiary onClick={handleRedirect}>
                         {localize('Go to live demo')}
                     </GoToLiveDemo>) : null}
                 </div>

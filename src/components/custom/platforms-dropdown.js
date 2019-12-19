@@ -29,7 +29,6 @@ const NavDropdown = styled.div`
     position: absolute;
     z-index: -1;
     background-color: #ffffff;
-    height: content-fit;
     transform: translateY(-18rem);
     opacity: 0;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);

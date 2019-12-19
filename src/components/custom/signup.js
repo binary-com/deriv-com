@@ -17,7 +17,6 @@ import SignupFlat from 'components/custom/_signup-flat'
 import SignupPublic from 'components/custom/_signup-public'
 
 const Form = styled.form`
-    width: 80%;
     margin: 0 auto;
 `
 const ResponseWrapper = styled.div`
@@ -64,7 +63,7 @@ export const Appearances = {
     simple: 'simple',
     darkFlat: 'darkFlat',
     lightFlat: 'lightFlat',
-     public: 'public',
+    public: 'public',
 }
 class Signup extends Component {
     state = {

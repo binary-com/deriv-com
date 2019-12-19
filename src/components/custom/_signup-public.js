@@ -11,31 +11,27 @@ import SignupImg from 'images/svg/signup-public.svg'
 import { deriv_app_url } from 'common/utility'
 
 const Wrapper = styled.div`
-    padding: 4rem 12rem 4rem 32.4rem;
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
     height: 33.3rem;
     width: 100%;
-    background-image: url(${SignupImg});
+`
 
-    @media ${device.laptopL} {
-        justify-content: flex-start;
-        padding: 4rem 2rem 4rem 2rem;
-    }
+const FormWrapper = styled(Wrapper)`
+    position: absolute;
+`
+
+const SignupBackground = styled(SignupImg)`
 
     @media ${device.tabletL} {
-        flex-direction: column;
-        height: auto;
+        height: fit-content;
     }
 `
-const FormWrapper = styled(Wrapper)`
-    background-color: transparent;
-    padding: 0;
-    height: 100%;
-`
+
 const LeftWrapper = styled.div`
-    height: 100%;
+    margin-top: 4rem;
 `
 const RightWrapper = styled.div`
     display: flex;
@@ -43,12 +39,6 @@ const RightWrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
-    margin-left: 5.8rem;
-
-    @media ${device.tabletL} {
-        margin-left: 0;
-        align-items: flex-start;
-    }
 `
 
 const InputWrapper = styled.div`
@@ -82,11 +72,6 @@ const SocialButton = styled(Button)`
 
 const StyledHeader = styled(Header)`
     width: ${props => props.width || '48.6rem'};
-
-    @media ${device.tabletL} {
-        text-align: left;
-        width: auto;
-    }
 `
 const StyledText = styled(Text)`
     font-size: var(--text-size-xs);
@@ -114,6 +99,10 @@ const SignupPublic = ({
 }) => {
     return (
         <Wrapper>
+            {/* <object type="image/svg+xml" data={SignupImg}>
+                it's a rocketship!
+            </object> */}
+            <SignupBackground></SignupBackground>
             <FormWrapper>
                 <LeftWrapper>
                     <StyledHeader font_size="2.8rem">
@@ -174,7 +163,6 @@ const SignupPublic = ({
                         </SocialButton>
                     </SocialWrapper>
                 </LeftWrapper>
-
                 <RightWrapper>
                     <StyledHeader font_size="2.8rem" width="28.2rem" align="center">
                         {localize('Get a taste of the Deriv experience')}

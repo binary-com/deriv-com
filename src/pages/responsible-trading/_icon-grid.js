@@ -56,7 +56,7 @@ export const IconGrid = () => (
         >
             <Col
                 Icon={Demo}
-                content={localize('Hone your skill with a free demo account.')}
+                content={localize('Hone your skills with a free demo account.')}
             />
             <Col
                 Icon={Trade}

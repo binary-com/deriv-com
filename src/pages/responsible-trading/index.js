@@ -34,10 +34,10 @@ const ResponsibleTrading = () => {
             />
             <Section>
                 <GridContainer>
-                    <Header as="h1" align="center">
+                    <StyledHeader as="h1" align="center" padding="0 0 4rem">
                         {localize('Responsible trading')}
-                    </Header>
-                    <StyledHeader as="h4" align="center" weight="500" maxwidth="105rem" padding="1.2rem 2rem 6rem">
+                    </StyledHeader>
+                    <StyledHeader as="h4" align="center" weight="500" maxwidth="105rem" padding="0 2rem 6rem">
                         {localize(
                             'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
                         )}
@@ -119,9 +119,9 @@ const ResponsibleTrading = () => {
                     <Header font_size="3.6rem" align="center">
                         {localize('Other warnings and regulatory disclosures')}
                     </Header>
-                    <StyledHeader as="h5" align="center" weight="400" maxwidth="99rem" lh="2.4rem">
+                    <StyledHeader as="h5" align="center" weight="400" maxwidth="99rem" lh="2.4rem" padding="0.8rem 0 0">
                         {localize(
-                            'Online trading can incur losses as well as gains. Prices will vary due to changes in the market, and may impact your investment. Our products fall under the category of ‘complex products’ and may not be suitable for retail clients.',
+                            'Online trading can incur losses as well as gains. Price will vary due to changes in the market and may impact your investment. Our products fall under the category of /\'complex products\' and may not be suitable for retail clients.',
                         )}
                     </StyledHeader>
                 </GridContainer>

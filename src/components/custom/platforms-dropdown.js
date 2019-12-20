@@ -41,6 +41,7 @@ const NavDropdown = styled.div`
 `
 const StyledContainer = styled(Container)`
     justify-content: space-between;
+    width: 100%;
 
     .active {
         border: 0.2rem solid var(--color-green);
@@ -50,13 +51,13 @@ const StyledContainer = styled(Container)`
 // eslint-disable-next-line react/prop-types
 const PlatformsDropdown = ({ is_open, has_animation }) => {
     return (
-        <NavDropdown is_open={is_open} has_animation={has_animation}>
-            <Show.Desktop>
+        <Show.Desktop>
+            <NavDropdown is_open={is_open} has_animation={has_animation}>
                 <StyledContainer>
                     <OtherPlatform exclude="" is_nav />
                 </StyledContainer>
-            </Show.Desktop>
-        </NavDropdown>
+            </NavDropdown>
+        </Show.Desktop>
     )
 }
 export default React.memo(PlatformsDropdown)

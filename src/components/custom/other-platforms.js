@@ -37,6 +37,10 @@ const StyledHeader = styled(Header)`
 
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
+
+    @media ${device.tabletS} {
+        margin: 1rem 1rem;
+    }
 `
 
 const StyledSubHeader = styled(Header)`

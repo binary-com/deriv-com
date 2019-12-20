@@ -47,7 +47,7 @@ export const IconGrid = () => (
     <GridContainer>
         <CssGrid
             columns="repeat(3, 1fr)"
-            columngap="11rem"
+            columngap="15rem"
             rowgap="4rem"
             tabletcolumns="repeat(2, 1fr)"
             mobilecolumns="1fr"

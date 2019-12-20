@@ -72,7 +72,7 @@ const ResponsibleTrading = () => {
                                 rowgap="1.6rem"
                                 mobilecolumns="2.4rem 1fr"
                                 mobilerowgap="2rem"
-                                margin="1.4rem 0 0"
+                                margin="0"
                             >
                                 <CssGridColumn>
                                     <CheckedIcon />

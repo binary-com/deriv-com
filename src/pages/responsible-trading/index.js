@@ -55,7 +55,6 @@ const ResponsibleTrading = () => {
                         tabletcolumngap="6rem"
                         mobilecolumns="1fr"
                         mobilerowgap="2rem"
-                        margin="1.4rem 0 0"
                     >
                         <CssGridColumn align="center">
                             <StyledHeader font_size="3.6rem" lh="4.5rem">
@@ -72,7 +71,6 @@ const ResponsibleTrading = () => {
                                 rowgap="1.6rem"
                                 mobilecolumns="2.4rem 1fr"
                                 mobilerowgap="2rem"
-                                margin="0"
                             >
                                 <CssGridColumn>
                                     <CheckedIcon />

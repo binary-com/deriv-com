@@ -1,16 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Text } from 'components/elements'
+import { Header, Text, Image } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
-// Icons
-// TODO: Icons
+
 const Flex = styled.div`
     display: flex;
     justify-content: ${props => (props.jc ? props.jc : 'center')};
     align-items: ${props => (props.ai ? props.ai : '')};
     margin: ${props => (props.m ? props.m : '')};
     padding: ${props => (props.p ? props.p : '')};
+    flex-wrap: wrap;
 `
 const ClientCard = styled.article`
     background-color: var(--color-white);
@@ -20,37 +20,38 @@ const ClientCard = styled.article`
     margin: ${props => (props.m ? props.m : '')};
     position: relative;
     overflow: hidden;
+
+    @media (max-width: 1185px) {
+        margin: 2rem;
+        order: ${props => (props.order ? props.order : '')};
+    }
 `
-const ProfileImg = styled.figure`
-    margin-right: 1.7rem;
-    clip-path: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    background-color: black;
-    width: 5rem;
-    height: 5rem;
-`
+
 const QuoteText = styled(Text)`
     padding-bottom: 2.1rem;
     border-bottom: 1px solid var(--color-grey-8);
     line-height: 1.38;
-    position: relative;
     z-index: 10;
+    position: relative;
 
-    /* &::before {
-        content: '\201C';
+    &::after {
+        content: '“ "”" "‘" "’"';
         position: absolute;
         font-size: 24rem;
-        z-index: 5;
-        left: -48px;
-        top: -86px;
+        z-index: -1;
+        left: -4.7rem;
+        top: -8.6rem;
         color: var(--color-grey-8);
-        z-index: -300;
-        opacity: 0.5;
-    } */
+    }
 `
+
 const SmallText = styled(Text)`
     font-size: 1.4rem;
     opacity: 0.5;
+`
+const ImageWrapper = styled.div`
+    width: 50px;
+    margin-right: 1.6rem;
 `
 
 const WhatOurClientsSay = () => (
@@ -62,51 +63,69 @@ const WhatOurClientsSay = () => (
         </Container>
         <Flex m="4rem 0 0 0">
             <ClientCard m="4rem 0 0 0">
-                <QuoteText align="center" as="blockquote">
+                <QuoteText as="blockquote">
                     {localize(
                         'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
                     )}
                 </QuoteText>
                 <Flex jc="flex-start" p="2.1rem 0 0 0">
                     <Flex ai="center">
-                        <ProfileImg />
+                        <ImageWrapper>
+                            <Image
+                                img_name="paul.png"
+                                alt={localize('trader profile')}
+                                width="100%"
+                            />
+                        </ImageWrapper>
                     </Flex>
-                    <div>
+                    <figure>
                         <Text weight="bold">Paul Mugenda</Text>
                         <SmallText>{localize('Forex trader')}</SmallText>
-                    </div>
+                    </figure>
                 </Flex>
             </ClientCard>
-            <ClientCard m="0 2rem">
-                <QuoteText align="center" as="blockquote">
+            <ClientCard m="0 2rem" order="3">
+                <QuoteText as="blockquote">
                     {localize(
-                        "I'm very excited about all the technology involved in Deriv.com, an intuitive and optimized platform.",
+                        'I am very excited about all the technology involved in Deriv.com —  an intuitive and optimised platform.',
                     )}
                 </QuoteText>
                 <Flex jc="flex-start" p="2.1rem 0 0 0">
                     <Flex ai="center">
-                        <ProfileImg />
+                        <ImageWrapper>
+                            <Image
+                                img_name="roberto.png"
+                                alt={localize('trader profile')}
+                                width="100%"
+                            />
+                        </ImageWrapper>
                     </Flex>
-                    <div>
+                    <figure>
                         <Text weight="bold">Roberto Arcanjo</Text>
                         <SmallText>{localize('CEO - Mercado Trader')}</SmallText>
-                    </div>
+                    </figure>
                 </Flex>
             </ClientCard>
             <ClientCard m="4rem 0 0 0">
-                <QuoteText align="center" as="blockquote">
+                <QuoteText as="blockquote">
                     {localize(
-                        'It surpassed my expectations, Binary got it right with Deriv, it was excellent to operate allowing to make an accurate graphic analysis of the market and support and resistance markings with horizontal line, RSI, FIBO and much more.',
+                        'It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more.',
                     )}
                 </QuoteText>
                 <Flex jc="flex-start" p="2.1rem 0 0 0">
                     <Flex ai="center">
-                        <ProfileImg />
+                        <ImageWrapper>
+                            <Image
+                                img_name="fabio.png"
+                                alt={localize('trader profile')}
+                                width="100%"
+                            />
+                        </ImageWrapper>
                     </Flex>
-                    <div>
+                    <figure>
                         <Text weight="bold">Fábio Oliveira</Text>
                         <SmallText>{localize('CEO - Bitcoin Informer')}</SmallText>
-                    </div>
+                    </figure>
                 </Flex>
             </ClientCard>
         </Flex>

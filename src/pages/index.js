@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import queryString from 'query-string'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
-import WhyDeriv from './home/_why-deriv'
 import WhyDerivMobile from './home/_why-deriv-mobile'
 import HowItWorks from './home/_how-it-works'
 import Markets from './home/_markets'
@@ -10,7 +9,7 @@ import WhatOurClientsSay from './home/_what-our-clients-say'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { Divider, Modal, useModal } from 'components/elements'
+import { Modal, useModal } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 
 const Home = () => {
@@ -38,13 +37,10 @@ const Home = () => {
             </Show.Mobile>
             <Show.Desktop>
                 <Trade />
-                <Divider />
                 <HowItWorks />
-                <Divider />
-                <Markets />
-                <WhatOurClientsSay />
-                <WhyDeriv />
             </Show.Desktop>
+            <Markets />
+            <WhatOurClientsSay />
             <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>

@@ -4,12 +4,11 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 // Icons
-// TODO: Icons
-import ForexIcon from 'images/svg/markets-forex.svg'
-import IndicesIcon from 'images/svg/markets-synthetic.svg'
-import Test from 'images/svg/market-2-icon.svg'
-import Three from 'images/svg/market-3-icons.svg'
-
+import ForexIcon from 'images/svg/market-forex.svg'
+import IndicesIcon from 'images/svg/market-indices.svg'
+import CommoditiesIcon from 'images/svg/market-commodities.svg'
+import SyntheticIndicesIcon from 'images/svg/market-synthetic-indices.svg'
+// Images
 const MarketWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -37,7 +36,7 @@ const MarketCard = styled.article`
     }
 `
 const Markets = () => (
-    <SectionContainer>
+    <SectionContainer background="grey-9">
         <Container direction="column">
             <Header align="center" font_size="3.6rem" as="h2">
                 {localize('Markets')}
@@ -66,7 +65,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard marginRight="3.6rem">
-                    <Test />
+                    <CommoditiesIcon />
                     <div>
                         <Header as="h4">{localize('Commodities')}</Header>
                         <Text>
@@ -77,7 +76,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard>
-                    <Three />
+                    <SyntheticIndicesIcon />
                     <div>
                         <Header as="h4">{localize('Synthetic Indices')}</Header>
                         <Text>

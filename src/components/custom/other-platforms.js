@@ -47,7 +47,7 @@ const StyledSubHeader = styled(Header)`
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
     <SectionContainer padding='0'>
         {is_nav ? null : (<HeaderWrapper>
-            <StyledHeader font_size="4.8rem" align="center" lh="5rem">
+            <StyledHeader font_size="3.6rem" align="center" lh="5rem">
                 {header ? header : localize('Check out our other platforms')}
             </StyledHeader>
             {subHeader && (
@@ -83,7 +83,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
                         cover_content={localize('Discover DBot now')}
                         title={localize('DBot')}
                         Icon={StyledDbot}
-                        content={[localize('Automate your trading ideas without coding.')]}
+                        content={[localize('Automated trading at your fingertips. No coding needed.')]}
                         is_inline_icon
                         min_height="11.6rem"
                     />
@@ -96,7 +96,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
                         cover_content={localize('Discover DMT5 now')}
                         title={localize('DMT5')}
                         Icon={StyledDmt5}
-                        content={[localize('Trade with the platform of choice for professionals.')]}
+                        content={[localize('The platform of choice for professionals worldwide.')]}
                         is_inline_icon
                         min_height="11.6rem"
                     />

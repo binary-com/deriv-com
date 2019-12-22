@@ -99,7 +99,7 @@ const Arrow = styled(Chevron)`
     right: 8px;
     top: 25%;
     transition: transform 0.2s linear;
-    ${props => (props.expanded ? 'transform: rotate(-180deg);' : '')}
+    ${props => (props.expanded ? '' : 'transform: rotate(-180deg);')}
 `
 
 const Dropdown = ({ default_option, onChange, option_list }) => {

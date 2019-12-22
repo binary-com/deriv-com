@@ -14,7 +14,7 @@ import { localize, WithIntl, Localize } from 'components/localization'
 
 const items = [
     { title: '50+', subtitle: 'tradable assets and growing' },
-    { title: '$0.35', subtitle: 'low minimum stake' },
+    { title: '$0.35', subtitle: 'minimum stake' },
     { title: '1s - 365d', subtitle: 'flexible trade duration' },
     { title: '>200%', subtitle: 'potential payout' },
 ]
@@ -42,7 +42,7 @@ const trading = [
                 <br key={0} />
             ]}
         />,
-        subtitle: localize('Forex, indices, commodities and volatility indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.'),
+        subtitle: localize('Forex, indices, commodities and Volatility indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.'),
         image_name: 'trade-what-you-want.png',
         image_alt: 'Trade what you want'
     },

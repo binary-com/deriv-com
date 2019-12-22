@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Text } from '../../components/elements/typography'
+import { Header, Text } from 'components/elements/typography'
 import { NeedHelp } from './_need-help'
 import { ContactWays } from './_contact-ways'
 import { Offices } from './_offices'
@@ -31,10 +31,10 @@ const ContactUs = () => {
                     )}
                 </Text>
             </HeroWrapper>
-            <NeedHelp></NeedHelp>
-            <ContactWays></ContactWays>
-            <Offices></Offices>
-            <Affiliates></Affiliates>
+            <NeedHelp />
+            <ContactWays />
+            <Offices />
+            <Affiliates />
         </Layout>
     )
 }

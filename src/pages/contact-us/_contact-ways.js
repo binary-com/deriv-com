@@ -46,13 +46,20 @@ const StyledHeader = styled(Header)`
 const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
 `
+const EmailContainer = styled.div`
+    :hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+`
+
 const Logo = styled.div`
     margin-bottom: 1.4rem;
 `
 const Splitter = styled.div`
-    background-color: #d8d8d8;
-    height: 24.3rem;
-    width: 0.3rem;
+    background-color: var(--color-grey-9);
+    height: 18.5rem;
+    width: 0.1rem;
     margin-top: 7.8rem;
 
     @media ${device.tabletS} {
@@ -106,7 +113,7 @@ export const ContactWays = () => {
                         {localize('Sat-Sun: 8:00am - 5pm GMT')}
                     </StyledText>
                 </Contact>
-                <Splitter></Splitter>
+                <Splitter />
                 <Contact>
                     <Logo>
                         <EmailUsIcon />
@@ -115,7 +122,7 @@ export const ContactWays = () => {
                         {localize('Email Us')}
                     </StyledHeader>
                     <StyledText secondary weight="bold" color="red">
-                        {localize('emailhelp@deriv.com')}
+                        <EmailContainer>{localize('emailhelp@deriv.com')}</EmailContainer>
                     </StyledText>
                 </Contact>
 

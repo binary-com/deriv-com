@@ -60,7 +60,7 @@ export const NeedHelp = () => {
     return (
         <Wrapper>
             <SectionWrapper>
-                <Logo></Logo>
+                <Logo />
                 <StyledHeader as="h3" align="center">
                     {localize('Need help?')}
                 </StyledHeader>

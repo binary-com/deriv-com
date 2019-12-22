@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '../../components/elements/typography'
+import { Text } from 'components/elements/typography'
 import { Header, Image } from 'components/elements'
 import { localize } from 'components/localization'
 import MapSVG from 'images/svg/map.svg'
@@ -85,6 +85,12 @@ const ImageWrapper = styled.div`
         display: none;
     }
 `
+const AddressContainer = styled.div`
+    :hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+`
 const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
     color: ${props => props.color || 'var(--color-black-3)'};
@@ -121,13 +127,15 @@ export const Offices = () => {
                                 {localize('Malta')}
                             </StyledHeader>
                             <br />
-                            <StyledText width="29.9rem">
-                                <MapIcon />
-                                {localize('Level 3, W Business Centre,')}
-                            </StyledText>
-                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                                {localize('Triq Dun Karm Birkirkara BKR9033 Malta.')}
-                            </StyledText>
+                            <AddressContainer>
+                                <StyledText width="29.9rem" marginBttom="0">
+                                    <MapIcon />
+                                    {localize('Level 3, W Business Centre,')}
+                                </StyledText>
+                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                    {localize('Triq Dun Karm Birkirkara BKR9033 Malta.')}
+                                </StyledText>
+                            </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
                                 +35621316105
@@ -141,13 +149,15 @@ export const Offices = () => {
                                 {localize('Malaysia')}
                             </StyledHeader>
                             <br />
-                            <StyledText>
-                                <MapIcon />
-                                {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
-                            </StyledText>
-                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                                {localize('63000 Cyberjaya, Selangor, Malaysia.')}
-                            </StyledText>
+                            <AddressContainer>
+                                <StyledText marginBttom="0">
+                                    <MapIcon />
+                                    {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
+                                </StyledText>
+                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                    {localize('63000 Cyberjaya, Selangor, Malaysia.')}
+                                </StyledText>
+                            </AddressContainer>
                             <StyledText>
                                 <PhoneIcon /> +603-8322 8178
                             </StyledText>
@@ -176,13 +186,15 @@ export const Offices = () => {
                                 {localize('Labuan')}
                             </StyledHeader>
                             <br />
-                            <StyledText>
-                                <MapIcon />
-                                {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
-                            </StyledText>
-                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                                {localize('Mustapha, 87000, Labuan')}
-                            </StyledText>
+                            <AddressContainer>
+                                <StyledText marginBttom="0">
+                                    <MapIcon />
+                                    {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
+                                </StyledText>
+                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                    {localize('Mustapha, 87000, Labuan')}
+                                </StyledText>
+                            </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
                                 +6087-504126
@@ -196,13 +208,15 @@ export const Offices = () => {
                                 {localize('Dubai')}
                             </StyledHeader>
                             <br />
-                            <StyledText>
-                                <MapIcon />
-                                {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
-                            </StyledText>
-                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                                {localize('Towers, Dubai, UAE.')}
-                            </StyledText>
+                            <AddressContainer>
+                                <StyledText marginBttom="0">
+                                    <MapIcon />
+                                    {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
+                                </StyledText>
+                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                    {localize('Towers, Dubai, UAE.')}
+                                </StyledText>
+                            </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
                                 +971 4 399 0404
@@ -232,16 +246,20 @@ export const Offices = () => {
                                 {localize('Paraguay')}
                             </StyledHeader>
                             <br />
-                            <StyledText>
-                                <MapIcon />
-                                {localize('886, Edificio Australia, Calle Herib, Campos Cervera')}
-                            </StyledText>
-                            <StyledText textIndent="1.5em">
-                                {localize('y Tregnaghi, Distriti de Stma, Trinidad, Asuncion,')}
-                            </StyledText>
-                            <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                                {localize('Paraguay')}
-                            </StyledText>
+                            <AddressContainer>
+                                <StyledText marginBttom="0">
+                                    <MapIcon />
+                                    {localize(
+                                        '886, Edificio Australia, Calle Herib, Campos Cervera',
+                                    )}
+                                </StyledText>
+                                <StyledText textIndent="1.5em" marginBttom="0">
+                                    {localize('y Tregnaghi, Distriti de Stma, Trinidad, Asuncion,')}
+                                </StyledText>
+                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                                    {localize('Paraguay')}
+                                </StyledText>
+                            </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
                                 +603-8322 8178

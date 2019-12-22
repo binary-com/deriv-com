@@ -30,6 +30,11 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
+
+    :hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 `
 
 export const Affiliates = () => {

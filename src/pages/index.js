@@ -48,7 +48,7 @@ const Home = () => {
                 <WhyDeriv />
                 <PaymentMethods />
             </Show.Desktop>
-            <Signup appearance={Appearances.public}></Signup>
+            <Signup appearance={Appearances.public} />
             <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>

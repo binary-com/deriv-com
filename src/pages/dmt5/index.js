@@ -29,7 +29,7 @@ const DMT5 = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dmt5" />
             </PlatformContainer>
-            <Signup appearance={Appearances.public}></Signup>
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

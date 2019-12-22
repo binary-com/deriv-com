@@ -28,7 +28,7 @@ const Dtrader = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>
-            <Signup appearance={Appearances.public}></Signup>
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

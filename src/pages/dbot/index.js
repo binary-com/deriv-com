@@ -27,7 +27,7 @@ class Dbot extends Component {
                 <PlatformContainer>
                     <OtherPlatform exclude="dbot" />
                 </PlatformContainer>
-                <Signup appearance={Appearances.public}></Signup>
+                <Signup appearance={Appearances.public} />
             </Layout>
         )
     }

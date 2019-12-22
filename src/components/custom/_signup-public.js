@@ -130,7 +130,7 @@ const SignupPublic = ({
 }) => {
     return (
         <Wrapper>
-            <SignupBackground></SignupBackground>
+            <SignupBackground />
             <FormWrapper>
                 <LeftWrapper>
                     <StyledHeader font_size="2.8rem">

@@ -122,7 +122,7 @@ export const ContactWays = () => {
                         {localize('Email Us')}
                     </StyledHeader>
                     <StyledText secondary weight="bold" color="red">
-                        <EmailContainer>{localize('emailhelp@deriv.com')}</EmailContainer>
+                        <EmailContainer>{localize('support@deriv.com')}</EmailContainer>
                     </StyledText>
                 </Contact>
 

@@ -45,7 +45,7 @@ export const Affiliates = () => {
                     {localize('Public Relations')}
                 </StyledHeader>
                 <StyledText secondary weight="bold" color="red">
-                    {localize('publicrelations@deriv.com')}
+                    {localize('pr@deriv.com')}
                 </StyledText>
             </Content>
             <Content>
@@ -61,7 +61,7 @@ export const Affiliates = () => {
                     {localize('Business development')}
                 </StyledHeader>
                 <StyledText secondary weight="bold" color="red">
-                    {localize('businessdev@deriv.com')}
+                    {localize('marketing@deriv.com')}
                 </StyledText>
             </Content>
         </Wrapper>

@@ -205,6 +205,7 @@ Card.propTypes = {
     cover_content: PropTypes.string,
     Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     is_inline_icon: PropTypes.bool,
+    is_selected: PropTypes.bool,
     min_height: PropTypes.string,
     padding: PropTypes.string,
     selected: PropTypes.string,

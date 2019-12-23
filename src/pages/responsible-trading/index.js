@@ -119,7 +119,7 @@ const ResponsibleTrading = () => {
                     </Header>
                     <StyledHeader as="h5" align="center" weight="400" maxwidth="99rem" lh="2.4rem" padding="0.8rem 0 0">
                         {localize(
-                            'Online trading can incur losses as well as gains. Price will vary due to changes in the market and may impact your investment. Our products fall under the category of /\'complex products\' and may not be suitable for retail clients.',
+                            'Online trading can incur losses as well as gains. Price will vary due to changes in the market and may impact your investment. Our products fall under the category of \'complex products\' and may not be suitable for retail clients.',
                         )}
                     </StyledHeader>
                 </GridContainer>

@@ -152,7 +152,7 @@ class Signup extends Component {
 
     handleSocialSignup = e => {
         e.preventDefault()
-        Login.initOneAll(e.target.id)
+        Login.initOneAll(e.currentTarget.id)
     }
 
     handleLogin = e => {

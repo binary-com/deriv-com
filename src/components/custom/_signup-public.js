@@ -126,7 +126,6 @@ const SignupPublic = ({
     handleValidation,
     autofocus,
     handleSocialSignup,
-    handleLogin,
     is_submitting,
 }) => {
     return (

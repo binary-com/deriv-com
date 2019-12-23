@@ -12,20 +12,19 @@ import SignupModal from 'components/custom/signup-modal'
 const HeroWrapper = styled.section`
     width: 100%;
     padding-top: 27rem;
-    min-height: calc(100vh - 7.2rem);
+    min-height: calc(100vh - 7rem);
     background: var(--color-black);
     position: relative;
 
     @media ${device.laptop} {
         background-position: -10rem 100%;
-        min-height: 45rem;
+        padding-top: 7rem;
+        padding-bottom: 7rem;
     }
     @media ${device.tabletL} {
         background: unset;
         background-position: -20rem 100%;
-        min-height: 47rem;
         background-color: var(--color-black);
-        padding: 7rem 0;
     }
     @media ${device.tablet} {
         background-position: -40rem 100%;
@@ -77,7 +76,7 @@ export const Hero = () => {
             <Container>
                 <HeroGrid>
                     <StyledArticle>
-                        <HeroHeader as="h1" color="white" lh="1.2">
+                        <HeroHeader align="center" as="h1" color="white" lh="1.2">
                             {localize('This is your ultimate trading experience')}
                         </HeroHeader>
                         <HeroHeader as="h4" align="center" color="white" weight="500" secondary>
@@ -99,7 +98,13 @@ export const Hero = () => {
             </Container>
             <Show.Desktop>
                 <video
-                    style={{ position: 'absolute', top: '0%', objectFit: 'fill' }}
+                    title={localize('deriv.app platform video')}
+                    style={{
+                        position: 'absolute',
+                        top: '0%',
+                        objectFit: 'fill',
+                        filter: 'brightness(0.8)',
+                    }}
                     width="100%"
                     height="100%"
                     autoPlay
@@ -107,8 +112,8 @@ export const Hero = () => {
                     playsInline
                     loop
                 >
-                    {/* <source src="/deriv_trading_platform.webm" type="video/webm" /> */}
-                    <source src="/bg_test_video.mp4" type="video/mp4" />
+                    <source src="/deriv.mp4" type="video/webm" />
+                    <source src="/deriv.mp4" type="video/mp4" />
                 </video>
             </Show.Desktop>
         </HeroWrapper>

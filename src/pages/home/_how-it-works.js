@@ -1,77 +1,99 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionHeader } from './_headers'
-import { Container, SectionContainer, FlexGridContainer } from 'components/containers'
-import device from 'themes/device'
+import { Container, SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
-// Icons
-import Practice from 'images/svg/practice.svg'
-import Trade from 'images/svg/trade.svg'
-import Withdraw from 'images/svg/withdraw.svg'
 
-const SecondaryHeader = styled(Header)`
-    margin-top: 2rem;
-    margin-bottom: 0.8rem;
-`
+const options = {
+    practice: 'practice',
+    trade: 'trade',
+    withdraw: 'withdraw',
+}
+const OptionWrapper = styled.div`
+    position: relative;
+    opacity: ${props => (props.is_selected ? '1' : '0.33')};
+    transition: opacity 0.25s;
 
-const Works = styled(FlexGridContainer)`
-    margin-top: 4rem;
-`
-
-const SecondaryArticle = styled.article`
-    @media ${device.mobileL} {
-        & > * {
-            text-align: center;
-        }
+    &:hover {
+        cursor: pointer;
     }
 `
 
-const HowItWorks = () => (
-    <SectionContainer>
-        <SectionHeader>
-            <Header as="h2" align="center" color="black-2">
-                {localize('How it works')}
-            </Header>
-        </SectionHeader>
-        <Container>
-            <Works content_width="32.8rem" justify="center" gap="1rem" grid="3">
-                <SecondaryArticle>
-                    <Practice />
-                    <SecondaryHeader as="h4" weight="500">
-                        {localize('Practice')}
-                    </SecondaryHeader>
-                    <Text>
-                        {localize(
-                            'Open a demo account with unlimited funds. Start trading for free and practise to hone your skills.',
-                        )}
-                    </Text>
-                </SecondaryArticle>
-                <SecondaryArticle>
-                    <Trade />
-                    <SecondaryHeader as="h4" weight="500">
-                        {localize('Trade')}
-                    </SecondaryHeader>
-                    <Text>
-                        {localize(
-                            'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
-                        )}
-                    </Text>
-                </SecondaryArticle>
-                <SecondaryArticle>
-                    <Withdraw />
-                    <SecondaryHeader as="h4" weight="500">
-                        {localize('Withdraw')}
-                    </SecondaryHeader>
-                    <Text>
-                        {localize(
-                            'Get funds quickly and easily. We support many deposit and withdrawal options.',
-                        )}
-                    </Text>
-                </SecondaryArticle>
-            </Works>
-        </Container>
-    </SectionContainer>
-)
+const Border = styled.div`
+    position: absolute;
+    display: ${props => (props.is_selected ? '' : 'none')};
+    transition: display 0.25s;
+    height: 100%;
+    border-left: 4px solid red;
+    left: -1.6rem;
+`
+const HowItWorks = () => {
+    const [selected, setSelected] = React.useState(options.practice)
+    const is_practice = selected === options.practice
+    const is_trade = selected === options.trade
+    const is_withdraw = selected === options.withdraw
+
+    return (
+        <SectionContainer>
+            <Container direction="column">
+                <Flex>
+                    <div style={{ width: '40%' }}>
+                        <div style={{ marginBottom: '4rem' }}>
+                            <Header font_size="3.6rem" as="h2">
+                                {localize('How it works')}
+                            </Header>
+                        </div>
+                        <CssGrid rowgap="1.6rem" height="0%">
+                            <div onClick={() => setSelected(options.practice)}>
+                                <OptionWrapper is_selected={is_practice}>
+                                    <Border is_selected={is_practice} />
+                                    <Header as="h4" lh="1.5">
+                                        {localize('Practise')}
+                                    </Header>
+                                    <Text>
+                                        {localize(
+                                            'Open a demo account with unlimited funds. Start trading for free and practise to hone your skills.',
+                                        )}
+                                    </Text>
+                                </OptionWrapper>
+                            </div>
+                            <div onClick={() => setSelected(options.trade)}>
+                                <OptionWrapper is_selected={is_trade}>
+                                    <Border is_selected={is_trade} />
+                                    <Header as="h4" lh="1.5">
+                                        {localize('Trade')}
+                                    </Header>
+                                    <Text>
+                                        {localize(
+                                            'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
+                                        )}
+                                    </Text>
+                                </OptionWrapper>
+                            </div>
+                            <div onClick={() => setSelected(options.withdraw)}>
+                                <OptionWrapper is_selected={is_withdraw}>
+                                    <Border is_selected={is_withdraw} />
+                                    <Header as="h4" lh="1.5">
+                                        {localize('Withdraw')}
+                                    </Header>
+                                    <Text>
+                                        {localize(
+                                            'Get funds quickly and easily. We support many deposit and withdrawal options.',
+                                        )}
+                                    </Text>
+                                </OptionWrapper>
+                            </div>
+                        </CssGrid>
+                    </div>
+                    <div style={{ width: '60%' }}>
+                        {selected === options.practice && <div>Dpractice animation</div>}
+                        {selected === options.trade && <div>Dtrade animation</div>}
+                        {selected === options.withdraw && <div>dwithdraw animation</div>}
+                    </div>
+                </Flex>
+            </Container>
+        </SectionContainer>
+    )
+}
 
 export default HowItWorks

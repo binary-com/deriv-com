@@ -2,16 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Header, Text, Image } from 'components/elements'
 import { localize } from 'components/localization'
-import { Container, SectionContainer } from 'components/containers'
+import { Container, SectionContainer, Flex } from 'components/containers'
 
-const Flex = styled.div`
-    display: flex;
-    justify-content: ${props => (props.jc ? props.jc : 'center')};
-    align-items: ${props => (props.ai ? props.ai : '')};
-    margin: ${props => (props.m ? props.m : '')};
-    padding: ${props => (props.p ? props.p : '')};
-    flex-wrap: wrap;
-`
 const ClientCard = styled.article`
     background-color: var(--color-white);
     width: 38.1rem;
@@ -69,7 +61,7 @@ const WhatOurClientsSay = () => (
                     )}
                 </QuoteText>
                 <Flex jc="flex-start" p="2.1rem 0 0 0">
-                    <Flex ai="center">
+                    <Flex ai="center" width="auto">
                         <ImageWrapper>
                             <Image
                                 img_name="paul.png"
@@ -91,7 +83,7 @@ const WhatOurClientsSay = () => (
                     )}
                 </QuoteText>
                 <Flex jc="flex-start" p="2.1rem 0 0 0">
-                    <Flex ai="center">
+                    <Flex ai="center" width="auto">
                         <ImageWrapper>
                             <Image
                                 img_name="roberto.png"
@@ -113,7 +105,7 @@ const WhatOurClientsSay = () => (
                     )}
                 </QuoteText>
                 <Flex jc="flex-start" p="2.1rem 0 0 0">
-                    <Flex ai="center">
+                    <Flex ai="center" width="auto">
                         <ImageWrapper>
                             <Image
                                 img_name="fabio.png"

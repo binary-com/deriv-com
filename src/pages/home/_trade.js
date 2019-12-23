@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, Image } from 'components/elements'
 
 const SubHeaderWrapper = styled.div`
     margin: 1.6rem 0 4rem 0;
@@ -14,6 +14,25 @@ const platforms = {
     bot: 'dbot',
     mt5: 'dmt5',
 }
+
+const ImageWrapper = styled.div`
+    height: 100%;
+    width: 100%;
+    visibility: ${props => (props.is_selected ? 'initial' : 'hidden')};
+    opacity: ${props => (props.is_selected ? '1' : '0')};
+    z-index: ${props => (props.is_selected ? '0' : '10')};
+    position: absolute;
+    top: 0;
+    transition: all 0.25s;
+`
+
+const ImageContainer = styled.div`
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-top: 5rem;
+`
+
 export const Trade = () => {
     // one option always has to be selected
     const [selected, setSelected] = React.useState(platforms.trader)
@@ -23,9 +42,17 @@ export const Trade = () => {
             <Container direction="column">
                 <Flex>
                     <div style={{ width: '60%' }}>
-                        {selected === platforms.trader && <div>Dtrader animation</div>}
-                        {selected === platforms.bot && <div>Dbot animation</div>}
-                        {selected === platforms.mt5 && <div>dmt5 animation</div>}
+                        <ImageContainer>
+                            <ImageWrapper is_selected={selected === platforms.trader}>
+                                <Image img_name="dtrader-platform.png" alt="Platform" width="90%" />
+                            </ImageWrapper>
+                            <ImageWrapper is_selected={selected === platforms.bot}>
+                                <Image img_name="dbot-platform.png" width="90%" />
+                            </ImageWrapper>
+                            <ImageWrapper is_selected={selected === platforms.mt5}>
+                                <Image img_name="dmt5-platform.png" alt="Platform" width="90%" />
+                            </ImageWrapper>
+                        </ImageContainer>
                     </div>
                     <div style={{ width: '40%' }}>
                         <Header font_size="3.6rem" as="h2">

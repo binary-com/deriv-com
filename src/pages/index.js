@@ -33,7 +33,6 @@ const Home = () => {
             <Hero />
             <Show.Mobile>
                 <WhyDerivMobile />
-                <Trade />
             </Show.Mobile>
             <Show.Desktop>
                 <Trade />

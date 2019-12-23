@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HeroHeader } from './_headers'
-import Video from './_video'
+// import Video from './_video'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Show } from 'components/containers'
@@ -11,8 +11,8 @@ import SignupModal from 'components/custom/signup-modal'
 
 const HeroWrapper = styled.section`
     width: 100%;
-    padding: 4rem 0 0;
-    min-height: 65rem;
+    padding-top: 27rem;
+    min-height: calc(100vh - 7.2rem);
     background: var(--color-black);
     position: relative;
 
@@ -25,7 +25,7 @@ const HeroWrapper = styled.section`
         background-position: -20rem 100%;
         min-height: 47rem;
         background-color: var(--color-black);
-        padding-bottom: 7rem;
+        padding: 7rem 0;
     }
     @media ${device.tablet} {
         background-position: -40rem 100%;
@@ -37,38 +37,26 @@ const StyledArticle = styled.article`
     z-index: 2;
 `
 
-const VideoWrapper = styled.div`
-    position: absolute;
-    max-width: 58vw;
-    height: 52.5rem;
-    right: 0;
-    top: 2rem;
+// const VideoWrapper = styled.div`
+//     position: absolute;
+//     max-width: 58vw;
+//     height: 52.5rem;
+//     right: 0;
+//     top: 2rem;
 
-    @media ${device.laptop} {
-        display: none;
-    }
-`
+//     @media ${device.laptop} {
+//         display: none;
+//     }
+// `
 
 const HeroGrid = styled.section`
     width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    grid-column-gap: 2rem;
     max-width: 100%;
-    padding-top: 4rem;
-
-    @media ${device.laptop} {
-        grid-template-columns: 1fr;
-        grid-row-gap: 0;
-    }
-    @media ${device.tabletS} {
-        grid-template-columns: 1fr;
-        grid-row-gap: 8rem;
-        text-align: center;
-    }
 `
 
 const ButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
     margin-top: 3.2rem;
 
     ${Button} {
@@ -92,8 +80,8 @@ export const Hero = () => {
                         <HeroHeader as="h1" color="white" lh="1.2">
                             {localize('This is your ultimate trading experience')}
                         </HeroHeader>
-                        <HeroHeader as="h4" color="white" weight="500" secondary>
-                            {localize('The world’s markets at your fingertips anytime, anywhere.')}
+                        <HeroHeader as="h4" align="center" color="white" weight="500" secondary>
+                            {localize('The next evolution of online trading by Binary.com')}
                         </HeroHeader>
                         <ButtonWrapper>
                             <Button type="submit" onClick={toggleModal} secondary>
@@ -101,16 +89,28 @@ export const Hero = () => {
                             </Button>
                         </ButtonWrapper>
                     </StyledArticle>
-                    <Show.Desktop>
-                        <VideoWrapper>
-                            <Video />
-                        </VideoWrapper>
-                    </Show.Desktop>
+                    {/* <VideoWrapper>
+                         <Video />
+                         </VideoWrapper> */}
                     <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                         <SignupModal autofocus />
                     </Modal>
                 </HeroGrid>
             </Container>
+            <Show.Desktop>
+                <video
+                    style={{ position: 'absolute', top: '0%', objectFit: 'fill' }}
+                    width="100%"
+                    height="100%"
+                    autoPlay
+                    muted
+                    playsInline
+                    loop
+                >
+                    {/* <source src="/deriv_trading_platform.webm" type="video/webm" /> */}
+                    <source src="/bg_test_video.mp4" type="video/mp4" />
+                </video>
+            </Show.Desktop>
         </HeroWrapper>
     )
 }

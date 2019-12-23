@@ -62,12 +62,14 @@ const Span = styled.span`
     margin-left: 1.3rem;
     font-weight: 500;
     font-size: var(--text-size-xxs);
+    color: var(--color-grey-13);
 `
 const LoginLink = styled.a`
     color: var(--color-red);
     text-decoration: none;
     cursor: pointer;
     font-weight: bold;
+    margin-bottom: 1.4rem;
 `
 const SignupDefault = ({
     email_error_msg,

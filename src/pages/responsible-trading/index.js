@@ -76,10 +76,8 @@ const ResponsibleTrading = () => {
                                     <CheckedIcon />
                                 </CssGridColumn>
                                 <CssGridColumn>
-                                    <Text color="black-3" lh="1.55">
-                                        <Text lh="1.55" margin="0.3rem 0 0">
-                                            {localize('Limit the amount of money you trade')}
-                                        </Text>
+                                    <Text lh="1.55" margin="0.3rem 0 0">
+                                        {localize('Limit the amount of money you trade')}
                                     </Text>
                                 </CssGridColumn>
                                 <CssGridColumn>

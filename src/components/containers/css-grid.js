@@ -14,8 +14,13 @@ const CssGrid = styled.div`
     background-color: ${props => props.bgcolor || 'none'};
 
     @media ${device.tabletL} {
-        grid-template-columns: ${props => props.mobilecolumns || '1fr'};
-        grid-row-gap: ${props => props.mobilerowgap || '0'};
+        grid-template-columns: ${props => props.tabletcolumns ? props.tabletcolumns : props.columns};
+        grid-column-gap: ${props => props.tabletcolumngap ? props.tabletcolumngap : props.columngap};
+        grid-row-gap: ${props => props.tabletrowgap ? props.tabletrowgap : props.rowgap};
+    }
+    @media ${device.tabletS} {
+        grid-template-columns: ${props => props.mobilecolumns ? props.mobilecolumns : props.columns};
+        grid-row-gap: ${props => props.mobilerowgap ? props.mobilerowgap : props.rowgap};
     }
 `
 

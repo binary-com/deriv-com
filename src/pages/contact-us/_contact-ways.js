@@ -47,6 +47,8 @@ const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
 `
 const EmailContainer = styled.div`
+    color: red;
+
     :hover {
         text-decoration: underline;
         cursor: pointer;
@@ -121,7 +123,7 @@ export const ContactWays = () => {
                     <StyledHeader as="h3" align="center">
                         {localize('Email Us')}
                     </StyledHeader>
-                    <StyledText secondary weight="bold" color="red">
+                    <StyledText secondary weight="bold">
                         <EmailContainer>{localize('support@deriv.com')}</EmailContainer>
                     </StyledText>
                 </Contact>

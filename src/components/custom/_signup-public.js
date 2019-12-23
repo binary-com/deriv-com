@@ -148,8 +148,9 @@ const SignupPublic = ({
                                 type="text"
                                 error={email_error_msg}
                                 value={email}
-                                background="transparent"
-                                inputColor="var(--color-grey-5)"
+                                background="white"
+                                inputColor="var(grey-5)"
+                                labelFocusColor="grey-7"
                                 label={localize('Email')}
                                 placeholder={'example@mail.com'}
                                 handleError={clearEmail}
@@ -158,7 +159,8 @@ const SignupPublic = ({
                                 autoFocus={autofocus}
                                 autoComplete="off"
                                 required
-                                border="1px solid var(--color-grey-7);"
+                                border="1px solid var(--color-grey-7)"
+                                focusBorder="var(--color-grey-7)"
                             />
                         </InputWrapper>
                         <EmailButton type="submit" secondary disabled={is_submitting}>

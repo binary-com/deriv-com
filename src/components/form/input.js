@@ -21,7 +21,7 @@ const InputWrapper = styled.div`
         }
     }
     &:focus-within {
-        border-color: var(--color-green);
+        border-color: ${props => props.focusBorder || 'var(--color-green)'};
     }
 
     ${props =>
@@ -64,7 +64,7 @@ const StyledInput = styled.input`
 
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: var(--color-green);
+            color: var(--color- ${props => props.labelFocusColor || 'green'});
         }
         &::placeholder {
             opacity: 0.5;
@@ -98,9 +98,9 @@ const StyledLabel = styled.label`
     background-color: var(--color-${props => props.background || 'grey-1'});
 `
 
-const Input = ({ label, border, id, error, background, handleError, ...props }) => (
+const Input = ({ label, border, focusBorder, id, error, background, handleError, ...props }) => (
     <RelativeWrapper>
-        <InputWrapper border={border} error={error}>
+        <InputWrapper border={border} focusBorder={focusBorder} error={error}>
             <StyledInput id={id} {...props} />
             <StyledLabel background={background} error={error} htmlFor={id}>
                 {label}
@@ -122,6 +122,7 @@ Input.propTypes = {
     border: PropTypes.string,
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     error: PropTypes.string,
+    focusBorder: PropTypes.string,
     handleError: PropTypes.func,
     id: PropTypes.string,
     label: PropTypes.string,

@@ -138,7 +138,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +35621316105
+                                +356 2131 6105
                             </StyledText>
                         </Content>
                     </Office>
@@ -159,7 +159,7 @@ export const Offices = () => {
                                 </StyledText>
                             </AddressContainer>
                             <StyledText>
-                                <PhoneIcon /> +603-8322 8178
+                                <PhoneIcon /> +603 83228178
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -197,7 +197,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +6087-504126
+                                +6087 504126
                             </StyledText>
                         </Content>
                     </Office>
@@ -219,7 +219,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +971 4 399 0404
+                                +9714 399 0404
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -262,7 +262,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +603-8322 8178
+                                +595 991298762
                             </StyledText>
                         </Content>
                     </Office>

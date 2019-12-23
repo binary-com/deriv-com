@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '../../components/elements/typography'
+import { Text, LinkText } from '../../components/elements/typography'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import CallUsIcon from 'images/svg/call-us.svg'
@@ -41,20 +41,11 @@ const Contact = styled.div`
 `
 
 const StyledHeader = styled(Header)`
-    margin-bottom: 2.4rem;
+    margin-bottom: 0.8rem;
 `
 const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
 `
-const EmailContainer = styled.div`
-    color: red;
-
-    :hover {
-        text-decoration: underline;
-        cursor: pointer;
-    }
-`
-
 const Logo = styled.div`
     margin-bottom: 1.4rem;
 `
@@ -123,9 +114,12 @@ export const ContactWays = () => {
                     <StyledHeader as="h3" align="center">
                         {localize('Email Us')}
                     </StyledHeader>
-                    <StyledText secondary weight="bold">
+                    <LinkText weight="bold" size="var(--text-size-sm)" color="red" href="mailto:support@deriv.com">
+                        {localize('support@deriv.com')}
+                    </LinkText>
+                    {/* <StyledText secondary weight="bold" color="red">
                         <EmailContainer>{localize('support@deriv.com')}</EmailContainer>
-                    </StyledText>
+                    </StyledText> */}
                 </Contact>
 
                 {/*

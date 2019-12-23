@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from 'components/elements/typography'
+import { LinkText } from 'components/elements/typography'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -28,14 +28,6 @@ const Content = styled.div`
 const StyledHeader = styled(Header)`
     margin-bottom: 0.8rem;
 `
-const StyledText = styled(Text)`
-    margin-bottom: ${props => props.marginBttom || '0.8rem'};
-
-    :hover {
-        text-decoration: underline;
-        cursor: pointer;
-    }
-`
 
 export const Affiliates = () => {
     return (
@@ -44,25 +36,43 @@ export const Affiliates = () => {
                 <StyledHeader as="h3" align="center">
                     {localize('Public Relations')}
                 </StyledHeader>
-                <StyledText secondary weight="bold" color="red">
+
+                <LinkText
+                    weight="bold"
+                    size="var(--text-size-sm)"
+                    color="red"
+                    href="mailto:pr@deriv.com"
+                >
                     {localize('pr@deriv.com')}
-                </StyledText>
+                </LinkText>
             </Content>
             <Content>
                 <StyledHeader as="h3" align="center">
                     {localize('Affiliates')}
                 </StyledHeader>
-                <StyledText secondary weight="bold" color="red">
+
+                <LinkText
+                    weight="bold"
+                    size="var(--text-size-sm)"
+                    color="red"
+                    href="mailto:affiliates@deriv.com"
+                >
                     {localize('affiliates@deriv.com')}
-                </StyledText>
+                </LinkText>
             </Content>
             <Content>
                 <StyledHeader as="h3" align="center">
                     {localize('Business development')}
                 </StyledHeader>
-                <StyledText secondary weight="bold" color="red">
+
+                <LinkText
+                    weight="bold"
+                    size="var(--text-size-sm)"
+                    color="red"
+                    href="mailto:marketing@deriv.com"
+                >
                     {localize('marketing@deriv.com')}
-                </StyledText>
+                </LinkText>
             </Content>
         </Wrapper>
     )

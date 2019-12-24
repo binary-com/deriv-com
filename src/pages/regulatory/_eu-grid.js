@@ -267,15 +267,7 @@ const EUgrid = () => {
                 <Order>14</Order>
                 <License>
                     <Localize
-                        translate_text="Ireland <0>(View License)</0>"
-                        components={[
-                            <a
-                                key={0}
-                                target="_blank"
-                                href="/Ireland.pdf"
-                                rel="noopener noreferrer"
-                            />
-                        ]}
+                        translate_text="Ireland"
                     />
                 </License>
             </Country>

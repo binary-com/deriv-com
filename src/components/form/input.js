@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
+import device from 'themes/device.js'
 // SVG Component
 import CrossIcon from 'images/svg/cross.svg'
 
@@ -96,13 +97,17 @@ const StyledLabel = styled.label`
 
     /* prettier-ignore */
     background-color: var(--color-${props => props.background || 'grey-1'});
+
+    @media ${device.tablet} {
+        background-color: var(--color-${props => props.tabletBackground || 'grey-1'});
+    }
 `
 
-const Input = ({ label, border, focusBorder, id, error, background, handleError, ...props }) => (
+const Input = ({ label, border, focusBorder, id, error, background, tabletBackground, handleError, ...props }) => (
     <RelativeWrapper>
         <InputWrapper border={border} focusBorder={focusBorder} error={error}>
             <StyledInput id={id} {...props} />
-            <StyledLabel background={background} error={error} htmlFor={id}>
+            <StyledLabel background={background} tabletBackground={tabletBackground} error={error} htmlFor={id}>
                 {label}
             </StyledLabel>
         </InputWrapper>
@@ -126,6 +131,7 @@ Input.propTypes = {
     handleError: PropTypes.func,
     id: PropTypes.string,
     label: PropTypes.string,
+    tabletBackground: PropTypes.string,
     width: PropTypes.string,
 }
 

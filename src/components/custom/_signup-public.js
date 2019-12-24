@@ -30,7 +30,7 @@ const FormWrapper = styled(Wrapper)`
         padding-right: 2rem;
     }
     @media ${device.tablet} {
-        background-color: #bccdce;
+        background-color: var(--color-green-1);
     }
 `
 
@@ -149,6 +149,7 @@ const SignupPublic = ({
                                 error={email_error_msg}
                                 value={email}
                                 background="white"
+                                tabletBackground="green-1"
                                 inputColor="var(grey-5)"
                                 labelFocusColor="grey-7"
                                 label={localize('Email')}

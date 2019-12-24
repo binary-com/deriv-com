@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import queryString from 'query-string'
-import Ticker from './home/_ticker'
+// import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import WhyDerivMobile from './home/_why-deriv-mobile'

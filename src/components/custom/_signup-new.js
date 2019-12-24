@@ -9,6 +9,7 @@ import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 
+const Wrapper = stryled.div`display: flex; justify-content: center; flex-direction: row;`
 const NoteBox = styled.div`
     width: 40.4rem;
     padding: 1.6rem 1.6rem;
@@ -83,7 +84,7 @@ const SignupDefault = ({
     is_submitting,
 }) => {
     return (
-        <>
+        <Wrapper>
             <Header as="h4" weight="bold">
                 {localize('Sign up')}
             </Header>
@@ -150,7 +151,7 @@ const SignupDefault = ({
                 {localize('Already have an account?')}
                 <LoginLink onClick={handleLogin}> {localize('Log in.')}</LoginLink>
             </LoginText>
-        </>
+        </Wrapper>
     )
 }
 

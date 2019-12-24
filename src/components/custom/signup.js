@@ -11,12 +11,13 @@ import { LocalStore } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
 import device from 'themes/device.js'
-import SignupDefault from 'components/custom/_signup-default2'
+import SignupDefault from 'components/custom/_signup-default'
 import SignupSimple from 'components/custom/_signup-simple'
 import SignupFlat from 'components/custom/_signup-flat'
+import SignupNew from 'components/custom/_signup-new'
 
 const Form = styled.form`
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
 `
 const ResponseWrapper = styled.div`
@@ -63,6 +64,7 @@ export const Appearances = {
     simple: 'simple',
     darkFlat: 'darkFlat',
     lightFlat: 'lightFlat',
+    newSignup: 'newSignup',
 }
 class Signup extends Component {
     state = {
@@ -180,6 +182,8 @@ class Signup extends Component {
         switch (param) {
             case Appearances.simple:
                 return <SignupSimple {...parameters}></SignupSimple>
+            case Appearances.newSignup:
+                return <SignupNew {...parameters}></SignupNew>
             case Appearances.lightFlat:
             case Appearances.darkFlat:
                 return param == Appearances.darkFlat ? (

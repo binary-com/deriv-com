@@ -208,7 +208,6 @@ Card.propTypes = {
     is_selected: PropTypes.bool,
     min_height: PropTypes.string,
     padding: PropTypes.string,
-    selected: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
 }

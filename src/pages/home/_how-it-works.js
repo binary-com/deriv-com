@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import TradingAnimation from '../../images/lotties/trading.json'
 import WithdrawAnimation from '../../images/lotties/withdraw.json'
@@ -7,11 +8,6 @@ import { Container, SectionContainer, Flex, CssGrid } from 'components/container
 import { Header, Text, Lottie } from 'components/elements'
 import { localize } from 'components/localization'
 
-const options = {
-    practice: 'practice',
-    trade: 'trade',
-    withdraw: 'withdraw',
-}
 const OptionWrapper = styled.div`
     position: relative;
     opacity: ${props => (props.is_selected ? '1' : '0.33')};
@@ -33,13 +29,39 @@ const Border = styled.div`
 
 const LottieWrapper = styled.div`
     position: absolute;
-    top: -3.8rem;
-    right: -6.1rem;
+    top: ${props => (props.top ? props.top : '0')};
+    right: ${props => (props.right ? props.right : '0')};
     width: 80%;
 `
 
+const options = Object.freeze({
+    practice: 'practice',
+    trade: 'trade',
+    withdraw: 'withdraw',
+})
+
+const Option = ({ is_selected, onClick, header, sub_header }) => (
+    <div onClick={onClick}>
+        <OptionWrapper is_selected={is_selected}>
+            <Border is_selected={is_selected} />
+            <Header as="h4" lh="1.5">
+                {header}
+            </Header>
+            <Text>{sub_header}</Text>
+        </OptionWrapper>
+    </div>
+)
+
+Option.propTypes = {
+    header: PropTypes.string,
+    is_selected: PropTypes.bool,
+    onClick: PropTypes.func,
+    sub_header: PropTypes.string,
+}
+
 const HowItWorks = () => {
     const [selected, setSelected] = React.useState(options.practice)
+
     const is_practice = selected === options.practice
     const is_trade = selected === options.trade
     const is_withdraw = selected === options.withdraw
@@ -55,57 +77,48 @@ const HowItWorks = () => {
                             </Header>
                         </div>
                         <CssGrid rowgap="1.6rem" height="0%">
-                            <div onClick={() => setSelected(options.practice)}>
-                                <OptionWrapper is_selected={is_practice}>
-                                    <Border is_selected={is_practice} />
-                                    <Header as="h4" lh="1.5">
-                                        {localize('Practise')}
-                                    </Header>
-                                    <Text>
-                                        {localize(
-                                            'Open a demo account with unlimited funds. Start trading for free and practise to hone your skills.',
-                                        )}
-                                    </Text>
-                                </OptionWrapper>
-                            </div>
-                            <div onClick={() => setSelected(options.trade)}>
-                                <OptionWrapper is_selected={is_trade}>
-                                    <Border is_selected={is_trade} />
-                                    <Header as="h4" lh="1.5">
-                                        {localize('Trade')}
-                                    </Header>
-                                    <Text>
-                                        {localize(
-                                            'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
-                                        )}
-                                    </Text>
-                                </OptionWrapper>
-                            </div>
-                            <div onClick={() => setSelected(options.withdraw)}>
-                                <OptionWrapper is_selected={is_withdraw}>
-                                    <Border is_selected={is_withdraw} />
-                                    <Header as="h4" lh="1.5">
-                                        {localize('Withdraw')}
-                                    </Header>
-                                    <Text>
-                                        {localize(
-                                            'Get funds quickly and easily. We support many deposit and withdrawal options.',
-                                        )}
-                                    </Text>
-                                </OptionWrapper>
-                            </div>
+                            <Option
+                                onClick={() => setSelected(options.practice)}
+                                is_selected={is_practice}
+                                header={localize('Practise')}
+                                sub_header={localize(
+                                    'Open a demo account with unlimited funds. Start trading for free and practise to hone your skills.',
+                                )}
+                            />
+                            <Option
+                                onClick={() => setSelected(options.trade)}
+                                is_selected={is_trade}
+                                header={localize('Trade')}
+                                sub_header={localize(
+                                    'Open a real account and add funds. Trade forex, indices, commodities, and other derivatives.',
+                                )}
+                            />
+                            <Option
+                                onClick={() => setSelected(options.withdraw)}
+                                is_selected={is_withdraw}
+                                header={localize('Withdraw')}
+                                sub_header={localize(
+                                    'Get funds quickly and easily. We support many deposit and withdrawal options.',
+                                )}
+                            />
                         </CssGrid>
                     </div>
                     <div style={{ width: '60%', position: 'relative' }}>
-                        <LottieWrapper>
-                            {is_practice && <Lottie animationData={DemoAnimation} />}
-                            {is_trade && (
-                                <div style={{ marginTop: '-2rem', marginRight: '2rem' }}>
-                                    <Lottie animationData={TradingAnimation} />
-                                </div>
-                            )}
-                            {is_withdraw && <Lottie animationData={WithdrawAnimation} />}
-                        </LottieWrapper>
+                        {is_practice && (
+                            <LottieWrapper top="-3.8rem" right="-6.1rem">
+                                <Lottie animationData={DemoAnimation} />
+                            </LottieWrapper>
+                        )}
+                        {is_trade && (
+                            <LottieWrapper top="-5.5rem" right="-4.8rem">
+                                <Lottie animationData={TradingAnimation} />
+                            </LottieWrapper>
+                        )}
+                        {is_withdraw && (
+                            <LottieWrapper top="-3.7rem" right="-5.4rem">
+                                <Lottie animationData={WithdrawAnimation} />{' '}
+                            </LottieWrapper>
+                        )}
                     </div>
                 </Flex>
             </Container>

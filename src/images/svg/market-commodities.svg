@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="market-commodities-svg">
+    <title id='market-commodities-svg'>Market commodities</title>
     <defs>
         <linearGradient id="market-commodities" x1="0%" y1="100%" y2="0%">
             <stop offset="0%" stop-color="#FF444F"/>

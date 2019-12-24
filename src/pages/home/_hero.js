@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HeroHeader } from './_headers'
-// import Video from './_video'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Show } from 'components/containers'
@@ -35,18 +34,6 @@ const StyledArticle = styled.article`
     position: relative;
     z-index: 2;
 `
-
-// const VideoWrapper = styled.div`
-//     position: absolute;
-//     max-width: 58vw;
-//     height: 52.5rem;
-//     right: 0;
-//     top: 2rem;
-
-//     @media ${device.laptop} {
-//         display: none;
-//     }
-// `
 
 const HeroGrid = styled.section`
     width: 100%;
@@ -88,9 +75,6 @@ export const Hero = () => {
                             </Button>
                         </ButtonWrapper>
                     </StyledArticle>
-                    {/* <VideoWrapper>
-                         <Video />
-                         </VideoWrapper> */}
                     <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                         <SignupModal autofocus />
                     </Modal>
@@ -103,7 +87,6 @@ export const Hero = () => {
                         position: 'absolute',
                         top: '0%',
                         objectFit: 'fill',
-                        filter: 'brightness(0.8)',
                     }}
                     width="100%"
                     height="100%"

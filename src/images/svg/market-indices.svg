@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" aria-labelledby="market-indices-svg">
+    <title id='market-indices-svg'>Market indices</title>
     <defs>
         <linearGradient id="market-indices" x1="0%" y1="85.596%" y2="14.404%">
             <stop offset="0%" stop-color="#FF444F"/>

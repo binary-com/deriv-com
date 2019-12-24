@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="62" height="65" viewBox="0 0 62 65">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="62" height="65" viewBox="0 0 62 65" aria-labelledby="market-forex-svg">
+    <title id='market-commodities-svg'>Market forex</title>
     <defs>
         <path id="c" d="M0 0h80v80H0z"/>
         <linearGradient id="e" x1="50%" x2="50%" y1="0%" y2="100%">

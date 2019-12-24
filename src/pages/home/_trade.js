@@ -9,11 +9,11 @@ const SubHeaderWrapper = styled.div`
     margin: 1.6rem 0 4rem 0;
 `
 
-const platforms = {
+const platforms = Object.freeze({
     trader: 'dtrader',
     bot: 'dbot',
     mt5: 'dmt5',
-}
+})
 
 const ImageWrapper = styled.div`
     height: 100%;

@@ -22,7 +22,6 @@ const ClientCard = styled.article`
 const QuoteText = styled(Text)`
     padding-bottom: 2.1rem;
     border-bottom: 1px solid var(--color-grey-8);
-    line-height: 1.38;
     z-index: 10;
     position: relative;
 
@@ -38,7 +37,7 @@ const QuoteText = styled(Text)`
 `
 
 const SmallText = styled(Text)`
-    font-size: 1.4rem;
+    font-size: var(--text-size-xs);
     opacity: 0.5;
 `
 const ImageWrapper = styled.div`

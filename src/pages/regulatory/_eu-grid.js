@@ -1,11 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-//import device from 'themes/device'
 import { CssGrid, CssGridColumn } from 'components/containers'
-//import { Text } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
-//import { StyledLink } from 'components/elements'
 
 const Country = styled.div`
     margin-bottom: 2.5rem;

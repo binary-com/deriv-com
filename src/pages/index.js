@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import queryString from 'query-string'
+import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import WhyDerivMobile from './home/_why-deriv-mobile'
@@ -40,6 +41,9 @@ const Home = () => {
             </Show.Desktop>
             <Markets />
             <WhatOurClientsSay />
+            <Show.Desktop>
+                <Ticker />
+            </Show.Desktop>
             <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>

@@ -1,3 +1,4 @@
+import AutoCarousel from './auto-carousel'
 import { Card, CardChildren, CardStyle } from './card'
 import Carousel from './carousel'
 import Divider from './divider'
@@ -14,6 +15,7 @@ import { Text, LinkText, Header } from './typography'
 import { Lottie } from './lottie'
 
 export {
+    AutoCarousel,
     Card,
     CardChildren,
     CardStyle,

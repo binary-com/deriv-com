@@ -10,11 +10,11 @@ import CommoditiesIcon from 'images/svg/market-commodities.svg'
 import SyntheticIndicesIcon from 'images/svg/market-synthetic-indices.svg'
 // Images
 const MarketWrapper = styled(Flex)`
-    margin-top: 4.8rem;
+    margin-top: 4rem;
 `
 const MarketCard = styled.article`
     display: flex;
-    margin-bottom: 4.8rem;
+    margin-bottom: ${props => props.mb || ''};
     margin-right: ${props => props.mr || ''};
 
     svg {
@@ -31,6 +31,9 @@ const MarketCard = styled.article`
     @media (max-width: 1210px) {
         margin-right: 0;
     }
+    @media (max-width: 860px) {
+        margin-bottom: 4rem;
+    }
 `
 const Markets = () => (
     <SectionContainer background="grey-9">
@@ -39,7 +42,7 @@ const Markets = () => (
                 {localize('Markets')}
             </Header>
             <MarketWrapper>
-                <MarketCard mr="3.6rem">
+                <MarketCard mr="2.4rem" mb="4rem">
                     <ForexIcon />
                     <div>
                         <Header as="h4">{localize('Forex')}</Header>
@@ -50,7 +53,7 @@ const Markets = () => (
                         </Text>
                     </div>
                 </MarketCard>
-                <MarketCard>
+                <MarketCard mb="4rem">
                     <IndicesIcon />
                     <div>
                         <Header as="h4">{localize('Indices')}</Header>
@@ -61,7 +64,7 @@ const Markets = () => (
                         </Text>
                     </div>
                 </MarketCard>
-                <MarketCard mr="3.6rem">
+                <MarketCard mr="2.4rem">
                     <CommoditiesIcon />
                     <div>
                         <Header as="h4">{localize('Commodities')}</Header>

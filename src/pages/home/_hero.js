@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { HeroHeader } from './_headers'
 import device from 'themes/device'
 import { Button } from 'components/form'
-import { Container, Show } from 'components/containers'
-import { Modal, useModal } from 'components/elements'
+import { Container, Show, Flex } from 'components/containers'
+import { Modal, useModal, Header } from 'components/elements'
 import { localize } from 'components/localization'
 import SignupModal from 'components/custom/signup-modal'
 
@@ -30,9 +29,24 @@ const HeroWrapper = styled.section`
     }
 `
 
+const HeroHeader = styled(Header)`
+    margin-top: ${props => (props.secondary ? '1.6rem' : '')};
+
+    @media ${device.laptop} {
+        text-align: center;
+    }
+    @media ${device.tabletL} {
+        text-align: left;
+    }
+`
+
 const StyledArticle = styled.article`
     position: relative;
     z-index: 2;
+
+    ${HeroHeader} {
+        width: 100%;
+    }
 `
 
 const HeroGrid = styled.section`
@@ -40,10 +54,8 @@ const HeroGrid = styled.section`
     max-width: 100%;
 `
 
-const ButtonWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-top: 3.2rem;
+const ButtonWrapper = styled(Flex)`
+    margin-top: 4rem;
 
     ${Button} {
         font-size: 1.6rem;

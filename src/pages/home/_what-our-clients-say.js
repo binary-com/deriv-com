@@ -46,13 +46,13 @@ const ImageWrapper = styled.div`
 `
 
 const WhatOurClientsSay = () => (
-    <SectionContainer background="grey-9">
+    <SectionContainer background="grey-9" padding="6rem 0">
         <Container direction="column">
             <Header align="center" font_size="3.6rem" as="h2">
                 {localize('What our clients say about Deriv')}
             </Header>
         </Container>
-        <Flex m="4rem 0 0 0">
+        <Flex m="6rem 0 0 0">
             <ClientCard>
                 <QuoteText as="blockquote">
                     {localize(

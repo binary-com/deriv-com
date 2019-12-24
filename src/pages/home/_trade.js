@@ -6,7 +6,7 @@ import { SectionContainer, Container, Flex, CssGrid } from 'components/container
 import { Header, Image } from 'components/elements'
 
 const SubHeaderWrapper = styled.div`
-    margin: 1.6rem 0 4rem 0;
+    margin: 1.6rem 0 6rem 0;
 `
 
 const platforms = Object.freeze({
@@ -22,7 +22,7 @@ const ImageWrapper = styled.div`
     opacity: ${props => (props.is_selected ? '1' : '0')};
     z-index: ${props => (props.is_selected ? '0' : '10')};
     position: absolute;
-    top: 0;
+    top: -1.3rem;
     transition: all 0.25s;
 `
 
@@ -53,13 +53,25 @@ export const Trade = () => {
                     <div style={{ width: '60%' }}>
                         <ImageContainer>
                             <ImageWrapper is_selected={selected === platforms.trader}>
-                                <Image img_name="dtrader-platform.png" alt="Platform" width="90%" />
+                                <Image
+                                    img_name="trade_dtrader.png"
+                                    alt={localize('DTrader platform')}
+                                    width="90%"
+                                />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
-                                <Image img_name="dbot-platform.png" width="90%" />
+                                <Image
+                                    img_name="trade_dbot.png"
+                                    alt={localize('DBot platform')}
+                                    width="90%"
+                                />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
-                                <Image img_name="dmt5-platform.png" alt="Platform" width="90%" />
+                                <Image
+                                    img_name="trade_dmt5.png"
+                                    alt={localize('DMT5 platform')}
+                                    width="90%"
+                                />
                             </ImageWrapper>
                         </ImageContainer>
                     </div>

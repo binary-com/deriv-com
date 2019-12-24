@@ -9,6 +9,11 @@ import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 
+const Wrapper = styled.div`
+    width: 80%;
+    margin: 0 auto;
+`
+
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
@@ -64,7 +69,7 @@ const SignupDefault = ({
     is_submitting,
 }) => {
     return (
-        <>
+        <Wrapper>
             <Header as="h3" weight="bold">
                 {localize('Sign up for free now!')}
             </Header>
@@ -125,7 +130,7 @@ const SignupDefault = ({
                     components={[<strong key={0} />, <LoginLink key={1} onClick={handleLogin} />]}
                 />
             </NoteText>
-        </>
+        </Wrapper>
     )
 }
 

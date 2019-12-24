@@ -1,25 +1,26 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import Cookies from 'js-cookie'
-import PropTypes from 'prop-types'
-import { Header, Text, Image, StyledLink } from 'components/elements'
-import { localize, Localize } from 'components/localization'
-import Wrapper from 'components/containers/wrapper'
-import validation from 'common/validation'
-import TrafficSource from 'common/traffic-source'
-import { LocalStore } from 'common/storage'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
-import device from 'themes/device.js'
+import { LocalStore } from 'common/storage'
+import TrafficSource from 'common/traffic-source'
+import validation from 'common/validation'
+import { BinarySocketBase } from 'common/websocket/socket_base'
+import Wrapper from 'components/containers/wrapper'
 import SignupDefault from 'components/custom/_signup-default'
-import SignupSimple from 'components/custom/_signup-simple'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
+import SignupPublic from 'components/custom/_signup-public'
+import SignupSimple from 'components/custom/_signup-simple'
+import { Header, Image, StyledLink, Text } from 'components/elements'
+import { localize, Localize } from 'components/localization'
+import Cookies from 'js-cookie'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import device from 'themes/device.js'
 
 const Form = styled.form`
     width: 100%;
     height: 100%;
-    background-color: var(--color-grey-8);
+    background-color: ${props=> props.bgColor || 'var(--color-white)'};
 `
 const ResponseWrapper = styled.div`
     justify-content: center;
@@ -65,6 +66,7 @@ export const Appearances = {
     simple: 'simple',
     darkFlat: 'darkFlat',
     lightFlat: 'lightFlat',
+    public: 'public',
     newSignup: 'newSignup',
 }
 class Signup extends Component {
@@ -154,7 +156,7 @@ class Signup extends Component {
 
     handleSocialSignup = e => {
         e.preventDefault()
-        Login.initOneAll(e.target.id)
+        Login.initOneAll(e.currentTarget.id)
     }
 
     handleLogin = e => {
@@ -185,6 +187,8 @@ class Signup extends Component {
                 return <SignupSimple {...parameters}></SignupSimple>
             case Appearances.newSignup:
                 return <SignupNew {...parameters}></SignupNew>
+            case Appearances.public:
+                return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:
             case Appearances.darkFlat:
                 return param == Appearances.darkFlat ? (
@@ -202,7 +206,7 @@ class Signup extends Component {
         return (
             <>
                 {!this.state.submit_status && (
-                    <Form onSubmit={this.handleEmailSignup} noValidate>
+                    <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
                         {this.renderSwitch(this.props.appearance)}
                     </Form>
                 )}
@@ -238,6 +242,7 @@ class Signup extends Component {
 Signup.propTypes = {
     appearance: PropTypes.oneOf(Object.keys(Appearances)),
     autofocus: PropTypes.bool,
+    bgColor: PropTypes.string,
     closeModal: PropTypes.func,
 }
 

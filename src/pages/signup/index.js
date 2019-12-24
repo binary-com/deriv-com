@@ -6,7 +6,7 @@ import Layout from 'components/layout/layout'
 
 const NewSignup = () => (
     <Layout is_static>
-        <Signup appearance={Appearances.newSignup} />
+        <Signup appearance={Appearances.newSignup} bgColor="var(--color-grey-8)" />
     </Layout>
 )
 

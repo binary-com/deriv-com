@@ -8,6 +8,7 @@ import { Header, Text } from 'components/elements/typography'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
+import Signup, { Appearances } from 'components/custom/signup'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -35,6 +36,7 @@ const ContactUs = () => {
             <ContactWays />
             <Offices />
             <Affiliates />
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

@@ -27,6 +27,10 @@ const Box = styled.div`
         color: var(--color-red);
         font-weight: bold;
         text-decoration: none;
+
+        :hover {
+            text-decoration: underline;
+        }
     }
 `
 const Europe = styled(EU)`
@@ -70,10 +74,10 @@ const Regulatory = () => (
                             translate_text="Binary Investments (Europe) Ltd, with a registered office at W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                             components={[
                                 <a
-                                    external_link
                                     key={0}
                                     target="_blank"
                                     href="/WS-Binary-Investments-Europe-Limited.pdf"
+                                    rel="noopener noreferrer"
                                 />
                             ]}
                         />
@@ -87,7 +91,7 @@ const Regulatory = () => (
         <SectionContainer padding="2.4rem 0 0">
             <GridContainer>
                 <CssGrid
-                    columns="minmax(10rem, 69rem) minmax(30rem, 1fr)"
+                    columns="minmax(10rem, 69rem) minmax(45rem, 1fr)"
                     columngap="2.4rem"
                     tabletcolumns="1fr 1fr"
                     mobilecolumns="1fr"

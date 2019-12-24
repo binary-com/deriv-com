@@ -17,8 +17,9 @@ import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 
 const Form = styled.form`
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-grey-8);
 `
 const ResponseWrapper = styled.div`
     justify-content: center;
@@ -169,14 +170,14 @@ class Signup extends Component {
 
     renderSwitch(param) {
         const parameters = {
-            email_error_msg: this.state.email_error_msg,
-            email: this.state.email,
-            clearEmail: this.clearEmail,
-            handleInputChange: this.handleInputChange,
-            handleValidation: this.handleValidation,
             autofocus: this.props.autofocus,
-            handleSocialSignup: this.handleSocialSignup,
+            clearEmail: this.clearEmail,
+            email: this.state.email,
+            email_error_msg: this.state.email_error_msg,
+            handleInputChange: this.handleInputChange,
             handleLogin: this.handleLogin,
+            handleSocialSignup: this.handleSocialSignup,
+            handleValidation: this.handleValidation,
             is_submitting: this.state.is_submitting,
         }
         switch (param) {

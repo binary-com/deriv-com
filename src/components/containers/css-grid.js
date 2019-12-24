@@ -10,7 +10,7 @@ const CssGrid = styled.div`
     grid-column-gap: ${props => props.columngap || '0'};
     grid-row-gap: ${props => props.rowgap || '0'};
     align-items: ${props => props.align || 'start'};
-    justify-items: ${props => props.justify || 'start'};
+    justify-items: ${props => props.justify || 'auto'};
     background-color: ${props => props.bgcolor || 'none'};
 
     @media ${device.tabletL} {
@@ -27,7 +27,7 @@ const CssGrid = styled.div`
 export const CssGridColumn = styled.div`
     padding: ${props => props.padding || '0'};
     align-self: ${props => props.align || 'stretch'};
-    justify-self: ${props => props.justify || 'auto'};
+    justify-self: ${props => props.justify || 'initial'};
     background-color: ${props => props.bgcolor || 'none'};
     height: ${props => props.height || 'auto'};
 `

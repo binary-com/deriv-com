@@ -13,6 +13,7 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Divider, Modal, useModal } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
+import Signup, { Appearances } from 'components/custom/signup'
 
 const Home = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -47,6 +48,7 @@ const Home = () => {
                 <WhyDeriv />
                 <PaymentMethods />
             </Show.Desktop>
+            <Signup appearance={Appearances.public} />
             <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>

@@ -9,6 +9,7 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
+import Signup, { Appearances } from 'components/custom/signup'
 
 const PlatformContainer = styled.div`
     padding: 8rem 0;
@@ -26,6 +27,7 @@ class Dbot extends Component {
                 <PlatformContainer>
                     <OtherPlatform exclude="dbot" />
                 </PlatformContainer>
+                <Signup appearance={Appearances.public} />
             </Layout>
         )
     }

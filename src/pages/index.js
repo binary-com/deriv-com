@@ -41,9 +41,10 @@ const Home = () => {
             </Show.Desktop>
             <Markets />
             <WhatOurClientsSay />
-            <Show.Desktop>
+            {/* TODO: investigate performance and enable later */}
+            {/* <Show.Desktop>
                 <Ticker />
-            </Show.Desktop>
+            </Show.Desktop> */}
             <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>

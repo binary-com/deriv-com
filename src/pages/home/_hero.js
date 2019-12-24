@@ -99,6 +99,7 @@ export const Hero = () => {
                         position: 'absolute',
                         top: '0%',
                         objectFit: 'fill',
+                        filter: 'brightness(0.8)',
                     }}
                     width="100%"
                     height="100%"

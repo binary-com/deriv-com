@@ -30,7 +30,6 @@ const ImageContainer = styled.div`
     position: relative;
     height: 100%;
     width: 100%;
-    margin-top: 5rem;
 `
 
 export const Trade = () => {
@@ -40,6 +39,16 @@ export const Trade = () => {
     return (
         <SectionContainer>
             <Container direction="column">
+                <Header font_size="3.6rem" as="h2" align="center">
+                    {localize('Trade the way you like')}
+                </Header>
+                <SubHeaderWrapper>
+                    <Header weight="500" lh="1.5" as="h4" align="center">
+                        {localize(
+                            "Whether you’re a beginner or a seasoned trader, we've got you covered.",
+                        )}
+                    </Header>
+                </SubHeaderWrapper>
                 <Flex>
                     <div style={{ width: '60%' }}>
                         <ImageContainer>
@@ -55,16 +64,6 @@ export const Trade = () => {
                         </ImageContainer>
                     </div>
                     <div style={{ width: '40%' }}>
-                        <Header font_size="3.6rem" as="h2">
-                            {localize('Trade the way you like')}
-                        </Header>
-                        <SubHeaderWrapper>
-                            <Header weight="500" lh="1.5" as="h4">
-                                {localize(
-                                    'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
-                                )}
-                            </Header>
-                        </SubHeaderWrapper>
                         <CssGrid rowgap="1.6rem" height="0%">
                             <div onMouseEnter={() => setSelected(platforms.trader)}>
                                 <TraderCard is_selected={selected === platforms.trader} />

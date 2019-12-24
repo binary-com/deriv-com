@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import TradingAnimation from '../../images/lotties/trading.json'
+import WithdrawAnimation from '../../images/lotties/withdraw.json'
+import DemoAnimation from '../../images/lotties/demo.json'
 import { Container, SectionContainer, Flex, CssGrid } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, Text, Lottie } from 'components/elements'
 import { localize } from 'components/localization'
 
 const options = {
@@ -27,6 +30,14 @@ const Border = styled.div`
     border-left: 4px solid red;
     left: -1.6rem;
 `
+
+const LottieWrapper = styled.div`
+    position: absolute;
+    top: -3.8rem;
+    right: -6.1rem;
+    width: 80%;
+`
+
 const HowItWorks = () => {
     const [selected, setSelected] = React.useState(options.practice)
     const is_practice = selected === options.practice
@@ -85,10 +96,16 @@ const HowItWorks = () => {
                             </div>
                         </CssGrid>
                     </div>
-                    <div style={{ width: '60%' }}>
-                        {selected === options.practice && <div>Dpractice animation</div>}
-                        {selected === options.trade && <div>Dtrade animation</div>}
-                        {selected === options.withdraw && <div>dwithdraw animation</div>}
+                    <div style={{ width: '60%', position: 'relative' }}>
+                        <LottieWrapper>
+                            {is_practice && <Lottie animationData={DemoAnimation} />}
+                            {is_trade && (
+                                <div style={{ marginTop: '-2rem', marginRight: '2rem' }}>
+                                    <Lottie animationData={TradingAnimation} />
+                                </div>
+                            )}
+                            {is_withdraw && <Lottie animationData={WithdrawAnimation} />}
+                        </LottieWrapper>
                     </div>
                 </Flex>
             </Container>

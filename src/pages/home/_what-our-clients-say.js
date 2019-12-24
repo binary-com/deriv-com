@@ -54,7 +54,7 @@ const WhatOurClientsSay = () => (
             </Header>
         </Container>
         <Flex m="4rem 0 0 0">
-            <ClientCard m="4rem 0 0 0">
+            <ClientCard>
                 <QuoteText as="blockquote">
                     {localize(
                         'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
@@ -98,7 +98,7 @@ const WhatOurClientsSay = () => (
                     </figure>
                 </Flex>
             </ClientCard>
-            <ClientCard m="4rem 0 0 0">
+            <ClientCard>
                 <QuoteText as="blockquote">
                     {localize(
                         'It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more.',

@@ -14,7 +14,14 @@ const CheckboxWrapper = styled.div`
 class Checkbox extends React.Component {
     state = { checked: false }
 
-    handleCheckboxChange = event => this.setState({ checked: event.target.checked })
+    handleCheckboxChange = event => {
+        this.setState({ checked: event.target.checked })
+        this.functiontest()
+    }
+
+    functiontest = () => {
+        this.props.handleChange()
+    }
 
     render() {
         return (
@@ -32,6 +39,8 @@ class Checkbox extends React.Component {
 }
 
 Checkbox.propTypes = {
+    checked: PropTypes.bool,
+    handleChange: PropTypes.func,
     label: PropTypes.string,
 }
 

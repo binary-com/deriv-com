@@ -1,3 +1,7 @@
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import Cookies from 'js-cookie'
 import Login from 'common/login'
 import { LocalStore } from 'common/storage'
 import TrafficSource from 'common/traffic-source'
@@ -11,16 +15,12 @@ import SignupPublic from 'components/custom/_signup-public'
 import SignupSimple from 'components/custom/_signup-simple'
 import { Header, Image, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import Cookies from 'js-cookie'
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import styled from 'styled-components'
 import device from 'themes/device.js'
 
 const Form = styled.form`
     width: 100%;
     height: 100%;
-    background-color: ${props=> props.bgColor || 'var(--color-white)'};
+    background-color: ${props => props.bgColor || 'var(--color-white)'};
 `
 const ResponseWrapper = styled.div`
     justify-content: center;

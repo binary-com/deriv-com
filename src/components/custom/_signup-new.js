@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
-import { Header, Text, Checkbox } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import { localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import Award from 'images/svg/award-winning.svg'
 import Complaint from 'images/svg/complaint.svg'
 import Security from 'images/svg/security.svg'
@@ -62,9 +62,9 @@ const Item = styled.div`
     }
 `
 const Line = styled.div`
-    width: 100%;
+    width: ${props => props.width || '100%'};
     height: 1px;
-    background-color: var(--color-red);
+    background-color: ${props => props.bgColor || 'var(--color-red)'};
     margin-top: 2.4rem;
 `
 const StyledText = styled(Text)`
@@ -87,8 +87,14 @@ const InputGroup = styled.div`
 const EmailButton = styled(Button)`
     width: 100%;
     font-size: 1.4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.4rem;
     margin-top: 2.4rem;
+`
+const SignupWithContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: baseline;
 `
 
 const SocialButton = styled(Button)`
@@ -120,18 +126,28 @@ const Span = styled.span`
     font-weight: 500;
     font-size: var(--text-size-xxs);
     color: var(--color-grey-13);
+    vertical-align: super;
 
     @media ${device.tabletL} {
         display: none;
     }
 `
-const LoginLink = styled.a`
+const StyledLink = styled(LocalizedLink)`
     color: var(--color-red);
     text-decoration: none;
     cursor: pointer;
     font-weight: bold;
     margin-bottom: 1.4rem;
 `
+const Checkbox = styled.input.attrs({ type: 'checkbox' })`
+    margin-right: 0.8rem;
+    width: 1.6rem;
+    height: 1.6rem;
+`
+const CheckboxSpan = styled.span`
+    font-size: var(--text-size-xs);
+`
+
 const SignupDefault = ({
     email_error_msg,
     email,
@@ -143,6 +159,11 @@ const SignupDefault = ({
     handleLogin,
     is_submitting,
 }) => {
+    const [checkBoxState, setCheckBoxState] = useState(false)
+
+    const handleChange = event => {
+        setCheckBoxState(event.currentTarget.checked)
+    }
     return (
         <Wrapper>
             <Content>
@@ -201,6 +222,7 @@ const SignupDefault = ({
                         id="email"
                         name="email"
                         type="text"
+                        background="white"
                         error={email_error_msg}
                         value={email}
                         label={localize('Email')}
@@ -213,13 +235,34 @@ const SignupDefault = ({
                         required
                     />
                 </InputGroup>
-                <Checkbox label={localize('I agree to the Terms and Conditions')}> </Checkbox>
-                <EmailButton type="submit" secondary disabled={is_submitting}>
+                <label>
+                    <Checkbox onChange={handleChange} />
+                    <CheckboxSpan>
+                        <Localize
+                            fontSize="var(--text-size-xs)"
+                            translate_text="I agree to the <0>Terms and Conditions</0>"
+                            components={[
+                                <StyledLink key={0} target="_blank" to="terms-and-conditions" />,
+                            ]}
+                        />
+                    </CheckboxSpan>
+                </label>
+                <EmailButton
+                    checkBoxState={checkBoxState}
+                    type="submit"
+                    secondary
+                    disabled={is_submitting || !checkBoxState}
+                >
                     {localize('Create a free account')}
                 </EmailButton>
-                <StyledText color="grey-10" align="center" fontSize="var(--text-size-xxs)">
-                    {localize('OR SIGN UP WITH ')}
-                </StyledText>
+                <SignupWithContainer>
+                    <Line width="130px" bgColor="var(--color-grey-7)" />
+                    <StyledText color="grey-10" align="center" fontSize="var(--text-size-xxs)">
+                        {localize('OR SIGN UP WITH ')}
+                    </StyledText>
+                    <Line width="130px" bgColor="var(--color-grey-7)" />
+                </SignupWithContainer>
+
                 <SocialWrapper justify="space-between" gap="0" grid="2">
                     <SocialButton
                         onClick={handleSocialSignup}
@@ -248,7 +291,7 @@ const SignupDefault = ({
                 </SocialWrapper>
                 <LoginText>
                     {localize('Already have an account?')}
-                    <LoginLink onClick={handleLogin}> {localize('Log in.')}</LoginLink>
+                    <StyledLink onClick={handleLogin}> {localize('Log in.')}</StyledLink>
                 </LoginText>
             </SignupContent>
         </Wrapper>

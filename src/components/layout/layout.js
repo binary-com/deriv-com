@@ -5,7 +5,6 @@ import Footer from './footer'
 import { Nav, NavStatic } from './nav'
 
 const Main = styled.main`
-    padding-top: 7rem;
     background: var(--color-white);
     height: ${props => (props.is_static ? '92vh' : '100%')};
 `

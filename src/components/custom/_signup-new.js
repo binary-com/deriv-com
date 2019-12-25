@@ -13,7 +13,7 @@ import Complaint from 'images/svg/complaint.svg'
 import Security from 'images/svg/security.svg'
 
 const Wrapper = styled.section`
-    padding-top: 0;
+    padding-top: 8rem;
     width: 100%;
     height: fit-cpntent;
     justify-content: center;

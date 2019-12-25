@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, Text, Checkbox } from 'components/elements'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
@@ -139,11 +139,6 @@ const StyledLink = styled(LocalizedLink)`
     font-weight: bold;
     margin-bottom: 1.4rem;
 `
-const Checkbox = styled.input.attrs({ type: 'checkbox' })`
-    margin-right: 0.8rem;
-    width: 1.6rem;
-    height: 1.6rem;
-`
 const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
 `
@@ -236,7 +231,7 @@ const SignupDefault = ({
                     />
                 </InputGroup>
                 <label>
-                    <Checkbox onChange={handleChange} />
+                    <Checkbox onChange={handleChange} checked={checkBoxState} />
                     <CheckboxSpan>
                         <Localize
                             fontSize="var(--text-size-xs)"

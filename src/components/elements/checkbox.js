@@ -2,46 +2,49 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const CheckboxComponent = styled.input.attrs({ type: 'checkbox' })`
-    margin-right: 0.8rem;
+const CheckboxContainer = styled.div`
+    display: inline-block;
+    vertical-align: middle;
+`
+
+const Icon = styled.svg`
+    fill: none;
+    stroke: var(--color-black);
+    stroke-width: 4px;
+`
+const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
+    border: 0;
+    clip: rect(0 0 0 0);
+    position: absolute;
+`
+
+const StyledCheckbox = styled.div`
+    display: inline-block;
     width: 1.6rem;
     height: 1.6rem;
+    background: var(--color-white);
+    border-radius: 3px;
+    margin-right: 0.8rem;
+    border: 2px solid var(--color-grey-5);
+
+    ${Icon} {
+        visibility: ${props => (props.checked ? 'visible' : 'hidden')};
+    }
 `
 
-const CheckboxWrapper = styled.div`
-    text-align: left;
-`
-class Checkbox extends React.Component {
-    state = { checked: false }
-
-    handleCheckboxChange = event => {
-        this.setState({ checked: event.target.checked })
-        this.functiontest()
-    }
-
-    functiontest = () => {
-        this.props.handleChange()
-    }
-
-    render() {
-        return (
-            <CheckboxWrapper>
-                <label>
-                    <CheckboxComponent
-                        checked={this.state.checked}
-                        onChange={this.handleCheckboxChange}
-                    />
-                    <span style={{ fontSize: 'var(--text-size-xs)' }}>{this.props.label}</span>
-                </label>
-            </CheckboxWrapper>
-        )
-    }
-}
+const Checkbox = ({ checked, ...props }) => (
+    <CheckboxContainer>
+        <HiddenCheckbox checked={checked} {...props} />
+        <StyledCheckbox checked={checked}>
+            <Icon viewBox="0 0 24 24">
+                <polyline points="20 6 9 17 4 12" />
+            </Icon>
+        </StyledCheckbox>
+    </CheckboxContainer>
+)
 
 Checkbox.propTypes = {
     checked: PropTypes.bool,
-    handleChange: PropTypes.func,
-    label: PropTypes.string,
 }
 
 export default Checkbox

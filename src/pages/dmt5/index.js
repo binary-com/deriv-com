@@ -12,6 +12,7 @@ import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DMT5BG from 'images/svg/dmt5-bg.svg'
+import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
     { title: '70+', subtitle: 'tradable assets and growing' },
@@ -60,6 +61,7 @@ const DMT5 = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dmt5" />
             </PlatformContainer>
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

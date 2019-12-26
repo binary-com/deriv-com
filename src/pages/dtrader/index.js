@@ -12,6 +12,7 @@ import Layout from 'components/layout/layout'
 import dtrader_logo from 'images/svg/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DTraderBG from 'images/svg/dtrader-bg.svg'
+import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
     { title: '50+', subtitle: 'tradable assets and growing' },
@@ -83,6 +84,7 @@ const Dtrader = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

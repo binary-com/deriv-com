@@ -12,6 +12,7 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import DBotBG from 'images/svg/dbot-bg.svg'
+import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
     { title: '5', subtitle: 'Pre-built strategies included' },
@@ -121,6 +122,7 @@ class Dbot extends Component {
                 <PlatformContainer>
                     <OtherPlatform exclude="dbot" />
                 </PlatformContainer>
+                <Signup appearance={Appearances.public} />
             </Layout>
         )
     }

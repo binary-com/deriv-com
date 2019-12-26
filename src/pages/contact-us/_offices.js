@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from 'components/elements/typography'
+import { Text, LinkText } from 'components/elements/typography'
 import { Header, Image } from 'components/elements'
 import { localize } from 'components/localization'
 import MapSVG from 'images/svg/map.svg'
@@ -85,14 +85,17 @@ const ImageWrapper = styled.div`
         display: none;
     }
 `
-const AddressContainer = styled.div`
-    :hover {
-        text-decoration: underline;
-        cursor: pointer;
-    }
+// const AddressContainer = styled.div`
+//     :hover {
+//         text-decoration: underline;
+//         cursor: pointer;
+//     }
+// `
+const StyledParagraph = styled.p`
+    text-indent: 1.5em;
 `
 const StyledText = styled(Text)`
-    margin-bottom: ${props => props.marginBttom || '0.8rem'};
+    margin-top: 1.6rem;
     color: ${props => props.color || 'var(--color-black-3)'};
     text-indent: ${props => props.textIndent || '0'};
 `
@@ -127,15 +130,17 @@ export const Offices = () => {
                                 {localize('Malta')}
                             </StyledHeader>
                             <br />
-                            <AddressContainer>
-                                <StyledText width="29.9rem" marginBttom="0">
-                                    <MapIcon />
-                                    {localize('Level 3, W Business Centre,')}
-                                </StyledText>
-                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                            <LinkText
+                                color="black-3"
+                                size="var(--text-size-s)"
+                                href="https://www.google.com/maps/search/?api=1&query=35.903559,14.460707"
+                            >
+                                <MapIcon />
+                                {localize('Level 3, W Business Centre,')}
+                                <StyledParagraph>
                                     {localize('Triq Dun Karm Birkirkara BKR9033 Malta.')}
-                                </StyledText>
-                            </AddressContainer>
+                                </StyledParagraph>
+                            </LinkText>
                             <StyledText>
                                 <PhoneIcon />
                                 +356 2131 6105
@@ -149,15 +154,17 @@ export const Offices = () => {
                                 {localize('Malaysia')}
                             </StyledHeader>
                             <br />
-                            <AddressContainer>
-                                <StyledText marginBttom="0">
-                                    <MapIcon />
-                                    {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
-                                </StyledText>
-                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                            <LinkText
+                                color="black-3"
+                                size="var(--text-size-s)"
+                                href="https://www.google.com/maps/search/?api=1&query=2.922786,101.661404"
+                            >
+                                <MapIcon />
+                                {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
+                                <StyledParagraph>
                                     {localize('63000 Cyberjaya, Selangor, Malaysia.')}
-                                </StyledText>
-                            </AddressContainer>
+                                </StyledParagraph>
+                            </LinkText>
                             <StyledText>
                                 <PhoneIcon /> +603 83228178
                             </StyledText>
@@ -186,15 +193,17 @@ export const Offices = () => {
                                 {localize('Labuan')}
                             </StyledHeader>
                             <br />
-                            <AddressContainer>
-                                <StyledText marginBttom="0">
-                                    <MapIcon />
-                                    {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
-                                </StyledText>
-                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
+                            <LinkText
+                                color="black-3"
+                                size="var(--text-size-s)"
+                                href="https://www.google.com/maps/search/?api=1&query=,"
+                            >
+                                <MapIcon />
+                                {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
+                                <StyledParagraph>
                                     {localize('Mustapha, 87000, Labuan')}
-                                </StyledText>
-                            </AddressContainer>
+                                </StyledParagraph>
+                            </LinkText>
                             <StyledText>
                                 <PhoneIcon />
                                 +6087 504126
@@ -208,15 +217,15 @@ export const Offices = () => {
                                 {localize('Dubai')}
                             </StyledHeader>
                             <br />
-                            <AddressContainer>
-                                <StyledText marginBttom="0">
-                                    <MapIcon />
-                                    {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
-                                </StyledText>
-                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                                    {localize('Towers, Dubai, UAE.')}
-                                </StyledText>
-                            </AddressContainer>
+                            <LinkText
+                                color="black-3"
+                                size="var(--text-size-s)"
+                                href="https://www.google.com/maps/search/?api=1&query=25.079313,55.149074"
+                            >
+                                <MapIcon />
+                                {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
+                                <StyledParagraph>{localize('Towers, Dubai, UAE.')}</StyledParagraph>
+                            </LinkText>
                             <StyledText>
                                 <PhoneIcon />
                                 +9714 399 0404
@@ -246,20 +255,18 @@ export const Offices = () => {
                                 {localize('Paraguay')}
                             </StyledHeader>
                             <br />
-                            <AddressContainer>
-                                <StyledText marginBttom="0">
-                                    <MapIcon />
-                                    {localize(
-                                        '886, Edificio Australia, Calle Herib, Campos Cervera',
-                                    )}
-                                </StyledText>
-                                <StyledText textIndent="1.5em" marginBttom="0">
+                            <LinkText
+                                color="black-3"
+                                size="var(--text-size-s)"
+                                href="https://www.google.com/maps/search/?api=1&query=-25.282562,-57.563787"
+                            >
+                                <MapIcon />
+                                {localize('886, Edificio Australia, Calle Herib, Campos Cervera')}
+                                <StyledParagraph>
                                     {localize('y Tregnaghi, Distriti de Stma, Trinidad, Asuncion,')}
-                                </StyledText>
-                                <StyledText marginBttom="1.6rem" textIndent="1.5em">
-                                    {localize('Paraguay')}
-                                </StyledText>
-                            </AddressContainer>
+                                </StyledParagraph>
+                                <StyledParagraph>{localize('Paraguay')}</StyledParagraph>
+                            </LinkText>
                             <StyledText>
                                 <PhoneIcon />
                                 +595 991298762

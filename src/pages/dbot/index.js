@@ -11,6 +11,7 @@ import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
+import DBotBG from 'images/svg/dbot-bg.svg'
 
 const items = [
     { title: '5', subtitle: 'Pre-built strategies included' },
@@ -112,6 +113,7 @@ class Dbot extends Component {
                     go_to_live_demo
                     Logo={dbot_logo}
                     animation={DBotAnimation}
+                    background={DBotBG}
                 />
                 <DNumber items={items} justify='space-around' />
                 <DHowItWorks Video={DBotVideo} title='Build a trading robot in 5 easy steps' />

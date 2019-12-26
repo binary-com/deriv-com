@@ -11,6 +11,7 @@ import { Show, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import dtrader_logo from 'images/svg/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
+import DTraderBG from 'images/svg/dtrader-bg.svg'
 
 const items = [
     { title: '50+', subtitle: 'tradable assets and growing' },
@@ -72,6 +73,7 @@ const Dtrader = () => {
                 go_to_live_demo
                 Logo={dtrader_logo}
                 animation={DTraderAnimation}
+                background={DTraderBG}
             />
             <Show.Desktop>
                 <DNumber items={items} justify='space-around' />

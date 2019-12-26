@@ -31,6 +31,8 @@ const StyledHeader = styled(Header)`
     margin-top: 0;
 `
 const Wrapper = styled.div`
+    position: relative;
+    overflow: hidden;
     background-color: var(--color-black);
     width: 100%;
     padding: 10rem 0;
@@ -46,6 +48,7 @@ const TryForFree = styled(Button)`
     }
 `
 const StyledContainer = styled(Container)`
+    position: relative;
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
@@ -64,7 +67,8 @@ const GoToLiveDemo = styled(Button)`
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
 `
-const DHero = ({ title, content, join_us_for_free, go_to_live_demo, start_automating, Logo, animation }) => {
+
+const DHero = ({ title, background, content, join_us_for_free, go_to_live_demo, start_automating, Logo, animation }) => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const handleRedirect = () => {
         window.open(deriv_app_url, '_blank')
@@ -72,8 +76,17 @@ const DHero = ({ title, content, join_us_for_free, go_to_live_demo, start_automa
     const DLogo = styled(Logo)`
         margin-right: 1.6rem;
     `
+    const BackgroundSVG = styled(background)`
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 105%;
+    `
     return (
         <Wrapper>
+            <Show.Desktop>
+                <BackgroundSVG />
+            </Show.Desktop>
             <StyledContainer>
                 <div>
                     <StyledHeader as="h4" weight={500}>
@@ -112,6 +125,7 @@ const DHero = ({ title, content, join_us_for_free, go_to_live_demo, start_automa
 
 DHero.propTypes = {
     animation: PropTypes.object,
+    background: PropTypes.func,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     join_us_for_free: PropTypes.bool,

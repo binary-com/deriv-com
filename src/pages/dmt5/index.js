@@ -11,6 +11,7 @@ import dmt5_logo from 'images/svg/dmt5-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
+import DMT5BG from 'images/svg/dmt5-bg.svg'
 
 const items = [
     { title: '70+', subtitle: 'tradable assets and growing' },
@@ -49,6 +50,7 @@ const DMT5 = () => {
                 join_us_for_free
                 Logo={dmt5_logo}
                 animation={DMT5Animation}
+                background={DMT5BG}
             />
             <Show.Desktop>
                 <DNumber items={items} justify='space-around' />

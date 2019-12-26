@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import DBotAnimation from './dbot-animation.json'
 import DBotVideo from './_dbot-video.js'
+import DBotAnimation from 'images/lotties/dbot-animation.json'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
@@ -33,7 +33,7 @@ const trading = [
             'Martingale, D’Alembert, Oscar’s Grid, Cuttler’s RSI, Bollinger Bands, and SMA Crossover - load and customise proven strategies or create your own from scratch.',
         ),
         image_name: 'dbot-strategy.png',
-        image_alt: 'Strategy',
+        image_alt: localize('Strategy'),
     },
     {
         title: <Localize
@@ -46,7 +46,7 @@ const trading = [
             'Simply drag, drop, and configure pre-built blocks and indicators onto a canvas to build your bot. No coding needed.',
         ),
         image_name: 'dbot-build-strategy.png',
-        image_alt: 'Build bot strategy',
+        image_alt: localize('Build bot strategy'),
     },
     {
         title: <Localize
@@ -59,7 +59,7 @@ const trading = [
             'Use analysis tools and indicators and include take-profit, stop-loss and other smart logic to maximise your profits, and limit losses.',
         ),
         image_name: 'dbot-maximise-profits.png',
-        image_alt: 'Analysis tool',
+        image_alt: localize('Analysis tool'),
     },
     {
         title: <Localize
@@ -72,7 +72,7 @@ const trading = [
             'See how your bot is performing as it executes each trade and receive notifications via Telegram.',
         ),
         image_name: 'dbot-track-your-performance.png',
-        image_alt: 'Track performace',
+        image_alt: localize('Track performace'),
     },
     {
         title: <Localize
@@ -85,7 +85,7 @@ const trading = [
             'Access tutorials, guides, and reference information as you build your bot.',
         ),
         image_name: 'dbot-get-integrated-help.png',
-        image_alt: 'Integrated help',
+        image_alt: localize('Integrated help'),
     },
     {
         title: <Localize
@@ -98,7 +98,7 @@ const trading = [
             'Enjoy the convenience and security of storing your strategies on your Google Drive.',
         ),
         image_name: 'dbot-save-your-strategies.png',
-        image_alt: 'Save bot strategy',
+        image_alt: localize('Save bot strategy'),
     },
 ]
 class Dbot extends Component {

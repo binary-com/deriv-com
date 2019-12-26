@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import DTraderAnimation from './dtrader-animation.json'
 import DtraderVideo from './_dtrader-video.js'
+import DTraderAnimation from 'images/lotties/dtrader-animation.json'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
@@ -34,7 +34,7 @@ const trading = [
             ]}
         />,
         image_name: 'make-smarter.png',
-        image_alt: 'Make smarter'
+        image_alt: localize('Make smarter')
     },
     {
         title: <Localize
@@ -45,7 +45,7 @@ const trading = [
         />,
         subtitle: localize('Forex, indices, commodities and Volatility indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.'),
         image_name: 'trade-what-you-want.png',
-        image_alt: 'Trade what you want'
+        image_alt: localize('Trade what you want')
     },
     {
         title: <Localize
@@ -56,7 +56,7 @@ const trading = [
         />,
         subtitle: localize('Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second.'),
         image_name: 'how-you-want.png',
-        image_alt: 'How you want',
+        image_alt: localize('How you want'),
     }
 ]
 const PlatformContainer = styled.div`

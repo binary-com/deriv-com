@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import DMT5Animation from './dmt5-animation.json'
 import DMT5Video from './_dmt5-video.js'
+import DMT5Animation from 'images/lotties/dmt5-animation.json'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
@@ -28,7 +28,7 @@ const trading = [
         second_title: localize('DMT5 Advanced Account'),
         second_subtitle: localize("Get your trades placed straight through to the market with a DMT5 Advanced account — a 100% A-Book account with tight spreads."),
         image_name: 'dmt-5-ipad-iphone.png',
-        image_alt: 'DMT5 mac'
+        image_alt: localize('DMT5 mac')
     },
     {
         title: localize('DMT5 Synthetic Indices'),
@@ -36,7 +36,7 @@ const trading = [
         second_title: localize('Practice with Demo accounts'),
         second_subtitle: localize('Create demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.'),
         image_name: 'dmt-5-mac.png',
-        image_alt: 'DMT5 ipad iphone'
+        image_alt: localize('DMT5 ipad iphone')
     },
 ]
 

@@ -8,34 +8,6 @@ import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import Award from 'images/svg/award-winning.svg'
-import Complaint from 'images/svg/complaint.svg'
-import Security from 'images/svg/security.svg'
-
-const Wrapper = styled.section`
-    padding-top: 8rem;
-    width: 100%;
-    height: fit-cpntent;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    background-color: var(--color-grey-8);
-`
-
-const Content = styled.div`
-    width: 40rem;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    height: 55.5rem;
-    padding: 4rem 0;
-    margin-right: 5.6rem;
-    margin-left: 2rem;
-
-    @media ${device.tablet} {
-        display: none;
-    }
-`
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -47,29 +19,14 @@ const SignupContent = styled.div`
     background-color: var(--color-white);
 `
 
-const Item = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    margin-top: 2.4rem;
-
-    * {
-        margin-right: 1.6rem;
-        width: fit-content;
-    }
-    :last-child {
-        margin-bottom: 0;
-    }
-`
 const Line = styled.div`
-    width: ${props => props.width || '100%'};
+    width: 130px;
     height: 1px;
-    background-color: ${props => props.bgColor || 'var(--color-red)'};
+    background-color: var(--color-grey-7);
     margin-top: 2.4rem;
 `
 const StyledText = styled(Text)`
     font-size: ${props => props.fontSize || 'var(--text-size-xs)'};
-    margin-top: ${props => props.marginTop || 'none'};
 `
 const NoteBox = styled.div`
     width: 100%;
@@ -160,136 +117,96 @@ const SignupDefault = ({
         setCheckBoxState(event.currentTarget.checked)
     }
     return (
-        <Wrapper>
-            <Content>
-                <Header as="h4">{localize('Start trading with Deriv')}</Header>
-                <br />
-                <Text>{localize('Join over 1 million traders worldwide')}</Text>
-                <Line />
-                <Item>
-                    <Award />
-                    <Text>
-                        {localize(
-                            'Deriv is the next evolution of Binary.com — an award-winning platform that’s been trusted for 20 years.',
-                        )}
-                    </Text>
-                </Item>
-                <Item>
-                    <Complaint />
-                    <Text>{localize('We’re compliant with regulators around the world.')}</Text>
-                </Item>
-                <Item>
-                    <Security />
-                    <Text>
-                        {localize(
-                            'Your privacy and security are our top priority. We’ll never use your details without consent.',
-                        )}
-                    </Text>
-                </Item>
-                <Line />
-                <StyledText color="grey-12" marginTop="2.4rem">
+        <SignupContent>
+            <Header as="h4" weight="bold">
+                {localize('Sign up')}
+            </Header>
+            <br />
+            <Text>{localize('Enter your email address to begin')}</Text>
+            <NoteBox>
+                <StyledText fontSize="var(--text-size-xs)" color="grey-10" lh="1.14" align="center">
                     {localize(
-                        'By giving us your email address, you agree to receive marketing emails from us. You may unsubscribe from these emails at any time.',
+                        'Got a Binary.com account? Simply Log in to Deriv.com with your Binary.com credentials',
                     )}
                 </StyledText>
-            </Content>
-
-            <SignupContent>
-                <Header as="h4" weight="bold">
-                    {localize('Sign up')}
-                </Header>
-                <br />
-                <Text>{localize('Enter your email address to begin')}</Text>
-                <NoteBox>
-                    <StyledText
+            </NoteBox>
+            <InputGroup>
+                <Input
+                    id="email"
+                    name="email"
+                    type="text"
+                    background="white"
+                    error={email_error_msg}
+                    value={email}
+                    label={localize('Email')}
+                    placeholder={'Email'}
+                    handleError={clearEmail}
+                    onChange={handleInputChange}
+                    onBlur={handleValidation}
+                    autoFocus={autofocus}
+                    autoComplete="off"
+                    required
+                />
+            </InputGroup>
+            <label>
+                <Checkbox onChange={handleChange} checked={checkBoxState} />
+                <CheckboxSpan>
+                    <Localize
                         fontSize="var(--text-size-xs)"
-                        color="grey-10"
-                        lh="1.14"
-                        align="center"
-                    >
-                        {localize(
-                            'Got a Binary.com account? Simply Log in to Deriv.com with your Binary.com credentials',
-                        )}
-                    </StyledText>
-                </NoteBox>
-                <InputGroup>
-                    <Input
-                        id="email"
-                        name="email"
-                        type="text"
-                        background="white"
-                        error={email_error_msg}
-                        value={email}
-                        label={localize('Email')}
-                        placeholder={'Email'}
-                        handleError={clearEmail}
-                        onChange={handleInputChange}
-                        onBlur={handleValidation}
-                        autoFocus={autofocus}
-                        autoComplete="off"
-                        required
+                        translate_text="I agree to the <0>Terms and Conditions</0>"
+                        components={[
+                            <StyledLink key={0} target="_blank" to="terms-and-conditions" />,
+                        ]}
                     />
-                </InputGroup>
-                <label>
-                    <Checkbox onChange={handleChange} checked={checkBoxState} />
-                    <CheckboxSpan>
-                        <Localize
-                            fontSize="var(--text-size-xs)"
-                            translate_text="I agree to the <0>Terms and Conditions</0>"
-                            components={[
-                                <StyledLink key={0} target="_blank" to="terms-and-conditions" />,
-                            ]}
-                        />
-                    </CheckboxSpan>
-                </label>
-                <EmailButton
-                    checkBoxState={checkBoxState}
-                    type="submit"
-                    secondary
-                    disabled={is_submitting || !checkBoxState}
-                >
-                    {localize('Create a free account')}
-                </EmailButton>
-                <SignupWithContainer>
-                    <Line width="130px" bgColor="var(--color-grey-7)" />
-                    <StyledText color="grey-10" align="center" fontSize="var(--text-size-xxs)">
-                        {localize('OR SIGN UP WITH ')}
-                    </StyledText>
-                    <Line width="130px" bgColor="var(--color-grey-7)" />
-                </SignupWithContainer>
+                </CheckboxSpan>
+            </label>
+            <EmailButton
+                checkBoxState={checkBoxState}
+                type="submit"
+                secondary
+                disabled={is_submitting || !checkBoxState}
+            >
+                {localize('Create a free account')}
+            </EmailButton>
+            <SignupWithContainer>
+                <Line />
+                <StyledText color="grey-10" align="center" fontSize="var(--text-size-xxs)">
+                    {localize('OR SIGN UP WITH ')}
+                </StyledText>
+                <Line />
+            </SignupWithContainer>
 
-                <SocialWrapper justify="space-between" gap="0" grid="2">
-                    <SocialButton
-                        onClick={handleSocialSignup}
-                        provider="google"
-                        id="google"
-                        type="button"
-                        social
-                    >
-                        <span>
-                            <Google />
-                        </span>
-                        <Span>Google</Span>
-                    </SocialButton>
-                    <SocialButton
-                        onClick={handleSocialSignup}
-                        provider="facebook"
-                        id="facebook"
-                        type="button"
-                        social
-                    >
-                        <span>
-                            <Facebook />
-                        </span>
-                        <Span>Facebook</Span>
-                    </SocialButton>
-                </SocialWrapper>
-                <LoginText>
-                    {localize('Already have an account?')}
-                    <StyledLink onClick={handleLogin}> {localize('Log in.')}</StyledLink>
-                </LoginText>
-            </SignupContent>
-        </Wrapper>
+            <SocialWrapper justify="space-between" gap="0" grid="2">
+                <SocialButton
+                    onClick={handleSocialSignup}
+                    provider="google"
+                    id="google"
+                    type="button"
+                    social
+                >
+                    <span>
+                        <Google />
+                    </span>
+                    <Span>Google</Span>
+                </SocialButton>
+                <SocialButton
+                    onClick={handleSocialSignup}
+                    provider="facebook"
+                    id="facebook"
+                    type="button"
+                    social
+                >
+                    <span>
+                        <Facebook />
+                    </span>
+                    <Span>Facebook</Span>
+                </SocialButton>
+            </SocialWrapper>
+            <LoginText>
+                {localize('Already have an account?')}
+                <StyledLink onClick={handleLogin}> {localize('Log in.')}</StyledLink>
+            </LoginText>
+        </SignupContent>
     )
 }
 

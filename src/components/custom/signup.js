@@ -18,7 +18,6 @@ import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const Form = styled.form`
-    width: 100%;
     height: 100%;
     background-color: ${props => props.bgColor || 'var(--color-white)'};
 `

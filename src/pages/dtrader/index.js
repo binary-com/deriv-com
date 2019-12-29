@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import DtraderVideo from './_dtrader-video.js'
-import DTraderAnimation from 'images/lotties/dtrader-animation.json'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
@@ -73,8 +72,8 @@ const Dtrader = () => {
                 join_us_for_free
                 go_to_live_demo
                 Logo={dtrader_logo}
-                animation={DTraderAnimation}
-                background={DTraderBG}
+                background_image_name='dtrader-artboard.png'
+                background_svg={DTraderBG}
             />
             <Show.Desktop>
                 <DNumber items={items} justify='space-around' />

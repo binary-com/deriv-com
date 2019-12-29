@@ -114,7 +114,8 @@ class Dbot extends Component {
                     go_to_live_demo
                     Logo={dbot_logo}
                     animation={DBotAnimation}
-                    background={DBotBG}
+                    background_image_name='dbot-artboard.png'
+                    background_svg={DBotBG}
                 />
                 <DNumber items={items} justify='space-around' />
                 <DHowItWorks Video={DBotVideo} title='Build a trading robot in 5 easy steps' />

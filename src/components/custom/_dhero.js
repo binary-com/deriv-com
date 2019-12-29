@@ -5,10 +5,9 @@ import { deriv_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Container, Show } from 'components/containers'
 import device from 'themes/device.js'
-import { Header, Modal, useModal } from 'components/elements'
+import { Header, Modal, useModal, Image } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 import { Button } from 'components/form'
-import { Lottie } from 'components/elements/lottie.js'
 
 const HeroContent = styled.div`
     display: flex;
@@ -68,7 +67,7 @@ const StyledContent = styled(Header)`
     font-size: 5.6rem;
 `
 
-const DHero = ({ title, background, content, join_us_for_free, go_to_live_demo, start_automating, Logo, animation }) => {
+const DHero = ({ title, background_svg, background_image_name, content, join_us_for_free, go_to_live_demo, start_automating, Logo, animation }) => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const handleRedirect = () => {
         window.open(deriv_app_url, '_blank')
@@ -76,11 +75,11 @@ const DHero = ({ title, background, content, join_us_for_free, go_to_live_demo, 
     const DLogo = styled(Logo)`
         margin-right: 1.6rem;
     `
-    const BackgroundSVG = styled(background)`
+    const BackgroundSVG = styled(background_svg)`
         position: absolute;
         top: 0;
         right: 0;
-        height: 105%;
+        height: 109%;
     `
     return (
         <Wrapper>
@@ -111,7 +110,7 @@ const DHero = ({ title, background, content, join_us_for_free, go_to_live_demo, 
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>
-                            <Lottie animationData={animation} />
+                            <Image img_name={background_image_name} width='54.3rem'/>
                         </LottieWrapper>
                     </Show.Desktop>
                 </div>

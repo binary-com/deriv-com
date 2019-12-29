@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { SEO, Wrapper } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text, Image } from 'components/elements'
-import { localize, WithIntl, LocalizedLink } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
+import { LinkButton } from 'components/form'
 
 const ImageSection = styled(Wrapper)`
     display: flex;
@@ -24,30 +25,6 @@ const PageNotFoundContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin: 16rem 0;
-`
-// TODO: Move to button.js and share style
-const StyledButton = styled(LocalizedLink)`
-    border-radius: 6px;
-    padding: 1rem 1.6rem;
-    font-size: 1.4rem;
-    transition: all 0.25s;
-    font-weight: bold;
-    border: 2px solid var(--color-red);
-    color: var(--color-white);
-    background: var(--color-red);
-    text-decoration: none;
-
-    &:hover {
-        background-color: var(--color-red-3);
-        border-color: var(--color-red-3);
-    }
-    &:focus,
-    &:active {
-        outline: none;
-    }
-    &:active {
-        transform: scale(0.95);
-    }
 `
 const ButtonWrapper = styled.div`
     margin-top: 2.6rem;
@@ -73,7 +50,7 @@ const PageNotFound = () => (
                 </Text>
                 <Text>{localize('Error code: 404 page not found')}</Text>
                 <ButtonWrapper>
-                    <StyledButton to="/">{localize('Go to the homepage')}</StyledButton>
+                    <LinkButton to="/">{localize('Go to the homepage')}</LinkButton>
                 </ButtonWrapper>
             </PageNotFoundContainerInfo>
         </PageNotFoundContainer>

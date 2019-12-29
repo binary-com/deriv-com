@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '../../components/elements/typography'
-import { localize, LocalizedLink } from 'components/localization'
+import { Text } from 'components/elements/typography'
+import { localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
 import NeedUsIcon from 'images/svg/need-us.svg'
 
@@ -29,31 +30,10 @@ const StyledText = styled(Text)`
     margin-bottom: 2.4rem;
     width: 38.4rem;
 `
-const StyledButton = styled(LocalizedLink)`
+const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
     width: 18.4rem;
     height: 4rem;
-    padding: 1rem 1.6rem;
-    font-size: 1.4rem;
-    transition: all 0.25s;
-    font-weight: bold;
-    border: 2px solid var(--color-red);
-    color: var(--color-white);
-    background: var(--color-red);
-    text-decoration: none;
-    text-align: center;
-
-    &:hover {
-        background-color: var(--color-red-3);
-        border-color: var(--color-red-3);
-    }
-    &:focus,
-    &:active {
-        outline: none;
-    }
-    &:active {
-        transform: scale(0.95);
-    }
 `
 
 export const NeedHelp = () => {
@@ -69,7 +49,9 @@ export const NeedHelp = () => {
                         'Try our Help Centre. You’ll find searchable, easy to follow articles to get you going.',
                     )}
                 </StyledText>
-                <StyledButton to="help-centre">{localize('Go to Help Centre')}</StyledButton>
+                <StyledLinkButton to="help-centre">
+                    {localize('Go to Help Centre')}
+                </StyledLinkButton>
             </SectionWrapper>
         </Wrapper>
     )

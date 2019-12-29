@@ -10,6 +10,7 @@ import { Hero, Header, Modal, useModal } from 'components/elements'
 import { Button } from 'components/form'
 import SignupModal from 'components/custom/signup-modal'
 import { Show, SEO } from 'components/containers'
+import { JoinUs } from './_join-us'
 
 const Goahead = styled.div`
     text-align: center;
@@ -48,6 +49,7 @@ const About = () => {
             <OurGoals />
             <OurNumbers />
             <OurLocations />
+            <JoinUs />
             <OurAwards />
             <Show.Mobile>
                 <Goahead>

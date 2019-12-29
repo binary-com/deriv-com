@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { OurLocations } from './_our-locations'
 import { OurNumbers } from './_our-numbers'
 import { OurGoals } from './_our-goals'
+import { OurAwards } from './_our-awards'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Hero, Header, Modal, useModal } from 'components/elements'
@@ -47,6 +48,7 @@ const About = () => {
             <OurGoals />
             <OurNumbers />
             <OurLocations />
+            <OurAwards />
             <Show.Mobile>
                 <Goahead>
                     <Header as="h1" align="center" lh="1.1">

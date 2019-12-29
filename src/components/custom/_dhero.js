@@ -67,7 +67,7 @@ const StyledContent = styled(Header)`
     font-size: 5.6rem;
 `
 
-const DHero = ({ title, background_svg, background_image_name, content, join_us_for_free, go_to_live_demo, start_automating, Logo, animation }) => {
+const DHero = ({ title, background_svg, background_image_name, content, join_us_for_free, go_to_live_demo, start_automating, Logo }) => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const handleRedirect = () => {
         window.open(deriv_app_url, '_blank')
@@ -110,7 +110,7 @@ const DHero = ({ title, background_svg, background_image_name, content, join_us_
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>
-                            <Image img_name={background_image_name} width='54.3rem'/>
+                            <Image img_name={background_image_name} width='54.3rem' />
                         </LottieWrapper>
                     </Show.Desktop>
                 </div>
@@ -123,8 +123,8 @@ const DHero = ({ title, background_svg, background_image_name, content, join_us_
 }
 
 DHero.propTypes = {
-    animation: PropTypes.object,
-    background: PropTypes.func,
+    background_image_name: PropTypes.string,
+    background_svg: PropTypes.func,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     join_us_for_free: PropTypes.bool,

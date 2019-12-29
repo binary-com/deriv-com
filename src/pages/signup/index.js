@@ -17,14 +17,13 @@ const Wrapper = styled.section`
     justify-content: center;
     display: flex;
     flex-direction: row;
-    background-color: var(--color-grey-8);
+    background-color: rgba(200, 214, 215, 0.22);
 `
 const Content = styled.div`
     width: 40rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    height: 55.5rem;
     padding: 4rem 0;
     margin-right: 5.6rem;
     margin-left: 2rem;
@@ -51,6 +50,7 @@ const Item = styled.div`
 const StyledText = styled(Text)`
     font-size: var(--text-size-xs);
     margin-top: 2.4rem;
+    opacity: 0.56;
 `
 
 const Line = styled.div`
@@ -95,7 +95,7 @@ const NewSignup = () => (
                     )}
                 </StyledText>
             </Content>
-            <Signup appearance={Appearances.newSignup} bgColor="var(--color-grey-8)" />
+            <Signup appearance={Appearances.newSignup} bgColor="grey-14" />
         </Wrapper>
     </Layout>
 )

@@ -17,6 +17,8 @@ const SignupContent = styled.div`
     flex-direction: column;
     padding: 4rem;
     background-color: var(--color-white);
+    border-radius: 0.6rem;
+    box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
 `
 
 const Line = styled.div`
@@ -39,7 +41,7 @@ const NoteBox = styled.div`
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
-    margin: var(--text-size-m) 0;
+    margin: 2.5rem 0;
 `
 const EmailButton = styled(Button)`
     width: 100%;

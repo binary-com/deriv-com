@@ -3,14 +3,15 @@ import styled from 'styled-components'
 import { OurLocations } from './_our-locations'
 import { OurNumbers } from './_our-numbers'
 import { OurGoals } from './_our-goals'
+import { OurOffices } from './_our-offices'
 import { OurAwards } from './_our-awards'
+import { JoinUs } from './_join-us'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Hero, Header, Modal, useModal } from 'components/elements'
 import { Button } from 'components/form'
 import SignupModal from 'components/custom/signup-modal'
 import { Show, SEO } from 'components/containers'
-import { JoinUs } from './_join-us'
 
 const Goahead = styled.div`
     text-align: center;
@@ -49,6 +50,7 @@ const About = () => {
             <OurGoals />
             <OurNumbers />
             <OurLocations />
+            <OurOffices />
             <JoinUs />
             <OurAwards />
             <Show.Mobile>

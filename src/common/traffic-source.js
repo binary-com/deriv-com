@@ -61,7 +61,7 @@ const TrafficSource = (() => {
         if (params.utm_source) {
             // url params can be stored only if utm_source is available
             param_keys.map(key => {
-                if (params[key] && !current_values[key]) {
+                if (params[key]) {
                     cookie.set(key, params[key])
                 }
             })

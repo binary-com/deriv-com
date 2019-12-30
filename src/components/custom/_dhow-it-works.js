@@ -8,7 +8,7 @@ import device from 'themes/device.js'
 
 const StyledHeader = styled(Header)`
     margin-top: ${props => (props.as === 'h2' ? '0.8rem' : '0')};
-    ${props => props.font_size ? ('font-size:' + props.font_size) : ('')};
+    ${props => props.font_size && ('font-size:' + props.font_size)};
     
     @media ${device.tabletL} {
         text-align: left;

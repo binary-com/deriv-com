@@ -71,9 +71,9 @@ const DTrading = ({ trading, reverse, two_title }) => {
         <StyledSection>
             <StyledContainer>
                 {trading.map((item, index) => {
-                    let is_even = reverse ? (index + 1) % 2 === 0 : index % 2 === 0
-                    return (<Row flex_direction={is_even ? 'row' : 'row-reverse'} key={index}>
-                        <Content margin_right={is_even ? '2.4rem' : '0'}>
+                    let is_even = reverse ? (index + 1) % 2 : index % 2
+                    return (<Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
+                        <Content margin_right={!is_even ? '2.4rem' : '0'}>
                             <StyledHeader>
                                 {item.title}
                             </StyledHeader>
@@ -85,7 +85,7 @@ const DTrading = ({ trading, reverse, two_title }) => {
                                 <Text>{item.second_subtitle}</Text>
                             </>) : null}
                         </Content>
-                        <ImageWrapper margin_right={is_even ? '0' : '2.4rem'}>
+                        <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
                             <Image img_name={item.image_name} alt={item.image_alt} width='100%' />
                         </ImageWrapper>
                     </Row>)

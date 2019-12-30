@@ -93,9 +93,9 @@ const Regulatory = () => (
                 <CssGrid
                     columns="minmax(10rem, 69rem) minmax(45rem, 1fr)"
                     columngap="2.4rem"
-                    tabletcolumns="1fr 1fr"
-                    mobilecolumns="1fr"
-                    mobilerowgap="2rem"
+                    tablet_columns="1fr 1fr"
+                    mobile_columns="1fr"
+                    mobile_rowgap="2rem"
                 >
                     <CssGridColumn>
                         <Europe />
@@ -122,8 +122,8 @@ const Regulatory = () => (
                         columns="15.4rem 1fr"
                         columngap="1.6rem"
                         rowgap="4rem"
-                        tabletcolumns="1fr 5fr"
-                        mobilecolumns="1fr 5fr"
+                        tablet_columns="1fr 5fr"
+                        mobile_columns="1fr 5fr"
                     >
                         <CssGridColumn>
                             <FSC />

@@ -14,13 +14,13 @@ const CssGrid = styled.div`
     background-color: ${props => props.bgcolor || 'none'};
 
     @media ${device.tabletL} {
-        grid-template-columns: ${props => props.tabletcolumns ? props.tabletcolumns : props.columns};
-        grid-column-gap: ${props => props.tabletcolumngap ? props.tabletcolumngap : props.columngap};
+        grid-template-columns: ${props => props.tablet_columns ? props.tablet_columns : props.columns};
+        grid-column-gap: ${props => props.tablet_columngap ? props.tablet_columngap : props.columngap};
         grid-row-gap: ${props => props.tabletrowgap ? props.tabletrowgap : props.rowgap};
     }
     @media ${device.tabletS} {
-        grid-template-columns: ${props => props.mobilecolumns ? props.mobilecolumns : props.columns};
-        grid-row-gap: ${props => props.mobilerowgap ? props.mobilerowgap : props.rowgap};
+        grid-template-columns: ${props => props.mobile_columns ? props.mobile_columns : props.columns};
+        grid-row-gap: ${props => props.mobile_rowgap ? props.mobile_rowgap : props.rowgap};
     }
 `
 

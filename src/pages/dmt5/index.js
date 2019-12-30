@@ -9,6 +9,7 @@ import Layout from 'components/layout/layout'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
+import Signup, { Appearances } from 'components/custom/signup'
 
 const PlatformContainer = styled.div`
     padding: 8rem 0;
@@ -28,6 +29,7 @@ const DMT5 = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dmt5" />
             </PlatformContainer>
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

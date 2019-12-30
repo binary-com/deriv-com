@@ -83,7 +83,7 @@ export const Hero = () => {
                         </HeroHeader>
                         <ButtonWrapper>
                             <Button type="submit" onClick={toggleModal} secondary>
-                                {localize('Create a free account')}
+                                {localize('Join us for free')}
                             </Button>
                         </ButtonWrapper>
                     </StyledArticle>

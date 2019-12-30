@@ -92,10 +92,10 @@ const Regulatory = () => (
             <GridContainer>
                 <CssGrid
                     columns="minmax(10rem, 69rem) minmax(45rem, 1fr)"
-                    columngap="2.4rem"
+                    column_gap="2.4rem"
                     tablet_columns="1fr 1fr"
                     mobile_columns="1fr"
-                    mobile_rowgap="2rem"
+                    mobile_row_gap="2rem"
                 >
                     <CssGridColumn>
                         <Europe />
@@ -120,8 +120,8 @@ const Regulatory = () => (
                 <Box padding="0 0 8rem">
                     <CssGrid
                         columns="15.4rem 1fr"
-                        columngap="1.6rem"
-                        rowgap="4rem"
+                        column_gap="1.6rem"
+                        row_gap="4rem"
                         tablet_columns="1fr 5fr"
                         mobile_columns="1fr 5fr"
                     >

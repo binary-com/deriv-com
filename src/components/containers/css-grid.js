@@ -7,20 +7,20 @@ const CssGrid = styled.div`
     height: 100%;
     margin: ${props => props.margin || '0'};
     grid-template-columns: ${props => props.columns || 'auto'};
-    grid-column-gap: ${props => props.columngap || '0'};
-    grid-row-gap: ${props => props.rowgap || '0'};
+    grid-column-gap: ${props => props.column_gap || '0'};
+    grid-row-gap: ${props => props.row_gap || '0'};
     align-items: ${props => props.align || 'start'};
     justify-items: ${props => props.justify || 'auto'};
     background-color: ${props => props.bgcolor || 'none'};
 
     @media ${device.tabletL} {
         grid-template-columns: ${props => props.tablet_columns ? props.tablet_columns : props.columns};
-        grid-column-gap: ${props => props.tablet_columngap ? props.tablet_columngap : props.columngap};
-        grid-row-gap: ${props => props.tabletrowgap ? props.tabletrowgap : props.rowgap};
+        grid-column-gap: ${props => props.tablet_column_gap ? props.tablet_column_gap : props.column_gap};
+        grid-row-gap: ${props => props.tablet_row_gap ? props.tablet_row_gap : props.row_gap};
     }
     @media ${device.tabletS} {
         grid-template-columns: ${props => props.mobile_columns ? props.mobile_columns : props.columns};
-        grid-row-gap: ${props => props.mobile_rowgap ? props.mobile_rowgap : props.rowgap};
+        grid-row-gap: ${props => props.mobile_row_gap ? props.mobile_row_gap : props.row_gap};
     }
 `
 

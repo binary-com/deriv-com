@@ -20,6 +20,10 @@ const OfficeContainer = styled.section`
 `
 const MapWrapper = styled.div`
     position: relative;
+
+    @media ${device.laptopL} {
+        display: none;
+    }
 `
 const Bullet = styled.div`
     height: 0.8rem;

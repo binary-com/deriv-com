@@ -4,7 +4,7 @@ import { CookieStorage, LocalStore } from './storage'
 const TrafficSource = (() => {
     let cookie
 
-    const initCookie = () => {
+    const initUtmCookie = () => {
         cookie = new CookieStorage('utm_data')
         cookie.remove()
         cookie.read()
@@ -41,7 +41,6 @@ const TrafficSource = (() => {
     }
 
     const getData = () => {
-        initCookie()
         const data = cookie.value
         Object.keys(data).map(key => {
             data[key] = (data[key] || '').replace(/[^a-zA-Z0-9\s-._]/gi, '').substring(0, 100)
@@ -53,7 +52,6 @@ const TrafficSource = (() => {
     const getSource = (utm_data = getData()) => utm_data.utm_source || utm_data.referrer || 'direct'
 
     const setData = () => {
-        const current_values = getData()
         const params = queryString.parseUrl(window.location.href).query
         const param_keys = ['utm_source', 'utm_medium', 'utm_campaign']
 
@@ -77,12 +75,7 @@ const TrafficSource = (() => {
         if (doc_ref && !new RegExp(window.location.hostname, 'i').test(doc_ref)) {
             referrer = doc_ref
         }
-        if (
-            referrer &&
-            !current_values.referrer &&
-            !params.utm_source &&
-            !current_values.utm_source
-        ) {
+        if (referrer) {
             cookie.set('referrer', new URL(window.location.href).hostname)
         }
     }
@@ -92,6 +85,7 @@ const TrafficSource = (() => {
         setAffiliateData,
         setData,
         getSource,
+        initUtmCookie,
     }
 })()
 

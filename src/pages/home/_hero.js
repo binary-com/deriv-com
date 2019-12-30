@@ -108,8 +108,8 @@ export const Hero = () => {
                     playsInline
                     loop
                 >
-                    <source src="/Deriv_platform_video.webm" type="video/webm" />
-                    <source src="/Deriv_platform_video.mp4" type="video/mp4" />
+                    <source src="/Deriv_platform.webm" type="video/webm" />
+                    <source src="/Deriv_platform.mp4" type="video/mp4" />
                 </video>
             </Show.Desktop>
         </HeroWrapper>

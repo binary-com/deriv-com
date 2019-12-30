@@ -34,7 +34,7 @@ const ImageContainer = styled.div`
 
 export const Trade = () => {
     // one option always has to be selected
-    const [selected, setSelected] = React.useState(platforms.trader)
+    const [selected, setSelected] = React.useState(null)
 
     return (
         <SectionContainer>
@@ -52,7 +52,7 @@ export const Trade = () => {
                 <Flex>
                     <div style={{ width: '60%' }}>
                         <ImageContainer>
-                            <ImageWrapper is_selected={selected === platforms.trader}>
+                            <ImageWrapper is_selected={!selected || selected === platforms.trader}>
                                 <Image
                                     img_name="trade_dtrader.png"
                                     alt={localize('DTrader platform')}

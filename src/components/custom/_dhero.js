@@ -28,6 +28,7 @@ const StyledHeader = styled(Header)`
     color: var(--color-white);
     display: flex;
     margin-top: 0;
+    font-size: 2.4rem;
 `
 const Wrapper = styled.div`
     position: relative;
@@ -51,6 +52,7 @@ const StyledContainer = styled(Container)`
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
+    font-size: 5.6rem;
 `
 const LottieWrapper = styled.div`
     width: 100%;
@@ -88,12 +90,12 @@ const DHero = ({ title, background_svg, background_image_name, content, join_us_
             </Show.Desktop>
             <StyledContainer>
                 <div>
-                    <StyledHeader as="h4" weight={500}>
+                    <StyledHeader as="h1" weight={500}>
                         <DLogo />
                         {title}
                     </StyledHeader>
                     <HeroContent>
-                        <StyledContent as="h1">
+                        <StyledContent as="h2">
                             {content}
                         </StyledContent>
                     </HeroContent>

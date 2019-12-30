@@ -73,7 +73,7 @@ export const SecurityIconGrid = () => (
         <Col
             Icon={DifferentPassword}
             content={localize(
-                'Use different passwords for your email and Deriv.com account and set a strong password.',
+                'Use different passwords for your email and Deriv account and set a strong password.',
             )}
         />
         <Col
@@ -91,7 +91,7 @@ export const SecurityIconGrid = () => (
         <Col
             Icon={DontShare}
             content={localize(
-                "Don't share your Deriv.com account or payment methods with any other person.",
+                "Don't share your Deriv account or payment methods with any other person.",
             )}
         />
         <Col

@@ -72,6 +72,7 @@ const Content = styled.div`
         }
     }
 `
+
 const MapIcon = styled(MapSVG)`
     margin-right: 0.8rem;
 `
@@ -85,12 +86,13 @@ const ImageWrapper = styled.div`
         display: none;
     }
 `
-// const AddressContainer = styled.div`
-//     :hover {
-//         text-decoration: underline;
-//         cursor: pointer;
-//     }
-// `
+const MapLink = styled.a`
+    width: fit-content;
+    height: fit-content;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+`
 const StyledParagraph = styled.p`
     text-indent: 1.5em;
 `
@@ -118,12 +120,17 @@ export const Offices = () => {
                 <OfficeWrapper>
                     <Office>
                         <ImageWrapper>
-                            <Image
-                                img_name="map-malta.png"
-                                alt={localize('Malta Office')}
-                                width="49rem"
-                                height="100%"
-                            />
+                            <MapLink
+                                target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=35.903559,14.460707"
+                            >
+                                <Image
+                                    img_name="map-malta.png"
+                                    alt={localize('Malta Office')}
+                                    width="49rem"
+                                    height="100%"
+                                />
+                            </MapLink>
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -131,6 +138,7 @@ export const Offices = () => {
                             </StyledHeader>
                             <br />
                             <LinkText
+                                target="_blank"
                                 color="black-3"
                                 size="var(--text-size-s)"
                                 href="https://www.google.com/maps/search/?api=1&query=35.903559,14.460707"
@@ -155,6 +163,7 @@ export const Offices = () => {
                             </StyledHeader>
                             <br />
                             <LinkText
+                                target="_blank"
                                 color="black-3"
                                 size="var(--text-size-s)"
                                 href="https://www.google.com/maps/search/?api=1&query=2.922786,101.661404"
@@ -170,23 +179,33 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <Image
-                                img_name="map-cyberjaya.png"
-                                alt={localize('Malaysia Office')}
-                                width="49rem"
-                                height="100%"
-                            />
+                            <MapLink
+                                target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=2.922786,101.661404"
+                            >
+                                <Image
+                                    img_name="map-cyberjaya.png"
+                                    alt={localize('Malaysia Office')}
+                                    width="49rem"
+                                    height="100%"
+                                />
+                            </MapLink>
                         </ImageWrapper>
                     </Office>
                     <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
-                            <Image
-                                img_name="map-labuan.png"
-                                alt={localize('Labuan Office')}
-                                width="49rem"
-                                height="100%"
-                            />
+                            <MapLink
+                                target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=,"
+                            >
+                                <Image
+                                    img_name="map-labuan.png"
+                                    alt={localize('Labuan Office')}
+                                    width="49rem"
+                                    height="100%"
+                                />
+                            </MapLink>
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -194,6 +213,7 @@ export const Offices = () => {
                             </StyledHeader>
                             <br />
                             <LinkText
+                                target="_blank"
                                 color="black-3"
                                 size="var(--text-size-s)"
                                 href="https://www.google.com/maps/search/?api=1&query=,"
@@ -218,6 +238,7 @@ export const Offices = () => {
                             </StyledHeader>
                             <br />
                             <LinkText
+                                target="_blank"
                                 color="black-3"
                                 size="var(--text-size-s)"
                                 href="https://www.google.com/maps/search/?api=1&query=25.079313,55.149074"
@@ -232,23 +253,33 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <Image
-                                img_name="map-dubai.png"
-                                alt={localize('Dubai Office')}
-                                width="49rem"
-                                height="100%"
-                            />
+                            <MapLink
+                                target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=25.079313,55.149074"
+                            >
+                                <Image
+                                    img_name="map-dubai.png"
+                                    alt={localize('Dubai Office')}
+                                    width="49rem"
+                                    height="100%"
+                                />
+                            </MapLink>
                         </ImageWrapper>
                     </Office>
                     <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
-                            <Image
-                                img_name="map-paraguay.png"
-                                alt={localize('paraguay Office')}
-                                width="49rem"
-                                height="100%"
-                            />
+                            <MapLink
+                                target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=-25.282562,-57.563787"
+                            >
+                                <Image
+                                    img_name="map-paraguay.png"
+                                    alt={localize('paraguay Office')}
+                                    width="49rem"
+                                    height="100%"
+                                />
+                            </MapLink>
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -256,6 +287,7 @@ export const Offices = () => {
                             </StyledHeader>
                             <br />
                             <LinkText
+                                target="_blank"
                                 color="black-3"
                                 size="var(--text-size-s)"
                                 href="https://www.google.com/maps/search/?api=1&query=-25.282562,-57.563787"

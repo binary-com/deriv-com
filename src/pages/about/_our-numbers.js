@@ -146,7 +146,7 @@ const chart_data = [
         icon: <img src={TradingTurnover} />,
     },
 ]
-export const OurNumbers = () => (
+const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
             <Show.Mobile>
@@ -192,3 +192,5 @@ export const OurNumbers = () => (
         </OurNumbersContainer>
     </OurNumbersWrapper>
 )
+
+export default OurNumbers

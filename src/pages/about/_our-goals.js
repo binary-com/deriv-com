@@ -23,7 +23,7 @@ const OurGoalsWrapper = styled(SectionContainer)`
     }
 `
 
-export const OurGoals = () => (
+const OurGoals = () => (
     <OurGoalsWrapper>
         <FlexGridContainer justify="center" content_width="32rem">
             <Card
@@ -34,7 +34,7 @@ export const OurGoals = () => (
                 )}
                 width="32rem"
                 min_height="38.5rem"
-                padding='4rem'
+                padding="4rem"
             />
             <Card
                 Icon={FuseeSVG}
@@ -44,8 +44,10 @@ export const OurGoals = () => (
                 )}
                 width="32rem"
                 min_height="38.5rem"
-                padding='4rem'
+                padding="4rem"
             />
         </FlexGridContainer>
     </OurGoalsWrapper>
 )
+
+export default OurGoals

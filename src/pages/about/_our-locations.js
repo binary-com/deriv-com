@@ -79,7 +79,7 @@ const locations = [
     },
 ]
 
-export const OurLocations = () => {
+const OurLocations = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
 
     return (
@@ -114,3 +114,5 @@ export const OurLocations = () => {
         </Show.Desktop>
     )
 }
+
+export default OurLocations

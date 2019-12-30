@@ -5,13 +5,12 @@ const TrafficSource = (() => {
     let cookie
 
     const initCookie = () => {
-        if (!cookie) {
-            cookie = new CookieStorage('utm_data')
-            cookie.read()
-            // expiration date is used when writing cookie
-            const now = new Date()
-            cookie.expires = now.setMonth(now.getMonth() + 3)
-        }
+        cookie = new CookieStorage('utm_data')
+        cookie.remove()
+        cookie.read()
+        // expiration date is used when writing cookie
+        const now = new Date()
+        cookie.expires = now.setMonth(now.getMonth() + 3)
     }
 
     const setAffiliateData = () => {
@@ -60,7 +59,7 @@ const TrafficSource = (() => {
 
         if (params.utm_source) {
             // url params can be stored only if utm_source is available
-            param_keys.map(key => {
+            param_keys.forEach(key => {
                 if (params[key]) {
                     cookie.set(key, params[key])
                 }

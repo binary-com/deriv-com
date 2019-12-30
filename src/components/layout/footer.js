@@ -1,19 +1,15 @@
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
 import styled from 'styled-components'
-import { localize, Localize, LocalizedLink, LanguageSwitcher } from '../localization'
+import { localize, LanguageSwitcher } from '../localization'
 import { Container, CssGrid } from '../containers'
-import { Header, Text, StyledLink } from '../elements'
+import { Text, StyledLink } from '../elements'
 import { isProduction } from 'common/websocket/config'
-import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv.svg'
-import YouTube from 'images/svg/youtube.svg'
 import Twitter from 'images/svg/twitter.svg'
 import Telegram from 'images/svg/telegram.svg'
-import Reddit from 'images/svg/reddit.svg'
 import Facebook from 'images/svg/social-facebook.svg'
-import Warning from 'images/svg/warning.svg'
 
 const FooterWrapper = styled.section`
     background-color: var(--color-white);
@@ -37,11 +33,24 @@ const Items = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
 `
 const Col = styled.div`
     width: 100%;
     max-width: 20.4rem;
+    ${props => props.margin_top ? 'margin-top: 3.9rem;' : ''}
+
+    div {
+        margin-top: 0.8rem;
+    }
+    div:first-child {
+        margin: 0;
+    }
+`
+const Title = styled(Text)`
+    color: var(--color-black-6);
+    font-weight: bold;
+    letter-spacing: 0.2rem;
 `
 const SocialMeida = styled.section`
     display: flex;
@@ -53,10 +62,16 @@ const SocialMeida = styled.section`
         color: var(--color-black-6);
     }
 `
+const Link = styled(StyledLink)`
+    color: var(--color-black-3);
+    margin-top: 0.8rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+`
 const Footer = () => (
     <FooterWrapper>
         <Container>
-            <StyledGrid columns='repeat(12, 1fr)' columngap='2.4rem'>
+            <StyledGrid columns='repeat(12, 1fr)' columngap='2.4rem' rowgap='3.9rem'>
                 <InfoSection>
                     <Logo />
                     <Text>{localize('Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.')}</Text>
@@ -71,33 +86,33 @@ const Footer = () => (
                 </InfoSection>
                 <Items>
                     <Col>
-                        <div><Text>{localize('TRADE')}</Text></div>
-                        <div><StyledLink to='/dtrader'>{localize('DTrader')}</StyledLink></div>
-                        <div><StyledLink to='/dbot'>{localize('DBot')}</StyledLink></div>
-                        <div><StyledLink to='/dmt5'>{localize('DMT5')}</StyledLink></div>
+                        <div><Title>{localize('TRADE')}</Title></div>
+                        <div><Link to='/dtrader'>{localize('DTrader')}</Link></div>
+                        <div><Link to='/dbot'>{localize('DBot')}</Link></div>
+                        <div><Link to='/dmt5'>{localize('DMT5')}</Link></div>
                     </Col>
                     <Col>
-                        <div><Text>{localize('LEGAL')}</Text></div>
-                        <div><StyledLink to='/regulatory'>{localize('Regulatory information')}</StyledLink></div>
-                        <div><StyledLink to='/terms-and-conditions'>{localize('Terms and conditions')}</StyledLink></div>
-                        <div><StyledLink to='/responsible-trading'>{localize('Responsible trading')}</StyledLink></div>
+                        <div><Title>{localize('LEGAL')}</Title></div>
+                        <div><Link to='/regulatory'>{localize('Regulatory information')}</Link></div>
+                        <div><Link to='/terms-and-conditions'>{localize('Terms and conditions')}</Link></div>
+                        <div><Link to='/responsible-trading'>{localize('Responsible trading')}</Link></div>
                     </Col>
                     <Col>
-                        <div><Text>{localize('SUPPORT')}</Text></div>
-                        <div><StyledLink to='/help-centre'>{localize('Help centre')}</StyledLink></div>
-                        <div><StyledLink to='/payment'>{localize('Payment methods')}</StyledLink></div>
-                        <div><StyledLink to='/keep-safe'>{localize('Keep safe')}</StyledLink></div>
-                        <div><StyledLink to='/why-choose-us'>{localize('Why choose us')}</StyledLink></div>
+                        <div><Title>{localize('SUPPORT')}</Title></div>
+                        <div><Link to='/help-centre'>{localize('Help centre')}</Link></div>
+                        <div><Link to='/payment'>{localize('Payment methods')}</Link></div>
+                        <div><Link to='/keep-safe'>{localize('Keep safe')}</Link></div>
+                        <div><Link to='/why-choose-us'>{localize('Why choose us')}</Link></div>
                     </Col>
-                    <Col>
-                        <div><Text>{localize('COMPANY')}</Text></div>
-                        <div><StyledLink to='/about-us'>{localize('About us')}</StyledLink></div>
+                    <Col margin_top>
+                        <div><Title>{localize('COMPANY')}</Title></div>
+                        <div><Link to='/about-us'>{localize('About us')}</Link></div>
                     </Col>
-                    <Col>
-                        <div><Text>{localize('PARTNER WITH US')}</Text></div>
-                        <div><StyledLink to='/affiliate'>{localize('Affiliate and IB programmes')}</StyledLink></div>
+                    <Col margin_top>
+                        <div><Title>{localize('PARTNER WITH US')}</Title></div>
+                        <div><Link to='/affiliate'>{localize('Affiliate and IB programmes')}</Link></div>
                     </Col>
-                    <Col>
+                    <Col margin_top>
                         {!isProduction() && <LanguageSwitcher />}
                     </Col>
                 </Items>

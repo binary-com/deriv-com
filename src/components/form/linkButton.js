@@ -20,8 +20,6 @@ const LinkButton = styled(LocalizedLink)`
     &:focus,
     &:active {
         outline: none;
-    }
-    &:active {
         transform: scale(0.95);
     }
 `

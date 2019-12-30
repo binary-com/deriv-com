@@ -25,12 +25,13 @@ const FormWrapper = styled(Wrapper)`
     padding-right: 12rem;
     height: 100%;
 
-    @media ${device.laptop} {
-        padding-left: 2rem;
-        padding-right: 2rem;
+    @media ${device.desktopL} {
+        max-width: 144rem;
     }
     @media ${device.tablet} {
         background-color: var(--color-green-1);
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 `
 
@@ -38,7 +39,7 @@ const SignupBackground = styled(SignupImg)`
     height: fit-content;
 
     @media ${device.laptop} {
-        height: auto;
+        height: 33rem;
     }
     @media ${device.tablet} {
         display: none;
@@ -50,6 +51,9 @@ const LeftWrapper = styled.div`
 
     @media ${device.tablet} {
         padding-left: 5rem;
+    }
+    @media ${device.desktopL} {
+        margin-top: 1rem;
     }
 `
 const RightWrapper = styled.div`

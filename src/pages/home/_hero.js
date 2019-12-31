@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
@@ -108,8 +109,7 @@ export const Hero = () => {
                     playsInline
                     loop
                 >
-                    <source src="/Deriv_platform_tour.mp4" type="video/mp4" />
-                    <source src="/Deriv_platform_tour.webm" type="video/webm" />
+                    <source src={PlatformVideoMp4} type="video/mp4" />
                 </video>
             </Show.Desktop>
         </HeroWrapper>

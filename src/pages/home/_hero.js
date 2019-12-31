@@ -109,6 +109,7 @@ export const Hero = () => {
                     loop
                 >
                     <source src="/Deriv_platform_tour.mp4" type="video/mp4" />
+                    <source src="/Deriv_platform_tour.webm" type="video/webm" />
                 </video>
             </Show.Desktop>
         </HeroWrapper>

@@ -215,9 +215,9 @@ const SignupDefault = ({
                 </SocialButton>
             </SocialWrapper>
             <LoginText>
-                {localize('Already have an account?')}
+                {localize('Already have an account? ')}
                 <LoginLink weight="bold" onClick={handleLogin}>
-                    {localize('Log in.')}
+                    {localize('Log in')}
                 </LoginLink>
             </LoginText>
         </SignupContent>

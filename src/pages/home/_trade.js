@@ -45,7 +45,7 @@ export const Trade = () => {
                 <SubHeaderWrapper>
                     <Header weight="500" lh="1.5" as="h4" align="center">
                         {localize(
-                            "Whether you’re a beginner or a seasoned trader, we've got you covered.",
+                            'Whether you’re a beginner or a seasoned trader, we’ve got you covered.',
                         )}
                     </Header>
                 </SubHeaderWrapper>
@@ -77,13 +77,22 @@ export const Trade = () => {
                     </div>
                     <div style={{ width: '40%' }}>
                         <CssGrid rowgap="1.6rem" height="0%">
-                            <div onMouseEnter={() => setSelected(platforms.trader)}>
+                            <div
+                                onMouseEnter={() => setSelected(platforms.trader)}
+                                onMouseLeave={() => setSelected('')}
+                            >
                                 <TraderCard is_selected={selected === platforms.trader} />
                             </div>
-                            <div onMouseEnter={() => setSelected(platforms.bot)}>
+                            <div
+                                onMouseEnter={() => setSelected(platforms.bot)}
+                                onMouseLeave={() => setSelected('')}
+                            >
                                 <BotCard is_selected={selected === platforms.bot} />
                             </div>
-                            <div onMouseEnter={() => setSelected(platforms.mt5)}>
+                            <div
+                                onMouseEnter={() => setSelected(platforms.mt5)}
+                                onMouseLeave={() => setSelected('')}
+                            >
                                 <DMT5Card is_selected={selected === platforms.mt5} />
                             </div>
                         </CssGrid>

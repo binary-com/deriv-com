@@ -99,7 +99,6 @@ export const Hero = () => {
                         position: 'absolute',
                         top: '0%',
                         objectFit: 'fill',
-                        filter: 'brightness(0.8)',
                     }}
                     width="100%"
                     height="100%"
@@ -108,8 +107,8 @@ export const Hero = () => {
                     playsInline
                     loop
                 >
-                    <source src="/Deriv_platform.webm" type="video/webm" />
-                    <source src="/Deriv_platform.mp4" type="video/mp4" />
+                    {/* <source src="/Deriv_platform.webm" type="video/webm" /> */}
+                    <source src="/Deriv_platform_test.mp4" type="video/mp4" />
                 </video>
             </Show.Desktop>
         </HeroWrapper>

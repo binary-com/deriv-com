@@ -13,6 +13,14 @@ import Facebook from 'images/svg/social-facebook.svg'
 
 const FooterWrapper = styled.section`
     background-color: var(--color-white);
+    width: 100%;
+    margin: 0 auto;
+`
+const StyledContainer = styled.div`
+    background-color: var(--color-grey-8);
+    max-width: 1440px;
+    padding: 4rem 0;
+    margin: 0 auto;
 `
 const StyledGrid = styled(CssGrid)`
     grid-template-areas: 'info info info . . items items items items items items items';
@@ -70,54 +78,56 @@ const Link = styled(StyledLink)`
 `
 const Footer = () => (
     <FooterWrapper>
-        <Container>
-            <StyledGrid columns='repeat(12, 1fr)' columngap='2.4rem' rowgap='3.9rem'>
-                <InfoSection>
-                    <Logo />
-                    <Text>{localize('Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.')}</Text>
-                    <SocialMeida>
-                        <Text>{localize('CONNECT WITH US')}</Text>
-                        <div>
-                            <Facebook />
-                            <Telegram />
-                            <Twitter />
-                        </div>
-                    </SocialMeida>
-                </InfoSection>
-                <Items>
-                    <Col>
-                        <div><Title>{localize('TRADE')}</Title></div>
-                        <div><Link to='/dtrader'>{localize('DTrader')}</Link></div>
-                        <div><Link to='/dbot'>{localize('DBot')}</Link></div>
-                        <div><Link to='/dmt5'>{localize('DMT5')}</Link></div>
-                    </Col>
-                    <Col>
-                        <div><Title>{localize('LEGAL')}</Title></div>
-                        <div><Link to='/regulatory'>{localize('Regulatory information')}</Link></div>
-                        <div><Link to='/terms-and-conditions'>{localize('Terms and conditions')}</Link></div>
-                        <div><Link to='/responsible-trading'>{localize('Responsible trading')}</Link></div>
-                    </Col>
-                    <Col>
-                        <div><Title>{localize('SUPPORT')}</Title></div>
-                        <div><Link to='/help-centre'>{localize('Help centre')}</Link></div>
-                        <div><Link to='/payment'>{localize('Payment methods')}</Link></div>
-                        <div><Link to='/keep-safe'>{localize('Keep safe')}</Link></div>
-                        <div><Link to='/why-choose-us'>{localize('Why choose us')}</Link></div>
-                    </Col>
-                    <Col margin_top>
-                        <div><Title>{localize('COMPANY')}</Title></div>
-                        <div><Link to='/about-us'>{localize('About us')}</Link></div>
-                    </Col>
-                    <Col margin_top>
-                        <div><Title>{localize('PARTNER WITH US')}</Title></div>
-                        <div><Link to='/affiliate'>{localize('Affiliate and IB programmes')}</Link></div>
-                    </Col>
-                    <Col margin_top>
-                        {!isProduction() && <LanguageSwitcher />}
-                    </Col>
-                </Items>
-            </StyledGrid>
-        </Container>
+        <StyledContainer>
+            <Container>
+                <StyledGrid columns='repeat(12, 1fr)' columngap='2.4rem' rowgap='3.9rem'>
+                    <InfoSection>
+                        <Logo />
+                        <Text>{localize('Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.')}</Text>
+                        <SocialMeida>
+                            <Text>{localize('CONNECT WITH US')}</Text>
+                            <div>
+                                <Facebook />
+                                <Telegram />
+                                <Twitter />
+                            </div>
+                        </SocialMeida>
+                    </InfoSection>
+                    <Items>
+                        <Col>
+                            <div><Title>{localize('TRADE')}</Title></div>
+                            <div><Link to='/dtrader'>{localize('DTrader')}</Link></div>
+                            <div><Link to='/dbot'>{localize('DBot')}</Link></div>
+                            <div><Link to='/dmt5'>{localize('DMT5')}</Link></div>
+                        </Col>
+                        <Col>
+                            <div><Title>{localize('LEGAL')}</Title></div>
+                            <div><Link to='/regulatory'>{localize('Regulatory information')}</Link></div>
+                            <div><Link to='/terms-and-conditions'>{localize('Terms and conditions')}</Link></div>
+                            <div><Link to='/responsible-trading'>{localize('Responsible trading')}</Link></div>
+                        </Col>
+                        <Col>
+                            <div><Title>{localize('SUPPORT')}</Title></div>
+                            <div><Link to='/help-centre'>{localize('Help centre')}</Link></div>
+                            <div><Link to='/payment'>{localize('Payment methods')}</Link></div>
+                            <div><Link to='/keep-safe'>{localize('Keep safe')}</Link></div>
+                            <div><Link to='/why-choose-us'>{localize('Why choose us')}</Link></div>
+                        </Col>
+                        <Col margin_top>
+                            <div><Title>{localize('COMPANY')}</Title></div>
+                            <div><Link to='/about-us'>{localize('About us')}</Link></div>
+                        </Col>
+                        <Col margin_top>
+                            <div><Title>{localize('PARTNER WITH US')}</Title></div>
+                            <div><Link to='/affiliate'>{localize('Affiliate and IB programmes')}</Link></div>
+                        </Col>
+                        <Col margin_top>
+                            {!isProduction() && <LanguageSwitcher />}
+                        </Col>
+                    </Items>
+                </StyledGrid>
+            </Container>
+        </StyledContainer>
     </FooterWrapper>
 )
 

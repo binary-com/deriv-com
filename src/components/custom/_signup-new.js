@@ -80,8 +80,8 @@ export const LoginText = styled(MutedText)`
     }
 `
 const Span = styled.span`
-    margin-right: 5.4rem;
-    margin-left: 1.3rem;
+    margin-right: 1.4rem;
+    margin-left: 2.7rem;
     font-weight: 500;
     font-size: var(--text-size-xxs);
     color: var(--color-grey-13);

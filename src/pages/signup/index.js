@@ -33,14 +33,15 @@ const Content = styled.div`
     }
 `
 const Item = styled.div`
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     margin-top: 2.4rem;
 
-    * {
-        margin-right: 1.6rem;
-        width: fit-content;
+    p {
+        margin-left: 1.6rem;
+        width: 84%;
     }
     :last-child {
         margin-bottom: 0;

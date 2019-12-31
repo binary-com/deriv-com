@@ -99,7 +99,7 @@ const KeepSafe = () => {
                                         components={[
                                             <StyledLink
                                                 size="var(--text-size-s)"
-                                                weight="bold"
+                                                weight="normal"
                                                 key={0}
                                                 target="_blank"
                                                 to="/responsible-trading/"

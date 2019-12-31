@@ -35,8 +35,6 @@ const FormWrapper = styled(Wrapper)`
 `
 
 const SignupBackground = styled(SignupImg)`
-    height: fit-content;
-
     @media ${device.laptop} {
         height: auto;
     }
@@ -114,7 +112,8 @@ const DemoButton = styled(Button)`
     width: auto;
 `
 
-const handleExternalLink = () => {
+const handleExternalLink = e => {
+    e.preventDefault()
     window.open(deriv_app_url, '_blank')
 }
 

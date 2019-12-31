@@ -112,7 +112,8 @@ const DemoButton = styled(Button)`
     width: auto;
 `
 
-const handleExternalLink = () => {
+const handleExternalLink = e => {
+    e.preventDefault()
     window.open(deriv_app_url, '_blank')
 }
 

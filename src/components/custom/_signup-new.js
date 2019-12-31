@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
-import { Header, Text, Checkbox } from 'components/elements'
+import { Header, Text, Checkbox, StyledLink } from 'components/elements'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -91,13 +91,6 @@ const Span = styled.span`
         display: none;
     }
 `
-const StyledLink = styled(LocalizedLink)`
-    color: var(--color-red);
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: bold;
-    margin-bottom: 1.4rem;
-`
 const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
 `
@@ -157,7 +150,13 @@ const SignupDefault = ({
                         fontSize="var(--text-size-xs)"
                         translate_text="I agree to the <0>Terms and Conditions</0>"
                         components={[
-                            <StyledLink key={0} target="_blank" to="terms-and-conditions" />,
+                            <StyledLink
+                                size="var(--text-size-xs)"
+                                weight="bold"
+                                key={0}
+                                target="_blank"
+                                to="terms-and-conditions"
+                            />,
                         ]}
                     />
                 </CheckboxSpan>
@@ -206,7 +205,10 @@ const SignupDefault = ({
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}
-                <StyledLink onClick={handleLogin}> {localize('Log in.')}</StyledLink>
+                <StyledLink size="var(--text-size-s)" weight="bold" onClick={handleLogin}>
+                    {' '}
+                    {localize('Log in.')}
+                </StyledLink>
             </LoginText>
         </SignupContent>
     )

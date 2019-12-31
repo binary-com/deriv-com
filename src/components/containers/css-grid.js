@@ -4,7 +4,7 @@ import device from 'themes/device'
 
 const CssGrid = styled.div`
     display: grid;
-    height: 100%;
+    height: ${props => props.height || '100%'};
     margin: ${props => props.margin || '0'};
     grid-template-columns: ${props => props.columns || 'auto'};
     grid-column-gap: ${props => props.column_gap || '0'};

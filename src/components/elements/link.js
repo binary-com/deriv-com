@@ -5,6 +5,7 @@ import { LocalizedLink } from '../localization'
 export const StyledLink = styled(props => <LocalizedLink {...props} />)`
     font-size: ${props => props.size || 'var(--text-size-sm)'};
     font-weight: ${props => props.weight || 'normal'};
+    text-align: ${props => props.align || 'left'};
     color: var(--color-red);
     text-decoration: none;
 

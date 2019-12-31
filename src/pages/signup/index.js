@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Signup, { Appearances } from 'components/custom/signup'
@@ -60,45 +60,61 @@ const Line = styled.div`
     margin-top: 2.4rem;
 `
 
-const NewSignup = () => (
-    <Layout is_static>
-        <Wrapper>
-            <Content>
-                <Header as="h4">{localize('Start trading with Deriv')}</Header>
-                <br />
-                <Text>{localize('Join over 1 million traders worldwide')}</Text>
-                <Line />
-                <Item>
-                    <Award />
-                    <Text>
-                        {localize(
-                            'Deriv is the next evolution of Binary.com — an award-winning platform that’s been trusted for 20 years.',
-                        )}
-                    </Text>
-                </Item>
-                <Item>
-                    <Complaint />
-                    <Text>{localize('We’re compliant with regulators around the world.')}</Text>
-                </Item>
-                <Item>
-                    <Security />
-                    <Text>
-                        {localize(
-                            'Your privacy and security are our top priority. We’ll never use your details without consent.',
-                        )}
-                    </Text>
-                </Item>
-                <Line />
-                <StyledText color="grey-12">
-                    {localize(
-                        'By giving us your email address, you agree to receive marketing emails from us. You may unsubscribe from these emails at any time.',
-                    )}
-                </StyledText>
-            </Content>
-            <Signup appearance={Appearances.newSignup} bgColor="grey-14" />
-        </Wrapper>
-    </Layout>
-)
+const NewSignup = () => {
+    const [submitState, setSubmitState] = useState('')
+
+    function getSubmitState(submitStatus) {
+        setSubmitState(submitStatus)
+    }
+    return (
+        <Layout is_static>
+            <Wrapper>
+                {!(submitState === 'success' || submitState === 'error') && (
+                    <Content>
+                        <Header as="h4">{localize('Start trading with Deriv')}</Header>
+                        <br />
+                        <Text>{localize('Join over 1 million traders worldwide')}</Text>
+                        <Line />
+                        <Item>
+                            <Award />
+                            <Text>
+                                {localize(
+                                    'Deriv is the next evolution of Binary.com — an award-winning platform that’s been trusted for 20 years.',
+                                )}
+                            </Text>
+                        </Item>
+                        <Item>
+                            <Complaint />
+                            <Text>
+                                {localize('We’re compliant with regulators around the world.')}
+                            </Text>
+                        </Item>
+                        <Item>
+                            <Security />
+                            <Text>
+                                {localize(
+                                    'Your privacy and security are our top priority. We’ll never use your details without consent.',
+                                )}
+                            </Text>
+                        </Item>
+                        <Line />
+                        <StyledText color="grey-12">
+                            {localize(
+                                'By giving us your email address, you agree to receive marketing emails from us. You may unsubscribe from these emails at any time.',
+                            )}
+                        </StyledText>
+                    </Content>
+                )}
+
+                <Signup
+                    appearance={Appearances.newSignup}
+                    bgColor="grey-14"
+                    onSubmit={getSubmitState}
+                />
+            </Wrapper>
+        </Layout>
+    )
+}
 
 NewSignup.propTypes = {
     autofocus: PropTypes.bool,

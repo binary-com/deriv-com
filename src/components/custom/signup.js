@@ -52,6 +52,7 @@ const EmailLink = styled(StyledLink)`
     margin-top: 1.8rem;
     text-decoration: underline;
     width: 100%;
+    text-align: center;
 `
 
 const validateEmail = email => {
@@ -76,7 +77,6 @@ class Signup extends Component {
         submit_status: '',
         submit_error_msg: '',
     }
-
     handleValidation = param => {
         const message = typeof param === 'object' ? param.target.value : param
 
@@ -127,7 +127,6 @@ class Signup extends Component {
         const { email, email_error_msg } = this.state
 
         this.handleValidation(email)
-
         const has_error_email = validateEmail(email)
 
         if (has_error_email || email_error_msg) {
@@ -148,6 +147,7 @@ class Signup extends Component {
                 is_submitting: false,
                 submit_status: 'success',
             })
+            if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
         })
     }
 
@@ -243,6 +243,7 @@ Signup.propTypes = {
     autofocus: PropTypes.bool,
     bgColor: PropTypes.string,
     closeModal: PropTypes.func,
+    onSubmit: PropTypes.func,
 }
 
 export default Signup

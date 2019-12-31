@@ -15,7 +15,6 @@ import Antivirus from 'images/svg/install-latest-antivirus.svg'
 import Container from 'components/containers/container'
 
 const IconGrid = styled(Container)`
-    margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 3rem;

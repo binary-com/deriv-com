@@ -9,6 +9,7 @@ import {
     StyledLink,
     Header,
     Text,
+    Divider
 } from 'components/elements'
 import { Button } from 'components/form'
 import SignupModal from 'components/custom/signup-modal'
@@ -48,12 +49,15 @@ const KeepSafe = () => {
                     <Header as="h1" align="center">
                         {localize('Keep safe')}
                     </Header>
-                    <StyledHeader as="h4" align="center" weight="normal" maxwidth="79.2rem">
+                    <StyledHeader as="h4" align="center" weight="normal" maxwidth="79.2rem" padding="0">
                         {localize(
                             'Your account security is very important to us. Here are a few ways to enhance your account security:',
                         )}
                     </StyledHeader>
                 </GridContainer>
+            </SectionContainer>
+            <Divider />
+            <SectionContainer>
                 <SecurityIconGrid />
             </SectionContainer>
             <Section bgcolor="var(--color-grey-8)">

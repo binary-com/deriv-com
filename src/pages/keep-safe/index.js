@@ -60,7 +60,7 @@ const KeepSafe = () => {
             <SectionContainer>
                 <SecurityIconGrid />
             </SectionContainer>
-            <Section bgcolor="var(--color-grey-8)">
+            <Section background="grey-8">
                 <GridContainer align="center">
                     <DemoIcon />
                     <Header font_size="3.6rem" align="center">

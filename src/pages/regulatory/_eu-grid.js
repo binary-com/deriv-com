@@ -174,7 +174,7 @@ const EUgrid = () => {
             <GridItem
                 name={localize('Romania')}
                 url="/Romania.pdf"
-                order="6"
+                order="21"
             />
             <GridItem
                 name={localize('Slovakia')}

@@ -49,7 +49,7 @@ export const NeedHelp = () => {
                         'Try our Help Centre. You’ll find searchable, easy to follow articles to get you going.',
                     )}
                 </StyledText>
-                <StyledLinkButton to="help-centre">
+                <StyledLinkButton secondary to="help-centre">
                     {localize('Go to Help Centre')}
                 </StyledLinkButton>
             </SectionWrapper>

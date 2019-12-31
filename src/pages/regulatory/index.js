@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import EUgrid from './_eu-grid'
 import Layout from 'components/layout/layout'
-import { Header, Text} from 'components/elements'
+import { Header, Text, Divider} from 'components/elements'
 import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
@@ -51,18 +51,19 @@ const Regulatory = () => (
                 <StyledHeader as="h1" align="center" lh="8rem">
                     {localize('Regulatory information')}
                 </StyledHeader>
-                <StyledHeader as="h4" align="center" weight="500" lh="3.6rem" padding="1.6rem 0 0">
+                <StyledHeader as="h4" align="center" weight="normal" lh="3.6rem" padding="1.6rem 0 0">
                     {localize(
                         'The services offered on Deriv and Binary.com are provided by the Binary Group. The group has several subsidiary companies that are licensed to operate Deriv and Binary.com in their registered jurisdictions.',
                     )}
                 </StyledHeader>
-                <StyledHeader as="h4" align="center" weight="500" lh="3.6rem" padding="2rem 0 0">
+                <StyledHeader as="h4" align="center" weight="normal" lh="3.6rem" padding="2rem 0 0">
                     {localize(
                         'Since 1999, the group has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements.',
                     )}
                 </StyledHeader>
             </GridContainer>
         </SectionContainer>
+        <Divider />
         <SectionContainer padding="8rem 0 0">
             <GridContainer>
                 <StyledHeader font_size="3.6rem" align="center" lh="4.5rem">

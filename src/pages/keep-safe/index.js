@@ -17,7 +17,6 @@ import Checked from 'images/svg/checklist.svg'
 import Demo from 'images/svg/demo-account.svg'
 
 const Section = styled(SectionContainer)`
-    background-color: ${props => props.bgcolor || 'transparent'};
     max-width: ${props => props.max_width || '100%'};
     margin: 0 auto;
 `
@@ -49,7 +48,7 @@ const KeepSafe = () => {
                     <Header as="h1" align="center">
                         {localize('Keep safe')}
                     </Header>
-                    <StyledHeader as="h4" align="center" weight="500" maxwidth="79.2rem">
+                    <StyledHeader as="h4" align="center" weight="normal" maxwidth="79.2rem">
                         {localize(
                             'Your account security is very important to us. Here are a few ways to enhance your account security:',
                         )}

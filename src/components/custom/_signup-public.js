@@ -35,8 +35,6 @@ const FormWrapper = styled(Wrapper)`
 `
 
 const SignupBackground = styled(SignupImg)`
-    height: fit-content;
-
     @media ${device.laptop} {
         height: auto;
     }

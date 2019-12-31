@@ -94,6 +94,17 @@ const Span = styled.span`
 const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
 `
+const LoginLink = styled.a`
+    font-size: var(--text-size-s);
+    font-weight: bold;
+    color: var(--color-red);
+    text-decoration: none;
+    cursor: pointer;
+
+    :hover{
+        text-decoration: underline;
+    }
+`
 
 const SignupDefault = ({
     email_error_msg,
@@ -155,7 +166,7 @@ const SignupDefault = ({
                                 weight="bold"
                                 key={0}
                                 target="_blank"
-                                to="terms-and-conditions"
+                                to="/terms-and-conditions/"
                             />,
                         ]}
                     />
@@ -205,10 +216,9 @@ const SignupDefault = ({
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}
-                <StyledLink size="var(--text-size-s)" weight="bold" onClick={handleLogin}>
-                    {' '}
+                <LoginLink weight="bold" onClick={handleLogin}>
                     {localize('Log in.')}
-                </StyledLink>
+                </LoginLink>
             </LoginText>
         </SignupContent>
     )

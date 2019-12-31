@@ -119,7 +119,7 @@ const SignupDefault = ({
             <br />
             <Text>{localize('Enter your email address to begin')}</Text>
             <NoteBox>
-                <StyledText fontSize="var(--text-size-xs)" color="grey-10" lh="1.14" align="center">
+                <StyledText fontSize="var(--text-size-xs)" color="grey-16" lh="1.14" align="center">
                     {localize(
                         'Got a Binary.com account? Simply Log in to Deriv.com with your Binary.com credentials',
                     )}
@@ -171,7 +171,7 @@ const SignupDefault = ({
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-10" align="center" fontSize="var(--text-size-xxs)">
+                <StyledText color="grey-16" align="center" fontSize="var(--text-size-xxs)">
                     {localize('OR SIGN UP WITH ')}
                 </StyledText>
                 <Line />

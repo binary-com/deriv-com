@@ -223,7 +223,11 @@ class Signup extends Component {
                                 values={{ email: this.state.email }}
                             />
                         </Text>
-                        <EmailLink to="/check-email/" onClick={this.handleModalClose}>
+                        <EmailLink
+                            to="/check-email/"
+                            align="center"
+                            onClick={this.handleModalClose}
+                        >
                             {localize("Didn't receive your email?")}
                         </EmailLink>
                     </ResponseWrapper>

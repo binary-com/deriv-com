@@ -14,6 +14,7 @@ const HeroWrapper = styled.section`
     min-height: calc(100vh - 7rem);
     background: var(--color-black);
     position: relative;
+    overflow: hidden;
 
     @media ${device.laptop} {
         background-position: -10rem 100%;
@@ -69,6 +70,24 @@ const ButtonWrapper = styled(Flex)`
     }
 `
 
+const StyledVideo = styled.video`
+    position: absolute;
+    opacity: 0.8;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+
+    /* for edge */
+    @supports (object-fit: fill) {
+        object-fit: fill;
+        top: 0%;
+        left: unset;
+        transform: unset;
+    }
+`
+
 export const Hero = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
     return (
@@ -94,14 +113,8 @@ export const Hero = () => {
                 </HeroGrid>
             </Container>
             <Show.Desktop>
-                <video
+                <StyledVideo
                     title={localize('deriv.app platform video')}
-                    style={{
-                        position: 'absolute',
-                        top: '0%',
-                        objectFit: 'fill',
-                        opacity: 0.8,
-                    }}
                     width="100%"
                     height="100%"
                     autoPlay
@@ -110,7 +123,7 @@ export const Hero = () => {
                     loop
                 >
                     <source src={PlatformVideoMp4} type="video/mp4" />
-                </video>
+                </StyledVideo>
             </Show.Desktop>
         </HeroWrapper>
     )

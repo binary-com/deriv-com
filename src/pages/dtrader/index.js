@@ -43,7 +43,7 @@ const trading = [
                 <br key={0} />
             ]}
         />,
-        subtitle: localize('Forex, indices, commodities and Volatility indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.'),
+        subtitle: localize('Forex, indices, commodities and Synthetic indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.'),
         image_name: 'trade-what-you-want.png',
         image_alt: localize('Trade what you want')
     },

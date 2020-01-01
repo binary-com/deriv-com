@@ -24,15 +24,15 @@ const PlatformContainer = styled.div`
 `
 const trading = [
     {
-        title: localize('DMT5 Standard Account'),
+        title: localize('DMT5 Standard account'),
         subtitle: localize('Get started easily with a DMT5 Standard account for high leverage on your forex trades.'),
-        second_title: localize('DMT5 Advanced Account'),
+        second_title: localize('DMT5 Advanced account'),
         second_subtitle: localize("Get your trades placed straight through to the market with a DMT5 Advanced account — a 100% A-Book account with tight spreads."),
         image_name: 'dmt-5-ipad-iphone.png',
         image_alt: localize('DMT5 mac')
     },
     {
-        title: localize('DMT5 Synthetic Indices'),
+        title: localize('DMT5 Synthetic Indices account'),
         subtitle: localize('Trade 24/7 with a Synthetic Indices account. Trade indices that simulate the movements of real markets.'),
         second_title: localize('Practice with Demo accounts'),
         second_subtitle: localize('Create demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.'),

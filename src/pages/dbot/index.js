@@ -17,7 +17,7 @@ import Signup, { Appearances } from 'components/custom/signup'
 const items = [
     { title: '5', subtitle: 'Pre-built strategies included' },
     { title: 'FREE', subtitle: 'zero cost to build' },
-    { title: '50+', subtitle: 'markets to unleash your bot' }
+    { title: '50+', subtitle: 'assets to unleash your bot' }
 ]
 const PlatformContainer = styled.div`
     padding: 8rem 0;

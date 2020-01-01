@@ -72,7 +72,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
                         Icon={StyledDTrader}
                         content={[
                             localize(
-                                'Start trading now with a powerful, yet easy-to-use platform.',
+                                'The platform to start with. It’s powerful yet easy to use.',
                             ),
                         ]}
                         is_inline_icon

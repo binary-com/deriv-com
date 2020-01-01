@@ -31,7 +31,7 @@ const TabsWrapper = styled.div`
     }
 `
 const VideoWrapper = styled.div`
-    max-width: 77.6rem;
+    max-width: 78.4rem;
     width: 100%;
 `
 const Step = styled(Header)`

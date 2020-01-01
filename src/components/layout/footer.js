@@ -5,11 +5,12 @@ import { localize, LanguageSwitcher } from '../localization'
 import { Container, CssGrid } from '../containers'
 import { Text, StyledLink } from '../elements'
 import { isProduction } from 'common/websocket/config'
+import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv-footer.svg'
-import Twitter from 'images/svg/twitter.svg'
-import Telegram from 'images/svg/telegram.svg'
-import Facebook from 'images/svg/social-facebook.svg'
+import Twitter from 'images/svg/footer-twitter.svg'
+import Instagram from 'images/svg/footer-instagram.svg'
+import Facebook from 'images/svg/footer-facebook.svg'
 
 const StyledFooter = styled.section`
     background-color: var(--color-white);
@@ -27,6 +28,13 @@ const StyledContainer = styled(Container)`
 `
 const StyledGrid = styled(CssGrid)`
     grid-template-areas: 'info info info . . items items items items items items items';
+
+    @media ${device.tabletL} {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'info'
+            'items';
+        grid-row-gap: 4rem;
+    }
 `
 const InfoSection = styled.div`
     grid-area: info;
@@ -46,6 +54,31 @@ const Items = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
 `
+const SocialMeida = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 6.4rem;
+
+    ${Text} {
+        margin-top: 0;
+        letter-spacing: 2px;
+        color: var(--color-black-6);
+    }
+    div {
+        display: flex;
+        width: 100%;
+        max-width: 11.2rem;
+        justify-content: space-between;
+
+        svg {
+            width: 3.2rem;
+        }
+    }
+    @media ${device.tabletL} {
+        margin-top: 2rem;
+    }
+`
 const Col = styled.div`
     width: ${props => props.width};
     ${props => props.margin_top ? 'margin-top: 3.9rem;' : ''}
@@ -56,21 +89,23 @@ const Col = styled.div`
     div:first-child {
         margin: 0;
     }
+    ul {
+        max-width: 15.2rem;
+        width: 98%;
+    }
+    @media ${device.tabletS} {
+        width: 50%;
+        margin-top: 3rem;
+
+        :nth-child(-n+2) {
+            margin-top: 0;
+        }
+    }
 `
 const Title = styled(Text)`
     color: var(--color-black-6);
     font-weight: bold;
     letter-spacing: 0.2rem;
-`
-const SocialMeida = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    ${Text} {
-        letter-spacing: 2px;
-        color: var(--color-black-6);
-    }
 `
 const Link = styled(StyledLink)`
     color: var(--color-black-3);
@@ -90,7 +125,7 @@ const Footer = () => (
                             <Text>{localize('CONNECT WITH US')}</Text>
                             <div>
                                 <Facebook />
-                                <Telegram />
+                                <Instagram />
                                 <Twitter />
                             </div>
                         </SocialMeida>

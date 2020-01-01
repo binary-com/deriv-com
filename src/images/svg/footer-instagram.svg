@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-labelledby="footer-instagram">
+    <title id="footer instagram">
+        Footer instagram
+    </title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <g id="icons_footer_instagram" data-name="icons/footer/instagram">
+                <rect id="bg" width="32" height="32" rx="4" style="fill:none"/>
+                <path id="Combined-Shape" d="M21.38,4A6.63,6.63,0,0,1,28,10.62h0V21.38A6.63,6.63,0,0,1,21.38,28H10.62A6.63,6.63,0,0,1,4,21.38H4V10.62A6.63,6.63,0,0,1,10.62,4H21.38Zm0,2.13H10.62a4.5,4.5,0,0,0-4.49,4.49h0V21.38a4.5,4.5,0,0,0,4.49,4.49H21.38a4.5,4.5,0,0,0,4.49-4.49h0V10.62a4.5,4.5,0,0,0-4.49-4.49ZM16,9.71A6.29,6.29,0,1,1,9.71,16,6.29,6.29,0,0,1,16,9.71Zm0,2.17A4.12,4.12,0,1,0,20.12,16,4.13,4.13,0,0,0,16,11.88ZM22.57,8A1.43,1.43,0,0,1,24,9.43a1.43,1.43,0,0,1-1.43,1.43,1.43,1.43,0,0,1-1.43-1.43A1.43,1.43,0,0,1,22.57,8Z" style="fill:#333"/>
+            </g>
+        </g>
+    </g>
+</svg>

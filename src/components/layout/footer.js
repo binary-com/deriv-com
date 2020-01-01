@@ -1,9 +1,9 @@
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
 import styled from 'styled-components'
-import { localize, LanguageSwitcher } from '../localization'
 import { Container, CssGrid } from '../containers'
 import { Text, StyledLink } from '../elements'
+import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { isProduction } from 'common/websocket/config'
 import device from 'themes/device'
 // Icons
@@ -20,13 +20,13 @@ const StyledFooter = styled.section`
 const Wrapper = styled.div`
     background-color: var(--color-grey-8);
     max-width: 1440px;
-    padding: 4rem 0;
     margin: 0 auto;
 `
 const StyledContainer = styled(Container)`
     width: 100%;
 `
 const StyledGrid = styled(CssGrid)`
+    margin: 4rem 0;
     grid-template-areas: 'info info info . . items items items items items items items';
 
     @media ${device.tabletL} {
@@ -113,6 +113,21 @@ const Link = styled(StyledLink)`
     font-size: 1.6rem;
     line-height: 1.5;
 `
+const Disclaimer = styled.section`
+    background-color: var(--color-black-6);
+`
+const Row = styled.div`
+    margin-top: ${props => props.margin ? props.margin : '0'};
+`
+const StyledText = styled(Text)`
+    text-align: justify;
+    color: var(--color-grey-7);
+`
+const BoldLink = styled(StyledLink)`
+    font-weight: bold;
+    color: var(--color-white);
+    font-size: var(--text-size-s);
+`
 const Footer = () => (
     <StyledFooter>
         <Wrapper>
@@ -164,6 +179,27 @@ const Footer = () => (
                     </Items>
                 </StyledGrid>
             </StyledContainer>
+            <Disclaimer>
+                <StyledContainer>
+                    <Row margin='2.4rem'>
+                        <StyledText>
+                            <Localize
+                                translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence <0>no. IS/70156</0>)."
+                                components={[<BoldLink key={0} target="_blank" to="/keep-safe/" />]} />
+                        </StyledText>
+                        <StyledText>
+                            <Localize
+                                translate_text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (view <0>licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (licence <0>no. SIBA/L/18/1114</0>); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (licence <0>no. MB/18/0024</0>)."
+                                components={[<BoldLink key={0} target="_blank" to="/keep-safe/" />]} />
+                        </StyledText>
+                        <StyledText>
+                            <Localize
+                                translate_text="This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18."
+                                components={[<BoldLink key={0} target="_blank" to="/keep-safe/" />]} />
+                        </StyledText>
+                    </Row>
+                </StyledContainer>
+            </Disclaimer>
         </Wrapper>
     </StyledFooter>
 )

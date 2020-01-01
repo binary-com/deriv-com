@@ -8,7 +8,7 @@ const Container = styled.section`
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 4rem;
     align-items: flex-start;
 
@@ -22,17 +22,25 @@ const Tab = styled.div`
     margin-top: 2.4rem;
 `
 const TabsWrapper = styled.div`
-    width: 40.7rem;
-    margin-right: 2.6rem;
+    max-width: 40.7rem;
+    width: 36%;
     margin-top: 6rem;
 
     div:first-child {
         margin-top: 0;
     }
+
+    @media ${device.tabletL} {
+        width: 100%;
+    }
 `
 const VideoWrapper = styled.div`
     max-width: 78.4rem;
-    width: 100%;
+    width: 64%;
+
+    @media ${device.tabletL} {
+        width: 100%;
+    }
 `
 const Step = styled(Header)`
     font-weight: 500;

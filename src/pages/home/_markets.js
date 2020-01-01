@@ -1,164 +1,94 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { StyledSubHeader } from './_headers'
-import { Header, Text, SideTab } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
-import { Container, SectionContainer } from 'components/containers'
+import { Container, SectionContainer, Flex } from 'components/containers'
 // Icons
-import liquidMarket from 'images/svg/liquid-market.svg'
-import AvailableForex from 'images/svg/available-forex.svg'
-import AvailableSynthetic from 'images/svg/available-synthetic.svg'
-import Ncm from 'images/svg/no-centralised-market.svg'
-import RiskDiversification from 'images/svg/risk-diversification.svg'
-import MarketCondition from 'images/svg/market-condition.svg'
-import PredictMarketTrends from 'images/svg/predict-market-trends.svg'
-import Portfolio from 'images/svg/portfolio-diversification.svg'
-import StockMarket from 'images/svg/stock-market.svg'
-import InflationProtection from 'images/svg/inflation-protection.svg'
-import RealWorld from 'images/svg/real-world.svg'
-import MarketRisk from 'images/svg/market-risk.svg'
-import SmallStakes from 'images/svg/small-stakes.svg'
-import HighReturns from 'images/svg/volatility-indices.svg'
-import ContractDurations from 'images/svg/contract-durations.svg'
-
-const StyledSection = styled.section`
-    padding-left: 8rem;
-    width: 80rem;
-
-    p {
-        font-size: var(--text-size-sm);
-    }
-`
-
-const StyledContainer = styled(SectionContainer)`
-    height: 71.1rem;
-`
-
-const Markettabs = styled.div`
+import ForexIcon from 'images/svg/market-forex.svg'
+import IndicesIcon from 'images/svg/market-indices.svg'
+import CommoditiesIcon from 'images/svg/market-commodities.svg'
+import SyntheticIndicesIcon from 'images/svg/market-synthetic-indices.svg'
+// Images
+const MarketWrapper = styled(Flex)`
     margin-top: 4rem;
 `
-const TabGrid = styled.div`
-    margin-top: 2.4rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 12rem;
-    grid-row-gap: 2rem;
-`
-const TabGridCol = styled.article`
-    padding: 0;
+const MarketCard = styled.article`
+    display: flex;
+    margin-bottom: ${props => props.mb || ''};
+    margin-right: ${props => props.mr || ''};
 
-    p {
-        margin-top: 0.8rem;
-        font-size: var(--text-size-s);
+    svg {
+        margin-right: 2rem;
+        margin-top: 1.5rem;
+    }
+    div {
+        max-width: 38.4rem;
+
+        ${Text} {
+            padding-top: 8px;
+        }
+    }
+    @media (max-width: 1210px) {
+        margin-right: 0;
+    }
+    @media (max-width: 860px) {
+        margin-bottom: 4rem;
     }
 `
-const TabCol = ({ Icon, content }) => {
-    return (
-        <TabGridCol>
-            <Icon />
-            <Text color="black-3" lh="1.55">
-                {content}
-            </Text>
-        </TabGridCol>
-    )
-}
-TabCol.propTypes = {
-    content: PropTypes.string,
-    Icon: PropTypes.func,
-}
-const Forex = () => (
-    <StyledSection>
-        <Text color="black-3" lh="1.55">
-            {localize('A global market for buying, selling, and exchanging currencies.')}
-        </Text>
-        <TabGrid>
-            <TabCol
-                Icon={liquidMarket}
-                content={localize('World’s largest and most liquid market')}
-            />
-            <TabCol Icon={AvailableForex} content={localize('Available for trading 24/5')} />
-            <TabCol
-                Icon={Ncm}
-                content={localize('Over-the-counter market with no centralised exchange')}
-            />
-        </TabGrid>
-    </StyledSection>
-)
-const Indices = () => (
-    <StyledSection>
-        <Text color="black-3" lh="1.55">
-            {localize(
-                'Selected group of assets used to measure the overall performance of a specific market.',
-            )}
-        </Text>
-        <TabGrid>
-            <TabCol Icon={RiskDiversification} content={localize('Risk diversification')} />
-            <TabCol
-                Icon={MarketCondition}
-                content={localize('Movement correlates with market conditions')}
-            />
-            <TabCol
-                Icon={PredictMarketTrends}
-                content={localize(
-                    'Predict overall market trends, rather than individual performances',
-                )}
-            />
-        </TabGrid>
-    </StyledSection>
-)
-const Commodities = () => (
-    <StyledSection>
-        <Text color="black-3" lh="1.55">
-            {localize('Raw natural resources that can be bought or sold commercially.')}
-        </Text>
-        <TabGrid>
-            <TabCol Icon={Portfolio} content={localize('Portfolio diversification')} />
-            <TabCol Icon={StockMarket} content={localize('Hedge against the stock market')} />
-            <TabCol Icon={InflationProtection} content={localize('Inflation protection')} />
-        </TabGrid>
-    </StyledSection>
-)
-const Synthetic = () => (
-    <StyledSection>
-        <Text color="black-3" lh="1.55">
-            {localize(
-                'A unique, synthetic market that simulates real-world volatility. Trade with small, fixed stakes for high returns with durations as short as one tick.',
-            )}
-        </Text>
-        <TabGrid>
-            <TabCol Icon={AvailableSynthetic} content={localize('Available for trading 24/7')} />
-            <TabCol Icon={RealWorld} content={localize('Unaffected by real-world news events')} />
-            <TabCol Icon={MarketRisk} content={localize('Emulates market risks')} />
-            <TabCol Icon={SmallStakes} content={localize('Small, fixed stakes')} />
-            <TabCol Icon={HighReturns} content={localize('High returns')} />
-            <TabCol
-                Icon={ContractDurations}
-                content={localize('Contract durations from one tick')}
-            />
-        </TabGrid>
-    </StyledSection>
-)
-
 const Markets = () => (
-    <StyledContainer>
+    <SectionContainer background="grey-10">
         <Container direction="column">
-            <Header as="h2" align="center">
+            <Header align="center" font_size="3.6rem" as="h2">
                 {localize('Markets')}
             </Header>
-            <StyledSubHeader as="h4" align="center" weight="500">
-                {localize('Over 100 assets available across four leading markets.')}
-            </StyledSubHeader>
-            <Markettabs>
-                <SideTab>
-                    <Forex label="forex" text={localize('Forex')} />
-                    <Indices label="indices" text={localize('Indices')} />
-                    <Commodities label="commodities" text={localize('Commodities')} />
-                    <Synthetic label="synthetic" text={localize('Synthetic Indices')} />
-                </SideTab>
-            </Markettabs>
+            <MarketWrapper>
+                <MarketCard mr="2.4rem" mb="4rem">
+                    <ForexIcon />
+                    <div>
+                        <Header as="h4">{localize('Forex')}</Header>
+                        <Text>
+                            {localize(
+                                'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
+                            )}
+                        </Text>
+                    </div>
+                </MarketCard>
+                <MarketCard mb="4rem">
+                    <IndicesIcon />
+                    <div>
+                        <Header as="h4">{localize('Indices')}</Header>
+                        <Text>
+                            {localize(
+                                'Predict broader market trends and diversify your risk with indices that measure the overall performance of a market.',
+                            )}
+                        </Text>
+                    </div>
+                </MarketCard>
+                <MarketCard mr="2.4rem">
+                    <CommoditiesIcon />
+                    <div>
+                        <Header as="h4">{localize('Commodities')}</Header>
+                        <Text>
+                            {localize(
+                                'Trade natural resources that are central to the world’s economy and profit from the opportunities created by volatile markets.',
+                            )}
+                        </Text>
+                    </div>
+                </MarketCard>
+                <MarketCard>
+                    <SyntheticIndicesIcon />
+                    <div>
+                        <Header as="h4">{localize('Synthetic Indices')}</Header>
+                        <Text>
+                            {localize(
+                                'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
+                            )}
+                        </Text>
+                    </div>
+                </MarketCard>
+            </MarketWrapper>
         </Container>
-    </StyledContainer>
+    </SectionContainer>
 )
 
 export default Markets

@@ -31,7 +31,7 @@ const trading = [
             ]}
         />,
         subtitle: localize(
-            'Martingale, D’Alembert, Oscar’s Grid, Cuttler’s RSI, Bollinger Bands, and SMA Crossover - load and customise proven strategies or create your own from scratch.',
+            "Martingale, D'Alembert, Oscar's Grind, Cutler's RSI, Bollinger Bands, and SMA Crossover — load and customise proven strategies or create your own from scratch.",
         ),
         image_name: 'dbot-strategy.png',
         image_alt: localize('Strategy'),
@@ -57,7 +57,7 @@ const trading = [
             ]}
         />,
         subtitle: localize(
-            'Use analysis tools and indicators and include take-profit, stop-loss and other smart logic to maximise your profits, and limit losses.',
+            'Use analysis tools, indicators, and smart logic such as take-profit and stop-loss to maximise your profits and limit losses.',
         ),
         image_name: 'dbot-maximise-profits.png',
         image_alt: localize('Analysis tool'),

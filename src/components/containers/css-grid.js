@@ -36,11 +36,11 @@ export default CssGrid
 CssGrid.propTypes = {
     align: PropTypes.string,
     bgcolor: PropTypes.string,
-    columngap: PropTypes.string,
-    columns: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    column_gap: PropTypes.string,
+    columns: PropTypes.string,
     justify: PropTypes.string,
     margin: PropTypes.string,
-    rowgap: PropTypes.string,
+    row_gap: PropTypes.string,
 }
 CssGridColumn.propTypes = {
     align: PropTypes.string,

@@ -27,7 +27,7 @@ const CardCover = styled.div`
     background-color: ${props => props.background_color};
     border-radius: 6px;
     top: 0;
-    transition: all 0.3s linear;
+    transition: transform 0.3s linear;
     display: flex;
     align-items: center;
     flex-direction: row;

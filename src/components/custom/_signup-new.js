@@ -36,7 +36,7 @@ const NoteBox = styled.div`
     margin-top: 1.6rem;
     border-radius: 0.6rem;
     background-color: var(--color-grey-8);
-    border: solid 1px var(--color-grey-11);
+    border: solid 1px var(--color-grey-17);
 `
 const InputGroup = styled.div`
     position: relative;

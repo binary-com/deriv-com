@@ -26,12 +26,13 @@ const CardCover = styled.div`
     height: 100%;
     background-color: ${props => props.background_color};
     border-radius: 6px;
-    left: -100%;
     top: 0;
-    transition: left 0.3s linear;
+    transition: transform 0.3s linear;
     display: flex;
     align-items: center;
     flex-direction: row;
+    transform: ${props =>
+        props.is_selected ? 'translate3d(-3%, 0, 0)' : 'translate3d(-105%, 0, 0)'};
 
     div {
         display: flex;
@@ -54,11 +55,13 @@ const CardWrapper = styled.article`
     overflow: hidden;
     min-height: ${props => (props.min_height ? props.min_height : '0')};
     width: ${props => (props.width ? props.width : '38.4rem')};
-    padding: ${props => props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem'};
+    padding: ${props => (props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem')};
     border-radius: 6px;
 
-    :hover ${CardCover} {
-        left: 0;
+    &:hover {
+        ${CardCover} {
+            transform: translate3d(-3%, 0, 0);
+        }
     }
 
     @media ${device.tabletL} {
@@ -67,7 +70,6 @@ const CardWrapper = styled.article`
         margin-top: 1.77rem;
         margin-right: 0;
     }
-
 `
 const ContentWrapper = styled.div`
     margin-top: 4rem;
@@ -82,6 +84,10 @@ const ContentWrapper = styled.div`
 `
 
 const CardChildrenWrapper = styled.article`
+    ${Header} {
+        text-align: center;
+    }
+
     ${CardStyle}
     width: ${props => (props.width ? props.width : '50.2rem')};
     height: 100%;
@@ -91,13 +97,6 @@ const CardChildrenWrapper = styled.article`
     flex-direction: column;
     align-items: center;
 
-    &:hover ${CardCover} {
-        left: 0;
-    }
-    ${Header} {
-        text-align: center;
-
-    }
     p {
         font-size: var(--text-size-s);
 
@@ -132,8 +131,8 @@ const Content = ({ content }) => (
         {Array.isArray(content) ? (
             content.map(text => <CardContent key={text}>{text}</CardContent>)
         ) : (
-                <CardContent>{content}</CardContent>
-            )}
+            <CardContent>{content}</CardContent>
+        )}
     </>
 )
 
@@ -141,18 +140,31 @@ Content.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
 
-export const Card = ({ children, Icon, title, content, width, min_height, is_inline_icon, cover_background, cover_content, padding }) => {
+export const Card = ({
+    children,
+    Icon,
+    title,
+    content,
+    width,
+    min_height,
+    is_inline_icon,
+    cover_background,
+    cover_content,
+    padding,
+    is_selected,
+}) => {
     return (
         <CardWrapper width={width} min_height={min_height} padding={padding}>
             {!children && (
                 <>
                     {is_inline_icon ? (
                         <>
-                            <CardCover background_color={cover_background}>
+                            <CardCover
+                                background_color={cover_background}
+                                is_selected={is_selected}
+                            >
                                 <div>
-                                    <h4>
-                                        {cover_content}
-                                    </h4>
+                                    <h4>{cover_content}</h4>
                                     <Arrow />
                                 </div>
                             </CardCover>
@@ -169,16 +181,16 @@ export const Card = ({ children, Icon, title, content, width, min_height, is_inl
                             </IconContainer>
                         </>
                     ) : (
-                            <>
-                                <Icon />
-                                <ContentWrapper>
-                                    <Header as="h4" weight="bold">
-                                        {title}
-                                    </Header>
-                                    <Content content={content} />
-                                </ContentWrapper>
-                            </>
-                        )}
+                        <>
+                            <Icon />
+                            <ContentWrapper>
+                                <Header as="h4" weight="bold">
+                                    {title}
+                                </Header>
+                                <Content content={content} />
+                            </ContentWrapper>
+                        </>
+                    )}
                 </>
             )}
             {children && children}
@@ -193,6 +205,7 @@ Card.propTypes = {
     cover_content: PropTypes.string,
     Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     is_inline_icon: PropTypes.bool,
+    is_selected: PropTypes.bool,
     min_height: PropTypes.string,
     padding: PropTypes.string,
     title: PropTypes.string,

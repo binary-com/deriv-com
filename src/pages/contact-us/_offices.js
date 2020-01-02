@@ -175,7 +175,7 @@ export const Offices = () => {
                                 </StyledParagraph>
                             </LinkText>
                             <StyledText>
-                                <PhoneIcon /> +603 83228178
+                                <PhoneIcon />+603 83228178
                             </StyledText>
                         </Content>
                         <ImageWrapper>

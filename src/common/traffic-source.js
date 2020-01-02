@@ -7,7 +7,6 @@ const TrafficSource = (() => {
     const initUtmCookie = () => {
         cookie = new CookieStorage('utm_data')
         cookie.remove()
-        cookie.read()
         // expiration date is used when writing cookie
         const now = new Date()
         cookie.expires = now.setMonth(now.getMonth() + 3)

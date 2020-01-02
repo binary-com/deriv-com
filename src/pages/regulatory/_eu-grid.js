@@ -5,11 +5,12 @@ import { CssGrid, CssGridColumn } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 
 const Country = styled.div`
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.4rem;
     display: grid;
     grid-template-columns: 1.9rem 1fr;
     grid-column-gap: 0.8rem;
     font-size: var(--text-size-s);
+    color: var(--color-grey-3);
     align-items: center;
 
     & a {
@@ -22,11 +23,12 @@ const Country = styled.div`
 const Order = styled.div`
     display: inline-block;
     font-size: 1rem;
-    line-height: 1.8rem;
-    border: 1px solid #333333;
+    line-height: 1.9rem;
+    font-weight: 500;
+    border: 0.1rem solid var(--color-grey-3);
     border-radius: 100%;
-    width: 1.9rem;
-    height: 1.9rem;
+    width: 2rem;
+    height: 2rem;
     text-align: center;
 `
 const License = styled.div`

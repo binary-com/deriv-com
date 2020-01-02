@@ -72,7 +72,13 @@ const Content = styled.div`
         }
     }
 `
-
+const AddressContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+const MapIconWrapper = styled.div`
+    margin-top: 0.4rem;
+`
 const MapIcon = styled(MapSVG)`
     margin-right: 0.8rem;
 `
@@ -92,9 +98,6 @@ const MapLink = styled.a`
     text-decoration: none;
     position: relative;
     cursor: pointer;
-`
-const StyledParagraph = styled.p`
-    text-indent: 1.5em;
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
@@ -137,18 +140,22 @@ export const Offices = () => {
                                 {localize('Malta')}
                             </StyledHeader>
                             <br />
-                            <LinkText
-                                target="_blank"
-                                color="black-3"
-                                size="var(--text-size-s)"
-                                href="https://www.google.com/maps/search/?api=1&query=35.903559,14.460707"
-                            >
-                                <MapIcon />
-                                {localize('Level 3, W Business Centre,')}
-                                <StyledParagraph>
+                            <AddressContainer>
+                                <MapIconWrapper>
+                                    <MapIcon />
+                                </MapIconWrapper>
+                                <LinkText
+                                    target="_blank"
+                                    color="black-3"
+                                    size="var(--text-size-s)"
+                                    href="https://www.google.com/maps/search/?api=1&query=35.903559,14.460707"
+                                >
+                                    {localize('Level 3, W Business Centre,')}
+                                    <br />
                                     {localize('Triq Dun Karm Birkirkara BKR9033 Malta.')}
-                                </StyledParagraph>
-                            </LinkText>
+                                </LinkText>
+                            </AddressContainer>
+
                             <StyledText>
                                 <PhoneIcon />
                                 +356 2131 6105
@@ -162,20 +169,24 @@ export const Offices = () => {
                                 {localize('Malaysia')}
                             </StyledHeader>
                             <br />
-                            <LinkText
-                                target="_blank"
-                                color="black-3"
-                                size="var(--text-size-s)"
-                                href="https://www.google.com/maps/search/?api=1&query=2.922786,101.661404"
-                            >
-                                <MapIcon />
-                                {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
-                                <StyledParagraph>
+                            <AddressContainer>
+                                <MapIconWrapper>
+                                    <MapIcon />
+                                </MapIconWrapper>
+                                <LinkText
+                                    target="_blank"
+                                    color="black-3"
+                                    size="var(--text-size-s)"
+                                    href="https://www.google.com/maps/search/?api=1&query=2.922786,101.661404"
+                                >
+                                    {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
+                                    <br />
                                     {localize('63000 Cyberjaya, Selangor, Malaysia.')}
-                                </StyledParagraph>
-                            </LinkText>
+                                </LinkText>
+                            </AddressContainer>
                             <StyledText>
-                                <PhoneIcon />+603 83228178
+                                <PhoneIcon />
+                                +603 83228178
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -212,18 +223,21 @@ export const Offices = () => {
                                 {localize('Labuan')}
                             </StyledHeader>
                             <br />
-                            <LinkText
-                                target="_blank"
-                                color="black-3"
-                                size="var(--text-size-s)"
-                                href="https://www.google.com/maps/search/?api=1&query=,"
-                            >
-                                <MapIcon />
-                                {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
-                                <StyledParagraph>
+                            <AddressContainer>
+                                <MapIconWrapper>
+                                    <MapIcon />
+                                </MapIconWrapper>
+                                <LinkText
+                                    target="_blank"
+                                    color="black-3"
+                                    size="var(--text-size-s)"
+                                    href="https://www.google.com/maps/search/?api=1&query=,"
+                                >
+                                    {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
+                                    <br />
                                     {localize('Mustapha, 87000, Labuan')}
-                                </StyledParagraph>
-                            </LinkText>
+                                </LinkText>
+                            </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
                                 +6087 504126
@@ -237,16 +251,21 @@ export const Offices = () => {
                                 {localize('Dubai')}
                             </StyledHeader>
                             <br />
-                            <LinkText
-                                target="_blank"
-                                color="black-3"
-                                size="var(--text-size-s)"
-                                href="https://www.google.com/maps/search/?api=1&query=25.079313,55.149074"
-                            >
-                                <MapIcon />
-                                {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
-                                <StyledParagraph>{localize('Towers, Dubai, UAE.')}</StyledParagraph>
-                            </LinkText>
+                            <AddressContainer>
+                                <MapIconWrapper>
+                                    <MapIcon />
+                                </MapIconWrapper>
+                                <LinkText
+                                    target="_blank"
+                                    color="black-3"
+                                    size="var(--text-size-s)"
+                                    href="https://www.google.com/maps/search/?api=1&query=25.079313,55.149074"
+                                >
+                                    {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
+                                    <br />
+                                    {localize('Towers, Dubai, UAE.')}
+                                </LinkText>
+                            </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
                                 +9714 399 0404
@@ -286,19 +305,25 @@ export const Offices = () => {
                                 {localize('Paraguay')}
                             </StyledHeader>
                             <br />
-                            <LinkText
-                                target="_blank"
-                                color="black-3"
-                                size="var(--text-size-s)"
-                                href="https://www.google.com/maps/search/?api=1&query=-25.282562,-57.563787"
-                            >
-                                <MapIcon />
-                                {localize('886, Edificio Australia, Calle Herib, Campos Cervera')}
-                                <StyledParagraph>
+                            <AddressContainer>
+                                <MapIconWrapper>
+                                    <MapIcon />
+                                </MapIconWrapper>
+                                <LinkText
+                                    target="_blank"
+                                    color="black-3"
+                                    size="var(--text-size-s)"
+                                    href="https://www.google.com/maps/search/?api=1&query=-25.282562,-57.563787"
+                                >
+                                    {localize(
+                                        '886, Edificio Australia, Calle Herib, Campos Cervera',
+                                    )}
+                                    <br />
                                     {localize('y Tregnaghi, Distriti de Stma, Trinidad, Asuncion,')}
-                                </StyledParagraph>
-                                <StyledParagraph>{localize('Paraguay')}</StyledParagraph>
-                            </LinkText>
+                                    <br />
+                                    {localize('Paraguay')}
+                                </LinkText>
+                            </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
                                 +595 991298762

@@ -27,11 +27,12 @@ const CardCover = styled.div`
     background-color: ${props => props.background_color};
     border-radius: 6px;
     top: 0;
-    transition: left 0.3s linear;
+    transition: all 0.3s linear;
     display: flex;
     align-items: center;
     flex-direction: row;
-    left: ${props => (props.is_selected ? '0' : '-100%')};
+    transform: ${props =>
+        props.is_selected ? 'translate3d(-3%, 0, 0)' : 'translate3d(-105%, 0, 0)'};
 
     div {
         display: flex;
@@ -57,8 +58,10 @@ const CardWrapper = styled.article`
     padding: ${props => (props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem')};
     border-radius: 6px;
 
-    :hover ${CardCover} {
-        left: 0;
+    &:hover {
+        ${CardCover} {
+            transform: translate3d(-3%, 0, 0);
+        }
     }
 
     @media ${device.tabletL} {
@@ -81,6 +84,10 @@ const ContentWrapper = styled.div`
 `
 
 const CardChildrenWrapper = styled.article`
+    ${Header} {
+        text-align: center;
+    }
+
     ${CardStyle}
     width: ${props => (props.width ? props.width : '50.2rem')};
     height: 100%;
@@ -90,13 +97,6 @@ const CardChildrenWrapper = styled.article`
     flex-direction: column;
     align-items: center;
 
-    &:hover ${CardCover} {
-        left: 0;
-    }
-    ${Header} {
-        text-align: center;
-
-    }
     p {
         font-size: var(--text-size-s);
 

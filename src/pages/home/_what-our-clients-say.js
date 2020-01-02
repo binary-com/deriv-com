@@ -56,7 +56,7 @@ const WhatOurClientsSay = () => (
             <ClientCard>
                 <QuoteText as="blockquote">
                     {localize(
-                        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
+                        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to Binary.com since the company name already have a known truck of good ethics.',
                     )}
                 </QuoteText>
                 <Flex jc="flex-start" p="2.1rem 0 0 0">

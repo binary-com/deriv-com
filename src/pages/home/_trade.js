@@ -81,19 +81,19 @@ export const Trade = () => {
                                 onMouseEnter={() => setSelected(platforms.trader)}
                                 onMouseLeave={() => setSelected('')}
                             >
-                                <TraderCard is_selected={selected === platforms.trader} />
+                                <TraderCard />
                             </div>
                             <div
                                 onMouseEnter={() => setSelected(platforms.bot)}
                                 onMouseLeave={() => setSelected('')}
                             >
-                                <BotCard is_selected={selected === platforms.bot} />
+                                <BotCard />
                             </div>
                             <div
                                 onMouseEnter={() => setSelected(platforms.mt5)}
                                 onMouseLeave={() => setSelected('')}
                             >
-                                <DMT5Card is_selected={selected === platforms.mt5} />
+                                <DMT5Card />
                             </div>
                         </CssGrid>
                     </div>

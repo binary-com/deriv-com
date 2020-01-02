@@ -102,7 +102,7 @@ const StyledText = styled(Text)`
     text-indent: ${props => props.textIndent || '0'};
 `
 const Splitter = styled.div`
-    background-color: #d8d8d8;
+    background-color: var(--color-grey-8);
     height: 0.1rem;
     width: 98rem;
 

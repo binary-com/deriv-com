@@ -6,6 +6,8 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 
 const ClientCard = styled.article`
     background-color: var(--color-white);
+    border-radius: 4px;
+    box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
     width: 38.1rem;
     padding: 2.4rem;
     height: 100%;

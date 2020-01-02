@@ -1,26 +1,14 @@
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { Paddings } from 'themes/function'
+import { LocalizedLink } from 'components/localization'
 
-const Button = styled.button`
+const SharedButtonStyle = css`
     border-radius: 6px;
     padding: 1rem 1.6rem;
     font-size: 1.4rem;
     transition: all 0.25s;
     font-weight: bold;
-    ${Paddings}
-
-    &:hover {
-        cursor: pointer;
-    }
-    &:focus,
-    &:active {
-        outline: none;
-    }
-    &:active {
-        transform: scale(0.95);
-    }
-
     ${props => {
         if (props.primary)
             return css`
@@ -76,6 +64,27 @@ const Button = styled.button`
                 }
             `
     }}
+
+    &:focus,
+    &:active {
+        outline: none;
+        transform: scale(0.95);
+    }
+`
+
+export const LinkButton = styled(LocalizedLink)`
+    ${SharedButtonStyle}
+    text-align: center;
+    text-decoration: none;
+`
+const Button = styled.button`
+    ${SharedButtonStyle}
+    ${Paddings}
+
+    &:hover {
+        cursor: pointer;
+    }
+
     ${props => {
         if (props.disabled)
             return css`

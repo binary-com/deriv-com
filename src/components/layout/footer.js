@@ -13,17 +13,9 @@ import Instagram from 'images/svg/footer-instagram.svg'
 import Facebook from 'images/svg/footer-facebook.svg'
 
 const StyledFooter = styled.section`
-    background-color: var(--color-white);
-    width: 100%;
-    margin: 0 auto;
-`
-const Wrapper = styled.div`
     background-color: var(--color-grey-8);
-    max-width: 1440px;
-    margin: 0 auto;
-`
-const StyledContainer = styled(Container)`
     width: 100%;
+    margin: 0 auto;
 `
 const StyledGrid = styled(CssGrid)`
     margin: 4rem 0;
@@ -114,24 +106,27 @@ const Link = styled(StyledLink)`
     line-height: 1.5;
 `
 const Disclaimer = styled.section`
-    background-color: var(--color-black-6);
+    background-color: var(--color-grey-8);
+
+    ${Container} {
+        border-top: 1px solid var(--color-red);
+    }
 `
 const Row = styled.div`
     margin-top: ${props => props.margin ? props.margin : '0'};
 `
 const StyledText = styled(Text)`
     text-align: justify;
-    color: var(--color-grey-7);
+    color: var(--color-black-3);
 `
 const BoldLink = styled(StyledLink)`
     font-weight: bold;
-    color: var(--color-white);
+    color: var(--color-black-3);
     font-size: var(--text-size-s);
 `
 const Footer = () => (
     <StyledFooter>
-        <Wrapper>
-            <StyledContainer>
+            <Container>
                 <StyledGrid columns='repeat(12, 1fr)' columngap='2.4rem' rowgap='3.9rem'>
                     <InfoSection>
                         <Logo width='14.5rem' />
@@ -178,9 +173,9 @@ const Footer = () => (
                         </Col>
                     </Items>
                 </StyledGrid>
-            </StyledContainer>
+            </Container>
             <Disclaimer>
-                <StyledContainer>
+                <Container>
                     <Row margin='2.4rem'>
                         <StyledText>
                             <Localize
@@ -198,9 +193,8 @@ const Footer = () => (
                                 components={[<BoldLink key={0} target="_blank" to="/keep-safe/" />]} />
                         </StyledText>
                     </Row>
-                </StyledContainer>
+                </Container>
             </Disclaimer>
-        </Wrapper>
     </StyledFooter>
 )
 

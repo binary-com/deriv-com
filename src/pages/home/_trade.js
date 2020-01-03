@@ -22,7 +22,6 @@ const ImageWrapper = styled.div`
     opacity: ${props => (props.is_selected ? '1' : '0')};
     z-index: ${props => (props.is_selected ? '0' : '10')};
     position: absolute;
-    top: -1.3rem;
     transition: all 0.25s;
 `
 
@@ -31,13 +30,16 @@ const ImageContainer = styled.div`
     height: 100%;
     width: 100%;
 `
+const StyledSection = styled(SectionContainer)`
+    background-image: linear-gradient(to bottom, var(--color-grey-11), rgba(238, 238, 238, 0));
+`
 
 export const Trade = () => {
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
 
     return (
-        <SectionContainer>
+        <StyledSection>
             <Container direction="column">
                 <Header font_size="3.6rem" as="h2" align="center">
                     {localize('Trade the way you like')}
@@ -54,21 +56,21 @@ export const Trade = () => {
                         <ImageContainer>
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
                                 <Image
-                                    img_name="trade_dtrader.png"
+                                    img_name="dtrader_trade.png"
                                     alt={localize('DTrader platform')}
                                     width="90%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
                                 <Image
-                                    img_name="trade_dbot.png"
+                                    img_name="dbot_trade.png"
                                     alt={localize('DBot platform')}
                                     width="90%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
                                 <Image
-                                    img_name="trade_dmt5.png"
+                                    img_name="dmt5_trade.png"
                                     alt={localize('DMT5 platform')}
                                     width="90%"
                                 />
@@ -76,29 +78,29 @@ export const Trade = () => {
                         </ImageContainer>
                     </div>
                     <div style={{ width: '40%' }}>
-                        <CssGrid rowgap="1.6rem" height="0%">
+                        <CssGrid row_gap="1.6rem" height="0%">
                             <div
                                 onMouseEnter={() => setSelected(platforms.trader)}
                                 onMouseLeave={() => setSelected('')}
                             >
-                                <TraderCard is_selected={selected === platforms.trader} />
+                                <TraderCard />
                             </div>
                             <div
                                 onMouseEnter={() => setSelected(platforms.bot)}
                                 onMouseLeave={() => setSelected('')}
                             >
-                                <BotCard is_selected={selected === platforms.bot} />
+                                <BotCard />
                             </div>
                             <div
                                 onMouseEnter={() => setSelected(platforms.mt5)}
                                 onMouseLeave={() => setSelected('')}
                             >
-                                <DMT5Card is_selected={selected === platforms.mt5} />
+                                <DMT5Card />
                             </div>
                         </CssGrid>
                     </div>
                 </Flex>
             </Container>
-        </SectionContainer>
+        </StyledSection>
     )
 }

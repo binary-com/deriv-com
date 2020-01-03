@@ -148,7 +148,7 @@ const CookieStorage = function(cookie_name, cookie_domain) {
 }
 
 CookieStorage.prototype = {
-    read() {
+    initialize() {
         const cookie_value = Cookies.get(this.cookie_name)
         try {
             this.value = cookie_value ? JSON.parse(cookie_value) : {}
@@ -158,7 +158,7 @@ CookieStorage.prototype = {
         this.initialized = true
     },
     write(val, expiry_date, is_secure) {
-        if (!this.initialized) this.read()
+        if (!this.initialized) this.initialize()
         this.value = val
         if (expiry_date) this.expires = expiry_date
         Cookies.set(this.cookie_name, this.value, {
@@ -169,11 +169,11 @@ CookieStorage.prototype = {
         })
     },
     get(key) {
-        if (!this.initialized) this.read()
+        if (!this.initialized) this.initialize()
         return this.value[key]
     },
     set(key, val) {
-        if (!this.initialized) this.read()
+        if (!this.initialized) this.initialize()
         this.value[key] = val
         Cookies.set(this.cookie_name, this.value, {
             expires: new Date(this.expires),

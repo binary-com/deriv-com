@@ -9,6 +9,7 @@ import {
     StyledLink,
     Header,
     Text,
+    Divider
 } from 'components/elements'
 import { Button } from 'components/form'
 import SignupModal from 'components/custom/signup-modal'
@@ -17,18 +18,13 @@ import Checked from 'images/svg/checklist.svg'
 import Demo from 'images/svg/demo-account.svg'
 
 const Section = styled(SectionContainer)`
-    background-color: ${props => props.bgcolor || 'transparent'}
+    max-width: ${props => props.max_width || '100%'};
+    margin: 0 auto;
 `
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
     margin: 0 auto;
-    padding: 1.2rem 2rem 4rem;
-`
-const Card = styled.div`
-    padding: 2.4rem;
-    border-radius: 6px;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    background-color: var(--color-white);
+    padding: ${props => props.padding || '1.2rem 2rem 4rem'};
 `
 const CheckedIcon = styled(Checked)`
     max-width: 100%;
@@ -53,23 +49,26 @@ const KeepSafe = () => {
                     <Header as="h1" align="center">
                         {localize('Keep safe')}
                     </Header>
-                    <StyledHeader as="h4" align="center" weight="500" maxwidth="98.4rem">
+                    <StyledHeader as="h4" align="center" weight="normal" maxwidth="79.2rem" padding="0">
                         {localize(
                             'Your account security is very important to us. Here are a few ways to enhance your account security:',
                         )}
                     </StyledHeader>
                 </GridContainer>
+            </SectionContainer>
+            <Divider />
+            <SectionContainer>
                 <SecurityIconGrid />
             </SectionContainer>
-            <Section bgcolor="var(--color-grey-8)">
+            <Section background="grey-8">
                 <GridContainer align="center">
                     <DemoIcon />
                     <Header font_size="3.6rem" align="center">
-                        {localize('Practise with a demo account')}
+                        {localize('New to trading?')}
                     </Header>
-                    <StyledHeader as="h5" align="center" weight="400" maxwidth="58rem" lh="2.4rem">
+                    <StyledHeader as="h5" align="center" weight="400" lh="2.4rem">
                         {localize(
-                            'New to trading and don’t know where to start? Use our demo account and learn how to trade by using risk-free virtual funds.',
+                            'Use our demo account and learn how to trade by using risk-free virtual funds.',
                         )}
                     </StyledHeader>
                     <Button secondary onClick={toggleModal}>
@@ -77,19 +76,18 @@ const KeepSafe = () => {
                     </Button>
                 </GridContainer>
             </Section>
-            <Section>
-                <GridContainer>
-                    <Card>
-                        <Header as="h4" lh="1.55">
-                            {localize('Understand the risks')}
-                        </Header>
-                        <CssGrid
+            <Section max_width="98rem">
+                <GridContainer align="center">
+                    <StyledHeader font_size="3.6rem" lh="3.6rem" align="center" padding="0">
+                        {localize('Understand the risks')}
+                    </StyledHeader>
+                    <CssGrid
                             columns="2.4rem 1fr"
-                            columngap="1.6rem"
-                            rowgap="1.6rem"
-                            mobilecolumns="2.4rem 1fr"
-                            mobilerowgap="2rem"
-                            margin="1.4rem 0 0"
+                            column_gap="1.6rem"
+                            row_gap="1.6rem"
+                            mobile_columns="2.4rem 1fr"
+                            mobile_row_gap="2rem"
+                            margin="3.2rem 0 0"
                         >
                             <CssGridColumn>
                                 <CheckedIcon />
@@ -101,7 +99,7 @@ const KeepSafe = () => {
                                         components={[
                                             <StyledLink
                                                 size="var(--text-size-s)"
-                                                weight="bold"
+                                                weight="normal"
                                                 key={0}
                                                 target="_blank"
                                                 to="/responsible-trading/"
@@ -115,11 +113,10 @@ const KeepSafe = () => {
                             </CssGridColumn>
                             <CssGridColumn>
                                 <Text lh="1.55" margin="0.3rem 0 0">
-                                    {localize('Trading on Deriv.com can become addictive. If you wish to stop trading for a period of time, please use our self-exclusion facilities')}
+                                    {localize('Trading on Deriv can become addictive. If you wish to stop trading for a period of time, please use our self-exclusion facilities.')}
                                 </Text>
                             </CssGridColumn>
                         </CssGrid>
-                    </Card>
                 </GridContainer>
             </Section>
                 <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>

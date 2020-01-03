@@ -78,7 +78,7 @@ export const Trade = () => {
                         </ImageContainer>
                     </div>
                     <div style={{ width: '40%' }}>
-                        <CssGrid rowgap="1.6rem" height="0%">
+                        <CssGrid row_gap="1.6rem" height="0%">
                             <div
                                 onMouseEnter={() => setSelected(platforms.trader)}
                                 onMouseLeave={() => setSelected('')}

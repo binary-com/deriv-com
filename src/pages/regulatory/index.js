@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import EUgrid from './_eu-grid'
 import Layout from 'components/layout/layout'
-import { Header, Text, Divider} from 'components/elements'
+import { Header, Text, Divider } from 'components/elements'
 import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
@@ -51,7 +51,13 @@ const Regulatory = () => (
                 <StyledHeader as="h1" align="center" lh="8rem">
                     {localize('Regulatory information')}
                 </StyledHeader>
-                <StyledHeader as="h4" align="center" weight="normal" lh="3.6rem" padding="1.6rem 0 0">
+                <StyledHeader
+                    as="h4"
+                    align="center"
+                    weight="normal"
+                    lh="3.6rem"
+                    padding="1.6rem 0 0"
+                >
                     {localize(
                         'The services offered on Deriv and Binary.com are provided by the Binary Group. The group has several subsidiary companies that are licensed to operate Deriv and Binary.com in their registered jurisdictions.',
                     )}
@@ -79,12 +85,14 @@ const Regulatory = () => (
                                     target="_blank"
                                     href="/WS-Binary-Investments-Europe-Limited.pdf"
                                     rel="noopener noreferrer"
-                                />
+                                />,
                             ]}
                         />
                     </Text>
                     <Text lh="1.55" margin="2rem 0 0">
-                        {localize('European Union residents who wish to trade investment products will have their accounts opened with Binary Investments (Europe) Ltd.')}
+                        {localize(
+                            'European Union residents who wish to trade investment products will have their accounts opened with Binary Investments (Europe) Ltd.',
+                        )}
                     </Text>
                 </Box>
             </GridContainer>
@@ -111,7 +119,9 @@ const Regulatory = () => (
             <GridContainer>
                 <Box padding="0 0 4rem">
                     <Text lh="1.55">
-                        {localize('EU passporting rights: Binary Investments (Europe) Ltd is entitled to provide its services to EU member states through EU passporting rights. Refer to the map above for the list of EU countries that have access to Deriv and Binary.com.')}
+                        {localize(
+                            'EU passporting rights: Binary Investments (Europe) Ltd is entitled to provide its services to EU member states through EU passporting rights. Refer to the map above for the list of EU countries that have access to Deriv and Binary.com.',
+                        )}
                     </Text>
                 </Box>
             </GridContainer>
@@ -142,12 +152,14 @@ const Regulatory = () => (
                                             target="_blank"
                                             href="/BVI_license.pdf"
                                             rel="noopener noreferrer"
-                                        />
+                                        />,
                                     ]}
                                 />
                             </Text>
                             <Text lh="1.55" margin="2rem 0 0">
-                                {localize('Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Binary (BVI) Ltd. Binary.com is not available in the British Virgin Islands.')}
+                                {localize(
+                                    'Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Binary (BVI) Ltd. Binary.com is not available in the British Virgin Islands.',
+                                )}
                             </Text>
                         </CssGridColumn>
                         <CssGridColumn>
@@ -166,12 +178,14 @@ const Regulatory = () => (
                                             target="_blank"
                                             href="/Labuan-license.pdf"
                                             rel="noopener noreferrer"
-                                        />
+                                        />,
                                     ]}
                                 />
                             </Text>
                             <Text lh="1.55" margin="2rem 0 0">
-                                {localize('Clients from the rest of the world (excluding certain jurisdictions such as the USA, Canada, Japan, and the European Union) who wish to trade CFDs will have their MetaTrader 5 account opened with Binary (FX) Ltd. Binary.com is not available in Malaysia.')}
+                                {localize(
+                                    'Clients from the rest of the world (excluding certain jurisdictions such as the USA, Canada, Japan, and the European Union) who wish to trade CFDs will have their MetaTrader 5 account opened with Binary (FX) Ltd. Binary.com is not available in Malaysia.',
+                                )}
                             </Text>
                         </CssGridColumn>
                         <CssGridColumn>
@@ -190,12 +204,14 @@ const Regulatory = () => (
                                             target="_blank"
                                             href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
                                             rel="noopener noreferrer"
-                                        />
+                                        />,
                                     ]}
                                 />
                             </Text>
                             <Text lh="1.55" margin="2rem 0 0">
-                                {localize('Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Binary (V) Ltd. Binary.com is not available in the Republic of Vanuatu.')}
+                                {localize(
+                                    'Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Binary (V) Ltd. Binary.com is not available in the Republic of Vanuatu.',
+                                )}
                             </Text>
                         </CssGridColumn>
                         <CssGridColumn>
@@ -206,10 +222,14 @@ const Regulatory = () => (
                                 {localize('Binary (SVG) Ltd')}
                             </StyledHeader>
                             <Text lh="1.55" margin="0.8rem 0 0">
-                                {localize('Binary (SVG) Ltd, Hinds Buildings, Kingstown, St. Vincent and the Grenadines; company number 25299 BC 2019.')}
+                                {localize(
+                                    'Binary (SVG) Ltd, Hinds Buildings, Kingstown, St. Vincent and the Grenadines; company number 25299 BC 2019.',
+                                )}
                             </Text>
                             <Text lh="1.55" margin="2rem 0 0">
-                                {localize('Clients from the rest of the world (excluding certain countries such as the USA, Canada, and Hong Kong) will have their account opened with Binary (SVG) Ltd.')}
+                                {localize(
+                                    'Clients from the rest of the world (excluding certain countries such as the USA, Canada, and Hong Kong) will have their account opened with Binary (SVG) Ltd.',
+                                )}
                             </Text>
                         </CssGridColumn>
                     </CssGrid>

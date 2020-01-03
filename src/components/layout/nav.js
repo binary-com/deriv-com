@@ -12,7 +12,7 @@ import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
-import LogoBeta from 'images/svg/logo-beta.svg'
+import LogoBeta from 'images/svg/logo_deriv.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 
 const NavWrapper = styled.div`

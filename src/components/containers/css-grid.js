@@ -14,13 +14,16 @@ const CssGrid = styled.div`
     background-color: ${props => props.bgcolor || 'none'};
 
     @media ${device.tabletL} {
-        grid-template-columns: ${props => props.tablet_columns ? props.tablet_columns : props.columns};
-        grid-column-gap: ${props => props.tablet_column_gap ? props.tablet_column_gap : props.column_gap};
-        grid-row-gap: ${props => props.tablet_row_gap ? props.tablet_row_gap : props.row_gap};
+        grid-template-columns: ${props =>
+            props.tablet_columns ? props.tablet_columns : props.columns};
+        grid-column-gap: ${props =>
+            props.tablet_column_gap ? props.tablet_column_gap : props.column_gap};
+        grid-row-gap: ${props => (props.tablet_row_gap ? props.tablet_row_gap : props.row_gap)};
     }
     @media ${device.tabletS} {
-        grid-template-columns: ${props => props.mobile_columns ? props.mobile_columns : props.columns};
-        grid-row-gap: ${props => props.mobile_row_gap ? props.mobile_row_gap : props.row_gap};
+        grid-template-columns: ${props =>
+            props.mobile_columns ? props.mobile_columns : props.columns};
+        grid-row-gap: ${props => (props.mobile_row_gap ? props.mobile_row_gap : props.row_gap)};
     }
 `
 

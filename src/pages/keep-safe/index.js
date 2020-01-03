@@ -3,13 +3,7 @@ import styled from 'styled-components'
 import { SecurityIconGrid } from './_icon-grid'
 import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import Layout from 'components/layout/layout'
-import {
-    Modal,
-    useModal,
-    StyledLink,
-    Header,
-    Text,
-} from 'components/elements'
+import { Modal, useModal, StyledLink, Header, Text } from 'components/elements'
 import { Button } from 'components/form'
 import SignupModal from 'components/custom/signup-modal'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -17,7 +11,7 @@ import Checked from 'images/svg/checklist.svg'
 import Demo from 'images/svg/demo-account.svg'
 
 const Section = styled(SectionContainer)`
-    background-color: ${props => props.bgcolor || 'transparent'}
+    background-color: ${props => props.bgcolor || 'transparent'};
 `
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
@@ -115,16 +109,18 @@ const KeepSafe = () => {
                             </CssGridColumn>
                             <CssGridColumn>
                                 <Text lh="1.55" margin="0.3rem 0 0">
-                                    {localize('Trading on Deriv.com can become addictive. If you wish to stop trading for a period of time, please use our self-exclusion facilities')}
+                                    {localize(
+                                        'Trading on Deriv.com can become addictive. If you wish to stop trading for a period of time, please use our self-exclusion facilities',
+                                    )}
                                 </Text>
                             </CssGridColumn>
                         </CssGrid>
                     </Card>
                 </GridContainer>
             </Section>
-                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                    <SignupModal />
-                </Modal>
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
+                <SignupModal />
+            </Modal>
         </Layout>
     )
 }

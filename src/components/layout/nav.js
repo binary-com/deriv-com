@@ -12,7 +12,7 @@ import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
-import LogoBeta from 'images/svg/logo_deriv.svg'
+import Logo from 'images/svg/logo-deriv.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 
 const NavWrapper = styled.div`
@@ -191,7 +191,7 @@ export const Nav = () => {
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
-                            <LogoBeta />
+                            <Logo />
                         </LogoLink>
                     </NavLeft>
                     <NavCenter>
@@ -251,7 +251,7 @@ export const Nav = () => {
 export const NavStatic = () => (
     <StaticWrapper>
         <StyledLink to="/">
-            <LogoBeta />
+            <Logo />
         </StyledLink>
     </StaticWrapper>
 )

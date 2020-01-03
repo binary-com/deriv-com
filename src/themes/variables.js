@@ -41,6 +41,8 @@ const Variables = css`
         --text-size-l: 3.2rem;
         --text-size-xl: 4.8rem;
         --text-size-xxl: 6.4rem;
+
+        /* TODO: match with other text-size and update <Header /> */
         --text-size-header-1: 3.6rem;
     }
 `

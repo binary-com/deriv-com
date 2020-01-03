@@ -13,6 +13,7 @@ export const StyledLink = styled(props => <LocalizedLink {...props} />)`
 
     &:hover {
         text-decoration: underline;
+        color: var(--color-red);
     }
 
     ${props => {

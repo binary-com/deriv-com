@@ -53,9 +53,7 @@ const GridCol = styled.article`
 const Col = ({ Icon, content }) => (
     <GridCol>
         <Icon />
-        <Text lh="1.55">
-            {content}
-        </Text>
+        <Text lh="1.55">{content}</Text>
     </GridCol>
 )
 Col.propTypes = {
@@ -65,10 +63,7 @@ Col.propTypes = {
 
 export const SecurityIconGrid = () => (
     <IconGrid>
-        <Col
-            Icon={Two}
-            content={localize('Enable two-factor authentication on your account.')}
-        />
+        <Col Icon={Two} content={localize('Enable two-factor authentication on your account.')} />
         <Col
             Icon={DifferentPassword}
             content={localize(

@@ -8,8 +8,8 @@ import device from 'themes/device.js'
 
 const StyledHeader = styled(Header)`
     margin-top: ${props => (props.as === 'h2' ? '0.8rem' : '0')};
-    ${props => props.font_size && ('font-size:' + props.font_size)};
-    
+    ${props => props.font_size && 'font-size:' + props.font_size};
+
     @media ${device.tabletL} {
         text-align: left;
         ${props => (props.as === 'h4' ? 'font-size: 20px; font-wight: 500;' : 'font-size: 32px')}
@@ -20,11 +20,11 @@ const DHowItWorks = ({ Video, title }) => {
     return (
         <SectionContainer>
             <Container justify="center" direction="column">
-                <StyledHeader as="h4" align="center" weight='500'>
+                <StyledHeader as="h4" align="center" weight="500">
                     {localize('How it works')}
                 </StyledHeader>
-                <StyledHeader as="h2" align="center" font_size='3.6rem'>
-                    {localize(title)}
+                <StyledHeader as="h2" align="center" font_size="3.6rem">
+                    {title}
                 </StyledHeader>
                 <Video />
             </Container>

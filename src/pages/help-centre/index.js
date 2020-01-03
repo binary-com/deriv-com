@@ -6,7 +6,7 @@ import { articles } from './_help-articles'
 import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
-// import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
+import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import { SEO, Container } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -250,7 +250,7 @@ class HelpCentre extends Component {
                     toggleSearch={this.toggleSearch}
                 />
                 {/*TODO: active this line after having mail service*/}
-                {/* {<DidntFindYourAnswerBanner /> } */}
+                {<DidntFindYourAnswerBanner />}
             </Layout>
         )
     }

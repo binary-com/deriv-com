@@ -23,10 +23,11 @@ const DNumbers = ({ items, justify }) => {
                 {items.map((item, index) => (
                     <NumberWrapper key={index}>
                         <Header as="h2" align="center">
-                            {localize(item.title)}
+                            {item.title}
                         </Header>
-                        <Text align="center">{localize(item.subtitle)}</Text>
-                    </NumberWrapper>))}
+                        <Text align="center">{item.subtitle}</Text>
+                    </NumberWrapper>
+                ))}
             </StyledContainer>
         </SectionContainer>
     )

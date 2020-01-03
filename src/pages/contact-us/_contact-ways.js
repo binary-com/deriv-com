@@ -114,7 +114,12 @@ export const ContactWays = () => {
                     <StyledHeader as="h3" align="center">
                         {localize('Email Us')}
                     </StyledHeader>
-                    <LinkText weight="bold" size="var(--text-size-sm)" color="red" href="mailto:support@deriv.com">
+                    <LinkText
+                        weight="bold"
+                        size="var(--text-size-sm)"
+                        color="red"
+                        href="mailto:support@deriv.com"
+                    >
                         {localize('support@deriv.com')}
                     </LinkText>
                     {/* <StyledText secondary weight="bold" color="red">

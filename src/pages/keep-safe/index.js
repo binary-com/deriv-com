@@ -119,9 +119,9 @@ const KeepSafe = () => {
                         </CssGrid>
                 </GridContainer>
             </Section>
-                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                    <SignupModal />
-                </Modal>
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
+                <SignupModal />
+            </Modal>
         </Layout>
     )
 }

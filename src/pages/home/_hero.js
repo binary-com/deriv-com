@@ -72,7 +72,7 @@ const ButtonWrapper = styled(Flex)`
 
 const StyledVideo = styled.video`
     position: absolute;
-    opacity: 0.8;
+    opacity: 0.5;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

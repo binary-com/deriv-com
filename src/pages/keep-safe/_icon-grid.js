@@ -15,7 +15,6 @@ import Antivirus from 'images/svg/install-latest-antivirus.svg'
 import Container from 'components/containers/container'
 
 const IconGrid = styled(Container)`
-    margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 3rem;
@@ -73,7 +72,7 @@ export const SecurityIconGrid = () => (
         <Col
             Icon={DifferentPassword}
             content={localize(
-                'Use different passwords for your email and Deriv.com account and set a strong password.',
+                'Use different passwords for your email and Deriv account and set a strong password.',
             )}
         />
         <Col
@@ -91,7 +90,7 @@ export const SecurityIconGrid = () => (
         <Col
             Icon={DontShare}
             content={localize(
-                "Don't share your Deriv.com account or payment methods with any other person.",
+                "Don't share your Deriv account or payment methods with any other person.",
             )}
         />
         <Col

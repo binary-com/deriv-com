@@ -76,7 +76,7 @@ const HowItWorks = () => {
                                 {localize('How it works')}
                             </Header>
                         </div>
-                        <CssGrid rowgap="2.4rem" height="0%">
+                        <CssGrid row_gap="2.4rem" height="0%">
                             <Option
                                 onClick={() => setSelected(options.practice)}
                                 is_selected={is_practice}

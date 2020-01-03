@@ -237,7 +237,7 @@ class HelpCentre extends Component {
                                         max_length={3}
                                     />
                                 )}
-                                {!has_results && <SearchError search={search} />}
+                                {!has_results && search.length && <SearchError search={search} />}
                             </ResultWrapper>
                         </StyledContainer>
                     </Backdrop>

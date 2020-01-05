@@ -6,6 +6,8 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 
 const ClientCard = styled.article`
     background-color: var(--color-white);
+    border-radius: 4px;
+    box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
     width: 38.1rem;
     padding: 2.4rem;
     height: 100%;
@@ -56,7 +58,7 @@ const WhatOurClientsSay = () => (
             <ClientCard>
                 <QuoteText as="blockquote">
                     {localize(
-                        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
+                        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to Binary.com since the company name already have a known truck of good ethics.',
                     )}
                 </QuoteText>
                 <Flex jc="flex-start" p="2.1rem 0 0 0">

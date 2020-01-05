@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
+import { SEO } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Text } from 'components/elements'
 import Award from 'images/svg/award-winning.svg'
@@ -69,6 +70,7 @@ const NewSignup = () => {
     }
     return (
         <Layout is_static>
+            <SEO title={localize('Sign up')} />
             <Wrapper>
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>

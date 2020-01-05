@@ -29,6 +29,10 @@ const Line = styled.div`
 `
 const StyledText = styled(Text)`
     font-size: ${props => props.fontSize || 'var(--text-size-xs)'};
+
+    @media ${device.tabletL} {
+        width: 15rem;
+    }
 `
 const NoteBox = styled.div`
     width: 100%;
@@ -101,7 +105,7 @@ const LoginLink = styled.a`
     text-decoration: none;
     cursor: pointer;
 
-    :hover{
+    :hover {
         text-decoration: underline;
     }
 `

@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { StyledLink } from 'components/elements'
 import { localize } from 'components/localization'
-import { FlexGridContainer } from 'components/containers'
+import { Container } from 'components/containers'
 import ContactUsIcon from 'images/svg/contact_us.svg'
 import device from 'themes/device'
 
 const DFYAWrapper = styled.section`
     background-color: var(--color-grey-1);
 `
-const DFYASection = styled(FlexGridContainer)`
+const DFYASection = styled(Container)`
     padding: 3.2rem 0;
     justify-content: flex-start;
     align-items: center;
@@ -20,11 +20,13 @@ const DFYASection = styled(FlexGridContainer)`
 
     @media ${device.tabletL} {
         ${StyledLink} {
-            font-size: var(--text-size-s);
+            font-size: var(--text-size-sm);
         }
     }
 `
 const StyledIcon = styled(ContactUsIcon)`
+    margin-right: 1.5rem;
+
     @media ${device.tabletL} {
         width: 30px;
         height: 30px;

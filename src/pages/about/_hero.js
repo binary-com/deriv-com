@@ -73,6 +73,7 @@ const LeadershipWrapper = styled.div`
     display: flex;
     flex-direction: row;
     margin-top: 4rem;
+    align-items: center;
 
     > * {
         flex: 1;
@@ -137,15 +138,15 @@ const Hero = ({ navigation, setNavigation }) => {
                             </Wrapper>
 
                             <div>
-                                <StoryHeader as="h3" color="white" lh="45px">
-                                    <Localize
-                                        translate_text="20 years experience.<0 />Customer focus. Innovation."
-                                        components={[<br key={0} />]}
-                                    />
-                                </StoryHeader>
+                                <Header as="h3" size="var(--text-size-header-1)" color="white">
+                                    <Localize translate_text="Jean-Yves Sireau" />
+                                </Header>
+                                <Header as="h4" weight="normal" color="white" lh="3.6rem">
+                                    {localize('Founder and Chief Executive Officer')}
+                                </Header>
                                 <Text color="white">
                                     {localize(
-                                        'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                                        'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
                                     )}
                                 </Text>
                             </div>

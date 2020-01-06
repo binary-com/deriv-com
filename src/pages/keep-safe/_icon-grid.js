@@ -35,9 +35,7 @@ const GridCol = styled(CssGridColumn)`
 const Col = ({ Icon, content }) => (
     <GridCol>
         <Icon />
-        <Text lh="1.55">
-            {content}
-        </Text>
+        <Text lh="1.55">{content}</Text>
     </GridCol>
 )
 Col.propTypes = {
@@ -49,11 +47,11 @@ export const SecurityIconGrid = () => (
     <GridContainer>
         <CssGrid
             columns="repeat(4, 1fr)"
-            columngap="3rem"
-            rowgap="4rem"
-            tabletcolumns="repeat(2, 1fr)"
-            mobilecolumns="1fr"
-            mobilerowgap="6rem"
+            column_gap="3rem"
+            row_gap="4rem"
+            tablet_columns="repeat(2, 1fr)"
+            mobile_columns="1fr"
+            mobile_row_gap="6rem"
             margin="1rem 0 0"
         >
         <Col
@@ -63,7 +61,7 @@ export const SecurityIconGrid = () => (
         <Col
             Icon={DifferentPassword}
             content={localize(
-                'Use different passwords for your email and Deriv.com account and set a strong password.',
+                'Use different passwords for your email and Deriv account and set a strong password.',
             )}
         />
         <Col
@@ -81,7 +79,7 @@ export const SecurityIconGrid = () => (
         <Col
             Icon={DontShare}
             content={localize(
-                "Don't share your Deriv.com account or payment methods with any other person.",
+                "Don't share your Deriv account or payment methods with any other person.",
             )}
         />
         <Col

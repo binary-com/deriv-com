@@ -50,11 +50,11 @@ const ResponsibleTrading = () => {
                 <GridContainer>
                     <CssGrid
                         columns="1fr 1fr"
-                        columngap="26rem"
-                        rowgap="1.6rem"
-                        tabletcolumngap="6rem"
-                        mobilecolumns="1fr"
-                        mobilerowgap="2rem"
+                        column_gap="26rem"
+                        row_gap="1.6rem"
+                        tablet_column_gap="6rem"
+                        mobile_columns="1fr"
+                        mobile_row_gap="2rem"
                     >
                         <CssGridColumn align="center">
                             <StyledHeader font_size="3.6rem" lh="4.5rem">
@@ -67,10 +67,10 @@ const ResponsibleTrading = () => {
                         <CssGridColumn align="center">
                             <CssGrid
                                 columns="2.4rem 1fr"
-                                columngap="1.6rem"
-                                rowgap="1.6rem"
-                                mobilecolumns="2.4rem 1fr"
-                                mobilerowgap="2rem"
+                                column_gap="1.6rem"
+                                row_gap="1.6rem"
+                                mobile_columns="2.4rem 1fr"
+                                mobile_row_gap="2rem"
                             >
                                 <CssGridColumn>
                                     <CheckedIcon />

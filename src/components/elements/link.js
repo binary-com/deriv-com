@@ -5,11 +5,15 @@ import { LocalizedLink } from '../localization'
 export const StyledLink = styled(props => <LocalizedLink {...props} />)`
     font-size: ${props => props.size || 'var(--text-size-sm)'};
     font-weight: ${props => props.weight || 'normal'};
-    color: var(--color-red);
+    text-align: ${props => props.align || 'left'};
+
+    /* prettier-ignore */
+    color: var(--color-${props => props.color || 'red'});
     text-decoration: none;
 
     &:hover {
         text-decoration: underline;
+        color: var(--color-red);
     }
 
     ${props => {

@@ -31,7 +31,7 @@ const TabsWrapper = styled.div`
     width: 100%;
     max-width: 38.4rem;
     margin-top: 6rem;
-    
+
     div:first-child {
         margin-top: 0;
     }

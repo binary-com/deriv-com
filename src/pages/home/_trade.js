@@ -41,7 +41,7 @@ export const Trade = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <Header font_size="3.6rem" as="h2" align="center">
+                <Header font_size="var(--text-size-header-1)" as="h2" align="center">
                     {localize('Trade the way you like')}
                 </Header>
                 <SubHeaderWrapper>

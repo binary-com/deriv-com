@@ -1,8 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from 'components/layout/layout'
-import { Hero, Header, Text, CardChildren } from 'components/elements'
-import { Container, SectionContainer, SEO } from 'components/containers'
+import {
+    Hero,
+    Header,
+    Text,
+    CardChildren,
+    Accordion,
+    AccordionItem,
+    LinkText,
+} from 'components/elements'
+import { Container, SectionContainer, SEO, Flex } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 // Icons
@@ -167,6 +175,28 @@ const Regulatory = () => (
                         </CardChildren>
                     </CardWrapper>
                 </CardChildrenContainer>
+                <Accordion>
+                    <AccordionItem header="Pillar 3 disclosures">
+                        <Text>
+                            The Pillar 3 disclosure report of Binary Investments (Europe) Limited
+                            has been prepared in accordance with the Capital Requirements Directive
+                            IV and the Capital Requirements Regulation. Read our Pillar 3 disclosure
+                            report to understand how we comply with market discipline as a market
+                            participant.
+                        </Text>
+                        <Flex>
+                            <LinkText>Open pillar 3 disclosure report</LinkText>
+                        </Flex>
+                    </AccordionItem>
+                    <AccordionItem header="Key information documents">
+                        <Text>
+                            These documents provide you with key information about our investment
+                            products. This information is required by law to help you understand the
+                            nature, risks, costs, potential gains and losses of these products and
+                            to help you compare them with other products.
+                        </Text>
+                    </AccordionItem>
+                </Accordion>
             </StyledContainer>
         </RegulatoryWrapper>
     </Layout>

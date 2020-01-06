@@ -1,42 +1,57 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import queryString from 'query-string'
+// import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
-import PaymentMethods from './home/_payment-methods'
-import WhyDeriv from './home/_why-deriv'
-import Ticker from './home/_ticker'
 import WhyDerivMobile from './home/_why-deriv-mobile'
 import HowItWorks from './home/_how-it-works'
 import Markets from './home/_markets'
+import WhatOurClientsSay from './home/_what-our-clients-say'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { Divider } from 'components/elements'
+import { Modal, useModal } from 'components/elements'
+import SignupModal from 'components/custom/signup-modal'
+import Signup, { Appearances } from 'components/custom/signup'
 
-const Home = () => (
-    <Layout>
-        <SEO
-            title={localize('Your ultimate online trading experience')}
-            description={localize(
-                'Deriv is an online trading company that offers the broadest selection of derivatives with competitive prices.',
-            )}
-        />
-        <Hero />
-        <Show.Mobile>
-            <WhyDerivMobile />
-        </Show.Mobile>
-        <Show.Desktop>
-            <Ticker />
-        </Show.Desktop>
-        <Trade />
-        <Show.Desktop>
-            <Divider />
-            <HowItWorks />
-            <Divider />
+const Home = () => {
+    const [show_modal, toggleModal, closeModal] = useModal()
+
+    useEffect(() => {
+        const parsedUrl = queryString.parse(window.location.search)
+        if (parsedUrl.action === 'signup') {
+            toggleModal()
+        }
+    }, [])
+
+    return (
+        <Layout>
+            <SEO
+                title={localize('Your ultimate online trading experience')}
+                description={localize(
+                    'Deriv is an online trading company that offers the broadest selection of derivatives with competitive prices.',
+                )}
+            />
+            <Hero />
+            <Show.Mobile>
+                <WhyDerivMobile />
+            </Show.Mobile>
+            <Show.Desktop>
+                <Trade />
+                <HowItWorks />
+            </Show.Desktop>
             <Markets />
-            <WhyDeriv />
-            <PaymentMethods />
-        </Show.Desktop>
-    </Layout>
-)
+            <WhatOurClientsSay />
+            {/* TODO: investigate performance and enable later */}
+            {/* <Show.Desktop>
+                <Ticker />
+            </Show.Desktop> */}
+            <Signup appearance={Appearances.public} />
+            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
+                <SignupModal autofocus />
+            </Modal>
+        </Layout>
+    )
+}
 
 export default WithIntl()(Home)

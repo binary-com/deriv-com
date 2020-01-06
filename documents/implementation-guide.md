@@ -71,8 +71,23 @@ SVG will be handled by `gatsby-plugin-react-svg` which overriding `svg-react-loa
 Usage example:
 
 ```js
-import Logo from '../images/logo-header.svg'
+import Logo from 'images/svg/logo-header.svg'
 ;<Logo />
+```
+
+#### (lottie) file type (.json)
+
+lottie animation image will be located anywhere within `src/images/lottie` directory.
+The component to handle the animation will be located on `src/components/elements/lottie` which handled by `react-lottie`, you can take a look at [React Lottie](https://github.com/chenqingspring/react-lottie)
+
+\*Note: Lottie svg will follow 100% widht and height of the wrapper
+
+Usage example:
+
+```js
+import Human from 'images/lottie/your_animation_name.json'
+import { Lottie } from 'components/elements'
+;<Lottie animationData={Human} />
 ```
 
 ### Translate Text
@@ -83,7 +98,7 @@ text translation use `react-i18next`, you can take a look at [react-i18next](htt
 Usage example:
 
 ```js
-import { localize, Localize } from '../localization'
+import { localize, Localize } from 'components/localization'
 
 <p>{localize('text need to be translated')}</p>
 <p><Localize
@@ -125,15 +140,12 @@ to configure responsiveness based on js changes or different component render, y
 Usage example (chain):
 
 ```js
-import Show from 'components/containers/show'
+import { Show } from 'components/containers'
 
 const Example = () => (
     <div>
         <h1>Device Test!</h1>
-        <Show.Desktop
-            minDeviceWidth={size.tabletL}
-            device={{ deviceWidth: size.desktopS }}
-        >
+        <Show.Desktop minDeviceWidth={size.tabletL} device={{ deviceWidth: size.desktopS }}>
             you are desktop
         </Show.Desktop>
         <Show.Mobile>you are mobile</Show.Mobile>
@@ -144,15 +156,12 @@ const Example = () => (
 Usage example (with components):
 
 ```js
-import { Desktop, Mobile } from 'components/containers/show'
+import { Desktop, Mobile } from 'components/containers'
 
 const Example = () => (
     <div>
         <h1>Device Test!</h1>
-        <Desktop
-            minDeviceWidth={size.tabletL}
-            device={{ deviceWidth: size.desktopS }}
-        >
+        <Desktop minDeviceWidth={size.tabletL} device={{ deviceWidth: size.desktopS }}>
             you are desktop
         </Desktop>
         <Mobile>you are mobile</Mobile>
@@ -187,10 +196,7 @@ import { localize, WithIntl } from 'components/localization'
 const MyPageName = () => {
     return (
         <Layout>
-            <SEO
-                title={localize('My page')}
-                description={localize('My page description')}
-            />
+            <SEO title={localize('My page')} description={localize('My page description')} />
             {/* Your children here */}
         </Layout>
     )

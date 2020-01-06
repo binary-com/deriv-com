@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import { localize, Localize } from 'components/localization'
 import { Container, Wrapper } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
+import device from 'themes/device'
 
 const Background = styled.div`
     background: var(--color-black);
@@ -14,6 +15,10 @@ const Background = styled.div`
 const StyledContainer = styled(Container)`
     padding: 12rem 19rem;
     white-space: nowrap;
+
+    @media ${device.laptop} {
+        padding: 12rem;
+    }
 `
 
 const NavigationWrapper = styled.div`

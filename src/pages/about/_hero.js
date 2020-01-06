@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { localize, Localize } from 'components/localization'
-import { Container } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Container, Wrapper } from 'components/containers'
+import { Header, Text, Image } from 'components/elements'
 
 const Background = styled.div`
     background: var(--color-black);
@@ -69,6 +69,16 @@ const StoryHeader = styled(Header)`
     margin-bottom: 1.6rem;
 `
 
+const LeadershipWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-top: 4rem;
+
+    > * {
+        flex: 1;
+    }
+`
+
 const Hero = ({ navigation, setNavigation }) => {
     const is_story = navigation === 'story'
     const is_leadership = navigation === 'leadership'
@@ -117,6 +127,29 @@ const Hero = ({ navigation, setNavigation }) => {
                                 'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
                             )}
                         </Text>
+                    </ContentWrapper>
+                )}
+                {is_leadership && (
+                    <ContentWrapper>
+                        <LeadershipWrapper>
+                            <Wrapper max_width="28.2rem" margin={{ right: '2.4rem' }}>
+                                <Image img_name="ceo.png" />
+                            </Wrapper>
+
+                            <div>
+                                <StoryHeader as="h3" color="white" lh="45px">
+                                    <Localize
+                                        translate_text="20 years experience.<0 />Customer focus. Innovation."
+                                        components={[<br key={0} />]}
+                                    />
+                                </StoryHeader>
+                                <Text color="white">
+                                    {localize(
+                                        'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                                    )}
+                                </Text>
+                            </div>
+                        </LeadershipWrapper>
                     </ContentWrapper>
                 )}
             </StyledContainer>

@@ -32,6 +32,10 @@ const StyledWrapper = styled(Wrapper)`
     background: var(--color-grey-8);
     padding: 8rem 0;
     position: relative;
+
+    @media ${device.tabletS} {
+        display: none;
+    }
 `
 
 const StyledSlide = styled.div`

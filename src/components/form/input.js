@@ -103,11 +103,26 @@ const StyledLabel = styled.label`
     }
 `
 
-const Input = ({ label, border, focusBorder, id, error, background, tabletBackground, handleError, ...props }) => (
+const Input = ({
+    label,
+    border,
+    focusBorder,
+    id,
+    error,
+    background,
+    tabletBackground,
+    handleError,
+    ...props
+}) => (
     <RelativeWrapper>
         <InputWrapper border={border} focusBorder={focusBorder} error={error}>
             <StyledInput id={id} {...props} />
-            <StyledLabel background={background} tabletBackground={tabletBackground} error={error} htmlFor={id}>
+            <StyledLabel
+                background={background}
+                tabletBackground={tabletBackground}
+                error={error}
+                htmlFor={id}
+            >
                 {label}
             </StyledLabel>
         </InputWrapper>

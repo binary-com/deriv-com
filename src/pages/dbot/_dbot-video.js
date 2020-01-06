@@ -87,7 +87,7 @@ class DtraderTabs extends React.Component {
                             lh="1.5"
                             align="left"
                             no_margin
-                            image_name='dbot-step1.png'
+                            image_name="dbot-step1.png"
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step1.png')}
                         >
@@ -99,7 +99,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             lh="1.5"
                             align="left"
-                            image_name='dbot-step2.png'
+                            image_name="dbot-step2.png"
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step2.png')}
                         >
@@ -111,7 +111,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             lh="1.5"
                             align="left"
-                            image_name='dbot-step3.png'
+                            image_name="dbot-step3.png"
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step3.png')}
                         >
@@ -123,7 +123,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             lh="1.5"
                             align="left"
-                            image_name='dbot-step4.png'
+                            image_name="dbot-step4.png"
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step4.png')}
                         >
@@ -135,7 +135,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             lh="1.5"
                             align="left"
-                            image_name='dbot-step5.png'
+                            image_name="dbot-step5.png"
                             current_step_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dbot-step5.png')}
                         >

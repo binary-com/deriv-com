@@ -31,7 +31,7 @@ const StyledDTrader = styled(DTrader)`
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletS} {
-        font-size: 3.6rem;
+        font-size: var(--text-size-header-1);
     }
 `
 

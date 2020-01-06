@@ -1,8 +1,7 @@
 import React, { useState, Fragment } from 'react'
 import Hero from './_hero'
-import OurLocations from './_our-locations'
+import OurHistory from './_our-history'
 import OurNumbers from './_our-numbers'
-import OurGoals from './_our-goals'
 import Leaders from './_leaders'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -17,9 +16,8 @@ const About = () => {
             <Hero navigation={navigation} setNavigation={setNavigation} />
             {navigation === 'story' && (
                 <Fragment>
-                    <OurGoals />
+                    <OurHistory />
                     <OurNumbers />
-                    <OurLocations />
                 </Fragment>
             )}
             {navigation === 'leadership' && <Leaders />}

@@ -141,6 +141,12 @@ const Reset = css`
     input::-ms-clear {
         display: none;
     }
+    button {
+        background: none;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
 `
 
 export default Reset

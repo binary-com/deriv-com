@@ -8,6 +8,7 @@ const Flex = styled.div`
     justify-content: ${props => (props.jc ? props.jc : 'center')};
     align-items: ${props => (props.ai ? props.ai : '')};
     margin: ${props => (props.m ? props.m : '')};
+    margin-top: ${props => (props.mt ? props.mt : '')};
     padding: ${props => (props.p ? props.p : '')};
 `
 

@@ -21,10 +21,16 @@ const Variables = css`
         --color-grey-5: #999999;
         --color-grey-6: #e6e9e9;
         --color-grey-7: #d6dadb;
+        --color-grey-8: #f2f3f4;
+        --color-grey-9: c8d6d738;
+        --color-grey-10: #c8d6d738;
+        --color-grey-11: #efefef;
         --color-green: #85acb0;
         --color-blue: #4c76be;
         --color-blue-2: #365899;
         --color-yellow: #fff2df;
+        --color-orange: #ff6544;
+        --color-green-1: #bccdce;
 
         /* sizes */
         --text-size-xxs: 1.2rem;
@@ -35,6 +41,9 @@ const Variables = css`
         --text-size-l: 3.2rem;
         --text-size-xl: 4.8rem;
         --text-size-xxl: 6.4rem;
+
+        /* TODO: match with other text-size and update <Header /> */
+        --text-size-header-1: 3.6rem;
     }
 `
 

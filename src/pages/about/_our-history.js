@@ -88,7 +88,7 @@ const StyledDotsWrapper = styled.ul`
 `
 
 const StyledDot = styled.li`
-    margin: 0 2.9rem;
+    margin: 0 3rem;
     position: relative;
 
     & .carousel__dot {
@@ -333,7 +333,7 @@ const OurHistory = () => {
                         naturalSlideHeight={50}
                         totalSlides={history_data.length}
                     >
-                        <Slider style={{ width: '80%', margin: '0 auto' }}>
+                        <Slider style={{ width: '80%', height: '42.8rem', margin: '0 auto' }}>
                             {history_data.map((history, index) => (
                                 <Slide key={index} index={index}>
                                     <StyledSlide>

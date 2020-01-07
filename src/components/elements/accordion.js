@@ -1,11 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from './typography'
 import Chevron from 'images/svg/chevron-bottom.svg'
 
 const Arrow = styled(Chevron)`
     transition: transform 0.2s linear;
-    ${props => (props.expanded ? 'transform: rotate(-180deg);' : '')}
+    ${props => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
 `
 
 const AccordionHeader = styled.div`
@@ -29,112 +30,101 @@ const AccordionContent = styled.div`
 
 const AccordionWrapper = styled.div`
     margin-bottom: 16px;
-    width: 792px;
+    width: 100%;
     border-radius: 6px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
 `
+// TODO: find a better way to handle the nodes
+// TODO: add keyboard events and proper focus handling
+const TRANSITION_DURATION = 400
+const nodes = []
+const Accordion = ({ children }) => {
+    const [active_idx, setActiveIdx] = React.useState(-1)
+    let timeout
 
-class Accordion extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            index: typeof props.selectedIndex !== 'undefined' ? props.selectedIndex : -1,
+    React.useEffect(() => {
+        return () => {
+            clearTimeout(timeout)
         }
-        this.nodes = []
-    }
+    }, [])
 
-    componentWillReceiveProps(props) {
-        if (
-            typeof props.selectedIndex !== 'undefined' &&
-            this.state.index !== props.selectedIndex
-        ) {
-            this.toggle(props.selectedIndex)
-        }
-    }
-
-    componentWillUnmount() {
-        clearTimeout(this.timeout)
-    }
-
-    toggle(index, click) {
-        clearTimeout(this.timeout)
-
-        if (click) {
-            if (this.props.onChange)
-                this.props.onChange(
-                    index,
-                    this.state.index !== index,
-                    this.state.index !== index ? index : -1,
-                )
-            if (!this.props.changeOnClick) return
+    const toggle = child_idx => {
+        if (active_idx > -1) {
+            const content = nodes[active_idx].ref.children[1]
+            content.style.height = `${content.children[0].offsetHeight}px`
         }
 
-        if (this.state.index > -1) {
-            const content = this.nodes[this.state.index].ref.children[1]
-            content.style.height = `${content.children[0].offsetHeight}px` // Set fixed height before collapse of current open item
-        }
-
-        if (this.state.index === index || index === -1) {
+        if (active_idx === child_idx || child_idx === -1) {
             setTimeout(() => {
-                this.setState({ index: -1 })
+                setActiveIdx(-1)
             }, 50)
         } else {
             setTimeout(() => {
-                this.setState({ index })
-                this.timeout = setTimeout(() => {
-                    this.nodes[index].ref.children[1].style.height = 'auto' // Set auto height after expand
-                }, this.props.transitionDuration)
+                setActiveIdx(child_idx)
+                timeout = setTimeout(() => {
+                    nodes[child_idx].ref.children[1].style.height = 'auto'
+                }, TRANSITION_DURATION)
             }, 50)
         }
     }
 
-    getHeight(index) {
-        if (index === this.state.index) {
-            return this.nodes.length > index
-                ? this.nodes[index].ref.children[1].children[0].offsetHeight
+    const getHeight = child_idx => {
+        if (active_idx === child_idx) {
+            return nodes.length > active_idx
+                ? nodes[active_idx].ref.children[1].children[0].offsetHeight
                 : 'auto'
         }
         return 0
     }
 
-    render() {
-        const style = {
-            overflow: 'hidden',
-            transition: `height ${this.props.transitionDuration}ms ${this.props.transitionTimingFunction}`,
-        }
-        const nodes = React.Children.map(this.props.children, (child, index) => {
-            return (
-                <AccordionWrapper
-                    id="test"
-                    key={index}
-                    ref={div => {
-                        this.nodes[index] = { ref: div }
+    const render_nodes = React.Children.map(children, (child, child_idx) => {
+        const height = getHeight(child_idx)
+        const is_expanded = child_idx === active_idx
+
+        return (
+            <AccordionWrapper
+                id="test"
+                key={child_idx}
+                ref={div => {
+                    nodes[child_idx] = { ref: div }
+                }}
+            >
+                <AccordionHeader
+                    onClick={() => toggle(child_idx)}
+                    role="button"
+                    aria-expanded={is_expanded}
+                >
+                    <Text weight="bold">{child.props.header}</Text>
+                    <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                </AccordionHeader>
+                <div
+                    style={{
+                        overflow: 'hidden',
+                        transition: `height ${TRANSITION_DURATION}ms ease`,
+                        height,
                     }}
                 >
-                    <AccordionHeader onClick={() => this.toggle(index, true)}>
-                        <Text weight="bold">{child.props.header}</Text>
-                        <Arrow expanded={index === this.state.index} />
-                    </AccordionHeader>
-                    <div style={{ ...style, height: this.getHeight(index) }}>
-                        <AccordionContent>{child}</AccordionContent>
-                    </div>
-                </AccordionWrapper>
-            )
-        })
-        return <>{nodes}</>
-    }
+                    <AccordionContent>{child}</AccordionContent>
+                </div>
+            </AccordionWrapper>
+        )
+    })
+
+    return <>{render_nodes}</>
 }
 
-Accordion.defaultProps = {
-    transitionDuration: 200,
-    transitionTimingFunction: 'ease',
-    openClassName: 'open',
-    changeOnClick: true,
+Accordion.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 
 const AccordionItem = ({ text, children }) => {
     return <div header={text}>{children}</div>
+}
+
+AccordionItem.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    text: PropTypes.string,
 }
 
 export { Accordion, AccordionItem }

@@ -9,31 +9,49 @@ const OfficeContainer = styled.section`
     width: 100%;
     padding: 8rem 22.2rem;
     margin: auto;
+    background-color: var(--color-grey-8);
 
     @media ${device.desktop} {
         max-width: 1440px;
     }
-
-    @media ${device.laptop} {
-        padding: 8rem 5rem;
-    }
 `
 const MapWrapper = styled.div`
     position: relative;
+    width: fit-content;
+    margin: 0 auto;
 
     @media ${device.laptopL} {
+        width: 80rem;
+        height: 50rem;
+    }
+    @media ${device.laptop} {
         display: none;
     }
 `
-const Bullet = styled.div`
-    height: 0.8rem;
-    width: 0.8rem;
-    background-color: rgba(255, 68, 79, 0.65);
+const StyledMap = styled(Map)`
+    height: 100%;
+    width: 100%;
+
+    @media ${device.laptopL} {
+        width: 80rem;
+        height: 50rem;
+    }
+`
+const Oval = styled.div`
+    width: 1rem;
+    height: 1rem;
+    background-color: #ff444f;
+    box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
     border-radius: 50%;
     display: inline-block;
     position: absolute;
     top: ${props => props.top};
     left: ${props => props.left};
+
+    @media ${device.laptopL} {
+        top: ${props => parseFloat(props.top) - 4}rem;
+        left: ${props => parseFloat(props.left) - 5}rem;
+    }
 `
 const StyledHeader = styled(Header)`
     font-size: 3.6rem;
@@ -60,12 +78,12 @@ export const OurOffices = () => {
         <OfficeContainer>
             <StyledHeader align="center">{localize('Our offices')}</StyledHeader>
             <MapWrapper>
-                <Map />
-                <Bullet top="39.4rem" left="26.3rem" />
-                <Bullet top="16.3rem" left="54.1rem" />
-                <Bullet top="20.8rem" left="64.2rem" />
-                <Bullet top="28.9rem" left="81.1rem" />
-                <Bullet top="28.5rem" left="86.1rem" />
+                <StyledMap />
+                <Oval top="39.4rem" left="26.3rem" />
+                <Oval top="16.3rem" left="50.6rem" />
+                <Oval top="20.8rem" left="64.2rem" />
+                <Oval top="28.9rem" left="81.1rem" />
+                <Oval top="28.5rem" left="86.1rem" />
             </MapWrapper>
 
             <NumberWrapper>

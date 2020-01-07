@@ -4,7 +4,7 @@ import OurHistory from './_our-history'
 import OurNumbers from './_our-numbers'
 import { OurOffices } from './_our-offices'
 import { OurAwards } from './_our-awards'
-import { JoinUs } from './_join-us'
+// import { JoinUs } from './_join-us'
 import Leaders from './_leaders'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -22,7 +22,8 @@ const About = () => {
                     <OurHistory />
                     <OurNumbers />
                     <OurOffices />
-                    <JoinUs />
+                    {/* It has been blocked due to design review */}
+                    {/* <JoinUs /> */}
                     <OurAwards />
                 </Fragment>
             )}

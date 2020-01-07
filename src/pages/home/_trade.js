@@ -41,7 +41,7 @@ export const Trade = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <Header font_size="3.6rem" as="h2" align="center">
+                <Header font_size="var(--text-size-header-1)" as="h2" align="center">
                     {localize('Trade the way you like')}
                 </Header>
                 <SubHeaderWrapper>
@@ -78,7 +78,7 @@ export const Trade = () => {
                         </ImageContainer>
                     </div>
                     <div style={{ width: '40%' }}>
-                        <CssGrid rowgap="1.6rem" height="0%">
+                        <CssGrid row_gap="1.6rem" height="0%">
                             <div
                                 onMouseEnter={() => setSelected(platforms.trader)}
                                 onMouseLeave={() => setSelected('')}

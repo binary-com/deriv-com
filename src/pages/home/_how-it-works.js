@@ -72,11 +72,11 @@ const HowItWorks = () => {
                 <Flex>
                     <div style={{ width: '40%' }}>
                         <div style={{ marginBottom: '4rem' }}>
-                            <Header font_size="3.6rem" as="h2">
+                            <Header font_size="var(--text-size-header-1)" as="h2">
                                 {localize('How it works')}
                             </Header>
                         </div>
-                        <CssGrid rowgap="2.4rem" height="0%">
+                        <CssGrid row_gap="2.4rem" height="0%">
                             <Option
                                 onClick={() => setSelected(options.practice)}
                                 is_selected={is_practice}

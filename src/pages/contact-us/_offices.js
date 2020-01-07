@@ -208,7 +208,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps/search/?api=1&query=Paragon+Labuan"
+                                href="https://www.google.com/maps/search/?api=1&query=,"
                             >
                                 <Image
                                     img_name="map-labuan.png"
@@ -231,7 +231,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps/search/?api=1&query=Paragon+Labuan"
+                                    href="https://www.google.com/maps/search/?api=1&query=,"
                                 >
                                     {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
                                     <br />
@@ -259,7 +259,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps/search/?api=1&query=Lake+Plaza"
+                                    href="https://www.google.com/maps/search/?api=1&query=25.079313,55.149074"
                                 >
                                     {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
                                     <br />
@@ -274,7 +274,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps/search/?api=1&query=Lake+Plaza"
+                                href="https://www.google.com/maps/search/?api=1&query=25.079313,55.149074"
                             >
                                 <Image
                                     img_name="map-dubai.png"
@@ -290,7 +290,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps/search/?api=1&query=25.079316,55.149574"
+                                href="https://www.google.com/maps/search/?api=1&query=-25.282562,-57.563787"
                             >
                                 <Image
                                     img_name="map-paraguay.png"

@@ -31,12 +31,16 @@ const StyledDTrader = styled(DTrader)`
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletS} {
-        font-size: 3.6rem;
+        font-size: var(--text-size-header-1);
     }
 `
 
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
+
+    @media ${device.tabletS} {
+        margin: 1rem 1rem;
+    }
 `
 
 const StyledSubHeader = styled(Header)`
@@ -44,64 +48,77 @@ const StyledSubHeader = styled(Header)`
     max-width: ${props => props.maxWidth || ''};
 `
 
+export const TraderCard = ({ is_selected }) => (
+    <StyledLink to="/dtrader">
+        <Card
+            cover_background="var(--color-red)"
+            cover_content={localize('Discover DTrader now')}
+            title={localize('DTrader')}
+            Icon={StyledDTrader}
+            content={[localize('The platform to start with. It’s powerful yet easy to use.')]}
+            is_inline_icon
+            min_height="11.6rem"
+            is_selected={is_selected}
+        />
+    </StyledLink>
+)
+const cardProptypes = {
+    is_selected: PropTypes.bool,
+}
+TraderCard.propTypes = { ...cardProptypes }
+
+export const BotCard = ({ is_selected }) => (
+    <StyledLink to="/dbot">
+        <Card
+            cover_background="var(--color-orange)"
+            cover_content={localize('Discover DBot now')}
+            title={localize('DBot')}
+            Icon={StyledDbot}
+            content={[localize('Automated trading at your fingertips. No coding needed.')]}
+            is_inline_icon
+            min_height="11.6rem"
+            is_selected={is_selected}
+        />
+    </StyledLink>
+)
+BotCard.propTypes = { ...cardProptypes }
+
+export const DMT5Card = ({ is_selected }) => (
+    <StyledLink to="/dmt5">
+        <Card
+            cover_background="var(--color-green)"
+            cover_content={localize('Discover DMT5 now')}
+            title={localize('DMT5')}
+            Icon={StyledDmt5}
+            content={[localize('The platform of choice for professionals worldwide.')]}
+            is_inline_icon
+            min_height="11.6rem"
+            is_selected={is_selected}
+        />
+    </StyledLink>
+)
+DMT5Card.propTypes = { ...cardProptypes }
+
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
-    <SectionContainer padding='0'>
-        {is_nav ? null : (<HeaderWrapper>
-            <StyledHeader font_size="4.8rem" align="center" lh="5rem">
-                {header ? header : localize('Check out our other platforms')}
-            </StyledHeader>
-            {subHeader && (
-                <StyledSubHeader as="h4" align="center" weight="500" maxWidth="67.6rem">
-                    {localize(
-                        'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
-                    )}
-                </StyledSubHeader>
-            )}
-        </HeaderWrapper>)}
+    <SectionContainer padding="0">
+        {is_nav ? null : (
+            <HeaderWrapper>
+                <StyledHeader font_size="4.8rem" align="center" lh="5rem">
+                    {header ? header : localize('Check out our other platforms')}
+                </StyledHeader>
+                {subHeader && (
+                    <StyledSubHeader as="h4" align="center" weight="500" maxWidth="67.6rem">
+                        {localize(
+                            'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
+                        )}
+                    </StyledSubHeader>
+                )}
+            </HeaderWrapper>
+        )}
         <FlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
-            {exclude.toLowerCase() !== 'dtrader' && (
-                <StyledLink to="/dtrader">
-                    <Card
-                        cover_background='var(--color-red)'
-                        cover_content={localize('Discover DTrader now')}
-                        title={localize('DTrader')}
-                        Icon={StyledDTrader}
-                        content={[
-                            localize(
-                                'Start trading now with a powerful, yet easy-to-use platform.',
-                            ),
-                        ]}
-                        is_inline_icon
-                        min_height="11.6rem"
-                    />
-                </StyledLink>
-            )}
-            {exclude.toLowerCase() !== 'dbot' && (
-                <StyledLink to="/dbot">
-                    <Card
-                        cover_background='var(--color-orange)'
-                        cover_content={localize('Discover DBot now')}
-                        title={localize('DBot')}
-                        Icon={StyledDbot}
-                        content={[localize('Automate your trading ideas without coding.')]}
-                        is_inline_icon
-                        min_height="11.6rem"
-                    />
-                </StyledLink>
-            )}
-            {exclude.toLowerCase() !== 'dmt5' && (
-                <StyledLink to="/dmt5">
-                    <Card
-                        cover_background='var(--color-green)'
-                        cover_content={localize('Discover DMT5 now')}
-                        title={localize('DMT5')}
-                        Icon={StyledDmt5}
-                        content={[localize('Trade with the platform of choice for professionals.')]}
-                        is_inline_icon
-                        min_height="11.6rem"
-                    />
-                </StyledLink>
-            )}
+            {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
+            {exclude.toLowerCase() !== 'dbot' && <BotCard />}
+            {exclude.toLowerCase() !== 'dmt5' && <DMT5Card />}
         </FlexGridContainer>
     </SectionContainer>
 )

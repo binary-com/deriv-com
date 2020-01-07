@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from './typography'
@@ -24,7 +24,7 @@ const AccordionHeader = styled.div`
     }
 `
 
-const AccordionContent = styled.div`
+const AccordionContentWrapper = styled.div`
     padding: 1.6rem;
 `
 
@@ -35,19 +35,28 @@ const AccordionWrapper = styled.div`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
 `
-// TODO: find a better way to handle the nodes
-// TODO: add keyboard events and proper focus handling
 const TRANSITION_DURATION = 400
-const nodes = []
 
+// TODO: keyboard events and find a way to add proper focus handling
 const Accordion = ({ children }) => {
-    const [active_idx, setActiveIdx] = React.useState(-1)
+    const nodes = []
+
+    return <AccordionContent nodes={nodes}>{children}</AccordionContent>
+}
+Accordion.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    nodes: PropTypes.array,
+}
+
+const AccordionContent = ({ children, nodes }) => {
+    const [active_idx, setActiveIdx] = useState(-1)
 
     const toggle = child_idx => {
         const is_closed = active_idx === child_idx || child_idx === -1
-
         if (is_closed) setActiveIdx(-1)
-        else setActiveIdx(child_idx)
+        else {
+            setActiveIdx(child_idx)
+        }
     }
 
     const getHeight = child_idx => {
@@ -64,39 +73,41 @@ const Accordion = ({ children }) => {
         const is_expanded = child_idx === active_idx
 
         return (
-            <AccordionWrapper
-                id="test"
-                key={child_idx}
-                ref={div => {
-                    nodes[child_idx] = { ref: div }
-                }}
-            >
-                <AccordionHeader
-                    onClick={() => toggle(child_idx)}
-                    role="button"
-                    aria-expanded={is_expanded}
-                >
-                    <Text weight="bold">{child.props.header}</Text>
-                    <Arrow expanded={is_expanded ? 'true' : 'false'} />
-                </AccordionHeader>
-                <div
-                    style={{
-                        overflow: 'hidden',
-                        transition: `height ${TRANSITION_DURATION}ms ease`,
-                        height,
+            <div>
+                <AccordionWrapper
+                    key={child_idx}
+                    ref={div => {
+                        nodes[child_idx] = { ref: div }
                     }}
                 >
-                    <AccordionContent>{child}</AccordionContent>
-                </div>
-            </AccordionWrapper>
+                    <AccordionHeader
+                        onClick={() => toggle(child_idx)}
+                        role="button"
+                        aria-expanded={is_expanded}
+                    >
+                        <Text weight="bold">{child.props.header}</Text>
+                        <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                    </AccordionHeader>
+                    <div
+                        style={{
+                            overflow: 'hidden',
+                            transition: `height ${TRANSITION_DURATION}ms ease`,
+                            height,
+                        }}
+                    >
+                        <AccordionContentWrapper>{child}</AccordionContentWrapper>
+                    </div>
+                </AccordionWrapper>
+            </div>
         )
     })
 
     return <>{render_nodes}</>
 }
 
-Accordion.propTypes = {
+AccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    nodes: PropTypes.array,
 }
 
 const AccordionItem = ({ text, children }) => {

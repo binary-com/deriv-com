@@ -77,7 +77,7 @@ class DtraderTabs extends React.Component {
                             lh="1.5"
                             align="left"
                             no_margin
-                            image_name='dmt-5-step-1.png'
+                            image_name="dmt-5-step-1.png"
                             current_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dmt-5-step-1.png')}
                         >
@@ -89,7 +89,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             lh="1.5"
                             align="left"
-                            image_name='dmt-5-step-2.png'
+                            image_name="dmt-5-step-2.png"
                             current_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dmt-5-step-2.png')}
                         >
@@ -101,7 +101,7 @@ class DtraderTabs extends React.Component {
                             as="h4"
                             lh="1.5"
                             align="left"
-                            image_name='dmt-5-step-3.png'
+                            image_name="dmt-5-step-3.png"
                             current_image={this.state.current_step_image}
                             onClick={() => this.clickHandler('dmt-5-step-3.png')}
                         >

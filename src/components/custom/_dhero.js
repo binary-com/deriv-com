@@ -69,7 +69,16 @@ const StyledContent = styled(Header)`
     font-size: 5.6rem;
 `
 
-const DHero = ({ title, background_svg, background_image_name, content, join_us_for_free, go_to_live_demo, start_automating, Logo }) => {
+const DHero = ({
+    title,
+    background_svg,
+    background_image_name,
+    content,
+    join_us_for_free,
+    go_to_live_demo,
+    start_automating,
+    Logo,
+}) => {
     const [show_modal, toggleModal, closeModal] = useModal()
     const handleRedirect = () => {
         window.open(deriv_app_url, '_blank')
@@ -95,24 +104,28 @@ const DHero = ({ title, background_svg, background_image_name, content, join_us_
                         {title}
                     </StyledHeader>
                     <HeroContent>
-                        <StyledContent as="h2">
-                            {content}
-                        </StyledContent>
+                        <StyledContent as="h2">{content}</StyledContent>
                     </HeroContent>
-                    {join_us_for_free ? (<TryForFree secondary onClick={toggleModal}>
-                        {localize('Join us for free')}
-                    </TryForFree>) : null}
-                    {start_automating ? (<TryForFree secondary onClick={toggleModal}>
-                        {localize('Start automating')}
-                    </TryForFree>) : null}
-                    {go_to_live_demo ? (<GoToLiveDemo tertiary onClick={handleRedirect}>
-                        {localize('Go to live demo')}
-                    </GoToLiveDemo>) : null}
+                    {join_us_for_free ? (
+                        <TryForFree secondary onClick={toggleModal}>
+                            {localize('Join us for free')}
+                        </TryForFree>
+                    ) : null}
+                    {start_automating ? (
+                        <TryForFree secondary onClick={toggleModal}>
+                            {localize('Start automating')}
+                        </TryForFree>
+                    ) : null}
+                    {go_to_live_demo ? (
+                        <GoToLiveDemo tertiary onClick={handleRedirect}>
+                            {localize('Go to live demo')}
+                        </GoToLiveDemo>
+                    ) : null}
                 </div>
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>
-                            <Image img_name={background_image_name} width='54.3rem' />
+                            <Image img_name={background_image_name} width="54.3rem" />
                         </LottieWrapper>
                     </Show.Desktop>
                 </div>

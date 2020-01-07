@@ -190,7 +190,7 @@ const Footer = () => (
                     </SocialMeida>
                 </InfoSection>
                 <Items>
-                    <Col width='20%'>
+                    <Col width='23%'>
                         <div><Title>{localize('TRADE')}</Title></div>
                         <div><Link to='/dtrader'>{localize('DTrader')}</Link></div>
                         <div><Link to='/dbot'>{localize('DBot')}</Link></div>
@@ -205,19 +205,18 @@ const Footer = () => (
                     <Col width='25%'>
                         <div><Title>{localize('SUPPORT')}</Title></div>
                         <div><Link to='/help-centre'>{localize('Help centre')}</Link></div>
-                        <div><Link to='/payment'>{localize('Payment methods')}</Link></div>
+                        {/* <div><Link to='/payment'>{localize('Payment methods')}</Link></div> */}
                         <div><Link to='/keep-safe'>{localize('Keep safe')}</Link></div>
-                        {/* TODO: we should add this link after why choose us page added */}
-                        {!isProduction() && <div><Link to='/why-choose-us'>{localize('Why choose us')}</Link></div>}
+                        {/* <div><Link to='/why-choose-us'>{localize('Why choose us')}</Link></div> */}
                     </Col>
-                    <Col margin_top width='20%'>
+                    <Col margin_top width='23%'>
                         <div><Title>{localize('COMPANY')}</Title></div>
-                        <div><Link to='/about-us'>{localize('About us')}</Link></div>
+                        <div><Link to='/about'>{localize('About us')}</Link></div>
                     </Col>
-                    <Col margin_top width='40%'>
+                    {/* <Col margin_top width='40%'>
                         <div><Title>{localize('PARTNER WITH US')}</Title></div>
                         <div><Link to='/affiliate'>{localize('Affiliate and IB programmes')}</Link></div>
-                    </Col>
+                    </Col> */}
                     <Col margin_top width='25%'>
                         {!isProduction() && <LanguageSwitcher />}
                     </Col>

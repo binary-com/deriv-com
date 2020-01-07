@@ -65,6 +65,12 @@ const SocialButton = styled(Button)`
     width: 48%;
     background-color: ${props => props.bgColor || 'var(--color-white)'};
     border: solid 1px var(--color-grey-7);
+    
+    &:hover {
+        background: ${props => {
+            if (props.provider === 'facebook') return 'var(--color-grey-4)'
+        }};
+    }
 `
 const MutedText = styled(Text)`
     text-align: left;

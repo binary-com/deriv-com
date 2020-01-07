@@ -134,7 +134,7 @@ const Regulatory = () => (
                 </Box>
             </GridContainer>
         </SectionContainer>
-        <SectionContainer>
+        <SectionContainer padding="0 0 4rem 0">
             <Flex>
                 <DocumentAccordion />
             </Flex>

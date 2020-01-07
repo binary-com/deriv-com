@@ -14,7 +14,7 @@ import Facebook from 'images/svg/footer-facebook.svg'
 import Warning from 'images/svg/warning.svg'
 import Copyright from 'images/svg/copyright.svg'
 
-const StyledFooter = styled.section`
+const StyledFooter = styled.footer`
     background-color: var(--color-grey-8);
     width: 100%;
     margin: 0 auto;
@@ -63,7 +63,7 @@ const BlackNav = styled.section`
         margin-right: 0.8rem;
     }
 `
-const SocialMeida = styled.section`
+const SocialMedia = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -174,10 +174,10 @@ const Footer = () => (
                 <InfoSection>
                     <Logo width='14.5rem' />
                     <Text>{localize('Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.')}</Text>
-                    <SocialMeida>
+                    <SocialMedia>
                         <Text>{localize('CONNECT WITH US')}</Text>
                         <div>
-                            <ExternalLink href='https://www.facebook.com/binarydotcom' target="_blank" rel="noopener noreferrer">
+                            <ExternalLink href='https://www.facebook.com/derivdotcoms' target="_blank" rel="noopener noreferrer">
                                 <Facebook />
                             </ExternalLink>
                             <ExternalLink href='https://www.instagram.com/derivdotcom/' target="_blank" rel="noopener noreferrer">
@@ -187,7 +187,7 @@ const Footer = () => (
                                 <Twitter />
                             </ExternalLink>
                         </div>
-                    </SocialMeida>
+                    </SocialMedia>
                 </InfoSection>
                 <Items>
                     <Col width='23%'>

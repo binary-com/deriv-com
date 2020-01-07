@@ -208,7 +208,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps/search/?api=1&query=,"
+                                href="https://www.google.com/maps?q=Paragon+Labuan&sll=5.280808,115.244948"
                             >
                                 <Image
                                     img_name="map-labuan.png"
@@ -231,7 +231,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps/search/?api=1&query=,"
+                                    href="https://www.google.com/maps?q=Paragon+Labuan&sll=5.280808,115.244948"
                                 >
                                     {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
                                     <br />
@@ -259,7 +259,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps/search/?api=1&query=25.079313,55.149074"
+                                    href="https://www.google.com/maps?q=Lake+Plaza+Dubai&sll=25.079220,55.149569"
                                 >
                                     {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
                                     <br />
@@ -274,7 +274,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps/search/?api=1&query=25.079313,55.149074"
+                                href="https://www.google.com/maps?q=Lake+Plaza+Dubai&sll=25.079220,55.149569"
                             >
                                 <Image
                                     img_name="map-dubai.png"
@@ -290,7 +290,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps/search/?api=1&query=-25.282562,-57.563787"
+                                href="https://www.google.com/maps?q=Edificio+Australia&sll=-25.282569,-57.563805"
                             >
                                 <Image
                                     img_name="map-paraguay.png"
@@ -313,7 +313,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps/search/?api=1&query=-25.282562,-57.563787"
+                                    href="https://www.google.com/maps?q=Edificio+Australia&sll=-25.282569,-57.563805"
                                 >
                                     {localize(
                                         '886, Edificio Australia, Calle Herib, Campos Cervera',

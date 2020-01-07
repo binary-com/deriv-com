@@ -113,6 +113,7 @@ const NewSignup = () => {
                     appearance={Appearances.newSignup}
                     bgColor="grey-14"
                     onSubmit={getSubmitState}
+                    autofocus={true}
                 />
             </Wrapper>
         </Layout>

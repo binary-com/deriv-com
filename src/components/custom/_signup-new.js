@@ -65,7 +65,7 @@ const SocialButton = styled(Button)`
     width: 48%;
     background-color: ${props => props.bgColor || 'var(--color-white)'};
     border: solid 1px var(--color-grey-7);
-    
+
     &:hover {
         background: ${props => {
             if (props.provider === 'facebook') return 'var(--color-grey-4)'
@@ -116,7 +116,7 @@ const LoginLink = styled.a`
     }
 `
 
-const SignupDefault = ({
+const SignupNew = ({
     email_error_msg,
     email,
     clearEmail,
@@ -234,7 +234,7 @@ const SignupDefault = ({
     )
 }
 
-SignupDefault.propTypes = {
+SignupNew.propTypes = {
     autofocus: PropTypes.bool,
     clearEmail: PropTypes.func,
     email: PropTypes.string,
@@ -246,4 +246,4 @@ SignupDefault.propTypes = {
     is_submitting: PropTypes.bool,
 }
 
-export default SignupDefault
+export default SignupNew

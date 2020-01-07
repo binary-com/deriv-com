@@ -39,34 +39,15 @@ const AccordionWrapper = styled.div`
 // TODO: add keyboard events and proper focus handling
 const TRANSITION_DURATION = 400
 const nodes = []
+
 const Accordion = ({ children }) => {
     const [active_idx, setActiveIdx] = React.useState(-1)
-    let timeout
-
-    React.useEffect(() => {
-        return () => {
-            clearTimeout(timeout)
-        }
-    }, [])
 
     const toggle = child_idx => {
-        if (active_idx > -1) {
-            const content = nodes[active_idx].ref.children[1]
-            content.style.height = `${content.children[0].offsetHeight}px`
-        }
+        const is_closed = active_idx === child_idx || child_idx === -1
 
-        if (active_idx === child_idx || child_idx === -1) {
-            setTimeout(() => {
-                setActiveIdx(-1)
-            }, 50)
-        } else {
-            setTimeout(() => {
-                setActiveIdx(child_idx)
-                timeout = setTimeout(() => {
-                    nodes[child_idx].ref.children[1].style.height = 'auto'
-                }, TRANSITION_DURATION)
-            }, 50)
-        }
+        if (is_closed) setActiveIdx(-1)
+        else setActiveIdx(child_idx)
     }
 
     const getHeight = child_idx => {

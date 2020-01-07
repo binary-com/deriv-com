@@ -10,6 +10,7 @@ const IconContainer = styled(Flex)`
     justify-content: flex-start;
     align-items: center;
     min-width: ${props => props.minWidth || ''};
+    padding-bottom: ${props => props.paddingBottom || ''};
 
     svg {
         margin-right: 0.8rem;
@@ -48,7 +49,7 @@ const QuarterTable = ({ quarters }) => (
             >
                 <QuarterHeader align="center">{quarter}</QuarterHeader>
                 <Flex jc="flex-start">
-                    <IconContainer width="unset" minWidth="46%">
+                    <IconContainer width="unset" minWidth="46%" paddingBottom="1.6rem">
                         <PDFIcon />
                         <LinkText color="red" weight="bold">
                             {localize('Table 1 - Type of execution venue')}
@@ -60,7 +61,7 @@ const QuarterTable = ({ quarters }) => (
                             {localize('Table 4 - Daily Price information')}
                         </LinkText>
                     </IconContainer>
-                    <IconContainer width="unset" minWidth="46%">
+                    <IconContainer width="unset" minWidth="46%" paddingBottom="1.6rem">
                         <PDFIcon />
                         <LinkText color="red" weight="bold">
                             {localize('Table 3 - Intra-Day Price information')}

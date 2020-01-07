@@ -131,7 +131,7 @@ const StyledHeader = styled(Header)`
 const ButtonWrapper = styled.div`
     & .carousel__back-button {
         position: absolute;
-        top: 40%;
+        top: 35%;
         left: 0;
         cursor: pointer;
 
@@ -142,7 +142,7 @@ const ButtonWrapper = styled.div`
     }
     & .carousel__next-button {
         position: absolute;
-        top: 40%;
+        top: 35%;
         right: 0;
         cursor: pointer;
 
@@ -180,7 +180,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '1993',
@@ -188,7 +188,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '1999',
@@ -196,7 +196,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2000',
@@ -204,7 +204,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2001',
@@ -212,7 +212,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2004',
@@ -220,7 +220,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2007',
@@ -228,7 +228,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2008',
@@ -236,7 +236,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2009',
@@ -244,7 +244,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2011',
@@ -252,7 +252,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2012',
@@ -260,7 +260,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2013',
@@ -268,7 +268,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2014',
@@ -276,7 +276,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2015',
@@ -284,7 +284,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2016',
@@ -292,7 +292,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2017',
@@ -300,7 +300,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2018',
@@ -308,7 +308,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
     {
         year: '2019',
@@ -316,7 +316,7 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'jean-yves.png',
+        image: 'ceo.png',
     },
 ]
 

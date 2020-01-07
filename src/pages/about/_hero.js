@@ -147,7 +147,7 @@ const Hero = ({ navigation, setNavigation }) => {
                     <ContentWrapper>
                         <LeadershipWrapper>
                             <Wrapper max_width="28.2rem" margin={{ right: '2.4rem' }}>
-                                <Image img_name="ceo.png" />
+                                <Image img_name="jean-yves.png" />
                             </Wrapper>
 
                             <div>

@@ -125,7 +125,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps/search/?api=1&query=35.903559,14.460707"
+                                href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                             >
                                 <Image
                                     img_name="map-malta.png"
@@ -137,7 +137,7 @@ export const Offices = () => {
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
-                                {localize('Maltaa')}
+                                {localize('Malta')}
                             </StyledHeader>
                             <br />
                             <AddressContainer>
@@ -148,7 +148,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps/search/?api=1&query=35.903559,14.460707"
+                                    href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                                 >
                                     {localize('Level 3, W Business Centre,')}
                                     <br />
@@ -177,7 +177,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps/search/?api=1&query=2.922786,101.661404"
+                                    href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
                                 >
                                     {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
                                     <br />
@@ -192,7 +192,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps/search/?api=1&query=2.922786,101.661404"
+                                href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
                             >
                                 <Image
                                     img_name="map-cyberjaya.png"
@@ -208,7 +208,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps?q=Paragon+Labuan&sll=5.280808,115.244948"
+                                href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                             >
                                 <Image
                                     img_name="map-labuan.png"
@@ -231,7 +231,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps?q=Paragon+Labuan&sll=5.280808,115.244948"
+                                    href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                                 >
                                     {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
                                     <br />
@@ -259,7 +259,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps?q=Lake+Plaza+Dubai&sll=25.079220,55.149569"
+                                    href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
                                 >
                                     {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
                                     <br />
@@ -274,7 +274,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps?q=Lake+Plaza+Dubai&sll=25.079220,55.149569"
+                                href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
                             >
                                 <Image
                                     img_name="map-dubai.png"
@@ -290,7 +290,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <MapLink
                                 target="_blank"
-                                href="https://www.google.com/maps?q=Edificio+Australia&sll=-25.282569,-57.563805"
+                                href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
                             >
                                 <Image
                                     img_name="map-paraguay.png"
@@ -313,7 +313,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://www.google.com/maps?q=Edificio+Australia&sll=-25.282569,-57.563805"
+                                    href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
                                 >
                                     {localize(
                                         '886, Edificio Australia, Calle Herib, Campos Cervera',

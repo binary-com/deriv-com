@@ -20,6 +20,11 @@ const SliderWrapper = styled.div`
     }
 `
 
+const SubHeader = styled(Header)`
+    margin-top: 1.6rem;
+    margin-bottom: 8rem;
+`
+
 const StyledContainer = styled(Container)`
     position: relative;
 `
@@ -180,143 +185,143 @@ const history_data = [
         description: localize(
             'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
         ),
-        image: 'ceo.png',
+        image: '1990.png',
     },
     {
         year: '1993',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('Early success'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'Jean-Yves moved to Hong Kong and founded Fortitude Group Inc, dealing in various over-the-counter derivative products. The knowledge and experience he gained during this time would eventually become central to Binary.com and Deriv. The success he achieved at such a young age attracted the attention of Jim Mellon, an influential investor and visionary entrepreneur from the UK.',
         ),
-        image: 'ceo.png',
+        image: '1993.png',
     },
     {
         year: '1999',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('Regents Markets is born'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'Jean-Yves had an idea: to give ordinary investors a chance to make small trades. He collaborated with notable financial mathematicians to develop the algorithms for the world’s first fixed-odds trading system. He then founded the Regent Markets Group and received a USD 2 million capital investment followed by a supplemental loan of USD 2 million from Jim Mellon’s Regent Pacific Group Ltd.',
         ),
-        image: 'ceo.png',
+        image: '1999.png',
     },
     {
         year: '2000',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('The strategic move'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'As the only player in the market, Regent Markets filed a patent for its fixed-odds trading system. Jean-Yves decided to move base to Malta and obtain an online gaming licence.',
         ),
-        image: 'ceo.png',
+        image: '2000.png',
     },
     {
         year: '2001',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('BetOnMarkets.com is launched'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'This was where things started taking off. BetOnMarkets.com, registered by Regent Markets, was the first online trading platform to offer binary options to retail traders, sparking off a market revolution. This led to the growth of a multi-billion dollar industry with Regent Markets as its leader.',
         ),
-        image: 'ceo.png',
+        image: '2001.png',
     },
     {
         year: '2004',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('Licenced in the Isle Of Man'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'Regent Markets obtained a licence in the Isle Of Man for its clientele in the UK.',
         ),
-        image: 'ceo.png',
+        image: '2004.png',
     },
     {
         year: '2007',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('The recognition begins'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            "Just 6 years in, BetOnMarkets.com was awarded 'Best Fixed-Odds Financial Trading Provider' by Shares Magazine, Financial Times, and Investors Chronicle. Having handled over 15 million trades, BetOnMarkets.com was recognised as a reliable and secure online trading platform for novice and expert traders. Regent Markets is recognised as the pioneer of binary trading with patents granted in the United States.",
         ),
-        image: 'ceo.png',
+        image: '2007.png',
     },
     {
         year: '2008',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('An award-winning commitment'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            "BetOnMarkets.com won another award from Investors Chronicle for 'Best Customer Communication Firm', in recognition of its commitment towards an ethical and customer-focused trading experience.",
         ),
-        image: 'ceo.png',
+        image: '2008.png',
     },
     {
         year: '2009',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('More awards!'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            "BetOnMarkets.com bagged 'Best Fixed-Odds Financial Trading Provider' by Shares Magazine UK, and 'Financial Trading Operator of the Year' by eGaming Review.",
         ),
-        image: 'ceo.png',
+        image: '2009.png',
     },
     {
         year: '2011',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('Patented technology'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            "Regent Markets obtained 2 US Patents: 'Computer trading system and method for speculating on a financial market' and 'Computer trading system for offering custom financial market speculations'.",
         ),
-        image: 'ceo.png',
+        image: '2011.png',
     },
     {
         year: '2012',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('Reliability rewarded'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            "The reliability, product range, and customer services offered by BetOnMarkets.com led to the 'Best Fixed-Odds Firm 2012' award by Global Banking and Finance Review. ",
         ),
-        image: 'ceo.png',
+        image: '2012.png',
     },
     {
         year: '2013',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('New brand, new offerings'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'By this time, the online trading industry had grown exponentially. It was time for a rebrand. Introducing Binary.com, the latest version of BetOnMarkets.com, with new trade types and charting applications, becoming the most comprehensive digital options platform.',
         ),
-        image: 'ceo.png',
+        image: '2013.png',
     },
     {
         year: '2014',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('No turning back'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'Following the rebrand, Binary.com continued its growth. With just 50 employees, it garnered a client-base of 800,000, contributing to over 130,000 daily transactions and a cumulative turnover of USD 2 billion.',
         ),
-        image: 'ceo.png',
+        image: '2014.png',
     },
     {
         year: '2015',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('The world’s best'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            "Binary.com won the first prize for the Financial Trading Operator category at the prestigious 2015 EGR Operator Awards ceremony and was honoured as the world's ‘Best Binary Options Broker’ at the 16th annual MENA International Financial Conference and Exhibition.",
         ),
-        image: 'ceo.png',
+        image: '2015.png',
     },
     {
         year: '2016',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('Introducing Binary Bot'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'Automated trading at its best. Clients could create their own trading bots without knowing how to code.',
         ),
-        image: 'ceo.png',
+        image: '2016.png',
     },
     {
         year: '2017',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('The market leader'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'In proving itself as a market leader, Binary.com was awarded Best Binary Options Broker by the Online Personal Wealth Awards.',
         ),
-        image: 'ceo.png',
+        image: '2017.png',
     },
     {
         year: '2018',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('New office and licence in Labuan'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'Binary.com opened a new office in Labuan, Malaysia and obtained a money-broking licence by Labuan Financial Services Authority.',
         ),
-        image: 'ceo.png',
+        image: '2018.png',
     },
     {
         year: '2019',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('Deriv is born'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'Deriv.com was launched as the next-generation online trading platform. Binary.com and Deriv collectively handle over 200 million transactions, with an unprecedented turnover of over USD 1 billion a year.',
         ),
-        image: 'ceo.png',
+        image: '2019.png',
     },
 ]
 
@@ -327,6 +332,9 @@ const OurHistory = () => {
                 <Header as="h2" align="center">
                     {localize('Our history')}
                 </Header>
+                <SubHeader as="h4" weight="normal" align="center">
+                    {localize('Scroll through our remarkable journey')}
+                </SubHeader>
                 <SliderWrapper>
                     <CarouselProvider
                         naturalSlideWidth={100}

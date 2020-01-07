@@ -70,7 +70,7 @@ const NewSignup = () => {
     }
     return (
         <Layout is_static>
-            <SEO title={localize('Sign up')} />
+            <SEO title={localize('Easy Sign Up - Deriv.com')} />
             <Wrapper>
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>

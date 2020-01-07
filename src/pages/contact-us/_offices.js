@@ -137,7 +137,7 @@ export const Offices = () => {
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
-                                {localize('Malta')}
+                                {localize('Maltaa')}
                             </StyledHeader>
                             <br />
                             <AddressContainer>

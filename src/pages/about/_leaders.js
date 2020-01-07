@@ -1,6 +1,8 @@
 import React from 'react'
+import styled from 'styled-components'
 import { SectionContainer, Container, CssGrid, Flex, Wrapper } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
+import { localize } from 'components/localization'
 
 const leaders_data = [
     {
@@ -13,8 +15,9 @@ const leaders_data = [
     {
         name: 'Anton Andreev',
         position: 'Head of Project Management',
-        description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+        description: localize(
+            'Anton is responsible for overseeing the end-to-end development of our products. He has more than 17 years of experience in the online trading and retail banking industry with several international brokers. Anton holds a master’s degree in economics and another in applied informatics.',
+        ),
         image: 'anton-andreev.png',
     },
     {
@@ -60,20 +63,43 @@ const leaders_data = [
         image: 'waqas-awan.png',
     },
     {
-        name: 'Arun Venkataraman',
-        position: 'DevOps Manager',
-        description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
-        image: 'arun-venkataraman.png',
-    },
-    {
         name: 'Jeyavarthini Vairakanan',
         position: 'Customer Support Manager',
         description:
             'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
         image: 'jeyavarthini-vairakanan.png',
     },
+    {
+        name: 'Arun Venkataraman',
+        position: 'DevOps Manager',
+        description:
+            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+        image: 'arun-venkataraman.png',
+    },
 ]
+
+const DescriptionWrapper = styled.div`
+    background: var(--color-black);
+    opacity: 0;
+    height: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.25s, height 0.25s;
+    padding: 1.6rem;
+`
+
+const LeaderWrapper = styled(Flex)`
+    cursor: pointer;
+
+    &:hover {
+        ${DescriptionWrapper} {
+            opacity: 0.85;
+            height: 100%;
+        }
+    }
+`
 
 const Leaders = () => {
     return (
@@ -89,15 +115,20 @@ const Leaders = () => {
                     margin="1rem 0 0"
                 >
                     {leaders_data.map((leader, index) => (
-                        <Flex key={index} fd="column" ai="center">
-                            <Wrapper margin={{ bottom: '0.8rem' }} width="100%">
+                        <LeaderWrapper key={index} fd="column" ai="center">
+                            <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
                                 <Image img_name={leader.image} />
+                                <DescriptionWrapper>
+                                    <Text size="var(--text-size-xs)" color="white">
+                                        {leader.description}
+                                    </Text>
+                                </DescriptionWrapper>
                             </Wrapper>
                             <Header as="h4" align="center" lh="3.6rem">
                                 {leader.name}
                             </Header>
                             <Text align="center">{leader.position}</Text>
-                        </Flex>
+                        </LeaderWrapper>
                     ))}
                 </CssGrid>
             </Container>

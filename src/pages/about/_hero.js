@@ -19,6 +19,12 @@ const StyledContainer = styled(Container)`
     @media ${device.laptop} {
         padding: 12rem;
     }
+    @media ${device.tablet} {
+        padding: 8rem 4rem;
+    }
+    @media ${device.mobileL} {
+        padding: 8rem 2rem;
+    }
 `
 
 const NavigationWrapper = styled.div`
@@ -72,6 +78,10 @@ const ContentWrapper = styled.div`
 const StoryHeader = styled(Header)`
     margin-top: 8rem;
     margin-bottom: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-top: 4rem;
+    }
 `
 
 const LeadershipWrapper = styled.div`
@@ -82,6 +92,20 @@ const LeadershipWrapper = styled.div`
 
     > * {
         flex: 1;
+    }
+    @media ${device.tabletL} {
+        flex-direction: column;
+
+        ${Wrapper} {
+            width: 28.2rem;
+            margin-bottom: 4rem;
+        }
+        ${Header} {
+            text-align: center;
+        }
+        ${Text} {
+            text-align: center;
+        }
     }
 `
 

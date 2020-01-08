@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145">
+<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145" role="img" aria-labelledby="funds-icon-title">
+<title id="funds-icon-title">Funds and transfers</title>
     <defs>
         <linearGradient id="a" x1="51.713%" x2="48.287%" y1="0%" y2="113.805%">
             <stop offset="0%" stop-color="#FF6444"/>

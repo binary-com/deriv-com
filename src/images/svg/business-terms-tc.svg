@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145">
+<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145" role="img" aria-labelledby="business-icon-title">
+<title id="business-icon-title">Business terms</title>
     <defs>
         <linearGradient id="a" x1="127.364%" x2="15.899%" y1="13.56%" y2="64.105%">
             <stop offset="0%" stop-color="#FF6444"/>

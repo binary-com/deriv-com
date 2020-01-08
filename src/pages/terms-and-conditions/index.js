@@ -29,7 +29,13 @@ const TermsAndConditions = () => {
                     <StyledHeader as="h1" align="center" lh="7.2rem">
                         {localize('Terms and conditions')}
                     </StyledHeader>
-                    <StyledHeader as="h4" align="center" weight="normal" lh="3rem" padding="1.6rem 0 0">
+                    <StyledHeader
+                        as="h4"
+                        align="center"
+                        weight="normal"
+                        lh="3rem"
+                        padding="1.6rem 0 0"
+                    >
                         {localize(
                             'Details of our agreement with you, how we protect your funds and security, and more',
                         )}

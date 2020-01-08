@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145">
+<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145" role="img" aria-labelledby="general-icon-title">
+<title id="general-icon-title">General terms</title>
     <defs>
         <linearGradient id="a" x1="70.949%" x2="29.182%" y1="2.91%" y2="98.028%">
             <stop offset="0%" stop-color="#FF6444"/>

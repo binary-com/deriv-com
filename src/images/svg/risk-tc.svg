@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145">
+<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145" role="img" aria-labelledby="risk-icon-title">
+<title id="risk-icon-title">Risk disclosure</title>
     <defs>
         <linearGradient id="a" x1="93.019%" x2="12.977%" y1="19.139%" y2="94.922%">
             <stop offset="0%" stop-color="#FF6444"/>

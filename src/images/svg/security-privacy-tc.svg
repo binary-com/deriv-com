@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="229" height="145" viewBox="0 0 229 145">
+<svg xmlns="http://www.w3.org/2000/svg" width="229" height="145" viewBox="0 0 229 145" role="img" aria-labelledby="security-icon-title">
+<title id="security-icon-title">Security and privacy</title>
     <defs>
         <linearGradient id="a" x1="90.006%" x2="28.703%" y1="17.201%" y2="82.588%">
             <stop offset="0%" stop-color="#FF6444"/>

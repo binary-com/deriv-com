@@ -74,7 +74,9 @@ const Col = ({ Icon, content, link_title, title, url }) => (
             <Text lh="1.55">{content}</Text>
             <Cta>
                 <PDF />
-                <a href={url} target="_blank" rel="noopener noreferrer">{link_title}</a>
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                    {link_title}
+                </a>
             </Cta>
         </Container>
     </GridCol>
@@ -125,9 +127,7 @@ export const IconGrid = () => (
             <Col
                 Icon={Security}
                 title={localize('Security and privacy')}
-                content={localize(
-                    'What we do and don’t do with your data and how we use cookies',
-                )}
+                content={localize('What we do and don’t do with your data and how we use cookies')}
                 url="url"
                 link_title={localize('Security and privacy')}
             />
@@ -135,7 +135,7 @@ export const IconGrid = () => (
                 Icon={Business}
                 title={localize('Business terms')}
                 content={localize(
-                    "Our agreement with affiliates, introducing brokers, developers who use our API, and payment agents",
+                    'Our agreement with affiliates, introducing brokers, developers who use our API, and payment agents',
                 )}
                 url="url"
                 link_title={localize('Business terms')}
@@ -152,9 +152,7 @@ export const IconGrid = () => (
             <Col
                 Icon={Supplementary}
                 title={localize('Supplementary terms')}
-                content={localize(
-                    'Additional terms related to some of our companies',
-                )}
+                content={localize('Additional terms related to some of our companies')}
                 url="url"
                 link_title={localize('Supplementary terms')}
             />

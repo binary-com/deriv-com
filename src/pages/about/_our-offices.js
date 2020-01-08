@@ -29,14 +29,27 @@ const StyledMap = styled(Map)`
     height: 100%;
     width: 100%;
 `
+const Oval = styled.div`
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--color-red);
+    box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    visibility: visible;
+    top: 74%;
+    left: 7%;
+`
 const Pinpoint = styled.div`
     position: absolute;
     top: ${props => props.top};
     left: ${props => props.left};
     visibility: hidden;
 
-    &:hover ${Oval} {
-        visibility: visible;
+    &:hover {
+        ${Oval} {
+            visibility: visible;
+        }
     }
 `
 
@@ -54,17 +67,7 @@ const LabelWrapper = styled.div`
     color: var(--color-white);
     font-size: 1.1rem;
 `
-const Oval = styled.div`
-    width: 1rem;
-    height: 1rem;
-    background-color: var(--color-red);
-    box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
-    border-radius: 50%;
-    position: absolute;
-    visibility: visible;
-    top: 74%;
-    left: 7%;
-`
+
 const StyledHeader = styled(Header)`
     font-size: 3.6rem;
     margin-bottom: 4rem;

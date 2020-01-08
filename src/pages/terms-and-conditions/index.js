@@ -24,7 +24,7 @@ const TermsAndConditions = () => {
                     'Read our terms and conditions to learn how we manage our data feeds, security, privacy, and more.',
                 )}
             />
-            <Section>
+            <Section padding="15.2rem 0 8rem">
                 <GridContainer>
                     <StyledHeader as="h1" align="center" lh="7.2rem">
                         {localize('Terms and conditions')}

@@ -46,7 +46,7 @@ const Regulatory = () => (
                 'Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.',
             )}
         />
-        <SectionContainer>
+        <SectionContainer padding="15.2rem 0 8rem">
             <GridContainer>
                 <StyledHeader as="h1" align="center" lh="8rem">
                     {localize('Regulatory information')}

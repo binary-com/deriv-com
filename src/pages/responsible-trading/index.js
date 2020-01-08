@@ -32,7 +32,7 @@ const ResponsibleTrading = () => {
                     'Practise responsible trading by understanding the risks involved and how you can manage them by setting limits on your trading activity.',
                 )}
             />
-            <Section>
+            <Section padding="15.2rem 0 8rem">
                 <GridContainer>
                     <StyledHeader as="h1" align="center" padding="0 0 4rem">
                         {localize('Responsible trading')}

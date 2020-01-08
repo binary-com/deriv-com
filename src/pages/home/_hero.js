@@ -4,9 +4,8 @@ import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
-import { Modal, useModal, Header } from 'components/elements'
-import { localize } from 'components/localization'
-import SignupModal from 'components/custom/signup-modal'
+import { Header } from 'components/elements'
+import { LocalizedLink, localize } from 'components/localization'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -89,7 +88,6 @@ const StyledVideo = styled.video`
 `
 
 export const Hero = () => {
-    const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <HeroWrapper>
             <Container>
@@ -102,14 +100,13 @@ export const Hero = () => {
                             {localize('The next evolution of online trading by Binary.com')}
                         </HeroHeader>
                         <ButtonWrapper>
-                            <Button type="submit" onClick={toggleModal} secondary>
+                            <LocalizedLink to='/signup/'>
+                            <Button type="submit" secondary>
                                 {localize('Join us for free')}
                             </Button>
+                            </LocalizedLink>
                         </ButtonWrapper>
                     </StyledArticle>
-                    <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                        <SignupModal autofocus />
-                    </Modal>
                 </HeroGrid>
             </Container>
             <Show.Desktop>

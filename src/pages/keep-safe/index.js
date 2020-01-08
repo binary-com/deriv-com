@@ -3,10 +3,9 @@ import styled from 'styled-components'
 import { SecurityIconGrid } from './_icon-grid'
 import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Modal, useModal, StyledLink, Header, Text, Divider } from 'components/elements'
+import { StyledLink, Header, Text, Divider } from 'components/elements'
 import { Button } from 'components/form'
-import SignupModal from 'components/custom/signup-modal'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { LocalizedLink, localize, WithIntl, Localize } from 'components/localization'
 import Checked from 'images/svg/checklist.svg'
 import Demo from 'images/svg/demo-account.svg'
 
@@ -27,7 +26,6 @@ const DemoIcon = styled(Demo)`
 `
 
 const KeepSafe = () => {
-    const [show_modal, toggleModal, closeModal] = useModal()
 
     return (
         <Layout>
@@ -70,9 +68,11 @@ const KeepSafe = () => {
                             'Use our demo account and learn how to trade by using risk-free virtual funds.',
                         )}
                     </StyledHeader>
-                    <Button secondary onClick={toggleModal}>
-                        {localize('Create a free account')}
-                    </Button>
+                    <LocalizedLink to='/signup/'>
+                        <Button secondary>
+                            {localize('Create a free account')}
+                        </Button>
+                    </LocalizedLink>
                 </GridContainer>
             </Section>
             <Section max_width="98rem">
@@ -125,9 +125,6 @@ const KeepSafe = () => {
                     </CssGrid>
                 </GridContainer>
             </Section>
-            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                <SignupModal />
-            </Modal>
         </Layout>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Text, LinkText } from 'components/elements/typography'
 import { Header, Image } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
 import device from 'themes/device'
@@ -124,6 +124,7 @@ export const Offices = () => {
                     <Office>
                         <ImageWrapper>
                             <MapLink
+                                rel="noopener noreferrer"
                                 target="_blank"
                                 href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                             >
@@ -150,9 +151,10 @@ export const Offices = () => {
                                     size="var(--text-size-s)"
                                     href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                                 >
-                                    {localize('Level 3, W Business Centre,')}
-                                    <br />
-                                    {localize('Triq Dun Karm Birkirkara BKR9033 Malta.')}
+                                    <Localize
+                                        translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm BIrkirkara BKR9033 Malta."
+                                        components={[<br key={0} />]}
+                                    />
                                 </LinkText>
                             </AddressContainer>
 
@@ -179,9 +181,10 @@ export const Offices = () => {
                                     size="var(--text-size-s)"
                                     href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
                                 >
-                                    {localize('C-13, iTech Tower, Jalan Impact, Cyber 6,')}
-                                    <br />
-                                    {localize('63000 Cyberjaya, Selangor, Malaysia.')}
+                                    <Localize
+                                        translate_text="C-13, iTech Tower, Jalan Impact, Cyber 6,<0 />63000 Cyberjaya, Selangor, Malaysia."
+                                        components={[<br key={0} />]}
+                                    />
                                 </LinkText>
                             </AddressContainer>
                             <StyledText>
@@ -191,6 +194,7 @@ export const Offices = () => {
                         </Content>
                         <ImageWrapper>
                             <MapLink
+                                rel="noopener noreferrer"
                                 target="_blank"
                                 href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
                             >
@@ -207,6 +211,7 @@ export const Offices = () => {
                     <Office>
                         <ImageWrapper>
                             <MapLink
+                                rel="noopener noreferrer"
                                 target="_blank"
                                 href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                             >
@@ -233,9 +238,10 @@ export const Offices = () => {
                                     size="var(--text-size-s)"
                                     href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                                 >
-                                    {localize('F16, 1st Floor, Paragon Labuan, Jalan Tun')}
-                                    <br />
-                                    {localize('Mustapha, 87000, Labuan')}
+                                    <Localize
+                                        translate_text="F16, 1st Floor, Paragon Labuan, Jalan Tun<0 />Mustapha, 87000, Labuan"
+                                        components={[<br key={0} />]}
+                                    />
                                 </LinkText>
                             </AddressContainer>
                             <StyledText>
@@ -261,9 +267,10 @@ export const Offices = () => {
                                     size="var(--text-size-s)"
                                     href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
                                 >
-                                    {localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake ')}
-                                    <br />
-                                    {localize('Towers, Dubai, UAE.')}
+                                    <Localize
+                                        translate_text="Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake<0 />Towers, Dubai, UAE."
+                                        components={[<br key={0} />]}
+                                    />
                                 </LinkText>
                             </AddressContainer>
                             <StyledText>
@@ -273,6 +280,7 @@ export const Offices = () => {
                         </Content>
                         <ImageWrapper>
                             <MapLink
+                                rel="noopener noreferrer"
                                 target="_blank"
                                 href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
                             >
@@ -289,6 +297,7 @@ export const Offices = () => {
                     <Office>
                         <ImageWrapper>
                             <MapLink
+                                rel="noopener noreferrer"
                                 target="_blank"
                                 href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
                             >
@@ -315,13 +324,10 @@ export const Offices = () => {
                                     size="var(--text-size-s)"
                                     href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
                                 >
-                                    {localize(
-                                        '886, Edificio Australia, Calle Herib, Campos Cervera',
-                                    )}
-                                    <br />
-                                    {localize('y Tregnaghi, Distriti de Stma, Trinidad, Asuncion,')}
-                                    <br />
-                                    {localize('Paraguay')}
+                                    <Localize
+                                        translate_text="886, Edificio Australia, Calle Herib, Campos Cervera<0 />y Tregnaghi, Distriti de Stma, Trinidad, Asuncion,<0 />Paraguay"
+                                        components={[<br key={0} />]}
+                                    />
                                 </LinkText>
                             </AddressContainer>
                             <StyledText>

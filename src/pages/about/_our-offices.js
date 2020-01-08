@@ -20,10 +20,6 @@ const MapWrapper = styled.div`
     width: fit-content;
     margin: 0 auto;
 
-    @media ${device.laptopL} {
-        width: 80rem;
-        height: 50rem;
-    }
     @media ${device.laptop} {
         display: none;
     }
@@ -31,11 +27,6 @@ const MapWrapper = styled.div`
 const StyledMap = styled(Map)`
     height: 100%;
     width: 100%;
-
-    @media ${device.laptopL} {
-        width: 80rem;
-        height: 50rem;
-    }
 `
 const Oval = styled.div`
     width: 1rem;
@@ -47,11 +38,6 @@ const Oval = styled.div`
     position: absolute;
     top: ${props => props.top};
     left: ${props => props.left};
-
-    @media ${device.laptopL} {
-        top: ${props => parseFloat(props.top) - 4}rem;
-        left: ${props => parseFloat(props.left) - 5}rem;
-    }
 `
 const StyledHeader = styled(Header)`
     font-size: 3.6rem;

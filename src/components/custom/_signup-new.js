@@ -30,7 +30,7 @@ const Line = styled.div`
 const StyledText = styled(Text)`
     font-size: ${props => props.fontSize || 'var(--text-size-xs)'};
 
-    @media ${device.tabletL} {
+    @media ${device.tabletL} && ${props => !props.notedBox} {
         width: 15rem;
     }
 `
@@ -140,7 +140,13 @@ const SignupNew = ({
             <br />
             <Text>{localize('Enter your email address to begin')}</Text>
             <NoteBox>
-                <StyledText fontSize="var(--text-size-xs)" color="grey-16" lh="1.14" align="center">
+                <StyledText
+                    notedBox
+                    fontSize="var(--text-size-xs)"
+                    color="grey-16"
+                    lh="1.14"
+                    align="center"
+                >
                     {localize(
                         'Got a Binary.com account? Simply Log in to Deriv.com with your Binary.com credentials',
                     )}

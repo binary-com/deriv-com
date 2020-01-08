@@ -26,11 +26,11 @@ const trading = [
     {
         title: localize('DMT5 Standard account'),
         subtitle: localize(
-            'Get started easily with a DMT5 Standard account for high leverage on your forex trades.',
+            'The Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility. Trade commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs with high leverage.',
         ),
         second_title: localize('DMT5 Advanced account'),
         second_subtitle: localize(
-            'Get your trades placed straight through to the market with a DMT5 Advanced account — a 100% A-Book account with tight spreads.',
+            'The Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes.',
         ),
         image_name: 'dmt-5-ipad-iphone.png',
         image_alt: localize('DMT5 mac'),
@@ -38,7 +38,7 @@ const trading = [
     {
         title: localize('DMT5 Synthetic Indices account'),
         subtitle: localize(
-            'Trade 24/7 with a Synthetic Indices account. Trade indices that simulate the movements of real markets.',
+            'The Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. Available for trading 24/7 and audited for fairness by an independent third party.',
         ),
         second_title: localize('Practice with Demo accounts'),
         second_subtitle: localize(

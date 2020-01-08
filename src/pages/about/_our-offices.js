@@ -47,9 +47,7 @@ const Pinpoint = styled.div`
     visibility: hidden;
 
     &:hover {
-        ${Oval} {
-            visibility: visible;
-        }
+        visibility: visible;
     }
 `
 

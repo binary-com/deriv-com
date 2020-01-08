@@ -5,15 +5,15 @@ import Footer from './footer'
 import { Nav, NavStatic } from './nav'
 
 const Main = styled.main`
-    padding-top: ${props => (props.paddingTop || '7rem')};
+    padding-top: ${props => props.padding_top || '7rem'};
     background: var(--color-white);
     height: ${props => (props.is_static ? '92vh' : '100%')};
 `
 
-const Layout = ({ children, is_static, paddingTop }) => (
+const Layout = ({ children, is_static, padding_top }) => (
     <>
         {is_static ? <NavStatic /> : <Nav />}
-        <Main paddingTop = {paddingTop} is_static={is_static}>
+        <Main padding_top={padding_top} is_static={is_static}>
             {children}
         </Main>
         {!is_static && <Footer />}
@@ -23,7 +23,7 @@ const Layout = ({ children, is_static, paddingTop }) => (
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
     is_static: PropTypes.bool,
-    paddingTop: PropTypes.string,
+    padding_top: PropTypes.string,
 }
 
 export default Layout

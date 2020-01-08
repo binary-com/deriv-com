@@ -1,8 +1,8 @@
+import React from 'react'
+import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Map from 'images/svg/world-map.svg'
-import React from 'react'
-import styled from 'styled-components'
 import device from 'themes/device'
 
 const OfficeContainer = styled.section`
@@ -33,6 +33,7 @@ const Pinpoint = styled.div`
     height: 1rem;
     background-color: var(--color-blue);
     border-radius: 50%;
+    font-size: 1.6rem;
     display: inline-block;
     position: absolute;
     top: ${props => props.top};
@@ -46,6 +47,25 @@ const Pinpoint = styled.div`
     }
 `
 
+const OfficeLabel = styled.div`
+    padding: 0.4rem 1.3rem;
+    width: 9.6rem;
+    height: 3.3rem;
+    background-color: var(--color-black-6);
+    color: var(--color-white);
+    border-radius: 10%;
+    display: inline-block;
+    position: absolute;
+    top: ${props => props.top};
+    left: ${props => props.left};
+    visibility: hidden;
+
+    &:hover {
+        ${Oval} {
+            visibility: visible;
+        }
+    }
+`
 const Oval = styled.div`
     width: 1rem;
     height: 1rem;
@@ -85,7 +105,10 @@ export const OurOffices = () => {
                 <StyledMap />
 
                 <Pinpoint top="73%" left="26%">
-                    <Oval top="94%" left="27%" />
+                    <OfficeLabel top="94%" left="27%">
+                        {localize('Malta')}
+                        <Oval top="94%" left="27%" />
+                    </OfficeLabel>
                 </Pinpoint>
                 <Pinpoint top="30%" left="51%">
                     <Oval top="30%" left="51%" />

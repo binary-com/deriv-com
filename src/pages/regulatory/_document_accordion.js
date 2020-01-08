@@ -11,29 +11,52 @@ const IconContainer = styled(Flex)`
     align-items: center;
     min-width: ${props => props.minWidth || ''};
     padding-bottom: ${props => props.paddingBottom || ''};
+    text-decoration: none;
 
     svg {
         margin-right: 0.8rem;
     }
+    &:hover {
+        cursor: pointer;
+
+        ${LinkText} {
+            color: var(--color-red);
+            text-decoration: underline;
+        }
+    }
 `
 
-// TODO: pass pdf ref as prop once it's ready
-const UpDown = () => (
+const UpDown = ({ urls }) => (
     <Flex mt="1.8rem" spacing="8rem" jc="space-evenly">
-        <IconContainer width="unset">
+        <IconContainer
+            width="unset"
+            as="a"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={urls[0]}
+        >
             <PDFIcon />
-            <LinkText color="red" weight="bold">
+            <LinkText color="red" weight="bold" as="p">
                 {localize('Open Up/Down document')}
             </LinkText>
         </IconContainer>
-        <IconContainer width="unset">
+        <IconContainer
+            width="unset"
+            as="a"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={urls[1]}
+        >
             <PDFIcon />
-            <LinkText color="red" weight="bold">
+            <LinkText color="red" weight="bold" as="p">
                 {localize('Open Touch/No Touch document')}
             </LinkText>
         </IconContainer>
     </Flex>
 )
+UpDown.propTypes = {
+    urls: PropTypes.array,
+}
 
 const QuarterHeader = styled(Text)`
     padding-bottom: 1.6rem;
@@ -47,29 +70,57 @@ const QuarterTable = ({ quarters }) => (
                 key={quarter}
                 style={{ paddingBottom: idx === quarters.length - 1 ? '' : '1.6rem' }}
             >
-                <QuarterHeader align="center">{quarter}</QuarterHeader>
+                <QuarterHeader align="center">{quarter.name}</QuarterHeader>
                 <Flex jc="flex-start">
-                    <IconContainer width="unset" minWidth="46%" paddingBottom="1.6rem">
+                    <IconContainer
+                        width="unset"
+                        minWidth="46%"
+                        paddingBottom="1.6rem"
+                        as="a"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={quarter.urls[0]}
+                    >
                         <PDFIcon />
-                        <LinkText color="red" weight="bold">
+                        <LinkText color="red" weight="bold" as="p">
                             {localize('Table 1 - Type of execution venue')}
                         </LinkText>
                     </IconContainer>
-                    <IconContainer width="unset">
+                    <IconContainer
+                        paddingBottom="1.6rem"
+                        width="unset"
+                        as="a"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={quarter.urls[1]}
+                    >
                         <PDFIcon />
-                        <LinkText color="red" weight="bold">
+                        <LinkText color="red" weight="bold" as="p">
                             {localize('Table 4 - Daily Price information')}
                         </LinkText>
                     </IconContainer>
-                    <IconContainer width="unset" minWidth="46%" paddingBottom="1.6rem">
+                    <IconContainer
+                        width="unset"
+                        minWidth="46%"
+                        as="a"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={quarter.urls[2]}
+                    >
                         <PDFIcon />
-                        <LinkText color="red" weight="bold">
+                        <LinkText color="red" weight="bold" as="p">
                             {localize('Table 3 - Intra-Day Price information')}
                         </LinkText>
                     </IconContainer>
-                    <IconContainer width="unset">
+                    <IconContainer
+                        width="unset"
+                        as="a"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={quarter.urls[3]}
+                    >
                         <PDFIcon />
-                        <LinkText color="red" weight="bold">
+                        <LinkText color="red" weight="bold" as="p">
                             {localize('Table 6 - Likelihood of execution information')}
                         </LinkText>
                     </IconContainer>
@@ -80,6 +131,7 @@ const QuarterTable = ({ quarters }) => (
 )
 QuarterTable.propTypes = {
     quarters: PropTypes.array,
+    urls: PropTypes.array,
 }
 
 const DocumentAccordion = () => {
@@ -93,9 +145,15 @@ const DocumentAccordion = () => {
                         )}
                     </Text>
                     <Flex mt="1.8rem">
-                        <IconContainer width="unset">
+                        <IconContainer
+                            width="unset"
+                            as="a"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="./Austria.pdf"
+                        >
                             <PDFIcon />
-                            <LinkText color="red" weight="bold">
+                            <LinkText color="red" weight="bold" as="p">
                                 {localize('Open pillar 3 disclosure report')}
                             </LinkText>
                         </IconContainer>
@@ -108,21 +166,39 @@ const DocumentAccordion = () => {
                         )}
                     </Text>
                     <Flex mt="1.8rem" spacing="8rem" jc="space-evenly">
-                        <IconContainer width="unset">
+                        <IconContainer
+                            width="unset"
+                            as="a"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="./Austria.pdf"
+                        >
                             <PDFIcon />
-                            <LinkText color="red" weight="bold">
+                            <LinkText color="red" weight="bold" as="p">
                                 {localize('Commodities')}
                             </LinkText>
                         </IconContainer>
-                        <IconContainer width="unset">
+                        <IconContainer
+                            width="unset"
+                            as="a"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="./Austria.pdf"
+                        >
                             <PDFIcon />
-                            <LinkText color="red" weight="bold">
+                            <LinkText color="red" weight="bold" as="p">
                                 {localize('Forex')}
                             </LinkText>
                         </IconContainer>
-                        <IconContainer width="unset">
+                        <IconContainer
+                            width="unset"
+                            as="a"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="./Austria.pdf"
+                        >
                             <PDFIcon />
-                            <LinkText color="red" weight="bold">
+                            <LinkText color="red" weight="bold" as="p">
                                 {localize('Cryptocurrency')}
                             </LinkText>
                         </IconContainer>
@@ -134,21 +210,64 @@ const DocumentAccordion = () => {
                             'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains and losses of these products and to help you compare them with other products.',
                         )}
                     </Text>
-                    <UpDown />
+                    <UpDown urls={['/Austria.pdf', '/Bulgaria.pdf']} />
                 </AccordionItem>
                 <AccordionItem header="RTS 27">
-                    <QuarterTable quarters={['Q1 2019', 'Q2 2019', 'Q3 2019']} />
-                </AccordionItem>
-                <AccordionItem header="RTS 28">
-                    <Text>
-                        {localize(
-                            'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains and losses of these products and to help you compare them with other products.',
-                        )}
-                    </Text>
-                    <UpDown />
+                    <QuarterTable
+                        quarters={[
+                            {
+                                name: 'Q1 2019',
+                                urls: [
+                                    '/RTS_27_Q1_2019_Table_1.xlsx',
+                                    '/RTS_27_Q1_2019_Table_4.xlsx',
+                                    '/RTS_27_Q1_2019_Table_3.xlsx',
+                                    '/RTS_27_Q1_2019_Table_6.xlsx',
+                                ],
+                            },
+                            {
+                                name: 'Q2 2019',
+                                urls: [
+                                    '/RTS_27_Q2_2019_Table_1.xlsx',
+                                    '/RTS_27_Q2_2019_Table_4.xlsx',
+                                    '/RTS_27_Q2_2019_Table_3.xlsx',
+                                    '/RTS_27_Q2_2019_Table_6.xlsx',
+                                ],
+                            },
+                            {
+                                name: 'Q3 2019',
+                                urls: [
+                                    '/RTS_27_Q3_2019_Table_1.xlsx',
+                                    '/RTS_27_Q3_2019_Table_4.xlsx',
+                                    '/RTS_27_Q3_2019_Table_3.xlsx',
+                                    '/RTS_27_Q3_2019_Table_6.xlsx',
+                                ],
+                            },
+                        ]}
+                    />
                 </AccordionItem>
                 <AccordionItem header="RTS 27 2018">
-                    <QuarterTable quarters={['Q3 2018', 'Q4 2019']} />
+                    <QuarterTable
+                        quarters={[
+                            {
+                                name: 'Q3 2018',
+                                urls: [
+                                    '/RTS_27_Q3_2018_Table_1.xlsx',
+                                    '/RTS_27_Q3_2018_Table_4.xlsx',
+                                    '/RTS_27_Q3_2018_Table_3.xlsx',
+                                    '/RTS_27_Q3_2018_Table_6.xlsx',
+                                ],
+                            },
+                            {
+                                name: 'Q4 2019',
+                                urls: [
+                                    '/RTS_27_Q4_2018_Table_1.xlsx',
+                                    '/RTS_27_Q4_2018_Table_4.xlsx',
+                                    '/RTS_27_Q4_2018_Table_3.xlsx',
+                                    '/RTS_27_Q4_2018_Table_6.xlsx',
+                                ],
+                            },
+                        ]}
+                    />
                 </AccordionItem>
             </Accordion>
         </div>

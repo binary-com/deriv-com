@@ -41,7 +41,7 @@ const Markets = () => (
             <Header align="center" font_size="var(--text-size-header-1)" as="h2">
                 {localize('Markets')}
             </Header>
-            <MarketWrapper>
+            <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
                     <ForexIcon />
                     <div>

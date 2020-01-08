@@ -2,63 +2,26 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
-import { Header, Text } from 'components/elements'
+import { Header, Text, Image } from 'components/elements'
 import { localize } from 'components/localization'
+import { Flex } from 'components/containers'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import SignupImg from 'images/svg/signup-public.svg'
 import { deriv_app_url } from 'common/utility'
 
 const Wrapper = styled.div`
-    position: relative;
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
     height: 33.3rem;
     width: 100%;
 `
 
-const FormWrapper = styled(Wrapper)`
-    position: absolute;
-    padding-left: 32.4rem;
-    padding-right: 12rem;
-    height: 100%;
-
-    @media ${device.laptop} {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    @media ${device.tablet} {
-        background-color: var(--color-green-1);
-    }
-`
-
-const SignupBackground = styled(SignupImg)`
-    @media ${device.laptop} {
-        height: auto;
-    }
-    @media ${device.tablet} {
-        display: none;
-    }
-`
-
-const LeftWrapper = styled.div`
-    margin-top: 4rem;
+const SignupFormWrapper = styled.div`
+    margin-top: 2.9rem;
 
     @media ${device.tablet} {
         padding-left: 5rem;
-    }
-`
-const RightWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-
-    @media ${device.tablet} {
-        display: none;
     }
 `
 
@@ -117,6 +80,7 @@ const handleExternalLink = e => {
     window.open(deriv_app_url, '_blank')
 }
 
+// TODO add <form />
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -129,79 +93,79 @@ const SignupPublic = ({
 }) => {
     return (
         <Wrapper>
-            <SignupBackground />
-            <FormWrapper>
-                <LeftWrapper>
-                    <StyledHeader font_size="2.8rem">
-                        {localize('Join over 1 million traders worldwide')}
-                    </StyledHeader>
-                    <br />
-                    <StyledHeader as="h4" weight="500">
-                        {localize('Get your free account now.')}
-                    </StyledHeader>
-                    <InputGroup>
-                        <InputWrapper>
-                            <Input
-                                id="email"
-                                name="email"
-                                type="text"
-                                error={email_error_msg}
-                                value={email}
-                                background="white"
-                                tabletBackground="green-1"
-                                inputColor="var(grey-5)"
-                                labelFocusColor="grey-7"
-                                label={localize('Email')}
-                                placeholder={'example@mail.com'}
-                                handleError={clearEmail}
-                                onChange={handleInputChange}
-                                onBlur={handleValidation}
-                                autoFocus={autofocus}
-                                autoComplete="off"
-                                required
-                                border="1px solid var(--color-grey-7)"
-                                focusBorder="var(--color-grey-7)"
-                            />
-                        </InputWrapper>
-                        <EmailButton type="submit" secondary disabled={is_submitting}>
-                            {localize('Sign up')}
-                        </EmailButton>
-                    </InputGroup>
-                    <SocialWrapper>
-                        <StyledText>{localize('or sign up with')}</StyledText>
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="facebook"
-                            id="facebook"
-                            type="button"
-                            social
-                        >
-                            <span>
-                                <Facebook />
-                            </span>
-                        </SocialButton>
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="google"
-                            id="google"
-                            type="button"
-                            social
-                        >
-                            <span>
-                                <Google />
-                            </span>
-                        </SocialButton>
-                    </SocialWrapper>
-                </LeftWrapper>
-                <RightWrapper>
+            <SignupFormWrapper>
+                <StyledHeader font_size="2.8rem">
+                    {localize('Join over 1 million traders worldwide')}
+                </StyledHeader>
+                <br />
+                <StyledHeader as="h4" weight="500">
+                    {localize('Get your free account now.')}
+                </StyledHeader>
+                <InputGroup>
+                    <InputWrapper>
+                        <Input
+                            id="email"
+                            name="email"
+                            type="text"
+                            error={email_error_msg}
+                            value={email}
+                            background="white"
+                            tabletBackground="green-1"
+                            inputColor="var(grey-5)"
+                            labelFocusColor="grey-7"
+                            label={localize('Email')}
+                            placeholder={'example@mail.com'}
+                            handleError={clearEmail}
+                            onChange={handleInputChange}
+                            onBlur={handleValidation}
+                            autoFocus={autofocus}
+                            autoComplete="off"
+                            required
+                            border="1px solid var(--color-grey-7)"
+                            focusBorder="var(--color-grey-7)"
+                        />
+                    </InputWrapper>
+                    <EmailButton type="submit" secondary disabled={is_submitting}>
+                        {localize('Sign up')}
+                    </EmailButton>
+                </InputGroup>
+                <SocialWrapper>
+                    <StyledText>{localize('or sign up with')}</StyledText>
+                    <SocialButton
+                        onClick={handleSocialSignup}
+                        provider="facebook"
+                        id="facebook"
+                        type="button"
+                        social
+                    >
+                        <span>
+                            <Facebook />
+                        </span>
+                    </SocialButton>
+                    <SocialButton
+                        onClick={handleSocialSignup}
+                        provider="google"
+                        id="google"
+                        type="button"
+                        social
+                    >
+                        <span>
+                            <Google />
+                        </span>
+                    </SocialButton>
+                </SocialWrapper>
+            </SignupFormWrapper>
+            <Flex>
+                <Image img_name="deriv-platform-banner.png" width="100%" />
+                <Flex direction="column" ai="center">
                     <StyledHeader font_size="2.8rem" width="28.2rem" align="center">
                         {localize('Get a taste of the Deriv experience')}
                     </StyledHeader>
                     <DemoButton tertiary onClick={handleExternalLink}>
                         {localize('See live demo')}
                     </DemoButton>
-                </RightWrapper>
-            </FormWrapper>
+                </Flex>
+            </Flex>
         </Wrapper>
     )
 }

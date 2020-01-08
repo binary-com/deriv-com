@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Map from 'images/svg/world-map.svg'
+import MapPinpoint from 'images/svg/map-pinpoint.svg'
 import device from 'themes/device'
 
 const OfficeContainer = styled.section`
@@ -29,42 +30,19 @@ const StyledMap = styled(Map)`
     width: 100%;
 `
 const Pinpoint = styled.div`
-    width: 1rem;
-    height: 1rem;
-    background-color: var(--color-blue);
-    border-radius: 50%;
-    font-size: 1.6rem;
-    display: inline-block;
     position: absolute;
     top: ${props => props.top};
     left: ${props => props.left};
     visibility: hidden;
 
-    &:hover {
-        ${Oval} {
-            visibility: visible;
-        }
+    &:hover ${Oval} {
+        visibility: visible;
     }
 `
 
-const OfficeLabel = styled.div`
-    padding: 0.4rem 1.3rem;
-    width: 9.6rem;
-    height: 3.3rem;
-    background-color: var(--color-black-6);
-    color: var(--color-white);
-    border-radius: 10%;
-    display: inline-block;
-    position: absolute;
-    top: ${props => props.top};
-    left: ${props => props.left};
-    visibility: hidden;
-
-    &:hover {
-        ${Oval} {
-            visibility: visible;
-        }
-    }
+const PinpointWrapper = styled(MapPinpoint)`
+    position: relative;
+    left: -2%;
 `
 const Oval = styled.div`
     width: 1rem;
@@ -74,8 +52,8 @@ const Oval = styled.div`
     border-radius: 50%;
     position: absolute;
     visibility: visible;
-    top: ${props => props.top};
-    left: ${props => props.left};
+    top: 74%;
+    left: 7%;
 `
 const StyledHeader = styled(Header)`
     font-size: 3.6rem;
@@ -104,23 +82,29 @@ export const OurOffices = () => {
             <MapWrapper>
                 <StyledMap />
 
-                <Pinpoint top="73%" left="26%">
-                    <OfficeLabel top="94%" left="27%">
-                        {localize('Malta')}
-                        <Oval top="94%" left="27%" />
-                    </OfficeLabel>
+                <Pinpoint top="70%" left="26%">
+                    <Oval />
+                    <PinpointWrapper></PinpointWrapper>
                 </Pinpoint>
-                <Pinpoint top="30%" left="51%">
-                    <Oval top="30%" left="51%" />
+
+                <Pinpoint top="26%" left="50.3%">
+                    <Oval />
+                    <PinpointWrapper></PinpointWrapper>
                 </Pinpoint>
-                <Pinpoint top="39%" left="64%">
-                    <Oval top="39%" left="64%" />
+
+                <Pinpoint top="34.6%" left="63.7%">
+                    <Oval />
+                    <PinpointWrapper></PinpointWrapper>
                 </Pinpoint>
-                <Pinpoint top="55%" left="81%">
-                    <Oval top="55%" left="81%" />
+
+                <Pinpoint top="49.5%" left="80.6%">
+                    <Oval />
+                    <PinpointWrapper></PinpointWrapper>
                 </Pinpoint>
-                <Pinpoint top="54%" left="86%">
-                    <Oval top="54%" left="86%" />
+
+                <Pinpoint top="49%" left="85.8%">
+                    <Oval />
+                    <PinpointWrapper></PinpointWrapper>
                 </Pinpoint>
             </MapWrapper>
 

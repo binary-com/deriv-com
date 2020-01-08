@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Map from 'images/svg/world-map.svg'
-import MapPinpoint from 'images/svg/map-pinpoint.svg'
 import device from 'themes/device'
+import MapPinpoint from 'images/svg/map-pinpoint.svg'
 
 const OfficeContainer = styled.section`
     width: 100%;

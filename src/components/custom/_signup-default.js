@@ -136,7 +136,7 @@ const SignupDefault = ({
 
 SignupDefault.propTypes = {
     autofocus: PropTypes.bool,
-    clearEmail: PropTypes.bool,
+    clearEmail: PropTypes.func,
     email: PropTypes.string,
     email_error_msg: PropTypes.string,
     handleInputChange: PropTypes.func,

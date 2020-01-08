@@ -12,6 +12,9 @@ const OfficeContainer = styled.section`
     margin: auto;
     background-color: var(--color-grey-8);
 
+    @media ${device.laptopLC} {
+        padding: 8rem 2rem;
+    }
     @media ${device.desktop} {
         max-width: 1440px;
     }
@@ -21,6 +24,9 @@ const MapWrapper = styled.div`
     width: fit-content;
     margin: 0 auto;
 
+    @media ${device.laptopLC} {
+        width: 996px;
+    }
     @media ${device.laptop} {
         display: none;
     }
@@ -28,6 +34,10 @@ const MapWrapper = styled.div`
 const StyledMap = styled(Map)`
     height: 100%;
     width: 100%;
+
+    @media ${device.laptopLC} {
+        width: 996px;
+    }
 `
 const Oval = styled.div`
     width: 1rem;
@@ -78,6 +88,10 @@ const NumberWrapper = styled.div`
     text-align: center;
     align-items: center;
     margin-top: 2.4rem;
+
+    @media ${device.laptopLC} {
+        padding: 0 15rem;
+    }
 `
 const Number = styled.div`
     display: flex;

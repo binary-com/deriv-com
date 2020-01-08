@@ -9,7 +9,7 @@ const leaders_data = [
         name: 'Rakshit Choudhary',
         position: 'Chief Operations Officer',
         description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+            'Rakshit joined us in 2010, jointly architecting the system behind our trading platform with our Chief Executive Officer. Today, he oversees the design and implementation of our business operations. Rakshit holds a master’s degree in quantitative and computational finance from Georgia Institute of Technology in Atlanta and a bachelor’s degree in mechanical engineering from Delhi College of Engineering in India.',
         image: 'rakshit-choudhary.png',
     },
     {
@@ -24,21 +24,21 @@ const leaders_data = [
         name: 'Tom Molesworth',
         position: 'Chief Technology Officer / Chief Architect',
         description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+            'Tom is responsible for our technology strategy and is actively involved in engineering leadership. With over 20 years of experience in software development, he has made extensive contributions to the design and maintenance of large-scale platforms in the IT industry.',
         image: 'tom-molesworth.png',
     },
     {
         name: 'Shyamala siva',
         position: 'Human Resources and Customer Service Operations Manager',
         description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+            'Shyamala has been with the group for over 10 years, ensuring smooth workplace and customer service operations. Shyamala is a Certified Public Accountant and holds a master’s degree in corporate governance from HELP University in Malaysia.',
         image: 'shyamala-siva.png',
     },
     {
         name: 'Raunak Kathuria',
         position: 'Back-end Manager',
         description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+            'Raunak has more than 10 years of experience in front-end and back-end engineering. He has worked for multinational companies like Amdocs, Aon Hewitt, and Oracle Financial Services, where he developed skills for a wide range of platforms and programming languages. Raunak holds a bachelor’s degree in computer science engineering.',
         image: 'raunak-kathuria.png',
     },
     {
@@ -52,28 +52,28 @@ const leaders_data = [
         name: 'Denis Makagonov',
         position: 'Business Intelligence Manager',
         description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+            'Denis has more than 10 years of data management experience. Denis previously worked with Forex Club (Libertex), one of the world’s leading forex retail brokers in Russia, and CIS as an enterprise data architect. Denis holds an engineering degree in computer systems information processing and management from Karaganda State Technical University in Kazakhstan.',
         image: 'denis-makagonov.png',
     },
     {
         name: 'Waqas Awan',
         position: 'Head of Product Design',
         description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+            'Waqas heads our Product Design department. He has more than 20 years of experience as a product specialist, leading multi-disciplinary teams to ship compelling products and services in domains including healthcare, human resources, and FinTech. Waqas holds a PhD in bioinformatics from the University of Cambridge.',
         image: 'waqas-awan.png',
     },
     {
         name: 'Jeyavarthini Vairakanan',
         position: 'Customer Support Manager',
         description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+            'Jeyavarthini drives our customer support strategy and assists her team to establish a sustainable relationship with our clients. Before joining us in 2017, Jeyavarthini worked for Intel in Malaysia. She holds an honours degree in Information Technology with a speciality in Information System Security (ISS) from Asia Pacific University associated with Staffordshire University, UK.',
         image: 'jeyavarthini-vairakanan.png',
     },
     {
         name: 'Arun Venkataraman',
         position: 'DevOps Manager',
         description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+            'Arun coordinates our product development teams with our operations teams. He has over 12 years of experience in the information industry and has a comprehensive perspective into his field. Arun holds a master’s degree in bioinformatics from Bharathiar University in India.',
         image: 'arun-venkataraman.png',
     },
 ]

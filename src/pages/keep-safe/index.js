@@ -37,7 +37,7 @@ const KeepSafe = () => {
                     'Learn how to enhance your account security and manage your trading risk.',
                 )}
             />
-            <SectionContainer padding="15.2rem 0 8rem">
+            <SectionContainer>
                 <GridContainer>
                     <Header as="h1" align="center">
                         {localize('Keep safe')}

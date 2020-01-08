@@ -42,7 +42,17 @@ const Pinpoint = styled.div`
 
 const PinpointWrapper = styled(MapPinpoint)`
     position: relative;
-    left: -2%;
+    left: ${props => props.left || '-2%'};
+    transform: ${props => props.trans || 'none'};
+`
+const LabelWrapper = styled.div`
+    position: absolute;
+    top: 0.8rem;
+    left: ${props => props.left || '2.8rem'};
+    width: auto;
+    height: 3 rem;
+    color: var(--color-white);
+    font-size: 1.1rem;
 `
 const Oval = styled.div`
     width: 1rem;
@@ -84,27 +94,32 @@ export const OurOffices = () => {
 
                 <Pinpoint top="70%" left="26%">
                     <Oval />
-                    <PinpointWrapper></PinpointWrapper>
+                    <PinpointWrapper />
+                    <LabelWrapper>Paraguay</LabelWrapper>
                 </Pinpoint>
 
                 <Pinpoint top="26%" left="50.3%">
                     <Oval />
-                    <PinpointWrapper></PinpointWrapper>
+                    <PinpointWrapper />
+                    <LabelWrapper>Malta</LabelWrapper>
                 </Pinpoint>
 
                 <Pinpoint top="34.6%" left="63.7%">
                     <Oval />
-                    <PinpointWrapper></PinpointWrapper>
+                    <PinpointWrapper />
+                    <LabelWrapper>Dubai</LabelWrapper>
                 </Pinpoint>
 
                 <Pinpoint top="49.5%" left="80.6%">
                     <Oval />
-                    <PinpointWrapper></PinpointWrapper>
+                    <PinpointWrapper left="-72%" trans="scaleX(-1)" />
+                    <LabelWrapper left="-5.2rem">Cyberjaya</LabelWrapper>
                 </Pinpoint>
 
                 <Pinpoint top="49%" left="85.8%">
                     <Oval />
-                    <PinpointWrapper></PinpointWrapper>
+                    <PinpointWrapper />
+                    <LabelWrapper>Labuan</LabelWrapper>
                 </Pinpoint>
             </MapWrapper>
 

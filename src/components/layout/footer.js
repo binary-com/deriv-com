@@ -177,7 +177,7 @@ const Footer = () => (
                     <SocialMedia>
                         <Text>{localize('CONNECT WITH US')}</Text>
                         <div>
-                            <ExternalLink href='https://www.facebook.com/derivdotcoms' target="_blank" rel="noopener noreferrer">
+                            <ExternalLink href='https://www.facebook.com/derivdotcom/' target="_blank" rel="noopener noreferrer">
                                 <Facebook />
                             </ExternalLink>
                             <ExternalLink href='https://www.instagram.com/derivdotcom/' target="_blank" rel="noopener noreferrer">

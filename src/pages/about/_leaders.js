@@ -45,7 +45,7 @@ const leaders_data = [
         name: 'Mun Sei Loke',
         position: 'Quality Assurance Manager',
         description:
-            'lorem ipsum consequ adip constectur bequerqe, lorem ipsum consequ adip constectur bequerqe. lorem ipsum consequ adip constectur bequerqe',
+            'With more than 11 years of experience in Quality Assurance (QA), Mun Sei is well versed in all stages of software development life cycle, as well as in all forms of QA testing. She holds a bachelor’s degree in computer science.',
         image: 'munsei-loke.png',
     },
     {

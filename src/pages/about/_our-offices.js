@@ -83,7 +83,7 @@ const StyledHeader = styled(Header)`
 const NumberWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: nowrap;
     text-align: center;
     align-items: center;
@@ -159,12 +159,6 @@ export const OurOffices = () => {
                         5
                     </Header>
                     <Text align="center">{localize('Corporate offices')}</Text>
-                </Number>
-                <Number>
-                    <Header align="center" as="h2">
-                        900+
-                    </Header>
-                    <Text align="center">{localize('Global customer base')}</Text>
                 </Number>
             </NumberWrapper>
         </OfficeContainer>

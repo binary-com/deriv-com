@@ -70,17 +70,9 @@ const TrailNavigation = styled.span`
 `
 
 const ContentWrapper = styled.div`
+    margin-top: ${props => props.margin_top || 'none'};
     white-space: normal;
-    max-width: 79.2rem;
-`
-
-const StoryHeader = styled(Header)`
-    margin-top: 8rem;
-    margin-bottom: 1.6rem;
-
-    @media ${device.tabletL} {
-        margin-top: 4rem;
-    }
+    max-width: 79.8rem;
 `
 
 const LeadershipWrapper = styled.div`
@@ -152,14 +144,8 @@ const Hero = ({ navigation, setNavigation }) => {
                     </Navigation>
                 </NavigationWrapper>
                 {is_story && (
-                    <ContentWrapper>
-                        <StoryHeader as="h3" color="white" lh="45px">
-                            <Localize
-                                translate_text="20 years experience.<0 />Customer focus. Innovation."
-                                components={[<br key={0} />]}
-                            />
-                        </StoryHeader>
-                        <Text color="white">
+                    <ContentWrapper margin_top="9.1rem">
+                        <Text secondary color="white">
                             {localize(
                                 'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
                             )}
@@ -170,7 +156,7 @@ const Hero = ({ navigation, setNavigation }) => {
                     <ContentWrapper>
                         <LeadershipWrapper>
                             <Wrapper max_width="28.2rem" margin={{ right: '2.4rem' }}>
-                                <Image img_name="jean-yves.png" alt={localize('Jean Yves')}/>
+                                <Image img_name="jean-yves.png" alt={localize('Jean Yves')} />
                             </Wrapper>
 
                             <div>

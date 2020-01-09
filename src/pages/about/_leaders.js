@@ -137,7 +137,7 @@ const Leaders = () => {
                             <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
                                 <Image img_name={leader.image} />
                                 <DescriptionWrapper>
-                                    <Text size="var(--text-size-xs)" color="white">
+                                    <Text lh="1.71" size="var(--text-size-xs)" color="white">
                                         {leader.description}
                                     </Text>
                                 </DescriptionWrapper>

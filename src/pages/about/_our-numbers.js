@@ -105,7 +105,7 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <NumberHeader>USD 7B+</NumberHeader>
-                    <Text align="center">{localize('Withdrawal last month')}</Text>
+                    <Text align="center">{localize('Total trade turnover ')}</Text>
                 </article>
                 <article>
                     <NumberHeader>27M+</NumberHeader>
@@ -113,7 +113,7 @@ const OurNumbers = () => (
                 </article>
                 <article>
                     <NumberHeader>USD 9M+</NumberHeader>
-                    <Text align="center">{localize('Total trade turnover')}</Text>
+                    <Text align="center">{localize('Withdrawal last month')}</Text>
                 </article>
             </StyledGridContainer>
         </OurNumbersContainer>

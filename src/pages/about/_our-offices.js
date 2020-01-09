@@ -54,10 +54,17 @@ const Pinpoint = styled.div`
     position: absolute;
     top: ${props => props.top};
     left: ${props => props.left};
-    visibility: hidden;
 
+    > svg ${LabelWrapper}{
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s linear;
+    }
     &:hover {
         visibility: visible;
+
+        > svg ${LabelWrapper}{
+            opacity: 1;
+        }
     }
 `
 
@@ -181,7 +188,7 @@ export const OurOffices = () => {
                 </Number>
                 <Number>
                     <Header align="center" as="h2">
-                        20
+                        20+
                     </Header>
                     <Text align="center">{localize('Nationalites')}</Text>
                 </Number>

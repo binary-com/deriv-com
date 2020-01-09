@@ -5,6 +5,7 @@ import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import PDFIcon from 'images/svg/pdf-icon.svg'
+import XLSXIcon from 'images/svg/xlsx-icon.svg'
 import device from 'themes/device'
 
 const IconContainer = styled(Flex)`
@@ -74,7 +75,6 @@ const QuarterHeader = styled(Text)`
     padding-bottom: 1.6rem;
 `
 
-// TODO: pass pdf ref as prop once it's ready
 const QuarterTable = ({ quarters }) => (
     <div style={{ padding: '0.8rem' }}>
         {quarters.map((quarter, idx) => (
@@ -93,7 +93,7 @@ const QuarterTable = ({ quarters }) => (
                         rel="noopener noreferrer"
                         href={quarter.urls[0]}
                     >
-                        <PDFIcon />
+                        <XLSXIcon />
                         <LinkText color="red" weight="bold" as="p">
                             {localize('Table 1 - Type of execution venue')}
                         </LinkText>
@@ -106,7 +106,7 @@ const QuarterTable = ({ quarters }) => (
                         rel="noopener noreferrer"
                         href={quarter.urls[1]}
                     >
-                        <PDFIcon />
+                        <XLSXIcon />
                         <LinkText color="red" weight="bold" as="p">
                             {localize('Table 4 - Daily Price information')}
                         </LinkText>
@@ -119,7 +119,7 @@ const QuarterTable = ({ quarters }) => (
                         rel="noopener noreferrer"
                         href={quarter.urls[2]}
                     >
-                        <PDFIcon />
+                        <XLSXIcon />
                         <LinkText color="red" weight="bold" as="p">
                             {localize('Table 3 - Intra-Day Price information')}
                         </LinkText>
@@ -131,7 +131,7 @@ const QuarterTable = ({ quarters }) => (
                         rel="noopener noreferrer"
                         href={quarter.urls[3]}
                     >
-                        <PDFIcon />
+                        <XLSXIcon />
                         <LinkText color="red" weight="bold" as="p">
                             {localize('Table 6 - Likelihood of execution information')}
                         </LinkText>

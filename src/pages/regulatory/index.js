@@ -19,6 +19,7 @@ import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import FSC from 'images/svg/fsc.svg'
 import Labuan from 'images/svg/footer-labuan.svg'
+import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
@@ -44,6 +45,11 @@ const Box = styled.div`
 const Europe = styled(EU)`
     max-width: 100%;
     margin: 0;
+`
+const AccordionWrapper = styled(Flex)`
+    @media ${device.tabletL} {
+        padding: 0 4rem;
+    }
 `
 
 const Regulatory = () => (
@@ -135,9 +141,9 @@ const Regulatory = () => (
             </GridContainer>
         </SectionContainer>
         <SectionContainer padding="0 0 4rem 0">
-            <Flex>
+            <AccordionWrapper>
                 <DocumentAccordion />
-            </Flex>
+            </AccordionWrapper>
         </SectionContainer>
         <SectionContainer padding="0">
             <GridContainer>

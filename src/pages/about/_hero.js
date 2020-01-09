@@ -72,7 +72,7 @@ const TrailNavigation = styled.span`
 const ContentWrapper = styled.div`
     margin-top: ${props => props.margin_top || 'none'};
     white-space: normal;
-    max-width: 79.8rem;
+    max-width: 79.2rem;
 `
 
 const LeadershipWrapper = styled.div`

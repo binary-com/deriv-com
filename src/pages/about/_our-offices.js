@@ -113,31 +113,31 @@ export const OurOffices = () => {
                 <Pinpoint top="70%" left="26%">
                     <Oval />
                     <PinpointWrapper />
-                    <LabelWrapper>Paraguay</LabelWrapper>
+                    <LabelWrapper>{localize('Paraguay')}</LabelWrapper>
                 </Pinpoint>
 
                 <Pinpoint top="26%" left="50.3%">
                     <Oval />
                     <PinpointWrapper />
-                    <LabelWrapper>Malta</LabelWrapper>
+                    <LabelWrapper>{localize('Malta')}</LabelWrapper>
                 </Pinpoint>
 
                 <Pinpoint top="34.6%" left="63.7%">
                     <Oval />
                     <PinpointWrapper />
-                    <LabelWrapper>Dubai</LabelWrapper>
+                    <LabelWrapper>{localize('Dubai')}</LabelWrapper>
                 </Pinpoint>
 
                 <Pinpoint top="49.5%" left="80.6%">
                     <Oval />
                     <PinpointWrapper left="-72%" trans="scaleX(-1)" />
-                    <LabelWrapper left="-5.2rem">Cyberjaya</LabelWrapper>
+                    <LabelWrapper left="-5.2rem">{localize('Cyberjaya')}</LabelWrapper>
                 </Pinpoint>
 
                 <Pinpoint top="49%" left="85.8%">
                     <Oval />
                     <PinpointWrapper />
-                    <LabelWrapper>Labuan</LabelWrapper>
+                    <LabelWrapper>{localize('Labuan')}</LabelWrapper>
                 </Pinpoint>
             </MapWrapper>
 

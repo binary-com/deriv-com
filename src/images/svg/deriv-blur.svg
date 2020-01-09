@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" aria-labelledby='deriv-blur' role='img'>
+<title id='deriv-blur'>DerivBlur</title>
     <defs>
         <linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%">
             <stop offset="0%" stop-color="#FF6544"/>

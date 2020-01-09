@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react'
 import Hero from './_hero'
-import OurHistory from './_our-history'
+// import OurHistory from './_our-history'
 import OurNumbers from './_our-numbers'
 import { OurOffices } from './_our-offices'
 import { OurAwards } from './_our-awards'
@@ -19,7 +19,7 @@ const About = () => {
             <Hero navigation={navigation} setNavigation={setNavigation} />
             {navigation === 'story' && (
                 <Fragment>
-                    <OurHistory />
+                    {/* <OurHistory /> */}
                     <OurNumbers />
                     <OurOffices />
                     {/* It has been blocked due to design review */}

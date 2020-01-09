@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" aria-labelledby='binary-blur' role='img'>
+<title id='binary-blur'>BinaryBlur</title>
     <g fill="none" fill-rule="evenodd" opacity=".32">
         <path fill="#FEFEFE" d="M67.2 12.568C51.846-2.821 26.87-2.821 11.513 12.563c-15.352 15.38-15.352 40.412 0 55.793 15.357 15.388 40.34 15.385 55.685-.002 15.372-15.379 15.372-40.41 0-55.786"/>
         <path fill="#293052" d="M28.384 50.807s.452 3.383 3.296 4.95l-.757-1.412s1.448-3.808-2.539-3.538"/>

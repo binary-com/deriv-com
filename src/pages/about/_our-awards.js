@@ -54,16 +54,24 @@ export const OurAwards = () => {
             </StyledText>
             <ImageWrapper>
                 <ImageItem>
-                    <Image img_name="mena.png" alt="Mena FFXPO" width="28.5rem" />
+                    <Image img_name="mena.png" alt={localize('Mena FFXPO')} width="28.5rem" />
                 </ImageItem>
                 <ImageItem>
-                    <Image img_name="wealth.png" alt="Personal Wealth" width="28.5rem" />
+                    <Image
+                        img_name="wealth.png"
+                        alt={localize('Personal Wealth')}
+                        width="28.5rem"
+                    />
                 </ImageItem>
                 <ImageItem>
-                    <Image img_name="winner.png" alt="Award Winner" width="28.5rem" />
+                    <Image img_name="winner.png" alt={localize('Award Winner')} width="28.5rem" />
                 </ImageItem>
                 <ImageItem>
-                    <Image img_name="global-brand.png" alt="Global Brand" width="28.5rem" />
+                    <Image
+                        img_name="global-brand.png"
+                        alt={localize('Global Brand')}
+                        width="28.5rem"
+                    />
                 </ImageItem>
             </ImageWrapper>
         </AwardContainer>

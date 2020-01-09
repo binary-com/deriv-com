@@ -171,7 +171,7 @@ const Hero = ({ navigation, setNavigation }) => {
                     <ContentWrapper>
                         <LeadershipWrapper>
                             <Wrapper max_width="28.2rem" margin={{ right: '2.4rem' }}>
-                                <Image img_name="jean-yves.png" />
+                                <Image img_name="jean-yves.png" alt={localize('Jean Yves')}/>
                             </Wrapper>
 
                             <div>

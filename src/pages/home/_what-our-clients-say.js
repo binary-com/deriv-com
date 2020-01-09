@@ -54,7 +54,7 @@ const WhatOurClientsSay = () => (
                 {localize('What our clients say about Deriv')}
             </Header>
         </Container>
-        <Flex m="6rem 0 0 0">
+        <Flex m="6rem 0 0 0" wrap="wrap">
             <ClientCard>
                 <QuoteText as="blockquote">
                     {localize(

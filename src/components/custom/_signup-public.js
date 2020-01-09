@@ -28,6 +28,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     height: 33.3rem;
     width: 100%;
+    overflow: hidden;
 `
 
 const SignupFormWrapper = styled(Flex)`
@@ -35,7 +36,11 @@ const SignupFormWrapper = styled(Flex)`
     align-items: center;
 
     @media ${device.tablet} {
-        padding-left: 5rem;
+        padding: 0 2rem;
+    }
+
+    @media (max-width: 800px) {
+        width: 100%;
     }
 `
 
@@ -43,10 +48,14 @@ const BackgroundWrapper = styled(Flex)`
     width: 50%;
     background-image: url(${Test});
     clip-path: polygon(14rem 0, 100% 0%, 100% 99%, 0% 100%);
+
+    @media (max-width: 800px) {
+        display: none;
+    }
 `
 
 const InputWrapper = styled.div`
-    width: 40%;
+    width: 28rem;
 `
 const InputGroup = styled.div`
     display: flex;
@@ -58,13 +67,9 @@ const EmailButton = styled(Button)`
     margin-left: 2rem;
     height: 4rem;
 `
-const SocialWrapper = styled.div`
+const SocialWrapper = styled(Flex)`
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    margin-top: 2.6rem;
+    margin-top: 1.8rem;
 `
 const SocialButton = styled(Button)`
     background-color: var(--color-white);
@@ -95,6 +100,13 @@ const ImageWrapper = styled(Flex)`
     left: -28%;
     z-index: 2;
     height: 100%;
+
+    @media (max-width: 1350px) {
+        width: 30rem;
+    }
+    @media (max-width: 800px) {
+        display: none;
+    }
 `
 const redirectToDerivApp = e => {
     e.preventDefault()
@@ -164,7 +176,7 @@ const SignupPublic = ({
                             {localize('Sign up')}
                         </EmailButton>
                     </InputGroup>
-                    <SocialWrapper>
+                    <SocialWrapper jc="unset" ai="center">
                         <StyledText>{localize('or sign up with')}</StyledText>
                         <SocialButton
                             onClick={handleSocialSignup}

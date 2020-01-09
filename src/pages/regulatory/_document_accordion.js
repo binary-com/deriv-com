@@ -31,8 +31,15 @@ const IconContainer = styled(Flex)`
     }
 `
 
+const EdgeFlex = styled(Flex)`
+    /* Edge does not support space-evenly */
+    @supports (-ms-accelerator: true) {
+        justify-content: space-around;
+    }
+`
+
 const RTS28 = ({ urls }) => (
-    <Flex mt="1.8rem" spacing="8rem" jc="space-evenly">
+    <EdgeFlex mt="1.8rem" spacing="8rem" jc="space-evenly">
         <IconContainer
             width="unset"
             as="a"
@@ -57,7 +64,7 @@ const RTS28 = ({ urls }) => (
                 {localize('BIEL RTS28 for 2018')}
             </LinkText>
         </IconContainer>
-    </Flex>
+    </EdgeFlex>
 )
 RTS28.propTypes = {
     urls: PropTypes.array,
@@ -170,7 +177,7 @@ const DocumentAccordion = () => {
                             'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains and losses of these products and to help you compare them with other products.',
                         )}
                     </Text>
-                    <Flex mt="1.8rem" spacing="8rem" jc="space-evenly">
+                    <EdgeFlex mt="1.8rem" spacing="8rem" jc="space-evenly">
                         <IconContainer
                             width="unset"
                             as="a"
@@ -207,7 +214,7 @@ const DocumentAccordion = () => {
                                 {localize('Cryptocurrency')}
                             </LinkText>
                         </IconContainer>
-                    </Flex>
+                    </EdgeFlex>
                 </AccordionItem>
                 <AccordionItem header="RTS 28">
                     <Text>

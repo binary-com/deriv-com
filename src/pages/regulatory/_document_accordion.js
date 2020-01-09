@@ -86,7 +86,7 @@ const QuarterTable = ({ quarters }) => (
                 <Flex jc="flex-start">
                     <IconContainer
                         width="unset"
-                        minWidth="46%"
+                        minWidth="49%"
                         paddingBottom="1.6rem"
                         as="a"
                         target="_blank"
@@ -113,7 +113,7 @@ const QuarterTable = ({ quarters }) => (
                     </IconContainer>
                     <IconContainer
                         width="unset"
-                        minWidth="46%"
+                        minWidth="49%"
                         as="a"
                         target="_blank"
                         rel="noopener noreferrer"

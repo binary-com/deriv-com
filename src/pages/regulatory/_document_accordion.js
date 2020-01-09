@@ -33,7 +33,7 @@ const IconContainer = styled(Flex)`
 
 const EdgeFlex = styled(Flex)`
     /* Edge does not support space-evenly */
-    @supports (-ms-accelerator: true) {
+    @supports (-ms-ime-align: auto) {
         justify-content: space-around;
     }
 `

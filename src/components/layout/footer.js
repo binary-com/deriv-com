@@ -1,429 +1,266 @@
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
-import styled from 'styled-components'
-import { localize, Localize, LocalizedLink, LanguageSwitcher } from '../localization'
-import { Container } from '../containers'
-import { Header, Text, StyledLink } from '../elements'
+import styled, { css } from 'styled-components'
+import { Container, CssGrid } from '../containers'
+import { Text, StyledLink } from '../elements'
+import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { isProduction } from 'common/websocket/config'
 import device from 'themes/device'
 // Icons
-import Logo from 'images/svg/deriv.svg'
-import YouTube from 'images/svg/youtube.svg'
-import Twitter from 'images/svg/twitter.svg'
-import Telegram from 'images/svg/telegram.svg'
-import Reddit from 'images/svg/reddit.svg'
-import Facebook from 'images/svg/social-facebook.svg'
+import Logo from 'images/svg/deriv-footer.svg'
+import Twitter from 'images/svg/footer-twitter.svg'
+import Instagram from 'images/svg/footer-instagram.svg'
+import Facebook from 'images/svg/footer-facebook.svg'
 import Warning from 'images/svg/warning.svg'
+import Copyright from 'images/svg/copyright.svg'
 
-const FooterContainer = styled(Container)`
-    @media ${device.tabletL} {
-        width: 100%;
-        margin: 0;
-    }
-`
-
-const FooterNavGrid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
+const StyledFooter = styled.footer`
+    background-color: var(--color-grey-8);
     width: 100%;
-    padding: 2rem 0;
-    @media ${device.tabletL} {
-        padding: 0;
-    }
+    margin: 0 auto;
 `
-const FooterNav = styled.nav`
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 1rem;
-    width: 100%;
-    grid-template-areas: 'logo trade company support legal social';
-    @media ${device.tabletL} {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        grid-gap: 0;
-        grid-template-areas:
-            'logo .'
-            'support company'
-            'trade legal'
-            'social social';
-    }
-`
-const Department = styled.div`
-    grid-area: ${props => props.grid_name};
-    @media ${device.tabletL} {
-        padding: 1.5rem 0 1.5rem 12%;
+const StyledGrid = styled(CssGrid)`
+    margin: 4rem 0;
+    grid-template-areas: 'info info info . . items items items items items items items';
 
-        a {
-            margin-bottom: 3.5rem;
-        }
-        a:last-child {
-            margin-bottom: 0;
-        }
-
-        ${props => {
-            if (props.grid_name === 'social') {
-                return 'padding: 0;'
-            }
-            if (props.grid_name === 'company') {
-                return 'padding-left: 0;'
-            }
-            if (props.grid_name === 'legal') {
-                return 'padding: 1.5rem 0 3rem 0;'
-            }
-        }}
-    }
-`
-
-const FooterSocket = styled.section`
-    box-shadow: inset 0 1px 0 0 var(--color-grey-2);
-    background-color: var(--color-white);
-    padding: 2rem 0;
-
-    h4 {
-        text-transform: uppercase;
-        font-size: 1.4rem;
-        font-weight: 500;
-        margin-bottom: 2rem;
-    }
-
-    @media ${device.tabletL} {
-        padding-bottom: 0;
-    }
-`
-const Legal = styled.section`
-    background-color: var(--color-grey-1);
-    width: 100%;
-    padding: 2.4rem 0;
-
-    p {
-        margin: 1.2rem 0;
-        line-height: 1.8rem;
-        color: var(--color-grey-3);
-        font-size: 1.2rem;
-    }
-`
-const LegalRow = styled.div`
-    display: grid;
-    grid-template-columns: (1, 1fr);
-    grid-column-gap: 1rem;
-    width: 100%;
-    grid-template-areas:
-        'li'
-        'lt';
-
-    * {
-        align-self: center;
-        justify-self: center;
-    }
-    span {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 8rem;
-
-        @media ${device.tabletL} {
-            grid-column-gap: 0;
-        }
-    }
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
-        grid-template-rows: 2fr;
-        grid-row-gap: 2rem;
-        grid-template-areas:
-            'lt'
-            'li';
+        grid-template-areas: 'info'
+            'items';
+        grid-row-gap: 4rem;
     }
 `
-const LegalTextWrapper = styled.div`
-    grid-area: lt;
+const InfoSection = styled.div`
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
 
-    p:first-child {
-        padding-top: 1.2rem;
+    ${Text} {
+        margin-top: 2.2rem;
     }
 `
-const RiskNote = styled.section`
+const Items = styled.div`
+    grid-area: items;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+`
+const BlackNav = styled.section`
     background-color: var(--color-black);
-    padding: 3.5rem 0;
-    color: var(--color-white);
-    line-height: 1.2rem;
-
-    h4 {
-        text-transform: uppercase;
-        font-size: 1.4rem;
-        font-weight: bold;
-        letter-spacing: 1px;
-        margin-bottom: 1.1rem;
+    width: 100%;
+    
+    p {
+        font-size: var(--text-size-xs);
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        line-height: normal;
     }
-
-    @media ${device.tabletL} {
-        padding: 3rem 0;
-    }
-`
-const FooterStyledLink = styled(StyledLink)`
-    /* This piece of code has been added to handle Edge issue */
-
-    font-size: ${props =>
-        props.edge_resize_font ? props.edge_resize_font : 'var(--text-size-xs)'};
-    display: table;
-    margin-bottom: 1.8rem;
-    font-weight: 500;
-`
-const Social = styled.div`
-    font-size: 1.2rem;
-    color: var(--color-grey-3);
-    padding: 0 2rem;
-
     svg {
-        margin-top: 0.8rem;
         margin-right: 0.8rem;
     }
-    @media ${device.tabletL} {
-        text-align: center;
-        background-color: var(--color-grey-1);
+`
+const SocialMedia = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 6.4rem;
+
+    ${Text} {
+        margin-top: 0;
+        letter-spacing: 2px;
+        color: var(--color-black-6);
+    }
+    div {
         display: flex;
-        flex-direction: column;
+        width: 100%;
+        max-width: 11.2rem;
+        justify-content: space-between;
 
-        p {
-            padding: 3rem 0 0.7rem 0;
-        }
-        div {
-            display: flex;
-            justify-content: space-around;
+        svg {
+            width: 3.2rem;
         }
     }
-
-    /* TODO: remove this line after having real social media account */
-    display: none !important;
-`
-const RiskWarningText = styled.p`
-    line-height: 1.8rem;
-    font-size: 1.2rem;
-    text-align: justify;
-
     @media ${device.tabletL} {
-        font-size: 1.5rem;
+        margin-top: 2rem;
     }
 `
+const Col = styled.div`
+    width: ${props => props.width};
+    ${props => props.margin_top ? 'margin-top: 3.9rem;' : ''}
 
-const TextFooter = styled(Text)`
-    font-size: 1.2rem;
-    text-align: justify;
-    @media ${device.tabletL} {
-        font-size: 1.5rem;
+    div {
+        margin-top: 0.8rem;
+    }
+    div:first-child {
+        margin: 0;
+    }
+    ul {
+        max-width: 15.2rem;
+        width: 98%;
+    }
+    @media ${device.tabletS} {
+        width: 50%;
+        margin-top: 3rem;
+
+        :nth-child(-n+2) {
+            margin-top: 0;
+        }
     }
 `
-const FooterBoldLink = styled.a`
+const Title = styled(Text)`
+    color: var(--color-black-6);
     font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--color-gray-3);
-    color: #646464;
+    letter-spacing: 0.2rem;
+`
+const Link = styled(StyledLink)`
+    color: var(--color-black-3);
+    margin-top: 0.8rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+`
+const Disclaimer = styled.section`
+    background-color: var(--color-grey-8);
+
+    ${Container} {
+        border-top: 1px solid var(--color-red);
+    }
+`
+const StyledContainer = styled(Container)`
+    padding: 1.6rem 0;
+`
+const Row = styled.div`
+    margin-top: ${props => props.margin ? props.margin : '0'};
+    width: 100%;
+    align-items: center;
+    display: ${props => props.flex ? 'flex' : 'block'};
+`
+const StyledText = styled(Text)`
+    text-align: justify;
+    color: var(--color-black-3);
+`
+const BoldSharedCss = css`
+    font-weight: bold;
+    color: var(--color-black-3);
+    font-size: var(--text-size-s);
+`
+const BoldLink = styled(StyledLink)`
+    ${BoldSharedCss}
+`
+const Risk = styled(Text)`
+    ${BoldSharedCss}
+    margin-left: 0.9rem;
+`
+const StaticAsset = styled.a`
+    font-weight: bold;
+    color: var(--color-black-3);
+    font-size: var(--text-size-s);
     text-decoration: none;
 
     :hover {
         text-decoration: underline;
     }
 `
-const ResponsibleTradingBoldText = styled(LocalizedLink)`
-    color: var(--color-white);
-    font-weight: bold;
+const ExternalLink = styled.a`
     text-decoration: none;
-
-    :hover {
-        text-decoration: underline;
-    }
 `
 const Footer = () => (
-    <footer>
-        <FooterSocket>
-            <FooterContainer>
-                <FooterNavGrid>
-                    <FooterNav>
-                        <Department grid_name="logo">
-                            <LocalizedLink to="/" aria-label={localize('Home')}>
-                                <Logo />
-                            </LocalizedLink>
-                        </Department>
-                        <Department grid_name="trade">
-                            <Header as="h4">{localize('Trade')}</Header>
-                            <FooterStyledLink
-                                activeClassName="active"
-                                to="/dtrader/"
-                                aria-label={localize('DTrader')}
-                                partiallyActive={true}
-                            >
-                                {localize('DTrader')}
-                            </FooterStyledLink>
-                            <FooterStyledLink
-                                activeClassName="active"
-                                to="/dbot/"
-                                aria-label={localize('DBot')}
-                                partiallyActive={true}
-                            >
-                                {localize('DBot')}
-                            </FooterStyledLink>
-                            <FooterStyledLink
-                                activeClassName="active"
-                                to="/dmt5/"
-                                aria-label={localize('DMT5')}
-                                partiallyActive={true}
-                            >
-                                {localize('DMT5')}
-                            </FooterStyledLink>
-                        </Department>
-                        <Department grid_name="company">
-                            <Header as="h4">{localize('Company')}</Header>
-                            <FooterStyledLink
-                                activeClassName="active"
-                                to="/about/"
-                                aria-label={localize('About us')}
-                                partiallyActive={true}
-                            >
-                                {localize('About us')}
-                            </FooterStyledLink>
-                        </Department>
-                        <Department grid_name="support">
-                            <Header as="h4">{localize('Support')}</Header>
-                            <FooterStyledLink
-                                activeClassName="active"
-                                to="/help-centre/"
-                                aria-label={localize('Help Centre')}
-                                partiallyActive={true}
-                            >
-                                {localize('Help Centre')}
-                            </FooterStyledLink>
-                            <FooterStyledLink
-                                activeClassName="active"
-                                to="/keep-safe/"
-                                aria-label={localize('Keep safe')}
-                                partiallyActive={true}
-                            >
-                                {localize('Keep safe')}
-                            </FooterStyledLink>
-                        </Department>
-                        <Department grid_name="legal">
-                            <Header as="h4">{localize('Legal')}</Header>
-                            <FooterStyledLink
-                                edge_resize_font="1.39rem"
-                                activeClassName="active"
-                                to="/regulatory/"
-                                aria-label={localize('Regulatory information')}
-                                partiallyActive={true}
-                            >
-                                {localize('Regulatory information')}
-                            </FooterStyledLink>
-                            <FooterStyledLink
-                                activeClassName="active"
-                                to="/terms-and-conditions/"
-                                aria-label={localize('Terms and conditions')}
-                                partiallyActive={true}
-                            >
-                                {localize('Terms and conditions')}
-                            </FooterStyledLink>
-                            <FooterStyledLink
-                                hidden
-                                activeClassName="active"
-                                to="/terms-and-conditions/#security-privacy"
-                                aria-label={localize('Security and privacy')}
-                                partiallyActive={true}
-                            >
-                                {localize('Security and privacy')}
-                            </FooterStyledLink>
-                            <FooterStyledLink
-                                activeClassName="active"
-                                to="/responsible-trading/"
-                                aria-label={localize('Responsible trading')}
-                                partiallyActive={true}
-                            >
-                                {localize('Responsible trading')}
-                            </FooterStyledLink>
-                        </Department>
+    <StyledFooter>
+        <Container>
+            <StyledGrid columns='repeat(12, 1fr)' columngap='2.4rem' rowgap='3.9rem'>
+                <InfoSection>
+                    <Logo width='14.5rem' />
+                    <Text>{localize('Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.')}</Text>
+                    <SocialMedia>
+                        <Text>{localize('CONNECT WITH US')}</Text>
+                        <div>
+                            <ExternalLink href='https://www.facebook.com/derivdotcom/' target="_blank" rel="noopener noreferrer">
+                                <Facebook />
+                            </ExternalLink>
+                            <ExternalLink href='https://www.instagram.com/derivdotcom/' target="_blank" rel="noopener noreferrer">
+                                <Instagram />
+                            </ExternalLink>
+                            <ExternalLink href='https://twitter.com/Binarydotcom' target="_blank" rel="noopener noreferrer">
+                                <Twitter />
+                            </ExternalLink>
+                        </div>
+                    </SocialMedia>
+                </InfoSection>
+                <Items>
+                    <Col width='23%'>
+                        <div><Title>{localize('TRADE')}</Title></div>
+                        <div><Link to='/dtrader'>{localize('DTrader')}</Link></div>
+                        <div><Link to='/dbot'>{localize('DBot')}</Link></div>
+                        <div><Link to='/dmt5'>{localize('DMT5')}</Link></div>
+                    </Col>
+                    <Col width='40%'>
+                        <div><Title>{localize('LEGAL')}</Title></div>
+                        <div><Link to='/regulatory'>{localize('Regulatory information')}</Link></div>
+                        <div><Link to='/terms-and-conditions'>{localize('Terms and conditions')}</Link></div>
+                        <div><Link to='/responsible-trading'>{localize('Responsible trading')}</Link></div>
+                    </Col>
+                    <Col width='25%'>
+                        <div><Title>{localize('SUPPORT')}</Title></div>
+                        <div><Link to='/help-centre'>{localize('Help centre')}</Link></div>
+                        {/* <div><Link to='/payment'>{localize('Payment methods')}</Link></div> */}
+                        <div><Link to='/keep-safe'>{localize('Keep safe')}</Link></div>
+                        {/* <div><Link to='/why-choose-us'>{localize('Why choose us')}</Link></div> */}
+                    </Col>
+                    <Col margin_top width='23%'>
+                        <div><Title>{localize('COMPANY')}</Title></div>
+                        <div><Link to='/about'>{localize('About us')}</Link></div>
+                    </Col>
+                    {/* <Col margin_top width='40%'>
+                        <div><Title>{localize('PARTNER WITH US')}</Title></div>
+                        <div><Link to='/affiliate'>{localize('Affiliate and IB programmes')}</Link></div>
+                    </Col> */}
+                    <Col margin_top width='25%'>
                         {!isProduction() && <LanguageSwitcher />}
-                        <Department grid_name="social">
-                            <Social>
-                                <p>{localize('Follow us on')}</p>
-                                <div>
-                                    <YouTube />
-                                    <Twitter />
-                                    <Telegram />
-                                    <Reddit />
-                                    <Facebook />
-                                </div>
-                            </Social>
-                        </Department>
-                    </FooterNav>
-                </FooterNavGrid>
-            </FooterContainer>
-        </FooterSocket>
-        <Legal>
-            <Container>
-                <LegalRow>
-                    <LegalTextWrapper>
-                        <TextFooter>
-                            <Localize
-                                translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
-                                components={[
-                                    <FooterBoldLink
-                                        key={0}
-                                        target="_blank"
-                                        href="/WS-Binary-Investments-Europe-Limited.pdf"
-                                    />,
-                                ]}
-                            />
-                        </TextFooter>
-                        <TextFooter>
-                            <Localize
-                                translate_text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>licence no. SIBA/L/18/1114</1>); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>licence no. MB/18/0024</2>)."
-                                components={[
-                                    <FooterBoldLink
-                                        key={0}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
-                                    />,
-                                    <FooterBoldLink
-                                        key={1}
-                                        target="_blank"
-                                        href="/BVI_license.pdf"
-                                    />,
-                                    <FooterBoldLink
-                                        key={2}
-                                        target="_blank"
-                                        href="/Labuan-license.pdf"
-                                    />,
-                                ]}
-                            />
-                        </TextFooter>
-                        <TextFooter>
-                            {localize(
-                                'This website‘s services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.',
-                            )}
-                        </TextFooter>
-                    </LegalTextWrapper>
-                </LegalRow>
-            </Container>
-        </Legal>
-        <RiskNote>
-            <Container>
-                <div>
-                    <h4>
-                        <Warning /> {localize('Risk Warning')}
-                    </h4>
-                    <RiskWarningText>
+                    </Col>
+                </Items>
+            </StyledGrid>
+        </Container>
+        <Disclaimer>
+            <StyledContainer direction='column'>
+                <Row>
+                    <StyledText>
                         <Localize
-                            translate_text='The financial products offered via this website include binary options, contracts for difference ("CFDs") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Responsible Trading</0>.'
-                            components={[
-                                <ResponsibleTradingBoldText
-                                    key={0}
-                                    target="_blank"
-                                    to="/responsible-trading/"
-                                />,
-                            ]}
-                        />
-                    </RiskWarningText>
-                </div>
-            </Container>
-        </RiskNote>
-    </footer>
+                            translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence <0>no. IS/70156</0>)."
+                            components={[<StaticAsset key={0} target="_blank" href='/WS-Binary-Investments-Europe-Limited.pdf' rel="noopener noreferrer" />]} />
+                    </StyledText>
+                    <StyledText>
+                        <Localize
+                            translate_text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (view <0>licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (licence <1>no. SIBA/L/18/1114</1>); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (licence <2>no. MB/18/0024</2>)."
+                            components={[<StaticAsset key={0} target="_blank" href='https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf' rel="noopener noreferrer" />, <StaticAsset key={1} target="_blank" href='/BVI_license.pdf' rel="noopener noreferrer" />, <StaticAsset key={2} target="_blank" href='/Labuan-license.pdf' rel="noopener noreferrer" />]} />
+                    </StyledText>
+                    <StyledText>
+                        {localize("This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.")}
+                    </StyledText>
+                </Row>
+                <Row margin='2.4rem' flex>
+                    <Warning />
+                    <Risk>{localize('RISK WARNING')}</Risk>
+                </Row>
+                <Row>
+                    <StyledText>
+                        <Localize
+                            translate_text='The financial products offered via this website include binary options, contracts for difference ("CFDs") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Responsible Trading.</0>'
+                            components={[<BoldLink key={0} target="_blank" to="/responsible-trading/" />]} />
+                    </StyledText>
+                </Row>
+            </StyledContainer>
+        </Disclaimer>
+        <BlackNav>
+            <StyledContainer justify='flex-start'>
+                <StyledText>
+                    <Copyright width='1.6rem' />{localize('2019 Deriv | All right reserved')}
+                </StyledText>
+            </StyledContainer>
+        </BlackNav>
+    </StyledFooter>
 )
 
 export default Footer

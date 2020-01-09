@@ -55,14 +55,14 @@ const Pinpoint = styled.div`
     top: ${props => props.top};
     left: ${props => props.left};
 
-    > svg ${LabelWrapper}{
+    > svg,
+    span {
         opacity: 0;
         transition: visibility 0s, opacity 0.5s linear;
     }
     &:hover {
-        visibility: visible;
-
-        > svg ${LabelWrapper}{
+        > svg,
+        span {
             opacity: 1;
         }
     }
@@ -73,7 +73,7 @@ const PinpointWrapper = styled(MapPinpoint)`
     left: ${props => props.left || '-2%'};
     transform: ${props => props.trans || 'none'};
 `
-const LabelWrapper = styled.div`
+const LabelWrapper = styled.span`
     position: absolute;
     top: 0.8rem;
     left: ${props => props.left || '2.8rem'};

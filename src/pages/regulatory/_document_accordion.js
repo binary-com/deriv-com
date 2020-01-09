@@ -217,7 +217,7 @@ const DocumentAccordion = () => {
                     </Text>
                     <RTS28 urls={['/BIEL-RTS28-for-2017.pdf', '/BIEL-RTS28-for-2018.pdf']} />
                 </AccordionItem>
-                <AccordionItem header="RTS 27">
+                <AccordionItem header="RTS 27 2019">
                     <QuarterTable
                         quarters={[
                             {
@@ -263,7 +263,7 @@ const DocumentAccordion = () => {
                                 ],
                             },
                             {
-                                name: 'Q4 2019',
+                                name: 'Q4 2018',
                                 urls: [
                                     '/RTS_27_Q4_2018_Table_1.xlsx',
                                     '/RTS_27_Q4_2018_Table_4.xlsx',

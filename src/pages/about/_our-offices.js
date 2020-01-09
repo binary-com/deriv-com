@@ -92,6 +92,9 @@ const NumberWrapper = styled.div`
     @media ${device.laptopLC} {
         padding: 0 15rem;
     }
+    @media ${device.tablet} {
+        flex-direction: column;
+    }
 `
 const Number = styled.div`
     display: flex;

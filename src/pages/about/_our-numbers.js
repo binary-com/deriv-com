@@ -100,11 +100,11 @@ const OurNumbers = () => (
                     <Text align="center">{localize('Years of industry experience')}</Text>
                 </article>
                 <article>
-                    <NumberHeader>1M+</NumberHeader>
+                    <NumberHeader>1.2M+</NumberHeader>
                     <Text align="center">{localize('Trading accounts opened')}</Text>
                 </article>
                 <article>
-                    <NumberHeader>19M+</NumberHeader>
+                    <NumberHeader>USD 7B+</NumberHeader>
                     <Text align="center">{localize('Withdrawal last month')}</Text>
                 </article>
                 <article>
@@ -112,7 +112,7 @@ const OurNumbers = () => (
                     <Text align="center">{localize('Trades last month')}</Text>
                 </article>
                 <article>
-                    <NumberHeader>6B+</NumberHeader>
+                    <NumberHeader>USD 9M+</NumberHeader>
                     <Text align="center">{localize('Total trade turnover')}</Text>
                 </article>
             </StyledGridContainer>

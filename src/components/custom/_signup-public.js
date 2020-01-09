@@ -5,12 +5,25 @@ import { Input, Button } from 'components/form'
 import { Header, Text, Image } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
+import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import { deriv_app_url } from 'common/utility'
+import Test from 'images/common/test_bg.png'
+import Chevron from 'images/svg/carousel-chevron.svg'
+
+const ChevronRight = styled(Chevron)`
+    transform: rotate(180deg);
+
+    g {
+        g {
+            fill: var(--color-grey-8);
+        }
+    }
+`
 
 const Wrapper = styled.div`
+    position: relative;
     display: flex;
     flex-direction: row;
     height: 33.3rem;
@@ -19,23 +32,32 @@ const Wrapper = styled.div`
 
 const SignupFormWrapper = styled.div`
     margin-top: 2.9rem;
+    margin-left: 10.8rem;
+    width: 50%;
+    position: relative;
 
     @media ${device.tablet} {
         padding-left: 5rem;
     }
 `
 
+const BackgroundWrapper = styled(Flex)`
+    width: 50%;
+    background-image: url(${Test});
+    clip-path: polygon(26% 0, 100% 0%, 100% 99%, 0% 100%);
+`
+
 const InputWrapper = styled.div`
-    width: 60%;
+    width: 40%;
 `
 const InputGroup = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin-top: 1.6rem;
+    margin-top: 3.5rem;
 `
 const EmailButton = styled(Button)`
-    margin-left: 0.6rem;
+    margin-left: 2rem;
     height: 4rem;
 `
 const SocialWrapper = styled.div`
@@ -51,7 +73,7 @@ const SocialButton = styled(Button)`
     border: solid 1px var(--color-grey-7);
     width: 6.4rem;
     height: 4rem;
-    margin-right: 1.3rem;
+    margin-right: 1.2rem;
 `
 
 const StyledHeader = styled(Header)`
@@ -62,7 +84,6 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledText = styled(Text)`
-    font-size: var(--text-size-xs);
     width: auto;
     margin-right: 4rem;
 
@@ -70,15 +91,25 @@ const StyledText = styled(Text)`
         width: auto;
     }
 `
-const DemoButton = styled(Button)`
-    margin-top: 2.2rem;
-    width: auto;
+const ImageWrapper = styled.div`
+    position: absolute;
+    width: 41.1rem;
+    left: 40%;
+    z-index: 2;
+    top: 3rem;
 `
-
-const handleExternalLink = e => {
+const redirectToDerivApp = e => {
     e.preventDefault()
     window.open(deriv_app_url, '_blank')
 }
+
+const LinkFlex = styled(Flex)`
+    margin-left: 16.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+`
 
 // TODO add <form />
 const SignupPublic = ({
@@ -93,6 +124,9 @@ const SignupPublic = ({
 }) => {
     return (
         <Wrapper>
+            <ImageWrapper>
+                <Image img_name="deriv-platform-banner.png" width="100%" />
+            </ImageWrapper>
             <SignupFormWrapper>
                 <StyledHeader font_size="2.8rem">
                     {localize('Join over 1 million traders worldwide')}
@@ -155,17 +189,14 @@ const SignupPublic = ({
                     </SocialButton>
                 </SocialWrapper>
             </SignupFormWrapper>
-            <Flex>
-                <Image img_name="deriv-platform-banner.png" width="100%" />
-                <Flex direction="column" ai="center">
-                    <StyledHeader font_size="2.8rem" width="28.2rem" align="center">
+            <BackgroundWrapper direction="column" ai="center" bg={Test}>
+                <LinkFlex ai="center" onClick={redirectToDerivApp}>
+                    <StyledHeader font_size="2.8rem" width="28.2rem" align="center" color="grey-8">
                         {localize('Get a taste of the Deriv experience')}
                     </StyledHeader>
-                    <DemoButton tertiary onClick={handleExternalLink}>
-                        {localize('See live demo')}
-                    </DemoButton>
-                </Flex>
-            </Flex>
+                    <ChevronRight />
+                </LinkFlex>
+            </BackgroundWrapper>
         </Wrapper>
     )
 }

@@ -9,7 +9,6 @@ import Leaders from './_leaders'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-import Signup, { Appearances } from 'components/custom/signup'
 
 const About = () => {
     const [navigation, setNavigation] = useState('story')
@@ -26,7 +25,6 @@ const About = () => {
                     {/* It has been blocked due to design review */}
                     {/* <JoinUs /> */}
                     <OurAwards />
-                    <Signup appearance={Appearances.public} />
                 </Fragment>
             )}
             {navigation === 'leadership' && <Leaders />}

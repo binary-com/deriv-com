@@ -102,43 +102,74 @@ const Number = styled.div`
     text-align: center;
     align-items: center;
 `
-
+const MapLink = styled.a`
+    cursor: pointer;
+`
 export const OurOffices = () => {
     return (
         <OfficeContainer>
             <StyledHeader align="center">{localize('Our offices')}</StyledHeader>
             <MapWrapper>
                 <StyledMap />
+                <MapLink
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
+                >
+                    <Pinpoint top="70%" left="26%">
+                        <Oval />
+                        <PinpointWrapper />
+                        <LabelWrapper>{localize('Paraguay')}</LabelWrapper>
+                    </Pinpoint>
+                </MapLink>
 
-                <Pinpoint top="70%" left="26%">
-                    <Oval />
-                    <PinpointWrapper />
-                    <LabelWrapper>{localize('Paraguay')}</LabelWrapper>
-                </Pinpoint>
+                <MapLink
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                >
+                    <Pinpoint top="26%" left="50.3%">
+                        <Oval />
+                        <PinpointWrapper />
+                        <LabelWrapper>{localize('Malta')}</LabelWrapper>
+                    </Pinpoint>
+                </MapLink>
 
-                <Pinpoint top="26%" left="50.3%">
-                    <Oval />
-                    <PinpointWrapper />
-                    <LabelWrapper>{localize('Malta')}</LabelWrapper>
-                </Pinpoint>
+                <MapLink
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
+                >
+                    <Pinpoint top="34.6%" left="63.7%">
+                        <Oval />
+                        <PinpointWrapper />
+                        <LabelWrapper>{localize('Dubai')}</LabelWrapper>
+                    </Pinpoint>
+                </MapLink>
 
-                <Pinpoint top="34.6%" left="63.7%">
-                    <Oval />
-                    <PinpointWrapper />
-                    <LabelWrapper>{localize('Dubai')}</LabelWrapper>
-                </Pinpoint>
+                <MapLink
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
+                >
+                    <Pinpoint top="49.5%" left="80.6%">
+                        <Oval />
+                        <PinpointWrapper left="-72%" trans="scaleX(-1)" />
+                        <LabelWrapper left="-5.2rem">{localize('Cyberjaya')}</LabelWrapper>
+                    </Pinpoint>
+                </MapLink>
 
-                <Pinpoint top="49.5%" left="80.6%">
-                    <Oval />
-                    <PinpointWrapper left="-72%" trans="scaleX(-1)" />
-                    <LabelWrapper left="-5.2rem">{localize('Cyberjaya')}</LabelWrapper>
-                </Pinpoint>
-
-                <Pinpoint top="49%" left="85.8%">
-                    <Oval />
-                    <PinpointWrapper />
-                    <LabelWrapper>{localize('Labuan')}</LabelWrapper>
-                </Pinpoint>
+                <MapLink
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
+                >
+                    <Pinpoint top="49%" left="85.8%">
+                        <Oval />
+                        <PinpointWrapper />
+                        <LabelWrapper>{localize('Labuan')}</LabelWrapper>
+                    </Pinpoint>
+                </MapLink>
             </MapWrapper>
 
             <NumberWrapper>

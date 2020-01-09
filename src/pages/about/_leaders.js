@@ -35,7 +35,7 @@ const leaders_data = [
         image: 'tom-molesworth.png',
     },
     {
-        name: 'Shyamala siva',
+        name: 'Shyamala Siva',
         position: localize('Human Resources and Customer Service Operations Manager'),
         description: localize(
             'Shyamala has been with the group for over 10 years, ensuring smooth workplace and customer service operations. Shyamala is a Certified Public Accountant and holds a master’s degree in corporate governance from HELP University in Malaysia.',
@@ -115,6 +115,10 @@ const LeaderWrapper = styled(Flex)`
     }
 `
 
+const StyledHeader = styled(Header)`
+    font-size: 2.3rem;
+`
+
 const Leaders = () => {
     return (
         <SectionContainer>
@@ -138,9 +142,9 @@ const Leaders = () => {
                                     </Text>
                                 </DescriptionWrapper>
                             </Wrapper>
-                            <Header as="h4" align="center" lh="3.6rem">
+                            <StyledHeader as="h4" align="center" lh="3.6rem">
                                 {leader.name}
-                            </Header>
+                            </StyledHeader>
                             <Text align="center">{leader.position}</Text>
                         </LeaderWrapper>
                     ))}

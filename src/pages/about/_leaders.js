@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, CssGrid, Flex, Wrapper } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 
 const leaders_data = [
     {
@@ -23,7 +23,12 @@ const leaders_data = [
     },
     {
         name: 'Tom Molesworth',
-        position: localize('Chief Technology Officer / Chief Architect'),
+        position: (
+            <Localize
+                translate_text="Chief Technology Officer <0 />/Chief Architect"
+                components={[<br key={0} />]}
+            />
+        ),
         description: localize(
             'Tom is responsible for our technology strategy and is actively involved in engineering leadership. With over 20 years of experience in software development, he has made extensive contributions to the design and maintenance of large-scale platforms in the IT industry.',
         ),

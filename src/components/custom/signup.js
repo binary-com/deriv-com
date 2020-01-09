@@ -88,8 +88,6 @@ class Signup extends Component {
         this.setState({
             [name]: value,
         })
-
-        this.handleValidation(value)
     }
 
     getVerifyEmailRequest = email => {

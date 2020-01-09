@@ -5,6 +5,7 @@ import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import PDFIcon from 'images/svg/pdf-icon.svg'
+import device from 'themes/device'
 
 const IconContainer = styled(Flex)`
     justify-content: flex-start;
@@ -24,9 +25,13 @@ const IconContainer = styled(Flex)`
             text-decoration: underline;
         }
     }
+    @media ${device.tablet} {
+        padding-bottom: 0;
+        width: 100%;
+    }
 `
 
-const UpDown = ({ urls }) => (
+const RTS28 = ({ urls }) => (
     <Flex mt="1.8rem" spacing="8rem" jc="space-evenly">
         <IconContainer
             width="unset"
@@ -37,7 +42,7 @@ const UpDown = ({ urls }) => (
         >
             <PDFIcon />
             <LinkText color="red" weight="bold" as="p">
-                {localize('Open Up/Down document')}
+                {localize('BIEL RTS28 for 2017')}
             </LinkText>
         </IconContainer>
         <IconContainer
@@ -49,12 +54,12 @@ const UpDown = ({ urls }) => (
         >
             <PDFIcon />
             <LinkText color="red" weight="bold" as="p">
-                {localize('Open Touch/No Touch document')}
+                {localize('BIEL RTS28 for 2018')}
             </LinkText>
         </IconContainer>
     </Flex>
 )
-UpDown.propTypes = {
+RTS28.propTypes = {
     urls: PropTypes.array,
 }
 
@@ -150,7 +155,7 @@ const DocumentAccordion = () => {
                             as="a"
                             target="_blank"
                             rel="noopener noreferrer"
-                            href="./Austria.pdf"
+                            href="/pillar-3-disclosure-report.pdf"
                         >
                             <PDFIcon />
                             <LinkText color="red" weight="bold" as="p">
@@ -171,7 +176,7 @@ const DocumentAccordion = () => {
                             as="a"
                             target="_blank"
                             rel="noopener noreferrer"
-                            href="./Austria.pdf"
+                            href="/kid_commodities.pdf"
                         >
                             <PDFIcon />
                             <LinkText color="red" weight="bold" as="p">
@@ -183,7 +188,7 @@ const DocumentAccordion = () => {
                             as="a"
                             target="_blank"
                             rel="noopener noreferrer"
-                            href="./Austria.pdf"
+                            href="/kid_forex.pdf"
                         >
                             <PDFIcon />
                             <LinkText color="red" weight="bold" as="p">
@@ -195,7 +200,7 @@ const DocumentAccordion = () => {
                             as="a"
                             target="_blank"
                             rel="noopener noreferrer"
-                            href="./Austria.pdf"
+                            href="/kid_crypto.pdf"
                         >
                             <PDFIcon />
                             <LinkText color="red" weight="bold" as="p">
@@ -210,7 +215,7 @@ const DocumentAccordion = () => {
                             'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains and losses of these products and to help you compare them with other products.',
                         )}
                     </Text>
-                    <UpDown urls={['/Austria.pdf', '/Bulgaria.pdf']} />
+                    <RTS28 urls={['/BIEL-RTS28-for-2017.pdf', '/BIEL-RTS28-for-2018.pdf']} />
                 </AccordionItem>
                 <AccordionItem header="RTS 27">
                     <QuarterTable

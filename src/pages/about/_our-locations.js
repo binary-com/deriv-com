@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from 'components/form'
-import { LocalizedLink, localize, Localize } from 'components/localization'
+import { LinkButton } from 'components/form'
+import { localize, Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Show from 'components/containers/show'
@@ -101,11 +101,9 @@ export const OurLocations = () => {
                         </Location>
                     ))}
                 </OurLocationsContainer>
-                <LocalizedLink to='/signup/'>
-                    <Button secondary>
-                        {localize('Start with a free practice account')}
-                    </Button>
-                </LocalizedLink>
+                <LinkButton secondary to='/signup/'>
+                    {localize('Start with a free practice account')}
+                </LinkButton>
             </OurLocationsWrapper>
         </Show.Desktop>
     )

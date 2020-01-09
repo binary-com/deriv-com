@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
 import device from 'themes/device'
-import { Button } from 'components/form'
+import { LinkButton, Button } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { LocalizedLink, localize } from 'components/localization'
+import { localize } from 'components/localization'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -100,11 +100,9 @@ export const Hero = () => {
                             {localize('The next evolution of online trading by Binary.com')}
                         </HeroHeader>
                         <ButtonWrapper>
-                            <LocalizedLink to='/signup/'>
-                            <Button type="submit" secondary>
+                            <LinkButton type="submit" secondary to='/signup/'>
                                 {localize('Join us for free')}
-                            </Button>
-                            </LocalizedLink>
+                            </LinkButton>
                         </ButtonWrapper>
                     </StyledArticle>
                 </HeroGrid>

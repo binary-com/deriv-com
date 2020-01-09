@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { OurLocations } from './_our-locations'
 import { OurNumbers } from './_our-numbers'
 import { OurGoals } from './_our-goals'
-import { LocalizedLink, localize, WithIntl } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { Hero, Header } from 'components/elements'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
 import { Show, SEO } from 'components/containers'
 
 const Goahead = styled.div`
@@ -17,7 +17,7 @@ const Goahead = styled.div`
         font-size: 6rem;
     }
 `
-const AccountButton = styled(Button)`
+const AccountButton = styled(LinkButton)`
     width: 90%;
     max-width: 32rem;
     margin-bottom: 3.6rem;
@@ -50,11 +50,9 @@ const About = () => {
                     <Header as="h1" align="center" lh="1.1">
                         Go ahead, experience it for yourself.
                     </Header>
-                    <LocalizedLink to='/signup/'>
-                        <AccountButton secondary>
-                            {localize('Create a free account')}
-                        </AccountButton>
-                    </LocalizedLink>
+                    <AccountButton secondary to='/signup/'>
+                        {localize('Create a free account')}
+                    </AccountButton>
                 </Goahead>
             </Show.Mobile>
         </Layout>

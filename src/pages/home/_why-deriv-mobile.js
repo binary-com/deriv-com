@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Header } from 'components/elements'
-import { Button } from 'components/form'
-import { LocalizedLink, localize } from 'components/localization'
+import { LinkButton } from 'components/form'
+import { localize } from 'components/localization'
 import Checklist from 'images/svg/checklist.svg'
 
 const WhyDerivMobileContainer = styled.div`
@@ -46,7 +46,7 @@ const ButtonWrapper = styled.div`
     margin-top: 3rem;
 `
 
-const SignupButton = styled(Button)`
+const SignupButton = styled(LinkButton)`
     width: 100%;
     max-width: 36rem;
     font-size: var(--text-size-sm);
@@ -96,11 +96,9 @@ const WhyDerivMobile = () => {
                 </CardItem>
             </Card>
             <ButtonWrapper>
-                <LocalizedLink to='/signup/'>
-                    <SignupButton secondary>
-                        {localize('Create a free demo account')}
-                    </SignupButton>
-                </LocalizedLink>
+                <SignupButton secondary to='/signup/'>
+                    {localize('Create a free demo account')}
+                </SignupButton>
             </ButtonWrapper>
         </WhyDerivMobileContainer>
     )

@@ -4,8 +4,8 @@ import { SecurityIconGrid } from './_icon-grid'
 import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { StyledLink, Header, Text, Divider } from 'components/elements'
-import { Button } from 'components/form'
-import { LocalizedLink, localize, WithIntl, Localize } from 'components/localization'
+import { LinkButton } from 'components/form'
+import { localize, WithIntl, Localize } from 'components/localization'
 import Checked from 'images/svg/checklist.svg'
 import Demo from 'images/svg/demo-account.svg'
 
@@ -68,11 +68,9 @@ const KeepSafe = () => {
                             'Use our demo account and learn how to trade by using risk-free virtual funds.',
                         )}
                     </StyledHeader>
-                    <LocalizedLink to='/signup/'>
-                        <Button secondary>
-                            {localize('Create a free account')}
-                        </Button>
-                    </LocalizedLink>
+                    <LinkButton secondary to='/signup/'>
+                        {localize('Create a free account')}
+                    </LinkButton>
                 </GridContainer>
             </Section>
             <Section max_width="98rem">

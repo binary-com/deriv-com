@@ -103,7 +103,7 @@ export const IconGrid = () => (
                 Icon={General}
                 title={localize('General terms')}
                 content={localize('The main agreement you’re making with us to use Deriv')}
-                url="url"
+                url="/General_terms_derivtnc.pdf"
                 link_title={localize('General terms')}
             />
             <Col
@@ -121,14 +121,14 @@ export const IconGrid = () => (
                 content={localize(
                     'How we keep your funds, transfers between your accounts, and our bonuses to you',
                 )}
-                url="url"
+                url="/Fundsandtransfers_derivtnc.pdf"
                 link_title={localize('Funds and transfers')}
             />
             <Col
                 Icon={Security}
                 title={localize('Security and privacy')}
                 content={localize('What we do and don’t do with your data and how we use cookies')}
-                url="url"
+                url="/Securityandprivacy_derivtnc.pdf"
                 link_title={localize('Security and privacy')}
             />
             <Col
@@ -137,7 +137,7 @@ export const IconGrid = () => (
                 content={localize(
                     'Our agreement with affiliates, introducing brokers, developers who use our API, and payment agents',
                 )}
-                url="url"
+                url="/Business_deriv_tnc.pdf"
                 link_title={localize('Business terms')}
             />
             <Col
@@ -146,7 +146,7 @@ export const IconGrid = () => (
                 content={localize(
                     'Risks associated with trading that you need to be familiar with',
                 )}
-                url="url"
+                url="/risk_disclosure_derivtnc.pdf"
                 link_title={localize('Risk disclosure')}
             />
             <Col

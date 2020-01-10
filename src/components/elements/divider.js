@@ -2,9 +2,11 @@ import styled from 'styled-components'
 
 const Divider = styled.hr`
     border: none;
-    width: 100%;
+    width: ${props => (props.width ? props.width : '100%')};
     height: 1px;
-    background-color: var(--color-grey-2);
+
+    /* prettier-ignore */
+    background-color: var(--color-${props => props.color || 'grey-2'});
 `
 
 export default Divider

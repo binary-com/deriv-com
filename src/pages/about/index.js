@@ -5,9 +5,8 @@ import { OurNumbers } from './_our-numbers'
 import { OurGoals } from './_our-goals'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { Hero, Header, Modal, useModal } from 'components/elements'
-import { Button } from 'components/form'
-import SignupModal from 'components/custom/signup-modal'
+import { Hero, Header } from 'components/elements'
+import { LinkButton } from 'components/form'
 import { Show, SEO } from 'components/containers'
 
 const Goahead = styled.div`
@@ -18,13 +17,12 @@ const Goahead = styled.div`
         font-size: 6rem;
     }
 `
-const AccountButton = styled(Button)`
+const AccountButton = styled(LinkButton)`
     width: 90%;
     max-width: 32rem;
     margin-bottom: 3.6rem;
 `
 const About = () => {
-    const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <Layout>
             <SEO title={localize('About us')} />
@@ -52,12 +50,9 @@ const About = () => {
                     <Header as="h1" align="center" lh="1.1">
                         Go ahead, experience it for yourself.
                     </Header>
-                    <AccountButton onClick={toggleModal} secondary>
+                    <AccountButton secondary to='/signup/'>
                         {localize('Create a free account')}
                     </AccountButton>
-                    <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                        <SignupModal autofocus />
-                    </Modal>
                 </Goahead>
             </Show.Mobile>
         </Layout>

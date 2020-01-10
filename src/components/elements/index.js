@@ -1,3 +1,4 @@
+import { Accordion, AccordionItem } from './accordion'
 import AutoCarousel from './auto-carousel'
 import { Card, CardChildren, CardStyle } from './card'
 import Carousel from './carousel'
@@ -16,6 +17,8 @@ import { Text, LinkText, Header } from './typography'
 import { Lottie } from './lottie'
 
 export {
+    Accordion,
+    AccordionItem,
     AutoCarousel,
     Card,
     CardChildren,

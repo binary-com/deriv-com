@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { IconGrid } from './_icon-grid'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
-import { Modal, useModal } from 'components/elements'
-import SignupModal from 'components/custom/signup-modal'
 import { GridContainer, SectionContainer, SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
@@ -15,8 +13,6 @@ const SectionHeader = styled.p`
 `
 
 const CheckEmail = () => {
-    const [show_modal, toggleModal, closeModal] = useModal()
-
     return (
         <Layout>
             <SEO
@@ -33,14 +29,11 @@ const CheckEmail = () => {
                         )}
                     </SectionHeader>
                     <IconGrid />
-                    <Button secondary onClick={toggleModal}>
+                    <LinkButton secondary to='/signup/'>
                         {localize('Re-enter your email and try again')}
-                    </Button>
+                    </LinkButton>
                 </GridContainer>
             </SectionContainer>
-            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                <SignupModal closeModal={closeModal} />
-            </Modal>
         </Layout>
     )
 }

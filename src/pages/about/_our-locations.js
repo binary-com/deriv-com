@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import { Container } from 'components/containers'
-import { Header, Modal, useModal } from 'components/elements'
-import SignupModal from 'components/custom/signup-modal'
+import { Header } from 'components/elements'
 import Show from 'components/containers/show'
 // Icons
 import DubaiSvg from 'images/svg/dubai.svg'
@@ -80,8 +79,6 @@ const locations = [
 ]
 
 export const OurLocations = () => {
-    const [show_modal, toggleModal, closeModal] = useModal()
-
     return (
         <Show.Desktop>
             <OurLocationsWrapper>
@@ -104,12 +101,9 @@ export const OurLocations = () => {
                         </Location>
                     ))}
                 </OurLocationsContainer>
-                <Button secondary onClick={toggleModal}>
+                <LinkButton secondary to='/signup/'>
                     {localize('Start with a free practice account')}
-                </Button>
-                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                    <SignupModal autofocus />
-                </Modal>
+                </LinkButton>
             </OurLocationsWrapper>
         </Show.Desktop>
     )

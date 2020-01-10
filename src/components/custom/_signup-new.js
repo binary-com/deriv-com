@@ -19,6 +19,10 @@ const SignupContent = styled.div`
     background-color: var(--color-white);
     border-radius: 0.6rem;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
+
+    @media ${device.mobileM} {
+        width: 36rem;
+    }
 `
 
 const Line = styled.div`

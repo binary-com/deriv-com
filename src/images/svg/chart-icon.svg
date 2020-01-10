@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24">
-    <g fill-rule="evenodd">
-        <path d="M0 0h24v24H0z" />
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="13" viewBox="0 0 20 13" aria-labelledby="chart-icon">
+    <title id="chart-icon">Chart line</title>
+    <defs>
+        <path id="a" d="M0 0h24v24H0z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(-2 -6)">
+        <mask id="b" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+        <path fill="#333" fill-rule="nonzero" d="M3.5 18.98l6-6.01 4 4L22 7.41 20.59 6l-7.09 7.97-4-4L2 17.48z" mask="url(#b)"/>
     </g>
 </svg>

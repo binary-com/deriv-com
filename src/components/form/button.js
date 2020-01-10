@@ -57,10 +57,7 @@ const SharedButtonStyle = css`
                 }
 
                 &:hover {
-                    background: ${props => {
-                        if (props.provider === 'google') return 'var(--color-grey-4)'
-                        if (props.provider === 'facebook') return 'var(--color-blue-2)'
-                    }};
+                    background: var(--color-grey-4);
                 }
             `
     }}

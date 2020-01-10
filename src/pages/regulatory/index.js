@@ -1,9 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import EUgrid from './_eu-grid'
+import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
 import { Header, Text, Divider } from 'components/elements'
-import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
+import {
+    SEO,
+    SectionContainer,
+    GridContainer,
+    CssGrid,
+    CssGridColumn,
+    Flex,
+} from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
 import EU from 'images/svg/europe-map.svg'
@@ -11,6 +19,7 @@ import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import FSC from 'images/svg/fsc.svg'
 import Labuan from 'images/svg/footer-labuan.svg'
+import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
@@ -36,6 +45,11 @@ const Box = styled.div`
 const Europe = styled(EU)`
     max-width: 100%;
     margin: 0;
+`
+const AccordionWrapper = styled(Flex)`
+    @media ${device.tabletL} {
+        padding: 0 4rem;
+    }
 `
 
 const Regulatory = () => (
@@ -125,6 +139,11 @@ const Regulatory = () => (
                     </Text>
                 </Box>
             </GridContainer>
+        </SectionContainer>
+        <SectionContainer padding="0 0 4rem 0">
+            <AccordionWrapper>
+                <DocumentAccordion />
+            </AccordionWrapper>
         </SectionContainer>
         <SectionContainer padding="0">
             <GridContainer>

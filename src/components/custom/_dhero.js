@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { deriv_app_url } from 'common/utility'
-import { localize } from 'components/localization'
+import { LocalizedLink, localize } from 'components/localization'
 import { Container, Show } from 'components/containers'
 import device from 'themes/device.js'
-import { Header, Modal, useModal, Image } from 'components/elements'
-import SignupModal from 'components/custom/signup-modal'
+import { Header, Image } from 'components/elements'
 import { Button } from 'components/form'
 
 const HeroContent = styled.div`
@@ -79,7 +78,6 @@ const DHero = ({
     start_automating,
     Logo,
 }) => {
-    const [show_modal, toggleModal, closeModal] = useModal()
     const handleRedirect = () => {
         window.open(deriv_app_url, '_blank')
     }
@@ -107,14 +105,18 @@ const DHero = ({
                         <StyledContent as="h2">{content}</StyledContent>
                     </HeroContent>
                     {join_us_for_free ? (
-                        <TryForFree secondary onClick={toggleModal}>
-                            {localize('Join us for free')}
-                        </TryForFree>
+                        <LocalizedLink to='/signup/'>
+                            <TryForFree secondary>
+                                {localize('Join us for free')}
+                            </TryForFree>
+                        </LocalizedLink>
                     ) : null}
                     {start_automating ? (
-                        <TryForFree secondary onClick={toggleModal}>
-                            {localize('Start automating')}
-                        </TryForFree>
+                        <LocalizedLink to='/signup/'>
+                            <TryForFree secondary>
+                                {localize('Start automating')}
+                            </TryForFree>
+                        </LocalizedLink>
                     ) : null}
                     {go_to_live_demo ? (
                         <GoToLiveDemo tertiary onClick={handleRedirect}>
@@ -130,9 +132,6 @@ const DHero = ({
                     </Show.Desktop>
                 </div>
             </StyledContainer>
-            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                <SignupModal autofocus />
-            </Modal>
         </Wrapper>
     )
 }

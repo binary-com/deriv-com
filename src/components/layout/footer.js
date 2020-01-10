@@ -18,6 +18,7 @@ const StyledFooter = styled.footer`
     background-color: var(--color-grey-8);
     width: 100%;
     margin: 0 auto;
+    border-top: 1px solid var(--color-red);
 `
 const StyledGrid = styled(CssGrid)`
     margin: 4rem 0;

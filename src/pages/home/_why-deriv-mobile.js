@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Modal, useModal } from 'components/elements'
-import { Button } from 'components/form'
+import { Header } from 'components/elements'
+import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import Checklist from 'images/svg/checklist.svg'
-import SignupModal from 'components/custom/signup-modal'
 
 const WhyDerivMobileContainer = styled.div`
     padding: 4rem 0 2rem 0;
@@ -47,13 +46,12 @@ const ButtonWrapper = styled.div`
     margin-top: 3rem;
 `
 
-const SingupButton = styled(Button)`
+const SignupButton = styled(LinkButton)`
     width: 100%;
     max-width: 36rem;
     font-size: var(--text-size-sm);
 `
 const WhyDerivMobile = () => {
-    const [show_modal, toggleModal, closeModal] = useModal()
     return (
         <WhyDerivMobileContainer>
             <Header align="center" font_size="4rem">
@@ -98,12 +96,9 @@ const WhyDerivMobile = () => {
                 </CardItem>
             </Card>
             <ButtonWrapper>
-                <SingupButton onClick={toggleModal} secondary>
+                <SignupButton secondary to='/signup/'>
                     {localize('Create a free demo account')}
-                </SingupButton>
-                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                    <SignupModal autofocus />
-                </Modal>
+                </SignupButton>
             </ButtonWrapper>
         </WhyDerivMobileContainer>
     )

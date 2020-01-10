@@ -6,8 +6,7 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container } from 'components/containers'
-import { Modal, useModal, OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
-import SignupModal from 'components/custom/signup-modal'
+import { OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
@@ -90,16 +89,16 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${props => {
-            if (props.move) {
-                return 0
-            } else {
-                if (props.button_ref.current && props.mounted) {
-                    const calculation = props.button_ref.current.offsetWidth + 2
-                    return `${calculation}px`
-                }
-                return '350px'
+        if (props.move) {
+            return 0
+        } else {
+            if (props.button_ref.current && props.mounted) {
+                const calculation = props.button_ref.current.offsetWidth + 2
+                return `${calculation}px`
             }
-        }}
+            return '350px'
+        }
+    }}
     );
     @media ${device.tabletL} {
         display: none;
@@ -144,7 +143,6 @@ export const Nav = () => {
     const button_ref = useRef(null)
     const [is_platforms_open, setIsPlatformsOpen] = useState(false)
     const [has_animation, setHasAnimation] = useState(false)
-    const [show_modal, toggleModal, closeModal] = useModal()
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
@@ -230,9 +228,11 @@ export const Nav = () => {
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
-                        <SignupButton ref={button_ref} secondary onClick={toggleModal}>
-                            <span>{localize('Try for free')}</span>
-                        </SignupButton>
+                        <LocalizedLink to='/signup/'>
+                            <SignupButton ref={button_ref} secondary>
+                                <span>{localize('Try for free')}</span>
+                            </SignupButton>
+                        </LocalizedLink>
                     </NavRight>
                     <HamburgerMenu onClick={handleMenuClick} />
                     <OffCanvasMenu
@@ -240,9 +240,6 @@ export const Nav = () => {
                         closeOffCanvasMenu={closeOffCanvasMenu}
                     />
                 </Wrapper>
-                <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                    <SignupModal autofocus />
-                </Modal>
             </StyledNav>
         </NavWrapper>
     )

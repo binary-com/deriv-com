@@ -9,14 +9,17 @@ import device from 'themes/device'
 const OurNumbersWrapper = styled.section`
     width: 100%;
     background-color: var(--color-white);
+    max-width: 144rem;
+    margin: auto;
 `
 
 const StyledHeader = styled(Header)`
     margin-top: 1.6rem;
+    max-width: 98.4rem;
 `
 
 const NumberHeader = styled(Text)`
-    font-size: var(--text-size-xl);
+    font-size: 3.6rem;
     font-weight: bold;
     line-height: 6rem;
     text-align: center;
@@ -80,7 +83,7 @@ const OurNumbers = () => (
                 </StyledHeader>
             </Show.Mobile>
             <Show.Desktop>
-                <Header as="h2" color="black-2" align="center">
+                <Header font_size="3.6rem" as="h2" color="black-2" align="center">
                     {localize('Our numbers')}
                 </Header>
                 <StyledHeader as="h4" color="black-3" align="center" weight="500" lh="3.6rem">

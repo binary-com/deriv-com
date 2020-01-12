@@ -4,7 +4,12 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Map from 'images/svg/world-map.svg'
 import device from 'themes/device'
-import MapPinpoint from 'images/svg/map-pinpoint.svg'
+// import MapPinpoint from 'images/svg/map-pinpoint.svg'
+import Labuan from 'images/svg/labuan-pin-location.svg'
+import Cyberjaya from 'images/svg/cyberjaya-pin-location.svg'
+import Dubai from 'images/svg/dubai-pin-location.svg'
+import Paraguay from 'images/svg/paraguay-pin-location.svg'
+import Malta from 'images/svg/malta-pin-location.svg'
 
 const OfficeContainer = styled.section`
     width: 100%;
@@ -47,42 +52,44 @@ const Oval = styled.div`
     border-radius: 50%;
     position: absolute;
     visibility: visible;
-    top: 74%;
-    left: 7%;
+    top: ${props => props.top || '87%'};
+    left: ${props => props.left || '11%'};
 `
 const Pinpoint = styled.div`
     position: absolute;
     top: ${props => props.top};
     left: ${props => props.left};
 
-    > svg,
-    span {
+    > svg {
         opacity: 0;
         transition: visibility 0s, opacity 0.5s linear;
     }
     &:hover {
-        > svg,
-        span {
+        > svg {
             opacity: 1;
         }
     }
 `
 
-const PinpointWrapper = styled(MapPinpoint)`
+const PinpointWrapper = styled(Labuan)`
     position: relative;
-    left: ${props => props.left || '-2%'};
-    transform: ${props => props.trans || 'none'};
+    left: ${props => props.left || '-4%'};
 `
-const LabelWrapper = styled.span`
-    position: absolute;
-    top: 0.8rem;
-    left: ${props => props.left || '2.8rem'};
-    width: auto;
-    height: 3 rem;
-    color: var(--color-white);
-    font-size: 1.1rem;
+const LabuanWrapper = styled(Labuan)`
+    ${PinpointWrapper}
 `
-
+const CyberjayaWrapper = styled(Cyberjaya)`
+    ${PinpointWrapper}
+`
+const DubaiWrapper = styled(Dubai)`
+    ${PinpointWrapper}
+`
+const ParaguayWrapper = styled(Paraguay)`
+    ${PinpointWrapper}
+`
+const MaltaWrapper = styled(Malta)`
+    ${PinpointWrapper}
+`
 const StyledHeader = styled(Header)`
     font-size: 3.6rem;
     margin-bottom: 4rem;
@@ -123,10 +130,9 @@ export const OurOffices = () => {
                     target="_blank"
                     href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
                 >
-                    <Pinpoint top="70%" left="26%">
+                    <Pinpoint top="66%" left="25%">
                         <Oval />
-                        <PinpointWrapper />
-                        <LabelWrapper>{localize('Paraguay')}</LabelWrapper>
+                        <ParaguayWrapper />
                     </Pinpoint>
                 </MapLink>
 
@@ -135,10 +141,9 @@ export const OurOffices = () => {
                     target="_blank"
                     href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                 >
-                    <Pinpoint top="26%" left="50.3%">
+                    <Pinpoint top="21.6%" left="49.6%">
                         <Oval />
-                        <PinpointWrapper />
-                        <LabelWrapper>{localize('Malta')}</LabelWrapper>
+                        <MaltaWrapper />
                     </Pinpoint>
                 </MapLink>
 
@@ -147,10 +152,10 @@ export const OurOffices = () => {
                     target="_blank"
                     href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
                 >
-                    <Pinpoint top="34.6%" left="63.7%">
+                    <Pinpoint top="30.6%" left="63.7%">
                         <Oval />
-                        <PinpointWrapper />
-                        <LabelWrapper>{localize('Dubai')}</LabelWrapper>
+                        <DubaiWrapper />
+                        {/* <LabelWrapper>{localize('Dubai')}</LabelWrapper> */}
                     </Pinpoint>
                 </MapLink>
 
@@ -159,10 +164,10 @@ export const OurOffices = () => {
                     target="_blank"
                     href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
                 >
-                    <Pinpoint top="49.5%" left="80.6%">
-                        <Oval />
-                        <PinpointWrapper left="-72%" trans="scaleX(-1)" />
-                        <LabelWrapper left="-5.2rem">{localize('Cyberjaya')}</LabelWrapper>
+                    <Pinpoint top="46%" left="63.6%">
+                        <Oval top="83%" left="88%" />
+                        <CyberjayaWrapper />
+                        {/* <LabelWrapper left="-5.2rem">{localize('Cyberjaya')}</LabelWrapper> */}
                     </Pinpoint>
                 </MapLink>
 
@@ -171,10 +176,10 @@ export const OurOffices = () => {
                     target="_blank"
                     href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                 >
-                    <Pinpoint top="49%" left="85.8%">
-                        <Oval />
-                        <PinpointWrapper />
-                        <LabelWrapper>{localize('Labuan')}</LabelWrapper>
+                    <Pinpoint top="44.6%" left="85%">
+                        <Oval left="8%" />
+                        <LabuanWrapper />
+                        {/* <LabelWrapper>{localize('Labuan')}</LabelWrapper> */}
                     </Pinpoint>
                 </MapLink>
             </MapWrapper>

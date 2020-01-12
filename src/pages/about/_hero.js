@@ -38,6 +38,10 @@ const Navigation = styled.div`
     cursor: pointer;
     display: flex;
     flex-direction: column;
+
+    &:hover {
+        color: green;
+    }
 `
 
 const Separator = styled.span`

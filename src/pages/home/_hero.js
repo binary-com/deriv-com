@@ -53,6 +53,14 @@ const StyledArticle = styled.article`
 const HeroGrid = styled.section`
     width: 100%;
     max-width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 `
 
 const ButtonWrapper = styled(Flex)`
@@ -100,7 +108,7 @@ export const Hero = () => {
                             {localize('The next evolution of online trading by Binary.com')}
                         </HeroHeader>
                         <ButtonWrapper>
-                            <LinkButton type="submit" secondary to='/signup/'>
+                            <LinkButton type="submit" secondary to="/signup/">
                                 {localize('Join us for free')}
                             </LinkButton>
                         </ButtonWrapper>

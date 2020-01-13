@@ -36,7 +36,7 @@ const MarketCard = styled.article`
     }
 `
 const Markets = () => (
-    <SectionContainer background="grey-10">
+    <SectionContainer style={{ backgroundColor: 'rgba(242, 243, 244, 0.3)' }}>
         <Container direction="column">
             <Header align="center" font_size="var(--text-size-header-1)" as="h2">
                 {localize('Markets')}

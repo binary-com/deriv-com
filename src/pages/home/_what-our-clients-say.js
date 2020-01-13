@@ -29,6 +29,10 @@ const ClientCard = styled.article`
     padding-top: 5.2rem;
     position: relative;
     overflow: hidden;
+
+    @media ${device.tabletL} {
+        padding: 4rem;
+    }
 `
 
 const QuoteText = styled(Text)`
@@ -46,6 +50,10 @@ const QuoteText = styled(Text)`
         top: -10.6rem;
         color: var(--color-grey-8);
     }
+
+    @media ${device.tabletL} {
+        padding-bottom: 0.5rem;
+    }
 `
 
 const SmallText = styled(Text)`
@@ -59,16 +67,23 @@ const ImageWrapper = styled.div`
     img {
         width: 50px;
     }
+
+    @media ${device.tabletL} {
+        width: 30px;
+
+        img {
+            width: 30px;
+        }
+    }
 `
 
 const SliderWrapper = styled.div`
-    /* width: 100%;
+    width: 100%;
     position: relative;
-    padding-bottom: 6rem;
+
     @media ${device.laptopLC} {
         padding-bottom: 0;
-    } */
-    position: relative;
+    }
 `
 const Next = styled.div``
 const Prev = styled.div``
@@ -96,10 +111,24 @@ const ButtonWrapper = styled.div`
     ${Next} {
         top: 30%;
         right: 20%;
+
+        @media ${device.tabletL} {
+            right: 5%;
+        }
+        @media ${device.tabletS} {
+            right: -5px;
+        }
     }
     ${Prev} {
         top: 30%;
         left: 20%;
+
+        @media ${device.tabletL} {
+            right: 5%;
+        }
+        @media ${device.tabletS} {
+            left: -5px;
+        }
     }
 `
 const ClientSlide = ({ quote, img_path, img_alt, name, title }) => (

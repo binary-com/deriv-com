@@ -9,6 +9,7 @@ const SharedButtonStyle = css`
     font-size: 1.4rem;
     transition: all 0.25s;
     font-weight: bold;
+    height: fit-content;
     ${props => {
         if (props.primary)
             return css`

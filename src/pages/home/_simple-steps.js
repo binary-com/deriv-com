@@ -35,13 +35,13 @@ const ClientCard = styled.article`
 `
 
 const SimpleSteps = () => (
-    <SectionContainer background="grey-10">
+    <SectionContainer style={{ borderBottom: '1px solid rgba(151, 151, 151, 0.2)' }}>
         <Container direction="column">
             <Header align="center" font_size="var(--text-size-header-1)" as="h2">
                 {localize('3 simple steps')}
             </Header>
         </Container>
-        <Flex m="6rem 0 0 0">
+        <Flex m="6rem 0 0 0" wrap="wrap">
             <ClientCard>
                 <Flex ai="center">
                     <Header as="h4">{localize('Practise')}</Header>

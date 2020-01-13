@@ -9,7 +9,7 @@ import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import Test from 'images/common/test_bg.png'
+import BackgroundPattern from 'images/common/bg_banner_signup.png'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
 const ChevronRight = styled(Chevron)`
@@ -29,6 +29,7 @@ const Wrapper = styled.div`
     height: 33.3rem;
     width: 100%;
     overflow: hidden;
+    border-top: 1px solid rgba(151, 151, 151, 0.2);
 `
 
 const SignupFormWrapper = styled(Flex)`
@@ -46,8 +47,8 @@ const SignupFormWrapper = styled(Flex)`
 
 const BackgroundWrapper = styled(Flex)`
     width: 50%;
-    background-image: url(${Test});
-    clip-path: polygon(14rem 0, 100% 0%, 100% 99%, 0% 100%);
+    background-image: url(${BackgroundPattern});
+    clip-path: polygon(14rem 0, 100% 0%, 100% 100%, 0% 100%);
 
     @media (max-width: 800px) {
         display: none;
@@ -203,7 +204,7 @@ const SignupPublic = ({
                     </SocialWrapper>
                 </div>
             </SignupFormWrapper>
-            <BackgroundWrapper direction="column" ai="center" bg={Test}>
+            <BackgroundWrapper direction="column" ai="center">
                 <LinkFlex ai="center" onClick={redirectToDerivApp}>
                     <StyledHeader font_size="2.8rem" width="28.2rem" align="center" color="grey-8">
                         {localize('Get a taste of the Deriv experience')}

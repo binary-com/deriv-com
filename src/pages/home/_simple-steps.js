@@ -27,7 +27,6 @@ const ClientCard = styled.article`
 
     &:hover {
         transform: translateY(-1.5rem) scale(1.03);
-        cursor: pointer;
 
         svg > g > path:nth-child(2) {
             fill: var(--color-red);
@@ -36,7 +35,7 @@ const ClientCard = styled.article`
 `
 
 const SimpleSteps = () => (
-    <SectionContainer background="grey-10" padding="6rem 0">
+    <SectionContainer background="grey-10">
         <Container direction="column">
             <Header align="center" font_size="var(--text-size-header-1)" as="h2">
                 {localize('3 simple steps')}

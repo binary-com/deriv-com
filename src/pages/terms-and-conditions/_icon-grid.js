@@ -12,7 +12,6 @@ import Funds from 'images/svg/funds-transfers-tc.svg'
 import Security from 'images/svg/security-privacy-tc.svg'
 import Business from 'images/svg/business-terms-tc.svg'
 import Risk from 'images/svg/risk-tc.svg'
-import Supplementary from 'images/svg/supplementary-tc.svg'
 import PDF from 'images/svg/pdf-icon-black.svg'
 
 const GridCol = styled(CssGridColumn)`
@@ -112,7 +111,7 @@ export const IconGrid = () => (
                 content={localize(
                     'Our platforms and the transactions you can make on them plus other important details about trading on Deriv',
                 )}
-                url="url"
+                url="/Trading_derivtnc.pdf"
                 link_title={localize('Trading terms')}
             />
             <Col
@@ -148,13 +147,6 @@ export const IconGrid = () => (
                 )}
                 url="/risk_disclosure_derivtnc.pdf"
                 link_title={localize('Risk disclosure')}
-            />
-            <Col
-                Icon={Supplementary}
-                title={localize('Supplementary terms')}
-                content={localize('Additional terms related to some of our companies')}
-                url="url"
-                link_title={localize('Supplementary terms')}
             />
         </CssGrid>
     </GridContainer>

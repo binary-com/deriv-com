@@ -94,6 +94,62 @@ const ButtonWrapper = styled.div`
         }
     }
 `
+const ClientSlide = ({ quote, img_name, img_alt, trader_name, trader_title, idx }) => {
+    return (
+        <Slide>
+            <Flex ai="center" height="unset">
+                <ClientCard>
+                    <QuoteText as="blockquote">{quote}</QuoteText>
+                    <Divider width="28rem" color="grey-8" />
+                    <Flex p="1.7rem 0 0 0">
+                        <Flex ai="center" width="auto">
+                            <ImageWrapper>
+                                <Image img_name={img_name} alt={img_alt} width="100%" />
+                            </ImageWrapper>
+                        </Flex>
+                        <figure>
+                            <Text weight="bold">{trader_name}</Text>
+                            <SmallText>{trader_title}</SmallText>
+                        </figure>
+                    </Flex>
+                </ClientCard>
+            </Flex>
+        </Slide>
+    )
+}
+
+const paul = {
+    trader_name: 'Paul Mugenda',
+    trader_title: localize('Forex trader'),
+    trader_profile: localize('trader profile'),
+    img_name: 'paul.png',
+    quote: localize(
+        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to Binary.com since the company name already have a known truck of good ethics.',
+    ),
+    index: 0,
+}
+const roberto = {
+    trader_name: 'Roberto Arcanjo',
+    trader_title: localize('CEO - Mercado Trader'),
+    trader_profile: localize('trader profile'),
+    img_name: 'roberto.png',
+    quote: localize(
+        'I am very excited about all the technology involved in Deriv.com —  an intuitive and optimised platform.',
+    ),
+    index: 1,
+}
+const fabio = {
+    trader_name: 'Fábio Oliveira',
+    trader_title: localize('CEO - Bitcoin Informer'),
+    trader_profile: localize('trader profile'),
+    img_name: 'fabio.png',
+    quote: localize(
+        'It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more.',
+    ),
+    index: 2,
+}
+
+const our_client_slides = [paul, roberto, fabio]
 
 const WhatOurClientsSay = () => (
     <SectionContainer padding="6rem 0" style={{ height: '43.1rem' }}>
@@ -104,91 +160,17 @@ const WhatOurClientsSay = () => (
             <SliderWrapper>
                 <CarouselProvider naturalSlideWidth={100} naturalSlideHeight={50} totalSlides={3}>
                     <Slider style={{ width: '80%', height: '42.8rem', margin: '0 auto' }}>
-                        <Slide index={0}>
-                            <Flex ai="center" height="unset">
-                                <ClientCard>
-                                    <QuoteText as="blockquote">
-                                        {localize(
-                                            'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to Binary.com since the company name already have a known truck of good ethics.',
-                                        )}
-                                    </QuoteText>
-                                    <Divider width="28rem" color="grey-8" />
-                                    <Flex p="1.7rem 0 0 0">
-                                        <Flex ai="center" width="auto">
-                                            <ImageWrapper>
-                                                <Image
-                                                    img_name="paul.png"
-                                                    alt={localize('trader profile')}
-                                                    width="100%"
-                                                />
-                                            </ImageWrapper>
-                                        </Flex>
-                                        <figure>
-                                            <Text weight="bold">Paul Mugenda</Text>
-                                            <SmallText>{localize('Forex trader')}</SmallText>
-                                        </figure>
-                                    </Flex>
-                                </ClientCard>
-                            </Flex>
-                        </Slide>
-                        <Slide index={1}>
-                            <Flex ai="center" height="unset">
-                                <ClientCard>
-                                    <QuoteText as="blockquote">
-                                        {localize(
-                                            'I am very excited about all the technology involved in Deriv.com —  an intuitive and optimised platform.',
-                                        )}
-                                    </QuoteText>
-                                    <Divider width="28rem" />
-                                    <Flex p="1.7rem 0 0 0">
-                                        <Flex ai="center" width="auto">
-                                            <ImageWrapper>
-                                                <Image
-                                                    img_name="roberto.png"
-                                                    alt={localize('trader profile')}
-                                                    width="100%"
-                                                />
-                                            </ImageWrapper>
-                                        </Flex>
-                                        <figure>
-                                            <Text weight="bold">Roberto Arcanjo</Text>
-                                            <SmallText>
-                                                {localize('CEO - Mercado Trader')}
-                                            </SmallText>
-                                        </figure>
-                                    </Flex>
-                                </ClientCard>
-                            </Flex>
-                        </Slide>
-                        <Slide index={2}>
-                            <Flex ai="center" height="unset">
-                                <ClientCard>
-                                    <QuoteText as="blockquote">
-                                        {localize(
-                                            'It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more.',
-                                        )}
-                                    </QuoteText>
-                                    <Divider width="28rem" />
-                                    <Flex p="1.7rem 0 0 0">
-                                        <Flex ai="center" width="auto">
-                                            <ImageWrapper>
-                                                <Image
-                                                    img_name="fabio.png"
-                                                    alt={localize('trader profile')}
-                                                    width="100%"
-                                                />
-                                            </ImageWrapper>
-                                        </Flex>
-                                        <figure>
-                                            <Text weight="bold">Fábio Oliveira</Text>
-                                            <SmallText>
-                                                {localize('CEO - Bitcoin Informer')}
-                                            </SmallText>
-                                        </figure>
-                                    </Flex>
-                                </ClientCard>
-                            </Flex>
-                        </Slide>
+                        {our_client_slides.map(trader => (
+                            <ClientSlide
+                                key={trader.name}
+                                quote={trader.quote}
+                                trader_name={trader.name}
+                                trader_profile={trader.trader_profile}
+                                img_name={trader.img_name}
+                                img_alt={localize('Trader')}
+                                index={trader.index}
+                            />
+                        ))}
                     </Slider>
                     <ButtonWrapper>
                         <ButtonBack>

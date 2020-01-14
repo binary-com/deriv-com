@@ -1,13 +1,13 @@
+import React from 'react'
+import styled from 'styled-components'
+import { ButtonBack, ButtonNext, CarouselProvider, Dot, Slide, Slider } from 'pure-react-carousel'
 import { Container, Wrapper } from 'components/containers'
 import { Header, Image, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Binary from 'images/svg/binary-blur.svg'
 import Deriv from 'images/svg/deriv-blur.svg'
 import ChevronRight from 'images/svg/fill-chevron.svg'
-import { ButtonBack, ButtonNext, CarouselProvider, Dot, Slide, Slider } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
-import React from 'react'
-import styled from 'styled-components'
 import device from 'themes/device'
 
 const SliderWrapper = styled.div`
@@ -342,7 +342,7 @@ const history_data = [
         title: localize('Continued innovation and growth'),
         description: (
             <Localize
-                translate_text="In 2016, Binary.com adds Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders. In the same year, we introduce Binary Bot. This new invention delivers a drag-and-drop programming tool, which enables traders to build trading bots without knowing how to code. 
+                translate_text="In 2016, Binary.com adds Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders. In the same year, we introduce Binary Bot. This new invention delivers a drag-and-drop programming tool, which enables traders to build trading bots without knowing how to code.
                 <0 /><0 />The Binary.com team expands to 100 people. "
                 components={[<br key={0} />]}
             />

@@ -336,7 +336,7 @@ const Footer = () => (
             <StyledContainer justify="flex-start">
                 <StyledText>
                     <Copyright width="1.6rem" />
-                    {localize('2020 Deriv | All right reserved')}
+                    {localize('2020 Deriv | All rights reserved')}
                 </StyledText>
             </StyledContainer>
         </BlackNav>

@@ -19,7 +19,6 @@ const MarketCard = styled.article`
 
     svg {
         margin-right: 2rem;
-        margin-top: 1.5rem;
     }
     div {
         max-width: 38.4rem;

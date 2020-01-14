@@ -65,6 +65,7 @@ const HeroGrid = styled.section`
 
 const ButtonWrapper = styled(Flex)`
     margin-top: 4rem;
+    height: 40px;
 
     ${Button} {
         font-size: 1.6rem;

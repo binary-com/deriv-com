@@ -56,7 +56,7 @@ const SimpleSteps = () => (
                     )}
                 </Text>
             </ClientCard>
-            <ClientCard m="0 2rem" order="3">
+            <ClientCard m="0 2rem">
                 <Flex ai="center">
                     <Header as="h4">{localize('Trade')}</Header>
                     <TradeIcon />

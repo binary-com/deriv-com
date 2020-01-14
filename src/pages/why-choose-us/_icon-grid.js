@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import device from 'themes/device'
 import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 // Icons
 import ProvenTrackRecord from 'images/svg/wd-proven-track-record.svg'
 import LicensedRegulated from 'images/svg/wd-licensed-regulated.svg'
@@ -12,10 +12,19 @@ import ClientProtection from 'images/svg/wd-client-money-protection.svg'
 import Risk from 'images/svg/wd-risk.svg'
 import Help from 'images/svg/wd-help.svg'
 import Safety from 'images/svg/wd-safety.svg'
+import CustomerFirst from 'images/svg/wd-customer-first.svg'
 
 const GridCol = styled(CssGridColumn)`
     width: 100%;
 
+    a {
+        color: var(--color-red);
+        text-decoration: none;
+
+        :hover {
+            text-decoration: underline;
+        }
+    }
     ${Text} {
         margin-top: 1.8rem;
         @media ${device.tabletL} {
@@ -77,9 +86,12 @@ export const IconGrid = () => (
             <Col
                 Icon={LicensedRegulated}
                 title={localize('Licensed and regulated')}
-                content={localize(
-                    'Deriv is licensed and regulated by several entities who ensure that we have systems in place to protect our clients. Our regulators include the Malta Financial Services Authority (MFSA), the Labuan Financial Services Authority (Labuan FSA), the Vanuatu Financial Services Commission (VFSC), and the British Virgin Islands Financial Services Commission.',
-                )}
+                content={
+                    <Localize
+                        translate_text="Deriv is <0>licensed and regulated</0> by several entities who ensure that we have systems in place to protect our clients. Our regulators include the Malta Financial Services Authority (MFSA), the Labuan Financial Services Authority (Labuan FSA), the Vanuatu Financial Services Commission (VFSC), and the British Virgin Islands Financial Services Commission."
+                        components={[<LocalizedLink key={0} to="/regulatory/" />]}
+                    />
+                }
             />
             <Col
                 Icon={ClientProtection}
@@ -91,16 +103,22 @@ export const IconGrid = () => (
             <Col
                 Icon={Risk}
                 title={localize('Risk awareness and management')}
-                content={localize(
-                    'Online trading is exciting but involves risks and can lead to an addiction. At Deriv, we look out for our customers’ best interests and encourage them to practise responsible trading. If you are new to this, you can also practise trading with unlimited virtual funds before you risk your money.',
-                )}
+                content={
+                    <Localize
+                        translate_text="Online trading is exciting but involves risks and can lead to an addiction. At Deriv, we look out for our customers’ best interests and encourage them to practise <0>responsible trading</0>. If you are new to this, you can also practise trading with unlimited virtual funds before you risk your money."
+                        components={[<LocalizedLink key={0} to="/responsible-trading/" />]}
+                    />
+                }
             />
             <Col
                 Icon={Help}
                 title={localize('Help when you need it')}
-                content={localize(
-                    'The Deriv support team is available 24/7 – even on weekends. You can raise issues easily by phone and a customer service ticketing system. We also have FAQs to answer your most common questions.',
-                )}
+                content={
+                    <Localize
+                        translate_text="The Deriv support team is available 24/7 – even on weekends. You can raise issues easily by phone and a customer service ticketing system. We also have <0>FAQs</0> to answer your most common questions."
+                        components={[<LocalizedLink key={0} to="/help-centre/" />]}
+                    />
+                }
             />
             <Col
                 Icon={Safety}
@@ -110,7 +128,7 @@ export const IconGrid = () => (
                 )}
             />
             <Col
-                Icon={Safety}
+                Icon={CustomerFirst}
                 title={localize('Customer-first trading experience')}
                 content={localize(
                     'Deriv makes it easy for anyone to start trading, understand risk, and make better trading decisions. Our tools and platforms have clear and simple instructions and are intuitively easy to navigate. We also regularly provide market news, analysis, webinars, ebooks, video tutorials and help centre articles to help you stay informed and become a better trader.',

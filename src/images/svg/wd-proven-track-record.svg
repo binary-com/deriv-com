@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145">
+<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145" aria-labelledby="proven-track">
+    <title id='proven-track'>Proven track record</title>
     <defs>
         <linearGradient id="a" x1="108.097%" x2="0%" y1="42.285%" y2="61.231%">
             <stop offset="0%" stop-color="#FF6444"/>

@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145">
+<svg xmlns="http://www.w3.org/2000/svg" width="231" height="145" viewBox="0 0 231 145" aria-labelledby="safety-priority">
+    <title id='safety-priority'>Your safety, our priority</title>
     <defs>
         <linearGradient id="a" x1="93.816%" x2="26.675%" y1="17.201%" y2="82.588%">
             <stop offset="0%" stop-color="#FF6444"/>

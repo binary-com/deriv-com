@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { IconGrid } from './_icon-grid'
 import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Divider, Header, Text, } from 'components/elements'
+import { Divider, Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Checked from 'images/svg/checklist.svg'
 import Warning from 'images/svg/regulatory-warnings.svg'
@@ -37,7 +37,13 @@ const ResponsibleTrading = () => {
                     <StyledHeader as="h1" align="center" padding="0 0 4rem">
                         {localize('Responsible trading')}
                     </StyledHeader>
-                    <StyledHeader as="h4" align="center" weight="500" maxwidth="105rem" padding="0 2rem 6rem">
+                    <StyledHeader
+                        as="h4"
+                        align="center"
+                        weight="500"
+                        maxwidth="105rem"
+                        padding="0 2rem 6rem"
+                    >
                         {localize(
                             'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
                         )}
@@ -61,7 +67,9 @@ const ResponsibleTrading = () => {
                                 {localize('Written limits and self-exclusion')}
                             </StyledHeader>
                             <StyledHeader as="h4" weight="500" lh="3.6rem" padding="1.8rem 0 0">
-                                {localize('With Deriv, you have the option to implement limits on your trading activities.')}
+                                {localize(
+                                    'With Deriv, you have the option to implement limits on your trading activities.',
+                                )}
                             </StyledHeader>
                         </CssGridColumn>
                         <CssGridColumn align="center">
@@ -115,9 +123,16 @@ const ResponsibleTrading = () => {
                     <Header font_size="3.6rem" align="center">
                         {localize('Other warnings and regulatory disclosures')}
                     </Header>
-                    <StyledHeader as="h5" align="center" weight="400" maxwidth="99rem" lh="2.4rem" padding="0.8rem 0 0">
+                    <StyledHeader
+                        as="h5"
+                        align="center"
+                        weight="400"
+                        maxwidth="99rem"
+                        lh="2.4rem"
+                        padding="0.8rem 0 0"
+                    >
                         {localize(
-                            'Online trading can incur losses as well as gains. Price will vary due to changes in the market and may impact your investment. Our products fall under the category of \'complex products\' and may not be suitable for retail clients.',
+                            "Online trading can incur losses as well as gains. Price will vary due to changes in the market and may impact your investment. Our products fall under the category of 'complex products' and may not be suitable for retail clients.",
                         )}
                     </StyledHeader>
                 </GridContainer>

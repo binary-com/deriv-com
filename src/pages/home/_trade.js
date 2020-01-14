@@ -47,7 +47,7 @@ export const Trade = () => {
                 <SubHeaderWrapper>
                     <Header weight="500" lh="1.5" as="h4" align="center">
                         {localize(
-                            'Whether you’re a beginner or a seasoned trader, we’ve got you covered.',
+                            'Choose from three powerful platforms -- designed with you in mind',
                         )}
                     </Header>
                 </SubHeaderWrapper>

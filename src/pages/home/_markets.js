@@ -19,7 +19,6 @@ const MarketCard = styled.article`
 
     svg {
         margin-right: 2rem;
-        margin-top: 1.5rem;
     }
     div {
         max-width: 38.4rem;
@@ -36,12 +35,12 @@ const MarketCard = styled.article`
     }
 `
 const Markets = () => (
-    <SectionContainer background="grey-10">
+    <SectionContainer style={{ backgroundColor: 'rgba(242, 243, 244, 0.3)' }}>
         <Container direction="column">
             <Header align="center" font_size="var(--text-size-header-1)" as="h2">
                 {localize('Markets')}
             </Header>
-            <MarketWrapper>
+            <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
                     <ForexIcon />
                     <div>

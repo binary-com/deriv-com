@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { IconGrid } from './_icon-grid'
-import { SEO, SectionContainer, GridContainer } from 'components/containers'
+import { SEO, SectionContainer, GridContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Divider, Header } from 'components/elements'
+import { Divider, Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
+import { LinkButton } from 'components/form'
 
 const Section = styled(SectionContainer)`
     background-color: ${props => props.bgcolor || 'transparent'};
@@ -14,11 +15,23 @@ const StyledHeader = styled(Header)`
     margin: 0 auto;
     padding: ${props => props.padding || '0'};
 `
+const Column = styled.article`
+    max-width: 340px;
+
+    ${Header} {
+        margin-bottom: 1rem;
+    }
+`
 
 const WhyChooseUs = () => {
     return (
         <Layout>
-            <SEO title={localize('Why choose Deriv')} description={localize('Why choose deriv')} />
+            <SEO
+                title={localize('Why Choose Us For Your Online Trading | Deriv.com')}
+                description={localize(
+                    'Deriv work with the aim of keeping our client’s belief on top that makes us the most reliable online trading platform. Find more reasons to trust us for online trading.',
+                )}
+            />
             <Section>
                 <GridContainer>
                     <StyledHeader as="h1" align="center" lh="7.2rem">
@@ -40,6 +53,49 @@ const WhyChooseUs = () => {
             <Divider />
             <Section>
                 <IconGrid />
+            </Section>
+            <Divider />
+            <Section>
+                <GridContainer>
+                    <Header as="h2" font_size="4rem" align="center">
+                        {localize('Try Deriv at no risk')}
+                    </Header>
+                    <Flex mt="4rem" jc="space-around">
+                        <Column>
+                            <Header as="h3" font_size="var(--text-size-sm)" align="center">
+                                {localize('Unlimited virtual funds')}
+                            </Header>
+                            <Text align="center">
+                                {localize(
+                                    'Practise trading with Deriv as long as you like. No risk, no hidden fees.',
+                                )}
+                            </Text>
+                        </Column>
+                        <Column>
+                            <Header as="h3" font_size="var(--text-size-sm)" align="center">
+                                {localize('All markets and platforms')}
+                            </Header>
+                            <Text align="center">
+                                {localize('Enjoy full access to all our markets and platforms.')}
+                            </Text>
+                        </Column>
+                        <Column>
+                            <Header as="h3" font_size="var(--text-size-sm)" align="center">
+                                {localize('No credit card needed')}
+                            </Header>
+                            <Text align="center">
+                                {localize(
+                                    'Sign up with just your email. No credit card or minimum deposit required.',
+                                )}
+                            </Text>
+                        </Column>
+                    </Flex>
+                    <Flex mt="3.2rem">
+                        <LinkButton to="/signup" secondary>
+                            {localize("Sounds great. Let's get started.")}
+                        </LinkButton>
+                    </Flex>
+                </GridContainer>
             </Section>
         </Layout>
     )

@@ -54,46 +54,46 @@ export const SecurityIconGrid = () => (
             mobile_row_gap="6rem"
             margin="1rem 0 0"
         >
-        <Col
-            Icon={Two}
-            content={localize('Enable two-factor authentication on your account.')}
-        />
-        <Col
-            Icon={DifferentPassword}
-            content={localize(
-                'Use different passwords for your email and Deriv account and set a strong password.',
-            )}
-        />
-        <Col
-            Icon={Browser}
-            content={localize(
-                'Always keep your web browser up-to-date. We recommend using the latest version of Google Chrome.',
-            )}
-        />
-        <Col
-            Icon={Configure}
-            content={localize(
-                'Configure your PC and mobile phone to use the Cloudflare DNS by following the instructions on our website.',
-            )}
-        />
-        <Col
-            Icon={DontShare}
-            content={localize(
-                "Don't share your Deriv account or payment methods with any other person.",
-            )}
-        />
-        <Col
-            Icon={Monitor}
-            content={localize(
-                'Monitor recent logins to your account using the login history facility.',
-            )}
-        />
-        <Col
-            Icon={Antivirus}
-            content={localize(
-                'Install antivirus software (such as Avast Free Antivirus for Windows and Mac) on your computer.',
-            )}
-        />
+            <Col
+                Icon={Two}
+                content={localize('Enable two-factor authentication on your account.')}
+            />
+            <Col
+                Icon={DifferentPassword}
+                content={localize(
+                    'Use different passwords for your email and Deriv account and set a strong password.',
+                )}
+            />
+            <Col
+                Icon={Browser}
+                content={localize(
+                    'Always keep your web browser up-to-date. We recommend using the latest version of Google Chrome.',
+                )}
+            />
+            <Col
+                Icon={Configure}
+                content={localize(
+                    'Configure your PC and mobile phone to use the Cloudflare DNS by following the instructions on our website.',
+                )}
+            />
+            <Col
+                Icon={DontShare}
+                content={localize(
+                    "Don't share your Deriv account or payment methods with any other person.",
+                )}
+            />
+            <Col
+                Icon={Monitor}
+                content={localize(
+                    'Monitor recent logins to your account using the login history facility.',
+                )}
+            />
+            <Col
+                Icon={Antivirus}
+                content={localize(
+                    'Install antivirus software (such as Avast Free Antivirus for Windows and Mac) on your computer.',
+                )}
+            />
         </CssGrid>
     </GridContainer>
 )

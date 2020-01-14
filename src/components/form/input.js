@@ -82,6 +82,7 @@ const StyledInput = styled.input`
 const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
+    min-height: 16px;
 `
 
 const StyledLabel = styled.label`
@@ -126,14 +127,10 @@ const Input = ({
                 {label}
             </StyledLabel>
         </InputWrapper>
-        {error && (
-            <>
-                <ErrorMessages lh="1.4" align="left" color="red-1">
-                    {error}
-                </ErrorMessages>
-                <StyledError onClick={handleError} />
-            </>
-        )}
+        <ErrorMessages lh="1.4" align="left" color="red-1">
+            {error}
+        </ErrorMessages>
+        {error && <StyledError onClick={handleError} />}
     </RelativeWrapper>
 )
 

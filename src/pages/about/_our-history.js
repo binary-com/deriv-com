@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot } from 'pure-react-carousel'
-import 'pure-react-carousel/dist/react-carousel.es.css'
-import { Wrapper, Container } from 'components/containers'
+import { Container, Wrapper } from 'components/containers'
 import { Header, Image, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import ChevronRight from 'images/svg/fill-chevron.svg'
 import Binary from 'images/svg/binary-blur.svg'
 import Deriv from 'images/svg/deriv-blur.svg'
+import ChevronRight from 'images/svg/fill-chevron.svg'
+import { ButtonBack, ButtonNext, CarouselProvider, Dot, Slide, Slider } from 'pure-react-carousel'
+import 'pure-react-carousel/dist/react-carousel.es.css'
+import React from 'react'
+import styled from 'styled-components'
 import device from 'themes/device'
 
 const SliderWrapper = styled.div`
@@ -22,7 +22,7 @@ const SliderWrapper = styled.div`
 
 const SubHeader = styled(Header)`
     margin-top: 1.6rem;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
 `
 
 const StyledContainer = styled(Container)`
@@ -48,11 +48,13 @@ const StyledSlide = styled.div`
     flex-direction: row;
     max-width: 79.2rem;
     align-items: center;
-    margin: 4rem auto;
+    margin: 0 auto;
     width: 100%;
 `
 
 const StyledSlideText = styled.div`
+    width: 100%;
+    max-width: 48.6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -178,14 +180,28 @@ const StyledDeriv = styled(Deriv)`
     }
 `
 
+const ImageWrapper = styled(Wrapper)`
+    display: flex;
+    flex-direction: row;
+    justify-content: ${props => props.justify};
+    width: 28.2rem;
+    height: 30rem;
+    margin-right: 3.2rem;
+
+    * {
+        margin: auto 0;
+    }
+`
+
 const history_data = [
     {
         year: '1990',
-        title: localize('An award-winning young entrepreneur'),
+        title: localize('Introducing an award-winning entrepreneur'),
         description: localize(
-            'It all started with the man behind Binary.com and Deriv: founder and CEO Jean-Yves Sireau. At 19, he created his own technical analysis software that won him the Jacques Douce Prize for young entrepreneurs by the French Prime Minister. Inspired by this, he decided to pursue his dream of starting his own company.',
+            'Jean-Yves Sireau creates a technical analysis software at just 19 years old. His creation wins him the Jacques Douce Prize for young entrepreneurs awarded by the French Prime Minister, inspiring him to start his own company. ',
         ),
         image: '1990.png',
+        width: '22.9rem',
     },
     {
         year: '1993',
@@ -220,15 +236,40 @@ const history_data = [
         image: '2001.png',
     },
     {
+        year: '2002',
+        title: localize('Ten million dollars'),
+        description: localize(
+            'The numbers validate Jean-Yves’ instincts to create a market for retail investors. The platform’s customers grow to over 3,500 users making over 150,000 trades in 2002. The total turnover increases tenfold from the previous year to reach over USD 10,000,000. ',
+        ),
+        image: '2002.png',
+        width: '22.5rem',
+        justify: 'center',
+    },
+    {
         year: '2004',
         title: localize('A new hub and a new licence'),
         description: (
             <Localize
-                translate_text="The company continues  to experience rapid growth. Regent Markets established a second office, a tech hub in Cyberjaya, the Silicon Valley of Malaysia.<0 /><0 />The company also obtains a licence in the Isle Of Man for its customers  in the United Kingdom in 2004. "
+                translate_text="The company continues to experience rapid growth. Regent Markets established a second office, a tech hub in Cyberjaya, the Silicon Valley of Malaysia.<0 /><0 />
+                The company also obtains a licence in the Isle Of Man for its customers in the United Kingdom in 2004.<0 /><0 />
+                The company also obtains a licence in the Isle Of Man for its customers  in the United Kingdom in 2004."
                 components={[<br key={0} />]}
             />
         ),
         image: '2004.png',
+    },
+    {
+        year: '2006',
+        title: localize('Reaching newer heights'),
+        description: (
+            <Localize
+                translate_text="The number of customers continues to grow, along with confidence in the platform. Fifteen thousand customers make over 2 million trades. The total turnover for the year exceeds USD 100 million.  "
+                components={[<br key={0} />]}
+            />
+        ),
+        image: '2006.png',
+        width: '19.3rem',
+        justify: 'center',
     },
     {
         year: '2007',
@@ -237,6 +278,7 @@ const history_data = [
             'BetOnMarkets.com earns  the ‘Best Fixed-Odds Financial Trading Provider’ award from Shares Magazine UK. The service  is recognised as a reliable and secure online trading platform for all levels of traders. Shortly after, the Financial Times and Investors Chronicle UK awards BetOnMarkets.com the title of ‘Best Fixed-Odds Financial Provider’.',
         ),
         image: '2007.png',
+        width: '21.4rem',
     },
     {
         year: '2008',
@@ -245,6 +287,8 @@ const history_data = [
             'BetOnMarkets.com handles  over 15 million trades and wins Shares Magazine UK’s ‘Best Fixed Odds Financial Trading Provider’ for the second time. The company also earns  the Investors Chronicle award for ‘Best Customer Communication Firm’, a recognition for the platform’s ethical and customer-focused trading experience.',
         ),
         image: '2008.png',
+        width: '22.3rem',
+        justify: 'center',
     },
     {
         year: '2009',
@@ -253,30 +297,27 @@ const history_data = [
             "BetOnMarkets.com bagged 'Best Fixed-Odds Financial Trading Provider' by Shares Magazine UK, and 'Financial Trading Operator of the Year' by eGaming Review.",
         ),
         image: '2009.png',
-    },
-    {
-        year: '2011',
-        title: localize('Patented technology'),
-        description: localize(
-            "Regent Markets obtained 2 US Patents: 'Computer trading system and method for speculating on a financial market' and 'Computer trading system for offering custom financial market speculations'.",
-        ),
-        image: '2011.png',
+        width: '20.7rem',
+        justify: 'center',
     },
     {
         year: '2012',
-        title: localize('Reliability rewarded'),
+        title: localize('One billion dollars'),
         description: localize(
-            "The reliability, product range, and customer services offered by BetOnMarkets.com led to the 'Best Fixed-Odds Firm 2012' award by Global Banking and Finance Review.",
+            'Regent Markets continues to innovate and strengthen BetOnMarkets.com. The hard work pays off with over 36,000 active clients on board and a cumulative turnover of USD 1 billion since its inception in 1999. ',
         ),
         image: '2012.png',
+        width: '18.4rem',
+        justify: 'center',
     },
     {
         year: '2013',
         title: localize('New brand, new offerings'),
         description: localize(
-            'By 2013, the online trading industry had grown exponentially. It’s time for a revamp: BetOnMarkets.com rebrands to Binary.com. The rebrand comes with enhanced  features, a new range of trade types, and a variety of charting applications. Binary.com is now the  most comprehensive digital options platform in the world.',
+            'The online trading industry has grown exponentially. Regent Markets decides to breathe new life by rebranding BetOnMarkets.com to Binary.com. The rebrand comes with enhanced features, a new range of trade types, and a variety of charting applications. Binary.com is now the most comprehensive digital options platform in the world.',
         ),
         image: '2013.png',
+        width: '20.8rem',
     },
     {
         year: '2014',
@@ -285,12 +326,14 @@ const history_data = [
             'With a workforce of just 50 people, Binary.com continued to lead in the online trading space. Its client base grew, and it saw 130,000 transactions per day. In only two years since hitting a billion-dollar cumulative turnover in 2012, Binary.com quickly doubled its cumulative turnover to USD 2 billion.   ',
         ),
         image: '2014.png',
+        width: '18.4rem',
+        justify: 'center',
     },
     {
         year: '2015',
-        title: localize('The world’s best'),
+        title: localize('Now available in the EU'),
         description: localize(
-            "Binary.com won the first prize for the Financial Trading Operator category at the prestigious 2015 EGR Operator Awards ceremony and was honoured as the world's ‘Best Binary Options Broker’ at the 16th annual MENA International Financial Conference and Exhibition.",
+            'The Malta Financial Services Authority grants Binary.com a Category 3 Investment Services licence. This licence makes it possible for us to extend our offering to clients in the European Union. ',
         ),
         image: '2015.png',
     },
@@ -299,38 +342,39 @@ const history_data = [
         title: localize('Continued innovation and growth'),
         description: (
             <Localize
-                translate_text="In 2016, Binary.com added Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders. In the same year, we introduced Binary Bot. This new invention delivered a drag-and-drop programming tool, which enabled traders to build trading bots without knowing how to code.<0 />The Binary.com team expanded to 100 people."
+                translate_text="In 2016, Binary.com adds Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders. In the same year, we introduce Binary Bot. This new invention delivers a drag-and-drop programming tool, which enables traders to build trading bots without knowing how to code. 
+                <0 /><0 />The Binary.com team expands to 100 people. "
                 components={[<br key={0} />]}
             />
         ),
         image: '2016.png',
-    },
-    {
-        year: '2017',
-        title: localize('The market leader'),
-        description: localize(
-            'In proving itself as a market leader, Binary.com was awarded Best Binary Options Broker by the Online Personal Wealth Awards.',
-        ),
-        image: '2017.png',
+        width: '24.6rem',
     },
     {
         year: '2018',
         title: localize('One billion per year'),
         description: (
             <Localize
-                translate_text="We saw our first billion-dollar turnover in 2012, after 13 years of operations. Then two years later, in 2014, we hit USD 2 billion in cumulative turnover.<0 />In 2018, Binary.com achieved a momentous milestone of USD 1 billion in turnover in a single year.<0 />Binary.com opens a third office in Labuan as part of its business expansion."
+                translate_text="We saw our first billion-dollar turnover in 2012, after 13 years of operations. Then two years later, in 2014, we hit USD 2 billion in cumulative turnover.<0 /><0 />In 2018, Binary.com achieved a momentous milestone of USD 1 billion in turnover in a single year.<0 /><0 />Binary.com opens a third office in Labuan as part of its business expansion."
                 components={[<br key={0} />]}
             />
         ),
         image: '2018.png',
+        width: '18.4rem',
+        justify: 'center',
     },
     {
         year: '2019',
         title: localize('A new era in online trading'),
-        description: localize(
-            'In 2019, we saw our active trader count go over 250,000. Inspired by our clients who are driven to succeed, we launched Deriv.com. Featuring customisable charts and tools, and a sleeker design, Deriv is created to be the world’s most customer-centric online trading company; a place where traders come to find and discover any derivative they want to trade.',
+        description: (
+            <Localize
+                translate_text="In 2019, we see our active trader count go over 250,000. We open offices in Dubai and Paraguay to support our growth.<0 /><0 />Inspired by our clients who are driven to succeed, we launch Deriv.com. Featuring customisable charts and tools, and a sleeker design, Deriv is created to be the world’s most customer-centric online trading company; a place where traders come to find and discover any derivative they want to trade."
+                components={[<br key={0} />]}
+            />
         ),
         image: '2019.png',
+        width: '21.2rem',
+        justify: 'center',
     },
 ]
 
@@ -354,11 +398,14 @@ const OurHistory = () => {
                             {history_data.map((history, index) => (
                                 <Slide key={index} index={index}>
                                     <StyledSlide>
-                                        <Wrapper width="90rem" margin={{ right: '2.4rem' }}>
-                                            <Image img_name={history.image} />
-                                        </Wrapper>
+                                        <ImageWrapper justify={history.justify || 'flex-end'}>
+                                            <Image
+                                                img_name={history.image}
+                                                width={history.width || '28.2rem'}
+                                            />
+                                        </ImageWrapper>
                                         <StyledSlideText>
-                                            <StyledHeader as="h3">{history.title}</StyledHeader>
+                                            <StyledHeader as="h4">{history.title}</StyledHeader>
                                             <Text>{history.description}</Text>
                                         </StyledSlideText>
                                     </StyledSlide>

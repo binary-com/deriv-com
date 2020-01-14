@@ -197,13 +197,6 @@ const SignupNew = ({
                                 rel="noopener noreferrer"
                                 key={0}
                             ></ExternalLink>,
-                            // <StyledLink
-                            //     size="var(--text-size-xs)"
-                            //     weight="bold"
-                            //     key={0}
-                            //     target="_blank"
-                            //     to="/terms-and-conditions/"
-                            // />,
                         ]}
                     />
                 </CheckboxSpan>

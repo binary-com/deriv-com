@@ -20,6 +20,9 @@ const ClientCard = styled.article`
     overflow: hidden;
     transition: transform 0.3s;
 
+    ${Header} {
+        padding-bottom: 1.6rem;
+    }
     @media (max-width: 1185px) {
         margin: 2rem;
         order: ${props => (props.order ? props.order : '')};

@@ -9,6 +9,7 @@ const SharedButtonStyle = css`
     font-size: 1.4rem;
     transition: all 0.25s;
     font-weight: bold;
+    height: fit-content;
     ${props => {
         if (props.primary)
             return css`
@@ -57,10 +58,7 @@ const SharedButtonStyle = css`
                 }
 
                 &:hover {
-                    background: ${props => {
-                        if (props.provider === 'google') return 'var(--color-grey-4)'
-                        if (props.provider === 'facebook') return 'var(--color-blue-2)'
-                    }};
+                    background: var(--color-grey-4);
                 }
             `
     }}

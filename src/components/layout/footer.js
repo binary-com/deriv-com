@@ -198,7 +198,7 @@ const Footer = () => (
                                 <Instagram />
                             </ExternalLink>
                             <ExternalLink
-                                href="https://twitter.com/Binarydotcom"
+                                href="https://twitter.com/derivdotcom"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

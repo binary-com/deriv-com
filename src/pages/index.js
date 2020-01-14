@@ -4,8 +4,8 @@ import queryString from 'query-string'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import WhyDerivMobile from './home/_why-deriv-mobile'
-import HowItWorks from './home/_how-it-works'
 import Markets from './home/_markets'
+import SimpleSteps from './home/_simple-steps'
 import WhatOurClientsSay from './home/_what-our-clients-say'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -38,9 +38,9 @@ const Home = () => {
             </Show.Mobile>
             <Show.Desktop>
                 <Trade />
-                <HowItWorks />
             </Show.Desktop>
             <Markets />
+            <SimpleSteps />
             <WhatOurClientsSay />
             {/* TODO: investigate performance and enable later */}
             {/* <Show.Desktop>

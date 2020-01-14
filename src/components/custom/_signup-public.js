@@ -122,7 +122,6 @@ const LinkFlex = styled(Flex)`
     }
 `
 
-// TODO add <form />
 const SignupPublic = ({
     email_error_msg,
     email,

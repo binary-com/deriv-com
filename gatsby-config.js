@@ -55,7 +55,6 @@ module.exports = {
             resolve: 'gatsby-plugin-react-svg',
             options: {
                 rule: {
-                    // exclude: /\.inline\.svg$/,
                     include: /svg/, // See below to configure properly
                 },
             },

@@ -61,7 +61,7 @@ const Col = ({ Icon, content, title }) => (
     </GridCol>
 )
 Col.propTypes = {
-    content: PropTypes.string,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     Icon: PropTypes.elementType,
     title: PropTypes.string,
 }
@@ -115,7 +115,7 @@ export const IconGrid = () => (
                 title={localize('Help when you need it')}
                 content={
                     <Localize
-                        translate_text="The Deriv support team is available 24/7 – even on weekends. You can raise issues easily by phone and a customer service ticketing system. We also have <0>FAQs</0> to answer your most common questions."
+                        translate_text="The Deriv support team is available 24/7 – even on weekends. You can raise issues easily by phone and a customer service ticketing system. We also have a <0>Help Centre</0> to answer your most common questions."
                         components={[<LocalizedLink key={0} to="/help-centre/" />]}
                     />
                 }

@@ -6,6 +6,7 @@ import Layout from 'components/layout/layout'
 import { Divider, Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import { LinkButton } from 'components/form'
+import device from 'themes/device'
 
 const Section = styled(SectionContainer)`
     background-color: ${props => props.bgcolor || 'transparent'};
@@ -20,6 +21,21 @@ const Column = styled.article`
 
     ${Header} {
         margin-bottom: 1rem;
+    }
+
+    @media (max-width: 1275px) {
+        max-width: 200px;
+    }
+`
+
+const ColumnContainer = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column;
+        align-items: center;
+
+        article:nth-child(2) {
+            margin: 2rem 0;
+        }
     }
 `
 
@@ -60,7 +76,7 @@ const WhyChooseUs = () => {
                     <Header as="h2" font_size="4rem" align="center">
                         {localize('Try Deriv at no risk')}
                     </Header>
-                    <Flex mt="4rem" jc="space-around">
+                    <ColumnContainer mt="4rem" jc="space-around">
                         <Column>
                             <Header as="h3" font_size="var(--text-size-sm)" align="center">
                                 {localize('Unlimited virtual funds')}
@@ -89,7 +105,7 @@ const WhyChooseUs = () => {
                                 )}
                             </Text>
                         </Column>
-                    </Flex>
+                    </ColumnContainer>
                     <Flex mt="3.2rem">
                         <LinkButton to="/signup" secondary>
                             {localize("Sounds great. Let's get started.")}

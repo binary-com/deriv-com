@@ -49,6 +49,14 @@ const StyledHeader = styled(Header)`
 `
 const Container = styled.div`
     padding: 0 2rem;
+
+    ${Text} {
+        width: 28.1rem;
+
+        @media ${device.tablet} {
+            width: 100%;
+        }
+    }
 `
 
 const Col = ({ Icon, content, title }) => (
@@ -65,17 +73,29 @@ Col.propTypes = {
     Icon: PropTypes.elementType,
     title: PropTypes.string,
 }
+const GridWrapper = styled(CssGrid)`
+    @media (max-width: 1400px) {
+        grid-column-gap: 5rem;
+        grid-row-gap: 5rem;
+    }
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media ${device.tablet} {
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 10rem;
+
+        ${GridCol} {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+`
 
 export const IconGrid = () => (
     <GridContainer>
-        <CssGrid
-            columns="repeat(3, 1fr)"
-            column_gap="13rem"
-            row_gap="10rem"
-            tablet_columns="repeat(2, 1fr)"
-            mobile_columns="1fr"
-            mobile_row_gap="10rem"
-        >
+        <GridWrapper columns="repeat(3, 1fr)" column_gap="13rem" row_gap="10rem">
             <Col
                 Icon={ProvenTrackRecord}
                 title={localize('Proven track record')}
@@ -134,6 +154,6 @@ export const IconGrid = () => (
                     'Deriv makes it easy for anyone to start trading, understand risk, and make better trading decisions. Our tools and platforms have clear and simple instructions and are intuitively easy to navigate. We also regularly provide market news, analysis, webinars, ebooks, video tutorials and help centre articles to help you stay informed and become a better trader.',
                 )}
             />
-        </CssGrid>
+        </GridWrapper>
     </GridContainer>
 )

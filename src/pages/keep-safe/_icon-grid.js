@@ -6,12 +6,12 @@ import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import Two from 'images/svg/two-factor-authentication.svg'
+// import Two from 'images/svg/two-factor-authentication.svg'
 import DifferentPassword from 'images/svg/use-different-password.svg'
 import Browser from 'images/svg/keep-browser-up-to-date.svg'
-import Configure from 'images/svg/cloudfare-dns.svg'
+// import Configure from 'images/svg/cloudfare-dns.svg'
 import DontShare from 'images/svg/don-t-share-payment-methods.svg'
-import Monitor from 'images/svg/recent-logins.svg'
+// import Monitor from 'images/svg/recent-logins.svg'
 import Antivirus from 'images/svg/install-latest-antivirus.svg'
 
 const GridCol = styled(CssGridColumn)`
@@ -54,10 +54,11 @@ export const SecurityIconGrid = () => (
             mobile_row_gap="6rem"
             margin="1rem 0 0"
         >
-            <Col
-                Icon={Two}
-                content={localize('Enable two-factor authentication on your account.')}
-            />
+            {/* TODO: uncomment when 2FA is available in deriv */}
+            {/* <Col
+            Icon={Two}
+            content={localize('Enable two-factor authentication on your account.')}
+        /> */}
             <Col
                 Icon={DifferentPassword}
                 content={localize(
@@ -70,24 +71,26 @@ export const SecurityIconGrid = () => (
                     'Always keep your web browser up-to-date. We recommend using the latest version of Google Chrome.',
                 )}
             />
-            <Col
-                Icon={Configure}
-                content={localize(
-                    'Configure your PC and mobile phone to use the Cloudflare DNS by following the instructions on our website.',
-                )}
-            />
+            {/* TODO: uncomment when cloudfare configure is available in deriv */}
+            {/* <Col
+            Icon={Configure}
+            content={localize(
+                'Configure your PC and mobile phone to use the Cloudflare DNS by following the instructions on our website.',
+            )}
+        /> */}
             <Col
                 Icon={DontShare}
                 content={localize(
                     "Don't share your Deriv account or payment methods with any other person.",
                 )}
             />
-            <Col
-                Icon={Monitor}
-                content={localize(
-                    'Monitor recent logins to your account using the login history facility.',
-                )}
-            />
+            {/* TODO: uncomment when login history is available in deriv */}
+            {/* <Col
+            Icon={Monitor}
+            content={localize(
+                'Monitor recent logins to your account using the login history facility.',
+            )}
+        /> */}
             <Col
                 Icon={Antivirus}
                 content={localize(

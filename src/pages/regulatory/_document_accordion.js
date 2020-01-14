@@ -40,7 +40,7 @@ const EdgeFlex = styled(Flex)`
 `
 
 const RTS28 = ({ urls }) => (
-    <EdgeFlex mt="1.8rem" spacing="8rem" jc="space-evenly">
+    <EdgeFlex mt="1.8rem" spacing="8rem" jc="space-evenly" wrap="wrap">
         <IconContainer
             width="unset"
             as="a"
@@ -80,7 +80,7 @@ const QuarterTable = ({ quarters }) => (
         {quarters.map((quarter, idx) => (
             <div key={idx} style={{ paddingBottom: idx === quarters.length - 1 ? '' : '1.6rem' }}>
                 <QuarterHeader align="center">{quarter.name}</QuarterHeader>
-                <Flex jc="flex-start">
+                <Flex jc="flex-start" wrap="wrap">
                     <IconContainer
                         width="unset"
                         minWidth="49%"

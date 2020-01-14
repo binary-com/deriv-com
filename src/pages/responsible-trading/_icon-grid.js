@@ -33,9 +33,7 @@ const GridCol = styled(CssGridColumn)`
 const Col = ({ Icon, content }) => (
     <GridCol>
         <Icon />
-        <Text lh="1.55">
-            {content}
-        </Text>
+        <Text lh="1.55">{content}</Text>
     </GridCol>
 )
 Col.propTypes = {
@@ -54,39 +52,17 @@ export const IconGrid = () => (
             mobile_row_gap="6rem"
             margin="1rem 0 0"
         >
-            <Col
-                Icon={Demo}
-                content={localize('Hone your skills with a free demo account.')}
-            />
-            <Col
-                Icon={Trade}
-                content={localize(
-                    'Only trade with money you can afford to lose.',
-                )}
-            />
-            <Col
-                Icon={Borrowed}
-                content={localize(
-                    'Do not trade with borrowed money.',
-                )}
-            />
-            <Col
-                Icon={Limit}
-                content={localize(
-                    'Set a limit for your losses and stick to it.',
-                )}
-            />
+            <Col Icon={Demo} content={localize('Hone your skills with a free demo account.')} />
+            <Col Icon={Trade} content={localize('Only trade with money you can afford to lose.')} />
+            <Col Icon={Borrowed} content={localize('Do not trade with borrowed money.')} />
+            <Col Icon={Limit} content={localize('Set a limit for your losses and stick to it.')} />
             <Col
                 Icon={Judgement}
-                content={localize(
-                    "Avoid trading when you’re prone to bad judgement.",
-                )}
+                content={localize('Avoid trading when you’re prone to bad judgement.')}
             />
             <Col
                 Icon={Winnings}
-                content={localize(
-                    'Put aside a portion of your winnings to avoid losing it all.',
-                )}
+                content={localize('Put aside a portion of your winnings to avoid losing it all.')}
             />
         </CssGrid>
     </GridContainer>

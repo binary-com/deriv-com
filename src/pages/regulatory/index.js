@@ -177,7 +177,7 @@ const Regulatory = () => (
                             </Text>
                             <Text lh="1.55" margin="2rem 0 0">
                                 {localize(
-                                    'Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Binary (BVI) Ltd. Binary.com is not available in the British Virgin Islands.',
+                                    'Binary.com is not available in the British Virgin Islands.',
                                 )}
                             </Text>
                         </CssGridColumn>

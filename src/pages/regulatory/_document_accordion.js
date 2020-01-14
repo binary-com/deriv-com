@@ -78,10 +78,7 @@ const QuarterHeader = styled(Text)`
 const QuarterTable = ({ quarters }) => (
     <div style={{ padding: '0.8rem' }}>
         {quarters.map((quarter, idx) => (
-            <div
-                key={quarter}
-                style={{ paddingBottom: idx === quarters.length - 1 ? '' : '1.6rem' }}
-            >
+            <div key={idx} style={{ paddingBottom: idx === quarters.length - 1 ? '' : '1.6rem' }}>
                 <QuarterHeader align="center">{quarter.name}</QuarterHeader>
                 <Flex jc="flex-start">
                     <IconContainer

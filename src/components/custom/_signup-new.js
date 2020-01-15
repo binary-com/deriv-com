@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { getLanguage } from '../../common/utility'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text, Checkbox } from 'components/elements'
@@ -146,6 +147,8 @@ const SignupNew = ({
     const handleChange = event => {
         setCheckBoxState(event.currentTarget.checked)
     }
+    const url =
+        getLanguage() === 'en' ? '/terms-and-conditions/' : `/${getLanguage()}/terms-and-conditions/`
     return (
         <SignupContent>
             <Header as="h4" weight="bold">
@@ -192,7 +195,7 @@ const SignupNew = ({
                         translate_text="I agree to the <0>Terms and Conditions</0>"
                         components={[
                             <ExternalLink
-                                href="/terms-and-conditions/"
+                                href={url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 key={0}

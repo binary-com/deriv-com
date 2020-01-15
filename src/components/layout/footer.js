@@ -336,7 +336,7 @@ const Footer = () => (
             <StyledContainer justify="flex-start">
                 <StyledText>
                     <Copyright width="1.6rem" />
-                    {localize('2019 Deriv | All right reserved')}
+                    {new Date().getUTCFullYear()} {localize('Deriv | All rights reserved')}
                 </StyledText>
             </StyledContainer>
         </BlackNav>

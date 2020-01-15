@@ -148,7 +148,9 @@ const SignupNew = ({
         setCheckBoxState(event.currentTarget.checked)
     }
     const url =
-        getLanguage() === 'en' ? '/terms-and-conditions/' : `/${getLanguage()}/terms-and-conditions/`
+        getLanguage() === 'en' || getLanguage() == null
+            ? '/terms-and-conditions/'
+            : `/${getLanguage()}/terms-and-conditions/`
     return (
         <SignupContent>
             <Header as="h4" weight="bold">

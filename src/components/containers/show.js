@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import { useMediaQuery } from 'react-responsive'
 import { size } from 'themes/device'
 import { isEuCountry } from 'common/country-base'
 
@@ -34,15 +34,28 @@ export const Eu = props => <Location {...props} to="eu" />
 
 export const NonEu = props => <Location {...props} to="non-eu" />
 
-export const Mobile = ({ children }) => {
-    const isMobile = useMediaQuery({ maxWidth: size.tabletL })
-    return isMobile ? children : null
-}
+const MaxWidth = styled.div`
+    @media (max-width: ${props => props.max_width}px) {
+        display: none !important;
+    }
+`
 
-export const Desktop = ({ children }) => {
-    const isDesktop = useMediaQuery({ minWidth: size.tabletL })
-    return isDesktop ? children : null
-}
+const MinWidth = styled.div`
+    @media (min-width: ${props => props.min_width}px) {
+        display: none !important;
+    }
+`
+
+export const Desktop = ({ children, ...props }) => (
+    <MaxWidth max_width={size.tabletL} {...props}>
+        {children}
+    </MaxWidth>
+)
+export const Mobile = ({ children, ...props }) => (
+    <MinWidth min_width={size.tabletL} {...props}>
+        {children}
+    </MinWidth>
+)
 
 export default {
     Eu,
@@ -54,4 +67,12 @@ export default {
 Location.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     to: PropTypes.oneOf(['eu', 'non-eu']),
+}
+
+Desktop.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+}
+
+Mobile.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }

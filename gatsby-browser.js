@@ -35,6 +35,7 @@ export const onInitialClientRender = () => {
     }
 
     // Configure traffic source
+    TrafficSource.initUtmCookie()
     TrafficSource.setData()
     TrafficSource.setAffiliateData()
 

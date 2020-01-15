@@ -8,7 +8,7 @@ import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
 import { Contact } from './_contact-us'
 // TODO: active this line after having mail service
-// import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
+import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -255,7 +255,7 @@ class HelpCentre extends Component {
                                         max_length={3}
                                     />
                                 )}
-                                {!has_results && <SearchError search={search} />}
+                                {!has_results && search.length && <SearchError search={search} />}
                             </ResultWrapper>
                         </StyledContainer>
                     </Backdrop>
@@ -271,7 +271,7 @@ class HelpCentre extends Component {
                 />
                 <Contact></Contact>
                 {/*TODO: active this line after having mail service*/}
-                {/* {<DidntFindYourAnswerBanner /> } */}
+                {<DidntFindYourAnswerBanner />}
             </Layout>
         )
     }

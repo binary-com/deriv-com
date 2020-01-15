@@ -8,6 +8,7 @@ const Variables = css`
         --color-black-3: #333333;
         --color-black-4: #182039;
         --color-black-5: #6e6e6e;
+        --color-black-6: #000000;
         --color-white: #ffffff;
         --color-red: #ff444f;
         --color-red-1: #dd573a;
@@ -21,12 +22,27 @@ const Variables = css`
         --color-grey-5: #999999;
         --color-grey-6: #e6e9e9;
         --color-grey-7: #d6dadb;
+<<<<<<< HEAD
         --color-grey-8: #d6d6d6;
         --color-grey-9: #f2f3f4;
+=======
+        --color-grey-8: #f2f3f4;
+        --color-grey-9: c8d6d738;
+        --color-grey-10: #c8d6d738;
+        --color-grey-11: #efefef;
+        --color-grey-12: #585252;
+        --color-grey-13: #656868;
+        --color-grey-14: #c8d6d7;
+        --color-grey-15: #d8d8d8;
+        --color-grey-16: #777777;
+        --color-grey-17: #d6d6d6;
+>>>>>>> dev
         --color-green: #85acb0;
         --color-blue: #4c76be;
         --color-blue-2: #365899;
         --color-yellow: #fff2df;
+        --color-orange: #ff6544;
+        --color-green-1: #bccdce;
 
         /* sizes */
         --text-size-xxs: 1.2rem;
@@ -37,6 +53,9 @@ const Variables = css`
         --text-size-l: 3.2rem;
         --text-size-xl: 4.8rem;
         --text-size-xxl: 6.4rem;
+
+        /* TODO: match with other text-size and update <Header /> */
+        --text-size-header-1: 3.6rem;
     }
 `
 

@@ -1,25 +1,25 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import PropTypes from 'prop-types'
-import { FlexGridContainer } from 'components/containers'
-import { Header, Text, Image, StyledLink } from 'components/elements'
-import { localize, Localize } from 'components/localization'
-import Wrapper from 'components/containers/wrapper'
-import { Button, Input } from 'components/form'
-import validation from 'common/validation'
-import TrafficSource from 'common/traffic-source'
-import { LocalStore } from 'common/storage'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
+import { LocalStore } from 'common/storage'
+import TrafficSource from 'common/traffic-source'
+import validation from 'common/validation'
+import { BinarySocketBase } from 'common/websocket/socket_base'
+import Wrapper from 'components/containers/wrapper'
+import SignupDefault from 'components/custom/_signup-default'
+import SignupFlat from 'components/custom/_signup-flat'
+import SignupNew from 'components/custom/_signup-new'
+import SignupPublic from 'components/custom/_signup-public'
+import SignupSimple from 'components/custom/_signup-simple'
+import { Header, Image, StyledLink, Text } from 'components/elements'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
-// Icons
-import Facebook from 'images/svg/facebook.svg'
-import Google from 'images/svg/google.svg'
 
 const Form = styled.form`
-    width: 80%;
-    margin: 0 auto;
+    height: 100%;
+    background-color: ${props => props.bgColor || 'var(--color-white)'};
 `
 const ResponseWrapper = styled.div`
     justify-content: center;
@@ -28,30 +28,10 @@ const ResponseWrapper = styled.div`
     flex-direction: column;
     padding: 2rem 1rem;
 `
-const InputGroup = styled.div`
-    position: relative;
-    width: 100%;
-    margin: var(--text-size-m) 0;
-`
-const EmailButton = styled(Button)`
-    width: auto;
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-`
-
-const SocialButton = styled(Button)`
-    box-shadow: none;
-    flex: inherit !important;
-    width: 48%;
-`
 const MutedText = styled(Text)`
     text-align: left;
     color: var(--color-grey);
     align-self: start;
-`
-const SocialWrapper = styled(FlexGridContainer)`
-    width: 100%;
-    margin-top: var(--text-size-s);
 `
 export const LoginText = styled(MutedText)`
     text-align: center;
@@ -61,16 +41,6 @@ export const LoginText = styled(MutedText)`
     @media ${device.tabletL} {
         margin-bottom: 0;
     }
-`
-
-const NoteText = styled(LoginText)`
-    margin-top: 3rem;
-`
-
-const LoginLink = styled.a`
-    color: var(--color-red);
-    text-decoration: none;
-    cursor: pointer;
 `
 const EmailImgWrapper = styled(Wrapper)`
     display: flex;
@@ -82,6 +52,7 @@ const EmailLink = styled(StyledLink)`
     margin-top: 1.8rem;
     text-decoration: underline;
     width: 100%;
+    text-align: center;
 `
 
 const validateEmail = email => {
@@ -90,6 +61,14 @@ const validateEmail = email => {
     return error_message
 }
 
+export const Appearances = {
+    default: 'default',
+    simple: 'simple',
+    darkFlat: 'darkFlat',
+    lightFlat: 'lightFlat',
+    public: 'public',
+    newSignup: 'newSignup',
+}
 class Signup extends Component {
     state = {
         email: '',
@@ -98,7 +77,6 @@ class Signup extends Component {
         submit_status: '',
         submit_error_msg: '',
     }
-
     handleValidation = param => {
         const message = typeof param === 'object' ? param.target.value : param
 
@@ -113,8 +91,6 @@ class Signup extends Component {
         this.setState({
             [name]: value,
         })
-
-        this.handleValidation(value)
     }
 
     getVerifyEmailRequest = email => {
@@ -149,7 +125,6 @@ class Signup extends Component {
         const { email, email_error_msg } = this.state
 
         this.handleValidation(email)
-
         const has_error_email = validateEmail(email)
 
         if (has_error_email || email_error_msg) {
@@ -170,6 +145,7 @@ class Signup extends Component {
                 is_submitting: false,
                 submit_status: 'success',
             })
+            if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
         })
     }
 
@@ -177,7 +153,7 @@ class Signup extends Component {
 
     handleSocialSignup = e => {
         e.preventDefault()
-        Login.initOneAll(e.target.id)
+        Login.initOneAll(e.currentTarget.id)
     }
 
     handleLogin = e => {
@@ -191,74 +167,44 @@ class Signup extends Component {
         if (closeModal) closeModal()
     }
 
+    renderSwitch(param) {
+        const parameters = {
+            autofocus: this.props.autofocus,
+            clearEmail: this.clearEmail,
+            email: this.state.email,
+            email_error_msg: this.state.email_error_msg,
+            handleInputChange: this.handleInputChange,
+            handleLogin: this.handleLogin,
+            handleSocialSignup: this.handleSocialSignup,
+            handleValidation: this.handleValidation,
+            is_submitting: this.state.is_submitting,
+        }
+        switch (param) {
+            case Appearances.simple:
+                return <SignupSimple {...parameters}></SignupSimple>
+            case Appearances.newSignup:
+                return <SignupNew {...parameters}></SignupNew>
+            case Appearances.public:
+                return <SignupPublic {...parameters}></SignupPublic>
+            case Appearances.lightFlat:
+            case Appearances.darkFlat:
+                return param == Appearances.darkFlat ? (
+                    <SignupFlat dark {...parameters}></SignupFlat>
+                ) : (
+                    <SignupFlat {...parameters}></SignupFlat>
+                )
+            case Appearances.default:
+            default:
+                return <SignupDefault {...parameters}></SignupDefault>
+        }
+    }
+
     render() {
         return (
             <>
                 {!this.state.submit_status && (
-                    <Form onSubmit={this.handleEmailSignup} noValidate>
-                        <Header as="h3" weight="bold">
-                            {localize('Sign up for free now!')}
-                        </Header>
-                        <InputGroup>
-                            <Input
-                                id="email"
-                                name="email"
-                                type="text"
-                                error={this.state.email_error_msg}
-                                value={this.state.email}
-                                label={localize('Email')}
-                                placeholder={'example@mail.com'}
-                                handleError={this.clearEmail}
-                                onChange={this.handleInputChange}
-                                onBlur={this.handleValidation}
-                                autoFocus={this.props.autofocus}
-                                autoComplete="off"
-                                required
-                            />
-                        </InputGroup>
-                        <EmailButton type="submit" secondary disabled={this.state.is_submitting}>
-                            {localize('Create a free account')}
-                        </EmailButton>
-                        <Text color="grey" align="center">
-                            {localize('Or sign up with')}
-                        </Text>
-                        <SocialWrapper justify="space-between" gap="0" grid="2">
-                            <SocialButton
-                                onClick={this.handleSocialSignup}
-                                provider="google"
-                                id="google"
-                                type="button"
-                                social
-                            >
-                                <span>
-                                    <Google />
-                                </span>
-                            </SocialButton>
-                            <SocialButton
-                                onClick={this.handleSocialSignup}
-                                provider="facebook"
-                                id="facebook"
-                                type="button"
-                                social
-                            >
-                                <span>
-                                    <Facebook />
-                                </span>
-                            </SocialButton>
-                        </SocialWrapper>
-                        <LoginText>
-                            {localize('Already have an account?')}
-                            <LoginLink onClick={this.handleLogin}> {localize('Log in.')}</LoginLink>
-                        </LoginText>
-                        <NoteText>
-                            <Localize
-                                translate_text="Got a <0>Binary.com</0> account? You can <1>log in</1> to <0>Deriv</0> with your <0>Binary.com</0> username and password"
-                                components={[
-                                    <strong key={0} />,
-                                    <LoginLink key={1} onClick={this.handleLogin} />,
-                                ]}
-                            />
-                        </NoteText>
+                    <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
+                        {this.renderSwitch(this.props.appearance)}
                     </Form>
                 )}
                 {this.state.submit_status === 'success' && (
@@ -275,7 +221,11 @@ class Signup extends Component {
                                 values={{ email: this.state.email }}
                             />
                         </Text>
-                        <EmailLink to="/check-email/" onClick={this.handleModalClose}>
+                        <EmailLink
+                            to="/check-email/"
+                            align="center"
+                            onClick={this.handleModalClose}
+                        >
                             {localize("Didn't receive your email?")}
                         </EmailLink>
                     </ResponseWrapper>
@@ -291,8 +241,11 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
+    appearance: PropTypes.oneOf(Object.keys(Appearances)),
     autofocus: PropTypes.bool,
+    bgColor: PropTypes.string,
     closeModal: PropTypes.func,
+    onSubmit: PropTypes.func,
 }
 
 export default Signup

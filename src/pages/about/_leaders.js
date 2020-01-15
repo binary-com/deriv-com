@@ -14,14 +14,6 @@ const leaders_data = [
         image: 'rakshit-choudhary.png',
     },
     {
-        name: 'Anton Andreev',
-        position: localize('Head of Project Management'),
-        description: localize(
-            'Anton is responsible for overseeing the end-to-end development of our products. He has more than 17 years of experience in the online trading and retail banking industry with several international brokers. Anton holds a master’s degree in economics and another in applied informatics.',
-        ),
-        image: 'anton-andreev.png',
-    },
-    {
         name: 'Tom Molesworth',
         position: (
             <Localize
@@ -33,6 +25,14 @@ const leaders_data = [
             'Tom is responsible for our technology strategy and is actively involved in engineering leadership. With over 20 years of experience in software development, he has made extensive contributions to the design and maintenance of large-scale platforms in the IT industry.',
         ),
         image: 'tom-molesworth.png',
+    },
+    {
+        name: 'Anton Andreev',
+        position: localize('Head of Project Management'),
+        description: localize(
+            'Anton is responsible for overseeing the end-to-end development of our products. He has more than 17 years of experience in the online trading and retail banking industry with several international brokers. Anton holds a master’s degree in economics and another in applied informatics.',
+        ),
+        image: 'anton-andreev.png',
     },
     {
         name: 'Shyamala Siva',

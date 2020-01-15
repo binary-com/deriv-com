@@ -98,6 +98,7 @@ const StyledDot = styled.li`
     margin: 0 3rem;
     position: relative;
 
+    /* overriding the library styling */
     & .carousel__dot {
         height: 10px;
         width: 3px;
@@ -215,7 +216,7 @@ const history_data = [
         year: '1999',
         title: localize('Regents Markets is born'),
         description: localize(
-            'Jean-Yves collaborates with notable financial mathematicians to develop the algorithms for the world’s first fixed-odds trading system. The system allows  ordinary investors to make small trades. Jean-Yves creates the Regent Markets Group and raises  USD 2 million capital investment.',
+            'Jean-Yves collaborates with financial mathematicians to develop the algorithms for the world’s first fixed-odds trading system. The system allows ordinary investors to make small trades. Jean-Yves creates the Regent Markets Group and raises USD 2 million capital investment.',
         ),
         image: '1999.png',
     },
@@ -288,16 +289,6 @@ const history_data = [
         ),
         image: '2008.png',
         width: '22.3rem',
-        justify: 'center',
-    },
-    {
-        year: '2009',
-        title: localize('More awards!'),
-        description: localize(
-            "BetOnMarkets.com bagged 'Best Fixed-Odds Financial Trading Provider' by Shares Magazine UK, and 'Financial Trading Operator of the Year' by eGaming Review.",
-        ),
-        image: '2009.png',
-        width: '20.7rem',
         justify: 'center',
     },
     {

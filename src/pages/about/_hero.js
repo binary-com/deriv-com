@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { localize, Localize } from 'components/localization'
-import { Container, Wrapper } from 'components/containers'
+import { Container, Wrapper, Flex } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import device from 'themes/device'
 
@@ -27,21 +27,12 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const NavigationWrapper = styled.div`
+const NavigationWrapper = styled(Flex)`
     margin-top: 1.6rem;
-    display: flex;
-    flex-direction: row;
 `
 
-const Navigation = styled.div`
-    margin: 0 2.4rem;
+const Navigation = styled(Flex)`
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-
-    &:hover {
-        color: green;
-    }
 `
 
 const Separator = styled.span`
@@ -79,11 +70,8 @@ const ContentWrapper = styled.div`
     max-width: 79.2rem;
 `
 
-const LeadershipWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
+const LeadershipWrapper = styled(Flex)`
     margin-top: 4rem;
-    align-items: center;
 
     > * {
         flex: 1;
@@ -122,8 +110,13 @@ const Hero = ({ navigation, setNavigation }) => {
                 <Header as="h1" color="white" align="center">
                     {localize('About us')}
                 </Header>
-                <NavigationWrapper>
-                    <Navigation onClick={() => setNavigation('story')}>
+                <NavigationWrapper fd="row">
+                    <Navigation
+                        width="auto"
+                        fd="column"
+                        m="0 2.4rem"
+                        onClick={() => setNavigation('story')}
+                    >
                         <StyledHeader
                             as="h2"
                             font_size="var(--text-size-m)"
@@ -135,7 +128,12 @@ const Hero = ({ navigation, setNavigation }) => {
                         <TrailNavigation active={is_story} />
                     </Navigation>
                     <Separator />
-                    <Navigation onClick={() => setNavigation('leadership')}>
+                    <Navigation
+                        width="auto"
+                        fd="column"
+                        m="0 2.4rem"
+                        onClick={() => setNavigation('leadership')}
+                    >
                         <StyledHeader
                             as="h2"
                             font_size="var(--text-size-m)"
@@ -158,7 +156,7 @@ const Hero = ({ navigation, setNavigation }) => {
                 )}
                 {is_leadership && (
                     <ContentWrapper>
-                        <LeadershipWrapper>
+                        <LeadershipWrapper ai="center">
                             <Wrapper max_width="28.2rem" margin={{ right: '2.4rem' }}>
                                 <Image img_name="jean-yves.png" alt={localize('Jean Yves')} />
                             </Wrapper>

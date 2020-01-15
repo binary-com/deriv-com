@@ -18,11 +18,11 @@ const Wrapper = styled.section`
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding: 8rem 12.8rem;
+    justify-content: flex-start;
+    padding: 8rem 12rem;
 
     @media ${device.tabletL} {
-        flex-direction: column;
+        flex-wrap: wrap;
     }
 `
 
@@ -62,6 +62,10 @@ const ArticleContainer = styled(LeftRightContainer)`
 `
 
 const ListWrapper = styled.div`
+    margin-right: 2.4rem;
+    max-width: 38.4rem;
+    width: 38.4rem;
+
     ${Header} {
         margin-bottom: 1.6rem;
     }
@@ -165,7 +169,7 @@ const ArticleList = ({ articles, onClick }) => (
     <>
         {articles.map((category, idx) => (
             <ListWrapper key={idx}>
-                <Header as="h3">{localize(category.category)}</Header>
+                <Header font_size="3.6rem">{localize(category.category)}</Header>
                 <ListWithLinks
                     link_style={{ size: '2rem' }}
                     list={category.articles}

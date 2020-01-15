@@ -37,7 +37,7 @@ const ListNoBullets = styled.ul`
     list-style: none;
 
     li {
-        max-width: 32rem;
+        max-width: 38.4rem;
     }
     > *:not(:last-child) {
         padding-bottom: 1.6rem;
@@ -46,7 +46,7 @@ const ListNoBullets = styled.ul`
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: black;
-    font-size: var(--text-size-sm);
+    font-size: var(--text-size-s);
 `
 
 export const ListWithLinks = ({ list, onClick, link_style, categoryLink }) => {

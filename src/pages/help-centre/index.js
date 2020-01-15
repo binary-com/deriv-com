@@ -9,7 +9,7 @@ import { SearchSuccess, SearchError } from './_search-results'
 import { Contact } from './_contact-us'
 // TODO: active this line after having mail service
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
-import { SEO, Container } from 'components/containers'
+import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -26,11 +26,11 @@ const getAllArticles = articles =>
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
 const Backdrop = styled.div`
-    padding: 8rem;
+    padding: 8rem 12rem;
     background-color: var(--color-white);
     border-bottom: 1px solid var(--color-grey-8);
 `
-const StyledContainer = styled(Container)`
+const StyledContainer = styled.div`
     @media ${device.tabletL} {
         padding: 10rem 0 2rem 0;
     }
@@ -59,14 +59,16 @@ const SearchCrossIcon = styled(CrossIcon)`
 const SearchForm = styled.form`
     position: relative;
     padding-left: 6.4rem;
-    border: 1px solid var(--color-grey-8);
-    border-radius: 6px;
+    border: 1px solid var(--color-grey-17);
+    border-radius: 4px;
+    width: 99.6rem;
+    height: 6.4rem;
+    max-width: 99.6rem;
 
-    @media ${device.tabletL} {
-        padding-left: 5.3rem;
+    @media ${device.Laptop} {
+        width: 100%;
 
         svg {
-            top: 0;
             width: 2.5rem;
             height: 3.55rem;
         }
@@ -76,8 +78,8 @@ const SearchIconBig = styled(SearchIcon)`
     width: 2.3rem;
     height: 2.3rem;
     position: absolute;
-    left: 3rem;
-    top: 2.4rem;
+    left: 2.4rem;
+    top: 1.3rem;
 `
 const Search = styled.input`
     width: 95%;
@@ -87,20 +89,10 @@ const Search = styled.input`
     background-color: var(--color-white);
     border: none;
     outline: none;
-    height: 7.2rem;
+    height: 6rem;
 
     ::placeholder {
-        color: var(--color-grey-8);
-    }
-    @media ${device.tabletL} {
-        font-size: 3rem;
-        height: 3.55rem;
-    }
-    @media ${device.mobileL} {
-        font-size: 2.5rem;
-    }
-    @media ${device.mobileM} {
-        font-size: 1.95rem;
+        color: var(--color-grey-17);
     }
 `
 

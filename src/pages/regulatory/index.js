@@ -177,7 +177,7 @@ const Regulatory = () => (
                             </Text>
                             <Text lh="1.55" margin="2rem 0 0">
                                 {localize(
-                                    'Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Binary (BVI) Ltd. Binary.com is not available in the British Virgin Islands.',
+                                    'Binary.com is not available in the British Virgin Islands.',
                                 )}
                             </Text>
                         </CssGridColumn>
@@ -190,7 +190,7 @@ const Regulatory = () => (
                             </StyledHeader>
                             <Text lh="1.55" margin="0.8rem 0 0">
                                 <Localize
-                                    translate_text="Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia. Licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business <0>(licence no. MB/18/0024)</0>."
+                                    translate_text="Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia. Licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business (<0>licence no. MB/18/0024</0>)."
                                     components={[
                                         <a
                                             key={0}
@@ -203,7 +203,7 @@ const Regulatory = () => (
                             </Text>
                             <Text lh="1.55" margin="2rem 0 0">
                                 {localize(
-                                    'Clients from the rest of the world (excluding certain jurisdictions such as the USA, Canada, Japan, and the European Union) who wish to trade CFDs will have their MetaTrader 5 account opened with Binary (FX) Ltd. Binary.com is not available in Malaysia.',
+                                    'Clients from the rest of the world (excluding certain jurisdictions such as the USA, Canada, Japan, and the European Union) who wish to trade CFDs with straight-through processing will have their MetaTrader 5 account opened with Binary (FX) Ltd. Binary.com is not available in Malaysia.',
                                 )}
                             </Text>
                         </CssGridColumn>

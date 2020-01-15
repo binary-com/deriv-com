@@ -249,7 +249,9 @@ const Footer = () => (
                         <div>
                             <Link to="/keep-safe">{localize('Keep safe')}</Link>
                         </div>
-                        {/* <div><Link to='/why-choose-us'>{localize('Why choose us')}</Link></div> */}
+                        <div>
+                            <Link to="/why-choose-us">{localize('Why choose us')}</Link>
+                        </div>
                     </Col>
                     <Col margin_top width="23%">
                         <div>
@@ -336,7 +338,7 @@ const Footer = () => (
             <StyledContainer justify="flex-start">
                 <StyledText>
                     <Copyright width="1.6rem" />
-                    {localize('2019 Deriv | All right reserved')}
+                    {new Date().getUTCFullYear()} {localize('Deriv | All rights reserved')}
                 </StyledText>
             </StyledContainer>
         </BlackNav>

@@ -95,6 +95,11 @@ const StyledVideo = styled.video`
         transform: unset;
     }
 `
+const HeroButton = styled(LinkButton)`
+    height: 4.8rem;
+    display: flex;
+    align-items: center;
+`
 
 export const Hero = () => {
     return (
@@ -109,9 +114,9 @@ export const Hero = () => {
                             {localize('The next evolution of online trading by Binary.com')}
                         </HeroHeader>
                         <ButtonWrapper>
-                            <LinkButton type="submit" secondary to="/signup/">
+                            <HeroButton type="submit" secondary to="/signup/">
                                 {localize('Join us for free')}
-                            </LinkButton>
+                            </HeroButton>
                         </ButtonWrapper>
                     </StyledArticle>
                 </HeroGrid>

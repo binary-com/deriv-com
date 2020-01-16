@@ -23,6 +23,9 @@ const OfficeContainer = styled.section`
     @media ${device.desktop} {
         max-width: 1440px;
     }
+    @media ${device.laptop} {
+        display: none;
+    }
 `
 const MapWrapper = styled.div`
     position: relative;
@@ -31,9 +34,6 @@ const MapWrapper = styled.div`
 
     @media ${device.laptopLC} {
         width: 996px;
-    }
-    @media ${device.laptop} {
-        display: none;
     }
 `
 const StyledMap = styled(Map)`

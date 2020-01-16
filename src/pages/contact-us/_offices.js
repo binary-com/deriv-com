@@ -239,7 +239,7 @@ export const Offices = () => {
                                     href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                                 >
                                     <Localize
-                                        translate_text="F16, 1st Floor, Paragon Labuan, Jalan Tun<0 />Mustapha, 87000, Labuan"
+                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan TunMustapha, 87000, Labuan"
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>
@@ -268,7 +268,7 @@ export const Offices = () => {
                                     href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
                                 >
                                     <Localize
-                                        translate_text="Unit 3004, 1 Lake Plaza, Cluster T, Jumeirah Lake<0 />Towers, Dubai, UAE."
+                                        translate_text="Unit 3004, 1 Lake Plaza, Cluster T,<0 />Jumeirah LakeTowers, Dubai, UAE."
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>
@@ -325,7 +325,7 @@ export const Offices = () => {
                                     href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
                                 >
                                     <Localize
-                                        translate_text="886, Edificio Australia, Calle Herib, Campos Cervera<0 />y Tregnaghi, Distriti de Stma, Trinidad, Asuncion,<0 />Paraguay"
+                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma,<0 />Trinidad, Asuncion,Paraguay"
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>

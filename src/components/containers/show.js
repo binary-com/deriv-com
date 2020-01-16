@@ -30,46 +30,32 @@ const Location = ({ children, to }) => {
     return visible ? <>{children}</> : null
 }
 
-const makeResponsiveComponent = (rulesets, tagName = 'div') =>
-    styled(tagName)`
-        ${buildStyles(rulesets)}
-    `
-
-const buildStyles = rulesets =>
-    rulesets.reduce(
-        (cssString, { constraint, width, rules }) =>
-            `${cssString} @media (${constraint}-width: ${width}) { ${rules} }`,
-        '',
-    )
-
-const buildResponsive = breakpoints => {
-    const rulesets = Object.entries(breakpoints).reduce(
-        (rulesets, [constraint, width]) => [
-            ...rulesets,
-            {
-                constraint,
-                width,
-                rules: 'display: none !important;',
-            },
-        ],
-        [],
-    )
-
-    return makeResponsiveComponent(rulesets)
-}
-
-const Responsive = ({ min, max, children }) => {
-    const Component = buildResponsive({ min, max })
-    return <Component>{children}</Component>
-}
-
 export const Eu = props => <Location {...props} to="eu" />
 
 export const NonEu = props => <Location {...props} to="non-eu" />
 
-export const Mobile = props => <Responsive {...props} min={`${size.tabletL}px`} />
+const MaxWidth = styled.div`
+    @media (max-width: ${props => props.max_width}px) {
+        display: none !important;
+    }
+`
 
-export const Desktop = props => <Responsive {...props} max={`${size.tabletL}px`} />
+const MinWidth = styled.div`
+    @media (min-width: ${props => props.min_width}px) {
+        display: none !important;
+    }
+`
+
+export const Desktop = ({ children, ...props }) => (
+    <MaxWidth max_width={size.tabletL} {...props}>
+        {children}
+    </MaxWidth>
+)
+export const Mobile = ({ children, ...props }) => (
+    <MinWidth min_width={size.tabletL} {...props}>
+        {children}
+    </MinWidth>
+)
 
 export default {
     Eu,
@@ -83,8 +69,10 @@ Location.propTypes = {
     to: PropTypes.oneOf(['eu', 'non-eu']),
 }
 
-Responsive.propTypes = {
+Desktop.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    max: PropTypes.string,
-    min: PropTypes.string,
+}
+
+Mobile.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }

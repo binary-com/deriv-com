@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { getLanguage } from '../../common/utility'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
-import { Header, Text, Checkbox, StyledLink } from 'components/elements'
+import { Header, Text, Checkbox } from 'components/elements'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
@@ -119,6 +120,16 @@ const LoginLink = styled.a`
         text-decoration: underline;
     }
 `
+const ExternalLink = styled.a`
+    text-decoration: none;
+    font-size: var(--text-size-xs);
+    font-weight: bold;
+    color: var(--color-red);
+
+    :hover {
+        text-decoration: underline;
+    }
+`
 
 const SignupNew = ({
     email_error_msg,
@@ -136,6 +147,10 @@ const SignupNew = ({
     const handleChange = event => {
         setCheckBoxState(event.currentTarget.checked)
     }
+    const url =
+        getLanguage() === 'en' || getLanguage() == null
+            ? '/terms-and-conditions/'
+            : `/${getLanguage()}/terms-and-conditions/`
     return (
         <SignupContent>
             <Header as="h4" weight="bold">
@@ -181,13 +196,12 @@ const SignupNew = ({
                         fontSize="var(--text-size-xs)"
                         translate_text="I agree to the <0>Terms and Conditions</0>"
                         components={[
-                            <StyledLink
-                                size="var(--text-size-xs)"
-                                weight="bold"
-                                key={0}
+                            <ExternalLink
+                                href={url}
                                 target="_blank"
-                                to="/terms-and-conditions/"
-                            />,
+                                rel="noopener noreferrer"
+                                key={0}
+                            ></ExternalLink>,
                         ]}
                     />
                 </CheckboxSpan>

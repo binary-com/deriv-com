@@ -34,16 +34,15 @@ export const Article = ({ children }) => {
     return (
         <Layout>
             <HeaderSection>
-                <Breadcrumb
-                    location={window.location}
-                    crumbLabel="Account"
-                    crumbStyle={{ color: '#333333' }}
-                    crumbActiveStyle={{ color: '#d6d6d6' }}
-                    crumbSeparator=" > "
-                />
                 <StyledHeader as="h1">{localize(activeTabTitle)}</StyledHeader>
             </HeaderSection>
-
+            <Breadcrumb
+                location={window.location}
+                crumbLabel="Back"
+                crumbStyle={{ color: '#333333' }}
+                crumbActiveStyle={{ color: 'black' }}
+                crumbSeparator=" < "
+            />
             <ArticleSection>
                 <TabWrapper>
                     <SideTab onTabChange={getTitle}>{children}</SideTab>

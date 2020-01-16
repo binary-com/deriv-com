@@ -211,10 +211,10 @@ class HelpCentre extends Component {
             <Layout>
                 <Breadcrumb
                     location={window.location}
-                    crumbLabel="Help Centre"
+                    crumbLabel=""
                     crumbStyle={{ color: '#333333' }}
-                    crumbActiveStyle={{ color: '#d6d6d6' }}
-                    crumbSeparator=" > "
+                    crumbActiveStyle={{ color: 'black' }}
+                    crumbSeparator=""
                 />
                 <SEO
                     title={localize('Help')}

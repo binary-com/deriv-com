@@ -101,7 +101,7 @@ module.exports = {
                     },
                     crumbStyle: { color: '#333333' },
                     crumbActiveStyle: { color: '#d6d6d6' },
-                    crumbSeparator: ' > ',
+                    crumbSeparator: ' < ',
                 },
             },
         },

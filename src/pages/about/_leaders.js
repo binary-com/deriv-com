@@ -113,7 +113,6 @@ const LeaderWrapper = styled(Flex)`
         ${DescriptionWrapper} {
             opacity: 0.85;
             height: 100%;
-            width: 28.2rem;
         }
     }
 `
@@ -130,6 +129,7 @@ const Leaders = () => {
                     columns="repeat(4, 26.9rem)"
                     column_gap="3.4rem"
                     row_gap="10.4rem"
+                    laptop_columns="repeat(3, 1fr)"
                     tablet_columns="repeat(2, 1fr)"
                     mobile_columns="1fr"
                     mobile_row_gap="6rem"
@@ -138,7 +138,7 @@ const Leaders = () => {
                     {leaders_data.map((leader, index) => (
                         <LeaderWrapper key={index} direction="column" ai="center">
                             <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
-                                <Image width="28.2rem" img_name={leader.image} />
+                                <Image img_name={leader.image} />
                                 <DescriptionWrapper>
                                     <Text lh="1.71" size="var(--text-size-xs)" color="white">
                                         {leader.description}

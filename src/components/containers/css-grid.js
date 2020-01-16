@@ -12,7 +12,14 @@ const CssGrid = styled.div`
     align-items: ${props => props.align || 'start'};
     justify-items: ${props => props.justify || 'auto'};
     background-color: ${props => props.bgcolor || 'none'};
-    @media ${device.laptop} {
+    @media ${device.laptopL} {
+        grid-template-columns: ${props =>
+            props.laptop_columns ? props.laptop_columns : props.columns};
+        grid-column-gap: ${props =>
+            props.laptop_column_gap ? props.laptop_column_gap : props.column_gap};
+        grid-row-gap: ${props => (props.laptop_row_gap ? props.laptop_row_gap : props.row_gap)};
+    }
+    @media ${device.tabletL} {
         grid-template-columns: ${props =>
             props.tablet_columns ? props.tablet_columns : props.columns};
         grid-column-gap: ${props =>

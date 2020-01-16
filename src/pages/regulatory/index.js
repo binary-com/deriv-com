@@ -156,32 +156,6 @@ const Regulatory = () => (
                         mobile_columns="1fr 5fr"
                     >
                         <CssGridColumn>
-                            <FSC />
-                        </CssGridColumn>
-                        <CssGridColumn>
-                            <StyledHeader font_size="3.6rem" lh="4.5rem">
-                                {localize('Binary (BVI) Ltd')}
-                            </StyledHeader>
-                            <Text lh="1.55" margin="0.8rem 0 0">
-                                <Localize
-                                    translate_text="Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands. Licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
-                                    components={[
-                                        <a
-                                            key={0}
-                                            target="_blank"
-                                            href="/BVI_license.pdf"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </Text>
-                            <Text lh="1.55" margin="2rem 0 0">
-                                {localize(
-                                    'Binary.com is not available in the British Virgin Islands.',
-                                )}
-                            </Text>
-                        </CssGridColumn>
-                        <CssGridColumn>
                             <Labuan />
                         </CssGridColumn>
                         <CssGridColumn>
@@ -248,6 +222,32 @@ const Regulatory = () => (
                             <Text lh="1.55" margin="2rem 0 0">
                                 {localize(
                                     'Clients from the rest of the world (excluding certain countries such as the USA, Canada, and Hong Kong) will have their account opened with Binary (SVG) Ltd.',
+                                )}
+                            </Text>
+                        </CssGridColumn>
+                        <CssGridColumn>
+                            <FSC />
+                        </CssGridColumn>
+                        <CssGridColumn>
+                            <StyledHeader font_size="3.6rem" lh="4.5rem">
+                                {localize('Binary (BVI) Ltd')}
+                            </StyledHeader>
+                            <Text lh="1.55" margin="0.8rem 0 0">
+                                <Localize
+                                    translate_text="Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands. Licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
+                                    components={[
+                                        <a
+                                            key={0}
+                                            target="_blank"
+                                            href="/BVI_license.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </Text>
+                            <Text lh="1.55" margin="2rem 0 0">
+                                {localize(
+                                    'Binary.com is not available in the British Virgin Islands.',
                                 )}
                             </Text>
                         </CssGridColumn>

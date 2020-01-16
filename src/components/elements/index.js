@@ -1,9 +1,11 @@
+import { Accordion, AccordionItem } from './accordion'
 import AutoCarousel from './auto-carousel'
 import { Card, CardChildren, CardStyle } from './card'
 import Carousel from './carousel'
 import Divider from './divider'
 import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
+import Checkbox from './checkbox'
 import Hero from './hero'
 import Image from './image'
 import { StyledLink } from './link'
@@ -15,6 +17,8 @@ import { Text, LinkText, Header } from './typography'
 import { Lottie } from './lottie'
 
 export {
+    Accordion,
+    AccordionItem,
     AutoCarousel,
     Card,
     CardChildren,
@@ -23,6 +27,7 @@ export {
     Divider,
     DotLoader,
     Dropdown,
+    Checkbox,
     Hero,
     Image,
     StyledLink,

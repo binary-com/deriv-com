@@ -82,6 +82,7 @@ const StyledInput = styled.input`
 const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
+    min-height: 16px;
 `
 
 const StyledLabel = styled.label`
@@ -103,22 +104,33 @@ const StyledLabel = styled.label`
     }
 `
 
-const Input = ({ label, border, focusBorder, id, error, background, tabletBackground, handleError, ...props }) => (
+const Input = ({
+    label,
+    border,
+    focusBorder,
+    id,
+    error,
+    background,
+    tabletBackground,
+    handleError,
+    ...props
+}) => (
     <RelativeWrapper>
         <InputWrapper border={border} focusBorder={focusBorder} error={error}>
             <StyledInput id={id} {...props} />
-            <StyledLabel background={background} tabletBackground={tabletBackground} error={error} htmlFor={id}>
+            <StyledLabel
+                background={background}
+                tabletBackground={tabletBackground}
+                error={error}
+                htmlFor={id}
+            >
                 {label}
             </StyledLabel>
         </InputWrapper>
-        {error && (
-            <>
-                <ErrorMessages lh="1.4" align="left" color="red-1">
-                    {error}
-                </ErrorMessages>
-                <StyledError onClick={handleError} />
-            </>
-        )}
+        <ErrorMessages lh="1.4" align="left" color="red-1">
+            {error}
+        </ErrorMessages>
+        {error && <StyledError onClick={handleError} />}
     </RelativeWrapper>
 )
 

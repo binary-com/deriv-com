@@ -239,7 +239,7 @@ export const Offices = () => {
                                     href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                                 >
                                     <Localize
-                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan TunMustapha, 87000, Labuan"
+                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan"
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>
@@ -268,7 +268,7 @@ export const Offices = () => {
                                     href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
                                 >
                                     <Localize
-                                        translate_text="Unit 3004, 1 Lake Plaza, Cluster T,<0 />Jumeirah LakeTowers, Dubai, UAE."
+                                        translate_text="Unit 3004, 1 Lake Plaza, Cluster T,<0 />Jumeirah Lake Towers, Dubai, UAE."
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>

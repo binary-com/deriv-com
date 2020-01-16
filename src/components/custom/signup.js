@@ -1,23 +1,25 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import PropTypes from 'prop-types'
-import { Header, Text, Image, StyledLink } from 'components/elements'
-import { localize, Localize } from 'components/localization'
-import Wrapper from 'components/containers/wrapper'
-import validation from 'common/validation'
-import TrafficSource from 'common/traffic-source'
-import { LocalStore } from 'common/storage'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 import Login from 'common/login'
-import device from 'themes/device.js'
+import { LocalStore } from 'common/storage'
+import TrafficSource from 'common/traffic-source'
+import validation from 'common/validation'
+import { BinarySocketBase } from 'common/websocket/socket_base'
+import Wrapper from 'components/containers/wrapper'
 import SignupDefault from 'components/custom/_signup-default'
-import SignupSimple from 'components/custom/_signup-simple'
 import SignupFlat from 'components/custom/_signup-flat'
+import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
+import SignupSimple from 'components/custom/_signup-simple'
+import { Header, Image, StyledLink, Text } from 'components/elements'
+import { localize, Localize } from 'components/localization'
+import device from 'themes/device.js'
 
 const Form = styled.form`
-    margin: 0 auto;
+    height: 100%;
+    background-color: ${props => props.bgColor || 'var(--color-white)'};
 `
 const ResponseWrapper = styled.div`
     justify-content: center;
@@ -50,6 +52,7 @@ const EmailLink = styled(StyledLink)`
     margin-top: 1.8rem;
     text-decoration: underline;
     width: 100%;
+    text-align: center;
 `
 
 const validateEmail = email => {
@@ -64,6 +67,7 @@ export const Appearances = {
     darkFlat: 'darkFlat',
     lightFlat: 'lightFlat',
     public: 'public',
+    newSignup: 'newSignup',
 }
 class Signup extends Component {
     state = {
@@ -73,7 +77,6 @@ class Signup extends Component {
         submit_status: '',
         submit_error_msg: '',
     }
-
     handleValidation = param => {
         const message = typeof param === 'object' ? param.target.value : param
 
@@ -88,8 +91,6 @@ class Signup extends Component {
         this.setState({
             [name]: value,
         })
-
-        this.handleValidation(value)
     }
 
     getVerifyEmailRequest = email => {
@@ -124,7 +125,6 @@ class Signup extends Component {
         const { email, email_error_msg } = this.state
 
         this.handleValidation(email)
-
         const has_error_email = validateEmail(email)
 
         if (has_error_email || email_error_msg) {
@@ -145,6 +145,7 @@ class Signup extends Component {
                 is_submitting: false,
                 submit_status: 'success',
             })
+            if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
         })
     }
 
@@ -168,19 +169,21 @@ class Signup extends Component {
 
     renderSwitch(param) {
         const parameters = {
-            email_error_msg: this.state.email_error_msg,
-            email: this.state.email,
-            clearEmail: this.clearEmail,
-            handleInputChange: this.handleInputChange,
-            handleValidation: this.handleValidation,
             autofocus: this.props.autofocus,
-            handleSocialSignup: this.handleSocialSignup,
+            clearEmail: this.clearEmail,
+            email: this.state.email,
+            email_error_msg: this.state.email_error_msg,
+            handleInputChange: this.handleInputChange,
             handleLogin: this.handleLogin,
+            handleSocialSignup: this.handleSocialSignup,
+            handleValidation: this.handleValidation,
             is_submitting: this.state.is_submitting,
         }
         switch (param) {
             case Appearances.simple:
                 return <SignupSimple {...parameters}></SignupSimple>
+            case Appearances.newSignup:
+                return <SignupNew {...parameters}></SignupNew>
             case Appearances.public:
                 return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:
@@ -200,7 +203,7 @@ class Signup extends Component {
         return (
             <>
                 {!this.state.submit_status && (
-                    <Form onSubmit={this.handleEmailSignup} noValidate>
+                    <Form onSubmit={this.handleEmailSignup} noValidate bgColor={this.props.bgColor}>
                         {this.renderSwitch(this.props.appearance)}
                     </Form>
                 )}
@@ -240,7 +243,9 @@ class Signup extends Component {
 Signup.propTypes = {
     appearance: PropTypes.oneOf(Object.keys(Appearances)),
     autofocus: PropTypes.bool,
+    bgColor: PropTypes.string,
     closeModal: PropTypes.func,
+    onSubmit: PropTypes.func,
 }
 
 export default Signup

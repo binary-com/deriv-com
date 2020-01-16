@@ -102,16 +102,18 @@ const DescriptionWrapper = styled.div`
     left: 0;
     transition: opacity 0.25s, height 0.25s;
     padding: 1.6rem;
+    border-radius: 6px;
 `
 
 const LeaderWrapper = styled(Flex)`
     cursor: pointer;
-    position: relative;
+    height: auto;
 
     &:hover {
         ${DescriptionWrapper} {
             opacity: 0.85;
             height: 100%;
+            width: 28.2rem;
         }
     }
 `
@@ -119,9 +121,7 @@ const LeaderWrapper = styled(Flex)`
 const StyledHeader = styled(Header)`
     font-size: 2.3rem;
 `
-const ImageWrapper = styled.div`
-    height: 36rem;
-`
+
 const Leaders = () => {
     return (
         <SectionContainer>
@@ -137,16 +137,8 @@ const Leaders = () => {
                 >
                     {leaders_data.map((leader, index) => (
                         <LeaderWrapper key={index} direction="column" ai="center">
-                            <Wrapper
-                                height="100%"
-                                margin={{ bottom: '0.8rem' }}
-                                width="100%"
-                                position="relative"
-                            >
-                                <ImageWrapper>
-                                    <Image img_name={leader.image} />
-                                </ImageWrapper>
-
+                            <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
+                                <Image width="28.2rem" img_name={leader.image} />
                                 <DescriptionWrapper>
                                     <Text lh="1.71" size="var(--text-size-xs)" color="white">
                                         {leader.description}

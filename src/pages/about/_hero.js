@@ -16,8 +16,8 @@ const StyledContainer = styled(Container)`
     padding: 12rem 19rem;
     white-space: nowrap;
 
-    @media ${device.laptop} {
-        padding: 12rem;
+    @media ${device.laptopL} {
+        padding: 12rem 4rem;
     }
     @media ${device.tablet} {
         padding: 8rem 4rem;
@@ -71,11 +71,6 @@ const ContentWrapper = styled.div`
 `
 
 const LeadershipWrapper = styled(Flex)`
-    margin-top: 4rem;
-
-    > * {
-        flex: 1;
-    }
     @media ${device.tabletL} {
         flex-direction: column;
 
@@ -156,9 +151,13 @@ const Hero = ({ navigation, setNavigation }) => {
                 )}
                 {is_leadership && (
                     <ContentWrapper>
-                        <LeadershipWrapper ai="center">
+                        <LeadershipWrapper mt="4rem" ai="center">
                             <Wrapper max_width="28.2rem" margin={{ right: '2.4rem' }}>
-                                <Image img_name="jean-yves.png" alt={localize('Jean Yves')} />
+                                <Image
+                                    width="28.2rem"
+                                    img_name="jean-yves.png"
+                                    alt={localize('Jean Yves')}
+                                />
                             </Wrapper>
 
                             <div>

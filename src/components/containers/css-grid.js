@@ -12,7 +12,7 @@ const CssGrid = styled.div`
     align-items: ${props => props.align || 'start'};
     justify-items: ${props => props.justify || 'auto'};
     background-color: ${props => props.bgcolor || 'none'};
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         grid-template-columns: ${props =>
             props.tablet_columns ? props.tablet_columns : props.columns};
         grid-column-gap: ${props =>

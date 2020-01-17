@@ -27,13 +27,13 @@ const StyledHeader = styled(Header)`
     padding: ${props => props.padding || '0'};
 `
 const Box = styled.div`
-    width: 80rem;
-    max-width: 100%;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: ${props => props.padding || '4rem 0 0'};
 
     ${Text} {
-        max-width: 62.2rem;
+        max-width: ${props => props.mw || '62.2rem'};
     }
     & a {
         color: var(--color-red);
@@ -92,7 +92,7 @@ const Regulatory = () => (
                 <StyledHeader font_size="3.6rem" align="center" lh="4.5rem">
                     {localize('Binary Investments (Europe) Ltd')}
                 </StyledHeader>
-                <Box>
+                <Box mw="79.2rem">
                     <Text lh="1.55">
                         <Localize
                             translate_text="Binary Investments (Europe) Ltd, with a registered office at W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
@@ -106,7 +106,7 @@ const Regulatory = () => (
                             ]}
                         />
                     </Text>
-                    <Text lh="1.55" margin="2rem 0 0">
+                    <Text lh="1.55" margin="2rem 0 0" mw="79.2rem">
                         {localize(
                             'European Union residents who wish to trade investment products will have their accounts opened with Binary Investments (Europe) Ltd.',
                         )}
@@ -134,7 +134,7 @@ const Regulatory = () => (
         </SectionContainer>
         <SectionContainer padding="2.4rem 0 0">
             <GridContainer>
-                <Box padding="0 0 4rem">
+                <Box padding="0 0 4rem" mw="79.2rem">
                     <Text lh="1.55">
                         {localize(
                             'EU passporting rights: Binary Investments (Europe) Ltd is entitled to provide its services to EU member states through EU passporting rights. Refer to the map above for the list of EU countries that have access to Deriv and Binary.com.',

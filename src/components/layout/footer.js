@@ -252,6 +252,9 @@ const Footer = () => (
                         <div>
                             <Link to="/why-choose-us">{localize('Why choose us')}</Link>
                         </div>
+                        <div>
+                            <Link to="/contact-us">{localize('Contact us')}</Link>
+                        </div>
                     </Col>
                     <Col margin_top width="23%">
                         <div>

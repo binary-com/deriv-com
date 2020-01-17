@@ -32,6 +32,9 @@ const Box = styled.div`
     margin: 0 auto;
     padding: ${props => props.padding || '4rem 0 0'};
 
+    ${Text} {
+        max-width: 62.2rem;
+    }
     & a {
         color: var(--color-red);
         font-weight: bold;
@@ -155,7 +158,7 @@ const Regulatory = () => (
                         tablet_columns="1fr 5fr"
                         mobile_columns="1fr 5fr"
                     >
-                        <CssGridColumn>
+                        <CssGridColumn align="center">
                             <Labuan />
                         </CssGridColumn>
                         <CssGridColumn>
@@ -177,11 +180,11 @@ const Regulatory = () => (
                             </Text>
                             <Text lh="1.55" margin="2rem 0 0">
                                 {localize(
-                                    'Clients from the rest of the world (excluding certain jurisdictions such as the USA, Canada, Japan, and the European Union) who wish to trade CFDs with straight-through processing will have their MetaTrader 5 account opened with Binary (FX) Ltd. Binary.com is not available in Malaysia.',
+                                    'Clients who wish to trade FX and CFDs with straight-through processing will have their account opened with Binary (FX) Ltd.',
                                 )}
                             </Text>
                         </CssGridColumn>
-                        <CssGridColumn>
+                        <CssGridColumn align="center">
                             <Vanuatu />
                         </CssGridColumn>
                         <CssGridColumn>
@@ -201,13 +204,8 @@ const Regulatory = () => (
                                     ]}
                                 />
                             </Text>
-                            <Text lh="1.55" margin="2rem 0 0">
-                                {localize(
-                                    'Clients from the rest of the world (excluding certain countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 account opened with Binary (V) Ltd. Binary.com is not available in the Republic of Vanuatu.',
-                                )}
-                            </Text>
                         </CssGridColumn>
-                        <CssGridColumn>
+                        <CssGridColumn align="center">
                             <SVG />
                         </CssGridColumn>
                         <CssGridColumn>
@@ -219,13 +217,8 @@ const Regulatory = () => (
                                     'Binary (SVG) Ltd, Hinds Buildings, Kingstown, St. Vincent and the Grenadines; company number 25299 BC 2019.',
                                 )}
                             </Text>
-                            <Text lh="1.55" margin="2rem 0 0">
-                                {localize(
-                                    'Clients from the rest of the world (excluding certain countries such as the USA, Canada, and Hong Kong) will have their account opened with Binary (SVG) Ltd.',
-                                )}
-                            </Text>
                         </CssGridColumn>
-                        <CssGridColumn>
+                        <CssGridColumn align="center">
                             <FSC />
                         </CssGridColumn>
                         <CssGridColumn>
@@ -244,11 +237,6 @@ const Regulatory = () => (
                                         />,
                                     ]}
                                 />
-                            </Text>
-                            <Text lh="1.55" margin="2rem 0 0">
-                                {localize(
-                                    'Binary.com is not available in the British Virgin Islands.',
-                                )}
                             </Text>
                         </CssGridColumn>
                     </CssGrid>

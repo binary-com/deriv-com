@@ -29,7 +29,7 @@ const trading = [
         ),
         subtitle: (
             <Localize
-                translate_text="Customise your chart with technical indicators and widgets — everything you<0/>need to make smarter trading decisions."
+                translate_text="Customise your chart with technical indicators and widgets - everything you<0/>need to make smarter trading decisions."
                 components={[<br key={0} />]}
             />
         ),

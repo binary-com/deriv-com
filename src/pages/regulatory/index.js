@@ -167,7 +167,7 @@ const Regulatory = () => (
                             </StyledHeader>
                             <Text lh="1.55" margin="0.8rem 0 0">
                                 <Localize
-                                    translate_text="Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia. Licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business (<0>licence no. MB/18/0024</0>)."
+                                    translate_text="Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia. Licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business <0>licence no. MB/18/0024</0>."
                                     components={[
                                         <a
                                             key={0}
@@ -193,7 +193,7 @@ const Regulatory = () => (
                             </StyledHeader>
                             <Text lh="1.55" margin="0.8rem 0 0">
                                 <Localize
-                                    translate_text="Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu. Licensed and regulated by the Vanuatu Financial Services Commission - <0>(view licence)</0>."
+                                    translate_text="Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu. Licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>."
                                     components={[
                                         <a
                                             key={0}

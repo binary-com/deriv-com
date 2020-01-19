@@ -193,7 +193,7 @@ export const OurOffices = () => {
                 </Number>
                 <Number>
                     <Header align="center" as="h2">
-                        20+
+                        40+
                     </Header>
                     <Text align="center">{localize('Nationalites')}</Text>
                 </Number>

@@ -9,6 +9,10 @@ const NumberWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 32.8rem;
+
+    ${Text} {
+        padding-top: 0.8rem;
+    }
 `
 const StyledContainer = styled(Container)`
     display: flex;
@@ -17,7 +21,7 @@ const StyledContainer = styled(Container)`
 
 const DNumbers = ({ items, justify }) => {
     return (
-        <SectionContainer padding="4.3rem">
+        <SectionContainer padding="4rem">
             <StyledContainer justify={justify}>
                 {items.map((item, index) => (
                     <NumberWrapper key={index}>

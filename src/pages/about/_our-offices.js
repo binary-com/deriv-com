@@ -4,7 +4,6 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Map from 'images/svg/world-map.svg'
 import device from 'themes/device'
-// import MapPinpoint from 'images/svg/map-pinpoint.svg'
 import Labuan from 'images/svg/labuan-pin-location.svg'
 import Cyberjaya from 'images/svg/cyberjaya-pin-location.svg'
 import Dubai from 'images/svg/dubai-pin-location.svg'
@@ -155,7 +154,6 @@ export const OurOffices = () => {
                     <Pinpoint top="30.6%" left="63.7%">
                         <Oval />
                         <DubaiWrapper />
-                        {/* <LabelWrapper>{localize('Dubai')}</LabelWrapper> */}
                     </Pinpoint>
                 </MapLink>
 
@@ -167,7 +165,6 @@ export const OurOffices = () => {
                     <Pinpoint top="46%" left="63.6%">
                         <Oval top="83%" left="88%" />
                         <CyberjayaWrapper />
-                        {/* <LabelWrapper left="-5.2rem">{localize('Cyberjaya')}</LabelWrapper> */}
                     </Pinpoint>
                 </MapLink>
 
@@ -179,7 +176,6 @@ export const OurOffices = () => {
                     <Pinpoint top="44.6%" left="85%">
                         <Oval left="8%" />
                         <LabuanWrapper />
-                        {/* <LabelWrapper>{localize('Labuan')}</LabelWrapper> */}
                     </Pinpoint>
                 </MapLink>
             </MapWrapper>

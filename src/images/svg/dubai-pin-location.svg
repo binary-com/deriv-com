@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="112" height="53" viewBox="0 0 112 53">
+<svg xmlns="http://www.w3.org/2000/svg" width="112" height="53" viewBox="0 0 112 53"  role="img" aria-labelledby="dubai-pin-title">
+    <title id='dubai-pin-title'>Dubai-Pin</title>
     <g fill="none" fill-rule="evenodd">
         <path fill="#2F2F2F" fill-rule="nonzero" d="M112 13.886v17.215c0 4.363-3.284 7.899-7.35 7.899H26.034L22.7 28.011a7.875 7.875 0 0 0 3.344-6.51c0-4.3-3.297-7.802-7.338-7.802a3.308 3.308 0 0 0-.355 0l-2.265-7.444L16 6h88.65c4.066 0 7.35 3.536 7.35 7.886z"/>
         <g fill-rule="nonzero">

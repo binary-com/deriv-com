@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="183" height="53" viewBox="0 0 183 53">
+<svg xmlns="http://www.w3.org/2000/svg" width="183" height="53" viewBox="0 0 183 53" role="img" aria-labelledby="labuan-pin-title">
+    <title id='labuan-pin-title'>Labuan-Pin</title>
     <g fill="none" fill-rule="evenodd">
         <path fill="#2F2F2F" fill-rule="nonzero" d="M183 15.777v17.197c0 4.36-3.235 7.891-7.252 7.891H28.898l-3.295-10.99c1.986-1.386 3.295-3.79 3.295-6.508 0-4.295-3.248-7.793-7.234-7.793h-.35l-2.232-7.42L19 7.899h156.754c4.01 0 7.246 3.549 7.246 7.878z"/>
         <text fill="#FFF" font-family="IBMPlexSans-Medium, IBM Plex Sans Medium" font-size="16">

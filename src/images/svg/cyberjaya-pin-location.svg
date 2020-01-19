@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="204" height="53" viewBox="0 0 204 53">
+<svg xmlns="http://www.w3.org/2000/svg" width="204" height="53" viewBox="0 0 204 53" role="img" aria-labelledby="cyberjaya-pin-title">
+    <title id='cyberjaya-pin-title'>Cyberjaya-Pin</title>
     <g fill="none" fill-rule="evenodd">
         <path fill="#2F2F2F" fill-rule="nonzero" d="M.838 32.987V15.79c0-4.359 3.708-7.89 8.313-7.89h168.34l3.778 10.99c-2.277 1.386-3.778 3.79-3.778 6.508 0 4.295 3.723 7.793 8.292 7.793h.401l2.56 7.42.094.254H9.144c-4.598 0-8.306-3.549-8.306-7.878z"/>
         <text fill="#FFF" font-family="IBMPlexSans-Medium, IBM Plex Sans Medium" font-size="16">

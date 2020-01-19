@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="129" height="53" viewBox="0 0 129 53">
+<svg xmlns="http://www.w3.org/2000/svg" width="129" height="53" viewBox="0 0 129 53"  role="img" aria-labelledby="paraguay-pin-title">
+    <title id='paraguay-pin-title'>Paraguay-Pin</title>
+
     <g fill="none" fill-rule="evenodd">
         <path fill="#2F2F2F" fill-rule="nonzero" d="M129 13.886v17.215c0 4.363-3.866 7.899-8.652 7.899H27.811l-3.925-10.989c2.488-1.484 3.96-3.92 3.935-6.51 0-4.3-3.88-7.802-8.637-7.802a4.583 4.583 0 0 0-.418 0L16.1 6.255 16 6h104.348C125.134 6 129 9.536 129 13.886z"/>
         <g fill-rule="nonzero">

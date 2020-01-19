@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import PropTypes from 'prop-types'
 import Layout from 'components/layout/layout'
 import { localize } from 'components/localization'
@@ -36,13 +35,6 @@ export const Article = ({ children }) => {
             <HeaderSection>
                 <StyledHeader as="h1">{localize(activeTabTitle)}</StyledHeader>
             </HeaderSection>
-            <Breadcrumb
-                location={window.location}
-                crumbLabel="Back"
-                crumbStyle={{ color: '#333333' }}
-                crumbActiveStyle={{ color: 'black' }}
-                crumbSeparator=" < "
-            />
             <ArticleSection>
                 <TabWrapper>
                     <SideTab onTabChange={getTitle}>{children}</SideTab>

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import { articles } from './_help-articles'
 import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
@@ -209,13 +208,6 @@ class HelpCentre extends Component {
         const has_results = !!filtered_articles.length
         return (
             <Layout>
-                <Breadcrumb
-                    location={window.location}
-                    crumbLabel=""
-                    crumbStyle={{ color: '#333333' }}
-                    crumbActiveStyle={{ color: 'black' }}
-                    crumbSeparator=""
-                />
                 <SEO
                     title={localize('Help')}
                     description={localize(

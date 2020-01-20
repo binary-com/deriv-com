@@ -189,6 +189,7 @@ SideTab.propTypes = {
     has_hash_routing: PropTypes.bool,
     is_mobile: PropTypes.bool,
     is_sticky: PropTypes.bool,
+    onTabChange: PropTypes.func,
 }
 
 Tab.propTypes = {

@@ -2,39 +2,40 @@ import React from 'react'
 import { Ol, Ul, Li } from './_list'
 import { Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
+import { WhoCanOpenAnAccount } from './account'
 
-const WhoCanOpenAnAccount = () => (
-    <>
-        <Ul>
-            <Li>{localize('You have read the Legal Terms and Conditions in full.')}</Li>
-            <Li>
-                {localize(
-                    'You understand that you will be buying and selling financial contracts subject to these terms and conditions.',
-                )}
-            </Li>
-            <Li>
-                {localize(
-                    'You have read our privacy statement and give us your consent to process your personal information.',
-                )}
-            </Li>
-            <Li>
-                {localize(
-                    'You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.',
-                )}
-            </Li>
-            <Li>
-                {localize(
-                    'You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
-                )}
-            </Li>
-            <Li>
-                {localize(
-                    'You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation.',
-                )}
-            </Li>
-        </Ul>
-    </>
-)
+// const WhoCanOpenAnAccount = () => (
+//     <>
+//         <Ul>
+//             <Li>{localize('You have read the Legal Terms and Conditions in full.')}</Li>
+//             <Li>
+//                 {localize(
+//                     'You understand that you will be buying and selling financial contracts subject to these terms and conditions.',
+//                 )}
+//             </Li>
+//             <Li>
+//                 {localize(
+//                     'You have read our privacy statement and give us your consent to process your personal information.',
+//                 )}
+//             </Li>
+//             <Li>
+//                 {localize(
+//                     'You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.',
+//                 )}
+//             </Li>
+//             <Li>
+//                 {localize(
+//                     'You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
+//                 )}
+//             </Li>
+//             <Li>
+//                 {localize(
+//                     'You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation.',
+//                 )}
+//             </Li>
+//         </Ul>
+//     </>
+// )
 
 const OpeningAnAccount = () => (
     <>
@@ -341,25 +342,19 @@ const SafeguardWithdrawFunds = () => (
 export const articles = [
     {
         category: <Localize translate_text="Account" />,
-        categoryCode:"account",
         articles: [
             {
                 title: <Localize translate_text="Who can open an account?" />,
-                category: <Localize translate_text="Account" />,
                 sub_category: <Localize translate_text="Opening an account" />,
                 label: 'who-can-open-an-account',
-                content: <WhoCanOpenAnAccount />,
             },
             {
                 title: <Localize translate_text="Opening an account" />,
-                category: <Localize translate_text="Account" />,
                 sub_category: <Localize translate_text="Opening an account" />,
                 label: 'opening-an-account',
-                content: <OpeningAnAccount />,
             },
             {
                 title: <Localize translate_text="Changing your personal details" />,
-                category: <Localize translate_text="Account" />,
                 sub_category: <Localize translate_text="Opening an account" />,
                 label: 'changing-your-personal-details',
                 content: <ChangingPersonalDetails />,
@@ -389,7 +384,7 @@ export const articles = [
     },
     {
         category: <Localize translate_text="Deposits and withdrawals" />,
-        categoryCode:"deposit",
+        categoryCode: 'deposit',
         articles: [
             {
                 title: <Localize translate_text="Making a deposit" />,
@@ -423,7 +418,7 @@ export const articles = [
     },
     {
         category: <Localize translate_text="Privacy and security" />,
-        categoryCode:"privacy",
+        categoryCode: 'privacy',
         articles: [
             {
                 title: (

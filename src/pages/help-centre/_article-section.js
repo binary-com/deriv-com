@@ -19,7 +19,7 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    padding: 8rem 12rem;
+    padding: 8rem 0;
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
@@ -96,26 +96,8 @@ const ArticleContent = styled.div`
 `
 // Eslint fails to recognize display names in React.memo
 // eslint-disable-next-line react/display-name
-export const ArticleSection = React.memo(function ArticleSection({
-    articles,
-    all_articles,
-    handleSelectArticle,
-    selected_article,
-    toggleSearch,
-}) {
-    return (
-        <Wrapper>
-            {!selected_article && <ArticleList articles={articles} onClick={handleSelectArticle} />}
-            {/* {selected_article && (
-                <Article
-                    article={selected_article}
-                    all_articles={all_articles}
-                    onClick={handleSelectArticle}
-                    toggleSearch={toggleSearch}
-                />
-            )} */}
-        </Wrapper>
-    )
+export const ArticleSection = React.memo(function ArticleSection({ articles, selected_article }) {
+    return <Wrapper>{!selected_article && <ArticleList articles={articles} />}</Wrapper>
 })
 ArticleSection.propTypes = {
     all_articles: PropTypes.array,
@@ -126,55 +108,15 @@ ArticleSection.propTypes = {
     toggleSearch: PropTypes.func,
 }
 
-const Article = ({ article, all_articles, onClick }) => {
-    const related_articles = getRelatedArticles(all_articles, article)
 
-    return (
-        <>
-            <ArticleContainer padding="4.5rem 0">
-                <ArticleContent>
-                    <Show.Mobile>
-                        <Header as="h3">{article.category}</Header>
-                    </Show.Mobile>
-                    <Show.Desktop>
-                        <Header as="h3">
-                            {article.category} - {article.title}
-                        </Header>
-                    </Show.Desktop>
-                    {article.content}
-                </ArticleContent>
-                {!!related_articles.length && (
-                    <ListWrapper>
-                        <Header as="h3">{localize('Related topics')}</Header>
-
-                        <ListWithLinks
-                            list={related_articles}
-                            onClick={onClick}
-                            link_style={{ size: '2rem' }}
-                        />
-                    </ListWrapper>
-                )}
-            </ArticleContainer>
-        </>
-    )
-}
-Article.propTypes = {
-    all_articles: PropTypes.array,
-    article: PropTypes.object,
-    onClick: PropTypes.func,
-    toggleSearch: PropTypes.func,
-}
-
-const ArticleList = ({ articles, onClick }) => (
+const ArticleList = ({ articles }) => (
     <>
         {articles.map((category, idx) => (
             <ListWrapper key={idx}>
                 <Header font_size="3.6rem">{localize(category.category)}</Header>
                 <ListWithLinks
-                    link_style={{ size: '2rem' }}
                     list={category.articles}
-                    onClick={onClick}
-                    categoryLink={'/help-centre/' + category.categoryCode + '-article'}
+                    categoryLink={'/help-centre/' + localize(category.category)}
                 />
             </ListWrapper>
         ))}
@@ -182,5 +124,4 @@ const ArticleList = ({ articles, onClick }) => (
 )
 ArticleList.propTypes = {
     articles: PropTypes.array.isRequired,
-    onClick: PropTypes.func,
 }

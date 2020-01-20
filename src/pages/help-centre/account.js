@@ -3,6 +3,13 @@ import styled from 'styled-components'
 import { Header, Text } from '../../components/elements/typography'
 import { Article } from './_article'
 import { localize, WithIntl } from 'components/localization'
+import { articles } from './_help-articles'
+
+const getAllArticles = articles =>
+    articles
+        .map(category => category.articles)
+        // flatten the array, gatsby build does not support .flat() yet
+        .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
 const ArticleWrapper = styled.div`
     width: 100%;
@@ -29,7 +36,7 @@ const StyledHeader = styled(Header)`
     margin-bottom: ${props => props.marginBottom || '0'};
 `
 
-const WhoCanOpenAccount = () => (
+const WhoCanOpenAnAccount = () => (
     <ArticleWrapper>
         <Text secondary>{localize('You have read the Legal Terms and Conditions in full.')}</Text>
         <Text secondary>
@@ -68,32 +75,21 @@ const OpeningAccount = () => (
         </Step>
     </ArticleWrapper>
 )
-// const ChangingPersonalDetail = () => (
-//     <div>
-//         <h2>Account articles compoenets should be created here</h2>
-//     </div>
-// )
-// const AuthenticatingAccount = () => (
-//     <div>
-//         <h2>Account articles compoenets should be created here</h2>
-//     </div>
-// )
-// const ChangeDerivPassword = () => (
-//     <div>
-//         <h2>Account articles compoenets should be created here</h2>
-//     </div>
-// )
 
 const AccountArticle = () => {
+    const all_articles = getAllArticles(articles)
+
     return (
         <Article>
-            <WhoCanOpenAccount
-                text={localize('Who can open an account?')}
-                label={'whoCanOpenAccount'}
-            ></WhoCanOpenAccount>
+            <WhoCanOpenAnAccount
+                text={
+                    all_articles.find(article => article.label === 'who-can-open-an-account').title
+                }
+                label="who-can-open-an-account"
+            ></WhoCanOpenAnAccount>
             <OpeningAccount
                 text={localize('Opening an account')}
-                label={'openingAccount'}
+                label="opening-an-account"
             ></OpeningAccount>
         </Article>
     )

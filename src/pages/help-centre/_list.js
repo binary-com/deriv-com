@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import { Text, LinkText } from 'components/elements'
+import { Text } from 'components/elements'
 import device from 'themes/device'
 
 export const Ul = styled.ul`
@@ -49,32 +49,18 @@ const StyledLink = styled(Link)`
     font-size: var(--text-size-s);
 `
 
-export const ListWithLinks = ({ list, onClick, link_style, categoryLink }) => {
-    function renderSwitch(category) {
-        switch (category) {
-            case '':
-                break
-
-            default:
-                break
-        }
-    }
+export const ListWithLinks = ({ list, categoryLink }) => {
     return (
         <ListNoBullets>
             {list.map((item, idx) => (
                 <li key={idx}>
                     <StyledLink to={categoryLink}>{item.title}</StyledLink>
-                    {/* 
-                <LinkText {...link_style} onClick={() => onClick(item)}>
-                    {item.title}
-                </LinkText> */}
                 </li>
             ))}
         </ListNoBullets>
     )
 }
 ListWithLinks.propTypes = {
-    link_style: PropTypes.object,
+    categoryLink: PropTypes.string,
     list: PropTypes.array.isRequired,
-    onClick: PropTypes.func,
 }

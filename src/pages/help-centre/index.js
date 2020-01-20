@@ -3,17 +3,17 @@ import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
 import { articles } from './_help-articles'
-import { ArticleSection } from './_article-section'
+// import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
-import { Contact } from './_contact-us'
 // TODO: active this line after having mail service
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
-import { SEO } from 'components/containers'
+import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
+import { ListWithLinks } from './_list'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
@@ -25,7 +25,7 @@ const getAllArticles = articles =>
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
 const Backdrop = styled.div`
-    padding: 8rem 12rem;
+    padding: 8rem 0;
     background-color: var(--color-white);
     border-bottom: 1px solid var(--color-grey-8);
 `
@@ -103,6 +103,32 @@ const ResultWrapper = styled.div`
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 4rem;
+`
+
+const ListWrapper = styled.div`
+    margin-right: 2.4rem;
+    max-width: 38.4rem;
+    width: 38.4rem;
+
+    ${Header} {
+        margin-bottom: 1.6rem;
+    }
+
+    @media ${device.tabletL} {
+        padding-top: 3.55rem;
+    }
+`
+
+const ArticleSection = styled.section`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 8rem 0;
+
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+    }
 `
 class HelpCentre extends Component {
     constructor(props) {
@@ -214,47 +240,53 @@ class HelpCentre extends Component {
                         'Need help with our products and services? Read our FAQ or ask us a question.',
                     )}
                 />
-                <SearchSection show={toggle_search} has_transition={search_has_transition}>
-                    <Backdrop>
-                        <StyledContainer align="normal" direction="column">
-                            <StyledHeader as="h1">{localize('How can we help?')}</StyledHeader>
-                            <SearchForm onSubmit={this.handleSubmit}>
-                                <SearchIconBig />
-                                <Search
-                                    autoFocus
-                                    name="search"
-                                    value={search}
-                                    onChange={this.handleInputChange}
-                                    placeholder={localize('Try “Trade”')}
-                                    data-lpignore="true"
-                                    autoComplete="off"
-                                />
-                                {search.length && <SearchCrossIcon onClick={this.clearSearch} />}
-                            </SearchForm>
-                            <ResultWrapper>
-                                {has_results && search.length && (
-                                    <SearchSuccess
-                                        suggested_topics={filtered_articles}
-                                        onClick={this.handleSelectArticle}
-                                        max_length={3}
+                <Container align="left" justify="flex-start" direction="column">
+                    <SearchSection show={toggle_search} has_transition={search_has_transition}>
+                        <Backdrop>
+                            <StyledContainer align="normal" direction="column">
+                                <StyledHeader as="h1">{localize('How can we help?')}</StyledHeader>
+                                <SearchForm onSubmit={this.handleSubmit}>
+                                    <SearchIconBig />
+                                    <Search
+                                        autoFocus
+                                        name="search"
+                                        value={search}
+                                        onChange={this.handleInputChange}
+                                        placeholder={localize('Try “Trade”')}
+                                        data-lpignore="true"
+                                        autoComplete="off"
                                     />
-                                )}
-                                {!has_results && search.length && <SearchError search={search} />}
-                            </ResultWrapper>
-                        </StyledContainer>
-                    </Backdrop>
-                </SearchSection>
-                {/* <Link to="/help-centre/account-article">Account</Link> */}
-
-                <ArticleSection
-                    articles={articles}
-                    all_articles={all_articles}
-                    selected_article={selected_article}
-                    handleSelectArticle={this.handleSelectArticle}
-                    toggleSearch={this.toggleSearch}
-                />
-                <Contact></Contact>
-                {/*TODO: active this line after having mail service*/}
+                                    {search.length && (
+                                        <SearchCrossIcon onClick={this.clearSearch} />
+                                    )}
+                                </SearchForm>
+                                <ResultWrapper>
+                                    {has_results && search.length && (
+                                        <SearchSuccess
+                                            suggested_topics={filtered_articles}
+                                            onClick={this.handleSelectArticle}
+                                            max_length={3}
+                                        />
+                                    )}
+                                    {!has_results && search.length && (
+                                        <SearchError search={search} />
+                                    )}
+                                </ResultWrapper>
+                            </StyledContainer>
+                        </Backdrop>
+                    </SearchSection>
+                    <ArticleSection>
+                        {articles.map((category, idx) => (
+                            <ListWrapper key={idx}>
+                                <Header font_size="3.6rem">{localize(category.category)}</Header>
+                                <ListWithLinks
+                                    list={category.articles}
+                                    categoryLink={'/help-centre/' + 'account'}
+                                />
+                            </ListWrapper>
+                        ))}
+                    </ArticleSection>
+                </Container>
                 {<DidntFindYourAnswerBanner />}
             </Layout>
         )

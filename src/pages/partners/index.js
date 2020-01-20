@@ -1,5 +1,6 @@
 import React from 'react'
 import WhyUs from './_why-us.js'
+import WhoCanAplly from './_who-can-apply.js'
 import { Header } from 'components/elements/typography'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container } from 'components/containers'
@@ -49,6 +50,7 @@ const Partners = () => {
                     </Header>
                     <DNumber items={items} justify="space-around" />
                     <WhyUs items={why_partner_with_us_items} />
+                    <WhoCanAplly />
                 </Container>
             </SectionContainer>
         </Layout>

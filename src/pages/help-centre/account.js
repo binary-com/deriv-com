@@ -2,14 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Header, Text } from '../../components/elements/typography'
 import { Article } from './_article'
-import { localize, WithIntl } from 'components/localization'
-import { articles } from './_help-articles'
-
-const getAllArticles = articles =>
-    articles
-        .map(category => category.articles)
-        // flatten the array, gatsby build does not support .flat() yet
-        .reduce((arr, article_arr) => arr.concat(article_arr), [])
+import { localize, Localize, WithIntl } from 'components/localization'
 
 const ArticleWrapper = styled.div`
     width: 100%;
@@ -17,6 +10,8 @@ const ArticleWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
+    font-size: var(--text-size-s);
+    line-height: 1.5;
 `
 const Step = styled(ArticleWrapper)`
     flex-direction: row;
@@ -38,12 +33,18 @@ const StyledHeader = styled(Header)`
 
 const WhoCanOpenAnAccount = () => (
     <ArticleWrapper>
-        <Text secondary>{localize('You have read the Legal Terms and Conditions in full.')}</Text>
-        <Text secondary>
-            {localize(
-                'You have read our privacy statement and give us your consent to process your personal information.',
-            )}
-        </Text>
+        <Localize
+            translate_text="You have read the <1>Legal Terms and Conditions</1> in full.
+<0 /><0 />You understand that you will be buying and selling financial contracts subject to these terms and conditions.
+<0 /><0 />You have read our privacy statement and give us your consent to process your personal information.
+<0 /><0 />You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.
+<0 /><0 />You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.
+<0 /><0 />You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation."
+            components={[
+                <br key={0} />,
+                <LocalizedLink external_link key={1} target="_blank" to="/terms-and-conditions/" />,
+            ]}
+        />
     </ArticleWrapper>
 )
 const OpeningAccount = () => (
@@ -77,14 +78,10 @@ const OpeningAccount = () => (
 )
 
 const AccountArticle = () => {
-    const all_articles = getAllArticles(articles)
-
     return (
         <Article>
             <WhoCanOpenAnAccount
-                text={
-                    all_articles.find(article => article.label === 'who-can-open-an-account').title
-                }
+                text={localize('Who can open an account?')}
                 label="who-can-open-an-account"
             ></WhoCanOpenAnAccount>
             <OpeningAccount

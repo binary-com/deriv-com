@@ -281,7 +281,7 @@ class HelpCentre extends Component {
                                 <Header font_size="3.6rem">{localize(category.category)}</Header>
                                 <ListWithLinks
                                     list={category.articles}
-                                    categoryLink={'/help-centre/' + 'account'}
+                                    categoryLink={'/help-centre/account'}
                                 />
                             </ListWrapper>
                         ))}

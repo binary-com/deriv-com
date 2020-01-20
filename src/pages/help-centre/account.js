@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import { Header, Text } from '../../components/elements/typography'
 import { Article } from './_article'
 import { localize, Localize, WithIntl } from 'components/localization'
+import { getLanguage } from '../../common/utility'
 
 const ArticleWrapper = styled.div`
-    width: 100%;
+    max-width: 79.2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -30,6 +31,21 @@ const StyledHeader = styled(Header)`
     width: auto;
     margin-bottom: ${props => props.marginBottom || '0'};
 `
+const ExternalLink = styled.a`
+    text-decoration: none;
+    font-size: var(--text-size-s);
+    font-weight: bold;
+    color: var(--color-red);
+    display: contents;
+
+    :hover {
+        text-decoration: underline;
+    }
+`
+const url =
+    getLanguage() === 'en' || getLanguage() == null
+        ? '/terms-and-conditions/'
+        : `/${getLanguage()}/terms-and-conditions/`
 
 const WhoCanOpenAnAccount = () => (
     <ArticleWrapper>
@@ -42,7 +58,12 @@ const WhoCanOpenAnAccount = () => (
 <0 /><0 />You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation."
             components={[
                 <br key={0} />,
-                <LocalizedLink external_link key={1} target="_blank" to="/terms-and-conditions/" />,
+                <ExternalLink
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={1}
+                ></ExternalLink>,
             ]}
         />
     </ArticleWrapper>

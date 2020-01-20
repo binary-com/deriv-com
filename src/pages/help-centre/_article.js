@@ -21,6 +21,7 @@ const Content = styled.div`
 const TabWrapper = styled.div`
     width: 100%;
 `
+
 export const Article = ({ children }) => {
     const [activeTabTitle, setactiveTabTitle] = useState('')
 

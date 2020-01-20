@@ -35,7 +35,6 @@ const TabList = styled.ol`
         width: 100%;
     }
 `
-
 const TabContent = styled.div`
     flex: 1;
 `
@@ -43,21 +42,19 @@ const TabContent = styled.div`
 const StyledTab = styled.li`
     cursor: pointer;
     padding: 1.8rem 0;
-    border-bottom: 1px solid var(--color-red-2);
 
     & > p {
-        color: var(--color-red-2);
+        color: var(--color- ${props => props.font_color || 'black'});
+        font-size: ${props => props.font_size || 'var(--text-size-m)'};
+        padding-left: 1.6rem;
     }
-    &.tab-active {
-        border-bottom: 1px solid var(--color-red);
+    &.tab-active > p {
+        border-left: 4px solid var(--color-red);
 
-        & > p {
-            color: var(--color-red);
-        }
     }
 `
 const TabsText = css`
-    font-size: var(--text-size-sm);
+    font-size: var(--text-size-m);
     color: var(--color-red);
 `
 const StyledActiveTabText = styled(Text)`

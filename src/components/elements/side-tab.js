@@ -21,7 +21,7 @@ const StyledSideTab = styled(Wrapper)`
 `
 
 const TabList = styled.ol`
-    width: 20rem;
+    width: ${props => props.width || '38.4rem'};
     list-style: none;
     ${props =>
         props.is_sticky &&
@@ -41,7 +41,7 @@ const TabContent = styled.div`
 
 const StyledTab = styled.li`
     cursor: pointer;
-    padding: 1.8rem 0;
+    padding: ${props => props.padding || '0 0 2.4rem 0'};
 
     & > p {
         color: var(--color- ${props => props.font_color || 'black'});
@@ -50,7 +50,6 @@ const StyledTab = styled.li`
     }
     &.tab-active > p {
         border-left: 4px solid var(--color-red);
-
     }
 `
 const TabsText = css`

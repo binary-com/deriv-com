@@ -2,18 +2,19 @@ import React, { Component } from 'react'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
+import { Link } from 'gatsby'
 import { articles } from './_help-articles'
 // import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
+// import { ListWithLinks } from './_list'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
-import { ListWithLinks } from './_list'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
@@ -130,13 +131,28 @@ const ArticleSection = styled.section`
         flex-wrap: wrap;
     }
 `
+const ListNoBullets = styled.ul`
+    margin-bottom: 4.2rem;
+    list-style: none;
+
+    li {
+        max-width: 38.4rem;
+    }
+    > *:not(:last-child) {
+        padding-bottom: 1.6rem;
+    }
+`
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+    font-size: var(--text-size-s);
+`
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
         this.state = {
             all_articles: [],
             search: '',
-            selected_article: null,
             search_has_transition: false,
             toggle_search: true,
         }
@@ -153,7 +169,6 @@ class HelpCentre extends Component {
     handleSelectArticle = article => {
         navigate(`#${article.label}`)
         this.setState({
-            selected_article: article,
             toggle_search: false,
             search_has_transition: false,
             search: '',
@@ -184,11 +199,7 @@ class HelpCentre extends Component {
         }
 
         if (current_label) {
-            const selected_article = this.state.all_articles.find(
-                article => article.label === current_label,
-            )
             this.setState({
-                selected_article,
                 toggle_search: false,
                 search_has_transition: false,
             })
@@ -207,26 +218,8 @@ class HelpCentre extends Component {
         })
     }
 
-    componentDidUpdate = () => {
-        const current_label = getLocationHash()
-
-        if (!current_label && this.state.selected_article) {
-            this.setState({
-                selected_article: null,
-                toggle_search: true,
-                search_has_transition: false,
-            })
-        }
-    }
-
     render() {
-        const {
-            all_articles,
-            search,
-            selected_article,
-            toggle_search,
-            search_has_transition,
-        } = this.state
+        const { all_articles, search, toggle_search, search_has_transition } = this.state
 
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
@@ -264,7 +257,6 @@ class HelpCentre extends Component {
                                     {has_results && search.length && (
                                         <SearchSuccess
                                             suggested_topics={filtered_articles}
-                                            onClick={this.handleSelectArticle}
                                             max_length={3}
                                         />
                                     )}
@@ -279,10 +271,22 @@ class HelpCentre extends Component {
                         {articles.map((category, idx) => (
                             <ListWrapper key={idx}>
                                 <Header font_size="3.6rem">{localize(category.category)}</Header>
-                                <ListWithLinks
-                                    list={category.articles}
-                                    categoryLink={'/help-centre/account/'}
-                                />
+                                <ListNoBullets>
+                                    {category.articles.map((article, idxa) => (
+                                        <li key={idxa}>
+                                            <StyledLink
+                                                to={
+                                                    '/help-centre/' +
+                                                    category.category.props.translate_text.replace(/\s/g,'-').toLowerCase() +
+                                                    '#' +
+                                                    article.label
+                                                }
+                                            >
+                                                {article.title}
+                                            </StyledLink>
+                                        </li>
+                                    ))}
+                                </ListNoBullets>
                             </ListWrapper>
                         ))}
                     </ArticleSection>

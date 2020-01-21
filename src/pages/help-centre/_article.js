@@ -15,14 +15,20 @@ const Content = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 8rem 0;
     width: 100%;
 `
 const TabWrapper = styled.div`
     width: 100%;
 `
+const TabHeader = styled.div`
+    display: flex;
+    flex-direction: flex-start;
+    margin-bottom: 2.2rem;
+    margin-top: 8rem;
+    align-items: center;
+`
 
-export const Article = ({ children }) => {
+export const Article = ({ children, header }) => {
     const [activeTabTitle, setactiveTabTitle] = useState('')
 
     function getTitle(tab) {
@@ -43,10 +49,20 @@ export const Article = ({ children }) => {
                 >
                     {localize('Back')}
                 </StyledLink>
+                <TabHeader>
+                    <Header width="38.4rem" font_size="3.6rem">
+                        {localize(header)}
+                    </Header>
+                    <Header  width="38.4rem" as="h4">
+                        {localize(activeTabTitle)}
+                    </Header>
+                </TabHeader>
+
                 <Content>
                     <TabWrapper>
-                        <Header font_size="3.6rem">{localize('Account')}</Header>
-                        <SideTab has_hash_routing onTabChange={getTitle}>{children}</SideTab>
+                        <SideTab has_hash_routing onTabChange={getTitle}>
+                            {children}
+                        </SideTab>
                     </TabWrapper>
                 </Content>
             </Container>
@@ -56,4 +72,5 @@ export const Article = ({ children }) => {
 
 Article.propTypes = {
     children: PropTypes.node,
+    header: PropTypes.string,
 }

@@ -1,24 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
 import { IconGrid } from './_icon-grid'
-import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
+import { SEO, SectionContainer, GridContainer } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Divider, Header, Text } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
-import Checked from 'images/svg/checklist.svg'
+import { Divider, Header } from 'components/elements'
+import { Localize, LocalizedLink, localize, WithIntl } from 'components/localization'
+// TODO: uncomment when self-exclusion is added to deriv.app
+// import Checked from 'images/svg/checklist.svg'
 import Warning from 'images/svg/regulatory-warnings.svg'
 
 const Section = styled(SectionContainer)`
     background-color: ${props => props.bgcolor || 'transparent'};
 `
 const StyledHeader = styled(Header)`
+    a {
+        color: var(--color-red);
+        text-decoration: none;
+
+        :hover {
+            text-decoration: underline;
+        }
+    }
+
     max-width: ${props => props.maxwidth || '100%'};
     margin: 0 auto;
     padding: ${props => props.padding || '0'};
 `
-const CheckedIcon = styled(Checked)`
-    max-width: 100%;
-`
+// TODO: uncomment when self-exclusion is added to deriv.app
+// const CheckedIcon = styled(Checked)`
+//     max-width: 100%;
+// `
 const WarningIcon = styled(Warning)`
     margin-bottom: 2.4rem;
 `
@@ -52,6 +63,8 @@ const ResponsibleTrading = () => {
                 <IconGrid />
             </Section>
             <Divider />
+            {/* TODO: uncomment when self-exclusion is added to deriv.app */}
+            {/*
             <Section>
                 <GridContainer>
                     <CssGrid
@@ -116,8 +129,8 @@ const ResponsibleTrading = () => {
                         </CssGridColumn>
                     </CssGrid>
                 </GridContainer>
-            </Section>
-            <Section bgcolor="var(--color-grey-8)">
+            </Section> */}
+            <Section>
                 <GridContainer align="center">
                     <WarningIcon />
                     <Header font_size="3.6rem" align="center">
@@ -131,9 +144,10 @@ const ResponsibleTrading = () => {
                         lh="2.4rem"
                         padding="0.8rem 0 0"
                     >
-                        {localize(
-                            "Online trading can incur losses as well as gains. Price will vary due to changes in the market and may impact your investment. Our products fall under the category of 'complex products' and may not be suitable for retail clients.",
-                        )}
+                        <Localize
+                            translate_text="Online trading can incur losses as well as gains. Prices may vary due to changes in the market which may impact the return on your investment. The products that we offer are ‘complex products’ and may not be suitable for everyone. Trading on our products carries a high level of risk and you risk losing all of your invested capital. Please refer to the <0>Key Information Documents</0> on our website to understand all the risks involved before you start trading."
+                            components={[<LocalizedLink key={0} to="/regulatory/" />]}
+                        />
                     </StyledHeader>
                 </GridContainer>
             </Section>

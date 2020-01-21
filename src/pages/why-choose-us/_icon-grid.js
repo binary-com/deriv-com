@@ -11,7 +11,7 @@ import LicensedRegulated from 'images/svg/wd-licensed-regulated.svg'
 import ClientProtection from 'images/svg/wd-client-money-protection.svg'
 import Risk from 'images/svg/wd-risk.svg'
 import Help from 'images/svg/wd-help.svg'
-import Safety from 'images/svg/wd-safety.svg'
+import Safety from 'images/svg/wd-your-safety.svg'
 import CustomerFirst from 'images/svg/wd-customer-first.svg'
 
 const GridCol = styled(CssGridColumn)`
@@ -141,17 +141,17 @@ export const IconGrid = () => (
                 }
             />
             <Col
-                Icon={Safety}
-                title={localize('Your safety, our priority')}
-                content={localize(
-                    'At Deriv, we enforce best-in-class security measures such as SSL encryption to protect your account and personal data.',
-                )}
-            />
-            <Col
                 Icon={CustomerFirst}
                 title={localize('Customer-first trading experience')}
                 content={localize(
                     'Deriv makes it easy for anyone to start trading, understand risk, and make better trading decisions. Our tools and platforms have clear and simple instructions and are intuitively easy to navigate. We also regularly provide market news, analysis, webinars, ebooks, video tutorials and help centre articles to help you stay informed and become a better trader.',
+                )}
+            />
+            <Col
+                Icon={Safety}
+                title={localize('Your safety, our priority')}
+                content={localize(
+                    'At Deriv, we enforce best-in-class security measures such as SSL encryption to protect your account and personal data.',
                 )}
             />
         </GridWrapper>

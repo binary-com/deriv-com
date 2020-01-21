@@ -49,7 +49,7 @@ export const OurAwards = () => {
             <StyledHeader align="center">{localize('Our awards')}</StyledHeader>
             <StyledText align="center" weight="500">
                 {localize(
-                    "We have 20 years of experience in providing excellent trading services, and we're proud that our dedication has led to a number of prestigious awards over the years.",
+                    'The Binary Group has 20 years of experience in providing excellent trading services. We’re proud that our dedication has led to a number of prestigious awards over the years.',
                 )}
             </StyledText>
             <ImageWrapper>

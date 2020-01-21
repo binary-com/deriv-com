@@ -32,7 +32,7 @@ export const Article = ({ children, header }) => {
     const [activeTabTitle, setactiveTabTitle] = useState('')
 
     function getTitle(tab) {
-        setactiveTabTitle(tab.props.text)
+        if (tab) setactiveTabTitle(tab.props.text)
     }
     return (
         <Layout>
@@ -53,7 +53,7 @@ export const Article = ({ children, header }) => {
                     <Header width="38.4rem" font_size="3.6rem">
                         {localize(header)}
                     </Header>
-                    <Header  width="38.4rem" as="h4">
+                    <Header width="38.4rem" as="h4">
                         {localize(activeTabTitle)}
                     </Header>
                 </TabHeader>

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
 import { Text } from 'components/elements/typography'
-import { Localize, localize, WithIntl, LocalizedLink } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 
 const ArticleWrapper = styled.div`
     max-width: 79.2rem;
@@ -27,9 +27,6 @@ export const StyledLink = css`
     }
 `
 const ExternalLink = styled.a`
-    ${StyledLink}
-`
-const InternalLink = styled(LocalizedLink)`
     ${StyledLink}
 `
 const Box = styled.div`
@@ -91,7 +88,7 @@ const HowDoIWithdrawFundsFromMyDerivAccount = () => (
                 <1 /><1 />2. Click on <0>Request authentication email</0> to receive a verification email.
                 <1 /><1 />3. Check your email for a message with the link to withdraw your funds. Check your spam or junk folder if you don’t see it.
                 <1 /><1 />4. Click on <0>Authorise & withdraw funds.</0> If the button does not work, copy and paste the link from the email into your browser.
-                <1 /><1 />5. On the <0>Withdrawal</0> page, follow the instructions on the screen. 
+                <1 /><1 />5. On the <0>Withdrawal</0> page, follow the instructions on the screen.
                 <1 /><1 />6. We will review your withdrawal request and inform you via email once your withdrawal has been successfully processed."
                 components={[<strong key={0} />, <br key={1} />]}
             />

@@ -207,19 +207,21 @@ const ResponsibleTrading = () => {
                     <Header as="h2" font_size="3.6rem" align="center">
                         {localize('Other warnings and regulatory disclosures')}
                     </Header>
-                    <StyledHeader
-                        as="h5"
-                        align="center"
-                        weight="400"
-                        maxwidth="99rem"
-                        lh="2.4rem"
-                        padding="0.8rem 0 0"
-                    >
-                        <Localize
-                            translate_text="Online trading can incur losses as well as gains. Prices may vary due to changes in the market which may impact the return on your investment. The products that we offer are ‘complex products’ and may not be suitable for everyone. Trading on our products carries a high level of risk and you risk losing all of your invested capital. Please refer to the <0>Key Information Documents</0> on our website to understand all the risks involved before you start trading."
-                            components={[<LocalizedLink key={0} to="/regulatory/" />]}
-                        />
-                    </StyledHeader>
+                    <Flex jc="center">
+                        <StyledHeader
+                            as="h5"
+                            align="center"
+                            weight="400"
+                            maxwidth="99rem"
+                            lh="2.4rem"
+                            padding="0.8rem 0 0"
+                        >
+                            <Localize
+                                translate_text="Online trading can incur losses as well as gains. Prices may vary due to changes in the market which may impact the return on your investment. The products that we offer are ‘complex products’ and may not be suitable for everyone. Trading on our products carries a high level of risk and you risk losing all of your invested capital. Please refer to the <0>Key Information Documents</0> on our website to understand all the risks involved before you start trading."
+                                components={[<LocalizedLink key={0} to="/regulatory/" />]}
+                            />
+                        </StyledHeader>
+                    </Flex>
                 </GridContainer>
             </Section>
         </Layout>

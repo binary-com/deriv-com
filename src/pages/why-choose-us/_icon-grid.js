@@ -12,7 +12,7 @@ import ClientProtection from 'images/svg/wd-client-money-protection.svg'
 import Risk from 'images/svg/wd-risk.svg'
 import Help from 'images/svg/wd-help.svg'
 import Safety from 'images/svg/wd-your-safety.svg'
-import CustomerFirst from 'images/svg/wd-customer-first.svg'
+import CustomerFirst from 'images/svg/wd-customer-first-trading.svg'
 
 const GridCol = styled(CssGridColumn)`
     width: 100%;

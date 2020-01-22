@@ -44,12 +44,15 @@ const StyledTab = styled.li`
     padding: ${props => props.padding || '0 0 2.4rem 0'};
 
     & > p {
-        color: var(--color- ${props => props.font_color || 'black'});
+        color: var(--color-${props => props.font_color || 'black-3'});
+        opacity: 0.32;
         font-size: ${props => props.font_size || 'var(--text-size-m)'};
         padding-left: 1.6rem;
     }
     &.tab-active > p {
         border-left: 4px solid var(--color-red);
+        opacity: 1;
+        color: var(--color- ${props => props.active_font_color || 'black'});
     }
 `
 const TabsText = css`

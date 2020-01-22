@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Text } from '../../components/elements/typography'
 import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
+import { Text } from 'components/elements/typography'
 import { localize, Localize, WithIntl, LocalizedLink } from 'components/localization'
 
 const ArticleWrapper = styled.div`
@@ -13,8 +13,8 @@ const ArticleWrapper = styled.div`
     height: 100%;
     font-size: var(--text-size-s);
     line-height: 1.5;
+    padding-left: 2.4rem;
 `
-
 export const StyledLink = css`
     text-decoration: none;
     font-size: var(--text-size-s);
@@ -43,34 +43,34 @@ const url =
         : `/${getLanguage()}/terms-and-conditions/`
 
 const WhoCanOpenAnAccount = () => (
-    <>
-        <ArticleWrapper>
-            <Localize
-                translate_text="You have read the <1>Legal Terms and Conditions</1> in full.
-<0 /><0 />You understand that you will be buying and selling financial contracts subject to these terms and conditions.
-<0 /><0 />You have read our privacy statement and give us your consent to process your personal information.
-<0 /><0 />You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.
-<0 /><0 />You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.
-<0 /><0 />You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation."
-                components={[
-                    <br key={0} />,
-                    <ExternalLink
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={1}
-                    ></ExternalLink>,
-                ]}
-            />
-        </ArticleWrapper>
-    </>
+    <ArticleWrapper>
+        <Localize
+            translate_text="You have read the <1>Legal Terms and Conditions</1> in full.
+                <0 /><0 />You understand that you will be buying and selling financial contracts subject to these terms and conditions.
+                <0 /><0 />You have read our privacy statement and give us your consent to process your personal information.
+                <0 /><0 />You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.
+                <0 /><0 />You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.
+                <0 /><0 />You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation."
+            components={[
+                <br key={0} />,
+                <ExternalLink
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={1}
+                ></ExternalLink>,
+            ]}
+        />
+    </ArticleWrapper>
 )
 const OpeningAccount = () => (
     <ArticleWrapper>
         <Text>{localize('There are three ways to open an account. You can:')}</Text>
         <Box>
             <Localize
-                translate_text='1. Enter your email address on the homepage and click <0>"Create free account"</0><1 /><1 />2. Create an account with your <0>Google</0> login<1 /><1 />3. Create an account with your <0>Facebook</0> login'
+                translate_text='1. Enter your email address on the homepage and click <0>"Create free account"</0>
+                <1 /><1 />2. Create an account with your <0>Google</0> login
+                <1 /><1 />3. Create an account with your <0>Facebook</0> login'
                 components={[<strong key={0} />, <br key={1} />]}
             />
         </Box>
@@ -108,7 +108,9 @@ const HowDoIChangeOrResetMyDerivPassword = () => (
         </Text>
         <Box>
             <Localize
-                translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0><1 /><1 />2. Enter your current password and new password.<1 /><1 />3. Click <0>Change password</0> to confirm."
+                translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0>
+                <1 /><1 />2. Enter your current password and new password.
+                <1 /><1 />3. Click <0>Change password</0> to confirm."
                 components={[<strong key={0} />, <br key={1} />]}
             />
         </Box>

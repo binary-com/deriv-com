@@ -45,43 +45,41 @@ export const articles = [
     },
     {
         category: <Localize translate_text="Deposits and withdrawals" />,
-        categoryCode: 'deposit',
         articles: [
             {
                 title: <Localize translate_text="Making a deposit" />,
-                category: <Localize translate_text="Deposits and withdrawals" />,
+                category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'making-a-deposit',
             },
             {
                 title: <Localize translate_text="Expired verification link" />,
-                category: <Localize translate_text="Deposits and withdrawals" />,
+                category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Deposits" />,
                 label: 'expired-verification-link',
             },
             {
                 title: <Localize translate_text="Withdrawal processing time" />,
-                category: <Localize translate_text="Deposits and withdrawals" />,
+                category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Withdrawals" />,
                 label: 'withdrawal-processing-time',
             },
             {
                 title: <Localize translate_text="How do I withdraw funds from my Deriv account?" />,
-                category: <Localize translate_text="Deposits and withdrawals" />,
+                category: 'Deposits and withdrawals',
                 sub_category: <Localize translate_text="Withdrawals" />,
-                label: 'How-do-I-withdraw-funds-from-my-Deriv-account',
+                label: 'withdraw-funds-from-Deriv-account',
             },
         ],
     },
     {
         category: <Localize translate_text="Privacy and security" />,
-        categoryCode: 'privacy',
         articles: [
             {
                 title: (
                     <Localize translate_text="Safeguarding your account when you change your password" />
                 ),
-                category: <Localize translate_text="Privacy and security" />,
+                category: 'Privacy and security',
                 sub_category: <Localize translate_text="Safeguard" />,
                 label: 'Safeguarding-account-when-Change-password',
             },
@@ -89,7 +87,7 @@ export const articles = [
                 title: (
                     <Localize translate_text="Safeguarding your account when you withdraw funds" />
                 ),
-                category: <Localize translate_text="Privacy and security" />,
+                category: 'Privacy and security',
                 sub_category: <Localize translate_text="Safeguard" />,
                 label: 'Safeguarding-account-when-withdraw-funds',
             },

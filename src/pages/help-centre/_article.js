@@ -53,7 +53,7 @@ export const Article = ({ children, header }) => {
                     <Header width="38.4rem" font_size="3.6rem">
                         {localize(header)}
                     </Header>
-                    <Header width="38.4rem" as="h4">
+                    <Header width="38.4rem" as="h4" margin="0 2.2rem">
                         {localize(activeTabTitle)}
                     </Header>
                 </TabHeader>

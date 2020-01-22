@@ -1,9 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Header, Text } from '../../components/elements/typography'
+import styled, { css } from 'styled-components'
+import { Text } from '../../components/elements/typography'
 import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl, LocalizedLink } from 'components/localization'
 
 const ArticleWrapper = styled.div`
     max-width: 79.2rem;
@@ -14,24 +14,8 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
 `
-const Step = styled(ArticleWrapper)`
-    flex-direction: row;
-    height: 20%;
-    margin-bottom: 4.1rem;
-`
-const Content = styled.div`
-    height: 21.3rem;
-    width: 64.5rem;
-    display: flex;
-    flex-direction: column;
-    margin-left: 3.3rem;
-    margin-top: ${props => props.marginTop};
-`
-const StyledHeader = styled(Header)`
-    width: auto;
-    margin-bottom: ${props => props.marginBottom || '0'};
-`
-const ExternalLink = styled.a`
+
+export const StyledLink = css`
     text-decoration: none;
     font-size: var(--text-size-s);
     font-weight: bold;
@@ -41,6 +25,17 @@ const ExternalLink = styled.a`
     :hover {
         text-decoration: underline;
     }
+`
+const ExternalLink = styled.a`
+    ${StyledLink}
+`
+const InternalLink = styled(LocalizedLink)`
+    ${StyledLink}
+`
+const Box = styled.div`
+    margin: 2.4rem 0;
+    padding: 2rem;
+    background-color: var(--color-grey-18);
 `
 const url =
     getLanguage() === 'en' || getLanguage() == null
@@ -72,37 +67,78 @@ const WhoCanOpenAnAccount = () => (
 )
 const OpeningAccount = () => (
     <ArticleWrapper>
-        <StyledHeader marginBottom="1.6rem" as="h4">
-            {localize('There are three ways to open an account. You can:')}
-        </StyledHeader>
-        <Step>
-            <StyledHeader as="h1">{localize('1')}</StyledHeader>
-            <Content marginTop="1rem">
-                <Text secondary>
-                    {localize(
-                        'Enter your email address on the homepage and click “Create free account”',
-                    )}
-                </Text>
-            </Content>
-        </Step>
-        <Step>
-            <StyledHeader as="h1">{localize('2')}</StyledHeader>
-            <Content marginTop="3rem">
-                <Text secondary>{localize('Create an account with your Google login')}</Text>
-            </Content>
-        </Step>
-        <Step>
-            <StyledHeader as="h1">{localize('3')}</StyledHeader>
-            <Content marginTop="3rem">
-                <Text secondary>{localize('Create an account with your Facebook login')}</Text>
-            </Content>
-        </Step>
+        <Text>{localize('There are three ways to open an account. You can:')}</Text>
+        <Box>
+            <Localize
+                translate_text='1. Enter your email address on the homepage and click <0>"Create free account"</0><1 /><1 />2. Create an account with your <0>Google</0> login<1 /><1 />3. Create an account with your <0>Facebook</0> login'
+                components={[<strong key={0} />, <br key={1} />]}
+            />
+        </Box>
+        <Text>
+            {localize(
+                'You will have a practise account to start with. You can upgrade to a real money account after opening a practise account.',
+            )}
+        </Text>
     </ArticleWrapper>
 )
-const ChangingPersonalDetails = () => <div></div>
-const RecoveringYourPassword = () => <div></div>
-const AuthenticatingYourAccount = () => <div></div>
-const HowDoIChangeOrResetMyDerivPassword = () => <div></div>
+const ChangingPersonalDetails = () => (
+    <ArticleWrapper>
+        <Text>
+            {localize(
+                "If you'd like to change your name, date of birth, country of residence, or email address, please submit a ticket and attach your proof of identity and proof of address.",
+            )}
+        </Text>
+    </ArticleWrapper>
+)
+// const RecoveringYourPassword = () => <div></div>
+const AuthenticatingYourAccount = () => (
+    <ArticleWrapper>
+        <Localize
+            translate_text="Authenticate your account on the <0>verification page</0>."
+            components={[<InternalLink to="" target="_blank" key={0}></InternalLink>]}
+        />
+    </ArticleWrapper>
+)
+const HowDoIChangeOrResetMyDerivPassword = () => (
+    <ArticleWrapper>
+        <Text>
+            {localize(
+                'To change your Deriv password if you’re already logged in and know your password:',
+            )}
+        </Text>
+        <Box>
+            <Localize
+                translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0><1 /><1 />2. Enter your current password and new password.<1 /><1 />3. Click <0>Change password</0> to confirm."
+                components={[<strong key={0} />, <br key={1} />]}
+            />
+        </Box>
+
+        <Text>{localize('If you’re logged in and can’t remember your password:')}</Text>
+        <Box>
+            <Localize
+                translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0>
+                <1 /><1 />2. Click on <0>Forgot your password?</0>
+                <1 /><1 />3. Check your email for a message with the link to reset your password. Check your spam or junk folder if you don’t see it.
+                <1 /><1 />4. Click on <0>Reset my password</0> to go to the <0>Choose a new password</0> page. If the button does not work, copy and paste the link from the email into your browser.
+                <1 /><1 />5. Enter your new password.
+                <1 /><1 />6. Click <0>Save new password</0> to confirm."
+                components={[<strong key={0} />, <br key={1} />]}
+            />
+        </Box>
+        <Text>{localize('If you’re not logged in and can’t remember your password:')}</Text>
+        <Box>
+            <Localize
+                translate_text="1. Go to <0>Deriv.com > Log in.</0>
+                <1 /><1 />2. Click on <0>Forgot password?</0>
+                <1 /><1 />3. Check your email for a message with the link to reset your password. Check your spam or junk folder if you don’t see it.
+                <1 /><1 />4. Click on <0>Reset my password</0> to go to the <0>Choose a new password</0> page. If the button does not work, copy and paste the link from the email into your browser.
+                <1 /><1 />5. Enter your new password.
+                <1 /><1 />6. Click <0>Save new password</0> to confirm."
+                components={[<strong key={0} />, <br key={1} />]}
+            />
+        </Box>
+    </ArticleWrapper>
+)
 
 const AccountArticle = () => {
     return (
@@ -115,10 +151,22 @@ const AccountArticle = () => {
                 text={localize('Opening an account')}
                 label="opening-an-account"
             ></OpeningAccount>
-            <ChangingPersonalDetails></ChangingPersonalDetails>
-            <RecoveringYourPassword></RecoveringYourPassword>
-            <AuthenticatingYourAccount></AuthenticatingYourAccount>
-            <HowDoIChangeOrResetMyDerivPassword></HowDoIChangeOrResetMyDerivPassword>
+            <ChangingPersonalDetails
+                text={localize('Changing your personal details')}
+                label="changing-your-personal-details"
+            ></ChangingPersonalDetails>
+            {/* <RecoveringYourPassword
+                text={localize('')}
+                label="recovering-your-password"
+            ></RecoveringYourPassword> */}
+            <AuthenticatingYourAccount
+                text={localize('Authenticating your account')}
+                label="authenticating-your-password"
+            ></AuthenticatingYourAccount>
+            <HowDoIChangeOrResetMyDerivPassword
+                text={localize('How do I change or reset my Deriv password?')}
+                label="change-or-reset-deriv-password"
+            ></HowDoIChangeOrResetMyDerivPassword>
         </Article>
     )
 }

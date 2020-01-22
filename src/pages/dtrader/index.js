@@ -69,7 +69,7 @@ const Dtrader = () => {
                 title={localize('DTrader')}
                 content={
                     <Localize
-                        translate_text="Everything<0/>you need<0/>and more"
+                        translate_text="Trading<0/>made simple<0/>"
                         components={[<br key={0} />]}
                     />
                 }

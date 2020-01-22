@@ -239,7 +239,7 @@ export const Offices = () => {
                                     href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                                 >
                                     <Localize
-                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan"
+                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan."
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>
@@ -325,7 +325,7 @@ export const Offices = () => {
                                     href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
                                 >
                                     <Localize
-                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma,<0 />Trinidad, Asuncion,Paraguay"
+                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma,<0 />Trinidad, Asuncion, Paraguay."
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>

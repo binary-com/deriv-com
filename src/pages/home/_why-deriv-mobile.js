@@ -96,7 +96,7 @@ const WhyDerivMobile = () => {
                 </CardItem>
             </Card>
             <ButtonWrapper>
-                <SignupButton secondary to='/signup/'>
+                <SignupButton secondary to="/signup/">
                     {localize('Create a free demo account')}
                 </SignupButton>
             </ButtonWrapper>

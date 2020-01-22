@@ -1,7 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SecurityIconGrid } from './_icon-grid'
-import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
+import {
+    SEO,
+    SectionContainer,
+    GridContainer,
+    CssGrid,
+    CssGridColumn,
+    Flex,
+} from 'components/containers'
 import Layout from 'components/layout/layout'
 import { StyledLink, Header, Text, Divider } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -26,7 +33,6 @@ const DemoIcon = styled(Demo)`
 `
 
 const KeepSafe = () => {
-
     return (
         <Layout>
             <SEO
@@ -58,23 +64,7 @@ const KeepSafe = () => {
                 <SecurityIconGrid />
             </SectionContainer>
             <Section background="grey-8">
-                <GridContainer align="center">
-                    <DemoIcon />
-                    <Header font_size="var(--text-size-header-1)" align="center">
-                        {localize('New to trading?')}
-                    </Header>
-                    <StyledHeader as="h5" align="center" weight="400" lh="2.4rem">
-                        {localize(
-                            'Use our demo account and learn how to trade by using risk-free virtual funds.',
-                        )}
-                    </StyledHeader>
-                    <LinkButton secondary to='/signup/'>
-                        {localize('Create a free account')}
-                    </LinkButton>
-                </GridContainer>
-            </Section>
-            <Section max_width="98rem">
-                <GridContainer align="center">
+                <GridContainer align="center" style={{ maxWidth: '78.4rem' }}>
                     <StyledHeader
                         font_size="var(--text-size-header-1)"
                         lh="3.6rem"
@@ -122,6 +112,22 @@ const KeepSafe = () => {
                         </CssGridColumn>
                     </CssGrid>
                 </GridContainer>
+            </Section>
+            <Section padding="4rem 0">
+                <Flex ai="center" direction="column">
+                    <DemoIcon />
+                    <Header font_size="var(--text-size-header-1)" align="center">
+                        {localize('New to trading?')}
+                    </Header>
+                    <StyledHeader as="h5" align="center" weight="400" lh="2.4rem">
+                        {localize(
+                            'Use our demo account and learn how to trade by using risk-free virtual funds.',
+                        )}
+                    </StyledHeader>
+                    <LinkButton secondary to="/signup/">
+                        {localize('Create a free account')}
+                    </LinkButton>
+                </Flex>
             </Section>
         </Layout>
     )

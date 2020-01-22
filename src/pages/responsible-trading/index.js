@@ -212,7 +212,7 @@ const ResponsibleTrading = () => {
                             as="h5"
                             align="center"
                             weight="400"
-                            maxwidth="99rem"
+                            maxwidth="99.6rem"
                             lh="2.4rem"
                             padding="0.8rem 0 0"
                         >

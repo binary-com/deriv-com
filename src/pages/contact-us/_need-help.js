@@ -26,7 +26,6 @@ const StyledText = styled(Text)`
 `
 const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
-    width: 18.4rem;
     height: 4rem;
 `
 

@@ -247,12 +247,12 @@ class HelpCentre extends Component {
                                         data-lpignore="true"
                                         autoComplete="off"
                                     />
-                                    {search.length && (
+                                    {search.length > 0 && (
                                         <SearchCrossIcon onClick={this.clearSearch} />
                                     )}
                                 </SearchForm>
                                 <ResultWrapper>
-                                    {has_results && search.length && (
+                                    {has_results && search.length > 0 && (
                                         <SearchSuccess
                                             suggested_topics={filtered_articles}
                                             max_length={3}

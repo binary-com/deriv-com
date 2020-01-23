@@ -277,7 +277,9 @@ class HelpCentre extends Component {
                                             <StyledLink
                                                 to={
                                                     '/help-centre/' +
-                                                    category.category.props.translate_text.replace(/\s/g,'-').toLowerCase() +
+                                                    category.category.props.translate_text
+                                                        .replace(/\s/g, '-')
+                                                        .toLowerCase() +
                                                     '#' +
                                                     article.label
                                                 }
@@ -291,7 +293,7 @@ class HelpCentre extends Component {
                         ))}
                     </ArticleSection>
                 </Container>
-                {<DidntFindYourAnswerBanner />}
+                <DidntFindYourAnswerBanner />
             </Layout>
         )
     }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import Layout from 'components/layout/layout'
 import { localize } from 'components/localization'
 import { Header, SideTab, StyledLink } from 'components/elements'
@@ -26,6 +27,9 @@ const TabHeader = styled.div`
     margin-bottom: 2.2rem;
     margin-top: 8rem;
     align-items: center;
+`
+const ContactContainer = styled.div`
+    margin-top: 8rem;
 `
 
 export const Article = ({ children, header }) => {
@@ -66,6 +70,9 @@ export const Article = ({ children, header }) => {
                     </TabWrapper>
                 </Content>
             </Container>
+            <ContactContainer>
+                <DidntFindYourAnswerBanner />
+            </ContactContainer>
         </Layout>
     )
 }

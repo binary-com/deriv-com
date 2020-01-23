@@ -43,16 +43,16 @@ const TabContent = styled.div`
 const StyledTab = styled.li`
     cursor: pointer;
     padding: ${props => props.padding || '0 0 2.4rem 0'};
-    width: ${props => props.item_width || '33rem'};
+    width: ${props => props.item_width || '38rem'};
 
     & > p {
         color: var(--color- ${props => props.font_color || 'black-3'});
         opacity: 0.32;
         font-size: ${props => props.font_size || 'var(--text-size-m)'};
         padding-left: 1.6rem;
+        max-width: 33rem;
     }
     &.tab-active > p {
-        border-left: 4px solid var(--color-red);
         opacity: 1;
         color: var(--color- ${props => props.active_font_color || 'black'});
     }
@@ -77,6 +77,16 @@ const StyledDropDown = styled.li`
 const ChevronWrapper = styled(Chevron)`
     transform: ${props => (props.active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)')};
 `
+const LeftBorder = styled.div`
+    width: 0.4rem;
+    height: 3.6rem;
+    background-color: red;
+    flex: 1;
+`
+const ItemWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+`
 const Tab = ({ active_tab, label, onClick, text, mobile }) => {
     const className = active_tab === label ? 'tab-active' : ''
 
@@ -89,9 +99,12 @@ const Tab = ({ active_tab, label, onClick, text, mobile }) => {
             <Text>{text}</Text>
         </StyledDropDown>
     ) : (
-        <StyledTab className={className} onClick={handleClick}>
-            <Text weight="500">{text}</Text>
-        </StyledTab>
+        <ItemWrapper>
+            {active_tab === label ? <LeftBorder></LeftBorder> : undefined}
+            <StyledTab className={className} onClick={handleClick}>
+                <Text weight="500">{text}</Text>
+            </StyledTab>
+        </ItemWrapper>
     )
 }
 

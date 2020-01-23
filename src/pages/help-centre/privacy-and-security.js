@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Text } from '../../components/elements/typography'
+import { Text, Header } from '../../components/elements/typography'
 import { Article } from './_article'
 import { localize, Localize, WithIntl } from 'components/localization'
 
@@ -32,6 +32,9 @@ const Box = styled.div`
 `
 const SafeguardChangePassword = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('Safeguarding your account when you change your password')}
+        </Header>
         <Localize
             translate_text="To keep your account safe from an unauthorised party, we always require you to confirm your identity before we allow you to change or reset your password.
                 <0 /><0 />This is how we do it:"
@@ -54,6 +57,9 @@ const SafeguardChangePassword = () => (
 
 const SafeguardWithdrawFunds = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('Safeguarding your account when you withdraw funds')}
+        </Header>
         <div>
             <Localize
                 translate_text="To keep your funds safe from an unauthorised party, we always require you to confirm your identity before you can submit a withdrawal request.

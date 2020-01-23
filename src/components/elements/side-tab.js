@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { navigate } from '@reach/router'
-import { Text } from './typography'
+import { Text, Header } from './typography'
+import { localize } from 'components/localization'
 import { getLocationHash, isBrowser } from 'common/utility'
 import device, { size } from 'themes/device'
 import { Wrapper } from 'components/containers'
@@ -23,7 +24,6 @@ const StyledSideTab = styled(Wrapper)`
 const TabList = styled.ol`
     width: ${props => props.tab_width || '38.4rem'};
     list-style: none;
-    margin-top: 3rem;
     ${props =>
         props.is_sticky &&
         css`
@@ -109,7 +109,7 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
     return [active_tab, setTab, previous_tab, setLastActiveTab]
 }
 
-const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange }) => {
+const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tabHeader }) => {
     // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
     const first_tab = isBrowser()
         ? window.innerWidth > size.tabletL
@@ -162,6 +162,18 @@ const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange }) => {
         <StyledSideTab>
             <TabList is_sticky={is_sticky}>
                 <Desktop>
+                    {tabHeader ? (
+                        <Header
+                            width="38.4rem"
+                            font_size="3.6rem"
+                            min_width="38.4rem"
+                            margin="0 0 4rem 0"
+                        >
+                            {localize(tabHeader)}
+                        </Header>
+                    ) : (
+                        undefined
+                    )}
                     <Tabs />
                 </Desktop>
                 <Mobile>
@@ -191,6 +203,7 @@ SideTab.propTypes = {
     is_mobile: PropTypes.bool,
     is_sticky: PropTypes.bool,
     onTabChange: PropTypes.func,
+    tabHeader: PropTypes.string,
 }
 
 Tab.propTypes = {

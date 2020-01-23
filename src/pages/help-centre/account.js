@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
-import { Text } from 'components/elements/typography'
+import { Text, Header } from 'components/elements/typography'
 import { localize, Localize, WithIntl, LocalizedLink } from 'components/localization'
 
 const ArticleWrapper = styled.div`
@@ -44,6 +44,9 @@ const url =
 
 const WhoCanOpenAnAccount = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('Who can open an account?')}
+        </Header>
         <Localize
             translate_text="You have read the <1>Legal Terms and Conditions</1> in full.
                 <0 /><0 />You understand that you will be buying and selling financial contracts subject to these terms and conditions.
@@ -65,6 +68,9 @@ const WhoCanOpenAnAccount = () => (
 )
 const OpeningAccount = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('Opening an account')}
+        </Header>
         <Text>{localize('There are three ways to open an account. You can:')}</Text>
         <Box>
             <Localize
@@ -83,6 +89,9 @@ const OpeningAccount = () => (
 )
 const ChangingPersonalDetails = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('Changing your personal details')}
+        </Header>
         <Text>
             {localize(
                 "If you'd like to change your name, date of birth, country of residence, or email address, please submit a ticket and attach your proof of identity and proof of address.",
@@ -93,6 +102,9 @@ const ChangingPersonalDetails = () => (
 // const RecoveringYourPassword = () => <div></div>
 const AuthenticatingYourAccount = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('Authenticating your account')}
+        </Header>
         <Localize
             translate_text="Authenticate your account on the <0>verification page</0>."
             components={[<InternalLink to="" target="_blank" key={0}></InternalLink>]}
@@ -101,6 +113,9 @@ const AuthenticatingYourAccount = () => (
 )
 const HowDoIChangeOrResetMyDerivPassword = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('How do I change or reset my Deriv password?')}
+        </Header>
         <Text>
             {localize(
                 'To change your Deriv password if you’re already logged in and know your password:',

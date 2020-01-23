@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
-import { Text } from 'components/elements/typography'
+import { Text, Header } from 'components/elements/typography'
 import { Localize, localize, WithIntl } from 'components/localization'
 
 const ArticleWrapper = styled.div`
@@ -38,6 +38,9 @@ const url = getLanguage() === 'en' || getLanguage() == null ? '//' : `/${getLang
 
 const MakingADeposit = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('Making a deposit')}
+        </Header>
         <Localize
             translate_text="Click on the <1>Cashier</1> tab and choose your preferred deposit method.
             <0 /><0 />Our list of supported <1>payment methods</1> includes bank wire, credit/debit cards, e-wallets, and cryptocurrencies.
@@ -58,6 +61,9 @@ const MakingADeposit = () => (
 
 const ExpiredVerificationLink = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('Expired verification link ')}
+        </Header>
         <Localize
             translate_text="We process all your deposits and withdrawals within 24 hours. However, your bank or money transfer service may require additional time to process your request."
             components={[<br key={0} />]}
@@ -67,6 +73,9 @@ const ExpiredVerificationLink = () => (
 
 const WithdrawalProcessingTime = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('Withdrawal processing time')}
+        </Header>
         <Text>
             {localize(
                 "If you'd like to change your name, date of birth, country of residence, or email address, please submit a ticket and attach your proof of identity and proof of address.",
@@ -77,6 +86,9 @@ const WithdrawalProcessingTime = () => (
 
 const HowDoIWithdrawFundsFromMyDerivAccount = () => (
     <ArticleWrapper>
+        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+            {localize('How do I withdraw funds from my Deriv account?')}
+        </Header>
         <Text>
             {localize(
                 'To withdraw funds from your Deriv account, please make sure that you’re currently using the correct real account:',

@@ -20,18 +20,11 @@ const Content = styled.div`
 `
 const TabWrapper = styled.div`
     width: 100%;
-`
-const TabHeader = styled.div`
-    display: flex;
-    flex-direction: flex-start;
-    margin-bottom: 2.2rem;
     margin-top: 8rem;
-    align-items: center;
 `
 const ContactContainer = styled.div`
     margin-top: 8rem;
 `
-
 export const Article = ({ children, header }) => {
     const [activeTabTitle, setactiveTabTitle] = useState('')
 
@@ -53,18 +46,13 @@ export const Article = ({ children, header }) => {
                 >
                     {localize('Back')}
                 </StyledLink>
-                <TabHeader>
-                    <Header width="38.4rem" font_size="3.6rem">
-                        {localize(header)}
-                    </Header>
-                    <Header width="67.6rem" as="h4" margin="0 2.4rem">
-                        {localize(activeTabTitle)}
-                    </Header>
-                </TabHeader>
-
                 <Content>
                     <TabWrapper>
-                        <SideTab has_hash_routing onTabChange={getTitle}>
+                        <SideTab
+                            has_hash_routing
+                            onTabChange={getTitle}
+                            tabHeader={localize(header)}
+                        >
                             {children}
                         </SideTab>
                     </TabWrapper>

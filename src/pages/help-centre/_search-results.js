@@ -84,7 +84,14 @@ export const SearchSuccess = ({ suggested_topics, max_length }) => (
         {suggested_topics.slice(0, max_length).map((article, idx) => (
             <ListWrapper key={idx}>
                 <ListNoBullets>
-                    <StyledLink to={'/help-centre/' + article.category + '#' + article.label}>
+                    <StyledLink
+                        to={
+                            '/help-centre/' +
+                            article.category.replace(/\s/g, '-').toLowerCase() +
+                            '#' +
+                            article.label
+                        }
+                    >
                         {article.title}
                     </StyledLink>
                 </ListNoBullets>

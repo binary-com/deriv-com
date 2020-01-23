@@ -7,10 +7,10 @@ import { localize } from 'components/localization'
 import { Header, SideTab, StyledLink } from 'components/elements'
 import { Container } from 'components/containers'
 
-const HeaderSection = styled.section`
+const ArticleSection = styled.section`
     padding: 12.8rem 0 8rem 0;
-    border-bottom: 1px solid var(--color-grey-7);
     margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-grey-8);
 `
 const Content = styled.div`
     display: flex;
@@ -33,10 +33,12 @@ export const Article = ({ children, header }) => {
     }
     return (
         <Layout>
-            <Container align="left" justify="flex-start" direction="column">
-                <HeaderSection>
+            <ArticleSection>
+                <Container align="left" justify="flex-start" direction="column">
                     <Header as="h1">{localize(activeTabTitle)}</Header>
-                </HeaderSection>
+                </Container>
+            </ArticleSection>
+            <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
                     to="/help-centre/"
                     has_arrow="true"
@@ -58,6 +60,7 @@ export const Article = ({ children, header }) => {
                     </TabWrapper>
                 </Content>
             </Container>
+
             <ContactContainer>
                 <DidntFindYourAnswerBanner />
             </ContactContainer>

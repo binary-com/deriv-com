@@ -4,11 +4,9 @@ import styled from 'styled-components'
 import { navigate } from '@reach/router'
 import { Link } from 'gatsby'
 import { articles } from './_help-articles'
-// import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
-// import { ListWithLinks } from './_list'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -233,9 +231,10 @@ class HelpCentre extends Component {
                         'Need help with our products and services? Read our FAQ or ask us a question.',
                     )}
                 />
-                <Container align="left" justify="flex-start" direction="column">
-                    <SearchSection show={toggle_search} has_transition={search_has_transition}>
-                        <Backdrop>
+
+                <SearchSection show={toggle_search} has_transition={search_has_transition}>
+                    <Backdrop>
+                        <Container align="left" justify="flex-start" direction="column">
                             <StyledContainer align="normal" direction="column">
                                 <StyledHeader as="h1">{localize('How can we help?')}</StyledHeader>
                                 <SearchForm onSubmit={this.handleSubmit}>
@@ -265,8 +264,10 @@ class HelpCentre extends Component {
                                     )}
                                 </ResultWrapper>
                             </StyledContainer>
-                        </Backdrop>
-                    </SearchSection>
+                        </Container>
+                    </Backdrop>
+                </SearchSection>
+                <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
                         {articles.map((category, idx) => (
                             <ListWrapper key={idx}>
@@ -293,6 +294,7 @@ class HelpCentre extends Component {
                         ))}
                     </ArticleSection>
                 </Container>
+
                 <DidntFindYourAnswerBanner />
             </Layout>
         )

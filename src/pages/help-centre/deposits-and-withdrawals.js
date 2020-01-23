@@ -38,7 +38,7 @@ const url = getLanguage() === 'en' || getLanguage() == null ? '//' : `/${getLang
 
 const MakingADeposit = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Making a deposit')}
         </Header>
         <Localize
@@ -61,7 +61,7 @@ const MakingADeposit = () => (
 
 const ExpiredVerificationLink = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Expired verification link ')}
         </Header>
         <Localize
@@ -73,7 +73,7 @@ const ExpiredVerificationLink = () => (
 
 const WithdrawalProcessingTime = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Withdrawal processing time')}
         </Header>
         <Text>
@@ -86,7 +86,7 @@ const WithdrawalProcessingTime = () => (
 
 const HowDoIWithdrawFundsFromMyDerivAccount = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('How do I withdraw funds from my Deriv account?')}
         </Header>
         <Text>

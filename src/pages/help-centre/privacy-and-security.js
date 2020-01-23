@@ -32,7 +32,7 @@ const Box = styled.div`
 `
 const SafeguardChangePassword = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Safeguarding your account when you change your password')}
         </Header>
         <Localize
@@ -57,7 +57,7 @@ const SafeguardChangePassword = () => (
 
 const SafeguardWithdrawFunds = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Safeguarding your account when you withdraw funds')}
         </Header>
         <div>

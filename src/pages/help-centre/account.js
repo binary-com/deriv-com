@@ -44,7 +44,7 @@ const url =
 
 const WhoCanOpenAnAccount = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Who can open an account?')}
         </Header>
         <Localize
@@ -68,7 +68,7 @@ const WhoCanOpenAnAccount = () => (
 )
 const OpeningAccount = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Opening an account')}
         </Header>
         <Text>{localize('There are three ways to open an account. You can:')}</Text>
@@ -89,7 +89,7 @@ const OpeningAccount = () => (
 )
 const ChangingPersonalDetails = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Changing your personal details')}
         </Header>
         <Text>
@@ -102,7 +102,7 @@ const ChangingPersonalDetails = () => (
 // const RecoveringYourPassword = () => <div></div>
 const AuthenticatingYourAccount = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Authenticating your account')}
         </Header>
         <Localize
@@ -113,7 +113,7 @@ const AuthenticatingYourAccount = () => (
 )
 const HowDoIChangeOrResetMyDerivPassword = () => (
     <ArticleWrapper>
-        <Header width="67.6rem" as="h4" margin=" 0 0 2.4rem 0">
+        <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('How do I change or reset my Deriv password?')}
         </Header>
         <Text>

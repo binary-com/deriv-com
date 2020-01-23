@@ -44,13 +44,12 @@ const SearchSection = styled.section`
 const SearchCrossIcon = styled(CrossIcon)`
     width: 2.3rem;
     height: 2.3rem;
+    position: absolute;
+    top: 1.4rem;
+    right: 2rem;
 
     :hover {
         cursor: pointer;
-    }
-
-    @media ${device.tabletL} {
-        position: absolute;
     }
 `
 

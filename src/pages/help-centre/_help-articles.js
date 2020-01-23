@@ -23,12 +23,12 @@ export const articles = [
                 sub_category: <Localize translate_text="Opening an account" />,
                 label: 'changing-your-personal-details',
             },
-            {
-                title: <Localize translate_text="Recovering your password" />,
-                category: 'account',
-                sub_category: <Localize translate_text="Managing your account" />,
-                label: 'recovering-your-password',
-            },
+            // {
+            //     title: <Localize translate_text="Recovering your password" />,
+            //     category: 'account',
+            //     sub_category: <Localize translate_text="Managing your account" />,
+            //     label: 'recovering-your-password',
+            // },
             {
                 title: <Localize translate_text="Authenticating your account" />,
                 category: 'account',

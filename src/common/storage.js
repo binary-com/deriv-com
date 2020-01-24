@@ -157,7 +157,7 @@ CookieStorage.prototype = {
         }
         this.initialized = true
     },
-    write(val, expiry_date, is_secure) {
+    write(val, expiry_date, is_secure, sameSite) {
         if (!this.initialized) this.initialize()
         this.value = val
         if (expiry_date) this.expires = expiry_date
@@ -166,19 +166,21 @@ CookieStorage.prototype = {
             path: this.path,
             domain: this.domain,
             secure: !!is_secure,
+            sameSite: sameSite || 'strict',
         })
     },
     get(key) {
         if (!this.initialized) this.initialize()
         return this.value[key]
     },
-    set(key, val) {
+    set(key, val, options) {
         if (!this.initialized) this.initialize()
         this.value[key] = val
         Cookies.set(this.cookie_name, this.value, {
             expires: new Date(this.expires),
             path: this.path,
             domain: this.domain,
+            ...options,
         })
     },
     remove() {

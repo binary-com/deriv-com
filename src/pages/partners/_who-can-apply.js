@@ -13,7 +13,7 @@ import Advertise from 'images/svg/advertise.svg'
 import Earn from 'images/svg/earn.svg'
 
 const StyledSection = styled(SectionContainer)`
-    padding: 8rem 7.8rem;
+    padding: 8rem 7.8rem 0;
     
     div {
         display: flex;
@@ -120,7 +120,7 @@ const WhoCanAplly = () => {
                     </Col>
                 </Flex>
             </div>
-            <CenteredSection>
+            <CenteredSection padding='4rem 0'>
                 <LinkButton secondary to='/'>{localize('Apply now')}</LinkButton>
             </CenteredSection>
         </StyledSection>

@@ -6,6 +6,11 @@ import { Header, Text, Image } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
+const StyledContainer = styled(SectionContainer)`
+    section:last-child {
+        padding-bottom: 0;
+    }
+`
 const Row = styled(SectionContainer)`
     display: flex;
     flex-direction: ${props => props.flex_direction};
@@ -38,7 +43,7 @@ const Content = styled.div`
 `
 const WhyUs = ({ items }) => {
     return (
-        <SectionContainer>
+        <StyledContainer>
             <Header font_size='3.6rem' align='center'>
                 {localize('Why partner with us')}
             </Header>
@@ -58,7 +63,7 @@ const WhyUs = ({ items }) => {
                     </Row>
                 )
             })}
-        </SectionContainer>
+        </StyledContainer>
     )
 }
 WhyUs.propTypes = {

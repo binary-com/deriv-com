@@ -152,7 +152,7 @@ export const Offices = () => {
                                     href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                                 >
                                     <Localize
-                                        translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm BIrkirkara BKR9033 Malta."
+                                        translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm Birkirkara BKR9033 Malta."
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>

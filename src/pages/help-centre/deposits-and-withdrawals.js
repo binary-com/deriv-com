@@ -49,7 +49,7 @@ const MakingADeposit = () => (
             components={[
                 <br key={0} />,
                 <ExternalLink
-                    href={url}
+                    href='https://deriv.app/cashier'
                     target="_blank"
                     rel="noopener noreferrer"
                     key={1}

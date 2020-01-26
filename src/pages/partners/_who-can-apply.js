@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 import TradingExperts from 'images/svg/trading-experts.svg'
 import SoftwareDeveloper from 'images/svg/software-developer.svg'
 import CommunityManagers from 'images/svg/community-managers.svg'
-import LineVertical from 'images/svg/line-vertical.svg'
+import LineVerticalSVG from 'images/svg/line-vertical.svg'
 import Apply from 'images/svg/apply.svg'
 import Advertise from 'images/svg/advertise.svg'
 import Earn from 'images/svg/earn.svg'
@@ -18,6 +19,9 @@ const StyledSection = styled(SectionContainer)`
         display: flex;
         justify-content: space-between;
     }
+`
+const CenteredSection = styled(SectionContainer)`
+    text-align: center;
 `
 const Col = styled.section`
     width: 100%;
@@ -48,8 +52,14 @@ const StyledHeader = styled(Header)`
     width: 100%;
     max-width: 42.8rem;
 `
-const Test = styled.div`
+const Flex = styled.div`
     display: flex;
+`
+const LineVertical = styled(LineVerticalSVG)`
+    margin-top: 5rem;
+    margin-right: 16px;
+    width: 3rem;
+    height: 33rem;
 `
 const WhoCanAplly = () => {
     return (
@@ -83,7 +93,7 @@ const WhoCanAplly = () => {
                     </Wrapper>
                 </Col>
                 <Separator />
-                <Test>
+                <Flex>
                     <LineVertical />
                     <Col>
                         <Wrapper>
@@ -108,8 +118,11 @@ const WhoCanAplly = () => {
                             </Content>
                         </Wrapper>
                     </Col>
-                </Test>
+                </Flex>
             </div>
+            <CenteredSection>
+                <LinkButton secondary to='/'>{localize('Apply now')}</LinkButton>
+            </CenteredSection>
         </StyledSection>
     )
 }

@@ -46,7 +46,7 @@ const Content = styled.div`
 const Separator = styled.div`
     width: 1px;
     height: inherit;
-    background-color: var(--color-red);
+    background-color: var(--color-grey-8);
 `
 const StyledHeader = styled(Header)`
     width: 100%;

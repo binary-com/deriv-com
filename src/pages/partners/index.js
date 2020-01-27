@@ -1,12 +1,12 @@
 import React from 'react'
 import WhyUs from './_why-us.js'
 import WhoCanAplly from './_who-can-apply.js'
+import DerivAffiliateProgramme from './_deriv-affiliate-programme'
 import { Header } from 'components/elements/typography'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container } from 'components/containers'
 import DNumber from 'components/custom/_dnumbers.js'
 import { localize, WithIntl } from 'components/localization'
-import DerivAffiliateProgramme from './_deriv-affiliate-programme'
 
 const items = [
     { title: '47K+', subtitle: localize('members') },
@@ -52,8 +52,8 @@ const Partners = () => {
                     <DNumber items={items} justify="space-around" />
                     <WhyUs items={why_partner_with_us_items} />
                     <WhoCanAplly />
-                    <DerivAffiliateProgramme />
                 </Container>
+                <DerivAffiliateProgramme />
             </SectionContainer>
         </Layout>
     )

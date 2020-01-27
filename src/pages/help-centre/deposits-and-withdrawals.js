@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
 import { Text, Header } from 'components/elements/typography'
 import { Localize, localize, WithIntl } from 'components/localization'
@@ -34,7 +33,6 @@ const Box = styled.div`
     padding: 2rem;
     background-color: var(--color-grey-18);
 `
-const url = getLanguage() === 'en' || getLanguage() == null ? '//' : `/${getLanguage()}//`
 
 const MakingADeposit = () => (
     <ArticleWrapper>
@@ -49,7 +47,7 @@ const MakingADeposit = () => (
             components={[
                 <br key={0} />,
                 <ExternalLink
-                    href='https://deriv.app/cashier'
+                    href="https://deriv.app/cashier"
                     target="_blank"
                     rel="noopener noreferrer"
                     key={1}

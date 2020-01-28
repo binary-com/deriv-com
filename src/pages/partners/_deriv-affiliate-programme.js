@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
 const Card = styled.section`
@@ -75,6 +75,11 @@ const TR = styled.div`
     background-color: ${props => props.title === 'true' ? 'var(--color-grey-8)' : 'unset'};
     border-bottom: 2px solid var(--color-grey-8);
 `
+const CPAContent = styled.div`
+    ${Text} {
+        margin-top: 2.4rem;
+    }
+`
 const RevenueShareData = [
     {
         grid_area: 'tire',
@@ -92,7 +97,16 @@ const RevenueShareData = [
         data: ['30%', '45%']
     }
 ]
-
+const Turnover = [
+    {
+        title: 'Probability of return',
+        data: ['0-19.999%', '20-39.999%', '40-59.999%', '60-79.999%', '80-94.999%', '95% and above']
+    },
+    {
+        title: 'Commission',
+        data: ['1.25%', '1%', '0.75%', '0.5%', '0.25%', '0%']
+    }
+]
 const DerivAffiliateProgramme = () => {
     return (
         <StyledSection>
@@ -127,7 +141,44 @@ const DerivAffiliateProgramme = () => {
                             </Table>
                         </Card>
                         <Card>
-                            test
+                            <Header as='h4' lh='1.5'>{localize('Turnover')}</Header>
+                            <Text>{localize('Earn based on each contract’s payout probability.')}</Text>
+                            <Table grid_col_number={3}>
+                                {Turnover.map((col, index) => (
+                                    <TC grid_area={col.grid_area} key={index}>
+                                        <TR title='true'>
+                                            <StyledText weight='bold'>
+                                                {col.title}
+                                            </StyledText>
+                                        </TR>
+                                        {col.data.map((data, index) => (
+                                            <TR key={index}>
+                                                <StyledText>
+                                                    {data}
+                                                </StyledText>
+                                            </TR>
+                                        ))}
+                                    </TC>
+                                ))}
+                            </Table>
+                        </Card>
+                        <Card>
+                            <Header as='h4' lh='1.5'>{localize('CPA (EU only)')}</Header>
+                            <Text>{localize('Earn based on each successful referral')}</Text>
+                            <CPAContent>
+                                <Text>
+                                    <Localize
+                                        translate_text="You earn <0>USD 100</0> when a referred client successfully deposits a one-time or cumulative total of <0>USD 100</0> into their Deriv account."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </Text>
+                                <Text>
+                                    <Localize
+                                        translate_text="This plan is available exclusively to EU-based affiliates."
+                                        components={[<strong key={0} />]}
+                                    />
+                                </Text>
+                            </CPAContent>
                         </Card>
                     </CardWrapper>
                 </SectionContainer>

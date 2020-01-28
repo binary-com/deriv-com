@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { navigate } from '@reach/router'
 import { Text, Header } from './typography'
-import { localize } from 'components/localization'
 import { getLocationHash, isBrowser } from 'common/utility'
 import device, { size } from 'themes/device'
 import { Wrapper } from 'components/containers'
@@ -100,7 +99,7 @@ const Tab = ({ active_tab, label, onClick, text, mobile }) => {
         </StyledDropDown>
     ) : (
         <ItemWrapper>
-            {active_tab === label ? <LeftBorder></LeftBorder> : undefined}
+            {active_tab === label ? <LeftBorder /> : undefined}
             <StyledTab className={className} onClick={handleClick}>
                 <Text weight="500">{text}</Text>
             </StyledTab>
@@ -122,7 +121,7 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
     return [active_tab, setTab, previous_tab, setLastActiveTab]
 }
 
-const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tabHeader }) => {
+const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_header }) => {
     // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
     const first_tab = isBrowser()
         ? window.innerWidth > size.tabletL
@@ -175,17 +174,15 @@ const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tabHeader
         <StyledSideTab>
             <TabList is_sticky={is_sticky}>
                 <Desktop>
-                    {tabHeader ? (
+                    {!!tab_header && (
                         <Header
                             width="38.4rem"
                             font_size="3.6rem"
                             min_width="38.4rem"
                             margin="0 0 4rem 0"
                         >
-                            {localize(tabHeader)}
+                            {tab_header}
                         </Header>
-                    ) : (
-                        undefined
                     )}
                     <Tabs />
                 </Desktop>
@@ -216,7 +213,7 @@ SideTab.propTypes = {
     is_mobile: PropTypes.bool,
     is_sticky: PropTypes.bool,
     onTabChange: PropTypes.func,
-    tabHeader: PropTypes.string,
+    tab_header: PropTypes.string,
 }
 
 Tab.propTypes = {

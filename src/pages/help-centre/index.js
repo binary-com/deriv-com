@@ -107,6 +107,7 @@ const ListWrapper = styled.div`
     margin-right: 2.4rem;
     max-width: 38.4rem;
     width: 38.4rem;
+    line-height: 1.5;
 
     ${Header} {
         margin-bottom: 1.6rem;
@@ -143,6 +144,11 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     color: black;
     font-size: var(--text-size-s);
+
+    :hover {
+        color: red;
+        text-decoration: underline;
+    }
 `
 class HelpCentre extends Component {
     constructor(props) {

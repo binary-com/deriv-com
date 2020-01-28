@@ -26,16 +26,16 @@ const ContactContainer = styled.div`
     margin-top: 8rem;
 `
 export const Article = ({ children, header }) => {
-    const [activeTabTitle, setactiveTabTitle] = useState('')
+    const [active_tab_title, setactiveTabTitle] = useState('')
 
-    function getTitle(tab) {
+    function setTabTitle(tab) {
         if (tab) setactiveTabTitle(tab.props.text)
     }
     return (
         <Layout>
             <ArticleSection>
                 <Container align="left" justify="flex-start" direction="column">
-                    <Header as="h1">{localize(activeTabTitle)}</Header>
+                    <Header as="h1">{localize(active_tab_title)}</Header>
                 </Container>
             </ArticleSection>
             <Container align="left" justify="flex-start" direction="column">
@@ -50,11 +50,7 @@ export const Article = ({ children, header }) => {
                 </StyledLink>
                 <Content>
                     <TabWrapper>
-                        <SideTab
-                            has_hash_routing
-                            onTabChange={getTitle}
-                            tabHeader={localize(header)}
-                        >
+                        <SideTab has_hash_routing onTabChange={setTabTitle} tab_header={header}>
                             {children}
                         </SideTab>
                     </TabWrapper>

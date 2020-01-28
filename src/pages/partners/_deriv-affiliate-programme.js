@@ -28,6 +28,7 @@ const CardWrapper = styled(Flex)`
     }
 `
 const StyledSection = styled(SectionContainer)`
+    padding-bottom: 0;    
     background-color: var(--color-grey-8);
 `
 const TitleWrapper = styled.section`
@@ -47,7 +48,6 @@ function AreaGen(num) {
     for (let i = 0; i < num; i++) {
         grid_template_area += 'area' + i + ' '
     }
-    console.log(typeof grid_template_area)
     return grid_template_area
 }
 const Table = styled.div`

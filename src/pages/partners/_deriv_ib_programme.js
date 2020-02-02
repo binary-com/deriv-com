@@ -23,9 +23,15 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
+
+const BackButton = styled(LinkButton)`
+    border: 2px solid var(--color-grey-5);
+    color: var(--color-black);
+`
 const StyledText = styled(Text)`
     font-size: ${props => props.font_size ? props.font_size : '1.4rem'};
     line-height: ${props => props.lh ? props.lh : '1.14'};
+    margin-bottom: ${props => props.margin_bottom || ''};
 `
 const StyledButton = styled(LinkButton)`
     color: var(--color-red);
@@ -38,6 +44,15 @@ const HowItsCalculate = styled.div`
     left: 0;
     text-align: center;
     padding: 2.6rem 0;
+`
+const ButtonWrapper = styled.div`
+    width: 100;
+    display: flex;
+    justify-content: flex-end;
+
+    & > a {
+        margin-left: 1.6rem;
+    }
 `
 const DerivIBProgramme = () => {
     return (
@@ -141,7 +156,11 @@ const DerivIBProgramme = () => {
                                 <Header as='h4' lh='1.5'>{localize('How it’s calculated')}</Header>
                                 <Text>{localize('For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula: ')}</Text>
                                 <Text weight='bold' margin='2.5rem 0'>{localize('USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5')}</Text>
-                                <Text>{localize('If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate.')}</Text>
+                                <StyledText font_size='var(--text-size-s)' lh='1.5' margin_bottom='2.4rem'>{localize('If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate.')}</StyledText>
+                                <ButtonWrapper>
+                                    <BackButton to='/'>{localize('Back')}</BackButton>
+                                    <LinkButton secondary to='/'>{localize('Become an affiliate')}</LinkButton>
+                                </ButtonWrapper>
                             </div>
                         </Card>
                     </CardWrapper>
@@ -151,7 +170,7 @@ const DerivIBProgramme = () => {
                     </StyledSection>
                 </SectionContainer>
             </Container>
-        </StyledSection>
+        </StyledSection >
     )
 }
 

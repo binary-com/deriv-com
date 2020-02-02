@@ -2,6 +2,7 @@ import React from 'react'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements/typography'
 import { localize } from 'components/localization'
+
 const DerivIBProgramme = () => {
     return (
         <SectionContainer>

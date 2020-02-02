@@ -2,12 +2,12 @@ import React from 'react'
 import WhyUs from './_why-us.js'
 import WhoCanAplly from './_who-can-apply.js'
 import DerivAffiliateProgramme from './_deriv-affiliate-programme'
+import DerivIBProgramme from './_deriv_ib_programme'
 import { Header } from 'components/elements/typography'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container } from 'components/containers'
 import DNumber from 'components/custom/_dnumbers.js'
 import { localize, WithIntl } from 'components/localization'
-import DerivIBProgramme from './_deriv_ib_programme'
 
 const items = [
     { title: '47K+', subtitle: localize('members') },

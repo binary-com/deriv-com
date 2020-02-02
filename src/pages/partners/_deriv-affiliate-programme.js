@@ -1,32 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { Card, CardWrapper } from './_partner-card.js'
+import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
-const Card = styled.section`
-    width: 100%;
-    max-width: 38.4rem;
-    height: 47.2rem;
-    margin-top: 4rem;
-    background-color: var(--color-white);
-    border-radius: 0.4rem;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    padding: ${props => props.padding ? props.padding : '3.2rem'};
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`
-const CardWrapper = styled(Flex)`
-    justify-content: space-between;
-
-    @media ${device.tabletL} {
-        flex-direction: column;
-        align-items: center;
-    }
-`
 const StyledSection = styled(SectionContainer)`
     padding-bottom: 0;    
     background-color: var(--color-grey-8);

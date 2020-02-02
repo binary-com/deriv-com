@@ -11,8 +11,7 @@ const TitleWrapper = styled.div`
     margin: 0 auto;
 `
 const StyledSection = styled(SectionContainer)`
-    padding-bottom: 0;    
-    background-color: var(--color-grey-8);
+    padding-bottom: 0;
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 1.6rem;

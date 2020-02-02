@@ -4,6 +4,7 @@ import { Card, CardWrapper } from './_partner-card.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
+import { Table, TR, TC } from './_table.js'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
@@ -13,34 +14,6 @@ const StyledSection = styled(SectionContainer)`
 const TitleWrapper = styled.section`
     h1:first-child {
         margin-bottom: 1.6rem
-    }
-`
-function ColGen(num) {
-    let grid_col_template = ''
-    for (let i = 0; i < num; i++) {
-        grid_col_template += 'auto '
-    }
-    return grid_col_template
-}
-function AreaGen(num) {
-    let grid_template_area = ''
-    for (let i = 0; i < num; i++) {
-        grid_template_area += 'area' + i + ' '
-    }
-    return grid_template_area
-}
-const Table = styled.div`
-    width: 100%;
-    display: grid;
-    margin-top: 1.6rem;
-    grid-template-columns: ${props => ColGen(props.grid_col_number)};
-    grid-template-rows: auto;
-    grid-template-areas: '${props => AreaGen(props.grid_col_number)}';
-
-    & > div:first-child {
-        div {
-            padding-left: 0.8rem;
-        }
     }
 `
 
@@ -55,17 +28,7 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-const TC = styled.div`
-    display: flex;
-    max-width: ${props => props.max_width};
-    grid-area: ${props => props.grid_area};
-    flex-direction: column;
-`
-const TR = styled.div`
-    padding: 0.8rem 0;
-    background-color: ${props => props.title === 'true' ? 'var(--color-grey-8)' : 'unset'};
-    border-bottom: 2px solid var(--color-grey-8);
-`
+
 const CPAContent = styled.div`
     ${Text} {
         margin-top: 2.4rem;

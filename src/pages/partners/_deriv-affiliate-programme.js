@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Card, CardWrapper } from './_partner-card.js'
+import { Table, TR, TC } from './_table.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
-import { Table, TR, TC } from './_table.js'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`

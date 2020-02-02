@@ -24,7 +24,7 @@ const PaymentMethods = () => {
         <StyledSection>
             <Container direction='column'>
                 <Header font_size='3.6rem' align='center'>{localize('Receive your earnings through your favourite payment method')}</Header>
-                <Flex jc='space-between' wrap='wrap'>
+                <Flex jc='space-between' wrap='wrap' mt='4.6rem'>
                     <Visa />
                     <Mastercard />
                     <Maestro />

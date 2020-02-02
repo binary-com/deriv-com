@@ -76,7 +76,7 @@ const DerivAffiliateProgramme = () => {
                                 <Table grid_col_number={3}>
                                     {RevenueShareData.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
-                                            <TR title='true'>
+                                            <TR isTitle='true'>
                                                 <StyledText weight='bold'>
                                                     {localize(col.title)}
                                                 </StyledText>
@@ -100,7 +100,7 @@ const DerivAffiliateProgramme = () => {
                                 <Table grid_col_number={2}>
                                     {Turnover.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
-                                            <TR title='true'>
+                                            <TR isTitle='true'>
                                                 <StyledText weight='bold'>
                                                     {localize(col.title)}
                                                 </StyledText>

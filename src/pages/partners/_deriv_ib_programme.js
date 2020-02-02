@@ -44,7 +44,7 @@ const DerivIBProgramme = () => {
                                 <Text>{localize('Earn when your customers trade on a DMT5 Standard account.')}</Text>
                                 <Table grid_col_number={2}>
                                     <TC grid_area={'area0'}>
-                                        <TR title='true'>
+                                        <TR isTitle='true'>
                                             <StyledText weight='bold' lh='2.2'>
                                                 {localize('Asset')}
                                             </StyledText>
@@ -61,7 +61,7 @@ const DerivIBProgramme = () => {
                                         </TR>
                                     </TC>
                                     <TC grid_area={'area1'}>
-                                        <TR title='true'>
+                                        <TR isTitle='true'>
                                             <StyledText weight='bold'>
                                                 <Localize
                                                     translate_text="Commission per round<0/>trade"
@@ -89,7 +89,7 @@ const DerivIBProgramme = () => {
                                 <Text>{localize('Earn when your customers trade on a DMT5 Advanced account.')}</Text>
                                 <Table grid_col_number={2}>
                                     <TC grid_area={'area0'}>
-                                        <TR title='true'>
+                                        <TR isTitle='true'>
                                             <StyledText weight='bold' lh='2.2'>
                                                 {localize('Asset')}
                                             </StyledText>
@@ -101,7 +101,7 @@ const DerivIBProgramme = () => {
                                         </TR>
                                     </TC>
                                     <TC grid_area={'area1'}>
-                                        <TR title='true'>
+                                        <TR isTitle='true'>
                                             <StyledText weight='bold'>
                                                 <Localize
                                                     translate_text="Commission per round<0/>trade"

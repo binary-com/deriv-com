@@ -5,6 +5,7 @@ import { Table, TR, TC } from './_table.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
@@ -27,6 +28,9 @@ const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
     }
+`
+const ApplyNow = styled(LinkButton)`
+    display: block;
 `
 
 const CPAContent = styled.div`
@@ -92,6 +96,9 @@ const DerivAffiliateProgramme = () => {
                                     ))}
                                 </Table>
                             </div>
+                            <div>
+                                <ApplyNow secondary to='/'>{localize('Apply now')}</ApplyNow>
+                            </div>
                         </Card>
                         <Card>
                             <div>
@@ -116,6 +123,9 @@ const DerivAffiliateProgramme = () => {
                                     ))}
                                 </Table>
                             </div>
+                            <div>
+                                <ApplyNow secondary to='/'>{localize('Apply now')}</ApplyNow>
+                            </div>
                         </Card>
                         <Card>
                             <div>
@@ -135,6 +145,9 @@ const DerivAffiliateProgramme = () => {
                                         />
                                     </Text>
                                 </CPAContent>
+                            </div>
+                            <div>
+                                <ApplyNow secondary to='/'>{localize('Apply now')}</ApplyNow>
                             </div>
                         </Card>
                     </CardWrapper>

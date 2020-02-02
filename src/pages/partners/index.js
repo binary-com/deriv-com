@@ -3,6 +3,7 @@ import WhyUs from './_why-us.js'
 import WhoCanAplly from './_who-can-apply.js'
 import DerivAffiliateProgramme from './_deriv-affiliate-programme'
 import DerivIBProgramme from './_deriv_ib_programme'
+import PaymentMethods from './_payment-methods.js'
 import { Header } from 'components/elements/typography'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container } from 'components/containers'
@@ -56,6 +57,7 @@ const Partners = () => {
                 </Container>
                 <DerivAffiliateProgramme />
                 <DerivIBProgramme />
+                <PaymentMethods />
             </SectionContainer>
         </Layout>
     )

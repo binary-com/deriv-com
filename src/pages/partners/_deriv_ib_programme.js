@@ -35,7 +35,7 @@ const DerivIBProgramme = () => {
                     <Header font_size='3.6rem' align='center'>{localize('Deriv IB Programme')}</Header>
                     <Header as='h4' align='center' weight='500'>{localize('Our IB programme is available to all Deriv affiliates. Earn commission from your clients’ trades on DMT5.')}</Header>
                 </TitleWrapper>
-                <SectionContainer padding='8rem 0 1rem 0'>
+                <SectionContainer padding='8rem 0 9.6rem 0'>
                     <StyledHeader as='h4'>{localize('Choose a commission plan:')}</StyledHeader>
                     <CardWrapper mt='-2rem' wrap='wrap'>
                         <Card height='42rem'>

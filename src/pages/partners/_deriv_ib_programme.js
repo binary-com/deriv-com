@@ -27,6 +27,18 @@ const StyledText = styled(Text)`
     font-size: ${props => props.font_size ? props.font_size : '1.4rem'};
     line-height: ${props => props.lh ? props.lh : '1.14'};
 `
+const StyledButton = styled(LinkButton)`
+    color: var(--color-red);
+`
+const HowItsCalculate = styled.div`
+    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    padding: 2.6rem 0;
+`
 const DerivIBProgramme = () => {
     return (
         <StyledSection>
@@ -82,6 +94,9 @@ const DerivIBProgramme = () => {
                                     </TC>
                                 </Table>
                             </div>
+                            <HowItsCalculate>
+                                <StyledButton to='/'>{localize("How it's calculated")}</StyledButton>
+                            </HowItsCalculate>
                         </Card>
                         <Card height='42rem'>
                             <div>
@@ -117,6 +132,9 @@ const DerivIBProgramme = () => {
                                     </TC>
                                 </Table>
                             </div>
+                            <HowItsCalculate>
+                                <StyledButton to='/'>{localize("How it's calculated")}</StyledButton>
+                            </HowItsCalculate>
                         </Card>
                         <Card height='42rem'>
                             <div>

@@ -198,7 +198,7 @@ const Footer = () => (
                                 <Instagram />
                             </ExternalLink>
                             <ExternalLink
-                                href="https://twitter.com/Binarydotcom"
+                                href="https://twitter.com/derivdotcom"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -259,6 +259,9 @@ const Footer = () => (
                         </div>
                         <div>
                             <Link to="/about">{localize('About us')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/contact-us">{localize('Contact us')}</Link>
                         </div>
                     </Col>
                     {/* <Col margin_top width='40%'>

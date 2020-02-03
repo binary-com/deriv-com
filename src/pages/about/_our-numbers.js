@@ -1,21 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 import Show from 'components/containers/show'
-import { Container } from 'components/containers'
+import { Container, FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize } from 'components/localization'
 import device from 'themes/device'
-import TradingAccounts from 'images/gif/trading-accounts-opened.gif'
-import TradingTrades from 'images/gif/trading-trades.gif'
-import TradingTurnover from 'images/gif/trading-total-turnover.gif'
 
 const OurNumbersWrapper = styled.section`
     width: 100%;
     background-color: var(--color-white);
+    max-width: 144rem;
+    margin: auto;
 `
 
 const StyledHeader = styled(Header)`
-    margin-top: 2rem;
+    margin-top: 1.6rem;
+    max-width: 98.4rem;
+`
+
+const NumberHeader = styled(Text)`
+    font-size: 3.6rem;
+    font-weight: bold;
+    line-height: 6rem;
+    text-align: center;
+    margin-bottom: 0.8rem;
 `
 const OurNumbersContainer = styled(Container)`
     flex-direction: row;
@@ -50,108 +58,16 @@ const OurNumbersContainer = styled(Container)`
     }
 `
 
-const ChartContainer = styled.div`
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
+const StyledGridContainer = styled(FlexGridContainer)`
     margin-top: 4rem;
-
-    p {
-        width: 100%;
-        height: 4rem;
-        font-size: 3.2rem;
-        font-weight: bold;
-        line-height: 1.25;
-        text-align: right;
-        color: var(--color-black-2);
-        margin-top: 0.8rem;
-    }
-    h1 {
-        font-size: 11rem;
-    }
-
-    @media (max-width: 981px) {
-        justify-content: center;
-        margin-top: 0;
-
-        div {
-            margin-top: 2rem;
-        }
-
-        @media ${device.tabletL} {
-            div {
-                margin-top: 1rem;
-                width: 100%;
-            }
-            div:first-child {
-                margin-top: 2rem;
-            }
-            h1 {
-                line-height: 1.1;
-                font-size: 6.2rem;
-                margin-top: 1.4rem;
-            }
-            ${Text} {
-                text-align: center;
-            }
-        }
-    }
 `
 
-const Charts = styled.div`
-    width: 32.8rem;
-    text-align: right;
-
-    h3 {
-        margin-top: 2.4rem;
-    }
-    p {
-        height: 30px;
-        font-size: var(--text-size-sm);
-        line-height: 1.5;
-        color: var(--color-black-2);
-        margin-top: 0;
-        font-weight: normal;
-    }
-
-    @media ${device.tabletL} {
-        ${Header} {
-            font-size: 3.7rem;
-        }
-        h3 {
-            margin-top: 0;
-        }
-        p {
-            font-weight: 500;
-        }
-    }
-`
-
-const chart_data = [
-    {
-        amount: '962,900+',
-        text: <Localize translate_text="Trading accounts opened" />,
-        icon: <img src={TradingAccounts} />,
-    },
-    {
-        amount: '27,354,600+',
-        text: <Localize translate_text="Trades last month" />,
-        icon: <img src={TradingTrades} />,
-    },
-    {
-        amount: 'USD 6,748,229,300+',
-        text: <Localize translate_text="Total trade turnover" />,
-        icon: <img src={TradingTurnover} />,
-    },
-]
-export const OurNumbers = () => (
+const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
             <Show.Mobile>
                 <Header as="h6" font_size="4rem" color="black-2" align="center">
-                    {localize('By the numbers')}
+                    {localize('Our numbers')}
                 </Header>
                 <StyledHeader
                     as="h6"
@@ -162,33 +78,49 @@ export const OurNumbers = () => (
                     weight="400"
                 >
                     {localize(
-                        'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
+                        'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
                     )}
                 </StyledHeader>
             </Show.Mobile>
             <Show.Desktop>
-                <Header as="h2" color="black-2" align="center">
+                <Header font_size="3.6rem" as="h2" color="black-2" align="center">
                     {localize('Our numbers')}
                 </Header>
-                <Header as="h4" color="black-3" align="center" weight="500">
+                <StyledHeader as="h4" color="black-3" align="center" weight="500" lh="3.6rem">
                     {localize(
-                        'Our powerful platform and intuitive tools make it easy for users to make profitable trading decisions. We’ll let the numbers do the talking.',
+                        'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
                     )}
-                </Header>
+                </StyledHeader>
             </Show.Desktop>
-            <ChartContainer>
-                {chart_data.map((data, idx) => (
-                    <Charts key={idx}>
-                        <Show.Desktop>{data.icon}</Show.Desktop>
-                        <Header as="h3" color="green" align="right" lh="1.5">
-                            {data.amount}
-                        </Header>
-                        <p>{data.text}</p>
-                    </Charts>
-                ))}
-                <h1>USD 19,566,100+</h1>
-                <Text>{localize('Withdrawn last month')}</Text>
-            </ChartContainer>
+            <StyledGridContainer
+                content_width="21.5rem"
+                gap="1.6rem 0.8rem"
+                grid="5"
+                justify="center"
+            >
+                <article>
+                    <NumberHeader>20</NumberHeader>
+                    <Text align="center">{localize('Years of industry experience')}</Text>
+                </article>
+                <article>
+                    <NumberHeader>1.2M+</NumberHeader>
+                    <Text align="center">{localize('Trading accounts opened')}</Text>
+                </article>
+                <article>
+                    <NumberHeader>USD 7B+</NumberHeader>
+                    <Text align="center">{localize('Total trade turnover ')}</Text>
+                </article>
+                <article>
+                    <NumberHeader>27M+</NumberHeader>
+                    <Text align="center">{localize('Trades last month')}</Text>
+                </article>
+                <article>
+                    <NumberHeader>USD 9M+</NumberHeader>
+                    <Text align="center">{localize('Withdrawal last month')}</Text>
+                </article>
+            </StyledGridContainer>
         </OurNumbersContainer>
     </OurNumbersWrapper>
 )
+
+export default OurNumbers

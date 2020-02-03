@@ -12,7 +12,11 @@ const BaseElement = css`
 `
 export const Text = styled.p`
     font-weight: ${props => props.weight || 'normal'};
-    font-size: ${props => (props.secondary ? 'var(--text-size-sm)' : 'var(--text-size-s)')};
+    font-size: ${props => {
+        if (props.size) return props.size
+        if (props.secondary) return 'var(--text-size-sm)'
+        return 'var(--text-size-s)'
+    }};
     line-height: ${props => props.lh || '1.5'};
     margin: ${props => props.margin || '0'};
     ${BaseElement}

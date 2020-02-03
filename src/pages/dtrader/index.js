@@ -29,7 +29,7 @@ const trading = [
         ),
         subtitle: (
             <Localize
-                translate_text="Customise your chart with technical indicators and widgets — everything you<0/>need to make smarter trading decisions."
+                translate_text="Customise your chart with technical indicators and widgets - everything you<0/>need to make smarter trading decisions."
                 components={[<br key={0} />]}
             />
         ),
@@ -69,7 +69,7 @@ const Dtrader = () => {
                 title={localize('DTrader')}
                 content={
                     <Localize
-                        translate_text="Everything<0/>you need<0/>and more"
+                        translate_text="Trading<0/>made simple<0/>"
                         components={[<br key={0} />]}
                     />
                 }

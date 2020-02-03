@@ -65,7 +65,7 @@ const DerivIBProgramme = () => {
                 <SectionContainer padding='8rem 0 9.6rem 0'>
                     <StyledHeader as='h4'>{localize('Choose a commission plan:')}</StyledHeader>
                     <CardWrapper mt='-2rem' wrap='wrap'>
-                        <Card height='42rem'>
+                        <Card min_height='42rem'>
                             <div>
                                 <Header as='h4' lh='1.5'>{localize('DMT5 Standard')}</Header>
                                 <Text>{localize('Earn when your customers trade on a DMT5 Standard account.')}</Text>
@@ -113,7 +113,7 @@ const DerivIBProgramme = () => {
                                 <StyledButton to='/'>{localize("How it's calculated")}</StyledButton>
                             </HowItsCalculate>
                         </Card>
-                        <Card height='42rem'>
+                        <Card min_height='42rem'>
                             <div>
                                 <Header as='h4' lh='1.5'>{localize('DMT5 Advanced')}</Header>
                                 <Text>{localize('Earn when your customers trade on a DMT5 Advanced account.')}</Text>
@@ -151,7 +151,7 @@ const DerivIBProgramme = () => {
                                 <StyledButton to='/'>{localize("How it's calculated")}</StyledButton>
                             </HowItsCalculate>
                         </Card>
-                        <Card height='42rem'>
+                        <Card min_height='42rem'>
                             <div>
                                 <Header as='h4' lh='1.5'>{localize('How it’s calculated')}</Header>
                                 <Text>{localize('For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula: ')}</Text>

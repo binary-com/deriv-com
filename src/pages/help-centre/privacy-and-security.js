@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Text, Header } from '../../components/elements/typography'
+import { Header } from '../../components/elements/typography'
+import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
 import { localize, Localize, WithIntl } from 'components/localization'
 
@@ -30,6 +31,13 @@ const Box = styled.div`
     padding: 2rem;
     background-color: var(--color-grey-18);
 `
+
+const ExternalLink = styled.a`
+    ${StyledLink}
+`
+const url =
+    getLanguage() === 'en' || getLanguage() == null ? '/keep-safe/' : `/${getLanguage()}/keep-safe/`
+
 const SafeguardChangePassword = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0">
@@ -47,11 +55,17 @@ const SafeguardChangePassword = () => (
                 components={[<br key={0} />]}
             />
         </Box>
-        <Text>
-            {localize(
-                'To learn more about security best practices, please go to the Keep safe page.',
-            )}
-        </Text>
+        <Localize
+            translate_text="To learn more about security best practices, please go to the <0>Keep safe</0> page."
+            components={[
+                <ExternalLink
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={0}
+                ></ExternalLink>,
+            ]}
+        />
     </ArticleWrapper>
 )
 

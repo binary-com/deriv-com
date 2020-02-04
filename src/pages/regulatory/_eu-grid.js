@@ -51,6 +51,15 @@ const License = styled.div`
 
 const AttachmentIcon = styled(ViewLicense)`
     margin-left: 1rem;
+
+    path {
+        transition: 0.2s fill;
+    }
+    &:hover {
+        path {
+            fill: red;
+        }
+    }
 `
 const GridItem = ({ name, order, url }) => (
     <Country>

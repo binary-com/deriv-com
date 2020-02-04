@@ -45,6 +45,7 @@ export const Article = ({ children, header }) => {
                     color="black"
                     size="var(--text-size-s)"
                     weight="bold"
+                    margin_right="1rem"
                 >
                     {localize('Back')}
                 </StyledLink>

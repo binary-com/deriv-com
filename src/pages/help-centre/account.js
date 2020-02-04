@@ -49,11 +49,11 @@ const WhoCanOpenAnAccount = () => (
         </Header>
         <Localize
             translate_text="You have read the <1>Legal Terms and Conditions</1> in full.
-                <0 /><0 />You understand that you will be buying and selling financial contracts subject to these terms and conditions.
-                <0 /><0 />You have read our privacy statement and give us your consent to process your personal information.
-                <0 /><0 />You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.
-                <0 /><0 />You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.
-                <0 /><0 />You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation."
+            <0 /><0 />You understand that you will be buying and selling financial contracts subject to these terms and conditions.
+            <0 /><0 />You have read our privacy statement and give us your consent to process your personal information.
+            <0 /><0 />You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.
+            <0 /><0 />You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.
+            <0 /><0 />You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation."
             components={[
                 <br key={0} />,
                 <ExternalLink

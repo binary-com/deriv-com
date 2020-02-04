@@ -41,9 +41,9 @@ const MakingADeposit = () => (
         </Header>
         <Localize
             translate_text="Click on the <1>Cashier</1> tab and choose your preferred deposit method.
-            <0 /><0 />Our list of supported <1>payment methods</1> includes bank wire, credit/debit cards, e-wallets, and cryptocurrencies.
-            <0 /><0 />You may also manage your funds through a payment agent if the service is available in your country.
-            <0 /><0 />You can deposit or withdraw as little as USD/EUR/GBP/AUD 5 using some e-wallets. The minimum amounts for all other payment methods are specified on the payment methods page."
+        <0 /><0 />Our list of supported <1>payment methods</1> includes bank wire, credit/debit cards, e-wallets, and cryptocurrencies.
+        <0 /><0 />You may also manage your funds through a payment agent if the service is available in your country.
+        <0 /><0 />You can deposit or withdraw as little as USD/EUR/GBP/AUD 5 using some e-wallets. The minimum amounts for all other payment methods are specified on the payment methods page."
             components={[
                 <br key={0} />,
                 <ExternalLink

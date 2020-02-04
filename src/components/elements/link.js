@@ -22,7 +22,7 @@ export const StyledLink = styled(props => <LocalizedLink {...props} />)`
                 &::before {
                     content: '<';
                     display: inline-block;
-                    margin-right: 0.4rem;
+                    margin-right: ${props => props.margin_right || '0.4rem'};
                     font-weight: 300;
                     text-decoration: none;
                 }

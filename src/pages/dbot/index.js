@@ -93,7 +93,12 @@ class Dbot extends Component {
     render() {
         return (
             <Layout>
-                <SEO title={localize('DBot')} />
+                <SEO
+                    description={localize(
+                        'Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!',
+                    )}
+                    title={localize('DBot Trading | Auto Trading Robot | Deriv.com')}
+                />
                 <DHero
                     title={localize('DBot')}
                     content={localize('Automate your trading ideas without writing code')}

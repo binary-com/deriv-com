@@ -63,7 +63,8 @@ const ExpiredVerificationLink = () => (
             {localize('Expired verification link ')}
         </Header>
         <Localize
-            translate_text="We process all your deposits and withdrawals within 24 hours. However, your bank or money transfer service may require additional time to process your request."
+            translate_text="We will occasionally prompt you to verify your account by sending you a verification link. This is to make sure it’s you and that your account hasn’t been compromised.
+            <0 /><0 />If your verification link has expired, try withdrawing or logging in again."
             components={[<br key={0} />]}
         />
     </ArticleWrapper>
@@ -76,7 +77,7 @@ const WithdrawalProcessingTime = () => (
         </Header>
         <Text>
             {localize(
-                "If you'd like to change your name, date of birth, country of residence, or email address, please submit a ticket and attach your proof of identity and proof of address.",
+                'We process all your deposits and withdrawals within 24 hours. However, your bank or money transfer service may require additional time to process your request.',
             )}
         </Text>
     </ArticleWrapper>

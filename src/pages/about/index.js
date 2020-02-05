@@ -15,7 +15,12 @@ const About = () => {
 
     return (
         <Layout>
-            <SEO title={localize('About us')} />
+            <SEO
+                description={localize(
+                    'Deriv is the new platform developed by Binary Group - a pioneer and award-winning online trading platform in the trading market.',
+                )}
+                title={localize('About Us | An Online Trading Platform')}
+            />
             <Hero navigation={navigation} setNavigation={setNavigation} />
             {navigation === 'story' && (
                 <Fragment>

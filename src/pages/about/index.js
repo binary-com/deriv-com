@@ -19,7 +19,7 @@ const About = () => {
                 description={localize(
                     'Deriv is the new platform developed by Binary Group - a pioneer and award-winning online trading platform in the trading market.',
                 )}
-                title={localize('About Deriv.com | An Online Trading Platform')}
+                title={localize('About Us | An Online Trading Platform')}
             />
             <Hero navigation={navigation} setNavigation={setNavigation} />
             {navigation === 'story' && (

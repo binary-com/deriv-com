@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="6px" viewBox="0 0 16 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby="view-license" role="img">
+<title id='view-license'>View License</title>
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>outlined/action/share link</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Manros-All-positions-V3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="All-positions-more-details-v3" transform="translate(-1148.000000, -229.000000)" fill="#333333" fill-rule="nonzero">
+            <g id="position-card" transform="translate(504.000000, 192.000000)">
+                <g id="Group-3" transform="translate(644.000000, 32.000000)">
+                    <g id="outlined/action/share-link">
+                        <path d="M4.5,5 C4.77614237,5 5,5.22385763 5,5.5 C5,5.74545989 4.82312484,5.94960837 4.58987563,5.99194433 L4.5,6 L3,6 C1.8954305,6 1,6.8954305 1,8 C1,9.0543618 1.81587779,9.91816512 2.85073766,9.99451426 L3,10 L7,10 C8.1045695,10 9,9.1045695 9,8 C9,7.72385763 9.22385763,7.5 9.5,7.5 C9.77614237,7.5 10,7.72385763 10,8 C10,9.59768088 8.75108004,10.9036609 7.17627279,10.9949073 L7,11 L3,11 C1.34314575,11 0,9.65685425 0,8 C0,6.40231912 1.24891996,5.09633912 2.82372721,5.00509269 L3,5 L4.5,5 Z M13,5 C14.6568542,5 16,6.34314575 16,8 C16,9.59768088 14.75108,10.9036609 13.1762728,10.9949073 L13,11 L11.5,11 C11.2238576,11 11,10.7761424 11,10.5 C11,10.2545401 11.1768752,10.0503916 11.4101244,10.0080557 L11.5,10 L13,10 C14.1045695,10 15,9.1045695 15,8 C15,6.9456382 14.1841222,6.08183488 13.1492623,6.00548574 L13,6 L9,6 C7.8954305,6 7,6.8954305 7,8 C7,8.27614237 6.77614237,8.5 6.5,8.5 C6.22385763,8.5 6,8.27614237 6,8 C6,6.40231912 7.24891996,5.09633912 8.82372721,5.00509269 L9,5 L13,5 Z" id="icon"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

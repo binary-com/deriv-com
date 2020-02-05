@@ -6,6 +6,7 @@ export const StyledLink = styled(props => <LocalizedLink {...props} />)`
     font-size: ${props => props.size || 'var(--text-size-sm)'};
     font-weight: ${props => props.weight || 'normal'};
     text-align: ${props => props.align || 'left'};
+    margin: ${props => props.margin || 'none'};;
 
     /* prettier-ignore */
     color: var(--color-${props => props.color || 'red'});
@@ -22,7 +23,7 @@ export const StyledLink = styled(props => <LocalizedLink {...props} />)`
                 &::before {
                     content: '<';
                     display: inline-block;
-                    margin-right: ${props => props.margin_right || '0.4rem'};
+                    margin-right: ${props => props.arrow_margin || '0.4rem'};
                     font-weight: 300;
                     text-decoration: none;
                 }

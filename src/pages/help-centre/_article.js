@@ -33,11 +33,11 @@ export const Article = ({ children, header }) => {
     }
     return (
         <Layout>
-            <ArticleSection>
+            {/* <ArticleSection>
                 <Container align="left" justify="flex-start" direction="column">
                     <Header as="h1">{localize(active_tab_title)}</Header>
                 </Container>
-            </ArticleSection>
+            </ArticleSection> */}
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
                     to="/help-centre/"
@@ -45,7 +45,8 @@ export const Article = ({ children, header }) => {
                     color="black"
                     size="var(--text-size-s)"
                     weight="bold"
-                    margin_right="1rem"
+                    arrow_margin="1rem"
+                    margin="4rem 0"
                 >
                     {localize('Back')}
                 </StyledLink>

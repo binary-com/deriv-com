@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
 import { Text, Header } from 'components/elements/typography'
-import { localize, Localize, WithIntl, LocalizedLink } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 
 const ArticleWrapper = styled.div`
     max-width: 79.2rem;
@@ -28,9 +28,9 @@ export const StyledLink = css`
 const ExternalLink = styled.a`
     ${StyledLink}
 `
-const InternalLink = styled(LocalizedLink)`
-    ${StyledLink}
-`
+// const InternalLink = styled(LocalizedLink)`
+//     ${StyledLink}
+// `
 const Box = styled.div`
     margin: 2.4rem 0;
     padding: 2rem;
@@ -123,17 +123,19 @@ const ChangingPersonalDetails = () => (
     </ArticleWrapper>
 )
 // const RecoveringYourPassword = () => <div></div>
-const AuthenticatingYourAccount = () => (
-    <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0">
-            {localize('Authenticating your account')}
-        </Header>
-        <Localize
-            translate_text="Authenticate your account on the <0>verification page</0>."
-            components={[<InternalLink to="" target="_blank" key={0}></InternalLink>]}
-        />
-    </ArticleWrapper>
-)
+
+// Will be added after design review
+// const AuthenticatingYourAccount = () => (
+//     <ArticleWrapper>
+//         <Header as="h4" margin=" 0 0 2.4rem 0">
+//             {localize('Authenticating your account')}
+//         </Header>
+//         <Localize
+//             translate_text="Authenticate your account on the <0>verification page</0>."
+//             components={[<InternalLink to="" target="_blank" key={0}></InternalLink>]}
+//         />
+//     </ArticleWrapper>
+// )
 const HowDoIChangeOrResetMyDerivPassword = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0">
@@ -199,10 +201,10 @@ const AccountArticle = () => {
                 text={localize('')}
                 label="recovering-your-password"
             ></RecoveringYourPassword> */}
-            <AuthenticatingYourAccount
+            {/* <AuthenticatingYourAccount
                 text={localize('Authenticating your account')}
                 label="authenticating-your-password"
-            ></AuthenticatingYourAccount>
+            ></AuthenticatingYourAccount> */}
             <HowDoIChangeOrResetMyDerivPassword
                 text={localize('How do I change or reset my Deriv password?')}
                 label="change-or-reset-deriv-password"

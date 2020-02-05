@@ -29,12 +29,12 @@ export const articles = [
             //     sub_category: <Localize translate_text="Managing your account" />,
             //     label: 'recovering-your-password',
             // },
-            {
-                title: <Localize translate_text="Authenticating your account" />,
-                category: 'account',
-                sub_category: <Localize translate_text="Opening an account" />,
-                label: 'authenticating-your-password',
-            },
+            // {
+            //     title: <Localize translate_text="Authenticating your account" />,
+            //     category: 'account',
+            //     sub_category: <Localize translate_text="Opening an account" />,
+            //     label: 'authenticating-your-password',
+            // },
             {
                 title: <Localize translate_text="How do I change or reset my Deriv password?" />,
                 category: 'account',

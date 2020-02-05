@@ -70,7 +70,12 @@ const NewSignup = () => {
     }
     return (
         <Layout is_static padding_top="0">
-            <SEO title={localize('Easy Sign Up - Deriv.com')} />
+            <SEO
+                description={localize(
+                    'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
+                )}
+                title={localize('Easy And Free Sign Up | Online Trading')}
+            />
             <Wrapper>
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>

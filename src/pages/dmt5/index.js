@@ -56,7 +56,7 @@ const DMT5 = () => {
                 description={localize(
                     'DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile.',
                 )}
-                title={localize('DMT5 | MetaTrader 5 | Deriv.com')}
+                title={localize('DMT5 | MetaTrader 5')}
             />
             <DHero
                 title={localize('DMT5')}

@@ -97,7 +97,7 @@ class Dbot extends Component {
                     description={localize(
                         'Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!',
                     )}
-                    title={localize('DBot Trading | Auto Trading Robot | Deriv.com')}
+                    title={localize('DBot Trading | Auto Trading Robot')}
                 />
                 <DHero
                     title={localize('DBot')}

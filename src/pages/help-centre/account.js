@@ -20,7 +20,6 @@ export const StyledLink = css`
     font-size: var(--text-size-s);
     font-weight: bold;
     color: var(--color-red);
-    display: contents;
 
     :hover {
         text-decoration: underline;
@@ -37,6 +36,9 @@ const Box = styled.div`
     padding: 2rem;
     background-color: var(--color-grey-18);
 `
+const StyledText = styled(Text)`
+    margin-top: 1.7rem;
+`
 const url =
     getLanguage() === 'en' || getLanguage() == null
         ? '/terms-and-conditions/'
@@ -47,23 +49,44 @@ const WhoCanOpenAnAccount = () => (
         <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Who can open an account?')}
         </Header>
-        <Localize
-            translate_text="You have read the <1>Legal Terms and Conditions</1> in full.
-            <0 /><0 />You understand that you will be buying and selling financial contracts subject to these terms and conditions.
-            <0 /><0 />You have read our privacy statement and give us your consent to process your personal information.
-            <0 /><0 />You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.
-            <0 /><0 />You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.
-            <0 /><0 />You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation."
-            components={[
-                <br key={0} />,
-                <ExternalLink
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={1}
-                ></ExternalLink>,
-            ]}
-        />
+        <StyledText>
+            <Localize
+                translate_text="You have read the <0>Legal Terms and Conditions</0> in full."
+                components={[
+                    <ExternalLink
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    ></ExternalLink>,
+                ]}
+            />
+        </StyledText>
+        <StyledText>
+            {localize(
+                'You understand that you will be buying and selling financial contracts subject to these terms and conditions.',
+            )}
+        </StyledText>
+        <StyledText>
+            {localize(
+                'You have read our privacy statement and give us your consent to process your personal information.',
+            )}
+        </StyledText>
+        <StyledText>
+            {localize(
+                'You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.',
+            )}
+        </StyledText>
+        <StyledText>
+            {localize(
+                'You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
+            )}
+        </StyledText>
+        <StyledText>
+            {localize(
+                'You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 const OpeningAccount = () => (

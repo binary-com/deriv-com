@@ -19,10 +19,9 @@ export const StyledLink = css`
     font-size: var(--text-size-s);
     font-weight: bold;
     color: var(--color-red);
-    display: contents;
 
     :hover {
-        text-decoration: underline;
+        text-decoration: underline !important;
     }
 `
 const ExternalLink = styled.a`
@@ -33,27 +32,52 @@ const Box = styled.div`
     padding: 2rem;
     background-color: var(--color-grey-18);
 `
-
+const StyledText = styled(Text)`
+    margin-top: 1.7rem;
+`
 const MakingADeposit = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Making a deposit')}
         </Header>
-        <Localize
-            translate_text="Click on the <1>Cashier</1> tab and choose your preferred deposit method.
-        <0 /><0 />Our list of supported <1>payment methods</1> includes bank wire, credit/debit cards, e-wallets, and cryptocurrencies.
-        <0 /><0 />You may also manage your funds through a payment agent if the service is available in your country.
-        <0 /><0 />You can deposit or withdraw as little as USD/EUR/GBP/AUD 5 using some e-wallets. The minimum amounts for all other payment methods are specified on the payment methods page."
-            components={[
-                <br key={0} />,
-                <ExternalLink
-                    href="https://deriv.app/cashier"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={1}
-                ></ExternalLink>,
-            ]}
-        />
+        <StyledText>
+            <Localize
+                translate_text="Click on the <0>Cashier</0> tab and choose your preferred deposit method."
+                components={[
+                    <ExternalLink
+                        href="https://deriv.app/cashier"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    ></ExternalLink>,
+                ]}
+            />
+        </StyledText>
+        <StyledText>
+            <Localize
+                translate_text="Our list of supported <0>payment methods</0> includes bank wire, credit/debit cards, e-wallets, and cryptocurrencies."
+                components={[
+                    <ExternalLink
+                        key={0}
+                        href="https://deriv.app/cashier"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    ></ExternalLink>,
+                ]}
+            />
+        </StyledText>
+
+        <StyledText>
+            {localize(
+                'You may also manage your funds through a payment agent if the service is available in your country.',
+            )}
+        </StyledText>
+
+        <StyledText>
+            {localize(
+                'You can deposit or withdraw as little as USD/EUR/GBP/AUD 5 using some e-wallets. The minimum amounts for all other payment methods are specified on the payment methods page.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 

@@ -297,7 +297,7 @@ const Footer = () => (
                                 <StaticAsset
                                     key={0}
                                     target="_blank"
-                                    href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
+                                    href="/BVL-Certificate-of-Principal-License.pdf"
                                     rel="noopener noreferrer"
                                 />,
                                 <StaticAsset

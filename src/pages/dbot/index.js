@@ -15,7 +15,7 @@ import DBotBG from 'images/svg/dbot-bg.svg'
 import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
-    { title: '5', subtitle: localize('Pre-built strategies included') },
+    { title: '3', subtitle: localize('pre-built strategies included') },
     { title: 'FREE', subtitle: localize('zero cost to build') },
     { title: '50+', subtitle: localize('assets to unleash your bot') },
 ]

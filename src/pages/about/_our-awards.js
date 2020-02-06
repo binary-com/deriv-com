@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
+import { Flex } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import { localize } from 'components/localization'
 
@@ -24,6 +25,7 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Text)`
     font-size: var(--text-size-m);
+    max-width: ${props => (props.maxW ? props.maxW : '')};
 `
 const ImageWrapper = styled.div`
     width: 100%;
@@ -47,11 +49,13 @@ export const OurAwards = () => {
     return (
         <AwardContainer>
             <StyledHeader align="center">{localize('Our awards')}</StyledHeader>
-            <StyledText align="center" weight="500">
-                {localize(
-                    "We have 20 years of experience in providing excellent trading services, and we're proud that our dedication has led to a number of prestigious awards over the years.",
-                )}
-            </StyledText>
+            <Flex>
+                <StyledText align="center" weight="500" maxW="98.4rem">
+                    {localize(
+                        'The Binary Group has 20 years of experience in providing excellent trading services. We’re proud that our dedication has led to a number of prestigious awards over the years.',
+                    )}
+                </StyledText>
+            </Flex>
             <ImageWrapper>
                 <ImageItem>
                     <Image img_name="mena.png" alt={localize('Mena FFXPO')} width="28.5rem" />

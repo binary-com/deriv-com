@@ -64,12 +64,17 @@ const PlatformContainer = styled.div`
 const Dtrader = () => {
     return (
         <Layout>
-            <SEO title={localize('DTrader')} />
+            <SEO
+                title={localize('DTrader | Online Trading Platform')}
+                description={localize(
+                    'DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices. ',
+                )}
+            />
             <DHero
                 title={localize('DTrader')}
                 content={
                     <Localize
-                        translate_text="Everything<0/>you need<0/>and more"
+                        translate_text="Trading<0/>made simple<0/>"
                         components={[<br key={0} />]}
                     />
                 }

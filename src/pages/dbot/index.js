@@ -15,7 +15,7 @@ import DBotBG from 'images/svg/dbot-bg.svg'
 import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
-    { title: '5', subtitle: localize('Pre-built strategies included') },
+    { title: '3', subtitle: localize('pre-built strategies included') },
     { title: 'FREE', subtitle: localize('zero cost to build') },
     { title: '50+', subtitle: localize('assets to unleash your bot') },
 ]
@@ -93,7 +93,12 @@ class Dbot extends Component {
     render() {
         return (
             <Layout>
-                <SEO title={localize('DBot')} />
+                <SEO
+                    description={localize(
+                        'Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!',
+                    )}
+                    title={localize('DBot Trading | Auto Trading Robot')}
+                />
                 <DHero
                     title={localize('DBot')}
                     content={localize('Automate your trading ideas without writing code')}

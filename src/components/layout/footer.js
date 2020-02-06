@@ -252,9 +252,6 @@ const Footer = () => (
                         <div>
                             <Link to="/why-choose-us">{localize('Why choose us')}</Link>
                         </div>
-                        <div>
-                            <Link to="/contact-us">{localize('Contact us')}</Link>
-                        </div>
                     </Col>
                     <Col margin_top width="23%">
                         <div>
@@ -262,6 +259,9 @@ const Footer = () => (
                         </div>
                         <div>
                             <Link to="/about">{localize('About us')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/contact-us">{localize('Contact us')}</Link>
                         </div>
                     </Col>
                     {/* <Col margin_top width='40%'>
@@ -297,7 +297,7 @@ const Footer = () => (
                                 <StaticAsset
                                     key={0}
                                     target="_blank"
-                                    href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
+                                    href="/BVL-Certificate-of-Principal-License.pdf"
                                     rel="noopener noreferrer"
                                 />,
                                 <StaticAsset

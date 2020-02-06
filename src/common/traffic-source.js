@@ -35,7 +35,7 @@ const TrafficSource = (() => {
             }
         }
 
-        affiliate_cookie.write(token, 365)
+        affiliate_cookie.write(token, 365, true, 'none')
         return true
     }
 
@@ -58,7 +58,7 @@ const TrafficSource = (() => {
             // url params can be stored only if utm_source is available
             param_keys.forEach(key => {
                 if (params[key]) {
-                    cookie.set(key, params[key])
+                    cookie.set(key, params[key], { sameSite: 'none', secure: true })
                 }
             })
         }
@@ -75,7 +75,10 @@ const TrafficSource = (() => {
             referrer = doc_ref
         }
         if (referrer) {
-            cookie.set('referrer', new URL(window.location.href).hostname)
+            cookie.set('referrer', new URL(window.location.href).hostname, {
+                sameSite: 'none',
+                secure: true,
+            })
         }
     }
 

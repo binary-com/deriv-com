@@ -126,11 +126,11 @@ export const Offices = () => {
                             <MapLink
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                                href="https://maps.google.com/?q=Binary+Europe+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                             >
                                 <Image
                                     img_name="map-malta.png"
-                                    alt={localize('Malta Office')}
+                                    alt={localize('Maltaa Office')}
                                     width="49rem"
                                     height="100%"
                                 />
@@ -149,7 +149,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                                    href="https://maps.google.com/?q=Binary+Europe+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                                 >
                                     <Localize
                                         translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm Birkirkara BKR9033 Malta."
@@ -213,7 +213,7 @@ export const Offices = () => {
                             <MapLink
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
+                                href="https://maps.google.com/?q=Paragon+Labuan+shopping+mall&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                             >
                                 <Image
                                     img_name="map-labuan.png"
@@ -236,7 +236,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
+                                    href="https://maps.google.com/?q=Paragon+Labuan+shopping+mall&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                                 >
                                     <Localize
                                         translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan."

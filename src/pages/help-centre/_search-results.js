@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { convertToHash } from './_utility'
 import { Text, Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -84,14 +85,7 @@ export const SearchSuccess = ({ suggested_topics, max_length }) => (
         {suggested_topics.slice(0, max_length).map((article, idx) => (
             <ListWrapper key={idx}>
                 <ListNoBullets>
-                    <StyledLink
-                        to={
-                            '/help-centre/' +
-                            article.category.replace(/\s/g, '-').toLowerCase() +
-                            '#' +
-                            article.label
-                        }
-                    >
+                    <StyledLink to={convertToHash(article.category, article.label)}>
                         {article.title}
                     </StyledLink>
                 </ListNoBullets>

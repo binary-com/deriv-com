@@ -7,6 +7,7 @@ import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
+import { convertToHash } from './_utility'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -281,14 +282,10 @@ class HelpCentre extends Component {
                                     {category.articles.map((article, idxa) => (
                                         <li key={idxa}>
                                             <StyledLink
-                                                to={
-                                                    '/help-centre/' +
-                                                    category.category.props.translate_text
-                                                        .replace(/\s/g, '-')
-                                                        .toLowerCase() +
-                                                    '#' +
-                                                    article.label
-                                                }
+                                                to={convertToHash(
+                                                    category.category.props.translate_text,
+                                                    article.label,
+                                                )}
                                             >
                                                 {article.title}
                                             </StyledLink>

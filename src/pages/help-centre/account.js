@@ -95,14 +95,16 @@ const OpeningAccount = () => (
             {localize('Opening an account')}
         </Header>
         <Text>{localize('There are three ways to open an account. You can:')}</Text>
-        <Box>
-            <Localize
-                translate_text='1. Enter your email address on the homepage and click <0>"Create free account"</0>
+        <Text>
+            <Box>
+                <Localize
+                    translate_text='1. Enter your email address on the homepage and click <0>"Create free account"</0>
                 <1 /><1 />2. Create an account with your <0>Google</0> login
                 <1 /><1 />3. Create an account with your <0>Facebook</0> login'
-                components={[<strong key={0} />, <br key={1} />]}
-            />
-        </Box>
+                    components={[<strong key={0} />, <br key={1} />]}
+                />
+            </Box>
+        </Text>
         <Text>
             {localize(
                 'You will have a practise account to start with. You can upgrade to a real money account after opening a practise account.',
@@ -146,39 +148,46 @@ const HowDoIChangeOrResetMyDerivPassword = () => (
                 'To change your Deriv password if you’re already logged in and know your password:',
             )}
         </Text>
-        <Box>
-            <Localize
-                translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0>
+        <Text>
+            <Box>
+                <Localize
+                    translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0>
                 <1 /><1 />2. Enter your current password and new password.
                 <1 /><1 />3. Click <0>Change password</0> to confirm."
-                components={[<strong key={0} />, <br key={1} />]}
-            />
-        </Box>
+                    components={[<strong key={0} />, <br key={1} />]}
+                />
+            </Box>
+        </Text>
 
         <Text>{localize('If you’re logged in and can’t remember your password:')}</Text>
-        <Box>
-            <Localize
-                translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0>
+        <Text>
+            <Box>
+                <Localize
+                    translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0>
                 <1 /><1 />2. Click on <0>Forgot your password?</0>
                 <1 /><1 />3. Check your email for a message with the link to reset your password. Check your spam or junk folder if you don’t see it.
                 <1 /><1 />4. Click on <0>Reset my password</0> to go to the <0>Choose a new password</0> page. If the button does not work, copy and paste the link from the email into your browser.
                 <1 /><1 />5. Enter your new password.
                 <1 /><1 />6. Click <0>Save new password</0> to confirm."
-                components={[<strong key={0} />, <br key={1} />]}
-            />
-        </Box>
+                    components={[<strong key={0} />, <br key={1} />]}
+                />
+            </Box>
+        </Text>
+
         <Text>{localize('If you’re not logged in and can’t remember your password:')}</Text>
-        <Box>
-            <Localize
-                translate_text="1. Go to <0>Deriv.com > Log in.</0>
+        <Text>
+            <Box>
+                <Localize
+                    translate_text="1. Go to <0>Deriv.com > Log in.</0>
                 <1 /><1 />2. Click on <0>Forgot password?</0>
                 <1 /><1 />3. Check your email for a message with the link to reset your password. Check your spam or junk folder if you don’t see it.
                 <1 /><1 />4. Click on <0>Reset my password</0> to go to the <0>Choose a new password</0> page. If the button does not work, copy and paste the link from the email into your browser.
                 <1 /><1 />5. Enter your new password.
                 <1 /><1 />6. Click <0>Save new password</0> to confirm."
-                components={[<strong key={0} />, <br key={1} />]}
-            />
-        </Box>
+                    components={[<strong key={0} />, <br key={1} />]}
+                />
+            </Box>
+        </Text>
     </ArticleWrapper>
 )
 

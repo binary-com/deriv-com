@@ -45,7 +45,7 @@ const StyledTab = styled.li`
     width: ${props => props.item_width || '38rem'};
 
     & > p {
-        color: var(--color- ${props => props.font_color || 'black-3'});
+        color: var(--color-${props => props.font_color || 'black-3'});
         opacity: 0.32;
         font-size: ${props => props.font_size || 'var(--text-size-m)'};
         padding-left: 1.6rem;
@@ -53,7 +53,7 @@ const StyledTab = styled.li`
     }
     &.tab-active > p {
         opacity: 1;
-        color: var(--color- ${props => props.active_font_color || 'black'});
+        color: var(--color-${props => props.active_font_color || 'black'});
     }
 `
 const TabsText = css`
@@ -99,7 +99,7 @@ const Tab = ({ active_tab, label, onClick, text, mobile }) => {
         </StyledDropDown>
     ) : (
         <ItemWrapper>
-            {active_tab === label ? <LeftBorder /> : undefined}
+            {active_tab === label && <LeftBorder />}
             <StyledTab className={className} onClick={handleClick}>
                 <Text weight="500">{text}</Text>
             </StyledTab>

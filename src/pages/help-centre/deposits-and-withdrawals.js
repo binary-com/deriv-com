@@ -86,11 +86,13 @@ const ExpiredVerificationLink = () => (
         <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Expired verification link ')}
         </Header>
-        <Localize
-            translate_text="We will occasionally prompt you to verify your account by sending you a verification link. This is to make sure it’s you and that your account hasn’t been compromised.
+        <Text>
+            <Localize
+                translate_text="We will occasionally prompt you to verify your account by sending you a verification link. This is to make sure it’s you and that your account hasn’t been compromised.
             <0 /><0 />If your verification link has expired, try withdrawing or logging in again."
-            components={[<br key={0} />]}
-        />
+                components={[<br key={0} />]}
+            />
+        </Text>
     </ArticleWrapper>
 )
 
@@ -117,17 +119,19 @@ const HowDoIWithdrawFundsFromMyDerivAccount = () => (
                 'To withdraw funds from your Deriv account, please make sure that you’re currently using the correct real account:',
             )}
         </Text>
-        <Box>
-            <Localize
-                translate_text="1. Go to <0>Cashier > Withdraw.</0>
+        <Text>
+            <Box>
+                <Localize
+                    translate_text="1. Go to <0>Cashier > Withdraw.</0>
                 <1 /><1 />2. Click on <0>Request authentication email</0> to receive a verification email.
                 <1 /><1 />3. Check your email for a message with the link to withdraw your funds. Check your spam or junk folder if you don’t see it.
                 <1 /><1 />4. Click on <0>Authorise & withdraw funds.</0> If the button does not work, copy and paste the link from the email into your browser.
                 <1 /><1 />5. On the <0>Withdrawal</0> page, follow the instructions on the screen.
                 <1 /><1 />6. We will review your withdrawal request and inform you via email once your withdrawal has been successfully processed."
-                components={[<strong key={0} />, <br key={1} />]}
-            />
-        </Box>
+                    components={[<strong key={0} />, <br key={1} />]}
+                />
+            </Box>
+        </Text>
     </ArticleWrapper>
 )
 

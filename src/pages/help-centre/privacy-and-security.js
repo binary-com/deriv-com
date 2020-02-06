@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Header } from '../../components/elements/typography'
+import { Header, Text } from '../../components/elements/typography'
 import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -43,29 +43,31 @@ const SafeguardChangePassword = () => (
         <Header as="h4" margin=" 0 0 2.4rem 0">
             {localize('Safeguarding your account when you change your password')}
         </Header>
-        <Localize
-            translate_text="To keep your account safe from an unauthorised party, we always require you to confirm your identity before we allow you to change or reset your password.
-                <0 /><0 />This is how we do it:"
-            components={[<br key={0} />]}
-        />
-        <Box>
+        <Text>
             <Localize
-                translate_text="If you’re logged in, you’ll need to enter your current password. This means that if someone else has access to your account while you’re away from your screen, they will not be able to change your password without your permission.
-                <0 /><0 />If you’ve forgotten your current password, we’ll send you an email with the link to reset your password. Ideally, you should be the only person with access to your email and this will help us to confirm your identity. The link will expire after one hour. Please request a new link if you’re using the link after this period."
+                translate_text="To keep your account safe from an unauthorised party, we always require you to confirm your identity before we allow you to change or reset your password.
+                <0 /><0 />This is how we do it:"
                 components={[<br key={0} />]}
             />
-        </Box>
-        <Localize
-            translate_text="To learn more about security best practices, please go to the <0>Keep safe</0> page."
-            components={[
-                <ExternalLink
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={0}
-                ></ExternalLink>,
-            ]}
-        />
+            <Box>
+                <Localize
+                    translate_text="If you’re logged in, you’ll need to enter your current password. This means that if someone else has access to your account while you’re away from your screen, they will not be able to change your password without your permission.
+                <0 /><0 />If you’ve forgotten your current password, we’ll send you an email with the link to reset your password. Ideally, you should be the only person with access to your email and this will help us to confirm your identity. The link will expire after one hour. Please request a new link if you’re using the link after this period."
+                    components={[<br key={0} />]}
+                />
+            </Box>
+            <Localize
+                translate_text="To learn more about security best practices, please go to the <0>Keep safe</0> page."
+                components={[
+                    <ExternalLink
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    ></ExternalLink>,
+                ]}
+            />
+        </Text>
     </ArticleWrapper>
 )
 

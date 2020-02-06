@@ -13,6 +13,7 @@ import Security from 'images/svg/security-privacy-tc.svg'
 import Business from 'images/svg/business-terms-tc.svg'
 import Risk from 'images/svg/risk-tc.svg'
 import PDF from 'images/svg/pdf-icon-black.svg'
+import BFX from 'images/svg/bfx-tc.svg'
 
 const GridCol = styled(CssGridColumn)`
     width: 100%;
@@ -147,6 +148,13 @@ export const IconGrid = () => (
                 )}
                 url="/risk_disclosure_derivtnc.pdf"
                 link_title={localize('Risk disclosure')}
+            />
+            <Col
+                Icon={BFX}
+                title={localize('Supplementary terms')}
+                content={localize('Additional terms related to some of our companies')}
+                url="/bfx_derivtnc.pdf"
+                link_title={localize('Supplementary terms')}
             />
         </CssGrid>
     </GridContainer>

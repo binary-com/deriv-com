@@ -144,9 +144,9 @@ const Regulatory = () => (
             </GridContainer>
         </SectionContainer>
         <SectionContainer padding="0 0 4rem 0">
-            <AccordionWrapper>
+            {/* <AccordionWrapper>
                 <DocumentAccordion />
-            </AccordionWrapper>
+            </AccordionWrapper> */}
         </SectionContainer>
         <SectionContainer padding="0">
             <GridContainer>

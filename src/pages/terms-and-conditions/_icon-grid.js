@@ -136,7 +136,7 @@ export const IconGrid = () => (
                 content={localize(
                     'Our agreement with affiliates, introducing brokers, developers who use our API, and payment agents',
                 )}
-                url="/Business_deriv_tnc.pdf"
+                url="/business_derivtnc.pdf"
                 link_title={localize('Business terms')}
             />
             <Col

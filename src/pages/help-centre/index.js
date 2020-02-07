@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
+import { Link } from 'gatsby'
 import { articles } from './_help-articles'
-import { ArticleSection } from './_article-section'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
+import { convertToHash } from './_utility'
 import { SEO, Container } from 'components/containers'
+import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
@@ -23,11 +25,11 @@ const getAllArticles = articles =>
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
 const Backdrop = styled.div`
-    background-color: var(--color-black);
+    padding: 8rem 0;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-grey-8);
 `
-const StyledContainer = styled(Container)`
-    padding: 12rem 0;
-
+const StyledContainer = styled.div`
     @media ${device.tabletL} {
         padding: 10rem 0 2rem 0;
     }
@@ -40,76 +42,121 @@ const SearchSection = styled.section`
     }
 `
 
-const SearchIconBig = styled(SearchIcon)`
-    position: absolute;
-    left: 0;
-    top: 3px;
-`
-
 const SearchCrossIcon = styled(CrossIcon)`
+    width: 2.3rem;
+    height: 2.3rem;
+    position: absolute;
+    top: 1.4rem;
+    right: 2rem;
+
     :hover {
         cursor: pointer;
-    }
-
-    @media ${device.tabletL} {
-        position: absolute;
     }
 `
 
 const SearchForm = styled.form`
     position: relative;
     padding-left: 6.4rem;
+    border: 1px solid var(--color-grey-17);
+    border-radius: 4px;
+    width: 99.6rem;
+    height: 6.4rem;
+    max-width: 99.6rem;
 
-    @media ${device.tabletL} {
-        padding-left: 4.3rem;
+    @media ${device.Laptop} {
+        width: 100%;
 
         svg {
-            top: 0;
             width: 2.5rem;
             height: 3.55rem;
         }
     }
 `
-
+const SearchIconBig = styled(SearchIcon)`
+    width: 2.3rem;
+    height: 2.3rem;
+    position: absolute;
+    left: 2.4rem;
+    top: 1.3rem;
+`
 const Search = styled.input`
     width: 95%;
-    font-size: 4.4rem;
-    font-weight: bold;
-    color: var(--color-white);
-    background-color: var(--color-black);
+    font-size: var(--text-size-m);
+    font-weight: 500;
+    color: var(--color-black);
+    background-color: var(--color-white);
     border: none;
     outline: none;
+    height: 6rem;
 
     ::placeholder {
-        color: var(--color-black-3);
-    }
-    @media ${device.tabletL} {
-        font-size: 3rem;
-        height: 3.55rem;
-    }
-    @media ${device.mobileL} {
-        font-size: 2.5rem;
-    }
-    @media ${device.mobileM} {
-        font-size: 1.95rem;
+        color: var(--color-grey-17);
     }
 `
 
 const ResultWrapper = styled.div`
-    margin-top: 4rem;
-
     > :first-child {
+        margin-top: 4rem;
         margin-bottom: 1.6rem;
     }
 `
+const StyledHeader = styled(Header)`
+    margin-bottom: 4rem;
+`
 
+const ListWrapper = styled.div`
+    margin-right: 2.4rem;
+    max-width: 38.4rem;
+    width: 38.4rem;
+    line-height: 1.5;
+
+    ${Header} {
+        margin-bottom: 1.6rem;
+    }
+
+    @media ${device.tabletL} {
+        padding-top: 3.55rem;
+    }
+`
+
+const ArticleSection = styled.section`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 8rem 0;
+
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+    }
+`
+const ListNoBullets = styled.ul`
+    margin-bottom: 4.2rem;
+    list-style: none;
+
+    li {
+        max-width: 38.4rem;
+    }
+    > *:not(:last-child) {
+        padding-bottom: 1.6rem;
+    }
+`
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+    font-size: var(--text-size-s);
+
+    :hover {
+        color: red;
+        text-decoration: underline;
+    }
+`
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
         this.state = {
             all_articles: [],
             search: '',
-            selected_article: null,
             search_has_transition: false,
             toggle_search: true,
         }
@@ -126,7 +173,6 @@ class HelpCentre extends Component {
     handleSelectArticle = article => {
         navigate(`#${article.label}`)
         this.setState({
-            selected_article: article,
             toggle_search: false,
             search_has_transition: false,
             search: '',
@@ -157,11 +203,7 @@ class HelpCentre extends Component {
         }
 
         if (current_label) {
-            const selected_article = this.state.all_articles.find(
-                article => article.label === current_label,
-            )
             this.setState({
-                selected_article,
                 toggle_search: false,
                 search_has_transition: false,
             })
@@ -180,26 +222,8 @@ class HelpCentre extends Component {
         })
     }
 
-    componentDidUpdate = () => {
-        const current_label = getLocationHash()
-
-        if (!current_label && this.state.selected_article) {
-            this.setState({
-                selected_article: null,
-                toggle_search: true,
-                search_has_transition: false,
-            })
-        }
-    }
-
     render() {
-        const {
-            all_articles,
-            search,
-            selected_article,
-            toggle_search,
-            search_has_transition,
-        } = this.state
+        const { all_articles, search, toggle_search, search_has_transition } = this.state
 
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
@@ -213,44 +237,67 @@ class HelpCentre extends Component {
                         'Need help with our products and services? Read our FAQ or ask us a question.',
                     )}
                 />
+
                 <SearchSection show={toggle_search} has_transition={search_has_transition}>
                     <Backdrop>
-                        <StyledContainer align="normal" direction="column">
-                            <SearchForm onSubmit={this.handleSubmit}>
-                                <SearchIconBig />
-                                <Search
-                                    autoFocus
-                                    name="search"
-                                    value={search}
-                                    onChange={this.handleInputChange}
-                                    placeholder={localize('How can we help?')}
-                                    data-lpignore="true"
-                                    autoComplete="off"
-                                />
-                                {search.length && <SearchCrossIcon onClick={this.clearSearch} />}
-                            </SearchForm>
-                            <ResultWrapper>
-                                {has_results && search.length && (
-                                    <SearchSuccess
-                                        suggested_topics={filtered_articles}
-                                        onClick={this.handleSelectArticle}
-                                        max_length={3}
+                        <Container align="left" justify="flex-start" direction="column">
+                            <StyledContainer align="normal" direction="column">
+                                <StyledHeader as="h1">{localize('How can we help?')}</StyledHeader>
+                                <SearchForm onSubmit={this.handleSubmit}>
+                                    <SearchIconBig />
+                                    <Search
+                                        autoFocus
+                                        name="search"
+                                        value={search}
+                                        onChange={this.handleInputChange}
+                                        placeholder={localize('Try “Trade”')}
+                                        data-lpignore="true"
+                                        autoComplete="off"
                                     />
-                                )}
-                                {!has_results && search.length && <SearchError search={search} />}
-                            </ResultWrapper>
-                        </StyledContainer>
+                                    {search.length > 0 && (
+                                        <SearchCrossIcon onClick={this.clearSearch} />
+                                    )}
+                                </SearchForm>
+                                <ResultWrapper>
+                                    {has_results && search.length > 0 && (
+                                        <SearchSuccess
+                                            suggested_topics={filtered_articles}
+                                            max_length={3}
+                                        />
+                                    )}
+                                    {!has_results && search.length && (
+                                        <SearchError search={search} />
+                                    )}
+                                </ResultWrapper>
+                            </StyledContainer>
+                        </Container>
                     </Backdrop>
                 </SearchSection>
-                <ArticleSection
-                    articles={articles}
-                    all_articles={all_articles}
-                    selected_article={selected_article}
-                    handleSelectArticle={this.handleSelectArticle}
-                    toggleSearch={this.toggleSearch}
-                />
-                {/*TODO: active this line after having mail service*/}
-                {<DidntFindYourAnswerBanner />}
+                <Container align="left" justify="flex-start" direction="column">
+                    <ArticleSection>
+                        {articles.map((category, idx) => (
+                            <ListWrapper key={idx}>
+                                <Header font_size="3.6rem">{localize(category.category)}</Header>
+                                <ListNoBullets>
+                                    {category.articles.map((article, idxa) => (
+                                        <li key={idxa}>
+                                            <StyledLink
+                                                to={convertToHash(
+                                                    category.category.props.translate_text,
+                                                    article.label,
+                                                )}
+                                            >
+                                                {article.title}
+                                            </StyledLink>
+                                        </li>
+                                    ))}
+                                </ListNoBullets>
+                            </ListWrapper>
+                        ))}
+                    </ArticleSection>
+                </Container>
+
+                <DidntFindYourAnswerBanner />
             </Layout>
         )
     }

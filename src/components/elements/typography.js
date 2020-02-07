@@ -51,7 +51,9 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
     }};
     line-height: ${props => props.lh || '1.25'};
     ${BaseElement}
-    width: 100%;
+    width:  ${props => props.width || '100%'};
+    margin: ${props => props.margin || ''};
+    
     @media ${device.tabletL} {
         text-align: ${props => props.mobile_text_align || props.align};
     }

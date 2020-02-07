@@ -130,7 +130,7 @@ export const Offices = () => {
                             >
                                 <Image
                                     img_name="map-malta.png"
-                                    alt={localize('Maltaa Office')}
+                                    alt={localize('Malta Office')}
                                     width="49rem"
                                     height="100%"
                                 />

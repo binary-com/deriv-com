@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StyledLink } from 'components/elements'
+import { StyledLink, Text } from 'components/elements'
+import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
-import ContactUsIcon from 'images/svg/contact_us.svg'
+import ContactUsIcon from 'images/svg/contact-us.svg'
 import device from 'themes/device'
 
 const DFYAWrapper = styled.section`
-    background-color: var(--color-grey-1);
+    background-color: var(--color-black-3);
 `
 const DFYASection = styled(Container)`
-    padding: 3.2rem 0;
+    padding: 3.5rem 0;
     justify-content: flex-start;
     align-items: center;
 
@@ -20,12 +21,11 @@ const DFYASection = styled(Container)`
 
     @media ${device.tabletL} {
         ${StyledLink} {
-            font-size: var(--text-size-sm);
+            font-size: var(--text-size-l);
         }
     }
 `
 const StyledIcon = styled(ContactUsIcon)`
-    margin-right: 1.5rem;
 
     @media ${device.tabletL} {
         width: 30px;
@@ -37,14 +37,17 @@ export const DidntFindYourAnswerBanner = () => (
     <DFYAWrapper>
         <DFYASection>
             <StyledIcon />
-            <StyledLink
-                size="var(--text-size-header-1)"
+            <Text size="var(--text-size-l)" color="white" weight="bold" margin="0 2.4rem">
+                {localize('Didn’t find your answer?')}
+            </Text>
+            <LinkButton
+                secondary
                 to="/contact-us"
                 weight="bold"
                 color="black"
             >
-                {localize('Didn’t find your answer? Contact us')}
-            </StyledLink>
+                {localize('Contact us')}
+            </LinkButton>
         </DFYASection>
     </DFYAWrapper>
 )

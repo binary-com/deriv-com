@@ -170,6 +170,11 @@ const StaticAsset = styled.a`
 const ExternalLink = styled.a`
     text-decoration: none;
 `
+
+const SocialWrapper = styled.div`
+    margin-top: 0.8rem;
+`
+
 const Footer = () => (
     <StyledFooter>
         <Container>
@@ -183,7 +188,7 @@ const Footer = () => (
                     </Text>
                     <SocialMedia>
                         <Text>{localize('CONNECT WITH US')}</Text>
-                        <div>
+                        <SocialWrapper>
                             <ExternalLink
                                 href="https://www.facebook.com/derivdotcom/"
                                 target="_blank"
@@ -205,7 +210,7 @@ const Footer = () => (
                             >
                                 <Twitter />
                             </ExternalLink>
-                        </div>
+                        </SocialWrapper>
                     </SocialMedia>
                 </InfoSection>
                 <Items>

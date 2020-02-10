@@ -135,7 +135,8 @@ const StyledContainer = styled(Container)`
     padding: 1.6rem 0;
 `
 const Row = styled.div`
-    margin-top: ${props => (props.margin ? props.margin : '0')};
+    margin-top: ${props => (props.mt ? props.mt : '0')};
+    margin-bottom: ${props => (props.mb ? props.mb : '0')};
     width: 100%;
     align-items: center;
     display: ${props => (props.flex ? 'flex' : 'block')};
@@ -321,7 +322,7 @@ const Footer = () => (
                         )}
                     </StyledText>
                 </Row>
-                <Row margin="2.4rem" flex>
+                <Row mt="2.4rem" mb="0.8rem" flex>
                     <Warning />
                     <Risk>{localize('Risk warning')}</Risk>
                 </Row>

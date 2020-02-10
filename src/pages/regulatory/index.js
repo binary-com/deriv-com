@@ -1,25 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import EUgrid from './_eu-grid'
-import DocumentAccordion from './_document_accordion'
+// import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
 import { Header, Text, Divider } from 'components/elements'
-import {
-    SEO,
-    SectionContainer,
-    GridContainer,
-    CssGrid,
-    CssGridColumn,
-    Flex,
-} from 'components/containers'
+import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
 import EU from 'images/svg/europe-map.svg'
-import SVG from 'images/svg/svg.svg'
+// import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import FSC from 'images/svg/fsc.svg'
 import Labuan from 'images/svg/footer-labuan.svg'
-import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
@@ -49,11 +41,12 @@ const Europe = styled(EU)`
     max-width: 100%;
     margin: 0;
 `
-const AccordionWrapper = styled(Flex)`
-    @media ${device.tabletL} {
-        padding: 0 4rem;
-    }
-`
+// will be added once the proper documents are ready
+// const AccordionWrapper = styled(Flex)`
+//     @media ${device.tabletL} {
+//         padding: 0 4rem;
+//     }
+// `
 
 const Regulatory = () => (
     <Layout>
@@ -144,9 +137,10 @@ const Regulatory = () => (
             </GridContainer>
         </SectionContainer>
         <SectionContainer padding="0 0 4rem 0">
-            <AccordionWrapper>
+            {/* will be added once the proper documents are ready */}
+            {/* <AccordionWrapper>
                 <DocumentAccordion />
-            </AccordionWrapper>
+            </AccordionWrapper> */}
         </SectionContainer>
         <SectionContainer padding="0">
             <GridContainer>
@@ -198,17 +192,19 @@ const Regulatory = () => (
                                         <a
                                             key={0}
                                             target="_blank"
-                                            href="/BVL-Certificate-of-Principal-License.pdf"
+                                            href="https://www.vfsc.vu/financial-dealers-licensee-lists/"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
                                 />
                             </Text>
                         </CssGridColumn>
-                        <CssGridColumn align="center">
+                        {/* Will be added later */}
+                        {/* <CssGridColumn align="center">
                             <SVG />
-                        </CssGridColumn>
-                        <CssGridColumn>
+                        </CssGridColumn> */}
+
+                        {/* <CssGridColumn>
                             <StyledHeader font_size="3.6rem" lh="4.5rem">
                                 {localize('Binary (SVG) Ltd')}
                             </StyledHeader>
@@ -217,7 +213,7 @@ const Regulatory = () => (
                                     'Binary (SVG) Ltd, Hinds Buildings, Kingstown, St. Vincent and the Grenadines; company number 25299 BC 2019.',
                                 )}
                             </Text>
-                        </CssGridColumn>
+                        </CssGridColumn> */}
                         <CssGridColumn align="center">
                             <FSC />
                         </CssGridColumn>

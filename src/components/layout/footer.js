@@ -323,7 +323,7 @@ const Footer = () => (
                 </Row>
                 <Row margin="2.4rem" flex>
                     <Warning />
-                    <Risk>{localize('RISK WARNING')}</Risk>
+                    <Risk>{localize('Risk warning')}</Risk>
                 </Row>
                 <Row>
                     <StyledText>

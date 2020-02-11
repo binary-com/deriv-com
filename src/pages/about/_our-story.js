@@ -390,15 +390,9 @@ export const OurStory = () => {
             </Header>
 
             {Stories.map((story, idx) => (
-                <Story bgColor={story.bgColor}>
+                <Story key={idx} bgColor={story.bgColor}>
                     <Container direction="column" justify="space-between">
-                        <StyledHeader
-                            left={story.left}
-                            key={idx}
-                            as="h2"
-                            color="red-4"
-                            align="center"
-                        >
+                        <StyledHeader left={story.left} as="h2" color="red-4" align="center">
                             {story.year}
                         </StyledHeader>
 

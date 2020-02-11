@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="114" height="114" viewBox="0 0 114 114" aria-labelledby="malaysia-isle-of-man" role="img">
+ <title id='malaysia-isle-of-man'>Malaysia Isle of Man</title>    
+ <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1a" cx="45" cy="45" r="45"></circle>
+        <filter x="-17.8%" y="-17.8%" width="135.6%" height="135.6%" filterUnits="objectBoundingBox" id="filter-3a">
+            <feMorphology radius="4" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.856968976   0 0 0 0 0.856968976   0 0 0 0 0.856968976  0 0 0 0.46645542 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="invision---final" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="About-us" transform="translate(-582.000000, -1902.000000)">
+            <g id="2004aa" transform="translate(426.000000, 1798.000000)">
+                <g id="malaysia-isle-of-man" transform="translate(0.000000, 86.000000)">
+                    <rect id="Rectangleaa" x="0" y="0" width="282" height="150"></rect>
+                    <g id="Group-11aa" transform="translate(168.000000, 30.000000)">
+                        <mask id="mask-2aa" fill="white">
+                            <use xlink:href="#path-1a"></use>
+                        </mask>
+                        <g id="Mask">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-3a)" xlink:href="#path-1a"></use>
+                            <circle stroke="#333333" stroke-width="4" fill="#D8D8D8" fill-rule="evenodd" cx="45" cy="45" r="47"></circle>
+                        </g>
+                        <g id="Flag_of_Malaysia" mask="url(#mask-2aa)">
+                            <g transform="translate(-28.000000, -1.000000)">
+                                <g id="Group" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon id="Path" fill="#FFFFFF" fill-rule="nonzero" points="27 0 120 0 120 93 27 93"></polygon>
+                                    <path d="M7.0103154,3.5051577 L196.288831,3.5051577 M196.288831,17.5257885 L7.0103154,17.5257885 M7.0103154,31.5464193 L196.288831,31.5464193 M196.288831,45.5670501 L7.0103154,45.5670501" id="Shape" stroke="#CC0000" stroke-width="6.58285714"></path>
+                                    <polygon id="Path" fill="#000066" fill-rule="nonzero" points="0 -1.49213975e-13 93 -1.49213975e-13 93 59.5876809 0 59.5876809"></polygon>
+                                    <path d="M0,59.5876809 L196.288831,59.5876809 M196.288831,73.6083117 L0,73.6083117 M0,87.6289425 L196.288831,87.6289425" id="Shape" stroke="#CC0000" stroke-width="6.58285714"></path>
+                                </g>
+                                <path d="M71.2872068,18.6670179 L72.4498297,26.800137 L76.9482027,19.9892053 L74.5360317,27.8334431 L81.4791726,23.6891078 L75.9811612,29.6889498 L84,29.0334115 L76.5027117,32 L84,34.9665885 L75.9811612,34.3110502 L81.4791726,40.3108922 L74.5360317,36.1665569 L76.9482027,44.0107947 L72.4498297,37.199863 L71.2872068,45.3329821 L70.1245838,37.199863 L65.6262108,44.0107947 L68.0383818,36.1665569 L61.0952409,40.3108922 L66.5932523,34.3110502 L58.5744135,34.9665885 L66.0717018,32 L58.5744135,29.0334115 L66.5932523,29.6889498 L61.0952409,23.6891078 L68.0383818,27.8334431 L65.6262108,19.9892053 L70.1245838,26.800137 L71.2872068,18.6670179 Z M64.7678256,19.0003424 C58.9353604,16.3540575 52.0900987,18.1055961 48.1638097,23.2489127 C44.2375207,28.3922293 44.2375207,35.6077707 48.1638097,40.7510873 C52.0900987,45.8944039 58.9353604,47.6459425 64.7678256,44.9996576 C58.2804589,49.7593145 49.3290082,48.7605236 43.9981464,42.6822046 C38.6672845,36.6038857 38.6672845,27.3961143 43.9981464,21.3177954 C49.3290082,15.2394764 58.2804589,14.2406855 64.7678256,19.0003424 L64.7678256,19.0003424 Z" id="Shape" fill="#FFCC00" fill-rule="nonzero"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

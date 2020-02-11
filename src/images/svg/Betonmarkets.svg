@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="249px" height="26px" viewBox="0 0 249 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby="Betonmarket" role="img">
+    <title id='Betonmarket'>Betonmarket</title>
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Rectangle + BetOnMarkets.com Mask</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="282" height="87"></rect>
+    </defs>
+    <g id="invision---final" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="About-us" transform="translate(-749.000000, -1690.000000)">
+            <g id="2001" transform="translate(324.000000, 1567.000000)">
+                <g id="Rectangle-+-BetOnMarkets.com-Mask" transform="translate(408.000000, 96.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <text id="BetOnMarkets.com" mask="url(#mask-2)" font-family="LucidaGrande-Bold, Lucida Grande" font-size="20" font-weight="bold" fill="#333333">
+                        <tspan x="75.2158203" y="51">BetOnMarkets.com</tspan>
+                    </text>
+                    <g id="logo" mask="url(#mask-2)">
+                        <g transform="translate(14.000000, 27.000000)" id="Path-6">
+                            <polygon fill="#3B9F5A" points="18.4425144 9.33709018 26.8707339 0.527524254 34.8307189 9.33709018 26.8707339 25.5652379"></polygon>
+                            <polygon fill="#CECED1" transform="translate(38.169231, 19.644040) rotate(64.000000) translate(-38.169231, -19.644040) " points="29.6283134 16.8166652 38.8472007 7.02543832 46.7101492 15.8745643 38.7499031 32.2626416"></polygon>
+                            <polygon fill="#F8C14A" transform="translate(15.532741, 19.725018) scale(-1, 1) rotate(64.000000) translate(-15.532741, -19.725018) " points="7.081919 16.5281951 16.1206146 7.10641594 23.9835631 15.9555419 16.0233171 32.3436192"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

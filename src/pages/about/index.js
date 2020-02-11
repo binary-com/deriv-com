@@ -6,6 +6,7 @@ import { OurAwards } from './_our-awards'
 // import OurHistory from './_our-history'
 import OurNumbers from './_our-numbers'
 import { OurOffices } from './_our-offices'
+import { OurStory } from './_our-story'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
@@ -24,6 +25,7 @@ const About = () => {
             <Hero navigation={navigation} setNavigation={setNavigation} />
             {navigation === 'story' && (
                 <Fragment>
+                    <OurStory />
                     {/* <OurHistory /> */}
                     <OurNumbers />
                     <OurOffices />

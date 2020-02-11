@@ -51,6 +51,17 @@ const Office = styled.div`
     @media ${device.laptop} {
         flex-direction: column;
         height: auto;
+        align-items: center;
+    }
+    @media ${device.mobileL} {
+        align-items: flex-start;
+        margin-left: 3.6rem;
+    }
+`
+
+const EvenOffice = styled(Office)`
+    @media ${device.laptop} {
+        flex-direction: column-reverse;
     }
 `
 const StyledHeader = styled(Header)`
@@ -65,10 +76,11 @@ const Content = styled.div`
     }
 
     @media ${device.laptop} {
-        width: 100%;
+        width: auto;
 
         :nth-child(even) {
             margin-left: 0;
+            width: auto;
         }
     }
 `
@@ -165,7 +177,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <Office>
+                    <EvenOffice>
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
@@ -206,7 +218,7 @@ export const Offices = () => {
                                 />
                             </MapLink>
                         </ImageWrapper>
-                    </Office>
+                    </EvenOffice>
                     <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
@@ -251,7 +263,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <Office>
+                    <EvenOffice>
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Dubai')}
@@ -292,7 +304,7 @@ export const Offices = () => {
                                 />
                             </MapLink>
                         </ImageWrapper>
-                    </Office>
+                    </EvenOffice>
                     <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>

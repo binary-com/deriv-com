@@ -24,9 +24,14 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 38.4rem;
+    padding: 0 2.4rem;
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 0.8rem;
+`
+const StyledText = styled(Text)`
+    text-align: center;
 `
 
 export const Affiliates = () => {
@@ -36,7 +41,7 @@ export const Affiliates = () => {
                 <StyledHeader as="h3" align="center">
                     {localize('Public Relations')}
                 </StyledHeader>
-                <Text>{localize('For media enquiries')}</Text>
+                <StyledText>{localize('For media enquiries')}</StyledText>
                 <LinkText
                     weight="bold"
                     size="var(--text-size-sm)"
@@ -50,7 +55,9 @@ export const Affiliates = () => {
                 <StyledHeader as="h3" align="center">
                     {localize('Affiliates')}
                 </StyledHeader>
-                <Text>{localize('For enquiries about our affiliate and IB programmes')}</Text>
+                <StyledText>
+                    {localize('For enquiries about our affiliate and IB programmes')}
+                </StyledText>
                 <LinkText
                     weight="bold"
                     size="var(--text-size-sm)"
@@ -64,7 +71,7 @@ export const Affiliates = () => {
                 <StyledHeader as="h3" align="center">
                     {localize('Business development')}
                 </StyledHeader>
-                <Text>{localize('For collaboration opportunities')}</Text>
+                <StyledText>{localize('For collaboration opportunities')}</StyledText>
                 <LinkText
                     weight="bold"
                     size="var(--text-size-sm)"

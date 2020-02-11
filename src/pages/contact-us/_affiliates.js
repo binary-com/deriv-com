@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import { LinkText } from 'components/elements/typography'
-import { Header } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const Wrapper = styled.section`
     width: 100%;
-    height: 19rem;
-    background-color: var(--color-grey-8);
+    border-top: 2px solid var(--color-grey-2);
+    background-color: var(--color-white);
     padding: 5.6rem 12.8rem;
     display: flex;
     flex-wrap: nowrap;
@@ -36,7 +36,7 @@ export const Affiliates = () => {
                 <StyledHeader as="h3" align="center">
                     {localize('Public Relations')}
                 </StyledHeader>
-
+                <Text>{localize('For media enquiries')}</Text>
                 <LinkText
                     weight="bold"
                     size="var(--text-size-sm)"
@@ -50,7 +50,7 @@ export const Affiliates = () => {
                 <StyledHeader as="h3" align="center">
                     {localize('Affiliates')}
                 </StyledHeader>
-
+                <Text>{localize('For enquiries about our affiliate and IB programmes')}</Text>
                 <LinkText
                     weight="bold"
                     size="var(--text-size-sm)"
@@ -64,7 +64,7 @@ export const Affiliates = () => {
                 <StyledHeader as="h3" align="center">
                     {localize('Business development')}
                 </StyledHeader>
-
+                <Text>{localize('For collaboration opportunities')}</Text>
                 <LinkText
                     weight="bold"
                     size="var(--text-size-sm)"

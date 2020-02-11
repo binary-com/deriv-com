@@ -26,6 +26,12 @@ const Content = styled.div`
     align-items: center;
     max-width: 38.4rem;
     padding: 0 2.4rem;
+
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 2.4rem 0;
+    }
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 0.8rem;

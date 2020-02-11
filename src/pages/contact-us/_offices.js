@@ -54,7 +54,7 @@ const Office = styled.div`
     }
     @media ${device.mobileL} {
         align-items: flex-start;
-        margin-left: 3.6rem;
+        margin: 2.4rem;
     }
 `
 

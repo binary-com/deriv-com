@@ -241,7 +241,9 @@ const Footer = () => (
                             </Link>
                         </div>
                         <div>
-                            <Link to="/responsible-trading">{localize('Responsible trading')}</Link>
+                            <Link to="/responsible-trading">
+                                {localize('Secure and responsible trading')}
+                            </Link>
                         </div>
                     </Col>
                     <Col width="25%">
@@ -252,9 +254,6 @@ const Footer = () => (
                             <Link to="/help-centre">{localize('Help centre')}</Link>
                         </div>
                         {/* <div><Link to='/payment'>{localize('Payment methods')}</Link></div> */}
-                        <div>
-                            <Link to="/keep-safe">{localize('Keep safe')}</Link>
-                        </div>
                         <div>
                             <Link to="/why-choose-us">{localize('Why choose us')}</Link>
                         </div>

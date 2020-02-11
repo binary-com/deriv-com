@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { IconGrid } from './_icon-grid'
+import { SecureGrid, ResponsibleGrid } from './_icon-grid'
 import device from 'themes/device'
 import { SEO, SectionContainer, GridContainer, Flex, Container } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -75,37 +75,65 @@ const ListWrapper = styled.div`
         width: 100%;
     }
 `
+const StyledText = styled(Text)`
+    max-width: 79.2rem;
+`
 
 const ResponsibleTrading = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Responsible trading')}
+                title={localize('Secure and responsible trading')}
                 description={localize(
                     'Practise responsible trading by understanding the risks involved and how you can manage them by setting limits on your trading activity.',
                 )}
             />
             <Section>
-                <GridContainer>
-                    <StyledHeader as="h1" align="center" padding="0 0 4rem">
-                        {localize('Responsible trading')}
+                <Container direction="column">
+                    <StyledHeader as="h1" align="center" padding="0 0 1.6rem">
+                        {localize('Secure and responsible trading')}
                     </StyledHeader>
+                    <StyledText size="var(--text-size-m)" align="center">
+                        {localize(
+                            'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',
+                        )}
+                    </StyledText>
                     <StyledHeader
-                        as="h2"
+                        as="h3"
                         align="center"
-                        weight="500"
+                        weight="bold"
                         maxwidth="105rem"
-                        padding="0 2rem 6rem"
+                        padding="2.4rem 0 0"
                         font_size="var(--text-size-m)"
                     >
-                        {localize(
-                            'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
-                        )}
+                        {localize('Here are some guidelines for a safe trading experience.')}
                     </StyledHeader>
-                </GridContainer>
-                <IconGrid />
+                </Container>
             </Section>
-            <Divider />
+            <Divider height="2px" />
+            <Section>
+                <StyledHeader
+                    as="h2"
+                    align="center"
+                    padding="0 0 4rem"
+                    font_size="var(--text-size-header-1)"
+                >
+                    {localize('Securing your account')}
+                </StyledHeader>
+                <SecureGrid />
+            </Section>
+            <Divider height="2px" />
+            <Section>
+                <StyledHeader
+                    as="h2"
+                    align="center"
+                    padding="0 0 4rem"
+                    font_size="var(--text-size-header-1)"
+                >
+                    {localize('Trading responsibly')}
+                </StyledHeader>
+                <ResponsibleGrid />
+            </Section>
             <Section>
                 <StyledHeader as="h2" font_size="3.6rem" lh="4.5rem" align="center">
                     {localize('Written limits and self-exclusion')}

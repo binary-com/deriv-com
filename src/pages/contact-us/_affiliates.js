@@ -82,9 +82,9 @@ export const Affiliates = () => {
                     weight="bold"
                     size="var(--text-size-sm)"
                     color="red"
-                    href="mailto:marketing@deriv.com"
+                    href="mailto:bizdev@deriv.com"
                 >
-                    {localize('marketing@deriv.com')}
+                    {localize('bizdev@deriv.com')}
                 </LinkText>
             </Content>
         </Wrapper>

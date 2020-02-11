@@ -79,6 +79,18 @@ const StyledText = styled(Text)`
     max-width: 79.2rem;
 `
 
+const ResponsibleText = styled(Text)`
+    font-size: var(--text-size-m);
+    text-align: center;
+    font-weight: 500;
+    max-width: 99.6rem;
+    margin: 4rem auto 0;
+`
+
+const HighlightText = styled.span`
+    color: var(--color-red);
+`
+
 const ResponsibleTrading = () => {
     return (
         <Layout>
@@ -133,6 +145,12 @@ const ResponsibleTrading = () => {
                     {localize('Trading responsibly')}
                 </StyledHeader>
                 <ResponsibleGrid />
+                <ResponsibleText>
+                    <Localize
+                        translate_text="For more details on our products and the risks involved in online trading, read our key information documents (KIDs) on <0>commodities</0>, <0>forex</0>, and <0>cryptocurrencies</0>."
+                        components={[<HighlightText key={0} color="red" />]}
+                    />
+                </ResponsibleText>
             </Section>
             <Section>
                 <StyledHeader as="h2" font_size="3.6rem" lh="4.5rem" align="center">

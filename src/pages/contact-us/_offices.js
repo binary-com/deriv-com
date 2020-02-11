@@ -8,7 +8,6 @@ import PhoneSVG from 'images/svg/phone.svg'
 import device from 'themes/device'
 
 const Wrapper = styled.section`
-    border-top: 1px solid #d8d8d8;
     width: 100%;
     height: 181.3rem;
     background-color: var(--color-white);

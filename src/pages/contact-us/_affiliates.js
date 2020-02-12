@@ -25,12 +25,18 @@ const Content = styled.div`
     flex-direction: column;
     align-items: center;
     max-width: 38.4rem;
-    padding: 0 2.4rem;
+
+    :nth-child(even) {
+        padding: 0 2.4rem;
+    }
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
         height: auto;
-        padding: 2.4rem 0;
+
+        :nth-child(even) {
+            padding: 0 2.4rem;
+        }
     }
 `
 const StyledHeader = styled(Header)`

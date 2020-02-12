@@ -103,7 +103,6 @@ const ResponsibleTrading = () => {
                     <StyledHeader
                         as="h3"
                         align="center"
-                        weight="bold"
                         maxwidth="105rem"
                         padding="2.4rem 0 0"
                         font_size="var(--text-size-m)"

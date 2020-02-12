@@ -25,7 +25,7 @@ const StyledHeader = styled(Header)`
 
 const ListWrapper = styled.div`
     width: 50%;
-    max-width: 48.6rem;
+    max-width: 48.7rem;
     padding-left: ${props => props.pl || ''};
 
     @media ${device.laptop} {

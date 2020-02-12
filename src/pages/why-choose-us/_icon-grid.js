@@ -125,7 +125,7 @@ export const IconGrid = () => (
                 title={localize('Risk awareness and management')}
                 content={
                     <Localize
-                        translate_text="Online trading is exciting but involves risks and can lead to an addiction. At Deriv, we look out for our customers’ best interests and encourage them to practise <0>responsible trading</0>. If you are new to this, you can also practise trading with unlimited virtual funds before you risk your money."
+                        translate_text="Online trading is exciting but involves risks and can lead to an addiction. At Deriv, we look out for our customers’ best interests and encourage them to practise <0>secure and responsible trading</0>. If you are new to this, you can also practise trading with unlimited virtual funds before you risk your money."
                         components={[<LocalizedLink key={0} to="/responsible-trading/" />]}
                     />
                 }

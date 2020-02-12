@@ -192,7 +192,7 @@ const Regulatory = () => (
                                         <a
                                             key={0}
                                             target="_blank"
-                                            href="/BVL-Certificate-of-Principal-License.pdf"
+                                            href="https://www.vfsc.vu/financial-dealers-licensee-lists/"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

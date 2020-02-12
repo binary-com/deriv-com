@@ -36,18 +36,14 @@ const Contact = styled.div`
     flex-direction: column;
     align-items: center;
     width: 28.2rem;
-    padding: 0 2.4rem;
-
-    @media ${device.tabletS} {
-        padding: 2.4rem;
-    }
 `
 
 const CallContact = styled(Contact)`
-    width: 28.2rem;
+    width: 38.4rem;
+    padding: 0 2.4rem;
 
     @media ${device.tabletS} {
-        padding: 2.4rem;
+        padding: 2.4rem 0;
     }
 `
 

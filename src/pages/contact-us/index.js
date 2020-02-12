@@ -21,6 +21,7 @@ const HeroWrapper = styled.section`
 const StyledText = styled(Text)`
     max-width: 63.4rem;
     margin: 1.6rem auto 0;
+    font-size: var(--text-size-m);
 `
 
 const ContactUs = () => {

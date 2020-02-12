@@ -123,7 +123,7 @@ export const ContactWays = () => {
                     </StyledText>
                     <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
                     <StyledText marginBttom="1.9rem">
-                        {localize('Sat-Sun: 8:00am - 5pm GMT')}
+                        {localize('Sat-Sun: 8:00 am - 5:00 pm (GMT+8)')}
                     </StyledText>
                 </CallContact>
                 <Contact>

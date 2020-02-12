@@ -3,20 +3,20 @@ import styled from 'styled-components'
 import { Text, LinkText } from '../../components/elements/typography'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 import CallUsIcon from 'images/svg/call-us.svg'
 // import ChatLiveIcon from 'images/svg/chat-live.svg'
 import EmailUsIcon from 'images/svg/email-us.svg'
+import NeedUsIcon from 'images/svg/need-us.svg'
 import device from 'themes/device'
 
 const Wrapper = styled.section`
     width: 100%;
-    height: 44.5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: nowrap;
-    background-color: var(--color-white);
-    padding: 4rem 12.8rem;
+    background-color: var(--color-grey-8);
+    padding: 8rem 0;
 
     @media ${device.tabletS} {
         height: auto;
@@ -35,30 +35,36 @@ const Contact = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-wrap: nowrap;
+    width: 28.2rem;
+`
+
+const CallContact = styled(Contact)`
     width: 38.4rem;
-    padding-top: 3.2rem;
+    padding: 0 2.4rem;
+
+    @media ${device.tabletS} {
+        padding: 2.4rem 0;
+    }
 `
 
 const StyledHeader = styled(Header)`
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.6rem;
 `
+
 const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
 `
-const Logo = styled.div`
-    margin-bottom: 1.4rem;
-`
-const Splitter = styled.div`
-    background-color: var(--color-grey-9);
-    height: 18.5rem;
-    width: 0.1rem;
-    margin-top: 7.8rem;
 
-    @media ${device.tabletS} {
-        display: none;
-    }
+const Logo = styled.div`
+    margin-bottom: 2.4rem;
 `
+
+const StyledLinkButton = styled(LinkButton)`
+    border-radius: 4px;
+    height: 4rem;
+    margin-top: 3.2rem;
+`
+
 // TODO: This section will be added shortly when the back-end gets ready.
 // const StyledButton = stßyled(LocalizedLink)`
 //     border-radius: 4px;
@@ -92,6 +98,20 @@ export const ContactWays = () => {
             <WaysWrapper>
                 <Contact>
                     <Logo>
+                        <NeedUsIcon />
+                    </Logo>
+                    <StyledHeader as="h3" align="center">
+                        {localize('Visit our Help Centre')}
+                    </StyledHeader>
+                    <StyledText align="center">
+                        {localize('The quickest way to get answers to your questions.')}
+                    </StyledText>
+                    <StyledLinkButton secondary to="help-centre">
+                        {localize('Visit the Help Centre')}
+                    </StyledLinkButton>
+                </Contact>
+                <CallContact>
+                    <Logo>
                         <CallUsIcon />
                     </Logo>
                     <StyledHeader as="h3" align="center">
@@ -103,10 +123,9 @@ export const ContactWays = () => {
                     </StyledText>
                     <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
                     <StyledText marginBttom="1.9rem">
-                        {localize('Sat-Sun: 8:00am - 5pm GMT')}
+                        {localize('Sat-Sun: 8:00 am - 5:00 pm (GMT+8)')}
                     </StyledText>
-                </Contact>
-                <Splitter />
+                </CallContact>
                 <Contact>
                     <Logo>
                         <EmailUsIcon />

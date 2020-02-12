@@ -13,7 +13,7 @@ const Wrapper = styled.section`
     background-color: var(--color-white);
     padding: 8rem 23rem;
 
-    @media ${device.laptopL} {
+    @media (max-width: 1380px) {
         height: auto;
         padding: 8rem 1rem;
     }
@@ -200,7 +200,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +603 83228178
+                                +60 3 8322 8178
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -250,14 +250,14 @@ export const Offices = () => {
                                     href="https://maps.google.com/?q=Paragon+Labuan+shopping+mall&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                                 >
                                     <Localize
-                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan."
+                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia"
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +6087 504126
+                                +60 87 50 4126
                             </StyledText>
                         </Content>
                     </Office>
@@ -343,7 +343,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +595 991298762
+                                +595 99 129 8762
                             </StyledText>
                         </Content>
                     </Office>

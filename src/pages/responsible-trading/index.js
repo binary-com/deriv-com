@@ -34,8 +34,19 @@ const ListWrapper = styled.div`
     }
 `
 
+const StyledFlex = styled(Flex)`
+    @media (max-width: 1300px) {
+        justify-content: center;
+    }
+`
+
 const CustomListWrapper = styled(ListWrapper)`
     max-width: 58.8rem;
+    margin-left: 3.2rem;
+
+    @media (max-width: 1300px) {
+        margin-top: 3.2rem;
+    }
 `
 
 const StyledText = styled(Text)`
@@ -143,7 +154,7 @@ const ResponsibleTrading = () => {
             </Section>
             <Section bgcolor="var(--color-grey-8)">
                 <Container direction="column">
-                    <Flex m="4rem 0" jc="space-between" wrap="wrap">
+                    <StyledFlex m="4rem 0" jc="space-between" wrap="wrap">
                         <ListWrapper laptop_mb="4rem">
                             <StyledHeader
                                 maxwidth="36rem"
@@ -249,7 +260,7 @@ const ResponsibleTrading = () => {
                                 />
                             </Text>
                         </CustomListWrapper>
-                    </Flex>
+                    </StyledFlex>
                 </Container>
             </Section>
             <Section padding="4rem 0">

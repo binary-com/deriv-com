@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NeedHelp } from './_need-help'
 import { ContactWays } from './_contact-ways'
 import { Offices } from './_offices'
 import { Affiliates } from './_affiliates'
@@ -8,7 +7,6 @@ import { Header, Text } from 'components/elements/typography'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-import Signup, { Appearances } from 'components/custom/signup'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -18,6 +16,12 @@ const HeroWrapper = styled.section`
     * {
         text-align: center;
     }
+`
+
+const StyledText = styled(Text)`
+    max-width: 63.4rem;
+    margin: 1.6rem auto 0;
+    font-size: var(--text-size-m);
 `
 
 const ContactUs = () => {
@@ -30,18 +34,16 @@ const ContactUs = () => {
                 title={localize('Contact Us | Online Trading')}
             />
             <HeroWrapper>
-                <Header as="h1">{localize('Get in touch')}</Header>
-                <Text secondary>
+                <Header as="h1">{localize('Contact us')}</Header>
+                <StyledText align="center" secondary>
                     {localize(
-                        "Questions, bug reports, feedback, feature requests – we're here for it all.",
+                        'Got questions, bug reports, feedback, or feature requests? Here are some ways to get in touch with us.',
                     )}
-                </Text>
+                </StyledText>
             </HeroWrapper>
-            <NeedHelp />
             <ContactWays />
             <Offices />
             <Affiliates />
-            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

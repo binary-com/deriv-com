@@ -135,7 +135,8 @@ const StyledContainer = styled(Container)`
     padding: 1.6rem 0;
 `
 const Row = styled.div`
-    margin-top: ${props => (props.margin ? props.margin : '0')};
+    margin-top: ${props => (props.mt ? props.mt : '0')};
+    margin-bottom: ${props => (props.mb ? props.mb : '0')};
     width: 100%;
     align-items: center;
     display: ${props => (props.flex ? 'flex' : 'block')};
@@ -169,6 +170,11 @@ const StaticAsset = styled.a`
 const ExternalLink = styled.a`
     text-decoration: none;
 `
+
+const SocialWrapper = styled.div`
+    margin-top: 0.8rem;
+`
+
 const Footer = () => (
     <StyledFooter>
         <Container>
@@ -182,7 +188,7 @@ const Footer = () => (
                     </Text>
                     <SocialMedia>
                         <Text>{localize('CONNECT WITH US')}</Text>
-                        <div>
+                        <SocialWrapper>
                             <ExternalLink
                                 href="https://www.facebook.com/derivdotcom/"
                                 target="_blank"
@@ -204,7 +210,7 @@ const Footer = () => (
                             >
                                 <Twitter />
                             </ExternalLink>
-                        </div>
+                        </SocialWrapper>
                     </SocialMedia>
                 </InfoSection>
                 <Items>
@@ -235,7 +241,9 @@ const Footer = () => (
                             </Link>
                         </div>
                         <div>
-                            <Link to="/responsible-trading">{localize('Responsible trading')}</Link>
+                            <Link to="/responsible-trading">
+                                {localize('Secure and responsible trading')}
+                            </Link>
                         </div>
                     </Col>
                     <Col width="25%">
@@ -246,9 +254,6 @@ const Footer = () => (
                             <Link to="/help-centre">{localize('Help centre')}</Link>
                         </div>
                         {/* <div><Link to='/payment'>{localize('Payment methods')}</Link></div> */}
-                        <div>
-                            <Link to="/keep-safe">{localize('Keep safe')}</Link>
-                        </div>
                         <div>
                             <Link to="/why-choose-us">{localize('Why choose us')}</Link>
                         </div>
@@ -279,7 +284,7 @@ const Footer = () => (
                 <Row>
                     <StyledText>
                         <Localize
-                            translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd., W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (licence <0>no. IS/70156</0>)."
+                            translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
                             components={[
                                 <StaticAsset
                                     key={0}
@@ -292,12 +297,12 @@ const Footer = () => (
                     </StyledText>
                     <StyledText>
                         <Localize
-                            translate_text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St. Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (view <0>licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (licence <1>no. SIBA/L/18/1114</1>); and Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (licence <2>no. MB/18/0024</2>)."
+                            translate_text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
                             components={[
                                 <StaticAsset
                                     key={0}
                                     target="_blank"
-                                    href="/BVL-Certificate-of-Principal-License.pdf"
+                                    href="https://www.vfsc.vu/financial-dealers-licensee-lists/"
                                     rel="noopener noreferrer"
                                 />,
                                 <StaticAsset
@@ -317,18 +322,18 @@ const Footer = () => (
                     </StyledText>
                     <StyledText>
                         {localize(
-                            "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, Japan, or to persons under age 18.",
+                            "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
                         )}
                     </StyledText>
                 </Row>
-                <Row margin="2.4rem" flex>
+                <Row mt="2.4rem" mb="0.8rem" flex>
                     <Warning />
-                    <Risk>{localize('RISK WARNING')}</Risk>
+                    <Risk>{localize('Risk warning')}</Risk>
                 </Row>
                 <Row>
                     <StyledText>
                         <Localize
-                            translate_text='The financial products offered via this website include binary options, contracts for difference ("CFDs") and other complex derivatives and financial products. Trading binary options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Responsible Trading.</0>'
+                            translate_text="The financial products offered via this website include options, contracts for difference (CFDs) and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                             components={[
                                 <BoldLink key={0} target="_blank" to="/responsible-trading/" />,
                             ]}

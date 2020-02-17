@@ -6,7 +6,7 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
-// import LineArrow from 'images/svg/line-arrow.svg'
+import LineArrow from 'images/svg/line-arrow.svg'
 
 const StorySection = styled.section`
     width: 100%;
@@ -83,23 +83,25 @@ const StyledLine = styled(StorySVG)`
     position: absolute;
     height: 92%;
     left: 50%;
+    top: 5%;
 `
-// const StyledLineArrow = styled(LineArrow)`
-//     position: absolute;
-//     left: 50%;
-//     height: -3%;
-// `
+const StyledLineArrow = styled(LineArrow)`
+    position: absolute;
+    height: -3%;
+    left: 49.4%;
+    top: 4.3%;
+`
 export const OurStory = () => {
     return (
         <StorySection>
             <Header font_size="3.6rem" align="center" margin="0 0 9.2rem 0">
                 {localize('Our history')}
             </Header>
-            {/* <StyledLineArrow /> */}
+            <StyledLineArrow />
+
             <StyledLine />
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
-                    {/* <Container direction="column" justify="space-between"> */}
                     <StyledHeader
                         left={story.left}
                         as="h2"
@@ -154,7 +156,6 @@ export const OurStory = () => {
                             </YearWrapper>
                         ),
                     )}
-                    {/* </Container> */}
                 </Story>
             ))}
         </StorySection>

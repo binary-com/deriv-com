@@ -21,6 +21,13 @@ const Story = styled.div`
     width: 100%;
     margin: auto;
     padding: 2rem 13.4%;
+
+    @media ${device.laptopL} {
+        padding: 2rem 5.4%;
+    }
+    @media ${device.laptop} {
+        padding: 2rem 0.4%;
+    }
 `
 
 const YearWrapper = styled.div`
@@ -38,6 +45,8 @@ const YearWrapper = styled.div`
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: center;
+        text-align: center;
+        margin: auto;
     }
 `
 const ContentWrapper = styled.div`
@@ -59,6 +68,10 @@ const StyledHeader = styled(Header)`
         top: 27.6%;
         right: ${props => (props.left ? '-8.4%' : '')};
         left: ${props => (props.left ? '' : '-9.2%')};
+
+        @media ${device.tablet} {
+            display: none;
+        }
     }
 
     @media ${device.tablet} {
@@ -77,6 +90,10 @@ const LogoContainer = styled.div`
     text-align: ${props => props.svgPosition};
     margin-left: ${props => (props.left ? '2rem' : '')};
     margin-right: ${props => (props.left ? '' : props.margin_right || '2rem')};
+
+    @media ${device.tablet} {
+        text-align: center;
+    }
 `
 
 const StyledLine = styled(StorySVG)`
@@ -84,12 +101,20 @@ const StyledLine = styled(StorySVG)`
     height: 92%;
     left: 50%;
     top: 5%;
+
+    @media ${device.tablet} {
+        display: none;
+    }
 `
 const StyledLineArrow = styled(LineArrow)`
     position: absolute;
     height: -3%;
     left: 49.4%;
     top: 4.3%;
+
+    @media ${device.tablet} {
+        display: none;
+    }
 `
 export const OurStory = () => {
     return (

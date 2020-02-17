@@ -262,6 +262,7 @@ const Stories = [
     },
     {
         year: '2020',
+        width: '62%',
         bgColor: 'black',
         left: true,
         color: 'white',
@@ -278,6 +279,8 @@ const Stories = [
                 ],
                 svg: <DerivLaptop />,
                 svgPosition: 'center',
+                margin_right: '6rem',
+                svg_width: '35.7rem',
             },
         ],
     },

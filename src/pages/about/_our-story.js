@@ -24,7 +24,7 @@ const Story = styled.div`
 `
 
 const YearWrapper = styled.div`
-    width: 68%;
+    width: ${props => props.width || '68%'};
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -73,10 +73,10 @@ const Splitter = styled.div`
     margin: 0.5rem 0 1rem 0;
 `
 const LogoContainer = styled.div`
-    width: 28.2rem;
+    width: ${props => props.svg_width || '28.2rem'};
     text-align: ${props => props.svgPosition};
     margin-left: ${props => (props.left ? '2rem' : '')};
-    margin-right: ${props => (props.left ? '' : '2rem')};
+    margin-right: ${props => (props.left ? '' : props.margin_right || '2rem')};
 `
 
 const StyledLine = styled(StorySVG)`
@@ -113,8 +113,12 @@ export const OurStory = () => {
 
                     {story.contents.map((content, idxa) =>
                         content.left ? (
-                            <YearWrapper key={idxa} color={story.color} left>
-                                <LogoContainer svgPosition={content.svgPosition}>
+                            <YearWrapper key={idxa} color={story.color} width={story.width} left>
+                                <LogoContainer
+                                    svgPosition={content.svgPosition}
+                                    svg_width={content.svg_width}
+                                    margin_right={content.margin_right}
+                                >
                                     {content.svg}
                                 </LogoContainer>
                                 <ContentWrapper left>
@@ -134,7 +138,7 @@ export const OurStory = () => {
                                 </ContentWrapper>
                             </YearWrapper>
                         ) : (
-                            <YearWrapper key={idxa} color={story.color}>
+                            <YearWrapper key={idxa} color={story.color} width={story.width}>
                                 <ContentWrapper>
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
@@ -150,7 +154,12 @@ export const OurStory = () => {
                                         </div>
                                     ))}
                                 </ContentWrapper>
-                                <LogoContainer left svgPosition={content.svgPosition}>
+                                <LogoContainer
+                                    left
+                                    svgPosition={content.svgPosition}
+                                    svg_width={content.svg_width}
+                                    margin_right={content.margin_right}
+                                >
                                     {content.svg}
                                 </LogoContainer>
                             </YearWrapper>

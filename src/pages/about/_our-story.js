@@ -125,6 +125,7 @@ export const OurStory = () => {
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
                                             <Header
+                                                padding="0 0 0 1.1rem"
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
@@ -132,7 +133,9 @@ export const OurStory = () => {
                                                 {header}
                                             </Header>
                                             <Splitter />
-                                            <Text>{content.texts[id].text}</Text>
+                                            <Text padding="0 0 0 1.1rem">
+                                                {content.texts[id].text}
+                                            </Text>
                                         </div>
                                     ))}
                                 </ContentWrapper>

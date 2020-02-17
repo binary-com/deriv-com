@@ -36,7 +36,9 @@ const ExternalLink = styled.a`
     ${StyledLink}
 `
 const url =
-    getLanguage() === 'en' || getLanguage() == null ? '/keep-safe/' : `/${getLanguage()}/keep-safe/`
+    getLanguage() === 'en' || getLanguage() == null
+        ? '/responsible-trading/'
+        : `/${getLanguage()}/responsible-trading/`
 
 const SafeguardChangePassword = () => (
     <ArticleWrapper>
@@ -57,7 +59,7 @@ const SafeguardChangePassword = () => (
                 />
             </Box>
             <Localize
-                translate_text="To learn more about security best practices, please go to the <0>Keep safe</0> page."
+                translate_text="To learn more about security best practices, please go to the <0>Secure and responsible trading</0> page."
                 components={[
                     <ExternalLink
                         href={url}

@@ -8,13 +8,12 @@ import PhoneSVG from 'images/svg/phone.svg'
 import device from 'themes/device'
 
 const Wrapper = styled.section`
-    border-top: 1px solid #d8d8d8;
     width: 100%;
     height: 181.3rem;
     background-color: var(--color-white);
     padding: 8rem 23rem;
 
-    @media ${device.laptopL} {
+    @media (max-width: 1380px) {
         height: auto;
         padding: 8rem 1rem;
     }
@@ -51,6 +50,17 @@ const Office = styled.div`
     @media ${device.laptop} {
         flex-direction: column;
         height: auto;
+        align-items: center;
+    }
+    @media ${device.mobileL} {
+        align-items: flex-start;
+        margin: 2.4rem;
+    }
+`
+
+const EvenOffice = styled(Office)`
+    @media ${device.laptop} {
+        flex-direction: column-reverse;
     }
 `
 const StyledHeader = styled(Header)`
@@ -65,10 +75,11 @@ const Content = styled.div`
     }
 
     @media ${device.laptop} {
-        width: 100%;
+        width: auto;
 
         :nth-child(even) {
             margin-left: 0;
+            width: auto;
         }
     }
 `
@@ -126,7 +137,7 @@ export const Offices = () => {
                             <MapLink
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                                href="https://maps.google.com/?q=Binary+Europe+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                             >
                                 <Image
                                     img_name="map-malta.png"
@@ -149,7 +160,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                                    href="https://maps.google.com/?q=Binary+Europe+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
                                 >
                                     <Localize
                                         translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm Birkirkara BKR9033 Malta."
@@ -165,7 +176,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <Office>
+                    <EvenOffice>
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
@@ -189,7 +200,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +603 83228178
+                                +60 3 8322 8178
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -206,14 +217,14 @@ export const Offices = () => {
                                 />
                             </MapLink>
                         </ImageWrapper>
-                    </Office>
+                    </EvenOffice>
                     <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
                             <MapLink
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
+                                href="https://maps.google.com/?q=Paragon+Labuan+shopping+mall&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                             >
                                 <Image
                                     img_name="map-labuan.png"
@@ -236,22 +247,22 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
+                                    href="https://maps.google.com/?q=Paragon+Labuan+shopping+mall&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                                 >
                                     <Localize
-                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan."
+                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia"
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +6087 504126
+                                +60 87 50 4126
                             </StyledText>
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <Office>
+                    <EvenOffice>
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Dubai')}
@@ -292,7 +303,7 @@ export const Offices = () => {
                                 />
                             </MapLink>
                         </ImageWrapper>
-                    </Office>
+                    </EvenOffice>
                     <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
@@ -332,7 +343,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +595 991298762
+                                +595 99 129 8762
                             </StyledText>
                         </Content>
                     </Office>

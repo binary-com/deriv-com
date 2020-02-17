@@ -47,9 +47,11 @@ const Stories = [
                 left: true,
                 headers: [localize('First binary option purchased')],
                 texts: [
-                    localize(
-                        'Regent Markets opens its first office in Malta. The first binary option is purchased. ',
-                    ),
+                    {
+                        text: localize(
+                            'Regent Markets opens its first office in Malta. The first binary option is purchased. ',
+                        ),
+                    },
                 ],
 
                 svg: <FlagMalta />,
@@ -66,9 +68,11 @@ const Stories = [
                 left: false,
                 headers: [localize('BetOnMarkets.com')],
                 texts: [
-                    localize(
-                        'Regent Markets launches BetOnMarkets.com, the first platform to offer binary options to retail traders.',
-                    ),
+                    {
+                        text: localize(
+                            'Regent Markets launches BetOnMarkets.com, the first platform to offer binary options to retail traders.',
+                        ),
+                    },
                 ],
                 svg: <Betonmarkets />,
                 svgPosition: 'center',
@@ -84,9 +88,11 @@ const Stories = [
                 left: true,
                 headers: [localize('A new hub')],
                 texts: [
-                    localize(
-                        'Regent Markets establishes a second office, a tech hub in Cyberjaya, the Silicon Valley of Malaysia',
-                    ),
+                    {
+                        text: localize(
+                            'Regent Markets establishes a second office, a tech hub in Cyberjaya, the Silicon Valley of Malaysia',
+                        ),
+                    },
                 ],
                 svg: <IsleOfMan />,
                 svgPosition: 'right',
@@ -125,9 +131,11 @@ const Stories = [
                 left: true,
                 headers: [localize('Binary.com')],
                 texts: [
-                    localize(
-                        'BetOnMarkets rebrands to Binary.com. The rebrand comes with enhanced features, a new range of trade types, and a variety of charting applications.',
-                    ),
+                    {
+                        text: localize(
+                            'BetOnMarkets rebrands to Binary.com. The rebrand comes with enhanced features, a new range of trade types, and a variety of charting applications.',
+                        ),
+                    },
                 ],
                 svg: <LogoBinary />,
                 svgPosition: 'center',
@@ -143,9 +151,11 @@ const Stories = [
                 left: false,
                 headers: [localize('Licensed financial product')],
                 texts: [
-                    localize(
-                        'The Malta Financial Services Authority grants Binary.com a Category 3 Investment Services licence. The licence authorises Binary.com to offer our service to clients in the European Union as a financial product.',
-                    ),
+                    {
+                        text: localize(
+                            'The Malta Financial Services Authority grants Binary.com a Category 3 Investment Services licence. The licence authorises Binary.com to offer our service to clients in the European Union as a financial product.',
+                        ),
+                    },
                 ],
                 svg: <Europe />,
                 svgPosition: 'left',
@@ -154,9 +164,11 @@ const Stories = [
                 left: true,
                 headers: [localize('Binary.com Websocket API')],
                 texts: [
-                    localize(
-                        'Third-party developers can now build customised applications and trading interfaces that interact with the Binary.com system, increasing our accessibility. ',
-                    ),
+                    {
+                        text: localize(
+                            'Third-party developers can now build customised applications and trading interfaces that interact with the Binary.com system, increasing our accessibility. ',
+                        ),
+                    },
                 ],
                 svg: <LogoDevelopers />,
                 svgPosition: 'center',
@@ -172,12 +184,16 @@ const Stories = [
                 left: true,
                 headers: [localize('Binary Bot'), localize('Tick Trade app')],
                 texts: [
-                    localize(
-                        'Binary.com introduces Binary Bot, an innovative platform that offers a drag-and-drop programming tool, enabling traders to automate their trading strategies without knowing how to code.',
-                    ),
-                    localize(
-                        'Binary.com brings a new and exciting online trading experience to mobile with the Tick Trade app.',
-                    ),
+                    {
+                        text: localize(
+                            'Binary.com introduces Binary Bot, an innovative platform that offers a drag-and-drop programming tool, enabling traders to automate their trading strategies without knowing how to code.',
+                        ),
+                    },
+                    {
+                        text: localize(
+                            'Binary.com brings a new and exciting online trading experience to mobile with the Tick Trade app.',
+                        ),
+                    },
                 ],
 
                 svg: <Laptop />,
@@ -187,12 +203,16 @@ const Stories = [
                 left: false,
                 headers: [localize('CFDs on MT5 '), localize('Webtrader')],
                 texts: [
-                    localize(
-                        'Binary.com adds Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders. ',
-                    ),
-                    localize(
-                        'Binary.com makes it possible to monitor multiple trade activities, market movements, and charts with this full-screen trading interface on Binary.com.',
-                    ),
+                    {
+                        text: localize(
+                            'Binary.com adds Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders. ',
+                        ),
+                    },
+                    {
+                        text: localize(
+                            'Binary.com makes it possible to monitor multiple trade activities, market movements, and charts with this full-screen trading interface on Binary.com.',
+                        ),
+                    },
                 ],
 
                 svg: <LogoMT5 />,
@@ -209,9 +229,11 @@ const Stories = [
                 left: true,
                 headers: [localize('New office')],
                 texts: [
-                    localize(
-                        'Binary.com opens a third office in Labuan, Malaysia, as part of our business expansion.',
-                    ),
+                    {
+                        text: localize(
+                            'Binary.com opens a third office in Labuan, Malaysia, as part of our business expansion.',
+                        ),
+                    },
                 ],
                 svg: <LabuanParaguay />,
                 svgPosition: 'right',
@@ -227,7 +249,11 @@ const Stories = [
                 left: false,
                 headers: [localize('Continued expansion ')],
                 texts: [
-                    localize('Offices are opened in Dubai and Paraguay to support our growth.'),
+                    {
+                        text: localize(
+                            'Offices are opened in Dubai and Paraguay to support our growth.',
+                        ),
+                    },
                 ],
                 svg: <DubaiParaguay />,
                 svgPosition: 'left',
@@ -244,9 +270,11 @@ const Stories = [
                 left: true,
                 headers: [localize('Deriv.com')],
                 texts: [
-                    localize(
-                        'We celebrate 20 years of innovation and growth! Inspired by our clients who are driven to succeed, we launch Deriv.com. Featuring customisable charts and tools, Deriv is created to be a place where people can trade what they want, how they want. ',
-                    ),
+                    {
+                        text: localize(
+                            'We celebrate 20 years of innovation and growth! Inspired by our clients who are driven to succeed, we launch Deriv.com. Featuring customisable charts and tools, Deriv is created to be a place where people can trade what they want, how they want. ',
+                        ),
+                    },
                 ],
                 svg: <DerivLaptop />,
                 svgPosition: 'center',

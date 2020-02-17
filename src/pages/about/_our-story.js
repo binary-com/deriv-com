@@ -126,7 +126,7 @@ export const OurStory = () => {
                                                 {header}
                                             </Header>
                                             <Splitter />
-                                            <Text>{content.texts[id]}</Text>
+                                            <Text>{content.texts[id].text}</Text>
                                         </div>
                                     ))}
                                 </ContentWrapper>
@@ -144,7 +144,7 @@ export const OurStory = () => {
                                                 {header}
                                             </Header>
                                             <Splitter />
-                                            <Text>{content.texts[id]}</Text>
+                                            <Text>{content.texts[id].text}</Text>
                                         </div>
                                     ))}
                                 </ContentWrapper>

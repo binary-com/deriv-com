@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { LocalizedLink } from '../localization'
+import { LocalizedLink, localize } from '../localization'
 import Arrow from 'images/svg/arrow.svg'
 
 const OffCanvasMenu = styled.section`
@@ -65,11 +65,11 @@ const OffCanvasMenuWrapper = props => {
             <OffCanvasMenuContainer>
                 <BackArrow onClick={handleArrowClick} />
                 <div>
-                    <StyledLink to="/keep-safe/" onClick={handleArrowClick}>
-                        Keep safe
+                    <StyledLink to="/about-us/" onClick={handleArrowClick}>
+                        {localize('About us')}
                     </StyledLink>
                     <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                        Help centre
+                        {localize('Help Centre')}
                     </StyledLink>
                 </div>
             </OffCanvasMenuContainer>

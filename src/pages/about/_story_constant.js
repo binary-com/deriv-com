@@ -24,11 +24,14 @@ const Stories = [
                 left: false,
                 headers: [localize('Regent Markets is born')],
                 texts: [
-                    <Localize
-                        translate_text="A young entrepreneur collaborates with financial mathematicians to develop the algorithms for the world’s first fixed-odds trading system for retail investors.
-                        <0 /><0 />The Regent Markets Group is born, funded by Regent Pacific Group Ltd., a company listed on the Hong Kong Stock Exchange."
-                        components={[<br key={0} />]}
-                    />,
+                    {
+                        text: (
+                            <Localize
+                                translate_text="A young entrepreneur collaborates with financial mathematicians to develop the algorithms for the world’s first fixed-odds trading system for retail investors. <0/><0/>The Regent Markets Group is born, funded by Regent Pacific Group Ltd., a company listed on the Hong Kong Stock Exchange."
+                                components={[<br key={0} />]}
+                            />
+                        ),
+                    },
                 ],
                 svg: <RegentMarketLogo />,
                 svgPosition: 'center',
@@ -99,12 +102,14 @@ const Stories = [
                 left: false,
                 headers: [localize('Recognition after recognition')],
                 texts: [
-                    <Localize
-                        translate_text="The service is recognised as a reliable and secure online trading platform for all levels of traders. BetOnMarkets.com earns the ‘Best Fixed-Odds Financial Trading Provider’ award from Shares Magazine UK in 2007 and 2008.
-                <0 /><0 />The company also earns the Investors Chronicle award for ‘Best Customer Communication Firm’, a recognition for the platform’s ethical and customer-focused trading experience.
-                <0 /><0 />The company’s enhancements continue to accumulate various awards over the coming years."
-                        components={[<br key={0} />]}
-                    />,
+                    {
+                        text: (
+                            <Localize
+                                translate_text="The service is recognised as a reliable and secure online trading platform for all levels of traders. BetOnMarkets.com earns the ‘Best Fixed-Odds Financial Trading Provider’ award from Shares Magazine UK in 2007 and 2008.<0 /><0 />The company also earns the Investors Chronicle award for ‘Best Customer Communication Firm’, a recognition for the platform’s ethical and customer-focused trading experience.<0 /><0 />The company’s enhancements continue to accumulate various awards over the coming years."
+                                components={[<br key={0} />]}
+                            />
+                        ),
+                    },
                 ],
                 svg: <Awards />,
                 svgPosition: 'center',

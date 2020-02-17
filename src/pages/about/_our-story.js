@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Stories from './_story_constant'
-import { Container } from 'components/containers'
+// import { Container } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
-import LineArrow from 'images/svg/line-arrow.svg'
+// import LineArrow from 'images/svg/line-arrow.svg'
 
 const StorySection = styled.section`
     width: 100%;
@@ -84,11 +84,11 @@ const StyledLine = styled(StorySVG)`
     height: 92%;
     left: 50%;
 `
-const StyledLineArrow = styled(LineArrow)`
-    position: absolute;
-    left: 50%;
-    height: -3%;
-`
+// const StyledLineArrow = styled(LineArrow)`
+//     position: absolute;
+//     left: 50%;
+//     height: -3%;
+// `
 export const OurStory = () => {
     return (
         <StorySection>

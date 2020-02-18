@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import payment_data from './payment-data'
+import payment_data from './_payment-data'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'

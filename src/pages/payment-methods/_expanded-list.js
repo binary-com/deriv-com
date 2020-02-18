@@ -55,9 +55,7 @@ const ExpandList = ({ data }) => {
     return (
         <>
             <Tr onClick={toggleExpand}>
-                <Td>
-                    <Text>{data.method}</Text>
-                </Td>
+                <Td>{data.method}</Td>
                 <Td>
                     <Text>{data.currencies}</Text>
                 </Td>

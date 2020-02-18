@@ -92,81 +92,100 @@ const PaymentMethods = () => (
             <Container direction="column">
                 <AccordionContainer>
                     <Accordion>
-                        {payment_data.map((pd, idx) => (
-                            <AccordionItem
-                                key={idx}
-                                style={{
-                                    padding: '2.2rem 4.8rem',
-                                    position: 'relative',
-                                    paddingBottom: pd.note ? '5rem' : '2.2rem',
-                                }}
-                                parent_style={{
-                                    marginBottom: '4rem',
-                                }}
-                                header={pd.name}
-                            >
-                                <StyledTable has_note={!!pd.note}>
-                                    <Thead>
-                                        <Tr>
-                                            <Th>
-                                                <BoldText>{localize('Method')}</BoldText>
-                                            </Th>
-                                            <Th>
-                                                <BoldText>{localize('Currencies')}</BoldText>
-                                            </Th>
-                                            <Th>
-                                                {pd.is_crypto ? (
-                                                    <BoldText>{localize('Min deposit')}</BoldText>
-                                                ) : (
-                                                    <>
-                                                        <BoldText>{localize('Min - max')}</BoldText>
-                                                        <BoldText>{localize('deposit')}</BoldText>
-                                                    </>
-                                                )}
-                                            </Th>
-                                            <Th>
-                                                {pd.is_crypto ? (
-                                                    <BoldText>
-                                                        {localize('Min withdrawal')}
-                                                    </BoldText>
-                                                ) : (
-                                                    <>
-                                                        <BoldText>{localize('Min - max')}</BoldText>
+                        {payment_data.map((pd, idx) => {
+                            // eslint-disable-next-line no-console
+                            console.log({ ...payment_data }, pd, idx)
+
+                            return (
+                                <AccordionItem
+                                    key={idx}
+                                    style={{
+                                        padding: '2.2rem 4.8rem',
+                                        position: 'relative',
+                                        paddingBottom: pd.note ? '5rem' : '2.2rem',
+                                    }}
+                                    parent_style={{
+                                        marginBottom: '4rem',
+                                    }}
+                                    header={pd.name}
+                                >
+                                    <StyledTable has_note={!!pd.note}>
+                                        <Thead>
+                                            <Tr>
+                                                <Th>
+                                                    <BoldText>{localize('Method')}</BoldText>
+                                                </Th>
+                                                <Th>
+                                                    <BoldText>{localize('Currencies')}</BoldText>
+                                                </Th>
+                                                <Th>
+                                                    {pd.is_crypto ? (
                                                         <BoldText>
-                                                            {localize('withdrawal')}
+                                                            {localize('Min deposit')}
                                                         </BoldText>
-                                                    </>
-                                                )}
-                                            </Th>
-                                            <Th>
-                                                <BoldText>{localize('Deposit')}</BoldText>
-                                                <BoldText>{localize('processing time')}</BoldText>
-                                            </Th>
-                                            <Th>
-                                                <BoldText>{localize('Withdrawal')}</BoldText>
-                                                <BoldText>{localize('processing time')}</BoldText>
-                                            </Th>
-                                            <Th />
-                                        </Tr>
-                                    </Thead>
-                                    <Tbody>
-                                        {pd.data.map((data, indx) => (
-                                            <ExpandList key={indx} data={data} />
-                                        ))}
-                                    </Tbody>
-                                </StyledTable>
-                                {pd.note && (
-                                    <Notes>
-                                        <Text weight="500" size="var(--text-size-xxs)">
-                                            <Localize
-                                                translate_text="Note: {{note}}"
-                                                values={{ note: pd.note }}
-                                            />
-                                        </Text>
-                                    </Notes>
-                                )}
-                            </AccordionItem>
-                        ))}
+                                                    ) : (
+                                                        <>
+                                                            <BoldText>
+                                                                {localize('Min - max')}
+                                                            </BoldText>
+                                                            <BoldText>
+                                                                {localize('deposit')}
+                                                            </BoldText>
+                                                        </>
+                                                    )}
+                                                </Th>
+                                                <Th>
+                                                    {pd.is_crypto ? (
+                                                        <BoldText>
+                                                            {localize('Min withdrawal')}
+                                                        </BoldText>
+                                                    ) : (
+                                                        <>
+                                                            <BoldText>
+                                                                {localize('Min - max')}
+                                                            </BoldText>
+                                                            <BoldText>
+                                                                {localize('withdrawal')}
+                                                            </BoldText>
+                                                        </>
+                                                    )}
+                                                </Th>
+                                                <Th>
+                                                    <BoldText>{localize('Deposit')}</BoldText>
+                                                    <BoldText>
+                                                        {localize('processing time')}
+                                                    </BoldText>
+                                                </Th>
+                                                <Th>
+                                                    <BoldText>{localize('Withdrawal')}</BoldText>
+                                                    <BoldText>
+                                                        {localize('processing time')}
+                                                    </BoldText>
+                                                </Th>
+                                                <Th />
+                                            </Tr>
+                                        </Thead>
+                                        <Tbody>
+                                            {pd.data.map((data, indx) => {
+                                                // eslint-disable-next-line no-console
+                                                console.log('Expand:', data, indx)
+                                                return <ExpandList key={indx} data={data} />
+                                            })}
+                                        </Tbody>
+                                    </StyledTable>
+                                    {pd.note && (
+                                        <Notes>
+                                            <Text weight="500" size="var(--text-size-xxs)">
+                                                <Localize
+                                                    translate_text="Note: {{note}}"
+                                                    values={{ note: pd.note }}
+                                                />
+                                            </Text>
+                                        </Notes>
+                                    )}
+                                </AccordionItem>
+                            )
+                        })}
                     </Accordion>
                 </AccordionContainer>
             </Container>

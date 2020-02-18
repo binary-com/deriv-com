@@ -30,21 +30,6 @@ const Content = styled.div`
         display: none;
     }
 `
-const Item = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    margin-top: 2.4rem;
-
-    p {
-        margin-left: 1.6rem;
-        width: 84%;
-    }
-    :last-child {
-        margin-bottom: 0;
-    }
-`
 
 const StyledText = styled(Text)`
     font-size: var(--text-size-xs);

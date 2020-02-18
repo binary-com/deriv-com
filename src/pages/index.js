@@ -3,7 +3,7 @@ import queryString from 'query-string'
 // import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
-import WhyDerivMobile from './home/_why-deriv-mobile'
+import TradeTheWayYouLike from './home/_trade-the-way-you-like'
 import Markets from './home/_markets'
 import SimpleSteps from './home/_simple-steps'
 import WhatOurClientsSay from './home/_what-our-clients-say'
@@ -34,7 +34,7 @@ const Home = () => {
             />
             <Hero />
             <Show.Mobile>
-                <WhyDerivMobile />
+                <TradeTheWayYouLike />
             </Show.Mobile>
             <Show.Desktop>
                 <Trade />

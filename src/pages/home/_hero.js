@@ -117,8 +117,7 @@ const MobileItems = styled(Flex)`
     }
 `
 const MobileArticle = styled(Flex)`
-    width: 90%;
-    margin: 0 auto;
+    padding: 0 2rem;
     
     h1 {
         margin: 0 auto;

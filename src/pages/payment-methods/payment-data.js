@@ -37,7 +37,6 @@ const payment_data = [
                 description: localize(
                     'Use your bank account to deposit and withdraw. Bank charges apply.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
                 name: 'bank transfer',
             },
             {
@@ -48,7 +47,6 @@ const payment_data = [
                 deposit_time: localize('1 working day'),
                 withdrawal_time: localize('1 working day'),
                 description: localize('Deposit and withdraw using your bank account.'),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
                 name: 'internet bank transfer',
             },
             {
@@ -61,7 +59,7 @@ const payment_data = [
                 description: localize(
                     'Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://paytrust88.com/',
                 name: 'paytrust 88',
             },
         ],
@@ -80,7 +78,7 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw using your Visa credit or debit card. Charges and interest rates apply.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://visa.com/',
                 name: 'visa',
             },
             {
@@ -93,7 +91,7 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw using your Mastercard credit or debit card. Charges and interest rates apply.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.mastercard.us/',
                 name: 'mastercard',
             },
             {
@@ -104,7 +102,7 @@ const payment_data = [
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('1 working day'),
                 description: localize('Deposit and withdraw using your Maestro debit card.'),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://stage.maestrocard.com/',
                 name: 'maestro',
             },
         ],
@@ -122,7 +120,7 @@ const payment_data = [
                 description: localize(
                     'Features fast deposits and withdrawals, low fees, and downloadable transaction history.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.fasapay.com/',
                 name: 'fasapay',
             },
             {
@@ -135,7 +133,7 @@ const payment_data = [
                 description: localize(
                     'A cheap and easy method for deposits and withdrawals. Features auto payments, annual interest, and real-time statements.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://perfectmoney.is/',
                 name: 'perfect money',
             },
             {
@@ -148,7 +146,7 @@ const payment_data = [
                 description: localize(
                     'Quick, simple to use, and available anywhere, anytime. Used by millions of clients worldwide.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.skrill.com/',
                 name: 'skrill',
             },
             {
@@ -161,7 +159,7 @@ const payment_data = [
                 description: localize(
                     'Used by over 20 million clients worldwide. Enjoy instant access, free withdrawals, and reward points that you can redeem for cash.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.neteller.com/',
                 name: 'neteller',
             },
             {
@@ -174,7 +172,7 @@ const payment_data = [
                 description: localize(
                     'A complete payment service with over 30 million clients, 10,000 signups daily, and is supported by more than 100,000 merchants.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.wmtransfer.com/',
                 name: 'webmoney',
             },
             {
@@ -187,7 +185,7 @@ const payment_data = [
                 description: localize(
                     'Signing up with Qiwi is easier than tying your shoelaces. Top-up is easy too: via credit card, ATM, online banking, etc.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://qiwi.com/',
                 name: 'qiwi',
             },
             {
@@ -198,7 +196,7 @@ const payment_data = [
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('Not applicable'),
                 description: localize('Yandex'),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.paysafecard.com/',
                 name: 'yandex',
             },
             {
@@ -211,7 +209,7 @@ const payment_data = [
                 description: localize(
                     'A fast and secure money transfer service. Access your money anywhere with the mobile app.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.jeton.com/',
                 name: 'jeton',
             },
             {
@@ -224,7 +222,7 @@ const payment_data = [
                 description: localize(
                     'A complete payment service with competitive fees, tight security, and efficient customer support. Available worldwide.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.iwl.hk/',
                 name: 'iwallet',
             },
             {
@@ -237,7 +235,7 @@ const payment_data = [
                 description: localize(
                     'An easy, cheap, and fast way to transfer money. Supported by banks and merchants worldwide.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.sticpay.com/',
                 name: 'sticpay',
             },
             {
@@ -250,7 +248,7 @@ const payment_data = [
                 description: localize(
                     'Easily convert your currency to USD and transfer money worldwide. Used by more than 500,000 clients in 163 countries.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.airtm.io/#/',
                 name: 'airtm',
             },
         ],
@@ -271,7 +269,7 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://bitcoin.org/',
                 name: 'bitcoin',
             },
             {
@@ -284,7 +282,7 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.ethereum.org/',
                 name: 'ethereum',
             },
             {
@@ -297,7 +295,7 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.litecoin.org/',
                 name: 'litecoin',
             },
             {
@@ -310,7 +308,7 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies.',
                 ),
-                url: 'https://www.binary.com/download/payment/Binary.com_BankWire.pdf',
+                url: 'https://www.tether.to/',
                 name: 'tether',
             },
         ],

@@ -144,14 +144,21 @@ const ExpandList = ({ data }) => {
             <ExpandedContent>
                 <Description is_expanded={is_expanded}>
                     <Text>{data.description}</Text>
-                    <StyledButton tertiary>{localize('Learn more about visa')}</StyledButton>
+                    {data.url && (
+                        <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
+                            <Localize
+                                translate_text="Learn more about {{name}}"
+                                values={{ name: data.name }}
+                            />
+                        </StyledButton>
+                    )}
                 </Description>
             </ExpandedContent>
         </React.Fragment>
     )
 }
 
-const Regulatory = () => (
+const PaymentMethods = () => (
     <Layout>
         <SEO
             title={localize('Payment methods')}
@@ -246,4 +253,4 @@ ExpandList.propTypes = {
     data: PropTypes.object,
 }
 
-export default WithIntl()(Regulatory)
+export default WithIntl()(PaymentMethods)

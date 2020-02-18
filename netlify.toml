@@ -6,3 +6,9 @@
 # branch-deploy (other than previews)
 [context.branch-deploy.environment]
   GATSBY_ENV = "development"
+
+[[redirects]]
+   from = "/"
+   to = "/es"
+   status = 301
+   conditions = {Language = ["es"]}

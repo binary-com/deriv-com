@@ -257,6 +257,7 @@ const payment_data = [
     },
     {
         name: localize('Cryptocurrencies'),
+        is_crypto: true,
         note: localize(
             'The minimum amount for withdrawal will vary depending on the latest exchange rates.',
         ),

@@ -209,12 +209,28 @@ const PaymentMethods = () => (
                                                 <BoldText>{localize('Currencies')}</BoldText>
                                             </Th>
                                             <Th>
-                                                <BoldText>{localize('Min - max')}</BoldText>
-                                                <BoldText>{localize('deposit')}</BoldText>
+                                                {pd.is_crypto ? (
+                                                    <BoldText>{localize('Min deposit')}</BoldText>
+                                                ) : (
+                                                    <React.Fragment>
+                                                        <BoldText>{localize('Min - max')}</BoldText>
+                                                        <BoldText>{localize('deposit')}</BoldText>
+                                                    </React.Fragment>
+                                                )}
                                             </Th>
                                             <Th>
-                                                <BoldText>{localize('Min - max')}</BoldText>
-                                                <BoldText>{localize('withdrawal')}</BoldText>
+                                                {pd.is_crypto ? (
+                                                    <BoldText>
+                                                        {localize('Min withdrawal')}
+                                                    </BoldText>
+                                                ) : (
+                                                    <React.Fragment>
+                                                        <BoldText>{localize('Min - max')}</BoldText>
+                                                        <BoldText>
+                                                            {localize('withdrawal')}
+                                                        </BoldText>
+                                                    </React.Fragment>
+                                                )}
                                             </Th>
                                             <Th>
                                                 <BoldText>{localize('Deposit')}</BoldText>

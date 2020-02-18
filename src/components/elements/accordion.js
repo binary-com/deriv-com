@@ -6,7 +6,7 @@ import Chevron from 'images/svg/chevron-thick.svg'
 
 const Arrow = styled(Chevron)`
     transform: rotate(-180deg);
-    transition: transform 0.2s linear;
+    transition: transform 0.4s linear;
     ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
 `
 
@@ -31,7 +31,7 @@ const AccordionWrapper = styled.div`
     box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
     background-color: var(--color-white);
 `
-const TRANSITION_DURATION = 600
+const TRANSITION_DURATION = 400
 
 // TODO: keyboard events and find a way to add proper focus handling
 const Accordion = ({ children }) => {

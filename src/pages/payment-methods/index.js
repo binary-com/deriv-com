@@ -72,6 +72,7 @@ const Description = styled.div`
     transition: all 0.3s;
     background: var(--color-grey-8);
     width: 100%;
+    padding: 0 3.2rem;
     ${props =>
         props.is_expanded &&
         css`

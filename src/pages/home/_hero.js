@@ -35,21 +35,22 @@ const HeroWrapper = styled.section`
 const HeroHeader = styled(Header)`
     margin-top: ${props => (props.secondary ? '1.6rem' : '')};
     margin-bottom: 3.2rem;
+    max-width: 70rem;
+    font-size: 4.8rem;
 
     @media ${device.tabletL} {
         text-align: left;
     }
 `
 
+const HeroSubHeader = styled(Header)`
+    margin-bottom: 1.4rem;
+`
+
 const StyledArticle = styled.article`
     position: relative;
     z-index: 2;
     margin-left: 18%;
-
-    ${HeroHeader} {
-        max-width: 70rem;
-        font-size: 4.8rem;
-    }
 
     @media ${device.tabletL} {
         margin: 0 2rem;
@@ -70,7 +71,7 @@ const HeroGrid = styled.section`
 `
 
 const ButtonWrapper = styled(Flex)`
-    margin-top: 4rem;
+    margin-top: 6rem;
     height: 40px;
 
     ${Button} {
@@ -144,8 +145,19 @@ export const Hero = () => {
                 <HeroGrid>
                     <StyledArticle>
                         <HeroHeader as="h1" color="white" lh="1.15">
-                            {localize('A simple, flexible trading solution at your fingertips')}
+                            {localize('Simple. Flexible. Reliable.')}
                         </HeroHeader>
+                        <HeroSubHeader
+                            as="h2"
+                            color="white"
+                            lh="1.5"
+                            font_size="var(--text-size-m)"
+                            weight="500"
+                        >
+                            {localize(
+                                'Trade forex, commodities, synthetic indices, and cryptocurrencies',
+                            )}
+                        </HeroSubHeader>
                         <CheckMarkList>
                             <CheckMarkBullet>
                                 {localize('Built upon over 20 years of experience')}

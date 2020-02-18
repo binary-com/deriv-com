@@ -9,6 +9,11 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import CheckMarkIcon from 'images/svg/checklist.svg'
 
+const CheckMark = styled(CheckMarkIcon)`
+    width: 18px;
+    height: 18px;
+`
+
 const HeroWrapper = styled.section`
     width: 100%;
     padding-top: 27rem;
@@ -110,11 +115,14 @@ const HeroButton = styled(LinkButton)`
 
 const CheckBoxText = styled(Text)`
     margin-left: 16px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2;
 `
 const CheckMarkBullet = ({ children }) => (
     <li>
-        <Flex jc="unset">
-            <CheckMarkIcon />
+        <Flex jc="unset" ai="center">
+            <CheckMark />
             <CheckBoxText secondary="true" color="white">
                 {children}
             </CheckBoxText>
@@ -127,10 +135,6 @@ CheckMarkBullet.propTypes = {
 
 const UList = styled.ul`
     list-style-type: none;
-
-    *:not(:first-child):not(:last-child) {
-        margin: 2.3rem 0;
-    }
 `
 
 const CheckMarkList = ({ children }) => <UList>{children}</UList>

@@ -7,9 +7,7 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Text } from 'components/elements'
-import Award from 'images/svg/award-winning.svg'
-import Complaint from 'images/svg/complaint.svg'
-import Security from 'images/svg/security.svg'
+import Graph from 'images/svg/graph.svg'
 
 const Wrapper = styled.section`
     padding-top: 8rem;
@@ -21,13 +19,12 @@ const Wrapper = styled.section`
     background-color: rgba(200, 214, 215, 0.22);
 `
 const Content = styled.div`
-    width: 40rem;
+    width: 40.5rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    padding: 4rem 0;
     margin-right: 5.6rem;
-    margin-left: 2rem;
+    margin-top: 9.4rem;
 
     @media ${device.tablet} {
         display: none;
@@ -79,33 +76,16 @@ const NewSignup = () => {
             <Wrapper>
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>
-                        <Header as="h4">{localize('Start trading with Deriv')}</Header>
+                        <Graph />
+                        <Header margin="2.4rem 0 0 0" font_size="3.6rem">{localize('Start trading with Deriv')}</Header>
                         <br />
-                        <Text>{localize('Join over 1 million traders worldwide')}</Text>
+                        <Text>
+                            {localize(
+                                'Join over 1 million people who trade with Deriv and Binary.com — the award-winning platform that’s been trusted for 20 years.',
+                            )}
+                        </Text>
                         <Line />
-                        <Item>
-                            <Award />
-                            <Text>
-                                {localize(
-                                    'Deriv is the next evolution of Binary.com — an award-winning platform that’s been trusted for 20 years.',
-                                )}
-                            </Text>
-                        </Item>
-                        <Item>
-                            <Complaint />
-                            <Text>
-                                {localize('We’re compliant with regulators around the world.')}
-                            </Text>
-                        </Item>
-                        <Item>
-                            <Security />
-                            <Text>
-                                {localize(
-                                    'Your privacy and security are our top priority. We’ll never use your details without consent.',
-                                )}
-                            </Text>
-                        </Item>
-                        <Line />
+
                         <StyledText color="grey-12">
                             {localize(
                                 'By giving us your email address, you agree to receive marketing emails from us. You may unsubscribe from these emails at any time.',

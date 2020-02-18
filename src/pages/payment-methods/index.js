@@ -112,7 +112,7 @@ const ExpandList = ({ data }) => {
         setIsExpanded(!is_expanded)
     }
     return (
-        <React.Fragment>
+        <>
             <Tr onClick={toggleExpand}>
                 <Td>
                     <Text>{data.method}</Text>
@@ -157,7 +157,7 @@ const ExpandList = ({ data }) => {
                     )}
                 </Description>
             </ExpandedContent>
-        </React.Fragment>
+        </>
     )
 }
 
@@ -212,10 +212,10 @@ const PaymentMethods = () => (
                                                 {pd.is_crypto ? (
                                                     <BoldText>{localize('Min deposit')}</BoldText>
                                                 ) : (
-                                                    <React.Fragment>
+                                                    <>
                                                         <BoldText>{localize('Min - max')}</BoldText>
                                                         <BoldText>{localize('deposit')}</BoldText>
-                                                    </React.Fragment>
+                                                    </>
                                                 )}
                                             </Th>
                                             <Th>
@@ -224,12 +224,12 @@ const PaymentMethods = () => (
                                                         {localize('Min withdrawal')}
                                                     </BoldText>
                                                 ) : (
-                                                    <React.Fragment>
+                                                    <>
                                                         <BoldText>{localize('Min - max')}</BoldText>
                                                         <BoldText>
                                                             {localize('withdrawal')}
                                                         </BoldText>
-                                                    </React.Fragment>
+                                                    </>
                                                 )}
                                             </Th>
                                             <Th>

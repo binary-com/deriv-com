@@ -67,16 +67,17 @@ const BoldText = styled(Text)`
 `
 
 const Description = styled.div`
+    max-height: 0;
+    overflow: hidden;
     transition: all 0.3s;
-    display: none;
     background: var(--color-grey-8);
-    margin-bottom: 4rem;
-    padding: 2.6rem 3.2rem;
     width: 100%;
     ${props =>
         props.is_expanded &&
         css`
-            display: inline-block;
+            max-height: 40rem;
+            margin-bottom: 4rem;
+            padding: 2.6rem 3.2rem;
         `}
 `
 

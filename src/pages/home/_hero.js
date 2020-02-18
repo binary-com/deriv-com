@@ -1,11 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
 import device from 'themes/device'
 import { LinkButton, Button } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
+import CheckMarkIcon from 'images/svg/checklist.svg'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -32,10 +34,8 @@ const HeroWrapper = styled.section`
 
 const HeroHeader = styled(Header)`
     margin-top: ${props => (props.secondary ? '1.6rem' : '')};
+    margin-bottom: 3.2rem;
 
-    @media ${device.laptop} {
-        text-align: center;
-    }
     @media ${device.tabletL} {
         text-align: left;
     }
@@ -44,9 +44,15 @@ const HeroHeader = styled(Header)`
 const StyledArticle = styled.article`
     position: relative;
     z-index: 2;
+    margin-left: 18%;
 
     ${HeroHeader} {
-        width: 100%;
+        max-width: 70rem;
+        font-size: 4.8rem;
+    }
+
+    @media ${device.tabletL} {
+        margin: 0 2rem;
     }
 `
 
@@ -85,7 +91,7 @@ const StyledVideo = styled.video`
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: auto;
+    height: 100%;
 
     /* for edge */
     @supports (object-fit: fill) {
@@ -101,20 +107,58 @@ const HeroButton = styled(LinkButton)`
     align-items: center;
 `
 
+const CheckBoxText = styled(Text)`
+    margin-left: 16px;
+`
+const CheckMarkBullet = ({ children }) => (
+    <li>
+        <Flex jc="unset">
+            <CheckMarkIcon />
+            <CheckBoxText secondary="true" color="white">
+                {children}
+            </CheckBoxText>
+        </Flex>
+    </li>
+)
+CheckMarkBullet.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+}
+
+const UList = styled.ul`
+    list-style-type: none;
+
+    *:not(:first-child):not(:last-child) {
+        margin: 2.3rem 0;
+    }
+`
+
+const CheckMarkList = ({ children }) => <UList>{children}</UList>
+CheckMarkList.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+}
+
 export const Hero = () => {
     return (
         <HeroWrapper>
             <Container>
                 <HeroGrid>
                     <StyledArticle>
-                        <HeroHeader align="center" as="h1" color="white" lh="1.2">
-                            {localize('This is your ultimate trading experience')}
+                        <HeroHeader as="h1" color="white" lh="1.15">
+                            {localize('A simple, flexible trading solution at your fingertips')}
                         </HeroHeader>
-                        <HeroHeader as="h4" align="center" color="white" weight="500" secondary>
-                            {localize('The next evolution of online trading by Binary.com')}
-                        </HeroHeader>
-                        <ButtonWrapper>
-                            <HeroButton type="submit" secondary to="/signup/">
+                        <CheckMarkList>
+                            <CheckMarkBullet>
+                                {localize('Built upon over 20 years of experience')}
+                            </CheckMarkBullet>
+                            <CheckMarkBullet>
+                                {localize('Over 100+ tradable instruments')}
+                            </CheckMarkBullet>
+                            <CheckMarkBullet>
+                                {localize('24x7 trading, tight prices, low spreads')}
+                            </CheckMarkBullet>
+                        </CheckMarkList>
+                        <ButtonWrapper jc="unset">
+                            <HeroButton type="submit" secondary="true" to="/signup/">
                                 {localize('Join us for free')}
                             </HeroButton>
                         </ButtonWrapper>

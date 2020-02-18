@@ -67,14 +67,16 @@ const BoldText = styled(Text)`
 `
 
 const Description = styled.div`
-    max-height: 0;
     transition: all 0.3s;
-    overflow: hidden;
+    display: none;
+    background: var(--color-grey-8);
+    margin-bottom: 4rem;
+    padding: 2.6rem 3.2rem;
+    width: 100%;
     ${props =>
         props.is_expanded &&
         css`
-            padding: 0.8rem 2.4rem 1.6rem;
-            max-height: 30rem;
+            display: inline-block;
         `}
 `
 
@@ -89,8 +91,7 @@ const StyledChevron = styled(Chevron)`
     transition: transform 0.25s ease-out;
 `
 
-const ExpandedContent = styled.caption`
-    width: max-content;
+const ExpandedContent = styled.td`
     text-align: left;
 `
 
@@ -141,7 +142,7 @@ const ExpandList = ({ data }) => {
                     <StyledChevron expanded={is_expanded} />
                 </Td>
             </Tr>
-            <ExpandedContent>
+            <ExpandedContent colSpan="7">
                 <Description is_expanded={is_expanded}>
                     <Text>{data.description}</Text>
                     {data.url && (

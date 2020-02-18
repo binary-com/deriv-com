@@ -195,9 +195,11 @@ const payment_data = [
                 min_max_withdrawal: '5 - 750',
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('Not applicable'),
-                description: localize('Yandex'),
+                description: localize(
+                    'A convenient payment service that doesn’t need a bank account or credit card. Accepted by thousands of merchants worldwide.',
+                ),
                 url: 'https://www.paysafecard.com/',
-                name: 'yandex',
+                name: 'paysafe',
             },
             {
                 method: <Jeton />,

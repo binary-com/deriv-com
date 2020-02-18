@@ -111,7 +111,7 @@ const Stories = [
                     {
                         text: (
                             <Localize
-                                translate_text="The service is recognised as a reliable and secure online trading platform for all levels of traders. BetOnMarkets.com earns the ‘Best Fixed-Odds Financial Trading Provider’ award from Shares Magazine UK in 2007 and 2008.<0 /><0 />The company also earns the Investors Chronicle award for ‘Best Customer Communication Firm’, a recognition for the platform’s ethical and customer-focused trading experience.<0 /><0 />The company’s enhancements continue to accumulate various awards over the coming years."
+                                translate_text="The service is recognised as a reliable and secure online trading platform for all levels of traders. BetOnMarkets.com earns the ‘Best Fixed-Odds Financial Trading Provider’ award from Shares Magazine UK in 2007 and 2008.<0 /><0 />The company also earns the Investors Chronicle award for ‘Best Customer Communication Firm’, a recognition for the platform’s ethical and customer-focused trading experience."
                                 components={[<br key={0} />]}
                             />
                         ),
@@ -262,7 +262,7 @@ const Stories = [
     },
     {
         year: '2020',
-        width: '62%',
+        width: '63%',
         bgColor: 'black',
         left: true,
         color: 'white',

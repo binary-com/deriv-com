@@ -7,6 +7,7 @@ import { localize } from 'components/localization'
 import device from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
 import LineArrow from 'images/svg/line-arrow.svg'
+import GradientLine from 'images/svg/gradient-line.svg'
 
 const StorySection = styled.section`
     width: 100%;
@@ -31,7 +32,7 @@ const Story = styled.div`
 `
 
 const YearWrapper = styled.div`
-    width: ${props => props.width || '68%'};
+    width: ${props => props.width || '69%'};
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -50,7 +51,7 @@ const YearWrapper = styled.div`
     }
 `
 const ContentWrapper = styled.div`
-    width: 38.4rem;
+    width: 40rem;
 `
 const StyledHeader = styled(Header)`
     width: 10%;
@@ -98,7 +99,7 @@ const LogoContainer = styled.div`
 
 const StyledLine = styled(StorySVG)`
     position: absolute;
-    height: 92%;
+    height: 90%;
     left: 50%;
     top: 5%;
 
@@ -116,6 +117,16 @@ const StyledLineArrow = styled(LineArrow)`
         display: none;
     }
 `
+const StyledGradientLine = styled(GradientLine)`
+    position: absolute;
+    height: -3%;
+    left: 50%;
+    top: 94.5%;
+
+    @media ${device.tablet} {
+        display: none;
+    }
+`
 export const OurStory = () => {
     return (
         <StorySection>
@@ -123,7 +134,7 @@ export const OurStory = () => {
                 {localize('Our history')}
             </Header>
             <StyledLineArrow />
-
+            <StyledGradientLine />
             <StyledLine />
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>

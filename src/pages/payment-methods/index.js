@@ -1,13 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import ExpandList from './_expanded-list'
 import payment_data from 'data/payment-data'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
-import { Button } from 'components/form/'
-import Chevron from 'images/svg/chevron-thick.svg'
 
 const StyledHeader = styled(Header)`
     margin-bottom: 1.6rem;
@@ -30,11 +28,6 @@ const Th = styled.th`
             margin-bottom: 1.6rem;
         }
     }
-`
-
-const Td = styled.td`
-    vertical-align: middle;
-    padding: 0 2rem;
 `
 
 const StyledTable = styled.table`
@@ -66,37 +59,6 @@ const BoldText = styled(Text)`
     font-weight: bold;
 `
 
-const Description = styled.div`
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s;
-    background: var(--color-grey-8);
-    width: 100%;
-    padding: 0 3.2rem;
-    ${props =>
-        props.is_expanded &&
-        css`
-            max-height: 40rem;
-            margin-bottom: 4rem;
-            padding: 2.6rem 3.2rem;
-        `}
-`
-
-const StyledButton = styled(Button)`
-    margin-top: 1.6rem;
-`
-
-const StyledChevron = styled(Chevron)`
-    height: 16px;
-    width: 16px;
-    transform: ${props => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
-    transition: transform 0.25s ease-out;
-`
-
-const ExpandedContent = styled.td`
-    text-align: left;
-`
-
 const Notes = styled.div`
     position: absolute;
     width: 100%;
@@ -104,62 +66,6 @@ const Notes = styled.div`
     background: var(--color-grey-8);
     left: 0;
 `
-
-const ExpandList = ({ data }) => {
-    const [is_expanded, setIsExpanded] = React.useState(false)
-
-    const toggleExpand = () => {
-        setIsExpanded(!is_expanded)
-    }
-    return (
-        <>
-            <Tr onClick={toggleExpand}>
-                <Td>
-                    <Text>{data.method}</Text>
-                </Td>
-                <Td>
-                    <Text>{data.currencies}</Text>
-                </Td>
-                <Td>
-                    {Array.isArray(data.min_max_deposit) ? (
-                        data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
-                    ) : (
-                        <Text>{data.min_max_deposit}</Text>
-                    )}
-                </Td>
-                <Td>
-                    {Array.isArray(data.min_max_withdrawal) ? (
-                        data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
-                    ) : (
-                        <Text>{data.min_max_withdrawal}</Text>
-                    )}
-                </Td>
-                <Td>
-                    <Text>{data.deposit_time}</Text>
-                </Td>
-                <Td>
-                    <Text>{data.withdrawal_time}</Text>
-                </Td>
-                <Td>
-                    <StyledChevron expanded={is_expanded} />
-                </Td>
-            </Tr>
-            <ExpandedContent colSpan="7">
-                <Description is_expanded={is_expanded}>
-                    <Text>{data.description}</Text>
-                    {data.url && (
-                        <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
-                            <Localize
-                                translate_text="Learn more about {{name}}"
-                                values={{ name: data.name }}
-                            />
-                        </StyledButton>
-                    )}
-                </Description>
-            </ExpandedContent>
-        </>
-    )
-}
 
 const PaymentMethods = () => (
     <Layout>
@@ -267,9 +173,5 @@ const PaymentMethods = () => (
         </SectionContainer>
     </Layout>
 )
-
-ExpandList.propTypes = {
-    data: PropTypes.object,
-}
 
 export default WithIntl()(PaymentMethods)

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="250px" height="144px" viewBox="0 0 250 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="250px" height="144px" viewBox="0 0 250 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-labelledby="limit-icon" role="img">
     <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
-    <title>laptop</title>
+    <title id='laptop'>Laptop</title>
     <desc>Created with Sketch.</desc>
     <defs>
         <rect id="path-1bb" x="0" y="0" width="282" height="150"></rect>

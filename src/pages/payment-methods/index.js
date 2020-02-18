@@ -118,10 +118,18 @@ const ExpandList = ({ data }) => {
                     <Text>{data.currencies}</Text>
                 </Td>
                 <Td>
-                    <Text>{data.min_max_deposit}</Text>
+                    {Array.isArray(data.min_max_deposit) ? (
+                        data.min_max_deposit.map((md, idx) => <Text key={idx}>{md}</Text>)
+                    ) : (
+                        <Text>{data.min_max_deposit}</Text>
+                    )}
                 </Td>
                 <Td>
-                    <Text>{data.min_max_withdrawal}</Text>
+                    {Array.isArray(data.min_max_withdrawal) ? (
+                        data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
+                    ) : (
+                        <Text>{data.min_max_withdrawal}</Text>
+                    )}
                 </Td>
                 <Td>
                     <Text>{data.deposit_time}</Text>

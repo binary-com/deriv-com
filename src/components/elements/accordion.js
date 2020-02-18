@@ -31,7 +31,7 @@ const AccordionWrapper = styled.div`
     box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
     background-color: var(--color-white);
 `
-const TRANSITION_DURATION = 400
+const TRANSITION_DURATION = 600
 
 // TODO: keyboard events and find a way to add proper focus handling
 const Accordion = ({ children }) => {
@@ -57,7 +57,7 @@ const AccordionContent = ({ children, nodes }) => {
 
     const getHeight = child_idx => {
         if (active_idx === child_idx) {
-            return '100rem'
+            return '200rem'
         }
         return 0
     }

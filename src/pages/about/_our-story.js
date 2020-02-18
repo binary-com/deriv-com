@@ -87,7 +87,7 @@ const Splitter = styled.div`
 `
 const LogoContainer = styled.div`
     width: ${props => props.svg_width || '28.2rem'};
-    text-align: ${props => props.svgPosition};
+    text-align: ${props => props.svg_position};
     margin-left: ${props => (props.left ? '2rem' : '')};
     margin-right: ${props => (props.left ? '' : props.margin_right || '2rem')};
 
@@ -140,7 +140,7 @@ export const OurStory = () => {
                         content.left ? (
                             <YearWrapper key={idxa} color={story.color} width={story.width} left>
                                 <LogoContainer
-                                    svgPosition={content.svgPosition}
+                                    svg_position={content.svg_position}
                                     svg_width={content.svg_width}
                                     margin_right={content.margin_right}
                                 >
@@ -184,7 +184,7 @@ export const OurStory = () => {
                                 </ContentWrapper>
                                 <LogoContainer
                                     left
-                                    svgPosition={content.svgPosition}
+                                    svg_position={content.svg_position}
                                     svg_width={content.svg_width}
                                     margin_right={content.margin_right}
                                 >

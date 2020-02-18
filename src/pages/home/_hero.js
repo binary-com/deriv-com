@@ -4,8 +4,9 @@ import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
 import device from 'themes/device'
 import { LinkButton, Button } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
+import Checklist from 'images/svg/checklist.svg'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -24,6 +25,8 @@ const HeroWrapper = styled.section`
         background: unset;
         background-position: -20rem 100%;
         background-color: var(--color-black);
+        min-height: 58.4rem;
+        padding: 13.3rem 0 5rem 0;
     }
     @media ${device.tablet} {
         background-position: -40rem 100%;
@@ -100,28 +103,65 @@ const HeroButton = styled(LinkButton)`
     display: flex;
     align-items: center;
 `
+const MobileItems = styled(Flex)`
+    div {
+        display: flex;
+        align-items: center;
 
+        svg:first-child {
+            margin-right: 1.25rem;
+        }
+    }
+    p {
+        color: var(--color-white);
+    }
+`
+const MobileArticle = styled(Flex)`
+    width: 90%;
+    margin: 0 auto;
+    
+    h1 {
+        margin: 0 auto;
+        color: var(--color-white);
+    }
+    div {
+        margin-top: 2rem;
+    }
+    div:first-child {
+        margin-top: 0
+    }
+`
+const ChecklistSVG = styled(Checklist)`
+    height: 2.25rem;
+    width: 2.25rem;
+`
+const SignupButton = styled(LinkButton)`
+    margin: 22.5rem auto 0 auto;
+    width: 100%;
+    max-width: 27rem;
+    font-size: var(--text-size-sm);
+`
 export const Hero = () => {
     return (
         <HeroWrapper>
-            <Container>
-                <HeroGrid>
-                    <StyledArticle>
-                        <HeroHeader align="center" as="h1" color="white" lh="1.2">
-                            {localize('This is your ultimate trading experience')}
-                        </HeroHeader>
-                        <HeroHeader as="h4" align="center" color="white" weight="500" secondary>
-                            {localize('The next evolution of online trading by Binary.com')}
-                        </HeroHeader>
-                        <ButtonWrapper>
-                            <HeroButton type="submit" secondary to="/signup/">
-                                {localize('Join us for free')}
-                            </HeroButton>
-                        </ButtonWrapper>
-                    </StyledArticle>
-                </HeroGrid>
-            </Container>
             <Show.Desktop>
+                <Container>
+                    <HeroGrid>
+                        <StyledArticle>
+                            <HeroHeader align="center" as="h1" color="white" lh="1.2">
+                                {localize('This is your ultimate trading experience')}
+                            </HeroHeader>
+                            <HeroHeader as="h4" align="center" color="white" weight="500" secondary>
+                                {localize('The next evolution of online trading by Binary.com')}
+                            </HeroHeader>
+                            <ButtonWrapper>
+                                <HeroButton type="submit" secondary to="/signup/">
+                                    {localize('Join us for free')}
+                                </HeroButton>
+                            </ButtonWrapper>
+                        </StyledArticle>
+                    </HeroGrid>
+                </Container>
                 <StyledVideo
                     title={localize('deriv.app platform video')}
                     width="100%"
@@ -134,6 +174,33 @@ export const Hero = () => {
                     <source src={PlatformVideoMp4} type="video/mp4" />
                 </StyledVideo>
             </Show.Desktop>
+            <Show.Mobile>
+                <MobileArticle direction='column'>
+                    <div>
+                        <Header font_size='var(--text-size-l)'>{localize('Simple. Flexible. Reliable.')}</Header>
+                    </div>
+                    <div>
+                        <Header font_size='2.25rem' weight='normal'>{localize('Trade forex, commodities, synthetic indices, and cryptocurrencies')}</Header>
+                    </div>
+                    <MobileItems direction='column'>
+                        <div>
+                            <ChecklistSVG />
+                            <Text secondary>{localize('Built upon over 20 years of experience')}</Text>
+                        </div>
+                        <div>
+                            <ChecklistSVG />
+                            <Text secondary>{localize('Over 100+ tradable instruments')}</Text>
+                        </div>
+                        <div>
+                            <ChecklistSVG />
+                            <Text secondary>{localize('24x7 trading, tight prices, low spreads')}</Text>
+                        </div>
+                    </MobileItems>
+                    <SignupButton secondary to="/signup/">
+                        {localize('Join us for free')}
+                    </SignupButton>
+                </MobileArticle>
+            </Show.Mobile>
         </HeroWrapper>
     )
 }

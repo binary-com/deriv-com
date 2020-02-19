@@ -27,7 +27,7 @@ const Home = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Trade forex, commodities, and synthetic indices')}
+                title={localize('Trade forex, commodities, stock and synthetic indices')}
                 description={localize(
                     'Deriv is an online trading company that offers the broadest selection of derivatives with competitive prices.',
                 )}

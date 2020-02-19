@@ -59,8 +59,7 @@ const payment_data = [
                 description: localize(
                     'Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam.',
                 ),
-                url: 'https://paytrust88.com/',
-                name: 'paytrust 88',
+                name: 'paytrust88',
             },
         ],
     },
@@ -102,7 +101,6 @@ const payment_data = [
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('1 working day'),
                 description: localize('Deposit and withdraw using your Maestro debit card.'),
-                url: 'https://stage.maestrocard.com/',
                 name: 'maestro',
             },
         ],
@@ -296,7 +294,7 @@ const payment_data = [
                 deposit_time: localize('3 blockchain confirmations'),
                 withdrawal_time: localize(' 1 working day'),
                 description: localize(
-                    'Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.',
+                    'Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing.',
                 ),
                 url: 'https://www.litecoin.org/',
                 name: 'litecoin',

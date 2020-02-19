@@ -57,7 +57,7 @@ const AccordionContent = ({ children, nodes }) => {
 
     const getHeight = child_idx => {
         if (active_idx === child_idx) {
-            return '300rem'
+            return '400rem'
         }
         return 0
     }

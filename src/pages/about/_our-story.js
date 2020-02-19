@@ -13,7 +13,7 @@ const StorySection = styled.section`
     width: 100%;
     margin: auto;
     background-color: var(--color-white);
-    padding: 8rem 0;
+    padding: 8rem 0 0 0;
     position: relative;
 `
 const Story = styled.div`
@@ -21,23 +21,16 @@ const Story = styled.div`
     background-color: var(--color-${props => props.bgColor || 'white'});
     width: 100%;
     margin: auto;
-    padding: 2rem 13.4%;
-
-    @media ${device.laptopL} {
-        padding: 2rem 5.4%;
-    }
-    @media ${device.laptop} {
-        padding: 2rem 0.4%;
-    }
+    padding: 2rem 0;
 `
 
 const YearWrapper = styled.div`
-    width: ${props => props.width || '69%'};
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: ${props => (!props.left ? '11.8%' : '19.6%')};
+    margin-left: ${props => (props.left ? props.margin_left || '10rem' : '-9rem')};
+    margin-bottom: ${props => props.margin_bottom || 'unset'};
 
     p {
         color: ${props => props.color || 'black'};
@@ -99,7 +92,7 @@ const LogoContainer = styled.div`
 
 const StyledLine = styled(StorySVG)`
     position: absolute;
-    height: 90%;
+    height: 90.5%;
     left: 50%;
     top: 5%;
 
@@ -121,7 +114,7 @@ const StyledGradientLine = styled(GradientLine)`
     position: absolute;
     height: -3%;
     left: 50%;
-    top: 94.5%;
+    top: 95.2%;
 
     @media ${device.tablet} {
         display: none;
@@ -149,7 +142,15 @@ export const OurStory = () => {
 
                     {story.contents.map((content, idxa) =>
                         content.left ? (
-                            <YearWrapper key={idxa} color={story.color} width={story.width} left>
+                            <YearWrapper
+                                key={idxa}
+                                color={story.color}
+                                width={story.width}
+                                width_laptop={story.width_laptop}
+                                left
+                                margin_left={content.margin_left}
+                                margin_bottom={content.margin_bottom}
+                            >
                                 <LogoContainer
                                     svg_position={content.svg_position}
                                     svg_width={content.svg_width}
@@ -177,7 +178,13 @@ export const OurStory = () => {
                                 </ContentWrapper>
                             </YearWrapper>
                         ) : (
-                            <YearWrapper key={idxa} color={story.color} width={story.width}>
+                            <YearWrapper
+                                key={idxa}
+                                color={story.color}
+                                width={story.width}
+                                width_laptop={story.width_laptop}
+                                margin_bottom={content.margin_bottom}
+                            >
                                 <ContentWrapper>
                                     {content.headers.map((header, id) => (
                                         <div key={id}>

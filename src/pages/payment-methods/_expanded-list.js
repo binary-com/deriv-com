@@ -5,6 +5,7 @@ import { Button } from 'components/form/'
 import Chevron from 'images/svg/chevron-thick.svg'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
+import { sentenceCase } from 'common/utility'
 
 const StyledButton = styled(Button)`
     margin-top: 1.6rem;
@@ -91,7 +92,7 @@ const ExpandList = ({ data }) => {
                             <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
                                 <Localize
                                     translate_text="Learn more about {{name}}"
-                                    values={{ name: data.name }}
+                                    values={{ name: sentenceCase(data.name) }}
                                 />
                             </StyledButton>
                         )}

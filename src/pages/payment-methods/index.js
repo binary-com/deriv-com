@@ -477,7 +477,7 @@ const e_wallets_data = [
         min_max_deposit: '5 - 1,000',
         min_max_withdrawal: '5 - 750',
         deposit_time: localize('Instant'),
-        withdrawal_time: localize('Not applicable'),
+        withdrawal_time: localize('1 working day'),
         description: localize(
             'A convenient payment service that doesn’t need a bank account or credit card. Accepted by thousands of merchants worldwide.',
         ),
@@ -490,7 +490,7 @@ const e_wallets_data = [
         min_max_deposit: '5 - 10,000',
         min_max_withdrawal: 'N/A',
         deposit_time: localize('Instant'),
-        withdrawal_time: localize('Not applicable'),
+        withdrawal_time: localize('1 working day'),
         description: localize(
             'A fast and secure money transfer service. Access your money anywhere with the mobile app.',
         ),
@@ -503,7 +503,7 @@ const e_wallets_data = [
         min_max_deposit: '5 - 10,000',
         min_max_withdrawal: 'N/A',
         deposit_time: localize('Instant'),
-        withdrawal_time: localize('Not applicable'),
+        withdrawal_time: localize('1 working day'),
         description: localize(
             'A complete payment service with competitive fees, tight security, and efficient customer support. Available worldwide.',
         ),
@@ -516,7 +516,7 @@ const e_wallets_data = [
         min_max_deposit: '5 - 10,000',
         min_max_withdrawal: '5 - 10,000',
         deposit_time: localize('Instant'),
-        withdrawal_time: localize('Not applicable'),
+        withdrawal_time: localize('1 working day'),
         description: localize(
             'An easy, cheap, and fast way to transfer money. Supported by banks and merchants worldwide.',
         ),
@@ -529,7 +529,7 @@ const e_wallets_data = [
         min_max_deposit: '5 - 2,500',
         min_max_withdrawal: '5 - 2,500',
         deposit_time: localize('Instant'),
-        withdrawal_time: localize('Not applicable'),
+        withdrawal_time: localize('1 working day'),
         description: localize(
             'Easily convert your currency to USD and transfer money worldwide. Used by more than 500,000 clients in 163 countries.',
         ),

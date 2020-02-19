@@ -40,16 +40,22 @@ const HeroWrapper = styled.section`
 const HeroHeader = styled(Header)`
     margin-top: ${props => (props.secondary ? '1.6rem' : '')};
     margin-bottom: 3.2rem;
-    max-width: 70rem;
     font-size: 4.8rem;
 
     @media ${device.tabletL} {
         text-align: left;
     }
+    @media ${device.desktopL} {
+        font-size: 6.72rem;
+    }
 `
 
 const HeroSubHeader = styled(Header)`
     margin-bottom: 1.4rem;
+
+    @media ${device.desktopL} {
+        font-size: 3.36rem;
+    }
 `
 
 const StyledArticle = styled.article`
@@ -118,6 +124,10 @@ const CheckBoxText = styled(Text)`
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 2;
+
+    @media ${device.desktopL} {
+        font-size: 2.52rem;
+    }
 `
 const CheckMarkBullet = ({ children }) => (
     <li>

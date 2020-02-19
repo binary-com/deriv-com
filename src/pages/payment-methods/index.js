@@ -24,9 +24,9 @@ const Th = styled.th`
     vertical-align: middle;
     padding: 1.6rem 2rem;
 
-    & > p {
-        &:last-child {
-            margin-bottom: 1.6rem;
+    :first-child {
+        p {
+            text-align: center;
         }
     }
 `

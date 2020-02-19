@@ -46,6 +46,15 @@ const Description = styled.div`
         `}
 `
 
+const StyledText = styled(Text)`
+    font-size: 0;
+    ${props =>
+        props.is_expanded &&
+        css`
+            font-size: var(--text-size-s);
+        `}
+`
+
 const ExpandList = ({ data }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
@@ -86,7 +95,7 @@ const ExpandList = ({ data }) => {
             <tr>
                 <ExpandedContent colSpan="7">
                     <Description is_expanded={is_expanded}>
-                        <Text>{data.description}</Text>
+                        <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
                         {data.url && (
                             <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
                                 {localize('Learn more')}

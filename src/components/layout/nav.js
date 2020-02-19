@@ -33,6 +33,7 @@ const StyledNav = styled.nav`
 `
 const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
+    width: 81%;
     padding: 1.2rem 0;
     justify-content: space-between;
     height: 7.2rem;

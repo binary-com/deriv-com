@@ -10,7 +10,7 @@ import { Header, Text } from 'components/elements'
 import Graph from 'images/svg/graph.svg'
 
 const Wrapper = styled.section`
-    padding-top: 8rem;
+    padding: 8rem 0;
     width: 100%;
     height: inherit;
     justify-content: center;

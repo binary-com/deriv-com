@@ -77,7 +77,6 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw using your Visa credit or debit card. Charges and interest rates apply.',
                 ),
-                url: 'https://visa.com/',
                 name: 'visa',
             },
             {
@@ -90,7 +89,6 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw using your Mastercard credit or debit card. Charges and interest rates apply.',
                 ),
-                url: 'https://www.mastercard.us/',
                 name: 'mastercard',
             },
             {
@@ -270,7 +268,6 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.',
                 ),
-                url: 'https://bitcoin.org/',
                 name: 'bitcoin',
             },
             {
@@ -283,7 +280,6 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies.',
                 ),
-                url: 'https://www.ethereum.org/',
                 name: 'ethereum',
             },
             {
@@ -296,7 +292,6 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing.',
                 ),
-                url: 'https://www.litecoin.org/',
                 name: 'litecoin',
             },
             {
@@ -309,7 +304,6 @@ const payment_data = [
                 description: localize(
                     'Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies.',
                 ),
-                url: 'https://www.tether.to/',
                 name: 'tether',
             },
         ],

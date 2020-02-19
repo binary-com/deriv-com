@@ -89,16 +89,16 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${props => {
-        if (props.move) {
-            return 0
-        } else {
-            if (props.button_ref.current && props.mounted) {
-                const calculation = props.button_ref.current.offsetWidth + 2
-                return `${calculation}px`
+            if (props.move) {
+                return 0
+            } else {
+                if (props.button_ref.current && props.mounted) {
+                    const calculation = props.button_ref.current.offsetWidth + 3
+                    return `${calculation}px`
+                }
+                return '350px'
             }
-            return '350px'
-        }
-    }}
+        }}
     );
     @media ${device.tabletL} {
         display: none;
@@ -228,7 +228,7 @@ export const Nav = () => {
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
-                        <LocalizedLink to='/signup/'>
+                        <LocalizedLink to="/signup/">
                             <SignupButton ref={button_ref} secondary>
                                 <span>{localize('Try for free')}</span>
                             </SignupButton>

@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
-import device from 'themes/device.js'
 // SVG Component
 import CrossIcon from 'images/svg/cross.svg'
 
@@ -98,10 +97,6 @@ const StyledLabel = styled.label`
 
     /* prettier-ignore */
     background-color: var(--color-${props => props.background || 'grey-1'});
-
-    @media ${device.tablet} {
-        background-color: var(--color-${props => props.tabletBackground || 'grey-1'});
-    }
 `
 
 const Input = ({

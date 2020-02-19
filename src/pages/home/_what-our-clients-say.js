@@ -12,6 +12,21 @@ import PaulImage from 'images/common/paul.png'
 import RobertoImage from 'images/common/roberto.png'
 import FabioImage from 'images/common/fabio.png'
 
+const StyledSection = styled(SectionContainer)`
+    height: 43.1rem;
+
+    @media ${device.tabletL} {
+        height: unset;
+        padding: 5rem 0;
+    }
+`
+const StyledHeader = styled(Header)`
+    font-size: var(--text-size-header-1);
+
+    @media ${device.tabletL} {
+        font-size: 4.5rem;
+    }
+`
 const StyledChevron = styled(Chevron)`
     g {
         g {
@@ -53,12 +68,25 @@ const QuoteText = styled(Text)`
 
     @media ${device.tabletL} {
         padding-bottom: 0.5rem;
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 27rem;
     }
 `
 
 const SmallText = styled(Text)`
     font-size: var(--text-size-xs);
     opacity: 0.5;
+
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
+    }
+`
+const Name = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+    }
 `
 const ImageWrapper = styled.div`
     width: 50px;
@@ -66,14 +94,6 @@ const ImageWrapper = styled.div`
 
     img {
         width: 50px;
-    }
-
-    @media ${device.tabletL} {
-        width: 30px;
-
-        img {
-            width: 30px;
-        }
     }
 `
 
@@ -143,7 +163,7 @@ const ClientSlide = ({ quote, img_path, img_alt, name, title }) => (
                     </ImageWrapper>
                 </Flex>
                 <figure>
-                    <Text weight="bold">{name}</Text>
+                    <Name weight="bold">{name}</Name>
                     <SmallText>{title}</SmallText>
                 </figure>
             </Flex>
@@ -215,11 +235,11 @@ const WhatOurClientsSay = () => {
     }
     return (
         <>
-            <SectionContainer style={{ height: '43.1rem' }}>
+            <StyledSection>
                 <Container direction="column">
-                    <Header align="center" font_size="var(--text-size-header-1)" as="h2">
+                    <StyledHeader align="center" as="h2">
                         {localize('What our clients say about Deriv')}
-                    </Header>
+                    </StyledHeader>
                 </Container>
                 <SliderWrapper>
                     <ButtonWrapper>
@@ -250,7 +270,7 @@ const WhatOurClientsSay = () => {
                         </Swiper>
                     </div>
                 </SliderWrapper>
-            </SectionContainer>
+            </StyledSection>
         </>
     )
 }

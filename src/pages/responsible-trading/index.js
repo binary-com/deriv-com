@@ -53,18 +53,17 @@ const StyledText = styled(Text)`
     max-width: 79.2rem;
 `
 
-// TODO: uncomment when KID documents are ready
-// const ResponsibleText = styled(Text)`
-//     font-size: var(--text-size-m);
-//     text-align: center;
-//     font-weight: 500;
-//     max-width: 99.6rem;
-//     margin: 4rem auto 0;
-// `
+const ResponsibleText = styled(Text)`
+    font-size: var(--text-size-m);
+    text-align: center;
+    font-weight: 500;
+    max-width: 99.6rem;
+    margin: 4rem auto 0;
+`
 
-// const HighlightText = styled.span`
-//     color: var(--color-red);
-// `
+const HighlightText = styled.span`
+    color: var(--color-red);
+`
 
 const StyledUl = styled.ul`
     padding-left: 2.3rem;
@@ -146,13 +145,12 @@ const ResponsibleTrading = () => {
                     {localize('Trading responsibly')}
                 </StyledHeader>
                 <ResponsibleGrid />
-                {/* TODO: show when KID documents are ready */}
-                {/* <ResponsibleText>
+                <ResponsibleText>
                     <Localize
                         translate_text="For more details on our products and the risks involved in online trading, read our key information documents (KIDs) on <0>commodities</0>, <0>forex</0>, and <0>cryptocurrencies</0>."
                         components={[<HighlightText key={0} color="red" />]}
                     />
-                </ResponsibleText> */}
+                </ResponsibleText>
             </Section>
             <Section bgcolor="var(--color-grey-8)">
                 <Container direction="column">

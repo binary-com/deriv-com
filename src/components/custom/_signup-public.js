@@ -109,6 +109,10 @@ const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         width: auto;
     }
+
+    @media (max-width: 800px) {
+        margin-top: 2rem;
+    }
 `
 const StyledText = styled(Text)`
     width: auto;

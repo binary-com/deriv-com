@@ -168,7 +168,7 @@ export const Hero = () => {
                             font_size="var(--text-size-m)"
                             weight="500"
                         >
-                            {localize('Trade forex, commodities, and synthetic indices')}
+                            {localize('Trade forex, commodities, stock, and synthetic indices')}
                         </HeroSubHeader>
                         <CheckMarkList>
                             <CheckMarkBullet>

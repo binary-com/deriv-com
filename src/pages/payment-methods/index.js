@@ -316,10 +316,6 @@ const PaymentMethods = () => (
     </Layout>
 )
 
-// const Notes = (
-
-// )
-
 const bank_wire_data = [
     {
         method: <BankTransfer />,

@@ -83,19 +83,21 @@ const ExpandList = ({ data }) => {
                     <StyledChevron expanded={is_expanded} />
                 </Td>
             </Tr>
-            <ExpandedContent colSpan="7">
-                <Description is_expanded={is_expanded}>
-                    <Text>{data.description}</Text>
-                    {data.url && (
-                        <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
-                            <Localize
-                                translate_text="Learn more about {{name}}"
-                                values={{ name: data.name }}
-                            />
-                        </StyledButton>
-                    )}
-                </Description>
-            </ExpandedContent>
+            <tr>
+                <ExpandedContent colSpan="7">
+                    <Description is_expanded={is_expanded}>
+                        <Text>{data.description}</Text>
+                        {data.url && (
+                            <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
+                                <Localize
+                                    translate_text="Learn more about {{name}}"
+                                    values={{ name: data.name }}
+                                />
+                            </StyledButton>
+                        )}
+                    </Description>
+                </ExpandedContent>
+            </tr>
         </>
     )
 }

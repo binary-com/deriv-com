@@ -6,8 +6,8 @@ import Map from 'images/svg/world-map.svg'
 import device from 'themes/device'
 import Labuan from 'images/svg/labuan-pin-location.svg'
 import Cyberjaya from 'images/svg/cyberjaya-pin-location.svg'
-import Dubai from 'images/svg/dubai-pin-location.svg'
-import Paraguay from 'images/svg/paraguay-pin-location.svg'
+// import Dubai from 'images/svg/dubai-pin-location.svg'
+// import Paraguay from 'images/svg/paraguay-pin-location.svg'
 import Malta from 'images/svg/malta-pin-location.svg'
 
 const OfficeContainer = styled.section`
@@ -75,18 +75,19 @@ const PinpointWrapper = styled(Labuan)`
     position: relative;
     left: ${props => props.left || '-4%'};
 `
-const LabuanWrapper = styled(Labuan)`
-    ${PinpointWrapper}
-`
 const CyberjayaWrapper = styled(Cyberjaya)`
     ${PinpointWrapper}
 `
-const DubaiWrapper = styled(Dubai)`
-    ${PinpointWrapper}
-`
-const ParaguayWrapper = styled(Paraguay)`
-    ${PinpointWrapper}
-`
+// TODO: [add-google-map] add this design when map is verified
+// const LabuanWrapper = styled(Labuan)`
+//     ${PinpointWrapper}
+// `
+// const DubaiWrapper = styled(Dubai)`
+//     ${PinpointWrapper}
+// `
+// const ParaguayWrapper = styled(Paraguay)`
+//     ${PinpointWrapper}
+// `
 const MaltaWrapper = styled(Malta)`
     ${PinpointWrapper}
 `
@@ -125,8 +126,9 @@ export const OurOffices = () => {
             <StyledHeader align="center">{localize('Our offices')}</StyledHeader>
             <MapWrapper>
                 <StyledMap />
-                <MapLink
-                    rel="noopener noreferrer"
+                {/* TODO: [add-google-map] add this element map when verified */}
+                {/* <MapLink
+                    rel="noopener noreferrer"
                     target="_blank"
                     href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
                 >
@@ -134,21 +136,20 @@ export const OurOffices = () => {
                         <Oval />
                         <ParaguayWrapper />
                     </Pinpoint>
-                </MapLink>
-
+                </MapLink> */}
                 <MapLink
                     rel="noopener noreferrer"
                     target="_blank"
-                    href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                    href="https://g.page/r/CRyKELlnWQ3iEAE"
                 >
                     <Pinpoint top="21.6%" left="49.6%">
                         <Oval />
                         <MaltaWrapper />
                     </Pinpoint>
                 </MapLink>
-
-                <MapLink
-                    rel="noopener noreferrer"
+                {/* TODO: [add-google-map] add this element map when verified */}
+                {/* <MapLink
+                    rel="noopener noreferrer"
                     target="_blank"
                     href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
                 >
@@ -156,21 +157,21 @@ export const OurOffices = () => {
                         <Oval />
                         <DubaiWrapper />
                     </Pinpoint>
-                </MapLink>
+                </MapLink> */}
 
                 <MapLink
                     rel="noopener noreferrer"
                     target="_blank"
-                    href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
+                    href="https://g.page/r/CQODFgzIJPYtEAE"
                 >
                     <Pinpoint top="46%" left="63.6%">
                         <Oval top="83%" left="88%" />
                         <CyberjayaWrapper />
                     </Pinpoint>
                 </MapLink>
-
-                <MapLink
-                    rel="noopener noreferrer"
+                {/* TODO: [add-google-map] add this element map when verified */}
+                {/* <MapLink
+                    rel="noopener noreferrer"
                     target="_blank"
                     href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
                 >
@@ -178,7 +179,7 @@ export const OurOffices = () => {
                         <Oval left="8%" />
                         <LabuanWrapper />
                     </Pinpoint>
-                </MapLink>
+                </MapLink> */}
             </MapWrapper>
 
             <NumberWrapper>

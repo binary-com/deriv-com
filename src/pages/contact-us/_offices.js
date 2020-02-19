@@ -9,7 +9,7 @@ import device from 'themes/device'
 
 const Wrapper = styled.section`
     width: 100%;
-    height: 181.3rem;
+    height: 100%;
     background-color: var(--color-white);
     padding: 8rem 23rem;
 
@@ -39,7 +39,7 @@ const Office = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    height: 27.5rem;
+    height: 100%;
     margin-top: 6.3rem;
     width: 100%;
 
@@ -119,6 +119,7 @@ const Splitter = styled.div`
     background-color: var(--color-grey-8);
     height: 0.1rem;
     width: 98rem;
+    margin-top: 6.3rem;
 
     @media ${device.tabletL} {
         width: auto;
@@ -137,7 +138,7 @@ export const Offices = () => {
                             <MapLink
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://maps.google.com/?q=Binary+Europe+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                                href="https://g.page/r/CRyKELlnWQ3iEAE"
                             >
                                 <Image
                                     img_name="map-malta.png"
@@ -160,7 +161,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Binary+Europe+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                                    href="https://g.page/r/CRyKELlnWQ3iEAE"
                                 >
                                     <Localize
                                         translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm Birkirkara BKR9033 Malta."
@@ -190,7 +191,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
+                                    href="https://g.page/r/CQODFgzIJPYtEAE"
                                 >
                                     <Localize
                                         translate_text="C-13, iTech Tower, Jalan Impact, Cyber 6,<0 />63000 Cyberjaya, Selangor, Malaysia."
@@ -207,7 +208,7 @@ export const Offices = () => {
                             <MapLink
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
+                                href="https://g.page/r/CQODFgzIJPYtEAE"
                             >
                                 <Image
                                     img_name="map-cyberjaya.png"
@@ -218,7 +219,8 @@ export const Offices = () => {
                             </MapLink>
                         </ImageWrapper>
                     </EvenOffice>
-                    <Splitter></Splitter>
+                    {/* TODO: [add-google-map] add this element when map is verified */}
+                    {/* <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
                             <MapLink
@@ -346,7 +348,7 @@ export const Offices = () => {
                                 +595 99 129 8762
                             </StyledText>
                         </Content>
-                    </Office>
+                    </Office> */}
                 </OfficeWrapper>
             </OfficesWrapper>
         </Wrapper>

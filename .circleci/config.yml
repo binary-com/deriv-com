@@ -32,10 +32,10 @@ commands:
   npm_install_from_cache:
     description: "npm install and save cache"
     steps:
-      - restore_cache:
-          keys:
-            - node-{{ checksum "package-lock.json" }}
-            - node-
+      #- restore_cache:
+      #    keys:
+      #      - node-{{ checksum "package-lock.json" }}
+      #      - node-
       - run:
           name: Install npm packages
           command: npm ci

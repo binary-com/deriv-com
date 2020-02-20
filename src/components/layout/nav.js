@@ -6,12 +6,13 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container } from 'components/containers'
-import { OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
+import { OffCanvasMenu, moveOffCanvasMenu, Text } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
+import LogoPartner from 'images/svg/logo-partners.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 
 const NavWrapper = styled.div`
@@ -253,11 +254,33 @@ export const NavStatic = () => (
     </StaticWrapper>
 )
 
+const DerivHomeWrapper = styled.div`
+    background-color: var(--color-black);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 3rem;
+`
+
+const HomeLink = styled(LocalizedLink)`
+    margin-right: 3.2rem;
+    text-decoration: none;
+`
+
+const HomeContainer = styled(Container)`
+    height: 100%;
+`
+
+const StyledNavCenter = styled(NavCenter)`
+    margin-left: 13.3rem;
+`
+
+const StyledNavRight = styled(NavRight)`
+    margin-left: auto;
+`
+
+// Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'
 export const NavPartners = () => {
     const nav_ref = useRef(null)
     const button_ref = useRef(null)
-    const [is_platforms_open, setIsPlatformsOpen] = useState(false)
-    const [has_animation, setHasAnimation] = useState(false)
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
@@ -266,97 +289,80 @@ export const NavPartners = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
     }
-    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     useEffect(() => {
         setMounted(true)
         document.addEventListener('scroll', buttonHandleScroll, {
             passive: true,
         })
-        const handleClickOutside = e => {
-            if (!nav_ref.current.contains(e.target)) {
-                setIsPlatformsOpen(false)
-            }
-        }
-        document.addEventListener('click', handleClickOutside)
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
-            document.removeEventListener('click', handleClickOutside)
         }
     }, [])
-    const handleLogin = () => {
-        Login.redirectToLogin()
+    const handlePartnerLogin = () => {
+        window.open('https://login.binary.com/signin.php', '_blank')
     }
-    const handleMenuClick = () => {
-        is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
-    }
-    const handlePlatformsClick = () => {
-        setIsPlatformsOpen(!is_platforms_open)
-        setHasAnimation(true)
-    }
-    const handleNormalLink = () => {
-        setHasAnimation(false)
+    const handlePartnerSignup = () => {
+        window.open('https://login.binary.com/signup.php', '_blank')
     }
 
     return (
-        <NavWrapper ref={nav_ref}>
-            <StyledNav>
-                <PlatformsDropdown is_open={is_platforms_open} has_animation={has_animation} />
-                <Wrapper>
-                    <NavLeft>
-                        <LogoLink to="/" aria-label={localize('Partners')}>
-                            <Logo />
-                        </LogoLink>
-                    </NavLeft>
-                    <NavCenter>
-                        <NavLink onClick={handlePlatformsClick}>
-                            <StyledButton aria-label={localize('Trade')} activeClassName="active">
-                                {localize('Trade')}
-                            </StyledButton>
-                        </NavLink>
-                        <NavLink onClick={handleNormalLink} margin>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/about/"
-                                aria-label={localize('About us')}
-                                partiallyActive={true}
-                            >
+        <>
+            <NavWrapper ref={nav_ref}>
+                <DerivHomeWrapper>
+                    <HomeContainer justify="flex-start">
+                        <HomeLink to="/">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('Deriv homepage')}
+                            </Text>
+                        </HomeLink>
+                        <HomeLink to="/about">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
                                 {localize('About us')}
-                            </StyledLink>
-                        </NavLink>
-                        <NavLink>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/help-centre/"
-                                aria-label={localize('Help Centre')}
-                                partiallyActive={true}
-                            >
-                                {localize('Help Centre')}
-                            </StyledLink>
-                        </NavLink>
-                    </NavCenter>
-                    <NavRight
-                        move={show_button}
-                        button_ref={button_ref}
-                        mounted={mounted}
-                        has_scrolled={has_scrolled}
-                    >
-                        <Button onClick={handleLogin} primary>
-                            <span>{localize('Log in')}</span>
-                        </Button>
-                        <LocalizedLink to="/signup/">
-                            <SignupButton ref={button_ref} secondary>
-                                <span>{localize('Try for free')}</span>
+                            </Text>
+                        </HomeLink>
+                        <HomeLink to="/contact-us">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('Contact us')}
+                            </Text>
+                        </HomeLink>
+                    </HomeContainer>
+                </DerivHomeWrapper>
+                <StyledNav>
+                    <Wrapper>
+                        <NavLeft>
+                            <LogoLink to="/partners" aria-label={localize('Partners')}>
+                                <LogoPartner />
+                            </LogoLink>
+                        </NavLeft>
+                        <StyledNavCenter>
+                            <NavLink>
+                                <StyledLink
+                                    activeClassName="active"
+                                    to="/partners/"
+                                    aria-label={localize('Affiliate & IB')}
+                                    partiallyActive={true}
+                                >
+                                    {localize('Affiliate & IB')}
+                                </StyledLink>
+                            </NavLink>
+                        </StyledNavCenter>
+                        <StyledNavRight
+                            move={show_button}
+                            button_ref={button_ref}
+                            mounted={mounted}
+                            has_scrolled={has_scrolled}
+                        >
+                            <Button onClick={handlePartnerLogin} primary>
+                                <span>{localize('Log in')}</span>
+                            </Button>
+                            <SignupButton onClick={handlePartnerSignup} ref={button_ref} secondary>
+                                <span>{localize('Sign up')}</span>
                             </SignupButton>
-                        </LocalizedLink>
-                    </NavRight>
-                    <HamburgerMenu onClick={handleMenuClick} />
-                    <OffCanvasMenu
-                        is_canvas_menu_open={is_canvas_menu_open}
-                        closeOffCanvasMenu={closeOffCanvasMenu}
-                    />
-                </Wrapper>
-            </StyledNav>
-        </NavWrapper>
+                        </StyledNavRight>
+                    </Wrapper>
+                </StyledNav>
+            </NavWrapper>
+        </>
     )
 }
 

@@ -11,6 +11,7 @@ const Main = styled.main`
 `
 
 const Layout = ({ children, type, padding_top }) => {
+    const is_static = type === 'static'
     let Navigation = <></>
     switch (type) {
         case 'static':
@@ -26,10 +27,10 @@ const Layout = ({ children, type, padding_top }) => {
     return (
         <>
             {Navigation}
-            <Main padding_top={padding_top} is_static={type === 'static'}>
+            <Main padding_top={padding_top} is_static={is_static}>
                 {children}
             </Main>
-            {(type === 'static' || type === 'partners') && <Footer />}
+            {!is_static && <Footer />}
         </>
     )
 }

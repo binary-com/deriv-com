@@ -16,6 +16,7 @@ const NumberWrapper = styled.div`
 `
 const StyledContainer = styled(Container)`
     display: flex;
+    width: 100%;
     justify-content: ${props => props.justify || 'space-between'};
 `
 

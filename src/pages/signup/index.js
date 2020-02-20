@@ -44,6 +44,11 @@ const Line = styled.div`
     margin-top: 2.4rem;
 `
 
+const StyledDiv = styled.div`
+    padding: 6rem 0;
+    background-color: rgba(200, 214, 215, 0.22);
+`
+
 const NewSignup = () => {
     const [submitState, setSubmitState] = useState('')
 
@@ -88,6 +93,7 @@ const NewSignup = () => {
                     autofocus={true}
                 />
             </Wrapper>
+            <StyledDiv />
         </Layout>
     )
 }

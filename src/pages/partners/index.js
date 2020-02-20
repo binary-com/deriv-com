@@ -3,7 +3,6 @@ import WhyUs from './_why-us.js'
 import WhoCanAplly from './_who-can-apply.js'
 import DerivAffiliateProgramme from './_deriv-affiliate-programme'
 import DerivIBProgramme from './_deriv_ib_programme'
-import PaymentMethods from './_payment-methods.js'
 import MoreReason from './_more-reason.js'
 import { Header } from 'components/elements/typography'
 import Layout from 'components/layout/layout'
@@ -60,7 +59,6 @@ const Partners = () => {
                     <WhyUs items={why_partner_with_us_items} />
                     <WhoCanAplly />
                 </Container>
-                <PaymentMethods />
                 <MoreReason />
             </SectionContainer>
         </Layout>

@@ -121,7 +121,7 @@ const WhoCanAplly = () => {
                 </Flex>
             </div>
             <CenteredSection padding='4rem 0'>
-                <LinkButton secondary to='/'>{localize('Apply now')}</LinkButton>
+                <LinkButton secondary to='/'>{localize('Sign up')}</LinkButton>
             </CenteredSection>
         </StyledSection>
     )

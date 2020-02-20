@@ -212,7 +212,7 @@ const SignupNew = ({
                 secondary
                 disabled={is_submitting || !checkBoxState}
             >
-                {localize('Create a free account')}
+                {localize('Create demo account')}
             </EmailButton>
             <SignupWithContainer>
                 <Line />

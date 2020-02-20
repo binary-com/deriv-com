@@ -146,7 +146,7 @@ const SignupPublic = ({
                     </StyledHeader>
                     <br />
                     <StyledHeader as="h4" weight="500" font_size="2.6rem">
-                        {localize('Get your free account now.')}
+                        {localize('Sign up for your demo account now.')}
                     </StyledHeader>
                     <InputGroup>
                         <InputWrapper>

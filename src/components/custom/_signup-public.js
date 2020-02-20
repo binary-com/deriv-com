@@ -73,6 +73,13 @@ const InputGroup = styled.div`
 const EmailButton = styled(Button)`
     margin-left: 2rem;
     height: 4rem;
+
+    @media ${device.tabletL} {
+        width: 13rem;
+        font-size: 1.75rem;
+        margin-left: 0;
+        height: 5rem;
+    }
 `
 const SocialWrapper = styled(Flex)`
     width: 100%;
@@ -112,6 +119,7 @@ const StyledHeader = styled(Header)`
 
     @media (max-width: 800px) {
         margin-top: 2rem;
+        ${props => props.as === 'h4' ? ('font-size: 2rem; margin-top: 0;') : ('')}
     }
 `
 const StyledText = styled(Text)`

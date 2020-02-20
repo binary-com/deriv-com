@@ -137,7 +137,7 @@ const ButtonWrapper = styled.div`
             right: 22%;
         }
         @media ${device.tabletS} {
-            right: 0;
+            right: 2px;
         }
     }
     ${Prev} {
@@ -149,7 +149,7 @@ const ButtonWrapper = styled.div`
             right: 5%;
         }
         @media ${device.tabletS} {
-            left: -5px;
+            left: -3px;
         }
     }
 `

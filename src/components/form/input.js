@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
+import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/cross.svg'
 
@@ -12,6 +13,11 @@ const InputWrapper = styled.div`
     width: 100%;
     border: ${props => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
+
+    @media ${device.tabletL} {
+        width: 27rem;
+        height: 5rem;
+    }
 
     &:hover {
         border-color: var(--color-grey-5);
@@ -53,6 +59,15 @@ const StyledInput = styled.input`
     display: block;
     border: none;
     border-radius: 0;
+
+    @media ${device.tabletL} {
+        height: 5rem;
+
+        & ~ label {
+            font-size: 1.75rem;
+            top: 1.5rem;
+        }
+    }
 
     &::placeholder {
         opacity: 0;

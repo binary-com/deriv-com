@@ -303,7 +303,7 @@ const SignupPublic = ({
                     </MobileRedBanner>
                     <DerivExperience onClick={redirectToDerivApp}>
                         <Header font_size='3rem'>
-                            {localize('Get a tasteof the Deriv experience')}
+                            {localize('Get a taste of the Deriv experience')}
                         </Header>
                         <Arrow />
                     </DerivExperience>

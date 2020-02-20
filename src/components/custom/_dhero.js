@@ -83,7 +83,6 @@ const InformationWrapper = styled(Flex)`
     min-height: 36rem;
 `
 const LinkWrapper = styled.div`
-
     @media ${device.tabletL} {
         text-align: center;
     }
@@ -116,7 +115,7 @@ const DHero = ({
                 <BackgroundSVG />
             </Show.Desktop>
             <StyledContainer>
-                <InformationWrapper direction='column' jc='space-between'>
+                <InformationWrapper direction="column" jc="space-between">
                     <div>
                         <StyledHeader as="h1" weight={500}>
                             <DLogo />
@@ -130,14 +129,14 @@ const DHero = ({
                         <LinkWrapper>
                             {join_us_for_free ? (
                                 <TryForFree secondary>
-                                    <LocalizedLink to='/signup/'>
-                                        {localize('Join us for free')}
+                                    <LocalizedLink to="/signup/">
+                                        {localize('Create demo account')}
                                     </LocalizedLink>
                                 </TryForFree>
                             ) : null}
                             {start_automating ? (
                                 <TryForFree secondary>
-                                    <LocalizedLink to='/signup/'>
+                                    <LocalizedLink to="/signup/">
                                         {localize('Start automating')}
                                     </LocalizedLink>
                                 </TryForFree>

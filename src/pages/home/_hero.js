@@ -183,7 +183,7 @@ export const Hero = () => {
                         </CheckMarkList>
                         <ButtonWrapper jc="unset">
                             <HeroButton type="submit" secondary="true" to="/signup/">
-                                {localize('Join us for free')}
+                                {localize('Create demo account')}
                             </HeroButton>
                         </ButtonWrapper>
                     </StyledArticle>

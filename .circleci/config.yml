@@ -119,6 +119,8 @@ jobs:
   test:
     docker:
       - image: circleci/node:10.18.1-stretch
+      environment:
+        NODE_OPTIONS=--max_old_space_size=4096
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache

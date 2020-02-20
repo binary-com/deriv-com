@@ -71,7 +71,7 @@ const resetSubmission = (values, actions) => {
 }
 
 const ResetPassword = () => (
-    <Layout is_static>
+    <Layout type="static">
         <SEO title={localize('Reset password')} description={localize('Reset password')} />
         <StyledContainer justify="center" align="center" direction="column">
             <Header as="h2" align="center">

@@ -303,7 +303,7 @@ export const NavPartners = () => {
                 <PlatformsDropdown is_open={is_platforms_open} has_animation={has_animation} />
                 <Wrapper>
                     <NavLeft>
-                        <LogoLink to="/" aria-label={localize('Home')}>
+                        <LogoLink to="/" aria-label={localize('Partners')}>
                             <Logo />
                         </LogoLink>
                     </NavLeft>

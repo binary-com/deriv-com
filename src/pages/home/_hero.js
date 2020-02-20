@@ -175,6 +175,10 @@ CheckMarkList.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 
+CheckMarkBullet.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+}
+
 export const Hero = () => {
     return (
         <HeroWrapper>
@@ -196,13 +200,13 @@ export const Hero = () => {
                             </HeroSubHeader>
                             <CheckMarkList>
                                 <CheckMarkBullet>
-                                    {localize('Built upon over 20 years of experience')}
+                                    {localize('Built upon 20+ years of experience')}
                                 </CheckMarkBullet>
                                 <CheckMarkBullet>
-                                    {localize('Over 100+ tradable instruments')}
+                                    {localize('100+ tradable assets')}
                                 </CheckMarkBullet>
                                 <CheckMarkBullet>
-                                    {localize('24x7 trading, tight prices, low spreads')}
+                                    {localize('24x7 trading, sharp prices, tight spreads')}
                                 </CheckMarkBullet>
                             </CheckMarkList>
                         </div>

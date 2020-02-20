@@ -118,7 +118,7 @@ commands:
 jobs:
   test:
     docker:
-      - image: circleci/node:lts-stretch
+      - image: circleci/node:12.4-stretch
       #- image: node:12.16.1-stretch
     steps:
       - git_checkout_from_cache

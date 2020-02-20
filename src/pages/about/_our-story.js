@@ -54,14 +54,14 @@ const StyledHeader = styled(Header)`
 
     ::before {
         content: '';
-        width: 0.4rem;
+        width: 2px;
         height: 2rem;
         border-top: 14px solid red;
         border-bottom: 14px solid red;
         position: absolute;
         top: 27.6%;
-        right: ${props => (props.left ? '-8.4%' : '')};
-        left: ${props => (props.left ? '' : '-9.2%')};
+        right: ${props => (props.left ? '-7.4%' : '')};
+        left: ${props => (props.left ? '' : '-8.9%')};
 
         @media ${device.tablet} {
             display: none;

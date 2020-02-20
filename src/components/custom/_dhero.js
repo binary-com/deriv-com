@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { deriv_app_url } from 'common/utility'
 import { LocalizedLink, localize } from 'components/localization'
-import { Container, Show } from 'components/containers'
+import { Container, Show, Flex } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Image } from 'components/elements'
 import { Button } from 'components/form'
@@ -17,7 +17,7 @@ const HeroContent = styled.div`
     ${Header} {
         color: var(--color-white);
         display: flex;
-        margin-top: 1.6rem;
+        margin-top: 1.5rem;
     }
     h4:first-child {
         margin-top: 0;
@@ -39,11 +39,15 @@ const Wrapper = styled.div`
     flex-direction: column;
 `
 const TryForFree = styled(Button)`
-    margin-top: 3.3rem;
+    a {
+        text-decoration: none;
+        color: var(--color-white);
+    }
 
     @media ${device.tabletL} {
         width: 100%;
         margin-top: 18.5rem;
+        max-width: 47rem;
     }
 `
 const StyledContainer = styled(Container)`
@@ -62,12 +66,27 @@ const LottieWrapper = styled.div`
 const GoToLiveDemo = styled(Button)`
     color: var(--color-white);
     border-color: var(--color-black-5);
-    margin: 3.3rem 0 0 2.4rem;
+    margin-left: 2.4rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
+    }
+    @media ${device.tabletL} {
+        width: 100%;
+        max-width: 47rem;
+    }
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
 `
-
+const InformationWrapper = styled(Flex)`
+    min-height: 36rem;
+`
+const LinkWrapper = styled.div`
+    @media ${device.tabletL} {
+        text-align: center;
+    }
+`
 const DHero = ({
     title,
     background_svg,
@@ -96,34 +115,40 @@ const DHero = ({
                 <BackgroundSVG />
             </Show.Desktop>
             <StyledContainer>
-                <div>
-                    <StyledHeader as="h1" weight={500}>
-                        <DLogo />
-                        {title}
-                    </StyledHeader>
-                    <HeroContent>
-                        <StyledContent as="h2">{content}</StyledContent>
-                    </HeroContent>
-                    {join_us_for_free ? (
-                        <LocalizedLink to='/signup/'>
-                            <TryForFree secondary>
-                                {localize('Join us for free')}
-                            </TryForFree>
-                        </LocalizedLink>
-                    ) : null}
-                    {start_automating ? (
-                        <LocalizedLink to='/signup/'>
-                            <TryForFree secondary>
-                                {localize('Start automating')}
-                            </TryForFree>
-                        </LocalizedLink>
-                    ) : null}
-                    {go_to_live_demo ? (
-                        <GoToLiveDemo tertiary onClick={handleRedirect}>
-                            {localize('Go to live demo')}
-                        </GoToLiveDemo>
-                    ) : null}
-                </div>
+                <InformationWrapper direction="column" jc="space-between">
+                    <div>
+                        <StyledHeader as="h1" weight={500}>
+                            <DLogo />
+                            {title}
+                        </StyledHeader>
+                        <HeroContent>
+                            <StyledContent as="h2">{content}</StyledContent>
+                        </HeroContent>
+                    </div>
+                    <div>
+                        <LinkWrapper>
+                            {join_us_for_free ? (
+                                <TryForFree secondary>
+                                    <LocalizedLink to="/signup/">
+                                        {localize('Create demo account')}
+                                    </LocalizedLink>
+                                </TryForFree>
+                            ) : null}
+                            {start_automating ? (
+                                <TryForFree secondary>
+                                    <LocalizedLink to="/signup/">
+                                        {localize('Start automating')}
+                                    </LocalizedLink>
+                                </TryForFree>
+                            ) : null}
+                            {go_to_live_demo ? (
+                                <GoToLiveDemo tertiary onClick={handleRedirect}>
+                                    {localize('Go to live demo')}
+                                </GoToLiveDemo>
+                            ) : null}
+                        </LinkWrapper>
+                    </div>
+                </InformationWrapper>
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>

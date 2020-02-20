@@ -54,6 +54,8 @@ class PromiseClass {
 
 const sanitize = input => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
+const sentenceCase = input => input.charAt(0).toUpperCase() + input.slice(1)
+
 const deriv_app_url = 'https://deriv.app'
 const deriv_bot_app_url = 'https://deriv.app/bot'
 const brand_name = 'Deriv'
@@ -71,5 +73,6 @@ export {
     getLocationHash,
     PromiseClass,
     sanitize,
+    sentenceCase,
     toISOFormat,
 }

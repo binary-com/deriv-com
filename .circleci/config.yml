@@ -118,8 +118,8 @@ commands:
 jobs:
   test:
     docker:
-      #- image: circleci/node:9.11.2-stretch
-      - image: node:12.16.1-stretch
+      - image: circleci/node:lts-stretch
+      #- image: node:12.16.1-stretch
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
@@ -132,8 +132,7 @@ jobs:
 
   build_push_staging:
     docker:
-      #- image: circleci/node:9.11.2-stretch
-      - image: node:12.16.1-stretch
+      - image: circleci/node:9.11.2-stretch
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
@@ -143,8 +142,7 @@ jobs:
       
   build_push_production:
     docker:
-      #- image: circleci/node:9.11.2-stretch
-      - image: node:12.16.1-stretch
+      - image: circleci/node:9.11.2-stretch
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
@@ -157,15 +155,13 @@ jobs:
 
   deploy_staging:
     docker:
-      #- image: circleci/node:9.11.2-stretch
-      - image: node:12.16.1-stretch
+      - image: circleci/node:9.11.2-stretch
     steps:
       - k8s_deploy
       
   deploy_production:
     docker:
-      #- image: circleci/node:9.11.2-stretch
-      - image: node:12.16.1-stretch
+      - image: circleci/node:9.11.2-stretch
     steps:
       - k8s_deploy:
           k8s_svc_name: "production-deriv-com"

@@ -89,16 +89,16 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${props => {
-        if (props.move) {
-            return 0
-        } else {
-            if (props.button_ref.current && props.mounted) {
-                const calculation = props.button_ref.current.offsetWidth + 2
-                return `${calculation}px`
+            if (props.move) {
+                return 0
+            } else {
+                if (props.button_ref.current && props.mounted) {
+                    const calculation = props.button_ref.current.offsetWidth + 2
+                    return `${calculation}px`
+                }
+                return '350px'
             }
-            return '350px'
-        }
-    }}
+        }}
     );
     @media ${device.tabletL} {
         display: none;
@@ -228,7 +228,7 @@ export const Nav = () => {
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
-                        <LocalizedLink to='/signup/'>
+                        <LocalizedLink to="/signup/">
                             <SignupButton ref={button_ref} secondary>
                                 <span>{localize('Try for free')}</span>
                             </SignupButton>
@@ -252,6 +252,113 @@ export const NavStatic = () => (
         </StyledLink>
     </StaticWrapper>
 )
+
+export const NavPartners = () => {
+    const nav_ref = useRef(null)
+    const button_ref = useRef(null)
+    const [is_platforms_open, setIsPlatformsOpen] = useState(false)
+    const [has_animation, setHasAnimation] = useState(false)
+    const [show_button, showButton, hideButton] = moveButton()
+    const [mounted, setMounted] = useState(false)
+    const [has_scrolled, setHasScrolled] = useState(false)
+
+    const buttonHandleScroll = () => {
+        setHasScrolled(true)
+        handleScroll(showButton, hideButton)
+    }
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+    useEffect(() => {
+        setMounted(true)
+        document.addEventListener('scroll', buttonHandleScroll, {
+            passive: true,
+        })
+        const handleClickOutside = e => {
+            if (!nav_ref.current.contains(e.target)) {
+                setIsPlatformsOpen(false)
+            }
+        }
+        document.addEventListener('click', handleClickOutside)
+        return () => {
+            document.removeEventListener('scroll', buttonHandleScroll)
+            document.removeEventListener('click', handleClickOutside)
+        }
+    }, [])
+    const handleLogin = () => {
+        Login.redirectToLogin()
+    }
+    const handleMenuClick = () => {
+        is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
+    }
+    const handlePlatformsClick = () => {
+        setIsPlatformsOpen(!is_platforms_open)
+        setHasAnimation(true)
+    }
+    const handleNormalLink = () => {
+        setHasAnimation(false)
+    }
+
+    return (
+        <NavWrapper ref={nav_ref}>
+            <StyledNav>
+                <PlatformsDropdown is_open={is_platforms_open} has_animation={has_animation} />
+                <Wrapper>
+                    <NavLeft>
+                        <LogoLink to="/" aria-label={localize('Home')}>
+                            <Logo />
+                        </LogoLink>
+                    </NavLeft>
+                    <NavCenter>
+                        <NavLink onClick={handlePlatformsClick}>
+                            <StyledButton aria-label={localize('Trade')} activeClassName="active">
+                                {localize('Trade')}
+                            </StyledButton>
+                        </NavLink>
+                        <NavLink onClick={handleNormalLink} margin>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/about/"
+                                aria-label={localize('About us')}
+                                partiallyActive={true}
+                            >
+                                {localize('About us')}
+                            </StyledLink>
+                        </NavLink>
+                        <NavLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/help-centre/"
+                                aria-label={localize('Help Centre')}
+                                partiallyActive={true}
+                            >
+                                {localize('Help Centre')}
+                            </StyledLink>
+                        </NavLink>
+                    </NavCenter>
+                    <NavRight
+                        move={show_button}
+                        button_ref={button_ref}
+                        mounted={mounted}
+                        has_scrolled={has_scrolled}
+                    >
+                        <Button onClick={handleLogin} primary>
+                            <span>{localize('Log in')}</span>
+                        </Button>
+                        <LocalizedLink to="/signup/">
+                            <SignupButton ref={button_ref} secondary>
+                                <span>{localize('Try for free')}</span>
+                            </SignupButton>
+                        </LocalizedLink>
+                    </NavRight>
+                    <HamburgerMenu onClick={handleMenuClick} />
+                    <OffCanvasMenu
+                        is_canvas_menu_open={is_canvas_menu_open}
+                        closeOffCanvasMenu={closeOffCanvasMenu}
+                    />
+                </Wrapper>
+            </StyledNav>
+        </NavWrapper>
+    )
+}
 
 function moveButton(is_visible = false) {
     const [show_button, setShowButton] = useState(is_visible)

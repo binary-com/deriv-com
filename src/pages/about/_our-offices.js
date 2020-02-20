@@ -6,8 +6,8 @@ import Map from 'images/svg/world-map.svg'
 import device from 'themes/device'
 import Labuan from 'images/svg/labuan-pin-location.svg'
 import Cyberjaya from 'images/svg/cyberjaya-pin-location.svg'
-// import Dubai from 'images/svg/dubai-pin-location.svg'
-// import Paraguay from 'images/svg/paraguay-pin-location.svg'
+import Dubai from 'images/svg/dubai-pin-location.svg'
+import Paraguay from 'images/svg/paraguay-pin-location.svg'
 import Malta from 'images/svg/malta-pin-location.svg'
 
 const OfficeContainer = styled.section`
@@ -78,16 +78,15 @@ const PinpointWrapper = styled(Labuan)`
 const CyberjayaWrapper = styled(Cyberjaya)`
     ${PinpointWrapper}
 `
-// TODO: [add-google-map] add this design when map is verified
-// const LabuanWrapper = styled(Labuan)`
-//     ${PinpointWrapper}
-// `
-// const DubaiWrapper = styled(Dubai)`
-//     ${PinpointWrapper}
-// `
-// const ParaguayWrapper = styled(Paraguay)`
-//     ${PinpointWrapper}
-// `
+const LabuanWrapper = styled(Labuan)`
+    ${PinpointWrapper}
+`
+const DubaiWrapper = styled(Dubai)`
+    ${PinpointWrapper}
+`
+const ParaguayWrapper = styled(Paraguay)`
+    ${PinpointWrapper}
+`
 const MaltaWrapper = styled(Malta)`
     ${PinpointWrapper}
 `
@@ -126,17 +125,10 @@ export const OurOffices = () => {
             <StyledHeader align="center">{localize('Our offices')}</StyledHeader>
             <MapWrapper>
                 <StyledMap />
-                {/* TODO: [add-google-map] add this element map when verified */}
-                {/* <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
-                >
-                    <Pinpoint top="66%" left="25%">
-                        <Oval />
-                        <ParaguayWrapper />
-                    </Pinpoint>
-                </MapLink> */}
+                <Pinpoint top="66%" left="25%">
+                    <Oval />
+                    <ParaguayWrapper />
+                </Pinpoint>
                 <MapLink
                     rel="noopener noreferrer"
                     target="_blank"
@@ -147,17 +139,10 @@ export const OurOffices = () => {
                         <MaltaWrapper />
                     </Pinpoint>
                 </MapLink>
-                {/* TODO: [add-google-map] add this element map when verified */}
-                {/* <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
-                >
-                    <Pinpoint top="30.6%" left="63.7%">
-                        <Oval />
-                        <DubaiWrapper />
-                    </Pinpoint>
-                </MapLink> */}
+                <Pinpoint top="30.6%" left="63.7%">
+                    <Oval />
+                    <DubaiWrapper />
+                </Pinpoint>
 
                 <MapLink
                     rel="noopener noreferrer"
@@ -169,17 +154,10 @@ export const OurOffices = () => {
                         <CyberjayaWrapper />
                     </Pinpoint>
                 </MapLink>
-                {/* TODO: [add-google-map] add this element map when verified */}
-                {/* <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
-                >
-                    <Pinpoint top="44.6%" left="85%">
-                        <Oval left="8%" />
-                        <LabuanWrapper />
-                    </Pinpoint>
-                </MapLink> */}
+                <Pinpoint top="44.6%" left="85%">
+                    <Oval left="8%" />
+                    <LabuanWrapper />
+                </Pinpoint>
             </MapWrapper>
 
             <NumberWrapper>
@@ -197,7 +175,7 @@ export const OurOffices = () => {
                 </Number>
                 <Number>
                     <Header align="center" as="h2">
-                        2
+                        5
                     </Header>
                     <Text align="center">{localize('Corporate offices')}</Text>
                 </Number>

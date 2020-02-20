@@ -219,22 +219,15 @@ export const Offices = () => {
                             </MapLink>
                         </ImageWrapper>
                     </EvenOffice>
-                    {/* TODO: [add-google-map] add this element when map is verified */}
-                    {/* <Splitter></Splitter>
+                    <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
-                            <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://maps.google.com/?q=Paragon+Labuan+shopping+mall&5.280808,115.244948&ll=5.280808,115.244948&z=17"
-                            >
-                                <Image
-                                    img_name="map-labuan.png"
-                                    alt={localize('Labuan Office')}
-                                    width="49rem"
-                                    height="100%"
-                                />
-                            </MapLink>
+                            <Image
+                                img_name="map-labuan.png"
+                                alt={localize('Labuan Office')}
+                                width="49rem"
+                                height="100%"
+                            />
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -245,17 +238,12 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
-                                    target="_blank"
-                                    color="black-3"
-                                    size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Paragon+Labuan+shopping+mall&5.280808,115.244948&ll=5.280808,115.244948&z=17"
-                                >
+                                <Text target="_blank" color="black-3">
                                     <Localize
                                         translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia"
                                         components={[<br key={0} />]}
                                     />
-                                </LinkText>
+                                </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
@@ -274,17 +262,12 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
-                                    target="_blank"
-                                    color="black-3"
-                                    size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
-                                >
+                                <Text target="_blank" color="black-3">
                                     <Localize
                                         translate_text="Unit 3004, 1 Lake Plaza, Cluster T,<0 />Jumeirah Lake Towers, Dubai, UAE."
                                         components={[<br key={0} />]}
                                     />
-                                </LinkText>
+                                </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
@@ -292,35 +275,23 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
-                            >
-                                <Image
-                                    img_name="map-dubai.png"
-                                    alt={localize('Dubai Office')}
-                                    width="49rem"
-                                    height="100%"
-                                />
-                            </MapLink>
+                            <Image
+                                img_name="map-dubai.png"
+                                alt={localize('Dubai Office')}
+                                width="49rem"
+                                height="100%"
+                            />
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
-                            <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
-                            >
-                                <Image
-                                    img_name="map-paraguay.png"
-                                    alt={localize('paraguay Office')}
-                                    width="49rem"
-                                    height="100%"
-                                />
-                            </MapLink>
+                            <Image
+                                img_name="map-paraguay.png"
+                                alt={localize('paraguay Office')}
+                                width="49rem"
+                                height="100%"
+                            />
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -331,24 +302,19 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
-                                    target="_blank"
-                                    color="black-3"
-                                    size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
-                                >
+                                <Text target="_blank" color="black-3">
                                     <Localize
                                         translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma,<0 />Trinidad, Asuncion, Paraguay."
                                         components={[<br key={0} />]}
                                     />
-                                </LinkText>
+                                </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
                                 +595 99 129 8762
                             </StyledText>
                         </Content>
-                    </Office> */}
+                    </Office>
                 </OfficeWrapper>
             </OfficesWrapper>
         </Wrapper>

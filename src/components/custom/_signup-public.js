@@ -252,7 +252,7 @@ const SignupPublic = ({
                         </EmailButton>
                     </InputGroup>
                     <SocialWrapper jc="unset" ai="center">
-                        <StyledText>{localize('or sign up with')}</StyledText>
+                        <StyledText>{localize('or sign in with')}</StyledText>
                         <SocialButton
                             onClick={handleSocialSignup}
                             provider="google"

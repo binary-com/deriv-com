@@ -56,7 +56,7 @@ const NewSignup = () => {
         setSubmitState(submitStatus)
     }
     return (
-        <Layout is_static padding_top="0">
+        <Layout type="static" padding_top="0">
             <SEO
                 description={localize(
                     'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',

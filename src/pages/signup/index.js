@@ -12,7 +12,7 @@ import Graph from 'images/svg/graph.svg'
 const Wrapper = styled.section`
     padding: 8rem 0;
     width: 100%;
-    height: inherit;
+    height: calc(100vh - 10.4rem);
     justify-content: center;
     display: flex;
     flex-direction: row;
@@ -62,7 +62,9 @@ const NewSignup = () => {
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>
                         <Graph />
-                        <Header margin="2.4rem 0 0 0" font_size="3.6rem">{localize('Start trading with Deriv')}</Header>
+                        <Header margin="2.4rem 0 0 0" font_size="3.6rem">
+                            {localize('Start trading with Deriv')}
+                        </Header>
                         <br />
                         <Text>
                             {localize(

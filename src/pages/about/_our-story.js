@@ -67,6 +67,11 @@ const StyledHeader = styled(Header)`
         }
     }
 
+    @media ${device.laptopL} {
+        width: 11%;
+        margin-left: ${props => (props.left ? '38.66%' : '51.4%')};
+    }
+
     @media ${device.tablet} {
         margin: auto;
         align-items: center;

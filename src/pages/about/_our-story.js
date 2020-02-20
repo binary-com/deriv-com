@@ -27,7 +27,7 @@ const YearWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: ${props => (props.left ? props.margin_left || '11rem' : '-8rem')};
+    margin-left: ${props => (props.left ? props.margin_left || '9.5rem' : '-9rem')};
     margin-bottom: ${props => props.margin_bottom || 'unset'};
 
     p {
@@ -42,8 +42,8 @@ const YearWrapper = styled.div`
     }
 `
 const ContentWrapper = styled.div`
-    width: 41rem;
-    padding: 0 1rem;
+    width: ${props => (props.content_width || '39.6rem')};
+    padding: 0 0 0 1rem;
 `
 const StyledHeader = styled(Header)`
     width: 8%;
@@ -141,7 +141,7 @@ export const OurStory = () => {
                                 >
                                     {content.svg}
                                 </LogoContainer>
-                                <ContentWrapper left>
+                                <ContentWrapper content_width={content.content_width} left>
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
                                             <Header
@@ -168,7 +168,7 @@ export const OurStory = () => {
                                 width_laptop={story.width_laptop}
                                 margin_bottom={content.margin_bottom}
                             >
-                                <ContentWrapper>
+                                <ContentWrapper content_width={content.content_width}>
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
                                             <Header

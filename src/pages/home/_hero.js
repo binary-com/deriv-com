@@ -31,6 +31,7 @@ const HeroWrapper = styled.section`
         background: unset;
         background-position: -20rem 100%;
         background-color: var(--color-black);
+        min-height: 73rem;
     }
     @media ${device.tablet} {
         background-position: -40rem 100%;
@@ -44,6 +45,7 @@ const HeroHeader = styled(Header)`
 
     @media ${device.tabletL} {
         text-align: left;
+        font-size: 3.25rem;
     }
     @media ${device.desktopL} {
         font-size: 6.72rem;
@@ -65,6 +67,10 @@ const StyledArticle = styled.article`
 
     @media ${device.tabletL} {
         margin: 0 2rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 `
 
@@ -79,6 +85,12 @@ const HeroGrid = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media ${device.tabletL} {
+        justify-content: flex-start;
+        margin-top: 13.37rem;
+        margin-bottom: 4rem;
+    }
 `
 
 const ButtonWrapper = styled(Flex)`
@@ -117,6 +129,14 @@ const HeroButton = styled(LinkButton)`
     height: 4.8rem;
     display: flex;
     align-items: center;
+
+    @media ${device.tabletL} {
+        width: 27rem;
+        margin: 0 auto;
+        display: flex;
+        font-size: 1.75rem;
+        justify-content: center;
+    }
 `
 
 const CheckBoxText = styled(Text)`
@@ -127,6 +147,9 @@ const CheckBoxText = styled(Text)`
 
     @media ${device.desktopL} {
         font-size: 2.52rem;
+    }
+    @media ${device.tabletL} {
+        font-size: 2rem;
     }
 `
 const CheckMarkBullet = ({ children }) => (
@@ -158,34 +181,38 @@ export const Hero = () => {
             <Container>
                 <HeroGrid>
                     <StyledArticle>
-                        <HeroHeader as="h1" color="white" lh="1.15">
-                            {localize('Simple. Flexible. Reliable.')}
-                        </HeroHeader>
-                        <HeroSubHeader
-                            as="h2"
-                            color="white"
-                            lh="1.5"
-                            font_size="var(--text-size-m)"
-                            weight="500"
-                        >
-                            {localize('Trade forex, commodities, stock and synthetic indices')}
-                        </HeroSubHeader>
-                        <CheckMarkList>
-                            <CheckMarkBullet>
-                                {localize('Built upon over 20 years of experience')}
-                            </CheckMarkBullet>
-                            <CheckMarkBullet>
-                                {localize('Over 100+ tradable instruments')}
-                            </CheckMarkBullet>
-                            <CheckMarkBullet>
-                                {localize('24x7 trading, tight prices, low spreads')}
-                            </CheckMarkBullet>
-                        </CheckMarkList>
-                        <ButtonWrapper jc="unset">
-                            <HeroButton type="submit" secondary="true" to="/signup/">
-                                {localize('Join us for free')}
-                            </HeroButton>
-                        </ButtonWrapper>
+                        <div>
+                            <HeroHeader as="h1" color="white" lh="1.15">
+                                {localize('Simple. Flexible. Reliable.')}
+                            </HeroHeader>
+                            <HeroSubHeader
+                                as="h2"
+                                color="white"
+                                lh="1.5"
+                                font_size="var(--text-size-m)"
+                                weight="500"
+                            >
+                                {localize('Trade forex, commodities, stock and synthetic indices')}
+                            </HeroSubHeader>
+                            <CheckMarkList>
+                                <CheckMarkBullet>
+                                    {localize('Built upon over 20 years of experience')}
+                                </CheckMarkBullet>
+                                <CheckMarkBullet>
+                                    {localize('Over 100+ tradable instruments')}
+                                </CheckMarkBullet>
+                                <CheckMarkBullet>
+                                    {localize('24x7 trading, tight prices, low spreads')}
+                                </CheckMarkBullet>
+                            </CheckMarkList>
+                        </div>
+                        <div>
+                            <ButtonWrapper jc="unset">
+                                <HeroButton type="submit" secondary="true" to="/signup/">
+                                    {localize('Join us for free')}
+                                </HeroButton>
+                            </ButtonWrapper>
+                        </div>
                     </StyledArticle>
                 </HeroGrid>
             </Container>

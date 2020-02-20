@@ -6,8 +6,6 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
-import LineArrow from 'images/svg/line-arrow.svg'
-import GradientLine from 'images/svg/gradient-line.svg'
 
 const StorySection = styled.section`
     width: 100%;
@@ -29,7 +27,7 @@ const YearWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: ${props => (props.left ? props.margin_left || '10rem' : '-9rem')};
+    margin-left: ${props => (props.left ? props.margin_left || '11rem' : '-8rem')};
     margin-bottom: ${props => props.margin_bottom || 'unset'};
 
     p {
@@ -44,11 +42,12 @@ const YearWrapper = styled.div`
     }
 `
 const ContentWrapper = styled.div`
-    width: 40rem;
+    width: 41rem;
+    padding: 0 1rem;
 `
 const StyledHeader = styled(Header)`
-    width: 10%;
-    margin-left: ${props => (props.left ? '39.4%' : '50.9%')};
+    width: 8%;
+    margin-left: ${props => (props.left ? '41.66%' : '50.9%')};
     margin-bottom: 2.5rem;
     position: relative;
 
@@ -60,8 +59,8 @@ const StyledHeader = styled(Header)`
         border-bottom: 14px solid red;
         position: absolute;
         top: 27.6%;
-        right: ${props => (props.left ? '-7.4%' : '')};
-        left: ${props => (props.left ? '' : '-8.9%')};
+        right: ${props => (props.left ? '-12.8%' : '')};
+        left: ${props => (props.left ? '' : '-4.2%')};
 
         @media ${device.tablet} {
             display: none;
@@ -92,7 +91,7 @@ const LogoContainer = styled.div`
 
 const StyledLine = styled(StorySVG)`
     position: absolute;
-    height: 90.5%;
+    height: 92.5%;
     left: 50%;
     top: 5%;
 
@@ -100,34 +99,13 @@ const StyledLine = styled(StorySVG)`
         display: none;
     }
 `
-const StyledLineArrow = styled(LineArrow)`
-    position: absolute;
-    height: -3%;
-    left: 49.4%;
-    top: 4.3%;
 
-    @media ${device.tablet} {
-        display: none;
-    }
-`
-const StyledGradientLine = styled(GradientLine)`
-    position: absolute;
-    height: -3%;
-    left: 50%;
-    top: 95.2%;
-
-    @media ${device.tablet} {
-        display: none;
-    }
-`
 export const OurStory = () => {
     return (
         <StorySection>
             <Header font_size="3.6rem" align="center" margin="0 0 9.2rem 0">
                 {localize('Our history')}
             </Header>
-            <StyledLineArrow />
-            <StyledGradientLine />
             <StyledLine />
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>

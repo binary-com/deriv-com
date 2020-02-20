@@ -280,7 +280,7 @@ const Stories = [
                 svg: <DerivLaptop />,
                 svg_position: 'center',
                 margin_right: '6rem',
-                margin_left: '-1.4rem',
+                margin_left: '0.6rem',
                 margin_bottom: '6rem',
                 svg_width: '35.7rem',
             },

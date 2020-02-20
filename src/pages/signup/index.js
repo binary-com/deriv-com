@@ -39,8 +39,7 @@ const StyledText = styled(Text)`
 
 const Line = styled.div`
     width: 100%;
-    height: 1px;
-    background-color: var(--color-red);
+    border-bottom: 1px solid var(--color-red);
     margin-top: 2.4rem;
 `
 

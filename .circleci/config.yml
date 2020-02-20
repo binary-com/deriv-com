@@ -118,7 +118,7 @@ commands:
 jobs:
   test:
     docker:
-      - image: circleci/node:12.4-stretch
+      - image: circleci/node:10.18.1-stretch
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache

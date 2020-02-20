@@ -153,10 +153,10 @@ const SignupNew = ({
             : `/${getLanguage()}/terms-and-conditions/`
     return (
         <SignupContent>
-            <Header as="h4" weight="bold">
+            <Header as="h4" margin="0 0 0.8rem 0">
                 {localize('Sign up')}
             </Header>
-            <br />
+
             <Text>{localize('Enter your email address to begin')}</Text>
             <NoteBox>
                 <StyledText

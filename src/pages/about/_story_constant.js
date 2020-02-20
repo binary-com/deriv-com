@@ -22,7 +22,7 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [localize('Regent Markets is born')],
+                headers: [{ header: localize('Regent Markets is born') }],
                 texts: [
                     {
                         text: (
@@ -45,7 +45,7 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [localize('First binary option purchased')],
+                headers: [{ header: localize('First binary option purchased') }],
                 texts: [
                     {
                         text: localize(
@@ -66,7 +66,7 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [localize('BetOnMarkets.com')],
+                headers: [{ header: localize('BetOnMarkets.com') }],
                 texts: [
                     {
                         text: localize(
@@ -86,7 +86,7 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [localize('A new hub')],
+                headers: [{ header: localize('A new hub') }],
                 texts: [
                     {
                         text: localize(
@@ -106,7 +106,7 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [localize('Recognition after recognition')],
+                headers: [{ header: localize('Recognition after recognition') }],
                 texts: [
                     {
                         text: (
@@ -129,7 +129,7 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [localize('Binary.com')],
+                headers: [{ header: localize('Binary.com') }],
                 texts: [
                     {
                         text: localize(
@@ -149,7 +149,7 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [localize('Licensed financial product')],
+                headers: [{ header: localize('Licensed financial product') }],
                 texts: [
                     {
                         text: localize(
@@ -162,7 +162,7 @@ const Stories = [
             },
             {
                 left: true,
-                headers: [localize('Binary.com Websocket API')],
+                headers: [{ header: localize('Binary.com Websocket API') }],
                 texts: [
                     {
                         text: localize(
@@ -182,7 +182,10 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [localize('Binary Bot'), localize('Tick Trade app')],
+                headers: [
+                    { header: localize('Binary Bot') },
+                    { header: localize('Tick Trade app'), margin_top: '2.4rem' },
+                ],
                 texts: [
                     {
                         text: localize(
@@ -201,7 +204,10 @@ const Stories = [
             },
             {
                 left: false,
-                headers: [localize('CFDs on MT5 '), localize('Webtrader')],
+                headers: [
+                    { header: localize('CFDs on MT5 ') },
+                    { header: localize('Webtrader'), margin_top: '2.4rem' },
+                ],
                 texts: [
                     {
                         text: localize(
@@ -227,7 +233,7 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [localize('New office')],
+                headers: [{ header: localize('New office') }],
                 texts: [
                     {
                         text: localize(
@@ -247,7 +253,7 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [localize('Continued expansion ')],
+                headers: [{ header: localize('Continued expansion ') }],
                 texts: [
                     {
                         text: localize(
@@ -269,7 +275,7 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [localize('Deriv.com')],
+                headers: [{ header: localize('Deriv.com') }],
                 texts: [
                     {
                         text: localize(
@@ -283,7 +289,7 @@ const Stories = [
                 margin_left: '-0.4rem',
                 margin_bottom: '6rem',
                 svg_width: '35.7rem',
-                content_width: '41rem'
+                content_width: '41rem',
             },
         ],
     },

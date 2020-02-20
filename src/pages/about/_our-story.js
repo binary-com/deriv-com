@@ -153,11 +153,12 @@ export const OurStory = () => {
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
+                                                margin= {header.margin_top +  ' 0 0 0'}
                                             >
-                                                {header}
+                                                {header.header}
                                             </Header>
                                             <Splitter />
-                                            <Text padding="0 0 0 1.1rem">
+                                            <Text padding="0 0 0 1.1rem" >
                                                 {content.texts[id].text}
                                             </Text>
                                         </div>
@@ -179,8 +180,9 @@ export const OurStory = () => {
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
+                                                margin= {header.margin_top +  ' 0 0 0'}
                                             >
-                                                {header}
+                                                {header.header}
                                             </Header>
                                             <Splitter />
                                             <Text>{content.texts[id].text}</Text>

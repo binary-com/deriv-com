@@ -123,6 +123,11 @@ jobs:
       - git_checkout_from_cache
       - npm_install_from_cache
       - npm_test
+      - build
+      - compress
+      - upload_artifact  # uploading the built code to s3 to create a backup of key services separate from Kubernetes deployment
+      - upload_checksum  # uploading compressed artifact checksum to cross match artifact fingerprint
+      - docker_build
 
   build_push_staging:
     docker:
@@ -168,6 +173,7 @@ workflows:
           filters:
             branches:
               only: /^dev/
+          context: binary-frontend-artifact-deploy  # using context to retrieve shared secret from circle ci
   tagged_release_staging:
     jobs:
       - build_push_staging:

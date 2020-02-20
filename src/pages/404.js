@@ -24,7 +24,7 @@ const PageNotFoundContainer = styled.div`
     width: 100%;
     justify-content: center;
     align-items: center;
-    margin: 16rem 0;
+    padding: 16rem 0;
 `
 const ButtonWrapper = styled.div`
     margin-top: 2.6rem;

@@ -69,7 +69,11 @@ const StyledHeader = styled(Header)`
 
     @media ${device.laptopL} {
         width: 11%;
-        margin-left: ${props => (props.left ? '38.66%' : '51.4%')};
+        margin-left: ${props => (props.left ? '38.4%' : '51.1%')};
+    }
+    @media ${device.laptop} {
+        width: 11%;
+        margin-left: ${props => (props.left ? '38.7%' : '51.4%')};
     }
 
     @media ${device.tablet} {

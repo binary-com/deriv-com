@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const CheckboxContainer = styled.div`
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: text-bottom;
 `
 
 const Icon = styled.svg`

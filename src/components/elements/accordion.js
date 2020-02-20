@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from './typography'
-import Chevron from 'images/svg/chevron-bottom.svg'
+import Chevron from 'images/svg/chevron-thick.svg'
 
 const Arrow = styled(Chevron)`
-    transition: transform 0.2s linear;
-    ${props => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+    transform: rotate(-180deg);
+    transition: transform 0.25s linear;
+    ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
 `
 
 const AccordionHeader = styled.div`
@@ -14,7 +15,7 @@ const AccordionHeader = styled.div`
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--color-grey-2);
-    padding: 0 1.6rem;
+    padding: 0 3.2rem;
 
     ${Text} {
         margin-right: auto;
@@ -24,18 +25,13 @@ const AccordionHeader = styled.div`
     }
 `
 
-const AccordionContentWrapper = styled.div`
-    padding: 1.6rem;
-`
-
 const AccordionWrapper = styled.div`
-    margin-bottom: 1.6rem;
     width: 100%;
     border-radius: 6px;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
     background-color: var(--color-white);
 `
-const TRANSITION_DURATION = 400
+const TRANSITION_DURATION = 250
 
 // TODO: keyboard events and find a way to add proper focus handling
 const Accordion = ({ children }) => {
@@ -61,19 +57,17 @@ const AccordionContent = ({ children, nodes }) => {
 
     const getHeight = child_idx => {
         if (active_idx === child_idx) {
-            return nodes.length > active_idx
-                ? nodes[active_idx].ref.children[1].children[0].offsetHeight
-                : 'auto'
+            return '400rem'
         }
         return 0
     }
 
     const render_nodes = React.Children.map(children, (child, child_idx) => {
-        const height = getHeight(child_idx)
+        const max_height = getHeight(child_idx)
         const is_expanded = child_idx === active_idx
 
         return (
-            <div>
+            <div style={child.props.parent_style}>
                 <AccordionWrapper
                     key={child_idx}
                     ref={div => {
@@ -91,11 +85,11 @@ const AccordionContent = ({ children, nodes }) => {
                     <div
                         style={{
                             overflow: 'hidden',
-                            transition: `height ${TRANSITION_DURATION}ms ease`,
-                            height,
+                            transition: `max-height ${TRANSITION_DURATION}ms ease`,
+                            maxHeight: max_height,
                         }}
                     >
-                        <AccordionContentWrapper>{child}</AccordionContentWrapper>
+                        {child}
                     </div>
                 </AccordionWrapper>
             </div>
@@ -110,12 +104,17 @@ AccordionContent.propTypes = {
     nodes: PropTypes.array,
 }
 
-const AccordionItem = ({ text, children }) => {
-    return <div header={text}>{children}</div>
+const AccordionItem = ({ text, children, style }) => {
+    return (
+        <div style={style} header={text}>
+            {children}
+        </div>
+    )
 }
 
 AccordionItem.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    style: PropTypes.object,
     text: PropTypes.string,
 }
 

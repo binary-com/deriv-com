@@ -75,10 +75,10 @@ const PinpointWrapper = styled(Labuan)`
     position: relative;
     left: ${props => props.left || '-4%'};
 `
-const LabuanWrapper = styled(Labuan)`
+const CyberjayaWrapper = styled(Cyberjaya)`
     ${PinpointWrapper}
 `
-const CyberjayaWrapper = styled(Cyberjaya)`
+const LabuanWrapper = styled(Labuan)`
     ${PinpointWrapper}
 `
 const DubaiWrapper = styled(Dubai)`
@@ -125,60 +125,39 @@ export const OurOffices = () => {
             <StyledHeader align="center">{localize('Our offices')}</StyledHeader>
             <MapWrapper>
                 <StyledMap />
+                <Pinpoint top="66%" left="25%">
+                    <Oval />
+                    <ParaguayWrapper />
+                </Pinpoint>
                 <MapLink
                     rel="noopener noreferrer"
                     target="_blank"
-                    href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
-                >
-                    <Pinpoint top="66%" left="25%">
-                        <Oval />
-                        <ParaguayWrapper />
-                    </Pinpoint>
-                </MapLink>
-
-                <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                    href="https://g.page/r/CRyKELlnWQ3iEAE"
                 >
                     <Pinpoint top="21.6%" left="49.6%">
                         <Oval />
                         <MaltaWrapper />
                     </Pinpoint>
                 </MapLink>
+                <Pinpoint top="30.6%" left="63.7%">
+                    <Oval />
+                    <DubaiWrapper />
+                </Pinpoint>
 
                 <MapLink
                     rel="noopener noreferrer"
                     target="_blank"
-                    href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
-                >
-                    <Pinpoint top="30.6%" left="63.7%">
-                        <Oval />
-                        <DubaiWrapper />
-                    </Pinpoint>
-                </MapLink>
-
-                <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
+                    href="https://g.page/r/CQODFgzIJPYtEAE"
                 >
                     <Pinpoint top="46%" left="63.6%">
                         <Oval top="83%" left="88%" />
                         <CyberjayaWrapper />
                     </Pinpoint>
                 </MapLink>
-
-                <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
-                >
-                    <Pinpoint top="44.6%" left="85%">
-                        <Oval left="8%" />
-                        <LabuanWrapper />
-                    </Pinpoint>
-                </MapLink>
+                <Pinpoint top="44.6%" left="85%">
+                    <Oval left="8%" />
+                    <LabuanWrapper />
+                </Pinpoint>
             </MapWrapper>
 
             <NumberWrapper>

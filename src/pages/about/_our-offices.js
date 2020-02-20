@@ -197,7 +197,7 @@ export const OurOffices = () => {
                 </Number>
                 <Number>
                     <Header align="center" as="h2">
-                        5
+                        2
                     </Header>
                     <Text align="center">{localize('Corporate offices')}</Text>
                 </Number>

@@ -130,7 +130,7 @@ const SignupFlat = ({
                     </StyledHeader>
                     <br />
                     <Text color={dark ? 'white' : 'black'}>
-                        {localize('Get your free account now.')}
+                        {localize('Sign up for your demo account now.')}
                     </Text>
                     <InputGroup>
                         <InputWrapper>

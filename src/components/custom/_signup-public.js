@@ -146,7 +146,7 @@ const SignupPublic = ({
                     </StyledHeader>
                     <br />
                     <StyledHeader as="h4" weight="500" font_size="2.6rem">
-                        {localize('Get your free account now.')}
+                        {localize('Sign up for your demo account now.')}
                     </StyledHeader>
                     <InputGroup>
                         <InputWrapper>
@@ -217,7 +217,7 @@ const SignupPublic = ({
 
 SignupPublic.propTypes = {
     autofocus: PropTypes.bool,
-    clearEmail: PropTypes.bool,
+    clearEmail: PropTypes.func,
     email: PropTypes.string,
     email_error_msg: PropTypes.string,
     handleInputChange: PropTypes.func,

@@ -71,7 +71,7 @@ const SignupDefault = ({
     return (
         <Wrapper>
             <Header as="h3" weight="bold">
-                {localize('Sign up for free now!')}
+                {localize('Sign up for your demo account now.')}
             </Header>
             <InputGroup>
                 <Input
@@ -91,7 +91,7 @@ const SignupDefault = ({
                 />
             </InputGroup>
             <EmailButton type="submit" secondary disabled={is_submitting}>
-                {localize('Create a free account')}
+                {localize('Create demo account')}
             </EmailButton>
             <Text color="grey" align="center">
                 {localize('Or sign up with')}

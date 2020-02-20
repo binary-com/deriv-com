@@ -4,6 +4,7 @@ import WhoCanAplly from './_who-can-apply.js'
 import DerivAffiliateProgramme from './_deriv-affiliate-programme'
 import DerivIBProgramme from './_deriv_ib_programme'
 import MoreReason from './_more-reason.js'
+import Faq from './_faq'
 import { Header } from 'components/elements/typography'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container } from 'components/containers'
@@ -60,6 +61,7 @@ const Partners = () => {
                     <WhoCanAplly />
                 </Container>
                 <MoreReason />
+                <Faq />
             </SectionContainer>
         </Layout>
     )

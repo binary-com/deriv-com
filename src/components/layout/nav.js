@@ -231,7 +231,7 @@ export const Nav = () => {
                         </Button>
                         <LocalizedLink to="/signup/">
                             <SignupButton ref={button_ref} secondary>
-                                <span>{localize('Try for free')}</span>
+                                <span>{localize('Create demo account')}</span>
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>

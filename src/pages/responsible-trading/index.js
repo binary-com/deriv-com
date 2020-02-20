@@ -277,7 +277,7 @@ const ResponsibleTrading = () => {
                         )}
                     </StyledHeader>
                     <LinkButton secondary to="/signup/">
-                        {localize('Create a free account')}
+                        {localize('Create demo account')}
                     </LinkButton>
                 </Flex>
             </Section>

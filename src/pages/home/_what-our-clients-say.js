@@ -8,7 +8,6 @@ import { localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
-import PaulImage from 'images/common/paul.png'
 import RobertoImage from 'images/common/roberto.png'
 import FabioImage from 'images/common/fabio.png'
 
@@ -159,15 +158,6 @@ ClientSlide.propTypes = {
     title: PropTypes.string,
 }
 
-const paul = {
-    name: 'Paul Mugenda',
-    title: localize('Forex trader'),
-    img_path: PaulImage,
-    quote: localize(
-        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to Binary.com since the company name already have a known truck of good ethics.',
-    ),
-    index: 0,
-}
 const roberto = {
     name: 'Roberto Arcanjo',
     title: localize('CEO - Mercado Trader'),
@@ -187,7 +177,7 @@ const fabio = {
     index: 2,
 }
 
-const our_client_slides = [paul, roberto, fabio]
+const our_client_slides = [roberto, fabio]
 
 const WhatOurClientsSay = () => {
     const [swiper, updateSwiper] = useState(null)

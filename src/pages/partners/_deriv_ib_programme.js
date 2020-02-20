@@ -11,6 +11,10 @@ import device from 'themes/device'
 const TitleWrapper = styled.div`
     max-width: 104.5rem;
     margin: 0 auto;
+
+    h4:last-child {
+        margin-top: 1.6rem;
+    }   
 `
 const StyledSection = styled(SectionContainer)`
     padding-bottom: 0;
@@ -48,9 +52,9 @@ const HowItsCalculate = styled.div`
 const ButtonWrapper = styled.div`
     width: 100;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 
-    & > a {
+    a:last-child {
         margin-left: 1.6rem;
     }
 `
@@ -158,8 +162,8 @@ const DerivIBProgramme = () => {
                                 <Text weight='bold' margin='2.5rem 0'>{localize('USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5')}</Text>
                                 <StyledText font_size='var(--text-size-s)' lh='1.5' margin_bottom='2.4rem'>{localize('If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate.')}</StyledText>
                                 <ButtonWrapper>
-                                    <BackButton to='/'>{localize('Back')}</BackButton>
                                     <LinkButton secondary to='/'>{localize('Become an affiliate')}</LinkButton>
+                                    <BackButton to='/'>{localize('Back')}</BackButton>
                                 </ButtonWrapper>
                             </div>
                         </Card>

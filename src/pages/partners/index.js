@@ -53,13 +53,14 @@ const Partners = () => {
                         {localize('Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Binary Group –– the owner of Binary.com and Deriv –– has a proven track record of running successful referral programmes with prompt payouts.')}
                     </Header>
                     <DNumber items={items} justify="space-around" />
-                    <WhyUs items={why_partner_with_us_items} />
-                    <WhoCanAplly />
+                    
                 </Container>
                 <DerivAffiliateProgramme />
                 <DerivIBProgramme />
                 <PaymentMethods />
                 <MoreReason />
+                <WhoCanAplly />
+                <WhyUs items={why_partner_with_us_items} />
             </SectionContainer>
         </Layout>
     )

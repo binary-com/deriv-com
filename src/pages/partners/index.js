@@ -22,15 +22,15 @@ const why_partner_with_us_items = [
     {
         title: localize('Multiple income opportunities and generous commissions'),
         subtitle: localize(
-            'Start off as an affiliate and get ensuing access to our IB programme. Earn up to 45% commission for as long as your referred clients keep trading.',
+            'Start off as an affiliate and get ensuing access to our IB programme. Earn commission for as long as your referred clients keep trading.',
         ),
         image_name: 'multiple-income-opportunities.png',
         image_alt: localize('Multiple income opportunities'),
     },
     {
-        title: localize('No charges. No hidden fees. Prompt monthly and daily payment.'),
+        title: localize('No charges and hidden fees. Prompt monthly and daily payments.'),
         subtitle: localize(
-            'All Deriv partnership programmes are free and always will be. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily.',
+            'All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily.',
         ),
         image_name: 'daily-ib-commission.png',
         image_alt: localize('Daily IB commission'),
@@ -53,14 +53,15 @@ const Partners = () => {
                         {localize('Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Binary Group –– the owner of Binary.com and Deriv –– has a proven track record of running successful referral programmes with prompt payouts.')}
                     </Header>
                     <DNumber items={items} justify="space-around" />
-                    
                 </Container>
                 <DerivAffiliateProgramme />
                 <DerivIBProgramme />
+                <Container direction='column'>
+                    <WhyUs items={why_partner_with_us_items} />
+                    <WhoCanAplly />
+                </Container>
                 <PaymentMethods />
                 <MoreReason />
-                <WhoCanAplly />
-                <WhyUs items={why_partner_with_us_items} />
             </SectionContainer>
         </Layout>
     )

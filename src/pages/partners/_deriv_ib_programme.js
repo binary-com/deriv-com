@@ -17,6 +17,7 @@ const TitleWrapper = styled.div`
     }   
 `
 const StyledSection = styled(SectionContainer)`
+    box-shadow: ${props => props.shadow ? ('0 1px 0 0 rgba(0, 0, 0, 0.1)') : ('')};
     padding-bottom: 0;
     text-align: ${props => props.align || 'left'};
 `
@@ -60,7 +61,7 @@ const ButtonWrapper = styled.div`
 `
 const DerivIBProgramme = () => {
     return (
-        <StyledSection>
+        <StyledSection shadow>
             <Container direction='column'>
                 <TitleWrapper>
                     <Header font_size='3.6rem' align='center'>{localize('Deriv IB Programme')}</Header>

@@ -7,6 +7,9 @@ import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const StyledContainer = styled(SectionContainer)`
+    h1 {
+        margin-bottom: 2rem;
+    }
     section:last-child {
         padding-bottom: 0;
     }
@@ -15,7 +18,7 @@ const Row = styled(SectionContainer)`
     display: flex;
     flex-direction: ${props => props.flex_direction};
     justify-content: space-between;
-    padding: 4rem 0;
+    padding: 2rem 0;
 
     div {
         width: 100%;
@@ -35,6 +38,9 @@ const Content = styled.div`
     flex-direction: column;
     margin-top: 4rem;
 
+    ${Text} {
+        margin-top: 0.8rem;
+    }
     @media ${device.tabletL} {
         ${Text, Header} {
             text-align: center;

@@ -131,9 +131,10 @@ const ButtonWrapper = styled.div`
     ${Next} {
         top: 30%;
         right: 20%;
+        width: 31px;
 
         @media ${device.tabletL} {
-            right: 5%;
+            right: 22%;
         }
         @media ${device.tabletS} {
             right: 0;
@@ -142,12 +143,13 @@ const ButtonWrapper = styled.div`
     ${Prev} {
         top: 30%;
         left: 20%;
+        width: 31px;
 
         @media ${device.tabletL} {
             right: 5%;
         }
         @media ${device.tabletS} {
-            left: 0;
+            left: -5px;
         }
     }
 `

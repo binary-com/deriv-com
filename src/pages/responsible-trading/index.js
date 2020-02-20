@@ -1,73 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
-import { IconGrid } from './_icon-grid'
+import { SecureGrid, ResponsibleGrid } from './_icon-grid'
 import device from 'themes/device'
-import { SEO, SectionContainer, GridContainer, Flex, Container } from 'components/containers'
+import { SEO, SectionContainer, Flex, Container } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Divider, Header, Text } from 'components/elements'
-import { Localize, LocalizedLink, localize, WithIntl } from 'components/localization'
-import Warning from 'images/svg/regulatory-warnings.svg'
+import { LinkButton } from 'components/form'
+import { Divider, Header, Text, Card, StyledLink } from 'components/elements'
+import { Localize, localize, WithIntl } from 'components/localization'
+import DemoIcon from 'images/svg/demo-account.svg'
 
 const Section = styled(SectionContainer)`
     background-color: ${props => props.bgcolor || 'transparent'};
+    padding: ${props => props.padding || 'transparent'};
 `
 const StyledHeader = styled(Header)`
-    a {
-        color: var(--color-red);
-        text-decoration: none;
-
-        :hover {
-            text-decoration: underline;
-        }
-    }
-
     max-width: ${props => props.maxwidth || '100%'};
     padding: ${props => props.padding || '0'};
+    margin: ${props => props.margin || '0'};
 
     @media ${device.laptop} {
         max-width: 100%;
     }
 `
 
-const WarningIcon = styled(Warning)`
-    margin-bottom: 2.4rem;
-`
-
-const Ol = styled.ol`
-    list-style-type: decimal;
-    font-weight: bold;
-    padding-left: 2rem;
-
-    li {
-        padding-left: 0.3rem;
-    }
-    span {
-        font-weight: normal;
-    }
-    > *:not(:last-child) {
-        padding-bottom: 1rem;
-    }
-`
-
-const UL = styled.ul`
-    list-style-type: disc;
-    padding-left: 2rem;
-
-    li {
-        max-width: 56.8rem;
-    }
-    > *:not(:last-child) {
-        padding-bottom: 1.6rem;
-    }
-    @media ${device.laptop} {
-        li {
-            padding-bottom: 1.6rem;
-        }
-    }
-`
-
 const ListWrapper = styled.div`
     width: 50%;
+    max-width: 48.7rem;
     padding-left: ${props => props.pl || ''};
 
     @media ${device.laptop} {
@@ -76,153 +34,252 @@ const ListWrapper = styled.div`
     }
 `
 
+const StyledFlex = styled(Flex)`
+    @media (max-width: 1300px) {
+        justify-content: center;
+    }
+`
+
+const CustomListWrapper = styled(ListWrapper)`
+    max-width: 58.8rem;
+    margin-left: 3.2rem;
+
+    @media (max-width: 1300px) {
+        margin-top: 3.2rem;
+    }
+`
+
+const StyledText = styled(Text)`
+    max-width: 79.2rem;
+`
+
+// TODO: uncomment when KID documents are ready
+// const ResponsibleText = styled(Text)`
+//     font-size: var(--text-size-m);
+//     text-align: center;
+//     font-weight: 500;
+//     max-width: 99.6rem;
+//     margin: 4rem auto 0;
+// `
+
+// const HighlightText = styled.span`
+//     color: var(--color-red);
+// `
+
+const StyledUl = styled.ul`
+    padding-left: 2.3rem;
+`
+
+const StyledList = styled.li`
+    list-style-type: disc;
+    font-size: 1.8rem;
+    margin-top: 0.8rem;
+`
+
+const TradingText = styled(Text)`
+    margin: 2.4rem 0 4.8rem;
+`
+
+const TradingUl = styled.ul`
+    padding-left: 1rem;
+    margin-bottom: 3.2rem;
+`
+
+const TradingList = styled(StyledList)`
+    margin-top: 1.6rem;
+`
+
+const NewHeader = styled(Header)`
+    margin: 2.4rem 0 0.8rem;
+`
+
 const ResponsibleTrading = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Responsible trading')}
+                title={localize('Secure and responsible trading')}
                 description={localize(
                     'Practise responsible trading by understanding the risks involved and how you can manage them by setting limits on your trading activity.',
                 )}
             />
             <Section>
-                <GridContainer>
-                    <StyledHeader as="h1" align="center" padding="0 0 4rem">
-                        {localize('Responsible trading')}
+                <Container direction="column">
+                    <StyledHeader as="h1" align="center" padding="0 0 1.6rem">
+                        {localize('Secure and responsible trading')}
                     </StyledHeader>
+                    <StyledText size="var(--text-size-m)" align="center">
+                        {localize(
+                            'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',
+                        )}
+                    </StyledText>
                     <StyledHeader
-                        as="h2"
+                        as="h3"
                         align="center"
-                        weight="500"
                         maxwidth="105rem"
-                        padding="0 2rem 6rem"
+                        padding="2.4rem 0 0"
                         font_size="var(--text-size-m)"
                     >
-                        {localize(
-                            'Online trading is exciting, but it is a risky activity and can turn into an addiction. Here are some guidelines to help you manage online trading risks.',
-                        )}
+                        {localize('Here are some guidelines for a safe trading experience.')}
                     </StyledHeader>
-                </GridContainer>
-                <IconGrid />
+                </Container>
             </Section>
-            <Divider />
+            <Divider height="2px" />
             <Section>
-                <StyledHeader as="h2" font_size="3.6rem" lh="4.5rem" align="center">
-                    {localize('Written limits and self-exclusion')}
+                <StyledHeader
+                    as="h2"
+                    align="center"
+                    padding="0 0 4rem"
+                    font_size="var(--text-size-header-1)"
+                >
+                    {localize('Securing your account')}
                 </StyledHeader>
+                <SecureGrid />
+            </Section>
+            <Divider height="2px" />
+            <Section>
+                <StyledHeader
+                    as="h2"
+                    align="center"
+                    padding="0 0 4rem"
+                    font_size="var(--text-size-header-1)"
+                >
+                    {localize('Trading responsibly')}
+                </StyledHeader>
+                <ResponsibleGrid />
+                {/* TODO: show when KID documents are ready */}
+                {/* <ResponsibleText>
+                    <Localize
+                        translate_text="For more details on our products and the risks involved in online trading, read our key information documents (KIDs) on <0>commodities</0>, <0>forex</0>, and <0>cryptocurrencies</0>."
+                        components={[<HighlightText key={0} color="red" />]}
+                    />
+                </ResponsibleText> */}
+            </Section>
+            <Section bgcolor="var(--color-grey-8)">
                 <Container direction="column">
-                    <Flex m="4rem 0" jc="space-between" wrap="wrap">
+                    <StyledFlex m="4rem 0" jc="space-between" wrap="wrap">
                         <ListWrapper laptop_mb="4rem">
                             <StyledHeader
-                                maxwidth="48.6rem"
-                                font_size="var(--text-size-sm)"
-                                weight="bold"
-                                lh="1.5"
+                                maxwidth="36rem"
+                                font_size="var(--text-size-header-1)"
+                                align="center"
+                                margin="0 auto"
                             >
-                                <Localize
-                                    translate_text="With Deriv, you can self-exclude yourself or set limits on your trading activities through our site. You may also <0>contact us</0> to state the limits you wish to set."
-                                    components={[<LocalizedLink key={0} to="/contact-us/" />]}
-                                />
+                                <Localize translate_text="Trading limits and self-exclusion" />
                             </StyledHeader>
+                            <TradingText align="center">
+                                {localize(
+                                    'Online trading is exciting but it can be addictive. There are various limits that you can set on your account to limit your trading activity.',
+                                )}
+                            </TradingText>
+                            <Card width="100%" padding="3.2rem">
+                                <Text size="var(--text-size-sm)" weight="bold">
+                                    {localize('You can:')}
+                                </Text>
+                                <StyledUl>
+                                    <StyledList>
+                                        <Text>
+                                            {localize(
+                                                'Limit the amount of money you may trade within a specified period.',
+                                            )}
+                                        </Text>
+                                    </StyledList>
+                                    <StyledList>
+                                        <Text>
+                                            {localize(
+                                                'Limit the losses you may incur within a specified period.',
+                                            )}
+                                        </Text>
+                                    </StyledList>
+                                    <StyledList>
+                                        <Text>
+                                            {localize(
+                                                'Limit the amount of time you may trade in a session.',
+                                            )}
+                                        </Text>
+                                    </StyledList>
+                                    <StyledList>
+                                        <Text>
+                                            {localize(
+                                                'Exclude yourself from trading on our website for a definite or indefinite period.',
+                                            )}
+                                        </Text>
+                                    </StyledList>
+                                </StyledUl>
+                            </Card>
                         </ListWrapper>
-                        <ListWrapper pl="1rem">
-                            <Ol>
-                                <Text as="li" weight="bold">
-                                    <span>
+                        <CustomListWrapper>
+                            <StyledHeader font_size="var(--text-size-header-2)" margin="0 0 3.2rem">
+                                {localize('How trading limits and self-exclusion work')}
+                            </StyledHeader>
+                            <TradingUl>
+                                <TradingList>
+                                    <Text>
                                         {localize(
-                                            'Limit the amount of money you may trade within a specified period.',
+                                            'The first three limits may only be removed or increased after 24 hours of receiving the notice. You must confirm that you wish to amend the limit.',
                                         )}
-                                    </span>
-                                </Text>
-                                <Text as="li" weight="bold">
-                                    <span>
+                                    </Text>
+                                </TradingList>
+                                <TradingList>
+                                    <Text>
                                         {localize(
-                                            'Limit the losses you may incur within a specified period.',
+                                            'There’s a minimum period of six months for self-exclusion. You have the option to extend it to a total of five years immediately without any cooling-off period.',
                                         )}
-                                    </span>
-                                </Text>
-                                <Text as="li" weight="bold">
-                                    <span>
+                                    </Text>
+                                </TradingList>
+                                <TradingList>
+                                    <Text>
                                         {localize(
-                                            'Limit the amount of time you may trade in a session.',
+                                            'When you’ve set your self-exclusion period, we will refund your account balance to you.',
                                         )}
-                                    </span>
-                                </Text>
-                                <Text as="li" weight="bold">
-                                    <span>
+                                    </Text>
+                                </TradingList>
+                                <TradingList>
+                                    <Text>
                                         {localize(
-                                            'Exclude yourself from trading on our website for a definite or indefinite period.',
+                                            'At the end of the self-exclusion period, the self-exclusion will remain in place until you take action.',
                                         )}
-                                    </span>
-                                </Text>
-                            </Ol>
-                        </ListWrapper>
-                    </Flex>
-                </Container>
-                <Container direction="column">
-                    <StyledHeader font_size="2.8rem" as="h3" align="center">
-                        {localize('How it works')}
-                    </StyledHeader>
-                    <Flex jc="space-between" wrap="wrap" mt="4rem">
-                        <ListWrapper>
-                            <UL>
-                                <Text as="li">
-                                    {localize(
-                                        'The first three limits may only be removed or increased after 24 hours of receiving the notice. You must confirm that you wish to amend the limit.',
-                                    )}
-                                </Text>
-                                <Text as="li">
-                                    {localize(
-                                        'There’s a minimum period of six months for self-exclusion. You have the option to extend it to a total of five years immediately without any cooling-off period.',
-                                    )}
-                                </Text>
-                                <Text as="li">
-                                    {localize(
-                                        'When you’ve set your self-exclusion period, we will refund your account balance to you.',
-                                    )}
-                                </Text>
-                            </UL>
-                        </ListWrapper>
-                        <ListWrapper pl="1rem">
-                            <UL>
-                                <Text as="li">
-                                    {localize(
-                                        'At the end of the self-exclusion period, the self-exclusion will remain in place until you take action.',
-                                    )}
-                                </Text>
-                                <Text as="li">
-                                    {localize(
-                                        'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of one day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
-                                    )}
-                                </Text>
-                            </UL>
-                        </ListWrapper>
-                    </Flex>
+                                    </Text>
+                                </TradingList>
+                                <TradingList>
+                                    <Text>
+                                        {localize(
+                                            'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of one day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
+                                        )}
+                                    </Text>
+                                </TradingList>
+                            </TradingUl>
+                            <Text align="center">
+                                <Localize
+                                    translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
+                                    components={[
+                                        <StyledLink
+                                            size="var(--text-size-s)"
+                                            weight="bold"
+                                            to="contact-us"
+                                            key={0}
+                                        />,
+                                    ]}
+                                />
+                            </Text>
+                        </CustomListWrapper>
+                    </StyledFlex>
                 </Container>
             </Section>
-            <Divider />
-            <Section>
-                <GridContainer align="center">
-                    <WarningIcon />
-                    <Header as="h2" font_size="3.6rem" align="center">
-                        {localize('Other warnings and regulatory disclosures')}
-                    </Header>
-                    <Flex jc="center">
-                        <StyledHeader
-                            as="h5"
-                            align="center"
-                            weight="400"
-                            maxwidth="99.6rem"
-                            lh="2.4rem"
-                            padding="0.8rem 0 0"
-                        >
-                            <Localize
-                                translate_text="Online trading can incur losses as well as gains. Prices may vary due to changes in the market which may impact the return on your investment. The products that we offer are ‘complex products’ and may not be suitable for everyone. Trading on our products carries a high level of risk and you risk losing all of your invested capital. Please refer to the <0>Key Information Documents</0> on our website to understand all the risks involved before you start trading."
-                                components={[<LocalizedLink key={0} to="/regulatory/" />]}
-                            />
-                        </StyledHeader>
-                    </Flex>
-                </GridContainer>
+            <Section padding="4rem 0">
+                <Flex ai="center" direction="column">
+                    <DemoIcon />
+                    <NewHeader font_size="var(--text-size-header-1)" align="center">
+                        {localize('New to trading?')}
+                    </NewHeader>
+                    <StyledHeader as="h5" align="center" weight="400" lh="2.4rem" margin="0 0 4rem">
+                        {localize(
+                            'Use our demo account and learn how to trade by using risk-free virtual funds.',
+                        )}
+                    </StyledHeader>
+                    <LinkButton secondary to="/signup/">
+                        {localize('Create demo account')}
+                    </LinkButton>
+                </Flex>
             </Section>
         </Layout>
     )

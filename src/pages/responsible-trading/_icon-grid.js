@@ -6,12 +6,14 @@ import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import Demo from 'images/svg/free-demo.svg'
-import Trade from 'images/svg/money-to-lose.svg'
-import Borrowed from 'images/svg/borrowed-money.svg'
-import Limit from 'images/svg/set-limit-losses.svg'
-import Judgement from 'images/svg/bad-judgement.svg'
-import Winnings from 'images/svg/portion-of-winnings.svg'
+import UseDifferentPassword from 'images/svg/use-different-password.svg'
+import BrowserUpToDate from 'images/svg/keep-browser-up-to-date.svg'
+import DontShare from 'images/svg/don-t-share-payment-methods.svg'
+import Antivirus from 'images/svg/install-latest-antivirus.svg'
+import DontBorrow from 'images/svg/dont-borrow.svg'
+import FreeDemo from 'images/svg/free-demo.svg'
+import SetLimitChart from 'images/svg/set-limit-chart.svg'
+import BadJudgement from 'images/svg/bad-judgement.svg'
 
 const GridCol = styled(CssGridColumn)`
     width: 100%;
@@ -41,28 +43,77 @@ Col.propTypes = {
     Icon: PropTypes.elementType,
 }
 
-export const IconGrid = () => (
+export const SecureGrid = () => (
     <GridContainer>
         <CssGrid
-            columns="repeat(3, 1fr)"
-            column_gap="15rem"
+            columns="repeat(4, 1fr)"
+            column_gap="2.4rem"
             row_gap="4rem"
             tablet_columns="repeat(2, 1fr)"
             mobile_columns="1fr"
             mobile_row_gap="6rem"
-            margin="1rem 0 0"
         >
-            <Col Icon={Demo} content={localize('Hone your skills with a free demo account.')} />
-            <Col Icon={Trade} content={localize('Only trade with money you can afford to lose.')} />
-            <Col Icon={Borrowed} content={localize('Do not trade with borrowed money.')} />
-            <Col Icon={Limit} content={localize('Set a limit for your losses and stick to it.')} />
             <Col
-                Icon={Judgement}
-                content={localize('Avoid trading when you’re prone to bad judgement.')}
+                Icon={UseDifferentPassword}
+                content={localize(
+                    'Use strong and varied passwords for your Deriv account, email, online banking, e-wallets, etc. Make it as difficult as possible for anyone to guess your passwords.',
+                )}
             />
             <Col
-                Icon={Winnings}
-                content={localize('Put aside a portion of your winnings to avoid losing it all.')}
+                Icon={BrowserUpToDate}
+                content={localize(
+                    'Use a secure web browser such as Google Chrome and always ensure it’s up-to-date. Security patches are included in the software updates of your browser.',
+                )}
+            />
+            <Col
+                Icon={DontShare}
+                content={localize(
+                    'To prevent unauthorised usage of your account, don’t share your login details with anyone. Keep your username, passwords, and PINs secure.',
+                )}
+            />
+            <Col
+                Icon={Antivirus}
+                content={localize(
+                    'Install security apps such as antivirus and firewalls on your devices. Leading security apps are available in desktop and mobile versions.',
+                )}
+            />
+        </CssGrid>
+    </GridContainer>
+)
+
+export const ResponsibleGrid = () => (
+    <GridContainer>
+        <CssGrid
+            columns="repeat(4, 1fr)"
+            column_gap="2.4rem"
+            row_gap="4rem"
+            tablet_columns="repeat(2, 1fr)"
+            mobile_columns="1fr"
+            mobile_row_gap="6rem"
+        >
+            <Col
+                Icon={DontBorrow}
+                content={localize(
+                    'Understand the risks of online trading. Never trade using borrowed money, or money you can’t afford to lose.',
+                )}
+            />
+            <Col
+                Icon={FreeDemo}
+                content={localize(
+                    'Use our demo account and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products.',
+                )}
+            />
+            <Col
+                Icon={SetLimitChart}
+                content={localize(
+                    'Set a limit for your losses and stick to it. Put aside some of your winnings to avoid losing all your money.',
+                )}
+            />
+            <Col
+                Icon={BadJudgement}
+                content={localize(
+                    'Trade wisely and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement.',
+                )}
             />
         </CssGrid>
     </GridContainer>

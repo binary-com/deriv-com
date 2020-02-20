@@ -1,30 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import EUgrid from './_eu-grid'
-import DocumentAccordion from './_document_accordion'
+// import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
 import { Header, Text, Divider } from 'components/elements'
-import {
-    SEO,
-    SectionContainer,
-    GridContainer,
-    CssGrid,
-    CssGridColumn,
-    Flex,
-} from 'components/containers'
+import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
 import EU from 'images/svg/europe-map.svg'
-import SVG from 'images/svg/svg.svg'
+// import SVG from 'images/svg/svg.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import FSC from 'images/svg/fsc.svg'
 import Labuan from 'images/svg/footer-labuan.svg'
-import device from 'themes/device'
+import device from 'themes/device.js'
 
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
     margin: 0 auto;
     padding: ${props => props.padding || '0'};
+
+    @media ${device.tabletS} {
+        text-align: center;
+    }
 `
 const Box = styled.div`
     display: flex;
@@ -34,6 +31,10 @@ const Box = styled.div`
 
     ${Text} {
         max-width: ${props => props.mw || '62.2rem'};
+
+        @media ${device.tabletS} {
+            text-align: center;
+        }
     }
     & a {
         color: var(--color-red);
@@ -44,16 +45,21 @@ const Box = styled.div`
             text-decoration: underline;
         }
     }
+
+    @media ${device.tabletS} {
+        text-align: center;
+    }
 `
 const Europe = styled(EU)`
     max-width: 100%;
     margin: 0;
 `
-const AccordionWrapper = styled(Flex)`
-    @media ${device.tabletL} {
-        padding: 0 4rem;
-    }
-`
+// will be added once the proper documents are ready
+// const AccordionWrapper = styled(Flex)`
+//     @media ${device.tabletL} {
+//         padding: 0 4rem;
+//     }
+// `
 
 const Regulatory = () => (
     <Layout>
@@ -144,9 +150,10 @@ const Regulatory = () => (
             </GridContainer>
         </SectionContainer>
         <SectionContainer padding="0 0 4rem 0">
-            <AccordionWrapper>
+            {/* will be added once the proper documents are ready */}
+            {/* <AccordionWrapper>
                 <DocumentAccordion />
-            </AccordionWrapper>
+            </AccordionWrapper> */}
         </SectionContainer>
         <SectionContainer padding="0">
             <GridContainer>
@@ -156,7 +163,7 @@ const Regulatory = () => (
                         column_gap="1.6rem"
                         row_gap="4rem"
                         tablet_columns="1fr 5fr"
-                        mobile_columns="1fr 5fr"
+                        mobile_columns="1fr"
                     >
                         <CssGridColumn align="center">
                             <Labuan />
@@ -198,17 +205,19 @@ const Regulatory = () => (
                                         <a
                                             key={0}
                                             target="_blank"
-                                            href="https://www.vfsc.vu/wp-content/uploads/2015/12/List-of-Licensees-under-Dealers-in-Securities-Licensing-Act-CAP-70-18.11.2016.pdf"
+                                            href="https://www.vfsc.vu/financial-dealers-licensee-lists/"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
                                 />
                             </Text>
                         </CssGridColumn>
-                        <CssGridColumn align="center">
+                        {/* Will be added later */}
+                        {/* <CssGridColumn align="center">
                             <SVG />
-                        </CssGridColumn>
-                        <CssGridColumn>
+                        </CssGridColumn> */}
+
+                        {/* <CssGridColumn>
                             <StyledHeader font_size="3.6rem" lh="4.5rem">
                                 {localize('Binary (SVG) Ltd')}
                             </StyledHeader>
@@ -217,7 +226,7 @@ const Regulatory = () => (
                                     'Binary (SVG) Ltd, Hinds Buildings, Kingstown, St. Vincent and the Grenadines; company number 25299 BC 2019.',
                                 )}
                             </Text>
-                        </CssGridColumn>
+                        </CssGridColumn> */}
                         <CssGridColumn align="center">
                             <FSC />
                         </CssGridColumn>

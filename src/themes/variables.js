@@ -32,6 +32,8 @@ const Variables = css`
         --color-grey-15: #d8d8d8;
         --color-grey-16: #777777;
         --color-grey-17: #d6d6d6;
+        --color-grey-18: #f4f4f6;
+        --color-grey-19: #c2c2c2;
         --color-green: #85acb0;
         --color-blue: #4c76be;
         --color-blue-2: #365899;
@@ -51,6 +53,7 @@ const Variables = css`
 
         /* TODO: match with other text-size and update <Header /> */
         --text-size-header-1: 3.6rem;
+        --text-size-header-2: 2.8rem;
     }
 `
 

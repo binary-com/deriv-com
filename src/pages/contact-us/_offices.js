@@ -8,13 +8,12 @@ import PhoneSVG from 'images/svg/phone.svg'
 import device from 'themes/device'
 
 const Wrapper = styled.section`
-    border-top: 1px solid #d8d8d8;
     width: 100%;
-    height: 181.3rem;
+    height: 100%;
     background-color: var(--color-white);
     padding: 8rem 23rem;
 
-    @media ${device.laptopL} {
+    @media (max-width: 1380px) {
         height: auto;
         padding: 8rem 1rem;
     }
@@ -40,7 +39,7 @@ const Office = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    height: 27.5rem;
+    height: 100%;
     margin-top: 6.3rem;
     width: 100%;
 
@@ -51,6 +50,17 @@ const Office = styled.div`
     @media ${device.laptop} {
         flex-direction: column;
         height: auto;
+        align-items: center;
+    }
+    @media ${device.mobileL} {
+        align-items: flex-start;
+        margin: 2.4rem;
+    }
+`
+
+const EvenOffice = styled(Office)`
+    @media ${device.laptop} {
+        flex-direction: column-reverse;
     }
 `
 const StyledHeader = styled(Header)`
@@ -65,10 +75,11 @@ const Content = styled.div`
     }
 
     @media ${device.laptop} {
-        width: 100%;
+        width: auto;
 
         :nth-child(even) {
             margin-left: 0;
+            width: auto;
         }
     }
 `
@@ -108,6 +119,7 @@ const Splitter = styled.div`
     background-color: var(--color-grey-8);
     height: 0.1rem;
     width: 98rem;
+    margin-top: 6.3rem;
 
     @media ${device.tabletL} {
         width: auto;
@@ -126,7 +138,7 @@ export const Offices = () => {
                             <MapLink
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                                href="https://g.page/r/CRyKELlnWQ3iEAE"
                             >
                                 <Image
                                     img_name="map-malta.png"
@@ -149,10 +161,10 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Binary+(Europe)+Ltd&35.903605,14.460732&ll=35.903605,14.460732&z=17"
+                                    href="https://g.page/r/CRyKELlnWQ3iEAE"
                                 >
                                     <Localize
-                                        translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm BIrkirkara BKR9033 Malta."
+                                        translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm Birkirkara BKR9033 Malta."
                                         components={[<br key={0} />]}
                                     />
                                 </LinkText>
@@ -165,7 +177,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <Office>
+                    <EvenOffice>
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
@@ -179,7 +191,7 @@ export const Offices = () => {
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
+                                    href="https://g.page/r/CQODFgzIJPYtEAE"
                                 >
                                     <Localize
                                         translate_text="C-13, iTech Tower, Jalan Impact, Cyber 6,<0 />63000 Cyberjaya, Selangor, Malaysia."
@@ -189,14 +201,14 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +603 83228178
+                                +60 3 8322 8178
                             </StyledText>
                         </Content>
                         <ImageWrapper>
                             <MapLink
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                href="https://maps.google.com/?q=i-Tech+Tower&2.922708,101.661274&ll=2.922708,101.661274&z=18"
+                                href="https://g.page/r/CQODFgzIJPYtEAE"
                             >
                                 <Image
                                     img_name="map-cyberjaya.png"
@@ -206,22 +218,16 @@ export const Offices = () => {
                                 />
                             </MapLink>
                         </ImageWrapper>
-                    </Office>
+                    </EvenOffice>
                     <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
-                            <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
-                            >
-                                <Image
-                                    img_name="map-labuan.png"
-                                    alt={localize('Labuan Office')}
-                                    width="49rem"
-                                    height="100%"
-                                />
-                            </MapLink>
+                            <Image
+                                img_name="map-labuan.png"
+                                alt={localize('Labuan Office')}
+                                width="49rem"
+                                height="100%"
+                            />
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -232,26 +238,21 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
-                                    target="_blank"
-                                    color="black-3"
-                                    size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Paragon+Labuan&5.280808,115.244948&ll=5.280808,115.244948&z=17"
-                                >
+                                <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan."
+                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia"
                                         components={[<br key={0} />]}
                                     />
-                                </LinkText>
+                                </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +6087 504126
+                                +60 87 50 4126
                             </StyledText>
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <Office>
+                    <EvenOffice>
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Dubai')}
@@ -261,17 +262,12 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
-                                    target="_blank"
-                                    color="black-3"
-                                    size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
-                                >
+                                <Text target="_blank" color="black-3">
                                     <Localize
                                         translate_text="Unit 3004, 1 Lake Plaza, Cluster T,<0 />Jumeirah Lake Towers, Dubai, UAE."
                                         components={[<br key={0} />]}
                                     />
-                                </LinkText>
+                                </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
@@ -279,35 +275,23 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://maps.google.com/?q=Lake+Plaza+Dubai&25.079220,55.149569&ll=25.079220,55.149569&z=16"
-                            >
-                                <Image
-                                    img_name="map-dubai.png"
-                                    alt={localize('Dubai Office')}
-                                    width="49rem"
-                                    height="100%"
-                                />
-                            </MapLink>
+                            <Image
+                                img_name="map-dubai.png"
+                                alt={localize('Dubai Office')}
+                                width="49rem"
+                                height="100%"
+                            />
                         </ImageWrapper>
-                    </Office>
+                    </EvenOffice>
                     <Splitter></Splitter>
                     <Office>
                         <ImageWrapper>
-                            <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
-                            >
-                                <Image
-                                    img_name="map-paraguay.png"
-                                    alt={localize('paraguay Office')}
-                                    width="49rem"
-                                    height="100%"
-                                />
-                            </MapLink>
+                            <Image
+                                img_name="map-paraguay.png"
+                                alt={localize('paraguay Office')}
+                                width="49rem"
+                                height="100%"
+                            />
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -318,21 +302,16 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
-                                    target="_blank"
-                                    color="black-3"
-                                    size="var(--text-size-s)"
-                                    href="https://maps.google.com/?q=Edificio+Australia+Asunción&-25.282569,-57.563805&ll=-25.282569,-57.563805&z=17"
-                                >
+                                <Text target="_blank" color="black-3">
                                     <Localize
                                         translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma,<0 />Trinidad, Asuncion, Paraguay."
                                         components={[<br key={0} />]}
                                     />
-                                </LinkText>
+                                </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +595 991298762
+                                +595 99 129 8762
                             </StyledText>
                         </Content>
                     </Office>

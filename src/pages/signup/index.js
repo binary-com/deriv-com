@@ -49,6 +49,10 @@ const StyledDiv = styled.div`
     background-color: rgba(200, 214, 215, 0.22);
 `
 
+const StyledGraph = styled(Graph)`
+    overflow: initial;
+`
+
 const NewSignup = () => {
     const [submitState, setSubmitState] = useState('')
 
@@ -66,7 +70,7 @@ const NewSignup = () => {
             <Wrapper>
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>
-                        <Graph />
+                        <StyledGraph />
                         <Header margin="2.4rem 0 0 0" font_size="3.6rem">
                             {localize('Start trading with Deriv')}
                         </Header>

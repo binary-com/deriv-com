@@ -65,7 +65,7 @@ const OffCanvasMenuWrapper = props => {
             <OffCanvasMenuContainer>
                 <BackArrow onClick={handleArrowClick} />
                 <div>
-                    <StyledLink to="/about-us/" onClick={handleArrowClick}>
+                    <StyledLink to="/about/" onClick={handleArrowClick}>
                         {localize('About us')}
                     </StyledLink>
                     <StyledLink to="/help-centre/" onClick={handleArrowClick}>

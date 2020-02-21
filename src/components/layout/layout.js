@@ -7,7 +7,7 @@ import { Nav, NavStatic, NavPartners } from './nav'
 const Main = styled.main`
     padding-top: ${props => props.padding_top || '7rem'};
     background: var(--color-white);
-    height: ${props => (props.is_static ? 'calc(100vh - 10.4rem)' : '100%')};
+    height: 100%;
 `
 
 const Layout = ({ children, type, padding_top }) => {

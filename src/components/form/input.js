@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text } from '../elements'
-import device from 'themes/device.js'
+import device from 'themes/device'
 // SVG Component
 import CrossIcon from 'images/svg/cross.svg'
 
@@ -13,6 +13,11 @@ const InputWrapper = styled.div`
     width: 100%;
     border: ${props => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
+
+    @media ${device.tabletL} {
+        width: 27rem;
+        height: 5rem;
+    }
 
     &:hover {
         border-color: var(--color-grey-5);
@@ -43,6 +48,11 @@ const StyledError = styled(CrossIcon)`
     height: 1.6rem;
     width: 1.6rem;
     cursor: pointer;
+
+    @media ${device.tablet} {
+        right: 2rem;
+        top: 1.6rem;
+    }
 `
 
 const StyledInput = styled.input`
@@ -54,6 +64,15 @@ const StyledInput = styled.input`
     display: block;
     border: none;
     border-radius: 0;
+
+    @media ${device.tabletL} {
+        height: 5rem;
+
+        & ~ label {
+            font-size: 1.75rem;
+            top: 1.5rem;
+        }
+    }
 
     &::placeholder {
         opacity: 0;
@@ -98,10 +117,6 @@ const StyledLabel = styled.label`
 
     /* prettier-ignore */
     background-color: var(--color-${props => props.background || 'grey-1'});
-
-    @media ${device.tablet} {
-        background-color: var(--color-${props => props.tabletBackground || 'grey-1'});
-    }
 `
 
 const Input = ({

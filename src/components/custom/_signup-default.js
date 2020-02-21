@@ -94,7 +94,7 @@ const SignupDefault = ({
                 {localize('Create demo account')}
             </EmailButton>
             <Text color="grey" align="center">
-                {localize('Or sign up with')}
+                {localize('Or sign in with')}
             </Text>
             <SocialWrapper justify="space-between" gap="0" grid="2">
                 <SocialButton

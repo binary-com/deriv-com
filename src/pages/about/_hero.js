@@ -142,9 +142,15 @@ const Hero = ({ navigation, setNavigation }) => {
                 </NavigationWrapper>
                 {is_story && (
                     <ContentWrapper margin_top="9.1rem">
+                        <Text margin="0 0 1.5rem 0" secondary color="white">
+                            {localize(
+                                'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
+                            )}
+                        </Text>
+                       
                         <Text secondary color="white">
                             {localize(
-                                'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
+                                'Our evolution is powered by over 20 years of customer focus and innovation.',
                             )}
                         </Text>
                     </ContentWrapper>

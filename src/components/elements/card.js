@@ -12,12 +12,11 @@ export const CardStyle = css`
 `
 
 const CardContent = styled(Text)`
-    margin-top: 0.8rem;
+    margin-top: 0.5rem;
     line-height: 1.25;
 
     @media ${device.tabletL} {
         font-size: var(--text-size-sm);
-        margin-top: 2.65rem;
     }
 `
 const CardCover = styled.div`
@@ -61,14 +60,18 @@ const CardWrapper = styled.article`
     &:hover {
         ${CardCover} {
             transform: translate3d(-3%, 0, 0);
+
+            @media ${device.tabletL} {
+                transform: translate3d(-5%, 0, 0);
+            }
         }
     }
 
     @media ${device.tabletL} {
-        padding: 3rem;
-        padding-right: 2rem;
+        padding: 2rem;
         margin-top: 1.77rem;
         margin-right: 0;
+        width: 100%;
     }
 `
 const ContentWrapper = styled.div`
@@ -118,6 +121,12 @@ const IconContainer = styled.div`
     display: flex;
     justify-content: center;
 
+    div {
+        svg {
+            width: 8.25rem;
+            height: 8.25rem;
+        }
+    }
     ${Header} {
         display: flex;
         align-items: center;

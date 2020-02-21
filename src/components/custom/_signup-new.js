@@ -12,7 +12,7 @@ import { localize, Localize } from 'components/localization'
 
 const SignupContent = styled.div`
     width: 48.4rem;
-    height: 55.5rem;
+    max-height: 55.5rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -217,7 +217,7 @@ const SignupNew = ({
             <SignupWithContainer>
                 <Line />
                 <StyledText color="grey-5" align="center" fontSize="var(--text-size-xxs)">
-                    {localize('Or sign up with ')}
+                    {localize('Or sign in with ')}
                 </StyledText>
                 <Line />
             </SignupWithContainer>

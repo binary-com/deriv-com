@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { IconGrid } from './_icon-grid'
+import CustomerGrid from './_customers-grid'
+import BusinessGrid from './_business-grid'
 import { SEO, SectionContainer, GridContainer } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Divider, Header } from 'components/elements'
@@ -44,7 +45,7 @@ const TermsAndConditions = () => {
             </Section>
             <Divider />
             <Section>
-                <IconGrid />
+                <CustomerGrid />
             </Section>
         </Layout>
     )

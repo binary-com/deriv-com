@@ -42,7 +42,7 @@ const YearWrapper = styled.div`
     }
 `
 const ContentWrapper = styled.div`
-    width: ${props => (props.content_width || '39.6rem')};
+    width: ${props => props.content_width || '39.6rem'};
     padding: 0 0 0 1rem;
 `
 const StyledHeader = styled(Header)`
@@ -118,14 +118,26 @@ export const OurStory = () => {
             <StyledLine />
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
-                    <StyledHeader
-                        left={story.left}
-                        as="h2"
-                        color={story.color || 'red-4'}
-                        align="center"
-                    >
-                        {story.year}
-                    </StyledHeader>
+                    {idx === Stories.length - 1 ? (
+                        <StyledHeader
+                            left={story.left}
+                            as="h2"
+                            color={story.color || 'red-4'}
+                            align="center"
+                            font_size="var(--text-size-header-3)"
+                        >
+                            {story.year}
+                        </StyledHeader>
+                    ) : (
+                        <StyledHeader
+                            left={story.left}
+                            as="h2"
+                            color={story.color || 'red-4'}
+                            align="center"
+                        >
+                            {story.year}
+                        </StyledHeader>
+                    )}
 
                     {story.contents.map((content, idxa) =>
                         content.left ? (
@@ -153,12 +165,12 @@ export const OurStory = () => {
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
-                                                margin= {header.margin_top +  ' 0 0 0'}
+                                                margin={header.margin_top + ' 0 0 0'}
                                             >
                                                 {header.header}
                                             </Header>
                                             <Splitter />
-                                            <Text padding="0 0 0 1.1rem" >
+                                            <Text padding="0 0 0 1.1rem">
                                                 {content.texts[id].text}
                                             </Text>
                                         </div>
@@ -180,7 +192,7 @@ export const OurStory = () => {
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
-                                                margin= {header.margin_top +  ' 0 0 0'}
+                                                margin={header.margin_top + ' 0 0 0'}
                                             >
                                                 {header.header}
                                             </Header>

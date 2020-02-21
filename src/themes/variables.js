@@ -56,6 +56,7 @@ const Variables = css`
         /* TODO: match with other text-size and update <Header /> */
         --text-size-header-1: 3.6rem;
         --text-size-header-2: 2.8rem;
+        --text-size-header-3: 7.2rem;
     }
 `
 

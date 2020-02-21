@@ -31,7 +31,8 @@ const About = () => {
                     <OurOffices />
                     {/* It has been blocked due to design review */}
                     {/* <JoinUs /> */}
-                    <OurAwards />
+                    {/* It has been blocked due to design review */}
+                    {/* <OurAwards /> */}
                 </Fragment>
             )}
             {navigation === 'leadership' && <Leaders />}

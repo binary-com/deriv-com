@@ -90,7 +90,7 @@ const Stories = [
                 texts: [
                     {
                         text: localize(
-                            'Regent Markets establishes a second office, a tech hub in Cyberjaya, the Silicon Valley of Malaysia',
+                            'Regent Markets establishes a second office, a tech hub in Cyberjaya, the Silicon Valley of Malaysia.',
                         ),
                     },
                 ],

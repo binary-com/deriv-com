@@ -11,7 +11,7 @@ const Background = ({ children, img_name, style, ...props }) => (
                     edges {
                         node {
                             fluid(quality: 90, maxWidth: 4160) {
-                                ...GatsbyImageSharpFluid_withWebp_noBase64
+                                ...GatsbyImageSharpFluid_withWebp
                                 originalName
                             }
                         }

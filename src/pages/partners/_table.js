@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-function ColGen(num) {
+function ColGen(num, is_balance) {
     let grid_col_template = ''
     for (let i = 0; i < num; i++) {
-        grid_col_template += 'auto '
+        grid_col_template += is_balance ? `${100 / +num}% ` : 'auto '
     }
     return grid_col_template
 }
@@ -20,7 +20,7 @@ const Table = styled.div`
     width: 100%;
     display: grid;
     margin-top: 1.6rem;
-    grid-template-columns: ${props => ColGen(props.grid_col_number)};
+    grid-template-columns: ${props => ColGen(props.grid_col_number, props.is_balance)};
     grid-template-rows: auto;
     grid-template-areas: '${props => AreaGen(props.grid_col_number)}';
 
@@ -38,7 +38,7 @@ const TC = styled.div`
 `
 const TR = styled.div`
     padding: 0.8rem 0;
-    background-color: ${props => props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset'};
+    background-color: ${props => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
 `
 export { TR, TC, Table }

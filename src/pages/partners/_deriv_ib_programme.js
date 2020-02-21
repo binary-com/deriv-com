@@ -78,96 +78,6 @@ const DerivIBProgramme = () => {
                 <SectionContainer padding="8rem 0 9.6rem 0">
                     <StyledHeader as="h4">{localize('Choose a commission plan:')}</StyledHeader>
                     <CardWrapper mt="-2rem" wrap="wrap">
-                        <Card min_height="42rem">
-                            <div>
-                                <Header as="h4" lh="1.5">
-                                    {localize('DMT5 Standard')}
-                                </Header>
-                                <Text>
-                                    {localize(
-                                        'Earn when your customers trade on a DMT5 Standard account.',
-                                    )}
-                                </Text>
-                                <Table grid_col_number={2}>
-                                    <TC grid_area={'area0'}>
-                                        <TR isTitle="true">
-                                            <StyledText weight="bold" lh="2.2">
-                                                {localize('Asset')}
-                                            </StyledText>
-                                        </TR>
-                                        <TR>
-                                            <StyledText>{localize('Forex and metals')}</StyledText>
-                                        </TR>
-                                        <TR>
-                                            <StyledText>{localize('Cryptocurrencies')}</StyledText>
-                                        </TR>
-                                    </TC>
-                                    <TC grid_area={'area1'}>
-                                        <TR isTitle="true">
-                                            <StyledText weight="bold">
-                                                <Localize
-                                                    translate_text="Commission per round<0/>trade"
-                                                    components={[<br key={0} />]}
-                                                />
-                                            </StyledText>
-                                        </TR>
-                                        <TR>
-                                            <StyledText>{localize('10 per lot')}</StyledText>
-                                        </TR>
-                                        <TR>
-                                            <StyledText>{localize('0.3% per lot')}</StyledText>
-                                        </TR>
-                                    </TC>
-                                </Table>
-                            </div>
-                            <HowItsCalculate>
-                                <StyledButton to="/">
-                                    {localize("How it's calculated")}
-                                </StyledButton>
-                            </HowItsCalculate>
-                        </Card>
-                        <Card min_height="42rem">
-                            <div>
-                                <Header as="h4" lh="1.5">
-                                    {localize('DMT5 Advanced')}
-                                </Header>
-                                <Text>
-                                    {localize(
-                                        'Earn when your customers trade on a DMT5 Advanced account.',
-                                    )}
-                                </Text>
-                                <Table grid_col_number={2}>
-                                    <TC grid_area={'area0'}>
-                                        <TR isTitle="true">
-                                            <StyledText weight="bold" lh="2.2">
-                                                {localize('Asset')}
-                                            </StyledText>
-                                        </TR>
-                                        <TR>
-                                            <StyledText>{localize('Forex and metals')}</StyledText>
-                                        </TR>
-                                    </TC>
-                                    <TC grid_area={'area1'}>
-                                        <TR isTitle="true">
-                                            <StyledText weight="bold">
-                                                <Localize
-                                                    translate_text="Commission per round<0/>trade"
-                                                    components={[<br key={0} />]}
-                                                />
-                                            </StyledText>
-                                        </TR>
-                                        <TR>
-                                            <StyledText>{localize('10 per lot')}</StyledText>
-                                        </TR>
-                                    </TC>
-                                </Table>
-                            </div>
-                            <HowItsCalculate>
-                                <StyledButton to="/">
-                                    {localize("How it's calculated")}
-                                </StyledButton>
-                            </HowItsCalculate>
-                        </Card>
                         <IBPlan data={ib_dmt5} />
                     </CardWrapper>
                     <StyledSection padding="4rem 0 0 0" align="center">
@@ -189,10 +99,11 @@ const DerivIBProgramme = () => {
 }
 
 const StyledChevron = styled(Chevron)`
-    width: 16px;
+    width: 100%;
+    margin-top: 0.8rem;
     height: 16px;
-    transform: rotate(180deg);
-    ${props => (props.is_expanded === 'true' ? 'transform: inherit;' : '')}
+    cursor: pointer;
+    transform: ${props => (props.is_expand ? 'inherit' : 'rotate(-180deg)')};
 `
 
 const StyledTR = styled(TR)`
@@ -212,7 +123,7 @@ const IBPlan = ({ data }) => {
         setExpand(!is_expand)
     }
     return (
-        <Card min_height="42rem">
+        <Card max_height={is_expand ? '76rem' : '42rem'} padding="3.2rem 3.2rem 8.2rem">
             <div>
                 {!is_calculated ? (
                     <>
@@ -220,11 +131,19 @@ const IBPlan = ({ data }) => {
                             {data.name}
                         </Header>
                         <Text>{data.description}</Text>
-                        <Table grid_col_number={data.assets.length}>
+                        <Table grid_col_number={data.assets.length} is_balance={true}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
                                     {asset.map((item, idxa) => {
-                                        if (idxa === 0) {
+                                        if (idxa === 0 && idx === 0) {
+                                            return (
+                                                <TR isTitle="true">
+                                                    <StyledText weight="bold" lh="2.2">
+                                                        {item}
+                                                    </StyledText>
+                                                </TR>
+                                            )
+                                        } else if (idxa === 0) {
                                             return (
                                                 <TR isTitle="true">
                                                     <StyledText weight="bold">{item}</StyledText>
@@ -246,15 +165,15 @@ const IBPlan = ({ data }) => {
                                     })}
                                 </TC>
                             ))}
-                            {has_expansion && (
-                                <StyledChevron onClick={toggleExpand} is_expand={is_expand} />
-                            )}
                         </Table>
-                        <HowItsCalculate>
+                        {has_expansion && (
+                            <StyledChevron onClick={toggleExpand} is_expand={is_expand} />
+                        )}
+                        {/* <HowItsCalculate>
                             <StyledButton onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
                             </StyledButton>
-                        </HowItsCalculate>
+                        </HowItsCalculate> */}
                     </>
                 ) : (
                     <>
@@ -274,28 +193,40 @@ const IBPlan = ({ data }) => {
 }
 
 const ib_dmt5 = {
-    name: localize('DMT5 Standard'),
-    description: localize('Earn when your customers trade on a DMT5 Standard account.'),
+    name: localize('DDMT5 Synthetic Indices'),
+    description: localize('Earn when your customers trade on a DMT5 Synthetic account'),
     assets: [
         [
             localize('Asset'),
-            localize('Forex and metals'),
-            localize('Cryptocurrencies'),
-            localize('Cryptocurrencies'),
-            localize('Cryptocurrencies'),
-            localize('Cryptocurrencies'),
-            localize('Cryptocurrencies'),
-            localize('Cryptocurrencies'),
+            localize('Crash 500 Index'),
+            localize('Crash 1000 Index'),
+            localize('Boom 500 Index'),
+            localize('Boom 1000 Index'),
+            localize('Volatility 10 Index'),
+            localize('Volatility 25 Index'),
+            localize('Volatility 50 Index'),
+            localize('Volatility 75 Index'),
+            localize('Volatility 100 Index'),
+            localize('HF Volatility 10 Index'),
+            localize('HF Volatility 50 Index'),
+            localize('HF Volatility 100 Index'),
+            localize('Step Index'),
         ],
         [
-            localize('Commission per round trade'),
-            localize('10 per lot'),
-            localize('0.3% per lot'),
-            localize('Cryptocurrencies'),
-            localize('Cryptocurrencies'),
-            localize('Cryptocurrencies'),
-            localize('Cryptocurrencies'),
-            localize('Cryptocurrencies'),
+            localize('Commission per round trade (per USD 100k)'),
+            localize('0.30'),
+            localize('0.20'),
+            localize('0.30'),
+            localize('0.20'),
+            localize('1.50'),
+            localize('3.50'),
+            localize('7.50'),
+            localize('10.00'),
+            localize('15.00'),
+            localize('1.50'),
+            localize('7.50'),
+            localize('15.00'),
+            localize('0.20'),
         ],
     ],
     calculation: (

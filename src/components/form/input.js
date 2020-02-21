@@ -48,6 +48,11 @@ const StyledError = styled(CrossIcon)`
     height: 1.6rem;
     width: 1.6rem;
     cursor: pointer;
+
+    @media ${device.tablet} {
+        right: 2rem;
+        top: 1.6rem;
+    }
 `
 
 const StyledInput = styled.input`

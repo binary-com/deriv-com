@@ -217,7 +217,7 @@ const SignupNew = ({
             <SignupWithContainer>
                 <Line />
                 <StyledText color="grey-5" align="center" fontSize="var(--text-size-xxs)">
-                    {localize('Or sign up with ')}
+                    {localize('Or sign in with ')}
                 </StyledText>
                 <Line />
             </SignupWithContainer>

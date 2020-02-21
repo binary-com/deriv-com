@@ -83,18 +83,21 @@ const StyledHeader = styled(Header)`
 `
 
 const LastHeader = styled(StyledHeader)`
-    margin-left: 38.66%;
+    width: 15%;
+    margin-left: 35.8%;
 
     ::before {
-        right: -40%;
+        right: 1%;
         top: 33%;
     }
 
     @media ${device.laptopL} {
-        margin-left: 35.4%;
+        width: 19%;
+        margin-left: 31.95%;
     }
     @media ${device.laptop} {
-        margin-left: 35.7%;
+        width: 19%;
+        margin-left: 32.7%;
     }
 `
 const Splitter = styled.div`

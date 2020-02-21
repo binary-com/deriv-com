@@ -12,7 +12,7 @@ import { localize, Localize } from 'components/localization'
 
 const SignupContent = styled.div`
     width: 48.4rem;
-    height: 55.5rem;
+    max-height: 55.5rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;

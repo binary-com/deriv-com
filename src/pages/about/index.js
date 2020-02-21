@@ -2,10 +2,11 @@ import React, { Fragment, useState } from 'react'
 import Hero from './_hero'
 // import { JoinUs } from './_join-us'
 import Leaders from './_leaders'
-import { OurAwards } from './_our-awards'
+// import { OurAwards } from './_our-awards'
 // import OurHistory from './_our-history'
 import OurNumbers from './_our-numbers'
 import { OurOffices } from './_our-offices'
+import { OurStory } from './_our-story'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
@@ -24,12 +25,14 @@ const About = () => {
             <Hero navigation={navigation} setNavigation={setNavigation} />
             {navigation === 'story' && (
                 <Fragment>
+                    <OurStory />
                     {/* <OurHistory /> */}
                     <OurNumbers />
                     <OurOffices />
                     {/* It has been blocked due to design review */}
                     {/* <JoinUs /> */}
-                    <OurAwards />
+                    {/* It has been blocked due to design review */}
+                    {/* <OurAwards /> */}
                 </Fragment>
             )}
             {navigation === 'leadership' && <Leaders />}

@@ -45,7 +45,7 @@ const StyledTab = styled.li`
     width: ${props => props.item_width || '38rem'};
 
     & > p {
-        // prettier-ignore
+        /* prettier-ignore */
         color: var(--color-${props => props.font_color || 'black-3'});
         opacity: 0.32;
         font-size: ${props => props.font_size || 'var(--text-size-m)'};
@@ -54,7 +54,8 @@ const StyledTab = styled.li`
     }
     &.tab-active > p {
         opacity: 1;
-        // prettier-ignore
+        
+        /* prettier-ignore */
         color: var(--color-${props => props.active_font_color || 'black'});
     }
 `

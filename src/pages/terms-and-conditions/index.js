@@ -46,6 +46,7 @@ const TermsAndConditions = () => {
             <Divider />
             <Section>
                 <CustomerGrid />
+                <BusinessGrid />
             </Section>
         </Layout>
     )

@@ -3,11 +3,30 @@ import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
+import device from 'themes/device'
 // Icons
 import PractiseIcon from 'images/svg/cross-hair-icon.svg'
 import TradeIcon from 'images/svg/chart-icon.svg'
 import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
+const StyledSection = styled(SectionContainer)`
+    border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+
+    @media ${device.tabletL} {
+        padding: 5rem 0;
+    }
+`
+const StyledFlex = styled(Flex)`
+    margin: 6rem 0 0 0;
+
+    @media ${device.tabletL} {
+        margin: 0;
+
+        article:first-child {
+            margin-top: 2rem;
+        }
+    }
+`
 const ClientCard = styled.article`
     background-color: var(--color-white);
     border-radius: 4px;
@@ -22,10 +41,21 @@ const ClientCard = styled.article`
 
     ${Header} {
         padding-bottom: 1.6rem;
+
+        @media ${device.tabletL} {
+            font-size: 2rem;
+            padding-bottom: 1rem;
+        }
     }
+
     @media (max-width: 1185px) {
         margin: 2rem;
         order: ${props => (props.order ? props.order : '')};
+    }
+    @media ${device.tabletL} {
+        width: 100%;
+        margin-top: 0;
+        padding: 2rem;
     }
 
     &:hover {
@@ -38,13 +68,13 @@ const ClientCard = styled.article`
 `
 
 const SimpleSteps = () => (
-    <SectionContainer style={{ borderBottom: '1px solid rgba(151, 151, 151, 0.2)' }}>
+    <StyledSection>
         <Container direction="column">
             <Header align="center" font_size="var(--text-size-header-1)" as="h2">
                 {localize('3 simple steps')}
             </Header>
         </Container>
-        <Flex m="6rem 0 0 0" wrap="wrap">
+        <StyledFlex wrap="wrap">
             <ClientCard>
                 <Flex ai="center">
                     <Header as="h4">{localize('Practise')}</Header>
@@ -78,8 +108,8 @@ const SimpleSteps = () => (
                     )}
                 </Text>
             </ClientCard>
-        </Flex>
-    </SectionContainer>
+        </StyledFlex>
+    </StyledSection>
 )
 
 export default SimpleSteps

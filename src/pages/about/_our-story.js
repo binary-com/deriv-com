@@ -81,6 +81,22 @@ const StyledHeader = styled(Header)`
         align-items: center;
     }
 `
+
+const LastHeader = styled(StyledHeader)`
+    margin-left: 38.66%;
+
+    ::before {
+        right: -40%;
+        top: 33%;
+    }
+
+    @media ${device.laptopL} {
+        margin-left: 35.4%;
+    }
+    @media ${device.laptop} {
+        margin-left: 35.7%;
+    }
+`
 const Splitter = styled.div`
     width: 39.6rem;
     height: 0.1rem;
@@ -119,7 +135,7 @@ export const OurStory = () => {
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
                     {idx === Stories.length - 1 ? (
-                        <StyledHeader
+                        <LastHeader
                             left={story.left}
                             as="h2"
                             color={story.color || 'red-4'}
@@ -127,7 +143,7 @@ export const OurStory = () => {
                             font_size="var(--text-size-header-3)"
                         >
                             {story.year}
-                        </StyledHeader>
+                        </LastHeader>
                     ) : (
                         <StyledHeader
                             left={story.left}

@@ -133,7 +133,7 @@ const CheckMarkBullet = ({ children }) => (
     <li>
         <Flex jc="unset" ai="center">
             <CheckMark />
-            <CheckBoxText secondary="true" color="white">
+            <CheckBoxText secondary color="white">
                 {children}
             </CheckBoxText>
         </Flex>
@@ -182,7 +182,7 @@ export const Hero = () => {
                             </CheckMarkBullet>
                         </CheckMarkList>
                         <ButtonWrapper jc="unset">
-                            <HeroButton type="submit" secondary="true" to="/signup/">
+                            <HeroButton type="submit" secondary to="/signup/">
                                 {localize('Create demo account')}
                             </HeroButton>
                         </ButtonWrapper>

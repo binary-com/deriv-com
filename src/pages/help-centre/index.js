@@ -19,10 +19,12 @@ import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 
 const getAllArticles = articles =>
-    articles
-        .map(category => category.articles)
-        // flatten the array, gatsby build does not support .flat() yet
-        .reduce((arr, article_arr) => arr.concat(article_arr), [])
+    articles.map(row =>
+        row
+            .map(category => category.articles)
+            // flatten the array, gatsby build does not support .flat() yet
+            .reduce((arr, article_arr) => arr.concat(article_arr), []),
+    )
 
 const Backdrop = styled.div`
     padding: 8rem 0;
@@ -122,13 +124,16 @@ const ListWrapper = styled.div`
 const ArticleSection = styled.section`
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     padding: 8rem 0;
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
     }
+`
+const ArticleRow = styled.div`
+    display: fex;
 `
 const ListNoBullets = styled.ul`
     margin-bottom: 4.2rem;
@@ -151,11 +156,23 @@ const StyledLink = styled(Link)`
         text-decoration: underline;
     }
 `
+
+const StyledView = styled.div`
+    text-decoration: none;
+    color: red;
+    font-size: var(--text-size-s);
+
+    :hover {
+        cursor: pointer;
+    }
+`
+
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
         this.state = {
             all_articles: [],
+            all_categories: {},
             search: '',
             search_has_transition: false,
             toggle_search: true,
@@ -187,17 +204,29 @@ class HelpCentre extends Component {
 
     clearSearch = () => this.setState({ search: '' })
 
+    toggleArticle = category => {
+        if (this.state.all_categories[category]) {
+            const all_categories = { ...this.state.all_categories }
+            all_categories[category].is_expanded = !all_categories[category].is_expanded
+            this.setState({ all_categories })
+        }
+    }
+
     componentDidMount = () => {
         const current_label = getLocationHash()
         const deepClone = arr => {
             const out = []
             for (let i = 0, len = arr.length; i < len; i++) {
-                const item = arr[i]
-                const obj = {}
-                for (var k in item) {
-                    obj[k] = item[k]
+                const inner = []
+                for (let j = 0, len2 = arr[i].length; j < len2; j++) {
+                    const item = arr[i][j]
+                    const obj = {}
+                    for (var k in item) {
+                        obj[k] = item[k]
+                    }
+                    inner.push(obj)
                 }
-                out.push(obj)
+                out.push(inner)
             }
             return out
         }
@@ -209,21 +238,36 @@ class HelpCentre extends Component {
             })
         }
         const all_articles = getAllArticles(articles)
-
         const duplicate_articles = deepClone(all_articles)
-        const translated_articles = duplicate_articles.map(article => {
-            article.title = localize(article.title.props.translate_text)
-            article.sub_category = localize(article.sub_category.props.translate_text)
-            return article
+        const translated_articles = duplicate_articles.map(items =>
+            items.map(article => {
+                article.title = localize(article.title.props.translate_text)
+                article.sub_category = localize(article.sub_category.props.translate_text)
+                return article
+            }),
+        )
+
+        const all_categories = {}
+        all_articles.forEach(items => {
+            Object.keys(items).forEach(article => {
+                all_categories[items[article].category] = { is_expanded: false }
+            })
         })
 
         this.setState({
+            all_categories,
             all_articles: translated_articles,
         })
     }
 
     render() {
-        const { all_articles, search, toggle_search, search_has_transition } = this.state
+        const {
+            all_articles,
+            all_categories,
+            search,
+            toggle_search,
+            search_has_transition,
+        } = this.state
 
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
@@ -275,24 +319,73 @@ class HelpCentre extends Component {
                 </SearchSection>
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
-                        {articles.map((category, idx) => (
-                            <ListWrapper key={idx}>
-                                <Header font_size="3.6rem">{localize(category.category)}</Header>
-                                <ListNoBullets>
-                                    {category.articles.map((article, idxa) => (
-                                        <li key={idxa}>
-                                            <StyledLink
-                                                to={convertToHash(
-                                                    category.category.props.translate_text,
-                                                    article.label,
-                                                )}
-                                            >
-                                                {article.title}
-                                            </StyledLink>
-                                        </li>
-                                    ))}
-                                </ListNoBullets>
-                            </ListWrapper>
+                        {articles.map((rows, idx) => (
+                            <ArticleRow key={idx}>
+                                {rows.map((category, idxa) => (
+                                    <ListWrapper key={idxa}>
+                                        <Header font_size="3.6rem">
+                                            {localize(category.category)}
+                                        </Header>
+                                        <ListNoBullets>
+                                            {/*TODO: refactor this into its own component*/}
+                                            {category.articles.map((article, idxb) => {
+                                                const category_is_expanded =
+                                                    article.category in all_categories &&
+                                                    all_categories[article.category].is_expanded
+                                                const should_show_item =
+                                                    idxb < 3 || category_is_expanded
+                                                const can_expand = category.articles.length > 3
+                                                const should_show_expand =
+                                                    !category_is_expanded &&
+                                                    can_expand &&
+                                                    idxb === 3
+                                                const should_show_collapse =
+                                                    category_is_expanded &&
+                                                    can_expand &&
+                                                    idxb === category.articles.length - 1
+
+                                                return (
+                                                    <React.Fragment key={idxb}>
+                                                        {should_show_item && (
+                                                            <li>
+                                                                <StyledLink
+                                                                    to={convertToHash(
+                                                                        category.category.props
+                                                                            .translate_text,
+                                                                        article.label,
+                                                                    )}
+                                                                >
+                                                                    {article.title}
+                                                                </StyledLink>
+                                                            </li>
+                                                        )}
+                                                        {(should_show_expand ||
+                                                            should_show_collapse) && (
+                                                            <li>
+                                                                <StyledView
+                                                                    onClick={() =>
+                                                                        this.toggleArticle(
+                                                                            article.category,
+                                                                        )
+                                                                    }
+                                                                >
+                                                                    {should_show_expand
+                                                                        ? localize(
+                                                                              'View all questions',
+                                                                          )
+                                                                        : localize(
+                                                                              'View less questions',
+                                                                          )}
+                                                                </StyledView>
+                                                            </li>
+                                                        )}
+                                                    </React.Fragment>
+                                                )
+                                            })}
+                                        </ListNoBullets>
+                                    </ListWrapper>
+                                ))}
+                            </ArticleRow>
                         ))}
                     </ArticleSection>
                 </Container>

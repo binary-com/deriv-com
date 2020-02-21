@@ -45,7 +45,7 @@ const StyledTab = styled.li`
     width: ${props => props.item_width || '38rem'};
 
     & > p {
-        color: var(--color-${props => props.font_color || 'black-3'});
+        color: var(--color- ${props => props.font_color || 'black-3'});
         opacity: 0.32;
         font-size: ${props => props.font_size || 'var(--text-size-m)'};
         padding-left: 1.6rem;
@@ -53,7 +53,7 @@ const StyledTab = styled.li`
     }
     &.tab-active > p {
         opacity: 1;
-        color: var(--color-${props => props.active_font_color || 'black'});
+        color: var(--color- ${props => props.active_font_color || 'black'});
     }
 `
 const TabsText = css`
@@ -86,7 +86,7 @@ const ItemWrapper = styled.div`
     display: flex;
     flex-direction: row;
 `
-const Tab = ({ active_tab, label, onClick, text, mobile }) => {
+const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
     const className = active_tab === label ? 'tab-active' : ''
 
     const handleClick = () => {
@@ -100,7 +100,7 @@ const Tab = ({ active_tab, label, onClick, text, mobile }) => {
     ) : (
         <ItemWrapper>
             {active_tab === label && <LeftBorder />}
-            <StyledTab className={className} onClick={handleClick}>
+            <StyledTab className={className} onClick={handleClick} font_size={font_size}>
                 <Text weight="500">{text}</Text>
             </StyledTab>
         </ItemWrapper>
@@ -121,7 +121,7 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
     return [active_tab, setTab, previous_tab, setLastActiveTab]
 }
 
-const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_header }) => {
+const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_header, font_size }) => {
     // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
     const first_tab = isBrowser()
         ? window.innerWidth > size.tabletL
@@ -153,6 +153,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_heade
             return (
                 <div key={idx}>
                     <Tab
+                        font_size={font_size}
                         mobile={props.is_mobile}
                         text={text}
                         onClick={e => {
@@ -209,6 +210,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_heade
 
 SideTab.propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
+    font_size: PropTypes.string,
     has_hash_routing: PropTypes.bool,
     is_mobile: PropTypes.bool,
     is_sticky: PropTypes.bool,
@@ -218,6 +220,7 @@ SideTab.propTypes = {
 
 Tab.propTypes = {
     active_tab: PropTypes.string.isRequired,
+    font_size: PropTypes.string,
     label: PropTypes.string.isRequired,
     mobile: PropTypes.bool,
     onClick: PropTypes.func.isRequired,

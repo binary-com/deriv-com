@@ -98,7 +98,7 @@ const OpeningAccount = () => (
         <Text>
             <Box>
                 <Localize
-                    translate_text='1. Enter your email address on the homepage and click <0>"Create free account"</0>
+                    translate_text='1. Enter your email address on the homepage and click <0>"Create demo account"</0>
                 <1 /><1 />2. Create an account with your <0>Google</0> login
                 <1 /><1 />3. Create an account with your <0>Facebook</0> login'
                     components={[<strong key={0} />, <br key={1} />]}

@@ -7,45 +7,27 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device.js'
 import { Header, Text } from 'components/elements'
-import Award from 'images/svg/award-winning.svg'
-import Complaint from 'images/svg/complaint.svg'
-import Security from 'images/svg/security.svg'
+import Graph from 'images/svg/graph.svg'
 
 const Wrapper = styled.section`
-    padding-top: 8rem;
+    padding: 8rem 0;
     width: 100%;
-    height: inherit;
+    height: calc(100vh - 10.4rem);
     justify-content: center;
     display: flex;
     flex-direction: row;
     background-color: rgba(200, 214, 215, 0.22);
 `
 const Content = styled.div`
-    width: 40rem;
+    width: 40.5rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    padding: 4rem 0;
     margin-right: 5.6rem;
-    margin-left: 2rem;
+    margin-top: 9.4rem;
 
     @media ${device.tablet} {
         display: none;
-    }
-`
-const Item = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    margin-top: 2.4rem;
-
-    p {
-        margin-left: 1.6rem;
-        width: 84%;
-    }
-    :last-child {
-        margin-bottom: 0;
     }
 `
 
@@ -57,9 +39,17 @@ const StyledText = styled(Text)`
 
 const Line = styled.div`
     width: 100%;
-    height: 1px;
-    background-color: var(--color-red);
+    border-bottom: 1px solid var(--color-red);
     margin-top: 2.4rem;
+`
+
+const StyledDiv = styled.div`
+    padding: 6rem 0;
+    background-color: rgba(200, 214, 215, 0.22);
+`
+
+const StyledGraph = styled(Graph)`
+    overflow: initial;
 `
 
 const NewSignup = () => {
@@ -69,7 +59,7 @@ const NewSignup = () => {
         setSubmitState(submitStatus)
     }
     return (
-        <Layout is_static padding_top="0">
+        <Layout type="static" padding_top="0">
             <SEO
                 description={localize(
                     'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
@@ -79,33 +69,18 @@ const NewSignup = () => {
             <Wrapper>
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>
-                        <Header as="h4">{localize('Start trading with Deriv')}</Header>
+                        <StyledGraph />
+                        <Header margin="2.4rem 0 0 0" font_size="3.6rem">
+                            {localize('Start trading with Deriv')}
+                        </Header>
                         <br />
-                        <Text>{localize('Join over 1 million traders worldwide')}</Text>
+                        <Text>
+                            {localize(
+                                'Join over 1 million people who trade with Deriv and Binary.com — the award-winning platform that’s been trusted for 20 years.',
+                            )}
+                        </Text>
                         <Line />
-                        <Item>
-                            <Award />
-                            <Text>
-                                {localize(
-                                    'Deriv is the next evolution of Binary.com — an award-winning platform that’s been trusted for 20 years.',
-                                )}
-                            </Text>
-                        </Item>
-                        <Item>
-                            <Complaint />
-                            <Text>
-                                {localize('We’re compliant with regulators around the world.')}
-                            </Text>
-                        </Item>
-                        <Item>
-                            <Security />
-                            <Text>
-                                {localize(
-                                    'Your privacy and security are our top priority. We’ll never use your details without consent.',
-                                )}
-                            </Text>
-                        </Item>
-                        <Line />
+
                         <StyledText color="grey-12">
                             {localize(
                                 'By giving us your email address, you agree to receive marketing emails from us. You may unsubscribe from these emails at any time.',
@@ -121,6 +96,7 @@ const NewSignup = () => {
                     autofocus={true}
                 />
             </Wrapper>
+            <StyledDiv />
         </Layout>
     )
 }

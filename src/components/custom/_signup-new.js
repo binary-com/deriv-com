@@ -12,7 +12,7 @@ import { localize, Localize } from 'components/localization'
 
 const SignupContent = styled.div`
     width: 48.4rem;
-    height: 55.5rem;
+    max-height: 55.5rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -96,7 +96,7 @@ export const LoginText = styled(MutedText)`
 `
 const Span = styled.span`
     margin-right: 1.4rem;
-    margin-left: 2.7rem;
+    margin-left: 0.7rem;
     font-weight: 500;
     font-size: var(--text-size-xxs);
     color: var(--color-grey-13);
@@ -153,10 +153,10 @@ const SignupNew = ({
             : `/${getLanguage()}/terms-and-conditions/`
     return (
         <SignupContent>
-            <Header as="h4" weight="bold">
+            <Header as="h4" margin="0 0 0.8rem 0">
                 {localize('Sign up')}
             </Header>
-            <br />
+
             <Text>{localize('Enter your email address to begin')}</Text>
             <NoteBox>
                 <StyledText
@@ -212,12 +212,12 @@ const SignupNew = ({
                 secondary
                 disabled={is_submitting || !checkBoxState}
             >
-                {localize('Create a free account')}
+                {localize('Create demo account')}
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-16" align="center" fontSize="var(--text-size-xxs)">
-                    {localize('OR SIGN UP WITH ')}
+                <StyledText color="grey-5" align="center" fontSize="var(--text-size-xxs)">
+                    {localize('Or sign in with ')}
                 </StyledText>
                 <Line />
             </SignupWithContainer>

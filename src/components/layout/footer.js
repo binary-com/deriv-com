@@ -253,7 +253,9 @@ const Footer = () => (
                         <div>
                             <Link to="/help-centre">{localize('Help centre')}</Link>
                         </div>
-                        {/* <div><Link to='/payment'>{localize('Payment methods')}</Link></div> */}
+                        <div>
+                            <Link to="/payment-methods">{localize('Payment methods')}</Link>
+                        </div>
                         <div>
                             <Link to="/why-choose-us">{localize('Why choose us')}</Link>
                         </div>

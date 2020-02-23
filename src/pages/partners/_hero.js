@@ -29,7 +29,7 @@ const Hero = () => {
                     {localize('Partner with a trusted online trading provider')}
                 </StyledHeader>
                 <Button onClick={Partner.redirectToSignup} secondary>
-                    {localize('Sign up')}
+                    {localize('Sign up as a partner')}
                 </Button>
             </StyeldContainer>
         </BackgroundImage>

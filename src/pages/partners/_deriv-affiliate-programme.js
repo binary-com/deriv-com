@@ -87,7 +87,7 @@ const DerivAffiliateProgramme = () => {
                 <SectionContainer>
                     <StyledHeader as="h4">{localize('Choose a commission plan:')}</StyledHeader>
                     <CardWrapper mt="-2rem" wrap="wrap">
-                        <Card>
+                        <Card min_height='47.2rem'>
                             <div>
                                 <Header as="h4" lh="1.5">
                                     {localize('Revenue share')}
@@ -120,7 +120,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </Card>
-                        <Card>
+                        <Card min_height='47.2rem'>
                             <div>
                                 <Header as="h4" lh="1.5">
                                     {localize('Turnover')}
@@ -151,7 +151,7 @@ const DerivAffiliateProgramme = () => {
                                 </ApplyNow>
                             </div>
                         </Card>
-                        <Card>
+                        <Card min_height='47.2rem'>
                             <div>
                                 <Header as="h4" lh="1.5">
                                     {localize('CPA (EU only)')}

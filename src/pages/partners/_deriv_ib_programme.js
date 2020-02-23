@@ -5,7 +5,7 @@ import { Table, TR, TC } from './_table.js'
 import { Card, CardWrapper } from './_partner-card.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
-import { localize, Localize } from 'components/localization'
+import { localize } from 'components/localization'
 import { Button } from 'components/form'
 import device from 'themes/device'
 import Chevron from 'images/svg/chevron.svg'
@@ -42,6 +42,9 @@ const StyledText = styled(Text)`
 `
 const StyledButton = styled(Button)`
     color: var(--color-red);
+    background-color: var(--color-white);
+    border: none;
+    padding: 0;
 `
 const HowItsCalculate = styled.div`
     box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
@@ -56,8 +59,9 @@ const ButtonWrapper = styled.div`
     width: 100;
     display: flex;
     justify-content: flex-start;
+    margin-left: 3.2rem;
 
-    a:last-child {
+    button:last-child {
         margin-left: 1.6rem;
     }
 `
@@ -78,7 +82,8 @@ const DerivIBProgramme = () => {
                 <SectionContainer padding="8rem 0 9.6rem 0">
                     <StyledHeader as="h4">{localize('Choose a commission plan:')}</StyledHeader>
                     <CardWrapper mt="-2rem" wrap="wrap">
-                        <IBPlan data={ib_dmt5} />
+                        <DMT5Synthetic data={ib_dmt5_synthetic} />
+                        <DMT5Advanced data={ib_dmt5_advanced} />
                     </CardWrapper>
                     <StyledSection padding="4rem 0 0 0" align="center">
                         <StyledHeader
@@ -110,10 +115,10 @@ const StyledTR = styled(TR)`
     display: ${props => (props.hidden ? 'hidden' : 'block')};
 `
 
-const IBPlan = ({ data }) => {
+const DMT5Synthetic = ({ data }) => {
     const [is_expand, setExpand] = React.useState(false)
     const [is_calculated, setCalculated] = React.useState(false)
-    const max_expansion = 3
+    const max_expansion = 4
     const has_expansion = data.assets[0].length > max_expansion
 
     const toggleCalculated = () => {
@@ -123,7 +128,7 @@ const IBPlan = ({ data }) => {
         setExpand(!is_expand)
     }
     return (
-        <Card max_height={is_expand ? '76rem' : '42rem'} padding="3.2rem 3.2rem 8.2rem">
+        <Card min_height={is_expand ? '76rem' : '42rem'} padding="3.2rem 3.2rem 8.2rem">
             <div>
                 {!is_calculated ? (
                     <>
@@ -169,31 +174,121 @@ const IBPlan = ({ data }) => {
                         {has_expansion && (
                             <StyledChevron onClick={toggleExpand} is_expand={is_expand} />
                         )}
-                        {/* <HowItsCalculate>
+                        <HowItsCalculate>
                             <StyledButton onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
                             </StyledButton>
-                        </HowItsCalculate> */}
+                        </HowItsCalculate>
                     </>
                 ) : (
-                    <>
-                        <Header as="h4" lh="1.5">
-                            {localize('How it’s calculated')}
-                        </Header>
-                        {data.calculation}
-                        <ButtonWrapper>
-                            <Button secondary>{localize('Become an affiliate')}</Button>
-                            <BackButton tertiary>{localize('Back')}</BackButton>
-                        </ButtonWrapper>
-                    </>
-                )}
+                        <>
+                            <Header as="h4" lh="1.5">
+                                {localize('How it’s calculated')}
+                            </Header>
+                            {data.calculation}
+                            <HowItsCalculate>
+                                <ButtonWrapper>
+                                    <Button secondary>{localize('Become an affiliate')}</Button>
+                                    <BackButton tertiary onClick={toggleCalculated}>{localize('Back')}</BackButton>
+                                </ButtonWrapper>
+                            </HowItsCalculate>
+                        </>
+                    )}
             </div>
         </Card>
     )
 }
-
-const ib_dmt5 = {
-    name: localize('DDMT5 Synthetic Indices'),
+const DMT5Advanced = ({ data }) => {
+    const [is_calculated, setCalculated] = React.useState(false)
+    const toggleCalculated = () => {
+        setCalculated(!is_calculated)
+    }
+    return (
+        <Card padding="3.2rem 3.2rem 8.2rem">
+            <div>
+                {!is_calculated ? (
+                    <>
+                        <Header as="h4" lh="1.5">
+                            {data.name}
+                        </Header>
+                        <Text>{data.description}</Text>
+                        <Table grid_col_number={data.assets.length} >
+                            {data.assets.map((asset, idx) => (
+                                <TC grid_area={`area${idx}`} key={idx}>
+                                    {asset.map((item, idxa) => {
+                                        if (idxa === 0 && idx === 0) {
+                                            return (
+                                                <TR isTitle="true">
+                                                    <StyledText weight="bold" lh="2.2">
+                                                        {item}
+                                                    </StyledText>
+                                                </TR>
+                                            )
+                                        } else if (idxa === 0 && typeof item !== 'string') {
+                                            return (
+                                                <TR isTitle="true">
+                                                    <StyledText weight="bold" style={item.style}>{item.title}</StyledText>
+                                                </TR>
+                                            )
+                                        } else if (idxa === 0 && typeof item === 'string') {
+                                            return (
+                                                <TR isTitle="true">
+                                                    <StyledText weight="bold" >{item}</StyledText>
+                                                </TR>
+                                            )
+                                        } else {
+                                            return (
+                                                <StyledTR key={idxa}>
+                                                    <StyledText>{item}</StyledText>
+                                                </StyledTR>
+                                            )
+                                        }
+                                    })}
+                                </TC>
+                            ))}
+                        </Table>
+                        <HowItsCalculate>
+                            <StyledButton onClick={toggleCalculated}>
+                                {localize("How it's calculated")}
+                            </StyledButton>
+                        </HowItsCalculate>
+                    </>
+                ) : (
+                        <>
+                            <Header as="h4" lh="1.5">
+                                {localize('How it’s calculated')}
+                            </Header>
+                            {data.calculation}
+                            <HowItsCalculate>
+                                <ButtonWrapper>
+                                    <Button secondary>{localize('Become an affiliate')}</Button>
+                                    <BackButton tertiary onClick={toggleCalculated}>{localize('Back')}</BackButton>
+                                </ButtonWrapper></HowItsCalculate>
+                        </>
+                    )}
+            </div>
+        </Card>
+    )
+}
+const ib_dmt5_advanced = {
+    name: localize('DMT5 Advanced'),
+    description: localize('Earn when your customers trade on a DMT5 Advanced account.'),
+    assets: [
+        [
+            localize('Asset'),
+            localize('Forex and metals')
+        ],
+        [
+            { title: localize('Commission per round trade'), style: { maxWidth: '16rem' } },
+            localize('5 per lot')
+        ]
+    ],
+    calculation: (
+        <Text>{localize('For forex assets, your commission is represented in the base currency. For example, a round trade of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission.')}</Text>
+    )
+}
+const ib_dmt5_synthetic = {
+    name: localize('DMT5 Synthetic Indices'),
     description: localize('Earn when your customers trade on a DMT5 Synthetic account'),
     assets: [
         [
@@ -248,8 +343,10 @@ const ib_dmt5 = {
     ),
 }
 
-IBPlan.propTypes = {
+DMT5Synthetic.propTypes = {
     data: PropTypes.object,
 }
-
+DMT5Advanced.propTypes = {
+    data: PropTypes.object,
+}
 export default DerivIBProgramme

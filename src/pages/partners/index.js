@@ -53,9 +53,10 @@ const Partners = () => {
                 <Container direction="column">
                     <Header as="h4" weight="500" align="center">
                         {localize(
-                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Binary Group –– the owner of Binary.com and Deriv –– has a proven track record of running successful referral programmes with prompt payouts.',
+                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Binary Group – the owner of Binary.com and',
                         )}
                     </Header>
+                    <Header as="h4" weight="500" align="center">{localize('Deriv – has a proven track record of running successful referral programmes with prompt payouts.')}</Header>
                     <DNumber items={items} justify="space-around" />
                 </Container>
                 <DerivAffiliateProgramme />

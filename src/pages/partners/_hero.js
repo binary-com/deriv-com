@@ -11,7 +11,8 @@ const StyeldContainer = styled(Container)`
 `
 
 const StyledHeader = styled(Header)`
-    width: 70rem;
+    width: 100%;
+    max-width: 70rem;
     margin-bottom: 4rem;
 `
 

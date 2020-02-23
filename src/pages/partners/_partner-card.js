@@ -5,7 +5,7 @@ import device from 'themes/device'
 export const Card = styled.section`
     width: 100%;
     max-width: 38.4rem;
-    min-height: ${props => props.min_height ? (props.min_height) : ('42rem')};
+    height: ${props => props.height ? (props.height) : ('42rem')};
     margin-top: 4rem;
     background-color: var(--color-white);
     border-radius: 0.4rem;

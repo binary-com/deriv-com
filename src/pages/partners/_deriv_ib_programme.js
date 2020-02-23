@@ -15,6 +15,7 @@ const TitleWrapper = styled.div`
     margin: 0 auto;
 
     h4:last-child {
+        padding: 0 2rem;
         margin-top: 1.6rem;
     }
 `
@@ -47,7 +48,7 @@ const StyledButton = styled(Button)`
     padding: 0;
 `
 const HowItsCalculate = styled.div`
-    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+    box-shadow: ${props => props.separator === 'true' ? ('0 -1px 0 0 rgba(0, 0, 0, 0.1)') : ('')};
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -73,17 +74,18 @@ const DerivIBProgramme = () => {
                     <Header font_size="3.6rem" align="center">
                         {localize('Deriv IB Programme')}
                     </Header>
-                    <Header as="h4" align="center" weight="500">
+                    <Header as="h4" align="center" weight="500" lh='1.5'>
                         {localize(
-                            'Our IB programme is available to all Deriv affiliates. Earn commission from your clients’ trades on DMT5.',
+                            'Our introducing broker programme (Deriv IB Programme) is available to all Deriv affiliates. Earn commission from your clients’ trades on DMT5.',
                         )}
                     </Header>
                 </TitleWrapper>
                 <SectionContainer padding="8rem 0 9.6rem 0">
                     <StyledHeader as="h4">{localize('Choose a commission plan:')}</StyledHeader>
                     <CardWrapper mt="-2rem" wrap="wrap">
-                        <DMT5Synthetic data={ib_dmt5_synthetic} />
+                        <DMT5Standard data={ib_dmt5_standard} />
                         <DMT5Advanced data={ib_dmt5_advanced} />
+                        <DMT5Synthetic data={ib_dmt5_synthetic} />
                     </CardWrapper>
                     <StyledSection padding="4rem 0 0 0" align="center">
                         <StyledHeader
@@ -128,7 +130,7 @@ const DMT5Synthetic = ({ data }) => {
         setExpand(!is_expand)
     }
     return (
-        <Card min_height={is_expand ? '76rem' : '42rem'} padding="3.2rem 3.2rem 8.2rem">
+        <Card height={is_expand ? '76rem' : '42rem'} padding="3.2rem 3.2rem 8.2rem">
             <div>
                 {!is_calculated ? (
                     <>
@@ -174,7 +176,7 @@ const DMT5Synthetic = ({ data }) => {
                         {has_expansion && (
                             <StyledChevron onClick={toggleExpand} is_expand={is_expand} />
                         )}
-                        <HowItsCalculate>
+                        <HowItsCalculate separator='true'>
                             <StyledButton onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
                             </StyledButton>
@@ -192,6 +194,78 @@ const DMT5Synthetic = ({ data }) => {
                                     <BackButton tertiary onClick={toggleCalculated}>{localize('Back')}</BackButton>
                                 </ButtonWrapper>
                             </HowItsCalculate>
+                        </>
+                    )}
+            </div>
+        </Card>
+    )
+}
+const DMT5Standard = ({ data }) => {
+    const [is_calculated, setCalculated] = React.useState(false)
+    const toggleCalculated = () => {
+        setCalculated(!is_calculated)
+    }
+    return (
+        <Card padding="3.2rem 3.2rem 8.2rem">
+            <div>
+                {!is_calculated ? (
+                    <>
+                        <Header as="h4" lh="1.5">
+                            {data.name}
+                        </Header>
+                        <Text>{data.description}</Text>
+                        <Table grid_col_number={data.assets.length} >
+                            {data.assets.map((asset, idx) => (
+                                <TC grid_area={`area${idx}`} key={idx}>
+                                    {asset.map((item, idxa) => {
+                                        if (idxa === 0 && idx === 0) {
+                                            return (
+                                                <TR isTitle="true">
+                                                    <StyledText weight="bold" lh="2.2">
+                                                        {item}
+                                                    </StyledText>
+                                                </TR>
+                                            )
+                                        } else if (idxa === 0 && typeof item !== 'string') {
+                                            return (
+                                                <TR isTitle="true">
+                                                    <StyledText weight="bold" style={item.style}>{item.title}</StyledText>
+                                                </TR>
+                                            )
+                                        } else if (idxa === 0 && typeof item === 'string') {
+                                            return (
+                                                <TR isTitle="true">
+                                                    <StyledText weight="bold" >{item}</StyledText>
+                                                </TR>
+                                            )
+                                        } else {
+                                            return (
+                                                <StyledTR key={idxa}>
+                                                    <StyledText>{item}</StyledText>
+                                                </StyledTR>
+                                            )
+                                        }
+                                    })}
+                                </TC>
+                            ))}
+                        </Table>
+                        <HowItsCalculate separator='true'>
+                            <StyledButton onClick={toggleCalculated}>
+                                {localize("How it's calculated")}
+                            </StyledButton>
+                        </HowItsCalculate>
+                    </>
+                ) : (
+                        <>
+                            <Header as="h4" lh="1.5">
+                                {localize('How it’s calculated')}
+                            </Header>
+                            {data.calculation}
+                            <HowItsCalculate>
+                                <ButtonWrapper>
+                                    <Button secondary>{localize('Become an affiliate')}</Button>
+                                    <BackButton tertiary onClick={toggleCalculated}>{localize('Back')}</BackButton>
+                                </ButtonWrapper></HowItsCalculate>
                         </>
                     )}
             </div>
@@ -247,7 +321,7 @@ const DMT5Advanced = ({ data }) => {
                                 </TC>
                             ))}
                         </Table>
-                        <HowItsCalculate>
+                        <HowItsCalculate separator='true'>
                             <StyledButton onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
                             </StyledButton>
@@ -268,6 +342,28 @@ const DMT5Advanced = ({ data }) => {
                     )}
             </div>
         </Card>
+    )
+}
+const ib_dmt5_standard = {
+    name: localize('DMT5 Standard'),
+    description: localize('Earn when your customers trade on a DMT5 Standard account.'),
+    assets: [
+        [
+            localize('Asset'),
+            localize('Forex and metals'),
+            localize('Cryptocurrencies')
+        ],
+        [
+            { title: localize('Commission per round trade'), style: { maxWidth: '16rem' } },
+            localize('10 per lot'),
+            localize('0.3% per lot')
+        ]
+    ],
+    calculation: (
+        <>
+            <Text>{localize('For forex and metal assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 10 in commission. A round trade of 1 lot of USD/CAD will pay out USD 10 in commission.')}</Text>
+            <Text style={{ marginTop: '2rem' }}>{localize('For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 30 in commission.')}</Text>
+        </>
     )
 }
 const ib_dmt5_advanced = {
@@ -334,7 +430,7 @@ const ib_dmt5_synthetic = {
             <Text weight="bold" margin="2.5rem 0">
                 {localize('USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5')}
             </Text>
-            <StyledText font_size="var(--text-size-s)" lh="1.5" margin_bottom="2.4rem">
+            <StyledText font_size="var(--text-size-s)" lh="1.5">
                 {localize(
                     'If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate.',
                 )}
@@ -343,6 +439,9 @@ const ib_dmt5_synthetic = {
     ),
 }
 
+DMT5Standard.propTypes = {
+    data: PropTypes.object,
+}
 DMT5Synthetic.propTypes = {
     data: PropTypes.object,
 }

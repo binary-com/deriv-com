@@ -76,6 +76,24 @@ export const articles = [
                     label: 'what-are-stock-indices',
                 },
                 {
+                    title: <Localize translate_text="What are synthetic indices?" />,
+                    category: 'Trading',
+                    sub_category: <Localize translate_text="Markets" />,
+                    label: 'what-are-synthetic-indices',
+                },
+                {
+                    title: <Localize translate_text="What are Contracts for Difference (CFDs)?" />,
+                    category: 'Trading',
+                    sub_category: <Localize translate_text="Markets" />,
+                    label: 'what-are-cfds',
+                },
+                {
+                    title: <Localize translate_text="What are binary options?" />,
+                    category: 'Trading',
+                    sub_category: <Localize translate_text="Markets" />,
+                    label: 'what-are-binary-options',
+                },
+                {
                     title: <Localize translate_text="How many trading platforms do you offer?" />,
                     category: 'Trading',
                     sub_category: <Localize translate_text="How to trade" />,
@@ -94,24 +112,6 @@ export const articles = [
                     label: 'trading-limits',
                 },
                 {
-                    title: <Localize translate_text="What are Contracts for Difference (CFDs)?" />,
-                    category: 'Trading',
-                    sub_category: <Localize translate_text="Markets" />,
-                    label: 'what-are-cfds',
-                },
-                {
-                    title: <Localize translate_text="What are synthetic indices?" />,
-                    category: 'Trading',
-                    sub_category: <Localize translate_text="Markets" />,
-                    label: 'what-are-synthetic-indices',
-                },
-                {
-                    title: <Localize translate_text="What are binary options?" />,
-                    category: 'Trading',
-                    sub_category: <Localize translate_text="Markets" />,
-                    label: 'what-are-binary-options',
-                },
-                {
                     title: (
                         <Localize translate_text="What contracts are available for trading on weekends?" />
                     ),
@@ -119,25 +119,11 @@ export const articles = [
                     sub_category: <Localize translate_text="How to trade" />,
                     label: 'contracts-available-on-weekends',
                 },
-                {
-                    title: <Localize translate_text="How can I learn to trade?" />,
-                    category: 'Trading',
-                    sub_category: <Localize translate_text="How to trade" />,
-                    label: 'learn-to-trade',
-                },
             ],
         },
         {
             category: <Localize translate_text="Deposits and withdrawals" />,
             articles: [
-                {
-                    title: (
-                        <Localize translate_text="What is the minimum deposit or withdrawal amount?" />
-                    ),
-                    category: 'Deposits and withdrawals',
-                    sub_category: <Localize translate_text="Cashier limits" />,
-                    label: 'minimum-deposit-or-withdrawal',
-                },
                 {
                     title: <Localize translate_text="What payment methods do you support?" />,
                     category: 'Deposits and withdrawals',
@@ -151,6 +137,14 @@ export const articles = [
                     category: 'Deposits and withdrawals',
                     sub_category: <Localize translate_text="Cashier limits" />,
                     label: 'deposit-withdrawal-processing-time',
+                },
+                {
+                    title: (
+                        <Localize translate_text="What is the minimum deposit or withdrawal amount?" />
+                    ),
+                    category: 'Deposits and withdrawals',
+                    sub_category: <Localize translate_text="Cashier limits" />,
+                    label: 'minimum-deposit-or-withdrawal',
                 },
                 {
                     title: (
@@ -203,14 +197,6 @@ export const articles = [
                 },
                 {
                     title: (
-                        <Localize translate_text="Why are my DMT5 login details different from my Deriv login details?" />
-                    ),
-                    category: 'DMT5',
-                    sub_category: <Localize translate_text="Login" />,
-                    label: 'login-credentials',
-                },
-                {
-                    title: (
                         <Localize translate_text="What are the major differences between DTrader and DMT5?" />
                     ),
                     category: 'DMT5',
@@ -232,6 +218,14 @@ export const articles = [
                     category: 'DMT5',
                     sub_category: <Localize translate_text="Deposits" />,
                     label: 'deposit-to-dmt5',
+                },
+                {
+                    title: (
+                        <Localize translate_text="Why are my DMT5 login details different from my Deriv login details?" />
+                    ),
+                    category: 'DMT5',
+                    sub_category: <Localize translate_text="Login" />,
+                    label: 'login-credentials',
                 },
                 {
                     title: <Localize translate_text="How can I reset my DMT5 account password?" />,
@@ -300,6 +294,24 @@ export const articles = [
                     label: 'quick-strategy',
                 },
                 {
+                    title: <Localize translate_text="What is the martingale strategy?" />,
+                    category: 'DBot',
+                    sub_category: <Localize translate_text="Strategy" />,
+                    label: 'martingale-strategy',
+                },
+                {
+                    title: <Localize translate_text="What is the d’Alembert strategy?" />,
+                    category: 'DBot',
+                    sub_category: <Localize translate_text="Strategy" />,
+                    label: 'dalembert-strategy',
+                },
+                {
+                    title: <Localize translate_text="What is the Oscar's Grind strategy?" />,
+                    category: 'DBot',
+                    sub_category: <Localize translate_text="Strategy" />,
+                    label: 'oscars-grind-strategy',
+                },
+                {
                     title: <Localize translate_text="How do I save my strategy?" />,
                     category: 'DBot',
                     sub_category: <Localize translate_text="Strategy" />,
@@ -342,24 +354,6 @@ export const articles = [
                     category: 'DBot',
                     sub_category: <Localize translate_text="Chart" />,
                     label: 'view-chart',
-                },
-                {
-                    title: <Localize translate_text="What is the martingale strategy?" />,
-                    category: 'DBot',
-                    sub_category: <Localize translate_text="Strategy" />,
-                    label: 'martingale-strategy',
-                },
-                {
-                    title: <Localize translate_text="What is the d’Alembert strategy?" />,
-                    category: 'DBot',
-                    sub_category: <Localize translate_text="Strategy" />,
-                    label: 'dalembert-strategy',
-                },
-                {
-                    title: <Localize translate_text="What is the Oscar's Grind strategy?" />,
-                    category: 'DBot',
-                    sub_category: <Localize translate_text="Strategy" />,
-                    label: 'oscars-grind-strategy',
                 },
             ],
         },

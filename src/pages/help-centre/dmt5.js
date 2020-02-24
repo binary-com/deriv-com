@@ -39,18 +39,6 @@ const WhatIsDMT5 = () => (
         </Text>
     </ArticleWrapper>
 )
-const LoginCredentials = () => (
-    <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('Why are my DMT5 login details different from my Deriv login details?')}
-        </Header>
-        <Text>
-            {localize(
-                'MT5 on Deriv is a standalone trading platform that isn’t hosted on our website. Your DMT5 login details give you access to the MT5 platform while your Deriv login details give you access to the platforms hosted on our website, such as DTrader and DBot.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
 const DifferenceDMT5DTrader = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
@@ -118,6 +106,18 @@ const DepositDMT5 = () => (
         </StyledText>
     </ArticleWrapper>
 )
+const LoginCredentials = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('Why are my DMT5 login details different from my Deriv login details?')}
+        </Header>
+        <Text>
+            {localize(
+                'MT5 on Deriv is a standalone trading platform that isn’t hosted on our website. Your DMT5 login details give you access to the MT5 platform while your Deriv login details give you access to the platforms hosted on our website, such as DTrader and DBot.',
+            )}
+        </Text>
+    </ArticleWrapper>
+)
 const ResetDMT5Password = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
@@ -144,12 +144,6 @@ const DMT5Article = () => {
     return (
         <Article header="DMT5">
             <WhatIsDMT5 text={localize('What is DMT5?')} label="what-is-dmt5" />
-            <LoginCredentials
-                text={localize(
-                    'Why are my DMT5 login details different from my Deriv login details?',
-                )}
-                label="login-credentials"
-            />
             <DifferenceDMT5DTrader
                 text={localize('What are the major differences between DTrader and DMT5?')}
                 label="differences-of-dtrader-and-dmt5"
@@ -163,6 +157,12 @@ const DMT5Article = () => {
             <DepositDMT5
                 text={localize('How can I deposit funds into my DMT5 real money account?')}
                 label="deposit-to-dmt5"
+            />
+            <LoginCredentials
+                text={localize(
+                    'Why are my DMT5 login details different from my Deriv login details?',
+                )}
+                label="login-credentials"
             />
             <ResetDMT5Password
                 text={localize('How can I reset my DMT5 account password?')}

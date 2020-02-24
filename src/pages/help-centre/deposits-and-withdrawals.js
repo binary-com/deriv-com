@@ -33,21 +33,6 @@ const urlPaymentMethods =
         ? '/payment-methods/'
         : `/${getLanguage()}/payment-methods/`
 
-const MinimumDepositWithdrawal = () => (
-    <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is the minimum deposit or withdrawal amount?')}
-        </Header>
-        <Text>
-            {localize(
-                'You can deposit or withdraw a minimum of USD/EUR/GBP/AUD 5 using e-wallets. Other payment methods will have different minimum amounts.',
-            )}
-        </Text>
-        <StyledText>
-            {localize("'There is no minimum amount for cryptocurrency deposits.'")}
-        </StyledText>
-    </ArticleWrapper>
-)
 const PaymentMethods = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
@@ -83,6 +68,21 @@ const WithdrawalProcessingTime = () => (
                 'Your deposits and withdrawals will be processed within one business day (Monday to Friday, 9:00 am–5:00 pm GMT+8) unless stated otherwise. Please note that your bank or money transfer service may require additional time to process your request.',
             )}
         </Text>
+    </ArticleWrapper>
+)
+const MinimumDepositWithdrawal = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('What is the minimum deposit or withdrawal amount?')}
+        </Header>
+        <Text>
+            {localize(
+                'You can deposit or withdraw a minimum of USD/EUR/GBP/AUD 5 using e-wallets. Other payment methods will have different minimum amounts.',
+            )}
+        </Text>
+        <StyledText>
+            {localize("'There is no minimum amount for cryptocurrency deposits.'")}
+        </StyledText>
     </ArticleWrapper>
 )
 const ExpiredVerificationLink = () => (
@@ -158,10 +158,6 @@ const WithdrawMaestroMastercard = () => (
 const DepositsAndWithdrawalArticle = () => {
     return (
         <Article header="Deposits and withdrawals">
-            <MinimumDepositWithdrawal
-                text={localize('What is the minimum deposit or withdrawal amount?')}
-                label="minimum-deposit-or-withdrawal"
-            />
             <PaymentMethods
                 text={localize('What payment methods do you support?')}
                 label="payment-methods"
@@ -169,6 +165,10 @@ const DepositsAndWithdrawalArticle = () => {
             <WithdrawalProcessingTime
                 text={localize('How long does it take to process deposits and withdrawals?')}
                 label="deposit-withdrawal-processing-time"
+            />
+            <MinimumDepositWithdrawal
+                text={localize('What is the minimum deposit or withdrawal amount?')}
+                label="minimum-deposit-or-withdrawal"
             />
             <ExpiredVerificationLink
                 text={localize('My withdrawal verification link expired. What should I do?')}

@@ -230,6 +230,42 @@ const QuickStrategy = () => (
         </Text>
     </ArticleWrapper>
 )
+const MartingaleStrategy = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('What is the martingale strategy?')}
+        </Header>
+        <Text>
+            {localize(
+                'The martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost.',
+            )}
+        </Text>
+    </ArticleWrapper>
+)
+const AlembertStrategy = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('What is the d’Alembert strategy?')}
+        </Header>
+        <Text>
+            {localize(
+                'Named after the popular 18th-century French roulette theorist, Jean le Rond d’Alembert, this strategy encourages traders to increase contract size after a loss and decrease it after a successful trade.',
+            )}
+        </Text>
+    </ArticleWrapper>
+)
+const OskarStrategy = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize("What is the Oscar's Grind strategy?")}
+        </Header>
+        <Text>
+            {localize(
+                'This is a low-risk positive progression strategy that first appeared in 1965. By using this strategy, you will increase the size of your contract after each successful trade, and decrease the size of your contract after each unsuccessful trade.',
+            )}
+        </Text>
+    </ArticleWrapper>
+)
 const SaveStrategy = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
@@ -448,42 +484,6 @@ const ViewChart = () => (
         </ImageWrapper>
     </ArticleWrapper>
 )
-const MartingaleStrategy = () => (
-    <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is the martingale strategy?')}
-        </Header>
-        <Text>
-            {localize(
-                'The martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-const AlembertStrategy = () => (
-    <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is the d’Alembert strategy?')}
-        </Header>
-        <Text>
-            {localize(
-                'Named after the popular 18th-century French roulette theorist, Jean le Rond d’Alembert, this strategy encourages traders to increase contract size after a loss and decrease it after a successful trade.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
-const OskarStrategy = () => (
-    <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize("What is the Oscar's Grind strategy?")}
-        </Header>
-        <Text>
-            {localize(
-                'This is a low-risk positive progression strategy that first appeared in 1965. By using this strategy, you will increase the size of your contract after each successful trade, and decrease the size of your contract after each unsuccessful trade.',
-            )}
-        </Text>
-    </ArticleWrapper>
-)
 
 const DBotArticle = () => {
     return (
@@ -501,6 +501,18 @@ const DBotArticle = () => {
             <QuickStrategy
                 text={localize('What is a quick strategy and how do I use it?')}
                 label="quick-strategy"
+            />
+            <MartingaleStrategy
+                text={localize('What is the martingale strategy?')}
+                label="martingale-strategy"
+            />
+            <AlembertStrategy
+                text={localize('What is the d’Alembert strategy?')}
+                label="dalembert-strategy"
+            />
+            <OskarStrategy
+                text={localize("What is the Oscar's Grind strategy?")}
+                label="oscars-grind-strategy"
             />
             <SaveStrategy text={localize('How do I save my strategy?')} label="save-strategy" />
             <ImportStrategy
@@ -520,18 +532,6 @@ const DBotArticle = () => {
                 label="status-of-trades"
             />
             <ViewChart text={localize('How do I view the chart in DBot?')} label="view-chart" />
-            <MartingaleStrategy
-                text={localize('What is the martingale strategy?')}
-                label="martingale-strategy"
-            />
-            <AlembertStrategy
-                text={localize('What is the d’Alembert strategy?')}
-                label="dalembert-strategy"
-            />
-            <OskarStrategy
-                text={localize("What is the Oscar's Grind strategy?")}
-                label="oscars-grind-strategy"
-            />
         </Article>
     )
 }

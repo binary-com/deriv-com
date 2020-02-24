@@ -62,7 +62,7 @@ const WhoCanOpenAnAccount = () => (
 const ChangingPersonalDetails = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('Changing your personal details')}
+            {localize('How can I change my personal details?')}
         </Header>
         <Text>
             <Localize

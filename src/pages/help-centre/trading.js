@@ -24,9 +24,6 @@ const ExternalLink = styled.a`
         text-decoration: underline;
     }
 `
-const StyledText = styled(Text)`
-    margin-top: 1.7rem;
-`
 const Forex = () => (
     <TradingWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
@@ -59,6 +56,42 @@ const StockIndices = () => (
         <Text>
             {localize(
                 'Stock indices measure the value of a selection of companies in the stock market. This allows investors to see how a particular set of assets is performing.',
+            )}
+        </Text>
+    </TradingWrapper>
+)
+const SyntheticIndices = () => (
+    <TradingWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('What are synthetic indices?')}
+        </Header>
+        <Text>
+            {localize(
+                'Exclusive to Deriv, Synthetic Indices are our very own set of synthetic markets engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
+            )}
+        </Text>
+    </TradingWrapper>
+)
+const CFD = () => (
+    <TradingWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('What are Contracts for Difference (CFDs)?')}
+        </Header>
+        <Text>
+            {localize(
+                'A contract for differences (CFD) is a contract that pays the difference between the value of an asset at the time of opening a trade and its value at closing the trade.',
+            )}
+        </Text>
+    </TradingWrapper>
+)
+const BinaryOptions = () => (
+    <TradingWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('What are binary options?')}
+        </Header>
+        <Text>
+            {localize(
+                'A binary option is a financial instrument with a fixed payout where you predict the outcome from only two possible results. ',
             )}
         </Text>
     </TradingWrapper>
@@ -108,42 +141,6 @@ const TradingLimits = () => (
         </Text>
     </TradingWrapper>
 )
-const CFD = () => (
-    <TradingWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are Contracts for Difference (CFDs)?')}
-        </Header>
-        <Text>
-            {localize(
-                'A contract for differences (CFD) is a contract that pays the difference between the value of an asset at the time of opening a trade and its value at closing the trade.',
-            )}
-        </Text>
-    </TradingWrapper>
-)
-const SyntheticIndices = () => (
-    <TradingWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are synthetic indices?')}
-        </Header>
-        <Text>
-            {localize(
-                'Exclusive to Deriv, Synthetic Indices are our very own set of synthetic markets engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
-            )}
-        </Text>
-    </TradingWrapper>
-)
-const BinaryOptions = () => (
-    <TradingWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are binary options?')}
-        </Header>
-        <Text>
-            {localize(
-                'A binary option is a financial instrument with a fixed payout where you predict the outcome from only two possible results. ',
-            )}
-        </Text>
-    </TradingWrapper>
-)
 const WeekendContracts = () => (
     <TradingWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
@@ -156,23 +153,6 @@ const WeekendContracts = () => (
         </Text>
     </TradingWrapper>
 )
-const LearnToTrade = () => (
-    <TradingWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How can I learn to trade?')}
-        </Header>
-        <Text>
-            {localize(
-                'You may open a demo account to familiarise yourself with the platforms, products, and markets that we offer.',
-            )}
-        </Text>
-        <StyledText>
-            {localize(
-                'You may open a demo account to familiarise yourself with the platforms, products, and markets that we offer.',
-            )}
-        </StyledText>
-    </TradingWrapper>
-)
 
 const TradingArticle = () => {
     return (
@@ -183,6 +163,18 @@ const TradingArticle = () => {
                 text={localize('What are stock indices?')}
                 label="what-are-stock-indices"
             />
+            <SyntheticIndices
+                text={localize('What are synthetic indices?')}
+                label="what-are-synthetic-indices"
+            />
+            <CFD
+                text={localize('What are Contracts for Difference (CFDs)?')}
+                label="what-are-cfds"
+            />
+            <BinaryOptions
+                text={localize('What are binary options?')}
+                label="what-are-binary-options"
+            />
             <TradingPlatforms
                 text={localize('How many trading platforms do you offer?')}
                 label="how-many-trading-platforms"
@@ -192,23 +184,10 @@ const TradingArticle = () => {
                 label="how-to-automate-trading-strategy"
             />
             <TradingLimits text={localize('What are my trading limits?')} label="trading-limits" />
-            <CFD
-                text={localize('What are Contracts for Difference (CFDs)?')}
-                label="what-are-cfds"
-            />
-            <SyntheticIndices
-                text={localize('What are synthetic indices?')}
-                label="what-are-synthetic-indices"
-            />
-            <BinaryOptions
-                text={localize('What are binary options?')}
-                label="what-are-binary-options"
-            />
             <WeekendContracts
                 text={localize('What contracts are available for trading on weekends?')}
                 label="contracts-available-on-weekends"
             />
-            <LearnToTrade text={localize('How can I learn to trade?')} label="learn-to-trade" />
         </Article>
     )
 }

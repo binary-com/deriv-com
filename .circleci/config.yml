@@ -155,7 +155,3 @@ workflows:
             branches:
               only: /^master/
           context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
-  build_and_push_test:
-    jobs:
-      - test:
-          context: binary-frontend-deploy  # using context to retrieve shared secret from circle ci

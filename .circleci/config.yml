@@ -126,12 +126,6 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - compress
-      - upload_artifact  # uploading the built code to s3 to create a backup of key services separate from Kubernetes deployment
-      - upload_checksum  # uploading compressed artifact checksum to cross match artifact fingerprint
-      - docker_build
-      - docker_push
-      - k8s_deploy
   release:
     docker:
       - image: circleci/node:lts-stretch
@@ -147,19 +141,13 @@ jobs:
       - docker_build
       - docker_push
       - k8s_deploy
-      
 workflows:
-  build_and_push_test:
-    jobs:
-      - test:
-          context: binary-frontend-deploy  # using context to retrieve shared secret from circle ci
   build_and_push_dev:
     jobs:
       - test:
           filters:
             branches:
               only: /^dev/
-          context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
   build_and_push_master:
     jobs:
       - release:
@@ -167,3 +155,7 @@ workflows:
             branches:
               only: /^master/
           context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
+  build_and_push_test:
+    jobs:
+      - test:
+          context: binary-frontend-deploy  # using context to retrieve shared secret from circle ci

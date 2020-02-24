@@ -28,7 +28,7 @@ const TextList = styled(Text)`
     font-weight: bold;
 `
 
-const AffiliateGeneral = () => (
+const AffiliateGeneral = (
     <ItemContainer>
         <Header as="h4">{localize('What is the Deriv Affiliate Programme?')}</Header>
         <TextPrimary>
@@ -98,7 +98,7 @@ const AffiliateGeneral = () => (
         </TextPrimary>
     </ItemContainer>
 )
-const AffiliateAccountManagement = () => (
+const AffiliateAccountManagement = (
     <ItemContainer>
         <Header as="h4">{localize('How can I sign up as a Deriv affiliate?')}</Header>
         <TextPrimary>

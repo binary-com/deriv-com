@@ -3,12 +3,13 @@ import Hero from './_hero.js'
 import WhyUs from './_why-us.js'
 import WhoCanAplly from './_who-can-apply.js'
 import DerivAffiliateProgramme from './_deriv-affiliate-programme'
-import DerivIBProgramme from './_deriv_ib_programme'
+import DerivIBProgramme from './_deriv-ib-programme.js'
 import MoreReason from './_more-reason.js'
 import Faq from './_faq'
+import CTA from './_partner-cta'
 import { Header } from 'components/elements/typography'
 import Layout from 'components/layout/layout'
-import { SectionContainer, Container } from 'components/containers'
+import { SectionContainer, Container, Show } from 'components/containers'
 import DNumber from 'components/custom/_dnumbers.js'
 import { localize, WithIntl } from 'components/localization'
 
@@ -53,19 +54,23 @@ const Partners = () => {
                 <Container direction="column">
                     <Header as="h4" weight="500" align="center">
                         {localize(
-                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Binary Group –– the owner of Binary.com and Deriv –– has a proven track record of running successful referral programmes with prompt payouts.',
+                            'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Binary Group – the owner of Binary.com and',
                         )}
                     </Header>
+                    <Header as="h4" weight="500" align="center">{localize('Deriv – has a proven track record of running successful referral programmes with prompt payouts.')}</Header>
                     <DNumber items={items} justify="space-around" />
                 </Container>
                 <DerivAffiliateProgramme />
                 <DerivIBProgramme />
                 <Container direction="column">
                     <WhyUs items={why_partner_with_us_items} />
-                    <WhoCanAplly />
+                    <Show.Desktop>
+                        <WhoCanAplly />
+                    </Show.Desktop>
                 </Container>
                 <MoreReason />
                 <Faq />
+                <CTA />
             </SectionContainer>
         </Layout>
     )

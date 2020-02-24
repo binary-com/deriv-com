@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 
@@ -18,6 +19,10 @@ const StyledContainer = styled(Container)`
     display: flex;
     width: 100%;
     justify-content: ${props => props.justify || 'space-between'};
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+    }
 `
 
 const DNumbers = ({ items, justify }) => {

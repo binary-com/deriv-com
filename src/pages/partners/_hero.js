@@ -11,7 +11,8 @@ const StyeldContainer = styled(Container)`
 `
 
 const StyledHeader = styled(Header)`
-    width: 70rem;
+    width: 100%;
+    max-width: 70rem;
     margin-bottom: 4rem;
 `
 
@@ -29,7 +30,7 @@ const Hero = () => {
                     {localize('Partner with a trusted online trading provider')}
                 </StyledHeader>
                 <Button onClick={Partner.redirectToSignup} secondary>
-                    {localize('Sign up')}
+                    {localize('Sign up as a partner')}
                 </Button>
             </StyeldContainer>
         </BackgroundImage>

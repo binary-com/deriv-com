@@ -5,7 +5,7 @@ import { Table, TR, TC } from './_table.js'
 import { Card, CardWrapper } from './_partner-card.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
-import { localize, Localize } from 'components/localization'
+import { localize } from 'components/localization'
 import { Button } from 'components/form'
 import device from 'themes/device'
 import Chevron from 'images/svg/chevron.svg'
@@ -40,18 +40,18 @@ const StyledText = styled(Text)`
     line-height: ${props => (props.lh ? props.lh : '1.14')};
     margin-bottom: ${props => props.margin_bottom || ''};
 `
-const StyledButton = styled(Button)`
-    color: var(--color-red);
-`
+
 const HowItsCalculate = styled.div`
-    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
     position: absolute;
     bottom: 0;
-    width: 100%;
     left: 0;
-    text-align: center;
-    padding: 2.6rem 0;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 1.6rem;
+    border-top: 2px solid var(--color-grey-2);
 `
+
 const ButtonWrapper = styled.div`
     width: 100;
     display: flex;
@@ -123,7 +123,7 @@ const IBPlan = ({ data }) => {
         setExpand(!is_expand)
     }
     return (
-        <Card max_height={is_expand ? '76rem' : '42rem'} padding="3.2rem 3.2rem 8.2rem">
+        <Card height={is_expand ? '76rem' : '42rem'} padding="3.2rem 3.2rem 8.2rem">
             <div>
                 {!is_calculated ? (
                     <>
@@ -149,7 +149,7 @@ const IBPlan = ({ data }) => {
                                                     <StyledText weight="bold">{item}</StyledText>
                                                 </TR>
                                             )
-                                        } else if (idxa >= max_expansion) {
+                                        } else if (idxa > max_expansion) {
                                             return (
                                                 <StyledTR key={idxa} hidden={!is_expand}>
                                                     <StyledText>{item}</StyledText>
@@ -169,11 +169,11 @@ const IBPlan = ({ data }) => {
                         {has_expansion && (
                             <StyledChevron onClick={toggleExpand} is_expand={is_expand} />
                         )}
-                        {/* <HowItsCalculate>
-                            <StyledButton onClick={toggleCalculated}>
+                        <HowItsCalculate>
+                            <Button flat onClick={toggleCalculated}>
                                 {localize("How it's calculated")}
-                            </StyledButton>
-                        </HowItsCalculate> */}
+                            </Button>
+                        </HowItsCalculate>
                     </>
                 ) : (
                     <>
@@ -193,7 +193,7 @@ const IBPlan = ({ data }) => {
 }
 
 const ib_dmt5 = {
-    name: localize('DDMT5 Synthetic Indices'),
+    name: localize('DMT5 Synthetic Indices'),
     description: localize('Earn when your customers trade on a DMT5 Synthetic account'),
     assets: [
         [

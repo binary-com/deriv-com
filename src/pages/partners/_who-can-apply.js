@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
-import { LinkButton } from 'components/form'
+import { Button } from 'components/form'
+import Partner from 'common/partner'
 import device from 'themes/device'
 import TradingExperts from 'images/svg/trading-experts.svg'
 import SoftwareDeveloper from 'images/svg/software-developer.svg'
@@ -174,9 +175,9 @@ const WhoCanApply = () => {
                 </Flex>
             </StyledSection>
             <CenteredSection padding="4rem 0">
-                <LinkButton secondary to="/">
+                <Button secondary onClick={Partner.redirectToSignup}>
                     {localize('Sign up')}
-                </LinkButton>
+                </Button>
             </CenteredSection>
         </SectionContainer>
     )

@@ -6,7 +6,8 @@ import { Card, CardWrapper } from './_partner-card.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
-import { Button } from 'components/form'
+import { Button, LinkButton } from 'components/form'
+import Partner from 'common/partner'
 import device from 'themes/device'
 import Chevron from 'images/svg/chevron.svg'
 
@@ -106,7 +107,9 @@ const DerivIBProgramme = () => {
                         >
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <Button secondary>{localize('Contact us')}</Button>
+                        <LinkButton secondary to="/contact-us/">
+                            {localize('Contact us')}
+                        </LinkButton>
                     </StyledSection>
                 </SectionContainer>
             </Container>
@@ -198,7 +201,9 @@ const DMT5Synthetic = ({ data }) => {
                         </Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <Button secondary>{localize('Become an affiliate')}</Button>
+                            <Button secondary onClick={Partner.redirectToSignup}>
+                                {localize('Become an affiliate')}
+                            </Button>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -273,7 +278,9 @@ const DMT5Standard = ({ data }) => {
                         </Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <Button secondary>{localize('Become an affiliate')}</Button>
+                            <Button secondary onClick={Partner.redirectToSignup}>
+                                {localize('Become an affiliate')}
+                            </Button>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -348,7 +355,9 @@ const DMT5Advanced = ({ data }) => {
                         </Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <Button secondary>{localize('Become an affiliate')}</Button>
+                            <Button secondary onClick={Partner.redirectToSignup}>
+                                {localize('Become an affiliate')}
+                            </Button>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>

@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import Partner from 'common/partner'
 import { SectionContainer } from 'components/containers'
-import { localize, Localize } from 'components/localization'
-import { Header, Text } from 'components/elements'
+import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Header, Text, LinkText } from 'components/elements'
 
 const ItemContainer = styled(SectionContainer)`
     padding: 4rem 0;
@@ -25,6 +26,11 @@ const TextSecondary = styled(Text)`
 const TextList = styled(Text)`
     margin-top: 1.6rem;
     margin-bottom: 0.8rem;
+    font-weight: bold;
+`
+
+const StyledLink = styled(LinkText)`
+    color: var(--color-red);
     font-weight: bold;
 `
 
@@ -93,7 +99,13 @@ const AffiliateGeneral = (
         <TextPrimary>
             <Localize
                 translate_text="Anyone aged 18 years and above who isn’t a resident of a restricted country can become a Deriv client.  You can find the list of restricted countries in our <0>terms and conditions</0>."
-                components={[<span key={0} style={{ color: 'red', fontWeight: 'bold' }} />]}
+                components={[
+                    <LocalizedLink
+                        to="/terms-and-conditions/"
+                        key={0}
+                        style={{ color: 'red', fontWeight: 'bold', textDecoration: 'none' }}
+                    />,
+                ]}
             />
         </TextPrimary>
     </ItemContainer>
@@ -104,14 +116,27 @@ const AffiliateAccountManagement = (
         <TextPrimary>
             <Localize
                 translate_text="All you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
-                components={[<span key={0} style={{ color: 'red', fontWeight: 'bold' }} />]}
+                components={[
+                    <StyledLink
+                        href={Partner.signup_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
         </TextPrimary>
         <HeaderPrimary>{localize('I forgot my password. What should I do?')}</HeaderPrimary>
         <TextPrimary>
             <Localize
                 translate_text="Don’t worry, you can easily <0>reset your password</0>."
-                components={[<span key={0} style={{ color: 'red', fontWeight: 'bold' }} />]}
+                components={[
+                    <LocalizedLink
+                        to="/reset-password/"
+                        key={0}
+                        style={{ color: 'red', fontWeight: 'bold', textDecoration: 'none' }}
+                    />,
+                ]}
             />
         </TextPrimary>
         <HeaderPrimary>{localize('How can I change my payment method?')}</HeaderPrimary>
@@ -188,7 +213,7 @@ const AffiliateReferralTools = (
         <TextPrimary>
             <Localize
                 translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, please contact your account manager at <0>affiliates@deriv.com</0>."
-                components={[<span key={0} style={{ color: 'red', fontWeight: 'bold' }} />]}
+                components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
             />
         </TextPrimary>
     </ItemContainer>
@@ -234,13 +259,20 @@ const IBAccountManagement = (
         <TextPrimary>
             <Localize
                 translate_text="If you’re interested in becoming an IB, all you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
-                components={[<span key={0} style={{ color: 'red', fontWeight: 'bold' }} />]}
+                components={[
+                    <StyledLink
+                        href={Partner.signup_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
         </TextPrimary>
         <TextSecondary>
             <Localize
                 translate_text="If you’re already registered as a Deriv affiliate, you can email us at <0>affiliates@deriv.com</0> instead."
-                components={[<span key={0} style={{ color: 'red', fontWeight: 'bold' }} />]}
+                components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
             />
         </TextSecondary>
         <HeaderPrimary>

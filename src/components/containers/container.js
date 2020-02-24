@@ -12,6 +12,10 @@ const Container = styled.div`
     @media ${device.desktop} {
         max-width: 1200px;
     }
+    @media ${device.laptopL} {
+        max-width: 1200px;
+        width: 84%;
+    }
     @media ${device.desktopL} {
         max-width: 1400px;
     }

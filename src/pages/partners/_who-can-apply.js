@@ -4,6 +4,7 @@ import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
+import device from 'themes/device'
 import TradingExperts from 'images/svg/trading-experts.svg'
 import SoftwareDeveloper from 'images/svg/software-developer.svg'
 import CommunityManagers from 'images/svg/community-managers.svg'
@@ -12,10 +13,13 @@ import Apply from 'images/svg/apply.svg'
 import Advertise from 'images/svg/advertise.svg'
 import Earn from 'images/svg/earn.svg'
 
-const StyledSection = styled(SectionContainer)`
-    div {
-        display: flex;
-        justify-content: space-between;
+const StyledSection = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    @media ${device.tablet} {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 `
 const CenteredSection = styled(SectionContainer)`
@@ -43,15 +47,22 @@ const Content = styled.div`
 `
 const Separator = styled.div`
     width: 1px;
-    height: inherit;
+    height: 50rem;
     background-color: var(--color-grey-8);
+
+    @media ${device.laptop} {
+        display: none !important;
+    }
 `
 const StyledHeader = styled(Header)`
     width: 100%;
     max-width: 42.8rem;
+`
 
-    &:last-child {
-        padding-left: 4rem;
+const SecondaryHeader = styled(StyledHeader)`
+    @media ${device.tablet} {
+        margin-top: 3.2rem;
+        margin-left: -4.6rem;
     }
 `
 const Flex = styled.div`
@@ -62,11 +73,15 @@ const LineVertical = styled(LineVerticalSVG)`
     margin-right: 16px;
     width: 3rem;
     height: 33rem;
+
+    @media ${device.tablet} {
+        margin-top: 13.5rem;
+    }
 `
 const WhoCanApply = () => {
     return (
-        <StyledSection padding="8rem 0 4rem">
-            <div>
+        <SectionContainer padding="8rem 0 4rem">
+            <StyledSection>
                 <Col>
                     <StyledHeader font_size="3.6rem">{localize('Who can apply')}</StyledHeader>
                     <Wrapper>
@@ -113,18 +128,18 @@ const WhoCanApply = () => {
                 <Flex>
                     <LineVertical />
                     <Col>
-                        <StyledHeader font_size="3.6rem">
+                        <SecondaryHeader font_size="3.6rem">
                             {localize('Get started easily')}
-                        </StyledHeader>
+                        </SecondaryHeader>
                         <Wrapper>
                             <Apply />
                             <Content max_width="32.4rem">
                                 <Header as="h4" lh="1.5">
-                                    {localize('Trading experts')}
+                                    {localize('Sign up')}
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
+                                        'Fill out the online application form. We’ll review your application and get in touch once it’s approved.',
                                     )}
                                 </Text>
                             </Content>
@@ -133,11 +148,11 @@ const WhoCanApply = () => {
                             <Advertise />
                             <Content max_width="32.4rem">
                                 <Header as="h4" lh="1.5">
-                                    {localize('Software developers')}
+                                    {localize('Advertise')}
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                                        'Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv.',
                                     )}
                                 </Text>
                             </Content>
@@ -146,24 +161,24 @@ const WhoCanApply = () => {
                             <Earn />
                             <Content max_width="32.4rem">
                                 <Header as="h4" lh="1.5">
-                                    {localize('Community managers')}
+                                    {localize('Earn')}
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
+                                        'Start earning based on your chosen commission plan –– up to 45% of the total net revenue generated by your referred clients.',
                                     )}
                                 </Text>
                             </Content>
                         </Wrapper>
                     </Col>
                 </Flex>
-            </div>
+            </StyledSection>
             <CenteredSection padding="4rem 0">
                 <LinkButton secondary to="/">
                     {localize('Sign up')}
                 </LinkButton>
             </CenteredSection>
-        </StyledSection>
+        </SectionContainer>
     )
 }
 

@@ -67,6 +67,14 @@ const ButtonWrapper = styled.div`
         margin-left: 1.6rem;
     }
 `
+
+const StyledCard = styled(Card)`
+    margin: 0 2.4rem;
+
+    @media ${device.tabletL} {
+        margin: 2.4rem 0;
+    }
+`
 const DerivIBProgramme = () => {
     return (
         <StyledSection shadow>
@@ -83,7 +91,7 @@ const DerivIBProgramme = () => {
                 </TitleWrapper>
                 <SectionContainer padding="8rem 0 9.6rem 0">
                     <StyledHeader as="h4">{localize('Choose a commission plan:')}</StyledHeader>
-                    <CardWrapper mt="-2rem" wrap="wrap">
+                    <CardWrapper>
                         <DMT5Standard data={ib_dmt5_standard} />
                         <DMT5Advanced data={ib_dmt5_advanced} />
                         <DMT5Synthetic data={ib_dmt5_synthetic} />
@@ -282,7 +290,7 @@ const DMT5Advanced = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <Card padding="3.2rem 3.2rem 8.2rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem">
             <div>
                 {!is_calculated ? (
                     <>
@@ -348,7 +356,7 @@ const DMT5Advanced = ({ data }) => {
                     </>
                 )}
             </div>
-        </Card>
+        </StyledCard>
     )
 }
 const ib_dmt5_standard = {

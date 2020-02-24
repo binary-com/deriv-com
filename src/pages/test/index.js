@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { WithIntl } from 'components/localization'
+import { Text } from 'components/elements'
 import Layout from 'components/layout/layout'
 
 export const articles = [
@@ -162,13 +163,19 @@ export const articles = [
 //         // flatten the array, gatsby build does not support .flat() yet
 //         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
-const ThreeColumnDiv = styled.div`
+const RowDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+const StyledDiv = styled.div`
     display: flex;
     flex-direction: column;
 `
-const rowDiv = styled.div`
+const ArticleDiv = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background-color: red;
+    margin-bottom: 3rem;
 `
 // const getAllArticles = articles =>
 //     articles
@@ -198,26 +205,33 @@ class Test extends Component {
 
         return (
             <Layout>
-                <div>
+                <StyledDiv>
                     {splitted.map((article, id) => {
+                        // console.log('article', article)
                         return (
-                            <ThreeColumnDiv key={id}>
+                            <RowDiv key={id}>
                                 {article.map((item, idx) => {
                                     {
                                         // console.log('item', item.articles)
                                         return (
-                                            <rowDiv key={idx}>
+                                            <ArticleDiv key={idx}>
                                                 {item.articles.map((ar, d) => {
-                                                    return <p key={d}>{ar.title}</p>
+                                                    return (
+                                                        <div key={d}>
+                                                            <Text margin="0 3rem 0 0">
+                                                                {ar.title}
+                                                            </Text>
+                                                        </div>
+                                                    )
                                                 })}
-                                            </rowDiv>
+                                            </ArticleDiv>
                                         )
                                     }
                                 })}
-                            </ThreeColumnDiv>
+                            </RowDiv>
                         )
                     })}
-                </div>
+                </StyledDiv>
             </Layout>
         )
     }

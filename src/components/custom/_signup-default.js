@@ -90,7 +90,7 @@ const SignupDefault = ({
                     required
                 />
             </InputGroup>
-            <EmailButton type="submit" secondary disabled={is_submitting}>
+            <EmailButton type="submit" secondary="true" disabled={is_submitting}>
                 {localize('Create demo account')}
             </EmailButton>
             <Text color="grey" align="center">

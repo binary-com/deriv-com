@@ -230,7 +230,7 @@ export const Nav = () => {
                             <span>{localize('Log in')}</span>
                         </Button>
                         <LocalizedLink to="/signup/">
-                            <SignupButton ref={button_ref} secondary>
+                            <SignupButton ref={button_ref} secondary="true">
                                 <span>{localize('Create demo account')}</span>
                             </SignupButton>
                         </LocalizedLink>
@@ -355,7 +355,11 @@ export const NavPartners = () => {
                             <Button onClick={handlePartnerLogin} primary>
                                 <span>{localize('Log in')}</span>
                             </Button>
-                            <SignupButton onClick={handlePartnerSignup} ref={button_ref} secondary>
+                            <SignupButton
+                                onClick={handlePartnerSignup}
+                                ref={button_ref}
+                                secondary="true"
+                            >
                                 <span>{localize('Sign up')}</span>
                             </SignupButton>
                         </StyledNavRight>

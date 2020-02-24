@@ -29,7 +29,7 @@ const CheckEmail = () => {
                         )}
                     </SectionHeader>
                     <IconGrid />
-                    <LinkButton secondary to='/signup/'>
+                    <LinkButton secondary="true" to="/signup/">
                         {localize('Re-enter your email and try again')}
                     </LinkButton>
                 </GridContainer>

@@ -22,7 +22,7 @@ const TradeTheWayYouLike = () => {
             <Header font_size="3rem" align="center">
                 {localize('Trade the way you like')}
             </Header>
-            <Subtitle secondary>
+            <Subtitle secondary="true">
                 {localize('Choose from three powerful platforms -- designed with you in mind')}
             </Subtitle>
             <ImageWrapper>

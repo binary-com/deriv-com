@@ -107,7 +107,7 @@ const WhyChooseUs = () => {
                         </Column>
                     </ColumnContainer>
                     <Flex mt="3.2rem">
-                        <LinkButton to="/signup" secondary>
+                        <LinkButton to="/signup" secondary="true">
                             {localize("Sounds great. Let's get started.")}
                         </LinkButton>
                     </Flex>

@@ -142,7 +142,7 @@ const Hero = ({ navigation, setNavigation }) => {
                 </NavigationWrapper>
                 {is_story && (
                     <ContentWrapper margin_top="9.1rem">
-                        <Text secondary color="white">
+                        <Text secondary="true" color="white">
                             {localize(
                                 'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading. It’s built upon 20 years of experience, customer focus, and technical innovation. With our powerful yet simple trading experience and tools, new and professional traders alike can understand risk and make better trading decisions.',
                             )}

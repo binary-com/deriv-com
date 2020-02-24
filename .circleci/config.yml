@@ -6,11 +6,11 @@ commands:
   git_checkout_from_cache:
     description: "Git checkout and save cache"
     steps:
-      #- restore_cache:
-      #    keys:
-      #      - source-v1-{{ .Branch }}-{{ .Revision }}
-      #      - source-v1-{{ .Branch }}-
-      #      - source-v1-
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - source-v1-{{ .Branch }}-
+            - source-v1-
       - run: 
           name: Fetch git tags 
           command: |
@@ -25,24 +25,24 @@ commands:
       - run:
           name: Compress git objects 
           command: git gc
-      #- save_cache:
-      #    key: source-v1-{{ .Branch }}-{{ .Revision }}
-      #    paths:
-      #      - ".git"
+      - save_cache:
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
   npm_install_from_cache:
     description: "npm install and save cache"
     steps:
-      #- restore_cache:
-      #    keys:
-      #      - node-{{ checksum "package-lock.json" }}
-      #      - node-
+      - restore_cache:
+          keys:
+            - node-{{ checksum "package-lock.json" }}
+            - node-
       - run:
           name: Install npm packages
           command: npm install
-      #- save_cache:
-      #    key: node-{{ checksum "package-lock.json" }}
-      #    paths:
-      #      - "node_modules"
+      - save_cache:
+          key: node-{{ checksum "package-lock.json" }}
+          paths:
+            - "node_modules"
   npm_test:
     description: "Run npm test"
     steps:
@@ -200,7 +200,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^production.*/
-          context: binary-frontend-artifact-deploy  # using context to retrieve shared secret from circle ci
+          context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
       - deploy_production:
           requires:
             - build_push_production

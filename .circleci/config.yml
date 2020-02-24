@@ -120,7 +120,7 @@ jobs:
     docker:
       - image: circleci/node:lts-stretch
         environment:
-          - NODE_OPTIONS=--max_old_space_size=4096
+          #- NODE_OPTIONS=--max_old_space_size=4096
           - GATSBY_CPU_COUNT=2
     steps:
       - git_checkout_from_cache
@@ -131,20 +131,14 @@ jobs:
       - upload_artifact  # uploading the built code to s3 to create a backup of key services separate from Kubernetes deployment
       - upload_checksum  # uploading compressed artifact checksum to cross match artifact fingerprint
       - docker_build
-
-  build_push_staging:
-    docker:
-      - image: circleci/node:12.4-stretch
-    steps:
-      - git_checkout_from_cache
-      - npm_install_from_cache
-      - build
-      - docker_build
       - docker_push
-      
-  build_push_production:
+      - k8s_deploy
+  release:
     docker:
-      - image: circleci/node:12.4-stretch
+      - image: circleci/node:lts-stretch
+        environment:
+          - NODE_OPTIONS=--max_old_space_size=4096
+          - GATSBY_CPU_COUNT=2
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
@@ -154,59 +148,20 @@ jobs:
       - upload_checksum  # uploading compressed artifact checksum to cross match artifact fingerprint
       - docker_build
       - docker_push
-
-  deploy_staging:
-    docker:
-      - image: circleci/node:12.4-stretch
-    steps:
       - k8s_deploy
-      
-  deploy_production:
-    docker:
-      - image: circleci/node:12.4-stretch
-    steps:
-      - k8s_deploy:
-          k8s_svc_name: "production-deriv-com"
       
 workflows:
   build_and_push_dev:
     jobs:
-      - test
-      - build_push_staging:
+      - test:
           filters:
             branches:
               only: /^dev/
           context: binary-frontend-artifact-deploy  # using context to retrieve shared secret from circle ci
-  tagged_release_staging:
+  build_and_push_master:
     jobs:
-      - build_push_staging:
+      - release:
           filters:
             branches:
-              ignore: /.*/
-            tags:
-              only: /^staging.*/
-      - deploy_staging:
-          requires:
-            - build_push_staging
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^staging.*/
-  tagged_release_production:
-    jobs:
-      - build_push_production:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^production.*/
+              only: /^master/
           context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
-      - deploy_production:
-          requires:
-            - build_push_production
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^production.*/

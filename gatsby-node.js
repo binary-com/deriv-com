@@ -40,7 +40,9 @@ exports.onCreatePage = ({ page, actions }) => {
     })
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+    const config = getConfig();
+    config.optimization.minimizer[0].options.parallel = false;
     actions.setWebpackConfig({
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

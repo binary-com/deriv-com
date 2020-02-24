@@ -19,12 +19,17 @@ import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 
 const getAllArticles = articles =>
-    articles.map(row =>
-        row
-            .map(category => category.articles)
-            // flatten the array, gatsby build does not support .flat() yet
-            .reduce((arr, article_arr) => arr.concat(article_arr), []),
-    )
+    articles
+        .map(category => category.articles)
+        // flatten the array, gatsby build does not support .flat() yet
+        .reduce((arr, article_arr) => arr.concat(article_arr), [])
+
+const splitArticles = (array, length) =>
+    array.reduce((result, item, index) => {
+        if (index % length === 0) result.push([])
+        result[Math.floor(index / length)].push(item)
+        return result
+    }, [])
 
 const Backdrop = styled.div`
     padding: 8rem 0;
@@ -132,11 +137,8 @@ const ArticleSection = styled.section`
         flex-wrap: wrap;
     }
 `
-const ArticleRow = styled.div`
-    display: fex;
-`
 const ListNoBullets = styled.ul`
-    margin-bottom: 4.2rem;
+    margin-bottom: 1.6rem;
     list-style: none;
 
     li {
@@ -165,6 +167,17 @@ const StyledView = styled.div`
     :hover {
         cursor: pointer;
     }
+`
+
+const RowDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
+const ArticleDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
 `
 
 class HelpCentre extends Component {
@@ -217,16 +230,12 @@ class HelpCentre extends Component {
         const deepClone = arr => {
             const out = []
             for (let i = 0, len = arr.length; i < len; i++) {
-                const inner = []
-                for (let j = 0, len2 = arr[i].length; j < len2; j++) {
-                    const item = arr[i][j]
-                    const obj = {}
-                    for (var k in item) {
-                        obj[k] = item[k]
-                    }
-                    inner.push(obj)
+                const item = arr[i]
+                const obj = {}
+                for (var k in item) {
+                    obj[k] = item[k]
                 }
-                out.push(inner)
+                out.push(obj)
             }
             return out
         }
@@ -239,13 +248,11 @@ class HelpCentre extends Component {
         }
         const all_articles = getAllArticles(articles)
         const duplicate_articles = deepClone(all_articles)
-        const translated_articles = duplicate_articles.map(items =>
-            items.map(article => {
-                article.title = localize(article.title.props.translate_text)
-                article.sub_category = localize(article.sub_category.props.translate_text)
-                return article
-            }),
-        )
+        const translated_articles = duplicate_articles.map(article => {
+            article.title = localize(article.title.props.translate_text)
+            article.sub_category = localize(article.sub_category.props.translate_text)
+            return article
+        })
 
         const all_categories = {}
         all_articles.forEach(items => {
@@ -272,6 +279,7 @@ class HelpCentre extends Component {
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
         })
+        const splittedArticles = splitArticles(articles, 3)
         const has_results = !!filtered_articles.length
         return (
             <Layout>
@@ -319,74 +327,81 @@ class HelpCentre extends Component {
                 </SearchSection>
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
-                        {articles.map((rows, idx) => (
-                            <ArticleRow key={idx}>
-                                {rows.map((category, idxa) => (
-                                    <ListWrapper key={idxa}>
-                                        <Header font_size="3.6rem">
-                                            {localize(category.category)}
-                                        </Header>
-                                        <ListNoBullets>
-                                            {/*TODO: refactor this into its own component*/}
-                                            {category.articles.map((article, idxb) => {
-                                                const category_is_expanded =
-                                                    article.category in all_categories &&
-                                                    all_categories[article.category].is_expanded
-                                                const should_show_item =
-                                                    idxb < 3 || category_is_expanded
-                                                const can_expand = category.articles.length > 3
-                                                const should_show_expand =
-                                                    !category_is_expanded &&
-                                                    can_expand &&
-                                                    idxb === 3
-                                                const should_show_collapse =
-                                                    category_is_expanded &&
-                                                    can_expand &&
-                                                    idxb === category.articles.length - 1
-
-                                                return (
-                                                    <React.Fragment key={idxb}>
-                                                        {should_show_item && (
-                                                            <li>
-                                                                <StyledLink
-                                                                    to={convertToHash(
-                                                                        category.category.props
-                                                                            .translate_text,
-                                                                        article.label,
+                        {splittedArticles.map((article, id) => {
+                            return (
+                                <RowDiv key={id}>
+                                    {article.map((item, idx) => {
+                                        {
+                                            return (
+                                                <ArticleDiv key={idx}>
+                                                    <ListWrapper>
+                                                        <Header font_size="3.6rem">
+                                                            {localize(item.category)}
+                                                        </Header>
+                                                        {item.articles.map((ar, idxb) => {
+                                                            const category_is_expanded =
+                                                                ar.category in all_categories &&
+                                                                all_categories[ar.category]
+                                                                    .is_expanded
+                                                            const should_show_item =
+                                                                idxb < 3 || category_is_expanded
+                                                            const can_expand =
+                                                                item.articles.length > 3
+                                                            const should_show_expand =
+                                                                !category_is_expanded &&
+                                                                can_expand &&
+                                                                idxb === 3
+                                                            const should_show_collapse =
+                                                                category_is_expanded &&
+                                                                can_expand &&
+                                                                idxb === item.articles.length - 1
+                                                            return (
+                                                                <ListNoBullets key={idxb}>
+                                                                    {should_show_item && (
+                                                                        <li>
+                                                                            <StyledLink
+                                                                                to={convertToHash(
+                                                                                    item.category
+                                                                                        .props
+                                                                                        .translate_text,
+                                                                                    ar.label,
+                                                                                )}
+                                                                            >
+                                                                                {ar.title}
+                                                                            </StyledLink>
+                                                                        </li>
                                                                     )}
-                                                                >
-                                                                    {article.title}
-                                                                </StyledLink>
-                                                            </li>
-                                                        )}
-                                                        {(should_show_expand ||
-                                                            should_show_collapse) && (
-                                                            <li>
-                                                                <StyledView
-                                                                    onClick={() =>
-                                                                        this.toggleArticle(
-                                                                            article.category,
-                                                                        )
-                                                                    }
-                                                                >
-                                                                    {should_show_expand
-                                                                        ? localize(
-                                                                              'View all questions',
-                                                                          )
-                                                                        : localize(
-                                                                              'View less questions',
-                                                                          )}
-                                                                </StyledView>
-                                                            </li>
-                                                        )}
-                                                    </React.Fragment>
-                                                )
-                                            })}
-                                        </ListNoBullets>
-                                    </ListWrapper>
-                                ))}
-                            </ArticleRow>
-                        ))}
+                                                                    {(should_show_expand ||
+                                                                        should_show_collapse) && (
+                                                                        <li>
+                                                                            <StyledView
+                                                                                onClick={() =>
+                                                                                    this.toggleArticle(
+                                                                                        ar.category,
+                                                                                    )
+                                                                                }
+                                                                            >
+                                                                                {should_show_expand
+                                                                                    ? localize(
+                                                                                          'View all questions',
+                                                                                      )
+                                                                                    : localize(
+                                                                                          'View less questions',
+                                                                                      )}
+                                                                            </StyledView>
+                                                                        </li>
+                                                                    )}
+                                                                </ListNoBullets>
+                                                            )
+                                                        })}
+                                                    </ListWrapper>
+                                                </ArticleDiv>
+                                            )
+                                        }
+                                    })}
+                                </RowDiv>
+                            )
+                        })}
                     </ArticleSection>
                 </Container>
 

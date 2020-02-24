@@ -151,13 +151,17 @@ jobs:
       - k8s_deploy
       
 workflows:
+  build_and_push_test:
+    jobs:
+      - test:
+          context: binary-frontend-artifact-deploy  # using context to retrieve shared secret from circle ci
   build_and_push_dev:
     jobs:
       - test:
           filters:
             branches:
               only: /^dev/
-          context: binary-frontend-artifact-deploy  # using context to retrieve shared secret from circle ci
+          context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
   build_and_push_master:
     jobs:
       - release:

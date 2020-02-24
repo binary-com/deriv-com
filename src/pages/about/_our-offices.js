@@ -14,7 +14,7 @@ const OfficeContainer = styled.section`
     width: 100%;
     padding: 8rem 22.2rem;
     margin: auto;
-    background-color: var(--color-grey-8);
+    background-color: var(--color-white);
 
     @media ${device.laptopLC} {
         padding: 8rem 2rem;

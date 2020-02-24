@@ -9,7 +9,7 @@ import { localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import Partner from 'common/partner'
 import device from 'themes/device'
-import Chevron from 'images/svg/chevron.svg'
+import Chevron from 'images/svg/chevron-bottom-bold.svg'
 
 const TitleWrapper = styled.div`
     max-width: 104.5rem;
@@ -122,7 +122,7 @@ const StyledChevron = styled(Chevron)`
     margin-top: 0.8rem;
     height: 16px;
     cursor: pointer;
-    transform: ${props => (props.is_expand ? 'inherit' : 'rotate(-180deg)')};
+    transform: ${props => (props.is_expand ? 'rotate(-180deg)' : 'inherit ')};
 `
 
 const StyledTR = styled(TR)`

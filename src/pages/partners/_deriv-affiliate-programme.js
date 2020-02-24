@@ -59,7 +59,7 @@ const RevenueShare = [
         data: ['≤ USD 20,000 per month ', '> USD 20,000 per month '],
     },
     {
-        title: 'Commision rate',
+        title: 'Commission rate',
         data: ['30%', '45%'],
     },
 ]

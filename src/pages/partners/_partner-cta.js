@@ -42,7 +42,7 @@ const StyledWrapper = styled.div`
 `
 const CTA = () => {
     return (
-        <StyledSection>
+        <StyledSection padding='4rem 0'>
             <Container>
                 <StyledWrapper>
                     <Header as="h4">{localize('Got more questions?')}</Header>

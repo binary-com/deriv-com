@@ -120,7 +120,7 @@ jobs:
     docker:
       - image: circleci/node:lts-stretch
         environment:
-          NODE_OPTIONS=--max_old_space_size=3584
+          NODE_OPTIONS=--max_old_space_size=4096
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache

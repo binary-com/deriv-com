@@ -13,8 +13,6 @@ import Advertise from 'images/svg/advertise.svg'
 import Earn from 'images/svg/earn.svg'
 
 const StyledSection = styled(SectionContainer)`
-    padding: 8rem 7.8rem 0;
-    
     div {
         display: flex;
         justify-content: space-between;
@@ -51,44 +49,63 @@ const Separator = styled.div`
 const StyledHeader = styled(Header)`
     width: 100%;
     max-width: 42.8rem;
+
+    &:last-child {
+        padding-left: 4rem;
+    }
 `
 const Flex = styled.div`
     display: flex;
 `
 const LineVertical = styled(LineVerticalSVG)`
-    margin-top: 5rem;
+    margin-top: 9.5rem;
     margin-right: 16px;
     width: 3rem;
     height: 33rem;
 `
-const WhoCanAplly = () => {
+const WhoCanApply = () => {
     return (
-        <StyledSection padding='8rem 7.8rem'>
-            <div>
-                <StyledHeader font_size='3.6rem'>{localize('Who can aplly')}</StyledHeader>
-                <StyledHeader font_size='3.6rem'>{localize('Who can aplly')}</StyledHeader>
-            </div>
+        <StyledSection padding="8rem 0 4rem">
             <div>
                 <Col>
+                    <StyledHeader font_size="3.6rem">{localize('Who can apply')}</StyledHeader>
                     <Wrapper>
                         <TradingExperts />
-                        <Content max_width='36.4rem'>
-                            <Header as='h4' lh='1.5'>{localize('Trading experts')}</Header>
-                            <Text>{localize('Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.')}</Text>
+                        <Content max_width="36.4rem">
+                            <Header as="h4" lh="1.5">
+                                {localize('Trading experts')}
+                            </Header>
+                            <Text>
+                                {localize(
+                                    'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
+                                )}
+                            </Text>
                         </Content>
                     </Wrapper>
                     <Wrapper>
                         <SoftwareDeveloper />
-                        <Content max_width='36.4rem'>
-                            <Header as='h4' lh='1.5'>{localize('Software developers')}</Header>
-                            <Text>{localize('Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.')}</Text>
+                        <Content max_width="36.4rem">
+                            <Header as="h4" lh="1.5">
+                                {localize('Software developers')}
+                            </Header>
+                            <Text>
+                                {localize(
+                                    'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                                )}
+                            </Text>
                         </Content>
                     </Wrapper>
                     <Wrapper>
                         <CommunityManagers />
-                        <Content max_width='36.4rem'>
-                            <Header as='h4' lh='1.5'>{localize('Community managers')}</Header>
-                            <Text>{localize('Manage an active online community that’s passionate about online trading, investing, or personal finance.')}</Text>
+                        <Content max_width="36.4rem">
+                            <Header as="h4" lh="1.5">
+                                {localize('Community managers')}
+                            </Header>
+                            <Text>
+                                {localize(
+                                    'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
+                                )}
+                            </Text>
                         </Content>
                     </Wrapper>
                 </Col>
@@ -96,35 +113,58 @@ const WhoCanAplly = () => {
                 <Flex>
                     <LineVertical />
                     <Col>
+                        <StyledHeader font_size="3.6rem">
+                            {localize('Get started easily')}
+                        </StyledHeader>
                         <Wrapper>
                             <Apply />
-                            <Content max_width='32.4rem'>
-                                <Header as='h4' lh='1.5'>{localize('Trading experts')}</Header>
-                                <Text>{localize('Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.')}</Text>
+                            <Content max_width="32.4rem">
+                                <Header as="h4" lh="1.5">
+                                    {localize('Trading experts')}
+                                </Header>
+                                <Text>
+                                    {localize(
+                                        'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
+                                    )}
+                                </Text>
                             </Content>
                         </Wrapper>
                         <Wrapper>
                             <Advertise />
-                            <Content max_width='32.4rem'>
-                                <Header as='h4' lh='1.5'>{localize('Software developers')}</Header>
-                                <Text>{localize('Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.')}</Text>
+                            <Content max_width="32.4rem">
+                                <Header as="h4" lh="1.5">
+                                    {localize('Software developers')}
+                                </Header>
+                                <Text>
+                                    {localize(
+                                        'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                                    )}
+                                </Text>
                             </Content>
                         </Wrapper>
                         <Wrapper>
                             <Earn />
-                            <Content max_width='32.4rem'>
-                                <Header as='h4' lh='1.5'>{localize('Community managers')}</Header>
-                                <Text>{localize('Manage an active online community that’s passionate about online trading, investing, or personal finance.')}</Text>
+                            <Content max_width="32.4rem">
+                                <Header as="h4" lh="1.5">
+                                    {localize('Community managers')}
+                                </Header>
+                                <Text>
+                                    {localize(
+                                        'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
+                                    )}
+                                </Text>
                             </Content>
                         </Wrapper>
                     </Col>
                 </Flex>
             </div>
-            <CenteredSection padding='4rem 0'>
-                <LinkButton secondary to='/'>{localize('Sign up')}</LinkButton>
+            <CenteredSection padding="4rem 0">
+                <LinkButton secondary to="/">
+                    {localize('Sign up')}
+                </LinkButton>
             </CenteredSection>
         </StyledSection>
     )
 }
 
-export default WhoCanAplly
+export default WhoCanApply

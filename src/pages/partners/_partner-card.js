@@ -6,7 +6,6 @@ export const Card = styled.section`
     width: 100%;
     max-width: 38.4rem;
     height: ${props => (props.height ? props.height : '42rem')};
-    margin-top: 4rem;
     background-color: var(--color-white);
     border-radius: 0.4rem;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
@@ -22,5 +21,8 @@ export const CardWrapper = styled(Flex)`
     @media ${device.tabletL} {
         flex-direction: column;
         align-items: center;
+    }
+    @media ${device.laptopM} {
+        flex-wrap: wrap;
     }
 `

@@ -43,6 +43,12 @@ const CPAContent = styled.div`
     }
 `
 
+const StyledCard = styled(Card)`
+    :nth-child(2) {
+        margin: 0 2.4rem;
+    }
+`
+
 const RevenueShare = [
     {
         title: 'Net revenue',
@@ -86,8 +92,8 @@ const DerivAffiliateProgramme = () => {
                 </TitleWrapper>
                 <SectionContainer>
                     <StyledHeader as="h4">{localize('Choose a commission plan:')}</StyledHeader>
-                    <CardWrapper mt="-2rem" wrap="wrap">
-                        <Card height="47.2rem">
+                    <CardWrapper>
+                        <StyledCard height="47.2rem">
                             <div>
                                 <Header as="h4" lh="1.5">
                                     {localize('Revenue share')}
@@ -119,8 +125,8 @@ const DerivAffiliateProgramme = () => {
                                     {localize('Sign up')}
                                 </ApplyNow>
                             </div>
-                        </Card>
-                        <Card height="47.2rem">
+                        </StyledCard>
+                        <StyledCard height="47.2rem">
                             <div>
                                 <Header as="h4" lh="1.5">
                                     {localize('Turnover')}
@@ -150,8 +156,8 @@ const DerivAffiliateProgramme = () => {
                                     {localize('Sign up')}
                                 </ApplyNow>
                             </div>
-                        </Card>
-                        <Card height="47.2rem">
+                        </StyledCard>
+                        <StyledCard height="47.2rem">
                             <div>
                                 <Header as="h4" lh="1.5">
                                     {localize('CPA (EU only)')}
@@ -177,7 +183,7 @@ const DerivAffiliateProgramme = () => {
                                     {localize('Sign up')}
                                 </ApplyNow>
                             </div>
-                        </Card>
+                        </StyledCard>
                     </CardWrapper>
                 </SectionContainer>
             </Container>

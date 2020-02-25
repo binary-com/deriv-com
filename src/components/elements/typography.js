@@ -6,6 +6,7 @@ const createElement = React.createElement
 
 const BaseElement = css`
     text-align: ${props => props.align || 'left'};
+    padding: ${props => props.padding || ''};
 
     /* prettier-ignore */
     color: var(--color-${props => props.color || 'black-3'});

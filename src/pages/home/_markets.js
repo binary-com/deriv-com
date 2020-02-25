@@ -3,14 +3,28 @@ import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
+import device from 'themes/device'
 // Icons
 import ForexIcon from 'images/svg/market-forex.svg'
 import IndicesIcon from 'images/svg/market-indices.svg'
 import CommoditiesIcon from 'images/svg/market-commodities.svg'
 import SyntheticIndicesIcon from 'images/svg/market-synthetic-indices.svg'
 // Images
+const StyledSection = styled(SectionContainer)`
+    background-color: rgba(242, 243, 244, 0.3);
+
+    @media ${device.tabletL} {
+        padding: 5rem 0;
+    }
+`
 const MarketWrapper = styled(Flex)`
     margin-top: 4rem;
+
+    @media ${device.tabletL} {
+        article:last-child {
+            margin-bottom: 0;
+        }
+    }
 `
 const MarketCard = styled.article`
     display: flex;
@@ -30,12 +44,21 @@ const MarketCard = styled.article`
     @media (max-width: 1210px) {
         margin-right: 0;
     }
+    @media ${device.tabletL} {
+        flex-direction: column;
+
+        svg {
+            width: 6rem;
+            height: 6rem;
+            margin-bottom: 1rem;
+        }
+    }
     @media (max-width: 860px) {
         margin-bottom: 4rem;
     }
 `
 const Markets = () => (
-    <SectionContainer style={{ backgroundColor: 'rgba(242, 243, 244, 0.3)' }}>
+    <StyledSection>
         <Container direction="column">
             <Header align="center" font_size="var(--text-size-header-1)" as="h2">
                 {localize('Markets')}
@@ -87,7 +110,7 @@ const Markets = () => (
                 </MarketCard>
             </MarketWrapper>
         </Container>
-    </SectionContainer>
+    </StyledSection>
 )
 
 export default Markets

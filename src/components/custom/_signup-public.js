@@ -4,13 +4,15 @@ import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { Header, Text, Image } from 'components/elements'
 import { localize } from 'components/localization'
-import { Flex } from 'components/containers'
+import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
+import Arrow from 'images/svg/chervon-right.svg'
 import BackgroundPattern from 'images/common/bg_banner_signup.png'
 import Chevron from 'images/svg/carousel-chevron.svg'
+import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
@@ -21,7 +23,6 @@ const ChevronRight = styled(Chevron)`
         }
     }
 `
-
 const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -30,6 +31,11 @@ const Wrapper = styled.div`
     width: 100%;
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        height: auto;
+    }
 `
 
 const SignupFormWrapper = styled(Flex)`
@@ -67,17 +73,41 @@ const InputGroup = styled.div`
 const EmailButton = styled(Button)`
     margin-left: 2rem;
     height: 4rem;
+
+    @media ${device.tabletL} {
+        width: 13rem;
+        font-size: 1.75rem;
+        margin-left: 0;
+        height: 5rem;
+    }
 `
 const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 1.8rem;
+
+    @media ${device.tabletL} {
+        button {
+            width: 14.25rem;
+        }
+    }
 `
 const SocialButton = styled(Button)`
+    display: flex;
     background-color: var(--color-white);
     border: solid 1px var(--color-grey-7);
-    width: 6.4rem;
     height: 4rem;
     margin-right: 1.2rem;
+
+    @media ${device.tabletL} {
+        height: 6rem;
+        margin-right: ${props => props.margin_right ? (props.margin_right) : ('0')};
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            margin-right: 1rem;
+        }
+    }
 `
 
 const StyledHeader = styled(Header)`
@@ -86,13 +116,19 @@ const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         width: auto;
     }
+
+    @media (max-width: 800px) {
+        margin-top: 2rem;
+        ${props => props.as === 'h4' ? ('font-size: 2rem; margin-top: 0;') : ('')}
+    }
 `
 const StyledText = styled(Text)`
     width: auto;
     margin-right: 4rem;
-
-    @media ${device.tablet} {
-        width: auto;
+    
+    @media ${device.tabletL} {
+        width: max-content-fit;
+        margin-right: 1rem;
     }
 `
 const ImageWrapper = styled(Flex)`
@@ -121,7 +157,46 @@ const LinkFlex = styled(Flex)`
         cursor: pointer;
     }
 `
+const MobileBackground = styled.div`
+    width: 100%;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 4rem;
 
+    @media (min-width: 800px) {
+        display: none;
+    }
+`
+
+const DerivExperience = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 4rem;
+
+    svg {
+        z-index: 10;
+    }
+    ${Header} {
+        max-width: 25rem;
+        z-index: 10;
+        color: var(--color-white);
+    }
+`
+const MobileRedBanner = styled.div`
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    max-height: 100%;
+
+`
+const MobilePlatform = styled.div`
+    width: 100%;
+    max-width: 35.7rem;
+    z-index: 10;
+`
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -177,7 +252,22 @@ const SignupPublic = ({
                         </EmailButton>
                     </InputGroup>
                     <SocialWrapper jc="unset" ai="center">
-                        <StyledText>{localize('or sign up with')}</StyledText>
+                        <StyledText>{localize('or sign in with')}</StyledText>
+                        <SocialButton
+                            onClick={handleSocialSignup}
+                            provider="google"
+                            id="google"
+                            type="button"
+                            social
+                            margin_right='1rem'
+                        >
+                            <span>
+                                <Google />
+                            </span>
+                            <Show.Mobile>
+                                <Text>Google</Text>
+                            </Show.Mobile>
+                        </SocialButton>
                         <SocialButton
                             onClick={handleSocialSignup}
                             provider="facebook"
@@ -188,17 +278,9 @@ const SignupPublic = ({
                             <span>
                                 <Facebook />
                             </span>
-                        </SocialButton>
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="google"
-                            id="google"
-                            type="button"
-                            social
-                        >
-                            <span>
-                                <Google />
-                            </span>
+                            <Show.Mobile>
+                                <Text>Facebook</Text>
+                            </Show.Mobile>
                         </SocialButton>
                     </SocialWrapper>
                 </div>
@@ -211,6 +293,22 @@ const SignupPublic = ({
                     <ChevronRight />
                 </LinkFlex>
             </BackgroundWrapper>
+            <Show.Mobile>
+                <MobileBackground>
+                    <MobilePlatform>
+                        <Image img_name="deriv-platform-banner.png" width="100%" />
+                    </MobilePlatform>
+                    <MobileRedBanner>
+                        <RedBanner width='100%' />
+                    </MobileRedBanner>
+                    <DerivExperience onClick={redirectToDerivApp}>
+                        <Header font_size='3rem'>
+                            {localize('Get a taste of the Deriv experience')}
+                        </Header>
+                        <Arrow />
+                    </DerivExperience>
+                </MobileBackground>
+            </Show.Mobile>
         </Wrapper>
     )
 }

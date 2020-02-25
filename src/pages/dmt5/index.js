@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import DMT5Video from './_dmt5-video.js'
-import DMT5Animation from 'images/lotties/dmt5-animation.json'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
@@ -68,7 +67,6 @@ const DMT5 = () => {
                 }
                 join_us_for_free
                 Logo={dmt5_logo}
-                animation={DMT5Animation}
                 background_image_name="dmt5-platform.png"
                 background_svg={DMT5BG}
             />

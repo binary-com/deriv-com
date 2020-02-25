@@ -166,7 +166,7 @@ const DerivAffiliateProgramme = () => {
                                 <Header as="h4" lh="1.5">
                                     {localize('CPA (EU only)')}
                                 </Header>
-                                <Text>{localize('Earn based on each successful referral')}</Text>
+                                <Text>{localize('Earn based on each successful referral.')}</Text>
                                 <CPAContent>
                                     <Text>
                                         <Localize

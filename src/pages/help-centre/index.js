@@ -177,7 +177,7 @@ const RowDiv = styled.div`
 const ArticleDiv = styled.div`
     display: flex;
     flex-direction: column;
-    margin-bottom: 3rem;
+    margin-bottom: 8rem;
 `
 
 class HelpCentre extends Component {

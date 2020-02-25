@@ -26,12 +26,10 @@ export const getTeamsWithMostOpenPositions = max_nr_of_teams => {
 }
 
 // for jobs filtering
+export const search = search_string => {}
 export const getPositionsByJobType = job_type => {}
 export const getPositionsByTeam = job_type => {}
 export const getPositionsByLocation = job_type => {}
-
-// for sub-teams
-export const getTeam = name => {}
 
 class Team {
     name = ''

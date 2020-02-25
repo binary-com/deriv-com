@@ -4,7 +4,7 @@ import CustomerGrid from './_customers-grid'
 import BusinessGrid from './_business-grid'
 import { SEO, SectionContainer, GridContainer } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { Divider, Header } from 'components/elements'
+import { Divider, Header, Tabs } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
 const Section = styled(SectionContainer)`
@@ -15,6 +15,8 @@ const StyledHeader = styled(Header)`
     margin: 0 auto;
     padding: ${props => props.padding || '0'};
 `
+
+const TabWrapper = styled.div``
 
 const TermsAndConditions = () => {
     return (
@@ -45,8 +47,16 @@ const TermsAndConditions = () => {
             </Section>
             <Divider />
             <Section>
-                <CustomerGrid />
-                <BusinessGrid />
+                <TabWrapper>
+                    <Tabs>
+                        <Tabs.Panel label={localize('FOR CUSTOMERS')}>
+                            <CustomerGrid />
+                        </Tabs.Panel>
+                        <Tabs.Panel label={localize('FOR BUSINESS PARTNERS')}>
+                            <BusinessGrid />
+                        </Tabs.Panel>
+                    </Tabs>
+                </TabWrapper>
             </Section>
         </Layout>
     )

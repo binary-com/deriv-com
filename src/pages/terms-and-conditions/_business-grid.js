@@ -6,7 +6,6 @@ import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import General from 'images/svg/general-tc.svg'
 import Trading from 'images/svg/trading-tc.svg'
 import Funds from 'images/svg/funds-transfers-tc.svg'
 import Security from 'images/svg/security-privacy-tc.svg'
@@ -99,13 +98,6 @@ const IconGrid = () => (
             mobile_columns="1fr"
             mobile_row_gap="10rem"
         >
-            <Col
-                Icon={General}
-                title={localize('General terms')}
-                content={localize('The main agreement you’re making with us to use Deriv')}
-                url="/general_terms_deriv_tnc.pdf"
-                link_title={localize('General terms')}
-            />
             <Col
                 Icon={Trading}
                 title={localize('Trading terms')}

@@ -23,7 +23,15 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
-                exclude: ['/404', '/**/404.html', '/**/404', '/check-email', '/**/check-email'],
+                exclude: [
+                    '/404',
+                    '/**/404.html',
+                    '/**/404',
+                    '/check-email',
+                    '/**/check-email',
+                    '/reset-password',
+                    '/**/reset-password',
+                ],
             },
         },
         'gatsby-plugin-remove-serviceworker',

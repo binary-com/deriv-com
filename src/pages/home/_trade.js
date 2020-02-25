@@ -18,6 +18,7 @@ const platforms = Object.freeze({
 const ImageWrapper = styled.div`
     height: 100%;
     width: 100%;
+    max-width: 65.7rem;
     visibility: ${props => (props.is_selected ? 'initial' : 'hidden')};
     opacity: ${props => (props.is_selected ? '1' : '0')};
     z-index: ${props => (props.is_selected ? '0' : '10')};
@@ -58,21 +59,21 @@ export const Trade = () => {
                                 <Image
                                     img_name="dtrader_trade.png"
                                     alt={localize('DTrader platform')}
-                                    width="90%"
+                                    width="100%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
                                 <Image
                                     img_name="dbot_trade.png"
                                     alt={localize('DBot platform')}
-                                    width="90%"
+                                    width="100%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
                                 <Image
                                     img_name="dmt5_trade.png"
                                     alt={localize('DMT5 platform')}
-                                    width="90%"
+                                    width="100%"
                                 />
                             </ImageWrapper>
                         </ImageContainer>

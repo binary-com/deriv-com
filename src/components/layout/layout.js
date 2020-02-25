@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Footer from './footer'
-import { Nav, NavStatic, NavPartners } from './nav'
+import { Nav, NavStatic, NavPartners, NavCareers } from './nav'
 
 const Main = styled.main`
     padding-top: ${props => props.padding_top || '7rem'};
@@ -19,6 +19,9 @@ const Layout = ({ children, type, padding_top }) => {
             break
         case 'partners':
             Navigation = <NavPartners />
+            break
+        case 'careers':
+            Navigation = <NavCareers />
             break
         default:
             Navigation = <Nav />

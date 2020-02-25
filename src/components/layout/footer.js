@@ -270,6 +270,9 @@ const Footer = () => (
                         <div>
                             <Link to="/contact-us">{localize('Contact us')}</Link>
                         </div>
+                        <div>
+                            <Link to="/careers">{localize('Careers')}</Link>
+                        </div>
                     </Col>
                     {/* <Col margin_top width='40%'>
                         <div><Title>{localize('PARTNER WITH US')}</Title></div>

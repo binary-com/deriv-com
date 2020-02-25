@@ -308,7 +308,7 @@ const IBReferralTools = (
         <Header as="h4">{localize('Do you offer any referral tools to your IBs?')}</Header>
         <TextPrimary>
             {localize(
-                'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our DMT5 platform.Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our DMT5 platform.',
+                'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our DMT5 platform.',
             )}
         </TextPrimary>
     </ItemContainer>

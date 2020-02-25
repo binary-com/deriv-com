@@ -14,6 +14,10 @@ const StyledSection = styled(SectionContainer)`
         @media ${device.tabletL} {
             justify-content: center;
             flex-direction: column;
+
+            div:last-child {
+                margin-top: 3.2rem;
+            }
         }
 
         div {

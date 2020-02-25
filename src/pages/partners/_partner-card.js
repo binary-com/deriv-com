@@ -8,7 +8,7 @@ export const Card = styled.section`
     height: ${props => (props.height ? props.height : '42rem')};
     background-color: var(--color-white);
     border-radius: 0.4rem;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: ${props => (props.padding ? props.padding : '3.2rem')};
     position: relative;
     display: flex;

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Stories from './_story_constant'
 // import { Container } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, Text, Image } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
@@ -107,8 +107,8 @@ const Splitter = styled.div`
     margin: 0.5rem 0 1rem 0;
 `
 const LogoContainer = styled.div`
-    width: ${props => props.svg_width || '28.2rem'};
-    text-align: ${props => props.svg_position};
+    width: ${props => props.outer_image_width || '28.2rem'};
+    text-align: ${props => props.image_position};
     margin-left: ${props => (props.left ? '2rem' : '')};
     margin-right: ${props => (props.left ? '' : props.margin_right || '2rem')};
 
@@ -170,11 +170,17 @@ export const OurStory = () => {
                                 margin_bottom={content.margin_bottom}
                             >
                                 <LogoContainer
-                                    svg_position={content.svg_position}
-                                    svg_width={content.svg_width}
+                                    image_position={content.image_position}
+                                    outer_image_width={content.outer_image_width}
                                     margin_right={content.margin_right}
+                                    height={content.asset_height}
                                 >
-                                    {content.svg}
+                                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                        <Image
+                                            width={content.image_width}
+                                            img_name={content.image}
+                                        />
+                                    </div>
                                 </LogoContainer>
                                 <ContentWrapper content_width={content.content_width} left>
                                     {content.headers.map((header, id) => (
@@ -222,11 +228,22 @@ export const OurStory = () => {
                                 </ContentWrapper>
                                 <LogoContainer
                                     left
-                                    svg_position={content.svg_position}
-                                    svg_width={content.svg_width}
+                                    image_position={content.image_position}
+                                    outer_image_width={content.outer_image_width}
                                     margin_right={content.margin_right}
                                 >
-                                    {content.svg}
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'flex-start',
+                                            marginLeft: '1rem',
+                                        }}
+                                    >
+                                        <Image
+                                            width={content.image_width}
+                                            img_name={content.image}
+                                        />
+                                    </div>
                                 </LogoContainer>
                             </YearWrapper>
                         ),

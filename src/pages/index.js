@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import queryString from 'query-string'
-import Ticker from './home/_ticker'
+// import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
@@ -13,7 +13,6 @@ import { localize, WithIntl } from 'components/localization'
 import { Modal, useModal } from 'components/elements'
 import SignupModal from 'components/custom/signup-modal'
 import Signup, { Appearances } from 'components/custom/signup'
-import { isProduction } from 'common/websocket/config'
 
 const Home = () => {
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -45,7 +44,7 @@ const Home = () => {
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
             {/* TODO: investigate performance and enable later */}
-            {!isProduction() && <Ticker />}
+            {/* {!isProduction() && <Ticker />} */}
             <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
                 <SignupModal autofocus />
             </Modal>

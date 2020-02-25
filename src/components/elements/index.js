@@ -14,7 +14,6 @@ import Modal, { useModal } from './modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from './off-canvas-menu'
 import SideTab from './side-tab'
 import { Text, LinkText, Header } from './typography'
-import { Lottie } from './lottie'
 
 export {
     Accordion,
@@ -32,7 +31,6 @@ export {
     Image,
     StyledLink,
     LinearLoader,
-    Lottie,
     Modal,
     useModal,
     OffCanvasMenu,

@@ -34,6 +34,11 @@ const StyledLink = styled(LinkText)`
     font-weight: bold;
 `
 
+const StyledUl = styled.ul`
+    list-style-type: disc;
+    font-size: var(--text-size-s);
+`
+
 const AffiliateGeneral = (
     <ItemContainer>
         <Header as="h4">{localize('What is the Deriv Affiliate Programme?')}</Header>
@@ -53,30 +58,37 @@ const AffiliateGeneral = (
             )}
         </TextSecondary>
         <HeaderPrimary>{localize('Who can apply as a Deriv affiliate?')}</HeaderPrimary>
-        <TextList>
-            <li>{localize('Trading experts')}</li>
-        </TextList>
-        <Text>
-            {localize(
-                'Provides expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
-            )}
-        </Text>
-        <TextList>
-            <li>{localize('Software developers')}</li>
-        </TextList>
-        <Text>
-            {localize(
-                'Develops web, desktop, and mobile applications. Also has extensive experience working with APIs.',
-            )}
-        </Text>
-        <TextList>
-            <li>{localize('Community managers')}</li>
-        </TextList>
-        <Text>
-            {localize(
-                'Develops web, desktop, and mobile applications. Also has extensive experience working with APIs.',
-            )}
-        </Text>
+        <StyledUl>
+            <li>
+                <TextList>{localize('Trading experts')}</TextList>
+            </li>
+
+            <Text>
+                {localize(
+                    'Provides expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
+                )}
+            </Text>
+
+            <li>
+                <TextList>{localize('Software developers')}</TextList>
+            </li>
+
+            <Text>
+                {localize(
+                    'Develops web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                )}
+            </Text>
+
+            <li>
+                <TextList>{localize('Community managers')}</TextList>
+            </li>
+
+            <Text>
+                {localize(
+                    'Develops web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                )}
+            </Text>
+        </StyledUl>
         <HeaderPrimary>{localize('Why should I become a Deriv affiliate?')}</HeaderPrimary>
         <TextPrimary>
             {localize(
@@ -170,30 +182,34 @@ const AffiliateAccountManagement = (
                 'You can generate all kinds of insightful reports to track and optimise your campaigns, such as the',
             )}
         </TextPrimary>
-        <TextPrimary>
+        <StyledUl>
             <li>
-                <Localize
-                    translate_text="<0>Hits & Impression</0> report: Displays your hit and clickthrough rates"
-                    components={[<strong key={0} />]}
-                />
+                <TextPrimary>
+                    <Localize
+                        translate_text="<0>Hits & Impression</0> report: Displays your hit and clickthrough rates"
+                        components={[<strong key={0} />]}
+                    />
+                </TextPrimary>
             </li>
-        </TextPrimary>
-        <TextPrimary>
+
             <li>
-                <Localize
-                    translate_text="<0>Countries</0> report: Displays a list of countries where your clicks are coming from"
-                    components={[<strong key={0} />]}
-                />
+                <TextPrimary>
+                    <Localize
+                        translate_text="<0>Countries</0> report: Displays a list of countries where your clicks are coming from"
+                        components={[<strong key={0} />]}
+                    />
+                </TextPrimary>
             </li>
-        </TextPrimary>
-        <TextPrimary>
+
             <li>
-                <Localize
-                    translate_text="<0>My Players</0> report: Displays a list of clients with their IDs and signup date"
-                    components={[<strong key={0} />]}
-                />
+                <TextPrimary>
+                    <Localize
+                        translate_text="<0>My Players</0> report: Displays a list of clients with their IDs and signup date"
+                        components={[<strong key={0} />]}
+                    />
+                </TextPrimary>
             </li>
-        </TextPrimary>
+        </StyledUl>
         <HeaderPrimary>
             {localize(
                 'Can I offer prospective clients an incentive to sign up to Deriv using my unique affiliate link?',

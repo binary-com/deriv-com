@@ -126,6 +126,8 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
+      - docker_build
+      - docker_push
   release:
     docker:
       - image: circleci/node:lts-stretch
@@ -140,11 +142,25 @@ jobs:
       - upload_checksum  # uploading compressed artifact checksum to cross match artifact fingerprint
       - docker_build
       - docker_push
-      - k8s_deploy
+  deploy_staging:
+    docker:
+      - image: circleci/node:lts-stretch
+    steps:
+      - k8s_deploy      
+  deploy_production:
+    docker:
+      - image: circleci/node:lts-stretch
+    steps:
+      - k8s_deploy:
+          k8s_svc_name: "production-deriv-com"
 workflows:
   build_and_push_dev:
     jobs:
       - test:
+          filters:
+            branches:
+              only: /^dev/
+      - deploy_staging:
           filters:
             branches:
               only: /^dev/
@@ -155,3 +171,7 @@ workflows:
             branches:
               only: /^master/
           context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
+      - deploy_production:
+          filters:
+            branches:
+              only: /^master/

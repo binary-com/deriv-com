@@ -14,11 +14,9 @@ import Chevron from 'images/svg/chevron-bottom-bold.svg'
 const TitleWrapper = styled.div`
     max-width: 104.5rem;
     margin: 0 auto;
-
-    h4:last-child {
-        padding: 0 2rem;
-        margin-top: 1.6rem;
-    }
+`
+const FirstHeader = styled(Header)`
+    margin-bottom: 1.6rem;
 `
 const StyledSection = styled(SectionContainer)`
     box-shadow: ${props => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
@@ -81,13 +79,16 @@ const DerivIBProgramme = () => {
         <StyledSection shadow>
             <Container direction="column">
                 <TitleWrapper>
-                    <Header font_size="3.6rem" align="center">
+                    <FirstHeader font_size="3.6rem" align="center">
                         {localize('Deriv IB Programme')}
-                    </Header>
+                    </FirstHeader>
                     <Header as="h4" align="center" weight="500" lh="1.5">
                         {localize(
-                            'Our introducing broker programme (Deriv IB Programme) is available to all Deriv affiliates. Earn commission from your clients’ trades on DMT5.',
+                            'Our introducing broker programme is available to all Deriv affiliates.',
                         )}
+                    </Header>
+                    <Header as="h4" align="center" weight="500" lh="1.5">
+                        {localize('Earn commission from your clients’ trades on DMT5.')}
                     </Header>
                 </TitleWrapper>
                 <SectionContainer padding="8rem 0 9.6rem 0">

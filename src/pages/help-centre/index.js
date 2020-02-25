@@ -247,6 +247,7 @@ class HelpCentre extends Component {
             })
         }
         const all_articles = getAllArticles(articles)
+
         const duplicate_articles = deepClone(all_articles)
         const translated_articles = duplicate_articles.map(article => {
             article.title = localize(article.title.props.translate_text)
@@ -255,10 +256,8 @@ class HelpCentre extends Component {
         })
 
         const all_categories = {}
-        all_articles.forEach(items => {
-            Object.keys(items).forEach(article => {
-                all_categories[items[article].category] = { is_expanded: false }
-            })
+        Object.keys(all_articles).forEach(article => {
+            all_categories[all_articles[article].category] = { is_expanded: false }
         })
 
         this.setState({

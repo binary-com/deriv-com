@@ -37,6 +37,7 @@ const StyledLink = styled(LinkText)`
 const StyledUl = styled.ul`
     list-style-type: disc;
     font-size: var(--text-size-s);
+    padding-left: 1.8rem;
 `
 
 const AffiliateGeneral = (

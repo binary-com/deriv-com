@@ -42,13 +42,14 @@ const StyledWrapper = styled.div`
 `
 const CTA = () => {
     return (
-        <StyledSection padding='4rem 0'>
+        <StyledSection padding="4rem 0">
             <Container>
                 <StyledWrapper>
                     <Header as="h4">{localize('Got more questions?')}</Header>
                     <Text>{localize('The Deriv affiliate management team is here to help.')}</Text>
                     <LinkButton
-                        to="/contact-us/"
+                        external
+                        to="mailto:affiliates@deriv.com"
                         style={{ marginTop: '1.6rem', color: 'var(--color-white)' }}
                         tertiary
                     >

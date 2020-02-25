@@ -347,14 +347,14 @@ export const NavPartners = () => {
                             has_scrolled={has_scrolled}
                         >
                             <Button onClick={Partner.redirectToLogin} primary>
-                                <span>{localize('Log in')}</span>
+                                <span>{localize('Affiliate & IB log in')}</span>
                             </Button>
                             <SignupButton
                                 onClick={Partner.redirectToSignup}
                                 ref={button_ref}
                                 secondary
                             >
-                                <span>{localize('Sign up')}</span>
+                                <span>{localize('Affiliate & IB sign up')}</span>
                             </SignupButton>
                         </StyledNavRight>
                     </Wrapper>

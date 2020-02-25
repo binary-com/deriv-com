@@ -1,4 +1,4 @@
-import { positions } from './_team-position-data'
+import { accounts_and_payments_positions } from './_open-positions/_accounts-and-payments'
 import { localize } from 'components/localization'
 
 export const all_teams = [
@@ -9,27 +9,13 @@ export const all_teams = [
             'We’re all about helping the company make good decisions about money so we can stay on course to fulfil our vision.',
         ),
         description: localize(''),
-        positions: positions.accounts_and_payments,
+        positions: accounts_and_payments_positions.accounts_and_payments,
     }),
     new Team({ name: '', card_description: '', positions: '', thumbnail: '' }),
     new Team({ name: '', card_description: '', positions: '', thumbnail: '' }),
     new Team({ name: '', card_description: '', positions: '', thumbnail: '' }),
     new Team({ name: '', card_description: '', positions: '', thumbnail: '' }),
 ]
-
-// for location pages
-export const getTeamsWithOpenPositionsInLocation = location => {}
-
-// for home page
-export const getTeamsWithMostOpenPositions = max_nr_of_teams => {
-    // return sorted based on most open positions
-}
-
-// for jobs filtering
-export const search = search_string => {}
-export const getPositionsByJobType = job_type => {}
-export const getPositionsByTeam = job_type => {}
-export const getPositionsByLocation = job_type => {}
 
 class Team {
     name = ''

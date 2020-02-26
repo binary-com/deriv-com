@@ -24,7 +24,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 const StyledSection = styled(SectionContainer)`
-    box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 4rem;
@@ -32,23 +32,43 @@ const StyledHeader = styled(Header)`
 const MoreReason = () => {
     return (
         <StyledSection>
-            <Container direction='column'>
-                <StyledHeader font_size='3.6rem' align='center'>{localize('More reasons to join')}</StyledHeader>
-                <StyledFlex wrap='wrap' jc='space-between'>
+            <Container direction="column">
+                <StyledHeader font_size="3.6rem" align="center">
+                    {localize('More reasons to join')}
+                </StyledHeader>
+                <StyledFlex wrap="wrap" jc="space-between">
                     <Reason>
                         <HighValue />
-                        <Header as='h4' lh='1.5'>{localize('High-value partnership')}</Header>
-                        <Text>{localize('Join a proven referral programme that’s designed to help you succeed in every way possible.')}</Text>
+                        <Header as="h4" lh="1.5">
+                            {localize('High-value partnership')}
+                        </Header>
+                        <Text>
+                            {localize(
+                                'Join a proven referral programme that’s designed to help you succeed in every way possible.',
+                            )}
+                        </Text>
                     </Reason>
                     <Reason>
                         <ProvenReferral />
-                        <Header as='h4' lh='1.5'>{localize('Proven creative materials')}</Header>
-                        <Text>{localize('Use a broad and tested selection of banners, emails, videos, and text ads to drive traffic to our site.')}</Text>
+                        <Header as="h4" lh="1.5">
+                            {localize('Proven creative materials')}
+                        </Header>
+                        <Text>
+                            {localize(
+                                'Use a broad and tested selection of banners, emails, videos, and text ads to drive traffic to our site.',
+                            )}
+                        </Text>
                     </Reason>
                     <Reason>
                         <GlobalAffiliate />
-                        <Header as='h4' lh='1.5'>{localize('Global affiliate support')}</Header>
-                        <Text>{localize('Got questions? Need help? Call or email a dedicated team of affiliate managers for all the answers.')}</Text>
+                        <Header as="h4" lh="1.5">
+                            {localize('Global affiliate support')}
+                        </Header>
+                        <Text>
+                            {localize(
+                                'Got questions? Need help? Call or email a dedicated team of affiliate managers for all the answers.',
+                            )}
+                        </Text>
                     </Reason>
                 </StyledFlex>
             </Container>

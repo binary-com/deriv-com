@@ -16,8 +16,8 @@ import { localize, WithIntl } from 'components/localization'
 const items = [
     { title: '47K+', subtitle: localize('members') },
     { title: '$14M+', subtitle: localize('paid out') },
-    { title: '$150+', subtitle: localize('countries') },
-    { title: '$1M+', subtitle: localize('clients') },
+    { title: '150+', subtitle: localize('countries') },
+    { title: '1M+', subtitle: localize('clients') },
 ]
 
 const why_partner_with_us_items = [
@@ -62,10 +62,8 @@ const Partners = () => {
             </SectionContainer>
             <DerivAffiliateProgramme />
             <DerivIBProgramme />
-            <Container direction="column">
-                <WhyUs items={why_partner_with_us_items} />
-                <WhoCanAplly />
-            </Container>
+            <WhyUs items={why_partner_with_us_items} />
+            <WhoCanAplly />
             <MoreReason />
             <Faq />
             <CTA />

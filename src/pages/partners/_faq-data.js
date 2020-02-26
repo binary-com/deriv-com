@@ -171,9 +171,10 @@ const AffiliateAccountManagement = (
             {localize('How can I check how much commission I have earned?')}
         </HeaderPrimary>
         <TextPrimary>
-            {localize(
-                'Log in to your Deriv affiliate account and go to Reports > Detailed activity report.',
-            )}
+            <Localize
+                translate_text="Log in to your Deriv affiliate account and go to <0>Reports</0> > <0>Detailed activity report</0>."
+                components={[<strong key={0} />]}
+            />
         </TextPrimary>
         <HeaderPrimary>
             {localize('What kind of reports can I generate from my affiliate account?')}

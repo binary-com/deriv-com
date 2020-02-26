@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
 import { Button } from 'components/form'
@@ -14,9 +14,9 @@ import Apply from 'images/svg/apply.svg'
 import Advertise from 'images/svg/advertise.svg'
 import Earn from 'images/svg/earn.svg'
 
-const StyledSection = styled.div`
+const StyledSection = styled(Container)`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
     @media ${device.tablet} {
         flex-wrap: wrap;
@@ -50,6 +50,7 @@ const Separator = styled.div`
     width: 1px;
     height: 50rem;
     background-color: var(--color-grey-8);
+    margin: 0 9.2rem;
 
     @media ${device.laptop} {
         display: none !important;
@@ -70,7 +71,7 @@ const Flex = styled.div`
     display: flex;
 `
 const LineVertical = styled(LineVerticalSVG)`
-    margin-top: 9.5rem;
+    margin-top: 10.5rem;
     margin-right: 16px;
     width: 3rem;
     height: 33rem;

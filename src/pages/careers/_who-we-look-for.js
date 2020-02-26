@@ -3,23 +3,45 @@ import styled, { css } from 'styled-components'
 import { Container, Flex } from 'components/containers'
 import { Text, Header, Divider, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
 
 const StyledContainer = styled(Flex)`
     max-width: 79.2rem;
     margin: 12rem auto;
+    @media ${device.tablet} {
+        max-width: 80%;
+        flex-direction: column;
+    }
 `
 
 const StyledHeader = styled(Header)`
     font-size: var(--text-size-header-4);
     max-width: 20.5rem;
+
+    @media ${device.tablet} {
+        max-width: 100%;
+    }
 `
 
 const StyledDivider = styled(Divider)`
-    margin: 0 3.1rem;
+    margin: 0 3.2rem;
+
+    @media ${device.tablet} {
+        width: 100%;
+        height: 2px;
+        margin: 3.2rem 0;
+    }
 `
 
 const ParimaryText = styled(Text)`
     font-size: var(--text-size-sm);
+`
+
+const DescContainer = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 const ImageDescription = styled.div`
@@ -31,6 +53,9 @@ const ImageDescription = styled.div`
             : css`
                   margin-left: 6.5rem;
               `}
+    @media ${device.tablet} {
+        margin: 3.2rem 0;
+    }
 `
 
 const DiffHeader = styled(Header)`
@@ -50,6 +75,11 @@ const DescText = styled(ParimaryText)`
     }
 `
 
+const ImageWrapper = styled.div`
+    width: 100%;
+    max-width: 65rem;
+`
+
 const WhoWeLookFor = () => (
     <>
         <StyledContainer jc="center" ai="center">
@@ -65,12 +95,14 @@ const WhoWeLookFor = () => (
             <DiffHeader as="h3" align="center">
                 {localize('What’s different about working at Deriv?')}
             </DiffHeader>
-            <Flex direction="row" mb="14.4rem">
-                <Image
-                    img_name="team-focus.png"
-                    alt={localize('What’s different about working at Deriv?')}
-                    width="65rem"
-                />
+            <DescContainer direction="row" mb="14.4rem">
+                <ImageWrapper>
+                    <Image
+                        img_name="team-focus.png"
+                        alt={localize('What’s different about working at Deriv?')}
+                        width="100%"
+                    />
+                </ImageWrapper>
                 <ImageDescription>
                     <DescText>
                         <Localize
@@ -91,13 +123,15 @@ const WhoWeLookFor = () => (
                         />
                     </DescText>
                 </ImageDescription>
-            </Flex>
-            <Flex direction="row-reverse">
-                <Image
-                    img_name="people-eating.png"
-                    alt={localize('What’s different about working at Deriv?')}
-                    width="65rem"
-                />
+            </DescContainer>
+            <DescContainer direction="row-reverse">
+                <ImageWrapper>
+                    <Image
+                        img_name="people-eating.png"
+                        alt={localize('What’s different about working at Deriv?')}
+                        width="100%"
+                    />
+                </ImageWrapper>
                 <ImageDescription left>
                     <DescText>
                         <Localize
@@ -118,7 +152,7 @@ const WhoWeLookFor = () => (
                         />
                     </DescText>
                 </ImageDescription>
-            </Flex>
+            </DescContainer>
         </Container>
     </>
 )

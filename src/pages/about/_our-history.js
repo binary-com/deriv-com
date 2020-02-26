@@ -128,7 +128,7 @@ const StyledLine = styled(StorySVG)`
     }
 `
 
-export const OurStory = () => {
+export const OurHistory = () => {
     return (
         <StorySection>
             <Header font_size="3.6rem" align="center" margin="0 0 9.2rem 0">

@@ -80,10 +80,6 @@ const ImageWrapper = styled.div`
     max-width: 65rem;
 `
 
-const SecondContainer = styled(Container)`
-    margin-bottom: 12rem;
-`
-
 const WhoWeLookFor = () => (
     <>
         <StyledContainer jc="center" ai="center">
@@ -95,7 +91,7 @@ const WhoWeLookFor = () => (
                 )}
             </ParimaryText>
         </StyledContainer>
-        <SecondContainer direction="column">
+        <Container direction="column">
             <DiffHeader as="h3" align="center">
                 {localize('What’s different about working at Deriv?')}
             </DiffHeader>
@@ -157,7 +153,7 @@ const WhoWeLookFor = () => (
                     </DescText>
                 </ImageDescription>
             </DescContainer>
-        </SecondContainer>
+        </Container>
     </>
 )
 

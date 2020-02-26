@@ -10,6 +10,8 @@ import { Container, SectionContainer } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
 const StyledSection = styled(SectionContainer)`
+    padding: 12rem 0;
+
     @media ${device.tabletL} {
         height: unset;
         padding: 5rem 0;

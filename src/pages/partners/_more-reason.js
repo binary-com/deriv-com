@@ -10,8 +10,12 @@ import HighValue from 'images/svg/high-value-partnership.svg'
 
 const Reason = styled.div`
     width: 38.4rem;
-    margin-top: 2rem;
+    margin-top: 4rem;
 
+    &:nth-child(2) {
+        margin-right: 2.4rem;
+        margin-left: 2.4rem;
+    }
     h4 {
         margin-top: 1.6rem;
     }
@@ -27,7 +31,7 @@ const StyledSection = styled(SectionContainer)`
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 `
 const StyledHeader = styled(Header)`
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 `
 const MoreReason = () => {
     return (
@@ -36,7 +40,7 @@ const MoreReason = () => {
                 <StyledHeader font_size="3.6rem" align="center">
                     {localize('More reasons to join')}
                 </StyledHeader>
-                <StyledFlex wrap="wrap" jc="space-between">
+                <StyledFlex wrap="wrap" jc="center">
                     <Reason>
                         <HighValue />
                         <Header as="h4" lh="1.5">

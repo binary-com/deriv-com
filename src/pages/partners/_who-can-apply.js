@@ -23,6 +23,10 @@ const StyledSection = styled(Container)`
         justify-content: center;
     }
 `
+
+const SectionWrapper = styled(SectionContainer)`
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+`
 const CenteredSection = styled(SectionContainer)`
     text-align: center;
 `
@@ -82,7 +86,7 @@ const LineVertical = styled(LineVerticalSVG)`
 `
 const WhoCanApply = () => {
     return (
-        <SectionContainer padding="8rem 0 4rem">
+        <SectionWrapper padding="8rem 0 4rem">
             <StyledSection>
                 <Col>
                     <StyledHeader font_size="3.6rem">{localize('Who can apply')}</StyledHeader>
@@ -180,7 +184,7 @@ const WhoCanApply = () => {
                     {localize('Sign up')}
                 </Button>
             </CenteredSection>
-        </SectionContainer>
+        </SectionWrapper>
     )
 }
 

@@ -106,6 +106,24 @@ const DepositDMT5 = () => (
         </StyledText>
     </ArticleWrapper>
 )
+const WithdrawDMT5 = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('How can I withdraw funds from my DMT5 real money account?')}
+        </Header>
+        <Text margin="0 0 1.5rem 0">
+            <Localize
+                translate_text="To withdraw funds from your MT5 account on Deriv, you’ll need to transfer the funds to your Deriv account. Go to <0>Cashier > Transfer</0> between accounts and follow the instructions on the screen."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            {localize(
+                'Transfers are instant. Once you’ve completed all the steps, your DMT5 account balance will be updated immediately.',
+            )}
+        </Text>
+    </ArticleWrapper>
+)
 const LoginCredentials = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
@@ -157,6 +175,10 @@ const DMT5Article = () => {
             <DepositDMT5
                 text={localize('How can I deposit funds into my DMT5 real money account?')}
                 label="deposit-to-dmt5"
+            />
+            <WithdrawDMT5
+                text={localize('How can I withdraw funds from my DMT5 real money account?')}
+                label="withdraw-funds-from-DMT5"
             />
             <LoginCredentials
                 text={localize(

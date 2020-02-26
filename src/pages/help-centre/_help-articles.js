@@ -216,6 +216,14 @@ export const articles = [
             },
             {
                 title: (
+                    <Localize translate_text="How can I withdraw funds from my DMT5 real money account?" />
+                ),
+                category: 'DMT5',
+                sub_category: <Localize translate_text="Withdraw" />,
+                label: 'withdraw-funds-from-DMT5',
+            },
+            {
+                title: (
                     <Localize translate_text="Why are my DMT5 login details different from my Deriv login details?" />
                 ),
                 category: 'DMT5',

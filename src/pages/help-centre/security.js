@@ -46,7 +46,7 @@ const DocumentsDeclined = () => (
         </Header>
         <Text>
             {localize(
-                'We may decline your verification documents if they are insufficiently clear, invalid, expired, forged, or have cropped edges. If this happens, we will contact you via email to request a valid document.',
+                'We may decline your verification documents if they are insufficiently clear, invalid, expired, or have cropped edges.',
             )}
         </Text>
     </ArticleWrapper>

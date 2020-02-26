@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, CssGrid, CssGridColumn, SectionContainer, Flex } from 'components/containers'
+import { Container, CssGrid, SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // SVG
@@ -35,6 +35,8 @@ const OurValues = () => (
                 column_gap="12.6rem"
                 justify="center"
                 align="center"
+                tablet_columns="38.4rem"
+                mobile_columns="38.4rem"
             >
                 <GridItem direction="column">
                     <Integrity />

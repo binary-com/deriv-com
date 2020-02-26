@@ -1,3 +1,5 @@
+const language_config = require(`./i18n-config.js`)
+
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     siteMetadata: {
@@ -32,6 +34,28 @@ module.exports = {
                     '/reset-password',
                     '/**/reset-password',
                 ],
+                serialize: ({ site, allSitePage }) =>
+                    allSitePage.edges.map(edge => {
+                        const path = edge.node.path
+                        let priority = 0.7
+                        if (path === '/') {
+                            priority = 1
+                        } else if (path.match(/dbot|dtrader|dmt5|about/)) {
+                            priority = 1
+                        } else {
+                            Object.keys(language_config).forEach(lang => {
+                                if (path === `/${lang}/`) {
+                                    priority = 1
+                                }
+                            })
+                        }
+                        console.log('priority: ', priority, '   path: ', path)
+                        return {
+                            url: site.siteMetadata.siteUrl + edge.node.path,
+                            changefreq: `monthly`,
+                            priority,
+                        }
+                    }),
             },
         },
         'gatsby-plugin-remove-serviceworker',

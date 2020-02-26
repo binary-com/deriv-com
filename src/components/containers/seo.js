@@ -109,10 +109,14 @@ const SEO = ({ description, meta, title, no_index }) => {
                     name: 'referrer',
                     content: 'origin',
                 },
-                no_index && {
-                    name: 'robots',
-                    content: 'noindex',
-                },
+                ...(no_index
+                    ? [
+                          {
+                              name: 'robots',
+                              content: 'noindex',
+                          },
+                      ]
+                    : []),
             ].concat(meta)}
         ></Helmet>
     )

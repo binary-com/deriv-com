@@ -49,8 +49,8 @@ const SearchText = styled(Text)`
 `
 const ListWrapper = styled.div`
     margin-right: 2.4rem;
-    max-width: 38.4rem;
-    width: 38.4rem;
+    max-width: 100rem;
+    width: 100rem;
 
     ${Header} {
         margin-bottom: 1.6rem;

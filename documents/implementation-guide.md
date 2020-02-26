@@ -75,21 +75,6 @@ import Logo from 'images/svg/logo-header.svg'
 ;<Logo />
 ```
 
-#### (lottie) file type (.json)
-
-lottie animation image will be located anywhere within `src/images/lottie` directory.
-The component to handle the animation will be located on `src/components/elements/lottie` which handled by `react-lottie`, you can take a look at [React Lottie](https://github.com/chenqingspring/react-lottie)
-
-\*Note: Lottie svg will follow 100% widht and height of the wrapper
-
-Usage example:
-
-```js
-import Human from 'images/lottie/your_animation_name.json'
-import { Lottie } from 'components/elements'
-;<Lottie animationData={Human} />
-```
-
 ### Translate Text
 
 translation functions and component located within `src/components/localization` directory.

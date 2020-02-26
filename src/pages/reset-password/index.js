@@ -13,6 +13,8 @@ import Login from 'common/login'
 const StyledContainer = styled(Container)`
     text-align: center;
     margin-top: 8rem;
+    height: 72rem;
+    padding-bottom: 33rem;
 `
 
 const ButtonContainer = styled.div`

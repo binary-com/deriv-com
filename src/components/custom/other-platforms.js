@@ -38,8 +38,8 @@ const StyledHeader = styled(Header)`
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 
-    @media ${device.tabletS} {
-        margin: 1rem 1rem;
+    @media ${device.tabletL} {
+        margin: 1rem 0;
     }
 `
 
@@ -47,7 +47,16 @@ const StyledSubHeader = styled(Header)`
     margin: 0.8rem auto;
     max-width: ${props => props.maxWidth || ''};
 `
+const StyledFlexGridContainer = styled(FlexGridContainer)`
+    @media ${device.tabletL} {
+        width: 100%;
 
+        a {
+            width: 100%;
+            max-width: 50rem;
+        }
+    }
+`
 export const TraderCard = ({ is_selected }) => (
     <StyledLink to="/dtrader">
         <Card
@@ -115,11 +124,11 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
                 )}
             </HeaderWrapper>
         )}
-        <FlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
+        <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
             {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
             {exclude.toLowerCase() !== 'dbot' && <BotCard />}
             {exclude.toLowerCase() !== 'dmt5' && <DMT5Card />}
-        </FlexGridContainer>
+        </StyledFlexGridContainer>
     </SectionContainer>
 )
 

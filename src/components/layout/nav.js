@@ -368,7 +368,9 @@ export const NavPartners = () => {
 }
 
 const CareerRight = styled.div`
-    margin-left: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
 `
 
 export const NavCareers = () => {

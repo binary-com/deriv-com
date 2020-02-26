@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from './_hero'
 import WhoWeLookFor from './_who-we-look-for'
+import OurValues from './_our-values'
 import EmployeeTestimonialCarousel from './_employee-testimonial-carousel'
 import LifeAtDerivCarousel from './_life-at-deriv-carousel'
 import { SEO } from 'components/containers'
@@ -13,6 +14,7 @@ const Careers = () => (
         <Hero />
         <LifeAtDerivCarousel />
         <WhoWeLookFor />
+        <OurValues />
         <h1>Careers</h1>
         <h1>Careers</h1>
         <h1>Careers</h1>

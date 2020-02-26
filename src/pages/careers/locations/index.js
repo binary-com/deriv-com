@@ -4,7 +4,7 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 
 const Locations = () => (
-    <Layout type="careers">
+    <Layout type="careers" padding_top="10rem">
         <SEO title={localize('Locations')} />
         <h1>Locations</h1>
     </Layout>

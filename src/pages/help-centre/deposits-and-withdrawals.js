@@ -6,14 +6,14 @@ import { Text, Header } from 'components/elements/typography'
 import { Localize, localize, WithIntl } from 'components/localization'
 
 const ArticleWrapper = styled.div`
-    max-width: 79.2rem;
+    max-width: 71.2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
     font-size: var(--text-size-s);
     line-height: 1.5;
-    padding-left: 2.4rem;
+    margin-left: 12.6rem;
 `
 const ExternalLink = styled.a`
     text-decoration: none;

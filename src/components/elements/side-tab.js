@@ -51,7 +51,7 @@ const StyledTab = styled.li`
         opacity: 0.32;
         font-size: ${props => props.font_size || 'var(--text-size-m)'};
         padding-left: 1.6rem;
-        max-width: 33rem;
+        max-width: 38.4rem;
     }
     &.tab-active > p {
         opacity: 1;

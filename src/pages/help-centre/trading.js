@@ -4,15 +4,15 @@ import { Article } from './_article'
 import { Text, Header } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
 
-const TradingWrapper = styled.div`
-    max-width: 79.2rem;
+const ArticleWrapper = styled.div`
+    max-width: 71.2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
     font-size: var(--text-size-s);
     line-height: 1.5;
-    padding-left: 2.4rem;
+    margin-left: 12.6rem;
 `
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -25,7 +25,7 @@ const ExternalLink = styled.a`
     }
 `
 const Forex = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('What is forex?')}
         </Header>
@@ -34,10 +34,10 @@ const Forex = () => (
                 'Forex is the global decentralised market for the buying and selling of currencies.',
             )}
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 const Commodities = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('What are commodities?')}
         </Header>
@@ -46,10 +46,10 @@ const Commodities = () => (
                 'A commodity is either grown or produced naturally in the environment. Examples include crude oil, metals, gold, and silver.',
             )}
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 const StockIndices = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('What are stock indices?')}
         </Header>
@@ -58,10 +58,10 @@ const StockIndices = () => (
                 'Stock indices measure the value of a selection of companies in the stock market. This allows investors to see how a particular set of assets is performing.',
             )}
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 const SyntheticIndices = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('What are synthetic indices?')}
         </Header>
@@ -70,10 +70,10 @@ const SyntheticIndices = () => (
                 'Exclusive to Deriv, Synthetic Indices are our very own set of synthetic markets engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
             )}
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 const CFD = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('What are Contracts for Difference (CFDs)?')}
         </Header>
@@ -82,10 +82,10 @@ const CFD = () => (
                 'A contract for differences (CFD) is a contract that pays the difference between the value of an asset at the time of opening a trade and its value at closing the trade.',
             )}
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 const BinaryOptions = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('What are binary options?')}
         </Header>
@@ -94,10 +94,10 @@ const BinaryOptions = () => (
                 'A binary option is a financial instrument with a fixed payout where you predict the outcome from only two possible results. ',
             )}
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 const TradingPlatforms = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('How many trading platforms do you offer?')}
         </Header>
@@ -106,10 +106,10 @@ const TradingPlatforms = () => (
                 'We offer three trading platforms: DTrader, DBot, and DMT5. Each platform caters to a variety of trading styles and experiences, whether you’re a new or seasoned trader.',
             )}
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 const AutomateTradingStrategy = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('How can I automate my trading strategy?')}
         </Header>
@@ -118,10 +118,10 @@ const AutomateTradingStrategy = () => (
                 'You can create and run your own automated trading strategies with DBot. You can also download ready-made trading robots (also known as Expert Advisors) for DMT5 by going to the ‘Market’ tab in the DMT5 platform.',
             )}
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 const TradingLimits = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('What are my trading limits?')}
         </Header>
@@ -139,10 +139,10 @@ const TradingLimits = () => (
                 ]}
             />
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 const WeekendContracts = () => (
-    <TradingWrapper>
+    <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('What contracts are available for trading on weekends?')}
         </Header>
@@ -151,7 +151,7 @@ const WeekendContracts = () => (
                 'You can trade Volatility Indices 24/7 in all countries except Australia, France, Germany, Greece, Italy, Luxembourg, Singapore, and Spain due to regulatory requirements.',
             )}
         </Text>
-    </TradingWrapper>
+    </ArticleWrapper>
 )
 
 const TradingArticle = () => {

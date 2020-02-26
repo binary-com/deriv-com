@@ -5,14 +5,14 @@ import { Text, Header, Image } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 
 const ArticleWrapper = styled.div`
-    max-width: 72rem;
+    max-width: 71.2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
     font-size: var(--text-size-s);
     line-height: 1.5;
-    padding-left: 2.4rem;
+    margin-left: 12.6rem;
 `
 const StyledText = styled(Text)`
     margin-top: 1.7rem;

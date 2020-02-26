@@ -11,7 +11,7 @@ import { convertToHash } from './_utility'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
@@ -380,13 +380,29 @@ class HelpCentre extends Component {
                                                                                     )
                                                                                 }
                                                                             >
-                                                                                {should_show_expand
-                                                                                    ? localize(
-                                                                                          'View all questions',
-                                                                                      )
-                                                                                    : localize(
-                                                                                          'View less questions',
-                                                                                      )}
+                                                                                {should_show_expand ? (
+                                                                                    <Localize
+                                                                                        translate_text="<0>View all questions</0>"
+                                                                                        components={[
+                                                                                            <strong
+                                                                                                key={
+                                                                                                    0
+                                                                                                }
+                                                                                            />,
+                                                                                        ]}
+                                                                                    />
+                                                                                ) : (
+                                                                                    <Localize
+                                                                                        translate_text="<0>View less questions</0>"
+                                                                                        components={[
+                                                                                            <strong
+                                                                                                key={
+                                                                                                    0
+                                                                                                }
+                                                                                            />,
+                                                                                        ]}
+                                                                                    />
+                                                                                )}
                                                                             </StyledView>
                                                                         </li>
                                                                     )}

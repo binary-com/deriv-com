@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import device from 'themes/device'
 
 const Flex = styled.div`
     display: flex;
@@ -11,6 +12,10 @@ const Flex = styled.div`
     margin-top: ${props => (props.mt ? props.mt : '')};
     padding: ${props => (props.p ? props.p : '')};
     flex-direction: ${props => (props.direction ? props.direction : '')};
+
+    @media ${device.tablet} {
+        flex-direction: ${props => (props.tablet_direction ? props.tablet_direction : '')};
+    }
 `
 
 export default Flex

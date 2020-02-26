@@ -12,8 +12,8 @@ const Careers = () => (
     <Layout type="careers" padding_top="10rem">
         <SEO title={localize('Careers')} />
         <Hero />
-        <LifeAtDerivCarousel />
         <WhoWeLookFor />
+        <LifeAtDerivCarousel />
         <OurValues />
         <h1>Careers</h1>
         <h1>Careers</h1>

@@ -3,7 +3,9 @@ import { Flex } from 'components/containers'
 import device from 'themes/device'
 
 export const Card = styled.section`
+    margin-top: 1.6rem;
     width: 38.4rem;
+    min-width: 38.4rem;
     height: ${props => (props.height ? props.height : '42rem')};
     background-color: var(--color-white);
     border-radius: 0.4rem;
@@ -15,7 +17,8 @@ export const Card = styled.section`
     justify-content: space-between;
 `
 export const CardWrapper = styled(Flex)`
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
 
     @media ${device.tabletL} {
         flex-direction: column;

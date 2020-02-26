@@ -9,7 +9,7 @@ import Faq from './_faq'
 import CTA from './_partner-cta'
 import { Header } from 'components/elements/typography'
 import Layout from 'components/layout/layout'
-import { SectionContainer, Container } from 'components/containers'
+import { SectionContainer, Container, SEO } from 'components/containers'
 import DNumber from 'components/custom/_dnumbers.js'
 import { localize, WithIntl } from 'components/localization'
 
@@ -49,6 +49,10 @@ const why_partner_with_us_items = [
 const Partners = () => {
     return (
         <Layout type="partners" padding_top="10rem">
+            <SEO
+                title={localize('Partners')}
+                description={localize('Partner with a trusted online trading provider')}
+            />
             <Hero />
             <SectionContainer padding="8rem 0 4rem">
                 <Container direction="column">

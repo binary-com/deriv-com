@@ -17,6 +17,7 @@ import Earn from 'images/svg/earn.svg'
 const StyledSection = styled(Container)`
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 
     @media ${device.tablet} {
         flex-wrap: wrap;

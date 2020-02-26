@@ -45,7 +45,7 @@ const CPAContent = styled.div`
 
 const StyledCard = styled(Card)`
     :nth-child(2) {
-        margin: 0 2.4rem;
+        margin: 1.6rem 2.4rem 0;
 
         @media ${device.tabletL} {
             margin: 2.4rem 0;

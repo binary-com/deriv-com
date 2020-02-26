@@ -20,6 +20,7 @@ const StyledHeader = styled(Header)`
 const Subheadline = styled(Text)`
     font-size: var(--text-size-m);
     color: var(--color-white);
+    max-width: 99.6rem;
 `
 
 const JoinHeader = styled(Header)`

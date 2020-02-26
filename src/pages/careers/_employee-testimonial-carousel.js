@@ -8,6 +8,7 @@ import { localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
+import QuoteMark from 'images/svg/quotemark.svg'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -35,7 +36,7 @@ const ChevronRight = styled(StyledChevron)`
 `
 const ChevronLeft = StyledChevron
 
-const ClientCard = styled.article`
+const EmployeeCard = styled.article`
     width: 99.6rem;
     min-height: 31.7rem;
     position: relative;
@@ -56,16 +57,6 @@ const QuoteText = styled(Text)`
     position: relative;
     padding-top: 8.5rem;
     max-width: 41rem;
-
-    &::after {
-        content: '”';
-        position: absolute;
-        font-size: 24rem;
-        z-index: -1;
-        right: 0;
-        top: -6.6rem;
-        color: var(--color-grey-8);
-    }
 
     @media ${device.tabletL} {
         padding-bottom: 1rem;
@@ -158,22 +149,32 @@ const ButtonWrapper = styled.div`
         bottom: -20rem;
     }
 `
+const QuoteWrapper = styled(Flex)`
+    position: relative;
+
+    svg {
+        position: absolute;
+        right: 15px;
+        top: 16px;
+    }
+`
 const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
     return (
         <Flex ai="center" height="unset">
-            <ClientCard>
+            <EmployeeCard>
                 <Flex tablet_direction="column">
                     <Flex>
                         <ImageWrapper>
                             <Image img_name={img_path} alt={img_alt} />
                         </ImageWrapper>
                     </Flex>
-                    <Flex direction="column">
+                    <QuoteWrapper direction="column">
+                        <QuoteMark />
                         <QuoteText as="blockquote">{quote}</QuoteText>
                         <Text weight="bold">{name}</Text>
-                    </Flex>
+                    </QuoteWrapper>
                 </Flex>
-            </ClientCard>
+            </EmployeeCard>
         </Flex>
     )
 }
@@ -211,7 +212,7 @@ const mahdi = {
     index: 3,
 }
 
-const our_client_slides = [kelcent, negar, mahdi]
+const employee_testimonials = [kelcent, negar, mahdi]
 
 const EmployeeTestimonialCarousel = () => {
     const [swiper, updateSwiper] = useState(null)
@@ -232,10 +233,10 @@ const EmployeeTestimonialCarousel = () => {
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
-        // autoplay: {
-        //     delay: 3000,
-        //     disableOnInteraction: false,
-        // },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -264,7 +265,7 @@ const EmployeeTestimonialCarousel = () => {
                 <SliderWrapper>
                     <SwiperWrapper>
                         <Swiper {...params} getSwiper={updateSwiper}>
-                            {our_client_slides.map(trader => (
+                            {employee_testimonials.map(trader => (
                                 <div className="swiper-slide" key={trader.name}>
                                     <EmployeeSlide
                                         quote={trader.quote}

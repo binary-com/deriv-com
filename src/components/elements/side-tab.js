@@ -41,8 +41,9 @@ const TabContent = styled.div`
 
 const StyledTab = styled.li`
     cursor: pointer;
-    padding: ${props => props.padding || '0 0 2.4rem 0'};
+    padding: ${props => props.padding || 'unset'};
     width: ${props => props.item_width || '38rem'};
+    margin: auto;
 
     & > p {
         /* prettier-ignore */
@@ -54,7 +55,7 @@ const StyledTab = styled.li`
     }
     &.tab-active > p {
         opacity: 1;
-        
+
         /* prettier-ignore */
         color: var(--color-${props => props.active_font_color || 'black'});
     }
@@ -88,6 +89,7 @@ const LeftBorder = styled.div`
 const ItemWrapper = styled.div`
     display: flex;
     flex-direction: row;
+    margin-bottom: 1.4rem
 `
 const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
     const className = active_tab === label ? 'tab-active' : ''

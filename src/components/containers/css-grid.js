@@ -7,6 +7,7 @@ const CssGrid = styled.div`
     height: ${props => props.height || '100%'};
     margin: ${props => props.margin || '0'};
     grid-template-columns: ${props => props.columns || 'auto'};
+    grid-template-rows: ${props => props.rows || 'auto'};
     grid-column-gap: ${props => props.column_gap || ''};
     grid-row-gap: ${props => props.row_gap || ''};
     align-items: ${props => props.align || 'start'};

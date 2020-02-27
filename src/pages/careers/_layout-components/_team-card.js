@@ -7,6 +7,9 @@ import { LocalizedLink } from 'components/localization'
 import Chevron from 'images/svg/chevron-bottom.svg'
 
 const StyledCard = styled.article`
+    position: relative;
+    height: 100%;
+    width: 100%;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 4px;
 `
@@ -17,7 +20,6 @@ const ImageWrapper = styled.div`
 `
 
 const StyledContent = styled.div`
-    position: relative;
     padding: 3.2rem;
     width: 100%;
 `
@@ -28,9 +30,9 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledLink = styled(LocalizedLink)`
-    position: relative;
-    bottom: 0;
-    right: 0;
+    position: absolute;
+    bottom: 3.2rem;
+    right: 3.2rem;
 `
 
 const StyledChevron = styled(Chevron)`

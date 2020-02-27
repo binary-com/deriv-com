@@ -4,7 +4,19 @@ import styled from 'styled-components'
 import { Text } from 'components/elements'
 import { Container, Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
+import Chevron from 'images/svg/carousel-chevron.svg'
 
+const ChevronRight = styled(Chevron)`
+    width: 16px;
+    height: 16px;
+    transform: rotate(180deg);
+
+    g {
+        g {
+            fill: var(--color-black);
+        }
+    }
+`
 const List = styled.ul`
     width: 99.6rem;
     padding-bottom: 2rem;
@@ -29,6 +41,7 @@ const Circle = styled.span`
     font-weight: bold;
     width: 32px;
     height: 32px;
+    margin-right: 16px;
     border-radius: 50%;
     background-color: var(--color-green);
     color: var(--color-white);
@@ -36,19 +49,28 @@ const Circle = styled.span`
     justify-content: center;
     align-items: center;
 `
-
-// list_items = [{ text: 'Marketing', number: 5, to: '/marketing/' }]
+const StyledText = styled(Text)`
+    min-width: 50%;
+`
+const MiddleText = styled(Text)`
+    margin-right: auto;
+`
+// list_items = [{ text: 'Marketing',  to: '/marketing/', number: 5 (optional), middle_text: 'Dubai, United Arab Emirates' (optional) }]
 export const LinkList = ({ list_items }) => (
     <Container>
         <List>
             {list_items.map((item, idx) => (
                 <ListItem key={idx}>
                     <LocalizedLink to={item.to}>
-                        <Flex ai="center" jc="space-between">
-                            <Text secondary="true" weight="bold">
+                        <Flex ai="center" jc="unset">
+                            <StyledText secondary="true" weight="bold">
                                 {item.text}
-                            </Text>{' '}
-                            {item.number && <Circle>{item.number}</Circle>}
+                            </StyledText>
+                            <MiddleText>{item.middle_text}</MiddleText>
+                            <Flex ai="center" width="unset">
+                                {item.number && <Circle>{item.number}</Circle>}
+                                <ChevronRight />
+                            </Flex>
                         </Flex>
                     </LocalizedLink>
                 </ListItem>

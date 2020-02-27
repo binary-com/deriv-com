@@ -62,3 +62,6 @@ export const all_positions = [
 export const getTop4Teams = () => {
     all_teams
 }
+
+export const getTeamByName = team_name =>
+    all_teams.find(team => team.name.toLowerCase() === team_name.toLowerCase())

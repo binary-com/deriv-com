@@ -43,6 +43,16 @@ const SharedButtonStyle = css`
                     background-color: rgba(0, 0, 0, 0.08);
                 }
             `
+        if (props.flat)
+            return css`
+                background: transparent;
+                color: var(--color-red);
+                border: none;
+
+                &:hover {
+                    background: rgba(255, 68, 79, 0.08);
+                }
+            `
         if (props.social)
             return css`
                 background: ${props => {

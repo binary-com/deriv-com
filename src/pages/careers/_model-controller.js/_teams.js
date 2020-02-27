@@ -1,6 +1,10 @@
 import { accounts_and_payments_positions } from '../_open-positions/_accounts-and-payments'
 import { back_end_positions } from '../_open-positions/_back-end'
 import { business_intelligence_positions } from '../_open-positions/_business-intelligence'
+import { devops_positions } from '../_open-positions/_devops'
+import { compliance_positions } from '../_open-positions/_compliance'
+import { marketing_positions } from '../_open-positions/_marketing'
+import { quality_assurance_positions } from '../_open-positions/_quality-assurance'
 import { localize } from 'components/localization'
 
 class Team {
@@ -50,6 +54,42 @@ export const all_teams = [
             'We provide data and valuable insights that help shape smart business decisions.',
         ),
         positions: business_intelligence_positions,
+    }),
+    new Team({
+        name: 'devops',
+        display_name: localize('Devops'),
+        thumbnail: 'business-intelligence-thumbnail.png',
+        card_description: localize(
+            'We provide data and valuable insights that help shape smart business decisions.',
+        ),
+        positions: devops_positions,
+    }),
+    new Team({
+        name: 'compliance',
+        display_name: localize('Compliance'),
+        thumbnail: 'business-intelligence-thumbnail.png',
+        card_description: localize(
+            'We provide data and valuable insights that help shape smart business decisions.',
+        ),
+        positions: compliance_positions,
+    }),
+    new Team({
+        name: 'marketing',
+        display_name: localize('Marketing'),
+        thumbnail: 'business-intelligence-thumbnail.png',
+        card_description: localize(
+            'We provide data and valuable insights that help shape smart business decisions.',
+        ),
+        positions: marketing_positions,
+    }),
+    new Team({
+        name: 'quality-assurance',
+        display_name: localize('Quality Assurance'),
+        thumbnail: 'business-intelligence-thumbnail.png',
+        card_description: localize(
+            'We provide data and valuable insights that help shape smart business decisions.',
+        ),
+        positions: quality_assurance_positions,
     }),
 ]
 

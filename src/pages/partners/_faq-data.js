@@ -40,6 +40,16 @@ const StyledUl = styled.ul`
     padding-left: 1.8rem;
 `
 
+const LocalizedLinkText = styled(LocalizedLink)`
+    color: var(--color-red);
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+`
+
 const AffiliateGeneral = (
     <ItemContainer>
         <Header as="h4">{localize('What is the Deriv Affiliate Programme?')}</Header>
@@ -113,7 +123,7 @@ const AffiliateGeneral = (
             <Localize
                 translate_text="Anyone aged 18 years and above who isn’t a resident of a restricted country can become a Deriv client.  You can find the list of restricted countries in our <0>terms and conditions</0>."
                 components={[
-                    <LocalizedLink
+                    <LocalizedLinkText
                         to="/terms-and-conditions/"
                         key={0}
                         style={{ color: 'red', fontWeight: 'bold', textDecoration: 'none' }}
@@ -144,7 +154,7 @@ const AffiliateAccountManagement = (
             <Localize
                 translate_text="Don’t worry, you can easily <0>reset your password</0>."
                 components={[
-                    <LocalizedLink
+                    <LocalizedLinkText
                         to="/reset-password/"
                         key={0}
                         style={{ color: 'red', fontWeight: 'bold', textDecoration: 'none' }}

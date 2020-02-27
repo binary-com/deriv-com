@@ -38,7 +38,7 @@ const StyledChevron = styled(Chevron)`
     transform: rotate(-90deg);
 `
 
-export const TeamCard = ({ img_name, team_name, display_team_name, tagline }) => (
+const TeamCard = ({ img_name, team_name, display_team_name, tagline }) => (
     <StyledCard>
         <ImageWrapper>
             <Image img_name={img_name} width="100%" alt={img_name} />
@@ -59,3 +59,5 @@ TeamCard.propTypes = {
     tagline: PropTypes.string,
     team_name: PropTypes.string,
 }
+
+export default TeamCard

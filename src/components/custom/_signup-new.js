@@ -31,7 +31,6 @@ const Line = styled.div`
     width: 130px;
     height: 1px;
     background-color: var(--color-grey-7);
-    margin-top: 2.4rem;
 `
 const StyledText = styled(Text)`
     font-size: ${props => props.fontSize || 'var(--text-size-xs)'};
@@ -67,7 +66,8 @@ const SignupWithContainer = styled.div`
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    margin-top: 2rem;
 `
 
 const SocialButton = styled(Button)`

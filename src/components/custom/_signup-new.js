@@ -228,7 +228,7 @@ const SignupNew = ({
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-5" align="center" fontSize="var(--text-size-xxs)">
+                <StyledText color="grey-5" align="center" fontSize="var(--text-size-xs)">
                     {localize('Or sign up with ')}
                 </StyledText>
                 <Line />

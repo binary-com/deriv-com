@@ -5,6 +5,7 @@ import { getLanguage } from '../../common/utility'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text, Checkbox } from 'components/elements'
+import Login from 'common/login'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
@@ -46,6 +47,10 @@ const NoteBox = styled.div`
     border-radius: 0.6rem;
     background-color: var(--color-grey-8);
     border: solid 1px var(--color-grey-17);
+
+    @media ${device.tabletS} {
+        padding: 1rem 1rem;
+    }
 `
 const InputGroup = styled.div`
     position: relative;
@@ -110,7 +115,7 @@ const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
 `
 const LoginLink = styled.a`
-    font-size: var(--text-size-s);
+    font-size: ${props => (props.fs ? props.fs : 'var(--text-size-s)')};
     font-weight: bold;
     color: var(--color-red);
     text-decoration: none;
@@ -166,9 +171,16 @@ const SignupNew = ({
                     lh="1.14"
                     align="center"
                 >
-                    {localize(
-                        'Got a Binary.com account? Simply Log in to Deriv.com with your Binary.com credentials',
-                    )}
+                    <Localize
+                        translate_text="Got a Binary.com account? Simply <0>log in</0> to Deriv.com with your Binary.com credentials"
+                        components={[
+                            <LoginLink
+                                fs="var(--text-size-xs)"
+                                onClick={() => Login.redirectToLogin()}
+                                key={0}
+                            ></LoginLink>,
+                        ]}
+                    />
                 </StyledText>
             </NoteBox>
             <InputGroup>
@@ -194,7 +206,7 @@ const SignupNew = ({
                 <CheckboxSpan>
                     <Localize
                         fontSize="var(--text-size-xs)"
-                        translate_text="I agree to the <0>Terms and Conditions</0>"
+                        translate_text="I agree to the <0>terms and conditions</0>"
                         components={[
                             <ExternalLink
                                 href={url}

@@ -107,6 +107,8 @@ function useTabState(tab) {
 }
 const About = () => {
     const [active_tab, setTab] = useTabState('story')
+    const is_story = active_tab === 'story'
+    const is_leadership = active_tab === 'leadership'
     useEffect(() => {
         const new_tab = getLocationHash() || 'story'
         setTab(new_tab)
@@ -135,11 +137,11 @@ const About = () => {
                                 as="h2"
                                 font_size="var(--text-size-m)"
                                 weight="normal"
-                                active={'story'}
+                                active={is_story}
                             >
                                 {localize('Our story')}
                             </StyledHeader>
-                            <TrailNavigation active={'story'} />
+                            <TrailNavigation active={is_story} />
                         </Navigation>
                         <Separator />
                         <Navigation
@@ -152,11 +154,11 @@ const About = () => {
                                 as="h2"
                                 font_size="var(--text-size-m)"
                                 weight="normal"
-                                active={'leadership'}
+                                active={is_leadership}
                             >
                                 {localize('Our leadership')}
                             </StyledHeader>
-                            <TrailNavigation active={'leadership'} />
+                            <TrailNavigation active={is_leadership} />
                         </Navigation>
                     </NavigationWrapper>
 

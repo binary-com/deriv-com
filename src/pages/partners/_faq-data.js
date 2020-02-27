@@ -40,7 +40,7 @@ const StyledUl = styled.ul`
     padding-left: 1.8rem;
 `
 
-const LocalizedLinkText = styled(LocalizedLink)`
+const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-red);
     font-weight: bold;
     text-decoration: none;
@@ -122,13 +122,7 @@ const AffiliateGeneral = (
         <TextPrimary>
             <Localize
                 translate_text="Anyone aged 18 years and above who isn’t a resident of a restricted country can become a Deriv client.  You can find the list of restricted countries in our <0>terms and conditions</0>."
-                components={[
-                    <LocalizedLinkText
-                        to="/terms-and-conditions/"
-                        key={0}
-                        style={{ color: 'red', fontWeight: 'bold', textDecoration: 'none' }}
-                    />,
-                ]}
+                components={[<LocalizedLinkText to="/terms-and-conditions/" key={0} />]}
             />
         </TextPrimary>
     </ItemContainer>
@@ -153,13 +147,7 @@ const AffiliateAccountManagement = (
         <TextPrimary>
             <Localize
                 translate_text="Don’t worry, you can easily <0>reset your password</0>."
-                components={[
-                    <LocalizedLinkText
-                        to="/reset-password/"
-                        key={0}
-                        style={{ color: 'red', fontWeight: 'bold', textDecoration: 'none' }}
-                    />,
-                ]}
+                components={[<LocalizedLinkText to="/reset-password/" key={0} />]}
             />
         </TextPrimary>
         <HeaderPrimary>{localize('How can I change my payment method?')}</HeaderPrimary>

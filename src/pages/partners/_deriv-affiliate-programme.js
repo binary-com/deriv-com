@@ -23,7 +23,7 @@ const TitleWrapper = styled.section`
 
 const StyledText = styled(Text)`
     font-size: ${props => (props.font_size ? props.font_size : '1.4rem')};
-    line-height: 1.14;
+    line-height: 1.15;
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 1.6rem;

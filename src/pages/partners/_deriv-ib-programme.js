@@ -37,7 +37,7 @@ const BackButton = styled(Button)`
 `
 const StyledText = styled(Text)`
     font-size: ${props => (props.font_size ? props.font_size : '1.4rem')};
-    line-height: ${props => (props.lh ? props.lh : '1.14')};
+    line-height: ${props => (props.lh ? props.lh : '1.15')};
     margin-bottom: ${props => props.margin_bottom || ''};
 `
 
@@ -79,6 +79,10 @@ const StyledCard = styled(Card)`
     @media ${device.tabletL} {
         margin: 2.4rem 0;
     }
+`
+
+const TitleTR = styled(TR)`
+    height: 5rem;
 `
 const DerivIBProgramme = () => {
     return (
@@ -168,17 +172,17 @@ const DMT5Synthetic = ({ data }) => {
                                     {asset.map((item, idxa) => {
                                         if (idxa === 0 && idx === 0) {
                                             return (
-                                                <TR isTitle="true">
+                                                <TitleTR isTitle="true">
                                                     <StyledText weight="bold" lh="2.2">
                                                         {item}
                                                     </StyledText>
-                                                </TR>
+                                                </TitleTR>
                                             )
                                         } else if (idxa === 0) {
                                             return (
-                                                <TR isTitle="true">
+                                                <TitleTR isTitle="true">
                                                     <StyledText weight="bold">{item}</StyledText>
-                                                </TR>
+                                                </TitleTR>
                                             )
                                         } else if (idxa >= max_expansion) {
                                             return (
@@ -246,7 +250,7 @@ const DMT5Standard = ({ data }) => {
                                     {asset.map((item, idxa) => {
                                         if (idxa === 0 && idx === 0) {
                                             return (
-                                                <TR isTitle="true">
+                                                <TitleTR isTitle="true">
                                                     <StyledText
                                                         weight="bold"
                                                         lh="2.2"
@@ -254,15 +258,15 @@ const DMT5Standard = ({ data }) => {
                                                     >
                                                         {item.title}
                                                     </StyledText>
-                                                </TR>
+                                                </TitleTR>
                                             )
                                         } else if (idxa === 0 && typeof item !== 'string') {
                                             return (
-                                                <TR isTitle="true">
+                                                <TitleTR isTitle="true">
                                                     <StyledText weight="bold" style={item.style}>
                                                         {item.title}
                                                     </StyledText>
-                                                </TR>
+                                                </TitleTR>
                                             )
                                         } else if (idxa === 0 && typeof item === 'string') {
                                             return (
@@ -327,7 +331,7 @@ const DMT5Advanced = ({ data }) => {
                                     {asset.map((item, idxa) => {
                                         if (idxa === 0 && idx === 0) {
                                             return (
-                                                <TR isTitle="true">
+                                                <TitleTR isTitle="true">
                                                     <StyledText
                                                         weight="bold"
                                                         lh="2.2"
@@ -335,15 +339,15 @@ const DMT5Advanced = ({ data }) => {
                                                     >
                                                         {item.title}
                                                     </StyledText>
-                                                </TR>
+                                                </TitleTR>
                                             )
                                         } else if (idxa === 0 && typeof item !== 'string') {
                                             return (
-                                                <TR isTitle="true">
+                                                <TitleTR isTitle="true">
                                                     <StyledText weight="bold" style={item.style}>
                                                         {item.title}
                                                     </StyledText>
-                                                </TR>
+                                                </TitleTR>
                                             )
                                         } else if (idxa === 0 && typeof item === 'string') {
                                             return (

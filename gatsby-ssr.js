@@ -9,7 +9,7 @@ export function onRenderBody({ setHeadComponents }) {
     const languageLinks = []
 
     Object.keys(language_config).map(lang => {
-        languageLinks.push(<link rel="alternate" href="http://deriv.com/about" hrefLang={lang} />)
+        languageLinks.push(<link rel="alternate" href="https://deriv.com/about" hrefLang={lang} />)
     })
    
     setHeadComponents(languageLinks)

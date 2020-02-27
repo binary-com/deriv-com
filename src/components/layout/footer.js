@@ -271,10 +271,14 @@ const Footer = () => (
                             <Link to="/contact-us">{localize('Contact us')}</Link>
                         </div>
                     </Col>
-                    {/* <Col margin_top width='40%'>
-                        <div><Title>{localize('PARTNER WITH US')}</Title></div>
-                        <div><Link to='/affiliate'>{localize('Affiliate and IB programmes')}</Link></div>
-                    </Col> */}
+                    <Col margin_top width="40%">
+                        <div>
+                            <Title>{localize('PARTNER WITH US')}</Title>
+                        </div>
+                        <div>
+                            <Link to="/partners">{localize('Partner programmes')}</Link>
+                        </div>
+                    </Col>
                     <Col margin_top width="25%">
                         {!isProduction() && <LanguageSwitcher />}
                     </Col>

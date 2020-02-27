@@ -67,10 +67,6 @@ const QuoteText = styled(Text)`
 
 const ImageWrapper = styled.div`
     width: 100%;
-
-    img {
-        opacity: 1 !important;
-    }
 `
 
 const SliderWrapper = styled.div`
@@ -159,6 +155,18 @@ const QuoteWrapper = styled(Flex)`
     }
 `
 const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
+    React.useEffect(() => {
+        // duplicate slides from react-id-swiper are not considered within viewport and therefore opacity remains at 0
+        // add classname to force opacity
+        const duplicate_slides_el = document.getElementsByClassName('swiper-slide-duplicate')
+        if (duplicate_slides_el) {
+            const active_duplicates = Array.from(duplicate_slides_el)
+            active_duplicates.forEach(el => {
+                el.classList.add('force-opacity')
+            })
+        }
+    })
+
     return (
         <Flex ai="center" height="unset">
             <EmployeeCard>
@@ -265,14 +273,13 @@ const EmployeeTestimonialCarousel = () => {
                 <SliderWrapper>
                     <SwiperWrapper>
                         <Swiper {...params} getSwiper={updateSwiper}>
-                            {employee_testimonials.map(trader => (
-                                <div className="swiper-slide" key={trader.name}>
+                            {employee_testimonials.map(employee_slide => (
+                                <div className="swiper-slide" key={employee_slide.name}>
                                     <EmployeeSlide
-                                        quote={trader.quote}
-                                        name={trader.name}
-                                        title={trader.title}
-                                        img_path={trader.img_path}
-                                        img_alt={localize('Trader')}
+                                        quote={employee_slide.quote}
+                                        name={employee_slide.name}
+                                        img_path={employee_slide.img_path}
+                                        img_alt={employee_slide.name}
                                     />
                                 </div>
                             ))}

@@ -42,9 +42,9 @@ const ImageWrapper = styled.div`
     width: 78rem;
     max-width: 78rem;
 
-    img {
+    /* img {
         opacity: 1 !important;
-    }
+    } */
     @media ${device.tablet} {
         width: 35rem;
         max-width: 35rem;
@@ -118,7 +118,18 @@ const ButtonWrapper = styled.div`
     }
 `
 
-const EmployeeSlide = ({ img_path, img_alt }) => {
+const ImageSlide = ({ img_path, img_alt }) => {
+    React.useEffect(() => {
+        // duplicate slides from react-id-swiper are not considered within viewport and therefore opacity remains at 0
+        // add classname to force opacity
+        const duplicate_slides_el = document.getElementsByClassName('swiper-slide-duplicate')
+        if (duplicate_slides_el) {
+            const active_duplicates = Array.from(duplicate_slides_el)
+            active_duplicates.forEach(el => {
+                el.classList.add('force-opacity')
+            })
+        }
+    })
     return (
         <ImageWrapper>
             <Image img_name={img_path} alt={img_alt} />
@@ -126,32 +137,37 @@ const EmployeeSlide = ({ img_path, img_alt }) => {
     )
 }
 
-EmployeeSlide.propTypes = {
+ImageSlide.propTypes = {
     img_alt: PropTypes.string,
     img_path: PropTypes.string,
 }
 
 const fitness = {
     img_path: 'fitness.png',
+    img_alt: localize('fitness'),
     index: 3,
 }
 const games = {
     img_path: 'games.png',
+    img_alt: localize('games'),
     index: 1,
 }
 const green_area = {
     img_path: 'green-area.png',
+    img_alt: localize('green area'),
     index: 4,
 }
 const gym = {
     img_path: 'gym.png',
+    img_alt: localize('gym'),
     index: 5,
 }
 const lunch = {
     img_path: 'lunch.png',
+    img_alt: localize('lunch'),
     index: 2,
 }
-const deriv_lifestyle_images = [fitness, games, green_area, gym, lunch]
+const deriv_lifestyle_images = [games, lunch, fitness, green_area, gym]
 
 const LifeAtDerivCarousel = () => {
     const [swiper, updateSwiper] = useState(null)
@@ -174,10 +190,6 @@ const LifeAtDerivCarousel = () => {
         spaceBetween: 12,
         loop: true,
         lazy: true,
-        // autoplay: {
-        //     delay: 3000,
-        //     disableOnInteraction: false,
-        // },
     }
     return (
         <>
@@ -202,14 +214,11 @@ const LifeAtDerivCarousel = () => {
                 <SliderWrapper>
                     <SwiperWrapper>
                         <Swiper {...params} getSwiper={updateSwiper}>
-                            {deriv_lifestyle_images.map(trader => (
-                                <div className="swiper-slide" key={trader.name}>
-                                    <EmployeeSlide
-                                        quote={trader.quote}
-                                        name={trader.name}
-                                        title={trader.title}
-                                        img_path={trader.img_path}
-                                        img_alt={localize('Trader')}
+                            {deriv_lifestyle_images.map(slide_content => (
+                                <div className="swiper-slide" key={slide_content.img_path}>
+                                    <ImageSlide
+                                        img_path={slide_content.img_path}
+                                        img_alt={slide_content.alt}
                                     />
                                 </div>
                             ))}

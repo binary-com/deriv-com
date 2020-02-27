@@ -5,6 +5,7 @@ import OurValues from './_our-values'
 import EmployeeTestimonialCarousel from './_employee-testimonial-carousel'
 import LifeAtDerivCarousel from './_life-at-deriv-carousel'
 import FindPlace from './_find-place'
+import OurHiringProcess from './_our-hiring-process'
 import { RoleBanner } from './_layout-components/_banner'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -19,6 +20,7 @@ const Careers = () => (
         <OurValues />
         <EmployeeTestimonialCarousel />
         <FindPlace />
+        <OurHiringProcess />
         <RoleBanner />
     </Layout>
 )

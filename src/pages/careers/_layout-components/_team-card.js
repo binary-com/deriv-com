@@ -6,7 +6,7 @@ import { LocalizedLink } from 'components/localization'
 // SVG
 import Chevron from 'images/svg/chevron-bottom.svg'
 
-const StyledCard = styled.article`
+export const StyledCard = styled.article`
     position: relative;
     height: 100%;
     width: 100%;

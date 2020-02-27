@@ -37,7 +37,7 @@ const StyledLink = styled(LinkText)`
 const StyledUl = styled.ul`
     list-style-type: disc;
     font-size: var(--text-size-s);
-    list-style-position: inside;
+    padding-left: 1.8rem;
 `
 
 const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
@@ -70,25 +70,30 @@ const AffiliateGeneral = (
         </TextSecondary>
         <HeaderPrimary>{localize('Who can apply as a Deriv affiliate?')}</HeaderPrimary>
         <StyledUl>
-            <TextList>
-                <li>{localize('Trading experts')}</li>
-            </TextList>
+            <li>
+                <TextList>{localize('Trading experts')}</TextList>
+            </li>
+
             <Text>
                 {localize(
                     'Provides expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
                 )}
             </Text>
-            <TextList>
-                <li>{localize('Software developers')}</li>
-            </TextList>
+
+            <li>
+                <TextList>{localize('Software developers')}</TextList>
+            </li>
+
             <Text>
                 {localize(
                     'Develops web, desktop, and mobile applications. Also has extensive experience working with APIs.',
                 )}
             </Text>
-            <TextList>
-                <li>{localize('Community managers')}</li>
-            </TextList>
+
+            <li>
+                <TextList>{localize('Community managers')}</TextList>
+            </li>
+
             <Text>
                 {localize(
                     'Develops web, desktop, and mobile applications. Also has extensive experience working with APIs.',
@@ -178,30 +183,32 @@ const AffiliateAccountManagement = (
             )}
         </TextPrimary>
         <StyledUl>
-            <TextPrimary>
-                <li>
+            <li>
+                <TextPrimary>
                     <Localize
                         translate_text="<0>Hits & Impression</0> report: Displays your hit and clickthrough rates"
                         components={[<strong key={0} />]}
                     />
-                </li>
-            </TextPrimary>
-            <TextPrimary>
-                <li>
+                </TextPrimary>
+            </li>
+
+            <li>
+                <TextPrimary>
                     <Localize
                         translate_text="<0>Countries</0> report: Displays a list of countries where your clicks are coming from"
                         components={[<strong key={0} />]}
                     />
-                </li>
-            </TextPrimary>
-            <TextPrimary>
-                <li>
+                </TextPrimary>
+            </li>
+
+            <li>
+                <TextPrimary>
                     <Localize
                         translate_text="<0>My Players</0> report: Displays a list of clients with their IDs and signup date"
                         components={[<strong key={0} />]}
                     />
-                </li>
-            </TextPrimary>
+                </TextPrimary>
+            </li>
         </StyledUl>
         <HeaderPrimary>
             {localize(

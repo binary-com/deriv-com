@@ -37,7 +37,7 @@ const Circle = styled.span`
     align-items: center;
 `
 
-// list_items = [{ text, number }]
+// list_items = [{ text: 'Marketing', number: 5, to: '/marketing/' }]
 export const LinkList = ({ list_items }) => (
     <Container>
         <List>

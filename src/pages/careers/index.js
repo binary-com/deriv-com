@@ -39,12 +39,6 @@ const Careers = () => (
 
         <h1>Careers</h1>
         <EmployeeTestimonialCarousel />
-        <LinkList
-            list_items={[
-                { text: 'Marketing', number: 5, to: '/' },
-                { text: 'Customer Support', number: 1, to: '/' },
-            ]}
-        />
     </Layout>
 )
 

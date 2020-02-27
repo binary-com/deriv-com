@@ -67,6 +67,12 @@ const ButtonWrapper = styled.div`
     }
 `
 
+const StyledHeaderCommission = styled(StyledHeader)`
+    @media (max-width: 1428px) {
+        text-align: center;
+    }
+`
+
 const StyledCard = styled(Card)`
     margin: 1.6rem 2.4rem 0;
 
@@ -92,7 +98,9 @@ const DerivIBProgramme = () => {
                     </Header>
                 </TitleWrapper>
                 <SectionContainer padding="8rem 0 9.6rem 0">
-                    <StyledHeader as="h4">{localize('Choose a commission plan:')}</StyledHeader>
+                    <StyledHeaderCommission as="h4">
+                        {localize('Choose a commission plan:')}
+                    </StyledHeaderCommission>
                     <CardWrapper>
                         <DMT5Standard data={ib_dmt5_standard} />
                         <DMT5Advanced data={ib_dmt5_advanced} />
@@ -143,7 +151,10 @@ const DMT5Synthetic = ({ data }) => {
         setExpand(!is_expand)
     }
     return (
-        <Card height={is_expand ? '76rem' : '42rem'} padding="3.2rem 3.2rem 8.2rem">
+        <Card
+            height={is_expand && !is_calculated ? '76rem' : '42rem'}
+            padding="3.2rem 3.2rem 8.2rem"
+        >
             <div>
                 {!is_calculated ? (
                     <>
@@ -236,8 +247,12 @@ const DMT5Standard = ({ data }) => {
                                         if (idxa === 0 && idx === 0) {
                                             return (
                                                 <TR isTitle="true">
-                                                    <StyledText weight="bold" lh="2.2">
-                                                        {item}
+                                                    <StyledText
+                                                        weight="bold"
+                                                        lh="2.2"
+                                                        style={item.style}
+                                                    >
+                                                        {item.title}
                                                     </StyledText>
                                                 </TR>
                                             )
@@ -313,8 +328,12 @@ const DMT5Advanced = ({ data }) => {
                                         if (idxa === 0 && idx === 0) {
                                             return (
                                                 <TR isTitle="true">
-                                                    <StyledText weight="bold" lh="2.2">
-                                                        {item}
+                                                    <StyledText
+                                                        weight="bold"
+                                                        lh="2.2"
+                                                        style={item.style}
+                                                    >
+                                                        {item.title}
                                                     </StyledText>
                                                 </TR>
                                             )
@@ -373,7 +392,11 @@ const ib_dmt5_standard = {
     name: localize('DMT5 Standard'),
     description: localize('Earn when your customers trade on a DMT5 Standard account.'),
     assets: [
-        [localize('Asset'), localize('Forex and metals'), localize('Cryptocurrencies')],
+        [
+            { title: localize('Asset'), style: { minWidth: '13rem' } },
+            localize('Forex and metals'),
+            localize('Cryptocurrencies'),
+        ],
         [
             { title: localize('Commission per round trade'), style: { maxWidth: '16rem' } },
             localize('10 per lot'),
@@ -399,7 +422,7 @@ const ib_dmt5_advanced = {
     name: localize('DMT5 Advanced'),
     description: localize('Earn when your customers trade on a DMT5 Advanced account.'),
     assets: [
-        [localize('Asset'), localize('Forex and metals')],
+        [{ title: localize('Assets'), style: { minWidth: '13rem' } }, localize('Forex and metals')],
         [
             { title: localize('Commission per round trade'), style: { maxWidth: '16rem' } },
             localize('5 per lot'),

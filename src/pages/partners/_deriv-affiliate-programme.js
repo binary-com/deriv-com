@@ -53,6 +53,12 @@ const StyledCard = styled(Card)`
     }
 `
 
+const StyledHeaderCommission = styled(StyledHeader)`
+    @media (max-width: 1428px) {
+        text-align: center;
+    }
+`
+
 const RevenueShare = [
     {
         title: localize('Net revenue'),
@@ -95,7 +101,9 @@ const DerivAffiliateProgramme = () => {
                     </Header>
                 </TitleWrapper>
                 <SectionContainer>
-                    <StyledHeader as="h4">{localize('Choose a commission plan:')}</StyledHeader>
+                    <StyledHeaderCommission as="h4">
+                        {localize('Choose a commission plan:')}
+                    </StyledHeaderCommission>
                     <CardWrapper>
                         <StyledCard height="47.2rem">
                             <div>

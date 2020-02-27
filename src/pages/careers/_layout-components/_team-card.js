@@ -12,6 +12,7 @@ export const StyledCard = styled.article`
     width: 100%;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 4px;
+    background: var(--color-white);
 `
 
 const ImageWrapper = styled.div`

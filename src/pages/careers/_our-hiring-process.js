@@ -17,7 +17,9 @@ const ProcessContainer = styled.div`
 const OurHiringProcess = () => (
     <SectionContainer padding="12rem 0">
         <Container direction="column">
-            <StyledHeader as="h3">{localize('Our hiring process')}</StyledHeader>
+            <StyledHeader as="h3" align="center">
+                {localize('Our hiring process')}
+            </StyledHeader>
             <ProcessContainer></ProcessContainer>
         </Container>
     </SectionContainer>

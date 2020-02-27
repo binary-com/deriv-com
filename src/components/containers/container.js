@@ -17,7 +17,7 @@ const Container = styled.div`
         width: 84%;
     }
     @media ${device.desktopL} {
-        max-width: 1400px;
+        max-width: 1600px;
     }
     @media ${device.tabletL} {
         width: 90%;

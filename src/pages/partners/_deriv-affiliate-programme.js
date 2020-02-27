@@ -55,28 +55,28 @@ const StyledCard = styled(Card)`
 
 const RevenueShare = [
     {
-        title: 'Net revenue',
-        data: ['≤ USD 20,000 per month ', '> USD 20,000 per month '],
+        title: localize('Net revenue'),
+        data: [localize('≤ USD 20,000 per month '), localize('> USD 20,000 per month ')],
     },
     {
-        title: 'Commission rate',
+        title: localize('Commission rate'),
         data: ['30%', '45%'],
     },
 ]
 const Turnover = [
     {
-        title: 'Probability of return',
+        title: localize('Probability of return'),
         data: [
             '0-19.999%',
             '20-39.999%',
             '40-59.999%',
             '60-79.999%',
             '80-94.999%',
-            '95% and above',
+            localize('95% and above'),
         ],
     },
     {
-        title: 'Commission',
+        title: localize('Commission'),
         data: ['1.25%', '1%', '0.75%', '0.5%', '0.25%', '0%'],
     },
 ]

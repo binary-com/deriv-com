@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Partner from 'common/partner'
 import device from 'themes/device'
-import { SectionContainer, Container } from 'components/containers'
+import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Button, LinkButton } from 'components/form'
 import { localize } from 'components/localization'
@@ -39,16 +39,11 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const StyledWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
 const CTA = () => {
     return (
         <StyledSection padding="4rem 0">
             <Container>
-                <StyledWrapper>
+                <Flex direction="column" ai="center">
                     <Header as="h4">{localize('Got more questions?')}</Header>
                     <Text>{localize('The Deriv affiliate management team is here to help.')}</Text>
                     <LinkButton
@@ -59,8 +54,8 @@ const CTA = () => {
                     >
                         {localize('Contact us')}
                     </LinkButton>
-                </StyledWrapper>
-                <StyledWrapper>
+                </Flex>
+                <Flex direction="column" ai="center">
                     <Header as="h4">
                         {localize(
                             'Enjoy generous commissions and all the other benefits of being a Deriv partner',
@@ -73,7 +68,7 @@ const CTA = () => {
                     >
                         {localize('Sign up')}
                     </Button>
-                </StyledWrapper>
+                </Flex>
             </Container>
         </StyledSection>
     )

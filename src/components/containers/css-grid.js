@@ -16,6 +16,7 @@ const CssGrid = styled.div`
     @media ${device.laptopL} {
         grid-template-columns: ${props =>
             props.laptop_columns ? props.laptop_columns : props.columns};
+        grid-template-rows: ${props => (props.laptop_rows ? props.laptop_rows : props.rows)};
         grid-column-gap: ${props =>
             props.laptop_column_gap ? props.laptop_column_gap : props.column_gap};
         grid-row-gap: ${props => (props.laptop_row_gap ? props.laptop_row_gap : props.row_gap)};
@@ -23,6 +24,7 @@ const CssGrid = styled.div`
     @media ${device.tabletL} {
         grid-template-columns: ${props =>
             props.tablet_columns ? props.tablet_columns : props.columns};
+        grid-template-rows: ${props => (props.tablet_rows ? props.tablet_rows : props.rows)};
         grid-column-gap: ${props =>
             props.tablet_column_gap ? props.tablet_column_gap : props.column_gap};
         grid-row-gap: ${props => (props.tablet_row_gap ? props.tablet_row_gap : props.row_gap)};
@@ -30,6 +32,9 @@ const CssGrid = styled.div`
     @media ${device.tabletS} {
         grid-template-columns: ${props =>
             props.mobile_columns ? props.mobile_columns : props.columns};
+        grid-template-rows: ${props => (props.mobile_rows ? props.mobile_rows : props.rows)};
+        grid-column-gap: ${props =>
+            props.mobile_column_gap ? props.mobile_column_gap : props.column_gap};
         grid-row-gap: ${props => (props.mobile_row_gap ? props.mobile_row_gap : props.row_gap)};
     }
 `

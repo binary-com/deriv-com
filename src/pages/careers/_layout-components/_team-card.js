@@ -8,7 +8,7 @@ import Chevron from 'images/svg/chevron-bottom.svg'
 
 export const StyledCard = styled.article`
     position: relative;
-    height: 100%;
+    height: ${props => (props.height ? props.height : 'auto')};
     width: 100%;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 4px;
@@ -42,7 +42,7 @@ const StyledChevron = styled(Chevron)`
 `
 
 const TeamCard = ({ img_name, team_name, display_team_name, tagline }) => (
-    <StyledCard>
+    <StyledCard height="38.8rem">
         <ImageWrapper>
             <Image img_name={img_name} width="100%" alt={img_name} />
         </ImageWrapper>

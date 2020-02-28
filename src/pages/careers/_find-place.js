@@ -22,16 +22,12 @@ const FindPlace = () => {
                 <StyledHeader as="h3">{localize('Find your place at Deriv')}</StyledHeader>
                 <CssGrid
                     columns="repeat(4, 28.2rem)"
-                    rows="388px repeat(4, min_content)"
                     column_gap="2.4rem"
                     laptop_columns="repeat(2, 28.2rem)"
-                    laptop_rows="38.8rem repeat(2, min_content)"
                     laptop_row_gap="2.4rem"
                     tablet_columns="28.2rem"
                     tablet_row_gap="2.4rem"
-                    tablet_rows="38.8rem min_content"
                     mobile_columns="28.2rem"
-                    mobile_rows="38.8rem min_content"
                     mobile_row_gap="2.4rem"
                 >
                     {top_teams.map((team, idx) => (

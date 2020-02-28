@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Container, SectionContainer, Flex } from 'components/containers'
-import { BackgroundImage, Text, Header } from 'components/elements'
-import { localize, Localize } from 'components/localization'
-import { LinkButton, Button } from 'components/form'
+import { Text, Header } from 'components/elements'
+import { localize } from 'components/localization'
+import device from 'themes/device'
 // SVG
 import Career1 from 'images/svg/career-1.svg'
 import Career2 from 'images/svg/career-2.svg'
@@ -44,6 +44,12 @@ const StyledTipsCard = styled(Flex)`
                 : css`
                       left: -1.2rem;
                   `}
+
+        @media ${device.tablet} {
+            left: 48%;
+            top: -1.2rem;
+            right: auto;
+        }
     }
 `
 
@@ -85,36 +91,121 @@ const Process = ({ title, description, style }) => (
 const StyledCareer1 = styled(Career1)`
     margin-left: 5.2rem;
     margin-right: 1.3rem;
+
+    @media ${device.tablet} {
+        margin: 0;
+    }
 `
 
 const StyledCareer2 = styled(Career2)`
     margin-left: 7.5rem;
     margin-right: 3.2rem;
+
+    @media ${device.tablet} {
+        margin: 0;
+    }
 `
 
 const StyledCareer3 = styled(Career3)`
     margin-left: 3rem;
     margin-right: 3.7rem;
+
+    @media ${device.tablet} {
+        margin: 0;
+    }
 `
 
 const StyledCareer4 = styled(Career4)`
     margin-left: 7.5rem;
     margin-right: 3rem;
+
+    @media ${device.tablet} {
+        margin: 0;
+    }
 `
 
 const DownwardsRight1 = styled(DownwardsRight)`
     margin-left: 43.5%;
     margin-top: -6.5%;
+
+    @media ${device.tablet} {
+        display: none;
+    }
 `
 
 const DownwardsRight2 = styled(DownwardsRight)`
     margin-left: 43.5%;
     margin-top: -9.5%;
+
+    @media ${device.tablet} {
+        display: none;
+    }
 `
 
 const DownwardsLeft1 = styled(DownwardsLeft)`
     margin-left: 49%;
     margin-top: -6%;
+
+    @media ${device.tablet} {
+        display: none;
+    }
+`
+
+const ResponsiveFlex1 = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+    }
+`
+
+const SubResponsiveFlex1 = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+`
+
+const ResponsiveFlex2 = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: 4.8rem;
+    }
+`
+
+const SubResponsiveFlex2 = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
+`
+
+const ResponsiveFlex3 = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+        margin-top: 4.8rem;
+    }
+`
+
+const SubResponsiveFlex3 = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+`
+
+const ResponsiveFlex4 = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column;
+        margin-top: 4.8rem;
+        align-items: flex-end;
+    }
+`
+
+const SubResponsiveFlex4 = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+    }
 `
 
 const OurHiringProcess = () => (
@@ -124,7 +215,7 @@ const OurHiringProcess = () => (
                 {localize('Our hiring process')}
             </StyledHeader>
             <ProcessContainer>
-                <Flex direction="row">
+                <ResponsiveFlex1 direction="row">
                     <TipsCard
                         content={localize(
                             "Apply for the jobs that match your skills and interest. If you want, link to your portfolio or other examples of work that demonstrate you're the one for the role.",
@@ -132,34 +223,38 @@ const OurHiringProcess = () => (
                         style={{ marginTop: '4.7rem' }}
                         right
                     />
-                    <StyledCareer1 />
-                    <Process
-                        title={localize('Apply')}
-                        description={localize(
-                            "Found a great role in an ad or our website? Let us know you're interested by sending us your CV. Every CV is read by our recruitment team. If there's a match, we'll get in touch.",
-                        )}
-                        style={{ marginTop: '1.7rem' }}
-                    />
-                </Flex>
+                    <SubResponsiveFlex1 direction="row">
+                        <StyledCareer1 />
+                        <Process
+                            title={localize('Apply')}
+                            description={localize(
+                                "Found a great role in an ad or our website? Let us know you're interested by sending us your CV. Every CV is read by our recruitment team. If there's a match, we'll get in touch.",
+                            )}
+                            style={{ marginTop: '1.7rem' }}
+                        />
+                    </SubResponsiveFlex1>
+                </ResponsiveFlex1>
                 <DownwardsRight1 />
-                <Flex direction="row" ml="2.4rem" mt="1rem">
-                    <Process
-                        title={localize('Test')}
-                        description={localize(
-                            'Complete a self-assessment questionnaire to tell us more about yourself, and a talent test to showcase your domain knowledge and approach to problem-solving.',
-                        )}
-                        style={{ maxWidth: '38.4rem' }}
-                    />
-                    <StyledCareer2 />
+                <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem">
+                    <SubResponsiveFlex2 direction="row">
+                        <Process
+                            title={localize('Test')}
+                            description={localize(
+                                'Complete a self-assessment questionnaire to tell us more about yourself, and a talent test to showcase your domain knowledge and approach to problem-solving.',
+                            )}
+                            style={{ maxWidth: '38.4rem' }}
+                        />
+                        <StyledCareer2 />
+                    </SubResponsiveFlex2>
                     <TipsCard
                         content={localize(
                             'The self-assessment questionnaire is your opportunity to tell us about your background, values, character, and attitude. The questionnaire helps us to evaluate if our culture is right for you to be happy and productive.',
                         )}
                         style={{ maxWidth: '35.7rem', marginTop: '2.3rem' }}
                     />
-                </Flex>
+                </ResponsiveFlex2>
                 <DownwardsLeft1 />
-                <Flex direction="row" mt="2rem">
+                <ResponsiveFlex3 direction="row" mt="2rem">
                     <TipsCard
                         content={localize(
                             'Be prepared to clarify and elaborate on the answers you gave in your self-assessment questionnaire. Remember, the interview is also an opportunity for you to ask questions about the company and your potential role.',
@@ -167,32 +262,36 @@ const OurHiringProcess = () => (
                         right
                         style={{ marginTop: '4.7rem', maxWidth: '35.6rem' }}
                     />
-                    <StyledCareer3 />
-                    <Process
-                        title={localize('Interview')}
-                        description={localize(
-                            "This is where you get to meet our team. Our interviews are not just about evaluating your technical ability and experience. We also try to understand what's important to you, how you work with others, and how you approach problems.",
-                        )}
-                        style={{ marginTop: '1.7rem' }}
-                    />
-                </Flex>
+                    <SubResponsiveFlex3 direction="row">
+                        <StyledCareer3 />
+                        <Process
+                            title={localize('Interview')}
+                            description={localize(
+                                "This is where you get to meet our team. Our interviews are not just about evaluating your technical ability and experience. We also try to understand what's important to you, how you work with others, and how you approach problems.",
+                            )}
+                            style={{ marginTop: '1.7rem' }}
+                        />
+                    </SubResponsiveFlex3>
+                </ResponsiveFlex3>
                 <DownwardsRight2 />
-                <Flex direction="row" mt="1.6rem">
-                    <Process
-                        title={localize('Decision')}
-                        description={localize(
-                            "We make a decision and proceed with reference and background checks. If all is well, you'll receive an official offer letter in your email inbox. Then it's over to you.",
-                        )}
-                        style={{ maxWidth: '38.4rem' }}
-                    />
-                    <StyledCareer4 />
+                <ResponsiveFlex4 direction="row" mt="1.6rem">
+                    <SubResponsiveFlex4 direction="row">
+                        <Process
+                            title={localize('Decision')}
+                            description={localize(
+                                "We make a decision and proceed with reference and background checks. If all is well, you'll receive an official offer letter in your email inbox. Then it's over to you.",
+                            )}
+                            style={{ maxWidth: '38.4rem' }}
+                        />
+                        <StyledCareer4 />
+                    </SubResponsiveFlex4>
                     <TipsCard
                         content={localize(
                             'Congratulations! Now all you have to do is read through your offer letter carefully. If you have a question about something in the offer letter, don’t be afraid to ask us.',
                         )}
                         style={{ maxWidth: '34rem', marginTop: '2.3rem' }}
                     />
-                </Flex>
+                </ResponsiveFlex4>
             </ProcessContainer>
         </Container>
     </SectionContainer>

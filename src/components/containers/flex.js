@@ -11,6 +11,8 @@ const Flex = styled.div`
     margin: ${props => (props.m ? props.m : '')};
     margin-top: ${props => (props.mt ? props.mt : '')};
     margin-bottom: ${props => (props.mb ? props.mb : '')};
+    margin-left: ${props => (props.ml ? props.ml : '')};
+    margin-right: ${props => (props.mr ? props.mr : '')};
     padding: ${props => (props.p ? props.p : '')};
     flex-direction: ${props => (props.direction ? props.direction : '')};
 

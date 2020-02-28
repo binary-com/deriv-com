@@ -5,6 +5,7 @@ const Flex = styled.div`
     display: flex;
     flex-wrap: ${props => (props.wrap ? props.wrap : '')};
     width: ${props => (props.width ? props.width : '100%')};
+    max-width: ${props => (props.mw ? props.mw : '')};
     height: ${props => (props.height ? props.height : '100%')};
     justify-content: ${props => (props.jc ? props.jc : 'center')};
     align-items: ${props => (props.ai ? props.ai : '')};

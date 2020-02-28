@@ -52,6 +52,12 @@ const Hero = ({ name, description, img }) => (
     </BackgroundImage>
 )
 
+Hero.propTypes = {
+    description: PropTypes.string,
+    img: PropTypes.string,
+    name: PropTypes.string,
+}
+
 const First = styled.div`
     margin-right: 0.8rem;
     width: 100%;
@@ -251,7 +257,5 @@ export const LocationLayout = ({ location }) => {
 }
 
 LocationLayout.propTypes = {
-    button_text: PropTypes.string,
-    header: PropTypes.string,
-    text: PropTypes.string,
+    location: PropTypes.object,
 }

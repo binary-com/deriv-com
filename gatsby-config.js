@@ -1,3 +1,5 @@
+const language_config = require(`./i18n-config.js`)
+
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     siteMetadata: {
@@ -23,7 +25,36 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-sitemap',
             options: {
-                exclude: ['/404', '/**/404.html', '/**/404', '/check-email', '/**/check-email'],
+                exclude: [
+                    '/404',
+                    '/**/404.html',
+                    '/**/404',
+                    '/check-email',
+                    '/**/check-email',
+                    '/reset-password',
+                    '/**/reset-password',
+                ],
+                serialize: ({ site, allSitePage }) =>
+                    allSitePage.edges.map(edge => {
+                        const path = edge.node.path
+                        let priority = 0.7
+                        if (path === '/') {
+                            priority = 1.0
+                        } else if (path.match(/dbot|dtrader|dmt5|about/)) {
+                            priority = 1.0
+                        } else {
+                            Object.keys(language_config).forEach(lang => {
+                                if (path === `/${lang}/`) {
+                                    priority = 1.0
+                                }
+                            })
+                        }
+                        return {
+                            url: site.siteMetadata.siteUrl + edge.node.path,
+                            changefreq: `monthly`,
+                            priority,
+                        }
+                    }),
             },
         },
         'gatsby-plugin-remove-serviceworker',

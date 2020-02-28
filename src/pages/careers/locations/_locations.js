@@ -93,14 +93,14 @@ export const labuan = {
 export const asuncion = {
     name: 'asuncion',
     display_name: localize('Ascunción'),
-    hero_img: 'living_in_asuncion.png',
+    hero_img: 'asuncion.png',
     header_p: localize(
         `Asunción is the capital city of Paraguay and one of the oldest settlements in South America. In the past, colonial expeditions departed from Asunción to establish other important cities, leading to its nickname as the ‘Mother of Cities'.`,
     ),
     first_p: localize(
         `Asunción has one of the lowest costs of living in the world, being ranked 386th out of 441 cities by Numbeo, the world's largest database of crowdsourced consumer data. International schools with a bilingual curriculum (Spanish and English) are popular among foreigners with children. You'll also have easy access to quality healthcare with well-equipped private hospitals staffed with English-speaking doctors.`,
     ),
-    first_img: 'living_in_cyberjaya.png',
+    first_img: 'living_in_asuncion.png',
     grid_images: [
         'asuncion_grid_1.png',
         'asuncion_grid_2.png',

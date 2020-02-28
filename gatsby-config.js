@@ -3,7 +3,7 @@ const language_config = require(`./i18n-config.js`)
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     siteMetadata: {
-        title: 'Deriv.com',
+        title: 'Deriv',
         description:
             'Deriv.com gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
         author: 'Deriv.com',

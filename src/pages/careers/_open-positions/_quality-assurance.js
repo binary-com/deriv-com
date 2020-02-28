@@ -1,12 +1,12 @@
 import { localize } from 'components/localization'
 
-export const back_end_positions = [
+export const quality_assurance_positions = [
     {
         title: localize('Finance Manager'),
         keywords: [localize('accounting')],
         location: localize('Cyberjaya, Malaysia'),
         type: localize('Full-time'),
-        team: localize('Back-end'),
+        team: localize('Quality Assurance'),
         description: [
             localize(
                 'Our Accounting & Payments team manages our wide range of bank accounts and e-currency systems, as well as the huge volume of transactions that take place every day.',

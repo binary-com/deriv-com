@@ -1,24 +1,52 @@
-// import React from 'react'
-// import styled from 'styled-components'
-// import TeamCard from './_layout-components/_team-card'
-// import { Container, SectionContainer, CssGrid } from 'components/containers'
-// import { Header, Text } from 'components/elements'
-// import { localize } from 'components/localization'
+import React from 'react'
+import styled from 'styled-components'
+import TeamCard from './_layout-components/_team-card'
+import { getTop4Teams } from './_model-controller/_teams'
+import { Container, SectionContainer, CssGrid } from 'components/containers'
+import { Header } from 'components/elements'
+import { localize } from 'components/localization'
 
-// const FindPlace = () => (
-//     <SectionContainer background="grey-2">
-//         <Container direction="column">
-//             <Header as="h3">{localize('Find your place at Deriv')}</Header>
-//             <CssGrid
-//                 columns="repeat(1, 28.2rem)"
-//                 column_gap="2.4rem"
-//                 justify="center"
-//                 align="center"
-//                 tablet_columns="repeat(2, 28.2rem)"
-//                 mobile_columns="28.2rem"
-//             ></CssGrid>
-//         </Container>
-//     </SectionContainer>
-// )
+const StyledHeader = styled(Header)`
+    text-align: center;
+    margin-bottom: 6.4rem;
+`
 
-// export default FindPlace
+const FindPlace = () => {
+    const [top_teams, setTopTeams] = React.useState([])
+    React.useEffect(() => {
+        setTopTeams(getTop4Teams())
+    }, [])
+    return (
+        <SectionContainer background="grey-2">
+            <Container direction="column">
+                <StyledHeader as="h3">{localize('Find your place at Deriv')}</StyledHeader>
+                <CssGrid
+                    columns="repeat(4, 28.2rem)"
+                    rows="388px repeat(4, min_content)"
+                    column_gap="2.4rem"
+                    laptop_columns="repeat(2, 28.2rem)"
+                    laptop_rows="38.8rem repeat(2, min_content)"
+                    laptop_row_gap="2.4rem"
+                    tablet_columns="28.2rem"
+                    tablet_row_gap="2.4rem"
+                    tablet_rows="38.8rem min_content"
+                    mobile_columns="28.2rem"
+                    mobile_rows="38.8rem min_content"
+                    mobile_row_gap="2.4rem"
+                >
+                    {top_teams.map((team, idx) => (
+                        <TeamCard
+                            key={idx}
+                            img_name={team.thumbnail}
+                            team_name={team.name}
+                            display_team_name={team.display_name}
+                            tagline={team.card_description}
+                        />
+                    ))}
+                </CssGrid>
+            </Container>
+        </SectionContainer>
+    )
+}
+
+export default FindPlace

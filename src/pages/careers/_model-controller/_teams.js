@@ -1,6 +1,10 @@
 import { accounts_and_payments_positions } from '../_open-positions/_accounts-and-payments'
 import { back_end_positions } from '../_open-positions/_back-end'
 import { business_intelligence_positions } from '../_open-positions/_business-intelligence'
+import { devops_positions } from '../_open-positions/_devops'
+import { compliance_positions } from '../_open-positions/_compliance'
+import { marketing_positions } from '../_open-positions/_marketing'
+import { quality_assurance_positions } from '../_open-positions/_quality-assurance'
 import { localize } from 'components/localization'
 
 class Team {
@@ -25,9 +29,45 @@ class Team {
 
 export const all_teams = [
     new Team({
+        name: 'devops',
+        display_name: localize('Devops'),
+        thumbnail: 'team-devops.png',
+        card_description: localize(
+            'We provide data and valuable insights that help shape smart business decisions.',
+        ),
+        positions: devops_positions,
+    }),
+    new Team({
+        name: 'compliance',
+        display_name: localize('Compliance'),
+        thumbnail: 'team-compliance.png',
+        card_description: localize(
+            'We provide data and valuable insights that help shape smart business decisions.',
+        ),
+        positions: compliance_positions,
+    }),
+    new Team({
+        name: 'marketing',
+        display_name: localize('Marketing'),
+        thumbnail: 'team-marketing.png',
+        card_description: localize(
+            'We provide data and valuable insights that help shape smart business decisions.',
+        ),
+        positions: marketing_positions,
+    }),
+    new Team({
+        name: 'quality-assurance',
+        display_name: localize('Quality Assurance'),
+        thumbnail: 'team-quality-assurance.png',
+        card_description: localize(
+            'We provide data and valuable insights that help shape smart business decisions.',
+        ),
+        positions: quality_assurance_positions,
+    }),
+    new Team({
         name: 'accounts-and-payments',
         display_name: localize('Accounts and Payments'),
-        thumbnail: 'accounts-payment-thumbnail.png',
+        thumbnail: 'team-accounts-payments.png',
         card_description: localize(
             'We’re all about helping the company make good decisions about money so we can stay on course to fulfil our vision.',
         ),
@@ -36,7 +76,7 @@ export const all_teams = [
     new Team({
         name: 'back-end',
         display_name: localize('Back-end'),
-        thumbnail: 'back-end-thumbnail.png',
+        thumbnail: 'team-backend.png',
         card_description: localize(
             'We fortify our website and app architecture that power our users’ experience.',
         ),
@@ -59,9 +99,8 @@ export const all_positions = [
     ...business_intelligence_positions,
 ]
 
-export const getTop4Teams = () => {
-    all_teams
-}
+export const getTop4Teams = () =>
+    all_teams.sort((a, b) => a.positions.length - b.positions.length).slice(0, 4)
 
 export const getTeamByName = team_name =>
     all_teams.find(team => team.name.toLowerCase() === team_name.toLowerCase())

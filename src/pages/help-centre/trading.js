@@ -148,7 +148,7 @@ const WeekendContracts = () => (
         </Header>
         <Text>
             {localize(
-                'You can trade Volatility Indices 24/7 in all countries except Australia, France, Germany, Greece, Italy, Luxembourg, Singapore, and Spain due to regulatory requirements.',
+                'You can trade Synthetic Indices 24/7 in all countries except Australia, France, Germany, Greece, Italy, Luxembourg, Singapore, and Spain due to regulatory requirements.',
             )}
         </Text>
     </ArticleWrapper>

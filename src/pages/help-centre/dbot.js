@@ -117,9 +117,7 @@ const CreateVariables = () => (
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('How do I create variables?')}
         </Header>
-        <Text>
-            {localize('1. Click “Get started” to open the blocks menu.')}
-        </Text>
+        <Text>{localize('1. Click “Get started” to open the blocks menu.')}</Text>
         <ImageWrapper>
             <Image
                 img_name="dbot-button-get-started.png"
@@ -176,9 +174,7 @@ const QuickStrategy = () => (
         <Text margin="4rem 0 0">
             <strong>{localize('Using a quick strategy')}</strong>
         </Text>
-        <StyledText>
-            {localize('1. Click “Get started” on the toolbar at the top.')}
-        </StyledText>
+        <StyledText>{localize('1. Click “Get started” on the toolbar at the top.')}</StyledText>
         <ImageWrapper>
             <Image
                 img_name="dbot-button-get-started.png"
@@ -276,6 +272,44 @@ const SaveStrategy = () => (
                 'First, give your strategy a name. Click the “Bot name” field on the toolbar at the top and enter a name.',
             )}
         </Text>
+        <ImageWrapper>
+            <Image img_name="dbot-botname.png" alt={localize('Bot name')} width="21.1rem" />
+        </ImageWrapper>
+        <Text>
+            {localize(
+                'Next, click “Save” on the toolbar at the top of the workspace. You can choose to save to your computer or to your Google Drive. Your strategy will be saved in the XML format.',
+            )}
+        </Text>
+        <ImageWrapper>
+            <Image img_name="dbot-save.png" alt={localize('Save')} width="40.7rem" />
+        </ImageWrapper>
+        <Text>
+            <Localize
+                translate_text="<0>Saving to your computer</0>"
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text margin="2.4rem 0 0">{localize('1. Select “Local” and click “Continue”.')}</Text>
+        <ImageWrapper>
+            <Image img_name="dbot-savebot.png" alt={localize('Save bot')} width="40.7rem" />
+        </ImageWrapper>
+        <Text margin="2.4rem 0 0">{localize('2. The XML file will be saved in the “Downloads” folder of your internet browser.')}</Text>
+        <Text margin="4rem 0 0">
+            <Localize
+                translate_text="<0>Saving to Google Drive</0>"
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text margin="2.4rem 0 0">{localize('1. Click “Connect”.')}</Text>
+        <ImageWrapper>
+            <Image img_name="dbot-google-drive.png" alt={localize('Google Drive')} width="12.1rem" />
+        </ImageWrapper>
+        <Text margin="2.4rem 0 0">{localize('2. Select your Google account and grant the necessary permission for DBot to access your Google Drive.')}</Text>
+        <Text margin="2.4rem 0 0">{localize('3. Click “Continue”.')}</Text>
+        <ImageWrapper>
+            <Image img_name="dbot-savebot-drive.png" alt={localize('Save bot Google Drive')} width="38.4rem" />
+        </ImageWrapper>
+        <Text margin="2.4rem 0 0">{localize('4. Choose the folder you want to save your strategy in and click  “Select”.')}</Text>
     </ArticleWrapper>
 )
 const ImportStrategy = () => (

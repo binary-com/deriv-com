@@ -81,7 +81,7 @@ const MinimumDepositWithdrawal = () => (
             )}
         </Text>
         <StyledText>
-            {localize("'There is no minimum amount for cryptocurrency deposits.")}
+            {localize("There is no minimum amount for cryptocurrency deposits.")}
         </StyledText>
     </ArticleWrapper>
 )

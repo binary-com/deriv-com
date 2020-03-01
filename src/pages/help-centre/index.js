@@ -120,7 +120,10 @@ const ListWrapper = styled.div`
     ${Header} {
         margin-bottom: 1.6rem;
     }
-
+    @media ${device.laptopL} {
+        max-width: auto;
+        width: auto;
+    }
     @media ${device.tabletL} {
         padding-top: 3.55rem;
     }
@@ -170,11 +173,17 @@ const StyledView = styled.div`
 `
 
 const RowDiv = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: row;
+
+    @media ${device.tabletS} {
+        flex-direction: column;
+    }
 `
 
 const ArticleDiv = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 8rem;

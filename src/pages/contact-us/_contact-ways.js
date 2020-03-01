@@ -5,6 +5,7 @@ import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import CallUsIcon from 'images/svg/call-us.svg'
+import { Show } from 'components/containers'
 // import ChatLiveIcon from 'images/svg/chat-live.svg'
 import EmailUsIcon from 'images/svg/email-us.svg'
 import NeedUsIcon from 'images/svg/need-us.svg'
@@ -21,6 +22,9 @@ const Wrapper = styled.section`
     @media ${device.tabletS} {
         height: auto;
     }
+    @media ${device.tabletL} {
+        padding: 5rem 2rem;
+    }
 `
 const WaysWrapper = styled.div`
     display: flex;
@@ -29,6 +33,19 @@ const WaysWrapper = styled.div`
     @media ${device.tabletS} {
         flex-direction: column;
         height: auto;
+    }
+    @media ${device.tabletL} {
+        width: 100%;
+
+        > div {
+            margin: 0 auto;
+            width: 100%;
+            margin-top: 7rem;
+        }
+    }
+
+    div:first-child {
+        margin-top: 0;
     }
 `
 const Contact = styled.div`
@@ -42,21 +59,39 @@ const CallContact = styled(Contact)`
     width: 38.4rem;
     padding: 0 2.4rem;
 
-    @media ${device.tabletS} {
-        padding: 2.4rem 0;
+    @media ${device.tabletL} {
+        padding: 0;
     }
 `
 
 const StyledHeader = styled(Header)`
     margin-bottom: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-bottom: 1rem;
+    }
 `
 
 const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
+
+    @media ${device.tabletL} {
+        font-size: ${props => props.secondary ? '3rem' : '2rem'};
+    }
 `
 
 const Logo = styled.div`
     margin-bottom: 2.4rem;
+
+    @media ${device.tabletL} {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        svg {
+            width: 6rem;
+            height: 6rem;
+        }
+    }
 `
 
 const StyledLinkButton = styled(LinkButton)`
@@ -104,7 +139,12 @@ export const ContactWays = () => {
                         {localize('Visit our Help Centre')}
                     </StyledHeader>
                     <StyledText align="center">
-                        {localize('The quickest way to get answers to your questions.')}
+                        <Show.Desktop>
+                            {localize('The quickest way to get answers to your questions.')}
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            {localize('Try our Help Centre. You’ll find searchable, easy to follow articles to get you going.')}
+                        </Show.Mobile>
                     </StyledText>
                     <StyledLinkButton secondary to="help-centre">
                         {localize('Visit the Help Centre')}

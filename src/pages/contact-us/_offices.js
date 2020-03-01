@@ -98,10 +98,6 @@ const PhoneIcon = styled(PhoneSVG)`
 `
 const ImageWrapper = styled.div`
     height: 21rem;
-
-    @media ${device.mobileL} {
-        display: none;
-    }
 `
 const MapLink = styled.a`
     width: fit-content;
@@ -125,6 +121,10 @@ const Splitter = styled.div`
         width: auto;
     }
 `
+const MapContainer = styled.div`
+    width: 10rem;
+    height: 10rem;
+`
 export const Offices = () => {
     return (
         <Wrapper>
@@ -140,12 +140,14 @@ export const Offices = () => {
                                 target="_blank"
                                 href="https://g.page/r/CRyKELlnWQ3iEAE"
                             >
-                                <Image
-                                    img_name="map-malta.png"
-                                    alt={localize('Malta Office')}
-                                    width="49rem"
-                                    height="100%"
-                                />
+                                <MapContainer>
+                                    <Image
+                                        img_name="map-malta.png"
+                                        alt={localize('Malta Office')}
+                                        width="100%"
+                                        height="100%"
+                                    />
+                                </MapContainer>
                             </MapLink>
                         </ImageWrapper>
                         <Content>

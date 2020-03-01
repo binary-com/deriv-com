@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import { ContactWays } from './_contact-ways'
 import { Offices } from './_offices'
 import { Affiliates } from './_affiliates'
+import device from 'themes/device'
 import { Header, Text } from 'components/elements/typography'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
+import { SEO, Show } from 'components/containers'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -16,12 +17,26 @@ const HeroWrapper = styled.section`
     * {
         text-align: center;
     }
+
+    @media ${device.tabletL} {
+        padding: 5rem 2rem;
+
+        h1 {
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+        }
+    }
 `
 
 const StyledText = styled(Text)`
     max-width: 63.4rem;
     margin: 1.6rem auto 0;
     font-size: var(--text-size-m);
+
+    @media ${device.tabletL} {
+        font-size: var(--text-size-sm);
+        margin-top: 0;
+    }
 `
 
 const ContactUs = () => {
@@ -35,11 +50,25 @@ const ContactUs = () => {
             />
             <HeroWrapper>
                 <Header as="h1">{localize('Contact us')}</Header>
-                <StyledText align="center" secondary>
-                    {localize(
-                        'Got questions, bug reports, feedback, or feature requests? Here are some ways to get in touch with us.',
-                    )}
-                </StyledText>
+                <Show.Desktop>
+                    <StyledText align="center" secondary>
+                        {localize(
+                            'Got questions, bug reports, feedback, or feature requests? Here are some ways to get in touch with us.',
+                        )}
+                    </StyledText>
+                </Show.Desktop>
+                <Show.Mobile>
+                    <StyledText align="center" secondary>
+                        {localize(
+                            'Got questions, bug reports, feedback, or feature requests?',
+                        )}
+                    </StyledText>
+                    <StyledText align="center" secondary>
+                        {localize(
+                            'Here are some ways to get in touch with us.',
+                        )}
+                    </StyledText>
+                </Show.Mobile>
             </HeroWrapper>
             <ContactWays />
             <Offices />

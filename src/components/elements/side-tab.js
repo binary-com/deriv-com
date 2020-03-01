@@ -9,16 +9,6 @@ import { Wrapper } from 'components/containers'
 import { Desktop, Mobile } from 'components/containers/show'
 import Chevron from 'images/svg/chevron.svg'
 
-// function countLines(el) {
-//     console.log('EL:::::', el)
-//     // var divHeight = el.offsetHeight
-//     // console.log('Div height:::::', divHeight)
-//     // var lineHeight = 1.5
-//     // var lines = divHeight / lineHeight
-//     // console.log('Lines:::::', lines)
-//     // return lines
-// }
-
 const StyledSideTab = styled(Wrapper)`
     padding: 0;
     display: flex;
@@ -51,35 +41,21 @@ const TabContent = styled.div`
 
 const StyledTab = styled.li`
     cursor: pointer;
-    padding: ${props => props.padding || 'unset'};
     width: ${props => props.item_width || '38rem'};
     margin: auto;
+    padding: 3px 0 3px 16px;
+    transform: translateX(-16px);
 
-    &.tab-active {
-        ::before {
-            content: '';
-            width: 4px;
-            border-top: 36px solid red;
-            position: absolute;
-            margin-top: -6px;
-        }
-    }
-    :hover{
-        ::before {
-            content: '';
-            width: 4px;
-            border-top: 36px solid red;
-            position: absolute;
-            margin-top: -6px;
-        }
+    &.tab-active, &:hover {
+        border-left: 4px red solid;
     }
     & > p {
         /* prettier-ignore */
         color: var(--color-${props => props.font_color || 'black-3'});
         opacity: 0.32;
         font-size: ${props => props.font_size || 'var(--text-size-m)'};
-        padding-left: 1.6rem;
         max-width: 38.4rem;
+        line-height: 30px;
 
         :hover{            
             opacity: 1;   
@@ -133,7 +109,6 @@ const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
         </StyledDropDown>
     ) : (
         <ItemWrapper>
-
             <StyledTab className={className} onClick={handleClick} font_size={font_size}>
                 <Text weight="500">{text}</Text>
             </StyledTab>

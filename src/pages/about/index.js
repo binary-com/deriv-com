@@ -215,8 +215,8 @@ const About = () => {
                     )}
                 </StyledContainer>
             </Background>
-            {active_tab === 'story' && <OurStory />}
-            {active_tab === 'leadership' && <Leaders />}
+            {is_story && <OurStory />}
+            {is_leadership && <Leaders />}
         </Layout>
     )
 }

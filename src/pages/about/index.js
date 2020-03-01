@@ -112,7 +112,7 @@ const About = () => {
     useEffect(() => {
         const new_tab = getLocationHash() || 'story'
         setTab(new_tab)
-    })
+    }, [])
     return (
         <Layout>
             <SEO

@@ -118,7 +118,7 @@ const CreateVariables = () => (
             {localize('How do I create variables?')}
         </Header>
         <Text>
-            {localize('1. Click “Get started” at the top left corner to open the blocks menu.')}
+            {localize('1. Click “Get started” to open the blocks menu.')}
         </Text>
         <ImageWrapper>
             <Image
@@ -177,7 +177,7 @@ const QuickStrategy = () => (
             <strong>{localize('Using a quick strategy')}</strong>
         </Text>
         <StyledText>
-            {localize('1. Click “Get started” at the top left corner to open the blocks menu.')}
+            {localize('1. Click “Get started” on the toolbar at the top.')}
         </StyledText>
         <ImageWrapper>
             <Image

@@ -75,6 +75,11 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     color: black;
     font-size: var(--text-size-s);
+
+    :hover {
+        color: red;
+        text-decoration: underline;
+    }
 `
 export const SearchSuccess = ({ suggested_topics, max_length }) => (
     <>

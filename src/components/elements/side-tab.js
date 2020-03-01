@@ -9,6 +9,16 @@ import { Wrapper } from 'components/containers'
 import { Desktop, Mobile } from 'components/containers/show'
 import Chevron from 'images/svg/chevron.svg'
 
+// function countLines(el) {
+//     console.log('EL:::::', el)
+//     // var divHeight = el.offsetHeight
+//     // console.log('Div height:::::', divHeight)
+//     // var lineHeight = 1.5
+//     // var lines = divHeight / lineHeight
+//     // console.log('Lines:::::', lines)
+//     // return lines
+// }
+
 const StyledSideTab = styled(Wrapper)`
     padding: 0;
     display: flex;
@@ -45,6 +55,24 @@ const StyledTab = styled.li`
     width: ${props => props.item_width || '38rem'};
     margin: auto;
 
+    &.tab-active {
+        ::before {
+            content: '';
+            width: 4px;
+            border-top: 36px solid red;
+            position: absolute;
+            margin-top: -6px;
+        }
+    }
+    :hover{
+        ::before {
+            content: '';
+            width: 4px;
+            border-top: 36px solid red;
+            position: absolute;
+            margin-top: -6px;
+        }
+    }
     & > p {
         /* prettier-ignore */
         color: var(--color-${props => props.font_color || 'black-3'});
@@ -52,13 +80,20 @@ const StyledTab = styled.li`
         font-size: ${props => props.font_size || 'var(--text-size-m)'};
         padding-left: 1.6rem;
         max-width: 38.4rem;
+
+        :hover{            
+            opacity: 1;   
+
+            /* prettier-ignore */
+            color: var(--color-${props => props.active_font_color || 'black'});            
+        }
     }
     &.tab-active > p {
         opacity: 1;
 
         /* prettier-ignore */
         color: var(--color-${props => props.active_font_color || 'black'});
-    }
+    }    
 `
 const TabsText = css`
     font-size: var(--text-size-m);
@@ -89,7 +124,7 @@ const LeftBorder = styled.div`
 const ItemWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    margin-bottom: 1.4rem
+    margin-bottom: 1.4rem;
 `
 const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
     const className = active_tab === label ? 'tab-active' : ''
@@ -104,7 +139,8 @@ const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
         </StyledDropDown>
     ) : (
         <ItemWrapper>
-            {active_tab === label && <LeftBorder />}
+            {active_tab === label}
+            {/* {active_tab === label && <LeftBorder />} */}
             <StyledTab className={className} onClick={handleClick} font_size={font_size}>
                 <Text weight="500">{text}</Text>
             </StyledTab>

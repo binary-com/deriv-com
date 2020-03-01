@@ -594,7 +594,7 @@ const DBotArticle = () => {
                 text={localize('How do I reset the workspace?')}
                 label="reset-workspace"
             />
-            <ResetWorkspace
+            <TransactionLog
                 text={localize('How do I clear my transaction log?')}
                 label="clear-transaction-log"
             />

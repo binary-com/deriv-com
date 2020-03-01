@@ -293,7 +293,11 @@ const SaveStrategy = () => (
         <ImageWrapper>
             <Image img_name="dbot-savebot.png" alt={localize('Save bot')} width="40.7rem" />
         </ImageWrapper>
-        <Text margin="2.4rem 0 0">{localize('2. The XML file will be saved in the “Downloads” folder of your internet browser.')}</Text>
+        <Text margin="2.4rem 0 0">
+            {localize(
+                '2. The XML file will be saved in the “Downloads” folder of your internet browser.',
+            )}
+        </Text>
         <Text margin="4rem 0 0">
             <Localize
                 translate_text="<0>Saving to Google Drive</0>"
@@ -302,14 +306,30 @@ const SaveStrategy = () => (
         </Text>
         <Text margin="2.4rem 0 0">{localize('1. Click “Connect”.')}</Text>
         <ImageWrapper>
-            <Image img_name="dbot-google-drive.png" alt={localize('Google Drive')} width="12.1rem" />
+            <Image
+                img_name="dbot-google-drive.png"
+                alt={localize('Google Drive')}
+                width="12.1rem"
+            />
         </ImageWrapper>
-        <Text margin="2.4rem 0 0">{localize('2. Select your Google account and grant the necessary permission for DBot to access your Google Drive.')}</Text>
+        <Text margin="2.4rem 0 0">
+            {localize(
+                '2. Select your Google account and grant the necessary permission for DBot to access your Google Drive.',
+            )}
+        </Text>
         <Text margin="2.4rem 0 0">{localize('3. Click “Continue”.')}</Text>
         <ImageWrapper>
-            <Image img_name="dbot-savebot-drive.png" alt={localize('Save bot Google Drive')} width="38.4rem" />
+            <Image
+                img_name="dbot-savebot-drive.png"
+                alt={localize('Save bot Google Drive')}
+                width="38.4rem"
+            />
         </ImageWrapper>
-        <Text margin="2.4rem 0 0">{localize('4. Choose the folder you want to save your strategy in and click  “Select”.')}</Text>
+        <Text margin="2.4rem 0 0">
+            {localize(
+                '4. Choose the folder you want to save your strategy in and click  “Select”.',
+            )}
+        </Text>
     </ArticleWrapper>
 )
 const ImportStrategy = () => (
@@ -344,7 +364,9 @@ const ImportStrategy = () => (
         <Text margin="4rem 0 0">
             <strong>{localize('Importing from your Google Drive')}</strong>
         </Text>
-        <Text margin="2.4rem 0 0">{localize('1. Select “Local” and click “Continue”.')}</Text>
+        <Text margin="2.4rem 0 0">
+            {localize('1. Select “Google Drive” and click “Continue”.')}
+        </Text>
         <ImageWrapper>
             <Image
                 img_name="dbot-load-bot-gd.png"
@@ -357,6 +379,21 @@ const ImportStrategy = () => (
                 '2. Select your strategy and click “Select”. Your blocks will be loaded accordingly.',
             )}
         </Text>
+    </ArticleWrapper>
+)
+const ResetWorkspace = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('How do I reset the workspace?')}
+        </Header>
+        <Text>
+            {localize(
+                'Click “Reset” on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost. ',
+            )}
+        </Text>
+        <ImageWrapper>
+            <Image img_name="dbot-reset.png" alt={localize('Reset')} width="40.7rem" />
+        </ImageWrapper>
     </ArticleWrapper>
 )
 const TransactionLog = () => (
@@ -553,7 +590,11 @@ const DBotArticle = () => {
                 text={localize('How do I import my strategies into DBot?')}
                 label="import-strategy"
             />
-            <TransactionLog
+            <ResetWorkspace
+                text={localize('How do I reset the workspace?')}
+                label="reset-workspace"
+            />
+            <ResetWorkspace
                 text={localize('How do I clear my transaction log?')}
                 label="clear-transaction-log"
             />

@@ -115,12 +115,6 @@ const StyledDropDown = styled.li`
 const ChevronWrapper = styled(Chevron)`
     transform: ${props => (props.active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)')};
 `
-const LeftBorder = styled.div`
-    width: 0.4rem;
-    height: 3.6rem;
-    background-color: red;
-    flex: 1;
-`
 const ItemWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -139,8 +133,7 @@ const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
         </StyledDropDown>
     ) : (
         <ItemWrapper>
-            {active_tab === label}
-            {/* {active_tab === label && <LeftBorder />} */}
+
             <StyledTab className={className} onClick={handleClick} font_size={font_size}>
                 <Text weight="500">{text}</Text>
             </StyledTab>

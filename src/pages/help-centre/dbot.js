@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Article } from './_article'
 import { Text, Header, Image } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -13,12 +14,23 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+
+    @media ${device.laptopL} {
+        margin-left: 8rem;
+    }
 `
 const StyledText = styled(Text)`
     margin-top: 1.7rem;
 `
 const ImageWrapper = styled.div`
     padding: 2.4rem 10.2rem;
+
+    @media ${device.laptopL} {
+        padding: 2.4rem 5rem;
+    }
+    @media ${device.laptop} {
+        padding: 2.4rem 0;
+    }
 `
 
 const Th = styled.th`

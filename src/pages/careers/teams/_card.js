@@ -51,8 +51,8 @@ const StyledDivider = styled(Divider)`
     margin-bottom: 3.2rem;
 `
 
-const Card = ({ img_name, team_name, display_team_name, tagline, position_count }) => (
-    <StyledCard height="46.3rem">
+const Card = ({ img_name, to, display_team_name, tagline, position_count }) => (
+    <StyledCard height="46.3rem" to={to}>
         <ImageWrapper>
             <Image img_name={img_name} width="100%" height="14.5rem" alt={img_name} />
         </ImageWrapper>
@@ -64,7 +64,7 @@ const Card = ({ img_name, team_name, display_team_name, tagline, position_count 
             <Text>{tagline}</Text>
             <ViewSection>
                 <StyledDivider height="2px" />
-                <LocalizedLinkText to={`teams/${team_name}/`}>
+                <LocalizedLinkText to={to}>
                     {localize('View openings')}
                     <StyledChevron />
                 </LocalizedLinkText>
@@ -79,6 +79,7 @@ Card.propTypes = {
     position_count: PropTypes.number,
     tagline: PropTypes.string,
     team_name: PropTypes.string,
+    to: PropTypes.string,
 }
 
 export default Card

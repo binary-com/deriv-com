@@ -44,14 +44,15 @@ const Teams = () => {
                         column_gap="2.4rem"
                         justify="center"
                         align="center"
-                        tablet_columns="38.4rem"
+                        laptop_columns="repeat(2, 38.4rem)"
+                        tablet_columns="repeat(2, 38.4rem)"
                         mobile_columns="38.4rem"
                     >
                         {teams.map((team, idx) => (
                             <Card
                                 key={idx}
                                 img_name={team.thumbnail}
-                                team_name={team.name}
+                                to={`teams/${team.name}/`}
                                 display_team_name={team.display_name}
                                 tagline={team.card_description}
                                 position_count={team.positions.length}

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { all_teams } from '../_model-controller/_teams'
+import { getAlphabeticTeams } from '../_model-controller/_teams'
 import Card from './_card'
 import { SEO, Container, SectionContainer, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -16,7 +16,7 @@ const Teams = () => {
     const [teams, setTeams] = React.useState([])
 
     React.useEffect(() => {
-        setTeams(all_teams)
+        setTeams(getAlphabeticTeams())
     })
     return (
         <Layout type="careers" padding_top="10rem">

@@ -324,6 +324,8 @@ export const all_positions = [
     ...quants_positions,
 ]
 
+export const getAlphabeticTeams = () => all_teams.sort((a, b) => a.name.localeCompare(b.name))
+
 export const getTop4Teams = () =>
     all_teams.sort((a, b) => a.positions.length - b.positions.length).slice(0, 4)
 

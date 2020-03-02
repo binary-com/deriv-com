@@ -113,35 +113,35 @@ const Locations = () => (
                 <CardGrid>
                     <CountryCard
                         Icon={ParaguayFlagIcon}
-                        img={asuncion.hero_img}
+                        img={asuncion.thumbnail}
                         country_name={asuncion.country}
                         city_name={asuncion.display_name}
                         link={asuncion.link}
                     />
                     <CountryCard
                         Icon={MalaysiaFlagIcon}
-                        img={cyberjaya.hero_img}
+                        img={cyberjaya.thumbnail}
                         country_name={cyberjaya.country}
                         city_name={cyberjaya.display_name}
                         link={cyberjaya.link}
                     />
                     <CountryCard
                         Icon={UAEFlagIcon}
-                        img={dubai.hero_img}
+                        img={dubai.thumbnail}
                         country_name={dubai.country}
                         city_name={dubai.display_name}
                         link={dubai.link}
                     />
                     <CountryCard
                         Icon={MalaysiaFlagIcon}
-                        img={labuan.hero_img}
+                        img={labuan.thumbnail}
                         country_name={labuan.country}
                         city_name={labuan.display_name}
                         link={labuan.link}
                     />
                     <CountryCard
                         Icon={MaltaFlagIcon}
-                        img={malta.hero_img}
+                        img={malta.thumbnail}
                         country_name={malta.country}
                         city_name={malta.display_name}
                         link={malta.link}

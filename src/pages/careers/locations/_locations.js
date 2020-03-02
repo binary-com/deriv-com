@@ -86,10 +86,10 @@ export const labuan = {
     ),
     first_img: 'living_in_labuan.png',
     grid_images: [
-        'cyberjaya_grid_1.png',
-        'cyberjaya_grid_2.png',
-        'cyberjaya_grid_3.png',
-        'cyberjaya_grid_4.png',
+        'labuan_grid_1.png',
+        'labuan_grid_2.png',
+        'labuan_grid_3.png',
+        'labuan_grid_4.png',
     ],
 
     map: 'map_labuan.png',

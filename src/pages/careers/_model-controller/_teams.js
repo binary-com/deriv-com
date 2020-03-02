@@ -88,7 +88,7 @@ export const all_teams = [
     new Team({
         name: 'back-end',
         display_name: localize('Back-end'),
-        thumbnail: 'team-backend.png',
+        thumbnail: 'team-back-end.png',
         card_description: localize(
             'We fortify our website and app architecture that power our users’ experience.',
         ),

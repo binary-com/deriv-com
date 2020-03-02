@@ -331,16 +331,10 @@ export const articles = [
                 label: 'reset-workspace',
             },
             {
-                title: <Localize translate_text="How do I clear my transaction log?" />,
+                title: <Localize translate_text="How do I view the chart in DBot?" />,
                 category: 'DBot',
-                sub_category: <Localize translate_text="Logs" />,
-                label: 'clear-transaction-log',
-            },
-            {
-                title: <Localize translate_text="How do I control my losses with DBot?" />,
-                category: 'DBot',
-                sub_category: <Localize translate_text="How to trade" />,
-                label: 'control-loss',
+                sub_category: <Localize translate_text="Chart" />,
+                label: 'view-chart',
             },
             {
                 title: (
@@ -351,10 +345,16 @@ export const articles = [
                 label: 'status-of-trades',
             },
             {
-                title: <Localize translate_text="How do I view the chart in DBot?" />,
+                title: <Localize translate_text="How do I clear my transaction log?" />,
                 category: 'DBot',
-                sub_category: <Localize translate_text="Chart" />,
-                label: 'view-chart',
+                sub_category: <Localize translate_text="Logs" />,
+                label: 'clear-transaction-log',
+            },
+            {
+                title: <Localize translate_text="How do I control my losses with DBot?" />,
+                category: 'DBot',
+                sub_category: <Localize translate_text="How to trade" />,
+                label: 'control-loss',
             },
         ],
     },

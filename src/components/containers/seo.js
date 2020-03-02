@@ -19,9 +19,9 @@ const SEO = ({ description, meta, title }) => {
             }
         `,
     )
+
     const metaDescription = description || site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
-
     return (
         <Helmet
             htmlAttributes={{

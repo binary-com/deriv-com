@@ -5,12 +5,12 @@ import './src/components/localization/config'
 
 export const wrapPageElement = WrapPagesWithLocaleContext
 
-export function onRenderBody({ setHeadComponents }) {
-    const languageLinks = []
+// export function onRenderBody({ setHeadComponents }) {
+//     const languageLinks = []
 
-    Object.keys(language_config).map(lang => {
-        languageLinks.push(<link rel="alternate" href="https://deriv.com/about" hrefLang={lang} />)
-    })
+//     Object.keys(language_config).map(lang => {
+//         languageLinks.push(<link rel="alternate" href="https://deriv.com/about" hrefLang={lang} />)
+//     })
    
-    setHeadComponents(languageLinks)
-}
+//     setHeadComponents(languageLinks)
+// }

@@ -41,6 +41,7 @@ const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
     text-decoration: none;
     position: relative;
     font-size: var(--text-size-s);
+    opacity: ${props => (props.disabled ? '0.32' : '1')};
 
     &:hover {
         text-decoration: underline;
@@ -64,7 +65,7 @@ const Card = ({ img_name, to, display_team_name, tagline, position_count }) => (
             <Text>{tagline}</Text>
             <ViewSection>
                 <StyledDivider height="2px" />
-                <LocalizedLinkText to={to}>
+                <LocalizedLinkText to={to} disabled={position_count === 0}>
                     {localize('View openings')}
                     <StyledChevron />
                 </LocalizedLinkText>

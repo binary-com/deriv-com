@@ -2,58 +2,240 @@ import { localize } from 'components/localization'
 
 export const crypto_development_positions = [
     {
-        title: localize('Finance Manager'),
-        keywords: [localize('accounting')],
+        title: localize('Cryptocurrency/Blockchain Developer'),
+        keywords: [localize('Cryptocurrency/Blockchain Developer')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full-time'),
-        team: localize('Cryptocurrency/Blockchain Development'),
+        type: localize('Full time'),
+        team: 'crypto-development',
         description: [
             localize(
-                'Our Accounting & Payments team manages our wide range of bank accounts and e-currency systems, as well as the huge volume of transactions that take place every day.',
-            ),
-            localize(
-                'They also generate monthly management accounts, annual audited accounts, and reconcile all transactions. As our Accounts & Payments Executive, you will be able to contribute to all these key areas and increase the efficiency of our financial operations.',
+                'You will help with the operation of our existing crypto-cashier system and play a key role in our future blockchain-based projects. Your work will directly influence the core architecture that powers our high-traffic trading platform.',
             ),
         ],
-        responsibilites: [
+        responsibilities: [
             localize(
-                'Process client payments, as well as handle and resolve client payment queries',
+                '- Design and develop applications and platforms based on blockchain technology.\nImprove the security of current blockchain-based projects.',
+            ),
+            localize('- Keep abreast with new developments in the cryptocurrency world.'),
+            localize(
+                '- Devise the architecture and best practices for the adoption of blockchain technology.',
             ),
             localize(
-                'Track and manage transactions and accounts using proprietary and non-proprietary software and systems',
+                '- Build rapid prototypes and collaborate with different departments on fast-paced projects.',
+            ),
+            localize('- Identify and resolve any possible cryptocurrency-related issues.'),
+            localize(
+                '- Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
+                '- Create robust software logic that supports foolproof cryptocurrency transactions.',
             ),
             localize(
-                'Perform reconciliations of all transactions that take place through third-party payment services and banks',
+                '- Work closely with our technical and non-technical teams to develop and integrate blockchain solutions for our business.',
             ),
             localize(
-                'Assist in management accounting for all companies within the Binary Ltd. group',
-            ),
-            localize(
-                'Work closely with the affiliate marketing team to process affiliate commission payments on a monthly basis',
-            ),
-            localize(
-                'Constantly liaise with all internal departments such as Customer Support and Marketing on account and payment matters',
+                '- Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
             ),
         ],
-        preferences: [
-            localize('A lifelong interest in accounting, and an aptitude for numbers'),
+        qualifications: [
             localize(
-                'A university degree with a major in accounting, or other relevant professional qualifications',
+                '- Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
+            ),
+            localize('- Experience with Solidity and the development of Dapps'),
+            localize(
+                '- Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
-            ),
-            localize('At least one year of work experience in a similar role'),
-            localize(
-                'Proficiency with popular office applications such as Microsoft Excel, accounting software, and databases',
+                '- Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
             ),
             localize(
-                'In-depth knowledge of accounting principles, best practices, standards, and regulations',
+                '- Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
             ),
-            localize('Ability to quickly learn new (proprietary) systems and procedures'),
+            localize('- Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
+            localize('- Knowledge of hashing algorithms, including SHA and scrypt'),
+            localize('- Experience with Bitcoin or Geth RPC APIs'),
+            localize(
+                '- Ability to produce high-quality, self-documenting code by using test-driven development (TDD) techniques',
+            ),
+            localize('- Passion for Linux and other open-source platforms\n'),
+        ],
+    },
+    {
+        title: localize('Cryptocurrency/Blockchain Developer'),
+        keywords: [localize('Cryptocurrency/Blockchain Developer')],
+        location: localize('Dubai'),
+        type: localize('Full time'),
+        team: 'crypto-development',
+        description: [
+            localize(
+                'You will help with the operation of our existing crypto-cashier system and play a key role in our future blockchain-based projects. Your work will directly influence the core architecture that powers our high-traffic trading platform.\n',
+            ),
+        ],
+        responsibilities: [
+            localize(
+                '- Design and develop applications and platforms based on blockchain technology.',
+            ),
+            localize('- Improve the security of current blockchain-based projects.'),
+            localize('- Keep abreast with new developments in the cryptocurrency world.'),
+            localize(
+                '- Devise the architecture and best practices for the adoption of blockchain technology.',
+            ),
+            localize(
+                '- Build rapid prototypes and collaborate with different departments on fast-paced projects.',
+            ),
+            localize('- Identify and resolve any possible cryptocurrency-related issues.'),
+            localize(
+                '- Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
+            ),
+            localize(
+                '- Create robust software logic that supports foolproof cryptocurrency transactions.',
+            ),
+            localize(
+                '- Work closely with our technical and non-technical teams to develop and integrate\nblockchain solutions for our business.',
+            ),
+            localize(
+                '- Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
+            ),
+        ],
+        qualifications: [
+            localize(
+                '- Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
+            ),
+            localize('- Experience with Solidity and the development of Dapps'),
+            localize(
+                '- Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
+            ),
+            localize(
+                '- Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
+            ),
+            localize(
+                '- Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
+            ),
+            localize('- Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
+            localize('- Knowledge of hashing algorithms, including SHA and scrypt'),
+            localize('- Experience with Bitcoin or Geth RPC APIs'),
+            localize(
+                '- Ability to produce high-quality, self-documenting code by using test-driven development\n(TDD) techniques',
+            ),
+            localize('- Passion for Linux and other open-source platforms'),
+        ],
+    },
+    {
+        title: localize('Cryptocurrency/Blockchain Developer'),
+        keywords: [localize('Cryptocurrency/Blockchain Developer')],
+        location: localize('Paraguay'),
+        type: localize('Full time'),
+        team: 'crypto-development',
+        description: [
+            localize(
+                'You will help with the operation of our existing crypto-cashier system and play a key role in our future blockchain-based projects. Your work will directly influence the core architecture that powers our high-traffic trading platform.',
+            ),
+        ],
+        responsibilities: [
+            localize(
+                '- Design and develop applications and platforms based on blockchain technology.\nImprove the security of current blockchain-based projects.',
+            ),
+            localize('- Keep abreast with new developments in the cryptocurrency world.'),
+            localize(
+                '- Devise the architecture and best practices for the adoption of blockchain technology.',
+            ),
+            localize(
+                '- Build rapid prototypes and collaborate with different departments on fast-paced projects.',
+            ),
+            localize('- Identify and resolve any possible cryptocurrency-related issues.'),
+            localize(
+                '- Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
+            ),
+            localize(
+                '- Create robust software logic that supports foolproof cryptocurrency transactions.',
+            ),
+            localize(
+                '- Work closely with our technical and non-technical teams to develop and integrate blockchain solutions for our business.',
+            ),
+            localize(
+                '- Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
+            ),
+        ],
+        qualifications: [
+            localize(
+                '- Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
+            ),
+            localize('- Experience with Solidity and the development of Dapps'),
+            localize(
+                '- Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
+            ),
+            localize(
+                '- Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
+            ),
+            localize(
+                '- Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
+            ),
+            localize('- Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
+            localize('- Knowledge of hashing algorithms, including SHA and scrypt'),
+            localize('- Experience with Bitcoin or Geth RPC APIs'),
+            localize(
+                '- Ability to produce high-quality, self-documenting code by using test-driven development (TDD) techniques',
+            ),
+            localize('- Passion for Linux and other open-source platforms\n'),
+        ],
+    },
+    {
+        title: localize('Cryptocurrency/Blockchain Developer'),
+        keywords: [localize('Cryptocurrency/Blockchain Developer')],
+        location: localize('Malta'),
+        type: localize('Full time'),
+        team: 'crypto-development',
+        description: [
+            localize(
+                'You will help with the operation of our existing crypto-cashier system and play a key role in our future blockchain-based projects. Your work will directly influence the core architecture that powers our high-traffic trading platform.',
+            ),
+        ],
+        responsibilities: [
+            localize(
+                '- Design and develop applications and platforms based on blockchain technology.\nImprove the security of current blockchain-based projects.',
+            ),
+            localize('- Keep abreast with new developments in the cryptocurrency world.'),
+            localize(
+                '- Devise the architecture and best practices for the adoption of blockchain technology.',
+            ),
+            localize(
+                '- Build rapid prototypes and collaborate with different departments on fast-paced projects.',
+            ),
+            localize('- Identify and resolve any possible cryptocurrency-related issues.'),
+            localize(
+                '- Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
+            ),
+            localize(
+                '- Create robust software logic that supports foolproof cryptocurrency transactions.',
+            ),
+            localize(
+                '- Work closely with our technical and non-technical teams to develop and integrate blockchain solutions for our business.',
+            ),
+            localize(
+                '- Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
+            ),
+        ],
+        qualifications: [
+            localize(
+                '- Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
+            ),
+            localize('- Experience with Solidity and the development of Dapps'),
+            localize(
+                '- Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
+            ),
+            localize(
+                '- Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
+            ),
+            localize(
+                '- Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
+            ),
+            localize('- Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
+            localize('- Knowledge of hashing algorithms, including SHA and scrypt'),
+            localize('- Experience with Bitcoin or Geth RPC APIs'),
+            localize(
+                '- Ability to produce high-quality, self-documenting code by using test-driven development (TDD) techniques',
+            ),
+            localize('- Passion for Linux and other open-source platforms\n'),
         ],
     },
 ]

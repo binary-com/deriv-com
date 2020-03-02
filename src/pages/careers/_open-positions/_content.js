@@ -2,58 +2,95 @@ import { localize } from 'components/localization'
 
 export const content_positions = [
     {
-        title: localize('Finance Manager'),
-        keywords: [localize('accounting')],
+        title: localize('Senior Copywriter'),
+        keywords: [localize('Senior Copywriter')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full-time'),
-        team: localize('Content'),
+        type: localize('Full time'),
+        team: 'content',
         description: [
             localize(
-                'Our Accounting & Payments team manages our wide range of bank accounts and e-currency systems, as well as the huge volume of transactions that take place every day.',
-            ),
-            localize(
-                'They also generate monthly management accounts, annual audited accounts, and reconcile all transactions. As our Accounts & Payments Executive, you will be able to contribute to all these key areas and increase the efficiency of our financial operations.',
+                'You will write high-performing copy for websites, apps, emails, social media, and other mediums that we use to engage with our audience. With a proven track record in digital copywriting and content strategy, you will help us to shape product experiences, refine our brand voice, drive discussions on quality control, and fine-tune our global marketing communication strategy.',
             ),
         ],
-        responsibilites: [
+        responsibilities: [
             localize(
-                'Process client payments, as well as handle and resolve client payment queries',
+                '- Collaborate with designers, developers, analysts, and other stakeholders who are based around the world to define content requirements and strategy to achieve our desired business goals.',
             ),
             localize(
-                'Track and manage transactions and accounts using proprietary and non-proprietary software and systems',
+                '- Write engaging marketing and sales copy to persuade our clients and prospects to take action.',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
+                '- Plan, write, and test UI copy and other text elements in our websites and apps.',
             ),
             localize(
-                'Perform reconciliations of all transactions that take place through third-party payment services and banks',
+                '- Contextualise copy for its intended audience using our style guide, tone of voice, and internal processes as reference.',
+            ),
+            localize('- Edit and proofread copy as needed.'),
+        ],
+        qualifications: [
+            localize(
+                '- Excellent writing and editing skills with at least seven years of copywriting experience in digital advertising or online media',
+            ),
+            localize('- Expert command of writing for the web'),
+            localize(
+                '- Excellent English language skills with a keen eye for detail when it comes to punctuation, spelling, grammar, and syntax',
             ),
             localize(
-                'Assist in management accounting for all companies within the Binary Ltd. group',
-            ),
-            localize(
-                'Work closely with the affiliate marketing team to process affiliate commission payments on a monthly basis',
-            ),
-            localize(
-                'Constantly liaise with all internal departments such as Customer Support and Marketing on account and payment matters',
+                '- Proven ability to translate complex, technical information into clear, attractive benefits',
             ),
         ],
         preferences: [
-            localize('A lifelong interest in accounting, and an aptitude for numbers'),
             localize(
-                'A university degree with a major in accounting, or other relevant professional qualifications',
+                '- Degree or practical experience in English, journalism, technical writing, or a related field',
+            ),
+            localize('- Experience with content strategy, UX, information architecture, and SEO'),
+            localize('- Experience with financial products and service'),
+        ],
+    },
+    {
+        title: localize('Senior Copywriter'),
+        keywords: [localize('Senior Copywriter')],
+        location: localize('Dubai'),
+        type: localize('Full time'),
+        team: 'content',
+        description: [
+            localize(
+                'You will write high-performing copy for websites, apps, emails, social media, and other mediums that we use to engage with our audience. With a proven track record in digital copywriting and content strategy, you will help us to shape product experiences, refine our brand voice, drive discussions on quality control, and fine-tune our global marketing communication strategy.\n',
+            ),
+        ],
+        responsibilities: [
+            localize(
+                '- Collaborate with designers, developers, analysts, and other stakeholders who are based around the world to define content requirements and strategy to achieve our desired business goals.',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
-            ),
-            localize('At least one year of work experience in a similar role'),
-            localize(
-                'Proficiency with popular office applications such as Microsoft Excel, accounting software, and databases',
+                '- Write engaging marketing and sales copy to persuade our clients and prospects to take action.',
             ),
             localize(
-                'In-depth knowledge of accounting principles, best practices, standards, and regulations',
+                '- Plan, write, and test UI copy and other text elements in our websites and apps.',
             ),
-            localize('Ability to quickly learn new (proprietary) systems and procedures'),
+            localize(
+                '- Contextualise copy for its intended audience using our style guide, tone of voice, and internal processes as reference.',
+            ),
+            localize('- Edit and proofread copy as needed.'),
+        ],
+        qualifications: [
+            localize(
+                '- Excellent writing and editing skills with at least seven years of copywriting experience in digital advertising or online media',
+            ),
+            localize('- Expert command of writing for the web'),
+            localize(
+                '- Excellent English language skills with a keen eye for detail when it comes to punctuation, spelling, grammar, and syntax',
+            ),
+            localize(
+                '- Proven ability to translate complex, technical information into clear, attractive benefits\n',
+            ),
+        ],
+        preferences: [
+            localize(
+                '- Degree or practical experience in English, journalism, technical writing, or a related field',
+            ),
+            localize('- Experience with content strategy, UX, information architecture, and SEO'),
+            localize('- Experience with financial products and services'),
         ],
     },
 ]

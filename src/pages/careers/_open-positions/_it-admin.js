@@ -2,58 +2,103 @@ import { localize } from 'components/localization'
 
 export const it_admin_positions = [
     {
-        title: localize('Finance Manager'),
-        keywords: [localize('accounting')],
+        title: localize('System Administrator'),
+        keywords: [localize('System Administrator')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full-time'),
-        team: localize('IT Administration'),
+        type: localize('Full time'),
+        team: 'it-admin',
         description: [
             localize(
-                'Our Accounting & Payments team manages our wide range of bank accounts and e-currency systems, as well as the huge volume of transactions that take place every day.',
-            ),
-            localize(
-                'They also generate monthly management accounts, annual audited accounts, and reconcile all transactions. As our Accounts & Payments Executive, you will be able to contribute to all these key areas and increase the efficiency of our financial operations.',
+                'You will make sure that our IT infrastructure is working smoothly and securely. You will enjoy the challenges that this job offers as opportunities to use your talent and enhance your experience. With your technical expertise, you will build and operate a reliable and low-latency digital foundation that will help us deliver the excellent service our customers deserve. ',
             ),
         ],
-        responsibilites: [
+        responsibilities: [
             localize(
-                'Process client payments, as well as handle and resolve client payment queries',
+                '- Configure, monitor, and maintain our IT infrastructure to make sure it is running smoothly.',
+            ),
+            localize('- Install new software and upgrade computer systems across the company.'),
+            localize('- Test our IT systems regularly to prevent downtime and other threats.'),
+            localize('- Perform company-wide software and hardware troubleshooting.'),
+            localize('- Make sure that the data is backed up regularly and efficiently.'),
+            localize(
+                '- Implement firewalls and educate employees on how to increase their digital security.',
+            ),
+            localize('- Choose secure, scalable systems from what vendors offer.'),
+            localize('- Talk to users and vendors to find the best solution for a system problem.'),
+            localize('- Predict future capacity requirements by analysing user needs.'),
+            localize(
+                '- Be the point-of-contact for the employees with problems related to the network or the system',
+            ),
+        ],
+        qualifications: [
+            localize(
+                '- A diploma or degree in computer science or information technology or relevant experience in the field of IT operations/administration',
             ),
             localize(
-                'Track and manage transactions and accounts using proprietary and non-proprietary software and systems',
+                '- Experience in troubleshooting computer software, hardware, and internet applications and networks',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
+                '- Experience in firewall appliances such as Fortigate or similar devices (e.g. Cisco, Pfsense)',
             ),
+            localize('- Knowledge of Mac or Linux technologies and associated security features'),
             localize(
-                'Perform reconciliations of all transactions that take place through third-party payment services and banks',
-            ),
-            localize(
-                'Assist in management accounting for all companies within the Binary Ltd. group',
-            ),
-            localize(
-                'Work closely with the affiliate marketing team to process affiliate commission payments on a monthly basis',
-            ),
-            localize(
-                'Constantly liaise with all internal departments such as Customer Support and Marketing on account and payment matters',
+                '- Firm grasp of VPN concepts and experience in setting up site-to-site networks \n',
             ),
         ],
         preferences: [
-            localize('A lifelong interest in accounting, and an aptitude for numbers'),
             localize(
-                'A university degree with a major in accounting, or other relevant professional qualifications',
+                '- Experience in one or more of the following:\n      - +DRAC\n      - ARUBA or similar enterprise WiFi AP management\n      - End-user device security audit and policy implementation\n',
+            ),
+        ],
+    },
+    {
+        title: localize('System Administrator'),
+        keywords: [localize('System Administrator')],
+        location: localize('Malta'),
+        type: localize('Full time'),
+        team: 'it-admin',
+        description: [
+            localize(
+                'You will make sure that our IT infrastructure is working smoothly and securely. You will enjoy the challenges that this job offers as opportunities to use your talent and enhance your experience. With your technical expertise, you will build and operate a reliable and low-latency digital foundation that will help us deliver the excellent service our customers deserve. \n',
+            ),
+        ],
+        responsibilities: [
+            localize(
+                '- Configure, monitor, and maintain our IT infrastructure to make sure it is running smoothly.',
+            ),
+            localize('- Install new software and upgrade computer systems across the company.'),
+            localize('- Test our IT systems regularly to prevent downtime and other threats.'),
+            localize('- Perform company-wide software and hardware troubleshooting.'),
+            localize('- Make sure that the data is backed up regularly and efficiently.'),
+            localize(
+                '- Implement firewalls and educate employees on how to increase their digital security.',
+            ),
+            localize('- Choose secure, scalable systems from what vendors offer.'),
+            localize('- Talk to users and vendors to find the best solution for a system problem.'),
+            localize('- Predict future capacity requirements by analysing user needs.'),
+            localize(
+                '- Be the point-of-contact for the employees with problems related to the network or the system.\n',
+            ),
+        ],
+        qualifications: [
+            localize(
+                '- A diploma or degree in computer science or information technology or relevant experience in the field of IT operations/administration',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
-            ),
-            localize('At least one year of work experience in a similar role'),
-            localize(
-                'Proficiency with popular office applications such as Microsoft Excel, accounting software, and databases',
+                '- Experience in troubleshooting computer software, hardware, and internet applications and networks',
             ),
             localize(
-                'In-depth knowledge of accounting principles, best practices, standards, and regulations',
+                '- Experience in firewall appliances such as Fortigate or similar devices (e.g. Cisco, Pfsense)',
             ),
-            localize('Ability to quickly learn new (proprietary) systems and procedures'),
+            localize('- Knowledge of Mac or Linux technologies and associated security features'),
+            localize(
+                '- Firm grasp of VPN concepts and experience in setting up site-to-site networks  \n',
+            ),
+        ],
+        preferences: [
+            localize(
+                '- Experience in one or more of the following\n       - +DRAC\n       - ARUBA or similar enterprise WiFi AP management\n       - End-user device security audit and policy implementation\n',
+            ),
         ],
     },
 ]

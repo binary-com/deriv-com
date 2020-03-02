@@ -2,58 +2,47 @@ import { localize } from 'components/localization'
 
 export const internal_audit_positions = [
     {
-        title: localize('Finance Manager'),
-        keywords: [localize('accounting')],
+        title: localize('Internal Audit Executive'),
+        keywords: [localize('Internal Audit Executive')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full-time'),
-        team: localize('Internal Audit'),
+        type: localize('Full time'),
+        team: 'internal-audit',
         description: [
             localize(
-                'Our Accounting & Payments team manages our wide range of bank accounts and e-currency systems, as well as the huge volume of transactions that take place every day.',
-            ),
-            localize(
-                'They also generate monthly management accounts, annual audited accounts, and reconcile all transactions. As our Accounts & Payments Executive, you will be able to contribute to all these key areas and increase the efficiency of our financial operations.',
+                'You will provide an objective and independent evaluation of our company’s operations. You will use a methodical approach to make sure that our risk management, governance, and internal control processes are operating effectively. Delivering first-rate internal auditing, you will handle issues that are fundamentally important in the future of our company. \n',
             ),
         ],
-        responsibilites: [
+        responsibilities: [
             localize(
-                'Process client payments, as well as handle and resolve client payment queries',
+                '- Evaluate and improve the effectiveness of internal controls, risk management, regulatory compliance, financial and operational processes. ',
             ),
             localize(
-                'Track and manage transactions and accounts using proprietary and non-proprietary software and systems',
+                '- Assist in preparing audit plans and programmes which includes operational activities, objectives, scope, and methodology. ',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
+                '- Perform audit assignments and identify control gaps, risks and opportunities for improvement. ',
             ),
             localize(
-                'Perform reconciliations of all transactions that take place through third-party payment services and banks',
+                '- Summarise audit findings and work with department heads to create effective and efficient solutions. ',
             ),
             localize(
-                'Assist in management accounting for all companies within the Binary Ltd. group',
+                '- Prepare reports expressing audit opinions on the adequacy and effectiveness of the internal controls and operational efficiency. ',
             ),
             localize(
-                'Work closely with the affiliate marketing team to process affiliate commission payments on a monthly basis',
+                '- Follow up on the recommendations and timelines for corrective actions with department heads. ',
             ),
             localize(
-                'Constantly liaise with all internal departments such as Customer Support and Marketing on account and payment matters',
+                '- Assist and/or advise management during the internal controls implementation phase. \n',
             ),
         ],
-        preferences: [
-            localize('A lifelong interest in accounting, and an aptitude for numbers'),
-            localize(
-                'A university degree with a major in accounting, or other relevant professional qualifications',
-            ),
-            localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
-            ),
-            localize('At least one year of work experience in a similar role'),
-            localize(
-                'Proficiency with popular office applications such as Microsoft Excel, accounting software, and databases',
-            ),
-            localize(
-                'In-depth knowledge of accounting principles, best practices, standards, and regulations',
-            ),
-            localize('Ability to quickly learn new (proprietary) systems and procedures'),
+        qualifications: [
+            localize('- A university degree in Accounting/Finance or its equivalent'),
+            localize('- Exceptional English communication skills (both oral and written)'),
+            localize('- Advanced knowledge of Microsoft Office'),
+            localize('- A strong understanding of internal controls and business processes'),
+            localize('- Exceptional ability to work and excel in a team-oriented environment'),
+            localize('- Ability to work independently and multitask'),
+            localize('- A meticulous, organised, results-driven, and proactive personality\n'),
         ],
     },
 ]

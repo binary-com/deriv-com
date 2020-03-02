@@ -2,58 +2,95 @@ import { localize } from 'components/localization'
 
 export const project_management_positions = [
     {
-        title: localize('Finance Manager'),
-        keywords: [localize('accounting')],
+        title: localize('Senior Project Manager'),
+        keywords: [localize('Senior Project Manager')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full-time'),
-        team: localize('Project Management'),
+        type: localize('Full time'),
+        team: 'project-management',
         description: [
             localize(
-                'Our Accounting & Payments team manages our wide range of bank accounts and e-currency systems, as well as the huge volume of transactions that take place every day.',
-            ),
-            localize(
-                'They also generate monthly management accounts, annual audited accounts, and reconcile all transactions. As our Accounts & Payments Executive, you will be able to contribute to all these key areas and increase the efficiency of our financial operations.',
+                'You will plan and initiate projects, direct project execution, and ensure that the final result meets client expectations and our standards. You will devise strategies for the efficient collaboration of different departments to achieve excellent results.\n',
             ),
         ],
-        responsibilites: [
+        responsibilities: [
             localize(
-                'Process client payments, as well as handle and resolve client payment queries',
+                '- Conduct the day-to-day management of our projects to deliver project goals on schedule, within budget, and of the highest quality.',
             ),
             localize(
-                'Track and manage transactions and accounts using proprietary and non-proprietary software and systems',
+                '- Establish the efficient assignment of resources, the clear definition of responsibilities, and maintain communication across collaborating teams.',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
+                '- Manage conflict and resolve disputes with tact, and keep teams motivated. ',
+            ),
+            localize('- Ensure rigorous quality control for all products.'),
+            localize('- Identify potential roadblocks and create resolution strategies.'),
+            localize(
+                '- Collaborate with all the departments and management to make sure that projects are progressing in sync with our short- and long-term goals. \n',
+            ),
+        ],
+        qualifications: [
+            localize('- University degree in an IT- or business-related field'),
+            localize('- More than 5 years of work experience'),
+            localize('- Decision-making, team-building, and problem-solving skills'),
+            localize(
+                '- Strong tendency to take initiative, welcome responsibility, and cherish learning opportunities',
             ),
             localize(
-                'Perform reconciliations of all transactions that take place through third-party payment services and banks',
-            ),
-            localize(
-                'Assist in management accounting for all companies within the Binary Ltd. group',
-            ),
-            localize(
-                'Work closely with the affiliate marketing team to process affiliate commission payments on a monthly basis',
-            ),
-            localize(
-                'Constantly liaise with all internal departments such as Customer Support and Marketing on account and payment matters',
+                '- Experience in conducting end-to-end UX research, including usability testing and A/B testing',
             ),
         ],
         preferences: [
-            localize('A lifelong interest in accounting, and an aptitude for numbers'),
+            localize('- Product design experience with a focus on financial software '),
+            localize('- Related certificates such as PMI and PRINCE2'),
             localize(
-                'A university degree with a major in accounting, or other relevant professional qualifications',
+                '- Stellar record of managing projects from start to finish, on time, and within budget\n',
+            ),
+        ],
+    },
+    {
+        title: localize('Senior Project Manager'),
+        keywords: [localize('Senior Project Manager')],
+        location: localize('Dubai'),
+        type: localize('Full time'),
+        team: 'project-management',
+        description: [
+            localize(
+                'You will plan and initiate projects, direct project execution, and ensure that the final result meets client expectations and our standards. You will devise strategies for the efficient collaboration of different departments to achieve excellent results.',
+            ),
+        ],
+        responsibilities: [
+            localize(
+                '- Conduct the day-to-day management of our projects to deliver project goals on schedule, within budget, and of the highest quality.',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
-            ),
-            localize('At least one year of work experience in a similar role'),
-            localize(
-                'Proficiency with popular office applications such as Microsoft Excel, accounting software, and databases',
+                '- Establish the efficient assignment of resources, the clear definition of responsibilities, and maintain communication across collaborating teams.',
             ),
             localize(
-                'In-depth knowledge of accounting principles, best practices, standards, and regulations',
+                '- Manage conflict and resolve disputes with tact, and keep teams motivated. ',
             ),
-            localize('Ability to quickly learn new (proprietary) systems and procedures'),
+            localize('- Ensure rigorous quality control for all products.'),
+            localize('- Identify potential roadblocks and create resolution strategies.'),
+            localize(
+                '- Collaborate with all the departments and management to make sure that projects are progressing in sync with our short- and long-term goals. ',
+            ),
+        ],
+        qualifications: [
+            localize('- University degree in an IT- or business-related field'),
+            localize('- More than 5 years of work experience'),
+            localize('- Decision-making, team-building, and problem-solving skills'),
+            localize(
+                '- Strong tendency to take initiative, welcome responsibility, and cherish learning opportunities',
+            ),
+            localize(
+                '- Experience in conducting end-to-end UX research, including usability testing and A/B testing',
+            ),
+        ],
+        preferences: [
+            localize('- Product design experience with a focus on financial software '),
+            localize('- Related certificates such as PMI and PRINCE2'),
+            localize(
+                '- Stellar record of managing projects from start to finish, on time, and within budget',
+            ),
         ],
     },
 ]

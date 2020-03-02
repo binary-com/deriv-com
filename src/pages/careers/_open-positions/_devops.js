@@ -2,58 +2,112 @@ import { localize } from 'components/localization'
 
 export const devops_positions = [
     {
-        title: localize('Finance Manager'),
-        keywords: [localize('accounting')],
+        title: localize('DevOps Engineer'),
+        keywords: [localize('DevOps Engineer')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full-time'),
-        team: localize('Devops'),
+        type: localize('Full time'),
+        team: 'devops',
         description: [
             localize(
-                'Our Accounting & Payments team manages our wide range of bank accounts and e-currency systems, as well as the huge volume of transactions that take place every day.',
-            ),
-            localize(
-                'They also generate monthly management accounts, annual audited accounts, and reconcile all transactions. As our Accounts & Payments Executive, you will be able to contribute to all these key areas and increase the efficiency of our financial operations.',
+                'You will be deeply involved in every stage of the software lifecycle. You will work closely with developers and testers to facilitate the smooth execution of the continuous integration (CI) process. You must be passionate about connecting software development to day-to-day operations and improving the quality of our products and services.\n',
             ),
         ],
-        responsibilites: [
+        responsibilities: [
             localize(
-                'Process client payments, as well as handle and resolve client payment queries',
+                '- Maintain and extend our service monitoring. We use tools such as Datadog to detect and react to issues. We’ll need you to be proactive and find issues before they happen.',
             ),
             localize(
-                'Track and manage transactions and accounts using proprietary and non-proprietary software and systems',
+                '- Keep things running. Systems do break from time to time. When they break, your job will be to make it work again. Once it works, walk the developers through the failure so they can prevent it from breaking again.',
             ),
             localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
+                '- Keep our systems secure. We have a dedicated security team, but you’ll also need to be ready to fight off intrusions. ',
+            ),
+            localize('- Defeat any attempts at breaking into our systems.'),
+            localize(
+                '- Help us improve continuously. If you have suggestions for making things better, we’d love to hear about it',
+            ),
+        ],
+        qualifications: [
+            localize(
+                '- Expertise in cloud solutions and virtualization infrastructure, including AWS, Google Cloud Platform, and KVM',
             ),
             localize(
-                'Perform reconciliations of all transactions that take place through third-party payment services and banks',
+                '- Familiarity with Linux and open-source applications such as rsyslog, DHCP, iptables, Postfix, NGINX, and initialization systems such as systemd and SysVinit',
+            ),
+            localize('- Extensive experience in TCP/IP networking, firewalls, and VPNs'),
+            localize(
+                '- Knowledge of hardware and software firewalls, intrusion detection methods, security systems, and DDoS protection',
+            ),
+            localize('- Thorough knowledge of bash scripting'),
+            localize(
+                '- Knowledge of Chef, Ansible, SaltStack, or similar configuration management tools',
+            ),
+            localize('- Experience in Site reliability engineering (SRE)'),
+            localize(
+                '- Experience in Managing round-the-clock operations for incident resolution, including alerts, rotations, and escalations',
             ),
             localize(
-                'Assist in management accounting for all companies within the Binary Ltd. group',
+                '- Experience in Designing and working with high-availability web service architecture',
+            ),
+            localize('- Experience in Application containerization (preferably Docker)'),
+            localize('- Experience in Database administration (preferably PostgresSQL)'),
+        ],
+        preferences: [
+            localize('- Extensive knowledge of information security and data protection'),
+            localize('- Experience with Terraform and Kubernetes'),
+            localize('- Familiarity with Perl, Python, and other scripting languages'),
+            localize('- Knowledge of industry-accepted IS standards'),
+            localize(
+                '- Experience in: \n    - Hardening Linux systems\n    - CI tools such as Travis-CI, CircleCI, Jenkins etc.\n    - Documentation of processes and incidents\n    - Version Control software (Git)\n    - Windows Server Administration (IIS, MS-SQL\n',
+            ),
+        ],
+    },
+    {
+        title: localize('DevOps Engineer'),
+        keywords: [localize('DevOps Engineer')],
+        location: localize('Dubai'),
+        type: localize('Full time'),
+        team: 'devops',
+        description: [
+            localize(
+                'You will be deeply involved in every stage of the software lifecycle. You will work closely with developers and testers to facilitate the smooth execution of the continuous integration (CI) process. You must be passionate about connecting software development to day-to-day operations and improving the quality of our products and services.\n',
+            ),
+        ],
+        responsibilities: [
+            "- Maintain and extend our service monitoring. We use tools such as Datadog to detect and react to issues. We'll need you to be proactive and find issues before they happen. translate",
+            localize(
+                '- Keep things running. Systems do break from time to time. When they break, your job will be to make it work again. Once it works, walk the developers through the failure so they can prevent it from breaking again.',
+            ),
+            "- Keep our systems secure. We have a dedicated security team, but you'll also need to be ready to fight off intrusions. Defeat any attempts at breaking into our systems. translate",
+            "- Help us improve continuously. If you have suggestions for making things better, we'd love to hear about it. translate",
+        ],
+        qualifications: [
+            localize(
+                '- Expertise in cloud solutions and virtualization infrastructure, including AWS, Google Cloud Platform, and KVM',
             ),
             localize(
-                'Work closely with the affiliate marketing team to process affiliate commission payments on a monthly basis',
+                '- Familiarity with Linux and open-source applications such as rsyslog, DHCP, iptables, Postfix, NGINX, and initialization systems such as systemd and SysVinit',
+            ),
+            localize('- Extensive experience in TCP/IP networking, firewalls, and VPNs'),
+            localize(
+                '- Knowledge of hardware and software firewalls, intrusion detection methods, security systems, and DDoS protection',
+            ),
+            localize('- Thorough knowledge of bash scripting'),
+            localize(
+                '- Knowledge of Chef, Ansible, SaltStack, or similar configuration management tools',
             ),
             localize(
-                'Constantly liaise with all internal departments such as Customer Support and Marketing on account and payment matters',
+                '- Experience in:\n     - Site reliability engineering (SRE)\n     - Managing round-the-clock operations for incident resolution, including alerts,  rotations, and escalations\n     - Designing and working with high-availability web service architecture\n     - Application containerization (preferably Docker)\n     - Database administration (preferably PostgreSQL)',
             ),
         ],
         preferences: [
-            localize('A lifelong interest in accounting, and an aptitude for numbers'),
+            localize('- Extensive knowledge of information security and data protection'),
+            localize('- Experience with Terraform and Kubernetes'),
+            localize('- Familiarity with Perl, Python, and other scripting languages'),
+            localize('- Knowledge of industry-accepted IS standards'),
             localize(
-                'A university degree with a major in accounting, or other relevant professional qualifications',
+                '- Experience in: \n       - Hardening Linux systems\n       - CI tools such as Travis-CI, CircleCI, Jenkins etc.\n       - Documentation of processes and incidents\n       - Version Control software (Git)\n       - Windows Server Administration (IIS, MS-SQL)\n',
             ),
-            localize(
-                'Process transactions for clients who make deposits and withdrawals using a wide range of third-party payment services, including bank wire, credit card, and e-currency',
-            ),
-            localize('At least one year of work experience in a similar role'),
-            localize(
-                'Proficiency with popular office applications such as Microsoft Excel, accounting software, and databases',
-            ),
-            localize(
-                'In-depth knowledge of accounting principles, best practices, standards, and regulations',
-            ),
-            localize('Ability to quickly learn new (proprietary) systems and procedures'),
         ],
     },
 ]

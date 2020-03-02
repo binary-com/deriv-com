@@ -17,7 +17,7 @@ const Teams = () => {
 
     React.useEffect(() => {
         setTeams(getAlphabeticTeams())
-    })
+    }, [])
     return (
         <Layout type="careers" padding_top="10rem">
             <SEO title={localize('Teams')} />

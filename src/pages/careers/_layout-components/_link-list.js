@@ -60,22 +60,23 @@ const MiddleText = styled(Text)`
 export const LinkList = ({ list_items }) => (
     <Container>
         <List>
-            {list_items.map((item, idx) => (
-                <ListItem key={idx}>
-                    <LocalizedLink to={item.to}>
-                        <Flex ai="center" jc="unset">
-                            <StyledText secondary="true" weight="bold">
-                                {item.text}
-                            </StyledText>
-                            <MiddleText>{item.middle_text}</MiddleText>
-                            <Flex ai="center" width="unset">
-                                {item.number && <Circle>{item.number}</Circle>}
-                                <ChevronRight />
+            {list_items &&
+                list_items.map((item, idx) => (
+                    <ListItem key={idx}>
+                        <LocalizedLink to={item.to}>
+                            <Flex ai="center" jc="unset">
+                                <StyledText secondary="true" weight="bold">
+                                    {item.text}
+                                </StyledText>
+                                <MiddleText>{item.middle_text}</MiddleText>
+                                <Flex ai="center" width="unset">
+                                    {item.number && <Circle>{item.number}</Circle>}
+                                    <ChevronRight />
+                                </Flex>
                             </Flex>
-                        </Flex>
-                    </LocalizedLink>
-                </ListItem>
-            ))}
+                        </LocalizedLink>
+                    </ListItem>
+                ))}
         </List>
     </Container>
 )

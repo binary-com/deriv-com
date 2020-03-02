@@ -330,4 +330,4 @@ export const getTop4Teams = () =>
     all_teams.sort((a, b) => a.positions.length - b.positions.length).slice(0, 4)
 
 export const getTeamByName = team_name =>
-    all_teams.find(team => team.name.toLowerCase() === team_name.toLowerCase())
+    all_teams.find(team => team.name.toLowerCase() === team_name && team_name.toLowerCase())

@@ -55,8 +55,13 @@ const TeamWrapper = styled.section`
     }
 `
 const Team = () => {
-    const team_name = getLocationHash()
-    const team = getTeamByName(team_name)
+    const [team_name, setTeamName] = React.useState('')
+    const [team, setTeam] = React.useState([])
+    React.useEffect(() => {
+        const team_name = getLocationHash()
+        setTeam(getTeamByName(team_name))
+        setTeamName(team_name)
+    }, [])
 
     return (
         <Layout type="careers" padding_top="10rem">
@@ -71,13 +76,16 @@ const Team = () => {
                     {localize('Open positions')}
                 </Header>
                 <LinkList
-                    list_items={team.positions.map(position => ({
-                        text: position.title,
-                        to: `jobs/job#${toHashFormat(position.title)}`,
-                        middle_text: position.location,
-                    }))}
+                    list_items={
+                        team.positions &&
+                        team.positions.map(position => ({
+                            text: position.title,
+                            to: `jobs/job#${toHashFormat(position.title)}`,
+                            middle_text: position.location,
+                        }))
+                    }
                 />
-                {!team.positions.length && (
+                {team.positions && !team.positions.length && (
                     <NoOpenPositionsHeader>
                         {localize(
                             `Sorry, there are currently no open positions for ${team.display_name}`,

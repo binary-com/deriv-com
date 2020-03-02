@@ -6,13 +6,21 @@ import { LocalizedLink } from 'components/localization'
 // SVG
 import Chevron from 'images/svg/chevron-bottom.svg'
 
-export const StyledCard = styled.article`
+export const StyledCard = styled(LocalizedLink)`
+    text-decoration: none;
     position: relative;
     height: ${props => (props.height ? props.height : 'auto')};
     width: 100%;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 4px;
     background: var(--color-white);
+    transition: transform 0.3s;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-1.1rem) scale(1.02);
+    }
 `
 
 const ImageWrapper = styled.div`
@@ -41,15 +49,15 @@ const StyledChevron = styled(Chevron)`
     transform: rotate(-90deg);
 `
 
-const TeamCard = ({ img_name, team_name, display_team_name, tagline }) => (
-    <StyledCard height="38.8rem">
+const TeamCard = ({ to, img_name, display_team_name, tagline }) => (
+    <StyledCard height="38.8rem" to={to}>
         <ImageWrapper>
             <Image img_name={img_name} width="100%" alt={img_name} />
         </ImageWrapper>
         <StyledContent>
             <StyledHeader as="h5">{display_team_name}</StyledHeader>
             <Text>{tagline}</Text>
-            <StyledLink to={`/teams/${team_name}`}>
+            <StyledLink to={to}>
                 <StyledChevron />
             </StyledLink>
         </StyledContent>
@@ -61,6 +69,7 @@ TeamCard.propTypes = {
     img_name: PropTypes.string,
     tagline: PropTypes.string,
     team_name: PropTypes.string,
+    to: PropTypes.string,
 }
 
 export default TeamCard

@@ -34,7 +34,7 @@ const FindPlace = () => {
                         <TeamCard
                             key={idx}
                             img_name={team.thumbnail}
-                            team_name={team.name}
+                            to={`teams/${team.name}/`}
                             display_team_name={team.display_name}
                             tagline={team.card_description}
                         />

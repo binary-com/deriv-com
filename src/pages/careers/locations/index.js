@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { StyledCard } from '../_layout-components/_team-card'
 import { cyberjaya, malta, dubai, labuan, asuncion } from './_locations'
 import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl, LocalizedLink } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { Header, Text, Image } from 'components/elements'
 import MalaysiaFlagIcon from 'images/svg/flag_malaysia.svg'
 import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
@@ -53,22 +54,14 @@ const Hero = () => (
     </BackDrop>
 )
 
-const CountryCardWrapper = styled(LocalizedLink)`
-    border-radius: 4px;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+const CountryCardWrapper = styled(StyledCard)`
     max-width: 38.4rem;
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    overflow: hidden;
-    transition: transform 0.3s;
 
     svg {
         margin-right: 8px;
-    }
-    &:hover {
-        cursor: pointer;
-        transform: translateY(-1.1rem) scale(1.02);
     }
 `
 

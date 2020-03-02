@@ -18,13 +18,21 @@ const StyledContent = styled.div`
 `
 
 const StyledChevron = styled(Chevron)`
-    transform: rotate(-90deg);
-    right: -1.2rem;
+    transform: rotate(90deg);
+    position: absolute;
+    right: -2.4rem;
+
+    & polyline {
+        stroke-width: 2;
+    }
 `
 
-const StyledDivider = styled(Divider)`
-    margin-top: 4.6rem;
-    margin-bottom: 3.2rem;
+const ViewSection = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 3.2rem 3.2rem;
 `
 
 const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
@@ -32,30 +40,36 @@ const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
     font-weight: bold;
     text-decoration: none;
     position: relative;
+    font-size: var(--text-size-s);
+    opacity: ${props => (props.disabled ? '0.32' : '1')};
 
     &:hover {
         text-decoration: underline;
     }
 `
 
-const Card = ({ img_name, team_name, display_team_name, tagline, position_count }) => (
-    <StyledCard height="46.3rem">
+const StyledDivider = styled(Divider)`
+    margin-bottom: 3.2rem;
+`
+
+const Card = ({ img_name, to, display_team_name, tagline, position_count }) => (
+    <StyledCard height="46.3rem" to={to}>
         <ImageWrapper>
-            <Image img_name={img_name} width="100%" alt={img_name} />
+            <Image img_name={img_name} width="100%" height="14.5rem" alt={img_name} />
         </ImageWrapper>
         <StyledContent>
-            <Text font_size="var(--text-size-xs)">
-                {`${position_count} ${localize('position')}`}
-            </Text>
+            <Text size="var(--text-size-xs)">{`${position_count} ${localize('position')}`}</Text>
             <Header as="h4" font_size="var(--text-size-sm)" margin="1.6rem 0">
                 {display_team_name}
             </Header>
             <Text>{tagline}</Text>
-            <StyledDivider height="2px" />
-            <LocalizedLinkText to={`teams/${team_name}/`}>
-                {localize('View openings')}
-                <StyledChevron />
-            </LocalizedLinkText>
+            <ViewSection>
+                <StyledDivider height="2px" />
+                <LocalizedLinkText to={to} disabled={position_count === 0}>
+                    {localize('View openings')}
+                    <StyledChevron />
+                </LocalizedLinkText>
+            </ViewSection>
         </StyledContent>
     </StyledCard>
 )
@@ -66,6 +80,7 @@ Card.propTypes = {
     position_count: PropTypes.number,
     tagline: PropTypes.string,
     team_name: PropTypes.string,
+    to: PropTypes.string,
 }
 
 export default Card

@@ -16,7 +16,7 @@ const ArticleWrapper = styled.div`
     margin-left: 12.6rem;
 
     @media ${device.laptopL} {
-        margin-left: 8rem;
+        margin-left: 2rem;
     }
 `
 const StyledText = styled(Text)`
@@ -24,12 +24,13 @@ const StyledText = styled(Text)`
 `
 const ImageWrapper = styled.div`
     padding: 2.4rem 10.2rem;
+    max-width: 60rem;
+    width: 100%;
 
     @media ${device.laptopL} {
-        padding: 2.4rem 5rem;
-    }
-    @media ${device.laptop} {
+        margin-left: 0;
         padding: 2.4rem 0;
+        width: auto;
     }
 `
 

@@ -12,6 +12,8 @@ const toISOFormat = date => {
     return ''
 }
 
+const toHashFormat = string => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
+
 const isBrowser = () => typeof window !== 'undefined'
 
 const isEmptyObject = obj => {
@@ -75,4 +77,5 @@ export {
     sanitize,
     sentenceCase,
     toISOFormat,
+    toHashFormat,
 }

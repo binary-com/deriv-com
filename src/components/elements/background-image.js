@@ -1,7 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import PropTypes from 'prop-types'
+
+const StyledBackground = styled(BackgroundImage)`
+    &::before,
+    &::after {
+        filter: brightness(${props => (props.dark ? props.dark : '0')});
+    }
+`
 
 const Background = ({ children, img_name, style, ...props }) => (
     <StaticQuery
@@ -24,18 +32,18 @@ const Background = ({ children, img_name, style, ...props }) => (
                 edge => edge.node.fluid.originalName === img_name,
             )
             if (!image) return null
-            const fluidStack = [image.node.fluid]
 
             return (
-                <BackgroundImage Tag="div" style={style} fluid={fluidStack.reverse()} {...props}>
+                <StyledBackground Tag="div" style={style} fluid={image.node.fluid} {...props}>
                     {children}
-                </BackgroundImage>
+                </StyledBackground>
             )
         }}
     />
 )
 
 Background.propTypes = {
+    brightness: PropTypes.string,
     children: PropTypes.node,
     img_name: PropTypes.string,
     style: PropTypes.object,

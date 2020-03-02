@@ -23,15 +23,27 @@ class Team {
     name = ''
     display_name = ''
     card_description = ''
+    description = ''
     thumbnail = ''
+    hero_image = ''
     positions = []
 
-    constructor({ name, display_name, card_description, positions, thumbnail }) {
+    constructor({
+        name,
+        display_name,
+        card_description,
+        positions,
+        thumbnail,
+        description,
+        hero_image,
+    }) {
         this.display_name = display_name
         this.name = name
         this.card_description = card_description
         this.positions = positions
         this.thumbnail = thumbnail
+        this.description = description
+        this.hero_image = hero_image
     }
 
     getAllPositions = () => this.positions
@@ -80,8 +92,12 @@ export const all_teams = [
         name: 'accounts-and-payments',
         display_name: localize('Accounts and Payments'),
         thumbnail: 'team-accounts-payments.png',
+        hero_image: 'hero-accounts-payments.png',
         card_description: localize(
             'We’re all about helping the company make good decisions about money so we can stay on course to fulfil our vision.',
+        ),
+        description: localize(
+            'Our team is in charge of managing the company’s financial and accounting health to ensure sustainable business growth. We control operational costs, pay the bills, and mitigate financial risks.',
         ),
         positions: accounts_and_payments_positions,
     }),

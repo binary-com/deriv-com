@@ -98,6 +98,10 @@ const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
     height: 4rem;
     margin-top: 3.2rem;
+
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
+    }
 `
 
 // TODO: This section will be added shortly when the back-end gets ready.

@@ -31,12 +31,6 @@ const Content = styled.div`
     }
 `
 
-const StyledText = styled(Text)`
-    font-size: var(--text-size-xs);
-    margin-top: 2.4rem;
-    opacity: 0.56;
-`
-
 const Line = styled.div`
     width: 100%;
     border-bottom: 1px solid var(--color-red);
@@ -76,16 +70,10 @@ const NewSignup = () => {
                         <br />
                         <Text>
                             {localize(
-                                'Join over 1 million people who trade with Deriv and Binary.com — the award-winning platform that’s been trusted for 20 years.',
+                                'Join over 1 million people who trade with Deriv.com and Binary.com — the award-winning platform that’s been trusted for over 20 years.',
                             )}
                         </Text>
                         <Line />
-
-                        <StyledText color="grey-12">
-                            {localize(
-                                'By giving us your email address, you agree to receive marketing emails from us. You may unsubscribe from these emails at any time.',
-                            )}
-                        </StyledText>
                     </Content>
                 )}
 

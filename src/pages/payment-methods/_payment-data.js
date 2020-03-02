@@ -46,7 +46,9 @@ const payment_data = [
                 min_max_withdrawal: '25 - 10,000',
                 deposit_time: localize('1 working day'),
                 withdrawal_time: localize('1 working day'),
-                description: localize('Deposit and withdraw using your bank account.'),
+                description: localize(
+                    'Secure and easy online real-time money transfers directly from your bank account.',
+                ),
                 name: 'internet bank transfer',
             },
             {

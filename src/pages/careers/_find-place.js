@@ -17,7 +17,7 @@ const FindPlace = () => {
         setTopTeams(getTop4Teams())
     }, [])
     return (
-        <SectionContainer background="grey-2">
+        <SectionContainer background="grey-21">
             <Container direction="column">
                 <StyledHeader as="h3">{localize('Find your place at Deriv')}</StyledHeader>
                 <CssGrid

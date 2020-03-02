@@ -27,6 +27,7 @@ const ListItem = styled.li`
     height: 8.4rem;
     border-bottom: 1px solid var(--color-grey-7);
     transition: background-color 0.25s;
+    padding: 0 1.6rem;
 
     a {
         text-decoration: none;

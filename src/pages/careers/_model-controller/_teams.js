@@ -104,7 +104,11 @@ export const all_teams = [
     new Team({
         name: 'back-end',
         display_name: localize('Back-end'),
+        description: localize(
+            "We’re responsible for designing, developing, testing, and debugging the company's server-side apps and databases so our customers enjoy a flawless digital experience. We collaborate with the QA team to resolve technical issues, and we empower the Front-end team by providing the components and features that they need.",
+        ),
         thumbnail: 'team-back-end.png',
+        hero_image: 'hero-back-end.png',
         card_description: localize(
             'We fortify our website and app architecture that power our users’ experience.',
         ),
@@ -233,6 +237,23 @@ export const all_positions = [
     ...accounts_and_payments_positions,
     ...back_end_positions,
     ...business_intelligence_positions,
+    ...devops_positions,
+    ...compliance_positions,
+    ...marketing_positions,
+    ...quality_assurance_positions,
+    ...content_positions,
+    ...crypto_development_positions,
+    ...customer_support_positions,
+    ...disaster_recovery_positions,
+    ...front_end_positions,
+    ...hr_recruitment_positions,
+    ...internal_audit_positions,
+    ...it_admin_positions,
+    ...product_design_positions,
+    ...project_management_positions,
+    ...quants_positions,
+    ...security_positions,
+    ...quants_positions,
 ]
 
 export const getTop4Teams = () =>

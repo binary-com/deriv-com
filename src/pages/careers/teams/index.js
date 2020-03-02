@@ -52,7 +52,7 @@ const Teams = () => {
                             <Card
                                 key={idx}
                                 img_name={team.thumbnail}
-                                to={`teams/${team.name}/`}
+                                to={`careers/teams/team#${team.name}`}
                                 display_team_name={team.display_name}
                                 tagline={team.card_description}
                                 position_count={team.positions.length}

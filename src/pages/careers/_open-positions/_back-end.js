@@ -6,7 +6,7 @@ export const back_end_positions = [
         keywords: [localize('accounting')],
         location: localize('Cyberjaya, Malaysia'),
         type: localize('Full-time'),
-        team: localize('Back-end'),
+        team: 'back-end',
         description: [
             localize(
                 'Our Accounting & Payments team manages our wide range of bank accounts and e-currency systems, as well as the huge volume of transactions that take place every day.',

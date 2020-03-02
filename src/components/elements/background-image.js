@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 const StyledBackground = styled(BackgroundImage)`
     &::before,
     &::after {
-        filter: brightness(${props => (props.dark ? props.dark : '0')});
+        filter: brightness(${props => (props.dark ? props.dark : '1')});
     }
 `
 

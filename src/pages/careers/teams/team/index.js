@@ -19,14 +19,14 @@ const StyledContainer = styled(Container)`
 
 const StyledHeader = styled(Header)`
     font-size: var(--text-size-xxl);
-    margin-bottom: 2.4rem;
+    margin-bottom: 1.6rem;
     color: var(--color-white);
 `
 
 const Subheadline = styled(Text)`
     font-size: 2rem;
     color: var(--color-white);
-    max-width: 79.2rem;
+    max-width: 98.4rem;
 `
 
 const Hero = ({ background_image, team_name, team_description }) => (
@@ -42,7 +42,7 @@ const Hero = ({ background_image, team_name, team_description }) => (
             <StyledHeader as="h1" font_size="var(--text-size-xl)" align="center">
                 {team_name}
             </StyledHeader>
-            <Subheadline>{team_description}</Subheadline>
+            <Subheadline align="center">{team_description}</Subheadline>
         </StyledContainer>
     </BackgroundImage>
 )
@@ -68,7 +68,7 @@ const Team = () => {
             />
             <TeamWrapper>
                 <Header as="h2" font-size="var(--text-size-header-1)" align="center">
-                    Positions in Marketing
+                    {localize('Open positions')}
                 </Header>
                 <LinkList
                     list_items={team.positions.map(position => ({
@@ -79,34 +79,14 @@ const Team = () => {
                 />
                 {!team.positions.length && (
                     <NoOpenPositionsHeader>
-                        Sorry, there are currently no open positions in Malta.
+                        {localize(
+                            `Sorry, there are currently no open positions for ${team.display_name}`,
+                        )}
                     </NoOpenPositionsHeader>
                 )}
             </TeamWrapper>
             <RoleBanner />
         </Layout>
-        // [
-        //     {
-        //         text: 'Global Affiliate Manager',
-        //         to: '/marketing/',
-        //         middle_text: 'Dubai, United Arab Emirates',
-        //     },
-        //     {
-        //         text: 'Marketing Executive',
-        //         to: '/marketing/',
-        //         middle_text: 'Dubai, United Arab Emirates',
-        //     },
-        //     {
-        //         text: 'Social Media Manager',
-        //         to: '/marketing/',
-        //         middle_text: 'Labuan, Malaysia',
-        //     },
-        //     {
-        //         text: 'SEO Specialist',
-        //         to: '/marketing/',
-        //         middle_text: 'Asunción',
-        //     },
-        // ]
     )
 }
 

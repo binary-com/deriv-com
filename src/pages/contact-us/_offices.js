@@ -240,7 +240,7 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia"
+                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia."
                                         components={[<br key={0} />]}
                                     />
                                 </Text>
@@ -264,7 +264,7 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="Unit 3004, 1 Lake Plaza, Cluster T,<0 />Jumeirah Lake Towers, Dubai, UAE."
+                                        translate_text="1902, Jumeirah Business Center 1, <0 /> JLT Cluster G, Dubai, UAE."
                                         components={[<br key={0} />]}
                                     />
                                 </Text>
@@ -276,7 +276,7 @@ export const Offices = () => {
                         </Content>
                         <ImageWrapper>
                             <Image
-                                img_name="map-dubai.png"
+                                img_name="map-dubai-office.png"
                                 alt={localize('Dubai Office')}
                                 width="49rem"
                                 height="100%"

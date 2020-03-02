@@ -9,6 +9,7 @@ import { Container } from 'components/containers'
 import { OffCanvasMenu, moveOffCanvasMenu, Text } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
+import Partner from 'common/partner'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
@@ -299,13 +300,6 @@ export const NavPartners = () => {
             document.removeEventListener('scroll', buttonHandleScroll)
         }
     }, [])
-    const handlePartnerLogin = () => {
-        window.open('https://login.binary.com/signin.php', '_blank')
-    }
-    const handlePartnerSignup = () => {
-        window.open('https://login.binary.com/signup.php', '_blank')
-    }
-
     return (
         <>
             <NavWrapper ref={nav_ref}>
@@ -353,11 +347,15 @@ export const NavPartners = () => {
                             mounted={mounted}
                             has_scrolled={has_scrolled}
                         >
-                            <Button onClick={handlePartnerLogin} primary>
-                                <span>{localize('Log in')}</span>
+                            <Button onClick={Partner.redirectToLogin} primary>
+                                <span>{localize('Affiliate & IB log in')}</span>
                             </Button>
-                            <SignupButton onClick={handlePartnerSignup} ref={button_ref} secondary>
-                                <span>{localize('Sign up')}</span>
+                            <SignupButton
+                                onClick={Partner.redirectToSignup}
+                                ref={button_ref}
+                                secondary
+                            >
+                                <span>{localize('Affiliate & IB sign up')}</span>
                             </SignupButton>
                         </StyledNavRight>
                     </Wrapper>

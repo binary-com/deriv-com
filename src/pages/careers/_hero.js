@@ -35,7 +35,8 @@ const RedBanner = styled.span`
 
 const Hero = () => (
     <BackgroundImage
-        img_name="career-bg.png"
+        img_name="career-landing-bg.png"
+        alt={localize('Deriv careers')}
         style={{
             height: '80rem',
             width: '100%',

@@ -198,7 +198,7 @@ export const Offices = () => {
                                     href="https://g.page/r/CRyKELlnWQ3iEAE"
                                 >
                                     <Localize
-                                        translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm Birkirkara BKR9033 Malta."
+                                        translate_text="Level 3, W Business Centre,<0/>Triq Dun Karm Birkirkara BKR 9033 Malta"
                                         components={[<br key={0} />]}
                                     />
                                 </StyledLinkText>
@@ -302,7 +302,7 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="1902, Jumeirah Business Center 1, <0 /> JLT Cluster G, Dubai, UAE."
+                                        translate_text="Unit 3004, 1 Lake Plaza, Cluster T,<0/>Jumeirah Lake Towers, Dubai, UAE"
                                         components={[<br key={0} />]}
                                     />
                                 </Text>
@@ -346,7 +346,7 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma,<0 />Trinidad, Asuncion, Paraguay."
+                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma, Trinidad, Asuncion, Paraguay."
                                         components={[<br key={0} />]}
                                     />
                                 </Text>

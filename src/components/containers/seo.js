@@ -16,12 +16,19 @@ const SEO = ({ description, meta, title }) => {
                         author
                     }
                 }
+
+                allSitePage {
+                    nodes {
+                        path
+                    }
+                }
             }
         `,
     )
 
     const metaDescription = description || site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
+    console.log('pages: ', site)
     return (
         <Helmet
             htmlAttributes={{

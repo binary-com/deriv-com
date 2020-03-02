@@ -41,6 +41,7 @@ const Hero = ({ name, description, img }) => (
             height: '80rem',
             width: '100%',
         }}
+        alt={name}
     >
         <StyledContainer>
             <StyledHeader as="h1">{name}</StyledHeader>
@@ -146,43 +147,19 @@ export const LocationLayout = ({ location }) => {
                         <Flex direction="column" mr="0.8rem" ai="flex-end">
                             <Flex mb="0.8rem" jc="flex-end">
                                 <First>
-                                    <Image
-                                        img_name={location.grid_images[0]}
-                                        alt={localize('Living in {{location}}', {
-                                            location: display_name,
-                                        })}
-                                        width="100%"
-                                    />
+                                    <Image img_name={location.grid_images[0]} width="100%" />
                                 </First>
                                 <Second>
-                                    <Image
-                                        img_name={location.grid_images[1]}
-                                        alt={localize('Living in {{location}}', {
-                                            location: display_name,
-                                        })}
-                                        width="100%"
-                                    />
+                                    <Image img_name={location.grid_images[1]} width="100%" />
                                 </Second>
                             </Flex>
                             <Third>
-                                <Image
-                                    img_name={location.grid_images[2]}
-                                    alt={localize('Living in {{location}}', {
-                                        location: display_name,
-                                    })}
-                                    width="100%"
-                                />
+                                <Image img_name={location.grid_images[2]} width="100%" />
                             </Third>
                         </Flex>
                         <Flex ml="0.8rem" jc="unset">
                             <Fourth>
-                                <Image
-                                    img_name={location.grid_images[3]}
-                                    alt={localize('Living in {{location}}', {
-                                        location: display_name,
-                                    })}
-                                    width="100%"
-                                />
+                                <Image img_name={location.grid_images[3]} width="100%" />
                             </Fourth>
                         </Flex>
                     </Flex>
@@ -191,13 +168,7 @@ export const LocationLayout = ({ location }) => {
                     <LocationCard>
                         <Flex jc="unset" tablet_direction="column">
                             <ImageWrapper>
-                                <Image
-                                    img_name={location.map}
-                                    alt={localize('Living in {{location}}', {
-                                        location: display_name,
-                                    })}
-                                    width="100%"
-                                />
+                                <Image img_name={location.map} alt={localize('Map')} width="100%" />
                             </ImageWrapper>
                             <Flex p="6rem" direction="column" mw="44.4rem">
                                 <div style={{ maxWidth: '32.4rem' }}>

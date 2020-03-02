@@ -147,7 +147,7 @@ const Hero = ({ navigation, setNavigation }) => {
                                 'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
                             )}
                         </Text>
-                       
+
                         <Text secondary color="white">
                             {localize(
                                 'Our evolution is powered by over 20 years of customer focus and innovation.',
@@ -184,7 +184,7 @@ const Hero = ({ navigation, setNavigation }) => {
                                 </LeadershipPosition>
                                 <Text color="white">
                                     {localize(
-                                        'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
+                                        'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his digtal options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
                                     )}
                                 </Text>
                             </div>

@@ -9,7 +9,9 @@ import {
 
 export const cyberjaya = {
     name: 'cyberjaya',
+    link: '/careers/locations/cyberjaya',
     display_name: localize('Cyberjaya'),
+    country: localize('Malaysia'),
     hero_img: 'cyberjaya.png',
     header_p: localize(
         'Cyberjaya is a pioneer tech hub that lies 30 minutes away from Kuala Lumpur. Established in 1997, Cyberjaya is the heartbeat of the Multimedia Super Corridor — a government-designated zone that aims to accelerate Malaysia’s push to achieve Vision 2020.',
@@ -32,7 +34,9 @@ export const cyberjaya = {
 
 export const malta = {
     name: 'malta',
+    link: '/careers/locations/malta',
     display_name: localize('Malta'),
+    country: localize('Malta'),
     hero_img: 'malta.png',
     header_p: localize(
         'The Republic of Malta is an island country in Southern Europe located approximately 80km south of Italy. Its rich, colourful history can be traced back thousands of years to the Neolithic period.',
@@ -50,7 +54,9 @@ export const malta = {
 
 export const dubai = {
     name: 'dubai',
+    link: '/careers/locations/dubai',
     display_name: localize('Dubai'),
+    country: localize('United Arab Emirates'),
     hero_img: 'dubai.png',
     header_p: localize(
         'Dubai is an independent city-state and one of the seven emirates that make up the United Arab Emirates. Dubai is the largest and most advanced emirate; it has rapidly evolved from a humble port city into a global metropolis well-known for its futuristic architecture.',
@@ -68,7 +74,9 @@ export const dubai = {
 
 export const labuan = {
     name: 'labuan',
+    link: '/careers/locations/labuan',
     display_name: localize('Labuan'),
+    country: localize('Malaysia'),
     hero_img: 'labuan.png',
     header_p: localize(
         `Labuan is a federal territory made up of the main island, Labuan Island, and six other small islands off the coast of Sabah. Its name comes from the Malay word, 'labuhan' which means harbour. Formerly a part of the Brunei Sultanate, it was ceded to the British Crown in 1846, before joining Malaysia in 1963.`,
@@ -92,7 +100,9 @@ export const labuan = {
 
 export const asuncion = {
     name: 'asuncion',
+    link: '/careers/locations/asuncion',
     display_name: localize('Ascunción'),
+    country: localize('Paraguay'),
     hero_img: 'asuncion.png',
     header_p: localize(
         `Asunción is the capital city of Paraguay and one of the oldest settlements in South America. In the past, colonial expeditions departed from Asunción to establish other important cities, leading to its nickname as the ‘Mother of Cities'.`,

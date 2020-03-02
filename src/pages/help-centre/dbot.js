@@ -501,17 +501,19 @@ const ControlLosses = () => (
             <Image img_name="dbot-variables.png" alt={localize('Variables')} width="32.4rem" />
         </ImageWrapper>
         <Text>
-            {localize(
-                '2. Use a logic block to check if currentPL exceeds maximumLoss. If it does, set tradeAgain to “false” to prevent the bot from running another cycle.',
-            )}
+            <Localize
+                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to “false” to prevent the bot from running another cycle."
+                components={[<strong key={0} />]}
+            />
         </Text>
         <ImageWrapper>
             <Image img_name="dbot-logic-block.png" alt={localize('Logic block')} width="32.4rem" />
         </ImageWrapper>
         <Text>
-            {localize(
-                '3. Update currentPL with the profit from the last purchased contract. If the last contract was lost, the value of currentPL will be negative.',
-            )}
+            <Localize
+                translate_text="3. Update <0>currentPL</0> with the profit from the last purchased contract. If the last contract was lost, the value of <0>currentPL</0> will be negative."
+                components={[<strong key={0} />]}
+            />
         </Text>
         <ImageWrapper>
             <Image
@@ -607,6 +609,12 @@ const DBotArticle = () => {
                 text={localize('How do I reset the workspace?')}
                 label="reset-workspace"
             />
+            <ViewChart text={localize('How do I view the chart in DBot?')} label="view-chart" />
+
+            <TradeStatus
+                text={localize('Where can I see the status of my trades in DBot?')}
+                label="status-of-trades"
+            />
             <TransactionLog
                 text={localize('How do I clear my transaction log?')}
                 label="clear-transaction-log"
@@ -615,11 +623,6 @@ const DBotArticle = () => {
                 text={localize('How do I control my losses with DBot?')}
                 label="control-loss"
             />
-            <TradeStatus
-                text={localize('Where can I see the status of my trades in DBot?')}
-                label="status-of-trades"
-            />
-            <ViewChart text={localize('How do I view the chart in DBot?')} label="view-chart" />
         </Article>
     )
 }

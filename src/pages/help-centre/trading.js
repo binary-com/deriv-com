@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
+import { deriv_app_url } from 'common/utility'
 import { Text, Header } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
 
@@ -131,7 +132,7 @@ const TradingLimits = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        href="https://deriv.app/account/account-limits"
+                        href={`${deriv_app_url}/account/account-limits`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}

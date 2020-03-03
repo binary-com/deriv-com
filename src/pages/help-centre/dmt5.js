@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
+import { deriv_app_url } from 'common/utility'
 import { Text, Header } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
 
@@ -91,7 +92,7 @@ const DepositDMT5 = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        href="https://deriv.app/cashier/account-transfer"
+                        href={`${deriv_app_url}/cashier/account-transfer`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -146,7 +147,7 @@ const ResetDMT5Password = () => (
                 translate_text="Please go to the <0>DMT5 dashboard</0> and click on the <1>Password</1> button of that DMT5 account."
                 components={[
                     <ExternalLink
-                        href="https://deriv.app/mt5"
+                        href={`${deriv_app_url}/mt5`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}

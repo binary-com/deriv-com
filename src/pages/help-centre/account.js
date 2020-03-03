@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
+import { deriv_app_url } from 'common/utility'
 import { Text, Header } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
 
@@ -70,7 +71,7 @@ const ChangingPersonalDetails = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        href="https://deriv.app/account/personal-details"
+                        href={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -142,7 +143,7 @@ const UnsubscribeEmail = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        href="https://deriv.app/account/personal-details"
+                        href={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}

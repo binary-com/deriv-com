@@ -9,6 +9,7 @@ import Dropdown from './dropdown'
 import Checkbox from './checkbox'
 import Hero from './hero'
 import Image from './image'
+import QueryImage from './query-image'
 import { StyledLink } from './link'
 import LinearLoader from './loader'
 import Modal, { useModal } from './modal'
@@ -31,6 +32,7 @@ export {
     Checkbox,
     Hero,
     Image,
+    QueryImage,
     StyledLink,
     LinearLoader,
     Modal,

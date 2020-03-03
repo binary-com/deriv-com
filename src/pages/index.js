@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import queryString from 'query-string'
+import React from 'react'
 // import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
@@ -10,20 +9,9 @@ import WhatOurClientsSay from './home/_what-our-clients-say'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { Modal, useModal } from 'components/elements'
-import SignupModal from 'components/custom/signup-modal'
 import Signup, { Appearances } from 'components/custom/signup'
 
 const Home = () => {
-    const [show_modal, toggleModal, closeModal] = useModal()
-
-    useEffect(() => {
-        const parsedUrl = queryString.parse(window.location.search)
-        if (parsedUrl.action === 'signup') {
-            toggleModal()
-        }
-    }, [])
-
     return (
         <Layout>
             <SEO
@@ -45,9 +33,6 @@ const Home = () => {
             <Signup appearance={Appearances.public} />
             {/* TODO: investigate performance and enable later */}
             {/* {!isProduction() && <Ticker />} */}
-            <Modal toggle={toggleModal} is_open={show_modal} closeModal={closeModal}>
-                <SignupModal autofocus />
-            </Modal>
         </Layout>
     )
 }

@@ -100,7 +100,7 @@ const SocialButton = styled(Button)`
 
     @media ${device.tabletL} {
         height: 6rem;
-        margin-right: ${props => props.margin_right ? (props.margin_right) : ('0')};
+        margin-right: ${props => (props.margin_right ? props.margin_right : '0')};
         justify-content: center;
         align-items: center;
 
@@ -119,13 +119,13 @@ const StyledHeader = styled(Header)`
 
     @media (max-width: 800px) {
         margin-top: 2rem;
-        ${props => props.as === 'h4' ? ('font-size: 2rem; margin-top: 0;') : ('')}
+        ${props => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
     }
 `
 const StyledText = styled(Text)`
     width: auto;
     margin-right: 4rem;
-    
+
     @media ${device.tabletL} {
         width: max-content-fit;
         margin-right: 1rem;
@@ -137,6 +137,10 @@ const ImageWrapper = styled(Flex)`
     left: -28%;
     z-index: 2;
     height: 100%;
+
+    div {
+        width: 100%;
+    }
 
     @media (max-width: 1350px) {
         width: 30rem;
@@ -190,7 +194,6 @@ const MobileRedBanner = styled.div`
     width: 100%;
     bottom: 0;
     max-height: 100%;
-
 `
 const MobilePlatform = styled.div`
     width: 100%;
@@ -259,7 +262,7 @@ const SignupPublic = ({
                             id="google"
                             type="button"
                             social
-                            margin_right='1rem'
+                            margin_right="1rem"
                         >
                             <span>
                                 <Google />
@@ -299,10 +302,10 @@ const SignupPublic = ({
                         <Image img_name="deriv-platform-banner.png" width="100%" />
                     </MobilePlatform>
                     <MobileRedBanner>
-                        <RedBanner width='100%' />
+                        <RedBanner width="100%" />
                     </MobileRedBanner>
                     <DerivExperience onClick={redirectToDerivApp}>
-                        <Header font_size='3rem'>
+                        <Header font_size="3rem">
                             {localize('Get a taste of the Deriv experience')}
                         </Header>
                         <Arrow />

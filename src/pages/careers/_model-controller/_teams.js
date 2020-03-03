@@ -338,3 +338,10 @@ export const getTeamByName = team_name => all_teams.find(team => team.name === t
 
 export const getPositionByName = position_name =>
     all_positions.find(position => toHashFormat(position.title) === position_name)
+
+export const getPositionsByLocation = location_name =>
+    all_positions.filter(position =>
+        position.location
+            .toLowerCase()
+            .includes(location_name === 'asuncion' ? 'paraguay' : location_name),
+    )

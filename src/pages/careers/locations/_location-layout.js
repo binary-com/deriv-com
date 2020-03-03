@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { getPositionsByLocation } from '../_model-controller/_teams'
 import { LinkList } from '../_layout-components/_link-list'
 import { RoleBanner } from '../_layout-components/_banner'
 import device from 'themes/device'
@@ -9,6 +10,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Text, Header, Image, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
+import { toHashFormat } from 'common/utility'
 import MapPin from 'images/svg/map.svg'
 
 const Pin = styled(MapPin)`
@@ -139,7 +141,16 @@ const CardText = styled(Text)`
     margin-bottom: 4rem;
 `
 export const LocationLayout = ({ location }) => {
-    const { display_name } = location
+    const { display_name, name } = location
+    if (!display_name) return null
+    const positions = getPositionsByLocation(name)
+    const mapped_positions = positions
+        ? positions.map(position => ({
+              text: position.title,
+              to: `careers/jobs/job#${toHashFormat(position.title)}`,
+              middle_text: position.location,
+          }))
+        : []
 
     return (
         <>
@@ -227,30 +238,7 @@ export const LocationLayout = ({ location }) => {
                     >
                         {localize('Open positions in {{location}}', { location: display_name })}
                     </Header>
-                    <LinkList
-                        list_items={[
-                            {
-                                text: 'Global Affiliate Manager',
-                                to: '/marketing/',
-                                middle_text: 'Dubai, United Arab Emirates',
-                            },
-                            {
-                                text: 'Marketing Executive',
-                                to: '/marketing/',
-                                middle_text: 'Dubai, United Arab Emirates',
-                            },
-                            {
-                                text: 'Social Media Manager',
-                                to: '/marketing/',
-                                middle_text: 'Labuan, Malaysia',
-                            },
-                            {
-                                text: 'SEO Specialist',
-                                to: '/marketing/',
-                                middle_text: 'Asunción',
-                            },
-                        ]}
-                    />
+                    <LinkList list_items={mapped_positions} />
                 </SectionContainer>
             </Container>
             <RoleBanner />

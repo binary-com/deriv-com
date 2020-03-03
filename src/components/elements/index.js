@@ -1,5 +1,6 @@
 import { Accordion, AccordionItem } from './accordion'
 import AutoCarousel from './auto-carousel'
+import BackgroundImage from './background-image'
 import { Card, CardChildren, CardStyle } from './card'
 import Carousel from './carousel'
 import Divider from './divider'
@@ -14,12 +15,12 @@ import Modal, { useModal } from './modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from './off-canvas-menu'
 import SideTab from './side-tab'
 import { Text, LinkText, Header } from './typography'
-import { Lottie } from './lottie'
 
 export {
     Accordion,
     AccordionItem,
     AutoCarousel,
+    BackgroundImage,
     Card,
     CardChildren,
     CardStyle,
@@ -32,7 +33,6 @@ export {
     Image,
     StyledLink,
     LinearLoader,
-    Lottie,
     Modal,
     useModal,
     OffCanvasMenu,

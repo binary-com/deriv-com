@@ -14,31 +14,29 @@ export const customer_support_positions = [
         ],
         responsibilities: [
             localize(
-                '- Resolve complex customer care issues through careful investigation in keeping with existing policies and in a clear, concise, friendly, and timely manner.',
+                'Resolve complex customer care issues through careful investigation in keeping with existing policies and in a clear, concise, friendly, and timely manner.',
             ),
             localize(
-                '- Respond to customer enquiries and complaints by phone, email, social media, and live chat.',
+                'Respond to customer enquiries and complaints by phone, email, social media, and live chat.',
             ),
             localize(
-                '- Process applications and customer documentation according to relevant policies and regulations.',
+                'Process applications and customer documentation according to relevant policies and regulations.',
             ),
             localize(
-                '- Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
+                'Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
             ),
-            localize('- Perform regular testing on our products and services.'),
+            localize('Perform regular testing on our products and services.'),
             localize(
-                '- Collaborate with client support agents in different time zones to ensure optimum results and customer satisfaction.',
+                'Collaborate with client support agents in different time zones to ensure optimum results and customer satisfaction.',
             ),
         ],
-        qualifications: [
-            localize('- Exceptional oral and written communication skills in English'),
-        ],
+        qualifications: [localize('Exceptional oral and written communication skills in English')],
         preferences: [
             localize(
-                '- University degree in marketing, IT, or a related field or equivalent practical experience in technical customer support',
+                'University degree in marketing, IT, or a related field or equivalent practical experience in technical customer support',
             ),
-            localize('- Experience in the financial services or IT industry'),
-            localize('- Proficiency in other languages in addition to English\n'),
+            localize('Experience in the financial services or IT industry'),
+            localize('Proficiency in other languages in addition to English\n'),
         ],
     },
     {
@@ -54,31 +52,29 @@ export const customer_support_positions = [
         ],
         responsibilities: [
             localize(
-                '- Resolve complex customer care issues through careful investigation in keeping with existing policies and in a clear, concise, friendly, and timely manner.',
+                'Resolve complex customer care issues through careful investigation in keeping with existing policies and in a clear, concise, friendly, and timely manner.',
             ),
             localize(
                 ' -Respond to customer enquiries and complaints by phone, email, social media, and live chat.',
             ),
             localize(
-                '- Process applications and customer documentation according to relevant policies and regulations.',
+                'Process applications and customer documentation according to relevant policies and regulations.',
             ),
             localize(
-                '- Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
+                'Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
             ),
-            localize('- Perform regular testing on our products and services.'),
+            localize('Perform regular testing on our products and services.'),
             localize(
-                '- Collaborate with client support agents in different time zones to ensure optimum results and customer satisfaction.',
+                'Collaborate with client support agents in different time zones to ensure optimum results and customer satisfaction.',
             ),
         ],
-        qualifications: [
-            localize('- Exceptional oral and written communication skills in English'),
-        ],
+        qualifications: [localize('Exceptional oral and written communication skills in English')],
         preferences: [
             localize(
-                '- University degree in marketing, IT, or a related field or equivalent practical experience in technical customer support',
+                'University degree in marketing, IT, or a related field or equivalent practical experience in technical customer support',
             ),
-            localize('- Experience in the financial services or IT industry'),
-            localize('- Proficiency in other languages in addition to English'),
+            localize('Experience in the financial services or IT industry'),
+            localize('Proficiency in other languages in addition to English'),
         ],
     },
     {
@@ -94,47 +90,47 @@ export const customer_support_positions = [
         ],
         responsibilities: [
             localize(
-                '- Resolve complex customer care issues through careful investigation and in keeping with existing policies and procedures.',
+                'Resolve complex customer care issues through careful investigation and in keeping with existing policies and procedures.',
             ),
             localize(
-                '- Communicate solutions to customer issues in a clear, concise, friendly, and timely manner.',
+                'Communicate solutions to customer issues in a clear, concise, friendly, and timely manner.',
             ),
             localize(
-                '- Respond to customer enquiries by phone, email, social media, and live chat daily.',
+                'Respond to customer enquiries by phone, email, social media, and live chat daily.',
             ),
             localize(
-                '- Process applications and customer documentation according to relevant policies and regulations.',
+                'Process applications and customer documentation according to relevant policies and regulations.',
             ),
             localize(
-                '- File records and documents of customer interactions according to existing guidelines.',
+                'File records and documents of customer interactions according to existing guidelines.',
             ),
             localize(
-                '- Identify new marketing opportunities through customer feedback and contribute ideas to expand our global customer base.',
+                'Identify new marketing opportunities through customer feedback and contribute ideas to expand our global customer base.',
             ),
             localize(
-                '- Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
+                'Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
             ),
-            localize('- Perform regular testing on our products and services. '),
+            localize('Perform regular testing on our products and services. '),
             localize(
-                '- Collaborate with customer support agents in different time zones to ensure optimum results and customer satisfaction.',
+                'Collaborate with customer support agents in different time zones to ensure optimum results and customer satisfaction.',
             ),
         ],
         qualifications: [
             localize(
-                '- Exceptional oral and written communication skills in Spanish and/or Portuguese',
+                'Exceptional oral and written communication skills in Spanish and/or Portuguese',
             ),
-            localize('- Proficiency in oral and written English\n'),
+            localize('Proficiency in oral and written English\n'),
         ],
         preferences: [
-            localize('- University degree in marketing, computer science, or any related field'),
-            localize('- Practical experience in technical customer support'),
-            localize('- Experience in the financial services or IT industry'),
-            localize('- Proficiency in additional languages other than the ones stated above'),
+            localize('University degree in marketing, computer science, or any related field'),
+            localize('Practical experience in technical customer support'),
+            localize('Experience in the financial services or IT industry'),
+            localize('Proficiency in additional languages other than the ones stated above'),
         ],
     },
     {
-        title: localize('Customer Support Executive - Russian speaker '),
-        keywords: [localize('Customer Support Executive - Russian speaker ')],
+        title: localize('Customer Support Executive Russian speaker '),
+        keywords: [localize('Customer Support Executive Russian speaker ')],
         location: localize('Malta'),
         type: localize('Full time'),
         team: 'customer-support',
@@ -145,46 +141,44 @@ export const customer_support_positions = [
         ],
         responsibilities: [
             localize(
-                '- Resolve complex customer care issues through careful investigation, in keeping with existing policies, and in a clear, concise, friendly, and timely manner.',
+                'Resolve complex customer care issues through careful investigation, in keeping with existing policies, and in a clear, concise, friendly, and timely manner.',
+            ),
+            localize('Respond to customer enquiries by phone, email, social media, and live chat.'),
+            localize(
+                'Process applications and customer documentation according to relevant policies and regulations.',
             ),
             localize(
-                '- Respond to customer enquiries by phone, email, social media, and live chat.',
+                'File records and documents of customer interactions according to existing guidelines.',
             ),
             localize(
-                '- Process applications and customer documentation according to relevant policies and regulations.',
+                'Identify new marketing opportunities through customer feedback and contribute ideas to expand our global customer base.',
             ),
             localize(
-                '- File records and documents of customer interactions according to existing guidelines.',
+                'Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
             ),
             localize(
-                '- Identify new marketing opportunities through customer feedback and contribute ideas to expand our global customer base.',
+                'Collaborate with client support agents in different time zones to ensure optimum results and customer satisfaction.',
             ),
-            localize(
-                '- Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
-            ),
-            localize(
-                '- Collaborate with client support agents in different time zones to ensure optimum results and customer satisfaction.',
-            ),
-            localize('- Attend events and seminars organised by our affiliates.\n'),
+            localize('Attend events and seminars organised by our affiliates.\n'),
         ],
         qualifications: [
-            localize('- Excellent English and Russian language skills, both oral and written'),
-            localize('- Minimum of 5 years experience in a customer support role'),
-            localize('- Proven track record of proactive problem-solving'),
+            localize('Excellent English and Russian language skills, both oral and written'),
+            localize('Minimum of 5 years experience in a customer support role'),
+            localize('Proven track record of proactive problem-solving'),
             localize(
-                '- Experience working with affiliates and payment agents (digital currency exchanges)\n',
+                'Experience working with affiliates and payment agents (digital currency exchanges)\n',
             ),
         ],
         preferences: [
             localize(
-                '- University degree in marketing, computer science, or a related field or equivalent practical experience in technical customer support',
+                'University degree in marketing, computer science, or a related field or equivalent practical experience in technical customer support',
             ),
-            localize('- Experience in the financial services or IT industry'),
+            localize('Experience in the financial services or IT industry'),
         ],
     },
     {
-        title: localize('Customer Support Executive - French speaker'),
-        keywords: [localize('Customer Support Executive - French speaker')],
+        title: localize('Customer Support Executive French speaker'),
+        keywords: [localize('Customer Support Executive French speaker')],
         location: localize('Malta'),
         type: localize('Full time'),
         team: 'customer-support',
@@ -195,40 +189,40 @@ export const customer_support_positions = [
         ],
         responsibilities: [
             localize(
-                '- Resolve complex customer care issues through careful investigation and in keeping with existing policies and procedures.',
+                'Resolve complex customer care issues through careful investigation and in keeping with existing policies and procedures.',
             ),
             localize(
-                '- Communicate solutions to customer issues in a clear, concise, friendly, and timely manner.',
+                'Communicate solutions to customer issues in a clear, concise, friendly, and timely manner.',
             ),
             localize(
-                '- Respond to customer enquiries by phone, email, social media, and live chat daily.',
+                'Respond to customer enquiries by phone, email, social media, and live chat daily.',
             ),
             localize(
-                '- Process applications and customer documentation according to relevant policies and regulations.',
+                'Process applications and customer documentation according to relevant policies and regulations.',
             ),
             localize(
-                '- File records and documents of customer interactions according to existing guidelines.',
+                'File records and documents of customer interactions according to existing guidelines.',
             ),
             localize(
-                '- Identify new marketing opportunities through customer feedback and contribute ideas to expand our global customer base.',
+                'Identify new marketing opportunities through customer feedback and contribute ideas to expand our global customer base.',
             ),
             localize(
-                '- Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
+                'Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
             ),
-            localize('- Perform regular testing on our products and services. '),
+            localize('Perform regular testing on our products and services. '),
             localize(
-                '- Collaborate with customer support agents in different time zones to ensure optimum results and customer satisfaction.\n',
+                'Collaborate with customer support agents in different time zones to ensure optimum results and customer satisfaction.\n',
             ),
         ],
         qualifications: [
-            localize('- Exceptional oral and written communication skills in French'),
-            localize('- Proficiency in oral and written English\n'),
+            localize('Exceptional oral and written communication skills in French'),
+            localize('Proficiency in oral and written English\n'),
         ],
         preferences: [
-            localize('- University degree in marketing, computer science, or any related field'),
-            localize('- Practical experience in technical customer support'),
-            localize('- Experience in the financial services or IT industry'),
-            localize('- Proficiency in additional languages other than the ones stated above'),
+            localize('University degree in marketing, computer science, or any related field'),
+            localize('Practical experience in technical customer support'),
+            localize('Experience in the financial services or IT industry'),
+            localize('Proficiency in additional languages other than the ones stated above'),
         ],
     },
 ]

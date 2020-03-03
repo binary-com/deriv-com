@@ -14,40 +14,40 @@ export const it_admin_positions = [
         ],
         responsibilities: [
             localize(
-                '- Configure, monitor, and maintain our IT infrastructure to make sure it is running smoothly.',
+                'Configure, monitor, and maintain our IT infrastructure to make sure it is running smoothly.',
             ),
-            localize('- Install new software and upgrade computer systems across the company.'),
-            localize('- Test our IT systems regularly to prevent downtime and other threats.'),
-            localize('- Perform company-wide software and hardware troubleshooting.'),
-            localize('- Make sure that the data is backed up regularly and efficiently.'),
+            localize('Install new software and upgrade computer systems across the company.'),
+            localize('Test our IT systems regularly to prevent downtime and other threats.'),
+            localize('Perform company-wide software and hardware troubleshooting.'),
+            localize('Make sure that the data is backed up regularly and efficiently.'),
             localize(
-                '- Implement firewalls and educate employees on how to increase their digital security.',
+                'Implement firewalls and educate employees on how to increase their digital security.',
             ),
-            localize('- Choose secure, scalable systems from what vendors offer.'),
-            localize('- Talk to users and vendors to find the best solution for a system problem.'),
-            localize('- Predict future capacity requirements by analysing user needs.'),
+            localize('Choose secure, scalable systems from what vendors offer.'),
+            localize('Talk to users and vendors to find the best solution for a system problem.'),
+            localize('Predict future capacity requirements by analysing user needs.'),
             localize(
-                '- Be the point-of-contact for the employees with problems related to the network or the system',
+                'Be the point-of-contact for the employees with problems related to the network or the system',
             ),
         ],
         qualifications: [
             localize(
-                '- A diploma or degree in computer science or information technology or relevant experience in the field of IT operations/administration',
+                'A diploma or degree in computer science or information technology or relevant experience in the field of IT operations/administration',
             ),
             localize(
-                '- Experience in troubleshooting computer software, hardware, and internet applications and networks',
+                'Experience in troubleshooting computer software, hardware, and internet applications and networks',
             ),
             localize(
-                '- Experience in firewall appliances such as Fortigate or similar devices (e.g. Cisco, Pfsense)',
+                'Experience in firewall appliances such as Fortigate or similar devices (e.g. Cisco, Pfsense)',
             ),
-            localize('- Knowledge of Mac or Linux technologies and associated security features'),
+            localize('Knowledge of Mac or Linux technologies and associated security features'),
             localize(
-                '- Firm grasp of VPN concepts and experience in setting up site-to-site networks \n',
+                'Firm grasp of VPN concepts and experience in setting up site-to-site networks \n',
             ),
         ],
         preferences: [
             localize(
-                '- Experience in one or more of the following:\n      - +DRAC\n      - ARUBA or similar enterprise WiFi AP management\n      - End-user device security audit and policy implementation\n',
+                'Experience in one or more of the following:\n      +DRAC\n      ARUBA or similar enterprise WiFi AP management\n      End-user device security audit and policy implementation\n',
             ),
         ],
     },
@@ -64,40 +64,40 @@ export const it_admin_positions = [
         ],
         responsibilities: [
             localize(
-                '- Configure, monitor, and maintain our IT infrastructure to make sure it is running smoothly.',
+                'Configure, monitor, and maintain our IT infrastructure to make sure it is running smoothly.',
             ),
-            localize('- Install new software and upgrade computer systems across the company.'),
-            localize('- Test our IT systems regularly to prevent downtime and other threats.'),
-            localize('- Perform company-wide software and hardware troubleshooting.'),
-            localize('- Make sure that the data is backed up regularly and efficiently.'),
+            localize('Install new software and upgrade computer systems across the company.'),
+            localize('Test our IT systems regularly to prevent downtime and other threats.'),
+            localize('Perform company-wide software and hardware troubleshooting.'),
+            localize('Make sure that the data is backed up regularly and efficiently.'),
             localize(
-                '- Implement firewalls and educate employees on how to increase their digital security.',
+                'Implement firewalls and educate employees on how to increase their digital security.',
             ),
-            localize('- Choose secure, scalable systems from what vendors offer.'),
-            localize('- Talk to users and vendors to find the best solution for a system problem.'),
-            localize('- Predict future capacity requirements by analysing user needs.'),
+            localize('Choose secure, scalable systems from what vendors offer.'),
+            localize('Talk to users and vendors to find the best solution for a system problem.'),
+            localize('Predict future capacity requirements by analysing user needs.'),
             localize(
-                '- Be the point-of-contact for the employees with problems related to the network or the system.\n',
+                'Be the point-of-contact for the employees with problems related to the network or the system.\n',
             ),
         ],
         qualifications: [
             localize(
-                '- A diploma or degree in computer science or information technology or relevant experience in the field of IT operations/administration',
+                'A diploma or degree in computer science or information technology or relevant experience in the field of IT operations/administration',
             ),
             localize(
-                '- Experience in troubleshooting computer software, hardware, and internet applications and networks',
+                'Experience in troubleshooting computer software, hardware, and internet applications and networks',
             ),
             localize(
-                '- Experience in firewall appliances such as Fortigate or similar devices (e.g. Cisco, Pfsense)',
+                'Experience in firewall appliances such as Fortigate or similar devices (e.g. Cisco, Pfsense)',
             ),
-            localize('- Knowledge of Mac or Linux technologies and associated security features'),
+            localize('Knowledge of Mac or Linux technologies and associated security features'),
             localize(
-                '- Firm grasp of VPN concepts and experience in setting up site-to-site networks  \n',
+                'Firm grasp of VPN concepts and experience in setting up site-to-site networks  \n',
             ),
         ],
         preferences: [
             localize(
-                '- Experience in one or more of the following\n       - +DRAC\n       - ARUBA or similar enterprise WiFi AP management\n       - End-user device security audit and policy implementation\n',
+                'Experience in one or more of the following\n       +DRAC\n       ARUBA or similar enterprise WiFi AP management\n       End-user device security audit and policy implementation\n',
             ),
         ],
     },

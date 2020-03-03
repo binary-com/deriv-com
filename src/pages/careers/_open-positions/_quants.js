@@ -13,40 +13,38 @@ export const quants_positions = [
             ),
         ],
         responsibilities: [
-            localize('- Apply mathematical models to real-world scenarios.'),
+            localize('Apply mathematical models to real-world scenarios.'),
             localize(
-                '- Solve complex and abstract mathematical problems to optimise pricing and manage risk.',
+                'Solve complex and abstract mathematical problems to optimise pricing and manage risk.',
             ),
-            localize('- Analyse trading patterns to identify new market opportunities.'),
+            localize('Analyse trading patterns to identify new market opportunities.'),
             localize(
-                '- Communicate effectively with other team members to understand the big picture of the organisation and its goals.',
-            ),
-            localize(
-                '- Develop derivatives pricing, as well as risk management models and algorithms using C/C++, R, MATLAB, Perl, Python, etc.',
+                'Communicate effectively with other team members to understand the big picture of the organisation and its goals.',
             ),
             localize(
-                '- Review, develop, and enhance options pricing, volatility forecasts, and risk management programs.',
+                'Develop derivatives pricing, as well as risk management models and algorithms using C/C++, R, MATLAB, Perl, Python, etc.',
             ),
             localize(
-                '- Perform data mining using SQL databases, R/S-Plus, OLAP, and other analytical tools.',
+                'Review, develop, and enhance options pricing, volatility forecasts, and risk management programs.',
             ),
-            localize('- Monitor website trading activity and minimise abuse.'),
             localize(
-                '- Generate periodic and special reports that summarise client trading trends.',
+                'Perform data mining using SQL databases, R/S-Plus, OLAP, and other analytical tools.',
             ),
+            localize('Monitor website trading activity and minimise abuse.'),
+            localize('Generate periodic and special reports that summarise client trading trends.'),
         ],
         qualifications: [
             localize(
-                '- An advanced university degree in physics, financial engineering, or mathematics.',
+                'An advanced university degree in physics, financial engineering, or mathematics.',
             ),
             localize(
-                '- Knowledge of probability theory, stochastic calculus, numerical methods, Monte-Carlo simulation, differential equations, econometrics, derivatives pricing, and statistical modelling.',
+                'Knowledge of probability theory, stochastic calculus, numerical methods, Monte-Carlo simulation, differential equations, econometrics, derivatives pricing, and statistical modelling.',
             ),
             localize(
-                '- Experience in using financial information sources such as Bloomberg and Reuters.',
+                'Experience in using financial information sources such as Bloomberg and Reuters.',
             ),
             localize(
-                '- Expertise in the application of object-oriented programming languages (C++ and Perl), coupled with the ability to produce high-quality code.',
+                'Expertise in the application of object-oriented programming languages (C++ and Perl), coupled with the ability to produce high-quality code.',
             ),
         ],
     },
@@ -62,40 +60,38 @@ export const quants_positions = [
             ),
         ],
         responsibilities: [
-            localize('- Apply mathematical models to real-world scenarios.'),
+            localize('Apply mathematical models to real-world scenarios.'),
             localize(
-                '- Solve complex and abstract mathematical problems to optimise pricing and manage risk.',
+                'Solve complex and abstract mathematical problems to optimise pricing and manage risk.',
             ),
-            localize('- Analyse trading patterns to identify new market opportunities.'),
+            localize('Analyse trading patterns to identify new market opportunities.'),
             localize(
-                '- Communicate effectively with other team members to understand the big picture of the organisation and its goals.',
-            ),
-            localize(
-                '- Develop derivatives pricing, as well as risk management models and algorithms using C/C++, R, MATLAB, Perl, Python, etc.',
+                'Communicate effectively with other team members to understand the big picture of the organisation and its goals.',
             ),
             localize(
-                '- Review, develop, and enhance options pricing, volatility forecasts, and risk management programs.',
+                'Develop derivatives pricing, as well as risk management models and algorithms using C/C++, R, MATLAB, Perl, Python, etc.',
             ),
             localize(
-                '- Perform data mining using SQL databases, R/S-Plus, OLAP, and other analytical tools.',
+                'Review, develop, and enhance options pricing, volatility forecasts, and risk management programs.',
             ),
-            localize('- Monitor website trading activity and minimise abuse.'),
             localize(
-                '- Generate periodic and special reports that summarise client trading trends.',
+                'Perform data mining using SQL databases, R/S-Plus, OLAP, and other analytical tools.',
             ),
+            localize('Monitor website trading activity and minimise abuse.'),
+            localize('Generate periodic and special reports that summarise client trading trends.'),
         ],
         qualifications: [
             localize(
-                '- An advanced university degree in physics, financial engineering, or mathematics.',
+                'An advanced university degree in physics, financial engineering, or mathematics.',
             ),
             localize(
-                '- Knowledge of probability theory, stochastic calculus, numerical methods, Monte-Carlo simulation, differential equations, econometrics, derivatives pricing, and statistical modelling.',
+                'Knowledge of probability theory, stochastic calculus, numerical methods, Monte-Carlo simulation, differential equations, econometrics, derivatives pricing, and statistical modelling.',
             ),
             localize(
-                '- Experience in using financial information sources such as Bloomberg and Reuters.',
+                'Experience in using financial information sources such as Bloomberg and Reuters.',
             ),
             localize(
-                '- Expertise in the application of object-oriented programming languages (C++ and Perl), coupled with the ability to produce high-quality code.',
+                'Expertise in the application of object-oriented programming languages (C++ and Perl), coupled with the ability to produce high-quality code.',
             ),
         ],
     },
@@ -112,49 +108,49 @@ export const quants_positions = [
         ],
         responsibilities: [
             localize(
-                '- Create mathematical/statistical models for pricing, analyse fat tails to assess margin requirements, and manage the risk for exotic options, Forex, and CFDs.',
+                'Create mathematical/statistical models for pricing, analyse fat tails to assess margin requirements, and manage the risk for exotic options, Forex, and CFDs.',
             ),
-            localize('- Create data analytics tools for trading/quantitative analysis.'),
+            localize('Create data analytics tools for trading/quantitative analysis.'),
             localize(
-                '- Conduct performance testing including backtesting, stress testing analysis, and benchmarking.',
+                'Conduct performance testing including backtesting, stress testing analysis, and benchmarking.',
             ),
-            localize('- Develop risk management models and algorithms using MATLAB/Python/R/C++.'),
-            localize('- Manage the day-to-day risk of our trading books.'),
+            localize('Develop risk management models and algorithms using MATLAB/Python/R/C++.'),
+            localize('Manage the day-to-day risk of our trading books.'),
             localize(
-                '- Set up liquidity connections via bridges and gateways for MT4 and MT5 brokers.',
-            ),
-            localize(
-                '- Conduct research on competitors and industry trends to identify new products and potential markets.',
+                'Set up liquidity connections via bridges and gateways for MT4 and MT5 brokers.',
             ),
             localize(
-                '- Develop mathematical/statistical models for pricing and risk management for all products.',
+                'Conduct research on competitors and industry trends to identify new products and potential markets.',
             ),
             localize(
-                '- Use advanced data analytics skills to study trends/pattern in financial markets.',
+                'Develop mathematical/statistical models for pricing and risk management for all products.',
             ),
             localize(
-                '- Help in developing advanced risk management tools for various markets (forex, equities, commodities).',
+                'Use advanced data analytics skills to study trends/pattern in financial markets.',
             ),
-            localize('- Prepare daily, weekly, and monthly financial reports.'),
             localize(
-                '- Generate periodic and special reports on client trading activity and significant trends that impact our client behaviour.',
+                'Help in developing advanced risk management tools for various markets (forex, equities, commodities).',
+            ),
+            localize('Prepare daily, weekly, and monthly financial reports.'),
+            localize(
+                'Generate periodic and special reports on client trading activity and significant trends that impact our client behaviour.',
             ),
         ],
         qualifications: [
             localize(
-                '- An advanced university degree in physics, financial engineering, or mathematics is preferred',
+                'An advanced university degree in physics, financial engineering, or mathematics is preferred',
             ),
             localize(
-                '- Experience in Forex spot trading or exotic options pricing, volatility forecasts, high-frequency trading, and the analysis of market inefficiencies',
+                'Experience in Forex spot trading or exotic options pricing, volatility forecasts, high-frequency trading, and the analysis of market inefficiencies',
             ),
             localize(
-                '- Firm grasp of advanced risk management concepts, including hedging, Greeks (first and second generation), Value at Risk models, and others',
+                'Firm grasp of advanced risk management concepts, including hedging, Greeks (first and second generation), Value at Risk models, and others',
             ),
             localize(
-                '- Experience in using financial information sources such as Bloomberg and Reuters',
+                'Experience in using financial information sources such as Bloomberg and Reuters',
             ),
             localize(
-                '- Strong analytical skills and the ability to communicate your findings in a clear, concise, and effective manner',
+                'Strong analytical skills and the ability to communicate your findings in a clear, concise, and effective manner',
             ),
         ],
     },

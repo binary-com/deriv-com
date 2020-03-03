@@ -14,36 +14,34 @@ export const project_management_positions = [
         ],
         responsibilities: [
             localize(
-                '- Conduct the day-to-day management of our projects to deliver project goals on schedule, within budget, and of the highest quality.',
+                'Conduct the day-to-day management of our projects to deliver project goals on schedule, within budget, and of the highest quality.',
             ),
             localize(
-                '- Establish the efficient assignment of resources, the clear definition of responsibilities, and maintain communication across collaborating teams.',
+                'Establish the efficient assignment of resources, the clear definition of responsibilities, and maintain communication across collaborating teams.',
             ),
+            localize('Manage conflict and resolve disputes with tact, and keep teams motivated. '),
+            localize('Ensure rigorous quality control for all products.'),
+            localize('Identify potential roadblocks and create resolution strategies.'),
             localize(
-                '- Manage conflict and resolve disputes with tact, and keep teams motivated. ',
-            ),
-            localize('- Ensure rigorous quality control for all products.'),
-            localize('- Identify potential roadblocks and create resolution strategies.'),
-            localize(
-                '- Collaborate with all the departments and management to make sure that projects are progressing in sync with our short- and long-term goals. \n',
+                'Collaborate with all the departments and management to make sure that projects are progressing in sync with our shortand long-term goals. \n',
             ),
         ],
         qualifications: [
-            localize('- University degree in an IT- or business-related field'),
-            localize('- More than 5 years of work experience'),
-            localize('- Decision-making, team-building, and problem-solving skills'),
+            localize('University degree in an ITor business-related field'),
+            localize('More than 5 years of work experience'),
+            localize('Decision-making, team-building, and problem-solving skills'),
             localize(
-                '- Strong tendency to take initiative, welcome responsibility, and cherish learning opportunities',
+                'Strong tendency to take initiative, welcome responsibility, and cherish learning opportunities',
             ),
             localize(
-                '- Experience in conducting end-to-end UX research, including usability testing and A/B testing',
+                'Experience in conducting end-to-end UX research, including usability testing and A/B testing',
             ),
         ],
         preferences: [
-            localize('- Product design experience with a focus on financial software '),
-            localize('- Related certificates such as PMI and PRINCE2'),
+            localize('Product design experience with a focus on financial software '),
+            localize('Related certificates such as PMI and PRINCE2'),
             localize(
-                '- Stellar record of managing projects from start to finish, on time, and within budget\n',
+                'Stellar record of managing projects from start to finish, on time, and within budget\n',
             ),
         ],
     },
@@ -60,36 +58,34 @@ export const project_management_positions = [
         ],
         responsibilities: [
             localize(
-                '- Conduct the day-to-day management of our projects to deliver project goals on schedule, within budget, and of the highest quality.',
+                'Conduct the day-to-day management of our projects to deliver project goals on schedule, within budget, and of the highest quality.',
             ),
             localize(
-                '- Establish the efficient assignment of resources, the clear definition of responsibilities, and maintain communication across collaborating teams.',
+                'Establish the efficient assignment of resources, the clear definition of responsibilities, and maintain communication across collaborating teams.',
             ),
+            localize('Manage conflict and resolve disputes with tact, and keep teams motivated. '),
+            localize('Ensure rigorous quality control for all products.'),
+            localize('Identify potential roadblocks and create resolution strategies.'),
             localize(
-                '- Manage conflict and resolve disputes with tact, and keep teams motivated. ',
-            ),
-            localize('- Ensure rigorous quality control for all products.'),
-            localize('- Identify potential roadblocks and create resolution strategies.'),
-            localize(
-                '- Collaborate with all the departments and management to make sure that projects are progressing in sync with our short- and long-term goals. ',
+                'Collaborate with all the departments and management to make sure that projects are progressing in sync with our shortand long-term goals. ',
             ),
         ],
         qualifications: [
-            localize('- University degree in an IT- or business-related field'),
-            localize('- More than 5 years of work experience'),
-            localize('- Decision-making, team-building, and problem-solving skills'),
+            localize('University degree in an ITor business-related field'),
+            localize('More than 5 years of work experience'),
+            localize('Decision-making, team-building, and problem-solving skills'),
             localize(
-                '- Strong tendency to take initiative, welcome responsibility, and cherish learning opportunities',
+                'Strong tendency to take initiative, welcome responsibility, and cherish learning opportunities',
             ),
             localize(
-                '- Experience in conducting end-to-end UX research, including usability testing and A/B testing',
+                'Experience in conducting end-to-end UX research, including usability testing and A/B testing',
             ),
         ],
         preferences: [
-            localize('- Product design experience with a focus on financial software '),
-            localize('- Related certificates such as PMI and PRINCE2'),
+            localize('Product design experience with a focus on financial software '),
+            localize('Related certificates such as PMI and PRINCE2'),
             localize(
-                '- Stellar record of managing projects from start to finish, on time, and within budget',
+                'Stellar record of managing projects from start to finish, on time, and within budget',
             ),
         ],
     },

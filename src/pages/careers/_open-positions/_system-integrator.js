@@ -14,40 +14,40 @@ export const system_integrator_positions = [
         ],
         responsibilities: [
             localize(
-                '- Analyse the integration of the new APIs, crypto facilities, and other products and services.',
+                'Analyse the integration of the new APIs, crypto facilities, and other products and services.',
             ),
             localize(
-                '- Participate in devising innovative payments solution strategies by competitor mapping and analysis.',
+                'Participate in devising innovative payments solution strategies by competitor mapping and analysis.',
             ),
             localize(
-                '- Maximise the efficacy of our existing partners within each market by using design, functionalities, source PSPs, regular partner reviews, and service level agreements.',
+                'Maximise the efficacy of our existing partners within each market by using design, functionalities, source PSPs, regular partner reviews, and service level agreements.',
             ),
             localize(
-                '- Identify the best strategic partners to help us succeed in developing online solutions.',
+                'Identify the best strategic partners to help us succeed in developing online solutions.',
             ),
-            localize('- Prepare risk and fraud documentation for our third-party stakeholders.'),
+            localize('Prepare risk and fraud documentation for our third-party stakeholders.'),
             localize(
-                '- Develop stable online infrastructure services that will support our cutting-edge products.',
-            ),
-            localize(
-                '- Collaborate with the Product team to achieve high-level business requirements.',
+                'Develop stable online infrastructure services that will support our cutting-edge products.',
             ),
             localize(
-                '- Work closely with every department to facilitate a seamless introduction of new products and services. ',
+                'Collaborate with the Product team to achieve high-level business requirements.',
+            ),
+            localize(
+                'Work closely with every department to facilitate a seamless introduction of new products and services. ',
             ),
         ],
         qualifications: [
-            localize('- University degree in IT, business, or commerce'),
+            localize('University degree in IT, business, or commerce'),
             localize(
-                '- Firm understanding of payment processes and a lively interest in cryptocurrencies',
+                'Firm understanding of payment processes and a lively interest in cryptocurrencies',
             ),
-            localize('- Proficiency in Microsoft Excel\n'),
+            localize('Proficiency in Microsoft Excel\n'),
         ],
         preferences: [
             localize(
-                '- Ability to analyse online financial transactions, particularly e-wallets and cryptocurrencies',
+                'Ability to analyse online financial transactions, particularly e-wallets and cryptocurrencies',
             ),
-            localize('- Experience in software testing or QA \n'),
+            localize('Experience in software testing or QA \n'),
         ],
     },
     {
@@ -63,40 +63,40 @@ export const system_integrator_positions = [
         ],
         responsibilities: [
             localize(
-                '- Analyse the integration of the new APIs, crypto facilities, and other products and services.',
+                'Analyse the integration of the new APIs, crypto facilities, and other products and services.',
             ),
             localize(
-                '- Participate in devising innovative payments solution strategies by competitor mapping and analysis.',
+                'Participate in devising innovative payments solution strategies by competitor mapping and analysis.',
             ),
             localize(
-                '- Maximise the efficacy of our existing partners within each market by using design, functionalities, source PSPs, regular partner reviews, and service level agreements.',
+                'Maximise the efficacy of our existing partners within each market by using design, functionalities, source PSPs, regular partner reviews, and service level agreements.',
             ),
             localize(
-                '- Identify the best strategic partners to help us succeed in developing online solutions.',
+                'Identify the best strategic partners to help us succeed in developing online solutions.',
             ),
-            localize('- Prepare risk and fraud documentation for our third-party stakeholders.'),
+            localize('Prepare risk and fraud documentation for our third-party stakeholders.'),
             localize(
-                '- Develop stable online infrastructure services that will support our cutting-edge products.',
-            ),
-            localize(
-                '- Collaborate with the Product team to achieve high-level business requirements.',
+                'Develop stable online infrastructure services that will support our cutting-edge products.',
             ),
             localize(
-                '- Work closely with every department to facilitate a seamless introduction of new products and services. ',
+                'Collaborate with the Product team to achieve high-level business requirements.',
+            ),
+            localize(
+                'Work closely with every department to facilitate a seamless introduction of new products and services. ',
             ),
         ],
         qualifications: [
-            localize('- University degree in IT, business, or commerce'),
+            localize('University degree in IT, business, or commerce'),
             localize(
-                '- Firm understanding of payment processes and a lively interest in cryptocurrencies',
+                'Firm understanding of payment processes and a lively interest in cryptocurrencies',
             ),
-            localize('- Proficiency in Microsoft Excel\n'),
+            localize('Proficiency in Microsoft Excel\n'),
         ],
         preferences: [
             localize(
-                '- Ability to analyse online financial transactions, particularly e-wallets and cryptocurrencies',
+                'Ability to analyse online financial transactions, particularly e-wallets and cryptocurrencies',
             ),
-            localize('- Experience in software testing or QA \n'),
+            localize('Experience in software testing or QA \n'),
         ],
     },
 ]

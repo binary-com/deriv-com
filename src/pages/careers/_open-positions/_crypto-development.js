@@ -14,50 +14,50 @@ export const crypto_development_positions = [
         ],
         responsibilities: [
             localize(
-                '- Design and develop applications and platforms based on blockchain technology.\nImprove the security of current blockchain-based projects.',
+                'Design and develop applications and platforms based on blockchain technology.\nImprove the security of current blockchain-based projects.',
             ),
-            localize('- Keep abreast with new developments in the cryptocurrency world.'),
+            localize('Keep abreast with new developments in the cryptocurrency world.'),
             localize(
-                '- Devise the architecture and best practices for the adoption of blockchain technology.',
-            ),
-            localize(
-                '- Build rapid prototypes and collaborate with different departments on fast-paced projects.',
-            ),
-            localize('- Identify and resolve any possible cryptocurrency-related issues.'),
-            localize(
-                '- Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
+                'Devise the architecture and best practices for the adoption of blockchain technology.',
             ),
             localize(
-                '- Create robust software logic that supports foolproof cryptocurrency transactions.',
+                'Build rapid prototypes and collaborate with different departments on fast-paced projects.',
+            ),
+            localize('Identify and resolve any possible cryptocurrency-related issues.'),
+            localize(
+                'Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
             ),
             localize(
-                '- Work closely with our technical and non-technical teams to develop and integrate blockchain solutions for our business.',
+                'Create robust software logic that supports foolproof cryptocurrency transactions.',
             ),
             localize(
-                '- Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
+                'Work closely with our technical and non-technical teams to develop and integrate blockchain solutions for our business.',
+            ),
+            localize(
+                'Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
             ),
         ],
         qualifications: [
             localize(
-                '- Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
+                'Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
             ),
-            localize('- Experience with Solidity and the development of Dapps'),
+            localize('Experience with Solidity and the development of Dapps'),
             localize(
-                '- Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
-            ),
-            localize(
-                '- Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
+                'Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
             ),
             localize(
-                '- Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
+                'Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
             ),
-            localize('- Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
-            localize('- Knowledge of hashing algorithms, including SHA and scrypt'),
-            localize('- Experience with Bitcoin or Geth RPC APIs'),
             localize(
-                '- Ability to produce high-quality, self-documenting code by using test-driven development (TDD) techniques',
+                'Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
             ),
-            localize('- Passion for Linux and other open-source platforms\n'),
+            localize('Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
+            localize('Knowledge of hashing algorithms, including SHA and scrypt'),
+            localize('Experience with Bitcoin or Geth RPC APIs'),
+            localize(
+                'Ability to produce high-quality, self-documenting code by using test-driven development (TDD) techniques',
+            ),
+            localize('Passion for Linux and other open-source platforms\n'),
         ],
     },
     {
@@ -73,51 +73,51 @@ export const crypto_development_positions = [
         ],
         responsibilities: [
             localize(
-                '- Design and develop applications and platforms based on blockchain technology.',
+                'Design and develop applications and platforms based on blockchain technology.',
             ),
-            localize('- Improve the security of current blockchain-based projects.'),
-            localize('- Keep abreast with new developments in the cryptocurrency world.'),
+            localize('Improve the security of current blockchain-based projects.'),
+            localize('Keep abreast with new developments in the cryptocurrency world.'),
             localize(
-                '- Devise the architecture and best practices for the adoption of blockchain technology.',
-            ),
-            localize(
-                '- Build rapid prototypes and collaborate with different departments on fast-paced projects.',
-            ),
-            localize('- Identify and resolve any possible cryptocurrency-related issues.'),
-            localize(
-                '- Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
+                'Devise the architecture and best practices for the adoption of blockchain technology.',
             ),
             localize(
-                '- Create robust software logic that supports foolproof cryptocurrency transactions.',
+                'Build rapid prototypes and collaborate with different departments on fast-paced projects.',
+            ),
+            localize('Identify and resolve any possible cryptocurrency-related issues.'),
+            localize(
+                'Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
             ),
             localize(
-                '- Work closely with our technical and non-technical teams to develop and integrate\nblockchain solutions for our business.',
+                'Create robust software logic that supports foolproof cryptocurrency transactions.',
             ),
             localize(
-                '- Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
+                'Work closely with our technical and non-technical teams to develop and integrate\nblockchain solutions for our business.',
+            ),
+            localize(
+                'Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
             ),
         ],
         qualifications: [
             localize(
-                '- Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
+                'Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
             ),
-            localize('- Experience with Solidity and the development of Dapps'),
+            localize('Experience with Solidity and the development of Dapps'),
             localize(
-                '- Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
-            ),
-            localize(
-                '- Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
+                'Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
             ),
             localize(
-                '- Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
+                'Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
             ),
-            localize('- Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
-            localize('- Knowledge of hashing algorithms, including SHA and scrypt'),
-            localize('- Experience with Bitcoin or Geth RPC APIs'),
             localize(
-                '- Ability to produce high-quality, self-documenting code by using test-driven development\n(TDD) techniques',
+                'Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
             ),
-            localize('- Passion for Linux and other open-source platforms'),
+            localize('Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
+            localize('Knowledge of hashing algorithms, including SHA and scrypt'),
+            localize('Experience with Bitcoin or Geth RPC APIs'),
+            localize(
+                'Ability to produce high-quality, self-documenting code by using test-driven development\n(TDD) techniques',
+            ),
+            localize('Passion for Linux and other open-source platforms'),
         ],
     },
     {
@@ -133,50 +133,50 @@ export const crypto_development_positions = [
         ],
         responsibilities: [
             localize(
-                '- Design and develop applications and platforms based on blockchain technology.\nImprove the security of current blockchain-based projects.',
+                'Design and develop applications and platforms based on blockchain technology.\nImprove the security of current blockchain-based projects.',
             ),
-            localize('- Keep abreast with new developments in the cryptocurrency world.'),
+            localize('Keep abreast with new developments in the cryptocurrency world.'),
             localize(
-                '- Devise the architecture and best practices for the adoption of blockchain technology.',
-            ),
-            localize(
-                '- Build rapid prototypes and collaborate with different departments on fast-paced projects.',
-            ),
-            localize('- Identify and resolve any possible cryptocurrency-related issues.'),
-            localize(
-                '- Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
+                'Devise the architecture and best practices for the adoption of blockchain technology.',
             ),
             localize(
-                '- Create robust software logic that supports foolproof cryptocurrency transactions.',
+                'Build rapid prototypes and collaborate with different departments on fast-paced projects.',
+            ),
+            localize('Identify and resolve any possible cryptocurrency-related issues.'),
+            localize(
+                'Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
             ),
             localize(
-                '- Work closely with our technical and non-technical teams to develop and integrate blockchain solutions for our business.',
+                'Create robust software logic that supports foolproof cryptocurrency transactions.',
             ),
             localize(
-                '- Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
+                'Work closely with our technical and non-technical teams to develop and integrate blockchain solutions for our business.',
+            ),
+            localize(
+                'Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
             ),
         ],
         qualifications: [
             localize(
-                '- Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
+                'Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
             ),
-            localize('- Experience with Solidity and the development of Dapps'),
+            localize('Experience with Solidity and the development of Dapps'),
             localize(
-                '- Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
-            ),
-            localize(
-                '- Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
+                'Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
             ),
             localize(
-                '- Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
+                'Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
             ),
-            localize('- Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
-            localize('- Knowledge of hashing algorithms, including SHA and scrypt'),
-            localize('- Experience with Bitcoin or Geth RPC APIs'),
             localize(
-                '- Ability to produce high-quality, self-documenting code by using test-driven development (TDD) techniques',
+                'Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
             ),
-            localize('- Passion for Linux and other open-source platforms\n'),
+            localize('Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
+            localize('Knowledge of hashing algorithms, including SHA and scrypt'),
+            localize('Experience with Bitcoin or Geth RPC APIs'),
+            localize(
+                'Ability to produce high-quality, self-documenting code by using test-driven development (TDD) techniques',
+            ),
+            localize('Passion for Linux and other open-source platforms\n'),
         ],
     },
     {
@@ -192,50 +192,50 @@ export const crypto_development_positions = [
         ],
         responsibilities: [
             localize(
-                '- Design and develop applications and platforms based on blockchain technology.\nImprove the security of current blockchain-based projects.',
+                'Design and develop applications and platforms based on blockchain technology.\nImprove the security of current blockchain-based projects.',
             ),
-            localize('- Keep abreast with new developments in the cryptocurrency world.'),
+            localize('Keep abreast with new developments in the cryptocurrency world.'),
             localize(
-                '- Devise the architecture and best practices for the adoption of blockchain technology.',
-            ),
-            localize(
-                '- Build rapid prototypes and collaborate with different departments on fast-paced projects.',
-            ),
-            localize('- Identify and resolve any possible cryptocurrency-related issues.'),
-            localize(
-                '- Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
+                'Devise the architecture and best practices for the adoption of blockchain technology.',
             ),
             localize(
-                '- Create robust software logic that supports foolproof cryptocurrency transactions.',
+                'Build rapid prototypes and collaborate with different departments on fast-paced projects.',
+            ),
+            localize('Identify and resolve any possible cryptocurrency-related issues.'),
+            localize(
+                'Research and evaluate blockchain solutions to identify the ones that can best meet our needs.',
             ),
             localize(
-                '- Work closely with our technical and non-technical teams to develop and integrate blockchain solutions for our business.',
+                'Create robust software logic that supports foolproof cryptocurrency transactions.',
             ),
             localize(
-                '- Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
+                'Work closely with our technical and non-technical teams to develop and integrate blockchain solutions for our business.',
+            ),
+            localize(
+                'Share your expertise on cryptocurrencies and blockchain technology with the colleagues who are working on related projects.',
             ),
         ],
         qualifications: [
             localize(
-                '- Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
+                'Experience with languages such as Perl, Python, PHP, C/C++, Go, Node.js, Rust, or Ruby, and a willingness to become highly proficient with Perl',
             ),
-            localize('- Experience with Solidity and the development of Dapps'),
+            localize('Experience with Solidity and the development of Dapps'),
             localize(
-                '- Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
-            ),
-            localize(
-                '- Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
+                'Thorough knowledge of Bitcoin and Ethereum and familiarity with other cryptocurrencies',
             ),
             localize(
-                '- Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
+                'Understanding of cryptography, including asymmetric, symmetric, hash functions, and encryption/signatures',
             ),
-            localize('- Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
-            localize('- Knowledge of hashing algorithms, including SHA and scrypt'),
-            localize('- Experience with Bitcoin or Geth RPC APIs'),
             localize(
-                '- Ability to produce high-quality, self-documenting code by using test-driven development (TDD) techniques',
+                'Familiarity with concepts such as blockchain confirmations, multisig, and HD wallets',
             ),
-            localize('- Passion for Linux and other open-source platforms\n'),
+            localize('Knowledge of coloured coins and Ethereum tokens, including ERC20/23/223'),
+            localize('Knowledge of hashing algorithms, including SHA and scrypt'),
+            localize('Experience with Bitcoin or Geth RPC APIs'),
+            localize(
+                'Ability to produce high-quality, self-documenting code by using test-driven development (TDD) techniques',
+            ),
+            localize('Passion for Linux and other open-source platforms\n'),
         ],
     },
 ]

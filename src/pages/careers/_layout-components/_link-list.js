@@ -52,6 +52,7 @@ const Circle = styled.span`
 `
 const StyledText = styled(Text)`
     min-width: 50%;
+    max-width: 45rem;
 `
 const MiddleText = styled(Text)`
     margin-right: auto;

@@ -51,8 +51,8 @@ export const accounts_and_payments_positions = [
         ],
     },
     {
-        title: 'Accounts and Payments Executivetranslate',
-        keywords: ['Accounts and Payments Executivetranslate'],
+        title: 'Accounts and Payments Executive',
+        keywords: ['Accounts and Payments Executive'],
         location: localize('Dubai'),
         type: localize('Full time'),
         team: 'accounts-and-payments',
@@ -100,8 +100,8 @@ export const accounts_and_payments_positions = [
         ],
     },
     {
-        title: 'Payments Management Executivetranslate',
-        keywords: ['Payments Management Executivetranslate'],
+        title: 'Payments Management Executive',
+        keywords: ['Payments Management Executive'],
         location: localize('Labuan'),
         type: localize('Full time'),
         team: 'accounts-and-payments',
@@ -139,8 +139,8 @@ export const accounts_and_payments_positions = [
         ],
     },
     {
-        title: 'Accounts and Payments Executivetranslate',
-        keywords: ['Accounts and Payments Executivetranslate'],
+        title: 'Accounts and Payments Executive',
+        keywords: ['Accounts and Payments Executive'],
         location: localize('Labuan'),
         type: localize('Full time'),
         team: 'accounts-and-payments',

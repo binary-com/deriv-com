@@ -6,7 +6,7 @@ import { Text, Header } from 'components/elements'
 import { Button } from 'components/form'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, LocalizedLink } from 'components/localization'
-import { getLocationHash } from 'common/utility'
+import { getLocationHash, isBrowser } from 'common/utility'
 // SVG
 import Location from 'images/svg/small-location.svg'
 import Chevron from 'images/svg/chevron-bottom.svg'
@@ -26,12 +26,13 @@ const StyledContainer = styled.div`
     display: flex;
 `
 
-const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
+const BackText = styled.div`
     text-decoration: none;
     display: flex;
     align-items: center;
     margin-top: 4rem;
     margin-bottom: 8rem;
+    cursor: pointer;
 
     &:hover {
         text-decoration: underline;
@@ -87,6 +88,11 @@ const Job = () => {
         const position_name = getLocationHash()
         setJob(getPositionByName(position_name))
     })
+
+    const handleBack = () => {
+        isBrowser() && window.history.go(-1)
+    }
+
     return (
         <Layout type="careers" padding_top="10rem">
             <SEO title={localize('Job')} />
@@ -106,10 +112,10 @@ const Job = () => {
                 </StyledContainer>
             </Banner>
             <StyledContainer>
-                <LocalizedLinkText to="careers/jobs/">
+                <BackText onClick={handleBack}>
                     <LeftChevron />
                     <Text weight="bold">{localize('Back to jobs')}</Text>
-                </LocalizedLinkText>
+                </BackText>
 
                 <DescHeader as="h4">{localize('Description:')}</DescHeader>
                 {job.description &&

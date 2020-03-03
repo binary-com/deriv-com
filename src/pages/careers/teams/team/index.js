@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { RoleBanner } from '../../_layout-components/_banner'
 import { LinkList } from '../../_layout-components/_link-list'
 import { NoOpenPositionsHeader } from '../../_layout-components/_no-open-positions'
-import { getTeamByName } from '../../_model-controller/_teams'
+import { getTeamByName, team_names } from '../../_model-controller/_teams'
 import { SEO, Container } from 'components/containers'
 import { BackgroundImage, Text, Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -43,7 +43,7 @@ const query = graphql`
         qualityassurance: file(relativePath: { eq: "careers/hero-quality-assurance.png" }) {
             ...backGroundBlur
         }
-        accountsandpayments: file(relativePath: { eq: "careers/hero-accounts-and-payments.png" }) {
+        accountsandpayments: file(relativePath: { eq: "careers/hero-accounts-payments.png" }) {
             ...backGroundBlur
         }
         backend: file(relativePath: { eq: "careers/hero-back-end.png" }) {
@@ -97,7 +97,7 @@ const Hero = ({ name, display_name, team_description }) => {
 
     return (
         <BackgroundImage
-            data={hero_img[name.replace('-', '')]}
+            data={hero_img[name.replace(/-+/g, '')]}
             style={{
                 height: '64.6rem',
                 width: '100%',
@@ -122,17 +122,13 @@ const TeamWrapper = styled.section`
     }
 `
 const Team = () => {
-    const [team_name, setTeamName] = React.useState('')
-    const [team, setTeam] = React.useState([])
-    React.useEffect(() => {
-        const team_name = getLocationHash()
-        setTeam(getTeamByName(team_name))
-        setTeamName(team_name)
-    }, [])
+    const team_name = getLocationHash()
+    if (!team_name) return null
+    const team = getTeamByName(team_name)
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={localize(`Team ${team_name}`)} />
+            <SEO title={localize(`Team ${team_names[team.name]}`)} />
             <Hero
                 background_image={team.hero_image}
                 display_name={team.display_name}

@@ -5,7 +5,7 @@ import { SEO, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import { Button } from 'components/form'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl, LocalizedLink } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, isBrowser } from 'common/utility'
 // SVG
 import Location from 'images/svg/small-location.svg'
@@ -82,12 +82,9 @@ const StyledButton = styled(Button)`
 `
 
 const Job = () => {
-    const [job, setJob] = React.useState({})
-
-    React.useEffect(() => {
-        const position_name = getLocationHash()
-        setJob(getPositionByName(position_name))
-    })
+    const position_name = getLocationHash()
+    if (!position_name) return null
+    const job = getPositionByName(position_name)
 
     const handleBack = () => {
         isBrowser() && window.history.go(-1)
@@ -140,6 +137,20 @@ const Job = () => {
                             </Li>
                         ))}
                 </Ul>
+                {job.preferences && (
+                    <>
+                        <DescHeader as="h4">{localize('Preferred qualifications:')}</DescHeader>
+                        <Ul>
+                            {job.preferences &&
+                                job.preferences.map((preference, idx) => (
+                                    <Li key={idx}>
+                                        <Text>{preference}</Text>
+                                    </Li>
+                                ))}
+                        </Ul>
+                    </>
+                )}
+
                 <StyledButton secondary>{localize('Send us your CV')}</StyledButton>
             </StyledContainer>
         </Layout>

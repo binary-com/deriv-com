@@ -96,7 +96,7 @@ const TrailNavigation = styled.span`
     margin: 1rem 0;
     transition: background 0.25s;
 `
-function useTabState(tab) {
+const useTabState = tab => {
     const [active_tab, setActiveTab] = useState(tab)
     const setTab = tab => {
         if (tab === active_tab) return
@@ -112,7 +112,7 @@ const About = () => {
     useEffect(() => {
         const new_tab = getLocationHash() || 'story'
         setTab(new_tab)
-    }, [])
+    })
     return (
         <Layout>
             <SEO
@@ -162,7 +162,7 @@ const About = () => {
                         </Navigation>
                     </NavigationWrapper>
 
-                    {active_tab === 'story' && (
+                    {is_story && (
                         <ContentWrapper margin_top="9.1rem">
                             <Text margin="0 0 1.5rem 0" secondary color="white">
                                 {localize(
@@ -177,7 +177,7 @@ const About = () => {
                             </Text>
                         </ContentWrapper>
                     )}
-                    {active_tab === 'leadership' && (
+                    {is_leadership && (
                         <ContentWrapper>
                             <LeadershipWrapper mt="4rem" ai="center">
                                 <Wrapper max_width="28.2rem" margin={{ right: '2.4rem' }}>

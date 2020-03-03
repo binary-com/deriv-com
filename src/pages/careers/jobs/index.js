@@ -1,5 +1,6 @@
 import React from 'react'
 import { RoleBanner } from '../_layout-components/_banner'
+import { all_positions } from '../_model-controller/_teams'
 import SearchForm from './_search-form'
 import SearchFilters from './_search-filters'
 import CardList from './_card-list'
@@ -14,24 +15,22 @@ const Jobs = () => {
     // const [teamsFilter, setTeamsFilter] = React.useState({})
     // const [locationFilter, setLocationFilter] = React.useState({})
     // const [query, setQuery] = React.useState('')
+    const positions = all_positions
 
     // const open_positions = getOpenPositionsByQuery(query, [filters])
 
     return (
         <Layout type="careers" padding_top="10rem">
             <SEO title={localize('Jobs')} />
-            <Container direction="column">
-                <SectionContainer>
-                    <Flex jc="unset">
-                        <SearchFilters />
-                        <div style={{ width: '100%' }}>
-                            <SearchForm />
-                            <CardList />
-                            <Pagination />
-                        </div>
-                    </Flex>
-                </SectionContainer>
-            </Container>
+            <SectionContainer>
+                <Container direction="column">
+                    {positions &&
+                        positions.map((position, idx) => (
+                            <CardList key={idx} position={position} />
+                        ))}
+                </Container>
+            </SectionContainer>
+
             <RoleBanner />
         </Layout>
     )

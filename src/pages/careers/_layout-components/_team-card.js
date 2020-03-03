@@ -23,6 +23,15 @@ export const StyledCard = styled(LocalizedLink)`
     }
 `
 
+export const NormalCard = styled.article`
+    position: relative;
+    height: ${props => (props.height ? props.height : 'auto')};
+    width: 100%;
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    background: var(--color-white);
+`
+
 const ImageWrapper = styled.div`
     height: 14.4rem;
     width: 100%;
@@ -52,7 +61,7 @@ const StyledChevron = styled(Chevron)`
 const TeamCard = ({ to, img_name, display_team_name, tagline }) => (
     <StyledCard height="38.8rem" to={to}>
         <ImageWrapper>
-            <Image img_name={img_name} width="100%" alt={img_name} />
+            <Image img_name={img_name} height="14.4rem" width="100%" alt={img_name} />
         </ImageWrapper>
         <StyledContent>
             <StyledHeader as="h5">{display_team_name}</StyledHeader>

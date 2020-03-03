@@ -1,17 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { StyledCard } from '../_layout-components/_team-card'
+import { NormalCard } from '../_layout-components/_team-card'
+import { team_names } from '../_model-controller/_teams'
 import { Flex } from 'components/containers'
 import { Text, Header, Divider } from 'components/elements'
+import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { toHashFormat } from 'common/utility'
 // SVG
 import Location from 'images/svg/small-location.svg'
 
 const StyledLocation = styled(Location)`
+    margin-right: 0.8rem;
+
     & path {
         fill: var(--color-blac);
+    }
+`
+
+const JobCard = styled(NormalCard)`
+    padding: 3.2rem;
+    margin-bottom: 2.4rem;
+
+    &:last-child {
+        margin-bottom: 0;
     }
 `
 
@@ -19,6 +32,9 @@ const Ul = styled.ul`
     list-style-type: disc;
     font-size: var(--text-size-s);
     padding-left: 2rem;
+    color: var(--color-black);
+    margin-top: 1.6rem;
+    margin-bottom: 2.8rem;
 `
 
 const Li = styled.li`
@@ -29,38 +45,44 @@ const Li = styled.li`
     }
 `
 
-const CardList = ({ title, team, location, type, qualifications }) => {
+const StyledDivider = styled(Divider)`
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+`
+
+const CardList = ({ position }) => {
     return (
-        <StyledCard to={`careers/jobs/job#${toHashFormat(title)}`}>
-            <Header font_size="var(--text-size-sm)">{title}</Header>
-            <Flex>
-                <Text>{team}</Text>
-                <Flex width="auto" height="auto">
+        <JobCard to={`careers/jobs/job#${toHashFormat(position.title)}`}>
+            <Header font_size="var(--text-size-sm)">{position.title}</Header>
+            <Flex jc="flex-start" ai="center" mt="1.6rem">
+                <Text>{team_names[position.team]}</Text>
+                <Flex width="auto" height="auto" ai="center" m="0 2.4rem">
                     <StyledLocation />
-                    <Text>{location}</Text>
+                    <Text>{position.location}</Text>
                 </Flex>
-                <Text>{type}</Text>
+                <Text>{position.type}</Text>
             </Flex>
-            <Divider height="4px" />
-            <Text>{localize('Qualifications:')}</Text>
+            <StyledDivider height="2px" />
+            <Text weight="bold">{localize('Qualifications:')}</Text>
             <Ul>
-                {qualifications &&
-                    qualifications.map((qualification, idx) => (
+                {position.qualifications &&
+                    position.qualifications.map((qualification, idx) => (
                         <Li key={idx}>
                             <Text>{qualification}</Text>
                         </Li>
                     ))}
             </Ul>
-        </StyledCard>
+            <Flex>
+                <LinkButton flat to={`careers/jobs/job#${toHashFormat(position.title)}`}>
+                    {localize('View more')}
+                </LinkButton>
+            </Flex>
+        </JobCard>
     )
 }
 
 CardList.propTypes = {
-    location: PropTypes.string,
-    qualifications: PropTypes.object,
-    team: PropTypes.string,
-    title: PropTypes.string,
-    type: PropTypes.string,
+    position: PropTypes.object,
 }
 
 export default CardList

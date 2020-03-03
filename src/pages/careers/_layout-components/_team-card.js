@@ -23,6 +23,15 @@ export const StyledCard = styled(LocalizedLink)`
     }
 `
 
+export const NormalCard = styled.article`
+    position: relative;
+    height: ${props => (props.height ? props.height : 'auto')};
+    width: 100%;
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    background: var(--color-white);
+`
+
 const ImageWrapper = styled.div`
     height: 14.4rem;
     width: 100%;

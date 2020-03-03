@@ -20,6 +20,7 @@ const CheckEmail = () => {
                 description={localize(
                     "If you don't see an email from us within a few minutes, a few things could have happened.",
                 )}
+                no_index
             />
             <SectionContainer>
                 <GridContainer align="center">

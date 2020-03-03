@@ -1,18 +1,5 @@
 import React from 'react'
 import { localize, Localize } from 'components/localization'
-import DubaiParaguay from 'images/svg/dubai-paraguay.svg'
-import FlagMalta from 'images/svg/flag-malta.svg'
-import LabuanParaguay from 'images/svg/labuan-paraguay.svg'
-import LogoBinary from 'images/svg/logo-binary.svg'
-import Awards from 'images/svg/awards.svg'
-import Betonmarkets from 'images/svg/Betonmarkets.svg'
-import LogoDevelopers from 'images/svg/logo-developpers.svg'
-import IsleOfMan from 'images/svg/malaysia-isle-of-man.svg'
-import RegentMarketLogo from 'images/svg/regent-markets-logo.svg'
-import Europe from 'images/svg/europe.svg'
-import Laptop from 'images/svg/laptop.svg'
-import LogoMT5 from 'images/svg/logo-mt5.svg'
-import DerivLaptop from 'images/svg/deriv-laptop.svg'
 
 const Stories = [
     {
@@ -33,8 +20,9 @@ const Stories = [
                         ),
                     },
                 ],
-                svg: <RegentMarketLogo />,
-                svg_position: 'center',
+                image: 'regent-market-logo.png',
+                image_position: 'center',
+                image_width: '28.2rem',
             },
         ],
     },
@@ -45,17 +33,18 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [{ header: localize('First binary option purchased') }],
+                headers: [{ header: localize('First digital option purchased') }],
                 texts: [
                     {
                         text: localize(
-                            'Regent Markets opens its first office in Malta. The first binary option is purchased. ',
+                            'Regent Markets opens its first office in Malta. The first digital option is purchased. ',
                         ),
                     },
                 ],
 
-                svg: <FlagMalta />,
-                svg_position: 'right',
+                image: 'flag-malta.png',
+                image_position: 'right',
+                image_width: '11.4rem',
             },
         ],
     },
@@ -70,12 +59,13 @@ const Stories = [
                 texts: [
                     {
                         text: localize(
-                            'Regent Markets launches BetOnMarkets.com, the first platform to offer binary options to retail traders.',
+                            'Regent Markets launches BetOnMarkets.com, the first platform to offer digital options to retail traders.',
                         ),
                     },
                 ],
-                svg: <Betonmarkets />,
-                svg_position: 'center',
+                image: 'bet-on-markets-logo.png',
+                image_position: 'center',
+                image_width: '28.2rem',
             },
         ],
     },
@@ -94,8 +84,9 @@ const Stories = [
                         ),
                     },
                 ],
-                svg: <IsleOfMan />,
-                svg_position: 'right',
+                image: 'isle-of-man-flag.png',
+                image_position: 'right',
+                image_width: '11.4rem',
             },
         ],
     },
@@ -117,8 +108,9 @@ const Stories = [
                         ),
                     },
                 ],
-                svg: <Awards />,
-                svg_position: 'center',
+                image: 'awards.png',
+                image_position: 'center',
+                image_width: '25.2rem',
             },
         ],
     },
@@ -137,8 +129,9 @@ const Stories = [
                         ),
                     },
                 ],
-                svg: <LogoBinary />,
-                svg_position: 'center',
+                image: 'logo-binary.png',
+                image_position: 'center',
+                image_width: '15.6rem',
             },
         ],
     },
@@ -157,8 +150,9 @@ const Stories = [
                         ),
                     },
                 ],
-                svg: <Europe />,
-                svg_position: 'left',
+                image: 'eu-flag.png',
+                image_position: 'left',
+                image_width: '11.4rem',
             },
             {
                 left: true,
@@ -170,8 +164,9 @@ const Stories = [
                         ),
                     },
                 ],
-                svg: <LogoDevelopers />,
-                svg_position: 'center',
+                image: 'logo-developers.png',
+                image_position: 'center',
+                image_width: '21.4rem',
             },
         ],
     },
@@ -199,8 +194,9 @@ const Stories = [
                     },
                 ],
 
-                svg: <Laptop />,
-                svg_position: 'center',
+                image: 'laptop.png',
+                image_position: 'center',
+                image_width: '25rem',
             },
             {
                 left: false,
@@ -221,8 +217,9 @@ const Stories = [
                     },
                 ],
 
-                svg: <LogoMT5 />,
-                svg_position: 'center',
+                image: 'logo-mt5.png',
+                image_position: 'center',
+                image_width: '28.2rem',
             },
         ],
     },
@@ -241,8 +238,9 @@ const Stories = [
                         ),
                     },
                 ],
-                svg: <LabuanParaguay />,
-                svg_position: 'right',
+                image: 'flag-labuan.png',
+                image_position: 'right',
+                image_width: '11.4rem',
             },
         ],
     },
@@ -261,9 +259,10 @@ const Stories = [
                         ),
                     },
                 ],
-                svg: <DubaiParaguay />,
-                svg_position: 'left',
+                image: 'dubay-paraguay-flags.png',
+                image_position: 'left',
                 margin_bottom: '6rem',
+                image_width: '19.2rem',
             },
         ],
     },
@@ -283,13 +282,14 @@ const Stories = [
                         ),
                     },
                 ],
-                svg: <DerivLaptop />,
-                svg_position: 'center',
+                image: 'deriv-laptop.png',
+                image_position: 'center',
                 margin_right: '6rem',
                 margin_left: '-0.4rem',
                 margin_bottom: '6rem',
-                svg_width: '35.7rem',
+                outer_image_width: '35.7rem',
                 content_width: '41rem',
+                image_width: '30.4rem',
             },
         ],
     },

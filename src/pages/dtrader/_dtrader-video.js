@@ -202,7 +202,7 @@ class DtraderTabs extends React.Component {
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(13)}
                         >
-                            {localize('3. Purchase your option')}
+                            {localize('3. Make your trade')}
                         </Step>
                     </Tab>
                     <GoToLiveDemo secondary="true" onClick={this.handleRedirect}>

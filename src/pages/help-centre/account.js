@@ -45,16 +45,16 @@ const WhoCanOpenAnAccount = () => (
         </Header>
         <Text>
             {localize(
-                'In line with our Group practice, we set the following criteria for client sign ups:',
+                'In line with our Group practice, we set the following criteria for client signups:',
             )}
         </Text>
         <div>
             <StyledListItem>
-                {localize('Clients have to be at least 18 years of age')}
+                {localize('Clients have to be at least 18 years of age.')}
             </StyledListItem>
             <StyledListItem>
                 {localize(
-                    'Clients cannot be a resident in Canada, France, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies',
+                    'Clients cannot be a resident in Canada, France, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
                 )}
             </StyledListItem>
         </div>

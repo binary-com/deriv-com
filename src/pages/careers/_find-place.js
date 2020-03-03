@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import TeamCard from './_layout-components/_team-card'
-import { getTop4Teams } from './_model-controller/_teams'
+import { getTop4Teams, team_names } from './_model-controller/_teams'
 import { Container, SectionContainer, CssGrid } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
@@ -35,7 +35,7 @@ const FindPlace = () => {
                             key={idx}
                             img_name={team.thumbnail}
                             to={`careers/teams/team#${team.name}/`}
-                            display_team_name={team.display_name}
+                            display_team_name={team_names[team.name]}
                             tagline={team.card_description}
                         />
                     ))}

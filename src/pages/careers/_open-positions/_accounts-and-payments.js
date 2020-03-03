@@ -143,7 +143,7 @@ export const accounts_and_payments_positions = [
     {
         title: 'Accounts and Payments Executivetranslate',
         keywords: ['Accounts and Payments Executivetranslate'],
-        location: localize('x'),
+        location: localize('Labuan'),
         type: localize('Full time'),
         team: 'accounts-and-payments',
         description: [

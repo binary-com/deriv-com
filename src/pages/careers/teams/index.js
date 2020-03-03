@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getAlphabeticTeams } from '../_model-controller/_teams'
+import { getAlphabeticTeams, team_names } from '../_model-controller/_teams'
 import Card from './_card'
 import { SEO, Container, SectionContainer, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -53,7 +53,7 @@ const Teams = () => {
                                 key={idx}
                                 img_name={team.thumbnail}
                                 to={`careers/teams/team#${team.name}`}
-                                display_team_name={team.display_name}
+                                display_team_name={team_names[team.name]}
                                 tagline={team.card_description}
                                 position_count={team.positions.length}
                             />

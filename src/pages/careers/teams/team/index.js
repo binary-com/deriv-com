@@ -80,7 +80,7 @@ const Team = () => {
                         team.positions &&
                         team.positions.map(position => ({
                             text: position.title,
-                            to: `jobs/job#${toHashFormat(position.title)}`,
+                            to: `careers/jobs/job#${toHashFormat(position.title)}`,
                             middle_text: position.location,
                         }))
                     }

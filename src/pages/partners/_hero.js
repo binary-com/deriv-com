@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import Partner from 'common/partner'
 import { Container } from 'components/containers'
 import { Header, BackgroundImage } from 'components/elements'
@@ -15,11 +16,20 @@ const StyledHeader = styled(Header)`
     max-width: 70rem;
     margin-bottom: 4rem;
 `
+const query = graphql`
+    query {
+        image: file(relativePath: { eq: "partners-banner.png" }) {
+            ...backGroundBlur
+        }
+    }
+`
 
 const Hero = () => {
+    const hero_img = useStaticQuery(query)
+
     return (
         <BackgroundImage
-            img_name="partners-banner.png"
+            data={hero_img.image}
             style={{
                 height: '80rem',
                 width: '100%',

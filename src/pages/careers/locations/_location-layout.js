@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { LinkList } from '../_layout-components/_link-list'
 import { RoleBanner } from '../_layout-components/_banner'
 import device from 'themes/device'
@@ -34,27 +35,52 @@ const Subheadline = styled(Text)`
     margin-bottom: 4rem;
 `
 
-const Hero = ({ name, description, img }) => (
-    <BackgroundImage
-        img_name={img}
-        style={{
-            height: '80rem',
-            width: '100%',
-        }}
-        alt={name}
-    >
-        <StyledContainer>
-            <StyledHeader as="h1">{name}</StyledHeader>
-            <Subheadline>{description}</Subheadline>
-            <LinkButton secondary to="/careers/jobs">
-                {localize('View open positions in')} {name}
-            </LinkButton>
-        </StyledContainer>
-    </BackgroundImage>
-)
+const query = graphql`
+    query {
+        cyberjaya: file(relativePath: { eq: "careers/cyberjaya.png" }) {
+            ...backGroundBlur
+        }
+        dubai: file(relativePath: { eq: "careers/dubai.png" }) {
+            ...backGroundBlur
+        }
+        labuan: file(relativePath: { eq: "careers/labuan.png" }) {
+            ...backGroundBlur
+        }
+        malta: file(relativePath: { eq: "careers/malta.png" }) {
+            ...backGroundBlur
+        }
+        asuncion: file(relativePath: { eq: "careers/asuncion.png" }) {
+            ...backGroundBlur
+        }
+    }
+`
+
+const Hero = ({ display_name, name, description }) => {
+    const hero_img = useStaticQuery(query)
+
+    return (
+        <BackgroundImage
+            data={hero_img[name]}
+            style={{
+                height: '80rem',
+                width: '100%',
+            }}
+            alt={display_name}
+        >
+            <StyledContainer>
+                <StyledHeader as="h1">{display_name}</StyledHeader>
+                <Subheadline>{description}</Subheadline>
+                <LinkButton secondary to="/careers/jobs">
+                    {localize('View open positions in')} {display_name}
+                </LinkButton>
+            </StyledContainer>
+        </BackgroundImage>
+    )
+}
 
 Hero.propTypes = {
     description: PropTypes.string,
+    display_name: PropTypes.string,
     img: PropTypes.string,
     name: PropTypes.string,
 }
@@ -117,7 +143,12 @@ export const LocationLayout = ({ location }) => {
 
     return (
         <>
-            <Hero name={display_name} description={location.header_p} img={location.hero_img} />
+            <Hero
+                display_name={display_name}
+                name={location.name}
+                description={location.header_p}
+                img={location.hero_img}
+            />
             <Container direction="column">
                 <FirstSection padding="12rem 0">
                     <Header align="center" as="h2" font_size={'var(--text-size-header-1)'}>

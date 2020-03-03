@@ -131,7 +131,7 @@ const Team = () => {
             <SEO title={localize(`Team ${team_names[team.name]}`)} />
             <Hero
                 background_image={team.hero_image}
-                display_name={team.display_name}
+                display_name={team_names[team.name]}
                 name={team.name}
                 team_description={team.description}
             />

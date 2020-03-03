@@ -52,7 +52,7 @@ const StyledChevron = styled(Chevron)`
 const TeamCard = ({ to, img_name, display_team_name, tagline }) => (
     <StyledCard height="38.8rem" to={to}>
         <ImageWrapper>
-            <Image img_name={img_name} width="100%" alt={img_name} />
+            <Image img_name={img_name} height="14.4rem" width="100%" alt={img_name} />
         </ImageWrapper>
         <StyledContent>
             <StyledHeader as="h5">{display_team_name}</StyledHeader>

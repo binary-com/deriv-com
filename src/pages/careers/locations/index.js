@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { StyledCard } from '../_layout-components/_team-card'
 import { cyberjaya, malta, dubai, labuan, asuncion } from './_locations'
 import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import MalaysiaFlagIcon from 'images/svg/flag_malaysia.svg'
 import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
 import UAEFlagIcon from 'images/svg/flag_uae.svg'
@@ -74,9 +75,9 @@ const CardGrid = styled.div`
     margin-top: 8rem;
 `
 
-const CountryCard = ({ country_name, city_name, link, img, Icon }) => (
+const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => (
     <CountryCardWrapper to={link}>
-        <Image img_name={img} width="100%" />
+        <QueryImage data={img_data} width="100%" />
         <div style={{ padding: '32px' }}>
             <Header as="h5" font_size="var(--text-size-sm)">
                 {city_name}
@@ -97,59 +98,83 @@ CountryCard.propTypes = {
     city_name: PropTypes.string,
     country_name: PropTypes.string,
     Icon: PropTypes.func,
-    img: PropTypes.string,
+    img_data: PropTypes.object,
     link: PropTypes.string,
 }
 
-const Locations = () => (
-    <Layout type="careers" padding_top="10rem">
-        <SEO title={localize('Locations')} />
-        <Hero />
-        <Container direction="column">
-            <SectionContainer>
-                <Header as="h2" align="center" font_size={'var(--text-size-header-1)'}>
-                    {localize('Where we work')}
-                </Header>
-                <CardGrid>
-                    <CountryCard
-                        Icon={ParaguayFlagIcon}
-                        img={asuncion.thumbnail}
-                        country_name={asuncion.country}
-                        city_name={asuncion.display_name}
-                        link={asuncion.link}
-                    />
-                    <CountryCard
-                        Icon={MalaysiaFlagIcon}
-                        img={cyberjaya.thumbnail}
-                        country_name={cyberjaya.country}
-                        city_name={cyberjaya.display_name}
-                        link={cyberjaya.link}
-                    />
-                    <CountryCard
-                        Icon={UAEFlagIcon}
-                        img={dubai.thumbnail}
-                        country_name={dubai.country}
-                        city_name={dubai.display_name}
-                        link={dubai.link}
-                    />
-                    <CountryCard
-                        Icon={MalaysiaFlagIcon}
-                        img={labuan.thumbnail}
-                        country_name={labuan.country}
-                        city_name={labuan.display_name}
-                        link={labuan.link}
-                    />
-                    <CountryCard
-                        Icon={MaltaFlagIcon}
-                        img={malta.thumbnail}
-                        country_name={malta.country}
-                        city_name={malta.display_name}
-                        link={malta.link}
-                    />
-                </CardGrid>
-            </SectionContainer>
-        </Container>
-    </Layout>
-)
+const query = graphql`
+    query {
+        thumbnail_cyberjaya: file(relativePath: { eq: "careers/thumbnail_cyberjaya.png" }) {
+            ...fadeIn
+        }
+        thumbnail_dubai: file(relativePath: { eq: "careers/thumbnail_dubai.png" }) {
+            ...fadeIn
+        }
+        thumbnail_labuan: file(relativePath: { eq: "careers/thumbnail_labuan.png" }) {
+            ...fadeIn
+        }
+        thumbnail_malta: file(relativePath: { eq: "careers/thumbnail_malta.png" }) {
+            ...fadeIn
+        }
+        thumbnail_asuncion: file(relativePath: { eq: "careers/thumbnail_asuncion.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
+const Locations = () => {
+    const images = useStaticQuery(query)
+
+    return (
+        <Layout type="careers" padding_top="10rem">
+            <SEO title={localize('Locations')} />
+            <Hero />
+            <Container direction="column">
+                <SectionContainer>
+                    <Header as="h2" align="center" font_size={'var(--text-size-header-1)'}>
+                        {localize('Where we work')}
+                    </Header>
+                    <CardGrid>
+                        <CountryCard
+                            Icon={ParaguayFlagIcon}
+                            img_data={images[asuncion.thumbnail]}
+                            country_name={asuncion.country}
+                            city_name={asuncion.display_name}
+                            link={asuncion.link}
+                        />
+                        <CountryCard
+                            Icon={MalaysiaFlagIcon}
+                            img_data={images[cyberjaya.thumbnail]}
+                            country_name={cyberjaya.country}
+                            city_name={cyberjaya.display_name}
+                            link={cyberjaya.link}
+                        />
+                        <CountryCard
+                            Icon={UAEFlagIcon}
+                            img_data={images[dubai.thumbnail]}
+                            country_name={dubai.country}
+                            city_name={dubai.display_name}
+                            link={dubai.link}
+                        />
+                        <CountryCard
+                            Icon={MalaysiaFlagIcon}
+                            img_data={images[labuan.thumbnail]}
+                            country_name={labuan.country}
+                            city_name={labuan.display_name}
+                            link={labuan.link}
+                        />
+                        <CountryCard
+                            Icon={MaltaFlagIcon}
+                            img_data={images[malta.thumbnail]}
+                            country_name={malta.country}
+                            city_name={malta.display_name}
+                            link={malta.link}
+                        />
+                    </CardGrid>
+                </SectionContainer>
+            </Container>
+        </Layout>
+    )
+}
 
 export default WithIntl()(Locations)

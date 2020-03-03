@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
 import 'swiper/css/swiper.css'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
@@ -154,7 +155,7 @@ const QuoteWrapper = styled(Flex)`
         top: 16px;
     }
 `
-const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
+const EmployeeSlide = ({ quote, img_data, img_alt, name }) => {
     React.useEffect(() => {
         // duplicate slides from react-id-swiper are not considered within viewport and therefore opacity remains at 0
         // add classname to force opacity
@@ -173,7 +174,7 @@ const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
                 <Flex tablet_direction="column">
                     <Flex>
                         <ImageWrapper>
-                            <Image img_name={img_path} alt={img_alt} />
+                            <QueryImage data={img_data} alt={img_alt} />
                         </ImageWrapper>
                     </Flex>
                     <QuoteWrapper direction="column">
@@ -189,7 +190,7 @@ const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
 
 EmployeeSlide.propTypes = {
     img_alt: PropTypes.string,
-    img_path: PropTypes.string,
+    img_data: PropTypes.string,
     name: PropTypes.string,
     quote: PropTypes.string,
     title: PropTypes.string,
@@ -197,7 +198,7 @@ EmployeeSlide.propTypes = {
 
 const kelcent = {
     name: localize('Kelcent Tan, Principal & Compliance Officer'),
-    img_path: 'kelcent.png',
+    img_key: 'kelcent',
     quote: localize(
         'We have a working culture where everyone is open and willing to share their  knowledge and expertise. This gave me invaluable insights into how other departments operate and helped me understand how my role impacts business operations as a whole.',
     ),
@@ -205,7 +206,7 @@ const kelcent = {
 }
 const negar = {
     name: localize('Negar Naghshbandi, Front-end Developer & Team Lead'),
-    img_path: 'negar.png',
+    img_key: 'negar',
     quote: localize(
         'The most exciting thing for me is the culture of the company and the people I work with. I learn something new everyday and I can pair-program with anyone when needed because everyone is approachable and eager to help.',
     ),
@@ -213,17 +214,32 @@ const negar = {
 }
 const mahdi = {
     name: localize('Mahdi Pourziaei, Front-end Developer'),
-    img_path: 'mahdi.png',
+    img_key: 'mahdi',
     quote: localize(
         'Two words: “autonomy”, and “friendly”. Working at Deriv has been full of growth as I get to pick my own challenges and see them through, and it really wouldn’t feel as empowering without the friendly culture. I’m happy to be amongst all the brilliant people here.',
     ),
     index: 3,
 }
 
+const query = graphql`
+    query {
+        negar: file(relativePath: { eq: "careers/negar.png" }) {
+            ...fadeIn
+        }
+        mahdi: file(relativePath: { eq: "careers/mahdi.png" }) {
+            ...fadeIn
+        }
+        kelcent: file(relativePath: { eq: "careers/kelcent.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const employee_testimonials = [kelcent, negar, mahdi]
 
 const EmployeeTestimonialCarousel = () => {
     const [swiper, updateSwiper] = useState(null)
+    const images = useStaticQuery(query)
 
     const goNext = () => {
         if (swiper !== null) {
@@ -278,7 +294,7 @@ const EmployeeTestimonialCarousel = () => {
                                     <EmployeeSlide
                                         quote={employee_slide.quote}
                                         name={employee_slide.name}
-                                        img_path={employee_slide.img_path}
+                                        img_data={images[employee_slide.img_key]}
                                         img_alt={employee_slide.name}
                                     />
                                 </div>

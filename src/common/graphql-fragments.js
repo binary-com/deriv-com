@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 export const backGroundBlur = graphql`
     fragment backGroundBlur on File {
         childImageSharp {
-            fluid(maxWidth: 1024, srcSetBreakpoints: [400, 600, 960, 1280, 1920]) {
+            fluid(maxWidth: 6000, quality: 100) {
                 ...GatsbyImageSharpFluid_withWebp
                 originalName
             }

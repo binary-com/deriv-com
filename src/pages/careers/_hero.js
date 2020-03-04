@@ -36,7 +36,7 @@ const RedBanner = styled.span`
 
 const query = graphql`
     query {
-        image: file(relativePath: { eq: "careers/career-landing-bg.jpg" }) {
+        image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
             ...backGroundBlur
         }
     }
@@ -50,8 +50,9 @@ const Hero = () => {
             data={data.image}
             alt={localize('Deriv careers')}
             style={{
-                height: '80rem',
-                width: '100%',
+                height: '100vh',
+                width: '100vw',
+                backgroundSize: `cover`,
             }}
         >
             <StyledContainer>

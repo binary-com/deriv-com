@@ -223,13 +223,13 @@ const mahdi = {
 
 const query = graphql`
     query {
-        negar: file(relativePath: { eq: "careers/negar.png" }) {
+        negar: file(relativePath: { eq: "careers/negar.jpg" }) {
             ...fadeIn
         }
-        mahdi: file(relativePath: { eq: "careers/mahdi.png" }) {
+        mahdi: file(relativePath: { eq: "careers/mahdi.jpg" }) {
             ...fadeIn
         }
-        kelcent: file(relativePath: { eq: "careers/kelcent.png" }) {
+        kelcent: file(relativePath: { eq: "careers/kelcent.jpg" }) {
             ...fadeIn
         }
     }

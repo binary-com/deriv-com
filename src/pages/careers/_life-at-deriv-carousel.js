@@ -174,19 +174,19 @@ const deriv_lifestyle_images = [games, lunch, fitness, greenarea, gym]
 
 const query = graphql`
     query {
-        fitness: file(relativePath: { eq: "careers/fitness.png" }) {
+        fitness: file(relativePath: { eq: "careers/fitness.jpg" }) {
             ...fadeIn
         }
-        games: file(relativePath: { eq: "careers/games.png" }) {
+        games: file(relativePath: { eq: "careers/games.jpg" }) {
             ...fadeIn
         }
-        greenarea: file(relativePath: { eq: "careers/green-area.png" }) {
+        greenarea: file(relativePath: { eq: "careers/green-area.jpg" }) {
             ...fadeIn
         }
-        lunch: file(relativePath: { eq: "careers/lunch.png" }) {
+        lunch: file(relativePath: { eq: "careers/lunch.jpg" }) {
             ...fadeIn
         }
-        gym: file(relativePath: { eq: "careers/gym.png" }) {
+        gym: file(relativePath: { eq: "careers/gym.jpg" }) {
             ...fadeIn
         }
     }

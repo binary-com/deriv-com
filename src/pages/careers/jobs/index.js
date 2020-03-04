@@ -5,7 +5,7 @@ import { all_positions } from '../_model-controller/_teams'
 import SearchForm from './_search-form'
 import SearchFilters from './_search-filters'
 import CardList from './_card-list'
-// import Pagination from './_pagination'
+import Pagination from './_pagination'
 import { SEO, Container, SectionContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -33,10 +33,12 @@ const Jobs = () => {
                     <StyledDivider height="104.6rem" width="2px" />
                     <Flex direction="column">
                         <SearchForm />
-                        {positions &&
-                            positions.map((position, idx) => (
-                                <CardList key={idx} position={position} />
-                            ))}
+                        <Pagination page_limit={4}>
+                            {positions &&
+                                positions.map((position, idx) => (
+                                    <CardList key={idx} position={position} />
+                                ))}
+                        </Pagination>
                     </Flex>
                 </Container>
             </SectionContainer>

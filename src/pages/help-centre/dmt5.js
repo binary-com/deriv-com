@@ -114,8 +114,16 @@ const WithdrawDMT5 = () => (
         </Header>
         <Text margin="0 0 1.5rem 0">
             <Localize
-                translate_text="To withdraw funds from your MT5 account on Deriv, you’ll need to transfer the funds to your Deriv account. Go to <0>Cashier > Transfer between accounts</0> and follow the instructions on the screen."
-                components={[<strong key={0} />]}
+                translate_text="To withdraw funds from your MT5 account on Deriv, you’ll need to transfer the funds to your Deriv account. Go to <0>Cashier ></0> <1>Transfer between accounts</1> and follow the instructions on the screen."
+                components={[
+                    <strong key={0} />,
+                    <ExternalLink
+                        href={`${deriv_app_url}/cashier/account-transfer`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={1}
+                    />,
+                ]}
             />
         </Text>
         <Text>

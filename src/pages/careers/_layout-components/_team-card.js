@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Image, Text, Header } from 'components/elements'
+import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 // SVG
 import Chevron from 'images/svg/chevron-bottom.svg'
@@ -58,10 +58,10 @@ const StyledChevron = styled(Chevron)`
     transform: rotate(-90deg);
 `
 
-const TeamCard = ({ to, img_name, display_team_name, tagline }) => (
+const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
     <StyledCard height="38.8rem" to={to}>
         <ImageWrapper>
-            <Image img_name={img_name} height="14.4rem" width="100%" alt={img_name} />
+            <QueryImage data={img_data} height="14.4rem" width="100%" alt={display_team_name} />
         </ImageWrapper>
         <StyledContent>
             <StyledHeader as="h5">{display_team_name}</StyledHeader>
@@ -75,7 +75,7 @@ const TeamCard = ({ to, img_name, display_team_name, tagline }) => (
 
 TeamCard.propTypes = {
     display_team_name: PropTypes.string,
-    img_name: PropTypes.string,
+    img_data: PropTypes.string,
     tagline: PropTypes.string,
     team_name: PropTypes.string,
     to: PropTypes.string,

@@ -36,7 +36,7 @@ const RedBanner = styled.span`
 
 const query = graphql`
     query {
-        image: file(relativePath: { eq: "careers/career-landing-bg.png" }) {
+        image: file(relativePath: { eq: "careers/career-landing-bg.jpg" }) {
             ...backGroundBlur
         }
     }

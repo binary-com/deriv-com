@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import { getPositionsByLocation } from '../_model-controller/_teams'
 import { LinkList } from '../_layout-components/_link-list'
 import { RoleBanner } from '../_layout-components/_banner'
 import device from 'themes/device'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Text, Header, Image, BackgroundImage } from 'components/elements'
+import { Text, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { toHashFormat } from 'common/utility'
@@ -37,32 +36,10 @@ const Subheadline = styled(Text)`
     margin-bottom: 4rem;
 `
 
-const query = graphql`
-    query {
-        cyberjaya: file(relativePath: { eq: "careers/cyberjaya.png" }) {
-            ...backGroundBlur
-        }
-        dubai: file(relativePath: { eq: "careers/dubai.png" }) {
-            ...backGroundBlur
-        }
-        labuan: file(relativePath: { eq: "careers/labuan.png" }) {
-            ...backGroundBlur
-        }
-        malta: file(relativePath: { eq: "careers/malta.png" }) {
-            ...backGroundBlur
-        }
-        asuncion: file(relativePath: { eq: "careers/asuncion.png" }) {
-            ...backGroundBlur
-        }
-    }
-`
-
-const Hero = ({ display_name, name, description }) => {
-    const hero_img = useStaticQuery(query)
-
+const Hero = ({ display_name, img_data, description }) => {
     return (
         <BackgroundImage
-            data={hero_img[name]}
+            data={img_data}
             style={{
                 height: '80rem',
                 width: '100%',
@@ -83,7 +60,7 @@ const Hero = ({ display_name, name, description }) => {
 Hero.propTypes = {
     description: PropTypes.string,
     display_name: PropTypes.string,
-    img: PropTypes.string,
+    img_data: PropTypes.object,
     name: PropTypes.string,
 }
 
@@ -140,9 +117,11 @@ const CardText = styled(Text)`
     margin-top: 1.6rem;
     margin-bottom: 4rem;
 `
-export const LocationLayout = ({ location }) => {
+
+export const LocationLayout = ({ location, images }) => {
     const { display_name, name } = location
     if (!display_name) return null
+
     const positions = getPositionsByLocation(name)
     const mapped_positions = positions
         ? positions.map(position => ({
@@ -158,7 +137,7 @@ export const LocationLayout = ({ location }) => {
                 display_name={display_name}
                 name={location.name}
                 description={location.header_p}
-                img={location.hero_img}
+                img_data={images[location.name]}
             />
             <Container direction="column">
                 <FirstSection padding="12rem 0">
@@ -168,8 +147,8 @@ export const LocationLayout = ({ location }) => {
                     <Flex tablet_direction="column">
                         <Text secondary>{location.first_p}</Text>
                         <ImageWrapper>
-                            <Image
-                                img_name={location.first_img}
+                            <QueryImage
+                                data={images[location.first_img]}
                                 alt={localize('Living in {{location}}', { location: display_name })}
                                 width="100%"
                             />
@@ -189,19 +168,25 @@ export const LocationLayout = ({ location }) => {
                         <Flex direction="column" mr="0.8rem" ai="flex-end">
                             <Flex mb="0.8rem" jc="flex-end">
                                 <First>
-                                    <Image img_name={location.grid_images[0]} width="100%" />
+                                    <QueryImage
+                                        data={images[location.grid_images[0]]}
+                                        width="100%"
+                                    />
                                 </First>
                                 <Second>
-                                    <Image img_name={location.grid_images[1]} width="100%" />
+                                    <QueryImage
+                                        data={images[location.grid_images[1]]}
+                                        width="100%"
+                                    />
                                 </Second>
                             </Flex>
                             <Third>
-                                <Image img_name={location.grid_images[2]} width="100%" />
+                                <QueryImage data={images[location.grid_images[2]]} width="100%" />
                             </Third>
                         </Flex>
                         <Flex ml="0.8rem" jc="unset">
                             <Fourth>
-                                <Image img_name={location.grid_images[3]} width="100%" />
+                                <QueryImage data={images[location.grid_images[3]]} width="100%" />
                             </Fourth>
                         </Flex>
                     </Flex>
@@ -210,7 +195,11 @@ export const LocationLayout = ({ location }) => {
                     <LocationCard>
                         <Flex jc="unset" tablet_direction="column">
                             <ImageWrapper>
-                                <Image img_name={location.map} alt={localize('Map')} width="100%" />
+                                <QueryImage
+                                    data={images[location.map]}
+                                    alt={localize('Map')}
+                                    width="100%"
+                                />
                             </ImageWrapper>
                             <Flex p="6rem" direction="column" mw="44.4rem">
                                 <div style={{ maxWidth: '32.4rem' }}>
@@ -247,5 +236,6 @@ export const LocationLayout = ({ location }) => {
 }
 
 LocationLayout.propTypes = {
+    images: PropTypes.object,
     location: PropTypes.object,
 }

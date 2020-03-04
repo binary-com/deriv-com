@@ -8,7 +8,7 @@ import { WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
-        labuan: file(relativePath: { eq: "careers/labuan.png" }) {
+        labuan: file(relativePath: { eq: "careers/labuan.jpg" }) {
             ...backGroundBlur
         }
         living_in_labuan: file(relativePath: { eq: "careers/living_in_labuan.png" }) {

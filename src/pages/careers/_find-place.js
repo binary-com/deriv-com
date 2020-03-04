@@ -108,7 +108,7 @@ const FindPlace = () => {
                     weight="bold"
                     to="/careers/teams/"
                 >
-                    {localize('See all teams')}
+                    {localize('View all teams')}
                 </StyledLink>
             </Container>
         </SectionContainer>

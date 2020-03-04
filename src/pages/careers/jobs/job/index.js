@@ -111,7 +111,7 @@ const Job = () => {
             <StyledContainer>
                 <BackText onClick={handleBack}>
                     <LeftChevron />
-                    <Text weight="bold">{localize('Back to jobs')}</Text>
+                    <Text weight="bold">{localize('Back')}</Text>
                 </BackText>
 
                 <DescHeader as="h4">{localize('Description:')}</DescHeader>

@@ -144,7 +144,7 @@ const Team = () => {
                         team.positions &&
                         team.positions.map(position => ({
                             text: position.title,
-                            to: `careers/jobs/job#${toHashFormat(position.title)}`,
+                            to: `careers/jobs/job#${toHashFormat(position.id)}`,
                             middle_text: position.location,
                         }))
                     }

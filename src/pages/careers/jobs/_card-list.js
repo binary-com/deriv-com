@@ -52,7 +52,7 @@ const StyledDivider = styled(Divider)`
 
 const CardList = ({ position }) => {
     return (
-        <JobCard to={`careers/jobs/job#${toHashFormat(position.title)}`}>
+        <JobCard to={`careers/jobs/job#${toHashFormat(position.id)}`}>
             <Header font_size="var(--text-size-sm)">{position.title}</Header>
             <Flex jc="flex-start" ai="center" mt="1.6rem">
                 <Text>{team_names[position.team]}</Text>
@@ -73,7 +73,7 @@ const CardList = ({ position }) => {
                     ))}
             </Ul>
             <Flex>
-                <LinkButton flat to={`careers/jobs/job#${toHashFormat(position.title)}`}>
+                <LinkButton flat to={`careers/jobs/job#${toHashFormat(position.id)}`}>
                     {localize('View more')}
                 </LinkButton>
             </Flex>

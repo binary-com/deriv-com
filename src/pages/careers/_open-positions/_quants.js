@@ -3,6 +3,7 @@ import { localize } from 'components/localization'
 export const quants_positions = [
     {
         title: localize('Quantitative Analyst'),
+        id: '0c5258b7-30a7-4ebc-aa14-30b05f2a1d08',
         keywords: [localize('Quantitative Analyst')],
         location: localize('Cyberjaya, Malaysia'),
         type: localize('Full time'),
@@ -50,6 +51,7 @@ export const quants_positions = [
     },
     {
         title: localize('Quantitative Analyst'),
+        id: '7edf8b37-52f0-4a3d-a7ac-e9253105e708',
         keywords: [localize('Quantitative Analyst')],
         location: localize('Malta'),
         type: localize('Full time'),
@@ -97,6 +99,7 @@ export const quants_positions = [
     },
     {
         title: localize('Senior Financial Market Analyst'),
+        id: 'ef0e7cd0-acb4-4177-9bef-6e41a910796a',
         keywords: [localize('Senior Financial Market Analyst')],
         location: localize('Malta'),
         type: localize('Full time'),

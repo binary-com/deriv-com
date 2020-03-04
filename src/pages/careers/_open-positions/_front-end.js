@@ -3,6 +3,7 @@ import { localize } from 'components/localization'
 export const front_end_positions = [
     {
         title: localize('Front-end Developer'),
+        id: '59cd28f1-7b33-4210-954b-52a897e2bc11',
         keywords: [localize('Front-end Developer')],
         location: localize('Cyberjaya, Malaysia'),
         type: localize('Full time, Internship'),
@@ -68,6 +69,7 @@ export const front_end_positions = [
     },
     {
         title: localize('Mobile App Developer'),
+        id: '6dba8da2-79d8-4f48-8cf3-6b35a00e214e',
         keywords: [localize('Mobile App Developer')],
         location: localize('Cyberjaya, Malaysia'),
         type: localize('Full time'),
@@ -115,6 +117,7 @@ export const front_end_positions = [
     },
     {
         title: localize('Marketing Design Manager'),
+        id: '8d79131f-648a-467b-9635-f40f6351179e',
         keywords: [localize('Marketing Design Manager')],
         location: localize('Dubai'),
         type: localize('Full time'),
@@ -168,6 +171,7 @@ export const front_end_positions = [
     },
     {
         title: localize('Front-end Developer'),
+        id: 'e81a1c83-e92e-4933-868a-532672a34f01',
         keywords: [localize('Front-end Developer')],
         location: localize('Dubai'),
         type: localize('Full time'),
@@ -233,6 +237,7 @@ export const front_end_positions = [
     },
     {
         title: localize('Front-end Developer'),
+        id: 'fa2b4ab6-6bf2-4578-9fad-7b55edf606bf',
         keywords: [localize('Front-end Developer')],
         location: localize('Paraguay'),
         type: localize('Full time'),
@@ -298,6 +303,7 @@ export const front_end_positions = [
     },
     {
         title: localize('Front-end Developer'),
+        id: '33e334dc-c742-4b17-a356-bf109b134c1a',
         keywords: [localize('Front-end Developer')],
         location: localize('Malta'),
         type: localize('Full time'),
@@ -363,6 +369,7 @@ export const front_end_positions = [
     },
     {
         title: localize('Mobile App Developer'),
+        id: '10a93ae7-e217-4378-b894-ce56a2b5a68e',
         keywords: [localize('Mobile App Developer')],
         location: localize('Malta'),
         type: localize('Full time'),

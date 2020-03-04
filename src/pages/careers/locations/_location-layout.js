@@ -126,7 +126,7 @@ export const LocationLayout = ({ location, images }) => {
     const mapped_positions = positions
         ? positions.map(position => ({
               text: position.title,
-              to: `careers/jobs/job#${toHashFormat(position.title)}`,
+              to: `careers/jobs/job#${toHashFormat(position.id)}`,
               middle_text: position.location,
           }))
         : []

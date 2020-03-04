@@ -3,6 +3,7 @@ import { localize } from 'components/localization'
 export const system_integrator_positions = [
     {
         title: localize('Systems Integrator'),
+        id: '78fac39f-bb6f-4d4c-a05e-c27ceb772603',
         keywords: [localize('Systems Integrator')],
         location: localize('Malta'),
         type: localize('Full time'),
@@ -52,6 +53,7 @@ export const system_integrator_positions = [
     },
     {
         title: localize('Systems Integrator'),
+        id: '210e00b1-5343-4f4b-931e-aa61a511f5f4',
         keywords: [localize('Systems Integrator')],
         location: localize('Labuan'),
         type: localize('Full time'),

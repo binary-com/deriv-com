@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getPositionByName, team_names } from '../../_model-controller/_teams'
+import { getJobPositionById, team_names } from '../../_model-controller/_teams'
 import { SEO, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import { Button } from 'components/form'
@@ -84,7 +84,7 @@ const StyledButton = styled(Button)`
 const Job = () => {
     const position_name = getLocationHash()
     if (!position_name) return null
-    const job = getPositionByName(position_name)
+    const job = getJobPositionById(position_name)
 
     const handleBack = () => {
         isBrowser() && window.history.go(-1)

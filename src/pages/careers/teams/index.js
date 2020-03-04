@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { getAlphabeticTeams, team_names } from '../_model-controller/_teams'
 import Card from './_card'
 import { SEO, Container, SectionContainer, CssGrid } from 'components/containers'
@@ -11,13 +12,72 @@ const HeroText = styled(Text)`
     max-width: 86.2rem;
     font-size: var(--text-size-sm);
 `
+const query = graphql`
+    query {
+        devops: file(relativePath: { eq: "careers/team-devops.png" }) {
+            ...fadeIn
+        }
+        compliance: file(relativePath: { eq: "careers/team-compliance.png" }) {
+            ...fadeIn
+        }
+        marketing: file(relativePath: { eq: "careers/team-marketing.png" }) {
+            ...fadeIn
+        }
+        qualityassurance: file(relativePath: { eq: "careers/team-quality-assurance.png" }) {
+            ...fadeIn
+        }
+        accountsandpayments: file(relativePath: { eq: "careers/team-accounts-payments.png" }) {
+            ...fadeIn
+        }
+        backend: file(relativePath: { eq: "careers/team-back-end.png" }) {
+            ...fadeIn
+        }
+        businessintelligence: file(relativePath: { eq: "careers/team-business-intelligence.png" }) {
+            ...fadeIn
+        }
+        content: file(relativePath: { eq: "careers/team-content.png" }) {
+            ...fadeIn
+        }
+        cryptodevelopment: file(relativePath: { eq: "careers/team-crypto-development.png" }) {
+            ...fadeIn
+        }
+        customersupport: file(relativePath: { eq: "careers/team-customer-support.png" }) {
+            ...fadeIn
+        }
+        disasterrecovery: file(relativePath: { eq: "careers/team-disaster-recovery.png" }) {
+            ...fadeIn
+        }
+        frontend: file(relativePath: { eq: "careers/team-front-end.png" }) {
+            ...fadeIn
+        }
+        hrrecruitment: file(relativePath: { eq: "careers/team-hr-recruitment.png" }) {
+            ...fadeIn
+        }
+        internalaudit: file(relativePath: { eq: "careers/team-internal-audit.png" }) {
+            ...fadeIn
+        }
+        itadmin: file(relativePath: { eq: "careers/team-it-admin.png" }) {
+            ...fadeIn
+        }
+        productdesign: file(relativePath: { eq: "careers/team-product-design.png" }) {
+            ...fadeIn
+        }
+        projectmanagement: file(relativePath: { eq: "careers/team-project-management.png" }) {
+            ...fadeIn
+        }
+        quants: file(relativePath: { eq: "careers/team-quants.png" }) {
+            ...fadeIn
+        }
+        security: file(relativePath: { eq: "careers/team-security.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const Teams = () => {
-    const [teams, setTeams] = React.useState([])
+    const teams = getAlphabeticTeams()
+    const thumbnails = useStaticQuery(query)
 
-    React.useEffect(() => {
-        setTeams(getAlphabeticTeams())
-    }, [])
     return (
         <Layout type="careers" padding_top="10rem">
             <SEO title={localize('Teams')} />
@@ -51,7 +111,7 @@ const Teams = () => {
                         {teams.map((team, idx) => (
                             <Card
                                 key={idx}
-                                img_name={team.thumbnail}
+                                img_data={thumbnails[team.name.replace(/-+/g, '')]}
                                 to={`careers/teams/team#${team.name}`}
                                 display_team_name={team_names[team.name]}
                                 tagline={team.card_description}

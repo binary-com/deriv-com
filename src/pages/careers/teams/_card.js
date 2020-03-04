@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { StyledCard } from '../_layout-components/_team-card'
-import { Image, Text, Header, Divider } from 'components/elements'
+import { QueryImage, Text, Header, Divider } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 // SVG
 import Chevron from 'images/svg/chevron.svg'
@@ -52,10 +52,10 @@ const StyledDivider = styled(Divider)`
     margin-bottom: 3.2rem;
 `
 
-const Card = ({ img_name, to, display_team_name, tagline, position_count }) => (
+const Card = ({ img_data, to, display_team_name, tagline, position_count }) => (
     <StyledCard height="46.3rem" to={to}>
         <ImageWrapper>
-            <Image img_name={img_name} width="100%" height="14.5rem" alt={img_name} />
+            <QueryImage data={img_data} width="100%" height="14.5rem" alt={display_team_name} />
         </ImageWrapper>
         <StyledContent>
             <Text size="var(--text-size-xs)">{`${position_count} ${localize('position')}`}</Text>
@@ -76,7 +76,7 @@ const Card = ({ img_name, to, display_team_name, tagline, position_count }) => (
 
 Card.propTypes = {
     display_team_name: PropTypes.string,
-    img_name: PropTypes.string,
+    img_data: PropTypes.string,
     position_count: PropTypes.number,
     tagline: PropTypes.string,
     team_name: PropTypes.string,

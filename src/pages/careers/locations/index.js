@@ -18,12 +18,6 @@ const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
     width: 16px;
     height: 16px;
-
-    g {
-        g {
-            fill: var(--color-red);
-        }
-    }
 `
 
 const BackDrop = styled.section`

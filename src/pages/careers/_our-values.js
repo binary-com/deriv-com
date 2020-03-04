@@ -23,7 +23,7 @@ const MiddleText = styled(Header)`
 `
 
 const OurValues = () => (
-    <SectionContainer background="grey-21">
+    <SectionContainer style={{ backgroundColor: 'rgba(242,243,244,0.3)' }}>
         <Container direction="column">
             <StyledHeader as="h3" align="center">
                 {localize('Our values')}

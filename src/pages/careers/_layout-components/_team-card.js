@@ -4,7 +4,13 @@ import styled from 'styled-components'
 import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 // SVG
-import Chevron from 'images/svg/chevron-bottom.svg'
+import Chevron from 'images/svg/carousel-chevron.svg'
+
+const ChevronRight = styled(Chevron)`
+    transform: rotate(180deg);
+    width: 16px;
+    height: 16px;
+`
 
 export const StyledCard = styled(LocalizedLink)`
     text-decoration: none;
@@ -14,12 +20,18 @@ export const StyledCard = styled(LocalizedLink)`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 4px;
     background: var(--color-white);
-    transition: transform 0.3s;
+    transition: all 0.3s;
     overflow: hidden;
     cursor: pointer;
 
     &:hover {
         transform: translateY(-1.1rem) scale(1.02);
+
+        #carousel-chevron-icon-svg {
+            g {
+                fill: var(--color-red);
+            }
+        }
     }
 `
 
@@ -53,11 +65,6 @@ const StyledLink = styled(LocalizedLink)`
     right: 3.2rem;
 `
 
-const StyledChevron = styled(Chevron)`
-    cursor: pointer;
-    transform: rotate(-90deg);
-`
-
 const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
     <StyledCard height="38.8rem" to={to}>
         <ImageWrapper>
@@ -67,7 +74,7 @@ const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
             <StyledHeader as="h5">{display_team_name}</StyledHeader>
             <Text>{tagline}</Text>
             <StyledLink to={to}>
-                <StyledChevron />
+                <ChevronRight />
             </StyledLink>
         </StyledContent>
     </StyledCard>

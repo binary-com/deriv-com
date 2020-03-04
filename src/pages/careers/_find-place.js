@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import TeamCard from './_layout-components/_team-card'
 import { getTop4Teams, team_names } from './_model-controller/_teams'
 import { Container, SectionContainer, CssGrid } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, StyledLink } from 'components/elements'
 import { localize } from 'components/localization'
 
 const StyledHeader = styled(Header)`
@@ -79,7 +79,7 @@ const FindPlace = () => {
     const thumbnails = useStaticQuery(query)
 
     return (
-        <SectionContainer background="grey-21">
+        <SectionContainer style={{ backgroundColor: 'rgba(242,243,244,0.3)' }}>
             <Container direction="column">
                 <StyledHeader as="h3">{localize('Find your place at Deriv')}</StyledHeader>
                 <CssGrid
@@ -102,6 +102,14 @@ const FindPlace = () => {
                         />
                     ))}
                 </CssGrid>
+                <StyledLink
+                    style={{ marginTop: '4.2rem' }}
+                    size="var(--text-size-xs)"
+                    weight="bold"
+                    to="/careers/teams/"
+                >
+                    {localize('See all teams')}
+                </StyledLink>
             </Container>
         </SectionContainer>
     )

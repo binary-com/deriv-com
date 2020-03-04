@@ -34,7 +34,7 @@ const ListItem = styled.li`
     }
     &:hover {
         cursor: pointer;
-        background-color: var(--color-grey-6);
+        background-color: var(--color-grey-1);
     }
 `
 const Circle = styled.span`

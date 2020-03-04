@@ -18,11 +18,10 @@ const Pagination = ({ children, page_limit }) => {
     const all_records = React.Children.toArray(children)
     const total_records = all_records.length
     const needs_pagination = total_records > page_limit
-    const range = page_limit - 1
     const [section_selection, setSectionSelection] = React.useState(page_limit)
+    const [start_index, setStartIndex] = React.useState(section_selection - page_limit)
     const has_next = section_selection < total_records
     const has_previous = section_selection > page_limit
-    const start_index = section_selection - page_limit
     const end_index = section_selection
 
     const current_records = all_records.slice(start_index, end_index)
@@ -32,8 +31,10 @@ const Pagination = ({ children, page_limit }) => {
         if (has_next) {
             if (next_selection > total_records) {
                 setSectionSelection(total_records)
+                setStartIndex(section_selection)
             } else {
                 setSectionSelection(next_selection)
+                setStartIndex(next_selection - page_limit)
             }
         }
     }
@@ -43,8 +44,10 @@ const Pagination = ({ children, page_limit }) => {
         if (has_previous) {
             if (previous_selection < page_limit) {
                 setSectionSelection(page_limit)
+                setStartIndex(0)
             } else {
                 setSectionSelection(previous_selection)
+                setStartIndex(previous_selection - page_limit)
             }
         }
     }
@@ -55,7 +58,7 @@ const Pagination = ({ children, page_limit }) => {
                 <Localize
                     translate_text="Viewing {{low_bound}}-{{up_bound}} of {{total}}"
                     values={{
-                        low_bound: section_selection - range,
+                        low_bound: start_index + 1,
                         up_bound: section_selection,
                         total: total_records,
                     }}
@@ -68,7 +71,7 @@ const Pagination = ({ children, page_limit }) => {
                         <Localize
                             translate_text="Viewing {{low_bound}}-{{up_bound}} of {{total}}"
                             values={{
-                                low_bound: section_selection - range,
+                                low_bound: start_index + 1,
                                 up_bound: section_selection,
                                 total: total_records,
                             }}

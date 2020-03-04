@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { getPositionsByLocation } from '../_model-controller/_teams'
 import { StyledCard } from '../_layout-components/_team-card'
 import { cyberjaya, malta, dubai, labuan, asuncion } from './_locations'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
@@ -60,24 +61,28 @@ const CountryCardWrapper = styled(StyledCard)`
     }
 `
 
-const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => (
-    <CountryCardWrapper to={link}>
-        <QueryImage data={img_data} width="100%" />
-        <div style={{ padding: '32px' }}>
-            <Header as="h5" font_size="var(--text-size-sm)">
-                {city_name}
-            </Header>
-            <Flex jc="unset" ai="center" mt="8px" mb="8px">
-                <Icon />
-                <Text weight="bold">{country_name}</Text>
-            </Flex>
-            <Flex ai="center" jc="space-between">
-                <Text>2 Open positions</Text>
-                <ChevronRight />
-            </Flex>
-        </div>
-    </CountryCardWrapper>
-)
+const CountryCard = ({ open_positions, country_name, city_name, link, img_data, Icon }) => {
+    return (
+        <CountryCardWrapper to={link}>
+            <QueryImage data={img_data} width="100%" />
+            <div style={{ padding: '32px' }}>
+                <Header as="h5" font_size="var(--text-size-sm)">
+                    {city_name}
+                </Header>
+                <Flex jc="unset" ai="center" mt="8px" mb="8px">
+                    <Icon />
+                    <Text weight="bold">{country_name}</Text>
+                </Flex>
+                <Flex ai="center" jc="space-between">
+                    <Text>
+                        {open_positions} {localize('open positions')}
+                    </Text>
+                    <ChevronRight />
+                </Flex>
+            </div>
+        </CountryCardWrapper>
+    )
+}
 
 CountryCard.propTypes = {
     city_name: PropTypes.string,
@@ -85,6 +90,7 @@ CountryCard.propTypes = {
     Icon: PropTypes.func,
     img_data: PropTypes.object,
     link: PropTypes.string,
+    open_positions: PropTypes.number,
 }
 
 const query = graphql`
@@ -133,6 +139,7 @@ const Locations = () => {
                             img_data={images[asuncion.thumbnail]}
                             country_name={asuncion.country}
                             city_name={asuncion.display_name}
+                            open_positions={getPositionsByLocation(asuncion.name).length}
                             link={asuncion.link}
                         />
                         <CountryCard
@@ -141,6 +148,7 @@ const Locations = () => {
                             country_name={cyberjaya.country}
                             city_name={cyberjaya.display_name}
                             link={cyberjaya.link}
+                            open_positions={getPositionsByLocation(cyberjaya.name).length}
                         />
                         <CountryCard
                             Icon={UAEFlagIcon}
@@ -148,6 +156,7 @@ const Locations = () => {
                             country_name={dubai.country}
                             city_name={dubai.display_name}
                             link={dubai.link}
+                            open_positions={getPositionsByLocation(dubai.name).length}
                         />
                         <CountryCard
                             Icon={MalaysiaFlagIcon}
@@ -155,6 +164,7 @@ const Locations = () => {
                             country_name={labuan.country}
                             city_name={labuan.display_name}
                             link={labuan.link}
+                            open_positions={getPositionsByLocation(labuan.name).length}
                         />
                         <CountryCard
                             Icon={MaltaFlagIcon}
@@ -162,6 +172,7 @@ const Locations = () => {
                             country_name={malta.country}
                             city_name={malta.display_name}
                             link={malta.link}
+                            open_positions={getPositionsByLocation(malta.name).length}
                         />
                     </CssGrid>
                 </SectionContainer>

@@ -49,7 +49,7 @@ const Hero = ({ display_name, img_data, description }) => {
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <Subheadline>{description}</Subheadline>
-                <LinkButton secondary to="/careers/jobs">
+                <LinkButton secondary="true" to="/careers/jobs">
                     {localize('View open positions in')} {display_name}
                 </LinkButton>
             </StyledContainer>

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StyledCard } from '../_layout-components/_team-card'
 import { cyberjaya, malta, dubai, labuan, asuncion } from './_locations'
-import { SEO, SectionContainer, Container, Flex } from 'components/containers'
+import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -66,15 +66,6 @@ const CountryCardWrapper = styled(StyledCard)`
     }
 `
 
-const CardGrid = styled.div`
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 6rem 2.4rem;
-    margin-top: 8rem;
-`
-
 const CountryCard = ({ country_name, city_name, link, img_data, Icon }) => (
     <CountryCardWrapper to={link}>
         <QueryImage data={img_data} width="100%" />
@@ -134,7 +125,15 @@ const Locations = () => {
                     <Header as="h2" align="center" font_size={'var(--text-size-header-1)'}>
                         {localize('Where we work')}
                     </Header>
-                    <CardGrid>
+                    <CssGrid
+                        columns="repeat(3, 38.4rem)"
+                        row_gap="6rem"
+                        column_gap="2.4rem"
+                        laptop_columns="repeat(2, 38.4rem)"
+                        tablet_columns="repeat(2, 38.4rem)"
+                        mobile_columns="38.4rem"
+                        style={{ marginTop: '8rem', justifyContent: 'center' }}
+                    >
                         <CountryCard
                             Icon={ParaguayFlagIcon}
                             img_data={images[asuncion.thumbnail]}
@@ -170,7 +169,7 @@ const Locations = () => {
                             city_name={malta.display_name}
                             link={malta.link}
                         />
-                    </CardGrid>
+                    </CssGrid>
                 </SectionContainer>
             </Container>
         </Layout>

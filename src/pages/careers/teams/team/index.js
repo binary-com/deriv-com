@@ -152,7 +152,9 @@ const Team = () => {
                 {team.positions && !team.positions.length && (
                     <NoOpenPositionsHeader>
                         {localize(
-                            `Sorry, there are currently no open positions for ${team.display_name}`,
+                            `Sorry, there are currently no open positions for ${
+                                team_names[team.name]
+                            }`,
                         )}
                     </NoOpenPositionsHeader>
                 )}

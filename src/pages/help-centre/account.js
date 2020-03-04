@@ -160,7 +160,7 @@ const DormantFee = () => (
         </Header>
         <Text>
             {localize(
-                'A dormant fee is an amount charged to any account that has not placed a transaction over a continuous period of 12 months.',
+                'A dormant fee is an amount charged to any account that has not placed a buy or sell transaction over a continuous period of 12 months.',
             )}
         </Text>
         <StyledText>

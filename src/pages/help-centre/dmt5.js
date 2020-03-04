@@ -47,7 +47,7 @@ const DifferenceDMT5DTrader = () => (
         </Header>
         <Text>
             {localize(
-                'DTrader allows you to trade more than 50 assets in the form of binary, multiplier, and lookback options.',
+                'DTrader allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.',
             )}
         </Text>
         <StyledText>
@@ -114,7 +114,7 @@ const WithdrawDMT5 = () => (
         </Header>
         <Text margin="0 0 1.5rem 0">
             <Localize
-                translate_text="To withdraw funds from your MT5 account on Deriv, you’ll need to transfer the funds to your Deriv account. Go to <0>Cashier > Transfer</0> between accounts and follow the instructions on the screen."
+                translate_text="To withdraw funds from your MT5 account on Deriv, you’ll need to transfer the funds to your Deriv account. Go to <0>Cashier > Transfer between accounts</0> and follow the instructions on the screen."
                 components={[<strong key={0} />]}
             />
         </Text>

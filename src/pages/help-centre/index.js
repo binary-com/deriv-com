@@ -310,7 +310,7 @@ class HelpCentre extends Component {
                                         name="search"
                                         value={search}
                                         onChange={this.handleInputChange}
-                                        placeholder={localize('Try “Trade”')}
+                                        placeholder={localize("Try 'Trade'")}
                                         data-lpignore="true"
                                         autoComplete="off"
                                     />

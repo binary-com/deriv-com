@@ -75,7 +75,7 @@ const WhatIsDBot = () => (
         </Header>
         <Text>
             {localize(
-                'DBot is a web-based strategy builder for trading binary options. It’s a platform where you can build your own trading bot using drag-and-drop "blocks".',
+                "DBot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own trading bot using drag-and-drop 'blocks'.",
             )}
         </Text>
     </ArticleWrapper>
@@ -86,7 +86,7 @@ const FindBlocks = () => (
             {localize('How do I find the blocks I need?')}
         </Header>
         <Text>
-            {localize('1. Click “Get started” at the top left corner to open the blocks menu.')}
+            {localize("1. Click 'Get started' at the top left corner to open the blocks menu.")}
         </Text>
         <ImageWrapper>
             <Image
@@ -117,7 +117,7 @@ const RemoveBlocks = () => (
         </Header>
         <Text>
             {localize(
-                'Just click on the block you want to remove and press “Delete” on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace.',
+                "Just click on the block you want to remove and press 'Delete' on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace.",
             )}
         </Text>
         <ImageWrapper>
@@ -130,7 +130,7 @@ const CreateVariables = () => (
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
             {localize('How do I create variables?')}
         </Header>
-        <Text>{localize('1. Click “Get started” to open the blocks menu.')}</Text>
+        <Text>{localize("1. Click 'Get started' to open the blocks menu.")}</Text>
         <ImageWrapper>
             <Image
                 img_name="dbot-button-get-started.png"
@@ -144,7 +144,7 @@ const CreateVariables = () => (
                 components={[<strong key={0} />]}
             />
         </Text>
-        <StyledText>{localize('3. Click “Create variable”.')}</StyledText>
+        <StyledText>{localize("3. Click 'Create variable'.")}</StyledText>
         <ImageWrapper>
             <Image
                 img_name="dbot-create-variable.png"
@@ -181,13 +181,13 @@ const QuickStrategy = () => (
         </Header>
         <Text>
             {localize(
-                "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: martingale, d'Alembert, and Oscar's Grind.",
+                "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
             )}
         </Text>
         <Text margin="4rem 0 0">
             <strong>{localize('Using a quick strategy')}</strong>
         </Text>
-        <StyledText>{localize('1. Click “Get started” on the toolbar at the top.')}</StyledText>
+        <StyledText>{localize("1. Click 'Get started' on the toolbar at the top.")}</StyledText>
         <ImageWrapper>
             <Image
                 img_name="dbot-button-get-started.png"
@@ -197,7 +197,7 @@ const QuickStrategy = () => (
         </ImageWrapper>
         <Text>
             <Localize
-                translate_text="2. Click “Quick Strategy”."
+                translate_text="2. Click 'Quick Strategy'."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -220,13 +220,13 @@ const QuickStrategy = () => (
                 width="44rem"
             />
         </ImageWrapper>
-        <Text>{localize('5. Enter your preferred trade parameters and click “Create”.')}</Text>
+        <Text>{localize("5. Enter your preferred trade parameters and click 'Create'.")}</Text>
         <ImageWrapper>
             <Image img_name="dbot-parameters.png" alt={localize('Parameters')} width="44rem" />
         </ImageWrapper>
         <Text>
             {localize(
-                '6. The strategy is loaded onto the workspace. You may adjust your strategy however you want and when you’re ready to run your bot, click “Run bot”.',
+                "6. The strategy is loaded onto the workspace. You may adjust your strategy however you want and when you’re ready to run your bot, click 'Run bot'.",
             )}
         </Text>
         <ImageWrapper>
@@ -242,11 +242,11 @@ const QuickStrategy = () => (
 const MartingaleStrategy = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is the martingale strategy?')}
+            {localize('What is the Martingale strategy?')}
         </Header>
         <Text>
             {localize(
-                'The martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost.',
+                'The Martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost.',
             )}
         </Text>
     </ArticleWrapper>
@@ -254,7 +254,7 @@ const MartingaleStrategy = () => (
 const AlembertStrategy = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is the d’Alembert strategy?')}
+            {localize('What is the D’Alembert strategy?')}
         </Header>
         <Text>
             {localize(
@@ -282,7 +282,7 @@ const SaveStrategy = () => (
         </Header>
         <Text>
             {localize(
-                'First, give your strategy a name. Click the “Bot name” field on the toolbar at the top and enter a name.',
+                "First, give your strategy a name. Click the 'Bot name' field on the toolbar at the top and enter a name.",
             )}
         </Text>
         <ImageWrapper>
@@ -290,7 +290,7 @@ const SaveStrategy = () => (
         </ImageWrapper>
         <Text>
             {localize(
-                'Next, click “Save” on the toolbar at the top of the workspace. You can choose to save to your computer or to your Google Drive. Your strategy will be saved in the XML format.',
+                "Next, click 'Save' on the toolbar at the top of the workspace. You can choose to save to your computer or to your Google Drive. Your strategy will be saved in the XML format.",
             )}
         </Text>
         <ImageWrapper>
@@ -302,13 +302,13 @@ const SaveStrategy = () => (
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text margin="2.4rem 0 0">{localize('1. Select “Local” and click “Continue”.')}</Text>
+        <Text margin="2.4rem 0 0">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
         <ImageWrapper>
             <Image img_name="dbot-savebot.png" alt={localize('Save bot')} width="40.7rem" />
         </ImageWrapper>
         <Text margin="2.4rem 0 0">
             {localize(
-                '2. The XML file will be saved in the “Downloads” folder of your internet browser.',
+                "2. The XML file will be saved in the 'Downloads' folder of your internet browser.",
             )}
         </Text>
         <Text margin="4rem 0 0">
@@ -317,7 +317,7 @@ const SaveStrategy = () => (
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text margin="2.4rem 0 0">{localize('1. Click “Connect”.')}</Text>
+        <Text margin="2.4rem 0 0">{localize("1. Click 'Connect'.")}</Text>
         <ImageWrapper>
             <Image
                 img_name="dbot-google-drive.png"
@@ -330,7 +330,7 @@ const SaveStrategy = () => (
                 '2. Select your Google account and grant the necessary permission for DBot to access your Google Drive.',
             )}
         </Text>
-        <Text margin="2.4rem 0 0">{localize('3. Click “Continue”.')}</Text>
+        <Text margin="2.4rem 0 0">{localize("3. Click 'Continue'.")}</Text>
         <ImageWrapper>
             <Image
                 img_name="dbot-savebot-drive.png"
@@ -340,7 +340,7 @@ const SaveStrategy = () => (
         </ImageWrapper>
         <Text margin="2.4rem 0 0">
             {localize(
-                '4. Choose the folder you want to save your strategy in and click  “Select”.',
+                "4. Choose the folder you want to save your strategy in and click  'Select'.",
             )}
         </Text>
     </ArticleWrapper>
@@ -352,7 +352,7 @@ const ImportStrategy = () => (
         </Header>
         <Text>
             {localize(
-                'Just drag the XML file from your computer onto the workspace. Your blocks will be loaded accordingly. Alternatively, you can click “Import” on the toolbar at the top of the workspace and choose to load your strategy from your computer or from your Google Drive.',
+                "Just drag the XML file from your computer onto the workspace. Your blocks will be loaded accordingly. Alternatively, you can click 'Import' on the toolbar at the top of the workspace and choose to load your strategy from your computer or from your Google Drive.",
             )}
         </Text>
         <ImageWrapper>
@@ -365,20 +365,20 @@ const ImportStrategy = () => (
         <Text margin="4rem 0 0">
             <strong>{localize('Importing from your computer')}</strong>
         </Text>
-        <Text margin="2.4rem 0 0">{localize('1. Select “Local” and click “Continue”.')}</Text>
+        <Text margin="2.4rem 0 0">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
         <ImageWrapper>
             <Image img_name="dbot-load-bot.png" alt={localize('Load bot')} width="40.7rem" />
         </ImageWrapper>
         <Text>
             {localize(
-                '2. Select your strategy and click “Open”. Your blocks will be loaded accordingly.',
+                "2. Select your strategy and click 'Open'. Your blocks will be loaded accordingly.",
             )}
         </Text>
         <Text margin="4rem 0 0">
             <strong>{localize('Importing from your Google Drive')}</strong>
         </Text>
         <Text margin="2.4rem 0 0">
-            {localize('1. Select “Google Drive” and click “Continue”.')}
+            {localize("1. Select 'Google Drive' and click 'Continue'.")}
         </Text>
         <ImageWrapper>
             <Image
@@ -389,7 +389,7 @@ const ImportStrategy = () => (
         </ImageWrapper>
         <Text>
             {localize(
-                '2. Select your strategy and click “Select”. Your blocks will be loaded accordingly.',
+                "2. Select your strategy and click 'Select'. Your blocks will be loaded accordingly.",
             )}
         </Text>
     </ArticleWrapper>
@@ -401,7 +401,7 @@ const ResetWorkspace = () => (
         </Header>
         <Text>
             {localize(
-                'Click “Reset” on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost. ',
+                "Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost. ",
             )}
         </Text>
         <ImageWrapper>
@@ -415,12 +415,12 @@ const TransactionLog = () => (
             {localize('How do I clear my transaction log?')}
         </Header>
         <Text>
-            {localize('1. In the panel on the right of the workspace, click “Clear stat”.')}
+            {localize("1. In the panel on the right of the workspace, click 'Clear stat'.")}
         </Text>
         <ImageWrapper>
             <Image img_name="dbot-clear-stat.png" alt={localize('Clear stat')} width="24.8rem" />
         </ImageWrapper>
-        <Text>{localize('2. Click “Ok”.')}</Text>
+        <Text>{localize("2. Click 'Ok'.")}</Text>
         <ImageWrapper>
             <Image
                 img_name="dbot-are-you-sure.png"
@@ -490,7 +490,7 @@ const ControlLosses = () => (
                     <Tbody>
                         <Text>
                             {localize(
-                                'This will be used to stop trading when your loss limit is reached. Set the initial value to “true”.',
+                                "This will be used to stop trading when your loss limit is reached. Set the initial value to 'true'.",
                             )}
                         </Text>
                     </Tbody>
@@ -502,7 +502,7 @@ const ControlLosses = () => (
         </ImageWrapper>
         <Text>
             <Localize
-                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to “false” to prevent the bot from running another cycle."
+                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to 'false' to prevent the bot from running another cycle."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -532,7 +532,7 @@ const TradeStatus = () => (
         </Header>
         <Text>
             {localize(
-                'The panel on the right of the workspace gives you information about all your trades in DBot. The “Summary” tab shows information such as your total stake, total payout, profit/loss, etc.',
+                "The panel on the right of the workspace gives you information about all your trades in DBot. The 'Summary' tab shows information such as your total stake, total payout, profit/loss, etc.",
             )}
         </Text>
 
@@ -542,7 +542,7 @@ const TradeStatus = () => (
 
         <Text>
             {localize(
-                'The “Transactions” tab gives you more detailed information on each trade such as duration, barrier, start and end times, etc.',
+                "The 'Transactions' tab gives you more detailed information on each trade such as duration, barrier, start and end times, etc.",
             )}
         </Text>
         <ImageWrapper>
@@ -561,7 +561,7 @@ const ViewChart = () => (
         </Header>
         <Text>
             {localize(
-                'Click “Chart” at the bottom left corner of the workspace to view the chart.',
+                "Click 'Chart' at the bottom left corner of the workspace to view the chart.",
             )}
         </Text>
 
@@ -589,11 +589,11 @@ const DBotArticle = () => {
                 label="quick-strategy"
             />
             <MartingaleStrategy
-                text={localize('What is the martingale strategy?')}
+                text={localize('What is the Martingale strategy?')}
                 label="martingale-strategy"
             />
             <AlembertStrategy
-                text={localize('What is the d’Alembert strategy?')}
+                text={localize('What is the D’Alembert strategy?')}
                 label="dalembert-strategy"
             />
             <OskarStrategy

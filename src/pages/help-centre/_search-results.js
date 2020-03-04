@@ -107,7 +107,7 @@ SearchSuccess.propTypes = {
 export const SearchError = ({ search }) => (
     <>
         <ErrorHeader as="h5" color="black">
-            {localize('Sorry, we couldn’t find any results matching “{{search}}”.', { search })}
+            {localize("Sorry, we couldn’t find any results matching '{{search}}'.", { search })}
         </ErrorHeader>
         <SearchText color="green">{localize('Search tips:')}</SearchText>
         <Ul>

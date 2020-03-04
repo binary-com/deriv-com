@@ -21,7 +21,7 @@ const WhatIsDMT5 = () => (
         </Header>
         <Text>
             {localize(
-                'DTrader is an advanced trading platform that allows you to trade more than 50 assets in the form of binary, multiplier, and lookback options.',
+                'DTrader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.',
             )}
         </Text>
     </ArticleWrapper>

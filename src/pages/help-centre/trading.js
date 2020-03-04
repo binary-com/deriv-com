@@ -68,7 +68,7 @@ const SyntheticIndices = () => (
         </Header>
         <Text>
             {localize(
-                'Exclusive to Deriv, Synthetic Indices are our very own set of synthetic markets engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
+                'Exclusive to Deriv, synthetic indices are our very own set of synthetic markets engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
             )}
         </Text>
     </ArticleWrapper>
@@ -76,7 +76,7 @@ const SyntheticIndices = () => (
 const CFD = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are Contracts for Difference (CFDs)?')}
+            {localize('What are contracts for difference (CFDs)?')}
         </Header>
         <Text>
             {localize(
@@ -85,14 +85,14 @@ const CFD = () => (
         </Text>
     </ArticleWrapper>
 )
-const BinaryOptions = () => (
+const DigitalOptions = () => (
     <ArticleWrapper>
         <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are binary options?')}
+            {localize('What are digital options?')}
         </Header>
         <Text>
             {localize(
-                'A binary option is a financial instrument with a fixed payout where you predict the outcome from only two possible results. ',
+                'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results. ',
             )}
         </Text>
     </ArticleWrapper>
@@ -149,7 +149,7 @@ const WeekendContracts = () => (
         </Header>
         <Text>
             {localize(
-                'You can trade Synthetic Indices 24/7 in all countries except Australia, France, Germany, Greece, Italy, Luxembourg, Singapore, and Spain due to regulatory requirements.',
+                'You can trade synthetic indices 24/7 in all countries except Australia, France, Germany, Greece, Italy, Luxembourg, Singapore, and Spain due to regulatory requirements.',
             )}
         </Text>
     </ArticleWrapper>
@@ -169,12 +169,12 @@ const TradingArticle = () => {
                 label="what-are-synthetic-indices"
             />
             <CFD
-                text={localize('What are Contracts for Difference (CFDs)?')}
+                text={localize('What are contracts for difference (CFDs)?')}
                 label="what-are-cfds"
             />
-            <BinaryOptions
-                text={localize('What are binary options?')}
-                label="what-are-binary-options"
+            <DigitalOptions
+                text={localize('What are digital options?')}
+                label="what-are-digital-options"
             />
             <TradingPlatforms
                 text={localize('How many trading platforms do you offer?')}

@@ -78,16 +78,16 @@ export const articles = [
                 label: 'what-are-synthetic-indices',
             },
             {
-                title: <Localize translate_text="What are Contracts for Difference (CFDs)?" />,
+                title: <Localize translate_text="What are contracts for difference (CFDs)?" />,
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
                 label: 'what-are-cfds',
             },
             {
-                title: <Localize translate_text="What are binary options?" />,
+                title: <Localize translate_text="What are digital options?" />,
                 category: 'Trading',
                 sub_category: <Localize translate_text="Markets" />,
-                label: 'what-are-binary-options',
+                label: 'what-are-digital-options',
             },
             {
                 title: <Localize translate_text="How many trading platforms do you offer?" />,
@@ -295,13 +295,13 @@ export const articles = [
                 label: 'quick-strategy',
             },
             {
-                title: <Localize translate_text="What is the martingale strategy?" />,
+                title: <Localize translate_text="What is the Martingale strategy?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Strategy" />,
                 label: 'martingale-strategy',
             },
             {
-                title: <Localize translate_text="What is the d’Alembert strategy?" />,
+                title: <Localize translate_text="What is the D’Alembert strategy?" />,
                 category: 'DBot',
                 sub_category: <Localize translate_text="Strategy" />,
                 label: 'dalembert-strategy',

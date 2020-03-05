@@ -10,12 +10,6 @@ module.exports = {
         siteUrl: 'https://www.deriv.com',
     },
     plugins: [
-        {
-            resolve: 'gatsby-plugin-netlify-cache',
-            options: {
-                cachePublic: true,
-            },
-        },
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
         {

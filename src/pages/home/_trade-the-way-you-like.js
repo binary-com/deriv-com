@@ -18,10 +18,16 @@ const StyledSection = styled(SectionContainer)`
 `
 const TradeTheWayYouLike = () => {
     return (
-        <StyledSection padding='5rem 2rem'>
-            <Header font_size='3rem' align='center'>{localize('Trade the way you like')}</Header>
-            <Subtitle secondary>{localize('Choose from three powerful platforms -- designed with you in mind')}</Subtitle>
-            <ImageWrapper><Image img_name='dtrader-artboard.png' /></ImageWrapper>
+        <StyledSection padding="5rem 2rem">
+            <Header font_size="3rem" align="center">
+                {localize('Trade the way you like')}
+            </Header>
+            <Subtitle secondary="true">
+                {localize('Choose from three powerful platforms -- designed with you in mind')}
+            </Subtitle>
+            <ImageWrapper>
+                <Image img_name="dtrader-artboard.png" />
+            </ImageWrapper>
             <OtherPlatform exclude="" is_nav />
         </StyledSection>
     )

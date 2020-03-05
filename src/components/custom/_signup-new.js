@@ -221,7 +221,7 @@ const SignupNew = ({
             <EmailButton
                 checkBoxState={checkBoxState}
                 type="submit"
-                secondary
+                secondary="true"
                 disabled={is_submitting || !checkBoxState}
             >
                 {localize('Create demo account')}

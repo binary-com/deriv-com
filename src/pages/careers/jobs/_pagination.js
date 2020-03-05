@@ -36,6 +36,7 @@ const Pagination = ({ children, page_limit }) => {
                 setSectionSelection(next_selection)
                 setStartIndex(next_selection - page_limit)
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' })
         }
     }
 
@@ -49,6 +50,7 @@ const Pagination = ({ children, page_limit }) => {
                 setSectionSelection(previous_selection)
                 setStartIndex(previous_selection - page_limit)
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' })
         }
     }
 

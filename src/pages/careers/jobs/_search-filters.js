@@ -1,20 +1,113 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { getTeamNames, team_names } from '../_model-controller/_teams'
+import { Flex } from 'components/containers'
+import { Accordion, AccordionItem, Divider, Text, Checkbox } from 'components/elements'
+import { localize } from 'components/localization'
 
 const FilterContainer = styled.div`
     min-width: 32.7rem;
 `
-const SearchFilters = () => {
+
+const AccordionWrapper = styled.div`
+    div:first-child {
+        box-shadow: unset;
+    }
+`
+
+const ClearFilter = styled(Text)`
+    margin-left: 1.6rem;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+`
+
+const header_style = {
+    padding: 0,
+}
+
+const item_style = {
+    borderBottom: '1px solid var(--color-grey-2)',
+    display: 'flex',
+}
+
+const CheckboxWrapper = styled(Flex)`
+    cursor: pointer;
+`
+
+const SearchFilters = ({ filters, setFilters }) => {
+    const all_team_names = getTeamNames()
+
     return (
         <FilterContainer>
-            <h1>Search Filters</h1>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
+            <Flex jc="space-between">
+                <Text size="var(--text-size-xs)">{localize('Filters')}</Text>
+                <ClearFilter size="var(--text-size-xs)">{localize('Clear filters')}</ClearFilter>
+            </Flex>
+            <Divider height="2px" />
+            <AccordionWrapper>
+                <Accordion has_single_state>
+                    <AccordionItem
+                        header={localize('Job types')}
+                        header_style={header_style}
+                        // parent_style={parent_style}
+                        style={item_style}
+                        arrow_thin
+                    >
+                        <Text>Hello</Text>
+                    </AccordionItem>
+                    <AccordionItem
+                        header={localize('Teams')}
+                        header_style={header_style}
+                        // parent_style={parent_style}
+                        style={item_style}
+                        arrow_thin
+                    >
+                        <Flex direction="column" m="1.6rem 0 0.8rem">
+                            {all_team_names.map((team_name, idx) => {
+                                const toggleCheck = () => {
+                                    if (filters.includes(team_name)) {
+                                        setFilters(filters.filter(filter => filter !== team_name))
+                                    } else {
+                                        setFilters([...filters, team_name])
+                                    }
+                                }
+                                return (
+                                    <CheckboxWrapper
+                                        key={idx}
+                                        jc="flex-start"
+                                        ai="center"
+                                        mb="0.8rem"
+                                        onClick={toggleCheck}
+                                    >
+                                        <Checkbox checked={filters.includes(team_name)} />
+                                        <Text>{team_names[team_name]}</Text>
+                                    </CheckboxWrapper>
+                                )
+                            })}
+                        </Flex>
+                    </AccordionItem>
+                    <AccordionItem
+                        header={localize('Location')}
+                        header_style={header_style}
+                        // parent_style={parent_style}
+                        style={item_style}
+                        arrow_thin
+                    >
+                        <Text>Hello</Text>
+                    </AccordionItem>
+                </Accordion>
+            </AccordionWrapper>
         </FilterContainer>
     )
+}
+
+SearchFilters.propTypes = {
+    filters: PropTypes.array,
+    setFilters: PropTypes.func,
 }
 
 export default SearchFilters

@@ -1,20 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Flex } from 'components/containers'
+import { Text } from 'components/elements'
 
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
 `
 
-const TabsWrapper = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-`
-
 const TabButton = styled.button`
-    flex: 1;
     height: 50px;
     padding: 0 24px;
     display: flex;
@@ -39,6 +34,7 @@ const TabList = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
+    justify-content: center;
     position: relative;
     @media (max-width: ${props => props.breakPoint}) {
         flex-direction: column;
@@ -82,7 +78,7 @@ const Tabs = ({ children, tab_break }) => {
     }
 
     return (
-        <TabsWrapper>
+        <Flex direction="column">
             <TabList breakPoint={tab_break} role="tablist">
                 {React.Children.map(children, ({ props: { label } }, index) => (
                     <TabButton
@@ -101,7 +97,7 @@ const Tabs = ({ children, tab_break }) => {
                     selected_tab === index ? comp : undefined,
                 )}
             </Content>
-        </TabsWrapper>
+        </Flex>
     )
 }
 

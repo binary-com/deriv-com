@@ -83,7 +83,7 @@ const Turnover = [
     },
     {
         title: localize('Commission'),
-        data: ['1.50%', '1%', '0.75%', '0.5%', '0.40%', '0%'],
+        data: ['1.5%', '1%', '0.75%', '0.5%', '0.4%', '0%'],
     },
 ]
 const DerivAffiliateProgramme = () => {

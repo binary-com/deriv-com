@@ -77,7 +77,7 @@ const StyledLink = styled(Link)`
     font-size: var(--text-size-s);
 
     :hover {
-        color: red;
+        color: var(--color-red);
         text-decoration: underline;
     }
 `

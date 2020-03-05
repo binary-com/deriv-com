@@ -265,7 +265,10 @@ const Footer = () => (
                             <Title>{localize('COMPANY')}</Title>
                         </div>
                         <div>
-                            <Link to="/about">{localize('About us')}</Link>
+                            <Link to="/about#story">{localize('Our story')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/about#leadership">{localize('Our leadership')}</Link>
                         </div>
                         <div>
                             <Link to="/careers">{localize('Careers')}</Link>

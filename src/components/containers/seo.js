@@ -38,7 +38,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                 {
                     name: 'keywords',
                     content: localize(
-                        'digital options, forex, forex trading, online trading, financial trading, binary trading, index trading, trading indices, forex trades, trading commodities, digital options strategy, binary broker, binary bet, digital options trading platform, binary strategy, finance, investment, trading',
+                        'digital options, forex, forex trading, online trading, financial trading, digitals trading, index trading, trading indices, forex trades, trading commodities, digital options strategy, binary broker, binary bet, digital options trading platform, binary strategy, finance, investment, trading',
                     ),
                 },
                 {

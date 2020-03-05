@@ -14,7 +14,7 @@ import Chevron from 'images/svg/chevron-bottom.svg'
 
 const Banner = styled.section`
     background-color: var(--color-black);
-    height: 36.2rem;
+    padding: 8rem 0;
 `
 
 const StyledContainer = styled.div`

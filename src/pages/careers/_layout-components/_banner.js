@@ -25,7 +25,9 @@ export const Banner = ({ header, text, button_text }) => (
             <Header align="center" as="h3" color="white">
                 {header}
             </Header>
-            <Text color="white">{text}</Text>
+            <Text align="center" color="white">
+                {text}
+            </Text>
             <EmailButton text={button_text} />
         </Flex>
     </Section>

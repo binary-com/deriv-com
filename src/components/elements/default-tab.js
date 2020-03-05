@@ -10,6 +10,7 @@ const TabContent = styled.div`
 `
 
 const TabButton = styled.button`
+    z-index: 2;
     height: 50px;
     padding: 0 24px;
     display: flex;
@@ -21,12 +22,14 @@ const TabButton = styled.button`
     outline: none;
     transition: border-color 0.2s ease-in;
     border: none;
-    border-bottom: 4px solid ${props => (props.selected ? 'blue' : '#fff')};
+    border-bottom: 2px solid
+        ${props => (props.selected ? 'var(--color-red)' : 'var(--color-grey-2)')};
 
     &:hover,
     &:focus,
     &:active {
-        border-bottom: 4px solid ${props => (props.selected ? 'blue' : '#eee')};
+        border-bottom: 2px solid
+            ${props => (props.selected ? 'var(--color-red)' : 'var(--color-red-2)')};
     }
 `
 
@@ -44,15 +47,15 @@ const TabList = styled.div`
             width: 100%;
         }
     }
+`
 
-    &::after {
-        content: '';
-        bottom: 0;
-        position: absolute;
-        height: 2px;
-        width: 100%;
-        background: var(--color-grey-2);
-    }
+const LineDivider = styled.div`
+    bottom: 0;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: var(--color-grey-2);
+    z-index: 1;
 `
 
 const Content = styled.div`
@@ -87,9 +90,12 @@ const Tabs = ({ children, tab_break }) => {
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => selectTab(index)}
                     >
-                        {label}
+                        <Text size="var(--text-size-m)" color="red" weight="bold">
+                            {label}
+                        </Text>
                     </TabButton>
                 ))}
+                <LineDivider />
             </TabList>
 
             <Content>

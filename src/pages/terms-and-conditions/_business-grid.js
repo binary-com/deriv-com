@@ -6,13 +6,19 @@ import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
-import Trading from 'images/svg/trading-tc.svg'
-import Funds from 'images/svg/funds-transfers-tc.svg'
-import Security from 'images/svg/security-privacy-tc.svg'
-import Business from 'images/svg/business-terms-tc.svg'
-import Risk from 'images/svg/risk-tc.svg'
+import General from 'images/svg/business-general-tc.svg'
+import Partners from 'images/svg/business-partners-tc.svg'
+import PA from 'images/svg/business-pa-tc.svg'
+import API from 'images/svg/business-api-tc.svg'
 import PDF from 'images/svg/pdf-icon-black.svg'
-import BFX from 'images/svg/bfx-tc.svg'
+
+const StyledContainer = styled(GridContainer)`
+    margin-top: 8rem;
+`
+
+const IconWrapper = styled.div`
+    margin-left: -2.4rem;
+`
 
 const GridCol = styled(CssGridColumn)`
     width: 100%;
@@ -40,9 +46,6 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-const Container = styled.div`
-    padding: 0 2rem;
-`
 const Cta = styled.div`
     margin-top: 1.6rem;
     display: grid;
@@ -67,17 +70,17 @@ const Cta = styled.div`
 `
 const Col = ({ Icon, content, link_title, title, url }) => (
     <GridCol>
-        <Icon />
-        <Container>
-            <StyledHeader as="h4">{title}</StyledHeader>
-            <Text lh="1.55">{content}</Text>
-            <Cta>
-                <PDF />
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                    {link_title}
-                </a>
-            </Cta>
-        </Container>
+        <IconWrapper>
+            <Icon />
+        </IconWrapper>
+        <StyledHeader as="h4">{title}</StyledHeader>
+        <Text lh="1.55">{content}</Text>
+        <Cta>
+            <PDF />
+            <a href={url} target="_blank" rel="noopener noreferrer">
+                {link_title}
+            </a>
+        </Cta>
     </GridCol>
 )
 Col.propTypes = {
@@ -89,67 +92,47 @@ Col.propTypes = {
 }
 
 const IconGrid = () => (
-    <GridContainer>
+    <StyledContainer>
         <CssGrid
             columns="repeat(3, 1fr)"
-            column_gap="13rem"
-            row_gap="10rem"
+            column_gap="15.4rem"
+            row_gap="8rem"
             tablet_columns="repeat(2, 1fr)"
             mobile_columns="1fr"
             mobile_row_gap="10rem"
         >
             <Col
-                Icon={Trading}
-                title={localize('Trading terms')}
+                Icon={General}
+                title={localize('General terms of use')}
                 content={localize(
-                    'Our platforms and the transactions you can make on them plus other important details about trading on Deriv',
+                    'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
                 )}
                 url="/trading_deriv_tnc.pdf"
-                link_title={localize('Trading terms')}
+                link_title={localize('General terms of use')}
             />
             <Col
-                Icon={Funds}
-                title={localize('Funds and transfers ')}
-                content={localize(
-                    'How we keep your funds, transfers between your accounts, and our bonuses to you',
-                )}
+                Icon={Partners}
+                title={localize('Affiliates & introducing brokers (IBs)')}
+                content={localize('Additional terms for our affiliates and introducing brokers')}
                 url="/funds_and_transfers_deriv_tnc.pdf"
-                link_title={localize('Funds and transfers')}
+                link_title={localize('Affiliates & introducing brokers (IBs)')}
             />
             <Col
-                Icon={Security}
-                title={localize('Security and privacy')}
-                content={localize('What we do and don’t do with your data and how we use cookies')}
+                Icon={PA}
+                title={localize('Payment agents')}
+                content={localize('Additional terms for our payment agents')}
                 url="/security_and_privacy_deriv_tnc.pdf"
-                link_title={localize('Security and privacy')}
+                link_title={localize('Payment agents')}
             />
             <Col
-                Icon={Business}
-                title={localize('Business terms')}
-                content={localize(
-                    'Our agreement with affiliates, introducing brokers, developers who use our API, and payment agents',
-                )}
-                url="/business_deriv_tnc.pdf"
-                link_title={localize('Business terms')}
-            />
-            <Col
-                Icon={Risk}
-                title={localize('Risk disclosure')}
-                content={localize(
-                    'Risks associated with trading that you need to be familiar with',
-                )}
+                Icon={API}
+                title={localize('API users')}
+                content={localize('Additional terms for our API users')}
                 url="/risk_disclosure_deriv_tnc.pdf"
-                link_title={localize('Risk disclosure')}
-            />
-            <Col
-                Icon={BFX}
-                title={localize('Supplementary terms')}
-                content={localize('Additional terms related to some of our companies')}
-                url="/bfx_deriv_tnc.pdf"
-                link_title={localize('Supplementary terms')}
+                link_title={localize('API users')}
             />
         </CssGrid>
-    </GridContainer>
+    </StyledContainer>
 )
 
 export default IconGrid

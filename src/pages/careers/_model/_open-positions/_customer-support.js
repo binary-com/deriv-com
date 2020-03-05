@@ -1,3 +1,5 @@
+import { cyberjaya, dubai, malta, asuncion } from '../_locations/_locations'
+import { job_types } from '../_job_types/_job_types'
 import { localize } from 'components/localization'
 
 export const customer_support_positions = [
@@ -5,8 +7,8 @@ export const customer_support_positions = [
         title: localize('Customer Support Executive'),
         id: '3bea1afc-fa05-4620-bd23-b2a2a59fd5e3',
         keywords: [localize('Customer Support Executive')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'customer-support',
         description: [
             localize(
@@ -44,8 +46,8 @@ export const customer_support_positions = [
         title: localize('Customer Support Executive'),
         id: '909fc86d-3908-46d7-a782-ef499bb6125d',
         keywords: [localize('Customer Support Executive')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'customer-support',
         description: [
             localize(
@@ -83,8 +85,8 @@ export const customer_support_positions = [
         title: localize('Client Support Executive'),
         id: '5ab8d6b1-2653-4808-a15a-6aa154487c92',
         keywords: [localize('Client Support Executive')],
-        location: localize('Paraguay'),
-        type: localize('Full time'),
+        location: asuncion,
+        type: [job_types.full_time],
         team: 'customer-support',
         description: [
             localize(
@@ -135,8 +137,8 @@ export const customer_support_positions = [
         title: localize('Customer Support Executive Russian speaker '),
         id: '739a07b1-8697-491b-be30-96a8c0943ce8',
         keywords: [localize('Customer Support Executive Russian speaker ')],
-        location: localize('Malta'),
-        type: localize('Full time'),
+        location: malta,
+        type: [job_types.full_time],
         team: 'customer-support',
         description: [
             localize(
@@ -184,8 +186,8 @@ export const customer_support_positions = [
         title: localize('Customer Support Executive French speaker'),
         id: 'b65f0566-ef1c-445d-b626-573ea3aedaa9',
         keywords: [localize('Customer Support Executive French speaker')],
-        location: localize('Malta'),
-        type: localize('Full time'),
+        location: malta,
+        type: [job_types.full_time],
         team: 'customer-support',
         description: [
             localize(

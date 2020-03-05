@@ -1,3 +1,5 @@
+import { job_types } from '../_job_types/_job_types'
+import { cyberjaya, dubai, asuncion, malta, labuan } from '../_locations/_locations'
 import { localize } from 'components/localization'
 
 export const compliance_positions = [
@@ -5,8 +7,8 @@ export const compliance_positions = [
         title: localize('Compliance Executive'),
         id: '5b3946a8-2769-48b2-8e64-7170ea907105',
         keywords: [localize('Compliance Executive')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -44,8 +46,8 @@ export const compliance_positions = [
         title: localize('Payments Management Executive'),
         id: '9f35cfa2-10f8-4b23-8ac4-02b1630bd44f',
         keywords: [localize('Payments Management Executive')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -84,8 +86,8 @@ export const compliance_positions = [
         title: localize('Systems Integrator'),
         id: '2f2cf255-038a-4a33-adfa-36ade20ff304',
         keywords: [localize('Systems Integrator')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -134,8 +136,8 @@ export const compliance_positions = [
         title: localize('Risk Management Executive'),
         id: '5e06db19-5887-48aa-bb58-d635c80bdb35',
         keywords: [localize('Risk Management Executive')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -179,8 +181,8 @@ export const compliance_positions = [
         title: localize('Systems Integrator'),
         id: '99fd8d35-1a50-4bef-a6ba-45cc26cb9063',
         keywords: [localize('Systems Integrator')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -229,8 +231,8 @@ export const compliance_positions = [
         title: localize('Risk Management Executive'),
         id: '0e2c6592-736f-47c4-80f2-34203b5bee9d',
         keywords: [localize('Risk Management Executive')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -273,8 +275,8 @@ export const compliance_positions = [
         title: localize('Risk Management Executive '),
         id: 'c9903ba2-2a99-49ad-b2e0-9e1bc9918ba5',
         keywords: [localize('Risk Management Executive ')],
-        location: localize('Paraguay'),
-        type: localize('Full time'),
+        location: asuncion,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -318,8 +320,8 @@ export const compliance_positions = [
         title: localize('Compliance Executive'),
         id: 'c6a14f59-ff81-40b3-a095-6e52414935b2',
         keywords: [localize('Compliance Executive')],
-        location: localize('Malta'),
-        type: localize('Full time'),
+        location: malta,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -368,8 +370,8 @@ export const compliance_positions = [
         title: localize('Compliance and Payments Analyst (PayOps)'),
         id: '2b1a58d2-e3bf-443e-b86c-d564ea8f81d4',
         keywords: [localize('Compliance and Payments Analyst (PayOps)')],
-        location: localize('Malta'),
-        type: localize('Full time'),
+        location: malta,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -417,8 +419,8 @@ export const compliance_positions = [
         title: localize('Risk Management Executive'),
         id: '5f113694-1b61-423d-bc08-41c2ca6be6fc',
         keywords: [localize('Risk Management Executive')],
-        location: localize('Malta'),
-        type: localize('Full time'),
+        location: malta,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -462,8 +464,8 @@ export const compliance_positions = [
         title: localize('Compliance Executive'),
         id: 'c139a8fe-0223-4414-a12d-73e1018854ad',
         keywords: [localize('Compliance Executive')],
-        location: localize('Labuan'),
-        type: localize('Full time'),
+        location: labuan,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(
@@ -501,8 +503,8 @@ export const compliance_positions = [
         title: localize('Risk Management Executive'),
         id: '8e94a1d2-6a32-489a-bf33-3777b1a70a67',
         keywords: [localize('Risk Management Executive')],
-        location: localize('Labuan'),
-        type: localize('Full time'),
+        location: labuan,
+        type: [job_types.full_time],
         team: 'compliance',
         description: [
             localize(

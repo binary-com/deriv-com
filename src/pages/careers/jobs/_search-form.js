@@ -21,7 +21,7 @@ const CrossIconStyled = styled(CrossIcon)`
 
 const BadgeContainer = styled.div`
     border-radius: 12px;
-    background-color: var(--color-grey-17);
+    background-color: var(--color-grey-11);
     padding: 3px 8px;
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@ const BadgeWrapper = styled(Flex)`
 const Badge = ({ text, onClick }) => {
     return (
         <BadgeContainer onClick={onClick}>
-            <Text>{text}</Text>
+            <Text size="var(--text-size-xxs)">{text}</Text>
             <CrossIconStyled />
         </BadgeContainer>
     )
@@ -57,9 +57,9 @@ const SearchForm = () => {
         <div style={{ marginBottom: '5.4rem' }}>
             <Input />
             <BadgeWrapper jc="unset">
-                {/* <Badge text={'Full-time'} />
+                <Badge text={'Full-time'} />
                 <Badge text={'Accounts and Payments'} />
-                <Badge text={'Cyberjaya, Malaysia'} /> */}
+                <Badge text={'Cyberjaya, Malaysia'} />
             </BadgeWrapper>
         </div>
     )

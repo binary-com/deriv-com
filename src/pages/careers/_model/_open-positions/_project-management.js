@@ -1,3 +1,5 @@
+import { job_types } from '../_job_types/_job_types'
+import { cyberjaya, dubai } from '../_locations/_locations'
 import { localize } from 'components/localization'
 
 export const project_management_positions = [
@@ -5,8 +7,8 @@ export const project_management_positions = [
         title: localize('Senior Project Manager'),
         id: 'b6f45666-6ab0-41c0-a52a-9e214976b4e8',
         keywords: [localize('Senior Project Manager')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'project-management',
         description: [
             localize(
@@ -50,8 +52,8 @@ export const project_management_positions = [
         title: localize('Senior Project Manager'),
         id: '4c4c9c5e-979c-49a1-a417-717dab4a0e0a',
         keywords: [localize('Senior Project Manager')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'project-management',
         description: [
             localize(

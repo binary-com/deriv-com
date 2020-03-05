@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { getTeamNames, team_names } from '../_model-controller/_teams'
+import { getTeamNames, team_names } from '../_controller/_teams'
 import { Flex } from 'components/containers'
 import { Accordion, AccordionItem, Divider, Text, Checkbox } from 'components/elements'
 import { localize } from 'components/localization'

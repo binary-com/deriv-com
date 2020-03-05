@@ -1,3 +1,5 @@
+import { cyberjaya } from '../_locations/_locations'
+import { job_types } from '../_job_types/_job_types'
 import { localize } from 'components/localization'
 
 export const disaster_recovery_positions = [
@@ -5,8 +7,8 @@ export const disaster_recovery_positions = [
         title: localize('Head of Disaster Recovery'),
         id: '3e924fa4-c146-404a-9fe3-4fe1c61680b6',
         keywords: [localize('Head of Disaster Recovery')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'disaster-recovery',
         description: [
             localize(
@@ -76,8 +78,8 @@ export const disaster_recovery_positions = [
         title: localize('Disaster Recovery Analyst'),
         id: '24612204-9a10-4811-ab9f-fce8970f190f',
         keywords: [localize('Disaster Recovery Analyst')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'disaster-recovery',
         description: [
             localize(

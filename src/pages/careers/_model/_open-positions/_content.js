@@ -1,3 +1,5 @@
+import { job_types } from '../_job_types/_job_types'
+import { cyberjaya, dubai } from '../_locations/_locations'
 import { localize } from 'components/localization'
 
 export const content_positions = [
@@ -5,8 +7,8 @@ export const content_positions = [
         title: localize('Senior Copywriter'),
         id: 'a5c8f611-55cf-4fae-a7c8-524f96ba24d8',
         keywords: [localize('Senior Copywriter')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'content',
         description: [
             localize(
@@ -52,8 +54,8 @@ export const content_positions = [
         title: localize('Senior Copywriter'),
         id: '4fea1b03-9621-4260-84df-37c8b512439f',
         keywords: [localize('Senior Copywriter')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'content',
         description: [
             localize(

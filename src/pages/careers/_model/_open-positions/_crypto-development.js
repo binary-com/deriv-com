@@ -1,3 +1,5 @@
+import { job_types } from '../_job_types/_job_types'
+import { cyberjaya, dubai, asuncion, malta } from '../_locations/_locations'
 import { localize } from 'components/localization'
 
 export const crypto_development_positions = [
@@ -5,8 +7,8 @@ export const crypto_development_positions = [
         title: localize('Cryptocurrency/Blockchain Developer'),
         id: '684d8426-630c-4320-a3e7-8ca486d02ee3',
         keywords: [localize('Cryptocurrency/Blockchain Developer')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'crypto-development',
         description: [
             localize(
@@ -65,8 +67,8 @@ export const crypto_development_positions = [
         title: localize('Cryptocurrency/Blockchain Developer'),
         id: '40bf3f97-c415-44a7-9256-a5f81b158da1',
         keywords: [localize('Cryptocurrency/Blockchain Developer')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'crypto-development',
         description: [
             localize(
@@ -126,8 +128,8 @@ export const crypto_development_positions = [
         title: localize('Cryptocurrency/Blockchain Developer'),
         id: '250129a1-d945-4030-831a-dba48b1bc842',
         keywords: [localize('Cryptocurrency/Blockchain Developer')],
-        location: localize('Paraguay'),
-        type: localize('Full time'),
+        location: asuncion,
+        type: [job_types.full_time],
         team: 'crypto-development',
         description: [
             localize(
@@ -186,8 +188,8 @@ export const crypto_development_positions = [
         title: localize('Cryptocurrency/Blockchain Developer'),
         id: '7ab27d68-9199-4709-b17a-6a68f7bd7a1b',
         keywords: [localize('Cryptocurrency/Blockchain Developer')],
-        location: localize('Malta'),
-        type: localize('Full time'),
+        location: malta,
+        type: [job_types.full_time],
         team: 'crypto-development',
         description: [
             localize(

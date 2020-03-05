@@ -1,3 +1,5 @@
+import { job_types } from '../_job_types/_job_types'
+import { cyberjaya, dubai, asuncion, malta } from '../_locations/_locations'
 import { localize } from 'components/localization'
 
 export const marketing_positions = [
@@ -5,8 +7,8 @@ export const marketing_positions = [
         title: localize('Affiliate Marketing Manager Thailand'),
         id: '281ed07f-2290-456a-9ab1-57f36cd3e004',
         keywords: [localize('Affiliate Marketing Manager Thailand')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [localize('You will drive growth and business development in Thailand.')],
         responsibilities: [
@@ -49,8 +51,8 @@ export const marketing_positions = [
         title: localize('Affiliate Marketing Manager Vietnam'),
         id: '3f48859e-0abd-4852-a3da-9eaf7baec42e',
         keywords: [localize('Affiliate Marketing Manager Vietnam')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [localize('You will drive growth and business development in Vietnam.')],
         responsibilities: [
@@ -93,8 +95,8 @@ export const marketing_positions = [
         title: localize('PPC Specialist'),
         id: '486c6028-328e-417d-afbb-c02bbf67c437',
         keywords: [localize('PPC Specialist')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -143,8 +145,8 @@ export const marketing_positions = [
         title: localize('Digital Marketing Manager'),
         id: '9f8dc04b-539e-47c4-8ebd-eba8401a2483',
         keywords: [localize('Digital Marketing Manager')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [localize('')],
         responsibilities: [
@@ -186,8 +188,8 @@ export const marketing_positions = [
         title: localize('Marketing Design Manager'),
         id: '9b542292-5b9e-499b-8430-50fb64dd96e2',
         keywords: [localize('Marketing Design Manager')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -240,8 +242,8 @@ export const marketing_positions = [
         title: localize('Digital Marketing Executive'),
         id: 'd1f8b707-1d69-4515-8884-e32982e2d702',
         keywords: [localize('Digital Marketing Executive')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -281,8 +283,8 @@ export const marketing_positions = [
         title: localize('Chief Marketing Officer'),
         id: '2e8b5211-927b-4889-a94d-a226a33903ef',
         keywords: [localize('Chief Marketing Officer')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -347,8 +349,8 @@ export const marketing_positions = [
         title: localize('Global Affiliates and Introducing Broker Manager'),
         id: '31fac880-155e-4e8b-8433-655fe7571c27',
         keywords: [localize('Global Affiliates and Introducing Broker Manager')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -397,8 +399,8 @@ export const marketing_positions = [
         title: localize('Global Affiliates and Introducing Broker Executive'),
         id: '370677e3-e0d3-4644-9ff9-ae2c762440e4',
         keywords: [localize('Global Affiliates and Introducing Broker Executive')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -452,8 +454,8 @@ export const marketing_positions = [
         title: localize('Global Affiliates and Introducing Broker Executive (for Africa)'),
         id: '956ddd91-adf3-49a6-94a5-ada84da21a93',
         keywords: [localize('Global Affiliates and Introducing Broker Executive (for Africa)')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -507,8 +509,8 @@ export const marketing_positions = [
         title: localize('Search Engine Marketing Manager'),
         id: '33b64883-7668-4090-9ca4-514f1d338012',
         keywords: [localize('Search Engine Marketing Manager')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -548,8 +550,8 @@ export const marketing_positions = [
         title: localize('Social Media Marketing Manager'),
         id: '61ae40fa-7880-4704-a0bf-d913d5211aca',
         keywords: [localize('Social Media Marketing Manager')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -589,8 +591,8 @@ export const marketing_positions = [
         keywords: [
             localize('Global Affiliates and Introducing Broker Executive (for the CIS countries)'),
         ],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -635,8 +637,8 @@ export const marketing_positions = [
         title: localize('Digital Marketing Executive'),
         id: 'a0765fa0-e054-4d42-a7f0-8d43e146aed4',
         keywords: [localize('Digital Marketing Executive')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -676,8 +678,8 @@ export const marketing_positions = [
         title: localize('Marketing Design Manager'),
         id: '0800c02e-d93f-4b68-b4fe-ebf89e4f913f',
         keywords: [localize('Marketing Design Manager')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -730,8 +732,8 @@ export const marketing_positions = [
         title: localize('PPC Specialist'),
         id: '66ee1b0a-92e3-4447-8680-b34fab08a929',
         keywords: [localize('PPC Specialist')],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -777,8 +779,8 @@ export const marketing_positions = [
         title: localize('Affiliate Marketing Manager'),
         id: '6aeb03ad-7c84-4c51-9654-5ab7c973ae03',
         keywords: [localize('Affiliate Marketing Manager')],
-        location: localize('Paraguay'),
-        type: localize('Full time'),
+        location: asuncion,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -828,8 +830,8 @@ export const marketing_positions = [
         title: localize('Search Engine Marketing Manager'),
         id: 'c96fac67-94d1-428f-955d-29bef6f99140',
         keywords: [localize('Search Engine Marketing Manager')],
-        location: localize('Paraguay'),
-        type: localize('Full time'),
+        location: asuncion,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -869,8 +871,8 @@ export const marketing_positions = [
         title: localize('Social Media Marketing Manager'),
         id: '1c554803-3a6f-4e48-97ed-2bcba6ccce9f',
         keywords: [localize('Social Media Marketing Manager')],
-        location: localize('Paraguay'),
-        type: localize('Full time'),
+        location: asuncion,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -906,8 +908,8 @@ export const marketing_positions = [
         title: localize('Marketing Executive'),
         id: '7c7f74c4-8f7d-4f6f-ad8e-548e02f74ca3',
         keywords: [localize('Marketing Executive')],
-        location: localize('Paraguay'),
-        type: localize('Full time'),
+        location: asuncion,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [localize('You will create and execute online PPC campaigns.')],
         responsibilities: [
@@ -949,8 +951,8 @@ export const marketing_positions = [
         title: localize('Online Marketing and Communications Executive'),
         id: '42890e53-68a8-4ee8-9c9f-27883f4200d3',
         keywords: [localize('Online Marketing and Communications Executive')],
-        location: localize('Malta'),
-        type: localize('Full time'),
+        location: malta,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -990,8 +992,8 @@ export const marketing_positions = [
         title: localize('Search Engine Marketing Manager'),
         id: '8fbe9e0f-e830-41ac-8724-47556920d415',
         keywords: [localize('Search Engine Marketing Manager')],
-        location: localize('Malta'),
-        type: localize('Full time'),
+        location: malta,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(
@@ -1031,8 +1033,8 @@ export const marketing_positions = [
         title: localize('Social Media Marketing Manager'),
         id: '07645747-2499-4204-9315-7ebee3d2faed',
         keywords: [localize('Social Media Marketing Manager')],
-        location: localize('Malta'),
-        type: localize('Full time'),
+        location: malta,
+        type: [job_types.full_time],
         team: 'marketing',
         description: [
             localize(

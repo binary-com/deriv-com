@@ -1,3 +1,5 @@
+import { job_types } from '../_job_types/_job_types'
+import { cyberjaya, dubai, labuan } from '../_locations/_locations'
 import { localize } from 'components/localization'
 
 export const accounts_and_payments_positions = [
@@ -5,8 +7,8 @@ export const accounts_and_payments_positions = [
         title: localize('Accounts and Payments Executive'),
         id: '7cbfb918-1823-4dd5-b77c-8568b2f4b665',
         keywords: [localize('Accounts and Payments Executive')],
-        location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        location: cyberjaya,
+        type: [job_types.full_time],
         team: 'accounts-and-payments',
         description: [
             localize(
@@ -55,8 +57,8 @@ export const accounts_and_payments_positions = [
         title: 'Accounts and Payments Executive',
         id: '161509ad-bc3b-4a4e-95b8-c5e59341023e',
         keywords: ['Accounts and Payments Executive'],
-        location: localize('Dubai'),
-        type: localize('Full time'),
+        location: dubai,
+        type: [job_types.full_time],
         team: 'accounts-and-payments',
         description: [
             localize(
@@ -105,8 +107,8 @@ export const accounts_and_payments_positions = [
         title: 'Payments Management Executive',
         id: '7572efb3-ef33-4232-944a-c6cd7c4f3058',
         keywords: ['Payments Management Executive'],
-        location: localize('Labuan'),
-        type: localize('Full time'),
+        location: labuan,
+        type: [job_types.full_time],
         team: 'accounts-and-payments',
         description: [
             localize(
@@ -145,8 +147,8 @@ export const accounts_and_payments_positions = [
         title: 'Accounts and Payments Executive',
         id: '3e34ea25-838c-4772-beb6-6881720b1936',
         keywords: ['Accounts and Payments Executive'],
-        location: localize('Labuan'),
-        type: localize('Full time'),
+        location: labuan,
+        type: [job_types.full_time],
         team: 'accounts-and-payments',
         description: [
             localize(

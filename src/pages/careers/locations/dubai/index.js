@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { dubai } from '../_locations'
+import { dubai } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -11,7 +11,7 @@ const query = graphql`
         dubai: file(relativePath: { eq: "careers/dubai.jpg" }) {
             ...backGroundBlur
         }
-        living_in_dubai: file(relativePath: { eq: "careers/living_in_dubai.png" }) {
+        living_in_dubai: file(relativePath: { eq: "careers/living_in_dubai.jpg" }) {
             ...fadeIn
         }
         dubai_grid_1: file(relativePath: { eq: "careers/dubai_grid_1.png" }) {

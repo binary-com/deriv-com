@@ -5,7 +5,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { RoleBanner } from '../../_layout-components/_banner'
 import { LinkList } from '../../_layout-components/_link-list'
 import { NoOpenPositionsHeader } from '../../_layout-components/_no-open-positions'
-import { getTeamByName, team_names } from '../../_model-controller/_teams'
+import { getTeamByName, team_names } from '../../_controller/_teams'
+import { getDisplayLocation } from '../../_controller/_locations'
 import { SEO, Container } from 'components/containers'
 import { BackgroundImage, Text, Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -145,7 +146,7 @@ const Team = () => {
                         team.positions.map(position => ({
                             text: position.title,
                             to: `careers/jobs/job#${toHashFormat(position.id)}`,
-                            middle_text: position.location,
+                            middle_text: getDisplayLocation(position.location),
                         }))
                     }
                 />

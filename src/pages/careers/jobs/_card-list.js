@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { NormalCard } from '../_layout-components/_team-card'
-import { team_names } from '../_model-controller/_teams'
+import { team_names } from '../_controller/_teams'
+import { getDisplayLocation } from '../_controller/_locations'
 import { Flex } from 'components/containers'
 import { Text, Header, Divider } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -58,7 +59,7 @@ const CardList = ({ position }) => {
                 <Text>{team_names[position.team]}</Text>
                 <Flex width="auto" height="auto" ai="center" m="0 2.4rem">
                     <StyledLocation />
-                    <Text>{position.location}</Text>
+                    <Text>{getDisplayLocation(position.location)}</Text>
                 </Flex>
                 <Text>{position.type}</Text>
             </Flex>

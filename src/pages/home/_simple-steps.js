@@ -11,7 +11,7 @@ import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
 const StyledSection = styled(SectionContainer)`
     border-bottom: 1px solid rgba(151, 151, 151, 0.2);
-    
+
     @media ${device.tabletL} {
         padding: 5rem 0;
     }

@@ -77,5 +77,8 @@ yarn-error.log
 # VS code
 .vscode/
 
+# WebStorm
+.idea/
+
 #CNAME
 static/CNAME

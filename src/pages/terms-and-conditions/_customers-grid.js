@@ -74,7 +74,7 @@ const Cta = styled.div`
         display: inline-grid;
     }
 `
-const Col = ({ Icon, content, link_title, title, url }) => (
+const Col = ({ Icon, content, link_title, link_title2, title, url, url2 }) => (
     <GridCol>
         <IconWrapper>
             <Icon />
@@ -87,14 +87,24 @@ const Col = ({ Icon, content, link_title, title, url }) => (
                 {link_title}
             </a>
         </Cta>
+        {url2 && link_title2 && (
+            <Cta>
+                <PDF />
+                <a href={url2} target="_blank" rel="noopener noreferrer">
+                    {link_title2}
+                </a>
+            </Cta>
+        )}
     </GridCol>
 )
 Col.propTypes = {
     content: PropTypes.string,
     Icon: PropTypes.elementType,
     link_title: PropTypes.string,
+    link_title2: PropTypes.string,
     title: PropTypes.string,
     url: PropTypes.string,
+    url2: PropTypes.string,
 }
 
 const IconGrid = () => (
@@ -111,14 +121,14 @@ const IconGrid = () => (
                 Icon={General}
                 title={localize('General terms of use')}
                 content={localize('What you’re agreeing to when you sign up to use Deriv')}
-                url="/general_terms_deriv_tnc.pdf"
+                url="/tnc/General_term.pdf"
                 link_title={localize('General terms of use')}
             />
             <Col
                 Icon={Trading}
                 title={localize('Trading terms')}
                 content={localize('Rules for making trades on any Deriv trading platform')}
-                url="/trading_deriv_tnc.pdf"
+                url="/tnc/Trading_term.pdf"
                 link_title={localize('Trading terms')}
             />
             <Col
@@ -127,14 +137,14 @@ const IconGrid = () => (
                 content={localize(
                     'Terms that govern keeping and transferring funds in Deriv and the bonuses you might get',
                 )}
-                url="/funds_and_transfers_deriv_tnc.pdf"
+                url="/tnc/Funds_and_transfers.pdf"
                 link_title={localize('Funds & transfers')}
             />
             <Col
                 Icon={Security}
                 title={localize('Security & privacy')}
                 content={localize('How we use and protect the information you give us')}
-                url="/security_and_privacy_deriv_tnc.pdf"
+                url="/tnc/Security_and_privacy.pdf"
                 link_title={localize('Security & privacy')}
             />
             <Col
@@ -143,7 +153,7 @@ const IconGrid = () => (
                 content={localize(
                     'A notice to help you understand the risks that might arise when you trade on Deriv',
                 )}
-                url="/risk_disclosure_deriv_tnc.pdf"
+                url="/tnc/Risk_disclosure.pdf"
                 link_title={localize('Risk disclosure')}
             />
             <Col
@@ -152,8 +162,10 @@ const IconGrid = () => (
                 content={localize(
                     'Additional terms and restrictions for Deriv users in certain countries',
                 )}
-                url="/bfx_deriv_tnc.pdf"
-                link_title={localize('Additional terms')}
+                url="/tnc/Binary_(FX)_Ltd.pdf"
+                url2="/tnc/Binary_Investments_(Europe)_Ltd.pdf"
+                link_title={localize('Binary (FX) Ltd')}
+                link_title2={localize('Binary Investments (Europe) Ltd')}
             />
         </CssGrid>
     </StyledContainer>

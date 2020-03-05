@@ -1,3 +1,4 @@
+import { cyberjaya, malta } from '../_locations/_locations'
 import { job_types } from '../_job_types/_job_types'
 import { localize } from 'components/localization'
 
@@ -6,7 +7,7 @@ export const business_intelligence_positions = [
         title: localize('Data Engineer/Analyst'),
         id: '68590853-0756-4bf6-a9b4-4568e483e3ce',
         keywords: [localize('Data Engineer/Analyst')],
-        location: localize('Cyberjaya, Malaysia'),
+        location: cyberjaya,
         type: [job_types.full_time],
         team: 'business-intelligence',
         description: [
@@ -60,7 +61,7 @@ export const business_intelligence_positions = [
         title: localize('Data Scientist'),
         id: '19aedff7-4f36-47b5-97ee-4321bd79edf6',
         keywords: [localize('Data Scientist')],
-        location: localize('Malta'),
+        location: malta,
         type: [job_types.full_time],
         team: 'business-intelligence',
         description: [

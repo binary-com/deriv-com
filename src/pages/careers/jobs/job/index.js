@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { getJobPositionById, team_names } from '../../_controller/_teams'
+import { getDisplayLocation } from '../../_controller/_locations'
 import { SEO, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import { Button } from 'components/form'
@@ -102,7 +103,7 @@ const Job = () => {
                     <Flex height="auto" jc="flex-start" ai="center">
                         <Location />
                         <Text color="white" margin="0 2.4rem 0 0.8rem">
-                            {job.location}
+                            {getDisplayLocation(job.location)}
                         </Text>
                         <Text color="white">{job.type.join(', ')}</Text>
                     </Flex>

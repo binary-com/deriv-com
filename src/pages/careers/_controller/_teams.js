@@ -323,9 +323,10 @@ export const getPositionByName = position_name =>
 export const getJobPositionById = id =>
     all_positions.find(position => toHashFormat(position.id) === id)
 
-export const getPositionsByLocation = location_name =>
-    all_positions.filter(position =>
-        position.location
+export const getPositionsByLocation = location_name => {
+    return all_positions.filter(position => {
+        return position.location.name
             .toLowerCase()
-            .includes(location_name === 'asuncion' ? 'paraguay' : location_name),
-    )
+            .includes(location_name === 'asuncion' ? 'paraguay' : location_name)
+    })
+}

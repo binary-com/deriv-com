@@ -1,4 +1,5 @@
 import { job_types } from '../_job_types/_job_types'
+import { cyberjaya, dubai } from '../_locations/_locations'
 import { localize } from 'components/localization'
 
 export const devops_positions = [
@@ -6,7 +7,7 @@ export const devops_positions = [
         title: localize('DevOps Engineer'),
         id: '73196e24-1791-4d6e-acd5-8dad46527c34',
         keywords: [localize('DevOps Engineer')],
-        location: localize('Cyberjaya, Malaysia'),
+        location: cyberjaya,
         type: [job_types.full_time],
         team: 'devops',
         description: [
@@ -68,7 +69,7 @@ export const devops_positions = [
         title: localize('DevOps Engineer'),
         id: 'c59a9e9d-656d-40c8-bfda-7e015d9aa62c',
         keywords: [localize('DevOps Engineer')],
-        location: localize('Dubai'),
+        location: dubai,
         type: [job_types.full_time],
         team: 'devops',
         description: [

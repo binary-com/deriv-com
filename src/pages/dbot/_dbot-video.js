@@ -142,7 +142,7 @@ class DtraderTabs extends React.Component {
                             {localize('5. Check profit')}
                         </Step>
                     </Tab>
-                    <GoToLiveDemo secondary onClick={this.handleRedirect}>
+                    <GoToLiveDemo secondary="true" onClick={this.handleRedirect}>
                         {localize('Go to live demo')}
                     </GoToLiveDemo>
                 </TabsWrapper>

@@ -128,14 +128,14 @@ const DHero = ({
                     <div>
                         <LinkWrapper>
                             {join_us_for_free ? (
-                                <TryForFree secondary>
+                                <TryForFree secondary="true">
                                     <LocalizedLink to="/signup/">
                                         {localize('Create demo account')}
                                     </LocalizedLink>
                                 </TryForFree>
                             ) : null}
                             {start_automating ? (
-                                <TryForFree secondary>
+                                <TryForFree secondary="true">
                                     <LocalizedLink to="/signup/">
                                         {localize('Start automating')}
                                     </LocalizedLink>

@@ -1,3 +1,4 @@
+import { job_types } from '../_job_types/_job_types'
 import { localize } from 'components/localization'
 
 export const business_intelligence_positions = [
@@ -6,7 +7,7 @@ export const business_intelligence_positions = [
         id: '68590853-0756-4bf6-a9b4-4568e483e3ce',
         keywords: [localize('Data Engineer/Analyst')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'business-intelligence',
         description: [
             localize(
@@ -60,7 +61,7 @@ export const business_intelligence_positions = [
         id: '19aedff7-4f36-47b5-97ee-4321bd79edf6',
         keywords: [localize('Data Scientist')],
         location: localize('Malta'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'business-intelligence',
         description: [
             localize(

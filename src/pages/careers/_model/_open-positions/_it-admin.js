@@ -1,3 +1,4 @@
+import { job_types } from '../_job_types/_job_types'
 import { localize } from 'components/localization'
 
 export const it_admin_positions = [
@@ -6,7 +7,7 @@ export const it_admin_positions = [
         id: '9570f25a-5066-41f5-bb1c-f272ae49d134',
         keywords: [localize('System Administrator')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'it-admin',
         description: [
             localize(
@@ -57,7 +58,7 @@ export const it_admin_positions = [
         id: 'b26c26ea-f19f-49fc-94b1-dc92586f0222',
         keywords: [localize('System Administrator')],
         location: localize('Malta'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'it-admin',
         description: [
             localize(

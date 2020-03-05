@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { RoleBanner } from '../_layout-components/_banner'
-import { all_positions } from '../_model-controller/_teams'
+import { all_positions } from '../_controller/_teams'
 import SearchForm from './_search-form'
 import SearchFilters from './_search-filters'
 import CardList from './_card-list'

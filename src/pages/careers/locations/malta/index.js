@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { malta } from '../_locations'
+import { malta } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'

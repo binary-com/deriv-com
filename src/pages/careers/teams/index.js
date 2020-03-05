@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { getAlphabeticTeams, team_names } from '../_model-controller/_teams'
+import { getAlphabeticTeams, team_names } from '../_controller/_teams'
 import Card from './_card'
 import { SEO, Container, SectionContainer, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'

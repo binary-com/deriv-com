@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getJobPositionById, team_names } from '../../_model-controller/_teams'
+import { getJobPositionById, team_names } from '../../_controller/_teams'
 import { SEO, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import { Button } from 'components/form'
@@ -104,7 +104,7 @@ const Job = () => {
                         <Text color="white" margin="0 2.4rem 0 0.8rem">
                             {job.location}
                         </Text>
-                        <Text color="white">{job.type}</Text>
+                        <Text color="white">{job.type.join(', ')}</Text>
                     </Flex>
                 </StyledContainer>
             </Banner>

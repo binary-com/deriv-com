@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { asuncion } from '../_locations'
+import { asuncion } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'

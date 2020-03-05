@@ -1,3 +1,4 @@
+import { job_types } from '../_job_types/_job_types'
 import { localize } from 'components/localization'
 
 export const internal_audit_positions = [
@@ -6,7 +7,7 @@ export const internal_audit_positions = [
         id: 'b84082d8-2382-48f9-a99f-7dcd832cf146',
         keywords: [localize('Internal Audit Executive')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'internal-audit',
         description: [
             localize(

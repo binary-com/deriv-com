@@ -1,3 +1,4 @@
+import { job_types } from '../_job_types/_job_types'
 import { localize } from 'components/localization'
 
 export const back_end_positions = [
@@ -6,7 +7,7 @@ export const back_end_positions = [
         id: '43130a72-bcd8-4927-8465-9458d43f7a12',
         keywords: [localize('Database Administrator ')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'back-end',
         description: [
             localize(
@@ -49,7 +50,7 @@ export const back_end_positions = [
         id: '72a07983-844e-471b-aeee-920dcf0d8103',
         keywords: [localize('Senior Back-end Developer')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time, Internship'),
+        type: [job_types.full_time],
         team: 'back-end',
         description: [
             localize(
@@ -111,7 +112,7 @@ export const back_end_positions = [
         id: 'a3bc0300-9dfb-4327-8eac-84cd6e31414a',
         keywords: [localize('Database Administrator')],
         location: localize('Dubai'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'back-end',
         description: [
             localize(
@@ -153,7 +154,7 @@ export const back_end_positions = [
         id: '27afa7da-e5e9-4c00-b146-a3569f7901f5',
         keywords: [localize('Back-end Developer')],
         location: localize('Malta'),
-        type: localize('Full time'),
+        type: [job_types.full_time, job_types.internship],
         team: 'back-end',
         description: [
             localize(
@@ -198,7 +199,7 @@ export const back_end_positions = [
         id: 'd7ebb3c9-8e84-4b2c-9171-34cead27eb57',
         keywords: [localize('PostgreSQL Database Programmer and Administrator')],
         location: localize('Malta'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'back-end',
         description: [
             localize(

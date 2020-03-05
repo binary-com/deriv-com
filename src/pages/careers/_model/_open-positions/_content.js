@@ -1,3 +1,4 @@
+import { job_types } from '../_job_types/_job_types'
 import { localize } from 'components/localization'
 
 export const content_positions = [
@@ -6,7 +7,7 @@ export const content_positions = [
         id: 'a5c8f611-55cf-4fae-a7c8-524f96ba24d8',
         keywords: [localize('Senior Copywriter')],
         location: localize('Cyberjaya, Malaysia'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'content',
         description: [
             localize(
@@ -53,7 +54,7 @@ export const content_positions = [
         id: '4fea1b03-9621-4260-84df-37c8b512439f',
         keywords: [localize('Senior Copywriter')],
         location: localize('Dubai'),
-        type: localize('Full time'),
+        type: [job_types.full_time],
         team: 'content',
         description: [
             localize(

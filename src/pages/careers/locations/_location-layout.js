@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { getPositionsByLocation } from '../_model-controller/_teams'
+import { getPositionsByLocation } from '../_controller/_teams'
 import { LinkList } from '../_layout-components/_link-list'
 import { RoleBanner } from '../_layout-components/_banner'
 import device from 'themes/device'

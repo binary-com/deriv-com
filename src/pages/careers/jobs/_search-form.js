@@ -52,10 +52,10 @@ Badge.propTypes = {
     text: PropTypes.string,
 }
 
-const SearchForm = () => {
+const SearchForm = ({ setSearch }) => {
     return (
         <div style={{ marginBottom: '5.4rem' }}>
-            <Input />
+            <Input onChange={e => setSearch(e.target.value)} />
             <BadgeWrapper jc="unset">
                 <Badge text={'Full-time'} />
                 <Badge text={'Accounts and Payments'} />
@@ -63,6 +63,9 @@ const SearchForm = () => {
             </BadgeWrapper>
         </div>
     )
+}
+SearchForm.propTypes = {
+    setSearch: PropTypes.func,
 }
 
 export default SearchForm

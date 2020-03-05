@@ -18,6 +18,10 @@ const StyledContainer = styled(GridContainer)`
 
 const IconWrapper = styled.div`
     margin-left: -2.4rem;
+
+    @media ${device.tabletS} {
+        margin-left: 0;
+    }
 `
 
 const GridCol = styled(CssGridColumn)`

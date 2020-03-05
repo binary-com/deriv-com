@@ -164,8 +164,8 @@ const IconGrid = () => (
                 )}
                 url="/tnc/Binary_(FX)_Ltd.pdf"
                 url2="/tnc/Binary_Investments_(Europe)_Ltd.pdf"
-                link_title={localize('Binary (FX) Ltd')}
-                link_title2={localize('Binary Investments (Europe) Ltd')}
+                link_title={localize('BFX')}
+                link_title2={localize('BIEL')}
             />
         </CssGrid>
     </StyledContainer>

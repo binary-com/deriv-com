@@ -35,6 +35,14 @@ const leaders_data = [
         image: 'anton-andreev.png',
     },
     {
+        name: 'Joanna Frendo',
+        position: localize('Head of Compliance'),
+        description: localize(
+            'Joanna oversees the whole process of benchmarking the group’s performance against the regulations in every jurisdiction we serve. Her credentials include a diploma in financial services operations and compliance, a professional postgraduate diploma in financial crime compliance, and a fellow membership with the International Compliance Association.',
+        ),
+        image: 'joanna-frendo.png',
+    },
+    {
         name: 'Shyamala Siva',
         position: localize('Human Resources and Customer Service Operations Manager'),
         description: localize(
@@ -75,6 +83,14 @@ const leaders_data = [
         image: 'waqas-awan.png',
     },
     {
+        name: 'Derek Swift',
+        position: localize('Compliance and Payments Manager'),
+        description: localize(
+            'Derek has been with us since 2006. His role is pivotal to the onboarding of our new payment systems and bank accounts. He holds a master’s degree in risk management from Birmingham City University.',
+        ),
+        image: 'derek-swift.png',
+    },
+    {
         name: 'Jeyavarthini Vairakanan',
         position: localize('Customer Support Manager'),
         description: localize(
@@ -89,6 +105,14 @@ const leaders_data = [
             'Arun coordinates our product development teams with our operations teams. He has over 12 years of experience in the information industry and has a comprehensive perspective into his field. Arun holds a master’s degree in bioinformatics from Bharathiar University in India.',
         ),
         image: 'arun-venkataraman.png',
+    },
+    {
+        name: 'Ashkan Nemati',
+        position: localize('Head of Front-end'),
+        description: localize(
+            'Ashkan directs our front-end resources across the globe. He has over a decade of experience working with marketers, engineers, and designers in the entertainment and trading industries. Ashkan and his team focus on building a user-centric trading experience, which can help our users make better trading decisions. He holds an MBA from Management and Science University.',
+        ),
+        image: 'ashkan-nemati.png',
     },
 ]
 
@@ -138,7 +162,7 @@ const Leaders = () => {
                     {leaders_data.map((leader, index) => (
                         <LeaderWrapper key={index} direction="column" ai="center">
                             <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
-                                <Image img_name={leader.image} />
+                                <Image img_name={leader.image} alt={leader.name} />
                                 <DescriptionWrapper>
                                     <Text lh="1.71" size="var(--text-size-xs)" color="white">
                                         {leader.description}

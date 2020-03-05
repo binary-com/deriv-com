@@ -74,7 +74,7 @@ const resetSubmission = (values, actions) => {
 
 const ResetPassword = () => (
     <Layout type="static">
-        <SEO title={localize('Reset password')} description={localize('Reset password')} />
+        <SEO title={localize('Reset password')} description={localize('Reset password')} no_index />
         <StyledContainer justify="center" align="center" direction="column">
             <Header as="h2" align="center">
                 {localize('Reset password')}
@@ -126,7 +126,7 @@ const ResetPassword = () => (
                             <StyledButton tertiary onClick={Login.redirectToLogin} type="button">
                                 {localize('Return to log in')}
                             </StyledButton>
-                            <StyledButton secondary disabled={isSubmitting} type="submit">
+                            <StyledButton secondary="true" disabled={isSubmitting} type="submit">
                                 {localize('Reset my password')}
                             </StyledButton>
                         </ButtonContainer>

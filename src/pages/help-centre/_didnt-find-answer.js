@@ -26,7 +26,6 @@ const DFYASection = styled(Container)`
     }
 `
 const StyledIcon = styled(ContactUsIcon)`
-
     @media ${device.tabletL} {
         width: 30px;
         height: 30px;
@@ -40,12 +39,7 @@ export const DidntFindYourAnswerBanner = () => (
             <Text size="var(--text-size-l)" color="white" weight="bold" margin="0 2.4rem">
                 {localize('Didn’t find your answer?')}
             </Text>
-            <LinkButton
-                secondary
-                to="/contact-us"
-                weight="bold"
-                color="black"
-            >
+            <LinkButton secondary="true" to="/contact-us" weight="bold" color="black">
                 {localize('Contact us')}
             </LinkButton>
         </DFYASection>

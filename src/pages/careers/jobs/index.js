@@ -15,11 +15,7 @@ const StyledDivider = styled(Divider)`
     margin: 0 5rem;
 `
 const Jobs = () => {
-    // TODO: initialize filters from query params
-    // const [jobTypeFilter, setJobTypeFilter] = React.useState({})
-    // const [teamsFilter, setTeamsFilter] = React.useState({})
-    // const [locationFilter, setLocationFilter] = React.useState({})
-    // const [query, setQuery] = React.useState('')
+    const [filters, setFilters] = React.useState([])
     const positions = all_positions
 
     // const open_positions = getOpenPositionsByQuery(query, [filters])
@@ -29,7 +25,7 @@ const Jobs = () => {
             <SEO title={localize('Jobs')} />
             <SectionContainer>
                 <Container align="flex-start">
-                    <SearchFilters />
+                    <SearchFilters filters={filters} setFilters={setFilters} />
                     <StyledDivider height="104.6rem" width="2px" />
                     <Flex direction="column">
                         <SearchForm />

@@ -2,7 +2,14 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from './typography'
-import Chevron from 'images/svg/chevron-thick.svg'
+import ChevronThick from 'images/svg/chevron-thick.svg'
+import Chevron from 'images/svg/chevron-bottom.svg'
+
+const ThickArrow = styled(ChevronThick)`
+    transform: rotate(-180deg);
+    transition: transform 0.25s linear;
+    ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
+`
 
 const Arrow = styled(Chevron)`
     transform: rotate(-180deg);
@@ -34,14 +41,61 @@ const AccordionWrapper = styled.div`
 const TRANSITION_DURATION = 250
 
 // TODO: keyboard events and find a way to add proper focus handling
-const Accordion = ({ children }) => {
+const Accordion = ({ children, has_single_state }) => {
     const nodes = []
 
-    return <AccordionContent nodes={nodes}>{children}</AccordionContent>
+    return has_single_state ? (
+        <SingleAccordionContent nodes={nodes}>{children}</SingleAccordionContent>
+    ) : (
+        <AccordionContent>{children}</AccordionContent>
+    )
 }
 Accordion.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    has_single_state: PropTypes.bool,
     nodes: PropTypes.array,
+}
+
+const SingleAccordionContent = ({ children }) => {
+    const render_nodes = React.Children.map(children, (child, child_idx) => {
+        const [is_expanded, setExpanded] = useState(true)
+        const max_height = is_expanded ? '400rem' : 0
+
+        return (
+            <div key={child_idx} style={child.props.parent_style}>
+                <AccordionWrapper>
+                    <AccordionHeader
+                        onClick={() => setExpanded(!is_expanded)}
+                        role="button"
+                        aria-expanded={is_expanded}
+                        style={child.props.header_style}
+                    >
+                        <Text weight="bold">{child.props.header}</Text>
+                        {child.props.arrow_thin ? (
+                            <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                        ) : (
+                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                        )}
+                    </AccordionHeader>
+                    <div
+                        style={{
+                            overflow: 'hidden',
+                            transition: `max-height ${TRANSITION_DURATION}ms ease`,
+                            maxHeight: max_height,
+                        }}
+                    >
+                        {child}
+                    </div>
+                </AccordionWrapper>
+            </div>
+        )
+    })
+
+    return <>{render_nodes}</>
+}
+
+SingleAccordionContent.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 
 const AccordionContent = ({ children, nodes }) => {
@@ -78,9 +132,14 @@ const AccordionContent = ({ children, nodes }) => {
                         onClick={() => toggle(child_idx)}
                         role="button"
                         aria-expanded={is_expanded}
+                        style={child.props.header_style}
                     >
                         <Text weight="bold">{child.props.header}</Text>
-                        <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                        {child.props.arrow_thin ? (
+                            <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                        ) : (
+                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                        )}
                     </AccordionHeader>
                     <div
                         style={{
@@ -101,6 +160,7 @@ const AccordionContent = ({ children, nodes }) => {
 
 AccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    has_single_state: PropTypes.bool,
     nodes: PropTypes.array,
 }
 

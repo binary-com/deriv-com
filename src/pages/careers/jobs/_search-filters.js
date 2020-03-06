@@ -50,11 +50,15 @@ const SearchFilters = ({ filters, setFilters }) => {
         }
     }
 
+    const clearFilters = () => setFilters([])
+
     return (
         <FilterContainer>
             <Flex jc="space-between">
                 <Text size="var(--text-size-xs)">{localize('Filters')}</Text>
-                <ClearFilter size="var(--text-size-xs)">{localize('Clear filters')}</ClearFilter>
+                <ClearFilter onClick={clearFilters} size="var(--text-size-xs)">
+                    {localize('Clear filters')}
+                </ClearFilter>
             </Flex>
             <Divider height="2px" />
             <AccordionWrapper>

@@ -107,6 +107,7 @@ const ImageWrapper = styled.div`
 `
 
 const LocationCard = styled.article`
+    overflow: hidden;
     max-width: 99.6rem;
     margin: 0 auto;
     border-radius: 4px;
@@ -200,15 +201,11 @@ export const LocationLayout = ({ location, images }) => {
                                     width="100%"
                                 />
                             </ImageWrapper>
-                            <Flex p="6rem" direction="column" mw="44.4rem">
+                            <Flex p="3.2rem 6rem" direction="column" mw="44.4rem">
                                 <div style={{ maxWidth: '32.4rem' }}>
-                                    <Header as="h3">{localize('location')}</Header>
-                                    <CardText>
-                                        {localize(
-                                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.',
-                                        )}
-                                    </CardText>
-                                    <Flex ai="center" jc="unset">
+                                    <Header as="h3">{localize('Location')}</Header>
+                                    <CardText>{location.map_text}</CardText>
+                                    <Flex jc="unset">
                                         <Pin />
                                         <Text>{location.address}</Text>
                                     </Flex>

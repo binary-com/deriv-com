@@ -64,7 +64,7 @@ const Hero = () => {
                 </StyledHeader>
                 <Subheadline>
                     {localize(
-                        'We’ve got a huge mission, an incredible team and amazing growth. But it’s not just about Deriv’s growth, it’s about yours. ',
+                        'We have a huge mission, an incredible team, and rapid growth. But it’s not just about our success — it’s about yours.',
                     )}
                 </Subheadline>
                 <JoinHeader as="h3">{localize('Join and grow with us.')}</JoinHeader>

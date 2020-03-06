@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { QueryImage, Text, Header } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 // SVG
@@ -10,6 +10,20 @@ const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
     width: 16px;
     height: 16px;
+`
+const Bounce = keyframes`
+    0%, 20%, 80%, 100% {
+        transform: translateX(0) rotate(180deg);
+    }
+    40% {
+        transform: translateX(18px) rotate(180deg);
+    }
+    50% {
+        transform: translateX(0) rotate(180deg);
+    }
+    60% {
+        transform: translateX(9px) rotate(180deg);
+    }
 `
 
 export const StyledCard = styled(LocalizedLink)`
@@ -31,6 +45,8 @@ export const StyledCard = styled(LocalizedLink)`
             g {
                 fill: var(--color-red);
             }
+
+            animation: ${Bounce} 0.9s infinite;
         }
     }
 `

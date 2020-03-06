@@ -14,16 +14,17 @@ export const cyberjaya = {
     country: localize('Malaysia'),
     thumbnail: 'thumbnail_cyberjaya',
     header_p: localize(
-        'Cyberjaya is a pioneer tech hub that lies 30 minutes away from Kuala Lumpur. Established in 1997, Cyberjaya is the heartbeat of the Multimedia Super Corridor — a government-designated zone that aims to accelerate Malaysia’s push to achieve Vision 2020.',
+        'Established in 1997, Cyberjaya is the heartbeat of the Multimedia Super Corridor — a government-designated zone that aims to accelerate Malaysia’s push to become a modern, knowledge-based society.',
     ),
     first_p: localize(
-        'Cyberjaya is also a pioneer green township that is designed for sustainable living. It has an urban environment where almost half of its total development area is reserved for public amenities and greenery. It has also taken measures to cut carbon emissions based on a low carbon city framework, becoming a model for sustainable future cities.',
+        'Cyberjaya is a green township designed for sustainable living. It has an urban environment with almost half of its total development area reserved for public amenities and greenery. Cyberjaya is built upon a low carbon city framework, making it a model for sustainable future cities.',
     ),
     first_img: 'living_in_cyberjaya',
     grid_images: ['cyberjaya_grid_1', 'cyberjaya_grid_2', 'cyberjaya_grid_3', 'cyberjaya_grid_4'],
     map: 'map_cyberjaya',
-    map_text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.',
+    map_text: localize(
+        'Our office in Cyberjaya is located in iTech Tower, a 20-storey office building in the vibrant Shaftsbury Square. Easily accessible via major highways, it takes just 30 minutes to get to Cyberjaya from downtown Kuala Lumpur.',
+    ),
     address: address_cyberjaya,
 }
 
@@ -37,13 +38,14 @@ export const malta = {
         'The Republic of Malta is an island country in Southern Europe located approximately 80km south of Italy. Its rich, colourful history can be traced back thousands of years to the Neolithic period.',
     ),
     first_p: localize(
-        `The cost of living in Malta is relatively affordable; food and public transportation are much cheaper than what you'll find in a major European city. Malta offers free healthcare but queues at public healthcare facilities are less than ideal. Fortunately, health insurance is easily affordable and provides you with access to private clinics and hospitals.`,
+        `Life in Malta moves at a slower pace with a number of colourful festivities and religious holidays that you can look forward to every year. Malta has no shortage of museums, archaeological sites, and other places of interest if you’re looking for a culture fix.`,
     ),
     first_img: 'living_in_malta',
     grid_images: ['malta_grid_1', 'malta_grid_2', 'malta_grid_3', 'malta_grid_4'],
     map: 'map_malta',
-    map_text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.',
+    map_text: localize(
+        'Our Malta office is located at W Business Centre in Triq Dun Karm, a strategically central location easily accessible from Malta International Airport and just a few minutes from other scenic cities like Valetta, Sliema, Swatar, and St Julians.',
+    ),
     address: address_malta,
 }
 
@@ -57,13 +59,14 @@ export const dubai = {
         'Dubai is an independent city-state and one of the seven emirates that make up the United Arab Emirates. Dubai is the largest and most advanced emirate; it has rapidly evolved from a humble port city into a global metropolis well-known for its futuristic architecture.',
     ),
     first_p: localize(
-        `Dubai offers an excellent quality of life, from safety and education to childcare and healthcare, befitting its reputation as a global, modern city with sunny weather all year round. Expats make up over 90% of Dubai's total population; you may never need to learn a word of Arabic since English is so widely spoken.`,
+        `Dubai offers an excellent quality of life. From safety and education to childcare and healthcare, Dubai is known as a global, modern city with sunny weather all year round. Expats make up over 90% of Dubai’s total population, and English is the language most commonly spoken.`,
     ),
     first_img: 'living_in_dubai',
     grid_images: ['dubai_grid_1', 'dubai_grid_2', 'dubai_grid_3', 'dubai_grid_4'],
     map: 'map_dubai',
-    map_text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.',
+    map_text: localize(
+        'Our Dubai office is located at the prestigious Jumeirah Business Centre (JBC), a self-contained high-rise business tower set in the pristine DMCC free zone in Jumeirah Lake Towers (JLT). The tower is conveniently positioned between two metro stations — Damac and DMCC — and is easily accessible via major highways.',
+    ),
     address: address_dubai,
 }
 
@@ -77,21 +80,22 @@ export const labuan = {
         `Labuan is a federal territory made up of the main island, Labuan Island, and six other small islands off the coast of Sabah. Its name comes from the Malay word, 'labuhan' which means harbour. Formerly a part of the Brunei Sultanate, it was ceded to the British Crown in 1846, before joining Malaysia in 1963.`,
     ),
     first_p: localize(
-        'Living on an island paradise has its perks. Labuan is one of those rare gems that has yet to undergo excessive commercialisation, thus retaining its small-town charm and tight-knit community vibe. Labuan welcomes tourists throughout the year as the island enjoys good weather all year round, with average daily temperature between 28 and 32 degrees Celsius',
+        'Labuan is one of those rare gems that have yet to undergo excessive commercialisation, thus retaining its small-town charm and tight-knit community vibe. Despite its tiny size of just 92 km², Labuan has much to offer. Wreck diving sites, unspoilt beaches and World War II military attractions make it among Borneo’s most underrated destinations.',
     ),
     first_img: 'living_in_labuan',
     grid_images: ['labuan_grid_1', 'labuan_grid_2', 'labuan_grid_3', 'labuan_grid_4'],
 
     map: 'map_labuan',
-    map_text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.',
+    map_text: localize(
+        'In Labuan, we are at the Paragon Labuan, a modern commercial and residential complex. This brand-new development offers a convenient variety of restaurants, cafes, and shopping.',
+    ),
     address: address_labuan,
 }
 
 export const asuncion = {
     name: 'asuncion',
     link: '/careers/locations/asuncion',
-    display_name: localize('Ascunción'),
+    display_name: localize('Asunción'),
     country: localize('Paraguay'),
     thumbnail: 'thumbnail_asuncion',
     header_p: localize(
@@ -103,8 +107,9 @@ export const asuncion = {
     first_img: 'living_in_asuncion',
     grid_images: ['asuncion_grid_1', 'asuncion_grid_2', 'asuncion_grid_3', 'asuncion_grid_4'],
     map: 'map_asuncion',
-    map_text:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.',
+    map_text: localize(
+        'In Paraguay, our office is located at Edificio Australia, a picturesque building in the financial centre area of Asunción, the capital of Paraguay. Buses are the main mode of public transportation in this metropolitan city.',
+    ),
     address: address_asuncion,
 }
 

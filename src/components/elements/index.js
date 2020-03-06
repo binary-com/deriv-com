@@ -14,6 +14,7 @@ import LinearLoader from './loader'
 import Modal, { useModal } from './modal'
 import OffCanvasMenu, { moveOffCanvasMenu } from './off-canvas-menu'
 import SideTab from './side-tab'
+import Tabs from './default-tab'
 import { Text, LinkText, Header } from './typography'
 
 export {
@@ -38,6 +39,7 @@ export {
     OffCanvasMenu,
     moveOffCanvasMenu,
     SideTab,
+    Tabs,
     Text,
     LinkText,
     Header,

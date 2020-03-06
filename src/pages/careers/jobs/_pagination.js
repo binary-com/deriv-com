@@ -22,7 +22,7 @@ const Pagination = ({ children, page_limit }) => {
     const [start_index, setStartIndex] = React.useState(section_selection - page_limit)
     const has_next = section_selection < total_records
     const has_previous = section_selection > page_limit
-    const end_index = section_selection
+    const end_index = needs_pagination ? section_selection : total_records
 
     const current_records = all_records.slice(start_index, end_index)
 
@@ -62,19 +62,21 @@ const Pagination = ({ children, page_limit }) => {
                         translate_text="Viewing {{low_bound}}-{{up_bound}} of {{total}}"
                         values={{
                             low_bound: start_index + 1,
-                            up_bound: section_selection,
+                            up_bound: end_index,
                             total: total_records,
                         }}
                     />
                 </TopText>
-                <Flex width="auto">
-                    <ButtonLeft flat onClick={handlePrevious} disabled={!has_previous}>
-                        {localize('Previous')}
-                    </ButtonLeft>
-                    <Button flat onClick={handleNext} disabled={!has_next}>
-                        {localize('Next')}
-                    </Button>
-                </Flex>
+                {needs_pagination && (
+                    <Flex width="auto">
+                        <ButtonLeft flat onClick={handlePrevious} disabled={!has_previous}>
+                            {localize('Previous')}
+                        </ButtonLeft>
+                        <Button flat onClick={handleNext} disabled={!has_next}>
+                            {localize('Next')}
+                        </Button>
+                    </Flex>
+                )}
             </Flex>
             {current_records.map(record => record)}
             {needs_pagination && (
@@ -84,7 +86,7 @@ const Pagination = ({ children, page_limit }) => {
                             translate_text="Viewing {{low_bound}}-{{up_bound}} of {{total}}"
                             values={{
                                 low_bound: start_index + 1,
-                                up_bound: section_selection,
+                                up_bound: end_index,
                                 total: total_records,
                             }}
                         />

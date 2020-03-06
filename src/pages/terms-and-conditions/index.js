@@ -39,7 +39,7 @@ const TermsAndConditions = () => {
                 </Flex>
                 <TabWrapper>
                     <Tabs tab_break="500px">
-                        <Tabs.Panel label={localize('FOR CUSTOMERS')}>
+                        <Tabs.Panel label={localize('FOR CLIENTS')}>
                             <CustomerGrid />
                         </Tabs.Panel>
                         <Tabs.Panel label={localize('FOR BUSINESS PARTNERS')}>

@@ -6,7 +6,7 @@ import { LinkList } from '../_layout-components/_link-list'
 import { RoleBanner } from '../_layout-components/_banner'
 import device from 'themes/device'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Text, Header, BackgroundImage, QueryImage } from 'components/elements'
+import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { toHashFormat } from 'common/utility'
@@ -207,7 +207,17 @@ export const LocationLayout = ({ location, images }) => {
                                     <CardText>{location.map_text}</CardText>
                                     <Flex jc="unset">
                                         <Pin />
-                                        <Text>{location.address}</Text>
+                                        {location.google_map_link ? (
+                                            <LinkText
+                                                rel="noopener noreferrer"
+                                                target="_blank"
+                                                href={location.google_map_link}
+                                            >
+                                                {location.address}
+                                            </LinkText>
+                                        ) : (
+                                            <Text>{location.address}</Text>
+                                        )}
                                     </Flex>
                                 </div>
                             </Flex>

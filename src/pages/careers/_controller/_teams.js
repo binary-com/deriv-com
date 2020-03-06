@@ -17,6 +17,8 @@ import { product_design_positions } from '../_model/_open-positions/_product-des
 import { project_management_positions } from '../_model/_open-positions/_project-management'
 import { quants_positions } from '../_model/_open-positions/_quants'
 import { security_positions } from '../_model/_open-positions/_security'
+import { job_types } from '../_model/_job_types/_job_types'
+import { locations } from '../_model/_locations/_locations'
 import { localize } from 'components/localization'
 import { toHashFormat } from 'common/utility'
 
@@ -72,6 +74,12 @@ export const team_names = {
     'project-management': localize('Project Management'),
     quants: localize('Quants'),
     security: localize('Security'),
+}
+
+export const all_queries = {
+    ...team_names,
+    ...job_types,
+    ...locations,
 }
 
 export const all_teams = [
@@ -328,5 +336,14 @@ export const getJobPositionById = id =>
 export const getPositionsByLocation = location_name => {
     return all_positions.filter(position => {
         return position.location.includes(location_name)
+    })
+}
+
+export const getPositionsByQuery = (queries, filtered_positions) => {
+    const current_positions = filtered_positions || all_positions
+    if (!queries.length) return current_positions
+
+    return current_positions.filter(position => {
+        return queries.some(query => query === position.location || query === position.team)
     })
 }

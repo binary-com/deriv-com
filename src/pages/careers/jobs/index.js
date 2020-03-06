@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import matchSorter from 'match-sorter'
 import { RoleBanner } from '../_layout-components/_banner'
-import { all_positions } from '../_controller/_teams'
+import { getPositionsByQuery } from '../_controller/_teams'
 import SearchForm from './_search-form'
 import SearchFilters from './_search-filters'
 import CardList from './_card-list'
 import Pagination from './_pagination'
 import NoResultsFound from './_no-results'
+import Badges from './_badges'
 import { SEO, Container, SectionContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -19,16 +20,18 @@ const StyledDivider = styled(Divider)`
 const Jobs = () => {
     const [filters, setFilters] = React.useState([])
     const [search, setSearch] = React.useState('')
-    const [filtered_positions, setFilteredPositions] = React.useState([...all_positions])
+    const [filtered_positions, setFilteredPositions] = React.useState([])
 
     React.useEffect(() => {
         // 1. filter by filters here
+        const filter_positions = getPositionsByQuery(filters)
         // 2. filter by search term
-        const filter_temp = matchSorter(all_positions, search.trim(), {
-            keys: ['title', 'team'],
+        const search_positions = matchSorter(filter_positions, search.trim(), {
+            keys: ['title', 'team', 'location'],
             threshold: matchSorter.rankings.WORD_STARTS_WITH,
         })
-        setFilteredPositions(filter_temp)
+
+        setFilteredPositions(search_positions)
     }, [search, filters])
 
     // const open_positions = getOpenPositionsByQuery(query, [filters])
@@ -42,6 +45,7 @@ const Jobs = () => {
                     <StyledDivider height="104.6rem" width="2px" />
                     <Flex direction="column">
                         <SearchForm setSearch={setSearch} />
+                        <Badges filters={filters} setFilters={setFilters} />
                         {!!filtered_positions.length && (
                             <Pagination page_limit={4}>
                                 {filtered_positions.map((position, idx) => (

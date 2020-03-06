@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { team_names } from '../_controller/_teams'
-import { job_types } from '../_model/_job_types/_job_types'
+// import { job_types } from '../_model/_job_types/_job_types'
 import { locations } from '../_model/_locations/_locations'
 import { Flex } from 'components/containers'
 import { Accordion, AccordionItem, Divider, Text, Checkbox } from 'components/elements'
@@ -42,6 +42,7 @@ const CheckboxWrapper = styled(Flex)`
 
 const SearchFilters = ({ filters, setFilters }) => {
     const toggleCheck = name => {
+        // If the name already inside filters, remove it
         if (filters.includes(name)) {
             setFilters(filters.filter(filter => filter !== name))
         } else {
@@ -49,16 +50,20 @@ const SearchFilters = ({ filters, setFilters }) => {
         }
     }
 
+    const clearFilters = () => setFilters([])
+
     return (
         <FilterContainer>
             <Flex jc="space-between">
                 <Text size="var(--text-size-xs)">{localize('Filters')}</Text>
-                <ClearFilter size="var(--text-size-xs)">{localize('Clear filters')}</ClearFilter>
+                <ClearFilter onClick={clearFilters} size="var(--text-size-xs)">
+                    {localize('Clear filters')}
+                </ClearFilter>
             </Flex>
             <Divider height="2px" />
             <AccordionWrapper>
                 <Accordion has_single_state>
-                    <AccordionItem
+                    {/* <AccordionItem
                         header={localize('Job types')}
                         header_style={header_style}
                         // parent_style={parent_style}
@@ -79,7 +84,7 @@ const SearchFilters = ({ filters, setFilters }) => {
                                 </CheckboxWrapper>
                             ))}
                         </Flex>
-                    </AccordionItem>
+                    </AccordionItem> */}
                     <AccordionItem
                         header={localize('Teams')}
                         header_style={header_style}

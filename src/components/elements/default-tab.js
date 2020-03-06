@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 
@@ -22,8 +22,15 @@ const TabButton = styled.button`
     outline: none;
     transition: border-color 0.2s ease-in;
     border: none;
-    border-bottom: 2px solid
-        ${props => (props.selected ? 'var(--color-red)' : 'var(--color-grey-2)')};
+    border-bottom: 2px solid var(--color-grey-2);
+    ${props =>
+        props.selected &&
+        css`
+            border-color: var(--color-red);
+            ${Text} {
+                color: var(--color-red);
+            }
+        `}
 
     &:hover,
     &:focus,
@@ -90,7 +97,7 @@ const Tabs = ({ children, tab_break }) => {
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => selectTab(index)}
                     >
-                        <Text size="var(--text-size-m)" color="red" weight="bold">
+                        <Text size="var(--text-size-m)" color="red-2" weight="bold">
                             {label}
                         </Text>
                     </TabButton>

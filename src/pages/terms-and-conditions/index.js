@@ -33,7 +33,7 @@ const TermsAndConditions = () => {
                     </Header>
                     <StyledHeader as="h4" align="center" weight="normal" lh="3rem">
                         {localize(
-                            'This is where you’ll find information about our legal policies and how they apply to you. The documents linked below collectively form our standard terms of use (the “Terms”). It’s important that you make yourself aware of these Terms and agree to them before using any our websites, products, or services.',
+                            'This is where you’ll find information about our legal policies and how they apply to you. The documents linked below collectively form our standard terms of use (the “Terms”). It’s important that you make yourself aware of these Terms and agree to them before using any of our websites, products, or services.',
                         )}
                     </StyledHeader>
                 </Flex>

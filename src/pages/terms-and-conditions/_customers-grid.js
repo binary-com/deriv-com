@@ -30,7 +30,7 @@ const GridCol = styled(CssGridColumn)`
     width: 100%;
 
     ${Text} {
-        margin-top: 1.8rem;
+        margin-top: 1.6rem;
 
         @media ${device.tabletL} {
             font-size: 2rem;
@@ -53,7 +53,7 @@ const StyledHeader = styled(Header)`
     }
 `
 const Cta = styled.div`
-    margin-top: 1.6rem;
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: 3.2rem 1fr;
     grid-column-gap: 0.8rem;

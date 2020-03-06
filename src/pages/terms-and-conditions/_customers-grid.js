@@ -160,7 +160,7 @@ const IconGrid = () => (
                 Icon={BFX}
                 title={localize('Additional terms')}
                 content={localize(
-                    'Additional terms and restrictions for Deriv users in certain countries',
+                    'Additional terms and restrictions for Deriv clients in certain countries',
                 )}
                 url="/tnc/Binary_(FX)_Ltd.pdf"
                 url2="/tnc/Binary_Investments_(Europe)_Ltd.pdf"

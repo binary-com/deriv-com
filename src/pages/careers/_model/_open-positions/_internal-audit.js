@@ -7,7 +7,7 @@ export const internal_audit_positions = [
         title: localize('Internal Audit Executive'),
         id: 'b84082d8-2382-48f9-a99f-7dcd832cf146',
         keywords: [localize('Internal Audit Executive')],
-        location: cyberjaya,
+        location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'internal-audit',
         description: [

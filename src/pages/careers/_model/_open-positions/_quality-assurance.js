@@ -7,7 +7,7 @@ export const quality_assurance_positions = [
         title: localize('Software Tester'),
         id: 'ffb327f8-6b17-46a3-a302-10b4b4a9b8d0',
         keywords: [localize('Software Tester')],
-        location: dubai,
+        location: dubai.name,
         type: [job_types.full_time],
         team: 'quality-assurance',
         description: [
@@ -65,7 +65,7 @@ export const quality_assurance_positions = [
         title: localize('Software Tester'),
         id: 'a2fe71d7-6e3f-41b7-9a0a-f9f05be4a5f4',
         keywords: [localize('Software Tester')],
-        location: labuan,
+        location: labuan.name,
         type: [job_types.full_time],
         team: 'quality-assurance',
         description: [
@@ -121,7 +121,7 @@ export const quality_assurance_positions = [
         title: localize('Software Tester'),
         id: '5ec747d3-ba6e-447e-81da-228b40b98184',
         keywords: [localize('Software Tester')],
-        location: cyberjaya,
+        location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'quality-assurance',
         description: [

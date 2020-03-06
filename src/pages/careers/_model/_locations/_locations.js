@@ -107,3 +107,11 @@ export const asuncion = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.',
     address: address_asuncion,
 }
+
+export const locations = {
+    cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
+    malta: `${malta.display_name}`,
+    dubai: `${dubai.display_name}, ${dubai.country}`,
+    labuan: `${labuan.display_name}, ${labuan.country}`,
+    asuncion: `${asuncion.display_name}, ${asuncion.country}`,
+}

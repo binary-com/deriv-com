@@ -327,8 +327,6 @@ export const getJobPositionById = id =>
 
 export const getPositionsByLocation = location_name => {
     return all_positions.filter(position => {
-        return position.location.name
-            .toLowerCase()
-            .includes(location_name === 'asuncion' ? 'paraguay' : location_name)
+        return position.location.includes(location_name)
     })
 }

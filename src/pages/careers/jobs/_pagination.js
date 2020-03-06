@@ -56,16 +56,26 @@ const Pagination = ({ children, page_limit }) => {
 
     return (
         <>
-            <TopText>
-                <Localize
-                    translate_text="Viewing {{low_bound}}-{{up_bound}} of {{total}}"
-                    values={{
-                        low_bound: start_index + 1,
-                        up_bound: section_selection,
-                        total: total_records,
-                    }}
-                />
-            </TopText>
+            <Flex jc="space-between">
+                <TopText>
+                    <Localize
+                        translate_text="Viewing {{low_bound}}-{{up_bound}} of {{total}}"
+                        values={{
+                            low_bound: start_index + 1,
+                            up_bound: section_selection,
+                            total: total_records,
+                        }}
+                    />
+                </TopText>
+                <Flex width="auto">
+                    <ButtonLeft flat onClick={handlePrevious} disabled={!has_previous}>
+                        {localize('Previous')}
+                    </ButtonLeft>
+                    <Button flat onClick={handleNext} disabled={!has_next}>
+                        {localize('Next')}
+                    </Button>
+                </Flex>
+            </Flex>
             {current_records.map(record => record)}
             {needs_pagination && (
                 <Flex jc="space-between">

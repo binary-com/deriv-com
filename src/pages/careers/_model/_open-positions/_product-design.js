@@ -7,7 +7,7 @@ export const product_design_positions = [
         title: localize('Graphics Designer Marketing'),
         id: '258e889d-c246-4b77-9732-32f773f2ff81',
         keywords: [localize('Graphics Designer Marketing')],
-        location: cyberjaya,
+        location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'product-design',
         description: [
@@ -49,7 +49,7 @@ export const product_design_positions = [
         title: localize('Graphics Designer'),
         id: '76acb25f-1709-4ad0-8d31-c09382cc1ab3',
         keywords: [localize('Graphics Designer')],
-        location: cyberjaya,
+        location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'product-design',
         description: [
@@ -90,7 +90,7 @@ export const product_design_positions = [
         title: localize('Graphics Designer Marketing'),
         id: 'fd8819b4-5093-415e-ba7e-bc22d8c600eb',
         keywords: [localize('Graphics Designer Marketing')],
-        location: dubai,
+        location: dubai.name,
         type: [job_types.full_time],
         team: 'product-design',
         description: [
@@ -132,7 +132,7 @@ export const product_design_positions = [
         title: localize('Graphics Designer'),
         id: 'bdfcb7ed-83f5-47fa-92f3-5bdc1ed2c724',
         keywords: [localize('Graphics Designer')],
-        location: asuncion,
+        location: asuncion.name,
         type: [job_types.full_time],
         team: 'product-design',
         description: [
@@ -173,7 +173,7 @@ export const product_design_positions = [
         title: localize('Graphics Designer'),
         id: 'da137a9f-41ea-424e-aae6-0777eab1a3a0',
         keywords: [localize('Graphics Designer')],
-        location: malta,
+        location: malta.name,
         type: [job_types.full_time],
         team: 'product-design',
         description: [

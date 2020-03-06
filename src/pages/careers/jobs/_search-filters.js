@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { getTeamNames, team_names } from '../_controller/_teams'
+import { team_names } from '../_controller/_teams'
+import { job_types } from '../_model/_job_types/_job_types'
+import { locations } from '../_model/_locations/_locations'
 import { Flex } from 'components/containers'
 import { Accordion, AccordionItem, Divider, Text, Checkbox } from 'components/elements'
 import { localize } from 'components/localization'
@@ -39,7 +41,13 @@ const CheckboxWrapper = styled(Flex)`
 `
 
 const SearchFilters = ({ filters, setFilters }) => {
-    const all_team_names = getTeamNames()
+    const toggleCheck = name => {
+        if (filters.includes(name)) {
+            setFilters(filters.filter(filter => filter !== name))
+        } else {
+            setFilters([...filters, name])
+        }
+    }
 
     return (
         <FilterContainer>
@@ -57,7 +65,20 @@ const SearchFilters = ({ filters, setFilters }) => {
                         style={item_style}
                         arrow_thin
                     >
-                        <Text>Hello</Text>
+                        <Flex direction="column" m="1.6rem 0 0.8rem">
+                            {Object.keys(job_types).map((job_type, idx) => (
+                                <CheckboxWrapper
+                                    key={idx}
+                                    jc="flex-start"
+                                    ai="center"
+                                    mb="0.8rem"
+                                    onClick={() => toggleCheck(job_type)}
+                                >
+                                    <Checkbox checked={filters.includes(job_type)} />
+                                    <Text>{job_types[job_type]}</Text>
+                                </CheckboxWrapper>
+                            ))}
+                        </Flex>
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Teams')}
@@ -67,27 +88,18 @@ const SearchFilters = ({ filters, setFilters }) => {
                         arrow_thin
                     >
                         <Flex direction="column" m="1.6rem 0 0.8rem">
-                            {all_team_names.map((team_name, idx) => {
-                                const toggleCheck = () => {
-                                    if (filters.includes(team_name)) {
-                                        setFilters(filters.filter(filter => filter !== team_name))
-                                    } else {
-                                        setFilters([...filters, team_name])
-                                    }
-                                }
-                                return (
-                                    <CheckboxWrapper
-                                        key={idx}
-                                        jc="flex-start"
-                                        ai="center"
-                                        mb="0.8rem"
-                                        onClick={toggleCheck}
-                                    >
-                                        <Checkbox checked={filters.includes(team_name)} />
-                                        <Text>{team_names[team_name]}</Text>
-                                    </CheckboxWrapper>
-                                )
-                            })}
+                            {Object.keys(team_names).map((team_name, idx) => (
+                                <CheckboxWrapper
+                                    key={idx}
+                                    jc="flex-start"
+                                    ai="center"
+                                    mb="0.8rem"
+                                    onClick={() => toggleCheck(team_name)}
+                                >
+                                    <Checkbox checked={filters.includes(team_name)} />
+                                    <Text>{team_names[team_name]}</Text>
+                                </CheckboxWrapper>
+                            ))}
                         </Flex>
                     </AccordionItem>
                     <AccordionItem
@@ -97,7 +109,20 @@ const SearchFilters = ({ filters, setFilters }) => {
                         style={item_style}
                         arrow_thin
                     >
-                        <Text>Hello</Text>
+                        <Flex direction="column" m="1.6rem 0 0.8rem">
+                            {Object.keys(locations).map((location, idx) => (
+                                <CheckboxWrapper
+                                    key={idx}
+                                    jc="flex-start"
+                                    ai="center"
+                                    mb="0.8rem"
+                                    onClick={() => toggleCheck(location)}
+                                >
+                                    <Checkbox checked={filters.includes(location)} />
+                                    <Text>{locations[location]}</Text>
+                                </CheckboxWrapper>
+                            ))}
+                        </Flex>
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>

@@ -7,7 +7,7 @@ export const hr_recruitment_positions = [
         title: localize('Human Resources Manager'),
         id: '07c4f5e4-df0e-4cef-8700-e0a752e7e223',
         keywords: [localize('Human Resources Manager')],
-        location: cyberjaya,
+        location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'hr-recruitment',
         description: [
@@ -77,7 +77,7 @@ export const hr_recruitment_positions = [
         title: localize('HR Operations Executive'),
         id: 'f94ab35d-9e57-4a4e-862d-a114087a3795',
         keywords: [localize('HR Operations Executive')],
-        location: cyberjaya,
+        location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'hr-recruitment',
         description: [
@@ -118,7 +118,7 @@ export const hr_recruitment_positions = [
         title: localize('Office Coordinator'),
         id: 'b2f7812c-517c-4895-abee-88f46ca63345',
         keywords: [localize('Office Coordinator')],
-        location: dubai,
+        location: dubai.name,
         type: [job_types.full_time],
         team: 'hr-recruitment',
         description: [
@@ -158,7 +158,7 @@ export const hr_recruitment_positions = [
         title: localize('HR Operations Executive'),
         id: '9b509e10-7fa0-4d1f-9911-745caee36411',
         keywords: [localize('HR Operations Executive')],
-        location: asuncion,
+        location: asuncion.name,
         type: [job_types.full_time],
         team: 'hr-recruitment',
         description: [
@@ -195,7 +195,7 @@ export const hr_recruitment_positions = [
         title: localize('Talent Acquisition Specialist'),
         id: 'dd04f817-eb55-4fee-aee0-73fb88cc9eed',
         keywords: [localize('Talent Acquisition Specialist')],
-        location: asuncion,
+        location: asuncion.name,
         type: [job_types.full_time],
         team: 'hr-recruitment',
         description: [
@@ -247,7 +247,7 @@ export const hr_recruitment_positions = [
         title: localize('Office Coordinator'),
         id: '1843a99d-2dc4-48a2-9845-6058f69dad35',
         keywords: [localize('Office Coordinator')],
-        location: asuncion,
+        location: asuncion.name,
         type: [job_types.full_time],
         team: 'hr-recruitment',
         description: [
@@ -287,7 +287,7 @@ export const hr_recruitment_positions = [
         title: localize('Office Operations Administrator'),
         id: 'cea3a9d2-162c-427e-a163-136ae1e72337',
         keywords: [localize('Office Operations Administrator')],
-        location: malta,
+        location: malta.name,
         type: [job_types.full_time],
         team: 'hr-recruitment',
         description: [
@@ -320,7 +320,7 @@ export const hr_recruitment_positions = [
         title: localize('Office Operations Administrator'),
         id: '7ae92e0a-17f8-4c44-88b6-c9be1e894a0c',
         keywords: [localize('Office Operations Administrator')],
-        location: malta,
+        location: malta.name,
         type: [job_types.full_time],
         team: 'hr-recruitment',
         description: [

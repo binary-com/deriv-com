@@ -23,19 +23,19 @@ const BadgeContainer = styled.div`
     border-radius: 12px;
     background-color: var(--color-grey-11);
     padding: 3px 8px;
+    margin: 0.4rem;
     display: flex;
     align-items: center;
 
     svg {
         margin-left: 8px;
-    }
-    &:hover {
         cursor: pointer;
     }
 `
 
 const BadgeWrapper = styled(Flex)`
     margin-bottom: 5.4rem;
+    flex-wrap: wrap;
 
     > *:not(:last-child) {
         margin-right: 0.8rem;
@@ -44,9 +44,9 @@ const BadgeWrapper = styled(Flex)`
 
 const Badge = ({ text, onClick }) => {
     return (
-        <BadgeContainer onClick={onClick}>
+        <BadgeContainer>
             <Text size="var(--text-size-xxs)">{text}</Text>
-            <CrossIconStyled />
+            <CrossIconStyled onClick={onClick} />
         </BadgeContainer>
     )
 }

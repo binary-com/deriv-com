@@ -26,6 +26,7 @@ export const cyberjaya = {
         'Our office in Cyberjaya is located in iTech Tower, a 20-storey office building in the vibrant Shaftsbury Square. Easily accessible via major highways, it takes just 30 minutes to get to Cyberjaya from downtown Kuala Lumpur.',
     ),
     address: address_cyberjaya,
+    google_map_link: 'https://g.page/r/CQODFgzIJPYtEAE',
 }
 
 export const malta = {
@@ -47,6 +48,7 @@ export const malta = {
         'Our Malta office is located at W Business Centre in Triq Dun Karm, a strategically central location easily accessible from Malta International Airport and just a few minutes from other scenic cities like Valetta, Sliema, Swatar, and St Julians.',
     ),
     address: address_malta,
+    google_map_link: 'https://g.page/r/CRyKELlnWQ3iEAE',
 }
 
 export const dubai = {

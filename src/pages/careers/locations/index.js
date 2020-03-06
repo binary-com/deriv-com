@@ -29,10 +29,10 @@ const BackDrop = styled.section`
     align-items: center;
 
     ${Header} {
-        padding-bottom: 5.4rem;
+        padding-bottom: 4rem;
     }
     ${Text} {
-        max-width: 86.2rem;
+        max-width: 79.2rem;
         text-align: center;
     }
 `
@@ -40,11 +40,16 @@ const BackDrop = styled.section`
 const Hero = () => (
     <BackDrop>
         <Header as="h1" font_size="var(--text-size-xl)" align="center" color="white">
-            {localize('Truly global')}
+            {localize('Our locations')}
         </Header>
+        <Text size="var(--text-size-sm)" color="white" style={{ paddingBottom: '2rem' }}>
+            {localize(
+                'From IT to marketing to data analytics, we offer opportunities for people of almost every skill set across our locations around the globe.',
+            )}
+        </Text>
         <Text size="var(--text-size-sm)" color="white">
             {localize(
-                'We are in 5 cities in 4 countries. When you join Deriv, here are some of the great places around the globe you’ll get to experience.',
+                'As we expand, our culture of collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and rewarding career experience.',
             )}
         </Text>
     </BackDrop>
@@ -121,9 +126,9 @@ const Locations = () => {
             <SEO title={localize('Locations')} />
             <Hero />
             <Container direction="column">
-                <SectionContainer>
+                <SectionContainer padding="12rem 0 8rem 0">
                     <Header as="h2" align="center" font_size={'var(--text-size-header-1)'}>
-                        {localize('Where we work')}
+                        {localize('Explore our locations')}
                     </Header>
                     <CssGrid
                         columns="repeat(3, 38.4rem)"

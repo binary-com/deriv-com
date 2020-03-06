@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { EmailButton } from '../../_layout-components/_email-button'
 import { getJobPositionById, team_names } from '../../_controller/_teams'
 import { getDisplayLocation } from '../../_controller/_locations'
 import { SEO, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
-import { Button } from 'components/form'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { getLocationHash, isBrowser } from 'common/utility'
@@ -76,12 +76,6 @@ const Li = styled.li`
     }
 `
 
-const StyledButton = styled(Button)`
-    margin-top: 4rem;
-    margin-bottom: 8rem;
-    width: fit-content;
-`
-
 const Job = () => {
     const position_name = getLocationHash()
     if (!position_name) return null
@@ -151,8 +145,11 @@ const Job = () => {
                         </Ul>
                     </>
                 )}
-
-                <StyledButton secondary>{localize('Send us your CV')}</StyledButton>
+                <EmailButton
+                    style={{ marginTop: '4rem', marginBottom: '8rem', width: 'fit-content' }}
+                    secondary
+                    text={localize('Send us your CV')}
+                />
             </StyledContainer>
         </Layout>
     )

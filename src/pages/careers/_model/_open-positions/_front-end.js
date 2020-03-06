@@ -8,7 +8,7 @@ export const front_end_positions = [
         id: '59cd28f1-7b33-4210-954b-52a897e2bc11',
         keywords: [localize('Front-end Developer')],
         location: cyberjaya,
-        type: [job_types.full_time, job_types.internship],
+        type: [job_types.full_time],
         team: 'front-end',
         description: [
             localize(

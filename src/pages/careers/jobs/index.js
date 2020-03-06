@@ -7,6 +7,7 @@ import SearchForm from './_search-form'
 import SearchFilters from './_search-filters'
 import CardList from './_card-list'
 import Pagination from './_pagination'
+import NoResultsFound from './_no-results'
 import { SEO, Container, SectionContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -23,11 +24,11 @@ const Jobs = () => {
     React.useEffect(() => {
         // 1. filter by filters here
         // 2. filter by search term
-        const search_filtered_positions = matchSorter(all_positions, search.trim(), {
+        const filter_temp = matchSorter(all_positions, search.trim(), {
             keys: ['title', 'team'],
             threshold: matchSorter.rankings.WORD_STARTS_WITH,
         })
-        setFilteredPositions(search_filtered_positions)
+        setFilteredPositions(filter_temp)
     }, [search, filters])
 
     // const open_positions = getOpenPositionsByQuery(query, [filters])
@@ -41,11 +42,14 @@ const Jobs = () => {
                     <StyledDivider height="104.6rem" width="2px" />
                     <Flex direction="column">
                         <SearchForm setSearch={setSearch} />
-                        <Pagination page_limit={4}>
-                            {filtered_positions.map((position, idx) => (
-                                <CardList key={idx} position={position} />
-                            ))}
-                        </Pagination>
+                        {!!filtered_positions.length && (
+                            <Pagination page_limit={4}>
+                                {filtered_positions.map((position, idx) => (
+                                    <CardList key={idx} position={position} />
+                                ))}
+                            </Pagination>
+                        )}
+                        {!filtered_positions.length && <NoResultsFound />}
                     </Flex>
                 </Container>
             </SectionContainer>

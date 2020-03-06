@@ -17,12 +17,24 @@ import { Divider } from 'components/elements'
 const StyledDivider = styled(Divider)`
     margin: 0 5rem;
 `
+
+const pushToQueryParams = queries => {
+    let current_query = '?q='
+    if (Array.isArray(queries)) {
+        queries.forEach((query, idx) => {
+            current_query += idx === 0 ? query : `,${query}`
+        })
+    }
+
+    window.history.pushState(null, null, current_query)
+}
 const Jobs = () => {
     const [filters, setFilters] = React.useState([])
     const [search, setSearch] = React.useState('')
     const [filtered_positions, setFilteredPositions] = React.useState([])
 
     React.useEffect(() => {
+        pushToQueryParams(filters)
         // 1. filter by filters here
         const filter_positions = getPositionsByQuery(filters)
         // 2. filter by search term

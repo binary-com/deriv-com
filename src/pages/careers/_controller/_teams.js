@@ -299,23 +299,22 @@ export const all_positions = [
     ...accounts_and_payments_positions,
     ...back_end_positions,
     ...business_intelligence_positions,
-    ...devops_positions,
     ...compliance_positions,
-    ...marketing_positions,
-    ...quality_assurance_positions,
     ...content_positions,
     ...crypto_development_positions,
     ...customer_support_positions,
+    ...devops_positions,
     ...disaster_recovery_positions,
     ...front_end_positions,
     ...hr_recruitment_positions,
     ...internal_audit_positions,
     ...it_admin_positions,
+    ...marketing_positions,
     ...product_design_positions,
     ...project_management_positions,
+    ...quality_assurance_positions,
     ...quants_positions,
     ...security_positions,
-    ...quants_positions,
 ]
 
 export const getTeamNames = () => all_teams.map(team => team.name)
@@ -323,7 +322,7 @@ export const getTeamNames = () => all_teams.map(team => team.name)
 export const getAlphabeticTeams = () => all_teams.sort((a, b) => a.name.localeCompare(b.name))
 
 export const getTop4Teams = () =>
-    all_teams.sort((a, b) => a.positions.length - b.positions.length).slice(0, 4)
+    all_teams.sort((a, b) => b.positions.length - a.positions.length).slice(0, 4)
 
 export const getTeamByName = team_name => all_teams.find(team => team.name === team_name)
 

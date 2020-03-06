@@ -4,8 +4,9 @@ import styled from 'styled-components'
 import { getPositionsByLocation } from '../_controller/_teams'
 import { LinkList } from '../_layout-components/_link-list'
 import { RoleBanner } from '../_layout-components/_banner'
+import Container from '../_layout-components/_container'
 import device from 'themes/device'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
@@ -224,18 +225,16 @@ export const LocationLayout = ({ location, images }) => {
                         </Flex>
                     </LocationCard>
                 </SectionContainer>
-                <SectionContainer>
-                    <Header
-                        align="center"
-                        as="h2"
-                        font_size={'var(--text-size-header-1)'}
-                        style={{ marginBottom: '8rem' }}
-                    >
-                        {localize('Open positions in {{location}}', { location: display_name })}
-                    </Header>
-                    <LinkList list_items={mapped_positions} />
-                </SectionContainer>
+                <Header
+                    align="center"
+                    as="h2"
+                    font_size={'var(--text-size-header-1)'}
+                    style={{ marginBottom: '8rem' }}
+                >
+                    {localize('Open positions in {{location}}', { location: display_name })}
+                </Header>
             </Container>
+            <LinkList list_items={mapped_positions} />
             <RoleBanner />
         </>
     )

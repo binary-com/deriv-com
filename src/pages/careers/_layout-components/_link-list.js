@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Container from './_container'
 import { Text } from 'components/elements'
-import { Container, Flex } from 'components/containers'
+import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import Chevron from 'images/svg/carousel-chevron.svg'
 

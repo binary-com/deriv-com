@@ -49,10 +49,10 @@ const ImageDescription = styled.div`
     ${props =>
         props.left
             ? css`
-                  margin-right: 6.5rem;
+                  margin-right: 6.4rem;
               `
             : css`
-                  margin-left: 6.5rem;
+                  margin-left: 6.4rem;
               `}
     @media ${device.tablet} {
         margin: 3.2rem 0;
@@ -109,7 +109,7 @@ const WhoWeLookFor = () => {
                 <DiffHeader as="h3" align="center">
                     {localize('What’s different about working at Deriv?')}
                 </DiffHeader>
-                <DescContainer direction="row" mb="14.4rem">
+                <DescContainer direction="row" mb="14.4rem" jc="flex-start">
                     <ImageWrapper>
                         <QueryImage
                             data={data.teamfocus}
@@ -138,7 +138,7 @@ const WhoWeLookFor = () => {
                         </DescText>
                     </ImageDescription>
                 </DescContainer>
-                <DescContainer direction="row-reverse">
+                <DescContainer direction="row-reverse" jc="flex-start">
                     <ImageWrapper>
                         <QueryImage
                             data={data.peopleeating}

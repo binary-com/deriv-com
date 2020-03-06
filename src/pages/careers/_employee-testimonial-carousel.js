@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
 import 'swiper/css/swiper.css'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import QuoteMark from 'images/svg/quotemark.svg'
+import NegarImage from 'images/common/careers/negar.jpg'
+import KelcentImage from 'images/common/careers/kelcent.jpg'
+import MahdiImage from 'images/common/careers/mahdi.jpg'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -68,6 +70,7 @@ const QuoteText = styled(Text)`
 
 const ImageWrapper = styled.div`
     width: 100%;
+    max-height: 31.7rem;
 `
 
 const SliderWrapper = styled.div`
@@ -155,26 +158,20 @@ const QuoteWrapper = styled(Flex)`
         top: 16px;
     }
 `
-const EmployeeSlide = ({ quote, img_data, img_alt, name }) => {
-    React.useEffect(() => {
-        // duplicate slides from react-id-swiper are not considered within viewport and therefore opacity remains at 0
-        // add classname to force opacity
-        const duplicate_slides_el = document.getElementsByClassName('swiper-slide-duplicate')
-        if (duplicate_slides_el) {
-            const active_duplicates = Array.from(duplicate_slides_el)
-            active_duplicates.forEach(el => {
-                el.classList.add('force-opacity')
-            })
-        }
-    })
-
+const EmployeeSlide = ({ quote, img_path, img_alt, name }) => {
     return (
         <Flex ai="center" height="unset">
             <EmployeeCard>
                 <Flex tablet_direction="column">
                     <Flex>
                         <ImageWrapper>
-                            <QueryImage data={img_data} alt={img_alt} />
+                            <img
+                                loading="lazy"
+                                width="100%"
+                                height="100%"
+                                src={img_path}
+                                alt={img_alt}
+                            />
                         </ImageWrapper>
                     </Flex>
                     <QuoteWrapper direction="column">
@@ -190,7 +187,7 @@ const EmployeeSlide = ({ quote, img_data, img_alt, name }) => {
 
 EmployeeSlide.propTypes = {
     img_alt: PropTypes.string,
-    img_data: PropTypes.string,
+    img_path: PropTypes.string,
     name: PropTypes.string,
     quote: PropTypes.string,
     title: PropTypes.string,
@@ -198,7 +195,7 @@ EmployeeSlide.propTypes = {
 
 const kelcent = {
     name: localize('Kelcent Tan, Principal & Compliance Officer'),
-    img_key: 'kelcent',
+    img_path: KelcentImage,
     quote: localize(
         'We have a working culture where everyone is open and willing to share their  knowledge and expertise. This gave me invaluable insights into how other departments operate and helped me understand how my role impacts business operations as a whole.',
     ),
@@ -206,7 +203,7 @@ const kelcent = {
 }
 const negar = {
     name: localize('Negar Naghshbandi, Front-end Developer & Team Lead'),
-    img_key: 'negar',
+    img_path: NegarImage,
     quote: localize(
         'The most exciting thing for me is the culture of the company and the people I work with. I learn something new everyday and I can pair-program with anyone when needed because everyone is approachable and eager to help.',
     ),
@@ -214,32 +211,17 @@ const negar = {
 }
 const mahdi = {
     name: localize('Mahdi Pourziaei, Front-end Developer'),
-    img_key: 'mahdi',
+    img_path: MahdiImage,
     quote: localize(
         'Two words: “autonomy”, and “friendly”. Working at Deriv has been full of growth as I get to pick my own challenges and see them through, and it really wouldn’t feel as empowering without the friendly culture. I’m happy to be amongst all the brilliant people here.',
     ),
     index: 3,
 }
 
-const query = graphql`
-    query {
-        negar: file(relativePath: { eq: "careers/negar.jpg" }) {
-            ...fadeIn
-        }
-        mahdi: file(relativePath: { eq: "careers/mahdi.jpg" }) {
-            ...fadeIn
-        }
-        kelcent: file(relativePath: { eq: "careers/kelcent.jpg" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const employee_testimonials = [kelcent, negar, mahdi]
 
 const EmployeeTestimonialCarousel = () => {
     const [swiper, updateSwiper] = useState(null)
-    const images = useStaticQuery(query)
 
     const goNext = () => {
         if (swiper !== null) {
@@ -254,6 +236,7 @@ const EmployeeTestimonialCarousel = () => {
     }
 
     const params = {
+        lazy: true,
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
@@ -266,6 +249,7 @@ const EmployeeTestimonialCarousel = () => {
             clickable: true,
         },
     }
+
     return (
         <>
             <StyledSection>
@@ -294,7 +278,7 @@ const EmployeeTestimonialCarousel = () => {
                                     <EmployeeSlide
                                         quote={employee_slide.quote}
                                         name={employee_slide.name}
-                                        img_data={images[employee_slide.img_key]}
+                                        img_path={employee_slide.img_path}
                                         img_alt={employee_slide.name}
                                     />
                                 </div>

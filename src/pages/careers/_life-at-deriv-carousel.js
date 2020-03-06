@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
 import 'swiper/css/swiper.css'
-import { Header, QueryImage } from 'components/elements'
+import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
+import GymImage from 'images/common/careers/gym.jpg'
+import FitnessImage from 'images/common/careers/fitness.jpg'
+import LunchImage from 'images/common/careers/lunch.jpg'
+import GamesImage from 'images/common/careers/games.jpg'
+import GreenAreaImage from 'images/common/careers/green-area.jpg'
 
 const StyledSection = styled(SectionContainer)`
     padding: 12rem 0;
@@ -42,15 +46,16 @@ const ChevronLeft = styled(StyledChevron)`
 `
 
 const ImageWrapper = styled.div`
-    width: 78rem;
-    max-width: 78rem;
+    img {
+        width: 78rem;
+        max-width: 78rem;
+        height: 100%;
+        max-height: 60rem;
 
-    /* img {
-        opacity: 1 !important;
-    } */
-    @media ${device.tablet} {
-        width: 35rem;
-        max-width: 35rem;
+        @media ${device.tablet} {
+            width: 35rem;
+            max-width: 35rem;
+        }
     }
 `
 
@@ -121,79 +126,47 @@ const ButtonWrapper = styled.div`
     }
 `
 
-const ImageSlide = ({ img_data, img_alt }) => {
-    React.useEffect(() => {
-        // duplicate slides from react-id-swiper are not considered within viewport and therefore opacity remains at 0
-        // add classname to force opacity
-        const duplicate_slides_el = document.getElementsByClassName('swiper-slide-duplicate')
-        if (duplicate_slides_el) {
-            const active_duplicates = Array.from(duplicate_slides_el)
-            active_duplicates.forEach(el => {
-                el.classList.add('force-opacity')
-            })
-        }
-    })
+const ImageSlide = ({ img_path, img_alt }) => {
     return (
         <ImageWrapper>
-            <QueryImage data={img_data} alt={img_alt} />
+            <img src={img_path} alt={img_alt} loading="lazy" />
         </ImageWrapper>
     )
 }
 
 ImageSlide.propTypes = {
     img_alt: PropTypes.string,
-    img_data: PropTypes.object,
+    img_path: PropTypes.object,
 }
 
 const fitness = {
-    name: 'fitness',
+    img_path: FitnessImage,
     img_alt: localize('fitness'),
     index: 3,
 }
 const games = {
-    name: 'games',
+    img_path: GamesImage,
     img_alt: localize('games'),
     index: 1,
 }
 const greenarea = {
-    name: 'greenarea',
+    img_path: GreenAreaImage,
     img_alt: localize('green area'),
     index: 4,
 }
 const gym = {
-    name: 'gym',
+    img_path: GymImage,
     img_alt: localize('gym'),
     index: 5,
 }
 const lunch = {
-    name: 'lunch',
+    img_path: LunchImage,
     img_alt: localize('lunch'),
     index: 2,
 }
 const deriv_lifestyle_images = [games, lunch, fitness, greenarea, gym]
 
-const query = graphql`
-    query {
-        fitness: file(relativePath: { eq: "careers/fitness.jpg" }) {
-            ...fadeIn
-        }
-        games: file(relativePath: { eq: "careers/games.jpg" }) {
-            ...fadeIn
-        }
-        greenarea: file(relativePath: { eq: "careers/green-area.jpg" }) {
-            ...fadeIn
-        }
-        lunch: file(relativePath: { eq: "careers/lunch.jpg" }) {
-            ...fadeIn
-        }
-        gym: file(relativePath: { eq: "careers/gym.jpg" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const LifeAtDerivCarousel = () => {
-    const images = useStaticQuery(query)
     const [swiper, updateSwiper] = useState(null)
 
     const goNext = () => {
@@ -241,7 +214,7 @@ const LifeAtDerivCarousel = () => {
                             {deriv_lifestyle_images.map(slide_content => (
                                 <div className="swiper-slide" key={slide_content.name}>
                                     <ImageSlide
-                                        img_data={images[slide_content.name]}
+                                        img_path={slide_content.img_path}
                                         img_alt={slide_content.alt}
                                     />
                                 </div>

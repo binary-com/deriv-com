@@ -8,7 +8,7 @@ export const product_design_positions = [
         id: '258e889d-c246-4b77-9732-32f773f2ff81',
         keywords: [localize('Graphics Designer Marketing')],
         location: cyberjaya,
-        type: [job_types.full_time, job_types.internship],
+        type: [job_types.full_time],
         team: 'product-design',
         description: [
             localize(

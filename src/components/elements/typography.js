@@ -10,6 +10,7 @@ const BaseElement = css`
 
     /* prettier-ignore */
     color: var(--color-${props => props.color || 'black-3'});
+    margin: ${props => props.margin || ''};
 `
 export const Text = styled.p`
     font-weight: ${props => props.weight || 'normal'};
@@ -53,7 +54,6 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
     line-height: ${props => props.lh || '1.5'};
     ${BaseElement}
     width:  ${props => props.width || '100%'};
-    margin: ${props => props.margin || ''};
     
     @media ${device.tabletL} {
         text-align: ${props => props.mobile_text_align || props.align};

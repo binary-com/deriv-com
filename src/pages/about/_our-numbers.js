@@ -9,7 +9,6 @@ import device from 'themes/device'
 const OurNumbersWrapper = styled.section`
     width: 100%;
     background-color: var(--color-grey-8);
-    max-width: 144rem;
     margin: auto;
 `
 

@@ -155,7 +155,7 @@ export const back_end_positions = [
         id: '27afa7da-e5e9-4c00-b146-a3569f7901f5',
         keywords: [localize('Back-end Developer')],
         location: malta,
-        type: [job_types.full_time, job_types.internship],
+        type: [job_types.full_time],
         team: 'back-end',
         description: [
             localize(

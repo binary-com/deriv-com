@@ -122,7 +122,7 @@ export const quality_assurance_positions = [
         id: '5ec747d3-ba6e-447e-81da-228b40b98184',
         keywords: [localize('Software Tester')],
         location: cyberjaya,
-        type: [job_types.full_time, job_types.internship],
+        type: [job_types.full_time],
         team: 'quality-assurance',
         description: [
             localize(

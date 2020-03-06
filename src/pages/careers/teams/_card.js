@@ -21,6 +21,7 @@ const StyledChevron = styled(Chevron)`
     transform: rotate(90deg);
     position: absolute;
     right: -2.4rem;
+    top: 0.3rem;
 
     & polyline {
         stroke-width: 2;

@@ -8,7 +8,7 @@ export const front_end_positions = [
         id: '59cd28f1-7b33-4210-954b-52a897e2bc11',
         keywords: [localize('Front-end Developer')],
         location: cyberjaya,
-        type: [job_types.full_time, job_types.internship],
+        type: [job_types.full_time],
         team: 'front-end',
         description: [
             localize(
@@ -115,60 +115,6 @@ export const front_end_positions = [
             localize('App store and the Android market'),
             localize('Experience in implementing UI animations'),
             localize('Experience in working with finance-related companies\n'),
-        ],
-    },
-    {
-        title: localize('Marketing Design Manager'),
-        id: '8d79131f-648a-467b-9635-f40f6351179e',
-        keywords: [localize('Marketing Design Manager')],
-        location: dubai,
-        type: [job_types.full_time],
-        team: 'front-end',
-        description: [
-            localize(
-                'You will be an effective problem solver and a conceptual thinker who is able to define the creative direction for our marketing and business development campaigns. You will grow, oversee, and inspire a team of graphic designers to create visually appealing, on-brand, and on-strategy designs. team management and motivational skills are a must, as is the ability to articulate your ideas clearly.',
-            ),
-        ],
-        responsibilities: [
-            localize(
-                'Lead the Marketing Design team to define and execute design based on our marketing and business development goals. ',
-            ),
-            localize(
-                'Direct the creation of visuals and graphics for landing pages, brochures, ads, webinars, presentations, videos content, gifs, tutorials and more.',
-            ),
-            localize('Oversee the day-to-day operations of the Marketing Design team. '),
-            localize(
-                'Organise the marketing design function, providing leadership and coaching to the team as needed.',
-            ),
-            localize(
-                'Conceptualise and implement visual guidelines for various projects, balancing our style guide with stakeholder requirements.',
-            ),
-            localize(
-                'Ensure that all design materials used across all marketing channels are optimised for planned goals.',
-            ),
-        ],
-        qualifications: [
-            localize(
-                'A university degree in visual communication, graphic design, multimedia, or any other related discipline',
-            ),
-            localize('In-depth understanding of marketing fundamentals and best practices'),
-            localize('Superb design skills with an exceptional eye for detail'),
-            localize(
-                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
-            ),
-            localize(
-                'Awareness of cultural nuances and the need to adapt design according to a particular target market',
-            ),
-            localize(
-                'Proven ability to manage a large number of tasks and projects at a given time',
-            ),
-            localize('Strong oral and written English communication skills'),
-            localize(
-                'Exceptional people management skills with proven ability to manage, lead, coach, and mentor your team',
-            ),
-            localize(
-                'Experience conducting performance reviews, as well as recruiting and onboarding new team members',
-            ),
         ],
     },
     {

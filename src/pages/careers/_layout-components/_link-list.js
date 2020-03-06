@@ -57,7 +57,7 @@ const StyledText = styled(Text)`
 const MiddleText = styled(Text)`
     margin-right: auto;
 `
-// list_items = [{ text: 'Marketing',  to: '/marketing/', number: 5 (optional), middle_text: 'Dubai, United Arab Emirates' (optional) }]
+
 export const LinkList = ({ list_items }) => (
     <Container>
         <List>
@@ -66,10 +66,12 @@ export const LinkList = ({ list_items }) => (
                     <ListItem key={idx}>
                         <LocalizedLink to={item.to}>
                             <Flex ai="center" jc="unset">
-                                <StyledText secondary="true" weight="bold">
-                                    {item.text}
-                                </StyledText>
-                                <MiddleText>{item.middle_text}</MiddleText>
+                                <Flex tablet_direction="column" tablet_ai="unset" ai="center">
+                                    <StyledText secondary="true" weight="bold">
+                                        {item.text}
+                                    </StyledText>
+                                    <MiddleText>{item.middle_text}</MiddleText>
+                                </Flex>
                                 <Flex ai="center" width="unset">
                                     {item.number && <Circle>{item.number}</Circle>}
                                     <ChevronRight />

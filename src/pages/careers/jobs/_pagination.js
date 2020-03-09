@@ -7,7 +7,9 @@ import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 
 const TopText = styled(Text)`
+    font-size: var(--text-size-xs);
     margin-bottom: 2.4rem;
+    margin-top: 5.4rem;
 `
 
 const ButtonLeft = styled(Button)`

@@ -34,7 +34,6 @@ const BadgeContainer = styled.div`
 `
 
 const BadgeWrapper = styled(Flex)`
-    margin-bottom: 5.4rem;
     flex-wrap: wrap;
 
     > *:not(:last-child) {

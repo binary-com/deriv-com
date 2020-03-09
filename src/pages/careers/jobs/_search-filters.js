@@ -104,6 +104,7 @@ const SearchFilters = ({ filters, setFilters }) => {
                                     <Checkbox
                                         onChange={() => toggleCheck(team_name)}
                                         checked={filters.includes(team_name)}
+                                        secondary
                                     />
                                     <Text>{team_names[team_name]}</Text>
                                 </CheckboxWrapper>
@@ -129,6 +130,7 @@ const SearchFilters = ({ filters, setFilters }) => {
                                     <Checkbox
                                         onChange={() => toggleCheck(location)}
                                         checked={filters.includes(location)}
+                                        secondary
                                     />
                                     <Text>{locations[location]}</Text>
                                 </CheckboxWrapper>

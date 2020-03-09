@@ -10,6 +10,7 @@ import CardList from './_card-list'
 import Pagination from './_pagination'
 import NoResultsFound from './_no-results'
 import Badges from './_badges'
+import { isBrowser } from 'common/utility'
 import { SEO, Container, SectionContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -56,6 +57,8 @@ function debounce(func, wait, immediate) {
 }
 
 const initializeFilters = () => {
+    if (!isBrowser()) return []
+
     var url_params = new URLSearchParams(window.location.search)
     const url_filters = url_params.get('filter')
 
@@ -68,6 +71,8 @@ const initializeFilters = () => {
 }
 
 const initializeSearch = () => {
+    if (!isBrowser()) return ''
+
     var url_params = new URLSearchParams(window.location.search)
     const url_search = url_params.get('search')
 

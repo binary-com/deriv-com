@@ -30,8 +30,10 @@ const Pagination = ({ children, page_limit }) => {
 
     const current_records = all_records.slice(start_index, end_index)
 
-    if (current_records.length < total_records) {
-        // TODO: reset count
+    if (!current_records.length) {
+        // reset to first page
+        setSectionSelection(page_limit)
+        setStartIndex(0)
     }
 
     const handleNext = () => {

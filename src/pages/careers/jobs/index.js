@@ -10,6 +10,7 @@ import CardList from './_card-list'
 import Pagination from './_pagination'
 import NoResultsFound from './_no-results'
 import Badges from './_badges'
+import device from 'themes/device'
 import { isBrowser } from 'common/utility'
 import { SEO, Container, SectionContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -18,6 +19,10 @@ import { Divider } from 'components/elements'
 
 const StyledDivider = styled(Divider)`
     margin: 0 5rem;
+
+    @media ${device.tabletL} {
+        display: none;
+    }
 `
 
 const pushToQueryParams = (filters, search) => {
@@ -32,7 +37,7 @@ const pushToQueryParams = (filters, search) => {
             }
         })
     }
-    current_query.push(`&search=${search}`)
+    // current_query.push(`&search=${search}`)
 
     window.history.pushState(null, null, current_query.join(''))
 }
@@ -73,18 +78,24 @@ const initializeFilters = () => {
 const initializeSearch = () => {
     if (!isBrowser()) return ''
 
-    var url_params = new URLSearchParams(window.location.search)
-    const url_search = url_params.get('search')
+    // var url_params = new URLSearchParams(window.location.search)
+    // const url_search = url_params.get('search')
 
-    if (url_search) {
-        return url_search
-    }
+    // if (url_search) {
+    //     return url_search
+    // }
     return ''
 }
 
 const debouncedUpdateQueryParams = debounce((f, s) => {
     pushToQueryParams(f, s)
 }, 400)
+
+const SearchContainer = styled(Container)`
+    @media ${device.tabletL} {
+        flex-direction: column;
+    }
+`
 
 const Jobs = () => {
     const [filters, setFilters] = React.useState(initializeFilters)
@@ -108,7 +119,7 @@ const Jobs = () => {
         <Layout type="careers" padding_top="10rem">
             <SEO title={localize('Jobs')} />
             <SectionContainer>
-                <Container align="flex-start">
+                <SearchContainer align="flex-start">
                     <SearchFilters filters={filters} setFilters={setFilters} />
                     <StyledDivider height="104.6rem" width="2px" />
                     <Flex direction="column">
@@ -123,7 +134,7 @@ const Jobs = () => {
                         )}
                         {!filtered_positions.length && <NoResultsFound />}
                     </Flex>
-                </Container>
+                </SearchContainer>
             </SectionContainer>
             <RoleBanner />
         </Layout>

@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { NormalCard } from '../_layout-components/_team-card'
 import { team_names } from '../_controller/_teams'
 import { locations } from '../_model/_locations/_locations'
-import { Flex } from 'components/containers'
+import device from 'themes/device'
+import { Flex, Show } from 'components/containers'
 import { Text, Header, Divider } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
@@ -50,29 +51,46 @@ const StyledDivider = styled(Divider)`
     margin-top: 1.6rem;
     margin-bottom: 1.6rem;
 `
+const StyledFlex = styled(Flex)`
+    margin: 0 2.4rem;
+
+    @media ${device.tabletL} {
+        margin: 0;
+    }
+`
 
 const CardList = ({ position }) => {
     return (
         <JobCard to={`careers/jobs/job#${toHashFormat(position.id)}`}>
             <Header font_size="var(--text-size-sm)">{position.title}</Header>
-            <Flex jc="flex-start" ai="center" mt="1.6rem">
+            <Flex
+                jc="flex-start"
+                ai="center"
+                mt="1.6rem"
+                tablet_ai="flex-start"
+                tablet_direction="column"
+            >
                 <Text>{team_names[position.team]}</Text>
-                <Flex width="auto" height="auto" ai="center" m="0 2.4rem">
+                <StyledFlex width="auto" height="auto" ai="center">
                     <StyledLocation />
                     <Text>{locations[position.location]}</Text>
-                </Flex>
-                <Text>{position.type}</Text>
+                </StyledFlex>
+                <Show.Desktop>
+                    <Text>{position.type}</Text>
+                </Show.Desktop>
             </Flex>
-            <StyledDivider height="2px" />
-            <Text weight="bold">{localize('Qualifications:')}</Text>
-            <Ul>
-                {position.qualifications &&
-                    position.qualifications.map((qualification, idx) => (
-                        <Li key={idx}>
-                            <Text>{qualification}</Text>
-                        </Li>
-                    ))}
-            </Ul>
+            <Show.Desktop>
+                <StyledDivider height="2px" />
+                <Text weight="bold">{localize('Qualifications:')}</Text>
+                <Ul>
+                    {position.qualifications &&
+                        position.qualifications.map((qualification, idx) => (
+                            <Li key={idx}>
+                                <Text>{qualification}</Text>
+                            </Li>
+                        ))}
+                </Ul>
+            </Show.Desktop>
             <Flex>
                 <LinkButton flat="true" to={`careers/jobs/job#${toHashFormat(position.id)}`}>
                     {localize('View more')}

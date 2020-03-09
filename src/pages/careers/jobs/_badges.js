@@ -60,17 +60,15 @@ const Badges = ({ filters, setFilters }) => {
     }
     return (
         <>
-            {filters.length ? (
-                <BadgeWrapper jc="unset">
-                    {filters.map((filter, idx) => (
-                        <Badge
-                            onClick={() => removeFilter(filter)}
-                            key={idx}
-                            text={all_queries[filter]}
-                        />
-                    ))}
-                </BadgeWrapper>
-            ) : null}
+            <BadgeWrapper jc="unset">
+                {filters.map((filter, idx) => (
+                    <Badge
+                        onClick={() => removeFilter(filter)}
+                        key={idx}
+                        text={all_queries[filter]}
+                    />
+                ))}
+            </BadgeWrapper>
         </>
     )
 }

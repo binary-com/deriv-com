@@ -97,10 +97,22 @@ const SearchContainer = styled(Container)`
     }
 `
 
+const initializeFilteredPositions = (filters, search) => {
+    const filter_positions = getPositionsByQuery(filters)
+    // 2. filter by search
+    const search_positions = matchSorter(filter_positions, search.trim(), {
+        keys: ['title', 'team', 'location'],
+        threshold: matchSorter.rankings.WORD_STARTS_WITH,
+    })
+    return search_positions
+}
+
 const Jobs = () => {
     const [filters, setFilters] = React.useState(initializeFilters)
     const [search, setSearch] = React.useState(initializeSearch)
-    const [filtered_positions, setFilteredPositions] = React.useState([])
+    const [filtered_positions, setFilteredPositions] = React.useState(() =>
+        initializeFilteredPositions(filters, search),
+    )
 
     React.useEffect(() => {
         debouncedUpdateQueryParams(filters, search)

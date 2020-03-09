@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import matchSorter from 'match-sorter'
 import { RoleBanner } from '../_layout-components/_banner'
-import { getPositionsByQuery } from '../_controller/_teams'
+import { getPositionsByQuery, team_names } from '../_controller/_teams'
+import { locations } from '../_model/_locations/_locations'
 import SearchForm from './_search-form'
 import SearchFilters from './_search-filters'
 import CardList from './_card-list'
@@ -18,26 +19,78 @@ const StyledDivider = styled(Divider)`
     margin: 0 5rem;
 `
 
-const pushToQueryParams = queries => {
-    let current_query = '?q='
-    if (Array.isArray(queries)) {
-        queries.forEach((query, idx) => {
-            current_query += idx === 0 ? query : `,${query}`
+const pushToQueryParams = (filters, search) => {
+    let current_query = ['?filter=']
+
+    if (Array.isArray(filters)) {
+        filters.forEach((query, idx) => {
+            if (idx === 0) {
+                current_query.push(query)
+            } else {
+                current_query.push(`,${query}`)
+            }
         })
     }
+    current_query.push(`&search=${search}`)
 
-    window.history.pushState(null, null, current_query)
+    window.history.pushState(null, null, current_query.join(''))
 }
+
+function debounce(func, wait, immediate) {
+    let timeout
+    return function() {
+        const context = this
+        const args = arguments
+
+        const later = function() {
+            timeout = null
+            if (!immediate) func.apply(context, args)
+        }
+
+        const callNow = immediate && !timeout
+
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+        if (callNow) func.apply(context, args)
+    }
+}
+
+const initializeFilters = () => {
+    var url_params = new URLSearchParams(window.location.search)
+    const url_filters = url_params.get('filter')
+
+    if (url_filters) {
+        let filter_arr = url_filters.split(',').filter(f => !!team_names[f] || !!locations[f])
+        return filter_arr
+    }
+
+    return []
+}
+
+const initializeSearch = () => {
+    var url_params = new URLSearchParams(window.location.search)
+    const url_search = url_params.get('search')
+
+    if (url_search) {
+        return url_search
+    }
+    return ''
+}
+
+const debouncedUpdateQueryParams = debounce((f, s) => {
+    pushToQueryParams(f, s)
+}, 400)
+
 const Jobs = () => {
-    const [filters, setFilters] = React.useState([])
-    const [search, setSearch] = React.useState('')
+    const [filters, setFilters] = React.useState(initializeFilters)
+    const [search, setSearch] = React.useState(initializeSearch)
     const [filtered_positions, setFilteredPositions] = React.useState([])
 
     React.useEffect(() => {
-        pushToQueryParams(filters)
-        // 1. filter by filters here
+        debouncedUpdateQueryParams(filters, search)
+        // 1. filter by filters
         const filter_positions = getPositionsByQuery(filters)
-        // 2. filter by search term
+        // 2. filter by search
         const search_positions = matchSorter(filter_positions, search.trim(), {
             keys: ['title', 'team', 'location'],
             threshold: matchSorter.rankings.WORD_STARTS_WITH,
@@ -45,8 +98,6 @@ const Jobs = () => {
 
         setFilteredPositions(search_positions)
     }, [search, filters])
-
-    // const open_positions = getOpenPositionsByQuery(query, [filters])
 
     return (
         <Layout type="careers" padding_top="10rem">
@@ -56,7 +107,7 @@ const Jobs = () => {
                     <SearchFilters filters={filters} setFilters={setFilters} />
                     <StyledDivider height="104.6rem" width="2px" />
                     <Flex direction="column">
-                        <SearchForm setSearch={setSearch} />
+                        <SearchForm search={search} setSearch={setSearch} />
                         <Badges filters={filters} setFilters={setFilters} />
                         {!!filtered_positions.length && (
                             <Pagination page_limit={4}>

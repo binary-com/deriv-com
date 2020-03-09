@@ -101,7 +101,10 @@ const SearchFilters = ({ filters, setFilters }) => {
                                     mb="0.8rem"
                                     onClick={() => toggleCheck(team_name)}
                                 >
-                                    <Checkbox checked={filters.includes(team_name)} />
+                                    <Checkbox
+                                        onChange={() => toggleCheck(team_name)}
+                                        checked={filters.includes(team_name)}
+                                    />
                                     <Text>{team_names[team_name]}</Text>
                                 </CheckboxWrapper>
                             ))}
@@ -123,7 +126,10 @@ const SearchFilters = ({ filters, setFilters }) => {
                                     mb="0.8rem"
                                     onClick={() => toggleCheck(location)}
                                 >
-                                    <Checkbox checked={filters.includes(location)} />
+                                    <Checkbox
+                                        onChange={() => toggleCheck(location)}
+                                        checked={filters.includes(location)}
+                                    />
                                     <Text>{locations[location]}</Text>
                                 </CheckboxWrapper>
                             ))}

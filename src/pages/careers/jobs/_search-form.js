@@ -26,13 +26,14 @@ const StyledSearchIcon = styled(SearchIcon)`
     }
 `
 
-const SearchForm = ({ setSearch }) => {
+const SearchForm = React.memo(({ search, setSearch }) => {
     return (
         <>
             <StyledForm onSubmit={e => e.preventDefault()}>
                 <StyledSearchIcon />
                 <Input
                     style={{ marginLeft: '4rem' }}
+                    value={search}
                     onChange={e => setSearch(e.target.value)}
                     placeholder={localize('Accounts')}
                     autoFocus
@@ -40,8 +41,12 @@ const SearchForm = ({ setSearch }) => {
             </StyledForm>
         </>
     )
-}
+})
+
+SearchForm.displayName = 'SearchForm'
+
 SearchForm.propTypes = {
+    search: PropTypes.string,
     setSearch: PropTypes.func,
 }
 

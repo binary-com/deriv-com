@@ -46,7 +46,7 @@ export const StyledCard = styled(LocalizedLink)`
                 fill: var(--color-red);
             }
 
-            animation: ${Bounce} 0.9s infinite;
+            animation: ${Bounce} 1.2s infinite;
         }
     }
 `

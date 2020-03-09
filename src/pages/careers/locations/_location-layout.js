@@ -37,7 +37,7 @@ const Subheadline = styled(Text)`
     margin-bottom: 4rem;
 `
 
-const Hero = ({ display_name, img_data, description }) => {
+const Hero = ({ display_name, name, img_data, description }) => {
     return (
         <BackgroundImage
             data={img_data}
@@ -50,7 +50,11 @@ const Hero = ({ display_name, img_data, description }) => {
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <Subheadline>{description}</Subheadline>
-                <LinkButton secondary="true" to="/careers/jobs">
+                <LinkButton
+                    has_no_end_slash="true"
+                    secondary="true"
+                    to={`/careers/jobs/?filter=${name}&search=`}
+                >
                     {localize('View open positions in')} {display_name}
                 </LinkButton>
             </StyledContainer>

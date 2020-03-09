@@ -16,7 +16,7 @@ const StyledLocation = styled(Location)`
     margin-right: 0.8rem;
 
     & path {
-        fill: var(--color-blac);
+        fill: var(--color-black);
     }
 `
 
@@ -74,7 +74,7 @@ const CardList = ({ position }) => {
                     ))}
             </Ul>
             <Flex>
-                <LinkButton flat to={`careers/jobs/job#${toHashFormat(position.id)}`}>
+                <LinkButton flat="true" to={`careers/jobs/job#${toHashFormat(position.id)}`}>
                     {localize('View more')}
                 </LinkButton>
             </Flex>

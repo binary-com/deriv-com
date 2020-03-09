@@ -25,7 +25,7 @@ const StyledDivider = styled(Divider)`
     }
 `
 
-const pushToQueryParams = (filters, search) => {
+const pushToQueryParams = filters => {
     let current_query = ['?filter=']
 
     if (Array.isArray(filters)) {

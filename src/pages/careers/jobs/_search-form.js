@@ -35,7 +35,7 @@ const SearchForm = React.memo(({ search, setSearch }) => {
                     style={{ marginLeft: '4rem' }}
                     value={search}
                     onChange={e => setSearch(e.target.value)}
-                    placeholder={localize('Accounts')}
+                    placeholder={localize('Search jobs')}
                     autoFocus
                 />
             </StyledForm>

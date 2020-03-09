@@ -82,56 +82,56 @@ export const compliance_positions = [
             ),
         ],
     },
-    {
-        title: localize('Systems Integrator'),
-        id: '2f2cf255-038a-4a33-adfa-36ade20ff304',
-        keywords: [localize('Systems Integrator')],
-        location: cyberjaya.name,
-        type: [job_types.full_time],
-        team: 'compliance',
-        description: [
-            localize(
-                'You will make sure that our new products and services work in harmony with our current system. You will use your strong command of IT and keen interest in business to make unique contributions to high-impact projects and data analyses.',
-            ),
-        ],
-        responsibilities: [
-            localize(
-                'Analyse the integration of the new APIs, crypto facilities, and other products and services.',
-            ),
-            localize(
-                'Participate in devising innovative payments solution strategies by competitor mapping and analysis.',
-            ),
-            localize(
-                'Maximise the efficacy of our existing partners within each market by using design, functionalities, source PSPs, regular partner reviews, and service level agreements.',
-            ),
-            localize(
-                'Identify the best strategic partners to help us succeed in developing online solutions.',
-            ),
-            localize('Prepare risk and fraud documentation for our third-party stakeholders.'),
-            localize(
-                'Develop stable online infrastructure services that will support our cutting-edge products.',
-            ),
-            localize(
-                'Collaborate with the Product team to achieve high-level business requirements.',
-            ),
-            localize(
-                'Work closely with every department to facilitate a seamless introduction of new products and services.',
-            ),
-        ],
-        qualifications: [
-            localize('University degree in IT, business, or commerce'),
-            localize(
-                'Firm understanding of payment processes and a lively interest in cryptocurrencies',
-            ),
-            localize('Proficiency in Microsoft Excel'),
-        ],
-        preferences: [
-            localize(
-                'Ability to analyse online financial transactions, particularly e-wallets and cryptocurrencies',
-            ),
-            localize('Experience in software testing or QA '),
-        ],
-    },
+    // {
+    //     title: localize('Systems Integrator'),
+    //     id: '2f2cf255-038a-4a33-adfa-36ade20ff304',
+    //     keywords: [localize('Systems Integrator')],
+    //     location: cyberjaya.name,
+    //     type: [job_types.full_time],
+    //     team: 'compliance',
+    //     description: [
+    //         localize(
+    //             'You will make sure that our new products and services work in harmony with our current system. You will use your strong command of IT and keen interest in business to make unique contributions to high-impact projects and data analyses.',
+    //         ),
+    //     ],
+    //     responsibilities: [
+    //         localize(
+    //             'Analyse the integration of the new APIs, crypto facilities, and other products and services.',
+    //         ),
+    //         localize(
+    //             'Participate in devising innovative payments solution strategies by competitor mapping and analysis.',
+    //         ),
+    //         localize(
+    //             'Maximise the efficacy of our existing partners within each market by using design, functionalities, source PSPs, regular partner reviews, and service level agreements.',
+    //         ),
+    //         localize(
+    //             'Identify the best strategic partners to help us succeed in developing online solutions.',
+    //         ),
+    //         localize('Prepare risk and fraud documentation for our third-party stakeholders.'),
+    //         localize(
+    //             'Develop stable online infrastructure services that will support our cutting-edge products.',
+    //         ),
+    //         localize(
+    //             'Collaborate with the Product team to achieve high-level business requirements.',
+    //         ),
+    //         localize(
+    //             'Work closely with every department to facilitate a seamless introduction of new products and services.',
+    //         ),
+    //     ],
+    //     qualifications: [
+    //         localize('University degree in IT, business, or commerce'),
+    //         localize(
+    //             'Firm understanding of payment processes and a lively interest in cryptocurrencies',
+    //         ),
+    //         localize('Proficiency in Microsoft Excel'),
+    //     ],
+    //     preferences: [
+    //         localize(
+    //             'Ability to analyse online financial transactions, particularly e-wallets and cryptocurrencies',
+    //         ),
+    //         localize('Experience in software testing or QA '),
+    //     ],
+    // },
     {
         title: localize('Risk Management Executive'),
         id: '5e06db19-5887-48aa-bb58-d635c80bdb35',
@@ -177,56 +177,56 @@ export const compliance_positions = [
         ],
         preferences: [localize('Excellent command of written and spoken Portuguese or Indonesian')],
     },
-    {
-        title: localize('Systems Integrator'),
-        id: '99fd8d35-1a50-4bef-a6ba-45cc26cb9063',
-        keywords: [localize('Systems Integrator')],
-        location: dubai.name,
-        type: [job_types.full_time],
-        team: 'compliance',
-        description: [
-            localize(
-                'You will make sure that our new products and services work in harmony with our current system. You will use your strong command of IT and keen interest in business to make unique contributions to high-impact projects and data analyses.',
-            ),
-        ],
-        responsibilities: [
-            localize(
-                'Analyse the integration of the new APIs, crypto facilities, and other products and services.',
-            ),
-            localize(
-                'Participate in devising innovative payments solution strategies by competitor mapping and analysis.',
-            ),
-            localize(
-                'Maximise the efficacy of our existing partners within each market by using design, functionalities, source PSPs, regular partner reviews, and service level agreements.',
-            ),
-            localize(
-                'Identify the best strategic partners to help us succeed in developing online solutions.',
-            ),
-            localize('Prepare risk and fraud documentation for our third-party stakeholders.'),
-            localize(
-                'Develop stable online infrastructure services that will support our cutting-edge products.',
-            ),
-            localize(
-                'Collaborate with the Product team to achieve high-level business requirements.',
-            ),
-            localize(
-                'Work closely with every department to facilitate a seamless introduction of new products and services. ',
-            ),
-        ],
-        qualifications: [
-            localize('University degree in IT, business, or commerce'),
-            localize(
-                'Firm understanding of payment processes and a lively interest in cryptocurrencies',
-            ),
-            localize('Proficiency in Microsoft Excel\n'),
-        ],
-        preferences: [
-            localize(
-                'Ability to analyse online financial transactions, particularly e-wallets and cryptocurrencies',
-            ),
-            localize('Experience in software testing or QA \n'),
-        ],
-    },
+    // {
+    //     title: localize('Systems Integrator'),
+    //     id: '99fd8d35-1a50-4bef-a6ba-45cc26cb9063',
+    //     keywords: [localize('Systems Integrator')],
+    //     location: dubai.name,
+    //     type: [job_types.full_time],
+    //     team: 'compliance',
+    //     description: [
+    //         localize(
+    //             'You will make sure that our new products and services work in harmony with our current system. You will use your strong command of IT and keen interest in business to make unique contributions to high-impact projects and data analyses.',
+    //         ),
+    //     ],
+    //     responsibilities: [
+    //         localize(
+    //             'Analyse the integration of the new APIs, crypto facilities, and other products and services.',
+    //         ),
+    //         localize(
+    //             'Participate in devising innovative payments solution strategies by competitor mapping and analysis.',
+    //         ),
+    //         localize(
+    //             'Maximise the efficacy of our existing partners within each market by using design, functionalities, source PSPs, regular partner reviews, and service level agreements.',
+    //         ),
+    //         localize(
+    //             'Identify the best strategic partners to help us succeed in developing online solutions.',
+    //         ),
+    //         localize('Prepare risk and fraud documentation for our third-party stakeholders.'),
+    //         localize(
+    //             'Develop stable online infrastructure services that will support our cutting-edge products.',
+    //         ),
+    //         localize(
+    //             'Collaborate with the Product team to achieve high-level business requirements.',
+    //         ),
+    //         localize(
+    //             'Work closely with every department to facilitate a seamless introduction of new products and services. ',
+    //         ),
+    //     ],
+    //     qualifications: [
+    //         localize('University degree in IT, business, or commerce'),
+    //         localize(
+    //             'Firm understanding of payment processes and a lively interest in cryptocurrencies',
+    //         ),
+    //         localize('Proficiency in Microsoft Excel\n'),
+    //     ],
+    //     preferences: [
+    //         localize(
+    //             'Ability to analyse online financial transactions, particularly e-wallets and cryptocurrencies',
+    //         ),
+    //         localize('Experience in software testing or QA \n'),
+    //     ],
+    // },
     {
         title: localize('Risk Management Executive'),
         id: '0e2c6592-736f-47c4-80f2-34203b5bee9d',

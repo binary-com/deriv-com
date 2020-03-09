@@ -241,7 +241,7 @@ const EmployeeTestimonialCarousel = () => {
         spaceBetween: 30,
         loop: true,
         autoplay: {
-            delay: 3000,
+            delay: 10000,
             disableOnInteraction: false,
         },
         pagination: {

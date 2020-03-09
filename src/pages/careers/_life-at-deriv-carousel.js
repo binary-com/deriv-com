@@ -68,9 +68,6 @@ const SliderWrapper = styled.div`
     }
 `
 const SwiperWrapper = styled.div`
-    .swiper-container {
-        padding-bottom: 4rem;
-    }
     .swiper-slide {
         width: 78rem;
     }
@@ -99,14 +96,16 @@ const ButtonWrapper = styled.div`
     div {
         button {
             padding: 5rem 0.9rem;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.25);
             border: none;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: background-color 0.25s;
 
             &:hover {
                 cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.5);
             }
             &:focus {
                 outline: none;

@@ -94,7 +94,7 @@ const Teams = () => {
                 </Container>
             </SectionContainer>
             <SectionContainer>
-                <Container direction="column">
+                <Container direction="column" padding="12rem 0">
                     <Header align="center" as="h3" margin="0 0 8rem">
                         {localize('Choose your team')}
                     </Header>

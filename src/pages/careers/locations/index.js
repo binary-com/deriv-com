@@ -42,14 +42,9 @@ const Hero = () => (
         <Header as="h1" font_size="var(--text-size-xl)" align="center" color="white">
             {localize('Our locations')}
         </Header>
-        <Text size="var(--text-size-sm)" color="white" style={{ paddingBottom: '2rem' }}>
-            {localize(
-                'From IT to marketing to data analytics, we offer opportunities for people of almost every skill set across our locations around the globe.',
-            )}
-        </Text>
         <Text size="var(--text-size-sm)" color="white">
             {localize(
-                'As we expand, our culture of collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and rewarding career experience.',
+                'From IT to marketing to data analytics, we offer opportunities for people of almost every skill set across our locations around the globe. As we expand, our culture of collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and rewarding career experience.',
             )}
         </Text>
     </BackDrop>
@@ -126,7 +121,7 @@ const Locations = () => {
             <SEO title={localize('Locations')} />
             <Hero />
             <Container direction="column">
-                <SectionContainer padding="12rem 0 8rem 0">
+                <SectionContainer padding="12rem 0">
                     <Header as="h2" align="center" font_size={'var(--text-size-header-1)'}>
                         {localize('Explore our locations')}
                     </Header>

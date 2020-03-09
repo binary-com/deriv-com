@@ -34,7 +34,7 @@ const Subheadline = styled(Text)`
     font-size: var(--text-size-sm);
     color: var(--color-white);
     max-width: 58.8rem;
-    margin-bottom: 4rem;
+    margin-bottom: 8rem;
 `
 
 const Hero = ({ display_name, name, img_data, description }) => {
@@ -94,7 +94,7 @@ const Fourth = styled.div`
 
 const FirstSection = styled(SectionContainer)`
     ${Header} {
-        margin-bottom: 4rem;
+        margin-bottom: 8rem;
     }
     ${Text} {
         max-width: 41.5rem;
@@ -238,7 +238,9 @@ export const LocationLayout = ({ location, images }) => {
                     {localize('Open positions in {{location}}', { location: display_name })}
                 </Header>
             </Container>
-            <LinkList list_items={mapped_positions} />
+            <div style={{ marginBottom: '12rem' }}>
+                <LinkList list_items={mapped_positions} />
+            </div>
             <RoleBanner />
         </>
     )

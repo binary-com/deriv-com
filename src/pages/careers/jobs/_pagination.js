@@ -9,7 +9,7 @@ import { localize, Localize } from 'components/localization'
 const TopText = styled(Text)`
     font-size: var(--text-size-xs);
     margin-bottom: 2.4rem;
-    margin-top: 5.4rem;
+    margin-top: 3rem;
 `
 
 const ButtonLeft = styled(Button)`
@@ -75,7 +75,7 @@ const Pagination = ({ children, page_limit }) => {
                         }}
                     />
                 </TopText>
-                {needs_pagination && (
+                {/* {needs_pagination && (
                     <Flex width="auto">
                         <ButtonLeft flat onClick={handlePrevious} disabled={!has_previous}>
                             {localize('Previous')}
@@ -84,11 +84,11 @@ const Pagination = ({ children, page_limit }) => {
                             {localize('Next')}
                         </Button>
                     </Flex>
-                )}
+                )} */}
             </Flex>
             {current_records.map(record => record)}
             {needs_pagination && (
-                <Flex jc="space-between">
+                <Flex jc="space-between" ai="center">
                     <TopText>
                         <Localize
                             translate_text="Viewing {{low_bound}}-{{up_bound}} of {{total}}"

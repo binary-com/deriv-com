@@ -25,7 +25,7 @@ const StyledDivider = styled(Divider)`
     }
 `
 
-const pushToQueryParams = filters => {
+const pushToQueryParams = (filters, search) => {
     let current_query = ['?filter=']
 
     if (Array.isArray(filters)) {
@@ -37,7 +37,7 @@ const pushToQueryParams = filters => {
             }
         })
     }
-    // current_query.push(`&search=${search}`)
+    current_query.push(`&search=${search}`)
 
     window.history.pushState(null, null, current_query.join(''))
 }
@@ -62,8 +62,6 @@ function debounce(func, wait, immediate) {
 }
 
 const initializeFilters = () => {
-    if (!isBrowser()) return []
-
     var url_params = new URLSearchParams(window.location.search)
     const url_filters = url_params.get('filter')
 
@@ -76,14 +74,12 @@ const initializeFilters = () => {
 }
 
 const initializeSearch = () => {
-    if (!isBrowser()) return ''
+    var url_params = new URLSearchParams(window.location.search)
+    const url_search = url_params.get('search')
 
-    // var url_params = new URLSearchParams(window.location.search)
-    // const url_search = url_params.get('search')
-
-    // if (url_search) {
-    //     return url_search
-    // }
+    if (url_search) {
+        return url_search
+    }
     return ''
 }
 
@@ -108,6 +104,8 @@ const initializeFilteredPositions = (filters, search) => {
 }
 
 const Jobs = () => {
+    if (!isBrowser()) return null
+
     const [filters, setFilters] = React.useState(initializeFilters)
     const [search, setSearch] = React.useState(initializeSearch)
     const [filtered_positions, setFilteredPositions] = React.useState(() =>

@@ -20,13 +20,19 @@ const Pagination = ({ children, page_limit }) => {
     const all_records = React.Children.toArray(children)
     const total_records = all_records.length
     const needs_pagination = total_records > page_limit
+
     const [section_selection, setSectionSelection] = React.useState(page_limit)
     const [start_index, setStartIndex] = React.useState(section_selection - page_limit)
+
     const has_next = section_selection < total_records
     const has_previous = section_selection > page_limit
     const end_index = needs_pagination ? section_selection : total_records
 
     const current_records = all_records.slice(start_index, end_index)
+
+    if (current_records.length < total_records) {
+        // TODO: reset count
+    }
 
     const handleNext = () => {
         const next_selection = section_selection + page_limit

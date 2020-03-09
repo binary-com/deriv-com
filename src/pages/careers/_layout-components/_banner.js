@@ -37,7 +37,7 @@ export const RoleBanner = () => (
     <Banner
         header={localize('Don’t see your role listed?')}
         text={localize(
-            'Even if you don’t see a role that interests you, please send us your resume. We will contact you if a job that matches your background becomes available.',
+            'Even if you don’t see a role that interests you, please send us your CV. We will contact you if a job that matches your background becomes available.',
         )}
         button_text={localize('Send us your CV')}
     />

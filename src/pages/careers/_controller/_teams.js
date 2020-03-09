@@ -109,7 +109,7 @@ export const all_teams = [
         name: 'marketing',
         thumbnail: 'team-marketing',
         description: localize(
-            'Fuelled by creativity, our team coordinates a wide range of marketing campaigns to help our business grow. We collaborate with designers, developers, analysts, and business development executives so that our marketing and advertising initiatives can represent the exceptional online trading services that we have to offer.',
+            'Fuelled by creativity, our team coordinates a wide range of marketing campaigns to help our business grow. We collaborate with designers, developers, analysts, and business development executives so that our marketing and advertising initiatives represent the exceptional online trading services we have to offer.',
         ),
         card_description: localize(
             'We are the ones who conceptualise and implement creative marketing solutions to help our business grow.',
@@ -141,7 +141,7 @@ export const all_teams = [
     new Team({
         name: 'back-end',
         description: localize(
-            "We’re responsible for designing, developing, testing, and debugging the company's server-side apps and databases so our customers enjoy a flawless digital experience. We collaborate with the QA team to resolve technical issues, and we empower the Front-end team by providing the components and features that they need.",
+            "We’re responsible for designing, developing, testing, and debugging the company's server-side apps and databases so our customers enjoy a flawless digital experience. We collaborate with the QA team to resolve technical issues, and we empower the Front-end team by providing the components that they need.",
         ),
         thumbnail: 'team-back-end',
         card_description: localize(
@@ -289,7 +289,7 @@ export const all_teams = [
             'We’re the first line of defence against hackers and security flaws that may impact our trading operations and global client base. We manage threats and potential security risks through smart strategies, airtight policies, meticulous communication, and technical execution.',
         ),
         card_description: localize(
-            'We’re always trying to hack Deriv, testing its vulnerability to stay ahead of all possible security threats.',
+            'We’re always trying to hack Deriv, testing its vulnerabilities to stay ahead of all possible security threats.',
         ),
         positions: security_positions,
     }),

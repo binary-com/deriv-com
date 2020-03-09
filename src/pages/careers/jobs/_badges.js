@@ -59,17 +59,11 @@ const Badges = ({ filters, setFilters }) => {
         setFilters(filters.filter(filter => filter !== name))
     }
     return (
-        <>
-            <BadgeWrapper jc="unset">
-                {filters.map((filter, idx) => (
-                    <Badge
-                        onClick={() => removeFilter(filter)}
-                        key={idx}
-                        text={all_queries[filter]}
-                    />
-                ))}
-            </BadgeWrapper>
-        </>
+        <BadgeWrapper jc="unset">
+            {filters.map((filter, idx) => (
+                <Badge onClick={() => removeFilter(filter)} key={idx} text={all_queries[filter]} />
+            ))}
+        </BadgeWrapper>
     )
 }
 

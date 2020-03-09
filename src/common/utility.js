@@ -59,6 +59,25 @@ const sanitize = input => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
 const sentenceCase = input => input.charAt(0).toUpperCase() + input.slice(1)
 
+function debounce(func, wait, immediate) {
+    let timeout
+    return function() {
+        const context = this
+        const args = arguments
+
+        const later = function() {
+            timeout = null
+            if (!immediate) func.apply(context, args)
+        }
+
+        const callNow = immediate && !timeout
+
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+        if (callNow) func.apply(context, args)
+    }
+}
+
 const deriv_app_url = 'https://deriv.app'
 const deriv_bot_app_url = 'https://deriv.app/bot'
 const brand_name = 'Deriv'
@@ -66,6 +85,7 @@ const brand_name = 'Deriv'
 export {
     deriv_app_url,
     deriv_bot_app_url,
+    debounce,
     brand_name,
     isEmptyObject,
     cloneObject,

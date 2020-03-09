@@ -11,7 +11,7 @@ import Pagination from './_pagination'
 import NoResultsFound from './_no-results'
 import Badges from './_badges'
 import device from 'themes/device'
-import { isBrowser } from 'common/utility'
+import { isBrowser, debounce } from 'common/utility'
 import { SEO, Container, SectionContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -42,25 +42,6 @@ const pushToQueryParams = (filters, search) => {
     window.history.pushState(null, null, current_query.join(''))
 }
 
-function debounce(func, wait, immediate) {
-    let timeout
-    return function() {
-        const context = this
-        const args = arguments
-
-        const later = function() {
-            timeout = null
-            if (!immediate) func.apply(context, args)
-        }
-
-        const callNow = immediate && !timeout
-
-        clearTimeout(timeout)
-        timeout = setTimeout(later, wait)
-        if (callNow) func.apply(context, args)
-    }
-}
-
 const initializeFilters = () => {
     var url_params = new URLSearchParams(window.location.search)
     const url_filters = url_params.get('filter')
@@ -83,9 +64,7 @@ const initializeSearch = () => {
     return ''
 }
 
-const debouncedUpdateQueryParams = debounce((f, s) => {
-    pushToQueryParams(f, s)
-}, 400)
+const debouncedUpdateQueryParams = debounce((f, s) => pushToQueryParams(f, s), 400)
 
 const SearchContainer = styled(Container)`
     @media ${device.tabletL} {
@@ -93,9 +72,8 @@ const SearchContainer = styled(Container)`
     }
 `
 
-const initializeFilteredPositions = (filters, search) => {
+const filterPositions = (filters, search) => {
     const filter_positions = getPositionsByQuery(filters)
-    // 2. filter by search
     const search_positions = matchSorter(filter_positions, search.trim(), {
         keys: ['title', 'team', 'location'],
         threshold: matchSorter.rankings.WORD_STARTS_WITH,
@@ -109,20 +87,14 @@ const Jobs = () => {
     const [filters, setFilters] = React.useState(initializeFilters)
     const [search, setSearch] = React.useState(initializeSearch)
     const [filtered_positions, setFilteredPositions] = React.useState(() =>
-        initializeFilteredPositions(filters, search),
+        filterPositions(filters, search),
     )
 
     React.useEffect(() => {
         debouncedUpdateQueryParams(filters, search)
-        // 1. filter by filters
-        const filter_positions = getPositionsByQuery(filters)
-        // 2. filter by search
-        const search_positions = matchSorter(filter_positions, search.trim(), {
-            keys: ['title', 'team', 'location'],
-            threshold: matchSorter.rankings.WORD_STARTS_WITH,
-        })
 
-        setFilteredPositions(search_positions)
+        const filtered = filterPositions(filters, search)
+        setFilteredPositions(filtered)
     }, [search, filters])
 
     return (

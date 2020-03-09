@@ -28,6 +28,13 @@ const JobCard = styled(NormalCard)`
     &:last-child {
         margin-bottom: 0;
     }
+    > ${Flex} {
+        margin-top: 1.6rem;
+
+        @media ${device.tabletL} {
+            margin-bottom: 1.6rem;
+        }
+    }
 `
 
 const Ul = styled.ul`
@@ -63,13 +70,7 @@ const CardList = ({ position }) => {
     return (
         <JobCard to={`careers/jobs/job#${toHashFormat(position.id)}`}>
             <Header font_size="var(--text-size-sm)">{position.title}</Header>
-            <Flex
-                jc="flex-start"
-                ai="center"
-                mt="1.6rem"
-                tablet_ai="flex-start"
-                tablet_direction="column"
-            >
+            <Flex jc="flex-start" ai="center" tablet_ai="flex-start" tablet_direction="column">
                 <Text>{team_names[position.team]}</Text>
                 <StyledFlex width="auto" height="auto" ai="center">
                     <StyledLocation />

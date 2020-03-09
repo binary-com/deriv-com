@@ -4,12 +4,18 @@ import styled from 'styled-components'
 import { team_names } from '../_controller/_teams'
 // import { job_types } from '../_model/_job_types/_job_types'
 import { locations } from '../_model/_locations/_locations'
+import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Accordion, AccordionItem, Divider, Text, Checkbox } from 'components/elements'
 import { localize } from 'components/localization'
 
 const FilterContainer = styled.div`
-    min-width: 32.7rem;
+    width: 100%;
+    max-width: 28.2rem;
+
+    @media ${device.tabletL} {
+        max-width: unset;
+    }
 `
 
 const AccordionWrapper = styled.div`

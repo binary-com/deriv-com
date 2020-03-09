@@ -131,7 +131,12 @@ const Input = ({
     ...props
 }) => (
     <RelativeWrapper>
-        <InputWrapper border={border} focusBorder={focusBorder} error={error}>
+        <InputWrapper
+            border={border}
+            focusBorder={focusBorder}
+            error={error}
+            className="input-wrapper"
+        >
             <StyledInput id={id} {...props} />
             <StyledLabel
                 background={background}

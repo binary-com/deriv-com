@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { localize } from '../../../components/localization'
+import device from 'themes/device'
 import { Input } from 'components/form'
 import SearchIcon from 'images/svg/search.svg'
 
@@ -11,6 +12,14 @@ const StyledForm = styled.form`
     input {
         &::placeholder {
             opacity: 1 !important;
+        }
+    }
+
+    @media ${device.tabletL} {
+        margin-top: 4.6rem;
+
+        .input-wrapper {
+            width: 100% !important;
         }
     }
 `

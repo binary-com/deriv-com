@@ -128,7 +128,7 @@ const ButtonWrapper = styled.div`
 const ImageSlide = ({ img_path, img_alt }) => {
     return (
         <ImageWrapper>
-            <img src={img_path} alt={img_alt} loading="lazy" />
+            <img src={img_path} alt={img_alt} width="100%" height="100%" loading="lazy" />
         </ImageWrapper>
     )
 }

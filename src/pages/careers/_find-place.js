@@ -17,13 +17,13 @@ const query = graphql`
         devops: file(relativePath: { eq: "careers/team-devops.png" }) {
             ...fadeIn
         }
-        compliance: file(relativePath: { eq: "careers/team-compliance.png" }) {
+        compliance: file(relativePath: { eq: "careers/team-compliance.jpg" }) {
             ...fadeIn
         }
-        marketing: file(relativePath: { eq: "careers/team-marketing.png" }) {
+        marketing: file(relativePath: { eq: "careers/team-marketing.jpg" }) {
             ...fadeIn
         }
-        qualityassurance: file(relativePath: { eq: "careers/team-quality-assurance.png" }) {
+        qualityassurance: file(relativePath: { eq: "careers/team-quality-assurance.jpg" }) {
             ...fadeIn
         }
         accountsandpayments: file(relativePath: { eq: "careers/team-accounts-payments.png" }) {
@@ -35,7 +35,7 @@ const query = graphql`
         businessintelligence: file(relativePath: { eq: "careers/team-business-intelligence.png" }) {
             ...fadeIn
         }
-        content: file(relativePath: { eq: "careers/team-content.png" }) {
+        content: file(relativePath: { eq: "careers/team-content.jpg" }) {
             ...fadeIn
         }
         cryptodevelopment: file(relativePath: { eq: "careers/team-crypto-development.png" }) {
@@ -44,19 +44,19 @@ const query = graphql`
         customersupport: file(relativePath: { eq: "careers/team-customer-support.png" }) {
             ...fadeIn
         }
-        disasterrecovery: file(relativePath: { eq: "careers/team-disaster-recovery.png" }) {
+        disasterrecovery: file(relativePath: { eq: "careers/team-disaster-recovery.jpg" }) {
             ...fadeIn
         }
         frontend: file(relativePath: { eq: "careers/team-front-end.png" }) {
             ...fadeIn
         }
-        hrrecruitment: file(relativePath: { eq: "careers/team-hr-recruitment.png" }) {
+        hrrecruitment: file(relativePath: { eq: "careers/team-hr-recruitment.jpg" }) {
             ...fadeIn
         }
-        internalaudit: file(relativePath: { eq: "careers/team-internal-audit.png" }) {
+        internalaudit: file(relativePath: { eq: "careers/team-internal-audit.jpg" }) {
             ...fadeIn
         }
-        itadmin: file(relativePath: { eq: "careers/team-it-admin.png" }) {
+        itadmin: file(relativePath: { eq: "careers/team-it-admin.jpg" }) {
             ...fadeIn
         }
         productdesign: file(relativePath: { eq: "careers/team-product-design.png" }) {
@@ -68,7 +68,7 @@ const query = graphql`
         quants: file(relativePath: { eq: "careers/team-quants.png" }) {
             ...fadeIn
         }
-        security: file(relativePath: { eq: "careers/team-security.png" }) {
+        security: file(relativePath: { eq: "careers/team-security.jpg" }) {
             ...fadeIn
         }
     }

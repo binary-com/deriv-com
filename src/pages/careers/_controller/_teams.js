@@ -358,12 +358,8 @@ export const getPositionsByQuery = (queries, filtered_positions) => {
     if (has_team_filters && has_location_filters) {
         return current_positions.filter(c => filterLocation(c) && filterTeam(c))
     }
-    if (has_team_filters) {
-        return current_positions.filter(filterTeam)
-    }
-    if (has_location_filters) {
-        return current_positions.filter(filterLocation)
-    }
+    if (has_team_filters) return current_positions.filter(filterTeam)
+    if (has_location_filters) return current_positions.filter(filterLocation)
 
     return current_positions
 }

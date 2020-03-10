@@ -64,7 +64,7 @@ const Hero = () => {
             <StyledContainer>
                 <StyledHeader as="h2">
                     <Localize
-                        translate_text="Be a part of something <0>big</0>."
+                        translate_text="Be part of something <0>big</0>."
                         components={[<RedBanner key={0} />]}
                     />
                 </StyledHeader>

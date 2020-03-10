@@ -121,14 +121,14 @@ const IconGrid = () => (
                 Icon={General}
                 title={localize('General terms of use')}
                 content={localize('What you’re agreeing to when you sign up to use Deriv')}
-                url="/tnc/General_term_Version4.0.0.pdf"
+                url="/General term_Version4.0.0.pdf"
                 link_title={localize('General terms of use')}
             />
             <Col
                 Icon={Trading}
                 title={localize('Trading terms')}
                 content={localize('Rules for making trades on any Deriv trading platform')}
-                url="/tnc/Trading_term_Version4.0.0.pdf"
+                url="/Trading term_Version4.0.0.pdf"
                 link_title={localize('Trading terms')}
             />
             <Col
@@ -137,14 +137,14 @@ const IconGrid = () => (
                 content={localize(
                     'Terms that govern keeping and transferring funds in Deriv and the bonuses you might get',
                 )}
-                url="/tnc/Funds_and_transfers_version4.0.0.pdf"
+                url="/Funds and transfers_version4.0.0.pdf"
                 link_title={localize('Funds & transfers')}
             />
             <Col
                 Icon={Security}
                 title={localize('Security & privacy')}
                 content={localize('How we use and protect the information you give us')}
-                url="/tnc/Security_and_privacy_Version4.0.0.pdf"
+                url="/Security and privacy_Version4.0.0.pdf"
                 link_title={localize('Security & privacy')}
             />
             <Col
@@ -153,7 +153,7 @@ const IconGrid = () => (
                 content={localize(
                     'A notice to help you understand the risks that might arise when you trade on Deriv',
                 )}
-                url="/tnc/Risk_disclosure_Version4.0.0.pdf"
+                url="/Risk disclosure_Version4.0.0.pdf"
                 link_title={localize('Risk disclosure')}
             />
             <Col
@@ -162,8 +162,8 @@ const IconGrid = () => (
                 content={localize(
                     'Additional terms and restrictions for Deriv clients in certain countries',
                 )}
-                url="/tnc/Binary_(FX)_Ltd_Version4.0.0.pdf"
-                url2="/tnc/Binary_Investments_(Europe)_Ltd_Version4.0.0.pdf"
+                url="/Binary (FX) Ltd_Version4.0.0.pdf"
+                url2="/Binary Investments (Europe) Ltd_Version4.0.0.pdf"
                 link_title={localize('BFX')}
                 link_title2={localize('BIEL')}
             />

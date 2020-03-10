@@ -111,28 +111,28 @@ const IconGrid = () => (
                 content={localize(
                     'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
                 )}
-                url="/tnc/Business_partners_General_term_Version4.0.0.pdf"
+                url="/Business partners_General term_Version4.0.0.pdf"
                 link_title={localize('General terms of use')}
             />
             <Col
                 Icon={Partners}
                 title={localize('Affiliates & introducing brokers (IBs)')}
                 content={localize('Additional terms for our affiliates and introducing brokers')}
-                url="/tnc/Business_partners_Affiliates_and_introducing_brokers_Version4.0.0.pdf"
+                url="/Business partners_Affiliates and introducing brokers_Version4.0.0.pdf"
                 link_title={localize('Affiliates & introducing brokers (IBs)')}
             />
             <Col
                 Icon={PA}
                 title={localize('Payment agents')}
                 content={localize('Additional terms for our payment agents')}
-                url="/tnc/Business_partners_Payment_agents_Version4.0.0.pdf"
+                url="/Business partners_Payment agents_Version4.0.0.pdf"
                 link_title={localize('Payment agents')}
             />
             <Col
                 Icon={API}
                 title={localize('API users')}
                 content={localize('Additional terms for our API users')}
-                url="/tnc/Business_partners_API_user_Version4.0.0.pdf"
+                url="/Business partners_API user_Version4.0.0.pdf"
                 link_title={localize('API users')}
             />
         </CssGrid>

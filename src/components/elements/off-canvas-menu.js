@@ -11,8 +11,8 @@ const OffCanvasMenu = styled.section`
     height: 100vh;
     width: 238px;
     opacity: 0.98;
-    transition: right 0.4s;
-    right: ${props => (props.is_canvas_menu_open ? '0' : '-238px')};
+    transition: left 0.4s;
+    left: ${props => (props.is_canvas_menu_open ? '0' : '-238px')};
 `
 const StyledLink = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-black);

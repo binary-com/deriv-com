@@ -83,7 +83,9 @@ export const TraderCard = ({ is_selected }) => (
             cover_content={localize('Discover DTrader now')}
             title={localize('DTrader')}
             Icon={StyledDTrader}
-            content={[localize('The platform to start with. It’s powerful yet easy to use.')]}
+            content={[
+                localize('A whole new trading experience on a powerful yet easy to use platform.'),
+            ]}
             is_inline_icon
             min_height="11.6rem"
             is_selected={is_selected}

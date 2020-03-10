@@ -4,8 +4,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import TeamCard from './_layout-components/_team-card'
 import { getTop4Teams, team_names } from './_controller/_teams'
 import { Container, SectionContainer, CssGrid } from 'components/containers'
-import { Header, StyledLink } from 'components/elements'
+import { Header } from 'components/elements'
 import { localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 
 const StyledHeader = styled(Header)`
     text-align: center;
@@ -102,14 +103,9 @@ const FindPlace = () => {
                         />
                     ))}
                 </CssGrid>
-                <StyledLink
-                    style={{ marginTop: '4.2rem' }}
-                    size="var(--text-size-xs)"
-                    weight="bold"
-                    to="/careers/teams/"
-                >
+                <LinkButton style={{ marginTop: '4.2rem' }} to="/careers/teams/" flat="true">
                     {localize('View all teams')}
-                </StyledLink>
+                </LinkButton>
             </Container>
         </SectionContainer>
     )

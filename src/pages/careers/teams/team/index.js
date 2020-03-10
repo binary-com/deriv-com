@@ -32,61 +32,61 @@ const Subheadline = styled(Text)`
 `
 const query = graphql`
     query {
-        devops: file(relativePath: { eq: "careers/hero-devops.png" }) {
+        devops: file(relativePath: { eq: "careers/hero-devops.jpg" }) {
             ...backGroundBlur
         }
-        compliance: file(relativePath: { eq: "careers/hero-compliance.png" }) {
+        compliance: file(relativePath: { eq: "careers/hero-compliance.jpg" }) {
             ...backGroundBlur
         }
-        marketing: file(relativePath: { eq: "careers/hero-marketing.png" }) {
+        marketing: file(relativePath: { eq: "careers/hero-marketing.jpg" }) {
             ...backGroundBlur
         }
-        qualityassurance: file(relativePath: { eq: "careers/hero-quality-assurance.png" }) {
+        qualityassurance: file(relativePath: { eq: "careers/hero-quality-assurance.jpg" }) {
             ...backGroundBlur
         }
-        accountsandpayments: file(relativePath: { eq: "careers/hero-accounts-payments.png" }) {
+        accountsandpayments: file(relativePath: { eq: "careers/hero-accounts-payments.jpg" }) {
             ...backGroundBlur
         }
-        backend: file(relativePath: { eq: "careers/hero-back-end.png" }) {
+        backend: file(relativePath: { eq: "careers/hero-back-end.jpg" }) {
             ...backGroundBlur
         }
-        businessintelligence: file(relativePath: { eq: "careers/hero-business-intelligence.png" }) {
+        businessintelligence: file(relativePath: { eq: "careers/hero-business-intelligence.jpg" }) {
             ...backGroundBlur
         }
-        content: file(relativePath: { eq: "careers/hero-content.png" }) {
+        content: file(relativePath: { eq: "careers/hero-content.jpg" }) {
             ...backGroundBlur
         }
-        cryptodevelopment: file(relativePath: { eq: "careers/hero-crypto-development.png" }) {
+        cryptodevelopment: file(relativePath: { eq: "careers/hero-crypto-development.jpg" }) {
             ...backGroundBlur
         }
-        customersupport: file(relativePath: { eq: "careers/hero-customer-support.png" }) {
+        customersupport: file(relativePath: { eq: "careers/hero-customer-support.jpg" }) {
             ...backGroundBlur
         }
-        disasterrecovery: file(relativePath: { eq: "careers/hero-disaster-recovery.png" }) {
+        disasterrecovery: file(relativePath: { eq: "careers/hero-disaster-recovery.jpg" }) {
             ...backGroundBlur
         }
-        frontend: file(relativePath: { eq: "careers/hero-front-end.png" }) {
+        frontend: file(relativePath: { eq: "careers/hero-front-end.jpg" }) {
             ...backGroundBlur
         }
-        hrrecruitment: file(relativePath: { eq: "careers/hero-hr-recruitment.png" }) {
+        hrrecruitment: file(relativePath: { eq: "careers/hero-hr-recruitment.jpg" }) {
             ...backGroundBlur
         }
-        internalaudit: file(relativePath: { eq: "careers/hero-internal-audit.png" }) {
+        internalaudit: file(relativePath: { eq: "careers/hero-internal-audit.jpg" }) {
             ...backGroundBlur
         }
-        itadmin: file(relativePath: { eq: "careers/hero-it-admin.png" }) {
+        itadmin: file(relativePath: { eq: "careers/hero-it-admin.jpg" }) {
             ...backGroundBlur
         }
-        productdesign: file(relativePath: { eq: "careers/hero-product-design.png" }) {
+        productdesign: file(relativePath: { eq: "careers/hero-product-design.jpg" }) {
             ...backGroundBlur
         }
-        projectmanagement: file(relativePath: { eq: "careers/hero-project-management.png" }) {
+        projectmanagement: file(relativePath: { eq: "careers/hero-project-management.jpg" }) {
             ...backGroundBlur
         }
-        quants: file(relativePath: { eq: "careers/hero-quants.png" }) {
+        quants: file(relativePath: { eq: "careers/hero-quants.jpg" }) {
             ...backGroundBlur
         }
-        security: file(relativePath: { eq: "careers/hero-security.png" }) {
+        security: file(relativePath: { eq: "careers/hero-security.jpg" }) {
             ...backGroundBlur
         }
     }
@@ -103,7 +103,6 @@ const Hero = ({ name, display_name, team_description }) => {
                 height: '64.6rem',
                 width: '100%',
             }}
-            dark="0.3"
         >
             <StyledContainer>
                 <StyledHeader as="h1" font_size="var(--text-size-xl)" align="center">

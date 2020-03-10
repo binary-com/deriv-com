@@ -65,9 +65,6 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
 `
 
 const NavContainer = styled(Flex)`
-    & div:first-child h4::first-line {
-        word-spacing: 11rem;
-    }
     & article {
         width: 33.2rem;
         box-shadow: none;
@@ -76,7 +73,7 @@ const NavContainer = styled(Flex)`
         font-size: 1.3rem;
     }
 `
-export const TraderCard = ({ is_selected }) => (
+export const TraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dtrader">
         <Card
             cover_background="var(--color-red)"
@@ -90,15 +87,17 @@ export const TraderCard = ({ is_selected }) => (
             min_height="11.6rem"
             is_selected={is_selected}
             width="100%"
+            word_break_cover={word_break_cover}
         />
     </StyledLink>
 )
 const cardProptypes = {
     is_selected: PropTypes.bool,
+    word_break_cover: PropTypes.bool,
 }
 TraderCard.propTypes = { ...cardProptypes }
 
-export const BotCard = ({ is_selected }) => (
+export const BotCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dbot">
         <Card
             cover_background="var(--color-orange)"
@@ -110,12 +109,13 @@ export const BotCard = ({ is_selected }) => (
             min_height="11.6rem"
             is_selected={is_selected}
             width="100%"
+            word_break_cover={word_break_cover}
         />
     </StyledLink>
 )
 BotCard.propTypes = { ...cardProptypes }
 
-export const DMT5Card = ({ is_selected }) => (
+export const DMT5Card = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dmt5">
         <Card
             cover_background="var(--color-green)"
@@ -127,12 +127,13 @@ export const DMT5Card = ({ is_selected }) => (
             min_height="11.6rem"
             is_selected={is_selected}
             width="100%"
+            word_break_cover={word_break_cover}
         />
     </StyledLink>
 )
 DMT5Card.propTypes = { ...cardProptypes }
 
-export const SmarttraderCard = ({ is_selected }) => (
+export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to="https://smarttrader.deriv.app" external>
         <Card
             cover_background="var(--color-blue-3)"
@@ -144,6 +145,7 @@ export const SmarttraderCard = ({ is_selected }) => (
             min_height="11.6rem"
             is_selected={is_selected}
             width="100%"
+            word_break_cover={word_break_cover}
         />
     </StyledLink>
 )
@@ -151,10 +153,10 @@ SmarttraderCard.propTypes = { ...cardProptypes }
 
 export const NavPlatform = () => (
     <NavContainer wrap="wrap">
-        <TraderCard />
-        <BotCard />
-        <DMT5Card />
-        <SmarttraderCard />
+        <TraderCard word_break_cover />
+        <BotCard word_break_cover />
+        <DMT5Card word_break_cover />
+        <SmarttraderCard word_break_cover />
     </NavContainer>
 )
 

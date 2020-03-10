@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
+import { Flex } from 'components/containers'
 import device from 'themes/device'
 import Arrow from 'images/svg/card-arrow.svg'
 
@@ -33,7 +34,7 @@ const CardCover = styled.div`
     transform: ${props =>
         props.is_selected ? 'translate3d(-3%, 0, 0)' : 'translate3d(-105%, 0, 0)'};
 
-    div {
+    & > div {
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -161,6 +162,7 @@ export const Card = ({
     cover_content,
     padding,
     is_selected,
+    word_break_cover,
 }) => {
     return (
         <CardWrapper width={width} min_height={min_height} padding={padding}>
@@ -173,7 +175,19 @@ export const Card = ({
                                 is_selected={is_selected}
                             >
                                 <div>
-                                    <h4>{cover_content}</h4>
+                                    {word_break_cover ? (
+                                        <Flex direction="column" jc="flex-start" ai="flex-start">
+                                            <h4>{cover_content.split(' ')[0]}</h4>
+                                            <h4>
+                                                {cover_content
+                                                    .split(' ')
+                                                    .slice(1)
+                                                    .join(' ')}
+                                            </h4>
+                                        </Flex>
+                                    ) : (
+                                        <h4>{cover_content}</h4>
+                                    )}
                                     <Arrow />
                                 </div>
                             </CardCover>
@@ -219,6 +233,7 @@ Card.propTypes = {
     padding: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
+    word_break_cover: PropTypes.bool,
 }
 
 export const CardChildren = ({ Icon, title, width, children, icon_width, icon_height }) => (

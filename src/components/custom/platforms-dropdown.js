@@ -30,7 +30,7 @@ const NavDropdown = styled.div`
     position: absolute;
     padding: 2.2rem 0;
     z-index: -1;
-    height: fit-content;
+    height: auto;
     background-color: #ffffff;
     transform: translateY(-18rem);
     opacity: 0;
@@ -49,6 +49,9 @@ const StyledContainer = styled(Container)`
     }
     @media ${device.laptopL} {
         max-width: 1440px;
+    }
+    @media ${device.desktopL} {
+        max-width: 1800px;
     }
 
     .active {

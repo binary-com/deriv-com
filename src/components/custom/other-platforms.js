@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { SectionContainer, FlexGridContainer } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
 import { Card, Header } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
@@ -9,6 +9,7 @@ import device from 'themes/device'
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
+import Smarttrader from 'images/svg/smarttrader.svg'
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
@@ -25,6 +26,11 @@ const StyledDmt5 = styled(DMT5)`
 `
 
 const StyledDTrader = styled(DTrader)`
+    width: 72px;
+    height: 72px;
+`
+
+const StyledSmarttrader = styled(Smarttrader)`
     width: 72px;
     height: 72px;
 `
@@ -57,6 +63,19 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
         }
     }
 `
+
+const NavContainer = styled(Flex)`
+    & div:first-child h4::first-line {
+        word-spacing: 11rem;
+    }
+    & article {
+        width: 33.2rem;
+        box-shadow: none;
+    }
+    & p {
+        font-size: 1.3rem;
+    }
+`
 export const TraderCard = ({ is_selected }) => (
     <StyledLink to="/dtrader">
         <Card
@@ -68,6 +87,7 @@ export const TraderCard = ({ is_selected }) => (
             is_inline_icon
             min_height="11.6rem"
             is_selected={is_selected}
+            width="100%"
         />
     </StyledLink>
 )
@@ -87,6 +107,7 @@ export const BotCard = ({ is_selected }) => (
             is_inline_icon
             min_height="11.6rem"
             is_selected={is_selected}
+            width="100%"
         />
     </StyledLink>
 )
@@ -103,10 +124,37 @@ export const DMT5Card = ({ is_selected }) => (
             is_inline_icon
             min_height="11.6rem"
             is_selected={is_selected}
+            width="100%"
         />
     </StyledLink>
 )
 DMT5Card.propTypes = { ...cardProptypes }
+
+export const SmarttraderCard = ({ is_selected }) => (
+    <StyledLink to="https://smarttrader.deriv.app" external>
+        <Card
+            cover_background="var(--color-blue-3)"
+            cover_content={localize('Discover SmartTrader now')}
+            title={localize('SmartTrader')}
+            Icon={StyledSmarttrader}
+            content={[localize('Trade the world’s markets with a simple and familiar platform.')]}
+            is_inline_icon
+            min_height="11.6rem"
+            is_selected={is_selected}
+            width="100%"
+        />
+    </StyledLink>
+)
+SmarttraderCard.propTypes = { ...cardProptypes }
+
+export const NavPlatform = () => (
+    <NavContainer wrap="wrap">
+        <TraderCard />
+        <BotCard />
+        <DMT5Card />
+        <SmarttraderCard />
+    </NavContainer>
+)
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
     <SectionContainer padding="0">

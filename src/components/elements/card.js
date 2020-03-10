@@ -123,8 +123,8 @@ const IconContainer = styled.div`
 
     div {
         svg {
-            width: 8.25rem;
-            height: 8.25rem;
+            width: 7.2rem;
+            height: 7.2rem;
         }
     }
     ${Header} {

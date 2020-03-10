@@ -58,6 +58,7 @@ const Hero = () => {
                 height: '100vh',
                 width: '100vw',
                 backgroundSize: `cover`,
+                backgroundColor: 'black',
             }}
         >
             <StyledContainer>

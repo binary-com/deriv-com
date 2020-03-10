@@ -26,7 +26,6 @@ const query = graphql`
 
 const Hero = () => {
     const hero_img = useStaticQuery(query)
-
     return (
         <BackgroundImage
             data={hero_img.image}

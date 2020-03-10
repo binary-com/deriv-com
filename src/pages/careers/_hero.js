@@ -5,11 +5,16 @@ import Container from './_layout-components/_container'
 import { Text, Header, BackgroundImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
+import device from 'themes/device'
 
 const StyledContainer = styled(Container)`
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
+
+    @media ${device.tablet} {
+        padding: 0 2rem;
+    }
 `
 
 const StyledHeader = styled(Header)`
@@ -68,7 +73,7 @@ const Hero = () => {
                     )}
                 </Subheadline>
                 <JoinHeader as="h3">{localize('Join and grow with us.')}</JoinHeader>
-                <LinkButton secondary to="/careers/jobs">
+                <LinkButton secondary="true" to="/careers/jobs">
                     {localize('View open positions')}
                 </LinkButton>
             </StyledContainer>

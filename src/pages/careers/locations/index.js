@@ -121,7 +121,7 @@ const Locations = () => {
             <SEO title={localize('Locations')} />
             <Hero />
             <Container direction="column">
-                <SectionContainer padding="12rem 0">
+                <SectionContainer>
                     <Header as="h2" align="center" font_size={'var(--text-size-header-1)'}>
                         {localize('Explore our locations')}
                     </Header>

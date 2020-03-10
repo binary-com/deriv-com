@@ -24,7 +24,7 @@ const StyledSection = styled(SectionContainer)`
 `
 const StyledHeader = styled(Header)`
     font-size: var(--text-size-header-1);
-    padding-bottom: 4.4rem;
+    padding-bottom: 6.4rem;
 
     @media ${device.tabletL} {
         font-size: 4.5rem;
@@ -135,7 +135,7 @@ const ImageSlide = ({ img_path, img_alt }) => {
 
 ImageSlide.propTypes = {
     img_alt: PropTypes.string,
-    img_path: PropTypes.object,
+    img_path: PropTypes.string,
 }
 
 const fitness = {
@@ -210,8 +210,8 @@ const LifeAtDerivCarousel = () => {
                 <SliderWrapper>
                     <SwiperWrapper>
                         <Swiper {...params} getSwiper={updateSwiper}>
-                            {deriv_lifestyle_images.map(slide_content => (
-                                <div className="swiper-slide" key={slide_content.name}>
+                            {deriv_lifestyle_images.map((slide_content, idx) => (
+                                <div className="swiper-slide" key={idx}>
                                     <ImageSlide
                                         img_path={slide_content.img_path}
                                         img_alt={slide_content.alt}

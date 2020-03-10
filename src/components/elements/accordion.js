@@ -45,9 +45,9 @@ const Accordion = ({ children, has_single_state }) => {
     const nodes = []
 
     return has_single_state ? (
-        <SingleAccordionContent nodes={nodes}>{children}</SingleAccordionContent>
+        <SingleAccordionContent>{children}</SingleAccordionContent>
     ) : (
-        <AccordionContent>{children}</AccordionContent>
+        <AccordionContent nodes={nodes}>{children}</AccordionContent>
     )
 }
 Accordion.propTypes = {

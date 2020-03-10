@@ -6,7 +6,7 @@ import 'swiper/css/swiper.css'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-import { Container, SectionContainer, Flex } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import QuoteMark from 'images/svg/quotemark.svg'
 import NegarImage from 'images/common/careers/negar.jpg'
@@ -252,12 +252,10 @@ const EmployeeTestimonialCarousel = () => {
 
     return (
         <>
-            <StyledSection>
-                <Container direction="column">
-                    <StyledHeader align="center" as="h2">
-                        {localize('In the words of our employees')}
-                    </StyledHeader>
-                </Container>
+            <StyledSection padding="12rem 0">
+                <StyledHeader align="center" as="h2">
+                    {localize('In the words of our employees')}
+                </StyledHeader>
                 <ButtonWrapper>
                     <Next>
                         <button onClick={goNext}>

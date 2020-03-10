@@ -99,22 +99,24 @@ const SearchFilters = ({ filters, setFilters }) => {
                         arrow_thin
                     >
                         <Flex direction="column" m="1.6rem 0 0.8rem">
-                            {Object.keys(team_names).map((team_name, idx) => (
-                                <CheckboxWrapper
-                                    key={idx}
-                                    jc="flex-start"
-                                    ai="center"
-                                    mb="0.8rem"
-                                    onClick={() => toggleCheck(team_name)}
-                                >
-                                    <Checkbox
-                                        onChange={() => toggleCheck(team_name)}
-                                        checked={filters.includes(team_name)}
-                                        secondary
-                                    />
-                                    <Text>{team_names[team_name]}</Text>
-                                </CheckboxWrapper>
-                            ))}
+                            {Object.keys(team_names)
+                                .sort()
+                                .map((team_name, idx) => (
+                                    <CheckboxWrapper
+                                        key={idx}
+                                        jc="flex-start"
+                                        ai="center"
+                                        mb="0.8rem"
+                                        onClick={() => toggleCheck(team_name)}
+                                    >
+                                        <Checkbox
+                                            onChange={() => toggleCheck(team_name)}
+                                            checked={filters.includes(team_name)}
+                                            secondary
+                                        />
+                                        <Text>{team_names[team_name]}</Text>
+                                    </CheckboxWrapper>
+                                ))}
                         </Flex>
                     </AccordionItem>
                     <AccordionItem
@@ -125,22 +127,24 @@ const SearchFilters = ({ filters, setFilters }) => {
                         arrow_thin
                     >
                         <Flex direction="column" m="1.6rem 0 0.8rem">
-                            {Object.keys(locations).map((location, idx) => (
-                                <CheckboxWrapper
-                                    key={idx}
-                                    jc="flex-start"
-                                    ai="center"
-                                    mb="0.8rem"
-                                    onClick={() => toggleCheck(location)}
-                                >
-                                    <Checkbox
-                                        onChange={() => toggleCheck(location)}
-                                        checked={filters.includes(location)}
-                                        secondary
-                                    />
-                                    <Text>{locations[location]}</Text>
-                                </CheckboxWrapper>
-                            ))}
+                            {Object.keys(locations)
+                                .sort()
+                                .map((location, idx) => (
+                                    <CheckboxWrapper
+                                        key={idx}
+                                        jc="flex-start"
+                                        ai="center"
+                                        mb="0.8rem"
+                                        onClick={() => toggleCheck(location)}
+                                    >
+                                        <Checkbox
+                                            onChange={() => toggleCheck(location)}
+                                            checked={filters.includes(location)}
+                                            secondary
+                                        />
+                                        <Text>{locations[location]}</Text>
+                                    </CheckboxWrapper>
+                                ))}
                         </Flex>
                     </AccordionItem>
                 </Accordion>

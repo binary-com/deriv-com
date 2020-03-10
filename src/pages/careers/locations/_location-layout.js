@@ -22,6 +22,10 @@ const StyledContainer = styled(Container)`
     flex-direction: column;
     align-items: flex-start;
     height: 100%;
+
+    @media ${device.tablet} {
+        padding: 0 2rem;
+    }
 `
 
 const StyledHeader = styled(Header)`
@@ -105,6 +109,9 @@ const FirstSection = styled(SectionContainer)`
             margin-bottom: 2rem;
         }
     }
+    @media ${device.tablet} {
+        padding: 8rem 2rem;
+    }
 `
 const ImageWrapper = styled.div`
     max-width: 53.9rem;
@@ -165,7 +172,7 @@ export const LocationLayout = ({ location, images }) => {
                         align="center"
                         as="h2"
                         font_size={'var(--text-size-header-1)'}
-                        style={{ marginBottom: '8rem' }}
+                        style={{ marginBottom: '6.4rem' }}
                     >
                         {localize('Our office')}
                     </Header>
@@ -233,7 +240,7 @@ export const LocationLayout = ({ location, images }) => {
                     align="center"
                     as="h2"
                     font_size={'var(--text-size-header-1)'}
-                    style={{ marginBottom: '8rem' }}
+                    style={{ marginBottom: '6.4rem' }}
                 >
                     {localize('Open positions in {{location}}', { location: display_name })}
                 </Header>

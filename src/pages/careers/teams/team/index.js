@@ -116,7 +116,7 @@ const Hero = ({ name, display_name, team_description }) => {
 }
 
 const TeamWrapper = styled.section`
-    padding: 8rem 0;
+    padding: 12rem 0;
 
     ${Header} {
         padding-bottom: 8rem;

@@ -89,8 +89,8 @@ const Process = ({ title, description, style }) => (
 )
 
 const StyledCareer1 = styled(Career1)`
-    margin-left: 5.2rem;
-    margin-right: 1.3rem;
+    margin-left: 6.4rem;
+    margin-right: 4rem;
 
     @media ${device.tablet} {
         margin: 0;
@@ -98,8 +98,8 @@ const StyledCareer1 = styled(Career1)`
 `
 
 const StyledCareer2 = styled(Career2)`
-    margin-left: 7.5rem;
-    margin-right: 3.2rem;
+    margin-left: 4rem;
+    margin-right: 6.4rem;
 
     @media ${device.tablet} {
         margin: 0;
@@ -107,8 +107,8 @@ const StyledCareer2 = styled(Career2)`
 `
 
 const StyledCareer3 = styled(Career3)`
-    margin-left: 3rem;
-    margin-right: 3.7rem;
+    margin-left: 6.4rem;
+    margin-right: 4rem;
 
     @media ${device.tablet} {
         margin: 0;
@@ -116,8 +116,8 @@ const StyledCareer3 = styled(Career3)`
 `
 
 const StyledCareer4 = styled(Career4)`
-    margin-left: 7.5rem;
-    margin-right: 3rem;
+    margin-left: 4rem;
+    margin-right: 6.4rem;
 
     @media ${device.tablet} {
         margin: 0;
@@ -223,7 +223,7 @@ const OurHiringProcess = () => (
                         style={{ marginTop: '4.7rem' }}
                         right
                     />
-                    <SubResponsiveFlex1 direction="row">
+                    <SubResponsiveFlex1 direction="row" justify="unset">
                         <StyledCareer1 />
                         <Process
                             title={localize('Apply')}
@@ -235,8 +235,8 @@ const OurHiringProcess = () => (
                     </SubResponsiveFlex1>
                 </ResponsiveFlex1>
                 <DownwardsRight1 />
-                <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem">
-                    <SubResponsiveFlex2 direction="row">
+                <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
+                    <SubResponsiveFlex2 direction="row" width="unset">
                         <Process
                             title={localize('Test')}
                             description={localize(
@@ -274,8 +274,8 @@ const OurHiringProcess = () => (
                     </SubResponsiveFlex3>
                 </ResponsiveFlex3>
                 <DownwardsRight2 />
-                <ResponsiveFlex4 direction="row" mt="1.6rem">
-                    <SubResponsiveFlex4 direction="row">
+                <ResponsiveFlex4 direction="row" mt="1.6rem" width="unset">
+                    <SubResponsiveFlex4 direction="row" width="unset">
                         <Process
                             title={localize('Decision')}
                             description={localize(

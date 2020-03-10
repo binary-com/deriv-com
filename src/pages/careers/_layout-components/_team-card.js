@@ -75,7 +75,7 @@ const StyledHeader = styled(Header)`
     font-size: var(--text-size-sm);
 `
 
-const StyledLink = styled(LocalizedLink)`
+const StyledLink = styled.div`
     position: absolute;
     bottom: 3.2rem;
     right: 3.2rem;
@@ -89,7 +89,7 @@ const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
         <StyledContent>
             <StyledHeader as="h5">{display_team_name}</StyledHeader>
             <Text>{tagline}</Text>
-            <StyledLink to={to}>
+            <StyledLink>
                 <ChevronRight />
             </StyledLink>
         </StyledContent>
@@ -98,7 +98,7 @@ const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
 
 TeamCard.propTypes = {
     display_team_name: PropTypes.string,
-    img_data: PropTypes.string,
+    img_data: PropTypes.object,
     tagline: PropTypes.string,
     team_name: PropTypes.string,
     to: PropTypes.string,

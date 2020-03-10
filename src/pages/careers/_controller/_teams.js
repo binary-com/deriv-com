@@ -342,7 +342,28 @@ export const getPositionsByQuery = (queries, filtered_positions) => {
     const current_positions = filtered_positions || all_positions
     if (!queries.length) return current_positions
 
-    return current_positions.filter(position => {
-        return queries.some(query => query === position.location || query === position.team)
+    const location_filter_map = {}
+    const team_filters_map = {}
+
+    queries.forEach(q => {
+        if (locations[q]) location_filter_map[q] = q
+        else team_filters_map[q] = q
     })
+
+    const has_team_filters = Object.keys(team_filters_map).length
+    const has_location_filters = Object.keys(location_filter_map).length
+    const filterLocation = p => !!location_filter_map[p.location]
+    const filterTeam = p => !!team_filters_map[p.team]
+
+    if (has_team_filters && has_location_filters) {
+        return current_positions.filter(c => filterLocation(c) && filterTeam(c))
+    }
+    if (has_team_filters) {
+        return current_positions.filter(filterTeam)
+    }
+    if (has_location_filters) {
+        return current_positions.filter(filterLocation)
+    }
+
+    return current_positions
 }

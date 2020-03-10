@@ -51,7 +51,7 @@ const Hero = ({ display_name, name, img_data, description }) => {
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <Subheadline>{description}</Subheadline>
                 <LinkButton
-                    has_no_end_slash="true"
+                    has_no_end_slash
                     secondary="true"
                     to={`/careers/jobs/?filter=${name}&search=`}
                 >

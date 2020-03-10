@@ -119,7 +119,7 @@ export const ContactWays = () => {
                     </StyledHeader>
                     <StyledText>{localize('International help desk')}</StyledText>
                     <StyledText secondary="true" weight="bold">
-                        {localize('+44 800 011 9847')}
+                        {localize('+44 1942 316229')}
                     </StyledText>
                     <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
                     <StyledText marginBttom="1.9rem">

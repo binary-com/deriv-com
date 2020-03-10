@@ -82,7 +82,7 @@ const SimpleSteps = () => (
                 </Flex>
                 <Text>
                     {localize(
-                        'Open a demo account and start trading for free. Practise with an unlimited amount of funds.',
+                        'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
                     )}
                 </Text>
             </ClientCard>
@@ -93,7 +93,7 @@ const SimpleSteps = () => (
                 </Flex>
                 <Text>
                     {localize(
-                        'Open a real account and start trading for real. Trade forex, indices, commodities, and other derivatives.',
+                        'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
                     )}
                 </Text>
             </ClientCard>
@@ -104,7 +104,7 @@ const SimpleSteps = () => (
                 </Flex>
                 <Text>
                     {localize(
-                        'Get your funds quickly and easily. We support a variety of deposit and withdrawal options.',
+                        'Get your funds quickly and easily. We support a variety of withdrawal options.',
                     )}
                 </Text>
             </ClientCard>

@@ -30,11 +30,14 @@ const Pagination = ({ children, page_limit }) => {
 
     const current_records = all_records.slice(start_index, end_index)
 
-    if (!current_records.length) {
-        // reset to first page
+    const resetToFirstPage = () => {
         setSectionSelection(page_limit)
         setStartIndex(0)
     }
+
+    React.useEffect(() => {
+        resetToFirstPage()
+    }, [children])
 
     const handleNext = () => {
         const next_selection = section_selection + page_limit

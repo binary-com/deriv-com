@@ -47,6 +47,7 @@
         "gatsby-plugin-react-svg": "^2.1.2",
         "gatsby-plugin-styled-components": "^3.1.17",
         "gatsby-plugin-stylelint": "^3.2.0",
+        "husky": "^4.2.3",
         "prettier": "^1.18.2",
         "query-string": "^6.8.3",
         "styled-components": "^5.0.0",
@@ -82,5 +83,10 @@
     },
     "bugs": {
         "url": "https://github.com/binary-com/deriv-com/issues"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm test"
+        }
     }
 }

@@ -140,11 +140,6 @@ const HeroButton = styled(LinkButton)`
 `
 
 const CheckBoxText = styled(Text)`
-    margin-left: 16px;
-    font-size: 1.8rem;
-    font-weight: 500;
-    line-height: 2;
-
     @media ${device.desktopL} {
         font-size: 2.52rem;
     }
@@ -156,7 +151,7 @@ const CheckMarkBullet = ({ children }) => (
     <li>
         <Flex jc="unset" ai="center">
             <CheckMark />
-            <CheckBoxText secondary="true" color="white">
+            <CheckBoxText ml="1.6rem" size="1.8rem" weight="500" lh="2" color="white">
                 {children}
             </CheckBoxText>
         </Flex>

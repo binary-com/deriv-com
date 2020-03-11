@@ -302,22 +302,22 @@ const SaveStrategy = () => (
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text margin="2.4rem 0 0">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
         <ImageWrapper>
             <Image img_name="dbot-savebot.png" alt={localize('Save bot')} width="40.7rem" />
         </ImageWrapper>
-        <Text margin="2.4rem 0 0">
+        <Text mt="2.4rem">
             {localize(
                 "2. The XML file will be saved in the 'Downloads' folder of your internet browser.",
             )}
         </Text>
-        <Text margin="4rem 0 0">
+        <Text mt="4rem">
             <Localize
                 translate_text="<0>Saving to Google Drive</0>"
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text margin="2.4rem 0 0">{localize("1. Click 'Connect'.")}</Text>
+        <Text mt="2.4rem">{localize("1. Click 'Connect'.")}</Text>
         <ImageWrapper>
             <Image
                 img_name="dbot-google-drive.png"
@@ -325,12 +325,12 @@ const SaveStrategy = () => (
                 width="12.1rem"
             />
         </ImageWrapper>
-        <Text margin="2.4rem 0 0">
+        <Text mt="2.4rem">
             {localize(
                 '2. Select your Google account and grant the necessary permission for DBot to access your Google Drive.',
             )}
         </Text>
-        <Text margin="2.4rem 0 0">{localize("3. Click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("3. Click 'Continue'.")}</Text>
         <ImageWrapper>
             <Image
                 img_name="dbot-savebot-drive.png"
@@ -338,7 +338,7 @@ const SaveStrategy = () => (
                 width="38.4rem"
             />
         </ImageWrapper>
-        <Text margin="2.4rem 0 0">
+        <Text mt="2.4rem">
             {localize(
                 "4. Choose the folder you want to save your strategy in and click  'Select'.",
             )}
@@ -362,10 +362,10 @@ const ImportStrategy = () => (
                 width="40.7rem"
             />
         </ImageWrapper>
-        <Text margin="4rem 0 0">
+        <Text mt="4rem">
             <strong>{localize('Importing from your computer')}</strong>
         </Text>
-        <Text margin="2.4rem 0 0">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
         <ImageWrapper>
             <Image img_name="dbot-load-bot.png" alt={localize('Load bot')} width="40.7rem" />
         </ImageWrapper>
@@ -374,12 +374,10 @@ const ImportStrategy = () => (
                 "2. Select your strategy and click 'Open'. Your blocks will be loaded accordingly.",
             )}
         </Text>
-        <Text margin="4rem 0 0">
+        <Text mt="4rem">
             <strong>{localize('Importing from your Google Drive')}</strong>
         </Text>
-        <Text margin="2.4rem 0 0">
-            {localize("1. Select 'Google Drive' and click 'Continue'.")}
-        </Text>
+        <Text mt="2.4rem">{localize("1. Select 'Google Drive' and click 'Continue'.")}</Text>
         <ImageWrapper>
             <Image
                 img_name="dbot-load-bot-gd.png"

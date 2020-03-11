@@ -18,12 +18,6 @@ const HeroWrapper = styled.section`
     }
 `
 
-const StyledText = styled(Text)`
-    max-width: 63.4rem;
-    margin: 1.6rem auto 0;
-    font-size: var(--text-size-m);
-`
-
 const ContactUs = () => {
     return (
         <Layout>
@@ -34,12 +28,18 @@ const ContactUs = () => {
                 title={localize('Contact Us | Online Trading')}
             />
             <HeroWrapper>
-                <Header as="h1">{localize('Contact us')}</Header>
-                <StyledText align="center" secondary="true">
+                <Header as="h1">{localize('Contact us')}</Header>`
+                <Text
+                    align="center"
+                    secondary="true"
+                    max_width="63.4rem"
+                    m="1.6rem auto 0"
+                    size="var(--text-size-m)"
+                >
                     {localize(
                         'Got questions, bug reports, feedback, or feature requests? Here are some ways to get in touch with us.',
                     )}
-                </StyledText>
+                </Text>
             </HeroWrapper>
             <ContactWays />
             <Offices />

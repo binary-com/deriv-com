@@ -25,7 +25,6 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Text)`
     font-size: var(--text-size-m);
-    max-width: ${props => (props.maxW ? props.maxW : '')};
 `
 const ImageWrapper = styled.div`
     width: 100%;
@@ -50,7 +49,7 @@ export const OurAwards = () => {
         <AwardContainer>
             <StyledHeader align="center">{localize('Our awards')}</StyledHeader>
             <Flex>
-                <StyledText align="center" weight="500" maxW="98.4rem">
+                <StyledText align="center" weight="500" max_width="98.4rem">
                     {localize(
                         'The Binary Group has 20 years of experience in providing excellent trading services. We’re proud that our dedication has led to a number of prestigious awards over the years.',
                     )}

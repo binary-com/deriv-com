@@ -112,8 +112,6 @@ const MapLink = styled.a`
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
-    color: ${props => props.color || 'var(--color-black-3)'};
-    text-indent: ${props => props.textIndent || '0'};
 `
 const Splitter = styled.div`
     background-color: var(--color-grey-8);
@@ -157,12 +155,7 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
-                                    target="_blank"
-                                    color="black-3"
-                                    size="var(--text-size-s)"
-                                    href="https://g.page/r/CRyKELlnWQ3iEAE"
-                                >
+                                <LinkText target="_blank" href="https://g.page/r/CRyKELlnWQ3iEAE">
                                     <Localize
                                         translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm Birkirkara BKR9033 Malta."
                                         components={[<br key={0} />]}
@@ -187,12 +180,7 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
-                                    target="_blank"
-                                    color="black-3"
-                                    size="var(--text-size-s)"
-                                    href="https://g.page/r/CQODFgzIJPYtEAE"
-                                >
+                                <LinkText target="_blank" href="https://g.page/r/CQODFgzIJPYtEAE">
                                     <Localize
                                         translate_text="C-13, iTech Tower, Jalan Impact, Cyber 6,<0 />63000 Cyberjaya, Selangor, Malaysia."
                                         components={[<br key={0} />]}

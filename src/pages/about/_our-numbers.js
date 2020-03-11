@@ -30,28 +30,6 @@ const OurNumbersContainer = styled(Container)`
     padding: 8rem 0;
     flex-wrap: wrap;
 
-    h1 {
-        width: 100%;
-        height: 15.1rem;
-        margin-top: 2.4rem;
-        font-size: 12.8rem;
-        font-weight: bold;
-        line-height: 1.5;
-        text-align: right;
-        color: var(--color-green);
-    }
-    h4 {
-        margin-top: 0.8rem;
-    }
-    span {
-        margin-top: 2rem;
-        height: 3rem;
-        font-size: var(--text-size-sm);
-        line-height: 1.5;
-        text-align: right;
-        color: var(--color-black-2);
-    }
-
     @media ${device.tabletL} {
         padding: 3rem 0;
     }
@@ -85,7 +63,14 @@ const OurNumbers = () => (
                 <Header font_size="3.6rem" as="h2" color="black-2" align="center">
                     {localize('Our numbers')}
                 </Header>
-                <StyledHeader as="h4" color="black-3" align="center" weight="500" lh="3.6rem">
+                <StyledHeader
+                    as="h4"
+                    color="black-3"
+                    align="center"
+                    weight="500"
+                    lh="3.6rem"
+                    mt="0.8rem"
+                >
                     {localize(
                         'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
                     )}

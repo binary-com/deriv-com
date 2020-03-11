@@ -52,7 +52,7 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledText = styled(Text)`
-    margin-bottom: ${props => props.marginBttom || '0.8rem'};
+    margin-bottom: '0.8rem';
 `
 
 const Logo = styled.div`
@@ -118,11 +118,11 @@ export const ContactWays = () => {
                         {localize('Call Us')}
                     </StyledHeader>
                     <StyledText>{localize('International help desk')}</StyledText>
-                    <StyledText secondary="true" weight="bold">
+                    <StyledText size="var(--text-size-sm)" weight="bold">
                         {localize('+44 1942 316229')}
                     </StyledText>
                     <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
-                    <StyledText marginBttom="1.9rem">
+                    <StyledText mb="1.9rem">
                         {localize('Sat-Sun: 8:00 am - 5:00 pm (GMT+8)')}
                     </StyledText>
                 </CallContact>
@@ -141,9 +141,6 @@ export const ContactWays = () => {
                     >
                         {localize('support@deriv.com')}
                     </LinkText>
-                    {/* <StyledText secondary="true" weight="bold" color="red">
-                        <EmailContainer>{localize('support@deriv.com')}</EmailContainer>
-                    </StyledText> */}
                 </Contact>
 
                 {/*

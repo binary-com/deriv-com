@@ -17,7 +17,7 @@ export const Ul = styled.ul`
     > *:not(:last-child) {
         padding-bottom: 0.8rem;
     }
-    li {
+    ${Li} {
         @media ${device.tabletL} {
             font-size: var(--text-size-sm);
             font-weight: 300;
@@ -64,7 +64,7 @@ const ListNoBullets = styled.ul`
     margin-bottom: 4.2rem;
     list-style: none;
 
-    li {
+    ${Li} {
         max-width: 38.4rem;
     }
     > *:not(:last-child) {

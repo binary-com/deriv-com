@@ -195,9 +195,7 @@ export const OurHistory = () => {
                                                 {header.header}
                                             </Header>
                                             <Splitter />
-                                            <Text padding="0 0 0 1.1rem">
-                                                {content.texts[id].text}
-                                            </Text>
+                                            <Text pl="1.1rem">{content.texts[id].text}</Text>
                                         </div>
                                     ))}
                                 </ContentWrapper>

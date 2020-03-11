@@ -7,6 +7,10 @@ import { Text, Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
+export const Li = styled(Text).attrs({
+    as: 'li',
+})``
+
 export const Ul = styled.ul`
     list-style: unset;
     color: var(--color-white);
@@ -29,10 +33,6 @@ export const Ol = styled(Ul).attrs({
 })`
     list-style-type: decimal;
 `
-
-export const Li = styled(Text).attrs({
-    as: 'li',
-})``
 
 const ErrorHeader = styled(Header)`
     font-size: var(--text-size-sm);

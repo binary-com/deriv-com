@@ -12,7 +12,7 @@ import { StyledLink } from './link'
 import OffCanvasMenu, { moveOffCanvasMenu } from './off-canvas-menu'
 import SideTab from './side-tab'
 import Tabs from './default-tab'
-import { Text, LinkText, Header } from './typography'
+import { Text, LinkText, LocalizedLinkText, Header } from './typography'
 
 export {
     Accordion,
@@ -35,5 +35,6 @@ export {
     Tabs,
     Text,
     LinkText,
+    LocalizedLinkText,
     Header,
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { LocalizedLink } from 'components/localization'
 import { Margins, Paddings } from 'themes/function'
 
 const createElement = React.createElement
@@ -37,6 +38,17 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
 `
 
 export const LinkText = styled(Text).attrs({ as: 'a' })`
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--color-red);
+        text-decoration: underline;
+    }
+`
+
+export const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
+    ${BaseElement}
     text-decoration: none;
     cursor: pointer;
 

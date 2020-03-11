@@ -40,9 +40,6 @@ const Content = styled.div`
     flex-direction: column;
     margin-top: 4rem;
 
-    ${Text} {
-        margin-top: 0.8rem;
-    }
     @media ${device.tabletL} {
         ${(Text, Header)} {
             text-align: center;
@@ -62,7 +59,7 @@ const WhyUs = ({ items }) => {
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
                                 <Header font_size="2.8rem">{item.title}</Header>
-                                <Text>{item.subtitle}</Text>
+                                <Text mt="0.8rem">{item.subtitle}</Text>
                             </Content>
                             <Image img_name={item.image_name} alt={item.image_alt} width="100%" />
                         </Row>

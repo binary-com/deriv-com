@@ -12,10 +12,6 @@ const StyledHeader = styled(Header)`
     margin-bottom: 1.6rem;
 `
 
-const StyledText = styled(Text)`
-    max-width: 99.6rem;
-`
-
 const AccordionContainer = styled.div`
     width: 100%;
 `
@@ -102,11 +98,11 @@ const PaymentMethods = () => {
                     <StyledHeader as="h1" align="center">
                         {localize('Payment methods')}
                     </StyledHeader>
-                    <StyledText align="center" size="var(--text-size-m)">
+                    <Text max_width="99.6rem" align="center" size="var(--text-size-m)">
                         {localize(
                             'All your deposits and withdrawals are processed within 1 working day. However, there may be additional processing time required by your bank or money transfer service.',
                         )}
-                    </StyledText>
+                    </Text>
                 </Container>
             </SectionContainer>
             <Divider height="2px" />

@@ -67,9 +67,6 @@ const RTS28 = ({ urls }) => (
         </IconContainer>
     </EdgeFlex>
 )
-RTS28.propTypes = {
-    urls: PropTypes.array,
-}
 
 const QuarterHeader = styled(Text)`
     padding-bottom: 1.6rem;
@@ -138,10 +135,6 @@ const QuarterTable = ({ quarters }) => (
         ))}
     </div>
 )
-QuarterTable.propTypes = {
-    quarters: PropTypes.array,
-    urls: PropTypes.array,
-}
 
 const DocumentAccordion = () => {
     return (
@@ -281,6 +274,15 @@ const DocumentAccordion = () => {
             </Accordion>
         </div>
     )
+}
+
+RTS28.propTypes = {
+    urls: PropTypes.array,
+}
+
+QuarterTable.propTypes = {
+    quarters: PropTypes.array,
+    urls: PropTypes.array,
 }
 
 export default DocumentAccordion

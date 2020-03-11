@@ -19,8 +19,6 @@ const GridCol = styled(CssGridColumn)`
     width: 100%;
 
     ${Text} {
-        margin-top: 1.8rem;
-
         @media ${device.tabletL} {
             font-size: 2rem;
         }
@@ -35,7 +33,9 @@ const GridCol = styled(CssGridColumn)`
 const Col = ({ Icon, content }) => (
     <GridCol>
         <Icon />
-        <Text lh="1.55">{content}</Text>
+        <Text lh="1.55" mt="1.8rem">
+            {content}
+        </Text>
     </GridCol>
 )
 Col.propTypes = {

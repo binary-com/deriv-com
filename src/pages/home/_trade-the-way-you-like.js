@@ -5,10 +5,6 @@ import { localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 
-const Subtitle = styled(Text)`
-    margin-top: 2rem;
-    text-align: center;
-`
 const ImageWrapper = styled.div`
     max-width: 65rem;
     margin: 3rem auto 0;
@@ -22,9 +18,9 @@ const TradeTheWayYouLike = () => {
             <Header font_size="3rem" align="center">
                 {localize('Trade the way you like')}
             </Header>
-            <Subtitle secondary="true">
+            <Text size="var(--text-size-sm)" mt="2rem" align="center">
                 {localize('Choose from three powerful platforms -- designed with you in mind')}
-            </Subtitle>
+            </Text>
             <ImageWrapper>
                 <Image img_name="dtrader-artboard.png" />
             </ImageWrapper>

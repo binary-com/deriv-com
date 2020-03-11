@@ -36,9 +36,8 @@ const BackButton = styled(Button)`
     color: var(--color-black);
 `
 const StyledText = styled(Text)`
-    font-size: ${props => (props.font_size ? props.font_size : '1.4rem')};
-    line-height: ${props => (props.lh ? props.lh : '1.15')};
-    margin-bottom: ${props => props.margin_bottom || ''};
+    font-size: 1.4rem;
+    line-height: 1.15;
 `
 
 const HowItsCalculate = styled.div`
@@ -414,7 +413,7 @@ const ib_dmt5_standard = {
                     'For forex and metal assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 10 in commission. A round trade of 1 lot of USD/CAD will pay out USD 10 in commission.',
                 )}
             </Text>
-            <Text style={{ marginTop: '2rem' }}>
+            <Text mt="2rem">
                 {localize(
                     'For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 30 in commission.',
                 )}
@@ -484,10 +483,10 @@ const ib_dmt5_synthetic = {
                     'For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula: ',
                 )}
             </Text>
-            <Text weight="bold" margin="2.5rem 0">
+            <Text weight="bold" m="2.5rem 0">
                 {localize('USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5')}
             </Text>
-            <StyledText font_size="var(--text-size-s)" lh="1.5">
+            <StyledText size="var(--text-size-s)" lh="1.5">
                 {localize(
                     'If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate.',
                 )}

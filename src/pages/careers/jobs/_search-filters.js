@@ -68,7 +68,7 @@ const SearchFilters = ({ filters, setFilters }) => {
             </Flex>
             <Divider height="2px" />
             <AccordionWrapper>
-                <Accordion has_single_state>
+                <Accordion has_single_state is_default_open>
                     {/* <AccordionItem
                         header={localize('Job types')}
                         header_style={header_style}

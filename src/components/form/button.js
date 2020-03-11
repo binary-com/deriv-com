@@ -85,6 +85,7 @@ export const LinkButton = styled(LocalizedLink)`
     text-align: center;
     text-decoration: none;
 `
+
 const Button = styled.button`
     ${SharedButtonStyle}
     ${Paddings}

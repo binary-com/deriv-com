@@ -226,7 +226,7 @@ const OurHiringProcess = () => (
                     <SubResponsiveFlex1 direction="row" justify="unset">
                         <StyledCareer1 />
                         <Process
-                            title={localize('Apply')}
+                            title={localize('Application')}
                             description={localize(
                                 "Found a great role in an ad or our website? Let us know you're interested by sending us your CV. Every CV is read by our recruitment team. If there's a match, we'll get in touch.",
                             )}
@@ -238,7 +238,7 @@ const OurHiringProcess = () => (
                 <ResponsiveFlex2 direction="row" ml="2.4rem" mt="1rem" width="unset">
                     <SubResponsiveFlex2 direction="row" width="unset">
                         <Process
-                            title={localize('Test')}
+                            title={localize('Testing')}
                             description={localize(
                                 'Complete a self-assessment questionnaire to tell us more about yourself, and a talent test to showcase your domain knowledge and approach to problem-solving.',
                             )}
@@ -277,7 +277,7 @@ const OurHiringProcess = () => (
                 <ResponsiveFlex4 direction="row" mt="1.6rem" width="unset">
                     <SubResponsiveFlex4 direction="row" width="unset">
                         <Process
-                            title={localize('Decision')}
+                            title={localize('Offer')}
                             description={localize(
                                 "We make a decision and proceed with reference and background checks. If all is well, you'll receive an official offer letter in your email inbox. Then it's over to you.",
                             )}

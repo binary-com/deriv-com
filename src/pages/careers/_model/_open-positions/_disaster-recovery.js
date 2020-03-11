@@ -123,9 +123,7 @@ export const disaster_recovery_positions = [
         ],
         qualifications: [
             localize('A university degree in computer science or a related field'),
-            localize(
-                'A minimum of two years’ direct experience in executing disaster recovery plans',
-            ),
+            localize('At least 2 years of experience in executing disaster recovery plans'),
             localize('Hands-on experience in Linux and cloud computing (AWS, GCP, and other IAAS)'),
             localize(
                 'Experience in networking and configuration management tools such as Chef, Ansible, and SaltStack',

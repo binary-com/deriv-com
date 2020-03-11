@@ -59,7 +59,7 @@ const QuoteText = styled(Text)`
     z-index: 10;
     position: relative;
     padding-top: 8.5rem;
-    max-width: 41rem;
+    max-width: 38.4rem;
 
     @media ${device.tabletL} {
         padding-bottom: 1rem;
@@ -194,15 +194,15 @@ EmployeeSlide.propTypes = {
 }
 
 const kelcent = {
-    name: localize('Kelcent Tan, Principal & Compliance Officer'),
+    name: localize('Kel Cent Tan, Principal and Compliance Officer'),
     img_path: KelcentImage,
     quote: localize(
-        'We have a working culture where everyone is open and willing to share their  knowledge and expertise. This gave me invaluable insights into how other departments operate and helped me understand how my role impacts business operations as a whole.',
+        'We have a working culture where everyone is open and willing to share their  knowledge and expertise. This gives me invaluable insights into how other departments operate and helps me understand how my role impacts business operations as a whole.',
     ),
     index: 1,
 }
 const negar = {
-    name: localize('Negar Naghshbandi, Front-end Developer & Team Lead'),
+    name: localize('Negar Naghshbandi, Front-end Developer and Team Lead'),
     img_path: NegarImage,
     quote: localize(
         'The most exciting thing for me is the culture of the company and the people I work with. I learn something new everyday and I can pair-program with anyone when needed because everyone is approachable and eager to help.',
@@ -213,7 +213,7 @@ const mahdi = {
     name: localize('Mahdi Pourziaei, Front-end Developer'),
     img_path: MahdiImage,
     quote: localize(
-        'Two words: “autonomy”, and “friendly”. Working at Deriv has been full of growth as I get to pick my own challenges and see them through, and it really wouldn’t feel as empowering without the friendly culture. I’m happy to be amongst all the brilliant people here.',
+        `Two words: 'autonomy' and 'friendly'. Working at Deriv has been full of growth as I get to pick my own challenges and see them through, and it really wouldn’t feel as empowering without the friendly culture. I’m happy to be amongst all the brilliant people here.`,
     ),
     index: 3,
 }

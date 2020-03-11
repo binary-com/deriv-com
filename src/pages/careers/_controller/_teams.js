@@ -55,7 +55,7 @@ class Team {
 }
 
 export const team_names = {
-    devops: localize('Devops'),
+    devops: localize('DevOps'),
     compliance: localize('Compliance'),
     marketing: localize('Marketing'),
     'quality-assurance': localize('Quality Assurance'),
@@ -164,7 +164,7 @@ export const all_teams = [
         name: 'content',
         thumbnail: 'team-content',
         description: localize(
-            "We work with nearly all teams within the company to create useful and meaningful content for our users. Whether it's product descriptions, blog posts, website content, social media, UI/UX writing, or marketing, we're here to help.",
+            "Whether it's marketing content, product descriptions, blog posts, social media, or UI/UX writing, we work with nearly every team within the company to create useful and meaningful content in our company's brand voice.",
         ),
         card_description: localize(
             'From web pages to social media, we’re responsible for the ideation and execution of our content needs.',
@@ -231,7 +231,7 @@ export const all_teams = [
         name: 'internal-audit',
         thumbnail: 'team-internal-audit',
         description: localize(
-            'Our mission is to help shape the future of Deriv by providing independent evaluations to reduce risk and improve operations. Objectivity is our superpower and enables us to collaborate and make an impact across the entire organisation. We develop and implement creative and innovative approaches to key issues affecting the business.',
+            'Our mission is to help shape the future of Deriv by providing independent evaluations to reduce risk and improve operations. We develop and implement creative and innovative approaches to key issues affecting the business.',
         ),
         card_description: localize(
             'We evaluate business and organisational processes to reinforce the company’s positive reputation.',
@@ -267,7 +267,7 @@ export const all_teams = [
             'Our team oversees the development and implementation of project plans. We make possible effective communication among multiple teams to create a well-coordinated flow when working on a project. We also prepare contingency plans to mitigate risks and make sure that project goals are delivered.',
         ),
         card_description: localize(
-            'We are the bridge that connects our teams, finding the best ways to bring our ideas and projects to life.',
+            'We are the bridge that connects our teams, finding the best ways to bring our ideas to life.',
         ),
         positions: project_management_positions,
     }),

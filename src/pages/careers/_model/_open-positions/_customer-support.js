@@ -30,7 +30,7 @@ export const customer_support_positions = [
             ),
             localize('Perform regular testing on our products and services.'),
             localize(
-                'Collaborate with client support agents in different time zones to ensure optimum results and customer satisfaction.',
+                'Collaborate with customer support agents in different time zones to ensure optimum results and customer satisfaction.',
             ),
         ],
         qualifications: [localize('Exceptional oral and written communication skills in English')],
@@ -39,7 +39,7 @@ export const customer_support_positions = [
                 'University degree in marketing, IT, or a related field or equivalent practical experience in technical customer support',
             ),
             localize('Experience in the financial services or IT industry'),
-            localize('Proficiency in other languages in addition to English\n'),
+            localize('Proficiency in other languages'),
         ],
     },
     {
@@ -69,7 +69,7 @@ export const customer_support_positions = [
             ),
             localize('Perform regular testing on our products and services.'),
             localize(
-                'Collaborate with client support agents in different time zones to ensure optimum results and customer satisfaction.',
+                'Collaborate with customer support agents in different time zones to ensure optimum results and customer satisfaction.',
             ),
         ],
         qualifications: [localize('Exceptional oral and written communication skills in English')],
@@ -78,7 +78,7 @@ export const customer_support_positions = [
                 'University degree in marketing, IT, or a related field or equivalent practical experience in technical customer support',
             ),
             localize('Experience in the financial services or IT industry'),
-            localize('Proficiency in other languages in addition to English'),
+            localize('Proficiency in other languages'),
         ],
     },
     {
@@ -134,9 +134,9 @@ export const customer_support_positions = [
         ],
     },
     {
-        title: localize('Customer Support Executive Russian speaker '),
+        title: localize('Customer Support Executive - Russian speaker'),
         id: '739a07b1-8697-491b-be30-96a8c0943ce8',
-        keywords: [localize('Customer Support Executive Russian speaker ')],
+        keywords: [localize('Customer Support Executive - Russian speaker')],
         location: malta.name,
         type: [job_types.full_time],
         team: 'customer-support',
@@ -163,7 +163,7 @@ export const customer_support_positions = [
                 'Collaborate with members of our IT team to identify new ways to improve our products and services for customers.',
             ),
             localize(
-                'Collaborate with client support agents in different time zones to ensure optimum results and customer satisfaction.',
+                'Collaborate with customer support agents in different time zones to ensure optimum results and customer satisfaction.',
             ),
             localize('Attend events and seminars organised by our affiliates.\n'),
         ],
@@ -183,9 +183,9 @@ export const customer_support_positions = [
         ],
     },
     {
-        title: localize('Customer Support Executive French speaker'),
+        title: localize('Customer Support Executive - French speaker'),
         id: 'b65f0566-ef1c-445d-b626-573ea3aedaa9',
-        keywords: [localize('Customer Support Executive French speaker')],
+        keywords: [localize('Customer Support Executive - French speaker')],
         location: malta.name,
         type: [job_types.full_time],
         team: 'customer-support',

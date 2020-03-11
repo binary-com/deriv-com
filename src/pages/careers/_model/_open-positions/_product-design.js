@@ -4,9 +4,9 @@ import { localize } from 'components/localization'
 
 export const product_design_positions = [
     {
-        title: localize('Graphics Designer Marketing'),
+        title: localize('Graphics Designer - Marketing'),
         id: '258e889d-c246-4b77-9732-32f773f2ff81',
-        keywords: [localize('Graphics Designer Marketing')],
+        keywords: [localize('Graphics Designer - Marketing')],
         location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'product-design',
@@ -79,7 +79,7 @@ export const product_design_positions = [
             ),
             localize('Experience with design systems that work across a complex product'),
             localize('Interaction design sensibility'),
-            localize('Proficiency in Adobe Photoshop, Illustrator, InDesign, Sketch 3.0'),
+            localize('Proficiency in Adobe Photoshop, Illustrator, InDesign, and Sketch 3.0'),
             localize(
                 'Strong core skills in establishing visual hierarchy, layout, typography, and colour\neffectively and use visual design to organise information and guide people\nthrough tasks',
             ),
@@ -87,9 +87,9 @@ export const product_design_positions = [
         ],
     },
     {
-        title: localize('Graphics Designer Marketing'),
+        title: localize('Graphics Designer - Marketing'),
         id: 'fd8819b4-5093-415e-ba7e-bc22d8c600eb',
-        keywords: [localize('Graphics Designer Marketing')],
+        keywords: [localize('Graphics Designer - Marketing')],
         location: dubai.name,
         type: [job_types.full_time],
         team: 'product-design',
@@ -162,7 +162,7 @@ export const product_design_positions = [
             ),
             localize('Experience with design systems that work across a complex product'),
             localize('Interaction design sensibility'),
-            localize('Proficiency in Adobe Photoshop, Illustrator, InDesign, Sketch 3.0'),
+            localize('Proficiency in Adobe Photoshop, Illustrator, InDesign, and Sketch 3.0'),
             localize(
                 'Strong core skills in establishing visual hierarchy, layout, typography, and colour\neffectively and use visual design to organise information and guide people\nthrough tasks',
             ),
@@ -203,7 +203,7 @@ export const product_design_positions = [
             ),
             localize('Experience with design systems that work across a complex product'),
             localize('Interaction design sensibility'),
-            localize('Proficiency in Adobe Photoshop, Illustrator, InDesign, Sketch 3.0'),
+            localize('Proficiency in Adobe Photoshop, Illustrator, InDesign, and Sketch 3.0'),
             localize(
                 'Strong core skills in establishing visual hierarchy, layout, typography, and colour effectively and use visual design to organise information and guide people through tasks',
             ),

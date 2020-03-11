@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Container } from 'components/containers'
 import { Text, Header, Image } from 'components/elements'
-// Icons
+// SVG
 import ChecklistLogo from 'images/svg/checklist.svg'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import device from 'themes/device'

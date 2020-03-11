@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { localize, Localize } from 'components/localization'
-import { Container, Wrapper, Flex } from 'components/containers'
+import { Container, Box, Flex } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import device from 'themes/device'
 
@@ -74,7 +74,7 @@ const LeadershipWrapper = styled(Flex)`
     @media ${device.tabletL} {
         flex-direction: column;
 
-        ${Wrapper} {
+        ${Box} {
             width: 28.2rem;
             margin-bottom: 4rem;
         }
@@ -158,13 +158,13 @@ const Hero = ({ navigation, setNavigation }) => {
                 {is_leadership && (
                     <ContentWrapper>
                         <LeadershipWrapper mt="4rem" ai="center">
-                            <Wrapper max_width="28.2rem" margin={{ right: '2.4rem' }}>
+                            <Box max_width="28.2rem" mr="2.4rem">
                                 <Image
                                     width="28.2rem"
                                     img_name="jean-yves.png"
                                     alt={localize('Jean Yves')}
                                 />
-                            </Wrapper>
+                            </Box>
 
                             <div>
                                 <LeadershipTitle

@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { LocalizedLink, localize } from '../localization'
+import { Flex } from 'components/containers'
+import { LocalizedLink, localize } from 'components/localization'
+// SVG
 import Arrow from 'images/svg/arrow.svg'
 
 const OffCanvasMenu = styled.section`
@@ -21,20 +23,15 @@ const StyledLink = styled(props => <LocalizedLink {...props} />)`
     font-weight: 400;
     text-decoration: none;
     line-height: 2.8rem;
+
+    &:first-child {
+        margin-top: 2.5rem;
+    }
 `
 const OffCanvasMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 3.6rem;
-
-    div {
-        display: flex;
-        flex-direction: column;
-
-        a:first-child {
-            margin-top: 2.5rem;
-        }
-    }
 `
 const BackArrow = styled(Arrow)`
     cursor: pionter;
@@ -64,14 +61,14 @@ const OffCanvasMenuWrapper = props => {
         <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <BackArrow onClick={handleArrowClick} />
-                <div>
+                <Flex direction="column">
                     <StyledLink to="/about/" onClick={handleArrowClick}>
                         {localize('About us')}
                     </StyledLink>
                     <StyledLink to="/help-centre/" onClick={handleArrowClick}>
                         {localize('Help Centre')}
                     </StyledLink>
-                </div>
+                </Flex>
             </OffCanvasMenuContainer>
         </OffCanvasMenu>
     )

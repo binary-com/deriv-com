@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Margins, Paddings } from 'themes/function'
 
 const Flex = styled.div`
     display: flex;
@@ -7,13 +8,9 @@ const Flex = styled.div`
     height: ${props => (props.height ? props.height : '100%')};
     justify-content: ${props => (props.jc ? props.jc : 'center')};
     align-items: ${props => (props.ai ? props.ai : '')};
-    margin: ${props => (props.m ? props.m : '')};
-    margin-top: ${props => (props.mt ? props.mt : '')};
-    margin-bottom: ${props => (props.mb ? props.mb : '')};
-    margin-right: ${props => (props.mr ? props.mr : '')};
-    margin-left: ${props => (props.ml ? props.ml : '')};
-    padding: ${props => (props.p ? props.p : '')};
     flex-direction: ${props => (props.direction ? props.direction : '')};
+    ${Margins}
+    ${Paddings}
 `
 
 export default Flex

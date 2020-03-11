@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
+import { Flex } from 'components/containers'
 import device from 'themes/device'
+// SVG
 import Arrow from 'images/svg/card-arrow.svg'
 
 export const CardStyle = css`
@@ -32,22 +34,8 @@ const CardCover = styled.div`
     flex-direction: row;
     transform: ${props =>
         props.is_selected ? 'translate3d(-3%, 0, 0)' : 'translate3d(-105%, 0, 0)'};
-
-    div {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 1.6rem;
-        align-items: center;
-
-        h4 {
-            color: var(--color-white);
-            font-size: 2.8rem;
-            font-weight: bold;
-            line-height: 1.25;
-        }
-    }
 `
+
 const CardWrapper = styled.article`
     ${CardStyle}
     position: relative;
@@ -121,12 +109,6 @@ const IconContainer = styled.div`
     display: flex;
     justify-content: center;
 
-    div {
-        svg {
-            width: 8.25rem;
-            height: 8.25rem;
-        }
-    }
     ${Header} {
         display: flex;
         align-items: center;
@@ -162,6 +144,10 @@ export const Card = ({
     padding,
     is_selected,
 }) => {
+    const StyledIcon = styled(Icon)`
+        width: 8.25rem;
+        height: 8.25rem;
+    `
     return (
         <CardWrapper width={width} min_height={min_height} padding={padding}>
             {!children && (
@@ -172,15 +158,19 @@ export const Card = ({
                                 background_color={cover_background}
                                 is_selected={is_selected}
                             >
-                                <div>
-                                    <h4>{cover_content}</h4>
+                                <Flex ai="center" p="0 1.6rem" jc="space-between">
+                                    <Header
+                                        as="h4"
+                                        font_size="var(--text-size-header-2)"
+                                        color="white"
+                                    >
+                                        {cover_content}
+                                    </Header>
                                     <Arrow />
-                                </div>
+                                </Flex>
                             </CardCover>
                             <IconContainer>
-                                <div>
-                                    <Icon />
-                                </div>
+                                <StyledIcon />
                                 <CardContentContainer>
                                     <Header as="h4" weight="bold">
                                         {title}
@@ -207,20 +197,6 @@ export const Card = ({
     )
 }
 
-Card.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-    cover_background: PropTypes.string,
-    cover_content: PropTypes.string,
-    Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-    is_inline_icon: PropTypes.bool,
-    is_selected: PropTypes.bool,
-    min_height: PropTypes.string,
-    padding: PropTypes.string,
-    title: PropTypes.string,
-    width: PropTypes.string,
-}
-
 export const CardChildren = ({ Icon, title, width, children, icon_width, icon_height }) => (
     <CardChildrenWrapper width={width}>
         <Header as="h4" weight="500">
@@ -236,6 +212,20 @@ CardChildren.propTypes = {
     Icon: PropTypes.func,
     icon_height: PropTypes.string,
     icon_width: PropTypes.string,
+    title: PropTypes.string,
+    width: PropTypes.string,
+}
+
+Card.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    cover_background: PropTypes.string,
+    cover_content: PropTypes.string,
+    Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    is_inline_icon: PropTypes.bool,
+    is_selected: PropTypes.bool,
+    min_height: PropTypes.string,
+    padding: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
 }

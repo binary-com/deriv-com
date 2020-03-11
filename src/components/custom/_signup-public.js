@@ -7,6 +7,7 @@ import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
+// SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chervon-right.svg'

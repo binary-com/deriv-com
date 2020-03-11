@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import device from 'themes/device'
+import { Margins, Paddings } from 'themes/function'
 
 const Container = styled.div`
     margin: 0 auto;
@@ -8,12 +9,13 @@ const Container = styled.div`
     justify-content: ${props => (props.justify ? props.justify : 'center')};
     flex-direction: ${props => (props.direction ? props.direction : 'row')};
     width: 80%;
+    ${Margins}
+    ${Paddings}
 
     @media ${device.desktop} {
         max-width: 1200px;
     }
     @media ${device.laptopL} {
-        max-width: 1200px;
         width: 84%;
     }
     @media ${device.desktopL} {

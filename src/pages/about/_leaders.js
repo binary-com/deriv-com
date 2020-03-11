@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer, Container, CssGrid, Flex, Wrapper } from 'components/containers'
+import { SectionContainer, Container, CssGrid, Flex, Box } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
@@ -161,14 +161,14 @@ const Leaders = () => {
                 >
                     {leaders_data.map((leader, index) => (
                         <LeaderWrapper key={index} direction="column" ai="center">
-                            <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
+                            <Box mb="0.8rem" width="100%" position="relative">
                                 <Image img_name={leader.image} alt={leader.name} />
                                 <DescriptionWrapper>
                                     <Text lh="1.71" size="var(--text-size-xs)" color="white">
                                         {leader.description}
                                     </Text>
                                 </DescriptionWrapper>
-                            </Wrapper>
+                            </Box>
                             <StyledHeader as="h4" align="center" lh="3.6rem">
                                 {leader.name}
                             </StyledHeader>

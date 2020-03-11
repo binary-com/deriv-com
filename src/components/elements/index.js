@@ -7,7 +7,6 @@ import Divider from './divider'
 import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
 import Checkbox from './checkbox'
-import Hero from './hero'
 import Image from './image'
 import { StyledLink } from './link'
 import LinearLoader from './loader'
@@ -30,7 +29,6 @@ export {
     DotLoader,
     Dropdown,
     Checkbox,
-    Hero,
     Image,
     StyledLink,
     LinearLoader,

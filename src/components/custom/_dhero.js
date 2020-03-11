@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { deriv_app_url } from 'common/utility'
-import { LocalizedLink, localize } from 'components/localization'
+import { localize } from 'components/localization'
 import { Container, Show, Flex } from 'components/containers'
-import device from 'themes/device.js'
 import { Header, Image } from 'components/elements'
-import { Button } from 'components/form'
+import { Button, LinkButton } from 'components/form'
+import device from 'themes/device.js'
 
 const HeroContent = styled.div`
     display: flex;
@@ -18,9 +18,6 @@ const HeroContent = styled.div`
         color: var(--color-white);
         display: flex;
         margin-top: 1.5rem;
-    }
-    h4:first-child {
-        margin-top: 0;
     }
 `
 const StyledHeader = styled(Header)`
@@ -38,12 +35,8 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
 `
-const TryForFree = styled(Button)`
-    a {
-        text-decoration: none;
-        color: var(--color-white);
-    }
 
+const TryForFree = styled(LinkButton)`
     @media ${device.tabletL} {
         width: 100%;
         margin-top: 18.5rem;
@@ -128,17 +121,13 @@ const DHero = ({
                     <div>
                         <LinkWrapper>
                             {join_us_for_free ? (
-                                <TryForFree secondary="true">
-                                    <LocalizedLink to="/signup/">
-                                        {localize('Create demo account')}
-                                    </LocalizedLink>
+                                <TryForFree secondary="true" to="/signup/">
+                                    {localize('Create demo account')}
                                 </TryForFree>
                             ) : null}
                             {start_automating ? (
-                                <TryForFree secondary="true">
-                                    <LocalizedLink to="/signup/">
-                                        {localize('Start automating')}
-                                    </LocalizedLink>
+                                <TryForFree secondary="true" to="/signup/">
+                                    {localize('Start automating')}
                                 </TryForFree>
                             ) : null}
                             {go_to_live_demo ? (

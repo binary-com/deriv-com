@@ -91,7 +91,6 @@ const NewSignup = () => {
 
 NewSignup.propTypes = {
     autofocus: PropTypes.bool,
-    closeModal: PropTypes.func,
 }
 
 export default WithIntl()(NewSignup)

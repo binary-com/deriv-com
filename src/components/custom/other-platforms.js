@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { SectionContainer, FlexGridContainer } from 'components/containers'
 import { Card, Header } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
@@ -13,28 +13,24 @@ import DBot from 'images/svg/dbot-icon.svg'
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
 `
-
+const icon72 = css`
+    width: 72px;
+    height: 72px;
+`
 const StyledDbot = styled(DBot)`
-    width: 72px;
-    height: 72px;
+    ${icon72}
 `
-
 const StyledDmt5 = styled(DMT5)`
-    width: 72px;
-    height: 72px;
+    ${icon72}
 `
-
 const StyledDTrader = styled(DTrader)`
-    width: 72px;
-    height: 72px;
+    ${icon72}
 `
-
 const StyledHeader = styled(Header)`
     @media ${device.tabletS} {
         font-size: var(--text-size-header-1);
     }
 `
-
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 
@@ -42,7 +38,6 @@ const StyledLink = styled(LocalizedLink)`
         margin: 1rem 0;
     }
 `
-
 const StyledSubHeader = styled(Header)`
     margin: 0.8rem auto;
     max-width: ${props => props.maxWidth || ''};
@@ -57,6 +52,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
         }
     }
 `
+
 export const TraderCard = ({ is_selected }) => (
     <StyledLink to="/dtrader">
         <Card
@@ -71,10 +67,6 @@ export const TraderCard = ({ is_selected }) => (
         />
     </StyledLink>
 )
-const cardProptypes = {
-    is_selected: PropTypes.bool,
-}
-TraderCard.propTypes = { ...cardProptypes }
 
 export const BotCard = ({ is_selected }) => (
     <StyledLink to="/dbot">
@@ -90,7 +82,6 @@ export const BotCard = ({ is_selected }) => (
         />
     </StyledLink>
 )
-BotCard.propTypes = { ...cardProptypes }
 
 export const DMT5Card = ({ is_selected }) => (
     <StyledLink to="/dmt5">
@@ -106,7 +97,6 @@ export const DMT5Card = ({ is_selected }) => (
         />
     </StyledLink>
 )
-DMT5Card.propTypes = { ...cardProptypes }
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
     <SectionContainer padding="0">
@@ -131,6 +121,13 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
         </StyledFlexGridContainer>
     </SectionContainer>
 )
+
+const cardProptypes = {
+    is_selected: PropTypes.bool,
+}
+TraderCard.propTypes = { ...cardProptypes }
+BotCard.propTypes = { ...cardProptypes }
+DMT5Card.propTypes = { ...cardProptypes }
 
 OtherPlatform.propTypes = {
     exclude: PropTypes.string,

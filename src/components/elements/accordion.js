@@ -73,7 +73,13 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
         return 0
     }
     const render_nodes = React.Children.map(children, (child, child_idx) => {
-        const [is_expanded, setExpanded] = useState(is_default_open)
+        const [is_expanded, setExpanded] = useState(false)
+
+        React.useEffect(() => {
+            if (is_default_open) {
+                setExpanded(true)
+            }
+        }, [])
 
         return (
             <div

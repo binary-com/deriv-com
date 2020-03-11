@@ -285,39 +285,6 @@ export const hr_recruitment_positions = [
     },
     {
         title: localize('Office Operations Administrator'),
-        id: 'cea3a9d2-162c-427e-a163-136ae1e72337',
-        keywords: [localize('Office Operations Administrator')],
-        location: malta.name,
-        type: [job_types.full_time],
-        team: 'hr-recruitment',
-        description: [
-            localize(
-                'You will help with the smooth running of our office and its daily operations, while providing our staff with adequate support when needed. You will also welcome our guests with a smile and handle incoming calls and correspondence from vendors, contractors, and others.\n',
-            ),
-        ],
-        responsibilities: [
-            localize(
-                'Maintain a pleasant and friendly company image by welcoming guests to our office and being the first point of contact for all inbound phone calls and correspondence.',
-            ),
-            localize('Keep track of our office supplies and place orders when necessary.'),
-            localize('Keep our employee records updated and accessible.'),
-            localize('Support our staff and help them perform their best at work.'),
-            localize('Assist in the organising of company events and outings.'),
-            localize('Assist in payroll and tax filings.'),
-        ],
-        qualifications: [
-            localize('An advanced/higher/graduate diploma or bachelor’s degree'),
-            localize('Relevant work experience in a related field'),
-            localize('Extensive experience in Microsoft Office applications'),
-            localize('Well-honed organisational, administrative, and accounting skills'),
-            localize('Excellent oral and written communication skills in English and Maltese'),
-            localize(
-                'Oral and written proficiency in multiple European languages, including Italian, is an advantage',
-            ),
-        ],
-    },
-    {
-        title: localize('Office Operations Administrator'),
         id: '7ae92e0a-17f8-4c44-88b6-c9be1e894a0c',
         keywords: [localize('Office Operations Administrator')],
         location: malta.name,

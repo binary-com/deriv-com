@@ -106,13 +106,14 @@ export const front_end_positions = [
                 'In-depth understanding of design guidelines and patterns in the Android and iOS platforms and their differences',
             ),
             localize(
-                'Strong knowledge of the performance tools and optimization techniques in Android or iOS SDKs',
+                'Strong knowledge of the performance tools and optimisation techniques in Android or iOS SDKs',
             ),
             localize('Proven work experience as a mobile developer in Android and iOS'),
         ],
         preferences: [
-            localize('Demonstrable portfolio of released applications on the '),
-            localize('App store and the Android market'),
+            localize(
+                'Demonstrable portfolio of released applications on the App store and the Android market',
+            ),
             localize('Experience in implementing UI animations'),
             localize('Experience in working with finance-related companies\n'),
         ],
@@ -219,7 +220,7 @@ export const front_end_positions = [
                 'Research and test new web technologies and make recommendations on opportunities to improve our user interface.',
             ),
             localize(
-                '-Ensure the design and development of each product is consistent with our style guide, and that everything works as planned with each release.',
+                'Ensure the design and development of each product is consistent with our style guide, and that everything works as planned with each release.',
             ),
         ],
         qualifications: [
@@ -285,7 +286,7 @@ export const front_end_positions = [
                 'Research and test new web technologies and make recommendations on opportunities to improve our user interface.',
             ),
             localize(
-                '-Ensure the design and development of each product is consistent with our style guide, and that everything works as planned with each release.',
+                'Ensure the design and development of each product is consistent with our style guide, and that everything works as planned with each release.',
             ),
         ],
         qualifications: [
@@ -352,13 +353,14 @@ export const front_end_positions = [
                 'In-depth understanding of design guidelines and patterns in the Android and iOS platforms and their differences',
             ),
             localize(
-                'Strong knowledge of the performance tools and optimization techniques in Android or iOS SDKs',
+                'Strong knowledge of the performance tools and optimisation techniques in Android or iOS SDKs',
             ),
             localize('Proven work experience as a mobile developer in Android and iOS'),
         ],
         preferences: [
-            localize('Demonstrable portfolio of released applications on the '),
-            localize('App store and the Android market'),
+            localize(
+                'Demonstrable portfolio of released applications on the App store and the Android market',
+            ),
             localize('Experience in implementing UI animations'),
             localize('Experience in working with finance-related companies\n'),
         ],

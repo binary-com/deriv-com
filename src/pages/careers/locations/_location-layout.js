@@ -167,84 +167,78 @@ export const LocationLayout = ({ location, images }) => {
                         </ImageWrapper>
                     </Flex>
                 </FirstSection>
-                <SectionContainer padding="0rem">
-                    <Header
-                        align="center"
-                        as="h2"
-                        font_size={'var(--text-size-header-1)'}
-                        style={{ marginBottom: '6.4rem' }}
-                    >
-                        {localize('Our office')}
-                    </Header>
-                    <Flex jc="unset">
-                        <Flex direction="column" mr="0.8rem" ai="flex-end">
-                            <Flex mb="0.8rem" jc="flex-end">
-                                <First>
-                                    <QueryImage
-                                        data={images[location.grid_images[0]]}
-                                        width="100%"
-                                    />
-                                </First>
-                                <Second>
-                                    <QueryImage
-                                        data={images[location.grid_images[1]]}
-                                        width="100%"
-                                    />
-                                </Second>
-                            </Flex>
-                            <Third>
-                                <QueryImage data={images[location.grid_images[2]]} width="100%" />
-                            </Third>
-                        </Flex>
-                        <Flex ml="0.8rem" jc="unset">
-                            <Fourth>
-                                <QueryImage data={images[location.grid_images[3]]} width="100%" />
-                            </Fourth>
-                        </Flex>
-                    </Flex>
-                </SectionContainer>
-                <SectionContainer padding="12rem 0">
-                    <LocationCard>
-                        <Flex jc="unset" tablet_direction="column">
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={images[location.map]}
-                                    alt={localize('Map')}
-                                    width="100%"
-                                />
-                            </ImageWrapper>
-                            <Flex p="3.2rem 6rem" direction="column" mw="44.4rem">
-                                <div style={{ maxWidth: '32.4rem' }}>
-                                    <Header as="h3">{localize('Location')}</Header>
-                                    <CardText>{location.map_text}</CardText>
-                                    <Flex jc="unset">
-                                        <Pin />
-                                        {location.google_map_link ? (
-                                            <LinkText
-                                                rel="noopener noreferrer"
-                                                target="_blank"
-                                                href={location.google_map_link}
-                                            >
-                                                {location.address}
-                                            </LinkText>
-                                        ) : (
-                                            <Text>{location.address}</Text>
-                                        )}
-                                    </Flex>
-                                </div>
-                            </Flex>
-                        </Flex>
-                    </LocationCard>
-                </SectionContainer>
+            </Container>
+            <SectionContainer padding="0rem">
                 <Header
                     align="center"
                     as="h2"
                     font_size={'var(--text-size-header-1)'}
                     style={{ marginBottom: '6.4rem' }}
                 >
-                    {localize('Open positions in {{location}}', { location: display_name })}
+                    {localize('Our office')}
                 </Header>
-            </Container>
+                <Flex jc="unset">
+                    <Flex direction="column" mr="0.8rem" ai="flex-end">
+                        <Flex mb="0.8rem" jc="flex-end">
+                            <First>
+                                <QueryImage data={images[location.grid_images[0]]} width="100%" />
+                            </First>
+                            <Second>
+                                <QueryImage data={images[location.grid_images[1]]} width="100%" />
+                            </Second>
+                        </Flex>
+                        <Third>
+                            <QueryImage data={images[location.grid_images[2]]} width="100%" />
+                        </Third>
+                    </Flex>
+                    <Flex ml="0.8rem" jc="unset">
+                        <Fourth>
+                            <QueryImage data={images[location.grid_images[3]]} width="100%" />
+                        </Fourth>
+                    </Flex>
+                </Flex>
+            </SectionContainer>
+            <SectionContainer padding="12rem 0">
+                <LocationCard>
+                    <Flex jc="unset" tablet_direction="column">
+                        <ImageWrapper>
+                            <QueryImage
+                                data={images[location.map]}
+                                alt={localize('Map')}
+                                width="100%"
+                            />
+                        </ImageWrapper>
+                        <Flex p="3.2rem 6rem" direction="column" mw="44.4rem">
+                            <div style={{ maxWidth: '32.4rem' }}>
+                                <Header as="h3">{localize('Location')}</Header>
+                                <CardText>{location.map_text}</CardText>
+                                <Flex jc="unset">
+                                    <Pin />
+                                    {location.google_map_link ? (
+                                        <LinkText
+                                            rel="noopener noreferrer"
+                                            target="_blank"
+                                            href={location.google_map_link}
+                                        >
+                                            {location.address}
+                                        </LinkText>
+                                    ) : (
+                                        <Text>{location.address}</Text>
+                                    )}
+                                </Flex>
+                            </div>
+                        </Flex>
+                    </Flex>
+                </LocationCard>
+            </SectionContainer>
+            <Header
+                align="center"
+                as="h2"
+                font_size={'var(--text-size-header-1)'}
+                style={{ marginBottom: '6.4rem' }}
+            >
+                {localize('Open positions in {{location}}', { location: display_name })}
+            </Header>
             <div style={{ marginBottom: '12rem' }}>
                 <LinkList list_items={mapped_positions} />
             </div>

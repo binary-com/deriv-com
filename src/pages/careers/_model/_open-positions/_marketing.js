@@ -4,9 +4,9 @@ import { localize } from 'components/localization'
 
 export const marketing_positions = [
     {
-        title: localize('Affiliate Marketing Manager Thailand'),
+        title: localize('Affiliate Marketing Manager - Thai speaker'),
         id: '281ed07f-2290-456a-9ab1-57f36cd3e004',
-        keywords: [localize('Affiliate Marketing Manager Thailand')],
+        keywords: [localize('Affiliate Marketing Manager - Thai speaker')],
         location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'marketing',
@@ -34,23 +34,21 @@ export const marketing_positions = [
                 'University degree in marketing, business administration, or any other related discipline',
             ),
             localize(
-                'More than five years’ experience in affiliate marketing, growth hacking, business development, and other closely-related skills',
+                'At least 5 years of experience in affiliate marketing, growth hacking, business development, and other closely-related skills',
             ),
             localize('Exceptional oral and written communication skills in English '),
             localize('Passion for e-commerce or online trading'),
             localize('Friendly and approachable personality'),
             localize('Proactive and get-things-done approach to working'),
             localize('Ability to think critically and exercise good judgment in any situation\n'),
-        ],
-        preferences: [
             localize('Proficiency in Thai'),
-            localize('Experience in the financial services industry\n'),
         ],
+        preferences: [localize('Experience in the financial services industry\n')],
     },
     {
-        title: localize('Affiliate Marketing Manager Vietnam'),
+        title: localize('Affiliate Marketing Manager - Vietnamese speaker'),
         id: '3f48859e-0abd-4852-a3da-9eaf7baec42e',
-        keywords: [localize('Affiliate Marketing Manager Vietnam')],
+        keywords: [localize('Affiliate Marketing Manager - Vietnamese speaker')],
         location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'marketing',
@@ -78,18 +76,16 @@ export const marketing_positions = [
                 'University degree in marketing, business administration, or any other related discipline',
             ),
             localize(
-                'More than five years’ experience in affiliate marketing, growth hacking, business\ndevelopment, and other closely-related skills',
+                'At least 5 years of experience in affiliate marketing, growth hacking, business development, and other closely-related skills',
             ),
             localize('Exceptional oral and written communication skills in English'),
             localize('Passion for e-commerce or online trading'),
             localize('Friendly and approachable personality'),
             localize('Proactive and get-things-done approach to working'),
             localize('Ability to think critically and exercise good judgment in any situation\n'),
-        ],
-        preferences: [
             localize('Proficiency in Vietnamese'),
-            localize('Experience in the financial services industry\n'),
         ],
+        preferences: [localize('Experience in the financial services industry\n')],
     },
     {
         title: localize('PPC Specialist'),
@@ -107,7 +103,7 @@ export const marketing_positions = [
             localize(
                 'Develop, manage, and maintain effective PPC strategies that translate into significant conversion rates.',
             ),
-            localize('Create strong ad campaigns on Google Ads and other advertising platforms'),
+            localize('Create strong ad campaigns on Google Ads and other advertising platforms.'),
             localize(
                 'Devise, monitor, and administer web analytics dashboards and key reporting tools.',
             ),
@@ -130,10 +126,7 @@ export const marketing_positions = [
                 'Excellent command of working with online advertising platforms such as Google Ads, Facebook, Twitter, and Bing',
             ),
             localize(
-                'Strong analytical skills and hands-on experience with popular analytics tools such as ',
-            ),
-            localize(
-                'Google Analytics, Metabase, Tableau, Open Web Analytics, Taplytics, and App Annie\n',
+                'Strong analytical skills and hands-on experience with popular analytics tools such as Google Analytics, Metabase, Tableau, Open Web Analytics, Taplytics, and App Annie',
             ),
         ],
         preferences: [
@@ -148,7 +141,11 @@ export const marketing_positions = [
         location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'marketing',
-        description: [localize('')],
+        description: [
+            localize(
+                `You will be a strategic thinker, a creative problem solver, and a geek for data. You'll be the mastermind behind campaigns that increase brand recognition, trust, and customer acquisition. You will grow and lead a team of digital marketers to drive robust marketing results. Our ideal candidate is collaborative, an effective communicator, and experienced in a variety of marketing channels.`,
+            ),
+        ],
         responsibilities: [
             localize(
                 'Develop marketing campaigns that span across the web, social media, email, search engine marketing, and other online and offline media.',
@@ -160,7 +157,7 @@ export const marketing_positions = [
                 'Establish, track, and improve response rates, conversion rates, pipeline, and ROI across marketing campaigns.',
             ),
             localize(
-                'Build strong working relationships with key internal teams, including customer support, business intelligence and product design.',
+                'Build strong working relationships with key internal teams, including Customer Support, Business Intelligence, and Product Design.',
             ),
             localize(
                 'Work with our copywriters and designers to ideate content for marketing campaigns.',
@@ -173,7 +170,7 @@ export const marketing_positions = [
             ),
         ],
         qualifications: [
-            localize('A university degree in Marketing, Communications, or Business'),
+            localize('A university degree in marketing, communications, or business'),
             localize('Excellent understanding of data to drive impactful actions'),
             localize(
                 'Strong understanding of technology trends, market best practice, and digital marketing tools',
@@ -213,6 +210,9 @@ export const marketing_positions = [
             localize(
                 'Ensure that all design materials used across all marketing channels are optimised for planned goals',
             ),
+            localize(
+                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
+            ),
         ],
         qualifications: [
             localize(
@@ -220,9 +220,6 @@ export const marketing_positions = [
             ),
             localize('In-depth understanding of marketing fundamentals and best practices'),
             localize('Superb design skills with an exceptional eye for detail'),
-            localize(
-                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
-            ),
             localize(
                 'Awareness of cultural nuances and the need to adapt design according to a particular target market',
             ),
@@ -268,7 +265,7 @@ export const marketing_positions = [
             ),
         ],
         qualifications: [
-            localize('A university degree in Marketing, Communications, or Business'),
+            localize('A university degree in marketing, communications, or business'),
             localize(
                 'Familiar with Search Engine Optimisation (SEO), Pay-Per-Click (PPC), and Social Media Marketing concepts',
             ),
@@ -374,6 +371,9 @@ export const marketing_positions = [
             localize(
                 'Ensure that all design materials used across all marketing channels are optimised for planned goals.',
             ),
+            localize(
+                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
+            ),
         ],
         qualifications: [
             localize(
@@ -381,9 +381,6 @@ export const marketing_positions = [
             ),
             localize('In-depth understanding of marketing fundamentals and best practices'),
             localize('Superb design skills with an exceptional eye for detail'),
-            localize(
-                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
-            ),
             localize(
                 'Awareness of cultural nuances and the need to adapt design according to a particular target market',
             ),
@@ -436,7 +433,7 @@ export const marketing_positions = [
                 'A university degree in marketing, business administration, or any other related discipline',
             ),
             localize(
-                'Over 10 years’ experience in affiliate marketing, business development, and other closely-related skills',
+                'At least 10 years of experience in affiliate marketing, business development, and other closely-related skills',
             ),
             localize('Exceptional oral and written English communication skills'),
             localize('Willingness to travel extensively to meet potential and existing partners'),
@@ -505,9 +502,9 @@ export const marketing_positions = [
         ],
     },
     {
-        title: localize('Global Affiliates and Introducing Broker Executive (for Africa)'),
+        title: localize('Global Affiliates and Introducing Broker Executive - Africa'),
         id: '956ddd91-adf3-49a6-94a5-ada84da21a93',
-        keywords: [localize('Global Affiliates and Introducing Broker Executive (for Africa)')],
+        keywords: [localize('Global Affiliates and Introducing Broker Executive - Africa')],
         location: dubai.name,
         type: [job_types.full_time],
         team: 'marketing',
@@ -536,28 +533,24 @@ export const marketing_positions = [
         ],
         qualifications: [
             localize(
-                'A university degree in marketing, business administration, or any other related discipline.',
+                'A university degree in marketing, business administration, or any other related discipline',
             ),
             localize(
-                'Outstanding market research skills and a keen understanding of the consumer journey.',
+                'Outstanding market research skills and a keen understanding of the consumer journey',
+            ),
+            localize('Experience in affiliate marketing, growth hacking, and business development'),
+            localize(
+                'Experience in using a wide range of digital marketing tools and affiliate management platforms',
             ),
             localize(
-                'Experience in affiliate marketing, growth hacking, and business development.',
+                'An assertive, sales-driven personality and the ability to adapt quickly and achieve powerful results',
             ),
-            localize(
-                'Experience in using a wide range of digital marketing tools and affiliate management\nplatforms.',
-            ),
-            localize(
-                'An assertive, sales-driven personality and the ability to adapt quickly and achieve\npowerful results.',
-            ),
-            localize('Strong oral and written communication skills in English.'),
-            localize('Knowledge and experience in the financial services industry.'),
-            localize('A passion for finance and technology.'),
+            localize('Strong oral and written communication skills in English'),
+            localize('Knowledge and experience in the financial services industry'),
+            localize('A passion for finance and technology'),
+            localize('Proficiency in French and/or African languages'),
         ],
-        preferences: [
-            localize('IT knowledge or experience'),
-            localize('Proficiency in French and/or African languages\n'),
-        ],
+        preferences: [localize('IT knowledge or experience')],
     },
     {
         title: localize('Search Engine Marketing Manager'),
@@ -586,14 +579,13 @@ export const marketing_positions = [
             localize('Work closely with other teams to achieve marketing objectives.'),
         ],
         qualifications: [
-            localize('At least one year of experience in SEM'),
-            localize('Experience with advertising campaigns on Google, Yahoo, Bing, Yandex, etc.'),
+            localize('At least 1 year of experience in SEM'),
+            localize('Experience with advertising campaigns on Google, Yahoo, Bing, Yandex, etc'),
             localize('Experience in working with semantic core and keyword optimisation'),
             localize(
-                'Familiar with advertising formulas such as conversion rate (CR), click-through rate (CTR), return on investment (ROI), lifetime value (LTV), average revenue per user (ARPU), etc.',
+                'Familiar with advertising formulas such as conversion rate (CR), click-through rate (CTR), return on investment (ROI), lifetime value (LTV), average revenue per user (ARPU), etc',
             ),
             localize('Good oral and written communication skills in English'),
-            ' translate',
         ],
         preferences: [
             localize('Education in the field of online marketing'),
@@ -615,7 +607,7 @@ export const marketing_positions = [
         responsibilities: [
             localize('Implement SMM campaigns across various social media channels. '),
             localize(
-                'Drive shortand long-term lead generation strategies to improve lead quality and conversion in our target markets.',
+                'Drive short- and long-term lead generation strategies to improve lead quality and conversion in our target markets',
             ),
             localize(
                 'Build awareness and online reputation of our brand on social media networks.',
@@ -627,7 +619,7 @@ export const marketing_positions = [
         ],
         qualifications: [
             localize('At least 1 year of experience in SMM'),
-            localize('Experience in running ads on YouTube, Facebook, Twitter, Instagram'),
+            localize('Experience in running ads on YouTube, Facebook, Twitter, and Instagram'),
             localize('Experience in marketing via Telegram, WhatsApp, Viber, WeChat'),
             localize('Experience in creating and implementing content plans'),
             localize('Familiar with targeting and audience segmentation'),
@@ -638,13 +630,9 @@ export const marketing_positions = [
         ],
     },
     {
-        title: localize(
-            'Global Affiliates and Introducing Broker Executive (for the CIS countries)',
-        ),
+        title: localize('Global Affiliates and Introducing Broker Executive - CIS countries'),
         id: '0576814b-3e18-44c2-abc6-7b799da07e3d',
-        keywords: [
-            localize('Global Affiliates and Introducing Broker Executive (for the CIS countries)'),
-        ],
+        keywords: [localize('Global Affiliates and Introducing Broker Executive - CIS countries')],
         location: dubai.name,
         type: [job_types.full_time],
         team: 'marketing',
@@ -717,7 +705,7 @@ export const marketing_positions = [
             ),
         ],
         qualifications: [
-            localize('A university degree in Marketing, Communications, or Business'),
+            localize('A university degree in marketing, communications, or business'),
             localize(
                 'Familiar with Search Engine Optimisation (SEO), Pay-Per-Click (PPC), and Social Media Marketing concepts',
             ),
@@ -757,6 +745,9 @@ export const marketing_positions = [
             localize(
                 'Ensure that all design materials used across all marketing channels are optimised for planned goals.',
             ),
+            localize(
+                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
+            ),
         ],
         qualifications: [
             localize(
@@ -764,9 +755,6 @@ export const marketing_positions = [
             ),
             localize('In-depth understanding of marketing fundamentals and best practices'),
             localize('Superb design skills with an exceptional eye for detail'),
-            localize(
-                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
-            ),
             localize(
                 'Awareness of cultural nuances and the need to adapt design according to a particular target market',
             ),
@@ -867,7 +855,7 @@ export const marketing_positions = [
                 'University degree in marketing, business administration, or any other related discipline',
             ),
             localize(
-                'More than five years’ experience in affiliate marketing, growth hacking, business development, and other closely-related skills',
+                'At least 5 years of experience in affiliate marketing, growth hacking, business development, and other closely-related skills',
             ),
             localize('Exceptional oral and written communication skills in English and Spanish'),
             localize('Passion for e-commerce or online trading'),
@@ -907,14 +895,13 @@ export const marketing_positions = [
             localize('Work closely with other teams to achieve marketing objectives.'),
         ],
         qualifications: [
-            localize('At least one year of experience in SEM'),
+            localize('At least 1 year of experience in SEM'),
             localize('Experience with advertising campaigns on Google, Yahoo, Bing, Yandex, etc.'),
             localize('Experience in working with semantic core and keyword optimisation'),
             localize(
                 'Familiar with advertising formulas such as conversion rate (CR), click-through rate (CTR), return on investment (ROI), lifetime value (LTV), average revenue per user (ARPU), etc.',
             ),
             localize('Good oral and written communication skills in English'),
-            ' translate',
         ],
         preferences: [
             localize('Education in the field of online marketing'),
@@ -936,7 +923,7 @@ export const marketing_positions = [
         responsibilities: [
             localize('Implement SMM campaigns across various social media channels. '),
             localize(
-                'Drive shortand long-term lead generation strategies to improve lead quality and conversion in our target markets.',
+                'Drive short- and long-term lead generation strategies to improve lead quality and conversion in our target markets',
             ),
             localize(
                 'Build awareness and online reputation of our brand on social media networks.',
@@ -948,7 +935,7 @@ export const marketing_positions = [
         ],
         qualifications: [
             localize('At least 1 year of experience in SMM'),
-            localize('Experience in running ads on YouTube, Facebook, Twitter, Instagram'),
+            localize('Experience in running ads on YouTube, Facebook, Twitter, and Instagram'),
             localize('Experience in marketing via Telegram, WhatsApp, Viber, WeChat'),
             localize('Experience in creating and implementing content plans'),
             localize('Familiar with targeting and audience segmentation'),

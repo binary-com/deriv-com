@@ -26,11 +26,11 @@ export const project_management_positions = [
             localize('Ensure rigorous quality control for all products.'),
             localize('Identify potential roadblocks and create resolution strategies.'),
             localize(
-                'Collaborate with all the departments and management to make sure that projects are progressing in sync with our shortand long-term goals. \n',
+                'Collaborate with all the departments and management to make sure that projects are progressing in sync with our short- and long-term goals',
             ),
         ],
         qualifications: [
-            localize('University degree in an ITor business-related field'),
+            localize('University degree in an IT- or business-related field'),
             localize('More than 5 years of work experience'),
             localize('Decision-making, team-building, and problem-solving skills'),
             localize(
@@ -71,11 +71,11 @@ export const project_management_positions = [
             localize('Ensure rigorous quality control for all products.'),
             localize('Identify potential roadblocks and create resolution strategies.'),
             localize(
-                'Collaborate with all the departments and management to make sure that projects are progressing in sync with our shortand long-term goals. ',
+                'Collaborate with all the departments and management to make sure that projects are progressing in sync with our short- and long-term goals',
             ),
         ],
         qualifications: [
-            localize('University degree in an ITor business-related field'),
+            localize('University degree in an IT- or business-related field'),
             localize('More than 5 years of work experience'),
             localize('Decision-making, team-building, and problem-solving skills'),
             localize(

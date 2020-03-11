@@ -47,7 +47,7 @@ export const content_positions = [
                 'Degree or practical experience in English, journalism, technical writing, or a related field',
             ),
             localize('Experience with content strategy, UX, information architecture, and SEO'),
-            localize('Experience with financial products and service'),
+            localize('Experience with financial products and services'),
         ],
     },
     {

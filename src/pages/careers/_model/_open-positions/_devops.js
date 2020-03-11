@@ -23,11 +23,11 @@ export const devops_positions = [
                 'Keep things running. Systems do break from time to time. When they break, your job will be to make it work again. Once it works, walk the developers through the failure so they can prevent it from breaking again.',
             ),
             localize(
-                'Keep our systems secure. We have a dedicated security team, but you’ll also need to be ready to fight off intrusions. ',
+                'Keep our systems secure. We have a dedicated security team, but you’ll also need to be ready to fight off intrusions.',
             ),
             localize('Defeat any attempts at breaking into our systems.'),
             localize(
-                'Help us improve continuously. If you have suggestions for making things better, we’d love to hear about it',
+                'Help us improve continuously. If you have suggestions for making things better, we’d love to hear about it.',
             ),
         ],
         qualifications: [
@@ -47,13 +47,13 @@ export const devops_positions = [
             ),
             localize('Experience in Site reliability engineering (SRE)'),
             localize(
-                'Experience in Managing round-the-clock operations for incident resolution, including alerts, rotations, and escalations',
+                'Experience in managing round-the-clock operations for incident resolution, including alerts, rotations, and escalations',
             ),
             localize(
-                'Experience in Designing and working with high-availability web service architecture',
+                'Experience in designing and working with high-availability web service architecture',
             ),
-            localize('Experience in Application containerization (preferably Docker)'),
-            localize('Experience in Database administration (preferably PostgresSQL)'),
+            localize('Experience in application containerization (preferably Docker)'),
+            localize('Experience in database administration (preferably PostgresSQL)'),
         ],
         preferences: [
             localize('Extensive knowledge of information security and data protection'),
@@ -61,7 +61,7 @@ export const devops_positions = [
             localize('Familiarity with Perl, Python, and other scripting languages'),
             localize('Knowledge of industry-accepted IS standards'),
             localize(
-                'Experience in: \n    Hardening Linux systems\n    CI tools such as Travis-CI, CircleCI, Jenkins etc.\n    Documentation of processes and incidents\n    Version Control software (Git)\n    Windows Server Administration (IIS, MS-SQL\n',
+                'Experience in hardening Linux systems; CI tools such as Travis-CI, CircleCI, Jenkins etc.; documentation of processes and incidents; version control software (Git); and Windows Server Administration (IIS, MS-SQL)',
             ),
         ],
     },
@@ -83,7 +83,7 @@ export const devops_positions = [
                 'Keep things running. Systems do break from time to time. When they break, your job will be to make it work again. Once it works, walk the developers through the failure so they can prevent it from breaking again.',
             ),
             "Keep our systems secure. We have a dedicated security team, but you'll also need to be ready to fight off intrusions. Defeat any attempts at breaking into our systems. translate",
-            "Help us improve continuously. If you have suggestions for making things better, we'd love to hear about it. translate",
+            "Help us improve continuously. If you have suggestions for making things better, we'd love to hear about it.",
         ],
         qualifications: [
             localize(
@@ -101,7 +101,7 @@ export const devops_positions = [
                 'Knowledge of Chef, Ansible, SaltStack, or similar configuration management tools',
             ),
             localize(
-                'Experience in:\n     Site reliability engineering (SRE)\n     Managing round-the-clock operations for incident resolution, including alerts,  rotations, and escalations\n     Designing and working with high-availability web service architecture\n     Application containerization (preferably Docker)\n     Database administration (preferably PostgreSQL)',
+                'Experience in Site Reliability Engineering (SRE); managing round-the-clock operations for incident resolution, including alerts,  rotations, and escalations; designing and working with high-availability web service architecture; application containerization (preferably Docker); and database administration (preferably PostgreSQL)',
             ),
         ],
         preferences: [
@@ -110,7 +110,7 @@ export const devops_positions = [
             localize('Familiarity with Perl, Python, and other scripting languages'),
             localize('Knowledge of industry-accepted IS standards'),
             localize(
-                'Experience in: \n       Hardening Linux systems\n       CI tools such as Travis-CI, CircleCI, Jenkins etc.\n       Documentation of processes and incidents\n       Version Control software (Git)\n       Windows Server Administration (IIS, MS-SQL)\n',
+                'Experience in hardening Linux systems; CI tools such as Travis-CI, CircleCI, Jenkins etc.; documentation of processes and incidents; version control software (Git); and Windows Server Administration (IIS, MS-SQL)',
             ),
         ],
     },

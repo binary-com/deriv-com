@@ -55,7 +55,7 @@ export const quality_assurance_positions = [
         ],
         preferences: [
             localize('Experience with Postgres or another RDBMS'),
-            localize('Extensive knowledge of JavaScript , AJAX, JSON, CSS'),
+            localize('Extensive knowledge of JavaScript , AJAX, JSON, and CSS'),
             localize(
                 'Proficiency with one or more programming languages, such as Python, PHP, C/C++, or Perl (preferred)',
             ),

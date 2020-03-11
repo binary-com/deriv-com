@@ -34,7 +34,7 @@ export const back_end_positions = [
         ],
         qualifications: [
             localize(
-                'Experience as a DBA, with a focus on:\n    database setup\n    security\n    replication\n    performance tuning\n     disaster recovery',
+                'Experience as a DBA, with a focus on database setup, security, replication, performance tuning, and disaster recovery',
             ),
             localize('SQL queries and optimisation'),
             localize('Excellent troubleshooting skills'),
@@ -139,7 +139,7 @@ export const back_end_positions = [
         ],
         qualifications: [
             localize(
-                'Experience as a DBA, with a focus on:\n      database setup\n      security\n      replication\n      performance tuning\n      disaster recovery\n      SQL queries and optimisation',
+                'Experience as a DBA, with a focus on database setup, security, replication, performance tuning, and disaster recovery',
             ),
             localize('Excellent troubleshooting skills'),
             localize('Experience with database testing tools such as pgtap'),
@@ -168,7 +168,7 @@ export const back_end_positions = [
                 'Build, maintain, and optimise the technology that powers our servers, applications, and databases.',
             ),
             localize(
-                'Collaborating with front-end developers and other teams to develop an effective architecture to support the deployment of new products and features.',
+                'Collaborate with front-end developers and other teams to develop an effective architecture to support the deployment of new products and features.',
             ),
             localize(
                 'Troubleshoot and debug problems in applications during development and deployment.',
@@ -230,7 +230,7 @@ export const back_end_positions = [
         ],
         qualifications: [
             localize(
-                'Experience as a Postgres DBA, with advanced hands-on knowledge of:\n       Database Setup\n       Security\n       Replication\n       Performance Tuning\n       Disaster Recovery\n       SQL\n       Stored Procedures',
+                'Experience as a Postgres DBA, with advanced hands-on knowledge of database setup, security, replication, performance tuning, disaster recovery, SQL, and stored procedures',
             ),
             localize('Experience with database testing tools such as pgTAP'),
             localize('Experience with data extraction and reporting for data warehouse/cube'),

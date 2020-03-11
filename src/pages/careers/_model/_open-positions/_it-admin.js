@@ -50,7 +50,7 @@ export const it_admin_positions = [
         ],
         preferences: [
             localize(
-                'Experience in one or more of the following:\n      +DRAC\n      ARUBA or similar enterprise WiFi AP management\n      End-user device security audit and policy implementation\n',
+                'Experience in one or more of the following: DRAC; ARUBA or similar enterprise WiFi AP management; and end-user device security audit and policy implementation',
             ),
         ],
     },
@@ -101,7 +101,7 @@ export const it_admin_positions = [
         ],
         preferences: [
             localize(
-                'Experience in one or more of the following\n       +DRAC\n       ARUBA or similar enterprise WiFi AP management\n       End-user device security audit and policy implementation\n',
+                'Experience in one or more of the following: DRAC; ARUBA or similar enterprise WiFi AP management; and end-user device security audit and policy implementation',
             ),
         ],
     },

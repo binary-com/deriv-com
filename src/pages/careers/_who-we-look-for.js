@@ -68,7 +68,7 @@ const BoldSpan = styled.span`
 `
 
 const DescText = styled(ParimaryText)`
-    max-width: 38.4rem;
+    max-width: ${props => (props.mw ? props.mw : '38rem')};
     margin-bottom: 3.2rem;
 
     &:last-child {
@@ -140,7 +140,7 @@ const WhoWeLookFor = () => {
                                 components={[<BoldSpan key={0} />]}
                             />
                         </DescText>
-                        <DescText>
+                        <DescText mw="40.7rem">
                             <Localize
                                 translate_text="<0>We’re purpose-driven.</0> Our customers are at the heart of everything we do, and that drives us to succeed. We value commitment over complacency and accept challenges rather than the status quo. "
                                 components={[<BoldSpan key={0} />]}

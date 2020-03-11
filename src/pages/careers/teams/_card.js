@@ -21,7 +21,7 @@ const StyledChevron = styled(Chevron)`
     transform: rotate(90deg);
     position: absolute;
     right: -2.4rem;
-    top: 0.3rem;
+    top: 0.5rem;
 
     & polyline {
         stroke-width: 2;
@@ -42,6 +42,7 @@ const StyledText = styled(Text)`
     text-decoration: none;
     position: relative;
     font-size: var(--text-size-s);
+    max-width: fit-content;
     opacity: ${props => (props.disabled ? '0.32' : '1')};
 
     &:hover {

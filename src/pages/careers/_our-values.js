@@ -15,6 +15,11 @@ const StyledHeader = styled(Header)`
 
 const GridItem = styled(Flex)`
     justify-content: flex-start;
+
+    svg {
+        width: 6.4rem;
+        height: 6.4rem;
+    }
 `
 
 const MiddleText = styled(Header)`
@@ -24,7 +29,7 @@ const MiddleText = styled(Header)`
 
 const OurValues = () => (
     <SectionContainer style={{ backgroundColor: 'rgba(242,243,244,0.3)' }}>
-        <Container direction="column">
+        <Container direction="column" style={{ display: 'grid' }}>
             <StyledHeader as="h3" align="center">
                 {localize('Our values')}
             </StyledHeader>
@@ -48,20 +53,20 @@ const OurValues = () => (
                     </Text>
                 </GridItem>
                 <GridItem direction="column">
-                    <Competence />
-                    <MiddleText as="h4">{localize('Competence')}</MiddleText>
-                    <Text>
-                        {localize(
-                            'We love to work with smart and talented people who are eager to roll up their sleeves and get things done.',
-                        )}
-                    </Text>
-                </GridItem>
-                <GridItem direction="column">
                     <Customer />
                     <MiddleText as="h4">{localize('Customer focus')}</MiddleText>
                     <Text>
                         {localize(
                             'We always put our customers first and dedicate ourselves to building products and services that give them the best trading experience possible.',
+                        )}
+                    </Text>
+                </GridItem>
+                <GridItem direction="column">
+                    <Competence />
+                    <MiddleText as="h4">{localize('Competence')}</MiddleText>
+                    <Text>
+                        {localize(
+                            'We love to work with smart and talented people who are eager to roll up their sleeves and get things done.',
                         )}
                     </Text>
                 </GridItem>

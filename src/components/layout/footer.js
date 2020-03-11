@@ -181,7 +181,7 @@ const Footer = () => (
             <StyledGrid columns="repeat(12, 1fr)" columngap="2.4rem" rowgap="3.9rem">
                 <InfoSection>
                     <Logo width="14.5rem" />
-                    <Text>
+                    <Text style={{ maxWidth: '28.2rem' }}>
                         {localize(
                             'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.',
                         )}

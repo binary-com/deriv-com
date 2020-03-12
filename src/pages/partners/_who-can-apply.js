@@ -85,6 +85,7 @@ const LineVertical = styled(LineVerticalSVG)`
         margin-top: 13.5rem;
     }
 `
+
 const WhoCanApply = () => {
     return (
         <SectionWrapper padding="8rem 0 4rem">
@@ -187,6 +188,19 @@ const WhoCanApply = () => {
             </CenteredSection>
         </SectionWrapper>
     )
+}
+
+export {
+    StyledSection,
+    SectionWrapper,
+    CenteredSection,
+    Col,
+    Wrapper,
+    Content,
+    Separator,
+    StyledHeader,
+    SecondaryHeader,
+    LineVertical,
 }
 
 export default WhoCanApply

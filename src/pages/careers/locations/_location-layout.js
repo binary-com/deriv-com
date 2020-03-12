@@ -135,7 +135,7 @@ export const LocationLayout = ({ location, images }) => {
     const { display_name, name } = location
     if (!display_name) return null
 
-    const positions = getPositionsByLocation(name)
+    const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
     const mapped_positions = positions
         ? positions.map(position => ({
               text: position.title,

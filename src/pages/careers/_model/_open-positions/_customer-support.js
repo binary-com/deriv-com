@@ -33,7 +33,10 @@ export const customer_support_positions = [
                 'Collaborate with customer support agents in different time zones to ensure optimum results and customer satisfaction.',
             ),
         ],
-        qualifications: [localize('Exceptional oral and written communication skills in English')],
+        qualifications: [
+            localize('Exceptional oral and written communication skills in English'),
+            localize('Analytical and problem solving skills'),
+        ],
         preferences: [
             localize(
                 'University degree in marketing, IT, or a related field or equivalent practical experience in technical customer support',
@@ -72,7 +75,10 @@ export const customer_support_positions = [
                 'Collaborate with customer support agents in different time zones to ensure optimum results and customer satisfaction.',
             ),
         ],
-        qualifications: [localize('Exceptional oral and written communication skills in English')],
+        qualifications: [
+            localize('Exceptional oral and written communication skills in English'),
+            localize('Analytical and problem solving skills'),
+        ],
         preferences: [
             localize(
                 'University degree in marketing, IT, or a related field or equivalent practical experience in technical customer support',
@@ -82,9 +88,9 @@ export const customer_support_positions = [
         ],
     },
     {
-        title: localize('Client Support Executive'),
+        title: localize('Customer Service Executive'),
         id: '5ab8d6b1-2653-4808-a15a-6aa154487c92',
-        keywords: [localize('Client Support Executive')],
+        keywords: [localize('Customer Service Executive')],
         location: asuncion.name,
         type: [job_types.full_time],
         team: 'customer-support',
@@ -125,6 +131,7 @@ export const customer_support_positions = [
                 'Exceptional oral and written communication skills in Spanish and/or Portuguese',
             ),
             localize('Proficiency in oral and written English\n'),
+            localize('Analytical and problem solving skills'),
         ],
         preferences: [
             localize('University degree in marketing, computer science, or any related field'),

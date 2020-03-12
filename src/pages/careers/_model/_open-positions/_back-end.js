@@ -4,9 +4,9 @@ import { localize } from 'components/localization'
 
 export const back_end_positions = [
     {
-        title: localize('Database Administrator '),
+        title: localize('Database Administrator'),
         id: '43130a72-bcd8-4927-8465-9458d43f7a12',
-        keywords: [localize('Database Administrator ')],
+        keywords: [localize('Database Administrator')],
         location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'back-end',
@@ -42,6 +42,8 @@ export const back_end_positions = [
             localize(
                 'Knowledge of Linux system administration, preferably including configuration and automation tools such as Chef as well as shell scripting',
             ),
+        ],
+        preferences: [
             localize('Experience with PostgreSQL and/or SQL Server preferred'),
             localize('Experience with OLAP and MDX would be an advantage\n'),
         ],
@@ -139,7 +141,7 @@ export const back_end_positions = [
         ],
         qualifications: [
             localize(
-                'Experience as a DBA, with a focus on database setup, security, replication, performance tuning, and disaster recovery',
+                'Experience as a DBA, with a focus on database setup, security, replication, performance tuning, disaster recovery, and SQL queries and optimisation',
             ),
             localize('Excellent troubleshooting skills'),
             localize('Experience with database testing tools such as pgtap'),
@@ -147,8 +149,8 @@ export const back_end_positions = [
                 'Knowledge of Linux system administration, preferably including configuration and automation tools such as Chef as well as shell scripting',
             ),
             localize('Experience with PostgreSQL and/or SQL Server preferred'),
-            localize('Experience with OLAP and MDX would be an advantage'),
         ],
+        preferences: [localize('Experience with OLAP and MDX would be an advantage')],
     },
     {
         title: localize('Back-end Developer'),
@@ -237,6 +239,8 @@ export const back_end_positions = [
             localize(
                 'Knowledge of Linux system administration, including configuration and automation tools such as Chef as well as Shell scripting is preferred',
             ),
+        ],
+        preferences: [
             localize('Knowledge of Perl and other scripting languages is a plus'),
             localize('Experience with Multidimensional Expressions (MDX) is an advantage'),
         ],

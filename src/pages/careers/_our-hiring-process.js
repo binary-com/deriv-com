@@ -218,7 +218,7 @@ const OurHiringProcess = () => (
                 <ResponsiveFlex1 direction="row">
                     <TipsCard
                         content={localize(
-                            "Apply for the jobs that match your skills and interest. If you want, link to your portfolio or other examples of work that demonstrate you're the one for the role.",
+                            "Apply for the jobs that match your skills and interest. If you want, link or add your portfolio or other samples of work that demonstrate you're the one for the role.",
                         )}
                         style={{ marginTop: '4.7rem' }}
                         right

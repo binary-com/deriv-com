@@ -186,7 +186,7 @@ export const all_teams = [
         name: 'customer-support',
         thumbnail: 'team-customer-support',
         description: localize(
-            'We care about our customers and we love it when we see them succeed. Our team is always looking for ways to help our clients better understand our products and overcome any challenges that they might have.',
+            'We care about our customers and we love it when we see them succeed. Our team empowers our customers by keeping their needs at the forefront of every interaction.',
         ),
         card_description: localize(
             'Genuine about making our clients happy, we’re here to provide them with helpful solutions.',

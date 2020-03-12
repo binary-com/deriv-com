@@ -202,7 +202,7 @@ const kelcent = {
     index: 1,
 }
 const negar = {
-    name: localize('Negar Naghshbandi, Front-end Developer and Team Lead'),
+    name: localize('Negar Naghshbandi, Front-end Team Lead'),
     img_path: NegarImage,
     quote: localize(
         'The most exciting thing for me is the culture of the company and the people I work with. I learn something new everyday and I can pair-program with anyone when needed because everyone is approachable and eager to help.',

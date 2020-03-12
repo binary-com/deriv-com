@@ -175,7 +175,6 @@ export const compliance_positions = [
             localize('Strong organisational skills and ability to work proactively'),
             localize('High level of integrity, reliability, and work ethic'),
         ],
-        preferences: [localize('Excellent command of written and spoken Portuguese or Indonesian')],
     },
     // {
     //     title: localize('Systems Integrator'),
@@ -404,15 +403,13 @@ export const compliance_positions = [
                 'A bachelor’s degree in commerce or any business-related field, IT-related field, or criminology',
             ),
             localize(
+                'Knowledge of payment transaction analysis, in particular e-wallets and cryptocurrencies ',
+            ),
+            localize(
                 'Good understanding of payments functionality and a keen interest in cryptocurrencies',
             ),
             localize('Proficiency in Microsoft Excel '),
             localize('Proficiency in spoken and written English\n'),
-        ],
-        preferences: [
-            localize(
-                'Knowledge of payment transaction analysis, in particular e-wallets and cryptocurrencies ',
-            ),
         ],
     },
     {

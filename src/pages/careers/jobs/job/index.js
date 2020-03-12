@@ -123,7 +123,11 @@ const Job = () => {
                         ))}
                 </Ul>
 
-                <DescHeader as="h4">{localize('Minimum qualifications:')}</DescHeader>
+                <DescHeader as="h4">
+                    {job.qualifications.length > 1
+                        ? localize('Minimum qualifications:')
+                        : localize('Minimum qualification:')}
+                </DescHeader>
                 <Ul>
                     {job.qualifications &&
                         job.qualifications.map((qualification, idx) => (
@@ -134,7 +138,11 @@ const Job = () => {
                 </Ul>
                 {job.preferences && (
                     <>
-                        <DescHeader as="h4">{localize('Preferred qualification:')}</DescHeader>
+                        <DescHeader as="h4">
+                            {job.preferences.length > 1
+                                ? localize('Preferred qualifications:')
+                                : localize('Preferred qualification:')}
+                        </DescHeader>
                         <Ul>
                             {job.preferences &&
                                 job.preferences.map((preference, idx) => (

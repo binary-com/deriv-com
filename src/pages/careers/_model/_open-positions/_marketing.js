@@ -210,9 +210,6 @@ export const marketing_positions = [
             localize(
                 'Ensure that all design materials used across all marketing channels are optimised for planned goals',
             ),
-            localize(
-                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
-            ),
         ],
         qualifications: [
             localize(
@@ -232,6 +229,11 @@ export const marketing_positions = [
             ),
             localize(
                 'Experience conducting performance reviews, as well as recruiting and onboarding new team members',
+            ),
+        ],
+        preferences: [
+            localize(
+                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
             ),
         ],
     },
@@ -371,9 +373,6 @@ export const marketing_positions = [
             localize(
                 'Ensure that all design materials used across all marketing channels are optimised for planned goals.',
             ),
-            localize(
-                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
-            ),
         ],
         qualifications: [
             localize(
@@ -393,6 +392,11 @@ export const marketing_positions = [
             ),
             localize(
                 'Experience conducting performance reviews, as well as recruiting and onboarding new team members',
+            ),
+        ],
+        preferences: [
+            localize(
+                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
             ),
         ],
     },
@@ -628,6 +632,7 @@ export const marketing_positions = [
             localize('Ability to write interesting and competent ads in at least one language'),
             localize('Good oral and written communication skills in English'),
         ],
+        preferences: [localize('Proficiency with other languages other than English')],
     },
     {
         title: localize('Global Affiliates and Introducing Broker Executive - CIS countries'),
@@ -745,9 +750,6 @@ export const marketing_positions = [
             localize(
                 'Ensure that all design materials used across all marketing channels are optimised for planned goals.',
             ),
-            localize(
-                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
-            ),
         ],
         qualifications: [
             localize(
@@ -767,6 +769,11 @@ export const marketing_positions = [
             ),
             localize(
                 'Experience conducting performance reviews, as well as recruiting and onboarding new team members',
+            ),
+        ],
+        preferences: [
+            localize(
+                'Experience working on campaigns with a global reach in a creative agency will confer an advantage',
             ),
         ],
     },
@@ -944,6 +951,7 @@ export const marketing_positions = [
             localize('Ability to write interesting and competent ads in at least one language'),
             localize('Good oral and written communication skills in English'),
         ],
+        preferences: [localize('Proficiency with other languages other than English')],
     },
     {
         title: localize('Marketing Executive'),

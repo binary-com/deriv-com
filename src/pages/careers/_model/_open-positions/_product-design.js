@@ -4,9 +4,9 @@ import { localize } from 'components/localization'
 
 export const product_design_positions = [
     {
-        title: localize('Graphics Designer - Marketing'),
+        title: localize('Graphic Designer - Marketing'),
         id: '258e889d-c246-4b77-9732-32f773f2ff81',
-        keywords: [localize('Graphics Designer - Marketing')],
+        keywords: [localize('Graphic Designer - Marketing')],
         location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'product-design',
@@ -20,7 +20,7 @@ export const product_design_positions = [
                 'Create designs for print and digital, including landing pages, brochures, ads, webinars, presentations, and more.',
             ),
             localize(
-                'Work with the Copywriting team to ensure that copy and design combine effectively to achieve campaign goals. ',
+                'Work with the content team to ensure that copy and design combine effectively to achieve campaign goals.',
             ),
             localize('Collaborate with the Product Design team to further develop our brand. '),
             localize(
@@ -46,9 +46,9 @@ export const product_design_positions = [
         preferences: [localize('Experience working on campaigns with a global reach ')],
     },
     {
-        title: localize('Graphics Designer'),
+        title: localize('Graphic Designer'),
         id: '76acb25f-1709-4ad0-8d31-c09382cc1ab3',
-        keywords: [localize('Graphics Designer')],
+        keywords: [localize('Graphic Designer')],
         location: cyberjaya.name,
         type: [job_types.full_time],
         team: 'product-design',
@@ -69,7 +69,7 @@ export const product_design_positions = [
             ),
             localize('Lay out mockups and wireframes for app screens and web pages. '),
             localize(
-                'Collaborate with the Copywriting team to create cohesive designs that will amplify the verbal message.',
+                'Collaborate with the Content team to create cohesive designs that will amplify the verbal message.',
             ),
             localize('Keep up with the latest trends and techniques in design, UI, and UX.'),
         ],
@@ -87,9 +87,9 @@ export const product_design_positions = [
         ],
     },
     {
-        title: localize('Graphics Designer - Marketing'),
+        title: localize('Graphic Designer - Marketing'),
         id: 'fd8819b4-5093-415e-ba7e-bc22d8c600eb',
-        keywords: [localize('Graphics Designer - Marketing')],
+        keywords: [localize('Graphic Designer - Marketing')],
         location: dubai.name,
         type: [job_types.full_time],
         team: 'product-design',
@@ -103,7 +103,7 @@ export const product_design_positions = [
                 'Create designs for print and digital, including landing pages, brochures, ads, webinars, presentations, and more.',
             ),
             localize(
-                'Work with the Copywriting team to ensure that copy and design combine effectively to achieve campaign goals. ',
+                'Work with the content team to ensure that copy and design combine effectively to achieve campaign goals.',
             ),
             localize('Collaborate with the Product Design team to further develop our brand. '),
             localize(
@@ -129,9 +129,9 @@ export const product_design_positions = [
         preferences: [localize('Experience working on campaigns with a global reach ')],
     },
     {
-        title: localize('Graphics Designer'),
+        title: localize('Graphic Designer'),
         id: 'bdfcb7ed-83f5-47fa-92f3-5bdc1ed2c724',
-        keywords: [localize('Graphics Designer')],
+        keywords: [localize('Graphic Designer')],
         location: asuncion.name,
         type: [job_types.full_time],
         team: 'product-design',
@@ -152,7 +152,7 @@ export const product_design_positions = [
             ),
             localize('Lay out mockups and wireframes for app screens and web pages. '),
             localize(
-                'Collaborate with the Copywriting team to create cohesive designs that will amplify the verbal message.',
+                'Collaborate with the Content team to create cohesive designs that will amplify the verbal message.',
             ),
             localize('Keep up with the latest trends and techniques in design, UI, and UX.'),
         ],
@@ -170,9 +170,9 @@ export const product_design_positions = [
         ],
     },
     {
-        title: localize('Graphics Designer'),
+        title: localize('Graphic Designer'),
         id: 'da137a9f-41ea-424e-aae6-0777eab1a3a0',
-        keywords: [localize('Graphics Designer')],
+        keywords: [localize('Graphic Designer')],
         location: malta.name,
         type: [job_types.full_time],
         team: 'product-design',
@@ -193,7 +193,7 @@ export const product_design_positions = [
             ),
             localize('Lay out mockups and wireframes for app screens and web pages. '),
             localize(
-                'Collaborate with the Copywriting team to create cohesive designs that will amplify the verbal message.',
+                'Collaborate with the Content team to create cohesive designs that will amplify the verbal message.',
             ),
             localize('Keep up with the latest trends and techniques in design, UI, and UX.'),
         ],

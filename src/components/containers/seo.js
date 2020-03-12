@@ -6,7 +6,8 @@ import { LocaleContext, localize } from '../localization'
 import TradingImage from 'images/common/practice.png'
 
 const SEO = ({ description, meta, title }) => {
-    const { site } = useStaticQuery(
+    var queries = []
+    queries = useStaticQuery(
         graphql`
             query {
                 site {
@@ -26,17 +27,29 @@ const SEO = ({ description, meta, title }) => {
         `,
     )
 
-    const metaDescription = description || site.siteMetadata.description
+    const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
-    console.log('pages: ', site)
+    const pages = []
+    var page
+    const sitePages = queries.allSitePage.nodes
+    for (page in sitePages) {
+        const link = {}
+        link.rel = 'alternate'
+        link.href = sitePages[page].path
+        if (!link.href.includes('404')) {
+            link.hreflang = sitePages[page].path.split('/')[1]
+            pages.push(link)
+        }
+    }
     return (
         <Helmet
             htmlAttributes={{
                 lang,
             }}
             title={title}
-            titleTemplate={`%s | ${site.siteMetadata.title}`}
+            titleTemplate={`%s | ${queries.site.siteMetadata.title}`}
             defer={false}
+            link={pages}
             meta={[
                 {
                     name: 'description',
@@ -94,7 +107,7 @@ const SEO = ({ description, meta, title }) => {
                 },
                 {
                     name: 'twitter:creator',
-                    content: site.siteMetadata.author,
+                    content: queries.site.siteMetadata.author,
                 },
                 {
                     name: 'twitter:title',

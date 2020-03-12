@@ -84,24 +84,16 @@ export const marketing_positions = [
         ],
         responsibilities: [
             'Develop, manage, and maintain effective PPC strategies that translate into significant conversion rates.',
-
             'Create strong ad campaigns on Google Ads and other advertising platforms.',
-
             'Devise, monitor, and administer web analytics dashboards and key reporting tools.',
-
             'Create relevant, exhaustive, and expansive keyword lists and prepare strategies for effective targeting, campaign structuring, and other aspects of paid search.',
-
             'Optimise our keyword bids by analysing and improving PPC metrics such as cost per click (CPC), cost per acquisition (CPA), impression share, and quality score.',
-
             'Propose plans for enhancing landing pages and devise tight keyword groups to attract the right customers.',
-
             'Keep up-to-date with the latest PPC-related developments',
         ],
         qualifications: [
             'A university degree in marketing, communications, new media, or related fields',
-
             'Excellent command of working with online advertising platforms such as Google Ads, Facebook, Twitter, and Bing',
-
             'Strong analytical skills and hands-on experience with popular analytics tools such as Google Analytics, Metabase, Tableau, Open Web Analytics, Taplytics, and App Annie',
         ],
         preferences: [
@@ -121,17 +113,11 @@ export const marketing_positions = [
         ],
         responsibilities: [
             'Develop marketing campaigns that span across the web, social media, email, search engine marketing, and other online and offline media.',
-
             'Identify and acquire new segments, driving loyalty, and increasing the lifetime value of customers.',
-
             'Establish, track, and improve response rates, conversion rates, pipeline, and ROI across marketing campaigns.',
-
             'Build strong working relationships with key internal teams, including Customer Support, Business Intelligence, and Product Design.',
-
             'Work with our copywriters and designers to ideate content for marketing campaigns.',
-
             'Work with the Business Intelligence team to track and analyse campaign effectiveness.',
-
             'Identify new trends in digital marketing, evaluate new technologies, and ensure that our brand is at the forefront of industry developments in mobile marketing. ',
         ],
         qualifications: [
@@ -496,7 +482,7 @@ export const marketing_positions = [
         qualifications: [
             'At least 1 year of experience in SMM',
             'Experience in running ads on YouTube, Facebook, Twitter, and Instagram',
-            'Experience in marketing via Telegram, WhatsApp, Viber, WeChat',
+            'Experience in marketing via Telegram, WhatsApp, Viber, and WeChat',
             'Experience in creating and implementing content plans',
             'Familiar with targeting and audience segmentation',
             'Ability to generate hypotheses and perform A/B testing',
@@ -762,7 +748,7 @@ export const marketing_positions = [
         qualifications: [
             'At least 1 year of experience in SMM',
             'Experience in running ads on YouTube, Facebook, Twitter, and Instagram',
-            'Experience in marketing via Telegram, WhatsApp, Viber, WeChat',
+            'Experience in marketing via Telegram, WhatsApp, Viber, and WeChat',
             'Experience in creating and implementing content plans',
             'Familiar with targeting and audience segmentation',
             'Ability to generate hypotheses and perform A/B testing',

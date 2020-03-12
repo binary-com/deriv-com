@@ -14,24 +14,17 @@ export const product_design_positions = [
         ],
         responsibilities: [
             'Create designs for print and digital, including landing pages, brochures, ads, webinars, presentations, and more.',
-
             'Work with the content team to ensure that copy and design combine effectively to achieve campaign goals.',
-
             'Collaborate with the Product Design team to further develop our brand. ',
-
             'Ensure a consistent look and appeal of the company design principles through our style guide. ',
-
             'Work with the Business Intelligence team to explore qualitative and quantitative data to influence design decisions. ',
         ],
         qualifications: [
             'A university degree in Visual Communication, Graphic Design, Multimedia, or any other related discipline',
-
             'Superb design skills with an exceptional eye for detail',
             'Remarkable skills in digital and social media design',
             'Strong understanding of typography',
-
             'Ability to adapt designs based on the customer’s context, emotions, goals and motivations ',
-
             'In-depth knowledge of marketing fundamentals and best practices',
             'Strong oral and written English communication skill',
         ],

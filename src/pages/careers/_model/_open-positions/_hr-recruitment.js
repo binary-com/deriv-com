@@ -264,7 +264,8 @@ export const hr_recruitment_positions = [
             'Extensive experience in Microsoft Office applications',
             'Well-honed organisational, administrative, and accounting skills',
             'Excellent oral and written communication skills in English and Maltese',
-
+        ],
+        preferences: [
             'Oral and written proficiency in multiple European languages, including Italian, is an advantage',
         ],
     },

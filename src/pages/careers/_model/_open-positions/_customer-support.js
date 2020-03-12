@@ -178,6 +178,7 @@ export const customer_support_positions = [
         qualifications: [
             'Exceptional oral and written communication skills in French',
             'Proficiency in oral and written English\n',
+            'Analytical and problem solving skills',
         ],
         preferences: [
             'University degree in marketing, computer science, or any related field',

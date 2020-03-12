@@ -14,8 +14,6 @@ const Section = styled(SectionContainer)`
     padding: ${props => props.padding || 'transparent'};
 `
 const StyledHeader = styled(Header)`
-    max-width: ${props => props.maxwidth || '100%'};
-
     @media ${device.laptop} {
         max-width: 100%;
     }
@@ -113,7 +111,7 @@ const ResponsibleTrading = () => {
                     <StyledHeader
                         as="h3"
                         align="center"
-                        maxwidth="105rem"
+                        max_width="105rem"
                         pt="2.4rem"
                         font_size="var(--text-size-m)"
                     >
@@ -123,24 +121,14 @@ const ResponsibleTrading = () => {
             </Section>
             <Divider height="2px" />
             <Section>
-                <StyledHeader
-                    as="h2"
-                    align="center"
-                    pb="4rem"
-                    font_size="var(--text-size-header-1)"
-                >
+                <StyledHeader as="h2" align="center" pb="4rem" size="var(--text-size-header-1)">
                     {localize('Securing your account')}
                 </StyledHeader>
                 <SecureGrid />
             </Section>
             <Divider height="2px" />
             <Section>
-                <StyledHeader
-                    as="h2"
-                    align="center"
-                    pb="4rem"
-                    font_size="var(--text-size-header-1)"
-                >
+                <StyledHeader as="h2" align="center" pb="4rem" size="var(--text-size-header-1)">
                     {localize('Trading responsibly')}
                 </StyledHeader>
                 <ResponsibleGrid />
@@ -157,8 +145,8 @@ const ResponsibleTrading = () => {
                     <StyledFlex m="4rem 0" jc="space-between" wrap="wrap">
                         <ListWrapper laptop_mb="4rem">
                             <StyledHeader
-                                maxwidth="36rem"
-                                font_size="var(--text-size-header-1)"
+                                max_width="36rem"
+                                size="var(--text-size-header-1)"
                                 align="center"
                                 m="0 auto"
                             >
@@ -206,7 +194,7 @@ const ResponsibleTrading = () => {
                             </Card>
                         </ListWrapper>
                         <CustomListWrapper>
-                            <StyledHeader font_size="var(--text-size-header-2)" mb="3.2rem">
+                            <StyledHeader as="h5" size="var(--text-size-header-2)" mb="3.2rem">
                                 {localize('How trading limits and self-exclusion work')}
                             </StyledHeader>
                             <TradingUl>
@@ -266,7 +254,7 @@ const ResponsibleTrading = () => {
             <Section padding="4rem 0">
                 <Flex ai="center" direction="column">
                     <DemoIcon />
-                    <NewHeader font_size="var(--text-size-header-1)" align="center">
+                    <NewHeader as="h4" size="var(--text-size-header-1)" align="center">
                         {localize('New to trading?')}
                     </NewHeader>
                     <StyledHeader as="h5" align="center" weight="400" lh="2.4rem" mb="4rem">

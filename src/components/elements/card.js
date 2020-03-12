@@ -113,6 +113,10 @@ const IconContainer = styled.div`
         display: flex;
         align-items: center;
     }
+    svg {
+        width: 8.25rem;
+        height: 8.25rem;
+    }
 `
 const CardContentContainer = styled.div`
     margin-left: 1.6rem;
@@ -144,10 +148,6 @@ export const Card = ({
     padding,
     is_selected,
 }) => {
-    const StyledIcon = styled(Icon)`
-        width: 8.25rem;
-        height: 8.25rem;
-    `
     return (
         <CardWrapper width={width} min_height={min_height} padding={padding}>
             {!children && (
@@ -166,7 +166,7 @@ export const Card = ({
                                 </Flex>
                             </CardCover>
                             <IconContainer>
-                                <StyledIcon />
+                                <Icon />
                                 <CardContentContainer>
                                     <Header as="h4" weight="bold">
                                         {title}

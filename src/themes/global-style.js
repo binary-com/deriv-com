@@ -8,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
     ${Variables}
 
     * {
+        font-family: 'IBM Plex Sans', sans-serif;
+
         &, &::before, &::after {
             box-sizing: border-box;
         }

@@ -6,13 +6,16 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container } from 'components/containers'
-import { OffCanvasMenu, moveOffCanvasMenu } from 'components/elements'
+import { OffCanvasMenu, moveOffCanvasMenu, Text } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
+import Partner from 'common/partner'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
+import LogoPartner from 'images/svg/logo-partners.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
+import LogoOnly from 'images/svg/logo-deriv-only.svg'
 
 const NavWrapper = styled.div`
     width: 100%;
@@ -22,6 +25,7 @@ const NavWrapper = styled.div`
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 `
+
 const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
@@ -39,18 +43,12 @@ const Wrapper = styled(Container)`
     overflow: hidden;
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
-
-        button {
-            font-size: var(--text-size-xxs);
-        }
     }
 `
 const NavLeft = styled.div`
     text-align: left;
     @media ${device.tabletL} {
-        svg {
-            width: 50%;
-        }
+        display: none;
     }
 `
 
@@ -89,16 +87,16 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${props => {
-        if (props.move) {
-            return 0
-        } else {
-            if (props.button_ref.current && props.mounted) {
-                const calculation = props.button_ref.current.offsetWidth + 2
-                return `${calculation}px`
+            if (props.move) {
+                return 0
+            } else {
+                if (props.button_ref.current && props.mounted) {
+                    const calculation = props.button_ref.current.offsetWidth + 2
+                    return `${calculation}px`
+                }
+                return '350px'
             }
-            return '350px'
-        }
-    }}
+        }}
     );
     @media ${device.tabletL} {
         display: none;
@@ -131,6 +129,23 @@ const HamburgerMenu = styled(Hamburger)`
     @media ${device.tabletL} {
         display: block;
         cursor: pointer;
+    }
+`
+
+const LogoLinkMobile = styled(LocalizedLink)`
+    cursor: pointer;
+    display: none;
+    @media ${device.tabletL} {
+        display: block;
+        cursor: pointer;
+    }
+`
+
+const MobileLogin = styled(Button)`
+    display: none;
+    font-size: 14px;
+    @media ${device.tabletL} {
+        display: block;
     }
 `
 const handleScroll = (show, hide) => {
@@ -228,13 +243,19 @@ export const Nav = () => {
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
-                        <LocalizedLink to='/signup/'>
-                            <SignupButton ref={button_ref} secondary>
-                                <span>{localize('Try for free')}</span>
+                        <LocalizedLink to="/signup/">
+                            <SignupButton ref={button_ref} secondary="true">
+                                <span>{localize('Create demo account')}</span>
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
-                    <HamburgerMenu onClick={handleMenuClick} />
+                    <HamburgerMenu onClick={handleMenuClick} width="16px" />
+                    <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                        <LogoOnly width="115px" />
+                    </LogoLinkMobile>
+                    <MobileLogin onClick={handleLogin} primary>
+                        <span>{localize('Log in')}</span>
+                    </MobileLogin>
                     <OffCanvasMenu
                         is_canvas_menu_open={is_canvas_menu_open}
                         closeOffCanvasMenu={closeOffCanvasMenu}
@@ -252,6 +273,115 @@ export const NavStatic = () => (
         </StyledLink>
     </StaticWrapper>
 )
+
+const DerivHomeWrapper = styled.div`
+    background-color: var(--color-black);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 3rem;
+`
+
+const HomeLink = styled(LocalizedLink)`
+    margin-right: 3.2rem;
+    text-decoration: none;
+`
+
+const HomeContainer = styled(Container)`
+    height: 100%;
+`
+
+const StyledNavCenter = styled(NavCenter)`
+    margin-left: 13.3rem;
+`
+
+const StyledNavRight = styled(NavRight)`
+    margin-left: auto;
+`
+
+// Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'
+export const NavPartners = () => {
+    const nav_ref = useRef(null)
+    const button_ref = useRef(null)
+    const [show_button, showButton, hideButton] = moveButton()
+    const [mounted, setMounted] = useState(false)
+    const [has_scrolled, setHasScrolled] = useState(false)
+
+    const buttonHandleScroll = () => {
+        setHasScrolled(true)
+        handleScroll(showButton, hideButton)
+    }
+    useEffect(() => {
+        setMounted(true)
+        document.addEventListener('scroll', buttonHandleScroll, {
+            passive: true,
+        })
+        return () => {
+            document.removeEventListener('scroll', buttonHandleScroll)
+        }
+    }, [])
+    return (
+        <>
+            <NavWrapper ref={nav_ref}>
+                <DerivHomeWrapper>
+                    <HomeContainer justify="flex-start">
+                        <HomeLink to="/">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('Deriv homepage')}
+                            </Text>
+                        </HomeLink>
+                        <HomeLink to="/about">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('About us')}
+                            </Text>
+                        </HomeLink>
+                        <HomeLink to="/contact-us">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('Contact us')}
+                            </Text>
+                        </HomeLink>
+                    </HomeContainer>
+                </DerivHomeWrapper>
+                <StyledNav>
+                    <Wrapper>
+                        <NavLeft>
+                            <LogoLink to="/partners" aria-label={localize('Partners')}>
+                                <LogoPartner />
+                            </LogoLink>
+                        </NavLeft>
+                        <StyledNavCenter>
+                            <NavLink>
+                                <StyledLink
+                                    activeClassName="active"
+                                    to="/partners/"
+                                    aria-label={localize('Affiliate & IB')}
+                                    partiallyActive={true}
+                                >
+                                    {localize('Affiliate & IB')}
+                                </StyledLink>
+                            </NavLink>
+                        </StyledNavCenter>
+                        <StyledNavRight
+                            move={show_button}
+                            button_ref={button_ref}
+                            mounted={mounted}
+                            has_scrolled={has_scrolled}
+                        >
+                            <Button onClick={Partner.redirectToLogin} primary>
+                                <span>{localize('Affiliate & IB log in')}</span>
+                            </Button>
+                            <SignupButton
+                                onClick={Partner.redirectToSignup}
+                                ref={button_ref}
+                                secondary="true"
+                            >
+                                <span>{localize('Affiliate & IB sign up')}</span>
+                            </SignupButton>
+                        </StyledNavRight>
+                    </Wrapper>
+                </StyledNav>
+            </NavWrapper>
+        </>
+    )
+}
 
 function moveButton(is_visible = false) {
     const [show_button, setShowButton] = useState(is_visible)

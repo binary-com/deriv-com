@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import TradingImage from 'images/common/practice.png'
 
-const SEO = ({ description, meta, title }) => {
+const SEO = ({ description, meta, title, no_index }) => {
     var queries = []
     queries = useStaticQuery(
         graphql`
@@ -58,7 +58,7 @@ const SEO = ({ description, meta, title }) => {
                 {
                     name: 'keywords',
                     content: localize(
-                        'binary options, forex, forex trading, online trading, financial trading, binary trading, index trading, trading indices, forex trades, trading commodities, binary options strategy, binary broker, binary bet, binary options trading platform, binary strategy, finance, investment, trading',
+                        'digital options, forex, forex trading, online trading, financial trading, digitals trading, index trading, trading indices, forex trades, trading commodities, digital options strategy, binary broker, binary bet, digital options trading platform, binary strategy, finance, investment, trading',
                     ),
                 },
                 {
@@ -129,6 +129,14 @@ const SEO = ({ description, meta, title }) => {
                     name: 'referrer',
                     content: 'origin',
                 },
+                ...(no_index
+                    ? [
+                          {
+                              name: 'robots',
+                              content: 'noindex',
+                          },
+                      ]
+                    : []),
             ].concat(meta)}
         ></Helmet>
     )
@@ -141,6 +149,7 @@ SEO.defaultProps = {
 SEO.propTypes = {
     description: PropTypes.string,
     meta: PropTypes.arrayOf(PropTypes.object),
+    no_index: PropTypes.bool,
     title: PropTypes.string.isRequired,
 }
 

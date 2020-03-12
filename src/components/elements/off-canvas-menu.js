@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { LocalizedLink } from '../localization'
+import { LocalizedLink, localize } from '../localization'
 import Arrow from 'images/svg/arrow.svg'
 
 const OffCanvasMenu = styled.section`
@@ -11,8 +11,8 @@ const OffCanvasMenu = styled.section`
     height: 100vh;
     width: 238px;
     opacity: 0.98;
-    transition: right 0.4s;
-    right: ${props => (props.is_canvas_menu_open ? '0' : '-238px')};
+    transition: left 0.4s;
+    left: ${props => (props.is_canvas_menu_open ? '0' : '-238px')};
 `
 const StyledLink = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-black);
@@ -65,11 +65,11 @@ const OffCanvasMenuWrapper = props => {
             <OffCanvasMenuContainer>
                 <BackArrow onClick={handleArrowClick} />
                 <div>
-                    <StyledLink to="/keep-safe/" onClick={handleArrowClick}>
-                        Keep safe
+                    <StyledLink to="/about/" onClick={handleArrowClick}>
+                        {localize('About us')}
                     </StyledLink>
                     <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                        Help centre
+                        {localize('Help Centre')}
                     </StyledLink>
                 </div>
             </OffCanvasMenuContainer>

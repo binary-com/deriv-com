@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { navigate } from '@reach/router'
-import { Text } from './typography'
+import { Text, Header } from './typography'
 import { getLocationHash, isBrowser } from 'common/utility'
 import device, { size } from 'themes/device'
 import { Wrapper } from 'components/containers'
@@ -21,7 +21,7 @@ const StyledSideTab = styled(Wrapper)`
 `
 
 const TabList = styled.ol`
-    width: 20rem;
+    width: ${props => props.tab_width || '38.4rem'};
     list-style: none;
     ${props =>
         props.is_sticky &&
@@ -35,29 +35,44 @@ const TabList = styled.ol`
         width: 100%;
     }
 `
-
 const TabContent = styled.div`
     flex: 1;
 `
 
 const StyledTab = styled.li`
     cursor: pointer;
-    padding: 1.8rem 0;
-    border-bottom: 1px solid var(--color-red-2);
+    width: ${props => props.item_width || '38rem'};
+    margin: auto;
+    padding: 3px 0 3px 16px;
+    transform: translateX(-16px);
 
-    & > p {
-        color: var(--color-red-2);
+    &.tab-active, &:hover {
+        border-left: 4px red solid;
     }
-    &.tab-active {
-        border-bottom: 1px solid var(--color-red);
+    & > p {
+        /* prettier-ignore */
+        color: var(--color-${props => props.font_color || 'black-3'});
+        opacity: 0.32;
+        font-size: ${props => props.font_size || 'var(--text-size-m)'};
+        max-width: 38.4rem;
+        line-height: 30px;
 
-        & > p {
-            color: var(--color-red);
+        :hover{            
+            opacity: 1;   
+
+            /* prettier-ignore */
+            color: var(--color-${props => props.active_font_color || 'black'});            
         }
     }
+    &.tab-active > p {
+        opacity: 1;
+
+        /* prettier-ignore */
+        color: var(--color-${props => props.active_font_color || 'black'});
+    }    
 `
 const TabsText = css`
-    font-size: var(--text-size-sm);
+    font-size: var(--text-size-m);
     color: var(--color-red);
 `
 const StyledActiveTabText = styled(Text)`
@@ -76,7 +91,12 @@ const StyledDropDown = styled.li`
 const ChevronWrapper = styled(Chevron)`
     transform: ${props => (props.active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)')};
 `
-const Tab = ({ active_tab, label, onClick, text, mobile }) => {
+const ItemWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.4rem;
+`
+const Tab = ({ active_tab, label, onClick, text, mobile, font_size }) => {
     const className = active_tab === label ? 'tab-active' : ''
 
     const handleClick = () => {
@@ -88,9 +108,11 @@ const Tab = ({ active_tab, label, onClick, text, mobile }) => {
             <Text>{text}</Text>
         </StyledDropDown>
     ) : (
-        <StyledTab className={className} onClick={handleClick}>
-            <Text weight="500">{text}</Text>
-        </StyledTab>
+        <ItemWrapper>
+            <StyledTab className={className} onClick={handleClick} font_size={font_size}>
+                <Text weight="500">{text}</Text>
+            </StyledTab>
+        </ItemWrapper>
     )
 }
 
@@ -108,7 +130,7 @@ function useTabs(initial_active_tab = '', has_hash_routing) {
     return [active_tab, setTab, previous_tab, setLastActiveTab]
 }
 
-const SideTab = ({ children, has_hash_routing, is_sticky }) => {
+const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_header, font_size }) => {
     // we should check the window because When building, Gatsby renders these components on the server where window is not defined.
     const first_tab = isBrowser()
         ? window.innerWidth > size.tabletL
@@ -133,13 +155,14 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
         active_tab !== '-' ? setTab('-') : setTab(previous_tab)
     }
     const current_active_tab = children.find(child => child.props.label === active_tab)
-
+    if (onTabChange) onTabChange(current_active_tab)
     const Tabs = props => {
         return children.map((child, idx) => {
             const { label, text, onClick } = child.props
             return (
                 <div key={idx}>
                     <Tab
+                        font_size={font_size}
                         mobile={props.is_mobile}
                         text={text}
                         onClick={e => {
@@ -161,6 +184,16 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
         <StyledSideTab>
             <TabList is_sticky={is_sticky}>
                 <Desktop>
+                    {!!tab_header && (
+                        <Header
+                            width="38.4rem"
+                            font_size="3.6rem"
+                            min_width="38.4rem"
+                            margin="0 0 4rem 0"
+                        >
+                            {tab_header}
+                        </Header>
+                    )}
                     <Tabs />
                 </Desktop>
                 <Mobile>
@@ -186,13 +219,17 @@ const SideTab = ({ children, has_hash_routing, is_sticky }) => {
 
 SideTab.propTypes = {
     children: PropTypes.instanceOf(Array).isRequired,
+    font_size: PropTypes.string,
     has_hash_routing: PropTypes.bool,
     is_mobile: PropTypes.bool,
     is_sticky: PropTypes.bool,
+    onTabChange: PropTypes.func,
+    tab_header: PropTypes.string,
 }
 
 Tab.propTypes = {
     active_tab: PropTypes.string.isRequired,
+    font_size: PropTypes.string,
     label: PropTypes.string.isRequired,
     mobile: PropTypes.bool,
     onClick: PropTypes.func.isRequired,

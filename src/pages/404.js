@@ -24,7 +24,7 @@ const PageNotFoundContainer = styled.div`
     width: 100%;
     justify-content: center;
     align-items: center;
-    margin: 16rem 0;
+    padding: 16rem 0;
 `
 const ButtonWrapper = styled.div`
     margin-top: 2.6rem;
@@ -50,7 +50,7 @@ const PageNotFound = () => (
                 </Text>
                 <Text>{localize('Error code: 404 page not found')}</Text>
                 <ButtonWrapper>
-                    <LinkButton secondary to="/">
+                    <LinkButton secondary="true" to="/">
                         {localize('Go to the homepage')}
                     </LinkButton>
                 </ButtonWrapper>

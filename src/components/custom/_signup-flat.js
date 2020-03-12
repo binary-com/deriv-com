@@ -130,7 +130,7 @@ const SignupFlat = ({
                     </StyledHeader>
                     <br />
                     <Text color={dark ? 'white' : 'black'}>
-                        {localize('Get your free account now.')}
+                        {localize('Sign up for your demo account now.')}
                     </Text>
                     <InputGroup>
                         <InputWrapper>
@@ -152,13 +152,13 @@ const SignupFlat = ({
                                 required
                             />
                         </InputWrapper>
-                        <EmailButton type="submit" secondary disabled={is_submitting}>
+                        <EmailButton type="submit" secondary="true" disabled={is_submitting}>
                             {localize('Sign up')}
                         </EmailButton>
                     </InputGroup>
                     <SocialWrapper>
                         <StyledText color={dark ? 'white' : 'black'}>
-                            {localize('or sign up with')}
+                            {localize('or sign in with')}
                         </StyledText>
                         <SocialButton
                             dark={dark}
@@ -188,10 +188,15 @@ const SignupFlat = ({
                 </CenterWrapper>
                 <Splitter dark={dark}></Splitter>
                 <RightWrapper>
-                    <Text align="center" secondary color={dark ? 'white' : 'black'} weight="bold">
+                    <Text
+                        align="center"
+                        secondary="true"
+                        color={dark ? 'white' : 'black'}
+                        weight="bold"
+                    >
                         {localize('Get a taste of the Deriv experience')}
                     </Text>
-                    <DemoButton secondary onClick={handleExternalLink}>
+                    <DemoButton secondary="true" onClick={handleExternalLink}>
                         {localize('See live demo')}
                     </DemoButton>
                 </RightWrapper>

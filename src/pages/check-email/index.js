@@ -20,6 +20,7 @@ const CheckEmail = () => {
                 description={localize(
                     "If you don't see an email from us within a few minutes, a few things could have happened.",
                 )}
+                no_index
             />
             <SectionContainer>
                 <GridContainer align="center">
@@ -29,7 +30,7 @@ const CheckEmail = () => {
                         )}
                     </SectionHeader>
                     <IconGrid />
-                    <LinkButton secondary to='/signup/'>
+                    <LinkButton secondary="true" to="/signup/">
                         {localize('Re-enter your email and try again')}
                     </LinkButton>
                 </GridContainer>

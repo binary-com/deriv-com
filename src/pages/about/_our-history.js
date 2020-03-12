@@ -46,58 +46,31 @@ const ContentWrapper = styled.div`
     padding: 0 0 0 1rem;
 `
 const StyledHeader = styled(Header)`
-    width: 8%;
-    margin-left: ${props => (props.left ? '41.66%' : '50.9%')};
+    width: 18rem;
+    margin-left: ${props => (props.left ? '50%' : '49.99%')};
     margin-bottom: 2.5rem;
     position: relative;
+    transform: ${props => (props.left ? 'translateX(-88%)' : '')};
 
     ::before {
         content: '';
-        width: 2px;
+        width: 2.2px;
         height: 2rem;
-        border-top: 14px solid red;
+        border-top: 1.7rem solid red;
         border-bottom: 14px solid red;
         position: absolute;
-        top: 27.6%;
-        right: ${props => (props.left ? '-12.8%' : '')};
-        left: ${props => (props.left ? '' : '-4.2%')};
+        top: 32.6%;
+        right: ${props => (props.left ? '1rem' : '')};
+        left: ${props => (props.left ? '' : '1rem')};
 
         @media ${device.tablet} {
             display: none;
         }
     }
 
-    @media ${device.laptopL} {
-        width: 11%;
-        margin-left: ${props => (props.left ? '38.4%' : '51.1%')};
-    }
-    @media ${device.laptop} {
-        width: 11%;
-        margin-left: ${props => (props.left ? '38.7%' : '51.4%')};
-    }
-
     @media ${device.tablet} {
         margin: auto;
         align-items: center;
-    }
-`
-
-const LastHeader = styled(StyledHeader)`
-    width: 15%;
-    margin-left: 35.8%;
-
-    ::before {
-        right: 1%;
-        top: 33%;
-    }
-
-    @media ${device.laptopL} {
-        width: 19%;
-        margin-left: 31.95%;
-    }
-    @media ${device.laptop} {
-        width: 19%;
-        margin-left: 32.7%;
     }
 `
 const Splitter = styled.div`
@@ -137,26 +110,14 @@ export const OurHistory = () => {
             <StyledLine />
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
-                    {idx === Stories.length - 1 ? (
-                        <LastHeader
-                            left={story.left}
-                            as="h2"
-                            color={story.color || 'red-4'}
-                            align="center"
-                            font_size="var(--text-size-header-3)"
-                        >
-                            {story.year}
-                        </LastHeader>
-                    ) : (
-                        <StyledHeader
-                            left={story.left}
-                            as="h2"
-                            color={story.color || 'red-4'}
-                            align="center"
-                        >
-                            {story.year}
-                        </StyledHeader>
-                    )}
+                    <StyledHeader
+                        left={story.left}
+                        as="h2"
+                        color={story.color || 'red-4'}
+                        align="center"
+                    >
+                        {story.year}
+                    </StyledHeader>
 
                     {story.contents.map((content, idxa) =>
                         content.left ? (

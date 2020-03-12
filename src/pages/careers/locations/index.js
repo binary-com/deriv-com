@@ -7,7 +7,7 @@ import { StyledCard } from '../_layout-components/_team-card'
 import { cyberjaya, malta, dubai, labuan, asuncion } from '../_model/_locations/_locations'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
 import MalaysiaFlagIcon from 'images/svg/flag_malaysia.svg'
 import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
@@ -40,12 +40,13 @@ const BackDrop = styled.section`
 const Hero = () => (
     <BackDrop>
         <Header as="h1" font_size="var(--text-size-xl)" align="center" color="white">
-            {localize('Our locations')}
+            Our locations
         </Header>
         <Text size="var(--text-size-sm)" color="white">
-            {localize(
-                'From IT to marketing to data analytics, we offer opportunities for people of almost every skill set across our locations around the globe. As we expand, our culture of collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and rewarding career experience.',
-            )}
+            From IT to marketing to data analytics, we offer opportunities for people of almost
+            every skill set across our locations around the globe. As we expand, our culture of
+            collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and rewarding
+            career experience.
         </Text>
     </BackDrop>
 )
@@ -75,7 +76,7 @@ const CountryCard = ({ open_positions, country_name, city_name, link, img_data, 
                 </Flex>
                 <Flex ai="center" jc="space-between">
                     <Text>
-                        {open_positions} {localize('open positions')}
+                        {open_positions} {'open positions'}
                     </Text>
                     <ChevronRight />
                 </Flex>
@@ -118,12 +119,12 @@ const Locations = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={localize('Locations')} />
+            <SEO title={'Locations'} />
             <Hero />
             <Container direction="column">
                 <SectionContainer>
                     <Header as="h2" align="center" font_size={'var(--text-size-header-1)'}>
-                        {localize('Explore our locations')}
+                        Explore our locations
                     </Header>
                     <CssGrid
                         columns="repeat(3, 38.4rem)"

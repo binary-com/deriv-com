@@ -9,7 +9,6 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
 import { toHashFormat } from 'common/utility'
 import MapPin from 'images/svg/map.svg'
 
@@ -59,7 +58,7 @@ const Hero = ({ display_name, name, img_data, description }) => {
                     secondary="true"
                     to={`/careers/jobs/?filter=${name}&search=`}
                 >
-                    {localize('View open positions in')} {display_name}
+                    {`View open positions in ${display_name}`}
                 </LinkButton>
             </StyledContainer>
         </BackgroundImage>
@@ -154,14 +153,14 @@ export const LocationLayout = ({ location, images }) => {
             <Container direction="column">
                 <FirstSection padding="12rem 0">
                     <Header align="center" as="h2" font_size={'var(--text-size-header-1)'}>
-                        {localize('Living in {{location}}', { location: display_name })}
+                        {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">
                         <Text secondary>{location.first_p}</Text>
                         <ImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}
-                                alt={localize('Living in {{location}}', { location: display_name })}
+                                alt={`Living in ${display_name}`}
                                 width="100%"
                             />
                         </ImageWrapper>
@@ -175,7 +174,7 @@ export const LocationLayout = ({ location, images }) => {
                     font_size={'var(--text-size-header-1)'}
                     style={{ marginBottom: '6.4rem' }}
                 >
-                    {localize('Our office')}
+                    Our office
                 </Header>
                 <Flex jc="unset">
                     <Flex direction="column" mr="0.8rem" ai="flex-end">
@@ -202,15 +201,11 @@ export const LocationLayout = ({ location, images }) => {
                 <LocationCard>
                     <Flex jc="unset" tablet_direction="column">
                         <ImageWrapper>
-                            <QueryImage
-                                data={images[location.map]}
-                                alt={localize('Map')}
-                                width="100%"
-                            />
+                            <QueryImage data={images[location.map]} alt={'Map'} width="100%" />
                         </ImageWrapper>
                         <Flex p="3.2rem 6rem" direction="column" mw="44.4rem">
                             <div style={{ maxWidth: '32.4rem' }}>
-                                <Header as="h3">{localize('Location')}</Header>
+                                <Header as="h3">Location</Header>
                                 <CardText>{location.map_text}</CardText>
                                 <Flex jc="unset">
                                     <Pin />
@@ -237,7 +232,7 @@ export const LocationLayout = ({ location, images }) => {
                 font_size={'var(--text-size-header-1)'}
                 style={{ marginBottom: '6.4rem' }}
             >
-                {localize('Open positions in {{location}}', { location: display_name })}
+                {`Open positions in ${display_name}`}
             </Header>
             <div style={{ marginBottom: '12rem' }}>
                 <LinkList list_items={mapped_positions} />

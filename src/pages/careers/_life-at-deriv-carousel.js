@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
 import 'swiper/css/swiper.css'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
@@ -140,27 +139,27 @@ ImageSlide.propTypes = {
 
 const fitness = {
     img_path: FitnessImage,
-    img_alt: localize('fitness'),
+    img_alt: 'fitness',
     index: 3,
 }
 const games = {
     img_path: GamesImage,
-    img_alt: localize('games'),
+    img_alt: 'games',
     index: 1,
 }
 const greenarea = {
     img_path: GreenAreaImage,
-    img_alt: localize('green area'),
+    img_alt: 'green area',
     index: 4,
 }
 const gym = {
     img_path: GymImage,
-    img_alt: localize('gym'),
+    img_alt: 'gym',
     index: 5,
 }
 const lunch = {
     img_path: LunchImage,
-    img_alt: localize('lunch'),
+    img_alt: 'lunch',
     index: 2,
 }
 const deriv_lifestyle_images = [games, lunch, fitness, greenarea, gym]
@@ -192,7 +191,7 @@ const LifeAtDerivCarousel = () => {
             <StyledSection>
                 <Container direction="column">
                     <StyledHeader align="center" as="h2">
-                        {localize('Life at Deriv')}
+                        Life at Deriv
                     </StyledHeader>
                 </Container>
                 <ButtonWrapper>

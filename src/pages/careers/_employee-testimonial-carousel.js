@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
 import 'swiper/css/swiper.css'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
@@ -194,27 +193,23 @@ EmployeeSlide.propTypes = {
 }
 
 const kelcent = {
-    name: localize('Kel Cent Tan, Principal and Compliance Officer'),
+    name: 'Kel Cent Tan, Principal and Compliance Officer',
     img_path: KelcentImage,
-    quote: localize(
+    quote:
         'We have a working culture where everyone is open and willing to share their  knowledge and expertise. This gives me invaluable insights into how other departments operate and helps me understand how my role impacts business operations as a whole.',
-    ),
     index: 1,
 }
 const negar = {
-    name: localize('Negar Naghshbandi, Front-end Team Lead'),
+    name: 'Negar Naghshbandi, Front-end Team Lead',
     img_path: NegarImage,
-    quote: localize(
+    quote:
         'The most exciting thing for me is the culture of the company and the people I work with. I learn something new everyday and I can pair-program with anyone when needed because everyone is approachable and eager to help.',
-    ),
     index: 2,
 }
 const mahdi = {
-    name: localize('Mahdi Pourziaei, Front-end Developer'),
+    name: 'Mahdi Pourziaei, Front-end Developer',
     img_path: MahdiImage,
-    quote: localize(
-        `Two words: 'autonomy' and 'friendly'. Working at Deriv has been full of growth as I get to pick my own challenges and see them through, and it really wouldn’t feel as empowering without the friendly culture. I’m happy to be amongst all the brilliant people here.`,
-    ),
+    quote: `Two words: 'autonomy' and 'friendly'. Working at Deriv has been full of growth as I get to pick my own challenges and see them through, and it really wouldn’t feel as empowering without the friendly culture. I’m happy to be amongst all the brilliant people here.`,
     index: 3,
 }
 
@@ -254,7 +249,7 @@ const EmployeeTestimonialCarousel = () => {
         <>
             <StyledSection padding="12rem 0">
                 <StyledHeader align="center" as="h2">
-                    {localize('In the words of our employees')}
+                    In the words of our employees
                 </StyledHeader>
                 <ButtonWrapper>
                     <Next>

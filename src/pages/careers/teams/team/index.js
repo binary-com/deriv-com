@@ -10,7 +10,7 @@ import { locations } from '../../_model/_locations/_locations'
 import { SEO, Container } from 'components/containers'
 import { BackgroundImage, Text, Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { getLocationHash, toHashFormat } from 'common/utility'
 
 const StyledContainer = styled(Container)`
@@ -128,7 +128,7 @@ const Team = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={localize(`Team ${team_names[team.name]}`)} />
+            <SEO title={`Team ${team_names[team.name]}`} />
             <Hero
                 background_image={team.hero_image}
                 display_name={team_names[team.name]}
@@ -137,7 +137,7 @@ const Team = () => {
             />
             <TeamWrapper>
                 <Header as="h2" font-size="var(--text-size-header-1)" align="center">
-                    {localize('Open positions')}
+                    Open positions
                 </Header>
                 <LinkList
                     list_items={
@@ -151,11 +151,9 @@ const Team = () => {
                 />
                 {team.positions && !team.positions.length && (
                     <NoOpenPositionsHeader>
-                        {localize(
-                            `Sorry, there are currently no open positions for ${
-                                team_names[team.name]
-                            }`,
-                        )}
+                        {`Sorry, there are currently no open positions for ${
+                            team_names[team.name]
+                        }`}
                     </NoOpenPositionsHeader>
                 )}
             </TeamWrapper>

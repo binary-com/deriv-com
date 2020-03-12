@@ -408,7 +408,7 @@ export const NavCareers = () => {
                                 aria-label={localize('Teams')}
                                 partiallyActive={true}
                             >
-                                {localize('Teams')}
+                                Teams
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
@@ -416,7 +416,7 @@ export const NavCareers = () => {
                                 aria-label={localize('Locations')}
                                 partiallyActive={true}
                             >
-                                {localize('Locations')}
+                                Locations
                             </StyledLink>
                             <StyledLink
                                 activeClassName="active"
@@ -424,7 +424,7 @@ export const NavCareers = () => {
                                 aria-label={localize('All jobs')}
                                 partiallyActive={true}
                             >
-                                {localize('All jobs')}
+                                All jobs
                             </StyledLink>
                         </CareerRight>
                     </Wrapper>

@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { EmailButton } from './_email-button'
 import { Text, Header } from 'components/elements'
 import { Flex } from 'components/containers'
-import { localize } from 'components/localization'
 
 const Section = styled.section`
     background-color: var(--color-black-3);
@@ -37,12 +36,10 @@ export const Banner = ({ header, p1, p2, button_text }) => (
 
 export const RoleBanner = () => (
     <Banner
-        header={localize('Don’t see your role listed?')}
-        p1={localize('Even if you don’t see a role that interests you, please send us your CV.')}
-        p2={localize(
-            'We will contact you if a job that matches your background becomes available.',
-        )}
-        button_text={localize('Send us your CV')}
+        header={'Don’t see your role listed?'}
+        p1={'Even if you don’t see a role that interests you, please send us your CV.'}
+        p2={'We will contact you if a job that matches your background becomes available.'}
+        button_text={'Send us your CV'}
     />
 )
 

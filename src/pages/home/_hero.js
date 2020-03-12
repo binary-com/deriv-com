@@ -180,13 +180,14 @@ export const Hero = () => {
                                 color="white"
                                 mb="3.2rem"
                                 size="var(--text-size-xl)"
+                                lh="1.15"
                             >
                                 {localize('Simple. Flexible. Reliable.')}
                             </HeroHeader>
                             <HeroSubHeader
                                 as="h2"
                                 color="white"
-                                font_size="var(--text-size-m)"
+                                size="var(--text-size-m)"
                                 weight="500"
                                 mb="1.4rem"
                             >

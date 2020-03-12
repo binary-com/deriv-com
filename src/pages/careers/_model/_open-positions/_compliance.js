@@ -178,22 +178,16 @@ export const compliance_positions = [
             'Assist with regulatory audits and annual statutory audits of group companies worldwide.\n',
         ],
         qualifications: [
-            'A bachelor’s degree in commerce or any business-related field, law, or risk management',
-
+            'A bachelor’s degree in commerce or any business-related field',
             'A good understanding of corporate, legal or regulatory compliance',
-
             'Thorough understanding of Anti-Money Laundering (AML) and Know Your Customer (KYC) processes',
-
             'The ability to draft and review legal documents and prepare licence applications',
-
             'A proactive approach in problem-solving',
-
             'The ability to absorb and understand varied compliance matters in a number of international jurisdictions',
-
             'Excellent communication and interpersonal skills',
             'Excellent proficiency in spoken and written English',
         ],
-        preferences: ['Diploma in risk management and compliance (ICA)'],
+        preferences: ['Degree or diploma in risk management, compliance, or law'],
     },
     {
         title: 'Compliance and Payments Analyst (PayOps)',

@@ -40,7 +40,6 @@ export const disaster_recovery_positions = [
             'At least 2 years of experience in executing disaster recovery plans',
             'Hands-on experience in Linux and cloud computing (AWS, GCP, and other IAAS)',
             'Experience in networking and configuration management tools such as Chef, Ansible, and SaltStack',
-            'Comprehensive experience in database administration (PostgreSQL preferred)',
             'Hands-on experience in implementing high availability database clusters',
             'Extensive knowledge of industry-standard information security and disaster recovery best practices',
             'Familiarity with legacy and modern application architectures and related technologies (web applications, service-oriented architecture, microservices), network protocols, and storage and backup services',
@@ -49,5 +48,6 @@ export const disaster_recovery_positions = [
             'Exceptional English communication skills (both oral and written)',
             'Extensive experience with databases',
         ],
+        preferences: ['Comprehensive experience in database administration (PostgreSQL preferred)'],
     },
 ]

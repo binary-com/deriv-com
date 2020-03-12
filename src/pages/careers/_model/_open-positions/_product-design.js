@@ -14,7 +14,7 @@ export const product_design_positions = [
         ],
         responsibilities: [
             'Create designs for print and digital, including landing pages, brochures, ads, webinars, presentations, and more.',
-            'Work with the content team to ensure that copy and design combine effectively to achieve campaign goals.',
+            'Work with the Content team to ensure that copy and design combine effectively to achieve campaign goals.',
             'Collaborate with the Product Design team to further develop our brand. ',
             'Ensure a consistent look and appeal of the company design principles through our style guide. ',
             'Work with the Business Intelligence team to explore qualitative and quantitative data to influence design decisions. ',
@@ -78,7 +78,7 @@ export const product_design_positions = [
         responsibilities: [
             'Create designs for print and digital, including landing pages, brochures, ads, webinars, presentations, and more.',
 
-            'Work with the content team to ensure that copy and design combine effectively to achieve campaign goals.',
+            'Work with the Content team to ensure that copy and design combine effectively to achieve campaign goals.',
 
             'Collaborate with the Product Design team to further develop our brand. ',
 

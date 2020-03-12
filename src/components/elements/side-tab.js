@@ -165,12 +165,7 @@ const SideTab = ({ children, has_hash_routing, is_sticky, onTabChange, tab_heade
             <TabList is_sticky={is_sticky}>
                 <Desktop>
                     {!!tab_header && (
-                        <Header
-                            width="38.4rem"
-                            font_size="3.6rem"
-                            min_width="38.4rem"
-                            margin="0 0 4rem 0"
-                        >
+                        <Header max_width="38.4rem" size="3.6rem" mb="4rem">
                             {tab_header}
                         </Header>
                     )}

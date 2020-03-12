@@ -38,10 +38,6 @@ const StyledLink = styled(LocalizedLink)`
         margin: 1rem 0;
     }
 `
-const StyledSubHeader = styled(Header)`
-    margin: 0.8rem auto;
-    max-width: ${props => props.maxWidth || ''};
-`
 const StyledFlexGridContainer = styled(FlexGridContainer)`
     @media ${device.tabletL} {
         width: 100%;
@@ -102,15 +98,15 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
     <SectionContainer padding="0">
         {is_nav ? null : (
             <HeaderWrapper>
-                <StyledHeader font_size="4.8rem" align="center" lh="5rem">
+                <StyledHeader size="4.8rem" align="center" lh="5rem">
                     {header ? header : localize('Check out our other platforms')}
                 </StyledHeader>
                 {subHeader && (
-                    <StyledSubHeader as="h4" align="center" weight="500" maxWidth="67.6rem">
+                    <Header as="h4" align="center" weight="500" max_width="67.6rem" m="0.8rem auto">
                         {localize(
                             'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
                         )}
-                    </StyledSubHeader>
+                    </Header>
                 )}
             </HeaderWrapper>
         )}

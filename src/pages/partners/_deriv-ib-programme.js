@@ -15,17 +15,13 @@ const TitleWrapper = styled.div`
     max-width: 104.5rem;
     margin: 0 auto;
 `
-const FirstHeader = styled(Header)`
-    margin-bottom: 1.6rem;
-`
+
 const StyledSection = styled(SectionContainer)`
     box-shadow: ${props => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
     padding-bottom: 0;
     text-align: ${props => props.align || 'left'};
 `
 const StyledHeader = styled(Header)`
-    margin-bottom: ${props => (props.margin_bottom ? props.margin_bottom : '1.6rem')};
-
     @media ${device.tabletL} {
         text-align: center;
     }
@@ -88,20 +84,20 @@ const DerivIBProgramme = () => {
         <StyledSection shadow>
             <Container direction="column">
                 <TitleWrapper>
-                    <FirstHeader font_size="3.6rem" align="center">
+                    <Header mb="1.6rem" size="3.6rem" align="center">
                         {localize('Deriv IB Programme')}
-                    </FirstHeader>
-                    <Header as="h4" align="center" weight="500" lh="1.5">
+                    </Header>
+                    <Header as="h4" align="center" weight="500">
                         {localize(
                             'Our introducing broker programme is available to all Deriv affiliates.',
                         )}
                     </Header>
-                    <Header as="h4" align="center" weight="500" lh="1.5">
+                    <Header as="h4" align="center" weight="500">
                         {localize('Earn commission from your clients’ trades on DMT5.')}
                     </Header>
                 </TitleWrapper>
                 <SectionContainer padding="8rem 0 9.6rem 0">
-                    <StyledHeaderCommission as="h4">
+                    <StyledHeaderCommission as="h4" mb="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <CardWrapper>
@@ -110,13 +106,7 @@ const DerivIBProgramme = () => {
                         <DMT5Synthetic data={ib_dmt5_synthetic} />
                     </CardWrapper>
                     <StyledSection padding="4rem 0 0 0" align="center">
-                        <StyledHeader
-                            as="h4"
-                            align="center"
-                            weight="500"
-                            lh="1.5"
-                            margin_bottom="2.6rem"
-                        >
+                        <StyledHeader as="h4" align="center" weight="500" mb="2.6rem">
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
                         <LinkButton external secondary to="mailto:affiliates@deriv.com">
@@ -161,9 +151,7 @@ const DMT5Synthetic = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <>
-                        <Header as="h4" lh="1.5">
-                            {data.name}
-                        </Header>
+                        <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length} is_balance={true}>
                             {data.assets.map((asset, idx) => (
@@ -239,9 +227,7 @@ const DMT5Standard = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <>
-                        <Header as="h4" lh="1.5">
-                            {data.name}
-                        </Header>
+                        <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
@@ -292,9 +278,7 @@ const DMT5Standard = ({ data }) => {
                     </>
                 ) : (
                     <>
-                        <Header as="h4" lh="1.5">
-                            {localize('How it’s calculated')}
-                        </Header>
+                        <Header as="h4">{localize('How it’s calculated')}</Header>
                         {data.calculation}
                         <ButtonWrapper>
                             <Button secondary onClick={Partner.redirectToSignup}>
@@ -320,9 +304,7 @@ const DMT5Advanced = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <>
-                        <Header as="h4" lh="1.5">
-                            {data.name}
-                        </Header>
+                        <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
@@ -373,9 +355,7 @@ const DMT5Advanced = ({ data }) => {
                     </>
                 ) : (
                     <>
-                        <Header as="h4" lh="1.5">
-                            {localize('How it’s calculated')}
-                        </Header>
+                        <Header as="h4">{localize('How it’s calculated')}</Header>
                         {data.calculation}
                         <ButtonWrapper>
                             <Button secondary onClick={Partner.redirectToSignup}>

@@ -75,13 +75,11 @@ const DTrading = ({ trading, reverse, two_title }) => {
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
-                                <StyledHeader>{item.title}</StyledHeader>
+                                <StyledHeader mt="4rem">{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
                                     <>
-                                        <StyledHeader second_title_margin="true">
-                                            {item.second_title}
-                                        </StyledHeader>
+                                        <StyledHeader mt="2.4rem">{item.second_title}</StyledHeader>
                                         <Text>{item.second_subtitle}</Text>
                                     </>
                                 )}

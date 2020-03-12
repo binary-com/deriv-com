@@ -141,10 +141,6 @@ const LeaderWrapper = styled(Flex)`
     }
 `
 
-const StyledHeader = styled(Header)`
-    font-size: 2.3rem;
-`
-
 const Leaders = () => {
     return (
         <SectionContainer>
@@ -169,9 +165,9 @@ const Leaders = () => {
                                     </Text>
                                 </DescriptionWrapper>
                             </Box>
-                            <StyledHeader as="h4" align="center" lh="3.6rem">
+                            <Header as="h4" align="center" lh="3.6rem" size="var(--text-size-m)">
                                 {leader.name}
-                            </StyledHeader>
+                            </Header>
                             <Text align="center">{leader.position}</Text>
                         </LeaderWrapper>
                     ))}

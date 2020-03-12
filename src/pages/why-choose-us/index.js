@@ -14,7 +14,6 @@ const Section = styled(SectionContainer)`
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
     margin: 0 auto;
-    padding: ${props => props.padding || '0'};
 `
 const Column = styled.article`
     max-width: 340px;
@@ -53,13 +52,7 @@ const WhyChooseUs = () => {
                     <StyledHeader as="h1" align="center" lh="7.2rem">
                         {localize('Why choose Deriv')}
                     </StyledHeader>
-                    <StyledHeader
-                        as="h4"
-                        align="center"
-                        weight="normal"
-                        lh="3rem"
-                        padding="1.6rem 0 0"
-                    >
+                    <StyledHeader as="h4" align="center" weight="normal" lh="3rem" pt="1.6rem">
                         {localize(
                             'Client trust is our highest priority, and that’s why millions of users choose us. Here are some of the things that make us a leading online trading service provider.',
                         )}

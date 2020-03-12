@@ -90,10 +90,6 @@ const ParaguayWrapper = styled(Paraguay)`
 const MaltaWrapper = styled(Malta)`
     ${PinpointWrapper}
 `
-const StyledHeader = styled(Header)`
-    font-size: 3.6rem;
-    margin-bottom: 4rem;
-`
 const NumberWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -122,7 +118,9 @@ const MapLink = styled.a`
 export const OurOffices = () => {
     return (
         <OfficeContainer>
-            <StyledHeader align="center">{localize('Our offices')}</StyledHeader>
+            <Header align="center" size="3.6rem" mb="4rem">
+                {localize('Our offices')}
+            </Header>
             <MapWrapper>
                 <StyledMap />
                 <Pinpoint top="66%" left="25%">

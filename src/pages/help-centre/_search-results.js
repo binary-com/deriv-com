@@ -35,9 +35,6 @@ export const Ol = styled(Ul).attrs({
 `
 
 const ErrorHeader = styled(Header)`
-    font-size: var(--text-size-sm);
-    padding-bottom: 0.8rem;
-
     @media ${device.tabletL} {
         font-weight: normal;
     }
@@ -106,7 +103,7 @@ SearchSuccess.propTypes = {
 
 export const SearchError = ({ search }) => (
     <>
-        <ErrorHeader as="h5" color="black">
+        <ErrorHeader as="h5" color="black" size="var(--text-size-sm)" mb="0.8rem">
             {localize("Sorry, we couldn’t find any results matching '{{search}}'.", { search })}
         </ErrorHeader>
         <SearchText color="green">{localize('Search tips:')}</SearchText>

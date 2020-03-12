@@ -43,17 +43,10 @@ const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
             <Show.Mobile>
-                <Header as="h6" font_size="4rem" color="black-2" align="center">
+                <Header as="h6" size="4rem" color="black-2" align="center">
                     {localize('Our numbers')}
                 </Header>
-                <StyledHeader
-                    as="h6"
-                    font_size="2rem"
-                    lh="1.5"
-                    color="black-3"
-                    align="center"
-                    weight="400"
-                >
+                <StyledHeader as="h6" size="2rem" align="center" weight="400">
                     {localize(
                         'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
                     )}
@@ -63,14 +56,7 @@ const OurNumbers = () => (
                 <Header font_size="3.6rem" as="h2" color="black-2" align="center">
                     {localize('Our numbers')}
                 </Header>
-                <StyledHeader
-                    as="h4"
-                    color="black-3"
-                    align="center"
-                    weight="500"
-                    lh="3.6rem"
-                    mt="0.8rem"
-                >
+                <StyledHeader as="h4" align="center" weight="500" lh="3.6rem">
                     {localize(
                         'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
                     )}

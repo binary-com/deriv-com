@@ -56,7 +56,7 @@ const Partners = () => {
             <Hero />
             <SectionContainer padding="8rem 0 4rem">
                 <Container direction="column">
-                    <Header as="h4" weight="500" align="center" lh="1.5">
+                    <Header as="h4" weight="500" align="center">
                         {localize(
                             'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Binary Group – the owner of Binary.com and Deriv.com – has a proven track record of running successful referral programmes with prompt payouts.',
                         )}

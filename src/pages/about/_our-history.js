@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Stories from './_story_constant'
 // import { Container } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
+import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
@@ -84,7 +85,6 @@ const StyledHeader = styled(Header)`
 
 const LastHeader = styled(StyledHeader)`
     width: 15%;
-    margin-left: 35.8%;
 
     ::before {
         right: 1%;
@@ -131,7 +131,7 @@ const StyledLine = styled(StorySVG)`
 export const OurHistory = () => {
     return (
         <StorySection>
-            <Header font_size="3.6rem" align="center" margin="0 0 9.2rem 0">
+            <Header size="3.6rem" align="center" mb="9.2rem">
                 {localize('Our history')}
             </Header>
             <StyledLine />
@@ -143,7 +143,8 @@ export const OurHistory = () => {
                             as="h2"
                             color={story.color || 'red-4'}
                             align="center"
-                            font_size="var(--text-size-header-3)"
+                            size="var(--text-size-header-3)"
+                            ml="35.8%"
                         >
                             {story.year}
                         </LastHeader>
@@ -186,11 +187,11 @@ export const OurHistory = () => {
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
                                             <Header
-                                                padding="0 0 0 1.1rem"
+                                                pl="1.1rem"
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
-                                                margin={header.margin_top + ' 0 0 0'}
+                                                mt={header.margin_top}
                                             >
                                                 {header.header}
                                             </Header>
@@ -215,7 +216,7 @@ export const OurHistory = () => {
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
-                                                margin={header.margin_top + ' 0 0 0'}
+                                                mt={header.margin_top}
                                             >
                                                 {header.header}
                                             </Header>
@@ -230,18 +231,12 @@ export const OurHistory = () => {
                                     outer_image_width={content.outer_image_width}
                                     margin_right={content.margin_right}
                                 >
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'flex-start',
-                                            marginLeft: '1rem',
-                                        }}
-                                    >
+                                    <Flex jc="flex-start" ml="1rem">
                                         <Image
                                             width={content.image_width}
                                             img_name={content.image}
                                         />
-                                    </div>
+                                    </Flex>
                                 </LogoContainer>
                             </YearWrapper>
                         ),

@@ -50,7 +50,7 @@ const WhyUs = ({ items }) => {
     return (
         <StyledContainer>
             <Container direction="column">
-                <Header font_size="3.6rem" align="center">
+                <Header size="3.6rem" align="center">
                     {localize('Why partner with us')}
                 </Header>
                 {items.map((item, index) => {
@@ -58,7 +58,7 @@ const WhyUs = ({ items }) => {
                     return (
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
-                                <Header font_size="2.8rem">{item.title}</Header>
+                                <Header size="2.8rem">{item.title}</Header>
                                 <Text mt="0.8rem">{item.subtitle}</Text>
                             </Content>
                             <Image img_name={item.image_name} alt={item.image_alt} width="100%" />

@@ -11,7 +11,6 @@ import device from 'themes/device'
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
 `
-
 const CarouselContent = styled.div`
     display: flex;
     flex-direction: column;
@@ -32,7 +31,6 @@ const CarouselContent = styled.div`
         margin-top: 0;
     }
 `
-
 const LeftContent = styled.div`
     margin-left: 5%;
 
@@ -47,7 +45,6 @@ const LeftContent = styled.div`
         margin-left: 5%;
     }
 `
-
 const CarouselWrapper = styled.div`
     display: flex;
 `
@@ -70,7 +67,6 @@ const SliderWrapper = styled(Container)`
     height: 100%;
     overflow: hidden;
 `
-
 const ChevronContainer = styled.div`
     display: flex;
     align-items: center;
@@ -81,11 +77,6 @@ const ChevronContainer = styled.div`
         opacity: 0.7;
     }
 `
-
-const HeaderWrapper = styled.div`
-    padding-bottom: 4rem;
-`
-
 const ImageContainer = styled.div`
     width: 100%;
     margin-top: 2.3rem;
@@ -94,7 +85,6 @@ const ImageContainer = styled.div`
         display: none;
     }
 `
-
 const SlideWrapper = styled.div`
     width: 100%;
     display: inline-block;
@@ -119,11 +109,9 @@ const Slide = ({ slides, translate_width, children }) => (
             <SlideWrapper key={idx}>
                 <div>
                     <LeftContent>
-                        <HeaderWrapper>
-                            <Header as="h2" color="white">
-                                {slide.header}
-                            </Header>
-                        </HeaderWrapper>
+                        <Header as="h2" color="white" mb="4rem">
+                            {slide.header}
+                        </Header>
                         <CarouselContent>
                             {slide.text.map((content, idx) => (
                                 <div key={idx}>
@@ -148,12 +136,6 @@ const Slide = ({ slides, translate_width, children }) => (
         ))}
     </div>
 )
-
-Slide.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    slides: PropTypes.array,
-    translate_width: PropTypes.number,
-}
 
 const Carousel = ({ slides, children }) => {
     const ref = React.useRef(null)
@@ -210,6 +192,12 @@ const Carousel = ({ slides, children }) => {
             </ChevronContainer>
         </CarouselWrapper>
     )
+}
+
+Slide.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    slides: PropTypes.array,
+    translate_width: PropTypes.number,
 }
 
 Carousel.propTypes = {

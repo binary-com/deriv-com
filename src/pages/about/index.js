@@ -53,14 +53,6 @@ const LeadershipWrapper = styled(Flex)`
     }
 `
 
-const LeadershipTitle = styled(Header)`
-    margin-bottom: 0.8rem;
-`
-
-const LeadershipPosition = styled(Header)`
-    margin-bottom: 1.6rem;
-`
-
 const NavigationWrapper = styled(Flex)`
     margin-top: 1.6rem;
 `
@@ -135,7 +127,7 @@ const About = () => {
                         >
                             <StyledHeader
                                 as="h2"
-                                font_size="var(--text-size-m)"
+                                size="var(--text-size-m)"
                                 weight="normal"
                                 active={is_story}
                             >
@@ -152,7 +144,7 @@ const About = () => {
                         >
                             <StyledHeader
                                 as="h2"
-                                font_size="var(--text-size-m)"
+                                size="var(--text-size-m)"
                                 weight="normal"
                                 active={is_leadership}
                             >
@@ -187,23 +179,24 @@ const About = () => {
                                         alt={localize('Jean Yves')}
                                     />
                                 </Box>
-
                                 <div>
-                                    <LeadershipTitle
+                                    <Header
                                         as="h3"
                                         size="var(--text-size-header-1)"
                                         color="white"
+                                        mb="0.8rem"
                                     >
                                         <Localize translate_text="Jean-Yves Sireau" />
-                                    </LeadershipTitle>
-                                    <LeadershipPosition
+                                    </Header>
+                                    <Header
                                         as="h4"
                                         weight="normal"
                                         color="white"
                                         lh="3.6rem"
+                                        mb="1.6rem"
                                     >
                                         {localize('Founder and Chief Executive Officer')}
-                                    </LeadershipPosition>
+                                    </Header>
                                     <Text color="white">
                                         {localize(
                                             'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',

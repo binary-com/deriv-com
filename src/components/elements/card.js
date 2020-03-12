@@ -159,11 +159,7 @@ export const Card = ({
                                 is_selected={is_selected}
                             >
                                 <Flex ai="center" p="0 1.6rem" jc="space-between">
-                                    <Header
-                                        as="h4"
-                                        font_size="var(--text-size-header-2)"
-                                        color="white"
-                                    >
+                                    <Header as="h4" size="var(--text-size-header-2)" color="white">
                                         {cover_content}
                                     </Header>
                                     <Arrow />

@@ -17,7 +17,6 @@ import device from 'themes/device.js'
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
     margin: 0 auto;
-    padding: ${props => props.padding || '0'};
 
     @media ${device.tabletS} {
         text-align: center;
@@ -74,7 +73,7 @@ const Regulatory = () => (
                         'The services offered on Deriv and Binary.com are provided by the Binary Group. The group has several subsidiary companies that are licensed to operate Deriv and Binary.com in their registered jurisdictions.',
                     )}
                 </StyledHeader>
-                <StyledHeader as="h4" align="center" weight="normal" lh="3.6rem" padding="2rem 0 0">
+                <StyledHeader as="h4" align="center" weight="normal" lh="3.6rem" pt="2rem">
                     {localize(
                         'Since 1999, the group has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements.',
                     )}
@@ -84,7 +83,7 @@ const Regulatory = () => (
         <Divider />
         <SectionContainer padding="8rem 0 0">
             <GridContainer>
-                <StyledHeader font_size="3.6rem" align="center" lh="4.5rem">
+                <StyledHeader size="3.6rem" align="center" lh="4.5rem">
                     {localize('Binary Investments (Europe) Ltd')}
                 </StyledHeader>
                 <Box>
@@ -159,7 +158,7 @@ const Regulatory = () => (
                             <Labuan />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader font_size="3.6rem" lh="4.5rem">
+                            <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
                                 {localize('Binary (FX) Ltd')}
                             </StyledHeader>
                             <Text lh="1.55" mt="0.8rem">
@@ -185,7 +184,7 @@ const Regulatory = () => (
                             <Vanuatu />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader font_size="3.6rem" lh="4.5rem">
+                            <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
                                 {localize('Binary (V) Ltd')}
                             </StyledHeader>
                             <Text lh="1.55" mt="0.8rem">
@@ -208,7 +207,7 @@ const Regulatory = () => (
                         </CssGridColumn> */}
 
                         {/* <CssGridColumn>
-                            <StyledHeader font_size="3.6rem" lh="4.5rem">
+                            <StyledHeader size="3.6rem" lh="4.5rem" as='h4'>
                                 {localize('Binary (SVG) Ltd')}
                             </StyledHeader>
                             <Text lh="1.55" mt="0.8rem">
@@ -221,7 +220,7 @@ const Regulatory = () => (
                             <FSC />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader font_size="3.6rem" lh="4.5rem">
+                            <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
                                 {localize('Binary (BVI) Ltd')}
                             </StyledHeader>
                             <Text lh="1.55" mt="0.8rem">

@@ -68,15 +68,13 @@ const RTS28 = ({ urls }) => (
     </EdgeFlex>
 )
 
-const QuarterHeader = styled(Text)`
-    padding-bottom: 1.6rem;
-`
-
 const QuarterTable = ({ quarters }) => (
     <div style={{ padding: '0.8rem' }}>
         {quarters.map((quarter, idx) => (
             <div key={idx} style={{ paddingBottom: idx === quarters.length - 1 ? '' : '1.6rem' }}>
-                <QuarterHeader align="center">{quarter.name}</QuarterHeader>
+                <Text align="center" pb="1.6rem">
+                    {quarter.name}
+                </Text>
                 <Flex jc="flex-start" wrap="wrap">
                     <IconContainer
                         width="unset"

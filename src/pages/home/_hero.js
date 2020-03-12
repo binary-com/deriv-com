@@ -39,10 +39,6 @@ const HeroWrapper = styled.section`
 `
 
 const HeroHeader = styled(Header)`
-    margin-top: ${props => (props.secondary ? '1.6rem' : '')};
-    margin-bottom: 3.2rem;
-    font-size: 4.8rem;
-
     @media ${device.tabletL} {
         text-align: left;
         font-size: 3.25rem;
@@ -53,8 +49,6 @@ const HeroHeader = styled(Header)`
 `
 
 const HeroSubHeader = styled(Header)`
-    margin-bottom: 1.4rem;
-
     @media ${device.desktopL} {
         font-size: 3.36rem;
     }
@@ -181,15 +175,20 @@ export const Hero = () => {
                 <HeroGrid>
                     <StyledArticle>
                         <div>
-                            <HeroHeader as="h1" color="white" lh="1.15">
+                            <HeroHeader
+                                as="h1"
+                                color="white"
+                                mb="3.2rem"
+                                size="var(--text-size-xl)"
+                            >
                                 {localize('Simple. Flexible. Reliable.')}
                             </HeroHeader>
                             <HeroSubHeader
                                 as="h2"
                                 color="white"
-                                lh="1.5"
                                 font_size="var(--text-size-m)"
                                 weight="500"
+                                mb="1.4rem"
                             >
                                 {localize('Trade forex, commodities, stock and synthetic indices')}
                             </HeroSubHeader>

@@ -133,7 +133,7 @@ const SignupNew = ({
             : `/${getLanguage()}/terms-and-conditions/`
     return (
         <SignupContent>
-            <Header as="h4" margin="0 0 0.8rem 0">
+            <Header as="h4" mb="0.8rem">
                 {localize('Sign up')}
             </Header>
 

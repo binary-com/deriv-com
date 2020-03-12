@@ -65,21 +65,33 @@ Accordion.propTypes = {
     nodes: PropTypes.array,
 }
 
+const useStateWithCallback = (initialState, callback) => {
+    const [state, setState] = useState(initialState)
+
+    React.useEffect(() => {
+        callback(state)
+    }, [state, callback])
+
+    return [state, setState]
+}
+
 const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
-    const getHeight = (is_expanded, active_idx) => {
-        if (is_expanded) {
-            return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
-        }
-        return 0
+    const getHeight = active_idx => {
+        return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
     }
+
     const render_nodes = React.Children.map(children, (child, child_idx) => {
         const [is_expanded, setExpanded] = useState(false)
+        const [height, setHeight] = useStateWithCallback(0, () => {
+            if (is_expanded) setTimeout(() => setHeight('auto'), 200)
+            else setTimeout(() => setHeight('0'), 50)
+        })
 
         React.useEffect(() => {
-            if (is_default_open) {
-                setExpanded(true)
-            }
+            if (is_default_open) setExpanded(true)
         }, [])
+
+        React.useEffect(() => setHeight(getHeight(child_idx)), [is_expanded])
 
         return (
             <div
@@ -113,7 +125,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
                         style={{
                             overflow: 'hidden',
                             transition: `height ${TRANSITION_DURATION}ms ease`,
-                            height: getHeight(is_expanded, child_idx),
+                            height,
                         }}
                     >
                         {child}

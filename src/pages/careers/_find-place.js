@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import TeamCard from './_layout-components/_team-card'
-import { getTop4Teams, team_names } from './_controller/_teams'
+import { getDisplayTeams, team_names } from './_controller/_teams'
 import { Container, SectionContainer, CssGrid } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
@@ -76,7 +76,7 @@ const query = graphql`
 `
 
 const FindPlace = () => {
-    const top_teams = getTop4Teams()
+    const top_teams = getDisplayTeams()
     const thumbnails = useStaticQuery(query)
 
     return (

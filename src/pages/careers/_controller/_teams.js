@@ -321,9 +321,22 @@ export const getTeamNames = () => all_teams.map(team => team.name)
 
 export const getAlphabeticTeams = () => all_teams.sort((a, b) => a.name.localeCompare(b.name))
 
-export const getTop4Teams = () =>
-    all_teams.sort((a, b) => b.positions.length - a.positions.length).slice(0, 4)
+export const getDisplayTeams = () => {
+    const display_team_names = {
+        devops: true,
+        marketing: true,
+        compliance: true,
+        'quality-assurance': true,
+    }
+    const display_teams = []
 
+    all_teams.forEach(t => {
+        if (display_team_names[t.name]) {
+            display_teams.push(t)
+        }
+    })
+    return display_teams
+}
 export const getTeamByName = team_name => all_teams.find(team => team.name === team_name)
 
 export const getPositionByName = position_name =>

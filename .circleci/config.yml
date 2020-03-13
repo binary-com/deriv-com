@@ -93,7 +93,7 @@ commands:
       - run: 
           name: Building docker image
           command: |
-            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG:-latest} -t ${DOCKHUB_ORGANISATION}/deriv-com:latest .
+            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG} -t ${DOCKHUB_ORGANISATION}/deriv-com:latest .
   docker_push:
     description: "Push image to docker hub"
     steps:
@@ -102,7 +102,8 @@ commands:
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
             docker images
-            ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG:-latest}
+            #docker push ${DOCKHUB_ORGANISATION}/deriv-com
+            docker push ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG}
             docker push ${DOCKHUB_ORGANISATION}/deriv-com:latest
   k8s_deploy:
     description: "Deploy to k8s cluster"

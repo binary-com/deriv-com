@@ -21,7 +21,7 @@ const PAHero = () => {
             <MainHeader as="h1" color="white" align="center" lh="1.25">
                 {localize('Become a payment agent on Deriv')}
             </MainHeader>
-            <MiddleHeader as="h3" color="white" align="center">
+            <MiddleHeader as="h4" color="white" align="center" weight="normal">
                 {localize(
                     'Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv.',
                 )}

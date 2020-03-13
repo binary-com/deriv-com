@@ -59,7 +59,9 @@ const Card = ({ img_data, to, display_team_name, tagline, position_count }) => (
             <QueryImage data={img_data} width="100%" height="14.5rem" alt={display_team_name} />
         </ImageWrapper>
         <StyledContent>
-            <Text size="var(--text-size-xs)">{`${position_count} ${'positions'}`}</Text>
+            <Text size="var(--text-size-xs)">{`${position_count} ${
+                position_count === 1 ? 'position' : 'positions'
+            }`}</Text>
             <Header as="h4" font_size="var(--text-size-sm)" margin="1.6rem 0">
                 {display_team_name}
             </Header>

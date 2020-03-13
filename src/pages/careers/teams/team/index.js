@@ -20,7 +20,7 @@ const StyledContainer = styled(Container)`
 `
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-xxl);
+    font-size: var(--text-size-xl);
     margin-bottom: 1.6rem;
     color: var(--color-white);
 `
@@ -105,7 +105,7 @@ const Hero = ({ name, display_name, team_description }) => {
             }}
         >
             <StyledContainer>
-                <StyledHeader as="h1" font_size="var(--text-size-xl)" align="center">
+                <StyledHeader as="h1" align="center">
                     {display_name}
                 </StyledHeader>
                 <Subheadline align="center">{team_description}</Subheadline>
@@ -136,7 +136,7 @@ const Team = () => {
                 team_description={team.description}
             />
             <TeamWrapper>
-                <Header as="h2" font-size="var(--text-size-header-1)" align="center">
+                <Header as="h2" font_size="var(--text-size-l)" align="center">
                     Open positions
                 </Header>
                 <LinkList

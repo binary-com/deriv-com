@@ -109,11 +109,11 @@ const Job = () => {
                     <Text weight="bold">{'Back'}</Text>
                 </BackText>
 
-                <DescHeader as="h4">{'Description:'}</DescHeader>
+                <DescHeader as="h4">{'Description'}</DescHeader>
                 {job.description &&
                     job.description.map((desc, idx) => <DescText key={idx}>{desc}</DescText>)}
 
-                <DescHeader as="h4">{'Responsibilities:'}</DescHeader>
+                <DescHeader as="h4">{'Responsibilities'}</DescHeader>
                 <Ul>
                     {job.responsibilities &&
                         job.responsibilities.map((responsibility, idx) => (
@@ -125,8 +125,8 @@ const Job = () => {
 
                 <DescHeader as="h4">
                     {job.qualifications.length > 1
-                        ? 'Minimum qualifications:'
-                        : 'Minimum qualification:'}
+                        ? 'Minimum qualifications'
+                        : 'Minimum qualification'}
                 </DescHeader>
                 <Ul>
                     {job.qualifications &&
@@ -140,8 +140,8 @@ const Job = () => {
                     <>
                         <DescHeader as="h4">
                             {job.preferences.length > 1
-                                ? 'Preferred qualifications:'
-                                : 'Preferred qualification:'}
+                                ? 'Preferred qualifications'
+                                : 'Preferred qualification'}
                         </DescHeader>
                         <Ul>
                             {job.preferences &&

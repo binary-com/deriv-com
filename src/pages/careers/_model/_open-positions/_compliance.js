@@ -33,7 +33,7 @@ export const compliance_positions = [
         title: 'Payments Management Executive',
         id: '9f35cfa2-10f8-4b23-8ac4-02b1630bd44f',
         keywords: ['Payments Management Executive'],
-        location: cyberjaya.name,
+        location: labuan.name,
         type: [job_types.full_time],
         team: 'compliance',
         description: [

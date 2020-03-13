@@ -21,12 +21,12 @@ export const devops_positions = [
 
             'Defeat any attempts at breaking into our systems.',
 
-            'Help us improve continuously. If you have suggestions for making things better, we’d love to hear about it.',
+            'Help us improve continuously. If you have suggestions for making things better, we’d love to hear them.',
         ],
         qualifications: [
             'Expertise in cloud solutions and virtualization infrastructure, including AWS, Google Cloud Platform, and KVM',
 
-            'Familiarity with Linux and open-source applications such as rsyslog, DHCP, iptables, Postfix, NGINX, and initialization systems such as systemd and SysVinit',
+            'Familiarity with Linux and open-source applications such as rsyslog, DHCP, iptables, Postfix, NGINX, and initialisation systems such as systemd and SysVinit',
 
             'Extensive experience in TCP/IP networking, firewalls, and VPNs',
 
@@ -75,7 +75,7 @@ export const devops_positions = [
         qualifications: [
             'Expertise in cloud solutions and virtualization infrastructure, including AWS, Google Cloud Platform, and KVM',
 
-            'Familiarity with Linux and open-source applications such as rsyslog, DHCP, iptables, Postfix, NGINX, and initialization systems such as systemd and SysVinit',
+            'Familiarity with Linux and open-source applications such as rsyslog, DHCP, iptables, Postfix, NGINX, and initialisation systems such as systemd and SysVinit',
 
             'Extensive experience in TCP/IP networking, firewalls, and VPNs',
 

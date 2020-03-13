@@ -156,7 +156,7 @@ const WhoWeLookFor = () => {
                     <ImageDescription left>
                         <DescText>
                             <BoldSpan>We have fun</BoldSpan> along the way. We don’t have a dress
-                            code and our cosy offices have communal areas for mealtimes, exercise,
+                            code, and our cosy offices have communal areas for mealtimes, exercise,
                             and games. We also enjoy spending time together at team outings and
                             company trips.
                         </DescText>

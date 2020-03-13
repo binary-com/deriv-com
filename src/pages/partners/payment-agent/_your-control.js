@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import { Container, SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
+// SVG
+import Comission from 'images/svg/pa-comission.svg'
+import WithdrawDeposit from 'images/svg/pa-withdraw-deposit.svg'
+import OpenAccount from 'images/svg/pa-open-account.svg'
+import CloseAccount from 'images/svg/pa-close-account.svg'
 
-const BlackFlex = styled(Flex)`
-    background: var(--color-black);
-`
 const Card = styled(Flex)`
     padding: 3.2rem;
     border-radius: 4px;
@@ -16,6 +18,7 @@ const Card = styled(Flex)`
 
 const CardText = styled(Text)`
     max-width: 25.6rem;
+    margin-left: 1.6rem;
 `
 
 const YourControl = () => {
@@ -36,7 +39,7 @@ const YourControl = () => {
                     mobile_columns="1fr"
                 >
                     <Card>
-                        <BlackFlex width="48px" height="48px" mr="1.6rem" />
+                        <Comission />
                         <CardText>
                             {localize(
                                 'Determine your commission per transaction, subject to our established thresholds.',
@@ -44,17 +47,17 @@ const YourControl = () => {
                         </CardText>
                     </Card>
                     <Card>
-                        <BlackFlex width="48px" height="48px" mr="1.6rem" />
+                        <OpenAccount />
                         <CardText>{localize('Open an agency account with just $200.')}</CardText>
                     </Card>
                     <Card>
-                        <BlackFlex width="48px" height="48px" mr="1.6rem" />
+                        <WithdrawDeposit />
                         <CardText>
                             {localize('Perform multiple deposits and withdrawals per day.')}
                         </CardText>
                     </Card>
                     <Card>
-                        <BlackFlex width="48px" height="48px" mr="1.6rem" />
+                        <CloseAccount />
                         <CardText>{localize('Close your account at any time you want.')}</CardText>
                     </Card>
                 </CssGrid>

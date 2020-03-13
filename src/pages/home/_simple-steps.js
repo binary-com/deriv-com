@@ -34,6 +34,7 @@ const ClientCard = styled.article`
     width: 28.2rem;
     padding: 3.2rem;
     height: 100%;
+    min-height: 22rem;
     margin: ${props => (props.m ? props.m : '')};
     position: relative;
     overflow: hidden;

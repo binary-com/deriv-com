@@ -194,7 +194,7 @@ EmployeeSlide.propTypes = {
 }
 
 const kelcent = {
-    name: localize('Kel Cent Tan, Principal and Compliance Officer'),
+    name: localize('Kelcent Tan, Principal and Compliance Officer'),
     img_path: KelcentImage,
     quote: localize(
         'We have a working culture where everyone is open and willing to share their  knowledge and expertise. This gives me invaluable insights into how other departments operate and helps me understand how my role impacts business operations as a whole.',

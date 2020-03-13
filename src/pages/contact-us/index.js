@@ -50,11 +50,25 @@ const ContactUs = () => {
             />
             <HeroWrapper>
                 <Header as="h1">{localize('Contact us')}</Header>
-                <StyledText align="center" secondary="true">
-                    {localize(
-                        'Got questions, bug reports, feedback, or feature requests? Here are some ways to get in touch with us.',
-                    )}
-                </StyledText>
+                <Show.Desktop>
+                    <StyledText align="center" secondary='true'>
+                        {localize(
+                            'Got questions, bug reports, feedback, or feature requests? Here are some ways to get in touch with us.',
+                        )}
+                    </StyledText>
+                </Show.Desktop>
+                <Show.Mobile>
+                    <StyledText align="center" secondary='true'>
+                        {localize(
+                            'Got questions, bug reports, feedback, or feature requests?',
+                        )}
+                    </StyledText>
+                    <StyledText align="center" secondary='true'>
+                        {localize(
+                            'Here are some ways to get in touch with us.',
+                        )}
+                    </StyledText>
+                </Show.Mobile>
             </HeroWrapper>
             <ContactWays />
             <Offices />

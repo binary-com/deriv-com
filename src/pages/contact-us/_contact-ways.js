@@ -103,7 +103,10 @@ const StyledLinkButton = styled(LinkButton)`
         font-size: 1.75rem;
     }
 `
-
+const ClickToCall = styled.a`
+    text-decoration: none;
+    color: inherit;
+`
 // TODO: This section will be added shortly when the back-end gets ready.
 // const StyledButton = stßyled(LocalizedLink)`
 //     border-radius: 4px;
@@ -163,7 +166,7 @@ export const ContactWays = () => {
                     </StyledHeader>
                     <StyledText>{localize('International help desk')}</StyledText>
                     <StyledText secondary="true" weight="bold">
-                        {localize('+44 1942 316229')}
+                        <ClickToCall href="tel:+44 1942 316229">+44 1942 316229</ClickToCall>
                     </StyledText>
                     <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
                     <StyledText marginBttom="1.9rem">

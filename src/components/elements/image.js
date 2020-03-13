@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 const ImageWrapper = styled.div`
     width: ${props => props.width};
+    height: ${props => props.height};
 `
 
 /*
@@ -19,7 +20,7 @@ const ImageWrapper = styled.div`
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
-const Image = ({ img_name, alt, width }) => (
+const Image = ({ img_name, alt, width, height }) => (
     <StaticQuery
         query={graphql`
             query {
@@ -42,7 +43,7 @@ const Image = ({ img_name, alt, width }) => (
             if (!image) return null
 
             return (
-                <ImageWrapper width={width}>
+                <ImageWrapper width={width} height={height}>
                     <Img alt={alt} fluid={image.node.fluid} />
                 </ImageWrapper>
             )
@@ -52,6 +53,7 @@ const Image = ({ img_name, alt, width }) => (
 
 Image.propTypes = {
     alt: PropTypes.string,
+    height: PropTypes.string,
     img_name: PropTypes.string,
     width: PropTypes.string,
 }

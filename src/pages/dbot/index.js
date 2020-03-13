@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import DBotVideo from './_dbot-video.js'
-import DBotAnimation from 'images/lotties/dbot-animation.json'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
@@ -105,7 +104,6 @@ class Dbot extends Component {
                     start_automating
                     go_to_live_demo
                     Logo={dbot_logo}
-                    animation={DBotAnimation}
                     background_image_name="dbot-artboard.png"
                     background_svg={DBotBG}
                 />

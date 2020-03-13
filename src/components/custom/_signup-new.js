@@ -5,6 +5,7 @@ import { getLanguage } from '../../common/utility'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
 import { Header, Text, Checkbox } from 'components/elements'
+import Login from 'common/login'
 import device from 'themes/device.js'
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
@@ -12,7 +13,7 @@ import { localize, Localize } from 'components/localization'
 
 const SignupContent = styled.div`
     width: 48.4rem;
-    height: 55.5rem;
+    max-height: 55.5rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -30,7 +31,6 @@ const Line = styled.div`
     width: 130px;
     height: 1px;
     background-color: var(--color-grey-7);
-    margin-top: 2.4rem;
 `
 const StyledText = styled(Text)`
     font-size: ${props => props.fontSize || 'var(--text-size-xs)'};
@@ -46,6 +46,10 @@ const NoteBox = styled.div`
     border-radius: 0.6rem;
     background-color: var(--color-grey-8);
     border: solid 1px var(--color-grey-17);
+
+    @media ${device.tabletS} {
+        padding: 1rem 1rem;
+    }
 `
 const InputGroup = styled.div`
     position: relative;
@@ -62,7 +66,8 @@ const SignupWithContainer = styled.div`
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    margin-top: 2rem;
 `
 
 const SocialButton = styled(Button)`
@@ -96,7 +101,7 @@ export const LoginText = styled(MutedText)`
 `
 const Span = styled.span`
     margin-right: 1.4rem;
-    margin-left: 2.7rem;
+    margin-left: 0.7rem;
     font-weight: 500;
     font-size: var(--text-size-xxs);
     color: var(--color-grey-13);
@@ -110,7 +115,7 @@ const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
 `
 const LoginLink = styled.a`
-    font-size: var(--text-size-s);
+    font-size: ${props => (props.fs ? props.fs : 'var(--text-size-s)')};
     font-weight: bold;
     color: var(--color-red);
     text-decoration: none;
@@ -153,10 +158,10 @@ const SignupNew = ({
             : `/${getLanguage()}/terms-and-conditions/`
     return (
         <SignupContent>
-            <Header as="h4" weight="bold">
+            <Header as="h4" margin="0 0 0.8rem 0">
                 {localize('Sign up')}
             </Header>
-            <br />
+
             <Text>{localize('Enter your email address to begin')}</Text>
             <NoteBox>
                 <StyledText
@@ -166,9 +171,16 @@ const SignupNew = ({
                     lh="1.14"
                     align="center"
                 >
-                    {localize(
-                        'Got a Binary.com account? Simply Log in to Deriv.com with your Binary.com credentials',
-                    )}
+                    <Localize
+                        translate_text="Got a Binary.com account? Simply <0>log in</0> to Deriv.com with your Binary.com credentials"
+                        components={[
+                            <LoginLink
+                                fs="var(--text-size-xs)"
+                                onClick={() => Login.redirectToLogin()}
+                                key={0}
+                            ></LoginLink>,
+                        ]}
+                    />
                 </StyledText>
             </NoteBox>
             <InputGroup>
@@ -194,7 +206,7 @@ const SignupNew = ({
                 <CheckboxSpan>
                     <Localize
                         fontSize="var(--text-size-xs)"
-                        translate_text="I agree to the <0>Terms and Conditions</0>"
+                        translate_text="I agree to the <0>terms and conditions</0>"
                         components={[
                             <ExternalLink
                                 href={url}
@@ -209,15 +221,15 @@ const SignupNew = ({
             <EmailButton
                 checkBoxState={checkBoxState}
                 type="submit"
-                secondary
+                secondary="true"
                 disabled={is_submitting || !checkBoxState}
             >
-                {localize('Create a free account')}
+                {localize('Create demo account')}
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-16" align="center" fontSize="var(--text-size-xxs)">
-                    {localize('OR SIGN UP WITH ')}
+                <StyledText color="grey-5" align="center" fontSize="var(--text-size-xs)">
+                    {localize('Or sign up with ')}
                 </StyledText>
                 <Line />
             </SignupWithContainer>

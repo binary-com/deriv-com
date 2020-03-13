@@ -35,7 +35,7 @@ const ContactUs = () => {
             />
             <HeroWrapper>
                 <Header as="h1">{localize('Contact us')}</Header>
-                <StyledText align="center" secondary>
+                <StyledText align="center" secondary="true">
                     {localize(
                         'Got questions, bug reports, feedback, or feature requests? Here are some ways to get in touch with us.',
                     )}

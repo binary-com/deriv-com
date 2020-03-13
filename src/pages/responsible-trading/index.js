@@ -276,8 +276,8 @@ const ResponsibleTrading = () => {
                             'Use our demo account and learn how to trade by using risk-free virtual funds.',
                         )}
                     </StyledHeader>
-                    <LinkButton secondary to="/signup/">
-                        {localize('Create a free account')}
+                    <LinkButton secondary="true" to="/signup/">
+                        {localize('Create demo account')}
                     </LinkButton>
                 </Flex>
             </Section>

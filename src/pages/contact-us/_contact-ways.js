@@ -106,7 +106,7 @@ export const ContactWays = () => {
                     <StyledText align="center">
                         {localize('The quickest way to get answers to your questions.')}
                     </StyledText>
-                    <StyledLinkButton secondary to="help-centre">
+                    <StyledLinkButton secondary="true" to="help-centre">
                         {localize('Visit the Help Centre')}
                     </StyledLinkButton>
                 </Contact>
@@ -118,8 +118,8 @@ export const ContactWays = () => {
                         {localize('Call Us')}
                     </StyledHeader>
                     <StyledText>{localize('International help desk')}</StyledText>
-                    <StyledText secondary weight="bold">
-                        {localize('+44 800 011 9847')}
+                    <StyledText secondary="true" weight="bold">
+                        {localize('+44 1942 316229')}
                     </StyledText>
                     <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
                     <StyledText marginBttom="1.9rem">
@@ -141,7 +141,7 @@ export const ContactWays = () => {
                     >
                         {localize('support@deriv.com')}
                     </LinkText>
-                    {/* <StyledText secondary weight="bold" color="red">
+                    {/* <StyledText secondary="true" weight="bold" color="red">
                         <EmailContainer>{localize('support@deriv.com')}</EmailContainer>
                     </StyledText> */}
                 </Contact>

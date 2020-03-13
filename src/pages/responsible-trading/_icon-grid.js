@@ -100,7 +100,7 @@ export const ResponsibleGrid = () => (
             <Col
                 Icon={FreeDemo}
                 content={localize(
-                    'Use our free demo account and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products.',
+                    'Use our demo account and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products.',
                 )}
             />
             <Col

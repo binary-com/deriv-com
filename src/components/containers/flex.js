@@ -9,6 +9,9 @@ const Flex = styled.div`
     align-items: ${props => (props.ai ? props.ai : '')};
     margin: ${props => (props.m ? props.m : '')};
     margin-top: ${props => (props.mt ? props.mt : '')};
+    margin-bottom: ${props => (props.mb ? props.mb : '')};
+    margin-right: ${props => (props.mr ? props.mr : '')};
+    margin-left: ${props => (props.ml ? props.ml : '')};
     padding: ${props => (props.p ? props.p : '')};
     flex-direction: ${props => (props.direction ? props.direction : '')};
 `

@@ -2,28 +2,43 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Footer from './footer'
-import { Nav, NavStatic } from './nav'
+import { Nav, NavStatic, NavPartners } from './nav'
 
 const Main = styled.main`
     padding-top: ${props => props.padding_top || '7rem'};
     background: var(--color-white);
-    height: ${props => (props.is_static ? '92vh' : '100%')};
+    height: 100%;
 `
 
-const Layout = ({ children, is_static, padding_top }) => (
-    <>
-        {is_static ? <NavStatic /> : <Nav />}
-        <Main padding_top={padding_top} is_static={is_static}>
-            {children}
-        </Main>
-        {!is_static && <Footer />}
-    </>
-)
+const Layout = ({ children, type, padding_top }) => {
+    const is_static = type === 'static'
+    let Navigation = <></>
+    switch (type) {
+        case 'static':
+            Navigation = <NavStatic />
+            break
+        case 'partners':
+            Navigation = <NavPartners />
+            break
+        default:
+            Navigation = <Nav />
+            break
+    }
+    return (
+        <>
+            {Navigation}
+            <Main padding_top={padding_top} is_static={is_static}>
+                {children}
+            </Main>
+            {!is_static && <Footer />}
+        </>
+    )
+}
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
-    is_static: PropTypes.bool,
     padding_top: PropTypes.string,
+    type: PropTypes.string,
 }
 
 export default Layout

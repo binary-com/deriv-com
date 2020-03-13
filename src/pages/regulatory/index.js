@@ -12,11 +12,16 @@ import EU from 'images/svg/europe-map.svg'
 import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import FSC from 'images/svg/fsc.svg'
 import Labuan from 'images/svg/footer-labuan.svg'
+import device from 'themes/device.js'
 
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
     margin: 0 auto;
     padding: ${props => props.padding || '0'};
+
+    @media ${device.tabletS} {
+        text-align: center;
+    }
 `
 const Box = styled.div`
     display: flex;
@@ -26,6 +31,10 @@ const Box = styled.div`
 
     ${Text} {
         max-width: ${props => props.mw || '62.2rem'};
+
+        @media ${device.tabletS} {
+            text-align: center;
+        }
     }
     & a {
         color: var(--color-red);
@@ -35,6 +44,10 @@ const Box = styled.div`
         :hover {
             text-decoration: underline;
         }
+    }
+
+    @media ${device.tabletS} {
+        text-align: center;
     }
 `
 const Europe = styled(EU)`
@@ -150,7 +163,7 @@ const Regulatory = () => (
                         column_gap="1.6rem"
                         row_gap="4rem"
                         tablet_columns="1fr 5fr"
-                        mobile_columns="1fr 5fr"
+                        mobile_columns="1fr"
                     >
                         <CssGridColumn align="center">
                             <Labuan />

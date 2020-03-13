@@ -55,7 +55,7 @@ const SignupSimple = ({
                 <StyledHeader weight="bold">
                     {localize('Ready to join us?')}
                     <br></br>
-                    {localize('Try for free ')}
+                    {localize('Sign up for your demo account now.')}
                 </StyledHeader>
                 <InputGroup>
                     <InputWrapper>
@@ -76,7 +76,7 @@ const SignupSimple = ({
                             required
                         />
                     </InputWrapper>
-                    <EmailButton type="submit" secondary disabled={is_submitting}>
+                    <EmailButton type="submit" secondary="true" disabled={is_submitting}>
                         {localize('Sign up')}
                     </EmailButton>
                 </InputGroup>

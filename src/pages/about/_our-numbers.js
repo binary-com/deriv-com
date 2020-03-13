@@ -8,8 +8,7 @@ import device from 'themes/device'
 
 const OurNumbersWrapper = styled.section`
     width: 100%;
-    background-color: var(--color-white);
-    max-width: 144rem;
+    background-color: var(--color-grey-8);
     margin: auto;
 `
 

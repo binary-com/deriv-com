@@ -93,7 +93,7 @@ commands:
       - run: 
           name: Building docker image
           command: |
-            echo ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG}
+            echo "${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG}"
             docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG} -t ${DOCKHUB_ORGANISATION}/deriv-com:latest .
   docker_push:
     description: "Push image to docker hub"

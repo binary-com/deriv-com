@@ -83,7 +83,7 @@ const Turnover = [
     },
     {
         title: localize('Commission'),
-        data: ['1.25%', '1%', '0.75%', '0.5%', '0.25%', '0%'],
+        data: ['1.5%', '1%', '0.75%', '0.5%', '0.4%', '0%'],
     },
 ]
 const DerivAffiliateProgramme = () => {
@@ -119,13 +119,11 @@ const DerivAffiliateProgramme = () => {
                                     {RevenueShare.map((col, index) => (
                                         <TC grid_area={'area' + index} key={index}>
                                             <TR isTitle="true">
-                                                <StyledText weight="bold">
-                                                    {localize(col.title)}
-                                                </StyledText>
+                                                <StyledText weight="bold">{col.title}</StyledText>
                                             </TR>
                                             {col.data.map((data, index) => (
                                                 <TR key={index}>
-                                                    <StyledText>{localize(data)}</StyledText>
+                                                    <StyledText>{data}</StyledText>
                                                 </TR>
                                             ))}
                                         </TC>

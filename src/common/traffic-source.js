@@ -20,10 +20,10 @@ const TrafficSource = (() => {
         if (!token) return false
 
         const token_length = token.length
-        const binary_token_length = 32
+        const max_token_length = 32
 
-        // Check if token length is correct
-        if (token_length !== binary_token_length) {
+        // allow token length from zero until maximum token length
+        if (token_length > max_token_length) {
             return false
         }
 

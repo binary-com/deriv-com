@@ -144,7 +144,7 @@ const MapContainer = styled.div`
         width: 41rem;
         height: 17.75rem;
     }
-    @media ${device.mobileS} {
+    @media (max-width: 359px) {
         width: 35rem;
     }
 `
@@ -157,6 +157,10 @@ const AddressTextShared = css`
 `
 const StyledLinkText = styled(LinkText)`
     ${AddressTextShared}
+`
+const ClickToCall = styled.a`
+    text-decoration: none;
+    color: inherit;
 `
 export const Offices = () => {
     return (
@@ -206,7 +210,7 @@ export const Offices = () => {
 
                             <StyledText>
                                 <PhoneIcon />
-                                +356 2131 6105
+                                <ClickToCall href="tel:+356 2131 6105">+356 2131 6105</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>
@@ -235,7 +239,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +60 3 8322 8178
+                                <ClickToCall href="tel:+60 3 8322 8178">+60 3 8322 8178</ClickToCall>
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -285,7 +289,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +60 87 50 4126
+                                <ClickToCall href="tel:+60 8750 4126">+60 8750 4126</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>
@@ -309,7 +313,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +9714 399 0404
+                                <ClickToCall href="tel:+971 4 399 0404">+971 4 399 0404</ClickToCall>
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -353,7 +357,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +595 99 129 8762
+                                <ClickToCall href="tel:+595 99 129 8762">+595 99 129 8762</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>

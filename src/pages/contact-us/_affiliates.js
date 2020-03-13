@@ -73,7 +73,7 @@ export const Affiliates = () => {
         <Wrapper>
             <Content>
                 <StyledHeader as="h3" align="center">
-                    {localize('Public Relations')}
+                    {localize('Public relations')}
                 </StyledHeader>
                 <StyledText>{localize('For media enquiries')}</StyledText>
                 <StyledLinkText

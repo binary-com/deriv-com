@@ -2,16 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { localize } from 'components/localization'
-import { Header, Text } from 'components/elements'
+import { Header, Text, Image } from 'components/elements'
 
-const BlackFlex = styled(Flex)`
-    background: var(--color-black);
+const WrapContainer = styled(Container)`
+    flex-wrap: wrap;
+
+    @media (max-width: 1310px) {
+        ${Flex} {
+            margin-right: 0;
+            margin-bottom: 2.4rem;
+        }
+    }
 `
 
 const TapInto = () => {
     return (
         <SectionContainer>
-            <Container justify="flex-end">
+            <WrapContainer justify="flex-end">
                 <Flex direction="column" mr="2.4rem" max_width="58.8rem">
                     <Header as="h3" font_size="var(--text-size-header-1)" margin="0 0 1.6rem">
                         {localize('Tap into an established and growing market')}
@@ -22,8 +29,8 @@ const TapInto = () => {
                         )}
                     </Text>
                 </Flex>
-                <BlackFlex width="486px" height="263px" />
-            </Container>
+                <Image img_name="payment-agent.png" width="48.6rem" />
+            </WrapContainer>
         </SectionContainer>
     )
 }

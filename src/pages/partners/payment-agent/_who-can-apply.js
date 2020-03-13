@@ -18,11 +18,11 @@ import { Header, Text } from 'components/elements'
 import { Button } from 'components/form'
 // SVG
 import TradingExperts from 'images/svg/trading-experts.svg'
-import SoftwareDeveloper from 'images/svg/software-developer.svg'
+import Affiliates from 'images/svg/affiliates.svg'
 import CommunityManagers from 'images/svg/community-managers.svg'
-import Apply from 'images/svg/apply.svg'
-import Advertise from 'images/svg/advertise.svg'
-import Earn from 'images/svg/earn.svg'
+import Email from 'images/svg/pa-email.svg'
+import Reply from 'images/svg/pa-reply.svg'
+import Listed from 'images/svg/pa-listed.svg'
 import LineVerticalSVG from 'images/svg/line-vertical-pa.svg'
 
 const StyledUl = styled.ul`
@@ -60,7 +60,7 @@ const WhoCanApply = () => {
                         </Content>
                     </Wrapper>
                     <Wrapper>
-                        <SoftwareDeveloper />
+                        <Affiliates />
                         <Content max_width="36.4rem">
                             <Header as="h4" lh="1.5">
                                 {localize('Affiliates')}
@@ -92,7 +92,7 @@ const WhoCanApply = () => {
                             {localize('How to apply')}
                         </SecondaryHeader>
                         <Wrapper>
-                            <Apply />
+                            <Email />
                             <Content max_width="32.4rem">
                                 <Header as="h4" lh="1.5">
                                     {localize('Drop us an email')}
@@ -129,7 +129,7 @@ const WhoCanApply = () => {
                             </Content>
                         </Wrapper>
                         <Wrapper>
-                            <Advertise />
+                            <Reply />
                             <Content max_width="32.4rem">
                                 <Header as="h4" lh="1.5">
                                     {localize('Wait for our reply')}
@@ -142,7 +142,7 @@ const WhoCanApply = () => {
                             </Content>
                         </Wrapper>
                         <Wrapper>
-                            <Earn />
+                            <Listed />
                             <Content max_width="32.4rem">
                                 <Header as="h4" lh="1.5">
                                     {localize('Get listed')}

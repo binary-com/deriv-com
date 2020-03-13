@@ -1,56 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
+import {
+    ItemContainer,
+    HeaderPrimary,
+    TextPrimary,
+    TextSecondary,
+    TextList,
+    StyledLink,
+    StyledUl,
+    LocalizedLinkText,
+} from '../_faq-data'
 import Partner from 'common/partner'
-import { SectionContainer } from 'components/containers'
-import { localize, Localize, LocalizedLink } from 'components/localization'
-import { Header, Text, LinkText } from 'components/elements'
+import { localize, Localize } from 'components/localization'
+import { Header, Text } from 'components/elements'
 
-const ItemContainer = styled(SectionContainer)`
-    padding: 4rem 0;
-    max-width: 79rem;
-`
-
-const HeaderPrimary = styled(Header)`
-    margin-top: 3.2rem;
-    font-size: var(--text-size-m);
-`
-
-const TextPrimary = styled(Text)`
-    margin-top: 1.6rem;
-`
-
-const TextSecondary = styled(Text)`
-    margin-top: 2rem;
-`
-
-const TextList = styled(Text)`
-    margin-top: 1.6rem;
-    margin-bottom: 0.8rem;
-    font-weight: bold;
-`
-
-const StyledLink = styled(LinkText)`
-    color: var(--color-red);
-    font-weight: bold;
-`
-
-const StyledUl = styled.ul`
-    list-style-type: disc;
-    font-size: var(--text-size-s);
-    padding-left: 1.8rem;
-`
-
-const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
-    color: var(--color-red);
-    font-weight: bold;
-    text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
-`
-
-const AffiliateGeneral = (
+const General = (
     <ItemContainer>
         <Header as="h4">{localize('What is the Deriv Affiliate Programme?')}</Header>
         <TextPrimary>
@@ -127,7 +90,7 @@ const AffiliateGeneral = (
         </TextPrimary>
     </ItemContainer>
 )
-const AffiliateAccountManagement = (
+const AccountManagement = (
     <ItemContainer>
         <Header as="h4">{localize('How can I sign up as a Deriv affiliate?')}</Header>
         <TextPrimary>
@@ -223,7 +186,7 @@ const AffiliateAccountManagement = (
     </ItemContainer>
 )
 
-const AffiliateReferralTools = (
+const ReferralTools = (
     <ItemContainer>
         <Header as="h4">{localize('What kind of referral tools do you offer?')}</Header>
         <TextPrimary>
@@ -235,98 +198,4 @@ const AffiliateReferralTools = (
     </ItemContainer>
 )
 
-const IBGeneral = (
-    <ItemContainer>
-        <Header as="h4">{localize('What is the Deriv IB Programme?')}</Header>
-        <TextPrimary>
-            {localize(
-                'The Deriv IB Programme is a partnership where you benefit from referring new clients to trade on our DMT5 platform.',
-            )}
-        </TextPrimary>
-        <HeaderPrimary>
-            {localize('How much can I earn from referring new clients to your DMT5 platform?')}
-        </HeaderPrimary>
-        <TextPrimary>
-            <Localize
-                translate_text="You’ll earn a fixed commission based on the volume of individual trades purchased by your referred clients. Please refer to our <0>IB commission plan</0> for more info."
-                components={[<span key={0} style={{ color: 'red', fontWeight: 'bold' }} />]}
-            />
-        </TextPrimary>
-        <HeaderPrimary>
-            {localize('How much do I need to pay to join your IB programme?')}
-        </HeaderPrimary>
-        <TextPrimary>
-            {localize('The Deriv IB Programme is completely free and always will be.')}
-        </TextPrimary>
-        <HeaderPrimary>
-            {localize(
-                'Are there any minimum client or volume conditions that I need to meet before I can withdraw my commissions?',
-            )}
-        </HeaderPrimary>
-        <TextPrimary>
-            {localize('There is absolutely no requirement to withdraw your IB commissions.')}
-        </TextPrimary>
-    </ItemContainer>
-)
-
-const IBAccountManagement = (
-    <ItemContainer>
-        <Header as="h4">{localize('How can I sign up as a Deriv IB?')}</Header>
-        <TextPrimary>
-            <Localize
-                translate_text="If you’re interested in becoming an IB, all you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
-                components={[
-                    <StyledLink
-                        href={Partner.signup_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={0}
-                    />,
-                ]}
-            />
-        </TextPrimary>
-        <TextSecondary>
-            <Localize
-                translate_text="If you’re already registered as a Deriv affiliate, you can email us at <0>affiliates@deriv.com</0> instead."
-                components={[<StyledLink href="mailto:affiliates@deriv.com" key={0} />]}
-            />
-        </TextSecondary>
-        <HeaderPrimary>
-            {localize('How and when will I receive my Deriv IB commissions?')}
-        </HeaderPrimary>
-        <TextPrimary>
-            {localize(
-                'Your IB commissions are credited directly into your DMT5 account daily. You can transfer the funds to your Deriv account and withdraw them to your preferred payment method.',
-            )}
-        </TextPrimary>
-    </ItemContainer>
-)
-
-const IBReferralTools = (
-    <ItemContainer>
-        <Header as="h4">{localize('Do you offer any referral tools to your IBs?')}</Header>
-        <TextPrimary>
-            {localize(
-                'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our DMT5 platform.',
-            )}
-        </TextPrimary>
-    </ItemContainer>
-)
-
-export {
-    AffiliateGeneral,
-    AffiliateAccountManagement,
-    AffiliateReferralTools,
-    IBGeneral,
-    IBAccountManagement,
-    IBReferralTools,
-    // STYLES
-    ItemContainer,
-    HeaderPrimary,
-    TextPrimary,
-    TextSecondary,
-    TextList,
-    StyledLink,
-    StyledUl,
-    LocalizedLinkText,
-}
+export { General, AccountManagement, ReferralTools }

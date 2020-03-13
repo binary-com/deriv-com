@@ -1,92 +1,43 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
-import { SectionContainer, Container } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
+import styled from 'styled-components'
+import {
+    StyledSection,
+    SectionWrapper,
+    CenteredSection,
+    Col,
+    Wrapper,
+    Content,
+    Separator,
+    StyledHeader,
+    SecondaryHeader,
+    LineStyle,
+} from '../_who-can-apply'
+import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
+import { Header, Text } from 'components/elements'
 import { Button } from 'components/form'
-import Partner from 'common/partner'
-import device from 'themes/device'
+// SVG
 import TradingExperts from 'images/svg/trading-experts.svg'
 import SoftwareDeveloper from 'images/svg/software-developer.svg'
 import CommunityManagers from 'images/svg/community-managers.svg'
-import LineVerticalSVG from 'images/svg/line-vertical.svg'
 import Apply from 'images/svg/apply.svg'
 import Advertise from 'images/svg/advertise.svg'
 import Earn from 'images/svg/earn.svg'
+import LineVerticalSVG from 'images/svg/line-vertical-pa.svg'
 
-const StyledSection = styled(Container)`
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    @media ${device.tablet} {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+const StyledUl = styled.ul`
+    list-style-type: disc;
+    font-size: var(--text-size-s);
+    padding-left: 1.8rem;
 `
 
-const SectionWrapper = styled(SectionContainer)`
-    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
-`
-const CenteredSection = styled(SectionContainer)`
-    text-align: center;
-`
-const Col = styled.section`
-    width: 100%;
-    max-width: 42.8rem;
-    display: flex;
-    flex-direction: column;
-`
-const Wrapper = styled.div`
-    width: 100%;
-    display: flex;
-    margin-top: 4rem;
-
-    svg {
-        margin-right: 1.6rem;
-    }
-`
-const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-    max-width: ${props => props.max_width};
-`
-const Separator = styled.div`
-    width: 1px;
-    height: 50rem;
-    background-color: var(--color-grey-8);
-    margin: 0 9.2rem;
-
-    @media ${device.laptop} {
-        display: none !important;
-    }
-`
-const StyledHeader = styled(Header)`
-    width: 100%;
-    max-width: 42.8rem;
+const Li = styled.li`
+    margin-top: 0.8rem;
 `
 
-const SecondaryHeader = styled(StyledHeader)`
-    @media ${device.tablet} {
-        margin-top: 3.2rem;
-        margin-left: -4.6rem;
-    }
-`
-const Flex = styled.div`
-    display: flex;
-`
-const LineStyle = css`
-    margin-top: 10.5rem;
-    margin-right: 16px;
-    width: 3rem;
-    height: 33rem;
-
-    @media ${device.tablet} {
-        margin-top: 13.5rem;
-    }
-`
 const LineVertical = styled(LineVerticalSVG)`
     ${LineStyle}
+    height: 46rem;
 `
 
 const WhoCanApply = () => {
@@ -99,11 +50,11 @@ const WhoCanApply = () => {
                         <TradingExperts />
                         <Content max_width="36.4rem">
                             <Header as="h4" lh="1.5">
-                                {localize('Trading experts')}
+                                {localize('Currency exchangers')}
                             </Header>
                             <Text>
                                 {localize(
-                                    'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
+                                    'Reputable online currency exchangers who want to gain more exposure and clients.',
                                 )}
                             </Text>
                         </Content>
@@ -112,12 +63,10 @@ const WhoCanApply = () => {
                         <SoftwareDeveloper />
                         <Content max_width="36.4rem">
                             <Header as="h4" lh="1.5">
-                                {localize('Software developers')}
+                                {localize('Affiliates')}
                             </Header>
                             <Text>
-                                {localize(
-                                    'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
-                                )}
+                                {localize('Deriv affiliates who want to support their clients.')}
                             </Text>
                         </Content>
                     </Wrapper>
@@ -129,7 +78,7 @@ const WhoCanApply = () => {
                             </Header>
                             <Text>
                                 {localize(
-                                    'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
+                                    'Trusted influencers or community managers who want to earn extra revenue.',
                                 )}
                             </Text>
                         </Content>
@@ -140,30 +89,54 @@ const WhoCanApply = () => {
                     <LineVertical />
                     <Col>
                         <SecondaryHeader font_size="3.6rem">
-                            {localize('Get started easily')}
+                            {localize('How to apply')}
                         </SecondaryHeader>
                         <Wrapper>
                             <Apply />
                             <Content max_width="32.4rem">
                                 <Header as="h4" lh="1.5">
-                                    {localize('Sign up')}
+                                    {localize('Drop us an email')}
                                 </Header>
-                                <Text>
-                                    {localize(
-                                        'Fill out the online application form. We’ll review your application and get in touch once it’s approved.',
-                                    )}
-                                </Text>
+                                <Text>{localize('Send us an email with the following:')}</Text>
+                                <StyledUl>
+                                    <Li>
+                                        <Text>
+                                            {localize(
+                                                'Your name, email address, and contact number',
+                                            )}
+                                        </Text>
+                                    </Li>
+                                    <Li>
+                                        <Text>
+                                            {localize('Your website address (if you have one)')}
+                                        </Text>
+                                    </Li>
+                                    <Li>
+                                        <Text>
+                                            {localize(
+                                                'Payment methods you will accept from clients',
+                                            )}
+                                        </Text>
+                                    </Li>
+                                    <Li>
+                                        <Text>
+                                            {localize(
+                                                'The commission you will charge clients on deposits and withdrawals',
+                                            )}
+                                        </Text>
+                                    </Li>
+                                </StyledUl>
                             </Content>
                         </Wrapper>
                         <Wrapper>
                             <Advertise />
                             <Content max_width="32.4rem">
                                 <Header as="h4" lh="1.5">
-                                    {localize('Advertise')}
+                                    {localize('Wait for our reply')}
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv.',
+                                        'We’ll review your application and get in touch for further information and next steps.',
                                     )}
                                 </Text>
                             </Content>
@@ -172,11 +145,11 @@ const WhoCanApply = () => {
                             <Earn />
                             <Content max_width="32.4rem">
                                 <Header as="h4" lh="1.5">
-                                    {localize('Earn')}
+                                    {localize('Get listed')}
                                 </Header>
                                 <Text>
                                     {localize(
-                                        'Start earning based on your chosen commission plan –– up to 45% of the total net revenue generated by your referred clients.',
+                                        'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
                                     )}
                                 </Text>
                             </Content>
@@ -185,25 +158,10 @@ const WhoCanApply = () => {
                 </Flex>
             </StyledSection>
             <CenteredSection padding="4rem 0">
-                <Button secondary onClick={Partner.redirectToSignup}>
-                    {localize('Sign up')}
-                </Button>
+                <Button secondary>{localize('Send us an email to apply')}</Button>
             </CenteredSection>
         </SectionWrapper>
     )
-}
-
-export {
-    StyledSection,
-    SectionWrapper,
-    CenteredSection,
-    Col,
-    Wrapper,
-    Content,
-    Separator,
-    StyledHeader,
-    SecondaryHeader,
-    LineStyle,
 }
 
 export default WhoCanApply

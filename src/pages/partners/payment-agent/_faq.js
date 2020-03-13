@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { General, AccountManagement, ReferralTools } from './_faq-data'
+import { General, AccountManagement } from './_faq-data'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
@@ -46,13 +46,6 @@ const Faq = () => {
                         style={item_style}
                     >
                         {AccountManagement}
-                    </AccordionItem>
-                    <AccordionItem
-                        header={localize('Referral tools')}
-                        parent_style={parent_style}
-                        style={item_style}
-                    >
-                        {ReferralTools}
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>

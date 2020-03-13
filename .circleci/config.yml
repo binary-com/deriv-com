@@ -93,6 +93,7 @@ commands:
       - run: 
           name: Building docker image
           command: |
+            echo ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG}
             docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG} -t ${DOCKHUB_ORGANISATION}/deriv-com:latest .
   docker_push:
     description: "Push image to docker hub"
@@ -126,9 +127,9 @@ jobs:
           - GATSBY_CPU_COUNT=2
     steps:
       - git_checkout_from_cache
-      - npm_install_from_cache
-      - npm_test
-      - build
+      #- npm_install_from_cache
+      #- npm_test
+      #- build
       - docker_build
       - docker_push
   release:

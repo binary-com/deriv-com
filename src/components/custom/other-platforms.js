@@ -140,7 +140,9 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
             cover_content={localize('Discover SmartTrader now')}
             title={localize('SmartTrader')}
             Icon={StyledSmarttrader}
-            content={[localize('Trade the world’s markets with a simple and familiar platform.')]}
+            content={[
+                localize('Trade the world’s markets with our popular user-friendly platform.'),
+            ]}
             is_inline_icon
             min_height="11.6rem"
             is_selected={is_selected}

@@ -62,7 +62,7 @@ const Hero = () => {
         >
             <StyledContainer>
                 <StyledHeader as="h2">
-                    Be part of something <RedBanner>big</RedBanner>
+                    Be part of something <RedBanner>big</RedBanner>.
                 </StyledHeader>
                 <Subheadline as="h3">
                     We have a huge mission, an incredible team, and rapid growth. But it’s not just

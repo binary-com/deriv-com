@@ -94,7 +94,6 @@ commands:
       - run: 
           name: Building docker image
           command: |
-            echo "${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1}"
             docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/deriv-com:latest .
   docker_push:
     description: "Push image to docker hub"
@@ -103,10 +102,7 @@ commands:
           name: Pushing Image to docker hub
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-            #docker images
             docker push ${DOCKHUB_ORGANISATION}/deriv-com
-            #docker push ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1}
-            #docker push ${DOCKHUB_ORGANISATION}/deriv-com:latest
   k8s_deploy:
     description: "Deploy to k8s cluster"
     parameters:
@@ -162,10 +158,9 @@ workflows:
   build_and_push_dev:
     jobs:
       - test:
-          #filters:
-          #  branches:
-          #    only: /^dev/
-          context: binary-frontend-deploy
+          filters:
+            branches:
+              only: /^dev/
       - deploy_staging:
           filters:
             branches:

@@ -11,7 +11,7 @@ import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
 const StyledSection = styled(SectionContainer)`
     border-bottom: 1px solid rgba(151, 151, 151, 0.2);
-    
+
     @media ${device.tabletL} {
         padding: 5rem 0;
     }
@@ -34,6 +34,7 @@ const ClientCard = styled.article`
     width: 28.2rem;
     padding: 3.2rem;
     height: 100%;
+    min-height: 22rem;
     margin: ${props => (props.m ? props.m : '')};
     position: relative;
     overflow: hidden;
@@ -82,7 +83,7 @@ const SimpleSteps = () => (
                 </Flex>
                 <Text>
                     {localize(
-                        'Open a demo account and start trading for free. Practise with an unlimited amount of funds.',
+                        'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
                     )}
                 </Text>
             </ClientCard>
@@ -93,7 +94,7 @@ const SimpleSteps = () => (
                 </Flex>
                 <Text>
                     {localize(
-                        'Open a real account and start trading for real. Trade forex, indices, commodities, and other derivatives.',
+                        'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
                     )}
                 </Text>
             </ClientCard>
@@ -104,7 +105,7 @@ const SimpleSteps = () => (
                 </Flex>
                 <Text>
                     {localize(
-                        'Get your funds quickly and easily. We support a variety of deposit and withdrawal options.',
+                        'Get your funds quickly and easily. We support a variety of withdrawal options.',
                     )}
                 </Text>
             </ClientCard>

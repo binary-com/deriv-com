@@ -11,7 +11,7 @@ import { convertToHash } from './_utility'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
@@ -23,6 +23,13 @@ const getAllArticles = articles =>
         .map(category => category.articles)
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
+
+const splitArticles = (array, length) =>
+    array.reduce((result, item, index) => {
+        if (index % length === 0) result.push([])
+        result[Math.floor(index / length)].push(item)
+        return result
+    }, [])
 
 const Backdrop = styled.div`
     padding: 8rem 0;
@@ -97,7 +104,7 @@ const Search = styled.input`
 const ResultWrapper = styled.div`
     > :first-child {
         margin-top: 4rem;
-        margin-bottom: 1.6rem;
+        margin-bottom: 3.6rem;
     }
 `
 const StyledHeader = styled(Header)`
@@ -113,7 +120,10 @@ const ListWrapper = styled.div`
     ${Header} {
         margin-bottom: 1.6rem;
     }
-
+    @media ${device.laptopL} {
+        max-width: auto;
+        width: auto;
+    }
     @media ${device.tabletL} {
         padding-top: 3.55rem;
     }
@@ -122,7 +132,7 @@ const ListWrapper = styled.div`
 const ArticleSection = styled.section`
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     padding: 8rem 0;
 
@@ -131,7 +141,7 @@ const ArticleSection = styled.section`
     }
 `
 const ListNoBullets = styled.ul`
-    margin-bottom: 4.2rem;
+    margin-bottom: 1.6rem;
     list-style: none;
 
     li {
@@ -151,11 +161,40 @@ const StyledLink = styled(Link)`
         text-decoration: underline;
     }
 `
+
+const StyledView = styled.div`
+    text-decoration: none;
+    color: red;
+    font-size: var(--text-size-s);
+
+    :hover {
+        cursor: pointer;
+    }
+`
+
+const RowDiv = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    @media ${device.tabletS} {
+        flex-direction: column;
+    }
+`
+
+const ArticleDiv = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8rem;
+`
+
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
         this.state = {
             all_articles: [],
+            all_categories: {},
             search: '',
             search_has_transition: false,
             toggle_search: true,
@@ -187,6 +226,14 @@ class HelpCentre extends Component {
 
     clearSearch = () => this.setState({ search: '' })
 
+    toggleArticle = category => {
+        if (this.state.all_categories[category]) {
+            const all_categories = { ...this.state.all_categories }
+            all_categories[category].is_expanded = !all_categories[category].is_expanded
+            this.setState({ all_categories })
+        }
+    }
+
     componentDidMount = () => {
         const current_label = getLocationHash()
         const deepClone = arr => {
@@ -217,17 +264,30 @@ class HelpCentre extends Component {
             return article
         })
 
+        const all_categories = {}
+        Object.keys(all_articles).forEach(article => {
+            all_categories[all_articles[article].category] = { is_expanded: false }
+        })
+
         this.setState({
+            all_categories,
             all_articles: translated_articles,
         })
     }
 
     render() {
-        const { all_articles, search, toggle_search, search_has_transition } = this.state
+        const {
+            all_articles,
+            all_categories,
+            search,
+            toggle_search,
+            search_has_transition,
+        } = this.state
 
         const filtered_articles = matchSorter(all_articles, search.trim(), {
             keys: ['title', 'sub_category'],
         })
+        const splittedArticles = splitArticles(articles, 3)
         const has_results = !!filtered_articles.length
         return (
             <Layout>
@@ -250,7 +310,7 @@ class HelpCentre extends Component {
                                         name="search"
                                         value={search}
                                         onChange={this.handleInputChange}
-                                        placeholder={localize('Try “Trade”')}
+                                        placeholder={localize("Try 'Trade'")}
                                         data-lpignore="true"
                                         autoComplete="off"
                                     />
@@ -275,25 +335,97 @@ class HelpCentre extends Component {
                 </SearchSection>
                 <Container align="left" justify="flex-start" direction="column">
                     <ArticleSection>
-                        {articles.map((category, idx) => (
-                            <ListWrapper key={idx}>
-                                <Header font_size="3.6rem">{localize(category.category)}</Header>
-                                <ListNoBullets>
-                                    {category.articles.map((article, idxa) => (
-                                        <li key={idxa}>
-                                            <StyledLink
-                                                to={convertToHash(
-                                                    category.category.props.translate_text,
-                                                    article.label,
-                                                )}
-                                            >
-                                                {article.title}
-                                            </StyledLink>
-                                        </li>
-                                    ))}
-                                </ListNoBullets>
-                            </ListWrapper>
-                        ))}
+                        {splittedArticles.map((article, id) => {
+                            return (
+                                <RowDiv key={id}>
+                                    {article.map((item, idx) => {
+                                        {
+                                            return (
+                                                <ArticleDiv key={idx}>
+                                                    <ListWrapper>
+                                                        <Header font_size="3.6rem">
+                                                            {localize(item.category)}
+                                                        </Header>
+                                                        {item.articles.map((ar, idxb) => {
+                                                            const category_is_expanded =
+                                                                ar.category in all_categories &&
+                                                                all_categories[ar.category]
+                                                                    .is_expanded
+                                                            const should_show_item =
+                                                                idxb < 3 || category_is_expanded
+                                                            const can_expand =
+                                                                item.articles.length > 3
+                                                            const should_show_expand =
+                                                                !category_is_expanded &&
+                                                                can_expand &&
+                                                                idxb === 3
+                                                            const should_show_collapse =
+                                                                category_is_expanded &&
+                                                                can_expand &&
+                                                                idxb === item.articles.length - 1
+                                                            return (
+                                                                <ListNoBullets key={idxb}>
+                                                                    {should_show_item && (
+                                                                        <li>
+                                                                            <StyledLink
+                                                                                to={convertToHash(
+                                                                                    item.category
+                                                                                        .props
+                                                                                        .translate_text,
+                                                                                    ar.label,
+                                                                                )}
+                                                                            >
+                                                                                {ar.title}
+                                                                            </StyledLink>
+                                                                        </li>
+                                                                    )}
+                                                                    {(should_show_expand ||
+                                                                        should_show_collapse) && (
+                                                                        <li>
+                                                                            <StyledView
+                                                                                onClick={() =>
+                                                                                    this.toggleArticle(
+                                                                                        ar.category,
+                                                                                    )
+                                                                                }
+                                                                            >
+                                                                                {should_show_expand ? (
+                                                                                    <Localize
+                                                                                        translate_text="<0>View all questions</0>"
+                                                                                        components={[
+                                                                                            <strong
+                                                                                                key={
+                                                                                                    0
+                                                                                                }
+                                                                                            />,
+                                                                                        ]}
+                                                                                    />
+                                                                                ) : (
+                                                                                    <Localize
+                                                                                        translate_text="<0>View less questions</0>"
+                                                                                        components={[
+                                                                                            <strong
+                                                                                                key={
+                                                                                                    0
+                                                                                                }
+                                                                                            />,
+                                                                                        ]}
+                                                                                    />
+                                                                                )}
+                                                                            </StyledView>
+                                                                        </li>
+                                                                    )}
+                                                                </ListNoBullets>
+                                                            )
+                                                        })}
+                                                    </ListWrapper>
+                                                </ArticleDiv>
+                                            )
+                                        }
+                                    })}
+                                </RowDiv>
+                            )
+                        })}
                     </ArticleSection>
                 </Container>
 

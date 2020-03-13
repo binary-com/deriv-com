@@ -1,21 +1,22 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
+import { deriv_app_url } from 'common/utility'
 import { Text, Header } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
 
 const ArticleWrapper = styled.div`
-    max-width: 79.2rem;
+    max-width: 71.2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
     font-size: var(--text-size-s);
     line-height: 1.5;
-    padding-left: 2.4rem;
+    margin-left: 12.6rem;
 `
-export const StyledLink = css`
+const ExternalLink = styled.a`
     text-decoration: none;
     font-size: var(--text-size-s);
     font-weight: bold;
@@ -25,169 +26,148 @@ export const StyledLink = css`
         text-decoration: underline;
     }
 `
-const ExternalLink = styled.a`
-    ${StyledLink}
-`
-// const InternalLink = styled(LocalizedLink)`
-//     ${StyledLink}
-// `
-const Box = styled.div`
-    margin: 2.4rem 0;
-    padding: 2rem;
-    background-color: var(--color-grey-18);
-`
 const StyledText = styled(Text)`
     margin-top: 1.7rem;
 `
-const url =
+const StyledListItem = styled.li`
+    text-indent: -1.4em;
+    padding-left: 1.4em;
+`
+const urlResetPassword =
     getLanguage() === 'en' || getLanguage() == null
-        ? '/terms-and-conditions/'
-        : `/${getLanguage()}/terms-and-conditions/`
+        ? '/reset-password/'
+        : `/${getLanguage()}/reset-password/`
 
 const WhoCanOpenAnAccount = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0">
-            {localize('Who can open an account?')}
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize("Why can't I create an account?")}
         </Header>
-        <StyledText>
-            <Localize
-                translate_text="You have read the <0>Legal Terms and Conditions</0> in full."
-                components={[
-                    <ExternalLink
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={0}
-                    ></ExternalLink>,
-                ]}
-            />
-        </StyledText>
-        <StyledText>
-            {localize(
-                'You understand that you will be buying and selling financial contracts subject to these terms and conditions.',
-            )}
-        </StyledText>
-        <StyledText>
-            {localize(
-                'You have read our privacy statement and give us your consent to process your personal information.',
-            )}
-        </StyledText>
-        <StyledText>
-            {localize(
-                'You are over 18 years of age, unless you are an Estonian resident whereby you would have to be over 21.',
-            )}
-        </StyledText>
-        <StyledText>
-            {localize(
-                'You are not resident in a restricted country such as Canada, Costa Rica, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, United Arab Emirates, USA or any other restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
-            )}
-        </StyledText>
-        <StyledText>
-            {localize(
-                'You have enough experience and knowledge in financial trading to be able to evaluate the merits and risks of acquiring financial contracts via this site. You have not relied on any information contained in this site to make that evaluation.',
-            )}
-        </StyledText>
-    </ArticleWrapper>
-)
-const OpeningAccount = () => (
-    <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0">
-            {localize('Opening an account')}
-        </Header>
-        <Text>{localize('There are three ways to open an account. You can:')}</Text>
-        <Text>
-            <Box>
-                <Localize
-                    translate_text='1. Enter your email address on the homepage and click <0>"Create demo account"</0>
-                <1 /><1 />2. Create an account with your <0>Google</0> login
-                <1 /><1 />3. Create an account with your <0>Facebook</0> login'
-                    components={[<strong key={0} />, <br key={1} />]}
-                />
-            </Box>
-        </Text>
         <Text>
             {localize(
-                'You will have a practise account to start with. You can upgrade to a real money account after opening a practise account.',
+                'In line with our Group practice, we set the following criteria for client signups:',
             )}
         </Text>
+        <div>
+            <StyledListItem>
+                {localize('Clients have to be at least 18 years of age.')}
+            </StyledListItem>
+            <StyledListItem>
+                {localize(
+                    'Clients cannot be a resident in Canada, France, Hong Kong, Israel, Jersey, Malaysia, Malta, Paraguay, UAE, USA, or a restricted country which has been identified by the Financial Action Task Force (FATF) as having strategic deficiencies.',
+                )}
+            </StyledListItem>
+        </div>
     </ArticleWrapper>
 )
 const ChangingPersonalDetails = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0">
-            {localize('Changing your personal details')}
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('How can I change my personal details?')}
+        </Header>
+        <Text>
+            <Localize
+                translate_text="If you have not made a deposit or created a Deriv MT5 (DMT5) account, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
+                components={[
+                    <strong key={0} />,
+                    <ExternalLink
+                        href={`${deriv_app_url}/account/personal-details`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={1}
+                    />,
+                ]}
+            />
+        </Text>
+        <StyledText>
+            {localize(
+                'If you have made a deposit or created a DMT5 account, you can submit a ticket requesting the desired changes. Please attach your proofs of identity and address.',
+            )}
+        </StyledText>
+    </ArticleWrapper>
+)
+const ChangeAccountCurrency = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize("How can I change my account's currency?")}
         </Header>
         <Text>
             {localize(
-                "If you'd like to change your name, date of birth, country of residence, or email address, please submit a ticket and attach your proof of identity and proof of address.",
+                'Once you have made a deposit or created a DMT5 account, you can only change your currency by contacting Customer Support.',
             )}
         </Text>
     </ArticleWrapper>
 )
-// const RecoveringYourPassword = () => <div></div>
-
-// Will be added after design review
-// const AuthenticatingYourAccount = () => (
-//     <ArticleWrapper>
-//         <Header as="h4" margin=" 0 0 2.4rem 0">
-//             {localize('Authenticating your account')}
-//         </Header>
-//         <Localize
-//             translate_text="Authenticate your account on the <0>verification page</0>."
-//             components={[<InternalLink to="" target="_blank" key={0}></InternalLink>]}
-//         />
-//     </ArticleWrapper>
-// )
-const HowDoIChangeOrResetMyDerivPassword = () => (
+const RecoveringPassword = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0">
-            {localize('How do I change or reset my Deriv password?')}
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize(
+                'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
+            )}
+        </Header>
+        <Text>
+            <Localize
+                translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
+                components={[
+                    <ExternalLink
+                        href={urlResetPassword}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
+            />
+        </Text>
+    </ArticleWrapper>
+)
+const CloseAccount = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('How can I close my account?')}
         </Header>
         <Text>
             {localize(
-                'To change your Deriv password if you’re already logged in and know your password:',
+                'Before closing your account, please close all your open positions and withdraw all the funds in your account. After that, you may contact us with your request.',
             )}
         </Text>
+    </ArticleWrapper>
+)
+const UnsubscribeEmail = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('How do I unsubscribe from marketing emails?')}
+        </Header>
         <Text>
-            <Box>
-                <Localize
-                    translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0>
-                <1 /><1 />2. Enter your current password and new password.
-                <1 /><1 />3. Click <0>Change password</0> to confirm."
-                    components={[<strong key={0} />, <br key={1} />]}
-                />
-            </Box>
+            <Localize
+                translate_text="You can do this easily by going to <0>Settings > Profile ></0> <1>Personal details</1>. Uncheck the email preference box, and click the ‘Submit’ button to unsubscribe."
+                components={[
+                    <strong key={0} />,
+                    <ExternalLink
+                        href={`${deriv_app_url}/account/personal-details`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={1}
+                    />,
+                ]}
+            />
         </Text>
-
-        <Text>{localize('If you’re logged in and can’t remember your password:')}</Text>
+    </ArticleWrapper>
+)
+const DormantFee = () => (
+    <ArticleWrapper>
+        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+            {localize('What is a dormant fee?')}
+        </Header>
         <Text>
-            <Box>
-                <Localize
-                    translate_text="1. Go to <0>Settings > Security and safety > Deriv password.</0>
-                <1 /><1 />2. Click on <0>Forgot your password?</0>
-                <1 /><1 />3. Check your email for a message with the link to reset your password. Check your spam or junk folder if you don’t see it.
-                <1 /><1 />4. Click on <0>Reset my password</0> to go to the <0>Choose a new password</0> page. If the button does not work, copy and paste the link from the email into your browser.
-                <1 /><1 />5. Enter your new password.
-                <1 /><1 />6. Click <0>Save new password</0> to confirm."
-                    components={[<strong key={0} />, <br key={1} />]}
-                />
-            </Box>
+            {localize(
+                'A dormant fee is an amount charged to any account that has not placed a buy or sell transaction over a continuous period of 12 months.',
+            )}
         </Text>
-
-        <Text>{localize('If you’re not logged in and can’t remember your password:')}</Text>
-        <Text>
-            <Box>
-                <Localize
-                    translate_text="1. Go to <0>Deriv.com > Log in.</0>
-                <1 /><1 />2. Click on <0>Forgot password?</0>
-                <1 /><1 />3. Check your email for a message with the link to reset your password. Check your spam or junk folder if you don’t see it.
-                <1 /><1 />4. Click on <0>Reset my password</0> to go to the <0>Choose a new password</0> page. If the button does not work, copy and paste the link from the email into your browser.
-                <1 /><1 />5. Enter your new password.
-                <1 /><1 />6. Click <0>Save new password</0> to confirm."
-                    components={[<strong key={0} />, <br key={1} />]}
-                />
-            </Box>
-        </Text>
+        <StyledText>
+            {localize(
+                'This does not apply if the client is under self-exclusion, either by their own choice or as a decision by the Company.',
+            )}
+        </StyledText>
     </ArticleWrapper>
 )
 
@@ -195,29 +175,29 @@ const AccountArticle = () => {
     return (
         <Article header="Account">
             <WhoCanOpenAnAccount
-                text={localize('Who can open an account?')}
+                text={localize("Why can't I create an account?")}
                 label="who-can-open-an-account"
-            ></WhoCanOpenAnAccount>
-            <OpeningAccount
-                text={localize('Opening an account')}
-                label="opening-an-account"
-            ></OpeningAccount>
+            />
             <ChangingPersonalDetails
                 text={localize('Changing your personal details')}
                 label="changing-your-personal-details"
-            ></ChangingPersonalDetails>
-            {/* <RecoveringYourPassword
-                text={localize('')}
+            />
+            <ChangeAccountCurrency
+                text={localize("How can I change my account's currency?")}
+                label="change-account-currency"
+            />
+            <RecoveringPassword
+                text={localize(
+                    'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
+                )}
                 label="recovering-your-password"
-            ></RecoveringYourPassword> */}
-            {/* <AuthenticatingYourAccount
-                text={localize('Authenticating your account')}
-                label="authenticating-your-password"
-            ></AuthenticatingYourAccount> */}
-            <HowDoIChangeOrResetMyDerivPassword
-                text={localize('How do I change or reset my Deriv password?')}
-                label="change-or-reset-deriv-password"
-            ></HowDoIChangeOrResetMyDerivPassword>
+            />
+            <CloseAccount text="How can I close my account?" label="close-your-account" />
+            <UnsubscribeEmail
+                text="How do I unsubscribe from marketing emails?"
+                label="unsubscribe-marketing-emails"
+            />
+            <DormantFee text="What is a dormant fee?" label="what-is-dormant-fee" />
         </Article>
     )
 }

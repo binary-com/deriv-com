@@ -49,8 +49,8 @@ const SearchText = styled(Text)`
 `
 const ListWrapper = styled.div`
     margin-right: 2.4rem;
-    max-width: 38.4rem;
-    width: 38.4rem;
+    max-width: 100rem;
+    width: 100rem;
 
     ${Header} {
         margin-bottom: 1.6rem;
@@ -75,6 +75,11 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     color: black;
     font-size: var(--text-size-s);
+
+    :hover {
+        color: var(--color-red);
+        text-decoration: underline;
+    }
 `
 export const SearchSuccess = ({ suggested_topics, max_length }) => (
     <>
@@ -102,7 +107,7 @@ SearchSuccess.propTypes = {
 export const SearchError = ({ search }) => (
     <>
         <ErrorHeader as="h5" color="black">
-            {localize('Sorry, we couldn’t find any results matching “{{search}}”.', { search })}
+            {localize("Sorry, we couldn’t find any results matching '{{search}}'.", { search })}
         </ErrorHeader>
         <SearchText color="green">{localize('Search tips:')}</SearchText>
         <Ul>

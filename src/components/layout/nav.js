@@ -15,6 +15,7 @@ import device from 'themes/device'
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
+import LogoOnly from 'images/svg/logo-deriv-only.svg'
 
 const NavWrapper = styled.div`
     width: 100%;
@@ -24,6 +25,7 @@ const NavWrapper = styled.div`
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 `
+
 const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
@@ -41,18 +43,12 @@ const Wrapper = styled(Container)`
     overflow: hidden;
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
-
-        button {
-            font-size: var(--text-size-xxs);
-        }
     }
 `
 const NavLeft = styled.div`
     text-align: left;
     @media ${device.tabletL} {
-        svg {
-            width: 50%;
-        }
+        display: none;
     }
 `
 
@@ -133,6 +129,23 @@ const HamburgerMenu = styled(Hamburger)`
     @media ${device.tabletL} {
         display: block;
         cursor: pointer;
+    }
+`
+
+const LogoLinkMobile = styled(LocalizedLink)`
+    cursor: pointer;
+    display: none;
+    @media ${device.tabletL} {
+        display: block;
+        cursor: pointer;
+    }
+`
+
+const MobileLogin = styled(Button)`
+    display: none;
+    font-size: 14px;
+    @media ${device.tabletL} {
+        display: block;
     }
 `
 const handleScroll = (show, hide) => {
@@ -231,12 +244,18 @@ export const Nav = () => {
                             <span>{localize('Log in')}</span>
                         </Button>
                         <LocalizedLink to="/signup/">
-                            <SignupButton ref={button_ref} secondary>
+                            <SignupButton ref={button_ref} secondary="true">
                                 <span>{localize('Create demo account')}</span>
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
-                    <HamburgerMenu onClick={handleMenuClick} />
+                    <HamburgerMenu onClick={handleMenuClick} width="16px" />
+                    <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                        <LogoOnly width="115px" />
+                    </LogoLinkMobile>
+                    <MobileLogin onClick={handleLogin} primary>
+                        <span>{localize('Log in')}</span>
+                    </MobileLogin>
                     <OffCanvasMenu
                         is_canvas_menu_open={is_canvas_menu_open}
                         closeOffCanvasMenu={closeOffCanvasMenu}
@@ -352,7 +371,7 @@ export const NavPartners = () => {
                             <SignupButton
                                 onClick={Partner.redirectToSignup}
                                 ref={button_ref}
-                                secondary
+                                secondary="true"
                             >
                                 <span>{localize('Affiliate & IB sign up')}</span>
                             </SignupButton>

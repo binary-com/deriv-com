@@ -76,7 +76,7 @@ const SignupSimple = ({
                             required
                         />
                     </InputWrapper>
-                    <EmailButton type="submit" secondary disabled={is_submitting}>
+                    <EmailButton type="submit" secondary="true" disabled={is_submitting}>
                         {localize('Sign up')}
                     </EmailButton>
                 </InputGroup>

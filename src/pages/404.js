@@ -50,7 +50,7 @@ const PageNotFound = () => (
                 </Text>
                 <Text>{localize('Error code: 404 page not found')}</Text>
                 <ButtonWrapper>
-                    <LinkButton secondary to="/">
+                    <LinkButton secondary="true" to="/">
                         {localize('Go to the homepage')}
                     </LinkButton>
                 </ButtonWrapper>

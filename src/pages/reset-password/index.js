@@ -126,7 +126,7 @@ const ResetPassword = () => (
                             <StyledButton tertiary onClick={Login.redirectToLogin} type="button">
                                 {localize('Return to log in')}
                             </StyledButton>
-                            <StyledButton secondary disabled={isSubmitting} type="submit">
+                            <StyledButton secondary="true" disabled={isSubmitting} type="submit">
                                 {localize('Reset my password')}
                             </StyledButton>
                         </ButtonContainer>

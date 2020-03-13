@@ -5,7 +5,7 @@ import { getAlphabeticTeams, team_names } from '../_controller/_teams'
 import Card from './_card'
 import { SEO, Container, SectionContainer, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { Header, Text } from 'components/elements'
 
 const HeroText = styled(Text)`
@@ -80,23 +80,24 @@ const Teams = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={localize('Teams')} />
+            <SEO title={'Teams'} />
             <SectionContainer background="black" padding="12rem 0">
                 <Container direction="column">
                     <Header as="h2" color="white" align="center" margin="0 0 2.4rem">
-                        {localize('Motivated by challenges')}
+                        Motivated by challenges
                     </Header>
                     <HeroText color="white" align="center">
-                        {localize(
-                            'Being part of Deriv requires each of us to rise to different challenges. We look at demanding tasks as opportunities to shine, and we’re not afraid to make big, bold moves to reach our goals. Our success rests on our values of integrity, teamwork, competence, and customer focus.',
-                        )}
+                        Being part of Deriv requires each of us to rise to different challenges. We
+                        look at demanding tasks as opportunities to shine, and we’re not afraid to
+                        make big, bold moves to reach our goals. Our success rests on our values of
+                        integrity, teamwork, competence, and customer focus.
                     </HeroText>
                 </Container>
             </SectionContainer>
             <SectionContainer>
                 <Container direction="column" padding="12rem 0">
                     <Header align="center" as="h3" margin="0 0 8rem">
-                        {localize('Choose your team')}
+                        Choose your team
                     </Header>
                     <CssGrid
                         columns="repeat(3, 38.4rem)"

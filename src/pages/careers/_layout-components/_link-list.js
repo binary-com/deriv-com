@@ -5,6 +5,7 @@ import Container from './_container'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
+import device from 'themes/device'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
 const ChevronRight = styled(Chevron)`
@@ -37,6 +38,10 @@ const ListItem = styled.li`
         cursor: pointer;
         background-color: rgba(244, 244, 244, 0.4);
     }
+    @media ${device.tabletL} {
+        height: 100%;
+        padding: 1.6rem;
+    }
 `
 const Circle = styled.span`
     font-size: 2.1rem;
@@ -54,9 +59,12 @@ const Circle = styled.span`
 const StyledText = styled(Text)`
     min-width: 50%;
     max-width: 45rem;
+    font-size: var(--text-size-m);
+    padding-right: 10px;
 `
 const MiddleText = styled(Text)`
     margin-right: auto;
+    font-size: var(--text-size-sm);
 `
 
 export const LinkList = ({ list_items }) => (

@@ -14,7 +14,7 @@ import device from 'themes/device'
 import { isBrowser, debounce } from 'common/utility'
 import { SEO, Container, SectionContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { Divider } from 'components/elements'
 
 const StyledDivider = styled(Divider)`
@@ -99,7 +99,7 @@ const Jobs = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={localize('Jobs')} />
+            <SEO title={'Jobs'} />
             <SectionContainer>
                 <SearchContainer align="flex-start">
                     <SearchFilters filters={filters} setFilters={setFilters} />

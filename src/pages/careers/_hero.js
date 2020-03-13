@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Container from './_layout-components/_container'
 import { Header, BackgroundImage } from 'components/elements'
-import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
@@ -53,7 +52,7 @@ const Hero = () => {
     return (
         <BackgroundImage
             data={data.image}
-            alt={localize('Deriv careers')}
+            alt={'Deriv careers'}
             style={{
                 height: '100vh',
                 width: '100vw',
@@ -63,19 +62,15 @@ const Hero = () => {
         >
             <StyledContainer>
                 <StyledHeader as="h2">
-                    <Localize
-                        translate_text="Be part of something <0>big</0>."
-                        components={[<RedBanner key={0} />]}
-                    />
+                    Be part of something <RedBanner>big</RedBanner>.
                 </StyledHeader>
                 <Subheadline as="h3">
-                    {localize(
-                        'We have a huge mission, an incredible team, and rapid growth. But it’s not just about our success — it’s about yours.',
-                    )}
+                    We have a huge mission, an incredible team, and rapid growth. But it’s not just
+                    about our success — it’s about yours.
                 </Subheadline>
-                <JoinHeader as="h3">{localize('Join and grow with us.')}</JoinHeader>
+                <JoinHeader as="h3">Join and grow with us.</JoinHeader>
                 <LinkButton secondary="true" to="/careers/jobs">
-                    {localize('View open positions')}
+                    View open positions
                 </LinkButton>
             </StyledContainer>
         </BackgroundImage>

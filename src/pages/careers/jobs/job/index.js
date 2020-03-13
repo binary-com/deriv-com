@@ -6,7 +6,7 @@ import { locations } from '../../_model/_locations/_locations'
 import { SEO, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { getLocationHash, isBrowser } from 'common/utility'
 // SVG
 import Location from 'images/svg/small-location.svg'
@@ -87,7 +87,7 @@ const Job = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={localize('Job')} />
+            <SEO title={'Job'} />
             <Banner>
                 <StyledContainer>
                     <Text color="white">{team_names[job.team]}</Text>
@@ -106,14 +106,14 @@ const Job = () => {
             <StyledContainer>
                 <BackText onClick={handleBack}>
                     <LeftChevron />
-                    <Text weight="bold">{localize('Back')}</Text>
+                    <Text weight="bold">{'Back'}</Text>
                 </BackText>
 
-                <DescHeader as="h4">{localize('Description:')}</DescHeader>
+                <DescHeader as="h4">{'Description'}</DescHeader>
                 {job.description &&
                     job.description.map((desc, idx) => <DescText key={idx}>{desc}</DescText>)}
 
-                <DescHeader as="h4">{localize('Responsibilities:')}</DescHeader>
+                <DescHeader as="h4">{'Responsibilities'}</DescHeader>
                 <Ul>
                     {job.responsibilities &&
                         job.responsibilities.map((responsibility, idx) => (
@@ -123,7 +123,11 @@ const Job = () => {
                         ))}
                 </Ul>
 
-                <DescHeader as="h4">{localize('Minimum qualifications:')}</DescHeader>
+                <DescHeader as="h4">
+                    {job.qualifications.length > 1
+                        ? 'Minimum qualifications'
+                        : 'Minimum qualification'}
+                </DescHeader>
                 <Ul>
                     {job.qualifications &&
                         job.qualifications.map((qualification, idx) => (
@@ -134,7 +138,11 @@ const Job = () => {
                 </Ul>
                 {job.preferences && (
                     <>
-                        <DescHeader as="h4">{localize('Preferred qualification:')}</DescHeader>
+                        <DescHeader as="h4">
+                            {job.preferences.length > 1
+                                ? 'Preferred qualifications'
+                                : 'Preferred qualification'}
+                        </DescHeader>
                         <Ul>
                             {job.preferences &&
                                 job.preferences.map((preference, idx) => (
@@ -148,7 +156,7 @@ const Job = () => {
                 <EmailButton
                     style={{ marginTop: '4rem', marginBottom: '8rem', width: 'fit-content' }}
                     secondary
-                    text={localize('Send us your CV')}
+                    text={'Send us your CV'}
                 />
             </StyledContainer>
         </Layout>

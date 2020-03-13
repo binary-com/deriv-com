@@ -10,7 +10,7 @@ import { locations } from '../../_model/_locations/_locations'
 import { SEO, Container } from 'components/containers'
 import { BackgroundImage, Text, Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { getLocationHash, toHashFormat } from 'common/utility'
 
 const StyledContainer = styled(Container)`
@@ -20,7 +20,7 @@ const StyledContainer = styled(Container)`
 `
 
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-xxl);
+    font-size: var(--text-size-xl);
     margin-bottom: 1.6rem;
     color: var(--color-white);
 `
@@ -105,7 +105,7 @@ const Hero = ({ name, display_name, team_description }) => {
             }}
         >
             <StyledContainer>
-                <StyledHeader as="h1" font_size="var(--text-size-xl)" align="center">
+                <StyledHeader as="h1" align="center">
                     {display_name}
                 </StyledHeader>
                 <Subheadline align="center">{team_description}</Subheadline>
@@ -128,7 +128,7 @@ const Team = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={localize(`Team ${team_names[team.name]}`)} />
+            <SEO title={`Team ${team_names[team.name]}`} />
             <Hero
                 background_image={team.hero_image}
                 display_name={team_names[team.name]}
@@ -136,8 +136,8 @@ const Team = () => {
                 team_description={team.description}
             />
             <TeamWrapper>
-                <Header as="h2" font-size="var(--text-size-header-1)" align="center">
-                    {localize('Open positions')}
+                <Header as="h2" font_size="var(--text-size-l)" align="center">
+                    Open positions
                 </Header>
                 <LinkList
                     list_items={
@@ -151,11 +151,9 @@ const Team = () => {
                 />
                 {team.positions && !team.positions.length && (
                     <NoOpenPositionsHeader>
-                        {localize(
-                            `Sorry, there are currently no open positions for ${
-                                team_names[team.name]
-                            }`,
-                        )}
+                        {`Sorry, there are currently no open positions for ${
+                            team_names[team.name]
+                        }`}
                     </NoOpenPositionsHeader>
                 )}
             </TeamWrapper>

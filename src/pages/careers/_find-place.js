@@ -2,10 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import TeamCard from './_layout-components/_team-card'
-import { getTop4Teams, team_names } from './_controller/_teams'
+import { getDisplayTeams, team_names } from './_controller/_teams'
 import { Container, SectionContainer, CssGrid } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 
 const StyledHeader = styled(Header)`
@@ -76,13 +75,13 @@ const query = graphql`
 `
 
 const FindPlace = () => {
-    const top_teams = getTop4Teams()
+    const top_teams = getDisplayTeams()
     const thumbnails = useStaticQuery(query)
 
     return (
         <SectionContainer style={{ backgroundColor: 'rgba(242,243,244,0.3)' }}>
             <Container direction="column">
-                <StyledHeader as="h3">{localize('Find your place at Deriv')}</StyledHeader>
+                <StyledHeader as="h3">Find your place at Deriv</StyledHeader>
                 <CssGrid
                     columns="repeat(4, 28.2rem)"
                     column_gap="2.4rem"
@@ -104,7 +103,7 @@ const FindPlace = () => {
                     ))}
                 </CssGrid>
                 <LinkButton style={{ marginTop: '4.2rem' }} to="/careers/teams/" flat="true">
-                    {localize('View all teams')}
+                    View all teams
                 </LinkButton>
             </Container>
         </SectionContainer>

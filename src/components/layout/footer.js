@@ -136,11 +136,20 @@ const Row = styled.div`
 const StyledText = styled(Text)`
     text-align: justify;
     color: var(--color-black-3);
+
+    @media ${device.tabletL} {
+        text-align: left;
+        font-size: var(--text-size-sm);
+    }
 `
 const BoldSharedCss = css`
     font-weight: bold;
     color: var(--color-black-3);
     font-size: var(--text-size-s);
+
+    @media ${device.tabletL} {
+        font-size: var(--text-size-sm);
+    }
 `
 const BoldLink = styled(StyledLink)`
     ${BoldSharedCss}
@@ -158,6 +167,10 @@ const StaticAsset = styled.a`
     :hover {
         text-decoration: underline;
     }
+
+    @media ${device.tabletL} {
+        font-size: var(--text-size-sm);
+    }
 `
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -172,6 +185,7 @@ const SocialWrapper = styled.div`
 
     svg {
         width: 3.2rem;
+        margin-right: 1rem;
     }
     ${Text} {
         margin-top: 0;
@@ -196,13 +210,21 @@ const SocialMedia = styled.section`
     }
 `
 const MobileAccordion = styled.section`
-    height: auto;
+    border-top: 1px solid var(--color-red);
 `
 const Item = styled.div`
     padding: 0 0 3rem 2rem;
+    background-color: var(--color-grey-8);
 
     a {
         font-size: var(--text-size-sm);
+    }
+`
+const MobileLanguageSwitcher = styled.div`
+    margin-top: 0.8rem;
+
+    > ul {
+        top: 0;
     }
 `
 const Footer = () => (
@@ -247,7 +269,9 @@ const Footer = () => (
                         </SocialWrapper>
                         <div>
                             <Show.Mobile>
-                                {!isProduction() && <LanguageSwitcher />}
+                                <MobileLanguageSwitcher>
+                                    {!isProduction() && <LanguageSwitcher shorthand='true' />}
+                                </MobileLanguageSwitcher>
                             </Show.Mobile>
                         </div>
                     </SocialMedia>

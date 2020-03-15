@@ -21,10 +21,10 @@ class LanguageSwitch extends Component {
     renderLanguageChoice(lang) {
         const { display_name, path } = language_config[lang]
         const to = `/${path}`
-
+        // let text = this.props.shorthand === 'true' ? (display_name.substring(0, 3).toUpperCase()) : (display_name);
         return {
             value: to,
-            text: display_name,
+            text: display_name
         }
     }
     getCurrentLanguage() {
@@ -52,7 +52,7 @@ class LanguageSwitch extends Component {
 
                 const destination_path = `${path}${
                     current_lang === 'en' ? current_path : current_path.replace(/\/.+?\//u, '/')
-                }${current_hash}`
+                    }${current_hash}`
 
                 navigate(destination_path, { hrefLang: path })
             }

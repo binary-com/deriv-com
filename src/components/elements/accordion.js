@@ -1,22 +1,20 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Text } from './typography'
 import device from 'themes/device'
 import { Show } from 'components/containers'
 import Chevron from 'images/svg/chevron-thick.svg'
 import ChevronMobile from 'images/svg/chevron-bottom.svg'
 
-const ArrowSharedCss = css`
+const ArrowMobile = styled(ChevronMobile)`
+    transition: transform 0.25s linear;
+    ${props => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+`
+const Arrow = styled(Chevron)`
     transform: rotate(-180deg);
     transition: transform 0.25s linear;
     ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
-`
-const ArrowMobile = styled(ChevronMobile)`
-    ${ArrowSharedCss}
-`
-const Arrow = styled(Chevron)`
-    ${ArrowSharedCss}
 `
 
 const AccordionHeader = styled.div`
@@ -41,8 +39,8 @@ const AccordionHeader = styled.div`
 const AccordionWrapper = styled.div`
     width: 100%;
     border-radius: 6px;
-    box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
-    background-color: var(--color-white);
+    box-shadow: ${props => props.footer === 'true' ? ('') : ('-2px 6px 15px 0 rgba(195, 195, 195, 0.31)')};
+    background-color: ${props => props.footer === 'true' ? ('var(--color-grey-8)') : ('var(--color-white)')};
 `
 const TRANSITION_DURATION = 250
 
@@ -84,6 +82,7 @@ const AccordionContent = ({ footer, children, nodes }) => {
             <div style={child.props.parent_style}>
                 <AccordionWrapper
                     key={child_idx}
+                    footer={footer}
                     ref={div => {
                         nodes[child_idx] = { ref: div }
                     }}
@@ -105,7 +104,7 @@ const AccordionContent = ({ footer, children, nodes }) => {
                     <div
                         style={{
                             overflow: 'hidden',
-                            transition: `max-height ${TRANSITION_DURATION}ms ease`,
+                            transition: `max - height ${TRANSITION_DURATION} ms ease`,
                             maxHeight: max_height,
                         }}
                     >

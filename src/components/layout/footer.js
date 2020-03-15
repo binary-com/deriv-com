@@ -225,6 +225,7 @@ const MobileLanguageSwitcher = styled.div`
 
     > ul {
         top: 0;
+        width: 80px;
     }
 `
 const Footer = () => (

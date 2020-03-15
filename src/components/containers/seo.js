@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
+import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/practice.png'
 
+const languages = Object.keys(language_config)
 const SEO = ({ description, meta, title, no_index }) => {
     var queries = []
     queries = useStaticQuery(
@@ -29,18 +31,29 @@ const SEO = ({ description, meta, title, no_index }) => {
 
     const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
+    const links = []
+    var page, l
+    const currentPage = window.location.href.split('/')[3]
     const pages = []
-    var page
-    const sitePages = queries.allSitePage.nodes
-    for (page in sitePages) {
+
+    pages.push('/' + currentPage)
+    for (l in languages) {
+        pages.push('/' + languages[l] + '/' + currentPage)
+    }
+  
+    // var regex = new RegExp(regArray.join('|'))
+    // const sitePages = queries.allSitePage.nodes.filter(function(page) {
+    //     return regex.exec(page.path) || page.path.startsWith('/' + currentPage)
+    // })
+
+    for (page in pages) {
         const link = {}
         link.rel = 'alternate'
-        link.href = sitePages[page].path
-        if (!link.href.includes('404')) {
-            link.hreflang = sitePages[page].path.split('/')[1]
-            pages.push(link)
-        }
+        link.href = pages[page]
+        link.hreflang = pages[page].split('/')[1]
+        links.push(link)
     }
+
     return (
         <Helmet
             htmlAttributes={{
@@ -49,7 +62,7 @@ const SEO = ({ description, meta, title, no_index }) => {
             title={title}
             titleTemplate={`%s | ${queries.site.siteMetadata.title}`}
             defer={false}
-            link={pages}
+            link={links}
             meta={[
                 {
                     name: 'description',

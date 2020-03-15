@@ -473,7 +473,7 @@ const ControlLosses = () => (
                 </Tr>
                 <Tr>
                     <Th>
-                        <Text weight="bold">{localize('Min deposit')}</Text>
+                        <Text weight="bold">{localize('maximumLoss')}</Text>
                     </Th>
                     <Tbody>
                         <Text>

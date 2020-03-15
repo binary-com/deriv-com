@@ -1,7 +1,7 @@
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Container, CssGrid } from '../containers'
+import { Container, CssGrid, Show } from '../containers'
 import { Text, StyledLink } from '../elements'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { isProduction } from 'common/websocket/config'
@@ -19,6 +19,10 @@ const StyledFooter = styled.footer`
     width: 100%;
     margin: 0 auto;
     border-top: 1px solid var(--color-red);
+
+    ${Container} {
+        min-width: 328px;
+    }
 `
 const StyledGrid = styled(CssGrid)`
     margin: 4rem 0;
@@ -41,6 +45,10 @@ const InfoSection = styled.div`
 
     ${Text} {
         margin-top: 2.2rem;
+
+        @media ${device.tabletL} {
+            font-size: var(--text-size-sm);
+        }
     }
 `
 const Items = styled.div`
@@ -63,31 +71,6 @@ const BlackNav = styled.section`
     }
     svg {
         margin-right: 0.8rem;
-    }
-`
-const SocialMedia = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 6.4rem;
-
-    ${Text} {
-        margin-top: 0;
-        letter-spacing: 2px;
-        color: var(--color-black-6);
-    }
-    div {
-        display: flex;
-        width: 100%;
-        max-width: 11.2rem;
-        justify-content: space-between;
-
-        svg {
-            width: 3.2rem;
-        }
-    }
-    @media ${device.tabletL} {
-        margin-top: 2rem;
     }
 `
 const Col = styled.div`
@@ -173,8 +156,36 @@ const ExternalLink = styled.a`
 
 const SocialWrapper = styled.div`
     margin-top: 0.8rem;
-`
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 
+    svg {
+        width: 3.2rem;
+    }
+    ${Text} {
+        margin-top: 0;
+        letter-spacing: 2px;
+        color: var(--color-black-6);
+        margin-bottom: 0.8rem;
+
+        @media ${device.tabletL} {
+            margin-bottom: 1rem;
+        }
+    }
+`
+const SocialMedia = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 6.4rem;
+
+    @media ${device.tabletL} {
+        margin-top: 2rem;
+        flex-direction: row;
+    }
+`
 const Footer = () => (
     <StyledFooter>
         <Container>
@@ -187,30 +198,39 @@ const Footer = () => (
                         )}
                     </Text>
                     <SocialMedia>
-                        <Text>{localize('CONNECT WITH US')}</Text>
                         <SocialWrapper>
-                            <ExternalLink
-                                href="https://www.facebook.com/derivdotcom/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Facebook />
-                            </ExternalLink>
-                            <ExternalLink
-                                href="https://www.instagram.com/derivdotcom/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Instagram />
-                            </ExternalLink>
-                            <ExternalLink
-                                href="https://twitter.com/derivdotcom"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Twitter />
-                            </ExternalLink>
+                            <div>
+                                <Text>{localize('CONNECT WITH US')}</Text>
+                            </div>
+                            <div>
+                                <ExternalLink
+                                    href="https://www.facebook.com/derivdotcom/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Facebook />
+                                </ExternalLink>
+                                <ExternalLink
+                                    href="https://www.instagram.com/derivdotcom/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Instagram />
+                                </ExternalLink>
+                                <ExternalLink
+                                    href="https://twitter.com/derivdotcom"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Twitter />
+                                </ExternalLink>
+                            </div>
                         </SocialWrapper>
+                        <div>
+                            <Show.Mobile>
+                                {!isProduction() && <LanguageSwitcher />}
+                            </Show.Mobile>
+                        </div>
                     </SocialMedia>
                 </InfoSection>
                 <Items>
@@ -283,7 +303,9 @@ const Footer = () => (
                         </div>
                     </Col>
                     <Col margin_top width="25%">
-                        {!isProduction() && <LanguageSwitcher />}
+                        <Show.Desktop>
+                            {!isProduction() && <LanguageSwitcher />}
+                        </Show.Desktop>
                     </Col>
                 </Items>
             </StyledGrid>

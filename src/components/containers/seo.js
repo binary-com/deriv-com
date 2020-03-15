@@ -6,6 +6,8 @@ import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/practice.png'
 
+const is_browser = typeof window !== 'undefined'
+
 const languages = Object.keys(language_config)
 const SEO = ({ description, meta, title, no_index }) => {
     var queries = []
@@ -32,26 +34,28 @@ const SEO = ({ description, meta, title, no_index }) => {
     const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
     const links = []
-    var page, l
-    const currentPage = window.location.href.split('/')[3]
-    const pages = []
+    if (is_browser) {
+        var page, l
+        const currentPage = window.location.href.split('/')[3]
+        const pages = []
 
-    pages.push('/' + currentPage)
-    for (l in languages) {
-        pages.push('/' + languages[l] + '/' + currentPage)
-    }
-  
-    // var regex = new RegExp(regArray.join('|'))
-    // const sitePages = queries.allSitePage.nodes.filter(function(page) {
-    //     return regex.exec(page.path) || page.path.startsWith('/' + currentPage)
-    // })
+        pages.push('/' + currentPage)
+        for (l in languages) {
+            pages.push('/' + languages[l] + '/' + currentPage)
+        }
 
-    for (page in pages) {
-        const link = {}
-        link.rel = 'alternate'
-        link.href = pages[page]
-        link.hreflang = pages[page].split('/')[1]
-        links.push(link)
+        // var regex = new RegExp(regArray.join('|'))
+        // const sitePages = queries.allSitePage.nodes.filter(function(page) {
+        //     return regex.exec(page.path) || page.path.startsWith('/' + currentPage)
+        // })
+
+        for (page in pages) {
+            const link = {}
+            link.rel = 'alternate'
+            link.href = pages[page]
+            link.hreflang = pages[page].split('/')[1]
+            links.push(link)
+        }
     }
 
     return (

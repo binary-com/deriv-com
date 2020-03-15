@@ -1,24 +1,37 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Text } from './typography'
+import device from 'themes/device'
+import { Show } from 'components/containers'
 import Chevron from 'images/svg/chevron-thick.svg'
+import ChevronMobile from 'images/svg/chevron-bottom.svg'
 
-const Arrow = styled(Chevron)`
+const ArrowSharedCss = css`
     transform: rotate(-180deg);
     transition: transform 0.25s linear;
     ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
+`
+const ArrowMobile = styled(ChevronMobile)`
+    ${ArrowSharedCss}
+`
+const Arrow = styled(Chevron)`
+    ${ArrowSharedCss}
 `
 
 const AccordionHeader = styled.div`
     height: 56px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--color-grey-2);
-    padding: 0 3.2rem;
+    border-bottom: ${props => props.footer === 'true' ? ('none') : ('1px solid var(--color-grey-2)')};
+    padding: ${props => props.footer == 'true' ? ('0 2rem') : ('0 3.2rem')};
 
     ${Text} {
         margin-right: auto;
+        
+        @media ${device.tabletL} {
+            font-size: var(--text-size-sm);
+        }
     }
     &:hover {
         cursor: pointer;
@@ -34,17 +47,18 @@ const AccordionWrapper = styled.div`
 const TRANSITION_DURATION = 250
 
 // TODO: keyboard events and find a way to add proper focus handling
-const Accordion = ({ children }) => {
+const Accordion = ({ footer, children }) => {
     const nodes = []
 
-    return <AccordionContent nodes={nodes}>{children}</AccordionContent>
+    return <AccordionContent footer={footer} nodes={nodes}>{children}</AccordionContent>
 }
 Accordion.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    footer: PropTypes.string,
     nodes: PropTypes.array,
 }
 
-const AccordionContent = ({ children, nodes }) => {
+const AccordionContent = ({ footer, children, nodes }) => {
     const [active_idx, setActiveIdx] = useState(-1)
 
     const toggle = child_idx => {
@@ -78,9 +92,15 @@ const AccordionContent = ({ children, nodes }) => {
                         onClick={() => toggle(child_idx)}
                         role="button"
                         aria-expanded={is_expanded}
+                        footer={footer}
                     >
                         <Text weight="bold">{child.props.header}</Text>
-                        <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                        <Show.Desktop>
+                            <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            <ArrowMobile expanded={is_expanded ? 'true' : 'false'} />
+                        </Show.Mobile>
                     </AccordionHeader>
                     <div
                         style={{
@@ -101,6 +121,7 @@ const AccordionContent = ({ children, nodes }) => {
 
 AccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    footer: PropTypes.string,
     nodes: PropTypes.array,
 }
 

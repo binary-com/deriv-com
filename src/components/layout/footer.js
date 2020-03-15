@@ -2,7 +2,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show } from '../containers'
-import { Text, StyledLink } from '../elements'
+import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { isProduction } from 'common/websocket/config'
 import device from 'themes/device'
@@ -30,10 +30,7 @@ const StyledGrid = styled(CssGrid)`
 
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
-        grid-template-areas:
-            'info'
-            'items';
-        grid-row-gap: 4rem;
+        grid-template-areas: 'info';
     }
 `
 const InfoSection = styled.div`
@@ -57,6 +54,10 @@ const Items = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @media ${device.tabletL} {
+        display: none;
+    }
 `
 const BlackNav = styled.section`
     background-color: var(--color-black);
@@ -111,6 +112,14 @@ const Disclaimer = styled.section`
     background-color: var(--color-grey-8);
 
     ${Container} {
+        border-top: 1px solid var(--color-red);
+
+        @media ${device.tabletL} {
+            border-top: unset;
+        }
+    }
+
+    @media ${device.tabletL} {
         border-top: 1px solid var(--color-red);
     }
 `
@@ -184,6 +193,16 @@ const SocialMedia = styled.section`
     @media ${device.tabletL} {
         margin-top: 2rem;
         flex-direction: row;
+    }
+`
+const MobileAccordion = styled.section`
+    height: auto;
+`
+const Item = styled.div`
+    padding: 0 0 3rem 2rem;
+
+    a {
+        font-size: var(--text-size-sm);
     }
 `
 const Footer = () => (
@@ -303,13 +322,67 @@ const Footer = () => (
                         </div>
                     </Col>
                     <Col margin_top width="25%">
-                        <Show.Desktop>
-                            {!isProduction() && <LanguageSwitcher />}
-                        </Show.Desktop>
+                        {!isProduction() && <LanguageSwitcher />}
                     </Col>
                 </Items>
             </StyledGrid>
         </Container>
+        <Show.Mobile>
+            <MobileAccordion>
+                <Accordion footer='true'>
+                    <AccordionItem header={localize('TRADE')}>
+                        <Item>
+                            <Link to="/dtrader">{localize('DTrader')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/dbot">{localize('DBot')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/dmt5">{localize('DMT5')}</Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem header={localize('LEGAL')}>
+                        <Item>
+                            <Link to="/regulatory">{localize('Regulatory information')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/terms-and-conditions">
+                                {localize('Terms and conditions')}
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/responsible-trading">
+                                {localize('Secure and responsible trading')}
+                            </Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem header='SUPPORT'>
+                        <Item>
+                            <Link to="/help-centre">{localize('Help centre')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/payment-methods">{localize('Payment methods')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/why-choose-us">{localize('Why choose us')}</Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem header='COMPANY'>
+                        <Item>
+                            <Link to="/contact-us">{localize('Contact us')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/about">{localize('About us')}</Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem header='PARTNER WITH US'>
+                        <Item>
+                            <Link to="/partners">{localize('Affiliate and IB Programmes')}</Link>
+                        </Item>
+                    </AccordionItem>
+                </Accordion>
+            </MobileAccordion>
+        </Show.Mobile>
         <Disclaimer>
             <StyledContainer direction="column">
                 <Row>

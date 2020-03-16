@@ -232,7 +232,7 @@ export const Offices = () => {
                                     href="https://g.page/r/CQODFgzIJPYtEAE"
                                 >
                                     <Localize
-                                        translate_text="C-13, iTech Tower, Jalan Impact, Cyber 6,<0 />63000 Cyberjaya, Selangor, Malaysia."
+                                        translate_text="C-13, iTech Tower, Jalan Impact, Cyber 6,<0 />63000 Cyberjaya, Selangor, Malaysia"
                                         components={[<br key={0} />]}
                                     />
                                 </StyledLinkText>
@@ -282,7 +282,7 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia."
+                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia"
                                         components={[<br key={0} />]}
                                     />
                                 </Text>
@@ -350,7 +350,7 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma, Trinidad, Asuncion, Paraguay."
+                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma, Trinidad, Asuncion, Paraguay"
                                         components={[<br key={0} />]}
                                     />
                                 </Text>

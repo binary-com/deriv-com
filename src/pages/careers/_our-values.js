@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, CssGrid, SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
 // SVG
 import Integrity from 'images/svg/career-integrity.svg'
 import Customer from 'images/svg/career-customer.svg'
@@ -15,6 +14,11 @@ const StyledHeader = styled(Header)`
 
 const GridItem = styled(Flex)`
     justify-content: flex-start;
+
+    svg {
+        width: 6.4rem;
+        height: 6.4rem;
+    }
 `
 
 const MiddleText = styled(Header)`
@@ -24,9 +28,9 @@ const MiddleText = styled(Header)`
 
 const OurValues = () => (
     <SectionContainer style={{ backgroundColor: 'rgba(242,243,244,0.3)' }}>
-        <Container direction="column">
+        <Container direction="column" style={{ display: 'grid' }}>
             <StyledHeader as="h3" align="center">
-                {localize('Our values')}
+                Our values
             </StyledHeader>
             <CssGrid
                 columns="repeat(2, 38.4rem)"
@@ -40,38 +44,35 @@ const OurValues = () => (
             >
                 <GridItem direction="column">
                     <Integrity />
-                    <MiddleText as="h4">{localize('Integrity')}</MiddleText>
+                    <MiddleText as="h4">Integrity</MiddleText>
                     <Text>
-                        {localize(
-                            'We believe that we should always do the right thing. This includes serving our customers with honesty and transparency, settling all contracts by the book, and communicating in plain language that can be easily understood.',
-                        )}
-                    </Text>
-                </GridItem>
-                <GridItem direction="column">
-                    <Competence />
-                    <MiddleText as="h4">{localize('Competence')}</MiddleText>
-                    <Text>
-                        {localize(
-                            'We love to work with smart and talented people who are eager to roll up their sleeves and get things done.',
-                        )}
+                        We believe that we should always do the right thing. This includes serving
+                        our customers with honesty and transparency, settling all contracts by the
+                        book, and communicating in plain language that can be easily understood.
                     </Text>
                 </GridItem>
                 <GridItem direction="column">
                     <Customer />
-                    <MiddleText as="h4">{localize('Customer focus')}</MiddleText>
+                    <MiddleText as="h4">Customer focus</MiddleText>
                     <Text>
-                        {localize(
-                            'We always put our customers first and dedicate ourselves to building products and services that give them the best trading experience possible.',
-                        )}
+                        We always put our customers first and dedicate ourselves to building
+                        products and services that give them the best trading experience possible.
+                    </Text>
+                </GridItem>
+                <GridItem direction="column">
+                    <Competence />
+                    <MiddleText as="h4">Competence</MiddleText>
+                    <Text>
+                        We love to work with smart and talented people who are eager to roll up
+                        their sleeves and get things done.
                     </Text>
                 </GridItem>
                 <GridItem direction="column">
                     <Teamwork />
-                    <MiddleText as="h4">{localize('Teamwork')}</MiddleText>
+                    <MiddleText as="h4">Teamwork</MiddleText>
                     <Text>
-                        {localize(
-                            'We value positive team players who can work together to overcome challenges and achieve common goals.',
-                        )}
+                        We value positive team players who can work together to overcome challenges
+                        and achieve common goals.
                     </Text>
                 </GridItem>
             </CssGrid>

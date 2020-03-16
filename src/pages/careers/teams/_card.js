@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { StyledCard } from '../_layout-components/_team-card'
 import { QueryImage, Text, Header, Divider } from 'components/elements'
-import { localize } from 'components/localization'
 // SVG
 import Chevron from 'images/svg/chevron.svg'
 
@@ -21,7 +20,7 @@ const StyledChevron = styled(Chevron)`
     transform: rotate(90deg);
     position: absolute;
     right: -2.4rem;
-    top: 0.3rem;
+    top: 0.5rem;
 
     & polyline {
         stroke-width: 2;
@@ -42,6 +41,7 @@ const StyledText = styled(Text)`
     text-decoration: none;
     position: relative;
     font-size: var(--text-size-s);
+    max-width: fit-content;
     opacity: ${props => (props.disabled ? '0.32' : '1')};
 
     &:hover {
@@ -59,7 +59,9 @@ const Card = ({ img_data, to, display_team_name, tagline, position_count }) => (
             <QueryImage data={img_data} width="100%" height="14.5rem" alt={display_team_name} />
         </ImageWrapper>
         <StyledContent>
-            <Text size="var(--text-size-xs)">{`${position_count} ${localize('positions')}`}</Text>
+            <Text size="var(--text-size-xs)">{`${position_count} ${
+                position_count === 1 ? 'position' : 'positions'
+            }`}</Text>
             <Header as="h4" font_size="var(--text-size-sm)" margin="1.6rem 0">
                 {display_team_name}
             </Header>
@@ -67,7 +69,7 @@ const Card = ({ img_data, to, display_team_name, tagline, position_count }) => (
             <ViewSection>
                 <StyledDivider height="2px" />
                 <StyledText disabled={position_count === 0}>
-                    {localize('View openings')}
+                    View openings
                     <StyledChevron />
                 </StyledText>
             </ViewSection>

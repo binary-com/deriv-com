@@ -8,7 +8,6 @@ import device from 'themes/device'
 import { Flex, Show } from 'components/containers'
 import { Text, Header, Divider } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
 import { toHashFormat } from 'common/utility'
 // SVG
 import Location from 'images/svg/small-location.svg'
@@ -82,7 +81,7 @@ const CardList = ({ position }) => {
             </Flex>
             <Show.Desktop>
                 <StyledDivider height="2px" />
-                <Text weight="bold">{localize('Qualifications:')}</Text>
+                <Text weight="bold">Qualifications:</Text>
                 <Ul>
                     {position.qualifications &&
                         position.qualifications.map((qualification, idx) => (
@@ -94,7 +93,7 @@ const CardList = ({ position }) => {
             </Show.Desktop>
             <Flex>
                 <LinkButton flat="true" to={`careers/jobs/job#${toHashFormat(position.id)}`}>
-                    {localize('View more')}
+                    View more
                 </LinkButton>
             </Flex>
         </JobCard>

@@ -9,7 +9,6 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
 import { toHashFormat } from 'common/utility'
 import MapPin from 'images/svg/map.svg'
 
@@ -59,7 +58,7 @@ const Hero = ({ display_name, name, img_data, description }) => {
                     secondary="true"
                     to={`/careers/jobs/?filter=${name}&search=`}
                 >
-                    {localize('View open positions in')} {display_name}
+                    {`View open positions in ${display_name}`}
                 </LinkButton>
             </StyledContainer>
         </BackgroundImage>
@@ -135,7 +134,7 @@ export const LocationLayout = ({ location, images }) => {
     const { display_name, name } = location
     if (!display_name) return null
 
-    const positions = getPositionsByLocation(name)
+    const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
     const mapped_positions = positions
         ? positions.map(position => ({
               text: position.title,
@@ -154,97 +153,87 @@ export const LocationLayout = ({ location, images }) => {
             <Container direction="column">
                 <FirstSection padding="12rem 0">
                     <Header align="center" as="h2" font_size={'var(--text-size-header-1)'}>
-                        {localize('Living in {{location}}', { location: display_name })}
+                        {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">
                         <Text secondary>{location.first_p}</Text>
                         <ImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}
-                                alt={localize('Living in {{location}}', { location: display_name })}
+                                alt={`Living in ${display_name}`}
                                 width="100%"
                             />
                         </ImageWrapper>
                     </Flex>
                 </FirstSection>
-                <SectionContainer padding="0rem">
-                    <Header
-                        align="center"
-                        as="h2"
-                        font_size={'var(--text-size-header-1)'}
-                        style={{ marginBottom: '6.4rem' }}
-                    >
-                        {localize('Our office')}
-                    </Header>
-                    <Flex jc="unset">
-                        <Flex direction="column" mr="0.8rem" ai="flex-end">
-                            <Flex mb="0.8rem" jc="flex-end">
-                                <First>
-                                    <QueryImage
-                                        data={images[location.grid_images[0]]}
-                                        width="100%"
-                                    />
-                                </First>
-                                <Second>
-                                    <QueryImage
-                                        data={images[location.grid_images[1]]}
-                                        width="100%"
-                                    />
-                                </Second>
-                            </Flex>
-                            <Third>
-                                <QueryImage data={images[location.grid_images[2]]} width="100%" />
-                            </Third>
-                        </Flex>
-                        <Flex ml="0.8rem" jc="unset">
-                            <Fourth>
-                                <QueryImage data={images[location.grid_images[3]]} width="100%" />
-                            </Fourth>
-                        </Flex>
-                    </Flex>
-                </SectionContainer>
-                <SectionContainer padding="12rem 0">
-                    <LocationCard>
-                        <Flex jc="unset" tablet_direction="column">
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={images[location.map]}
-                                    alt={localize('Map')}
-                                    width="100%"
-                                />
-                            </ImageWrapper>
-                            <Flex p="3.2rem 6rem" direction="column" mw="44.4rem">
-                                <div style={{ maxWidth: '32.4rem' }}>
-                                    <Header as="h3">{localize('Location')}</Header>
-                                    <CardText>{location.map_text}</CardText>
-                                    <Flex jc="unset">
-                                        <Pin />
-                                        {location.google_map_link ? (
-                                            <LinkText
-                                                rel="noopener noreferrer"
-                                                target="_blank"
-                                                href={location.google_map_link}
-                                            >
-                                                {location.address}
-                                            </LinkText>
-                                        ) : (
-                                            <Text>{location.address}</Text>
-                                        )}
-                                    </Flex>
-                                </div>
-                            </Flex>
-                        </Flex>
-                    </LocationCard>
-                </SectionContainer>
+            </Container>
+            <SectionContainer padding="0rem">
                 <Header
                     align="center"
                     as="h2"
                     font_size={'var(--text-size-header-1)'}
                     style={{ marginBottom: '6.4rem' }}
                 >
-                    {localize('Open positions in {{location}}', { location: display_name })}
+                    Our office
                 </Header>
-            </Container>
+                <Flex jc="unset">
+                    <Flex direction="column" mr="0.8rem" ai="flex-end">
+                        <Flex mb="0.8rem" jc="flex-end">
+                            <First>
+                                <QueryImage data={images[location.grid_images[0]]} width="100%" />
+                            </First>
+                            <Second>
+                                <QueryImage data={images[location.grid_images[1]]} width="100%" />
+                            </Second>
+                        </Flex>
+                        <Third>
+                            <QueryImage data={images[location.grid_images[2]]} width="100%" />
+                        </Third>
+                    </Flex>
+                    <Flex ml="0.8rem" jc="unset">
+                        <Fourth>
+                            <QueryImage data={images[location.grid_images[3]]} width="100%" />
+                        </Fourth>
+                    </Flex>
+                </Flex>
+            </SectionContainer>
+            <SectionContainer padding="12rem 0">
+                <LocationCard>
+                    <Flex jc="unset" tablet_direction="column">
+                        <ImageWrapper>
+                            <QueryImage data={images[location.map]} alt={'Map'} width="100%" />
+                        </ImageWrapper>
+                        <Flex p="3.2rem 6rem" direction="column" mw="44.4rem">
+                            <div style={{ maxWidth: '32.4rem' }}>
+                                <Header as="h3">Location</Header>
+                                <CardText>{location.map_text}</CardText>
+                                <Flex jc="unset">
+                                    <Pin />
+                                    {location.google_map_link ? (
+                                        <LinkText
+                                            rel="noopener noreferrer"
+                                            target="_blank"
+                                            href={location.google_map_link}
+                                        >
+                                            {location.address}
+                                        </LinkText>
+                                    ) : (
+                                        <Text>{location.address}</Text>
+                                    )}
+                                </Flex>
+                            </div>
+                        </Flex>
+                    </Flex>
+                </LocationCard>
+            </SectionContainer>
+            <Header
+                align="center"
+                as="h2"
+                font_size={'var(--text-size-header-1)'}
+                style={{ marginBottom: '6.4rem' }}
+            >
+                {`Open positions in ${display_name}`}
+            </Header>
             <div style={{ marginBottom: '12rem' }}>
                 <LinkList list_items={mapped_positions} />
             </div>

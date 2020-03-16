@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { localize } from '../../../components/localization'
 import device from 'themes/device'
 import { Input } from 'components/form'
 import SearchIcon from 'images/svg/search.svg'
@@ -44,7 +43,7 @@ const SearchForm = React.memo(({ search, setSearch }) => {
                     style={{ marginLeft: '4rem' }}
                     value={search}
                     onChange={e => setSearch(e.target.value)}
-                    placeholder={localize('Search jobs')}
+                    placeholder={'Search jobs'}
                     autoFocus
                 />
             </StyledForm>

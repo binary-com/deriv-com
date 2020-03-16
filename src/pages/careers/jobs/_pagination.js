@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { Button } from 'components/form'
-import { localize, Localize } from 'components/localization'
 
 const TopText = styled(Text)`
     font-size: var(--text-size-xs);
@@ -30,11 +29,14 @@ const Pagination = ({ children, page_limit }) => {
 
     const current_records = all_records.slice(start_index, end_index)
 
-    if (!current_records.length) {
-        // reset to first page
+    const resetToFirstPage = () => {
         setSectionSelection(page_limit)
         setStartIndex(0)
     }
+
+    React.useEffect(() => {
+        resetToFirstPage()
+    }, [children])
 
     const handleNext = () => {
         const next_selection = section_selection + page_limit
@@ -67,16 +69,7 @@ const Pagination = ({ children, page_limit }) => {
     return (
         <>
             <Flex jc="space-between">
-                <TopText>
-                    <Localize
-                        translate_text="Viewing {{low_bound}}-{{up_bound}} of {{total}}"
-                        values={{
-                            low_bound: start_index + 1,
-                            up_bound: end_index,
-                            total: total_records,
-                        }}
-                    />
-                </TopText>
+                <TopText>{`Viewing ${start_index + 1}-${end_index} of ${total_records}`}</TopText>
                 {/* {needs_pagination && (
                     <Flex width="auto">
                         <ButtonLeft flat onClick={handlePrevious} disabled={!has_previous}>
@@ -92,21 +85,14 @@ const Pagination = ({ children, page_limit }) => {
             {needs_pagination && (
                 <Flex jc="space-between" ai="center">
                     <TopText>
-                        <Localize
-                            translate_text="Viewing {{low_bound}}-{{up_bound}} of {{total}}"
-                            values={{
-                                low_bound: start_index + 1,
-                                up_bound: end_index,
-                                total: total_records,
-                            }}
-                        />
+                        {`Viewing ${start_index + 1}-${end_index} of ${total_records}`}
                     </TopText>
                     <Flex width="auto">
                         <ButtonLeft flat onClick={handlePrevious} disabled={!has_previous}>
-                            {localize('Previous')}
+                            Previous
                         </ButtonLeft>
                         <Button flat onClick={handleNext} disabled={!has_next}>
-                            {localize('Next')}
+                            Next
                         </Button>
                     </Flex>
                 </Flex>

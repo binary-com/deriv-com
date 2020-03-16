@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex } from 'components/containers'
 import { Text, Header, Divider, QueryImage } from 'components/elements'
-import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
 const StyledContainer = styled(Flex)`
@@ -68,7 +67,7 @@ const BoldSpan = styled.span`
 `
 
 const DescText = styled(ParimaryText)`
-    max-width: 38.4rem;
+    max-width: ${props => (props.mw ? props.mw : '38rem')};
     margin-bottom: 3.2rem;
 
     &:last-child {
@@ -107,44 +106,42 @@ const WhoWeLookFor = () => {
     return (
         <>
             <StyledContainer jc="center" ai="center">
-                <StyledHeader>{localize("Who we're looking for")}</StyledHeader>
+                <StyledHeader>Who we&apos;re looking for</StyledHeader>
                 <StyledDivider height="12.1rem" width="5px" />
                 <ParimaryText>
-                    {localize(
-                        'The scale and complexity of our mission require smart, talented, and dedicated people who are up for a challenge to make online trading accessible to anyone.',
-                    )}
+                    The scale and complexity of our mission require smart, talented, and dedicated
+                    people who are up for a challenge to make online trading accessible to anyone.
                 </ParimaryText>
             </StyledContainer>
             <Container direction="column">
                 <DiffHeader as="h3" align="center">
-                    {localize('What’s different about working at Deriv?')}
+                    What’s different about working at Deriv?
                 </DiffHeader>
                 <DescContainer direction="row" mb="14.4rem" jc="flex-start">
                     <ImageWrapper>
                         <QueryImage
                             data={data.teamfocus}
-                            alt={localize('What’s different about working at Deriv?')}
+                            alt={'What’s different about working at Deriv?'}
                             width="100%"
                         />
                     </ImageWrapper>
                     <ImageDescription>
                         <DescText>
-                            <Localize
-                                translate_text="<0>We’re growing fast</0>. Our team is growing rapidly and we're always on the lookout for the best talent to join us on our mission. You'll be a part of an energetic team that moves quickly to bring outstanding results."
-                                components={[<BoldSpan key={0} />]}
-                            />
+                            <BoldSpan>We’re growing fast</BoldSpan>. Our team is growing rapidly and
+                            we&apos;re always on the lookout for the best talent to join us on our
+                            mission. You&apos;ll be a part of an energetic team that moves quickly
+                            to bring outstanding results.
                         </DescText>
                         <DescText>
-                            <Localize
-                                translate_text="<0>Employees have a voice</0> in what we do. We challenge and support each other to find robust solutions that solve problems for our customers and partners."
-                                components={[<BoldSpan key={0} />]}
-                            />
+                            <BoldSpan>Employees have a voice</BoldSpan> in what we do. We challenge
+                            and support each other to find robust solutions that solve problems for
+                            our customers and partners.
                         </DescText>
-                        <DescText>
-                            <Localize
-                                translate_text="<0>We’re purpose-driven.</0> Our customers are at the heart of everything we do, and that drives us to succeed. We value commitment over complacency and accept challenges rather than the status quo. "
-                                components={[<BoldSpan key={0} />]}
-                            />
+                        <DescText mw="40.7rem">
+                            <BoldSpan>We’re purpose-driven.</BoldSpan> Our customers are at the
+                            heart of everything we do, and that drives us to succeed. We value
+                            commitment over complacency and accept challenges rather than the status
+                            quo.
                         </DescText>
                     </ImageDescription>
                 </DescContainer>
@@ -152,28 +149,29 @@ const WhoWeLookFor = () => {
                     <ImageWrapper>
                         <QueryImage
                             data={data.peopleeating}
-                            alt={localize('What’s different about working at Deriv?')}
+                            alt={'What’s different about working at Deriv?'}
                             width="100%"
                         />
                     </ImageWrapper>
                     <ImageDescription left>
                         <DescText>
-                            <Localize
-                                translate_text="<0>We have fun</0> along the way. We don’t have a dress code and our cosy offices have communal areas for mealtimes, exercise, and games. We also enjoy spending time together at team outings and company trips."
-                                components={[<BoldSpan key={0} />]}
-                            />
+                            <BoldSpan>We have fun</BoldSpan> along the way. We don’t have a dress
+                            code, and our cosy offices have communal areas for mealtimes, exercise,
+                            and games. We also enjoy spending time together at team outings and
+                            company trips.
                         </DescText>
                         <DescText>
-                            <Localize
-                                translate_text="<0>We’re global.</0> As part of an international team, you'll get to share your expertise and expand your knowledge with colleagues from around the world. We encourage collaboration across teams and locations because we know that's how we can bring forward the best ideas."
-                                components={[<BoldSpan key={0} />]}
-                            />
+                            <BoldSpan>We’re global.</BoldSpan> As part of an international team,
+                            you&apos;ll get to share your expertise and expand your knowledge with
+                            colleagues from around the world. We encourage collaboration across
+                            teams and locations because we know that&apos;s how we can bring forward
+                            the best ideas.
                         </DescText>
                         <DescText>
-                            <Localize
-                                translate_text="<0>We invest in our employees</0> and give them consistent opportunities to grow. In addition to learning and development on the job, we provide education assistance and sponsor training courses an employee is personally interested in."
-                                components={[<BoldSpan key={0} />]}
-                            />
+                            <BoldSpan>We invest in our employees</BoldSpan> and give them consistent
+                            opportunities to grow. In addition to learning and development on the
+                            job, we provide education assistance and sponsor training courses an
+                            employee is personally interested in.
                         </DescText>
                     </ImageDescription>
                 </DescContainer>

@@ -7,7 +7,6 @@ import { locations } from '../_model/_locations/_locations'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Accordion, AccordionItem, Divider, Text, Checkbox } from 'components/elements'
-import { localize } from 'components/localization'
 
 const FilterContainer = styled.div`
     width: 100%;
@@ -61,9 +60,9 @@ const SearchFilters = ({ filters, setFilters }) => {
     return (
         <FilterContainer>
             <Flex jc="space-between">
-                <Text size="var(--text-size-xs)">{localize('Filters')}</Text>
+                <Text size="var(--text-size-xs)">Filters</Text>
                 <ClearFilter onClick={clearFilters} size="var(--text-size-xs)">
-                    {localize('Clear filters')}
+                    Clear filters
                 </ClearFilter>
             </Flex>
             <Divider height="2px" />
@@ -92,7 +91,7 @@ const SearchFilters = ({ filters, setFilters }) => {
                         </Flex>
                     </AccordionItem> */}
                     <AccordionItem
-                        header={localize('Teams')}
+                        header={'Teams'}
                         header_style={header_style}
                         // parent_style={parent_style}
                         style={item_style}
@@ -120,7 +119,7 @@ const SearchFilters = ({ filters, setFilters }) => {
                         </Flex>
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Location')}
+                        header={'Location'}
                         header_style={header_style}
                         // parent_style={parent_style}
                         style={item_style}

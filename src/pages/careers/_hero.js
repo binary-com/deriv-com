@@ -2,8 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Container from './_layout-components/_container'
-import { Text, Header, BackgroundImage } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Header, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
@@ -23,13 +22,13 @@ const StyledHeader = styled(Header)`
     color: var(--color-white);
 `
 
-const Subheadline = styled(Text)`
-    font-size: var(--text-size-m);
+const Subheadline = styled(Header)`
     color: var(--color-white);
     max-width: 99.6rem;
 `
 
 const JoinHeader = styled(Header)`
+    font-size: var(--text-size-header-1);
     margin-bottom: 4.8rem;
     margin-top: 3.2rem;
     color: var(--color-white);
@@ -53,29 +52,25 @@ const Hero = () => {
     return (
         <BackgroundImage
             data={data.image}
-            alt={localize('Deriv careers')}
+            alt={'Deriv careers'}
             style={{
                 height: '100vh',
                 width: '100vw',
                 backgroundSize: `cover`,
-                backgroundColor: 'black',
+                backgroundColor: 'var(--color-black)',
             }}
         >
             <StyledContainer>
                 <StyledHeader as="h2">
-                    <Localize
-                        translate_text="Be a part of something <0>big</0>."
-                        components={[<RedBanner key={0} />]}
-                    />
+                    Be part of something <RedBanner>big</RedBanner>.
                 </StyledHeader>
-                <Subheadline>
-                    {localize(
-                        'We have a huge mission, an incredible team, and rapid growth. But it’s not just about our success — it’s about yours.',
-                    )}
+                <Subheadline as="h3">
+                    We have a huge mission, an incredible team, and rapid growth. But it’s not just
+                    about our success — it’s about yours.
                 </Subheadline>
-                <JoinHeader as="h3">{localize('Join and grow with us.')}</JoinHeader>
+                <JoinHeader as="h3">Join and grow with us.</JoinHeader>
                 <LinkButton secondary="true" to="/careers/jobs">
-                    {localize('View open positions')}
+                    View open positions
                 </LinkButton>
             </StyledContainer>
         </BackgroundImage>

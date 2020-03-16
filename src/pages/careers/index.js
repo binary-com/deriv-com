@@ -9,11 +9,11 @@ import OurHiringProcess from './_our-hiring-process'
 import { RoleBanner } from './_layout-components/_banner'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const Careers = () => (
     <Layout type="careers" padding_top="10rem">
-        <SEO title={localize('Careers')} />
+        <SEO title={'Careers'} />
         <Hero />
         <WhoWeLookFor />
         <LifeAtDerivCarousel />

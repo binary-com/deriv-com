@@ -39,6 +39,7 @@ const LineVertical = styled(LineVerticalSVG)`
     ${LineStyle}
     height: 38.7rem;
     margin-top: 11.5rem;
+    margin-right: 1.8rem;
 `
 
 const StyledSeparator = styled(Separator)`
@@ -78,6 +79,10 @@ const Section = styled(StyledSection)`
             margin-top: 3.2rem;
         }
     }
+`
+
+const SecondaryText = styled(Text)`
+    max-width: 32.4rem;
 `
 
 const WhoCanApply = () => {
@@ -174,11 +179,11 @@ const WhoCanApply = () => {
                                 <Header as="h4" lh="1.5">
                                     {localize('Wait for our reply')}
                                 </Header>
-                                <Text>
+                                <SecondaryText>
                                     {localize(
                                         'We’ll review your application and get in touch for further information and next steps.',
                                     )}
-                                </Text>
+                                </SecondaryText>
                             </Content>
                         </Wrapper>
                         <Wrapper>
@@ -187,17 +192,17 @@ const WhoCanApply = () => {
                                 <Header as="h4" lh="1.5">
                                     {localize('Get listed')}
                                 </Header>
-                                <Text>
+                                <SecondaryText>
                                     {localize(
                                         'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
                                     )}
-                                </Text>
+                                </SecondaryText>
                             </Content>
                         </Wrapper>
                     </Col>
                 </Flex>
             </Section>
-            <CenteredSection padding="4rem 0">
+            <CenteredSection padding="7.4rem 0 8rem">
                 <LinkButton secondary external to="mailto:paymentagents@deriv.com">
                     {localize('Send us an email to apply')}
                 </LinkButton>

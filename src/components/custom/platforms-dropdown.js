@@ -1,7 +1,8 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Container, Show } from 'components/containers'
-import { OtherPlatform } from 'components/custom/other-platforms.js'
+import { NavPlatform } from 'components/custom/other-platforms.js'
+import device from 'themes/device'
 
 const FadeInDown = keyframes`
     from {
@@ -27,9 +28,9 @@ const NavDropdown = styled.div`
     display: flex;
     width: 100%;
     position: absolute;
-    padding: 0.6rem 0;
+    padding: 2.2rem 0;
     z-index: -1;
-    height: fit-content;
+    height: auto;
     background-color: #ffffff;
     transform: translateY(-18rem);
     opacity: 0;
@@ -40,8 +41,18 @@ const NavDropdown = styled.div`
     animation-duration: ${props => (props.has_animation ? '0.3s' : '0')};
 `
 const StyledContainer = styled(Container)`
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+
+    @media ${device.desktop} {
+        max-width: 1440px;
+    }
+    @media ${device.laptopL} {
+        max-width: 1440px;
+    }
+    @media ${device.desktopL} {
+        max-width: 1800px;
+    }
 
     .active {
         border: 0.2rem solid var(--color-green);
@@ -54,7 +65,7 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
         <Show.Desktop>
             <NavDropdown is_open={is_open} has_animation={has_animation}>
                 <StyledContainer>
-                    <OtherPlatform exclude="" is_nav />
+                    <NavPlatform />
                 </StyledContainer>
             </NavDropdown>
         </Show.Desktop>

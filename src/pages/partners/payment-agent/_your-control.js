@@ -15,6 +15,7 @@ const Card = styled(Flex)`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background: var(--color-white);
     height: 13.6rem;
+    width: auto;
 `
 
 const CardText = styled(Text)`
@@ -34,6 +35,7 @@ const YourControl = () => {
                 </Text>
                 <CssGrid
                     columns="repeat(2, 38.4rem)"
+                    height="auto"
                     column_gap="2.4rem"
                     row_gap="2.4rem"
                     tablet_columns="repeat(2, 1fr)"

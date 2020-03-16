@@ -1,16 +1,10 @@
 import React from 'react'
-import {
-    ItemContainer,
-    HeaderPrimary,
-    TextPrimary,
-    StyledLink,
-    LocalizedLinkText,
-} from '../_faq-data'
+import { HeaderPrimary, TextPrimary, StyledLink, LocalizedLinkText } from '../_faq-data'
 import { localize, Localize } from 'components/localization'
 import { Header } from 'components/elements'
 
 const General = (
-    <ItemContainer>
+    <>
         <Header as="h4">{localize('What is the Deriv Payment Agent Programme?')}</Header>
         <TextPrimary>
             {localize(
@@ -53,10 +47,10 @@ const General = (
                 'No. Payment agents operate as independent exchangers and are not affiliates of Deriv.',
             )}
         </TextPrimary>
-    </ItemContainer>
+    </>
 )
 const AccountManagement = (
-    <ItemContainer>
+    <>
         <Header as="h4">
             {localize('How can I add, remove or change my accepted payment methods?')}
         </Header>
@@ -93,7 +87,7 @@ const AccountManagement = (
                 'Yes. As a payment agent, you will still be able to trade with your account. ',
             )}
         </TextPrimary>
-    </ItemContainer>
+    </>
 )
 
 export { General, AccountManagement }

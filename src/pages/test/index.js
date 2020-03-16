@@ -1,12 +1,12 @@
-import React from './node_modules/react'
-import Layout from './node_modules/components/layout/layout'
-import { WithIntl } from './node_modules/components/localization'
+import React from 'react'
+import Layout from 'components/layout/layout'
+import { WithIntl } from 'components/localization'
 
 const About = () => {
 
     return (
         <Layout>
-           <div>sdad</div>
+           <div>sdasd</div>
        
         </Layout>
     )

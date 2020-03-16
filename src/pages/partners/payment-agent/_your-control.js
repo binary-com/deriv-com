@@ -30,7 +30,7 @@ const YourControl = () => {
                     {localize('You are in control')}
                 </Header>
                 <Text size="var(--text-size-m)" margin="1.6rem 0 3.2rem">
-                    {localize('As a payment agent you are an independent-exchanger. You can:')}
+                    {localize('As a payment agent, you are an independent exchanger. You can:')}
                 </Text>
                 <CssGrid
                     columns="repeat(2, 38.4rem)"

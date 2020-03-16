@@ -8,9 +8,17 @@ const WrapContainer = styled(Container)`
     flex-wrap: wrap;
 
     @media (max-width: 1310px) {
+        justify-content: center;
+
         ${Flex} {
             margin-right: 0;
             margin-bottom: 2.4rem;
+        }
+        ${Header} {
+            text-align: center;
+        }
+        ${Text} {
+            text-align: center;
         }
     }
 `

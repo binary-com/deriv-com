@@ -15,7 +15,7 @@ import {
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
 // SVG
 import TradingExperts from 'images/svg/trading-experts.svg'
 import Affiliates from 'images/svg/affiliates.svg'
@@ -37,14 +37,54 @@ const Li = styled.li`
 
 const LineVertical = styled(LineVerticalSVG)`
     ${LineStyle}
-    height: 46rem;
+    height: 38.7rem;
+    margin-top: 11.5rem;
+`
+
+const StyledSeparator = styled(Separator)`
+    width: 2px;
+    height: 50.3rem;
+    margin-top: 6rem;
+    margin-left: 6.4rem;
+    margin-right: 6.7rem;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 1.6rem;
+        width: 1.6rem;
+        top: 50%;
+        left: -0.6rem;
+        border-top: 2px solid var(--color-grey-8);
+        border-right: 2px solid var(--color-grey-8);
+        transform: rotate(45deg);
+        background: white;
+    }
+`
+
+const StyledCol = styled(Col)`
+    max-width: 47.8rem;
+`
+
+const Section = styled(StyledSection)`
+    flex-wrap: wrap;
+
+    @media (max-width: 1280px) {
+        ${StyledSeparator} {
+            display: none;
+        }
+        ${Flex} {
+            margin-top: 3.2rem;
+        }
+    }
 `
 
 const WhoCanApply = () => {
     return (
         <SectionWrapper padding="8rem 0 4rem">
-            <StyledSection>
-                <Col>
+            <Section>
+                <StyledCol>
                     <StyledHeader font_size="3.6rem">{localize('Who can apply')}</StyledHeader>
                     <Wrapper>
                         <TradingExperts />
@@ -83,9 +123,9 @@ const WhoCanApply = () => {
                             </Text>
                         </Content>
                     </Wrapper>
-                </Col>
-                <Separator />
-                <Flex>
+                </StyledCol>
+                <StyledSeparator />
+                <Flex width="auto">
                     <LineVertical />
                     <Col>
                         <SecondaryHeader font_size="3.6rem">
@@ -93,7 +133,7 @@ const WhoCanApply = () => {
                         </SecondaryHeader>
                         <Wrapper>
                             <Email />
-                            <Content max_width="32.4rem">
+                            <Content max_width="36.4rem">
                                 <Header as="h4" lh="1.5">
                                     {localize('Drop us an email')}
                                 </Header>
@@ -130,7 +170,7 @@ const WhoCanApply = () => {
                         </Wrapper>
                         <Wrapper>
                             <Reply />
-                            <Content max_width="32.4rem">
+                            <Content max_width="36.4rem">
                                 <Header as="h4" lh="1.5">
                                     {localize('Wait for our reply')}
                                 </Header>
@@ -143,7 +183,7 @@ const WhoCanApply = () => {
                         </Wrapper>
                         <Wrapper>
                             <Listed />
-                            <Content max_width="32.4rem">
+                            <Content max_width="36.4rem">
                                 <Header as="h4" lh="1.5">
                                     {localize('Get listed')}
                                 </Header>
@@ -156,9 +196,11 @@ const WhoCanApply = () => {
                         </Wrapper>
                     </Col>
                 </Flex>
-            </StyledSection>
+            </Section>
             <CenteredSection padding="4rem 0">
-                <Button secondary>{localize('Send us an email to apply')}</Button>
+                <LinkButton secondary external to="mailto:paymentagents@deriv.com">
+                    {localize('Send us an email to apply')}
+                </LinkButton>
             </CenteredSection>
         </SectionWrapper>
     )

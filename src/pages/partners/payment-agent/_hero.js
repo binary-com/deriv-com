@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Hero from '../_hero.js'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
 
 const MainHeader = styled(Header)`
     max-width: 80rem;
@@ -26,7 +26,9 @@ const PAHero = () => {
                     'Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv.',
                 )}
             </MiddleHeader>
-            <Button secondary>{localize('Send us an email to apply')}</Button>
+            <LinkButton secondary external to="mailto:paymentagents@deriv.com">
+                {localize('Send us an email to apply')}
+            </LinkButton>
         </Hero>
     )
 }

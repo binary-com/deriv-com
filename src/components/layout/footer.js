@@ -42,9 +42,11 @@ const InfoSection = styled.div`
 
     ${Text} {
         margin-top: 2.2rem;
+        max-width: 28.2rem;
 
         @media ${device.tabletL} {
             font-size: var(--text-size-sm);
+            max-width: unset;
         }
     }
 `
@@ -315,7 +317,7 @@ const Footer = () => (
                             <Title>{localize('SUPPORT')}</Title>
                         </div>
                         <div>
-                            <Link to="/help-centre">{localize('Help centre')}</Link>
+                            <Link to="/help-centre">{localize('Help Centre')}</Link>
                         </div>
                         <div>
                             <Link to="/payment-methods">{localize('Payment methods')}</Link>
@@ -337,6 +339,9 @@ const Footer = () => (
                         <div>
                             <Link to="/contact-us">{localize('Contact us')}</Link>
                         </div>
+                        <div>
+                            <Link to="/careers">{localize('Careers')}</Link>
+                        </div>
                     </Col>
                     <Col margin_top width="40%">
                         <div>
@@ -355,7 +360,7 @@ const Footer = () => (
         <Show.Mobile>
             <MobileAccordion>
                 <Accordion footer='true'>
-                    <AccordionItem header={localize('TRADE')}>
+                    <AccordionItem header={localize('TRADE')} arrow_thin>
                         <Item>
                             <Link to="/dtrader">{localize('DTrader')}</Link>
                         </Item>
@@ -366,7 +371,7 @@ const Footer = () => (
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </Item>
                     </AccordionItem>
-                    <AccordionItem header={localize('LEGAL')}>
+                    <AccordionItem header={localize('LEGAL')} arrow_thin>
                         <Item>
                             <Link to="/regulatory">{localize('Regulatory information')}</Link>
                         </Item>
@@ -381,7 +386,7 @@ const Footer = () => (
                             </Link>
                         </Item>
                     </AccordionItem>
-                    <AccordionItem header='SUPPORT'>
+                    <AccordionItem header='SUPPORT' arrow_thin>
                         <Item>
                             <Link to="/help-centre">{localize('Help centre')}</Link>
                         </Item>
@@ -392,7 +397,7 @@ const Footer = () => (
                             <Link to="/why-choose-us">{localize('Why choose us')}</Link>
                         </Item>
                     </AccordionItem>
-                    <AccordionItem header='COMPANY'>
+                    <AccordionItem header='COMPANY' arrow_thin>
                         <Item>
                             <Link to="/contact-us">{localize('Contact us')}</Link>
                         </Item>
@@ -400,7 +405,7 @@ const Footer = () => (
                             <Link to="/about">{localize('About us')}</Link>
                         </Item>
                     </AccordionItem>
-                    <AccordionItem header='PARTNER WITH US'>
+                    <AccordionItem header='PARTNER WITH US' arrow_thin>
                         <Item>
                             <Link to="/partners">{localize('Affiliate and IB Programmes')}</Link>
                         </Item>

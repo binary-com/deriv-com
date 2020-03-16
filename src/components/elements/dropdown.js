@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
 import Keycodes from 'common/keycodes'
+import { useOutsideClick } from 'components/hooks/outside-click'
 import Chevron from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 
@@ -108,20 +109,9 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
     const nodes = new Map()
     const dropdown_ref = useRef(null)
 
-    useEffect(() => {
-        setSelectedOption(default_option)
+    useOutsideClick(dropdown_ref, () => setOpen(false))
 
-        const handleClickOutside = e => {
-            if (!dropdown_ref.current.contains(e.target)) {
-                setOpen(false)
-            }
-        }
-        document.addEventListener('click', handleClickOutside)
-
-        return () => {
-            document.removeEventListener('click', handleClickOutside)
-        }
-    }, [])
+    useEffect(() => setSelectedOption(default_option), [])
 
     const toggleListVisibility = e => {
         e.preventDefault()

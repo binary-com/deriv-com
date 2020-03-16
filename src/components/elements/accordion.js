@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from './typography'
+import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
 import ChevronThick from 'images/svg/chevron-thick.svg'
 import Chevron from 'images/svg/chevron-bottom.svg'
 
@@ -60,16 +61,6 @@ Accordion.propTypes = {
     nodes: PropTypes.array,
 }
 
-const useStateWithCallback = (initialState, callback) => {
-    const [state, setState] = useState(initialState)
-
-    React.useEffect(() => {
-        callback(state)
-    }, [state, callback])
-
-    return [state, setState]
-}
-
 const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
     const getHeight = active_idx => {
         return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
@@ -78,8 +69,10 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
     const render_nodes = React.Children.map(children, (child, child_idx) => {
         const [is_expanded, setExpanded] = useState(false)
         const [height, setHeight] = useStateWithCallback(0, () => {
+            // set height to auto to allow content that can resize inside the accordion
+            // reset height to content height before collapse for transition (height: auto does not support transitions)
             if (is_expanded) setTimeout(() => setHeight('auto'), 200)
-            else setTimeout(() => setHeight('0'), 50)
+            else setTimeout(() => setHeight(0), 50)
         })
 
         React.useEffect(() => {

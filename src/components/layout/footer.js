@@ -14,6 +14,13 @@ import Facebook from 'images/svg/footer-facebook.svg'
 import Warning from 'images/svg/warning.svg'
 import Copyright from 'images/svg/copyright.svg'
 
+const DerivLogo = styled(Logo)`
+    width: 14.5rem;
+
+    @media ${device.tabletL} {
+        width: 20.5rem;
+    }
+`
 const StyledFooter = styled.footer`
     background-color: var(--color-grey-8);
     width: 100%;
@@ -123,6 +130,7 @@ const Disclaimer = styled.section`
 
     @media ${device.tabletL} {
         border-top: 1px solid var(--color-red);
+        padding-top: 1.5rem;
     }
 `
 const StyledContainer = styled(Container)`
@@ -186,7 +194,7 @@ const SocialWrapper = styled.div`
     justify-content: space-between;
 
     svg {
-        width: 3.2rem;
+        width: 4.2rem;
         margin-right: 1rem;
     }
     ${Text} {
@@ -213,6 +221,11 @@ const SocialMedia = styled.section`
 `
 const MobileAccordion = styled.section`
     border-top: 1px solid var(--color-red);
+    padding-bottom: 1.2rem;
+
+    p {
+        letter-spacing: 2px;
+    }
 `
 const Item = styled.div`
     padding: 0 0 3rem 2rem;
@@ -224,7 +237,7 @@ const Item = styled.div`
 `
 const MobileLanguageSwitcher = styled.div`
     margin-top: 0.8rem;
-
+    
     > ul {
         top: 0;
         width: 80px;
@@ -235,7 +248,7 @@ const Footer = () => (
         <Container>
             <StyledGrid columns="repeat(12, 1fr)" columngap="2.4rem" rowgap="3.9rem">
                 <InfoSection>
-                    <Logo width="14.5rem" />
+                    <DerivLogo />
                     <Text>
                         {localize(
                             'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.',
@@ -348,7 +361,7 @@ const Footer = () => (
                             <Title>{localize('PARTNER WITH US')}</Title>
                         </div>
                         <div>
-                            <Link to="/partners">{localize('Affiliate and IB Programmes')}</Link>
+                            <Link to="/partners">{localize('Partner programmes')}</Link>
                         </div>
                     </Col>
                     <Col margin_top width="25%">
@@ -388,7 +401,7 @@ const Footer = () => (
                     </AccordionItem>
                     <AccordionItem header='SUPPORT' arrow_thin>
                         <Item>
-                            <Link to="/help-centre">{localize('Help centre')}</Link>
+                            <Link to="/help-centre">{localize('Help Centre')}</Link>
                         </Item>
                         <Item>
                             <Link to="/payment-methods">{localize('Payment methods')}</Link>
@@ -399,15 +412,15 @@ const Footer = () => (
                     </AccordionItem>
                     <AccordionItem header='COMPANY' arrow_thin>
                         <Item>
-                            <Link to="/contact-us">{localize('Contact us')}</Link>
+                            <Link to="/about">{localize('About us')}</Link>
                         </Item>
                         <Item>
-                            <Link to="/about">{localize('About us')}</Link>
+                            <Link to="/contact-us">{localize('Contact us')}</Link>
                         </Item>
                     </AccordionItem>
                     <AccordionItem header='PARTNER WITH US' arrow_thin>
                         <Item>
-                            <Link to="/partners">{localize('Affiliate and IB Programmes')}</Link>
+                            <Link to="/partners">{localize('Partner programmes')}</Link>
                         </Item>
                     </AccordionItem>
                 </Accordion>
@@ -454,7 +467,7 @@ const Footer = () => (
                             ]}
                         />
                     </StyledText>
-                    <StyledText>
+                    <StyledText margin='1rem 0 0 0'>
                         {localize(
                             "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
                         )}

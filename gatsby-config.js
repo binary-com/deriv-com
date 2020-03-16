@@ -83,6 +83,12 @@ module.exports = {
             },
         },
         {
+            resolve: 'gatsby-plugin-netlify-cache',
+            options: {
+                cachePublic: true,
+            },
+        },
+        {
             resolve: 'gatsby-plugin-react-svg',
             options: {
                 rule: {

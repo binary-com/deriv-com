@@ -23,7 +23,7 @@ const ContactContainer = styled.div`
 export const Article = ({ children, header }) => {
     return (
         <Layout>
-            <SEO title={localize('Help Center | Account')} />
+            <SEO title={localize('Help Center | ' + header)} />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
                     to="/help-centre/"

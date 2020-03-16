@@ -14,6 +14,7 @@ import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
+import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 
@@ -384,6 +385,75 @@ export const NavPartners = () => {
                                 <span>{localize('Affiliate & IB sign up')}</span>
                             </SignupButton>
                         </StyledNavRight>
+                    </Wrapper>
+                </StyledNav>
+            </NavWrapper>
+        </>
+    )
+}
+
+const CareerRight = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+`
+
+export const NavCareers = () => {
+    return (
+        <>
+            <NavWrapper>
+                <DerivHomeWrapper>
+                    <HomeContainer justify="flex-start">
+                        <HomeLink to="/">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('Deriv homepage')}
+                            </Text>
+                        </HomeLink>
+                        <HomeLink to="/about">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('About us')}
+                            </Text>
+                        </HomeLink>
+                        <HomeLink to="/contact-us">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('Contact us')}
+                            </Text>
+                        </HomeLink>
+                    </HomeContainer>
+                </DerivHomeWrapper>
+                <StyledNav>
+                    <Wrapper>
+                        <NavLeft>
+                            <LogoLink to="/careers" aria-label={localize('Careers')}>
+                                <LogoCareers />
+                            </LogoLink>
+                        </NavLeft>
+                        <CareerRight>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/careers/teams/"
+                                aria-label={localize('Teams')}
+                                partiallyActive={true}
+                            >
+                                Teams
+                            </StyledLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/careers/locations/"
+                                aria-label={localize('Locations')}
+                                partiallyActive={true}
+                            >
+                                Locations
+                            </StyledLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/careers/jobs/"
+                                aria-label={localize('All jobs')}
+                                partiallyActive={true}
+                            >
+                                All jobs
+                            </StyledLink>
+                        </CareerRight>
                     </Wrapper>
                 </StyledNav>
             </NavWrapper>

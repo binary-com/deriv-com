@@ -21,33 +21,24 @@ const SEO = ({ description, meta, title, no_index }) => {
                         author
                     }
                 }
-
-                allSitePage {
-                    nodes {
-                        path
-                    }
-                }
             }
         `,
     )
 
     const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
+
     const links = []
     if (is_browser) {
         var page, l
-        const currentPage = window.location.href.split('/')[3]
+        var currentPage = window.location.href.split('/')[3]
+        if (window.location.href.split('/')[4])
+            currentPage = currentPage + '/' + window.location.href.split('/')[4]
         const pages = []
-
         pages.push('/' + currentPage)
         for (l in languages) {
             pages.push('/' + languages[l] + '/' + currentPage)
         }
-
-        // var regex = new RegExp(regArray.join('|'))
-        // const sitePages = queries.allSitePage.nodes.filter(function(page) {
-        //     return regex.exec(page.path) || page.path.startsWith('/' + currentPage)
-        // })
 
         for (page in pages) {
             const link = {}

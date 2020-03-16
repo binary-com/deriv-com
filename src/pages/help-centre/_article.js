@@ -5,7 +5,7 @@ import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
 import Layout from 'components/layout/layout'
 import { localize } from 'components/localization'
 import { SideTab, StyledLink } from 'components/elements'
-import { Container } from 'components/containers'
+import { Container, SEO } from 'components/containers'
 
 const Content = styled.div`
     display: flex;
@@ -23,6 +23,7 @@ const ContactContainer = styled.div`
 export const Article = ({ children, header }) => {
     return (
         <Layout>
+            <SEO title={localize('Help Center | Account')} />
             <Container align="left" justify="flex-start" direction="column">
                 <StyledLink
                     to="/help-centre/"

@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionContainer, Container, CssGrid, Flex, Wrapper } from 'components/containers'
+import PropTypes from 'prop-types'
+import Swiper from 'react-id-swiper'
+import 'swiper/css/swiper.css'
+import { SectionContainer, Container, CssGrid, Flex, Wrapper, Show } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
@@ -144,38 +147,69 @@ const LeaderWrapper = styled(Flex)`
 const StyledHeader = styled(Header)`
     font-size: 2.3rem;
 `
-
+const ImageSlide = ({ img_path, img_alt }) => {
+    return (
+        <Image img_name={img_path} alt={img_alt} />
+    )
+}
+ImageSlide.propTypes = {
+    img_alt: PropTypes.string,
+    img_path: PropTypes.string,
+}
+const SwiperWrapper = styled.div``
+const params = {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    spaceBetween: 30,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+    }
+}
 const Leaders = () => {
     return (
         <SectionContainer>
-            <Container>
-                <CssGrid
-                    columns="repeat(4, 26.9rem)"
-                    column_gap="3.4rem"
-                    row_gap="10.4rem"
-                    laptop_columns="repeat(3, 1fr)"
-                    tablet_columns="repeat(2, 1fr)"
-                    mobile_columns="1fr"
-                    mobile_row_gap="6rem"
-                    margin="1rem 0 0"
-                >
-                    {leaders_data.map((leader, index) => (
-                        <LeaderWrapper key={index} direction="column" ai="center">
-                            <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
-                                <Image img_name={leader.image} alt={leader.name} />
-                                <DescriptionWrapper>
-                                    <Text lh="1.71" size="var(--text-size-xs)" color="white">
-                                        {leader.description}
-                                    </Text>
-                                </DescriptionWrapper>
-                            </Wrapper>
-                            <StyledHeader as="h4" align="center" lh="3.6rem">
-                                {leader.name}
-                            </StyledHeader>
-                            <Text align="center">{leader.position}</Text>
-                        </LeaderWrapper>
-                    ))}
-                </CssGrid>
+            <Container style={{ overflow: 'hidden' }}>
+                <Show.Desktop>
+                    <CssGrid
+                        columns="repeat(4, 26.9rem)"
+                        column_gap="3.4rem"
+                        row_gap="10.4rem"
+                        laptop_columns="repeat(3, 1fr)"
+                        tablet_columns="repeat(2, 1fr)"
+                        mobile_columns="1fr"
+                        mobile_row_gap="6rem"
+                        margin="1rem 0 0"
+                    >
+                        {leaders_data.map((leader, index) => (
+                            <LeaderWrapper key={index} direction="column" ai="center">
+                                <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
+                                    <Image img_name={leader.image} alt={leader.name} />
+                                    <DescriptionWrapper>
+                                        <Text lh="1.71" size="var(--text-size-xs)" color="white">
+                                            {leader.description}
+                                        </Text>
+                                    </DescriptionWrapper>
+                                </Wrapper>
+                                <StyledHeader as="h4" align="center" lh="3.6rem">
+                                    {leader.name}
+                                </StyledHeader>
+                                <Text align="center">{leader.position}</Text>
+                            </LeaderWrapper>
+                        ))}
+                    </CssGrid>
+                </Show.Desktop>
+                <Show.Mobile>
+                    <SwiperWrapper>
+                        <Swiper {...params}>
+                            {leaders_data.map(leader => (
+                                <div key={leader.name}>
+                                    <ImageSlide img_path={leader.image} img_alt={leader.name} />
+                                </div>
+                            ))}
+                        </Swiper>
+                    </SwiperWrapper>
+                </Show.Mobile>
             </Container>
         </SectionContainer>
     )

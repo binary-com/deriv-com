@@ -60,7 +60,11 @@ export const LocalizedLink = ({ to, ...props }) => {
     if (props.external_link) return <ExternalLink href={to}>{props.children}</ExternalLink>
 
     // internal links should end with / e.g. /about/
-    const internal_to = path_to.charAt(to.length - 1) === '/' ? path_to : path_to + '/'
+    let internal_to = path_to.charAt(to.length - 1) === '/' ? path_to : path_to + '/'
+
+    if (props.has_no_end_slash) {
+        internal_to = internal_to.substring(0, internal_to.length - 1)
+    }
 
     return <GatsbyLink {...props} to={internal_to} />
 }
@@ -69,6 +73,7 @@ LocalizedLink.propTypes = {
     children: PropTypes.node,
     external: PropTypes.bool,
     external_link: PropTypes.bool,
+    has_no_end_slash: PropTypes.bool,
     props: PropTypes.object,
     to: PropTypes.string.isRequired,
 }

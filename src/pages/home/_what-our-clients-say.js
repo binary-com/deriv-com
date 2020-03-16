@@ -160,7 +160,7 @@ const ClientSlide = ({ quote, img_path, img_alt, name, title }) => (
             <Flex p="1.7rem 0 0 0">
                 <Flex ai="center" width="auto">
                     <ImageWrapper>
-                        <img src={img_path} alt={img_alt} />
+                        <img src={img_path} alt={img_alt} loading="lazy" />
                     </ImageWrapper>
                 </Flex>
                 <figure>
@@ -217,6 +217,7 @@ const WhatOurClientsSay = () => {
     }
 
     const params = {
+        lazy: true,
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,

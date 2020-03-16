@@ -1,5 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="4291" viewBox="0 0 20 4291" aria-labelledby="story-line" role="img">
-    <title id='story-line'>Story Line</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="100%">
     <defs>
         <linearGradient id="prefix__a" x1="50%" x2="50%" y1="-7.9%" y2="100%">
             <stop offset="0%" stop-color="#FFF"/>
@@ -13,4 +12,3 @@
         <path fill="url(#prefix__a)" d="M9 4203H11V4291H9z"/>
     </g>
 </svg>
-

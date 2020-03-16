@@ -89,12 +89,17 @@ const LogoContainer = styled.div`
         text-align: center;
     }
 `
-
+const SVGContainer = styled.div`
+    position: absolute;
+    height: 93%;
+    left: 50%;
+    width: 22px;
+`
 const StyledLine = styled(StorySVG)`
     position: absolute;
-    height: 92.5%;
-    left: 50%;
-    top: 5%;
+    height: 100%;
+    left: 0;
+    top: 0;
 
     @media ${device.tablet} {
         display: none;
@@ -107,7 +112,9 @@ export const OurHistory = () => {
             <Header font_size="3.6rem" align="center" margin="0 0 9.2rem 0">
                 {localize('Our history')}
             </Header>
-            <StyledLine />
+            <SVGContainer>
+                <StyledLine />
+            </SVGContainer>
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
                     <StyledHeader

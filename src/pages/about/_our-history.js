@@ -45,6 +45,16 @@ const ContentWrapper = styled.div`
     width: ${props => props.content_width || '39.6rem'};
     padding: 0 0 0 1rem;
 `
+const StyledHeaderWrapper = styled.div`
+    position: relative;
+    width: 100%;
+
+    ::before {
+        content: '';
+        left: 50%;
+        position: absolute;
+    }
+`
 const StyledHeader = styled(Header)`
     width: 18rem;
     margin-left: ${props => (props.left ? '50%' : '49.99%')};
@@ -117,14 +127,16 @@ export const OurHistory = () => {
             </SVGContainer>
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
-                    <StyledHeader
-                        left={story.left}
-                        as="h2"
-                        color={story.color || 'red-4'}
-                        align="center"
-                    >
-                        {story.year}
-                    </StyledHeader>
+                    <StyledHeaderWrapper>
+                        <StyledHeader
+                            left={story.left}
+                            as="h2"
+                            color={story.color || 'red-4'}
+                            align="center"
+                        >
+                            {story.year}
+                        </StyledHeader>
+                    </StyledHeaderWrapper>
 
                     {story.contents.map((content, idxa) =>
                         content.left ? (

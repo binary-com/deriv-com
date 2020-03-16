@@ -12,7 +12,7 @@ const MainHeader = styled(Header)`
 
 const MiddleHeader = styled(Header)`
     max-width: 99.6rem;
-    margin-bottom: 4rem;
+    margin-bottom: 6.4rem;
 `
 
 const PAHero = () => {

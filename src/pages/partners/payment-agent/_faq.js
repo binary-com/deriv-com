@@ -42,11 +42,8 @@ const Faq = () => {
     }
     return (
         <RelativeContainer>
-            <Header font_size="3.6rem" align="center">
+            <Header font_size="3.6rem" margin="0 0 4rem 0" align="center">
                 {localize('FAQs')}
-            </Header>
-            <Header as="h4" align="center" margin="4rem 0 6.4rem 0 " weight="500">
-                {localize('Deriv Payment Agent Programme')}
             </Header>
             <AccordionWrapper>
                 <Accordion>

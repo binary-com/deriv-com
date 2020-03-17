@@ -1,18 +1,13 @@
 import styled from 'styled-components'
-import { Margins, Paddings } from 'themes/function'
+import Box from './box'
 import device from 'themes/device'
 
-const Flex = styled.div`
+const Flex = styled(Box)`
     display: flex;
     flex-wrap: ${props => (props.wrap ? props.wrap : '')};
-    width: ${props => (props.width ? props.width : '100%')};
-    max-width: ${props => (props.mw ? props.mw : '')};
-    height: ${props => (props.height ? props.height : '100%')};
     justify-content: ${props => (props.jc ? props.jc : 'center')};
     align-items: ${props => (props.ai ? props.ai : '')};
     flex-direction: ${props => (props.direction ? props.direction : '')};
-    ${Margins}
-    ${Paddings}
 
     @media ${device.tablet} {
         flex-direction: ${props => (props.tablet_direction ? props.tablet_direction : '')};

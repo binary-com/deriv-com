@@ -123,5 +123,11 @@ module.exports = {
                 policy: [{ userAgent: '*', allow: '/' }],
             },
         },
+        {
+            resolve: 'gatsby-plugin-netlify-cache',
+            options: {
+                cachePublic: true
+            },
+        },
     ],
 }

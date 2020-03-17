@@ -10,7 +10,7 @@ const is_browser = typeof window !== 'undefined'
 
 const languages = Object.keys(language_config)
 const SEO = ({ description, meta, title, no_index }) => {
-    var queries = []
+    let queries = []
     queries = useStaticQuery(
         graphql`
             query {
@@ -30,8 +30,8 @@ const SEO = ({ description, meta, title, no_index }) => {
 
     const links = []
     if (is_browser) {
-        var page, l
-        var currentPage = window.location.href.split('/')[3]
+        let page, l
+        let currentPage = window.location.href.split('/')[3]
         if (window.location.href.split('/')[4])
             currentPage = currentPage + '/' + window.location.href.split('/')[4]
         const pages = []

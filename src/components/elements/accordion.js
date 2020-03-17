@@ -26,15 +26,8 @@ const AccordionHeader = styled.div`
     align-items: center;
     border-bottom: 1px solid var(--color-grey-2);
     padding: 0 3.2rem;
-<<<<<<< HEAD
     user-select: none;
-=======
-<<<<<<< HEAD
     box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
-=======
-    user-select: none;
->>>>>>> use childheight with height instead of maxheight
->>>>>>> dev
 
     ${Text} {
         margin-right: auto;

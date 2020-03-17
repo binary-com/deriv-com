@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
 import 'swiper/css/swiper.css'
 import { SectionContainer, Container, CssGrid, Flex, Wrapper, Show } from 'components/containers'
@@ -147,29 +146,38 @@ const LeaderWrapper = styled(Flex)`
 const StyledHeader = styled(Header)`
     font-size: 2.3rem;
 `
-const ImageSlide = ({ img_path, img_alt }) => {
-    return (
-        <Image img_name={img_path} alt={img_alt} />
-    )
-}
-ImageSlide.propTypes = {
-    img_alt: PropTypes.string,
-    img_path: PropTypes.string,
-}
-const SwiperWrapper = styled.div``
+
+const SliderWrapper = styled.div`
+    width: 100%;
+    position: relative;
+`
+const SwiperWrapper = styled.div`
+    .swiper-container { 
+        height: 540px;
+    }    
+`
+const LeaderMobile = styled.div`
+    width: 100%;
+    max-width: 38rem;
+    height: 66.5rem;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    border-radius: 4px;
+
+    > p {
+        max-width: 34rem;
+    }
+`
 const params = {
     slidesPerView: 'auto',
     centeredSlides: true,
-    spaceBetween: 30,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-    }
+    spaceBetween: 8,
+    loop: false,
+    lazy: true,
 }
 const Leaders = () => {
     return (
         <SectionContainer>
-            <Container style={{ overflow: 'hidden' }}>
+            <Container>
                 <Show.Desktop>
                     <CssGrid
                         columns="repeat(4, 26.9rem)"
@@ -199,16 +207,23 @@ const Leaders = () => {
                         ))}
                     </CssGrid>
                 </Show.Desktop>
+            </Container>
+            <Container style={{ width: '100%', overflow: 'hidden' }}>
                 <Show.Mobile>
-                    <SwiperWrapper>
-                        <Swiper {...params}>
-                            {leaders_data.map(leader => (
-                                <div key={leader.name}>
-                                    <ImageSlide img_path={leader.image} img_alt={leader.name} />
-                                </div>
-                            ))}
-                        </Swiper>
-                    </SwiperWrapper>
+                    <SliderWrapper>
+                        <SwiperWrapper>
+                            <Swiper {...params} >
+                                {leaders_data.map(leader => (
+                                    <LeaderMobile key={leader.name}>
+                                        <div style={{ width: '38rem', height: '15rem', backgroundColor: '#ebebeb' }}></div>
+                                        <Header font_size='3rem' align='center' margin='2rem 0 0 0'>{leader.name}</Header>
+                                        <Text align='center' secondary margin='0 auto'>{localize(leader.position)}</Text>
+                                        <Text margin='2rem 2rem 4rem 2rem' secondary>{localize(leader.description)}</Text>
+                                    </LeaderMobile>
+                                ))}
+                            </Swiper>
+                        </SwiperWrapper>
+                    </SliderWrapper>
                 </Show.Mobile>
             </Container>
         </SectionContainer>

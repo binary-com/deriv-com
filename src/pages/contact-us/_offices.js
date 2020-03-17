@@ -210,7 +210,7 @@ export const Offices = () => {
 
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+356 2131 6105">+356 2131 6105</ClickToCall>
+                                <ClickToCall href="tel:+35621316105">+356 2131 6105</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>
@@ -239,7 +239,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+60 3 8322 8178">+60 3 8322 8178</ClickToCall>
+                                <ClickToCall href="tel:+60383228178">+60 3 8322 8178</ClickToCall>
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -289,7 +289,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+60 8750 4126">+60 8750 4126</ClickToCall>
+                                <ClickToCall href="tel:+6087504126">+60 8750 4126</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>
@@ -313,7 +313,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+971 4 399 0404">+971 4 399 0404</ClickToCall>
+                                <ClickToCall href="tel:+97143990404">+971 4 399 0404</ClickToCall>
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -357,7 +357,7 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+595 99 129 8762">+595 99 129 8762</ClickToCall>
+                                <ClickToCall href="tel:+595991298762">+595 99 129 8762</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>

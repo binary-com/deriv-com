@@ -1,42 +1,29 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import PropTypes from 'prop-types'
 
-const Background = ({ children, img_name, style, ...props }) => (
-    <StaticQuery
-        query={graphql`
-            query {
-                allImageSharp {
-                    edges {
-                        node {
-                            fluid(quality: 90, maxWidth: 4160) {
-                                ...GatsbyImageSharpFluid_withWebp
-                                originalName
-                            }
-                        }
-                    }
-                }
-            }
-        `}
-        render={data => {
-            const image = data.allImageSharp.edges.find(
-                edge => edge.node.fluid.originalName === img_name,
-            )
-            if (!image) return null
-            const fluidStack = [image.node.fluid]
+const StyledBackground = styled(BackgroundImage)`
+    background-color: black;
 
-            return (
-                <BackgroundImage Tag="div" style={style} fluid={fluidStack.reverse()} {...props}>
-                    {children}
-                </BackgroundImage>
-            )
-        }}
-    />
-)
+    &::before,
+    &::after {
+        filter: brightness(${props => (props.dark ? props.dark : '1')});
+    }
+`
+
+const Background = ({ children, data, style, ...props }) => {
+    return (
+        <StyledBackground Tag="div" style={style} fluid={data.childImageSharp.fluid} {...props}>
+            {children}
+        </StyledBackground>
+    )
+}
 
 Background.propTypes = {
+    brightness: PropTypes.string,
     children: PropTypes.node,
+    data: PropTypes.object,
     img_name: PropTypes.string,
     style: PropTypes.object,
 }

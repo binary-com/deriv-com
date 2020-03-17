@@ -354,9 +354,17 @@ export const NavPartners = () => {
                                     activeClassName="active"
                                     to="/partners/"
                                     aria-label={localize('Affiliate & IB')}
-                                    partiallyActive={true}
                                 >
                                     {localize('Affiliate & IB')}
+                                </StyledLink>
+                            </NavLink>
+                            <NavLink>
+                                <StyledLink
+                                    activeClassName="active"
+                                    to="/partners/payment-agent/"
+                                    aria-label={localize('Payment agent')}
+                                >
+                                    {localize('Payment agent')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>

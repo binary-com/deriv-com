@@ -330,4 +330,13 @@ export {
     IBGeneral,
     IBAccountManagement,
     IBReferralTools,
+    // STYLES
+    ItemContainer,
+    HeaderPrimary,
+    TextPrimary,
+    TextSecondary,
+    TextList,
+    StyledLink,
+    StyledUl,
+    LocalizedLinkText,
 }

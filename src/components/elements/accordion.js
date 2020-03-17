@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { Text } from './typography'
 import ChevronThick from 'images/svg/chevron-thick.svg'
 import Chevron from 'images/svg/chevron-bottom.svg'
+import Plus from 'images/svg/plus.svg'
+import Minus from 'images/svg/minus.svg'
 
 const ThickArrow = styled(ChevronThick)`
     transform: rotate(-180deg);
@@ -23,6 +25,7 @@ const AccordionHeader = styled.div`
     align-items: center;
     border-bottom: 1px solid var(--color-grey-2);
     padding: 0 3.2rem;
+    box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
 
     ${Text} {
         margin-right: auto;
@@ -35,7 +38,6 @@ const AccordionHeader = styled.div`
 const AccordionWrapper = styled.div`
     width: 100%;
     border-radius: 6px;
-    box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
     background-color: var(--color-white);
 `
 const TRANSITION_DURATION = 250
@@ -71,7 +73,13 @@ const SingleAccordionContent = ({ children }) => {
                         style={child.props.header_style}
                     >
                         <Text weight="bold">{child.props.header}</Text>
-                        {child.props.arrow_thin ? (
+                        {child.props.plus ? (
+                            is_expanded ? (
+                                <Minus />
+                            ) : (
+                                <Plus />
+                            )
+                        ) : child.props.arrow_thin ? (
                             <Arrow expanded={is_expanded ? 'true' : 'false'} />
                         ) : (
                             <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
@@ -135,7 +143,13 @@ const AccordionContent = ({ children, nodes }) => {
                         style={child.props.header_style}
                     >
                         <Text weight="bold">{child.props.header}</Text>
-                        {child.props.arrow_thin ? (
+                        {child.props.plus ? (
+                            is_expanded ? (
+                                <Minus />
+                            ) : (
+                                <Plus />
+                            )
+                        ) : child.props.arrow_thin ? (
                             <Arrow expanded={is_expanded ? 'true' : 'false'} />
                         ) : (
                             <ThickArrow expanded={is_expanded ? 'true' : 'false'} />

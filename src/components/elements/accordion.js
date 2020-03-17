@@ -162,7 +162,8 @@ const AccordionContent = ({ children, nodes }) => {
                     <div
                         style={{
                             overflow: 'hidden',
-                            transition: `max - height ${TRANSITION_DURATION} ms ease`,
+                            /* prettier-ignore */
+                            transition: `max-height ${TRANSITION_DURATION} ms ease`,
                             maxHeight: max_height,
                         }}
                     >

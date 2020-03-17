@@ -21,8 +21,8 @@ const AccordionHeader = styled.div`
     height: 56px;
     display: flex;
     align-items: center;
-    border-bottom: ${props => props.footer === 'true' ? ('none') : ('1px solid var(--color-grey-2)')};
-    padding: ${props => props.footer == 'true' ? ('0 2rem') : ('0 3.2rem')};
+    border-bottom: 1px solid var(--color-grey-2);
+    padding: 0 3.2rem;
 
     ${Text} {
         margin-right: auto;
@@ -39,24 +39,23 @@ const AccordionHeader = styled.div`
 const AccordionWrapper = styled.div`
     width: 100%;
     border-radius: 6px;
-    box-shadow: ${props => props.footer === 'true' ? ('') : ('-2px 6px 15px 0 rgba(195, 195, 195, 0.31)')};
-    background-color: ${props => props.footer === 'true' ? ('var(--color-grey-8)') : ('var(--color-white)')};
+    box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
+    background-color: var(--color-white);
 `
 const TRANSITION_DURATION = 250
 
 // TODO: keyboard events and find a way to add proper focus handling
-const Accordion = ({ children, has_single_state, footer }) => {
+const Accordion = ({ children, has_single_state }) => {
     const nodes = []
 
     return has_single_state ? (
         <SingleAccordionContent>{children}</SingleAccordionContent>
     ) : (
-        <AccordionContent nodes={nodes} footer={footer}>{children}</AccordionContent>
-    )
+            <AccordionContent nodes={nodes} >{children}</AccordionContent>
+        )
 }
 Accordion.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    footer: PropTypes.string,
     has_single_state: PropTypes.bool,
     nodes: PropTypes.array,
 }
@@ -79,8 +78,8 @@ const SingleAccordionContent = ({ children }) => {
                         {child.props.arrow_thin ? (
                             <Arrow expanded={is_expanded ? 'true' : 'false'} />
                         ) : (
-                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
-                        )}
+                                <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                            )}
                     </AccordionHeader>
                     <div
                         style={{
@@ -103,7 +102,7 @@ SingleAccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 
-const AccordionContent = ({ children, nodes, footer }) => {
+const AccordionContent = ({ children, nodes }) => {
     const [active_idx, setActiveIdx] = useState(-1)
 
     const toggle = child_idx => {
@@ -129,7 +128,6 @@ const AccordionContent = ({ children, nodes, footer }) => {
             <div style={child.props.parent_style}>
                 <AccordionWrapper
                     key={child_idx}
-                    footer={footer}
                     ref={div => {
                         nodes[child_idx] = { ref: div }
                     }}
@@ -139,14 +137,13 @@ const AccordionContent = ({ children, nodes, footer }) => {
                         role="button"
                         aria-expanded={is_expanded}
                         style={child.props.header_style}
-                        footer={footer}
                     >
                         <Text weight="bold">{child.props.header}</Text>
                         {child.props.arrow_thin ? (
                             <Arrow expanded={is_expanded ? 'true' : 'false'} />
                         ) : (
-                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
-                        )}
+                                <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                            )}
                     </AccordionHeader>
                     <div
                         style={{
@@ -167,7 +164,6 @@ const AccordionContent = ({ children, nodes, footer }) => {
 
 AccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    footer: PropTypes.string,
     has_single_state: PropTypes.bool,
     nodes: PropTypes.array,
 }

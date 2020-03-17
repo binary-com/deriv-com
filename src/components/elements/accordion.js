@@ -2,7 +2,16 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from './typography'
-import Chevron from 'images/svg/chevron-thick.svg'
+import ChevronThick from 'images/svg/chevron-thick.svg'
+import Chevron from 'images/svg/chevron-bottom.svg'
+import Plus from 'images/svg/plus.svg'
+import Minus from 'images/svg/minus.svg'
+
+const ThickArrow = styled(ChevronThick)`
+    transform: rotate(-180deg);
+    transition: transform 0.25s linear;
+    ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
+`
 
 const Arrow = styled(Chevron)`
     transform: rotate(-180deg);
@@ -16,6 +25,7 @@ const AccordionHeader = styled.div`
     align-items: center;
     border-bottom: 1px solid var(--color-grey-2);
     padding: 0 3.2rem;
+    box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
 
     ${Text} {
         margin-right: auto;
@@ -28,20 +38,72 @@ const AccordionHeader = styled.div`
 const AccordionWrapper = styled.div`
     width: 100%;
     border-radius: 6px;
-    box-shadow: -2px 6px 15px 0 rgba(195, 195, 195, 0.31);
     background-color: var(--color-white);
 `
 const TRANSITION_DURATION = 250
 
 // TODO: keyboard events and find a way to add proper focus handling
-const Accordion = ({ children }) => {
+const Accordion = ({ children, has_single_state }) => {
     const nodes = []
 
-    return <AccordionContent nodes={nodes}>{children}</AccordionContent>
+    return has_single_state ? (
+        <SingleAccordionContent>{children}</SingleAccordionContent>
+    ) : (
+        <AccordionContent nodes={nodes}>{children}</AccordionContent>
+    )
 }
 Accordion.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    has_single_state: PropTypes.bool,
     nodes: PropTypes.array,
+}
+
+const SingleAccordionContent = ({ children }) => {
+    const render_nodes = React.Children.map(children, (child, child_idx) => {
+        const [is_expanded, setExpanded] = useState(true)
+        const max_height = is_expanded ? '400rem' : 0
+
+        return (
+            <div key={child_idx} style={child.props.parent_style}>
+                <AccordionWrapper>
+                    <AccordionHeader
+                        onClick={() => setExpanded(!is_expanded)}
+                        role="button"
+                        aria-expanded={is_expanded}
+                        style={child.props.header_style}
+                    >
+                        <Text weight="bold">{child.props.header}</Text>
+                        {child.props.plus ? (
+                            is_expanded ? (
+                                <Minus />
+                            ) : (
+                                <Plus />
+                            )
+                        ) : child.props.arrow_thin ? (
+                            <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                        ) : (
+                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                        )}
+                    </AccordionHeader>
+                    <div
+                        style={{
+                            overflow: 'hidden',
+                            transition: `max-height ${TRANSITION_DURATION}ms ease`,
+                            maxHeight: max_height,
+                        }}
+                    >
+                        {child}
+                    </div>
+                </AccordionWrapper>
+            </div>
+        )
+    })
+
+    return <>{render_nodes}</>
+}
+
+SingleAccordionContent.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 
 const AccordionContent = ({ children, nodes }) => {
@@ -78,9 +140,20 @@ const AccordionContent = ({ children, nodes }) => {
                         onClick={() => toggle(child_idx)}
                         role="button"
                         aria-expanded={is_expanded}
+                        style={child.props.header_style}
                     >
                         <Text weight="bold">{child.props.header}</Text>
-                        <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                        {child.props.plus ? (
+                            is_expanded ? (
+                                <Minus />
+                            ) : (
+                                <Plus />
+                            )
+                        ) : child.props.arrow_thin ? (
+                            <Arrow expanded={is_expanded ? 'true' : 'false'} />
+                        ) : (
+                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                        )}
                     </AccordionHeader>
                     <div
                         style={{
@@ -101,6 +174,7 @@ const AccordionContent = ({ children, nodes }) => {
 
 AccordionContent.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    has_single_state: PropTypes.bool,
     nodes: PropTypes.array,
 }
 

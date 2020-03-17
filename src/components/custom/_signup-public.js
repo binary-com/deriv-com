@@ -138,6 +138,10 @@ const ImageWrapper = styled(Flex)`
     z-index: 2;
     height: 100%;
 
+    div {
+        width: 100%;
+    }
+
     @media (max-width: 1350px) {
         width: 30rem;
     }

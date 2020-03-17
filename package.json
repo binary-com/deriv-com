@@ -87,8 +87,7 @@
     "lint-staged": {
         "*.{js}": [
             "npm run format",
-            "npm test",
-            "git add"
+            "npm test"
         ]
     },
     "husky": {

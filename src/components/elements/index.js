@@ -8,6 +8,7 @@ import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
 import Checkbox from './checkbox'
 import Image from './image'
+import QueryImage from './query-image'
 import { StyledLink } from './link'
 import OffCanvasMenu, { moveOffCanvasMenu } from './off-canvas-menu'
 import SideTab from './side-tab'
@@ -28,6 +29,7 @@ export {
     Dropdown,
     Checkbox,
     Image,
+    QueryImage,
     StyledLink,
     OffCanvasMenu,
     moveOffCanvasMenu,

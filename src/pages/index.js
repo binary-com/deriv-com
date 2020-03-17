@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react'
-import { navigate } from 'gatsby'
-import queryString from 'query-string'
+import React from 'react'
 // import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
@@ -14,13 +12,6 @@ import { localize, WithIntl } from 'components/localization'
 import Signup, { Appearances } from 'components/custom/signup'
 
 const Home = () => {
-    useEffect(() => {
-        const parsedUrl = queryString.parse(window.location.search)
-        if (parsedUrl.action === 'signup') {
-            navigate('signup')
-        }
-    }, [])
-
     return (
         <Layout>
             <SEO

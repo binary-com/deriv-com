@@ -34,6 +34,21 @@ const CardCover = styled.div`
     flex-direction: row;
     transform: ${props =>
         props.is_selected ? 'translate3d(-3%, 0, 0)' : 'translate3d(-105%, 0, 0)'};
+
+    & > div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 1.6rem;
+        align-items: center;
+
+        h4 {
+            color: var(--color-white);
+            font-size: 2.8rem;
+            font-weight: bold;
+            line-height: 1.25;
+        }
+    }
 `
 
 const CardWrapper = styled.article`
@@ -109,6 +124,12 @@ const IconContainer = styled.div`
     display: flex;
     justify-content: center;
 
+    div {
+        svg {
+            width: 7.2rem;
+            height: 7.2rem;
+        }
+    }
     ${Header} {
         display: flex;
         align-items: center;
@@ -147,6 +168,7 @@ export const Card = ({
     cover_content,
     padding,
     is_selected,
+    word_break_cover,
 }) => {
     return (
         <CardWrapper width={width} min_height={min_height} padding={padding}>
@@ -158,12 +180,22 @@ export const Card = ({
                                 background_color={cover_background}
                                 is_selected={is_selected}
                             >
-                                <Flex ai="center" p="0 1.6rem" jc="space-between">
-                                    <Header as="h4" size="var(--text-size-header-2)" color="white">
-                                        {cover_content}
-                                    </Header>
+                                <div>
+                                    {word_break_cover ? (
+                                        <Flex direction="column" jc="flex-start" ai="flex-start">
+                                            <h4>{cover_content.split(' ')[0]}</h4>
+                                            <h4>
+                                                {cover_content
+                                                    .split(' ')
+                                                    .slice(1)
+                                                    .join(' ')}
+                                            </h4>
+                                        </Flex>
+                                    ) : (
+                                        <h4>{cover_content}</h4>
+                                    )}
                                     <Arrow />
-                                </Flex>
+                                </div>
                             </CardCover>
                             <IconContainer>
                                 <Icon />
@@ -191,6 +223,21 @@ export const Card = ({
             {children && children}
         </CardWrapper>
     )
+}
+
+Card.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    cover_background: PropTypes.string,
+    cover_content: PropTypes.string,
+    Icon: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    is_inline_icon: PropTypes.bool,
+    is_selected: PropTypes.bool,
+    min_height: PropTypes.string,
+    padding: PropTypes.string,
+    title: PropTypes.string,
+    width: PropTypes.string,
+    word_break_cover: PropTypes.bool,
 }
 
 export const CardChildren = ({ Icon, title, width, children, icon_width, icon_height }) => (

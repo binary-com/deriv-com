@@ -159,7 +159,7 @@ const DMT5Synthetic = ({ data }) => {
                                     {asset.map((item, idxa) => {
                                         if (idxa === 0 && idx === 0) {
                                             return (
-                                                <TitleTR isTitle="true">
+                                                <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold" lh="2.2">
                                                         {item}
                                                     </StyledText>
@@ -167,7 +167,7 @@ const DMT5Synthetic = ({ data }) => {
                                             )
                                         } else if (idxa === 0) {
                                             return (
-                                                <TitleTR isTitle="true">
+                                                <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold">{item}</StyledText>
                                                 </TitleTR>
                                             )
@@ -235,7 +235,7 @@ const DMT5Standard = ({ data }) => {
                                     {asset.map((item, idxa) => {
                                         if (idxa === 0 && idx === 0) {
                                             return (
-                                                <TitleTR isTitle="true">
+                                                <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText
                                                         weight="bold"
                                                         lh="2.2"
@@ -247,7 +247,7 @@ const DMT5Standard = ({ data }) => {
                                             )
                                         } else if (idxa === 0 && typeof item !== 'string') {
                                             return (
-                                                <TitleTR isTitle="true">
+                                                <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold" style={item.style}>
                                                         {item.title}
                                                     </StyledText>
@@ -255,7 +255,7 @@ const DMT5Standard = ({ data }) => {
                                             )
                                         } else if (idxa === 0 && typeof item === 'string') {
                                             return (
-                                                <TR isTitle="true">
+                                                <TR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold">{item}</StyledText>
                                                 </TR>
                                             )
@@ -312,8 +312,9 @@ const DMT5Advanced = ({ data }) => {
                                     {asset.map((item, idxa) => {
                                         if (idxa === 0 && idx === 0) {
                                             return (
-                                                <TitleTR isTitle="true">
+                                                <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText
+                                                        key={idxa}
                                                         weight="bold"
                                                         lh="2.2"
                                                         style={item.style}
@@ -324,7 +325,7 @@ const DMT5Advanced = ({ data }) => {
                                             )
                                         } else if (idxa === 0 && typeof item !== 'string') {
                                             return (
-                                                <TitleTR isTitle="true">
+                                                <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold" style={item.style}>
                                                         {item.title}
                                                     </StyledText>
@@ -332,7 +333,7 @@ const DMT5Advanced = ({ data }) => {
                                             )
                                         } else if (idxa === 0 && typeof item === 'string') {
                                             return (
-                                                <TR isTitle="true">
+                                                <TR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold">{item}</StyledText>
                                                 </TR>
                                             )

@@ -9,6 +9,7 @@ const CssGrid = styled(Box)`
     margin: ${props => props.margin || '0'};
     grid-template-columns: ${props => props.columns || 'auto'};
     grid-gap: ${props => props.grid_gap || ''};
+    grid-template-rows: ${props => props.rows || 'auto'};
     grid-column-gap: ${props => props.column_gap || ''};
     grid-row-gap: ${props => props.row_gap || ''};
     align-items: ${props => props.align || 'start'};
@@ -18,6 +19,7 @@ const CssGrid = styled(Box)`
         grid-template-columns: ${props =>
             props.laptop_columns ? props.laptop_columns : props.columns};
         grid-gap: ${props => (props.laptop_grid_gap ? props.laptop_grid_gap : props.grid_gap)};
+        grid-template-rows: ${props => (props.laptop_rows ? props.laptop_rows : props.rows)};
         grid-column-gap: ${props =>
             props.laptop_column_gap ? props.laptop_column_gap : props.column_gap};
         grid-row-gap: ${props => (props.laptop_row_gap ? props.laptop_row_gap : props.row_gap)};
@@ -26,6 +28,7 @@ const CssGrid = styled(Box)`
         grid-template-columns: ${props =>
             props.tablet_columns ? props.tablet_columns : props.columns};
         grid-gap: ${props => (props.tablet_grid_gap ? props.tablet_grid_gap : props.grid_gap)};
+        grid-template-rows: ${props => (props.tablet_rows ? props.tablet_rows : props.rows)};
         grid-column-gap: ${props =>
             props.tablet_column_gap ? props.tablet_column_gap : props.column_gap};
         grid-row-gap: ${props => (props.tablet_row_gap ? props.tablet_row_gap : props.row_gap)};
@@ -34,6 +37,7 @@ const CssGrid = styled(Box)`
         grid-template-columns: ${props =>
             props.mobile_columns ? props.mobile_columns : props.columns};
         grid-gap: ${props => (props.mobile_grid_gap ? props.mobile_grid_gap : props.grid_gap)};
+        grid-template-rows: ${props => (props.mobile_rows ? props.mobile_rows : props.rows)};
         grid-column-gap: ${props =>
             props.mobile_column_gap ? props.mobile_column_gap : props.column_gap};
         grid-row-gap: ${props => (props.mobile_row_gap ? props.mobile_row_gap : props.row_gap)};

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, FlexGridContainer } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
 import { Card, Header } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
@@ -9,6 +9,7 @@ import device from 'themes/device'
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
+import Smarttrader from 'images/svg/smarttrader.svg'
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
@@ -26,6 +27,12 @@ const StyledDmt5 = styled(DMT5)`
 const StyledDTrader = styled(DTrader)`
     ${icon72}
 `
+
+const StyledSmarttrader = styled(Smarttrader)`
+    width: 72px;
+    height: 72px;
+`
+
 const StyledHeader = styled(Header)`
     @media ${device.tabletS} {
         font-size: var(--text-size-header-1);
@@ -49,22 +56,35 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
     }
 `
 
-export const TraderCard = ({ is_selected }) => (
+const NavContainer = styled(Flex)`
+    & article {
+        width: 33.2rem;
+        box-shadow: none;
+    }
+    & p {
+        font-size: 1.3rem;
+    }
+`
+export const TraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dtrader">
         <Card
             cover_background="var(--color-red)"
             cover_content={localize('Discover DTrader now')}
             title={localize('DTrader')}
             Icon={StyledDTrader}
-            content={[localize('The platform to start with. It’s powerful yet easy to use.')]}
+            content={[
+                localize('A whole new trading experience on a powerful yet easy to use platform.'),
+            ]}
             is_inline_icon
             min_height="11.6rem"
             is_selected={is_selected}
+            width="100%"
+            word_break_cover={word_break_cover}
         />
     </StyledLink>
 )
 
-export const BotCard = ({ is_selected }) => (
+export const BotCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dbot">
         <Card
             cover_background="var(--color-orange)"
@@ -75,11 +95,13 @@ export const BotCard = ({ is_selected }) => (
             is_inline_icon
             min_height="11.6rem"
             is_selected={is_selected}
+            width="100%"
+            word_break_cover={word_break_cover}
         />
     </StyledLink>
 )
 
-export const DMT5Card = ({ is_selected }) => (
+export const DMT5Card = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dmt5">
         <Card
             cover_background="var(--color-green)"
@@ -90,8 +112,39 @@ export const DMT5Card = ({ is_selected }) => (
             is_inline_icon
             min_height="11.6rem"
             is_selected={is_selected}
+            width="100%"
+            word_break_cover={word_break_cover}
         />
     </StyledLink>
+)
+
+export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
+    <StyledLink to="https://smarttrader.deriv.app" external>
+        <Card
+            cover_background="var(--color-blue-3)"
+            cover_content={localize('Discover SmartTrader now')}
+            title={localize('SmartTrader')}
+            Icon={StyledSmarttrader}
+            content={[
+                localize('Trade the world’s markets with our popular user-friendly platform.'),
+            ]}
+            is_inline_icon
+            min_height="11.6rem"
+            is_selected={is_selected}
+            width="100%"
+            word_break_cover={word_break_cover}
+        />
+    </StyledLink>
+)
+SmarttraderCard.propTypes = { ...cardProptypes }
+
+export const NavPlatform = () => (
+    <NavContainer wrap="wrap">
+        <TraderCard word_break_cover />
+        <BotCard word_break_cover />
+        <DMT5Card word_break_cover />
+        <SmarttraderCard word_break_cover />
+    </NavContainer>
 )
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
@@ -120,6 +173,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
 
 const cardProptypes = {
     is_selected: PropTypes.bool,
+    word_break_cover: PropTypes.bool,
 }
 TraderCard.propTypes = { ...cardProptypes }
 BotCard.propTypes = { ...cardProptypes }

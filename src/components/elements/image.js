@@ -5,8 +5,10 @@ import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
 const ImageWrapper = styled.div`
-    width: ${props => props.width};
-    height: ${props => props.height};
+    & .gatsby-image-wrapper {
+        width: ${props => props.width};
+        height: ${props => props.height};
+    }
 `
 
 /*
@@ -44,7 +46,7 @@ const Image = ({ img_name, alt, width, height }) => (
 
             return (
                 <ImageWrapper width={width} height={height}>
-                    <Img alt={alt} fluid={image.node.fluid} />
+                    <Img alt={alt} fluid={image.node.fluid} height="100%" />
                 </ImageWrapper>
             )
         }}

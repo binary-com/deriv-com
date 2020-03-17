@@ -85,14 +85,10 @@
         "url": "https://github.com/binary-com/deriv-com/issues"
     },
     "lint-staged": {
-        "*.{js}": [
-            "npm run format",
-            "npm test",
-            "git add"
-        ],
         "src/**/*.js": [
-            "npm run format",
-            "npm test",
+            "prettier --write",
+            "DEBUG=eslint:cli-engine eslint --fix",
+            "stylelint --formatter verbose",
             "git add"
         ]
     },

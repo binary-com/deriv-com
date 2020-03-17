@@ -6,7 +6,7 @@ const About = () => {
 
     return (
         <Layout>
-           <div>sdasdsdfsd</div>
+           <div>dsdsf</div>
        
         </Layout>
     )

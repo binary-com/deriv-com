@@ -89,6 +89,11 @@
             "npm run format",
             "npm test",
             "git add"
+        ],
+        "src/**/*.js": [
+            "npm run format",
+            "npm test",
+            "git add"
         ]
     },
     "husky": {

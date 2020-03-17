@@ -136,7 +136,6 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
         />
     </StyledLink>
 )
-SmarttraderCard.propTypes = { ...cardProptypes }
 
 export const NavPlatform = () => (
     <NavContainer wrap="wrap">
@@ -175,9 +174,10 @@ const cardProptypes = {
     is_selected: PropTypes.bool,
     word_break_cover: PropTypes.bool,
 }
-TraderCard.propTypes = { ...cardProptypes }
 BotCard.propTypes = { ...cardProptypes }
 DMT5Card.propTypes = { ...cardProptypes }
+SmarttraderCard.propTypes = { ...cardProptypes }
+TraderCard.propTypes = { ...cardProptypes }
 
 OtherPlatform.propTypes = {
     exclude: PropTypes.string,

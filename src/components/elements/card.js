@@ -124,6 +124,10 @@ const IconContainer = styled.div`
     display: flex;
     justify-content: center;
 
+    svg {
+        width: 8.25rem;
+        height: 8.25rem;
+    }
     div {
         svg {
             width: 7.2rem;
@@ -133,10 +137,6 @@ const IconContainer = styled.div`
     ${Header} {
         display: flex;
         align-items: center;
-    }
-    svg {
-        width: 8.25rem;
-        height: 8.25rem;
     }
 `
 const CardContentContainer = styled.div`

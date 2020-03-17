@@ -7,7 +7,7 @@ import Arrow from 'images/svg/arrow.svg'
 const OffCanvasMenu = styled.section`
     position: fixed;
     background-color: var(--color-white);
-    top: 0;
+    top: 7.2rem;
     height: 100vh;
     width: 238px;
     opacity: 0.98;

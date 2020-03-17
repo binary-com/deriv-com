@@ -292,7 +292,7 @@ const Footer = () => (
                         <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
-                                    {!isProduction() && <LanguageSwitcher shorthand='true' />}
+                                    {!isProduction() && <LanguageSwitcher short_name='true' />}
                                 </MobileLanguageSwitcher>
                             </Show.Mobile>
                         </div>

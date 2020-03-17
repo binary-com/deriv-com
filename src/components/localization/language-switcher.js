@@ -17,10 +17,13 @@ class LanguageSwitch extends Component {
     componentWillReceiveProps(nextProps) {
         this.setState({ language: nextProps.i18n.language })
     }
+    displayName = () => {
+
+    }
     renderLanguageChoice = (lang) => {
-        const { display_name, path } = language_config[lang]
+        const { display_name, path, short_name } = language_config[lang]
         const to = `/${path}`
-        let text = this.props.shorthand === 'true' ? (display_name.substring(0, 3).toUpperCase()) : (display_name);
+        let text = this.props.short_name === 'true' ? (short_name) : (display_name);
 
         return {
             value: to,
@@ -28,8 +31,8 @@ class LanguageSwitch extends Component {
         }
     }
     getCurrentLanguage() {
-        const { display_name } = language_config[this.state.language]
-        return this.props.shorthand === 'true' ? (display_name.substring(0, 3).toUpperCase()) : (display_name)
+        const { display_name, short_name } = language_config[this.state.language]
+        return this.props.short_name === 'true' ? (short_name) : (display_name);
     }
 
     handleSelect = e => {
@@ -76,5 +79,5 @@ LanguageSwitch.propTypes = {
     i18n: PropTypes.shape({
         language: PropTypes.string,
     }),
-    shorthand: PropTypes.string
+    short_name: PropTypes.string
 }

@@ -221,6 +221,7 @@ const SocialMedia = styled.section`
 `
 const MobileAccordion = styled.section`
     border-top: 1px solid var(--color-red);
+    background-color: var(--color-grey-8);
 
     p {
         letter-spacing: 2px;
@@ -228,7 +229,7 @@ const MobileAccordion = styled.section`
 `
 const Item = styled.div`
     padding: 0 0 3rem 2rem;
-    background-color: var(--color-grey-9);
+    background-color: var(--color-grey-8);
 
     a {
         font-size: var(--text-size-sm);
@@ -244,7 +245,9 @@ const MobileLanguageSwitcher = styled.div`
 `
 const mobile_accordion_header = {
     border: 'none',
-    padding: '0 2rem'
+    padding: '0 2rem',
+    backgroundColor: 'var(--color-grey-8)',
+    boxShadow: 'none'
 }
 const Footer = () => (
     <StyledFooter>

@@ -85,9 +85,14 @@ const SecondaryText = styled(Text)`
     max-width: 32.4rem;
 `
 
+const ButtonWrapper = styled(CenteredSection)`
+    display: flex;
+    justify-content: center;
+`
+
 const WhoCanApply = () => {
     return (
-        <SectionWrapper padding="8rem 0 4rem">
+        <SectionWrapper padding="8rem 0">
             <Section>
                 <StyledCol>
                     <StyledHeader font_size="3.6rem">{localize('Who can apply')}</StyledHeader>
@@ -202,11 +207,11 @@ const WhoCanApply = () => {
                     </Col>
                 </Flex>
             </Section>
-            <CenteredSection padding="7.4rem 0 8rem">
+            <ButtonWrapper padding="7.4rem 0 0">
                 <LinkButton secondary external to="mailto:paymentagents@deriv.com">
                     {localize('Send us an email to apply')}
                 </LinkButton>
-            </CenteredSection>
+            </ButtonWrapper>
         </SectionWrapper>
     )
 }

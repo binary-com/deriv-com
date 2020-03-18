@@ -86,7 +86,7 @@ const TitleTR = styled(TR)`
 `
 const DerivIBProgramme = () => {
     return (
-        <StyledSection shadow>
+        <StyledSection shadow id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
                     <FirstHeader font_size="3.6rem" align="center">

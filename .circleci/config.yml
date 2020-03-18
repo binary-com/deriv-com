@@ -163,10 +163,9 @@ workflows:
   build_and_push_dev:
     jobs:
       - test:
-          #filters:
-          #  branches:
-          #    only: /^dev/
-          context: binary-frontend-deploy
+          filters:
+            branches:
+              only: /^dev/
       - deploy_staging:
           filters:
             branches:

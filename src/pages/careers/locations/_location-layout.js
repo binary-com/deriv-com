@@ -152,7 +152,7 @@ export const LocationLayout = ({ location, images }) => {
             />
             <Container direction="column">
                 <FirstSection padding="12rem 0">
-                    <Header align="center" as="h2" font_size={'var(--text-size-header-1)'}>
+                    <Header align="center" as="h2" size={'var(--text-size-header-1)'}>
                         {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">
@@ -171,7 +171,7 @@ export const LocationLayout = ({ location, images }) => {
                 <Header
                     align="center"
                     as="h2"
-                    font_size={'var(--text-size-header-1)'}
+                    size={'var(--text-size-header-1)'}
                     style={{ marginBottom: '6.4rem' }}
                 >
                     Our office
@@ -229,7 +229,7 @@ export const LocationLayout = ({ location, images }) => {
             <Header
                 align="center"
                 as="h2"
-                font_size={'var(--text-size-header-1)'}
+                size={'var(--text-size-header-1)'}
                 style={{ marginBottom: '6.4rem' }}
             >
                 {`Open positions in ${display_name}`}

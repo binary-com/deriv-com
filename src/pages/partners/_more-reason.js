@@ -35,7 +35,7 @@ const MoreReason = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <Header as="h3" font_size="3.6rem" align="center" mb="2rem">
+                <Header as="h3" size="3.6rem" align="center" mb="2rem">
                     {localize('More reasons to join')}
                 </Header>
                 <StyledFlex wrap="wrap" jc="center">

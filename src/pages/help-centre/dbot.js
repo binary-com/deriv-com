@@ -230,7 +230,7 @@ const QuickStrategy = () => (
                 "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
             )}
         </Text>
-        <Text margin="4rem 0 0">
+        <Text mt="4rem">
             <strong>{localize('Using a quick strategy')}</strong>
         </Text>
         <StyledText>{localize("1. Click 'Get started' on the toolbar at the top.")}</StyledText>
@@ -542,7 +542,7 @@ const ControlLosses = () => (
                 style={{ width: '61.2rem' }}
             />
         </ImageWrapper>
-        <Text margin="0 0 2.4rem">{localize('1. Create the following variables:')}</Text>
+        <Text mb="2.4rem">{localize('1. Create the following variables:')}</Text>
         <StyledTable>
             <Thead>
                 <Tr>

@@ -113,7 +113,7 @@ const ResponsibleTrading = () => {
                         align="center"
                         max_width="105rem"
                         pt="2.4rem"
-                        font_size="var(--text-size-m)"
+                        size="var(--text-size-m)"
                     >
                         {localize('Here are some guidelines for a safe trading experience.')}
                     </StyledHeader>

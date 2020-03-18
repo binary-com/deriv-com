@@ -66,12 +66,12 @@ const WhyChooseUs = () => {
             <Divider />
             <Section>
                 <GridContainer>
-                    <Header as="h2" font_size="4rem" align="center">
+                    <Header as="h2" size="4rem" align="center">
                         {localize('Try Deriv at no risk')}
                     </Header>
                     <ColumnContainer mt="4rem" jc="space-around">
                         <Column>
-                            <Header as="h3" font_size="var(--text-size-sm)" align="center">
+                            <Header as="h3" size="var(--text-size-sm)" align="center">
                                 {localize('Unlimited virtual funds')}
                             </Header>
                             <Text align="center">
@@ -81,7 +81,7 @@ const WhyChooseUs = () => {
                             </Text>
                         </Column>
                         <Column>
-                            <Header as="h3" font_size="var(--text-size-sm)" align="center">
+                            <Header as="h3" size="var(--text-size-sm)" align="center">
                                 {localize('All markets and platforms')}
                             </Header>
                             <Text align="center">
@@ -89,7 +89,7 @@ const WhyChooseUs = () => {
                             </Text>
                         </Column>
                         <Column>
-                            <Header as="h3" font_size="var(--text-size-sm)" align="center">
+                            <Header as="h3" size="var(--text-size-sm)" align="center">
                                 {localize('No credit card needed')}
                             </Header>
                             <Text align="center">

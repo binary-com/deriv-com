@@ -11,8 +11,8 @@ commands:
             - source-v1-{{ .Branch }}-{{ .Revision }}
             - source-v1-{{ .Branch }}-
             - source-v1-
-      - run: 
-          name: Fetch git tags 
+      - run:
+          name: Fetch git tags
           command: |
             mkdir -p ~/.ssh
             echo 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ== ' >> ~/.ssh/known_hosts
@@ -23,7 +23,7 @@ commands:
             fi
       - checkout
       - run:
-          name: Compress git objects 
+          name: Compress git objects
           command: git gc
       - save_cache:
           key: source-v1-{{ .Branch }}-{{ .Revision }}
@@ -88,17 +88,21 @@ commands:
           aws-region: env_CONTEXT_ARTIFACT_S3_AWS_REGION
   docker_build:
     description: "Build Docker image"
+    parameters:
+      docker_image_tag:
+        type: string
+        default: "latest"
     steps:
       - setup_remote_docker:
           docker_layer_caching: true
-      - run: 
+      - run:
           name: Building docker image
           command: |
-            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/deriv-com:latest .
+            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_image_tag >> .
   docker_push:
     description: "Push image to docker hub"
     steps:
-      - run: 
+      - run:
           name: Pushing Image to docker hub
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
@@ -111,7 +115,7 @@ commands:
         default: "staging-deriv-com"
     steps:
       - k8s/install-kubectl
-      - run: 
+      - run:
           name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
           command: |
             echo $CA_CRT | base64 --decode > ca.crt
@@ -127,7 +131,8 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - docker_build
+      - docker_build:
+          docker_image_tag: latest-staging
       - docker_push
   release:
     docker:
@@ -147,7 +152,7 @@ jobs:
     docker:
       - image: circleci/node:lts-stretch
     steps:
-      - k8s_deploy      
+      - k8s_deploy
   deploy_production:
     docker:
       - image: circleci/node:lts-stretch
@@ -158,9 +163,10 @@ workflows:
   build_and_push_dev:
     jobs:
       - test:
-          filters:
-            branches:
-              only: /^dev/
+          #filters:
+          #  branches:
+          #    only: /^dev/
+          context: binary-frontend-deploy
       - deploy_staging:
           filters:
             branches:

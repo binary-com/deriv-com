@@ -3,10 +3,15 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
+import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/practice.png'
 
+const is_browser = typeof window !== 'undefined'
+
+const languages = Object.keys(language_config)
 const SEO = ({ description, meta, title, no_index }) => {
-    const { site } = useStaticQuery(
+    let queries = []
+    queries = useStaticQuery(
         graphql`
             query {
                 site {
@@ -19,8 +24,30 @@ const SEO = ({ description, meta, title, no_index }) => {
             }
         `,
     )
-    const metaDescription = description || site.siteMetadata.description
+
+    const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
+
+    const links = []
+    if (is_browser) {
+        let page, l
+        let currentPage = window.location.href.split('/')[3]
+        if (window.location.href.split('/')[4])
+            currentPage = currentPage + '/' + window.location.href.split('/')[4]
+        const pages = []
+        pages.push('/' + currentPage)
+        for (l in languages) {
+            pages.push('/' + languages[l] + '/' + currentPage)
+        }
+
+        for (page in pages) {
+            const link = {}
+            link.rel = 'alternate'
+            link.href = "https://deriv.com"+pages[page]
+            link.hreflang = pages[page].split('/')[1]
+            links.push(link)
+        }
+    }
 
     return (
         <Helmet
@@ -28,8 +55,9 @@ const SEO = ({ description, meta, title, no_index }) => {
                 lang,
             }}
             title={title}
-            titleTemplate={`%s | ${site.siteMetadata.title}`}
+            titleTemplate={`%s | ${queries.site.siteMetadata.title}`}
             defer={false}
+            link={links}
             meta={[
                 {
                     name: 'description',
@@ -87,7 +115,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                 },
                 {
                     name: 'twitter:creator',
-                    content: site.siteMetadata.author,
+                    content: queries.site.siteMetadata.author,
                 },
                 {
                     name: 'twitter:title',

@@ -4,6 +4,8 @@ import BackgroundImage from 'gatsby-background-image'
 import PropTypes from 'prop-types'
 
 const StyledBackground = styled(BackgroundImage)`
+    background-color: black;
+
     &::before,
     &::after {
         filter: brightness(${props => (props.dark ? props.dark : '1')});

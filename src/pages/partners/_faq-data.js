@@ -4,6 +4,7 @@ import Partner from 'common/partner'
 import { SectionContainer } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, Text, LinkText } from 'components/elements'
+import { isBrowser } from 'common/utility'
 
 const ItemContainer = styled(SectionContainer)`
     padding: 4rem 0;
@@ -235,6 +236,15 @@ const AffiliateReferralTools = (
     </ItemContainer>
 )
 
+const scrollToIb = e => {
+    e.preventDefault()
+    if (isBrowser()) {
+        const padding_top = 80
+        const offset_top = document.getElementById('deriv-ib').offsetTop - padding_top
+        window.scroll({ top: offset_top, behavior: 'smooth' })
+    }
+}
+
 const IBGeneral = (
     <ItemContainer>
         <Header as="h4">{localize('What is the Deriv IB Programme?')}</Header>
@@ -249,7 +259,7 @@ const IBGeneral = (
         <TextPrimary>
             <Localize
                 translate_text="You’ll earn a fixed commission based on the volume of individual trades purchased by your referred clients. Please refer to our <0>IB commission plan</0> for more info."
-                components={[<span key={0} style={{ color: 'red', fontWeight: 'bold' }} />]}
+                components={[<StyledLink key={0} href="#" onClick={scrollToIb} />]}
             />
         </TextPrimary>
         <HeaderPrimary>
@@ -320,4 +330,13 @@ export {
     IBGeneral,
     IBAccountManagement,
     IBReferralTools,
+    // STYLES
+    ItemContainer,
+    HeaderPrimary,
+    TextPrimary,
+    TextSecondary,
+    TextList,
+    StyledLink,
+    StyledUl,
+    LocalizedLinkText,
 }

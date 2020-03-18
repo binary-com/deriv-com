@@ -26,6 +26,11 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
+const LightButton = styled(LinkButton)`
+    color: var(--color-white);
+    margin-top: 1.6rem;
+`
+
 const CTA = () => {
     return (
         <StyledSection padding="4rem 0">
@@ -37,9 +42,9 @@ const CTA = () => {
                     <Text align="center" color="white" mt="0.8rem">
                         {localize('The Deriv affiliate management team is here to help.')}
                     </Text>
-                    <LinkButton external to="mailto:affiliates@deriv.com" mt="1.6rem" tertiary>
+                    <LightButton external to="mailto:affiliates@deriv.com" tertiary>
                         {localize('Contact us')}
-                    </LinkButton>
+                    </LightButton>
                 </Flex>
                 <Flex direction="column" ai="center">
                     <Header as="h4" align="center" color="white">

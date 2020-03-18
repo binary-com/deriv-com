@@ -188,6 +188,7 @@ const SignupNew = ({
                             <LinkText
                                 href={url}
                                 target="_blank"
+                                color="red"
                                 rel="noopener noreferrer"
                                 key={0}
                                 size="var(--text-size-xs)"

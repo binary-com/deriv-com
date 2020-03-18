@@ -198,7 +198,9 @@ export const Card = ({
                                 </div>
                             </CardCover>
                             <IconContainer>
-                                <Icon />
+                                <div>
+                                    <Icon />
+                                </div>
                                 <CardContentContainer>
                                     <Header as="h4" weight="bold">
                                         {title}

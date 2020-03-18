@@ -44,7 +44,7 @@ export const Trade = () => {
                 <Header weight="500" as="h4" align="center" m="1.6rem 0 6rem">
                     {localize('Choose from three powerful platforms -- designed with you in mind')}
                 </Header>
-                <Flex>
+                <Flex width="100%">
                     <div style={{ width: '60%' }}>
                         <ImageContainer>
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>

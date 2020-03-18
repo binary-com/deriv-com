@@ -154,7 +154,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
                     {header ? header : localize('Check out our other platforms')}
                 </StyledHeader>
                 {subHeader && (
-                    <Header as="h4" align="center" weight="500" max_width="67.6rem" m="0.8rem auto">
+                    <Header as="h4" align="center" weight="500" mw="67.6rem" m="0.8rem auto">
                         {localize(
                             'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
                         )}

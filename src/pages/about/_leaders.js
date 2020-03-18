@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
 import 'swiper/css/swiper.css'
+import device from 'themes/device'
 import { SectionContainer, Container, CssGrid, Flex, Wrapper, Show } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -150,6 +151,10 @@ const StyledHeader = styled(Header)`
 const SliderWrapper = styled.div`
     width: 100%;
     position: relative;
+
+    @media ${device.laptopS} {
+        display: none;
+    }
 `
 const SwiperWrapper = styled.div`
     .swiper-container { 
@@ -209,22 +214,20 @@ const Leaders = () => {
                 </Show.Desktop>
             </Container>
             <Container style={{ width: '100%', overflow: 'hidden' }}>
-                <Show.Mobile>
-                    <SliderWrapper>
-                        <SwiperWrapper>
-                            <Swiper {...params} >
-                                {leaders_data.map(leader => (
-                                    <LeaderMobile key={leader.name}>
-                                        <div style={{ width: '38rem', height: '15rem', backgroundColor: '#ebebeb' }}></div>
-                                        <Header font_size='3rem' align='center' margin='2rem 0 0 0'>{leader.name}</Header>
-                                        <Text align='center' secondary margin='0 auto'>{localize(leader.position)}</Text>
-                                        <Text margin='2rem 2rem 4rem 2rem' secondary>{localize(leader.description)}</Text>
-                                    </LeaderMobile>
-                                ))}
-                            </Swiper>
-                        </SwiperWrapper>
-                    </SliderWrapper>
-                </Show.Mobile>
+                <SliderWrapper>
+                    <SwiperWrapper>
+                        <Swiper {...params} >
+                            {leaders_data.map(leader => (
+                                <LeaderMobile key={leader.name}>
+                                    <div style={{ width: '38rem', height: '15rem', backgroundColor: '#ebebeb' }}></div>
+                                    <Header font_size='3rem' align='center' margin='2rem 0 0 0'>{leader.name}</Header>
+                                    <Text align='center' secondary margin='0 auto'>{localize(leader.position)}</Text>
+                                    <Text margin='2rem 2rem 4rem 2rem' secondary>{localize(leader.description)}</Text>
+                                </LeaderMobile>
+                            ))}
+                        </Swiper>
+                    </SwiperWrapper>
+                </SliderWrapper>
             </Container>
         </SectionContainer>
     )

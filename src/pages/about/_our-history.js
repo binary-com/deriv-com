@@ -50,7 +50,7 @@ const StyledHeader = styled(Header)`
     margin-left: 50%;
     margin-bottom: 2.5rem;
     position: relative;
-    transform: ${props => (props.left ? 'translateX(-89%)' : 'translateX(-1%)')};
+    transform: ${props => (props.left ? 'translateX(-88.7%)' : 'translateX(-1%)')};
 
     ::before {
         content: '';

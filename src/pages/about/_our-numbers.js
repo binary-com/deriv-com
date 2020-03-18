@@ -53,7 +53,7 @@ const OurNumbers = () => (
                 </StyledHeader>
             </Show.Mobile>
             <Show.Desktop>
-                <Header font_size="3.6rem" as="h2" color="black-2" align="center">
+                <Header size="3.6rem" as="h2" color="black-2" align="center">
                     {localize('Our numbers')}
                 </Header>
                 <StyledHeader as="h4" align="center" weight="500" lh="3.6rem">

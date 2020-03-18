@@ -113,7 +113,7 @@ const WithdrawDMT5 = () => (
         <StyledHeader as="h4">
             {localize('How can I withdraw funds from my DMT5 real money account?')}
         </StyledHeader>
-        <Text margin="0 0 1.5rem 0">
+        <Text mb="1.5rem">
             <Localize
                 translate_text="To withdraw funds from your MT5 account on Deriv, you’ll need to transfer the funds to your Deriv account. Go to <0>Cashier ></0> <1>Transfer between accounts</1> and follow the instructions on the screen."
                 components={[

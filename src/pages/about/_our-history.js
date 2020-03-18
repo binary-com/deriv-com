@@ -85,6 +85,7 @@ const StyledHeader = styled(Header)`
 
 const LastHeader = styled(StyledHeader)`
     width: 15%;
+    margin-left: 35.8%;
 
     ::before {
         right: 1%;
@@ -144,7 +145,6 @@ export const OurHistory = () => {
                             color={story.color || 'red-4'}
                             align="center"
                             size="var(--text-size-header-3)"
-                            ml="35.8%"
                         >
                             {story.year}
                         </LastHeader>

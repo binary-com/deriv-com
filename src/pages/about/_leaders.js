@@ -165,7 +165,7 @@ const Leaders = () => {
                                     </Text>
                                 </DescriptionWrapper>
                             </Box>
-                            <Header as="h4" align="center" lh="3.6rem" size="var(--text-size-m)">
+                            <Header as="h4" align="center" lh="3.6rem" size="2.3rem">
                                 {leader.name}
                             </Header>
                             <Text align="center">{leader.position}</Text>

@@ -156,13 +156,13 @@ const About = () => {
 
                     {is_story && (
                         <ContentWrapper margin_top="9.1rem">
-                            <Text mb="1.5rem" secondary color="white">
+                            <Text mb="1.5rem" size="var(--text-size-sm)" color="white">
                                 {localize(
                                     'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
                                 )}
                             </Text>
 
-                            <Text secondary color="white">
+                            <Text size="var(--text-size-sm)" color="white">
                                 {localize(
                                     'Our evolution is powered by over 20 years of customer focus and innovation.',
                                 )}
@@ -180,12 +180,7 @@ const About = () => {
                                     />
                                 </Box>
                                 <div>
-                                    <Header
-                                        as="h3"
-                                        size="var(--text-size-header-1)"
-                                        color="white"
-                                        mb="0.8rem"
-                                    >
+                                    <Header as="h3" color="white" mb="0.8rem">
                                         <Localize translate_text="Jean-Yves Sireau" />
                                     </Header>
                                     <Header

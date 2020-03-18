@@ -3,7 +3,7 @@ import Container from './container'
 
 const GridContainer = styled(Container)`
     text-align: ${props => props.align || 'left'};
-    display: grid;
+    display: block;
 `
 
 export default GridContainer

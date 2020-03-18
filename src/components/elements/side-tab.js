@@ -39,7 +39,7 @@ const TabContent = styled.div`
 `
 const StyledTab = styled.li`
     cursor: pointer;
-    width: '38rem';
+    width: 38rem;
     margin: auto;
     padding: 3px 0 3px 16px;
     transform: translateX(-16px);

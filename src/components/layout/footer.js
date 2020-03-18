@@ -1,7 +1,7 @@
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Container, CssGrid, Show } from '../containers'
+import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { isProduction } from 'common/websocket/config'
@@ -186,13 +186,7 @@ const ExternalLink = styled.a`
     text-decoration: none;
 `
 
-const SocialWrapper = styled.div`
-    margin-top: 0.8rem;
-    flex-direction: column;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-
+const SocialWrapper = styled(Flex)`
     svg {
         width: 4.2rem;
         margin-right: 1rem;
@@ -208,12 +202,7 @@ const SocialWrapper = styled.div`
         }
     }
 `
-const SocialMedia = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 6.4rem;
-
+const SocialMedia = styled(Flex)`
     @media ${device.tabletL} {
         margin-top: 2rem;
         flex-direction: row;
@@ -260,8 +249,8 @@ const Footer = () => (
                             'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.',
                         )}
                     </Text>
-                    <SocialMedia>
-                        <SocialWrapper>
+                    <SocialMedia mt='3.1rem' jc='flex-start' direction='column'>
+                        <SocialWrapper mt='0.8rem' jc='space-between' direction='column'>
                             <div>
                                 <Text>{localize('CONNECT WITH US')}</Text>
                             </div>
@@ -486,7 +475,7 @@ const Footer = () => (
                 <Row>
                     <StyledText>
                         <Localize
-                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs) and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs) and other complex derivatives and financial products. Secure and responsible trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                             components={[
                                 <BoldLink key={0} target="_blank" to="/responsible-trading/" />,
                             ]}

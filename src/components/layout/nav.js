@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
+import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container } from 'components/containers'
@@ -163,27 +164,27 @@ export const Nav = () => {
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
 
+    const closePlatforms = () => setIsPlatformsOpen(false)
+    useOutsideClick(nav_ref, closePlatforms)
+
     const buttonHandleScroll = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
     }
+
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+
     useEffect(() => {
         setMounted(true)
         document.addEventListener('scroll', buttonHandleScroll, {
             passive: true,
         })
-        const handleClickOutside = e => {
-            if (!nav_ref.current.contains(e.target)) {
-                setIsPlatformsOpen(false)
-            }
-        }
-        document.addEventListener('click', handleClickOutside)
+
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
-            document.removeEventListener('click', handleClickOutside)
         }
     }, [])
+
     const handleLogin = () => {
         Login.redirectToLogin()
     }

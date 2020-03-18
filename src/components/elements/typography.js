@@ -12,7 +12,6 @@ const BaseElement = css`
     /* prettier-ignore */
     color: var(--color-${props => props.color || 'black-3'});
     line-height: ${props => props.lh || '1.5'};
-    width:  ${props => props.width || '100%'};
     max-width:  ${props => props.max_width || ''};
     min-width:  ${props => props.min_width || ''};
     ${Margins}
@@ -22,6 +21,7 @@ export const Text = styled.p`
     ${BaseElement}
     font-weight: ${props => props.weight || 'normal'};
     font-size: ${props => props.size || 'var(--text-size-s)'};
+    width:  ${props => props.width || 'auto'};
 `
 
 export const Header = styled(({ as = 'h1', children, ...props }) =>
@@ -37,6 +37,7 @@ export const Header = styled(({ as = 'h1', children, ...props }) =>
         if (props.as === 'h4') return 'var(--text-size-m)'
         if (props.as === 'h5') return 'var(--text-size-s)'
     }};
+    width:  ${props => props.width || '100%'};
 `
 
 export const LinkText = styled(Text).attrs({ as: 'a' })`

@@ -94,6 +94,7 @@ const Regulatory = () => (
                                 <LinkText
                                     color="red"
                                     key={0}
+                                    weight="bold"
                                     target="_blank"
                                     href="/WS-Binary-Investments-Europe-Limited.pdf"
                                     rel="noopener noreferrer"
@@ -167,6 +168,8 @@ const Regulatory = () => (
                                     components={[
                                         <LinkText
                                             key={0}
+                                            color="red"
+                                            weight="bold"
                                             target="_blank"
                                             href="/Labuan-license.pdf"
                                             rel="noopener noreferrer"
@@ -193,6 +196,8 @@ const Regulatory = () => (
                                     components={[
                                         <LinkText
                                             key={0}
+                                            color="red"
+                                            weight="bold"
                                             target="_blank"
                                             href="https://www.vfsc.vu/financial-dealers-licensee-lists/"
                                             rel="noopener noreferrer"
@@ -229,6 +234,8 @@ const Regulatory = () => (
                                     components={[
                                         <LinkText
                                             key={0}
+                                            color="red"
+                                            weight="bold"
                                             target="_blank"
                                             href="/BVI_license.pdf"
                                             rel="noopener noreferrer"

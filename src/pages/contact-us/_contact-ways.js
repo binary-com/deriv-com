@@ -52,7 +52,7 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledText = styled(Text)`
-    margin-bottom: '0.8rem';
+    margin-bottom: 0.8rem;
 `
 
 const Logo = styled.div`

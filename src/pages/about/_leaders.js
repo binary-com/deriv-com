@@ -118,7 +118,11 @@ const leaders_data = [
         image: 'ashkan-nemati.png',
     },
 ]
-
+const StyledSection = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 5rem 0;
+    }
+`
 const DescriptionWrapper = styled.div`
     background: var(--color-black);
     opacity: 0;
@@ -181,7 +185,7 @@ const params = {
 }
 const Leaders = () => {
     return (
-        <SectionContainer>
+        <StyledSection>
             <Container>
                 <Show.Desktop>
                     <CssGrid
@@ -229,7 +233,7 @@ const Leaders = () => {
                     </SwiperWrapper>
                 </SliderWrapper>
             </Container>
-        </SectionContainer>
+        </StyledSection>
     )
 }
 

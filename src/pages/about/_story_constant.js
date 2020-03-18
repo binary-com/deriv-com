@@ -285,7 +285,7 @@ const Stories = [
                 image: 'deriv-laptop.png',
                 image_position: 'center',
                 margin_right: '6rem',
-                margin_left: '-0.4rem',
+                margin_left: '-1.2rem',
                 margin_bottom: '6rem',
                 outer_image_width: '35.7rem',
                 content_width: '41rem',

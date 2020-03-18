@@ -27,7 +27,7 @@ const YearWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: ${props => (props.left ? props.margin_left || '9.4rem' : '-9.4rem')};
+    margin-left: ${props => (props.left ? props.margin_left || '9.5rem' : '-9rem')};
     margin-bottom: ${props => props.margin_bottom || 'unset'};
 
     p {
@@ -45,16 +45,26 @@ const ContentWrapper = styled.div`
     width: ${props => props.content_width || '39.6rem'};
     padding: 0 0 0 1rem;
 `
+// const StyledHeaderWrapper = styled.div`
+//     position: relative;
+//     width: 100%;
+
+//     ::before {
+//         content: '';
+//         left: 50%;
+//         position: absolute;
+//     }
+// `
 const StyledHeader = styled(Header)`
-    width: 18rem;
-    margin-left: 50%;
+    width: 100% ;
+    margin-left: ${props => (props.left ? '50%' : '49.99%')};
     margin-bottom: 2.5rem;
     position: relative;
-    transform: ${props => (props.left ? 'translateX(-89%)' : 'translateX(-1%)')};
+    transform: ${props => (props.left ? 'translateX(-88%)' : '')};
 
     ::before {
         content: '';
-        width: 3px;
+        width: 2.2px;
         height: 2rem;
         border-top: 1.7rem solid red;
         border-bottom: 17px solid red;
@@ -68,12 +78,6 @@ const StyledHeader = styled(Header)`
         }
     }
 
-    @media ${device.laptopL} {
-        transform: ${props => (props.left ? 'translateX(-88%)' : 'translateX(-1%)')};
-    }
-    @media ${device.laptop} {
-        transform: ${props => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
-    }
     @media ${device.tablet} {
         margin: auto;
         align-items: center;
@@ -123,6 +127,7 @@ export const OurHistory = () => {
             </SVGContainer>
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
+                    {/* <StyledHeaderWrapper> */}
                     <StyledHeader
                         left={story.left}
                         as="h2"
@@ -131,6 +136,7 @@ export const OurHistory = () => {
                     >
                         {story.year}
                     </StyledHeader>
+                    {/* </StyledHeaderWrapper> */}
 
                     {story.contents.map((content, idxa) =>
                         content.left ? (

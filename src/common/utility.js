@@ -12,6 +12,8 @@ const toISOFormat = date => {
     return ''
 }
 
+const toHashFormat = string => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
+
 const isBrowser = () => typeof window !== 'undefined'
 
 const isEmptyObject = obj => {
@@ -36,7 +38,8 @@ const getPropertyValue = (obj, k) => {
     // else return clone of object to avoid overwriting data
     return obj ? cloneObject(obj[keys[0]]) : undefined
 }
-const getLocationHash = () => (location.hash ? location.hash.substring(1).replace(/\/$/, '') : '')
+const getLocationHash = () =>
+    isBrowser() && (location.hash ? location.hash.substring(1).replace(/\/$/, '') : '')
 
 const getLanguage = () => (isBrowser() ? localStorage.getItem('i18n') || 'en' : null)
 
@@ -56,6 +59,25 @@ const sanitize = input => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
 const sentenceCase = input => input.charAt(0).toUpperCase() + input.slice(1)
 
+function debounce(func, wait, immediate) {
+    let timeout
+    return function() {
+        const context = this
+        const args = arguments
+
+        const later = function() {
+            timeout = null
+            if (!immediate) func.apply(context, args)
+        }
+
+        const callNow = immediate && !timeout
+
+        clearTimeout(timeout)
+        timeout = setTimeout(later, wait)
+        if (callNow) func.apply(context, args)
+    }
+}
+
 const deriv_app_url = 'https://deriv.app'
 const deriv_bot_app_url = 'https://deriv.app/bot'
 const brand_name = 'Deriv'
@@ -63,6 +85,7 @@ const brand_name = 'Deriv'
 export {
     deriv_app_url,
     deriv_bot_app_url,
+    debounce,
     brand_name,
     isEmptyObject,
     cloneObject,
@@ -75,4 +98,5 @@ export {
     sanitize,
     sentenceCase,
     toISOFormat,
+    toHashFormat,
 }

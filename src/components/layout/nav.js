@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
+import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container } from 'components/containers'
@@ -14,7 +15,9 @@ import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
+import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
+import LogoOnly from 'images/svg/logo-deriv-only.svg'
 
 const NavWrapper = styled.div`
     width: 100%;
@@ -24,6 +27,7 @@ const NavWrapper = styled.div`
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 `
+
 const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
@@ -41,18 +45,12 @@ const Wrapper = styled(Container)`
     overflow: hidden;
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
-
-        button {
-            font-size: var(--text-size-xxs);
-        }
     }
 `
 const NavLeft = styled.div`
     text-align: left;
     @media ${device.tabletL} {
-        svg {
-            width: 50%;
-        }
+        display: none;
     }
 `
 
@@ -135,6 +133,23 @@ const HamburgerMenu = styled(Hamburger)`
         cursor: pointer;
     }
 `
+
+const LogoLinkMobile = styled(LocalizedLink)`
+    cursor: pointer;
+    display: none;
+    @media ${device.tabletL} {
+        display: block;
+        cursor: pointer;
+    }
+`
+
+const MobileLogin = styled(Button)`
+    display: none;
+    font-size: 14px;
+    @media ${device.tabletL} {
+        display: block;
+    }
+`
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
@@ -149,27 +164,27 @@ export const Nav = () => {
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
 
+    const closePlatforms = () => setIsPlatformsOpen(false)
+    useOutsideClick(nav_ref, closePlatforms)
+
     const buttonHandleScroll = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
     }
+
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
+
     useEffect(() => {
         setMounted(true)
         document.addEventListener('scroll', buttonHandleScroll, {
             passive: true,
         })
-        const handleClickOutside = e => {
-            if (!nav_ref.current.contains(e.target)) {
-                setIsPlatformsOpen(false)
-            }
-        }
-        document.addEventListener('click', handleClickOutside)
+
         return () => {
             document.removeEventListener('scroll', buttonHandleScroll)
-            document.removeEventListener('click', handleClickOutside)
         }
     }, [])
+
     const handleLogin = () => {
         Login.redirectToLogin()
     }
@@ -236,7 +251,13 @@ export const Nav = () => {
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
-                    <HamburgerMenu onClick={handleMenuClick} />
+                    <HamburgerMenu onClick={handleMenuClick} width="16px" />
+                    <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                        <LogoOnly width="115px" />
+                    </LogoLinkMobile>
+                    <MobileLogin onClick={handleLogin} primary>
+                        <span>{localize('Log in')}</span>
+                    </MobileLogin>
                     <OffCanvasMenu
                         is_canvas_menu_open={is_canvas_menu_open}
                         closeOffCanvasMenu={closeOffCanvasMenu}
@@ -334,9 +355,17 @@ export const NavPartners = () => {
                                     activeClassName="active"
                                     to="/partners/"
                                     aria-label={localize('Affiliate & IB')}
-                                    partiallyActive={true}
                                 >
                                     {localize('Affiliate & IB')}
+                                </StyledLink>
+                            </NavLink>
+                            <NavLink>
+                                <StyledLink
+                                    activeClassName="active"
+                                    to="/partners/payment-agent/"
+                                    aria-label={localize('Payment agent')}
+                                >
+                                    {localize('Payment agent')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
@@ -357,6 +386,75 @@ export const NavPartners = () => {
                                 <span>{localize('Affiliate & IB sign up')}</span>
                             </SignupButton>
                         </StyledNavRight>
+                    </Wrapper>
+                </StyledNav>
+            </NavWrapper>
+        </>
+    )
+}
+
+const CareerRight = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+`
+
+export const NavCareers = () => {
+    return (
+        <>
+            <NavWrapper>
+                <DerivHomeWrapper>
+                    <HomeContainer justify="flex-start">
+                        <HomeLink to="/">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('Deriv homepage')}
+                            </Text>
+                        </HomeLink>
+                        <HomeLink to="/about">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('About us')}
+                            </Text>
+                        </HomeLink>
+                        <HomeLink to="/contact-us">
+                            <Text color="grey-19" size="var(--text-size-xxs)">
+                                {localize('Contact us')}
+                            </Text>
+                        </HomeLink>
+                    </HomeContainer>
+                </DerivHomeWrapper>
+                <StyledNav>
+                    <Wrapper>
+                        <NavLeft>
+                            <LogoLink to="/careers" aria-label={localize('Careers')}>
+                                <LogoCareers />
+                            </LogoLink>
+                        </NavLeft>
+                        <CareerRight>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/careers/teams/"
+                                aria-label={localize('Teams')}
+                                partiallyActive={true}
+                            >
+                                Teams
+                            </StyledLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/careers/locations/"
+                                aria-label={localize('Locations')}
+                                partiallyActive={true}
+                            >
+                                Locations
+                            </StyledLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/careers/jobs/"
+                                aria-label={localize('All jobs')}
+                                partiallyActive={true}
+                            >
+                                All jobs
+                            </StyledLink>
+                        </CareerRight>
                     </Wrapper>
                 </StyledNav>
             </NavWrapper>

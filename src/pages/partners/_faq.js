@@ -39,7 +39,7 @@ const Faq = () => {
                 {localize('Deriv Affiliate Programme')}
             </Header>
             <AccordionWrapper>
-                <Accordion>
+                <Accordion has_single_state>
                     <AccordionItem
                         header={localize('General')}
                         parent_style={parent_style}
@@ -67,7 +67,7 @@ const Faq = () => {
                 {localize('Deriv IB Programme')}
             </Header>
             <AccordionWrapper>
-                <Accordion>
+                <Accordion has_single_state>
                     <AccordionItem
                         header={localize('General')}
                         parent_style={parent_style}

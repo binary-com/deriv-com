@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
@@ -75,7 +75,7 @@ const SecondaryHeader = styled(StyledHeader)`
 const Flex = styled.div`
     display: flex;
 `
-const LineVertical = styled(LineVerticalSVG)`
+const LineStyle = css`
     margin-top: 10.5rem;
     margin-right: 16px;
     width: 3rem;
@@ -85,6 +85,10 @@ const LineVertical = styled(LineVerticalSVG)`
         margin-top: 13.5rem;
     }
 `
+const LineVertical = styled(LineVerticalSVG)`
+    ${LineStyle}
+`
+
 const WhoCanApply = () => {
     return (
         <SectionWrapper padding="8rem 0 4rem">
@@ -175,6 +179,19 @@ const WhoCanApply = () => {
             </CenteredSection>
         </SectionWrapper>
     )
+}
+
+export {
+    StyledSection,
+    SectionWrapper,
+    CenteredSection,
+    Col,
+    Wrapper,
+    Content,
+    Separator,
+    StyledHeader,
+    SecondaryHeader,
+    LineStyle,
 }
 
 export default WhoCanApply

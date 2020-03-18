@@ -1,9 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Article } from './_article'
-import { Text, Header, Image } from 'components/elements'
+import { Text, Header } from 'components/elements'
 import { localize, Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
+// Images
+import GetStartedImage from 'images/common/help-centre/dbot-button-get-started.png'
+import SearchBarImage from 'images/common/help-centre/dbot-search-bar.png'
+import DeleteImage from 'images/common/help-centre/dbot-delete.png'
+import CreateVariableImage from 'images/common/help-centre/dbot-create-variable.png'
+import NameVariableImage from 'images/common/help-centre/dbot-name-variable.png'
+import UserDefinedVariableImage from 'images/common/help-centre/dbot-user-defined-variable.png'
+import QuickStrategyImage from 'images/common/help-centre/dbot-quick-strategy.png'
+import StrategiesImage from 'images/common/help-centre/dbot-strategies.png'
+import AssetTradeTypeImage from 'images/common/help-centre/dbot-asset-trade-type.png'
+import ParametersImage from 'images/common/help-centre/dbot-parameters.png'
+import RunBotImage from 'images/common/help-centre/dbot-run-bot.png'
+import BotNameImage from 'images/common/help-centre/dbot-botname.png'
+import SaveBotImage from 'images/common/help-centre/dbot-save.png'
+import GoogleDriveImage from 'images/common/help-centre/dbot-google-drive.png'
+import SaveBotDriveImage from 'images/common/help-centre/dbot-savebot-drive.png'
+import ImportantStrategyImage from 'images/common/help-centre/dbot-import-strategy.png'
+import LoadBotImage from 'images/common/help-centre/dbot-load-bot.png'
+import LoadBotGDImage from 'images/common/help-centre/dbot-load-bot-gd.png'
+import ResetImage from 'images/common/help-centre/dbot-reset.png'
+import ClearStatImage from 'images/common/help-centre/dbot-clear-stat.png'
+import AreYouSureImage from 'images/common/help-centre/dbot-are-you-sure.png'
+import LossesImage from 'images/common/help-centre/dbot-losses.png'
+import VariablesImage from 'images/common/help-centre/dbot-variables.png'
+import LogicBlockImage from 'images/common/help-centre/dbot-logic-block.png'
+import UpdateCurrentPlImage from 'images/common/help-centre/dbot-update-currentPL.png'
+import SummaryTabImage from 'images/common/help-centre/dbot-summary-tab.png'
+import TransactionsImage from 'images/common/help-centre/dbot-transactions.png'
+import ChartImage from 'images/common/help-centre/dbot-chart.png'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -88,10 +117,12 @@ const FindBlocks = () => (
             {localize("1. Click 'Get started' at the top left corner to open the blocks menu.")}
         </Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-button-get-started.png"
+            <img
+                src={GetStartedImage}
                 alt={localize('Get Started')}
                 width="14.2rem"
+                style={{ width: '14.2rem' }}
+                loading="lazy"
             />
         </ImageWrapper>
         <Text>
@@ -105,7 +136,13 @@ const FindBlocks = () => (
             )}
         </StyledText>
         <ImageWrapper>
-            <Image img_name="dbot-search-bar.png" alt={localize('Search')} width="17.9rem" />
+            <img
+                src={SearchBarImage}
+                alt={localize('Search')}
+                width="17.9rem"
+                style={{ width: '17.9rem' }}
+                loading="lazy"
+            />
         </ImageWrapper>
     </ArticleWrapper>
 )
@@ -120,7 +157,13 @@ const RemoveBlocks = () => (
             )}
         </Text>
         <ImageWrapper>
-            <Image img_name="dbot-delete.png" alt={localize('Get Started')} width="7.4rem" />
+            <img
+                src={DeleteImage}
+                alt={localize('Remove block')}
+                width="7.4rem"
+                style={{ width: '7.4rem' }}
+                loading="lazy"
+            />
         </ImageWrapper>
     </ArticleWrapper>
 )
@@ -129,10 +172,12 @@ const CreateVariables = () => (
         <StyledHeader as="h4">{localize('How do I create variables?')}</StyledHeader>
         <Text>{localize("1. Click 'Get started' to open the blocks menu.")}</Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-button-get-started.png"
+            <img
+                src={GetStartedImage}
                 alt={localize('Get Started')}
                 width="14.2rem"
+                style={{ width: '14.2rem' }}
+                loading="lazy"
             />
         </ImageWrapper>
         <Text>
@@ -143,18 +188,21 @@ const CreateVariables = () => (
         </Text>
         <StyledText>{localize("3. Click 'Create variable'.")}</StyledText>
         <ImageWrapper>
-            <Image
-                img_name="dbot-create-variable.png"
+            <img
+                src={CreateVariableImage}
                 alt={localize('Create variable')}
                 width="47.2rem"
+                style={{ width: '47.2rem' }}
             />
         </ImageWrapper>
         <Text>{localize('4. Enter a name for the variable.')}</Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-name-variable.png"
+            <img
+                src={NameVariableImage}
                 alt={localize('Name variable')}
                 width="43.8rem"
+                loading="lazy"
+                style={{ width: '43.8rem' }}
             />
         </ImageWrapper>
         <Text>
@@ -163,10 +211,11 @@ const CreateVariables = () => (
             )}
         </Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-user-defined-variable.png"
+            <img
+                src={UserDefinedVariableImage}
                 alt={localize('User defined variable')}
                 width="27.2rem"
+                style={{ width: '27.2rem' }}
             />
         </ImageWrapper>
     </ArticleWrapper>
@@ -186,10 +235,12 @@ const QuickStrategy = () => (
         </Text>
         <StyledText>{localize("1. Click 'Get started' on the toolbar at the top.")}</StyledText>
         <ImageWrapper>
-            <Image
-                img_name="dbot-button-get-started.png"
+            <img
+                src={GetStartedImage}
                 alt={localize('Get Started')}
                 width="14.2rem"
+                style={{ width: '14.2rem' }}
+                loading="lazy"
             />
         </ImageWrapper>
         <Text>
@@ -199,27 +250,43 @@ const QuickStrategy = () => (
             />
         </Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-quick-strategy.png"
+            <img
+                src={QuickStrategyImage}
                 alt={localize('Quick strategy')}
                 width="16.6rem"
+                style={{ width: '16.6rem' }}
+                loading="lazy"
             />
         </ImageWrapper>
         <Text>{localize('3. Choose the strategy that you want.')}</Text>
         <ImageWrapper>
-            <Image img_name="dbot-strategies.png" alt={localize('Strategies')} width="42.1rem" />
+            <img
+                src={StrategiesImage}
+                alt={localize('Strategies')}
+                style={{ width: '42.1rem' }}
+                width="42.1rem"
+                loading="lazy"
+            />
         </ImageWrapper>
         <Text>{localize('4. Select the asset and trade type.')}</Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-asset-trade-type.png"
+            <img
+                src={AssetTradeTypeImage}
                 alt={localize('Asset and trade type')}
+                style={{ width: '44rem' }}
+                loading="lazy"
                 width="44rem"
             />
         </ImageWrapper>
         <Text>{localize("5. Enter your preferred trade parameters and click 'Create'.")}</Text>
         <ImageWrapper>
-            <Image img_name="dbot-parameters.png" alt={localize('Parameters')} width="44rem" />
+            <img
+                src={ParametersImage}
+                alt={localize('Parameters')}
+                width="44rem"
+                style={{ width: '44rem' }}
+                loading="lazy"
+            />
         </ImageWrapper>
         <Text>
             {localize(
@@ -227,7 +294,13 @@ const QuickStrategy = () => (
             )}
         </Text>
         <ImageWrapper>
-            <Image img_name="dbot-run-bot.png" alt={localize('Run bot')} width="11.8rem" />
+            <img
+                src={RunBotImage}
+                alt={localize('Run bot')}
+                width="11.8rem"
+                loading="lazy"
+                style={{ width: '11.8rem' }}
+            />
         </ImageWrapper>
         <Text>
             {localize(
@@ -275,7 +348,13 @@ const SaveStrategy = () => (
             )}
         </Text>
         <ImageWrapper>
-            <Image img_name="dbot-botname.png" alt={localize('Bot name')} width="21.1rem" />
+            <img
+                src={BotNameImage}
+                alt={localize('Bot name')}
+                width="21.1rem"
+                loading="lazy"
+                style={{ width: '21.1rem' }}
+            />
         </ImageWrapper>
         <Text>
             {localize(
@@ -283,7 +362,7 @@ const SaveStrategy = () => (
             )}
         </Text>
         <ImageWrapper>
-            <Image img_name="dbot-save.png" alt={localize('Save')} width="40.7rem" />
+            <img img_name="dbot-save.png" alt={localize('Save')} width="40.7rem" />
         </ImageWrapper>
         <Text>
             <Localize
@@ -293,7 +372,13 @@ const SaveStrategy = () => (
         </Text>
         <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
         <ImageWrapper>
-            <Image img_name="dbot-savebot.png" alt={localize('Save bot')} width="40.7rem" />
+            <img
+                src={SaveBotImage}
+                alt={localize('Save bot')}
+                width="40.7rem"
+                loading="lazy"
+                style={{ width: '40.7rem' }}
+            />
         </ImageWrapper>
         <Text mt="2.4rem">
             {localize(
@@ -308,9 +393,11 @@ const SaveStrategy = () => (
         </Text>
         <Text mt="2.4rem">{localize("1. Click 'Connect'.")}</Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-google-drive.png"
+            <img
+                src={GoogleDriveImage}
                 alt={localize('Google Drive')}
+                style={{ width: '12.1rem' }}
+                loading="lazy"
                 width="12.1rem"
             />
         </ImageWrapper>
@@ -321,10 +408,12 @@ const SaveStrategy = () => (
         </Text>
         <Text mt="2.4rem">{localize("3. Click 'Continue'.")}</Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-savebot-drive.png"
+            <img
+                src={SaveBotDriveImage}
                 alt={localize('Save bot Google Drive')}
                 width="38.4rem"
+                loading="lazy"
+                style={{ width: '38.4rem' }}
             />
         </ImageWrapper>
         <Text mt="2.4rem">
@@ -343,9 +432,11 @@ const ImportStrategy = () => (
             )}
         </Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-import-strategy.png"
+            <img
+                src={ImportantStrategyImage}
                 alt={localize('Import strategy')}
+                style={{ width: '40.7rem' }}
+                loading="lazy"
                 width="40.7rem"
             />
         </ImageWrapper>
@@ -354,7 +445,13 @@ const ImportStrategy = () => (
         </Text>
         <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
         <ImageWrapper>
-            <Image img_name="dbot-load-bot.png" alt={localize('Load bot')} width="40.7rem" />
+            <img
+                src={LoadBotImage}
+                alt={localize('Load bot')}
+                width="40.7rem"
+                loading="lazy"
+                style={{ width: '40.7rem' }}
+            />
         </ImageWrapper>
         <Text>
             {localize(
@@ -366,10 +463,12 @@ const ImportStrategy = () => (
         </Text>
         <Text mt="2.4rem">{localize("1. Select 'Google Drive' and click 'Continue'.")}</Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-load-bot-gd.png"
+            <img
+                src={LoadBotGDImage}
                 alt={localize('Load bot google Drive')}
                 width="40.7rem"
+                loading="lazy"
+                style={{ width: '40.7rem' }}
             />
         </ImageWrapper>
         <Text>
@@ -388,7 +487,13 @@ const ResetWorkspace = () => (
             )}
         </Text>
         <ImageWrapper>
-            <Image img_name="dbot-reset.png" alt={localize('Reset')} width="40.7rem" />
+            <img
+                src={ResetImage}
+                alt={localize('Reset')}
+                width="40.7rem"
+                loading="lazy"
+                style={{ width: '40.7rem' }}
+            />
         </ImageWrapper>
     </ArticleWrapper>
 )
@@ -399,13 +504,21 @@ const TransactionLog = () => (
             {localize("1. In the panel on the right of the workspace, click 'Clear stat'.")}
         </Text>
         <ImageWrapper>
-            <Image img_name="dbot-clear-stat.png" alt={localize('Clear stat')} width="24.8rem" />
+            <img
+                src={ClearStatImage}
+                alt={localize('Clear stat')}
+                loading="lazy"
+                width="24.8rem"
+                style={{ width: '24.8rem' }}
+            />
         </ImageWrapper>
         <Text>{localize("2. Click 'Ok'.")}</Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-are-you-sure.png"
+            <img
+                src={AreYouSureImage}
                 alt={localize('Are you sure?')}
+                loading="lazy"
+                style={{ width: '50.9rem' }}
                 width="50.9rem"
             />
         </ImageWrapper>
@@ -421,7 +534,13 @@ const ControlLosses = () => (
         </Text>
 
         <ImageWrapper>
-            <Image img_name="dbot-losses.png" alt={localize('Control loss')} width="61.2rem" />
+            <img
+                src={LossesImage}
+                alt={localize('Control loss')}
+                loading="lazy"
+                width="61.2rem"
+                style={{ width: '61.2rem' }}
+            />
         </ImageWrapper>
         <Text margin="0 0 2.4rem">{localize('1. Create the following variables:')}</Text>
         <StyledTable>
@@ -452,7 +571,7 @@ const ControlLosses = () => (
                 </Tr>
                 <Tr>
                     <Th>
-                        <Text weight="bold">{localize('Min deposit')}</Text>
+                        <Text weight="bold">{localize('maximumLoss')}</Text>
                     </Th>
                     <Tbody>
                         <Text>
@@ -477,7 +596,13 @@ const ControlLosses = () => (
             </Thead>
         </StyledTable>
         <ImageWrapper>
-            <Image img_name="dbot-variables.png" alt={localize('Variables')} width="32.4rem" />
+            <img
+                src={VariablesImage}
+                alt={localize('Variables')}
+                loading="lazy"
+                width="32.4rem"
+                style={{ width: '32.4rem' }}
+            />
         </ImageWrapper>
         <Text>
             <Localize
@@ -486,7 +611,13 @@ const ControlLosses = () => (
             />
         </Text>
         <ImageWrapper>
-            <Image img_name="dbot-logic-block.png" alt={localize('Logic block')} width="32.4rem" />
+            <img
+                src={LogicBlockImage}
+                alt={localize('Logic block')}
+                loading="lazy"
+                width="32.4rem"
+                style={{ width: '32.4rem' }}
+            />
         </ImageWrapper>
         <Text>
             <Localize
@@ -495,10 +626,12 @@ const ControlLosses = () => (
             />
         </Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-update-currentPL.png"
+            <img
+                src={UpdateCurrentPlImage}
                 alt={localize('Update currentPL')}
                 width="32.4rem"
+                style={{ width: '32.4rem' }}
+                loading="lazy"
             />
         </ImageWrapper>
     </ArticleWrapper>
@@ -516,7 +649,13 @@ const TradeStatus = () => (
         </Text>
 
         <ImageWrapper>
-            <Image img_name="dbot-summary-tab.png" alt={localize('Summary tab')} width="33.3rem" />
+            <img
+                src={SummaryTabImage}
+                alt={localize('Summary tab')}
+                width="33.3rem"
+                loading="lazy"
+                style={{ width: '33.3rem' }}
+            />
         </ImageWrapper>
 
         <Text>
@@ -525,10 +664,12 @@ const TradeStatus = () => (
             )}
         </Text>
         <ImageWrapper>
-            <Image
-                img_name="dbot-transactions.png"
+            <img
+                src={TransactionsImage}
                 alt={localize('Transactions')}
                 width="33.3rem"
+                loading="lazy"
+                style={{ width: '33.3rem' }}
             />
         </ImageWrapper>
     </ArticleWrapper>
@@ -543,7 +684,13 @@ const ViewChart = () => (
         </Text>
 
         <ImageWrapper>
-            <Image img_name="dbot-chart.png" alt={localize('Chart')} width="22.5rem" />
+            <img
+                src={ChartImage}
+                alt={localize('Chart')}
+                width="22.5rem"
+                loading="lazy"
+                style={{ width: '22.5rem' }}
+            />
         </ImageWrapper>
     </ArticleWrapper>
 )

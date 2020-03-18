@@ -105,7 +105,7 @@ const PaymentMethods = () => {
             <SectionContainer>
                 <Container direction="column">
                     <AccordionContainer>
-                        <Accordion>
+                        <Accordion has_single_state>
                             {payment_methods.map((pd, idx) => (
                                 <AccordionItem
                                     key={idx}

@@ -44,6 +44,18 @@ const Wrapper = styled(Container)`
     justify-content: space-between;
     height: 7.2rem;
     overflow: hidden;
+    width: 100%;
+    
+    @media ${device.desktopL} {
+        max-width: 1800px;
+    }
+    @media ${device.desktop} {
+        max-width: 1440px;
+    }
+    @media ${device.laptopL} {
+        max-width: 1200px;
+        width: 86%;
+    }
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
     }

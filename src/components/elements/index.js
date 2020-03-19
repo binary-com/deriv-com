@@ -1,7 +1,7 @@
 import { Accordion, AccordionItem } from './accordion'
 import AutoCarousel from './auto-carousel'
 import BackgroundImage from './background-image'
-import { Card, CardChildren, CardStyle } from './card'
+import { Card, CardChildren, CardStyle, NavCard } from './card'
 import Carousel from './carousel'
 import Divider from './divider'
 import DotLoader from './dot-loader'
@@ -37,6 +37,7 @@ export {
     StyledLink,
     LinearLoader,
     Modal,
+    NavCard,
     useModal,
     OffCanvasMenu,
     moveOffCanvasMenu,

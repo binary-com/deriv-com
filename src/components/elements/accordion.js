@@ -156,7 +156,7 @@ const AccordionContent = ({ children, nodes }) => {
     }
 
     const render_nodes = React.Children.map(children, (child, child_idx) => {
-        const max_height = getHeight(child_idx)
+        const height = getHeight(child_idx)
         const is_expanded = child_idx === active_idx
 
         return (
@@ -190,8 +190,8 @@ const AccordionContent = ({ children, nodes }) => {
                         style={{
                             overflow: 'hidden',
                             /* prettier-ignore */
-                            transition: `max-height ${TRANSITION_DURATION} ms ease`,
-                            maxHeight: max_height,
+                            transition: `height ${TRANSITION_DURATION}ms ease`,
+                            height: height,
                         }}
                     >
                         {child}

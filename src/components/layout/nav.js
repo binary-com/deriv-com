@@ -17,6 +17,7 @@ import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
 import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
+import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 
 const NavWrapper = styled.div`
@@ -134,6 +135,15 @@ const HamburgerMenu = styled(Hamburger)`
     }
 `
 
+const CloseMenu = styled(Close)`
+    cursor: pointer;
+    display: none;
+    @media ${device.tabletL} {
+        display: block;
+        cursor: pointer;
+    }
+`
+
 const LogoLinkMobile = styled(LocalizedLink)`
     cursor: pointer;
     display: none;
@@ -187,9 +197,6 @@ export const Nav = () => {
 
     const handleLogin = () => {
         Login.redirectToLogin()
-    }
-    const handleMenuClick = () => {
-        is_canvas_menu_open ? closeOffCanvasMenu() : openOffCanvasMenu()
     }
     const handlePlatformsClick = () => {
         setIsPlatformsOpen(!is_platforms_open)
@@ -251,7 +258,11 @@ export const Nav = () => {
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
-                    <HamburgerMenu onClick={handleMenuClick} width="16px" />
+                    {is_canvas_menu_open ? (
+                        <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
+                    ) : (
+                        <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
+                    )}
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
                         <LogoOnly width="115px" />
                     </LogoLinkMobile>

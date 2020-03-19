@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { LocalizedLink, localize } from '../localization'
-import Arrow from 'images/svg/arrow.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -26,19 +25,16 @@ const StyledLink = styled(props => <LocalizedLink {...props} />)`
 const OffCanvasMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 3.6rem;
+    padding: 4rem 1.6rem;
 
     div {
         display: flex;
         flex-direction: column;
 
         a:first-child {
-            margin-top: 2.5rem;
+            margin-top: 0;
         }
     }
-`
-const BackArrow = styled(Arrow)`
-    cursor: pionter;
 `
 
 const OffCanvasMenuWrapper = props => {
@@ -64,7 +60,6 @@ const OffCanvasMenuWrapper = props => {
     return (
         <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
-                <BackArrow onClick={handleArrowClick} />
                 <div>
                     <StyledLink to="/about/" onClick={handleArrowClick}>
                         {localize('About us')}

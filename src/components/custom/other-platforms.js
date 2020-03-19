@@ -64,7 +64,6 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
     }
 `
 
-const NavContainer = styled(Flex)``
 export const TraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dtrader">
         <Card
@@ -146,13 +145,32 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
 SmarttraderCard.propTypes = { ...cardProptypes }
 
 export const NavPlatform = () => (
-    <NavContainer wrap="wrap">
+    <Flex wrap="wrap" mw='56.2rem'>
         <NavCard
             icon={DTrader}
             content={localize('A whole new trading experience on a powerful yet easy to use platform. ')}
             title={localize('DTrader')}
             to='/dtrader' />
-    </NavContainer>
+        <NavCard
+            icon={DMT5}
+            content={localize('A whole new trading experience on a powerful yet easy to use platform. ')}
+            title={localize('DMT5')}
+            to='/dtrader' />
+        <NavCard
+            icon={DBot}
+            content={localize('A whole new trading experience on a powerful yet easy to use platform. ')}
+            title={localize('DBot')}
+            to='/dtrader'
+            style={{ 'margin-top': '3.2rem' }}
+        />
+        <NavCard
+            icon={Smarttrader}
+            content={localize('A whole new trading experience on a powerful yet easy to use platform. ')}
+            title={localize('SmartTrader')}
+            to='/dtrader'
+            style={{ 'margin-top': '3.2rem' }}
+        />
+    </Flex>
 )
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (

@@ -43,8 +43,12 @@ const Wrapper = styled(Container)`
     justify-content: space-between;
     height: 7.2rem;
     overflow: hidden;
+
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
+    }
+    @media ${device.laptopL} {
+        width: 86%;
     }
 `
 const NavLeft = styled.div`

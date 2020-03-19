@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { LocalizedLink, localize } from '../localization'
+import { LocalizedLink, localize } from 'components/localization'
+import { Flex } from 'components/containers'
+import { Accordion, AccordionItem } from 'components/elements'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -16,7 +18,7 @@ const OffCanvasMenu = styled.section`
 `
 const StyledLink = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-black);
-    margin-top: 3.6rem;
+    margin-top: 2.4rem;
     font-size: 2rem;
     font-weight: 400;
     text-decoration: none;
@@ -36,6 +38,17 @@ const OffCanvasMenuContainer = styled.div`
         }
     }
 `
+
+const header_style = {
+    border: 'none',
+    padding: '0',
+    boxShadow: 'none',
+    flexDirection: 'row',
+}
+const content_style = {
+    marginLeft: '1.6rem',
+    marginBottom: '2.4rem',
+}
 
 const OffCanvasMenuWrapper = props => {
     const canvas = useRef()
@@ -60,14 +73,65 @@ const OffCanvasMenuWrapper = props => {
     return (
         <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
-                <div>
-                    <StyledLink to="/about/" onClick={handleArrowClick}>
-                        {localize('About us')}
-                    </StyledLink>
-                    <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                        {localize('Help Centre')}
-                    </StyledLink>
-                </div>
+                <Accordion>
+                    <AccordionItem
+                        header={localize('Trading platforms')}
+                        header_style={header_style}
+                        style={content_style}
+                    >
+                        <StyledLink to="/about/" onClick={handleArrowClick}>
+                            {localize('About us')}
+                        </StyledLink>
+                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                            {localize('Help Centre')}
+                        </StyledLink>
+                    </AccordionItem>
+                    {/* <AccordionItem
+                        header={localize('Markets')}
+                        header_style={header_style}
+                        style={content_style}
+                    >
+                        <StyledLink to="/about/" onClick={handleArrowClick}>
+                            {localize('About us')}
+                        </StyledLink>
+                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                            {localize('Help Centre')}
+                        </StyledLink>
+                    </AccordionItem> */}
+                    <AccordionItem
+                        header={localize('Company')}
+                        header_style={header_style}
+                        style={content_style}
+                    >
+                        <StyledLink to="/about/" onClick={handleArrowClick}>
+                            {localize('Why choose us')}
+                        </StyledLink>
+                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                            {localize('Our story')}
+                        </StyledLink>
+                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                            {localize('Our leadership')}
+                        </StyledLink>
+                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                            {localize('Join us')}
+                        </StyledLink>
+                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                            {localize('Contact us')}
+                        </StyledLink>
+                    </AccordionItem>
+                    <AccordionItem
+                        header={localize('Legal')}
+                        header_style={header_style}
+                        style={content_style}
+                    >
+                        <StyledLink to="/about/" onClick={handleArrowClick}>
+                            {localize('About us')}
+                        </StyledLink>
+                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                            {localize('Help Centre')}
+                        </StyledLink>
+                    </AccordionItem>
+                </Accordion>
             </OffCanvasMenuContainer>
         </OffCanvasMenu>
     )

@@ -141,8 +141,8 @@ const Content = ({ content }) => (
         {Array.isArray(content) ? (
             content.map(text => <CardContent key={text}>{text}</CardContent>)
         ) : (
-            <CardContent>{content}</CardContent>
-        )}
+                <CardContent>{content}</CardContent>
+            )}
     </>
 )
 
@@ -186,8 +186,8 @@ export const Card = ({
                                             </h4>
                                         </Flex>
                                     ) : (
-                                        <h4>{cover_content}</h4>
-                                    )}
+                                            <h4>{cover_content}</h4>
+                                        )}
                                     <Arrow />
                                 </div>
                             </CardCover>
@@ -204,16 +204,16 @@ export const Card = ({
                             </IconContainer>
                         </>
                     ) : (
-                        <>
-                            <Icon />
-                            <ContentWrapper>
-                                <Header as="h4" weight="bold">
-                                    {title}
-                                </Header>
-                                <Content content={content} />
-                            </ContentWrapper>
-                        </>
-                    )}
+                            <>
+                                <Icon />
+                                <ContentWrapper>
+                                    <Header as="h4" weight="bold">
+                                        {title}
+                                    </Header>
+                                    <Content content={content} />
+                                </ContentWrapper>
+                            </>
+                        )}
                 </>
             )}
             {children && children}
@@ -253,4 +253,24 @@ CardChildren.propTypes = {
     icon_width: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
+}
+
+const NavCardSection = styled(Flex)`
+    max-width: 27.3rem;
+`
+const NavContent = styled.div`
+    width: 100%;
+    max-width: 25.3rem;
+`
+export const NavCard = ({ icon, title, content }) => {
+    const NavIcon = styled(icon)``
+    return (
+        <NavCardSection direction='row' jc='space-between'>
+            <NavIcon />
+            <NavContent>
+                <Header font_size='var(--text-size-sx)'>{localize(title)}</Header>
+                <Text size='var(--text-size-xxs)'>{localize(content)}</Text>
+            </NavContent>
+        </NavCardSection>
+    )
 }

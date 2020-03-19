@@ -64,15 +64,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
     }
 `
 
-const NavContainer = styled(Flex)`
-    & article {
-        width: 33.2rem;
-        box-shadow: none;
-    }
-    & p {
-        font-size: 1.3rem;
-    }
-`
+const NavContainer = styled(Flex)``
 export const TraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dtrader">
         <Card

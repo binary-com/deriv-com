@@ -44,17 +44,8 @@ const Wrapper = styled(Container)`
     justify-content: space-between;
     height: 7.2rem;
     overflow: hidden;
-    width: 100%;
-    
-    @media ${device.desktopL} {
-        max-width: 1800px;
-    }
-    @media ${device.desktop} {
-        max-width: 1440px;
-    }
     @media ${device.laptopL} {
-        max-width: 1200px;
-        width: 86%;
+        width: 90%;
     }
     @media ${device.laptop} {
         font-size: var(--text-size-xxs);
@@ -102,16 +93,16 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${props => {
-            if (props.move) {
-                return 0
-            } else {
-                if (props.button_ref.current && props.mounted) {
-                    const calculation = props.button_ref.current.offsetWidth + 2
-                    return `${calculation}px`
-                }
-                return '350px'
+        if (props.move) {
+            return 0
+        } else {
+            if (props.button_ref.current && props.mounted) {
+                const calculation = props.button_ref.current.offsetWidth + 2
+                return `${calculation}px`
             }
-        }}
+            return '350px'
+        }
+    }}
     );
     @media ${device.tabletL} {
         display: none;
@@ -273,8 +264,8 @@ export const Nav = () => {
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                     ) : (
-                        <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
-                    )}
+                            <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
+                        )}
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
                         <LogoOnly width="115px" />
                     </LogoLinkMobile>

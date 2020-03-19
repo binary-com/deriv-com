@@ -44,16 +44,8 @@ const NavDropdown = styled.div`
 const StyledContainer = styled(Container)`
     justify-content: center;
     width: 100%;
-
-    @media ${device.desktopL} {
-        max-width: 1800px;
-    }
-    @media ${device.desktop} {
-        max-width: 1440px;
-    }
     @media ${device.laptopL} {
-        max-width: 1200px;
-        width: 86%;
+        width: 90%;
     }
 
     .active {

@@ -28,7 +28,7 @@ const ContactUs = () => {
                 title={localize('Contact Us | Online Trading')}
             />
             <HeroWrapper>
-                <Header as="h1">{localize('Contact us')}</Header>`
+                <Header as="h1">{localize('Contact us')}</Header>
                 <Text
                     align="center"
                     secondary="true"

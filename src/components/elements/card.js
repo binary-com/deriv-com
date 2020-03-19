@@ -262,16 +262,22 @@ const NavContent = styled.div`
     max-width: 21.3rem;
     display: flex;
     flex-direction: column;
-
-    ${Text} {
-        font-size: var(--text-size-xxs);
-        color: var(--color-grey-5);
-    }
 `
 const RightDiagonal = styled(Diagonal)`
     position: absolute;
     right: 0;
     top: 0;
+`
+
+const ResponsiveHeader = styled(Header)`
+    @media ${device.tabletS} {
+        font-size: 16px;
+    }
+`
+const ResponsiveText = styled(Text)`
+    @media ${device.tabletS} {
+        font-size: 10.5px;
+    }
 `
 export const NavCard = ({ icon, title, content, to, style, external }) => {
     const NavIcon = styled(icon)`
@@ -297,10 +303,12 @@ export const NavCard = ({ icon, title, content, to, style, external }) => {
             <Flex jc="flex-start" direction="row" tablet_direction="row">
                 <NavIcon />
                 <NavContent>
-                    <Header font_size="var(--text-size-xs)" lh="1.14" margin="0 0 0.8rem">
+                    <ResponsiveHeader font_size="var(--text-size-xs)" lh="1.14" margin="0 0 0.8rem">
                         {title}
-                    </Header>
-                    <Text>{content}</Text>
+                    </ResponsiveHeader>
+                    <ResponsiveText size="var(--text-size-xxs)" color="grey-5">
+                        {content}
+                    </ResponsiveText>
                 </NavContent>
             </Flex>
         </LocalizedLink>

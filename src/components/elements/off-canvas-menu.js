@@ -21,12 +21,17 @@ const OffCanvasMenu = styled.section`
     left: ${props => (props.is_canvas_menu_open ? '0' : '-253px')};
 `
 const StyledLink = styled(props => <LocalizedLink {...props} />)`
-    color: var(--color-black);
+    color: var(--color-black-3);
     margin-top: 2.4rem;
     font-size: 2rem;
     font-weight: 400;
     text-decoration: none;
     line-height: 2.8rem;
+`
+
+const SingleLink = styled(StyledLink)`
+    font-weight: bold;
+    margin-top: 1.6rem;
 `
 const OffCanvasMenuContainer = styled.div`
     display: flex;
@@ -50,6 +55,8 @@ const content_style = {
     marginLeft: '1.6rem',
     marginBottom: '2.4rem',
     marginTop: '0.8rem',
+    flexDirection: 'column',
+    display: 'flex',
 }
 
 const OffCanvasMenuWrapper = props => {
@@ -137,10 +144,10 @@ const OffCanvasMenuWrapper = props => {
                         <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
                             {localize('Our leadership')}
                         </StyledLink>
-                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                            {localize('Join us')}
+                        <StyledLink to="/careers/" onClick={handleArrowClick}>
+                            {localize('Careers')}
                         </StyledLink>
-                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                        <StyledLink to="/contact-us/" onClick={handleArrowClick}>
                             {localize('Contact us')}
                         </StyledLink>
                     </AccordionItem>
@@ -149,14 +156,20 @@ const OffCanvasMenuWrapper = props => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/about/" onClick={handleArrowClick}>
-                            {localize('About us')}
+                        <StyledLink to="/regulatory/" onClick={handleArrowClick}>
+                            {localize('Regulatory information')}
                         </StyledLink>
-                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                            {localize('Help Centre')}
+                        <StyledLink to="/terms-and-conditions/" onClick={handleArrowClick}>
+                            {localize('Terms and conditions')}
+                        </StyledLink>
+                        <StyledLink to="/responsible-trading/" onClick={handleArrowClick}>
+                            {localize('Secure and responsible trading')}
                         </StyledLink>
                     </AccordionItem>
                 </Accordion>
+                <SingleLink weight="bold" to="/help-centre/" onClick={handleArrowClick}>
+                    {localize('Help centre')}
+                </SingleLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenu>
     )

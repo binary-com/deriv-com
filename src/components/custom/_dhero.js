@@ -41,6 +41,7 @@ const TryForFree = styled(LinkButton)`
         width: 100%;
         margin-top: 18.5rem;
         max-width: 47rem;
+        margin-bottom: 2.4rem;
     }
 `
 const StyledContainer = styled(Container)`
@@ -78,6 +79,8 @@ const InformationWrapper = styled(Flex)`
 const LinkWrapper = styled.div`
     @media ${device.tabletL} {
         text-align: center;
+        display: flex;
+        flex-direction: column;
     }
 `
 const DHero = ({

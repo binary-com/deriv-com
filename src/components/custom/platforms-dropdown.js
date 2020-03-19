@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { Container, Show } from 'components/containers'
 import { NavPlatform } from 'components/custom/other-platforms.js'
+import { Text, Header } from 'components/elements/typography'
 import device from 'themes/device'
 
 const FadeInDown = keyframes`
@@ -44,27 +45,35 @@ const StyledContainer = styled(Container)`
     justify-content: center;
     width: 100%;
 
+    @media ${device.desktopL} {
+        max-width: 1800px;
+    }
     @media ${device.desktop} {
         max-width: 1440px;
     }
     @media ${device.laptopL} {
-        max-width: 1440px;
-    }
-    @media ${device.desktopL} {
-        max-width: 1800px;
+        max-width: 1200px;
+        width: 86%;
     }
 
     .active {
         border: 0.2rem solid var(--color-green);
     }
 `
-
+const PlatformInfo = styled.div`
+    width: 100%;
+    max-width: 37.7rem;
+`
 // eslint-disable-next-line react/prop-types
 const PlatformsDropdown = ({ is_open, has_animation }) => {
     return (
         <Show.Desktop>
             <NavDropdown is_open={is_open} has_animation={has_animation}>
                 <StyledContainer>
+                    <PlatformInfo>
+                        <Header as='h4'>Trading platforms</Header>
+                        <Text size='var(--text-size-xs)'>Be in full control of your trading with our new and improved platforms.</Text>
+                    </PlatformInfo>
                     <NavPlatform />
                 </StyledContainer>
             </NavDropdown>

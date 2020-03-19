@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
-import { Card, Header } from 'components/elements'
+import { Card, Header, NavCard } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // icons
@@ -155,10 +155,11 @@ SmarttraderCard.propTypes = { ...cardProptypes }
 
 export const NavPlatform = () => (
     <NavContainer wrap="wrap">
-        <TraderCard word_break_cover />
-        <BotCard word_break_cover />
-        <DMT5Card word_break_cover />
-        <SmarttraderCard word_break_cover />
+        <NavCard
+            icon={DTrader}
+            content={localize('A whole new trading experience on a powerful yet easy to use platform. ')}
+            title={localize('DTrader')}
+            to='/dtrader' />
     </NavContainer>
 )
 

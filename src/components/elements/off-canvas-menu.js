@@ -1,20 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { LocalizedLink, localize } from 'components/localization'
 import { Flex } from 'components/containers'
-import { Accordion, AccordionItem } from 'components/elements'
+import { LocalizedLink, localize } from 'components/localization'
+import { Accordion, AccordionItem, NavCard } from 'components/elements'
+import DTrader from 'images/svg/dtrader-icon.svg'
+import DMT5 from 'images/svg/dmt5-icon.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import Smarttrader from 'images/svg/smarttrader.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
     background-color: var(--color-white);
     top: 7.2rem;
     height: 100vh;
-    width: 238px;
+    width: 253px;
     opacity: 0.98;
     transition: left 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    left: ${props => (props.is_canvas_menu_open ? '0' : '-238px')};
+    left: ${props => (props.is_canvas_menu_open ? '0' : '-253px')};
 `
 const StyledLink = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-black);
@@ -30,9 +34,6 @@ const OffCanvasMenuContainer = styled.div`
     padding: 4rem 1.6rem;
 
     div {
-        display: flex;
-        flex-direction: column;
-
         a:first-child {
             margin-top: 0;
         }
@@ -48,6 +49,7 @@ const header_style = {
 const content_style = {
     marginLeft: '1.6rem',
     marginBottom: '2.4rem',
+    marginTop: '0.8rem',
 }
 
 const OffCanvasMenuWrapper = props => {
@@ -79,25 +81,48 @@ const OffCanvasMenuWrapper = props => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/about/" onClick={handleArrowClick}>
-                            {localize('About us')}
-                        </StyledLink>
-                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                            {localize('Help Centre')}
-                        </StyledLink>
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                icon={DTrader}
+                                content={localize(
+                                    'A whole new trading experience on a powerful yet easy to use platform. ',
+                                )}
+                                title={localize('DTrader')}
+                                to="/dtrader"
+                            />
+                        </Flex>
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                icon={DBot}
+                                content={localize(
+                                    'Automated trading at your fingertips. No coding needed.',
+                                )}
+                                title={localize('DBot')}
+                                to="/dbot"
+                            />
+                        </Flex>
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                icon={DMT5}
+                                content={localize(
+                                    'The platform of choice for professionals worldwide.',
+                                )}
+                                title={localize('DMT5')}
+                                to="/dmt5"
+                            />
+                        </Flex>
+                        <Flex>
+                            <NavCard
+                                icon={Smarttrader}
+                                content={localize(
+                                    'Trade the world’s markets with a simple and familiar platform. ',
+                                )}
+                                title={localize('SmartTrader')}
+                                to="https://smarttrader.deriv.app"
+                                external
+                            />
+                        </Flex>
                     </AccordionItem>
-                    {/* <AccordionItem
-                        header={localize('Markets')}
-                        header_style={header_style}
-                        style={content_style}
-                    >
-                        <StyledLink to="/about/" onClick={handleArrowClick}>
-                            {localize('About us')}
-                        </StyledLink>
-                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                            {localize('Help Centre')}
-                        </StyledLink>
-                    </AccordionItem> */}
                     <AccordionItem
                         header={localize('Company')}
                         header_style={header_style}
@@ -106,10 +131,10 @@ const OffCanvasMenuWrapper = props => {
                         <StyledLink to="/about/" onClick={handleArrowClick}>
                             {localize('Why choose us')}
                         </StyledLink>
-                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                        <StyledLink to="/about/#story" onClick={handleArrowClick}>
                             {localize('Our story')}
                         </StyledLink>
-                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                        <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
                             {localize('Our leadership')}
                         </StyledLink>
                         <StyledLink to="/help-centre/" onClick={handleArrowClick}>

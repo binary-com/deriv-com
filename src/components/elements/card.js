@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
-import { Flex } from 'components/containers'
+import { Flex, Show } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import Arrow from 'images/svg/card-arrow.svg'
@@ -143,8 +143,8 @@ const Content = ({ content }) => (
         {Array.isArray(content) ? (
             content.map(text => <CardContent key={text}>{text}</CardContent>)
         ) : (
-                <CardContent>{content}</CardContent>
-            )}
+            <CardContent>{content}</CardContent>
+        )}
     </>
 )
 
@@ -188,8 +188,8 @@ export const Card = ({
                                             </h4>
                                         </Flex>
                                     ) : (
-                                            <h4>{cover_content}</h4>
-                                        )}
+                                        <h4>{cover_content}</h4>
+                                    )}
                                     <Arrow />
                                 </div>
                             </CardCover>
@@ -206,16 +206,16 @@ export const Card = ({
                             </IconContainer>
                         </>
                     ) : (
-                            <>
-                                <Icon />
-                                <ContentWrapper>
-                                    <Header as="h4" weight="bold">
-                                        {title}
-                                    </Header>
-                                    <Content content={content} />
-                                </ContentWrapper>
-                            </>
-                        )}
+                        <>
+                            <Icon />
+                            <ContentWrapper>
+                                <Header as="h4" weight="bold">
+                                    {title}
+                                </Header>
+                                <Content content={content} />
+                            </ContentWrapper>
+                        </>
+                    )}
                 </>
             )}
             {children && children}
@@ -260,6 +260,8 @@ CardChildren.propTypes = {
 const NavContent = styled.div`
     width: 100%;
     max-width: 21.3rem;
+    display: flex;
+    flex-direction: column;
 
     ${Text} {
         font-size: var(--text-size-xxs);
@@ -271,19 +273,33 @@ const RightDiagonal = styled(Diagonal)`
     right: 0;
     top: 0;
 `
-export const NavCard = ({ icon, title, content, to }) => {
+export const NavCard = ({ icon, title, content, to, style, external }) => {
     const NavIcon = styled(icon)`
         width: 24px;
         height: 24px;
         margin-right: 1.6rem;
     `
     return (
-        <LocalizedLink to={to} style={{ textDecoration: 'none', width: '100%', maxWidth: '27.7rem', position: 'relative' }}>
-            <RightDiagonal />
-            <Flex direction='row' jc='flex-start' p='4px 0 0 0'>
+        <LocalizedLink
+            to={to}
+            style={{
+                textDecoration: 'none',
+                width: '100%',
+                maxWidth: '27.7rem',
+                position: 'relative',
+                ...style,
+            }}
+            external={external}
+        >
+            <Show.Desktop>
+                <RightDiagonal />
+            </Show.Desktop>
+            <Flex jc="flex-start" direction="row" tablet_direction="row">
                 <NavIcon />
                 <NavContent>
-                    <Header font_size='var(--text-size-xs)' lh='1.14'>{title}</Header>
+                    <Header font_size="var(--text-size-xs)" lh="1.14" margin="0 0 0.8rem">
+                        {title}
+                    </Header>
                     <Text>{content}</Text>
                 </NavContent>
             </Flex>
@@ -293,7 +309,9 @@ export const NavCard = ({ icon, title, content, to }) => {
 
 NavCard.propTypes = {
     content: PropTypes.string,
+    external: PropTypes.bool,
     icon: PropTypes.object,
+    style: PropTypes.object,
     title: PropTypes.string,
     to: PropTypes.string,
 }

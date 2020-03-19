@@ -274,6 +274,17 @@ const RightDiagonal = styled(Diagonal)`
     top: 0;
     visibility: ${props => props.visibility};
 `
+
+const ResponsiveHeader = styled(Header)`
+    @media ${device.tabletS} {
+        font-size: 16px;
+    }
+`
+const ResponsiveText = styled(Text)`
+    @media ${device.tabletS} {
+        font-size: 10.5px;
+    }
+`
 export const NavCard = ({ icon, title, content, to, style, external }) => {
     const [visibility, setVisibility] = React.useState('hidden');
     const [color, setColor] = React.useState('var(--color-grey-5)');
@@ -314,10 +325,12 @@ export const NavCard = ({ icon, title, content, to, style, external }) => {
                 onMouseLeave={() => onMouseLeave()}>
                 <NavIcon />
                 <NavContent color={color}>
-                    <Header font_size="var(--text-size-xs)" lh="1.14" margin="0 0 0.8rem">
+                    <ResponsiveHeader font_size="var(--text-size-xs)" lh="1.14" margin="0 0 0.8rem">
                         {title}
-                    </Header>
-                    <Text>{content}</Text>
+                    </ResponsiveHeader>
+                    <ResponsiveText size="var(--text-size-xxs)" color="grey-5">
+                        {content}
+                    </ResponsiveText>
                 </NavContent>
             </Flex>
         </LocalizedLink>

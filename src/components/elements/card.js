@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
 import { Flex } from 'components/containers'
+import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import Arrow from 'images/svg/card-arrow.svg'
+import Diagonal from 'images/svg/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -255,22 +257,43 @@ CardChildren.propTypes = {
     width: PropTypes.string,
 }
 
-const NavCardSection = styled(Flex)`
-    max-width: 27.3rem;
-`
 const NavContent = styled.div`
     width: 100%;
-    max-width: 25.3rem;
+    max-width: 21.3rem;
+
+    ${Text} {
+        font-size: var(--text-size-xxs);
+        color: var(--color-grey-5);
+    }
 `
-export const NavCard = ({ icon, title, content }) => {
-    const NavIcon = styled(icon)``
+const RightDiagonal = styled(Diagonal)`
+    position: absolute;
+    right: 0;
+    top: 0;
+`
+export const NavCard = ({ icon, title, content, to }) => {
+    const NavIcon = styled(icon)`
+        width: 24px;
+        height: 24px;
+        margin-right: 1.6rem;
+    `
     return (
-        <NavCardSection direction='row' jc='space-between'>
-            <NavIcon />
-            <NavContent>
-                <Header font_size='var(--text-size-sx)'>{localize(title)}</Header>
-                <Text size='var(--text-size-xxs)'>{localize(content)}</Text>
-            </NavContent>
-        </NavCardSection>
+        <LocalizedLink to={to} style={{ textDecoration: 'none', width: '100%', maxWidth: '27.7rem', position: 'relative' }}>
+            <RightDiagonal />
+            <Flex direction='row' jc='flex-start' p='4px 0 0 0'>
+                <NavIcon />
+                <NavContent>
+                    <Header font_size='var(--text-size-xs)' lh='1.14'>{title}</Header>
+                    <Text>{content}</Text>
+                </NavContent>
+            </Flex>
+        </LocalizedLink>
     )
+}
+
+NavCard.propTypes = {
+    content: PropTypes.string,
+    icon: PropTypes.object,
+    title: PropTypes.string,
+    to: PropTypes.string,
 }

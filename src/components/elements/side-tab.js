@@ -51,7 +51,7 @@ const StyledTab = styled.li`
     & > p {
         color: var(--color-black-3);
         opacity: 0.32;
-        font-size: ${props => props.font_size || 'var(--text-size-m)'};
+        font-size: ${props => props.font_size || 'var(--text-size-s)'};
         max-width: 38.4rem;
         line-height: 30px;
 

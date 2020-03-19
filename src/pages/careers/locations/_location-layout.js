@@ -156,7 +156,7 @@ export const LocationLayout = ({ location, images }) => {
                         {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">
-                        <Text secondary>{location.first_p}</Text>
+                        <Text size="var(--text-size-sm)">{location.first_p}</Text>
                         <ImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}

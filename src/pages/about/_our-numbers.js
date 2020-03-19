@@ -13,7 +13,7 @@ const OurNumbersWrapper = styled.section`
 `
 
 const StyledHeader = styled(Header)`
-    margin-top: 1.6rem;
+    margin-top: 0.8rem;
     max-width: 98.4rem;
 `
 

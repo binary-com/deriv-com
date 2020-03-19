@@ -5,6 +5,7 @@ import device from 'themes/device'
 const Flex = styled(Box)`
     display: flex;
     width: ${props => (props.width ? props.width : '100%')};
+    height: ${props => (props.height ? props.height : '100%')};
     flex-wrap: ${props => (props.wrap ? props.wrap : '')};
     justify-content: ${props => (props.jc ? props.jc : 'center')};
     align-items: ${props => (props.ai ? props.ai : '')};

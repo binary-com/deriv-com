@@ -91,7 +91,7 @@ const DerivAffiliateProgramme = () => {
         <StyledSection>
             <Container direction="column">
                 <TitleWrapper>
-                    <Header size="3.6rem" align="center" as="h3">
+                    <Header size="3.6rem" align="center" as="h3" mb="1.6rem">
                         {localize('Deriv Affiliate Programme')}
                     </Header>
                     <Header as="h4" align="center" weight="500">

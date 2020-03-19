@@ -42,6 +42,9 @@ const Europe = styled(EU)`
     max-width: 100%;
     margin: 0;
 `
+const MaxText = styled(Text)`
+    max-width: 62.2rem;
+`
 // will be added once the proper documents are ready
 // const AccordionWrapper = styled(Flex)`
 //     @media ${device.tabletL} {
@@ -162,7 +165,7 @@ const Regulatory = () => (
                             <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
                                 {localize('Binary (FX) Ltd')}
                             </StyledHeader>
-                            <Text lh="1.55" mt="0.8rem">
+                            <MaxText lh="1.55" mt="0.8rem">
                                 <Localize
                                     translate_text="Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia. Licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business <0>licence no. MB/18/0024</0>."
                                     components={[
@@ -176,12 +179,12 @@ const Regulatory = () => (
                                         />,
                                     ]}
                                 />
-                            </Text>
-                            <Text lh="1.55" mt="2rem">
+                            </MaxText>
+                            <MaxText lh="1.55" mt="2rem">
                                 {localize(
                                     'Clients who wish to trade FX and CFDs with straight-through processing will have their account opened with Binary (FX) Ltd.',
                                 )}
-                            </Text>
+                            </MaxText>
                         </CssGridColumn>
                         <CssGridColumn align="center">
                             <Vanuatu />
@@ -190,7 +193,7 @@ const Regulatory = () => (
                             <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
                                 {localize('Binary (V) Ltd')}
                             </StyledHeader>
-                            <Text lh="1.55" mt="0.8rem">
+                            <MaxText lh="1.55" mt="0.8rem">
                                 <Localize
                                     translate_text="Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu. Licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>."
                                     components={[
@@ -204,7 +207,7 @@ const Regulatory = () => (
                                         />,
                                     ]}
                                 />
-                            </Text>
+                            </MaxText>
                         </CssGridColumn>
                         {/* Will be added later */}
                         {/* <CssGridColumn align="center">
@@ -228,7 +231,7 @@ const Regulatory = () => (
                             <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
                                 {localize('Binary (BVI) Ltd')}
                             </StyledHeader>
-                            <Text lh="1.55" mt="0.8rem">
+                            <MaxText lh="1.55" mt="0.8rem">
                                 <Localize
                                     translate_text="Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands. Licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
                                     components={[
@@ -242,7 +245,7 @@ const Regulatory = () => (
                                         />,
                                     ]}
                                 />
-                            </Text>
+                            </MaxText>
                         </CssGridColumn>
                     </CssGrid>
                 </Box>

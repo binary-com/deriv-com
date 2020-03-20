@@ -113,7 +113,7 @@ const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
     text-align: left;
-    margin-right: 6rem;
+    margin-right: 2.4rem;
 
     &:last-child {
         margin-right: 0;
@@ -304,6 +304,11 @@ export const Nav = () => {
                                 ref={link_company_ref}
                             >
                                 {localize('Company')}
+                            </StyledButton>
+                        </NavLink>
+                        <NavLink onClick={handleCompanyClick}>
+                            <StyledButton aria-label={localize('Resources')}>
+                                {localize('Resources')}
                             </StyledButton>
                         </NavLink>
                     </NavCenter>

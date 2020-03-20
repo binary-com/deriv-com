@@ -347,46 +347,55 @@ NavCard.propTypes = {
     to: PropTypes.string,
 }
 
-export const CardLink = ({ title, to, style, external }) => {
-    const [visibility, setVisibility] = React.useState('hidden')
-    const [color, setColor] = React.useState('var(--color-grey-5)')
+const LinkRightDiagonal = styled(RightDiagonal)`
+    right: -25px;
+    top: -5px;
+    visibility: hidden;
+`
 
-    const onMouseEnter = () => {
-        setVisibility('show')
-        setColor('var(--color-red)')
+const HoverFlex = styled(Flex)`
+    &:hover {
+        ${ResponsiveHeader} {
+            color: var(--color-red);
+            font-weight: bold;
+        }
+        ${LinkRightDiagonal} {
+            visibility: visible;
+        }
     }
-    const onMouseLeave = () => {
-        setVisibility('hidden')
-        setColor('var(--color-grey-5)')
-    }
+`
+
+const RelativeFlex = styled(Flex)`
+    position: relative;
+`
+
+export const CardLink = ({ title, to, style, external }) => {
     return (
         <LocalizedLink
             to={to}
             style={{
                 textDecoration: 'none',
                 width: '100%',
-                maxWidth: '27.7rem',
+                maxWidth: '20rem',
                 position: 'relative',
                 ...style,
             }}
             external={external}
         >
-            <Show.Desktop>
-                <RightDiagonal visibility={visibility} />
-            </Show.Desktop>
-            <Flex
-                jc="flex-start"
-                direction="row"
-                tablet_direction="row"
-                onMouseEnter={() => onMouseEnter()}
-                onMouseLeave={() => onMouseLeave()}
-            >
-                <NavContent color={color}>
-                    <ResponsiveHeader font_size="var(--text-size-xs)" lh="1.14" margin="0 0 1.6rem">
+            <HoverFlex jc="flex-start" direction="row" tablet_direction="row">
+                <RelativeFlex jc="flex-start" width="auto">
+                    <ResponsiveHeader
+                        color="black-3"
+                        font_size="var(--text-size-xs)"
+                        lh="1.14"
+                        margin="0 0 1.6rem"
+                        weight="normal"
+                    >
                         {title}
                     </ResponsiveHeader>
-                </NavContent>
-            </Flex>
+                    <LinkRightDiagonal />
+                </RelativeFlex>
+            </HoverFlex>
         </LocalizedLink>
     )
 }

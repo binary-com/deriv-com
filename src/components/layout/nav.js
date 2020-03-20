@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
+import { NavPlatform, NavMarket } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
@@ -93,16 +94,16 @@ const NavRight = styled.div`
     }};
     transform: translateX(
         ${props => {
-        if (props.move) {
-            return 0
-        } else {
-            if (props.button_ref.current && props.mounted) {
-                const calculation = props.button_ref.current.offsetWidth + 2
-                return `${calculation}px`
+            if (props.move) {
+                return 0
+            } else {
+                if (props.button_ref.current && props.mounted) {
+                    const calculation = props.button_ref.current.offsetWidth + 2
+                    return `${calculation}px`
+                }
+                return '350px'
             }
-            return '350px'
-        }
-    }}
+        }}
     );
     @media ${device.tabletL} {
         display: none;
@@ -169,16 +170,22 @@ const handleScroll = (show, hide) => {
 }
 
 export const Nav = () => {
-    const nav_ref = useRef(null)
     const button_ref = useRef(null)
-    const [is_platforms_open, setIsPlatformsOpen] = useState(false)
-    const [has_animation, setHasAnimation] = useState(false)
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
 
-    const closePlatforms = () => setIsPlatformsOpen(false)
-    useOutsideClick(nav_ref, closePlatforms)
+    // trade
+    const trade_ref = useRef(null)
+    const link_trade_ref = useRef(null)
+    const [is_trade_open, setIsTradeOpen] = useState(false)
+    const [has_trade_animation, setHasTradeAnimation] = useState(false)
+    const closeTrade = () => setIsTradeOpen(false)
+    useOutsideClick(trade_ref, closeTrade, link_trade_ref)
+    const handleTradeClick = () => {
+        setIsTradeOpen(!is_trade_open)
+        setHasTradeAnimation(true)
+    }
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -201,18 +208,16 @@ export const Nav = () => {
     const handleLogin = () => {
         Login.redirectToLogin()
     }
-    const handlePlatformsClick = () => {
-        setIsPlatformsOpen(!is_platforms_open)
-        setHasAnimation(true)
-    }
-    const handleNormalLink = () => {
-        setHasAnimation(false)
-    }
 
     return (
-        <NavWrapper ref={nav_ref}>
+        <NavWrapper>
             <StyledNav>
-                <PlatformsDropdown is_open={is_platforms_open} has_animation={has_animation} />
+                <PlatformsDropdown
+                    forward_ref={trade_ref}
+                    is_open={is_trade_open}
+                    has_animation={has_trade_animation}
+                    Content={NavPlatform}
+                />
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
@@ -220,30 +225,10 @@ export const Nav = () => {
                         </LogoLink>
                     </NavLeft>
                     <NavCenter>
-                        <NavLink onClick={handlePlatformsClick}>
-                            <StyledButton aria-label={localize('Trade')} activeClassName="active">
+                        <NavLink onClick={handleTradeClick} ref={link_trade_ref}>
+                            <StyledButton aria-label={localize('Trade')} active={is_trade_open}>
                                 {localize('Trade')}
                             </StyledButton>
-                        </NavLink>
-                        <NavLink onClick={handleNormalLink} margin>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/about/"
-                                aria-label={localize('About us')}
-                                partiallyActive={true}
-                            >
-                                {localize('About us')}
-                            </StyledLink>
-                        </NavLink>
-                        <NavLink>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/help-centre/"
-                                aria-label={localize('Help Centre')}
-                                partiallyActive={true}
-                            >
-                                {localize('Help Centre')}
-                            </StyledLink>
                         </NavLink>
                     </NavCenter>
                     <NavRight
@@ -264,8 +249,8 @@ export const Nav = () => {
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                     ) : (
-                            <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
-                        )}
+                        <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
+                    )}
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
                         <LogoOnly width="115px" />
                     </LogoLinkMobile>

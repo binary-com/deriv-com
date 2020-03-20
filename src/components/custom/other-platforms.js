@@ -10,6 +10,7 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
+import Forex from 'images/svg/market-forex.svg'
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
@@ -156,6 +157,47 @@ export const NavPlatform = () => (
             to="/dtrader"
         />
 
+        <NavCard
+            icon={DMT5}
+            content={localize(
+                'A whole new trading experience on a powerful yet easy to use platform. ',
+            )}
+            title={localize('DMT5')}
+            to="/dmt5"
+        />
+        <NavCard
+            icon={DBot}
+            content={localize(
+                'A whole new trading experience on a powerful yet easy to use platform. ',
+            )}
+            title={localize('DBot')}
+            to="/dbot"
+            style={{ 'margin-top': '3.2rem', 'margin-right': '5.6rem' }}
+        />
+        <NavCard
+            icon={Smarttrader}
+            content={localize(
+                'A whole new trading experience on a powerful yet easy to use platform. ',
+            )}
+            title={localize('SmartTrader')}
+            to="https://smarttrader.deriv.app"
+            style={{ 'margin-top': '3.2rem' }}
+            external
+        />
+    </Flex>
+)
+
+export const NavMarket = () => (
+    <Flex wrap="wrap" jc="flex-start">
+        <NavCard
+            icon={Forex}
+            content={localize(
+                'Trade the world’s largest financial market with popular forex pairs.',
+            )}
+            title={localize('Forex')}
+            style={{ 'margin-right': '5.6rem' }}
+            to="/markets/#trade"
+        />
         <NavCard
             icon={DMT5}
             content={localize(

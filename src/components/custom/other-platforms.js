@@ -145,7 +145,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
 SmarttraderCard.propTypes = { ...cardProptypes }
 
 export const NavPlatform = () => (
-    <Flex wrap="wrap">
+    <Flex wrap="wrap" jc="flex-start">
         <NavCard
             icon={DTrader}
             content={localize(

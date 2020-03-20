@@ -288,7 +288,7 @@ export const Nav = () => {
                         is_open={is_company_open}
                         has_animation={has_company_animation}
                         Content={NavCompany}
-                        title={localize('Company')}
+                        title={localize('About us')}
                         description={localize(
                             "Get to know our leadership team, learn about our history, and see why we're different.",
                         )}

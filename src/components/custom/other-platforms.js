@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
-import { Card, Header, NavCard } from 'components/elements'
+import { Card, Header, NavCard, CardLink } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // icons
@@ -148,6 +148,37 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
 )
 SmarttraderCard.propTypes = { ...cardProptypes }
 
+export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
+    <SectionContainer padding="0">
+        {is_nav ? null : (
+            <HeaderWrapper>
+                <StyledHeader font_size="4.8rem" align="center" lh="5rem">
+                    {header ? header : localize('Check out our other platforms')}
+                </StyledHeader>
+                {subHeader && (
+                    <StyledSubHeader as="h4" align="center" weight="500" maxWidth="67.6rem">
+                        {localize(
+                            'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
+                        )}
+                    </StyledSubHeader>
+                )}
+            </HeaderWrapper>
+        )}
+        <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
+            {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
+            {exclude.toLowerCase() !== 'dbot' && <BotCard />}
+            {exclude.toLowerCase() !== 'dmt5' && <DMT5Card />}
+        </StyledFlexGridContainer>
+    </SectionContainer>
+)
+
+OtherPlatform.propTypes = {
+    exclude: PropTypes.string,
+    header: PropTypes.string,
+    is_nav: PropTypes.bool,
+    subHeader: PropTypes.string,
+}
+
 export const NavPlatform = () => (
     <Flex wrap="wrap" jc="flex-start">
         <NavCard
@@ -226,33 +257,8 @@ export const NavMarket = () => (
     </Flex>
 )
 
-export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
-    <SectionContainer padding="0">
-        {is_nav ? null : (
-            <HeaderWrapper>
-                <StyledHeader font_size="4.8rem" align="center" lh="5rem">
-                    {header ? header : localize('Check out our other platforms')}
-                </StyledHeader>
-                {subHeader && (
-                    <StyledSubHeader as="h4" align="center" weight="500" maxWidth="67.6rem">
-                        {localize(
-                            'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
-                        )}
-                    </StyledSubHeader>
-                )}
-            </HeaderWrapper>
-        )}
-        <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
-            {exclude.toLowerCase() !== 'dtrader' && <TraderCard />}
-            {exclude.toLowerCase() !== 'dbot' && <BotCard />}
-            {exclude.toLowerCase() !== 'dmt5' && <DMT5Card />}
-        </StyledFlexGridContainer>
-    </SectionContainer>
+export const NavCompany = () => (
+    <Flex wrap="wrap" jc="flex-start">
+        <CardLink title={localize('DTrader')} to="/dtrader" />
+    </Flex>
 )
-
-OtherPlatform.propTypes = {
-    exclude: PropTypes.string,
-    header: PropTypes.string,
-    is_nav: PropTypes.bool,
-    subHeader: PropTypes.string,
-}

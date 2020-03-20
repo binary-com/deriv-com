@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
-import { NavPlatform, NavMarket } from 'components/custom/other-platforms.js'
+import { NavPlatform, NavMarket, NavCompany } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
@@ -205,6 +205,18 @@ export const Nav = () => {
         setHasMarketAnimation(true)
     }
 
+    // // company
+    const company_ref = useRef(null)
+    const link_company_ref = useRef(null)
+    const [is_company_open, setIsCompanyOpen] = useState(false)
+    const [has_company_animation, setHasCompanyAnimation] = useState(false)
+    const closeCompany = () => setIsCompanyOpen(false)
+    useOutsideClick(company_ref, closeCompany, link_company_ref)
+    const handleCompanyClick = () => {
+        setIsCompanyOpen(!is_company_open)
+        setHasCompanyAnimation(true)
+    }
+
     const buttonHandleScroll = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
@@ -250,6 +262,16 @@ export const Nav = () => {
                         'Enjoy our wide range of assets on financial and synthetic markets. ',
                     )}
                 />
+                <PlatformsDropdown
+                    forward_ref={company_ref}
+                    is_open={is_company_open}
+                    has_animation={has_company_animation}
+                    Content={NavCompany}
+                    title={localize('Company')}
+                    description={localize(
+                        "Get to know our leadership team, learn about our history, and see why we're different.",
+                    )}
+                />
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
@@ -257,14 +279,31 @@ export const Nav = () => {
                         </LogoLink>
                     </NavLeft>
                     <NavCenter>
-                        <NavLink onClick={handleTradeClick} ref={link_trade_ref}>
-                            <StyledButton aria-label={localize('Trade')} active={is_trade_open}>
+                        <NavLink onClick={handleTradeClick}>
+                            <StyledButton
+                                aria-label={localize('Trade')}
+                                active={is_trade_open}
+                                ref={link_trade_ref}
+                            >
                                 {localize('Trade')}
                             </StyledButton>
                         </NavLink>
-                        <NavLink onClick={handleMarketClick} ref={link_market_ref}>
-                            <StyledButton aria-label={localize('Markets')} active={is_market_open}>
+                        <NavLink onClick={handleMarketClick}>
+                            <StyledButton
+                                aria-label={localize('Markets')}
+                                active={is_market_open}
+                                ref={link_market_ref}
+                            >
                                 {localize('Markets')}
+                            </StyledButton>
+                        </NavLink>
+                        <NavLink onClick={handleCompanyClick}>
+                            <StyledButton
+                                aria-label={localize('Company')}
+                                active={is_company_open}
+                                ref={link_company_ref}
+                            >
+                                {localize('Company')}
                             </StyledButton>
                         </NavLink>
                     </NavCenter>

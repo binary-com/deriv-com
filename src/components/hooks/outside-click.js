@@ -5,6 +5,7 @@ export const useOutsideClick = (ref, callback, other_ref) => {
     const handleClick = e => {
         if (ref.current && !ref.current.contains(e.target)) {
             if (other_ref && other_ref.current.contains(e.target)) return
+
             callback()
         }
     }
@@ -15,5 +16,5 @@ export const useOutsideClick = (ref, callback, other_ref) => {
         return () => {
             document.removeEventListener('click', handleClick)
         }
-    })
+    }, [])
 }

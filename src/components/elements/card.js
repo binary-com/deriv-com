@@ -143,8 +143,8 @@ const Content = ({ content }) => (
         {Array.isArray(content) ? (
             content.map(text => <CardContent key={text}>{text}</CardContent>)
         ) : (
-                <CardContent>{content}</CardContent>
-            )}
+            <CardContent>{content}</CardContent>
+        )}
     </>
 )
 
@@ -188,8 +188,8 @@ export const Card = ({
                                             </h4>
                                         </Flex>
                                     ) : (
-                                            <h4>{cover_content}</h4>
-                                        )}
+                                        <h4>{cover_content}</h4>
+                                    )}
                                     <Arrow />
                                 </div>
                             </CardCover>
@@ -206,16 +206,16 @@ export const Card = ({
                             </IconContainer>
                         </>
                     ) : (
-                            <>
-                                <Icon />
-                                <ContentWrapper>
-                                    <Header as="h4" weight="bold">
-                                        {title}
-                                    </Header>
-                                    <Content content={content} />
-                                </ContentWrapper>
-                            </>
-                        )}
+                        <>
+                            <Icon />
+                            <ContentWrapper>
+                                <Header as="h4" weight="bold">
+                                    {title}
+                                </Header>
+                                <Content content={content} />
+                            </ContentWrapper>
+                        </>
+                    )}
                 </>
             )}
             {children && children}
@@ -286,16 +286,16 @@ const ResponsiveText = styled(Text)`
     }
 `
 export const NavCard = ({ icon, title, content, to, style, external }) => {
-    const [visibility, setVisibility] = React.useState('hidden');
-    const [color, setColor] = React.useState('var(--color-grey-5)');
+    const [visibility, setVisibility] = React.useState('hidden')
+    const [color, setColor] = React.useState('var(--color-grey-5)')
 
     const onMouseEnter = () => {
-        setVisibility('show');
-        setColor('var(--color-black-3)');
+        setVisibility('show')
+        setColor('var(--color-black-3)')
     }
     const onMouseLeave = () => {
-        setVisibility('hidden');
-        setColor('var(--color-grey-5)');
+        setVisibility('hidden')
+        setColor('var(--color-grey-5)')
     }
     const NavIcon = styled(icon)`
         width: 24px;
@@ -322,7 +322,8 @@ export const NavCard = ({ icon, title, content, to, style, external }) => {
                 direction="row"
                 tablet_direction="row"
                 onMouseEnter={() => onMouseEnter()}
-                onMouseLeave={() => onMouseLeave()}>
+                onMouseLeave={() => onMouseLeave()}
+            >
                 <NavIcon />
                 <NavContent color={color}>
                     <ResponsiveHeader font_size="var(--text-size-xs)" lh="1.14" margin="0 0 0.8rem">
@@ -338,6 +339,59 @@ export const NavCard = ({ icon, title, content, to, style, external }) => {
 }
 
 NavCard.propTypes = {
+    content: PropTypes.string,
+    external: PropTypes.bool,
+    icon: PropTypes.object,
+    style: PropTypes.object,
+    title: PropTypes.string,
+    to: PropTypes.string,
+}
+
+export const CardLink = ({ title, to, style, external }) => {
+    const [visibility, setVisibility] = React.useState('hidden')
+    const [color, setColor] = React.useState('var(--color-grey-5)')
+
+    const onMouseEnter = () => {
+        setVisibility('show')
+        setColor('var(--color-red)')
+    }
+    const onMouseLeave = () => {
+        setVisibility('hidden')
+        setColor('var(--color-grey-5)')
+    }
+    return (
+        <LocalizedLink
+            to={to}
+            style={{
+                textDecoration: 'none',
+                width: '100%',
+                maxWidth: '27.7rem',
+                position: 'relative',
+                ...style,
+            }}
+            external={external}
+        >
+            <Show.Desktop>
+                <RightDiagonal visibility={visibility} />
+            </Show.Desktop>
+            <Flex
+                jc="flex-start"
+                direction="row"
+                tablet_direction="row"
+                onMouseEnter={() => onMouseEnter()}
+                onMouseLeave={() => onMouseLeave()}
+            >
+                <NavContent color={color}>
+                    <ResponsiveHeader font_size="var(--text-size-xs)" lh="1.14" margin="0 0 1.6rem">
+                        {title}
+                    </ResponsiveHeader>
+                </NavContent>
+            </Flex>
+        </LocalizedLink>
+    )
+}
+
+CardLink.propTypes = {
     content: PropTypes.string,
     external: PropTypes.bool,
     icon: PropTypes.object,

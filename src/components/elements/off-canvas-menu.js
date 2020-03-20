@@ -178,7 +178,7 @@ export const OffCanvasMenuWrapper = props => {
                         </Flex>
                     </AccordionItem> */}
                     <AccordionItem
-                        header={localize('Company')}
+                        header={localize('About us')}
                         header_style={header_style}
                         style={content_style}
                     >

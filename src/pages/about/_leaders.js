@@ -174,6 +174,7 @@ const LeaderMobile = styled.div`
 
     > div {
         background-color: #d5dadb;
+        border-radius: 4px 4px 0 0;
     }
     > p {
         max-width: 34rem;
@@ -229,7 +230,7 @@ const Leaders = () => {
                         <Swiper {...params} >
                             {leaders_data.map(leader => (
                                 <LeaderMobile key={leader.name}>
-                                    <Image img_name={leader.image} alt={leader.name} width='21rem' height='15rem'/>
+                                    <Image img_name={leader.image} alt={leader.name} width='21rem' height='17rem' />
                                     <Header font_size='3rem' align='center' margin='2rem 0 0 0'>{leader.name}</Header>
                                     <Text align='center' secondary margin='0 auto'>{localize(leader.position)}</Text>
                                     <Text margin='2rem 2rem 4rem 2rem' secondary>{localize(leader.description)}</Text>

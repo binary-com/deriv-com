@@ -20,6 +20,10 @@ const OffCanvasMenu = styled.section`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     left: ${props => (props.is_canvas_menu_open ? '0' : '-253px')};
 `
+
+const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
+    top: 10rem;
+`
 const StyledLink = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-black-3);
     margin-top: 2.4rem;
@@ -55,7 +59,7 @@ const content_style = {
     display: 'flex',
 }
 
-const OffCanvasMenuWrapper = props => {
+export const OffCanvasMenuWrapper = props => {
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -230,6 +234,56 @@ const OffCanvasMenuWrapper = props => {
         </OffCanvasMenu>
     )
 }
+
+OffCanvasMenuWrapper.propTypes = {
+    closeOffCanvasMenu: PropTypes.func,
+    is_canvas_menu_open: PropTypes.bool,
+}
+
+const SingleLink = styled(StyledLink)`
+    font-weight: bold;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+`
+
+export const OffCanvasMenuPartner = props => {
+    const canvas = useRef()
+
+    const handleArrowClick = () => {
+        props.closeOffCanvasMenu()
+    }
+
+    const outerClick = e => {
+        if (!canvas.current.contains(e.target)) {
+            props.closeOffCanvasMenu()
+        } else return
+    }
+
+    useEffect(() => {
+        document.addEventListener('mousedown', outerClick, false)
+        return () => {
+            document.removeEventListener('mousedown', outerClick, false)
+        }
+    }, [])
+
+    return (
+        <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
+            <OffCanvasMenuContainer>
+                <SingleLink weight="bold" to="/partners/" onClick={handleArrowClick}>
+                    {localize('Affiliate & IB')}
+                </SingleLink>
+                <SingleLink weight="bold" to="/partners/payment-agent/" onClick={handleArrowClick}>
+                    {localize('Payment agent')}
+                </SingleLink>
+            </OffCanvasMenuContainer>
+        </OffCanvasMenuSecondary>
+    )
+}
+
+OffCanvasMenuPartner.propTypes = {
+    closeOffCanvasMenu: PropTypes.func,
+    is_canvas_menu_open: PropTypes.bool,
+}
 export const moveOffCanvasMenu = (initState = false) => {
     const [is_canvas_menu_open, setOffCanvasMenuPosition] = useState(initState)
     const openOffCanvasMenu = () => setOffCanvasMenuPosition(true)
@@ -237,9 +291,3 @@ export const moveOffCanvasMenu = (initState = false) => {
 
     return [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu]
 }
-
-OffCanvasMenuWrapper.propTypes = {
-    closeOffCanvasMenu: PropTypes.func,
-    is_canvas_menu_open: PropTypes.bool,
-}
-export default OffCanvasMenuWrapper

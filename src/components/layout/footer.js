@@ -29,6 +29,10 @@ const StyledFooter = styled.footer`
 
     ${Container} {
         min-width: 328px;
+
+        @media ${device.mobileM} {
+            min-width: auto;
+        }
     }
 `
 const StyledGrid = styled(CssGrid)`
@@ -54,6 +58,9 @@ const InfoSection = styled.div`
         @media ${device.tabletL} {
             font-size: var(--text-size-sm);
             max-width: unset;
+        }
+        @media ${device.mobileM} {
+            max-width: auto;
         }
     }
 `
@@ -427,6 +434,9 @@ const Footer = () => (
                         </Item>
                         <Item>
                             <Link to="/contact-us">{localize('Contact us')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/careers">{localize('Careers')}</Link>
                         </Item>
                     </AccordionItem>
                     <AccordionItem

@@ -8,7 +8,7 @@ import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container, Show } from 'components/containers'
-import { OffCanvasMenu, moveOffCanvasMenu, Text } from 'components/elements'
+import { OffCanvasMenu, OffCanvasMenuPartner, moveOffCanvasMenu, Text } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import Partner from 'common/partner'
@@ -28,6 +28,12 @@ const NavWrapper = styled.div`
 `
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
+
+    @media (max-width: 1150px) {
+        & svg {
+            width: 20rem;
+        }
+    }
 `
 
 const StyledNav = styled.nav`
@@ -72,6 +78,7 @@ const NavCenter = styled.ul`
     padding: 0;
     display: flex;
     justify-content: space-between;
+
     @media ${device.tabletL} {
         display: none;
     }
@@ -404,14 +411,22 @@ const HomeContainer = styled(Container)`
 
 const StyledNavCenter = styled(NavCenter)`
     margin-left: 13.3rem;
+
+    @media (max-width: 1150px) {
+        margin-left: 7.3rem;
+    }
 `
 
 const StyledNavRight = styled(NavRight)`
     margin-left: auto;
 `
 
+const StyledNavWrapper = styled(Wrapper)`
+    justify-content: flex-start;
+`
+
 // Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'
-export const NavPartners = () => {
+export const NavPartners = ({ no_login_signup }) => {
     const nav_ref = useRef(null)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -424,13 +439,17 @@ export const NavPartners = () => {
     }
     useEffect(() => {
         setMounted(true)
-        document.addEventListener('scroll', buttonHandleScroll, {
-            passive: true,
-        })
-        return () => {
-            document.removeEventListener('scroll', buttonHandleScroll)
+        if (!no_login_signup) {
+            document.addEventListener('scroll', buttonHandleScroll, {
+                passive: true,
+            })
+            return () => {
+                document.removeEventListener('scroll', buttonHandleScroll)
+            }
         }
     }, [])
+
+    const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = moveOffCanvasMenu()
     return (
         <>
             <NavWrapper ref={nav_ref}>
@@ -454,7 +473,7 @@ export const NavPartners = () => {
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNav>
-                    <Wrapper>
+                    <StyledNavWrapper>
                         <NavLeft>
                             <LogoLink to="/partners" aria-label={localize('Partners')}>
                                 <LogoPartner />
@@ -480,24 +499,44 @@ export const NavPartners = () => {
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
-                        <StyledNavRight
-                            move={show_button}
-                            button_ref={button_ref}
-                            mounted={mounted}
-                            has_scrolled={has_scrolled}
-                        >
-                            <Button onClick={Partner.redirectToLogin} primary>
-                                <span>{localize('Affiliate & IB log in')}</span>
-                            </Button>
-                            <SignupButton
-                                onClick={Partner.redirectToSignup}
-                                ref={button_ref}
-                                secondary="true"
+                        {!no_login_signup ? (
+                            <StyledNavRight
+                                move={show_button}
+                                button_ref={button_ref}
+                                mounted={mounted}
+                                has_scrolled={has_scrolled}
                             >
-                                <span>{localize('Affiliate & IB sign up')}</span>
-                            </SignupButton>
-                        </StyledNavRight>
-                    </Wrapper>
+                                <Button onClick={Partner.redirectToLogin} primary>
+                                    <span>{localize('Affiliate & IB log in')}</span>
+                                </Button>
+                                <SignupButton
+                                    onClick={Partner.redirectToSignup}
+                                    ref={button_ref}
+                                    secondary="true"
+                                >
+                                    <span>{localize('Affiliate & IB sign up')}</span>
+                                </SignupButton>
+                            </StyledNavRight>
+                        ) : null}
+
+                        {is_canvas_menu_open ? (
+                            <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
+                        ) : (
+                            <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
+                        )}
+                        <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                            <LogoOnly width="115px" />
+                        </LogoLinkMobile>
+                        {!no_login_signup && (
+                            <MobileLogin OnClick={Partner.redirectToLogin} primary>
+                                <span>{localize('Affiliate & IB Log in')}</span>
+                            </MobileLogin>
+                        )}
+                        <OffCanvasMenuPartner
+                            is_canvas_menu_open={is_canvas_menu_open}
+                            closeOffCanvasMenu={closeOffCanvasMenu}
+                        />
+                    </StyledNavWrapper>
                 </StyledNav>
             </NavWrapper>
         </>
@@ -582,4 +621,8 @@ function moveButton(is_visible = false) {
 
 NavStatic.propTypes = {
     is_static: PropTypes.bool,
+}
+
+NavPartners.propTypes = {
+    no_login_signup: PropTypes.bool,
 }

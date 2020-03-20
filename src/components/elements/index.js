@@ -13,7 +13,11 @@ import QueryImage from './query-image'
 import { StyledLink } from './link'
 import LinearLoader from './loader'
 import Modal, { useModal } from './modal'
-import OffCanvasMenu, { moveOffCanvasMenu } from './off-canvas-menu'
+import {
+    OffCanvasMenuWrapper as OffCanvasMenu,
+    OffCanvasMenuPartner,
+    moveOffCanvasMenu,
+} from './off-canvas-menu'
 import SideTab from './side-tab'
 import Tabs from './default-tab'
 import { Text, LinkText, Header } from './typography'
@@ -41,6 +45,7 @@ export {
     NavCard,
     useModal,
     OffCanvasMenu,
+    OffCanvasMenuPartner,
     moveOffCanvasMenu,
     SideTab,
     Tabs,

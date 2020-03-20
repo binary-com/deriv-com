@@ -423,6 +423,10 @@ const StyledNavRight = styled(NavRight)`
 
 const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
+
+    @media ${device.tabletL} {
+        justify-content: space-between;
+    }
 `
 
 // Note: When using layout component for partners page, please add type='partners' and padding_top='10rem'

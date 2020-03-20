@@ -333,11 +333,11 @@ export const Nav = () => {
                         </NavLink> */}
                         <NavLink onClick={handleCompanyClick}>
                             <StyledButton
-                                aria-label={localize('Company')}
+                                aria-label={localize('About us')}
                                 active={is_company_open}
                                 ref={link_company_ref}
                             >
-                                {localize('Company')}
+                                {localize('About us')}
                             </StyledButton>
                         </NavLink>
                         <NavLink onClick={handleResourcesClick}>

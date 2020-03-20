@@ -226,7 +226,7 @@ const Item = styled.div`
 `
 const MobileLanguageSwitcher = styled.div`
     margin-top: 0.8rem;
-    
+
     > ul {
         top: 0;
         width: 80px;
@@ -236,7 +236,7 @@ const mobile_accordion_header = {
     border: 'none',
     padding: '0 2rem',
     backgroundColor: 'var(--color-grey-8)',
-    boxShadow: 'none'
+    boxShadow: 'none',
 }
 const Footer = () => (
     <StyledFooter>
@@ -249,8 +249,8 @@ const Footer = () => (
                             'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.',
                         )}
                     </Text>
-                    <SocialMedia mt='3.1rem' jc='flex-start' direction='column'>
-                        <SocialWrapper mt='0.8rem' jc='space-between' direction='column'>
+                    <SocialMedia mt="3.1rem" jc="flex-start" direction="column">
+                        <SocialWrapper mt="0.8rem" jc="space-between" direction="column">
                             <div>
                                 <Text>{localize('CONNECT WITH US')}</Text>
                             </div>
@@ -281,7 +281,7 @@ const Footer = () => (
                         <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
-                                    {!isProduction() && <LanguageSwitcher short_name='true' />}
+                                    {!isProduction() && <LanguageSwitcher short_name="true" />}
                                 </MobileLanguageSwitcher>
                             </Show.Mobile>
                         </div>
@@ -368,7 +368,11 @@ const Footer = () => (
         <Show.Mobile>
             <MobileAccordion>
                 <Accordion>
-                    <AccordionItem header={localize('TRADE')} arrow_thin header_style={mobile_accordion_header}>
+                    <AccordionItem
+                        header={localize('TRADE')}
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
                         <Item>
                             <Link to="/dtrader">{localize('DTrader')}</Link>
                         </Item>
@@ -379,7 +383,11 @@ const Footer = () => (
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </Item>
                     </AccordionItem>
-                    <AccordionItem header={localize('LEGAL')} arrow_thin header_style={mobile_accordion_header}>
+                    <AccordionItem
+                        header={localize('LEGAL')}
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
                         <Item>
                             <Link to="/regulatory">{localize('Regulatory information')}</Link>
                         </Item>
@@ -394,7 +402,11 @@ const Footer = () => (
                             </Link>
                         </Item>
                     </AccordionItem>
-                    <AccordionItem header='SUPPORT' arrow_thin header_style={mobile_accordion_header}>
+                    <AccordionItem
+                        header="SUPPORT"
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
                         <Item>
                             <Link to="/help-centre">{localize('Help Centre')}</Link>
                         </Item>
@@ -405,7 +417,11 @@ const Footer = () => (
                             <Link to="/why-choose-us">{localize('Why choose us')}</Link>
                         </Item>
                     </AccordionItem>
-                    <AccordionItem header='COMPANY' arrow_thin header_style={mobile_accordion_header}>
+                    <AccordionItem
+                        header="COMPANY"
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
                         <Item>
                             <Link to="/about">{localize('About us')}</Link>
                         </Item>
@@ -413,7 +429,11 @@ const Footer = () => (
                             <Link to="/contact-us">{localize('Contact us')}</Link>
                         </Item>
                     </AccordionItem>
-                    <AccordionItem header='PARTNER WITH US' arrow_thin header_style={mobile_accordion_header}>
+                    <AccordionItem
+                        header="PARTNER WITH US"
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
                         <Item>
                             <Link to="/partners">{localize('Partner programmes')}</Link>
                         </Item>
@@ -462,7 +482,7 @@ const Footer = () => (
                             ]}
                         />
                     </StyledText>
-                    <StyledText margin='1rem 0 0 0'>
+                    <StyledText margin="1rem 0 0 0">
                         {localize(
                             "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
                         )}

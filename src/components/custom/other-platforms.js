@@ -145,29 +145,41 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
 SmarttraderCard.propTypes = { ...cardProptypes }
 
 export const NavPlatform = () => (
-    <Flex wrap="wrap" mw='56.2rem'>
+    <Flex wrap="wrap">
         <NavCard
             icon={DTrader}
-            content={localize('A whole new trading experience on a powerful yet easy to use platform. ')}
+            content={localize(
+                'A whole new trading experience on a powerful yet easy to use platform. ',
+            )}
             title={localize('DTrader')}
-            to='/dtrader' />
+            style={{ 'margin-right': '5.6rem' }}
+            to="/dtrader"
+        />
+
         <NavCard
             icon={DMT5}
-            content={localize('A whole new trading experience on a powerful yet easy to use platform. ')}
+            content={localize(
+                'A whole new trading experience on a powerful yet easy to use platform. ',
+            )}
             title={localize('DMT5')}
-            to='/dtrader' />
+            to="/dtrader"
+        />
         <NavCard
             icon={DBot}
-            content={localize('A whole new trading experience on a powerful yet easy to use platform. ')}
+            content={localize(
+                'A whole new trading experience on a powerful yet easy to use platform. ',
+            )}
             title={localize('DBot')}
-            to='/dtrader'
-            style={{ 'margin-top': '3.2rem' }}
+            to="/dtrader"
+            style={{ 'margin-top': '3.2rem', 'margin-right': '5.6rem' }}
         />
         <NavCard
             icon={Smarttrader}
-            content={localize('A whole new trading experience on a powerful yet easy to use platform. ')}
+            content={localize(
+                'A whole new trading experience on a powerful yet easy to use platform. ',
+            )}
             title={localize('SmartTrader')}
-            to='/dtrader'
+            to="/dtrader"
             style={{ 'margin-top': '3.2rem' }}
         />
     </Flex>

@@ -1,8 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { Container, Show } from 'components/containers'
 import { NavPlatform } from 'components/custom/other-platforms.js'
 import { Text, Header, Divider } from 'components/elements'
+import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const FadeInDown = keyframes`
@@ -43,6 +45,7 @@ const NavDropdown = styled.div`
 `
 const StyledContainer = styled(Container)`
     justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
     @media ${device.laptopL} {
         width: 90%;
@@ -60,16 +63,20 @@ const PlatformInfo = styled.div`
 const MarginDivider = styled(Divider)`
     margin: 0 6.9rem;
 `
-// eslint-disable-next-line react/prop-types
+
 const PlatformsDropdown = ({ is_open, has_animation }) => {
     return (
         <Show.Desktop>
             <NavDropdown is_open={is_open} has_animation={has_animation}>
                 <StyledContainer>
                     <PlatformInfo>
-                        <Header as="h4">Trading platforms</Header>
+                        <Header as="h4" margin="0 0 0.8rem">
+                            {localize('Trading platforms')}
+                        </Header>
                         <Text size="var(--text-size-xs)">
-                            Be in full control of your trading with our new and improved platforms.
+                            {localize(
+                                'Be in full control of your trading with our new and improved platforms.',
+                            )}
                         </Text>
                     </PlatformInfo>
                     <MarginDivider width="2px" height="100%" />
@@ -78,5 +85,10 @@ const PlatformsDropdown = ({ is_open, has_animation }) => {
             </NavDropdown>
         </Show.Desktop>
     )
+}
+
+PlatformsDropdown.propTypes = {
+    has_animation: PropTypes.bool,
+    is_open: PropTypes.bool,
 }
 export default React.memo(PlatformsDropdown)

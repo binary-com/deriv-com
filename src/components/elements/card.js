@@ -269,31 +269,34 @@ const NavContent = styled.div`
     }
 `
 const RightDiagonal = styled(Diagonal)`
+    transition: opacity 0.2s;
     position: absolute;
     right: 0;
-    visibility: ${props => props.visibility};
+    opacity: ${props => (props.visibility ? 1 : 0)};
 `
 
 const ResponsiveHeader = styled(Header)`
+    transition: color 0.2s;
     @media ${device.tabletS} {
         font-size: 16px;
     }
 `
 const ResponsiveText = styled(Text)`
+    transition: color 0.2s;
     @media ${device.tabletS} {
         font-size: 10.5px;
     }
 `
 export const NavCard = ({ icon, title, content, to, style, external }) => {
-    const [visibility, setVisibility] = React.useState('hidden')
+    const [visibility, setVisibility] = React.useState(false)
     const [color, setColor] = React.useState('var(--color-grey-5)')
 
     const onMouseEnter = () => {
-        setVisibility('show')
+        setVisibility(true)
         setColor('var(--color-black-3)')
     }
     const onMouseLeave = () => {
-        setVisibility('hidden')
+        setVisibility(false)
         setColor('var(--color-grey-5)')
     }
     const NavIcon = styled(icon)`
@@ -347,7 +350,7 @@ NavCard.propTypes = {
 }
 
 const LinkRightDiagonal = styled(RightDiagonal)`
-    visibility: hidden;
+    opacity: 0;
     right: -25px;
 `
 
@@ -355,10 +358,9 @@ const HoverFlex = styled(Flex)`
     &:hover {
         ${ResponsiveHeader} {
             color: var(--color-red);
-            font-weight: bold;
         }
         ${LinkRightDiagonal} {
-            visibility: visible;
+            opacity: 1;
         }
     }
 `

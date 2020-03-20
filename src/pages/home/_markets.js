@@ -78,7 +78,7 @@ const Markets = () => (
                 <MarketCard mb="4rem">
                     <IndicesIcon />
                     <div>
-                        <Header as="h4">{localize('Indices')}</Header>
+                        <Header as="h4">{localize('Stock indices')}</Header>
                         <Text>
                             {localize(
                                 'Predict broader market trends and diversify your risk with indices that measure the overall performance of a market.',

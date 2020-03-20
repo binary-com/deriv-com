@@ -1,8 +1,8 @@
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Container, CssGrid } from '../containers'
-import { Text, StyledLink } from '../elements'
+import { Container, CssGrid, Show, Flex } from '../containers'
+import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { isProduction } from 'common/websocket/config'
 import device from 'themes/device'
@@ -14,11 +14,22 @@ import Facebook from 'images/svg/footer-facebook.svg'
 import Warning from 'images/svg/warning.svg'
 import Copyright from 'images/svg/copyright.svg'
 
+const DerivLogo = styled(Logo)`
+    width: 14.5rem;
+
+    @media ${device.tabletL} {
+        width: 20.5rem;
+    }
+`
 const StyledFooter = styled.footer`
     background-color: var(--color-grey-8);
     width: 100%;
     margin: 0 auto;
     border-top: 1px solid var(--color-red);
+
+    ${Container} {
+        min-width: 328px;
+    }
 `
 const StyledGrid = styled(CssGrid)`
     margin: 4rem 0;
@@ -26,10 +37,7 @@ const StyledGrid = styled(CssGrid)`
 
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
-        grid-template-areas:
-            'info'
-            'items';
-        grid-row-gap: 4rem;
+        grid-template-areas: 'info';
     }
 `
 const InfoSection = styled.div`
@@ -41,6 +49,12 @@ const InfoSection = styled.div`
 
     ${Text} {
         margin-top: 2.2rem;
+        max-width: 28.2rem;
+
+        @media ${device.tabletL} {
+            font-size: var(--text-size-sm);
+            max-width: unset;
+        }
     }
 `
 const Items = styled.div`
@@ -49,6 +63,10 @@ const Items = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @media ${device.tabletL} {
+        display: none;
+    }
 `
 const BlackNav = styled.section`
     background-color: var(--color-black);
@@ -63,31 +81,6 @@ const BlackNav = styled.section`
     }
     svg {
         margin-right: 0.8rem;
-    }
-`
-const SocialMedia = styled.section`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 6.4rem;
-
-    ${Text} {
-        margin-top: 0;
-        letter-spacing: 2px;
-        color: var(--color-black-6);
-    }
-    div {
-        display: flex;
-        width: 100%;
-        max-width: 11.2rem;
-        justify-content: space-between;
-
-        svg {
-            width: 3.2rem;
-        }
-    }
-    @media ${device.tabletL} {
-        margin-top: 2rem;
     }
 `
 const Col = styled.div`
@@ -129,6 +122,15 @@ const Disclaimer = styled.section`
 
     ${Container} {
         border-top: 1px solid var(--color-red);
+
+        @media ${device.tabletL} {
+            border-top: unset;
+        }
+    }
+
+    @media ${device.tabletL} {
+        border-top: 1px solid var(--color-red);
+        padding-top: 1.5rem;
     }
 `
 const StyledContainer = styled(Container)`
@@ -144,11 +146,20 @@ const Row = styled.div`
 const StyledText = styled(Text)`
     text-align: justify;
     color: var(--color-black-3);
+
+    @media ${device.tabletL} {
+        text-align: left;
+        font-size: var(--text-size-sm);
+    }
 `
 const BoldSharedCss = css`
     font-weight: bold;
     color: var(--color-black-3);
     font-size: var(--text-size-s);
+
+    @media ${device.tabletL} {
+        font-size: var(--text-size-sm);
+    }
 `
 const BoldLink = styled(StyledLink)`
     ${BoldSharedCss}
@@ -166,51 +177,114 @@ const StaticAsset = styled.a`
     :hover {
         text-decoration: underline;
     }
+
+    @media ${device.tabletL} {
+        font-size: var(--text-size-sm);
+    }
 `
 const ExternalLink = styled.a`
     text-decoration: none;
 `
 
-const SocialWrapper = styled.div`
-    margin-top: 0.8rem;
-`
+const SocialWrapper = styled(Flex)`
+    svg {
+        width: 4.2rem;
+        margin-right: 1rem;
+    }
+    ${Text} {
+        margin-top: 0;
+        letter-spacing: 2px;
+        color: var(--color-black-6);
+        margin-bottom: 0.8rem;
 
+        @media ${device.tabletL} {
+            margin-bottom: 1rem;
+        }
+    }
+`
+const SocialMedia = styled(Flex)`
+    @media ${device.tabletL} {
+        margin-top: 2rem;
+        flex-direction: row;
+    }
+`
+const MobileAccordion = styled.section`
+    border-top: 1px solid var(--color-red);
+    background-color: var(--color-grey-8);
+
+    p {
+        letter-spacing: 2px;
+    }
+`
+const Item = styled.div`
+    padding: 0 0 3rem 2rem;
+    background-color: var(--color-grey-8);
+
+    a {
+        font-size: var(--text-size-sm);
+    }
+`
+const MobileLanguageSwitcher = styled.div`
+    margin-top: 0.8rem;
+    
+    > ul {
+        top: 0;
+        width: 80px;
+    }
+`
+const mobile_accordion_header = {
+    border: 'none',
+    padding: '0 2rem',
+    backgroundColor: 'var(--color-grey-8)',
+    boxShadow: 'none'
+}
 const Footer = () => (
     <StyledFooter>
         <Container>
             <StyledGrid columns="repeat(12, 1fr)" columngap="2.4rem" rowgap="3.9rem">
                 <InfoSection>
-                    <Logo width="14.5rem" />
-                    <Text style={{ maxWidth: '28.2rem' }}>
+                    <DerivLogo />
+                    <Text>
                         {localize(
                             'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.',
                         )}
                     </Text>
-                    <SocialMedia>
-                        <Text>{localize('CONNECT WITH US')}</Text>
-                        <SocialWrapper>
-                            <ExternalLink
-                                href="https://www.facebook.com/derivdotcom/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Facebook />
-                            </ExternalLink>
-                            <ExternalLink
-                                href="https://www.instagram.com/derivdotcom/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Instagram />
-                            </ExternalLink>
-                            <ExternalLink
-                                href="https://twitter.com/derivdotcom"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Twitter />
-                            </ExternalLink>
+                    <SocialMedia mt='3.1rem' jc='flex-start' direction='column'>
+                        <SocialWrapper mt='0.8rem' jc='space-between' direction='column'>
+                            <div>
+                                <Text>{localize('CONNECT WITH US')}</Text>
+                            </div>
+                            <div>
+                                <ExternalLink
+                                    href="https://www.facebook.com/derivdotcom/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Facebook />
+                                </ExternalLink>
+                                <ExternalLink
+                                    href="https://www.instagram.com/derivdotcom/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Instagram />
+                                </ExternalLink>
+                                <ExternalLink
+                                    href="https://twitter.com/derivdotcom"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Twitter />
+                                </ExternalLink>
+                            </div>
                         </SocialWrapper>
+                        <div>
+                            <Show.Mobile>
+                                <MobileLanguageSwitcher>
+                                    {!isProduction() && <LanguageSwitcher short_name='true' />}
+                                </MobileLanguageSwitcher>
+                            </Show.Mobile>
+                        </div>
                     </SocialMedia>
                 </InfoSection>
                 <Items>
@@ -282,7 +356,7 @@ const Footer = () => (
                             <Title>{localize('PARTNER WITH US')}</Title>
                         </div>
                         <div>
-                            <Link to="/partners">{localize('Affiliate and IB Programmes')}</Link>
+                            <Link to="/partners">{localize('Partner programmes')}</Link>
                         </div>
                     </Col>
                     <Col margin_top width="25%">
@@ -291,6 +365,62 @@ const Footer = () => (
                 </Items>
             </StyledGrid>
         </Container>
+        <Show.Mobile>
+            <MobileAccordion>
+                <Accordion>
+                    <AccordionItem header={localize('TRADE')} arrow_thin header_style={mobile_accordion_header}>
+                        <Item>
+                            <Link to="/dtrader">{localize('DTrader')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/dbot">{localize('DBot')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/dmt5">{localize('DMT5')}</Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem header={localize('LEGAL')} arrow_thin header_style={mobile_accordion_header}>
+                        <Item>
+                            <Link to="/regulatory">{localize('Regulatory information')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/terms-and-conditions">
+                                {localize('Terms and conditions')}
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/responsible-trading">
+                                {localize('Secure and responsible trading')}
+                            </Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem header='SUPPORT' arrow_thin header_style={mobile_accordion_header}>
+                        <Item>
+                            <Link to="/help-centre">{localize('Help Centre')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/payment-methods">{localize('Payment methods')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/why-choose-us">{localize('Why choose us')}</Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem header='COMPANY' arrow_thin header_style={mobile_accordion_header}>
+                        <Item>
+                            <Link to="/about">{localize('About us')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/contact-us">{localize('Contact us')}</Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem header='PARTNER WITH US' arrow_thin header_style={mobile_accordion_header}>
+                        <Item>
+                            <Link to="/partners">{localize('Partner programmes')}</Link>
+                        </Item>
+                    </AccordionItem>
+                </Accordion>
+            </MobileAccordion>
+        </Show.Mobile>
         <Disclaimer>
             <StyledContainer direction="column">
                 <Row>
@@ -332,7 +462,7 @@ const Footer = () => (
                             ]}
                         />
                     </StyledText>
-                    <StyledText>
+                    <StyledText margin='1rem 0 0 0'>
                         {localize(
                             "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
                         )}
@@ -345,7 +475,7 @@ const Footer = () => (
                 <Row>
                     <StyledText>
                         <Localize
-                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs) and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs) and other complex derivatives and financial products. Secure and responsible trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                             components={[
                                 <BoldLink key={0} target="_blank" to="/responsible-trading/" />,
                             ]}

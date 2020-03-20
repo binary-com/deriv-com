@@ -373,7 +373,13 @@ const SaveStrategy = () => (
             )}
         </Text>
         <ImageWrapper>
-            <img img_name="dbot-save.png" alt={localize('Save')} width="40.7rem" />
+            <img
+                src={SaveBotImage}
+                alt={localize('Save')}
+                width="40.7rem"
+                loading="lazy"
+                style={{ width: '40.7rem' }}
+            />
         </ImageWrapper>
         <Text>
             <Localize

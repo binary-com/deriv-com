@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from './typography'
+import device from 'themes/device'
 import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
 import ChevronThick from 'images/svg/chevron-thick.svg'
 import Chevron from 'images/svg/chevron-bottom.svg'
@@ -15,9 +16,8 @@ const ThickArrow = styled(ChevronThick)`
 `
 
 const Arrow = styled(Chevron)`
-    transform: rotate(-180deg);
     transition: transform 0.25s linear;
-    ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
+    ${props => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
 `
 
 const AccordionHeader = styled.div`
@@ -30,6 +30,10 @@ const AccordionHeader = styled.div`
 
     ${Text} {
         margin-right: auto;
+        
+        @media ${device.tabletL} {
+            font-size: var(--text-size-sm);
+        }
     }
     &:hover {
         cursor: pointer;
@@ -52,8 +56,8 @@ const Accordion = ({ children, has_single_state, is_default_open }) => {
             {children}
         </SingleAccordionContent>
     ) : (
-        <AccordionContent nodes={nodes}>{children}</AccordionContent>
-    )
+            <AccordionContent nodes={nodes} >{children}</AccordionContent>
+        )
 }
 Accordion.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
@@ -107,8 +111,8 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
                         ) : child.props.arrow_thin ? (
                             <Arrow expanded={is_expanded ? 'true' : 'false'} />
                         ) : (
-                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
-                        )}
+                                <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                            )}
                     </AccordionHeader>
                     <div
                         style={{
@@ -152,7 +156,7 @@ const AccordionContent = ({ children, nodes }) => {
     }
 
     const render_nodes = React.Children.map(children, (child, child_idx) => {
-        const max_height = getHeight(child_idx)
+        const height = getHeight(child_idx)
         const is_expanded = child_idx === active_idx
 
         return (
@@ -179,14 +183,15 @@ const AccordionContent = ({ children, nodes }) => {
                         ) : child.props.arrow_thin ? (
                             <Arrow expanded={is_expanded ? 'true' : 'false'} />
                         ) : (
-                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
-                        )}
+                                <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                            )}
                     </AccordionHeader>
                     <div
                         style={{
                             overflow: 'hidden',
+                            /* prettier-ignore */
                             transition: `height ${TRANSITION_DURATION}ms ease`,
-                            height: max_height,
+                            height: height,
                         }}
                     >
                         {child}

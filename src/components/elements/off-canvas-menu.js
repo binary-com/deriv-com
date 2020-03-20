@@ -126,7 +126,7 @@ export const OffCanvasMenuWrapper = props => {
                                 )}
                                 title={localize('SmartTrader')}
                                 to="https://smarttrader.deriv.app"
-                                external
+                                external='true'
                             />
                         </Flex>
                     </AccordionItem>

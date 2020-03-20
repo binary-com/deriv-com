@@ -143,8 +143,8 @@ const Content = ({ content }) => (
         {Array.isArray(content) ? (
             content.map(text => <CardContent key={text}>{text}</CardContent>)
         ) : (
-            <CardContent>{content}</CardContent>
-        )}
+                <CardContent>{content}</CardContent>
+            )}
     </>
 )
 
@@ -188,8 +188,8 @@ export const Card = ({
                                             </h4>
                                         </Flex>
                                     ) : (
-                                        <h4>{cover_content}</h4>
-                                    )}
+                                            <h4>{cover_content}</h4>
+                                        )}
                                     <Arrow />
                                 </div>
                             </CardCover>
@@ -206,16 +206,16 @@ export const Card = ({
                             </IconContainer>
                         </>
                     ) : (
-                        <>
-                            <Icon />
-                            <ContentWrapper>
-                                <Header as="h4" weight="bold">
-                                    {title}
-                                </Header>
-                                <Content content={content} />
-                            </ContentWrapper>
-                        </>
-                    )}
+                            <>
+                                <Icon />
+                                <ContentWrapper>
+                                    <Header as="h4" weight="bold">
+                                        {title}
+                                    </Header>
+                                    <Content content={content} />
+                                </ContentWrapper>
+                            </>
+                        )}
                 </>
             )}
             {children && children}
@@ -272,7 +272,7 @@ const RightDiagonal = styled(Diagonal)`
     transition: opacity 0.2s;
     position: absolute;
     right: 0;
-    opacity: ${props => (props.visibility ? 1 : 0)};
+    opacity: ${props => (props.visibility === 'true' ? 1 : 0)};
 `
 
 const ResponsiveHeader = styled(Header)`
@@ -288,15 +288,15 @@ const ResponsiveText = styled(Text)`
     }
 `
 export const NavCard = ({ icon, title, content, to, style, external }) => {
-    const [visibility, setVisibility] = React.useState(false)
+    const [visibility, setVisibility] = React.useState('false')
     const [color, setColor] = React.useState('var(--color-grey-5)')
 
     const onMouseEnter = () => {
-        setVisibility(true)
+        setVisibility('true')
         setColor('var(--color-black-3)')
     }
     const onMouseLeave = () => {
-        setVisibility(false)
+        setVisibility('false')
         setColor('var(--color-grey-5)')
     }
     const NavIcon = styled(icon)`
@@ -342,7 +342,7 @@ export const NavCard = ({ icon, title, content, to, style, external }) => {
 
 NavCard.propTypes = {
     content: PropTypes.string,
-    external: PropTypes.bool,
+    external: PropTypes.string,
     icon: PropTypes.func,
     style: PropTypes.object,
     title: PropTypes.string,

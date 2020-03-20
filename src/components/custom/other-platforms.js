@@ -129,7 +129,7 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
 DMT5Card.propTypes = { ...cardProptypes }
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink to="https://smarttrader.deriv.app" external>
+    <StyledLink to="https://smarttrader.deriv.app" external='true'>
         <Card
             cover_background="var(--color-blue-3)"
             cover_content={localize('Discover SmartTrader now')}
@@ -187,7 +187,7 @@ export const NavPlatform = () => (
                 'A whole new trading experience on a powerful yet easy to use platform. ',
             )}
             title={localize('DTrader')}
-            style={{ 'margin-right': '5.6rem' }}
+            style={{ marginRight: '5.6rem' }}
             to="/dtrader"
         />
 
@@ -206,7 +206,7 @@ export const NavPlatform = () => (
             )}
             title={localize('DBot')}
             to="/dbot"
-            style={{ 'margin-top': '3.2rem', 'margin-right': '5.6rem' }}
+            style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
         />
         <NavCard
             icon={Smarttrader}
@@ -215,8 +215,8 @@ export const NavPlatform = () => (
             )}
             title={localize('SmartTrader')}
             to="https://smarttrader.deriv.app"
-            style={{ 'margin-top': '3.2rem' }}
-            external
+            style={{ marginTop: '3.2rem' }}
+            external='true'
         />
     </Flex>
 )
@@ -229,7 +229,7 @@ export const NavMarket = () => (
                 'Trade the world’s largest financial market with popular forex pairs.',
             )}
             title={localize('Forex')}
-            style={{ 'margin-right': '5.6rem' }}
+            style={{ marginRight: '5.6rem' }}
             to="/markets/#trade"
         />
         <NavCard
@@ -245,14 +245,14 @@ export const NavMarket = () => (
             content={localize("Trade natural resources that are central to the world's economy.")}
             title={localize('Commodities')}
             to="/markets/#commodities"
-            style={{ 'margin-top': '3.2rem', 'margin-right': '5.6rem' }}
+            style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
         />
         <NavCard
             icon={SyntheticIndices}
             content={localize('Enjoy synthetic markets that emulate real-world market movements.')}
             title={localize('Synthetic Indices')}
             to="/markets/#synthetic"
-            style={{ 'margin-top': '3.2rem' }}
+            style={{ marginTop: '3.2rem' }}
         />
     </Flex>
 )

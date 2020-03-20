@@ -61,7 +61,7 @@ export const LocalizedLink = ({ to, ...props }) => {
     const { is_default, path } = language_config[locale]
     const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
 
-    if (props.external)
+    if (props.external === 'ture')
         return (
             <a {...props} href={to}>
                 {props.children}
@@ -81,7 +81,7 @@ export const LocalizedLink = ({ to, ...props }) => {
 
 LocalizedLink.propTypes = {
     children: PropTypes.node,
-    external: PropTypes.bool,
+    external: PropTypes.string,
     external_link: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
     props: PropTypes.object,

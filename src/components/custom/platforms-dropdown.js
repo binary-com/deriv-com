@@ -89,9 +89,9 @@ const PlatformsDropdown = ({
 }
 
 PlatformsDropdown.propTypes = {
-    Content: PropTypes.node,
+    Content: PropTypes.func,
     description: PropTypes.string,
-    forward_ref: PropTypes.func,
+    forward_ref: PropTypes.object,
     has_animation: PropTypes.bool,
     is_open: PropTypes.bool,
     title: PropTypes.string,

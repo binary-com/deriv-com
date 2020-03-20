@@ -14,7 +14,7 @@ const leaders_data = [
         description: localize(
             'Rakshit joined us in 2010, jointly architecting the system behind our trading platform with our Chief Executive Officer. Today, he oversees the design and implementation of our business operations. Rakshit holds a master’s degree in quantitative and computational finance from Georgia Institute of Technology in Atlanta and a bachelor’s degree in mechanical engineering from Delhi College of Engineering in India.',
         ),
-        image: 'rakshit-choudhary.png',
+        image: 'rakshit-choudhary',
     },
     {
         name: 'Tom Molesworth',
@@ -27,7 +27,7 @@ const leaders_data = [
         description: localize(
             'Tom is responsible for our technology strategy and is actively involved in engineering leadership. With over 20 years of experience in software development, he has made extensive contributions to the design and maintenance of large-scale platforms in the IT industry.',
         ),
-        image: 'tom-molesworth.png',
+        image: 'tom-molesworth',
     },
     {
         name: 'Anton Andreev',
@@ -35,7 +35,7 @@ const leaders_data = [
         description: localize(
             'Anton is responsible for overseeing the end-to-end development of our products. He has more than 17 years of experience in the online trading and retail banking industry with several international brokers. Anton holds a master’s degree in economics and another in applied informatics.',
         ),
-        image: 'anton-andreev.png',
+        image: 'anton-andreev',
     },
     {
         name: 'Joanna Frendo',
@@ -43,7 +43,7 @@ const leaders_data = [
         description: localize(
             'Joanna oversees the whole process of benchmarking the group’s performance against the regulations in every jurisdiction we serve. Her credentials include a diploma in financial services operations and compliance, a professional postgraduate diploma in financial crime compliance, and a fellow membership with the International Compliance Association.',
         ),
-        image: 'joanna-frendo.png',
+        image: 'joanna-frendo',
     },
     {
         name: 'Shyamala Siva',
@@ -51,7 +51,7 @@ const leaders_data = [
         description: localize(
             'Shyamala has been with the group for over 10 years, ensuring smooth workplace and customer service operations. Shyamala is a Certified Public Accountant and holds a master’s degree in corporate governance from HELP University in Malaysia.',
         ),
-        image: 'shyamala-siva.png',
+        image: 'shyamala-siva',
     },
     {
         name: 'Raunak Kathuria',
@@ -59,7 +59,7 @@ const leaders_data = [
         description: localize(
             'Raunak has more than 10 years of experience in front-end and back-end engineering. He has worked for multinational companies like Amdocs, Aon Hewitt, and Oracle Financial Services, where he developed skills for a wide range of platforms and programming languages. Raunak holds a bachelor’s degree in computer science engineering.',
         ),
-        image: 'raunak-kathuria.png',
+        image: 'raunak-kathuria',
     },
     {
         name: 'Mun Sei Loke',
@@ -67,7 +67,7 @@ const leaders_data = [
         description: localize(
             'With more than 11 years of experience in Quality Assurance (QA), Mun Sei is well versed in all stages of software development life cycle, as well as in all forms of QA testing. She holds a bachelor’s degree in computer science.',
         ),
-        image: 'munsei-loke.png',
+        image: 'munsei-loke',
     },
     {
         name: 'Denis Makagonov',
@@ -75,7 +75,7 @@ const leaders_data = [
         description: localize(
             'Denis has more than 10 years of data management experience. Denis previously worked with Forex Club (Libertex), one of the world’s leading forex retail brokers in Russia, and CIS as an enterprise data architect. Denis holds an engineering degree in computer systems information processing and management from Karaganda State Technical University in Kazakhstan.',
         ),
-        image: 'denis-makagonov.png',
+        image: 'denis-makagonov',
     },
     {
         name: 'Waqas Awan',
@@ -83,7 +83,7 @@ const leaders_data = [
         description: localize(
             'Waqas heads our Product Design department. He has more than 20 years of experience as a product specialist, leading multi-disciplinary teams to ship compelling products and services in domains including healthcare, human resources, and FinTech. Waqas holds a PhD in bioinformatics from the University of Cambridge.',
         ),
-        image: 'waqas-awan.png',
+        image: 'waqas-awan',
     },
     {
         name: 'Derek Swift',
@@ -91,7 +91,7 @@ const leaders_data = [
         description: localize(
             'Derek has been with us since 2006. His role is pivotal to the onboarding of our new payment systems and bank accounts. He holds a master’s degree in risk management from Birmingham City University.',
         ),
-        image: 'derek-swift.png',
+        image: 'derek-swift',
     },
     {
         name: 'Jeyavarthini Vairakanan',
@@ -99,7 +99,7 @@ const leaders_data = [
         description: localize(
             'Jeyavarthini drives our customer support strategy and assists her team to establish a sustainable relationship with our clients. Before joining us in 2017, Jeyavarthini worked for Intel in Malaysia. She holds an honours degree in Information Technology with a speciality in Information System Security (ISS) from Asia Pacific University associated with Staffordshire University, UK.',
         ),
-        image: 'jeyavarthini-vairakanan.png',
+        image: 'jeyavarthini-vairakanan',
     },
     {
         name: 'Arun Venkataraman',
@@ -107,7 +107,7 @@ const leaders_data = [
         description: localize(
             'Arun coordinates our product development teams with our operations teams. He has over 12 years of experience in the information industry and has a comprehensive perspective into his field. Arun holds a master’s degree in bioinformatics from Bharathiar University in India.',
         ),
-        image: 'arun-venkataraman.png',
+        image: 'arun-venkataraman',
     },
     {
         name: 'Ashkan Nemati',
@@ -115,7 +115,7 @@ const leaders_data = [
         description: localize(
             'Ashkan directs our front-end resources across the globe. He has over a decade of experience working with marketers, engineers, and designers in the entertainment and trading industries. Ashkan and his team focus on building a user-centric trading experience, which can help our users make better trading decisions. He holds an MBA from Management and Science University.',
         ),
-        image: 'ashkan-nemati.png',
+        image: 'ashkan-nemati',
     },
 ]
 const StyledSection = styled(SectionContainer)`
@@ -172,15 +172,8 @@ const LeaderMobile = styled.div`
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
     border-radius: 4px;
 
-    > div {
-        background-color: #d5dadb;
-        border-radius: 4px 4px 0 0;
-    }
     > p {
         max-width: 34rem;
-    }
-    .gatsby-image-wrapper {
-        margin: 0 auto;
     }
 `
 const params = {
@@ -208,7 +201,7 @@ const Leaders = () => {
                         {leaders_data.map((leader, index) => (
                             <LeaderWrapper key={index} direction="column" ai="center">
                                 <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
-                                    <Image img_name={leader.image} alt={leader.name} />
+                                    <Image img_name={leader.image + '.png'} alt={leader.name} />
                                     <DescriptionWrapper>
                                         <Text lh="1.71" size="var(--text-size-xs)" color="white">
                                             {leader.description}
@@ -230,7 +223,7 @@ const Leaders = () => {
                         <Swiper {...params} >
                             {leaders_data.map(leader => (
                                 <LeaderMobile key={leader.name}>
-                                    <Image img_name={leader.image} alt={leader.name} width='21rem' height='17rem' />
+                                    <Image img_name={leader.image + '-mobile.png'} alt={leader.name} />
                                     <Header font_size='3rem' align='center' margin='2rem 0 0 0'>{leader.name}</Header>
                                     <Text align='center' secondary margin='0 auto'>{localize(leader.position)}</Text>
                                     <Text margin='2rem 2rem 4rem 2rem' secondary>{localize(leader.description)}</Text>

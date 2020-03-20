@@ -192,8 +192,9 @@ const DerivExperience = styled.div`
 const MobileRedBanner = styled.div`
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: -2px;
     max-height: 100%;
+    overflow: hidden;
 `
 const MobilePlatform = styled.div`
     width: 100%;

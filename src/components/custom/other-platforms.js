@@ -266,3 +266,11 @@ export const NavCompany = () => (
         <CardLink title={localize('Careers')} to="/careers/" />
     </Flex>
 )
+
+export const NavResources = () => (
+    <Flex wrap="wrap" jc="flex-start" mw="42rem">
+        <CardLink title={localize('Help Centre')} to="/help-centre/" />
+        <CardLink title={localize('Payment methods')} to="/payment-methods/" />
+        <CardLink title={localize('Blog')} to="/blog/" />
+    </Flex>
+)

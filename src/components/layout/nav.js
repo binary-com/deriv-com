@@ -3,7 +3,12 @@ import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
-import { NavPlatform, NavMarket, NavCompany } from 'components/custom/other-platforms.js'
+import {
+    NavPlatform,
+    NavMarket,
+    NavCompany,
+    NavResources,
+} from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
@@ -205,7 +210,7 @@ export const Nav = () => {
         setHasMarketAnimation(true)
     }
 
-    // // company
+    // company
     const company_ref = useRef(null)
     const link_company_ref = useRef(null)
     const [is_company_open, setIsCompanyOpen] = useState(false)
@@ -215,6 +220,18 @@ export const Nav = () => {
     const handleCompanyClick = () => {
         setIsCompanyOpen(!is_company_open)
         setHasCompanyAnimation(true)
+    }
+
+    // resources
+    const resources_ref = useRef(null)
+    const link_resources_ref = useRef(null)
+    const [is_resources_open, setIsResourcesOpen] = useState(false)
+    const [has_resources_animation, setHasResourcesAnimation] = useState(false)
+    const closeResources = () => setIsResourcesOpen(false)
+    useOutsideClick(resources_ref, closeResources, link_resources_ref)
+    const handleResourcesClick = () => {
+        setIsResourcesOpen(!is_resources_open)
+        setHasResourcesAnimation(true)
     }
 
     const buttonHandleScroll = () => {
@@ -272,6 +289,16 @@ export const Nav = () => {
                         "Get to know our leadership team, learn about our history, and see why we're different.",
                     )}
                 />
+                <PlatformsDropdown
+                    forward_ref={resources_ref}
+                    is_open={is_resources_open}
+                    has_animation={has_resources_animation}
+                    Content={NavResources}
+                    title={localize('Resouces')}
+                    description={localize(
+                        'Help yourself to various resources that can help you get the best out of your trading experience.',
+                    )}
+                />
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
@@ -306,8 +333,12 @@ export const Nav = () => {
                                 {localize('Company')}
                             </StyledButton>
                         </NavLink>
-                        <NavLink onClick={handleCompanyClick}>
-                            <StyledButton aria-label={localize('Resources')}>
+                        <NavLink onClick={handleResourcesClick}>
+                            <StyledButton
+                                aria-label={localize('Resources')}
+                                active={is_resources_open}
+                                ref={link_resources_ref}
+                            >
                                 {localize('Resources')}
                             </StyledButton>
                         </NavLink>

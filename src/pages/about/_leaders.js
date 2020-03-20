@@ -172,8 +172,14 @@ const LeaderMobile = styled.div`
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
     border-radius: 4px;
 
+    > div {
+        background-color: #d5dadb;
+    }
     > p {
         max-width: 34rem;
+    }
+    .gatsby-image-wrapper {
+        margin: 0 auto;
     }
 `
 const params = {
@@ -223,7 +229,7 @@ const Leaders = () => {
                         <Swiper {...params} >
                             {leaders_data.map(leader => (
                                 <LeaderMobile key={leader.name}>
-                                    <div style={{ width: '38rem', height: '15rem', backgroundColor: '#ebebeb' }}></div>
+                                    <Image img_name={leader.image} alt={leader.name} width='21rem' height='15rem'/>
                                     <Header font_size='3rem' align='center' margin='2rem 0 0 0'>{leader.name}</Header>
                                     <Text align='center' secondary margin='0 auto'>{localize(leader.position)}</Text>
                                     <Text margin='2rem 2rem 4rem 2rem' secondary>{localize(leader.description)}</Text>

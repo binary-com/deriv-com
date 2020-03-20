@@ -341,7 +341,7 @@ export const NavCard = ({ icon, title, content, to, style, external }) => {
 NavCard.propTypes = {
     content: PropTypes.string,
     external: PropTypes.bool,
-    icon: PropTypes.object,
+    icon: PropTypes.func,
     style: PropTypes.object,
     title: PropTypes.string,
     to: PropTypes.string,

@@ -8,6 +8,10 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
+import Forex from 'images/svg/market-forex.svg'
+import Commodities from 'images/svg/market-commodities.svg'
+import StockIndices from 'images/svg/market-stock-indices.svg'
+import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -127,6 +131,52 @@ const OffCanvasMenuWrapper = props => {
                                 title={localize('SmartTrader')}
                                 to="https://smarttrader.deriv.app"
                                 external
+                            />
+                        </Flex>
+                    </AccordionItem>
+                    <AccordionItem
+                        header={localize('Markets')}
+                        header_style={header_style}
+                        style={content_style}
+                    >
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                icon={Forex}
+                                content={localize(
+                                    'Trade the world’s largest financial market with popular forex pairs.',
+                                )}
+                                title={localize('Forex')}
+                                to="/markets#forex"
+                            />
+                        </Flex>
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                icon={Commodities}
+                                content={localize(
+                                    "Trade natural resources that are central to the world's economy.",
+                                )}
+                                title={localize('Commodities')}
+                                to="/markets#commodities"
+                            />
+                        </Flex>
+                        <Flex mb="3.2rem">
+                            <NavCard
+                                icon={StockIndices}
+                                content={localize(
+                                    'Predict broader market trends and diversify your risk with stock indices.',
+                                )}
+                                title={localize('Stock Indices')}
+                                to="/markets#stock"
+                            />
+                        </Flex>
+                        <Flex>
+                            <NavCard
+                                icon={SyntheticIndices}
+                                content={localize(
+                                    'Enjoy synthetic markets that emulate real-world market movements.',
+                                )}
+                                title={localize('Synthetic Indices')}
+                                to="markets#synthetic"
                             />
                         </Flex>
                     </AccordionItem>

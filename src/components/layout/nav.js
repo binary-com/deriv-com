@@ -12,7 +12,7 @@ import {
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, localize } from 'components/localization'
 import { Button } from 'components/form'
-import { Container } from 'components/containers'
+import { Container, Show } from 'components/containers'
 import { OffCanvasMenu, moveOffCanvasMenu, Text } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -259,46 +259,49 @@ export const Nav = () => {
     return (
         <NavWrapper>
             <StyledNav>
-                <PlatformsDropdown
-                    forward_ref={trade_ref}
-                    is_open={is_trade_open}
-                    has_animation={has_trade_animation}
-                    Content={NavPlatform}
-                    title={localize('Trading platforms')}
-                    description={localize(
-                        'Be in full control of your trading with our new and improved platforms.',
-                    )}
-                />
-                <PlatformsDropdown
-                    forward_ref={market_ref}
-                    is_open={is_market_open}
-                    has_animation={has_market_animation}
-                    Content={NavMarket}
-                    title={localize('Markets')}
-                    description={localize(
-                        'Enjoy our wide range of assets on financial and synthetic markets. ',
-                    )}
-                />
-                <PlatformsDropdown
-                    forward_ref={company_ref}
-                    is_open={is_company_open}
-                    has_animation={has_company_animation}
-                    Content={NavCompany}
-                    title={localize('Company')}
-                    description={localize(
-                        "Get to know our leadership team, learn about our history, and see why we're different.",
-                    )}
-                />
-                <PlatformsDropdown
-                    forward_ref={resources_ref}
-                    is_open={is_resources_open}
-                    has_animation={has_resources_animation}
-                    Content={NavResources}
-                    title={localize('Resouces')}
-                    description={localize(
-                        'Help yourself to various resources that can help you get the best out of your trading experience.',
-                    )}
-                />
+                <Show.Desktop>
+                    <PlatformsDropdown
+                        forward_ref={trade_ref}
+                        is_open={is_trade_open}
+                        has_animation={has_trade_animation}
+                        Content={NavPlatform}
+                        title={localize('Trading platforms')}
+                        description={localize(
+                            'Be in full control of your trading with our new and improved platforms.',
+                        )}
+                    />
+                    <PlatformsDropdown
+                        forward_ref={market_ref}
+                        is_open={is_market_open}
+                        has_animation={has_market_animation}
+                        Content={NavMarket}
+                        title={localize('Markets')}
+                        description={localize(
+                            'Enjoy our wide range of assets on financial and synthetic markets. ',
+                        )}
+                    />
+                    <PlatformsDropdown
+                        forward_ref={company_ref}
+                        is_open={is_company_open}
+                        has_animation={has_company_animation}
+                        Content={NavCompany}
+                        title={localize('Company')}
+                        description={localize(
+                            "Get to know our leadership team, learn about our history, and see why we're different.",
+                        )}
+                    />
+                    <PlatformsDropdown
+                        forward_ref={resources_ref}
+                        is_open={is_resources_open}
+                        has_animation={has_resources_animation}
+                        Content={NavResources}
+                        title={localize('Resouces')}
+                        description={localize(
+                            'Help yourself to various resources that can help you get the best out of your trading experience.',
+                        )}
+                    />
+                </Show.Desktop>
+
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>

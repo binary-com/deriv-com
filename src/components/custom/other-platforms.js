@@ -271,6 +271,7 @@ export const NavResources = () => (
     <Flex wrap="wrap" jc="flex-start" mw="42rem">
         <CardLink title={localize('Help Centre')} to="/help-centre/" />
         <CardLink title={localize('Payment methods')} to="/payment-methods/" />
-        <CardLink title={localize('Blog')} to="/blog/" />
+        {/* TODO: add this when blog is ready */}
+        {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
     </Flex>
 )

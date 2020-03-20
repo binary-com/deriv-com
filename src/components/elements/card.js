@@ -271,7 +271,6 @@ const NavContent = styled.div`
 const RightDiagonal = styled(Diagonal)`
     position: absolute;
     right: 0;
-    top: 0;
     visibility: ${props => props.visibility};
 `
 
@@ -348,9 +347,8 @@ NavCard.propTypes = {
 }
 
 const LinkRightDiagonal = styled(RightDiagonal)`
-    right: -25px;
-    top: -5px;
     visibility: hidden;
+    right: -25px;
 `
 
 const HoverFlex = styled(Flex)`

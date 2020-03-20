@@ -8,10 +8,6 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
-import Forex from 'images/svg/market-forex.svg'
-import Commodities from 'images/svg/market-commodities.svg'
-import StockIndices from 'images/svg/market-stock-indices.svg'
-import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -33,10 +29,6 @@ const StyledLink = styled(props => <LocalizedLink {...props} />)`
     line-height: 2.8rem;
 `
 
-const SingleLink = styled(StyledLink)`
-    font-weight: bold;
-    margin-top: 1.6rem;
-`
 const OffCanvasMenuContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -134,7 +126,8 @@ const OffCanvasMenuWrapper = props => {
                             />
                         </Flex>
                     </AccordionItem>
-                    <AccordionItem
+                    {/* TODO: add this when market is ready */}
+                    {/* <AccordionItem
                         header={localize('Markets')}
                         header_style={header_style}
                         style={content_style}
@@ -179,7 +172,7 @@ const OffCanvasMenuWrapper = props => {
                                 to="markets#synthetic"
                             />
                         </Flex>
-                    </AccordionItem>
+                    </AccordionItem> */}
                     <AccordionItem
                         header={localize('Company')}
                         header_style={header_style}
@@ -194,11 +187,27 @@ const OffCanvasMenuWrapper = props => {
                         <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
                             {localize('Our leadership')}
                         </StyledLink>
+                        <StyledLink to="/contact-us/" onClick={handleArrowClick}>
+                            {localize('Contact us')}
+                        </StyledLink>
                         <StyledLink to="/careers/" onClick={handleArrowClick}>
                             {localize('Careers')}
                         </StyledLink>
-                        <StyledLink to="/contact-us/" onClick={handleArrowClick}>
-                            {localize('Contact us')}
+                    </AccordionItem>
+                    <AccordionItem
+                        header={localize('Resources')}
+                        header_style={header_style}
+                        style={content_style}
+                    >
+                        <StyledLink to="/help-centre/" onClick={handleArrowClick}>
+                            {localize('Help Centre')}
+                        </StyledLink>
+                        {/* TODO: add this when blog is ready */}
+                        {/* <StyledLink to="/blog/" onClick={handleArrowClick}>
+                            {localize('Blog')}
+                        </StyledLink> */}
+                        <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
+                            {localize('Payment methods')}
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
@@ -217,9 +226,6 @@ const OffCanvasMenuWrapper = props => {
                         </StyledLink>
                     </AccordionItem>
                 </Accordion>
-                <SingleLink weight="bold" to="/help-centre/" onClick={handleArrowClick}>
-                    {localize('Help centre')}
-                </SingleLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenu>
     )

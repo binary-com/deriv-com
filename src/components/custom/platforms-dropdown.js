@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { Container, Show } from 'components/containers'
 import { Text, Header, Divider } from 'components/elements'
-import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const FadeInDown = keyframes`
@@ -63,20 +62,23 @@ const MarginDivider = styled(Divider)`
     margin: 0 6.9rem;
 `
 
-const PlatformsDropdown = ({ is_open, has_animation, Content, forward_ref }) => {
+const PlatformsDropdown = ({
+    is_open,
+    has_animation,
+    Content,
+    forward_ref,
+    title,
+    description,
+}) => {
     return (
         <Show.Desktop>
             <NavDropdown is_open={is_open} has_animation={has_animation} ref={forward_ref}>
                 <StyledContainer>
                     <PlatformInfo>
                         <Header as="h4" margin="0 0 0.8rem">
-                            {localize('Trading platforms')}
+                            {title}
                         </Header>
-                        <Text size="var(--text-size-xs)">
-                            {localize(
-                                'Be in full control of your trading with our new and improved platforms.',
-                            )}
-                        </Text>
+                        <Text size="var(--text-size-xs)">{description}</Text>
                     </PlatformInfo>
                     <MarginDivider width="2px" height="100%" />
                     <Content />
@@ -88,9 +90,11 @@ const PlatformsDropdown = ({ is_open, has_animation, Content, forward_ref }) => 
 
 PlatformsDropdown.propTypes = {
     Content: PropTypes.node,
+    description: PropTypes.string,
     forward_ref: PropTypes.func,
     has_animation: PropTypes.bool,
     is_open: PropTypes.bool,
+    title: PropTypes.string,
 }
 
 export default React.memo(PlatformsDropdown)

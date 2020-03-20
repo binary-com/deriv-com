@@ -113,6 +113,12 @@ const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
     text-align: left;
+    margin-right: 6rem;
+
+    &:last-child {
+        margin-right: 0;
+    }
+
     ${props => {
         if (props.margin) return 'margin: 0 4rem;'
     }}
@@ -187,6 +193,18 @@ export const Nav = () => {
         setHasTradeAnimation(true)
     }
 
+    // market
+    const market_ref = useRef(null)
+    const link_market_ref = useRef(null)
+    const [is_market_open, setIsMarketOpen] = useState(false)
+    const [has_market_animation, setHasMarketAnimation] = useState(false)
+    const closeMarket = () => setIsMarketOpen(false)
+    useOutsideClick(market_ref, closeMarket, link_market_ref)
+    const handleMarketClick = () => {
+        setIsMarketOpen(!is_market_open)
+        setHasMarketAnimation(true)
+    }
+
     const buttonHandleScroll = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
@@ -217,6 +235,20 @@ export const Nav = () => {
                     is_open={is_trade_open}
                     has_animation={has_trade_animation}
                     Content={NavPlatform}
+                    title={localize('Trading platforms')}
+                    description={localize(
+                        'Be in full control of your trading with our new and improved platforms.',
+                    )}
+                />
+                <PlatformsDropdown
+                    forward_ref={market_ref}
+                    is_open={is_market_open}
+                    has_animation={has_market_animation}
+                    Content={NavMarket}
+                    title={localize('Markets')}
+                    description={localize(
+                        'Enjoy our wide range of assets on financial and synthetic markets. ',
+                    )}
                 />
                 <Wrapper>
                     <NavLeft>
@@ -228,6 +260,11 @@ export const Nav = () => {
                         <NavLink onClick={handleTradeClick} ref={link_trade_ref}>
                             <StyledButton aria-label={localize('Trade')} active={is_trade_open}>
                                 {localize('Trade')}
+                            </StyledButton>
+                        </NavLink>
+                        <NavLink onClick={handleMarketClick} ref={link_market_ref}>
+                            <StyledButton aria-label={localize('Markets')} active={is_market_open}>
+                                {localize('Markets')}
                             </StyledButton>
                         </NavLink>
                     </NavCenter>

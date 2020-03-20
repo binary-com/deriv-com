@@ -11,6 +11,9 @@ import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
 import Forex from 'images/svg/market-forex.svg'
+import Commodities from 'images/svg/market-commodities.svg'
+import StockIndices from 'images/svg/market-stock-indices.svg'
+import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
@@ -199,29 +202,25 @@ export const NavMarket = () => (
             to="/markets/#trade"
         />
         <NavCard
-            icon={DMT5}
+            icon={StockIndices}
             content={localize(
-                'A whole new trading experience on a powerful yet easy to use platform. ',
+                'Predict broader market trends and diversify your risk with stock indices.',
             )}
-            title={localize('DMT5')}
-            to="/dtrader"
+            title={localize('Stock indices')}
+            to="/markets/#stock"
         />
         <NavCard
-            icon={DBot}
-            content={localize(
-                'A whole new trading experience on a powerful yet easy to use platform. ',
-            )}
-            title={localize('DBot')}
-            to="/dtrader"
+            icon={Commodities}
+            content={localize("Trade natural resources that are central to the world's economy.")}
+            title={localize('Commodities')}
+            to="/markets/#commodities"
             style={{ 'margin-top': '3.2rem', 'margin-right': '5.6rem' }}
         />
         <NavCard
-            icon={Smarttrader}
-            content={localize(
-                'A whole new trading experience on a powerful yet easy to use platform. ',
-            )}
-            title={localize('SmartTrader')}
-            to="/dtrader"
+            icon={SyntheticIndices}
+            content={localize('Enjoy synthetic markets that emulate real-world market movements.')}
+            title={localize('Synthetic Indices')}
+            to="/markets/#synthetic"
             style={{ 'margin-top': '3.2rem' }}
         />
     </Flex>

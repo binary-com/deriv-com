@@ -129,7 +129,7 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
 DMT5Card.propTypes = { ...cardProptypes }
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink to="https://smarttrader.deriv.app" external='true'>
+    <StyledLink to="https://smarttrader.deriv.app" external="true">
         <Card
             cover_background="var(--color-blue-3)"
             cover_content={localize('Discover SmartTrader now')}
@@ -193,30 +193,24 @@ export const NavPlatform = () => (
 
         <NavCard
             icon={DMT5}
-            content={localize(
-                'A whole new trading experience on a powerful yet easy to use platform. ',
-            )}
+            content={localize('The platform of choice for professionals worldwide.')}
             title={localize('DMT5')}
             to="/dmt5"
         />
         <NavCard
             icon={DBot}
-            content={localize(
-                'A whole new trading experience on a powerful yet easy to use platform. ',
-            )}
+            content={localize('Automated trading at your fingertips. No coding needed.')}
             title={localize('DBot')}
             to="/dbot"
             style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
         />
         <NavCard
             icon={Smarttrader}
-            content={localize(
-                'A whole new trading experience on a powerful yet easy to use platform. ',
-            )}
+            content={localize('Trade the world’s markets with our popular user-friendly platform.')}
             title={localize('SmartTrader')}
             to="https://smarttrader.deriv.app"
             style={{ marginTop: '3.2rem' }}
-            external='true'
+            external
         />
     </Flex>
 )
@@ -260,7 +254,7 @@ export const NavMarket = () => (
 export const NavCompany = () => (
     <Flex wrap="wrap" jc="flex-start" mw="42rem">
         <CardLink title={localize('Our story')} to="/about/#story" />
-        <CardLink title={localize('Our leadership')} to="/about/#story" />
+        <CardLink title={localize('Our leadership')} to="/about/#leadership" />
         <CardLink title={localize('Why choose us?')} to="/why-choose-us/" />
         <CardLink title={localize('Contact us')} to="/contact-us/" />
         <CardLink title={localize('Careers')} to="/careers/" />

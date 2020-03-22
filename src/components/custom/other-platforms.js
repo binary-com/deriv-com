@@ -210,7 +210,7 @@ export const NavPlatform = () => (
             title={localize('SmartTrader')}
             to="https://smarttrader.deriv.app"
             style={{ marginTop: '3.2rem' }}
-            external
+            external="true"
         />
     </Flex>
 )

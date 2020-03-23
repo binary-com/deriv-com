@@ -188,7 +188,7 @@ export const OffCanvasMenuWrapper = props => {
                         <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
                             {localize('Our leadership')}
                         </StyledLink>
-                        <StyledLink to="/about/" onClick={handleArrowClick}>
+                        <StyledLink to="/why-choose-us/" onClick={handleArrowClick}>
                             {localize('Why choose us')}
                         </StyledLink>
                         <StyledLink to="/contact-us/" onClick={handleArrowClick}>

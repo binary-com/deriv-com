@@ -306,7 +306,7 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="Unit 3004, 1 Lake Plaza, Cluster T,<0/>Jumeirah Lake Towers, Dubai, UAE"
+                                        translate_text="1902, Jumeirah Business Center 1,<0/>JLT Cluster G, Dubai, UAE."
                                         components={[<br key={0} />]}
                                     />
                                 </Text>

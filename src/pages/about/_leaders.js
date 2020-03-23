@@ -167,13 +167,13 @@ const SwiperWrapper = styled.div`
 `
 const LeaderMobile = styled.div`
     width: 100%;
-    max-width: 38rem;
-    height: 66.5rem;
+    max-width: 304px;
+    height: 532px;
     box-shadow: 0 20px 20px 0 rgba(0,0,0,0.2);
     border-radius: 4px;
 
     > p {
-        max-width: 34rem;
+        max-width: 273px;
     }
 `
 const params = {
@@ -224,9 +224,9 @@ const Leaders = () => {
                             {leaders_data.map(leader => (
                                 <LeaderMobile key={leader.name}>
                                     <Image img_name={leader.image + '-mobile.png'} alt={leader.name} />
-                                    <Header font_size='3rem' align='center' margin='2rem 0 0 0'>{leader.name}</Header>
+                                    <Header font_size='24px' align='center' margin='16px 0 0 0'>{leader.name}</Header>
                                     <Text align='center' secondary margin='0 auto'>{localize(leader.position)}</Text>
-                                    <Text margin='2rem 2rem 4rem 2rem' secondary>{localize(leader.description)}</Text>
+                                    <Text margin='16px 16px 32px 16px' secondary>{localize(leader.description)}</Text>
                                 </LeaderMobile>
                             ))}
                         </Swiper>

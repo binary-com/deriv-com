@@ -5,7 +5,6 @@ import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import CallUsIcon from 'images/svg/call-us.svg'
-import { Show } from 'components/containers'
 // import ChatLiveIcon from 'images/svg/chat-live.svg'
 import EmailUsIcon from 'images/svg/email-us.svg'
 import NeedUsIcon from 'images/svg/need-us.svg'
@@ -146,12 +145,7 @@ export const ContactWays = () => {
                         {localize('Visit our Help Centre')}
                     </StyledHeader>
                     <StyledText align="center">
-                        <Show.Desktop>
-                            {localize('The quickest way to get answers to your questions.')}
-                        </Show.Desktop>
-                        <Show.Mobile>
-                            {localize('Try our Help Centre. You’ll find searchable, easy to follow articles to get you going.')}
-                        </Show.Mobile>
+                        {localize('The quickest way to get answers to your questions.')}
                     </StyledText>
                     <StyledLinkButton secondary="true" to="help-centre">
                         {localize('Visit the Help Centre')}

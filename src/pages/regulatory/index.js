@@ -205,7 +205,7 @@ const Regulatory = () => (
                                         <a
                                             key={0}
                                             target="_blank"
-                                            href="https://www.vfsc.vu/financial-dealers-licensee-lists/"
+                                            href="/Vanuatu-Financial-Services-Commission.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

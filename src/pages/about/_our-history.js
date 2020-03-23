@@ -45,6 +45,12 @@ const YearWrapper = styled.div`
 const ContentWrapper = styled.div`
     width: ${props => props.content_width || '39.6rem'};
     padding: 0 0 0 1rem;
+
+    @media ${device.tabletL} {
+        ${Header} {
+            text-align: center;
+        }
+    }
 `
 const StyledHeader = styled(Header)`
     width: 8%;

@@ -26,7 +26,7 @@ const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
 `
 const StyledLink = styled(props => <LocalizedLink {...props} />)`
     color: var(--color-black-3);
-    margin-top: 2.4rem;
+    margin-top: 3rem;
     font-size: 2rem;
     font-weight: 400;
     text-decoration: none;
@@ -53,7 +53,7 @@ const header_style = {
 }
 const content_style = {
     marginLeft: '1.6rem',
-    marginBottom: '2.4rem',
+    paddingBottom: '1.6rem',
     flexDirection: 'column',
     display: 'flex',
 }
@@ -87,7 +87,7 @@ export const OffCanvasMenuWrapper = props => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <Flex mb="3.2rem">
+                        <Flex mb="2rem">
                             <NavCard
                                 icon={DTrader}
                                 content={localize(
@@ -97,7 +97,7 @@ export const OffCanvasMenuWrapper = props => {
                                 to="/dtrader"
                             />
                         </Flex>
-                        <Flex mb="3.2rem">
+                        <Flex mb="2rem">
                             <NavCard
                                 icon={DBot}
                                 content={localize(
@@ -107,7 +107,7 @@ export const OffCanvasMenuWrapper = props => {
                                 to="/dbot"
                             />
                         </Flex>
-                        <Flex mb="3.2rem">
+                        <Flex mb="2rem">
                             <NavCard
                                 icon={DMT5}
                                 content={localize(

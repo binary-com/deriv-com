@@ -54,7 +54,6 @@ const header_style = {
 const content_style = {
     marginLeft: '1.6rem',
     marginBottom: '2.4rem',
-    marginTop: '0.8rem',
     flexDirection: 'column',
     display: 'flex',
 }
@@ -183,14 +182,14 @@ export const OffCanvasMenuWrapper = props => {
                         header_style={header_style}
                         style={content_style}
                     >
-                        <StyledLink to="/about/" onClick={handleArrowClick}>
-                            {localize('Why choose us')}
-                        </StyledLink>
                         <StyledLink to="/about/#story" onClick={handleArrowClick}>
                             {localize('Our story')}
                         </StyledLink>
                         <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
                             {localize('Our leadership')}
+                        </StyledLink>
+                        <StyledLink to="/about/" onClick={handleArrowClick}>
+                            {localize('Why choose us')}
                         </StyledLink>
                         <StyledLink to="/contact-us/" onClick={handleArrowClick}>
                             {localize('Contact us')}

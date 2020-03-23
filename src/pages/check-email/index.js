@@ -16,9 +16,9 @@ const CheckEmail = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Check Email')}
+                title={localize('Check your email')}
                 description={localize(
-                    "If you don't see an email from us within a few minutes, a few things could have happened.",
+                    "Didn't receive an email from us? Here's what could've happened.",
                 )}
                 no_index
             />

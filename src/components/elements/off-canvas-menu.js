@@ -84,7 +84,7 @@ export const OffCanvasMenuWrapper = props => {
             <OffCanvasMenuContainer>
                 <Accordion>
                     <AccordionItem
-                        header={localize('Trading platforms')}
+                        header={localize('Trade')}
                         header_style={header_style}
                         style={content_style}
                     >

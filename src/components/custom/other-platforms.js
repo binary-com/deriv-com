@@ -255,10 +255,10 @@ export const NavMarket = () => (
 export const NavCompany = () => (
     <Flex wrap="wrap" jc="flex-start" mw="42rem">
         <CardLink title={localize('Our story')} to="/about/#story" />
-        <CardLink title={localize('Our leadership')} to="/about/#leadership" />
-        <CardLink title={localize('Why choose us?')} to="/why-choose-us/" />
         <CardLink title={localize('Contact us')} to="/contact-us/" />
+        <CardLink title={localize('Our leadership')} to="/about/#leadership" />
         <CardLink title={localize('Careers')} to="/careers/" />
+        <CardLink title={localize('Why choose us?')} to="/why-choose-us/" />
     </Flex>
 )
 

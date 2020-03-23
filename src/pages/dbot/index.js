@@ -46,7 +46,7 @@ const trading = [
             'Simply drag, drop, and configure pre-built blocks and indicators onto a canvas to build your bot. No coding needed.',
         ),
         image_name: 'dbot-build-strategy.png',
-        image_alt: localize('Build bot strategy'),
+        image_alt: localize('Create your Strategy '),
     },
     {
         title: (
@@ -59,7 +59,7 @@ const trading = [
             'Use analysis tools, indicators, and smart logic such as take-profit and stop-loss to maximise your profits and limit losses.',
         ),
         image_name: 'dbot-maximise-profits.png',
-        image_alt: localize('Analysis tool'),
+        image_alt: localize('Tools'),
     },
     {
         title: (
@@ -69,7 +69,7 @@ const trading = [
             'See how your bot is performing as it executes each trade and receive notifications via Telegram.',
         ),
         image_name: 'dbot-track-your-performance.png',
-        image_alt: localize('Track performace'),
+        image_alt: localize('Performance Tracking'),
     },
     {
         title: <Localize translate_text="Get<0/>integrated help" components={[<br key={0} />]} />,
@@ -77,7 +77,7 @@ const trading = [
             'Access tutorials, guides, and reference information as you build your bot.',
         ),
         image_name: 'dbot-get-integrated-help.png',
-        image_alt: localize('Integrated help'),
+        image_alt: localize('Tutorials'),
     },
     {
         title: <Localize translate_text="Save<0/>your strategies" components={[<br key={0} />]} />,
@@ -85,7 +85,7 @@ const trading = [
             'Enjoy the convenience and security of storing your strategies on your Google Drive.',
         ),
         image_name: 'dbot-save-your-strategies.png',
-        image_alt: localize('Save bot strategy'),
+        image_alt: localize('Save Strategies'),
     },
 ]
 class Dbot extends Component {
@@ -106,6 +106,7 @@ class Dbot extends Component {
                     Logo={dbot_logo}
                     background_image_name="dbot-artboard.png"
                     background_svg={DBotBG}
+                    background_alt={localize('DBot Board')}
                 />
                 <DNumber items={items} justify="space-around" />
                 <DHowItWorks Video={DBotVideo} title="Build a trading robot in 5 easy steps" />

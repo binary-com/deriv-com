@@ -120,7 +120,7 @@ const leaders_data = [
 ]
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
-        padding: 5rem 0;
+        padding: 5rem 0 0 0;
     }
 `
 const DescriptionWrapper = styled.div`
@@ -162,14 +162,14 @@ const SliderWrapper = styled.div`
 `
 const SwiperWrapper = styled.div`
     .swiper-container { 
-        height: 540px;
+        min-height: 572px;
     }    
 `
 const LeaderMobile = styled.div`
     width: 100%;
     max-width: 38rem;
     height: 66.5rem;
-    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 20px 20px 0 rgba(0,0,0,0.2);
     border-radius: 4px;
 
     > p {

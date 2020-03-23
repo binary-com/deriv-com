@@ -425,7 +425,11 @@ const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
 
     @media ${device.tabletL} {
-        justify-content: space-between;
+        justify-content: ${props => (props.no_login_signup ? 'flex-start' : 'space-between')};
+    }
+
+    ${LogoLinkMobile} {
+        margin: 0 2.4rem;
     }
 `
 
@@ -477,7 +481,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     </HomeContainer>
                 </DerivHomeWrapper>
                 <StyledNav>
-                    <StyledNavWrapper>
+                    <StyledNavWrapper no_login_signup>
                         <NavLeft>
                             <LogoLink to="/partners" aria-label={localize('Partners')}>
                                 <LogoPartner />

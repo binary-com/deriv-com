@@ -143,8 +143,8 @@ const Content = ({ content }) => (
         {Array.isArray(content) ? (
             content.map(text => <CardContent key={text}>{text}</CardContent>)
         ) : (
-                <CardContent>{content}</CardContent>
-            )}
+            <CardContent>{content}</CardContent>
+        )}
     </>
 )
 
@@ -188,8 +188,8 @@ export const Card = ({
                                             </h4>
                                         </Flex>
                                     ) : (
-                                            <h4>{cover_content}</h4>
-                                        )}
+                                        <h4>{cover_content}</h4>
+                                    )}
                                     <Arrow />
                                 </div>
                             </CardCover>
@@ -206,16 +206,16 @@ export const Card = ({
                             </IconContainer>
                         </>
                     ) : (
-                            <>
-                                <Icon />
-                                <ContentWrapper>
-                                    <Header as="h4" weight="bold">
-                                        {title}
-                                    </Header>
-                                    <Content content={content} />
-                                </ContentWrapper>
-                            </>
-                        )}
+                        <>
+                            <Icon />
+                            <ContentWrapper>
+                                <Header as="h4" weight="bold">
+                                    {title}
+                                </Header>
+                                <Content content={content} />
+                            </ContentWrapper>
+                        </>
+                    )}
                 </>
             )}
             {children && children}
@@ -287,7 +287,7 @@ const ResponsiveText = styled(Text)`
         font-size: 10.5px;
     }
 `
-export const NavCard = ({ icon, title, content, to, style, external }) => {
+export const NavCard = ({ icon, title, content, to, style, external, target }) => {
     const [visibility, setVisibility] = React.useState('false')
     const [color, setColor] = React.useState('var(--color-grey-5)')
 
@@ -315,6 +315,7 @@ export const NavCard = ({ icon, title, content, to, style, external }) => {
                 ...style,
             }}
             external={external}
+            target={target}
         >
             <Show.Desktop>
                 <RightDiagonal visibility={visibility} />
@@ -345,6 +346,7 @@ NavCard.propTypes = {
     external: PropTypes.string,
     icon: PropTypes.func,
     style: PropTypes.object,
+    target: PropTypes.string,
     title: PropTypes.string,
     to: PropTypes.string,
 }

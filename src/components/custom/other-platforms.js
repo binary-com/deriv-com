@@ -129,7 +129,7 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
 DMT5Card.propTypes = { ...cardProptypes }
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink to="https://smarttrader.deriv.app" external="true">
+    <StyledLink to="https://smarttrader.deriv.app" external="true" target="_blank">
         <Card
             cover_background="var(--color-blue-3)"
             cover_content={localize('Discover SmartTrader now')}
@@ -211,6 +211,7 @@ export const NavPlatform = () => (
             to="https://smarttrader.deriv.app"
             style={{ marginTop: '3.2rem' }}
             external="true"
+            target="_blank"
         />
     </Flex>
 )

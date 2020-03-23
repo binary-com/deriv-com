@@ -97,9 +97,9 @@ const ResponsibleTrading = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Secure and responsible trading')}
+                title={localize('Secure and responsible online trading guidelines')}
                 description={localize(
-                    'Practise responsible trading by understanding the risks involved and how you can manage them by setting limits on your trading activity.',
+                    'Read our guidelines on secure and responsible trading. Understand the risks involved in online trading and how you can manage them.',
                 )}
             />
             <Section>

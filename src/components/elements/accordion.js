@@ -152,7 +152,7 @@ const AccordionContent = ({ children, nodes }) => {
         if (active_idx === child_idx) {
             return (
                 nodes[active_idx] &&
-                nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight + 5
+                nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
             )
         }
         return 0

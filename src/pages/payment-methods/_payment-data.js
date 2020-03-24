@@ -38,6 +38,7 @@ const payment_data = [
                     'Use your bank account to deposit and withdraw. Bank charges apply.',
                 ),
                 name: 'bank transfer',
+                reference: 'bank-transfer-doc.pdf',
             },
             {
                 method: <InternetBankTransfer />,
@@ -50,6 +51,7 @@ const payment_data = [
                     'Secure and easy online real-time money transfers directly from your bank account.',
                 ),
                 name: 'internet bank transfer',
+                reference: 'bank-transfer-doc.pdf',
             },
             {
                 method: <Paytrust />,
@@ -62,6 +64,7 @@ const payment_data = [
                     'Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam.',
                 ),
                 name: 'paytrust88',
+                reference: 'bank-transfer-doc.pdf',
             },
         ],
     },
@@ -80,6 +83,7 @@ const payment_data = [
                     'Deposit and withdraw using your Visa credit or debit card. Charges and interest rates apply.',
                 ),
                 name: 'visa',
+                reference: 'bank-transfer-doc.pdf',
             },
             {
                 method: <MasterCard />,
@@ -92,6 +96,7 @@ const payment_data = [
                     'Deposit and withdraw using your Mastercard credit or debit card. Charges and interest rates apply.',
                 ),
                 name: 'mastercard',
+                reference: 'bank-transfer-doc.pdf',
             },
             {
                 method: <Maestro />,
@@ -102,6 +107,7 @@ const payment_data = [
                 withdrawal_time: localize('1 working day'),
                 description: localize('Deposit and withdraw using your Maestro debit card.'),
                 name: 'maestro',
+                reference: 'bank-transfer-doc.pdf',
             },
         ],
     },

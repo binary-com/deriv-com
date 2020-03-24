@@ -117,9 +117,14 @@ const PaymentMethods = () => {
                             {payment_methods.map((pd, idx) => (
                                 <AccordionItem
                                     key={idx}
+                                    content_style={{
+                                        background: 'var(--color-white)',
+                                        boxShadow: '-2px 6px 15px 0 rgba(195,195,195,0.31)',
+                                    }}
                                     style={{
                                         padding: '2.2rem 4.8rem',
                                         position: 'relative',
+                                        background: 'var(--color-white)',
                                         paddingBottom: pd.note ? '5rem' : '2.2rem',
                                     }}
                                     parent_style={{
@@ -179,6 +184,9 @@ const PaymentMethods = () => {
                                                     <BoldText>
                                                         {localize('processing time')}
                                                     </BoldText>
+                                                </Th>
+                                                <Th>
+                                                    <BoldText>{localize('Reference')}</BoldText>
                                                 </Th>
                                                 <Th />
                                             </Tr>

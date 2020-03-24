@@ -2,9 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Button } from 'components/form/'
-import Chevron from 'images/svg/chevron-thick.svg'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
+// SVG
+import Chevron from 'images/svg/chevron-thick.svg'
+import PDF from 'images/svg/pdf-icon-black.svg'
 
 const StyledButton = styled(Button)`
     margin-top: 1.6rem;
@@ -15,6 +17,10 @@ const StyledChevron = styled(Chevron)`
     width: 16px;
     transform: ${props => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
+`
+const StyledPDF = styled(PDF)`
+    height: 32px;
+    width: 32px;
 `
 
 const ExpandedContent = styled.td`
@@ -55,6 +61,11 @@ const StyledText = styled(Text)`
         `}
 `
 
+const CenterIcon = styled.a`
+    display: flex;
+    justify-content: center;
+`
+
 const ExpandList = ({ data }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
@@ -89,11 +100,16 @@ const ExpandList = ({ data }) => {
                     <Text>{data.withdrawal_time}</Text>
                 </Td>
                 <Td>
+                    <CenterIcon href={data.reference} target="_blank" rel="noopener noreferrer">
+                        <StyledPDF />
+                    </CenterIcon>
+                </Td>
+                <Td>
                     <StyledChevron expanded={is_expanded} />
                 </Td>
             </Tr>
             <tr>
-                <ExpandedContent colSpan="7">
+                <ExpandedContent colSpan="8">
                     <Description is_expanded={is_expanded}>
                         <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
                         {data.url && (

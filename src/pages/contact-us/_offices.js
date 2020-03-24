@@ -180,7 +180,7 @@ export const Offices = () => {
                                 <MapContainer>
                                     <Image
                                         img_name="map-malta.png"
-                                        alt={localize('Malta Office')}
+                                        alt={localize('Malta Office Location')}
                                         width="100%"
                                         height="100%"
                                     />
@@ -251,7 +251,7 @@ export const Offices = () => {
                                 <MapContainer>
                                     <Image
                                         img_name="map-cyberjaya.png"
-                                        alt={localize('Malaysia Office')}
+                                        alt={localize('Cyberjaya Office Location')}
                                         width="100%"
                                         height="100%"
                                     />
@@ -265,7 +265,7 @@ export const Offices = () => {
                             <MapContainer>
                                 <Image
                                     img_name="map-labuan.png"
-                                    alt={localize('Labuan Office')}
+                                    alt={localize('Labuan Office Location')}
                                     width="100%"
                                     height="100%"
                                 />
@@ -320,7 +320,7 @@ export const Offices = () => {
                             <MapContainer>
                                 <Image
                                     img_name="map-dubai-office.png"
-                                    alt={localize('Dubai Office')}
+                                    alt={localize('Dubai Office Location')}
                                     width="100%"
                                     height="100%"
                                 />
@@ -333,7 +333,7 @@ export const Offices = () => {
                             <MapContainer>
                                 <Image
                                     img_name="map-paraguay.png"
-                                    alt={localize('paraguay Office')}
+                                    alt={localize('Paraguay Office Location')}
                                     width="100%"
                                     height="100%"
                                 />

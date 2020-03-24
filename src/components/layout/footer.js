@@ -310,7 +310,7 @@ const Footer = () => (
                         </div>
                         <div>
                             <Link to="https://smarttrader.deriv.app" external target="_blank">
-                                {localize('Smarttrader')}
+                                {localize('SmartTrader')}
                             </Link>
                         </div>
                     </Col>
@@ -399,7 +399,7 @@ const Footer = () => (
                         </Item>
                         <Item>
                             <Link to="https://smarttrader.deriv.app" external target="_blank">
-                                {localize('Smarttrader')}
+                                {localize('SmartTrader')}
                             </Link>
                         </Item>
                     </AccordionItem>

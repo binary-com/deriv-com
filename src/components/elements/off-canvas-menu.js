@@ -5,6 +5,7 @@ import { Flex } from 'components/containers'
 import { LocalizedLink, localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard } from 'components/elements'
 import { smarttrader_url } from 'common/utility'
+import { useOutsideClick } from 'components/hooks/outside-click'
 // SVG
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
@@ -67,18 +68,7 @@ export const OffCanvasMenuWrapper = props => {
         props.closeOffCanvasMenu()
     }
 
-    const outerClick = e => {
-        if (!canvas.current.contains(e.target)) {
-            props.closeOffCanvasMenu()
-        } else return
-    }
-
-    useEffect(() => {
-        document.addEventListener('mousedown', outerClick, false)
-        return () => {
-            document.removeEventListener('mousedown', outerClick, false)
-        }
-    }, [])
+    useOutsideClick(canvas, props.closeOffCanvasMenu, null, 'mousedown')
 
     return (
         <OffCanvasMenu is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>

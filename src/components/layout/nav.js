@@ -66,6 +66,8 @@ const NavCenter = styled.ul`
     text-align: center;
     padding: 0;
     display: flex;
+    width: 100%;
+    max-width: 45.3rem;
     justify-content: space-between;
     @media ${device.tabletL} {
         display: none;
@@ -108,9 +110,6 @@ const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
     text-align: left;
-    ${props => {
-        if (props.margin) return 'margin: 0 4rem;'
-    }}
 `
 const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
@@ -223,6 +222,16 @@ export const Nav = () => {
                                 partiallyActive={true}
                             >
                                 {localize('About us')}
+                            </StyledLink>
+                        </NavLink>
+                        <NavLink>
+                            <StyledLink
+                                activeClassName="active"
+                                to="/markets/"
+                                aria-label={localize('Markets')}
+                                partiallyActive={true}
+                            >
+                                {localize('Markets')}
                             </StyledLink>
                         </NavLink>
                         <NavLink>

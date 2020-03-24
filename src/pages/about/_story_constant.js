@@ -298,7 +298,7 @@ const Stories = [
                 image_alt: localize('Deriv Trading'),
                 image_position: 'center',
                 margin_right: '6rem',
-                margin_left: '-0.4rem',
+                margin_left: '-0.7rem',
                 margin_bottom: '6rem',
                 outer_image_width: '35.7rem',
                 content_width: '41rem',

@@ -25,8 +25,8 @@ const StyledContainer = styled(Container)`
         padding: 12rem 4rem;
     }
     @media ${device.tabletL} {
-        padding: 5rem 2rem;
-        width: 100%;
+        padding: 5rem 0;
+        width: 90%;
 
         > h1 {
             font-size: 4.5rem;
@@ -218,7 +218,7 @@ const About = () => {
 								</Show.Desktop>
 								<Show.Mobile>
 									<Image
-										width="41rem"
+										width="328px"
 										img_name="jean-yves-mobile.png"
 										alt={localize('Jean Yves')}
 									/>

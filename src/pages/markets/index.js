@@ -1,6 +1,6 @@
 import React from 'react'
 // import styled from 'styled-components'
-// import { Forex } from './_forex'
+import { Forex } from './_forex'
 // import { Commodities } from './_commodities'
 // import SyntheticIndices from './_synthetic-indices'
 // import StockIndices from './_stock-indices'
@@ -14,6 +14,7 @@ const Markets = () => {
         <Layout>
             <SEO description={localize('')} title={localize('')} />
             <Hero />
+            <Forex />
         </Layout>
     )
 }

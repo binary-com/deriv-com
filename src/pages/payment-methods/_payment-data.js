@@ -2,7 +2,6 @@ import React from 'react'
 import { localize } from 'components/localization'
 // SVG
 import BankTransfer from 'images/svg/payment-bank-transfer.svg'
-import InternetBankTransfer from 'images/svg/payment-internet-bank-transfer.svg'
 import Paytrust from 'images/svg/payment-paytrust.svg'
 import Visa from 'images/svg/payment-visa.svg'
 import MasterCard from 'images/svg/payment-mastercard.svg'
@@ -15,13 +14,15 @@ import Webmoney from 'images/svg/payment-webmoney.svg'
 import Qiwi from 'images/svg/payment-qiwi.svg'
 import PaysafeCard from 'images/svg/payment-paysafe-card.svg'
 import Jeton from 'images/svg/payment-jeton.svg'
-import Iwallet from 'images/svg/payment-i-wallet.svg'
 import Sticpay from 'images/svg/payment-sticpay.svg'
 import Airtm from 'images/svg/payment-airtm.svg'
 import Bitcoin from 'images/svg/payment-bitcoin.svg'
 import Ethereum from 'images/svg/payment-ethereum.svg'
 import Litecoin from 'images/svg/payment-litecoin.svg'
 import Tether from 'images/svg/payment-tether.svg'
+import Help2Pay from 'images/svg/payment-help-pay.svg'
+import DragonPhoenix from 'images/svg/payment-dragon-phoenix.svg'
+import ZingPay from 'images/svg/payment-zing-pay.svg'
 
 const payment_data = [
     {
@@ -39,18 +40,7 @@ const payment_data = [
                 ),
                 name: 'bank transfer',
             },
-            {
-                method: <InternetBankTransfer />,
-                currencies: 'USD GBP EUR',
-                min_max_deposit: '25 - 10,000',
-                min_max_withdrawal: '25 - 10,000',
-                deposit_time: localize('1 working day'),
-                withdrawal_time: localize('1 working day'),
-                description: localize(
-                    'Secure and easy online real-time money transfers directly from your bank account.',
-                ),
-                name: 'internet bank transfer',
-            },
+
             {
                 method: <Paytrust />,
                 currencies: 'USD',
@@ -62,6 +52,16 @@ const payment_data = [
                     'Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam.',
                 ),
                 name: 'paytrust88',
+            },
+            {
+                method: <Help2Pay />,
+                currencies: 'USD EUR GBP AUD',
+                min_max_deposit: '10 - 50,000',
+                min_max_withdrawal: 'N/A',
+                deposit_time: localize('instant'),
+                withdrawal_time: localize('24-48 hours'),
+                description: localize(''),
+                name: 'Help2Pay',
             },
         ],
     },
@@ -102,6 +102,16 @@ const payment_data = [
                 withdrawal_time: localize('1 working day'),
                 description: localize('Deposit and withdraw using your Maestro debit card.'),
                 name: 'maestro',
+            },
+            {
+                method: <Help2Pay />,
+                currencies: 'USD EUR GBP AUD',
+                min_max_deposit: '10 - 50,000',
+                min_max_withdrawal: 'N/A',
+                deposit_time: localize('instant'),
+                withdrawal_time: localize('24-48 hours'),
+                description: localize(''),
+                name: 'Help2Pay',
             },
         ],
     },
@@ -212,19 +222,7 @@ const payment_data = [
                 url: 'https://www.jeton.com/',
                 name: 'jeton',
             },
-            {
-                method: <Iwallet />,
-                currencies: 'USD',
-                min_max_deposit: '5 - 10,000',
-                min_max_withdrawal: 'N/A',
-                deposit_time: localize('Instant'),
-                withdrawal_time: localize('1 working day'),
-                description: localize(
-                    'A complete payment service with competitive fees, tight security, and efficient customer support. Available worldwide.',
-                ),
-                url: 'https://www.iwl.hk/',
-                name: 'iwallet',
-            },
+
             {
                 method: <Sticpay />,
                 currencies: 'USD GBP EUR',
@@ -250,6 +248,26 @@ const payment_data = [
                 ),
                 url: 'https://www.airtm.io/#/',
                 name: 'airtm',
+            },
+            {
+                method: <DragonPhoenix />,
+                currencies: 'USD EUR GBP AUD',
+                min_max_deposit: '10 - 10,000',
+                min_max_withdrawal: 'N/A',
+                deposit_time: localize('instant'),
+                withdrawal_time: localize('24-48 hours'),
+                description: localize(''),
+                name: 'DragonPhoenix',
+            },
+            {
+                method: <ZingPay />,
+                currencies: 'USD EUR GBP AUD',
+                min_max_deposit: '10 - 10,000',
+                min_max_withdrawal: '10 - 10,000',
+                deposit_time: localize('instant'),
+                withdrawal_time: localize('24-48 hours'),
+                description: localize(''),
+                name: 'ZingPay',
             },
         ],
     },

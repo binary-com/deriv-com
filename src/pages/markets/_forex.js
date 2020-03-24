@@ -7,7 +7,7 @@ import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Leverage from 'images/svg/leverage.svg'
 
-export const Forex = () => {
+const Forex = () => {
     return (
         <WhyTrade header={localize('Why trade forex on Deriv')}>
             <div text={localize('High leverage, tight spreads')} icon={<Leverage />}></div>
@@ -27,3 +27,5 @@ export const Forex = () => {
         </WhyTrade>
     )
 }
+
+export default Forex

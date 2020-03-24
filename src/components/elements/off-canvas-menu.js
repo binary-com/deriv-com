@@ -21,7 +21,7 @@ const OffCanvasMenu = styled.section`
     opacity: 0.98;
     transition: left 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    left: ${props => (props.is_canvas_menu_open ? '0' : '-253px')};
+    left: ${props => (props.is_canvas_menu_open ? '0' : '-254px')};
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`

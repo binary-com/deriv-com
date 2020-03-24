@@ -44,7 +44,7 @@ const SEO = ({ description, meta, title, no_index }) => {
             const link = {}
             link.rel = 'alternate'
             link.href = "https://deriv.com"+pages[page]
-            link.hreflang = pages[page].split('/')[1]
+            link.hreflang = pages[page].split('/')[1].replace(/_/g, "-");
             links.push(link)
         }
     }

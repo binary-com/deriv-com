@@ -121,7 +121,7 @@ export const OffCanvasMenuWrapper = props => {
                             <NavCard
                                 icon={Smarttrader}
                                 content={localize(
-                                    'Trade the world’s markets with a simple and familiar platform. ',
+                                    'Trade the world’s markets with our popular user-friendly platform.',
                                 )}
                                 title={localize('SmartTrader')}
                                 to="https://smarttrader.deriv.app"

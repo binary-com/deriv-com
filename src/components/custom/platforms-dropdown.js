@@ -80,7 +80,7 @@ const PlatformsDropdown = ({
                         </Header>
                         <Text size="var(--text-size-xs)">{description}</Text>
                     </PlatformInfo>
-                    <MarginDivider width="1px" height="100%" color="grey-8" />
+                    <MarginDivider width="2px" height="100%" color="grey-8" />
                     <Content />
                 </StyledContainer>
             </NavDropdown>

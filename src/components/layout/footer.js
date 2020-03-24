@@ -308,6 +308,11 @@ const Footer = () => (
                         <div>
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </div>
+                        <div>
+                            <Link to="https://smarttrader.deriv.app" external target="_blank">
+                                {localize('Smarttrader')}
+                            </Link>
+                        </div>
                     </Col>
                     <Col width="40%">
                         <div>
@@ -329,7 +334,7 @@ const Footer = () => (
                     </Col>
                     <Col width="25%">
                         <div>
-                            <Title>{localize('SUPPORT')}</Title>
+                            <Title>{localize('RESOURCES')}</Title>
                         </div>
                         <div>
                             <Link to="/help-centre">{localize('Help Centre')}</Link>
@@ -337,19 +342,19 @@ const Footer = () => (
                         <div>
                             <Link to="/payment-methods">{localize('Payment methods')}</Link>
                         </div>
-                        <div>
-                            <Link to="/why-choose-us">{localize('Why choose us')}</Link>
-                        </div>
                     </Col>
                     <Col margin_top width="23%">
                         <div>
-                            <Title>{localize('COMPANY')}</Title>
+                            <Title>{localize('ABOUT US')}</Title>
                         </div>
                         <div>
                             <Link to="/about#story">{localize('Our story')}</Link>
                         </div>
                         <div>
                             <Link to="/about#leadership">{localize('Our leadership')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/why-choose-us">{localize('Why choose us?')}</Link>
                         </div>
                         <div>
                             <Link to="/contact-us">{localize('Contact us')}</Link>
@@ -363,7 +368,10 @@ const Footer = () => (
                             <Title>{localize('PARTNER WITH US')}</Title>
                         </div>
                         <div>
-                            <Link to="/partners">{localize('Partner programmes')}</Link>
+                            <Link to="/partners">{localize('Affiliate and IB')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/partners/payment-agent">{localize('Payment agent')}</Link>
                         </div>
                     </Col>
                     <Col margin_top width="25%">
@@ -389,6 +397,11 @@ const Footer = () => (
                         <Item>
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </Item>
+                        <Item>
+                            <Link to="https://smarttrader.deriv.app" external target="_blank">
+                                {localize('Smarttrader')}
+                            </Link>
+                        </Item>
                     </AccordionItem>
                     <AccordionItem
                         header={localize('LEGAL')}
@@ -410,7 +423,7 @@ const Footer = () => (
                         </Item>
                     </AccordionItem>
                     <AccordionItem
-                        header="SUPPORT"
+                        header="RESOURCES"
                         arrow_thin
                         header_style={mobile_accordion_header}
                     >
@@ -420,17 +433,20 @@ const Footer = () => (
                         <Item>
                             <Link to="/payment-methods">{localize('Payment methods')}</Link>
                         </Item>
-                        <Item>
-                            <Link to="/why-choose-us">{localize('Why choose us')}</Link>
-                        </Item>
                     </AccordionItem>
                     <AccordionItem
-                        header="COMPANY"
+                        header="ABOUT US"
                         arrow_thin
                         header_style={mobile_accordion_header}
                     >
                         <Item>
-                            <Link to="/about">{localize('About us')}</Link>
+                            <Link to="/about/#story">{localize('Our story')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/about/#leadership">{localize('Our leadership')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/why-choose-us">{localize('Why choose us?')}</Link>
                         </Item>
                         <Item>
                             <Link to="/contact-us">{localize('Contact us')}</Link>
@@ -445,7 +461,10 @@ const Footer = () => (
                         header_style={mobile_accordion_header}
                     >
                         <Item>
-                            <Link to="/partners">{localize('Partner programmes')}</Link>
+                            <Link to="/partners">{localize('Affiliate and IB')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/partners/payment-agent">{localize('Payment agent')}</Link>
                         </Item>
                     </AccordionItem>
                 </Accordion>

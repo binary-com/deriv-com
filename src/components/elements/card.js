@@ -287,7 +287,7 @@ const ResponsiveText = styled(Text)`
         font-size: 10.5px;
     }
 `
-export const NavCard = ({ icon, title, content, to, style, external, target }) => {
+export const NavCard = ({ icon, title, content, to, style, external, target, className }) => {
     const [visibility, setVisibility] = React.useState('false')
     const [color, setColor] = React.useState('var(--color-grey-5)')
 
@@ -316,6 +316,7 @@ export const NavCard = ({ icon, title, content, to, style, external, target }) =
             }}
             external={external}
             target={target}
+            className={className}
         >
             <Show.Desktop>
                 <RightDiagonal visibility={visibility} />
@@ -342,6 +343,7 @@ export const NavCard = ({ icon, title, content, to, style, external, target }) =
 }
 
 NavCard.propTypes = {
+    className: PropTypes.string,
     content: PropTypes.string,
     external: PropTypes.string,
     icon: PropTypes.func,

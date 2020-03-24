@@ -298,7 +298,7 @@ export const Nav = () => {
                         is_open={is_resources_open}
                         has_animation={has_resources_animation}
                         Content={NavResources}
-                        title={localize('Resouces')}
+                        title={localize('Resources')}
                         description={localize(
                             'Help yourself to various resources that can help you get the best out of your trading experience.',
                         )}

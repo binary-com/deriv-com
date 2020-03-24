@@ -179,6 +179,12 @@ OtherPlatform.propTypes = {
     subHeader: PropTypes.string,
 }
 
+const DMT5NavCard = styled(NavCard)`
+    @media (max-width: 1250px) {
+        margin-top: 3.2rem;
+    }
+`
+
 export const NavPlatform = () => (
     <Flex wrap="wrap" jc="flex-start">
         <NavCard
@@ -191,7 +197,7 @@ export const NavPlatform = () => (
             to="/dtrader"
         />
 
-        <NavCard
+        <DMT5NavCard
             icon={DMT5}
             content={localize('The platform of choice for professionals worldwide.')}
             title={localize('DMT5')}

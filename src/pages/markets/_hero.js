@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { localize, Localize, WithIntl } from 'components/localization'
-import { Header, Text, Image } from 'components/elements'
-import { Container, Wrapper, Flex, SEO } from 'components/containers'
+import { localize } from 'components/localization'
+import { Header, Image } from 'components/elements'
+import { Container } from 'components/containers'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -49,23 +49,6 @@ export const Hero = () => {
                     </Container>
                 </ContentWrapper>
             </BackgroundWrapper>
-            {/* <Container>
-                <Header as="h1" color="white" lh="1.15" align="center">
-                    {localize('Markets to trade on Deriv')}
-                </Header>
-                <Header
-                    as="h2"
-                    color="white"
-                    lh="1.5"
-                    font_size="var(--text-size-m)"
-                    weight="500"
-                    align="center"
-                >
-                    {localize(
-                        'Get the guidance you need to start trading on our platform. Browse through all the markets that we offer, learn about our trade types, and gain insight on how to make smarter trading decisions.',
-                    )}
-                </Header>
-            </Container> */}
         </HeroWrapper>
     )
 }

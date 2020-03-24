@@ -154,8 +154,8 @@ const SEO = ({ description, meta, title, no_index }) => {
             <script>
                 {`window.location.hostname === 'www.deriv.com' && window.DD_RUM &&
                     window.DD_RUM.init({
-                        clientToken: 'pubc006d593980ec5cd3dcf299ba19a9335',
-                        applicationId: '023a6e88-8cda-494b-923c-a9f925fbe177',
+                        clientToken: 'pubc42fda54523c5fb23c564e3d8bceae88',
+                        applicationId: 'f0aef779-d9ec-4517-807e-a84c683c4265',
                     })`}
             </script>
         </Helmet>

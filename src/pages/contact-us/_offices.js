@@ -141,11 +141,11 @@ const MapContainer = styled.div`
     height: 20rem;
 
     @media ${device.laptop} {
-        width: 41rem;
-        height: 17.75rem;
+        width: 328px;
+        height: 142px;
     }
     @media (max-width: 359px) {
-        width: 35rem;
+        width: 280px;
     }
 `
 const AddressTextShared = css`

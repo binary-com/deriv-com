@@ -25,8 +25,8 @@ const StyledContainer = styled(Container)`
         padding: 12rem 4rem;
     }
     @media ${device.tabletL} {
-        padding: 5rem 0;
-        width: 90%;
+        padding: 5rem 2rem;
+        width: 100%;
 
         > h1 {
             font-size: 4.5rem;
@@ -119,6 +119,11 @@ const TrailNavigation = styled.span`
     background: ${props => (props.active ? 'var(--color-red)' : 'var(--color-black)')};
     margin: 1rem 0;
     transition: background 0.25s;
+
+    @media ${device.tabletL} {
+        margin: 4px 0;
+        width: 5.6rem;
+    }
 `
 const StyledText = styled(Text)`
     @media ${device.tabletL} {

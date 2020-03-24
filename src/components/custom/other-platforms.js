@@ -2,14 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
-import { Card, Header } from 'components/elements'
+import { Card, Header, NavCard, CardLink } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
+import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // icons
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
+import Forex from 'images/svg/market-forex.svg'
+import Commodities from 'images/svg/market-commodities.svg'
+import StockIndices from 'images/svg/market-stock-indices.svg'
+import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
@@ -64,15 +69,6 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
     }
 `
 
-const NavContainer = styled(Flex)`
-    & article {
-        width: 33.2rem;
-        box-shadow: none;
-    }
-    & p {
-        font-size: 1.3rem;
-    }
-`
 export const TraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dtrader">
         <Card
@@ -134,7 +130,7 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
 DMT5Card.propTypes = { ...cardProptypes }
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink to="https://smarttrader.deriv.app" external>
+    <StyledLink to={smarttrader_url} external="true" target="_blank">
         <Card
             cover_background="var(--color-blue-3)"
             cover_content={localize('Discover SmartTrader now')}
@@ -152,15 +148,6 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     </StyledLink>
 )
 SmarttraderCard.propTypes = { ...cardProptypes }
-
-export const NavPlatform = () => (
-    <NavContainer wrap="wrap">
-        <TraderCard word_break_cover />
-        <BotCard word_break_cover />
-        <DMT5Card word_break_cover />
-        <SmarttraderCard word_break_cover />
-    </NavContainer>
-)
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
     <SectionContainer padding="0">
@@ -192,3 +179,101 @@ OtherPlatform.propTypes = {
     is_nav: PropTypes.bool,
     subHeader: PropTypes.string,
 }
+
+const DMT5NavCard = styled(NavCard)`
+    @media (max-width: 1250px) {
+        margin-top: 3.2rem;
+    }
+`
+
+export const NavPlatform = () => (
+    <Flex wrap="wrap" jc="flex-start">
+        <NavCard
+            icon={DTrader}
+            content={localize(
+                'A whole new trading experience on a powerful yet easy to use platform. ',
+            )}
+            title={localize('DTrader')}
+            style={{ marginRight: '5.6rem' }}
+            to="/dtrader"
+        />
+
+        <DMT5NavCard
+            icon={DMT5}
+            content={localize('The platform of choice for professionals worldwide.')}
+            title={localize('DMT5')}
+            to="/dmt5"
+        />
+        <NavCard
+            icon={DBot}
+            content={localize('Automated trading at your fingertips. No coding needed.')}
+            title={localize('DBot')}
+            to="/dbot"
+            style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
+        />
+        <NavCard
+            icon={Smarttrader}
+            content={localize('Trade the world’s markets with our popular user-friendly platform.')}
+            title={localize('SmartTrader')}
+            to={smarttrader_url}
+            style={{ marginTop: '3.2rem' }}
+            external="true"
+            target="_blank"
+        />
+    </Flex>
+)
+
+export const NavMarket = () => (
+    <Flex wrap="wrap" jc="flex-start">
+        <NavCard
+            icon={Forex}
+            content={localize(
+                'Trade the world’s largest financial market with popular forex pairs.',
+            )}
+            title={localize('Forex')}
+            style={{ marginRight: '5.6rem' }}
+            to="/markets/#trade"
+        />
+        <NavCard
+            icon={StockIndices}
+            content={localize(
+                'Predict broader market trends and diversify your risk with stock indices.',
+            )}
+            title={localize('Stock indices')}
+            to="/markets/#stock"
+        />
+        <NavCard
+            icon={Commodities}
+            content={localize("Trade natural resources that are central to the world's economy.")}
+            title={localize('Commodities')}
+            to="/markets/#commodities"
+            style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
+        />
+        <NavCard
+            icon={SyntheticIndices}
+            content={localize('Enjoy synthetic markets that emulate real-world market movements.')}
+            title={localize('Synthetic Indices')}
+            to="/markets/#synthetic"
+            style={{ marginTop: '3.2rem' }}
+        />
+    </Flex>
+)
+
+export const NavCompany = () => (
+    <Flex wrap="wrap" jc="flex-start" mw="42rem">
+        <CardLink title={localize('Our story')} to="/about/#story" />
+        <CardLink title={localize('Contact us')} to="/contact-us/" />
+        <CardLink title={localize('Our leadership')} to="/about/#leadership" />
+        <CardLink title={localize('Careers')} to="/careers/" />
+        <CardLink title={localize('Why choose us?')} to="/why-choose-us/" />
+    </Flex>
+)
+
+export const NavResources = () => (
+    <Flex wrap="wrap" jc="flex-start" mw="42rem">
+        <CardLink title={localize('Help Centre')} to="/help-centre/" />
+        <CardLink title={localize('Payment methods')} to="/payment-methods/" />
+        {/* TODO: add this when blog is ready */}
+        {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
+    </Flex>
+)

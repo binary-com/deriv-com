@@ -46,10 +46,6 @@ const Thead = styled.thead`
 
 const Tbody = styled.tbody`
     text-align: left;
-
-    tr {
-        cursor: pointer;
-    }
 `
 
 const Tr = styled.tr`

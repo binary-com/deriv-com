@@ -36,6 +36,15 @@ const Td = styled.td`
     padding: 0 2rem;
 `
 
+const ExpandTd = styled(Td)`
+    cursor: pointer;
+    transition: background 0.25s;
+
+    &:hover {
+        background: var(--color-grey-8);
+    }
+`
+
 const Description = styled.div`
     max-height: 0;
     overflow: hidden;
@@ -74,7 +83,7 @@ const ExpandList = ({ data }) => {
     }
     return (
         <>
-            <Tr onClick={toggleExpand}>
+            <Tr>
                 <Td>{data.method}</Td>
                 <Td>
                     <Text>{data.currencies}</Text>
@@ -104,9 +113,9 @@ const ExpandList = ({ data }) => {
                         <StyledPDF />
                     </CenterIcon>
                 </Td>
-                <Td>
+                <ExpandTd onClick={toggleExpand}>
                     <StyledChevron expanded={is_expanded} />
-                </Td>
+                </ExpandTd>
             </Tr>
             <tr>
                 <ExpandedContent colSpan="8">

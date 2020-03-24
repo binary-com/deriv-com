@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
 import { Card, Header, NavCard, CardLink } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
+import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // icons
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -129,7 +130,7 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
 DMT5Card.propTypes = { ...cardProptypes }
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink to="https://smarttrader.deriv.app" external="true" target="_blank">
+    <StyledLink to={smarttrader_url} external="true" target="_blank">
         <Card
             cover_background="var(--color-blue-3)"
             cover_content={localize('Discover SmartTrader now')}
@@ -214,7 +215,7 @@ export const NavPlatform = () => (
             icon={Smarttrader}
             content={localize('Trade the world’s markets with our popular user-friendly platform.')}
             title={localize('SmartTrader')}
-            to="https://smarttrader.deriv.app"
+            to={smarttrader_url}
             style={{ marginTop: '3.2rem' }}
             external="true"
             target="_blank"

@@ -5,6 +5,7 @@ import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { isProduction } from 'common/websocket/config'
+import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv-footer.svg'
@@ -309,7 +310,7 @@ const Footer = () => (
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </div>
                         <div>
-                            <Link to="https://smarttrader.deriv.app" external target="_blank">
+                            <Link to={smarttrader_url} external target="_blank">
                                 {localize('SmartTrader')}
                             </Link>
                         </div>
@@ -398,7 +399,7 @@ const Footer = () => (
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </Item>
                         <Item>
-                            <Link to="https://smarttrader.deriv.app" external target="_blank">
+                            <Link to={smarttrader_url} external target="_blank">
                                 {localize('SmartTrader')}
                             </Link>
                         </Item>

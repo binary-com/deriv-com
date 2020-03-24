@@ -265,14 +265,15 @@ const NavContent = styled.div`
 
     ${Text} {
         font-size: var(--text-size-xxs);
-        color: ${props => props.color};
+        color: var(--color-grey-5);
+        transition: color 0.25s;
     }
 `
 const RightDiagonal = styled(Diagonal)`
+    opacity: 0;
     transition: opacity 0.2s;
     position: absolute;
     right: 0;
-    opacity: ${props => (props.visibility === 'true' ? 1 : 0)};
 `
 
 const ResponsiveHeader = styled(Header)`
@@ -287,18 +288,18 @@ const ResponsiveText = styled(Text)`
         font-size: 10.5px;
     }
 `
-export const NavCard = ({ icon, title, content, to, style, external, target, className }) => {
-    const [visibility, setVisibility] = React.useState('false')
-    const [color, setColor] = React.useState('var(--color-grey-5)')
 
-    const onMouseEnter = () => {
-        setVisibility('true')
-        setColor('var(--color-black-3)')
+const FlexHover = styled(Flex)`
+    &:hover {
+        ${RightDiagonal} {
+            opacity: 1;
+        }
+        ${Text} {
+            color: var(--color-black-3);
+        }
     }
-    const onMouseLeave = () => {
-        setVisibility('false')
-        setColor('var(--color-grey-5)')
-    }
+`
+export const NavCard = ({ icon, title, content, to, style, external, target, className }) => {
     const NavIcon = styled(icon)`
         width: 24px;
         height: 24px;
@@ -318,18 +319,9 @@ export const NavCard = ({ icon, title, content, to, style, external, target, cla
             target={target}
             className={className}
         >
-            <Show.Desktop>
-                <RightDiagonal visibility={visibility} />
-            </Show.Desktop>
-            <Flex
-                jc="flex-start"
-                direction="row"
-                tablet_direction="row"
-                onMouseEnter={() => onMouseEnter()}
-                onMouseLeave={() => onMouseLeave()}
-            >
+            <FlexHover jc="flex-start" direction="row" tablet_direction="row">
                 <NavIcon />
-                <NavContent color={color}>
+                <NavContent>
                     <ResponsiveHeader font_size="var(--text-size-xs)" lh="1.14" margin="0 0 0.8rem">
                         {title}
                     </ResponsiveHeader>
@@ -337,7 +329,10 @@ export const NavCard = ({ icon, title, content, to, style, external, target, cla
                         {content}
                     </ResponsiveText>
                 </NavContent>
-            </Flex>
+                <Show.Desktop>
+                    <RightDiagonal />
+                </Show.Desktop>
+            </FlexHover>
         </LocalizedLink>
     )
 }

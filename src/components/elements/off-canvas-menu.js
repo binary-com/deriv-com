@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard } from 'components/elements'
+import { smarttrader_url } from 'common/utility'
+// SVG
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
@@ -124,7 +126,7 @@ export const OffCanvasMenuWrapper = props => {
                                     'Trade the world’s markets with our popular user-friendly platform.',
                                 )}
                                 title={localize('SmartTrader')}
-                                to="https://smarttrader.deriv.app"
+                                to={smarttrader_url}
                                 external="true"
                                 target="_blank"
                             />

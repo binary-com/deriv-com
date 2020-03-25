@@ -232,7 +232,7 @@ export const NavMarket = () => (
             )}
             title={localize('Forex')}
             style={{ marginRight: '5.6rem' }}
-            to="/markets/#trade"
+            to="/markets/#forex"
         />
         <NavCard
             icon={StockIndices}

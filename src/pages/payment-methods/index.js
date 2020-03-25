@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Scrollbar from 'react-perfect-scrollbar'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
 import Layout from 'components/layout/layout'
@@ -7,6 +8,8 @@ import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elem
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { BinarySocketBase } from 'common/websocket/socket_base'
+
+import 'react-perfect-scrollbar/dist/css/styles.css'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -109,9 +112,14 @@ const PaymentMethods = () => {
                             {payment_methods.map((pd, idx) => (
                                 <AccordionItem
                                     key={idx}
+                                    content_style={{
+                                        background: 'var(--color-white)',
+                                        boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
+                                    }}
                                     style={{
                                         padding: '2.2rem 4.8rem',
                                         position: 'relative',
+                                        background: 'var(--color-white)',
                                         paddingBottom: pd.note ? '5rem' : '2.2rem',
                                     }}
                                     parent_style={{
@@ -119,68 +127,74 @@ const PaymentMethods = () => {
                                     }}
                                     header={pd.name}
                                 >
-                                    <StyledTable has_note={!!pd.note}>
-                                        <Thead>
-                                            <Tr>
-                                                <Th>
-                                                    <BoldText>{localize('Method')}</BoldText>
-                                                </Th>
-                                                <Th>
-                                                    <BoldText>{localize('Currencies')}</BoldText>
-                                                </Th>
-                                                <Th>
-                                                    {pd.is_crypto ? (
+                                    <Scrollbar>
+                                        <StyledTable has_note={!!pd.note}>
+                                            <Thead>
+                                                <Tr>
+                                                    <Th>
+                                                        <BoldText>{localize('Method')}</BoldText>
+                                                    </Th>
+                                                    <Th>
                                                         <BoldText>
-                                                            {localize('Min deposit')}
+                                                            {localize('Currencies')}
                                                         </BoldText>
-                                                    ) : (
-                                                        <React.Fragment>
+                                                    </Th>
+                                                    <Th>
+                                                        {pd.is_crypto ? (
                                                             <BoldText>
-                                                                {localize('Min - max')}
+                                                                {localize('Min deposit')}
                                                             </BoldText>
+                                                        ) : (
+                                                            <React.Fragment>
+                                                                <BoldText>
+                                                                    {localize('Min - max')}
+                                                                </BoldText>
+                                                                <BoldText>
+                                                                    {localize('deposit')}
+                                                                </BoldText>
+                                                            </React.Fragment>
+                                                        )}
+                                                    </Th>
+                                                    <Th>
+                                                        {pd.is_crypto ? (
                                                             <BoldText>
-                                                                {localize('deposit')}
+                                                                {localize('Min withdrawal')}
                                                             </BoldText>
-                                                        </React.Fragment>
-                                                    )}
-                                                </Th>
-                                                <Th>
-                                                    {pd.is_crypto ? (
+                                                        ) : (
+                                                            <React.Fragment>
+                                                                <BoldText>
+                                                                    {localize('Min - max')}
+                                                                </BoldText>
+                                                                <BoldText>
+                                                                    {localize('withdrawal')}
+                                                                </BoldText>
+                                                            </React.Fragment>
+                                                        )}
+                                                    </Th>
+                                                    <Th>
+                                                        <BoldText>{localize('Deposit')}</BoldText>
                                                         <BoldText>
-                                                            {localize('Min withdrawal')}
+                                                            {localize('processing time')}
                                                         </BoldText>
-                                                    ) : (
-                                                        <React.Fragment>
-                                                            <BoldText>
-                                                                {localize('Min - max')}
-                                                            </BoldText>
-                                                            <BoldText>
-                                                                {localize('withdrawal')}
-                                                            </BoldText>
-                                                        </React.Fragment>
-                                                    )}
-                                                </Th>
-                                                <Th>
-                                                    <BoldText>{localize('Deposit')}</BoldText>
-                                                    <BoldText>
-                                                        {localize('processing time')}
-                                                    </BoldText>
-                                                </Th>
-                                                <Th>
-                                                    <BoldText>{localize('Withdrawal')}</BoldText>
-                                                    <BoldText>
-                                                        {localize('processing time')}
-                                                    </BoldText>
-                                                </Th>
-                                                <Th />
-                                            </Tr>
-                                        </Thead>
-                                        <Tbody>
-                                            {pd.data.map((data, indx) => (
-                                                <ExpandList key={indx} data={data} />
-                                            ))}
-                                        </Tbody>
-                                    </StyledTable>
+                                                    </Th>
+                                                    <Th>
+                                                        <BoldText>
+                                                            {localize('Withdrawal')}
+                                                        </BoldText>
+                                                        <BoldText>
+                                                            {localize('processing time')}
+                                                        </BoldText>
+                                                    </Th>
+                                                    <Th />
+                                                </Tr>
+                                            </Thead>
+                                            <Tbody>
+                                                {pd.data.map((data, indx) => (
+                                                    <ExpandList key={indx} data={data} />
+                                                ))}
+                                            </Tbody>
+                                        </StyledTable>
+                                    </Scrollbar>
                                     {pd.note && (
                                         <Notes>
                                             <Text weight="500" size="var(--text-size-xxs)">

@@ -49,7 +49,7 @@ const CardWrapper = styled(Flex)`
         border-left: 1px solid var(--color-grey-8);
         padding-left: 1.2rem;
     }
-    div: first-child {
+    div:first-child {
         border-left: none;
         padding-left: 0;
     }

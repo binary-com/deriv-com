@@ -27,7 +27,7 @@ const YearWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: ${props => (props.left ? props.margin_left || '9.5rem' : '-9rem')};
+    margin-left: ${props => (props.left ? props.margin_left || '9.4rem' : '-9.4rem')};
     margin-bottom: ${props => props.margin_bottom || 'unset'};
 
     p {
@@ -46,21 +46,22 @@ const ContentWrapper = styled.div`
     padding: 0 0 0 1rem;
 `
 const StyledHeader = styled(Header)`
-    width: 8%;
-    margin-left: ${props => (props.left ? '41.66%' : '50.9%')};
+    width: 18rem;
+    margin-left: 50%;
     margin-bottom: 2.5rem;
     position: relative;
+    transform: ${props => (props.left ? 'translateX(-88.7%)' : 'translateX(-1%)')};
 
     ::before {
         content: '';
-        width: 2px;
+        width: 3px;
         height: 2rem;
-        border-top: 14px solid red;
-        border-bottom: 14px solid red;
+        border-top: 1.7rem solid red;
+        border-bottom: 17px solid red;
         position: absolute;
-        top: 27.6%;
-        right: ${props => (props.left ? '-12.8%' : '')};
-        left: ${props => (props.left ? '' : '-4.2%')};
+        top: 32.6%;
+        right: ${props => (props.left ? '1rem' : '')};
+        left: ${props => (props.left ? '' : '1rem')};
 
         @media ${device.tablet} {
             display: none;
@@ -68,36 +69,14 @@ const StyledHeader = styled(Header)`
     }
 
     @media ${device.laptopL} {
-        width: 11%;
-        margin-left: ${props => (props.left ? '38.4%' : '51.1%')};
+        transform: ${props => (props.left ? 'translateX(-88%)' : 'translateX(-1%)')};
     }
     @media ${device.laptop} {
-        width: 11%;
-        margin-left: ${props => (props.left ? '38.7%' : '51.4%')};
+        transform: ${props => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
     }
-
     @media ${device.tablet} {
         margin: auto;
         align-items: center;
-    }
-`
-
-const LastHeader = styled(StyledHeader)`
-    width: 15%;
-    margin-left: 35.8%;
-
-    ::before {
-        right: 1%;
-        top: 33%;
-    }
-
-    @media ${device.laptopL} {
-        width: 19%;
-        margin-left: 31.95%;
-    }
-    @media ${device.laptop} {
-        width: 19%;
-        margin-left: 32.7%;
     }
 `
 const Splitter = styled.div`
@@ -116,12 +95,17 @@ const LogoContainer = styled.div`
         text-align: center;
     }
 `
-
+const SVGContainer = styled.div`
+    position: absolute;
+    height: 93%;
+    left: 50%;
+    width: 22px;
+`
 const StyledLine = styled(StorySVG)`
     position: absolute;
-    height: 92.5%;
-    left: 50%;
-    top: 5%;
+    height: 100%;
+    left: 0;
+    top: 0;
 
     @media ${device.tablet} {
         display: none;
@@ -134,29 +118,19 @@ export const OurHistory = () => {
             <Header font_size="3.6rem" align="center" margin="0 0 9.2rem 0">
                 {localize('Our history')}
             </Header>
-            <StyledLine />
+            <SVGContainer>
+                <StyledLine />
+            </SVGContainer>
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
-                    {idx === Stories.length - 1 ? (
-                        <LastHeader
-                            left={story.left}
-                            as="h2"
-                            color={story.color || 'red-4'}
-                            align="center"
-                            font_size="var(--text-size-header-3)"
-                        >
-                            {story.year}
-                        </LastHeader>
-                    ) : (
-                        <StyledHeader
-                            left={story.left}
-                            as="h2"
-                            color={story.color || 'red-4'}
-                            align="center"
-                        >
-                            {story.year}
-                        </StyledHeader>
-                    )}
+                    <StyledHeader
+                        left={story.left}
+                        as="h2"
+                        color={story.color || 'red-4'}
+                        align="center"
+                    >
+                        {story.year}
+                    </StyledHeader>
 
                     {story.contents.map((content, idxa) =>
                         content.left ? (

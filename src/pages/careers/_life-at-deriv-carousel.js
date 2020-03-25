@@ -139,27 +139,27 @@ ImageSlide.propTypes = {
 
 const fitness = {
     img_path: FitnessImage,
-    img_alt: 'fitness',
+    img_alt: 'Yoga and Pilates',
     index: 3,
 }
 const games = {
     img_path: GamesImage,
-    img_alt: 'games',
+    img_alt: 'Team Games',
     index: 1,
 }
 const greenarea = {
     img_path: GreenAreaImage,
-    img_alt: 'green area',
+    img_alt: 'Free Working Style',
     index: 4,
 }
 const gym = {
     img_path: GymImage,
-    img_alt: 'gym',
+    img_alt: 'Workout at Gym',
     index: 5,
 }
 const lunch = {
     img_path: LunchImage,
-    img_alt: 'lunch',
+    img_alt: 'Lunch Buffets',
     index: 2,
 }
 const deriv_lifestyle_images = [games, lunch, fitness, greenarea, gym]

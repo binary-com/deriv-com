@@ -64,7 +64,7 @@ const Europe = styled(EU)`
 const Regulatory = () => (
     <Layout>
         <SEO
-            title={localize('Licences and regulations')}
+            title={localize('License and regulation information')}
             description={localize(
                 'Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.',
             )}
@@ -205,7 +205,7 @@ const Regulatory = () => (
                                         <a
                                             key={0}
                                             target="_blank"
-                                            href="https://www.vfsc.vu/financial-dealers-licensee-lists/"
+                                            href="/Vanuatu-Financial-Services-Commission.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

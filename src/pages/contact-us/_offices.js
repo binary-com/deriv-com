@@ -3,9 +3,10 @@ import styled, { css } from 'styled-components'
 import { Text, LinkText } from 'components/elements/typography'
 import { Header, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device, { size } from 'themes/device'
+// SVG
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
-import device, { size } from 'themes/device'
 
 const Wrapper = styled.section`
     width: 100%;
@@ -102,18 +103,13 @@ const PhoneIcon = styled(PhoneSVG)`
 `
 const ImageWrapper = styled.div`
     height: 21rem;
+    width: 100%;
+    max-width: 48.6rem;
 
     @media ${device.laptop} {
         margin-top: 2rem;
         height: 17.75rem;
     }
-`
-const MapLink = styled.a`
-    width: fit-content;
-    height: fit-content;
-    text-decoration: none;
-    position: relative;
-    cursor: pointer;
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
@@ -162,6 +158,13 @@ const ClickToCall = styled.a`
     text-decoration: none;
     color: inherit;
 `
+
+const Iframe = styled.iframe`
+    width: 100%;
+    height: 100%;
+    border: 0;
+`
+
 export const Offices = () => {
     return (
         <Wrapper>
@@ -172,34 +175,11 @@ export const Offices = () => {
                 <OfficeWrapper>
                     <Office>
                         <ImageWrapper>
-                            <div style={{ height: '100vh', width: '100%' }}>
-                                {/* <GoogleMapReact
-                                    bootstrapURLKeys={{
-                                        key: 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU',
-                                    }}
-                                    defaultCenter={{ lat: 35.9035779, lng: 14.4586205 }}
-                                    defaultZoom={11}
-                                >
-                                    <div lat={35.9035779} lng={14.4586205}>
-                                        tesdfsdf
-                                    </div>
-                                </GoogleMapReact> */}
-                            </div>
-                            {/* <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://g.page/r/CRyKELlnWQ3iEAE"
-                            >
-                                <MapContainer>
-                                    <Image
-                                        img_name="map-malta.png"
-                                        alt={localize('Malta Office Location')}
-                                        width="100%"
-                                        height="100%"
-                                    />
-                                </MapContainer>
-                            </MapLink>
-                            */}
+                            <Iframe
+                                src={
+                                    'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=AIzaSyC3f47bs568fv_ls9fMFwX7iVbQ1jVZzzQ'
+                                }
+                            />
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -257,20 +237,7 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://g.page/r/CQODFgzIJPYtEAE"
-                            >
-                                <MapContainer>
-                                    <Image
-                                        img_name="map-cyberjaya.png"
-                                        alt={localize('Cyberjaya Office Location')}
-                                        width="100%"
-                                        height="100%"
-                                    />
-                                </MapContainer>
-                            </MapLink>
+                            <Iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=AIzaSyC3f47bs568fv_ls9fMFwX7iVbQ1jVZzzQ" />
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>

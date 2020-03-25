@@ -1,12 +1,11 @@
 <svg
     id="Layer_1"
     viewBox="0 0 486.3 486.3"
-    height="16"
-    width="16"
+    height="32"
+    width="32"
     role="img"
     aria-labelledby="marker-map"
 >
-    <title id="marker-map">Marker</title>
     <g>
         <path
             style="fill:#CD2A00;"

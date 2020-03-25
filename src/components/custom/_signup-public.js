@@ -291,7 +291,7 @@ const SignupPublic = ({
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
                 <LinkFlex ai="center" onClick={redirectToDerivApp}>
-                    <StyledHeader size="2.8rem" max_width="28.2rem" align="center" color="grey-8">
+                    <StyledHeader size="2.8rem" mw="28.2rem" align="center" color="grey-8">
                         {localize('Get a taste of the Deriv experience')}
                     </StyledHeader>
                     <ChevronRight />

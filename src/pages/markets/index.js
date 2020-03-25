@@ -21,7 +21,7 @@ const useTabState = () => {
     }
     return [active_tab, setTab]
 }
-const Tabs = styled(Flex)``
+
 const Item = styled.div`
     padding: 1.2rem 2.4rem;
     border-bottom: ${props => props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
@@ -54,7 +54,7 @@ const Markets = () => {
         <Layout>
             <SEO description={localize('')} title={localize('')} />
             <Hero />
-            <Tabs>
+            <Flex mt='4rem'>
                 <Item onClick={() => setTab('forex')} active_tab={active_tab} name='forex'>
                     <Header as='h4'>{localize('Forex')}</Header>
                 </Item>
@@ -67,7 +67,7 @@ const Markets = () => {
                 <Item onClick={() => setTab('synthetic')} active_tab={active_tab} name='synthetic'>
                     <Header as='h4'>{localize('Synthetic indices')}</Header>
                 </Item>
-            </Tabs>
+            </Flex>
             <TabWrapper>
                 <Separator />
                 {active_tab === 'forex' && <Forex />}

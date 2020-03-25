@@ -1,14 +1,18 @@
 import React from 'react'
-import { WhyTrade } from './_why-trade'
 import { localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Leverage from 'images/svg/leverage.svg'
+import { WhyTrade } from './_why-trade'
+// import { WhatIs } from './_what-is'
 
 const Forex = () => {
     return (
+        // <WhatIs>
+
+        // </WhatIs>
         <WhyTrade header={localize('Why trade forex on Deriv')}>
             <div text={localize('High leverage, tight spreads')} icon={<Leverage />}></div>
             <div

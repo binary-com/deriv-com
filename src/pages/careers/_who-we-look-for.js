@@ -119,11 +119,7 @@ const WhoWeLookFor = () => {
                 </DiffHeader>
                 <DescContainer direction="row" mb="14.4rem" jc="flex-start">
                     <ImageWrapper>
-                        <QueryImage
-                            data={data.teamfocus}
-                            alt={'What’s different about working at Deriv?'}
-                            width="100%"
-                        />
+                        <QueryImage data={data.teamfocus} alt={'Team Focus'} width="100%" />
                     </ImageWrapper>
                     <ImageDescription>
                         <DescText>
@@ -147,11 +143,7 @@ const WhoWeLookFor = () => {
                 </DescContainer>
                 <DescContainer direction="row-reverse" jc="flex-start">
                     <ImageWrapper>
-                        <QueryImage
-                            data={data.peopleeating}
-                            alt={'What’s different about working at Deriv?'}
-                            width="100%"
-                        />
+                        <QueryImage data={data.peopleeating} alt={'Team Lunch'} width="100%" />
                     </ImageWrapper>
                     <ImageDescription left>
                         <DescText>

@@ -69,10 +69,11 @@ class DtraderTabs extends React.Component {
     my_ref = React.createRef()
     interval_ref = undefined
     state = {
+        step: 1,
         current_step_image: 'dbot-step1.png',
     }
-    clickHandler = image_name => {
-        this.setState({ current_step_image: image_name })
+    clickHandler = (image_name, step) => {
+        this.setState({ current_step_image: image_name, step })
     }
     handleRedirect = () => {
         window.open(deriv_bot_app_url, '_blank')
@@ -89,7 +90,7 @@ class DtraderTabs extends React.Component {
                             no_margin
                             image_name="dbot-step1.png"
                             current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step1.png')}
+                            onClick={() => this.clickHandler('dbot-step1.png', 1)}
                         >
                             {localize('1. Select your asset')}
                         </Step>
@@ -101,7 +102,7 @@ class DtraderTabs extends React.Component {
                             align="left"
                             image_name="dbot-step2.png"
                             current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step2.png')}
+                            onClick={() => this.clickHandler('dbot-step2.png', 2)}
                         >
                             {localize('2. Set purchase conditions')}
                         </Step>
@@ -113,7 +114,7 @@ class DtraderTabs extends React.Component {
                             align="left"
                             image_name="dbot-step3.png"
                             current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step3.png')}
+                            onClick={() => this.clickHandler('dbot-step3.png', 3)}
                         >
                             {localize('3. Set restart conditions')}
                         </Step>
@@ -125,7 +126,7 @@ class DtraderTabs extends React.Component {
                             align="left"
                             image_name="dbot-step4.png"
                             current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step4.png')}
+                            onClick={() => this.clickHandler('dbot-step4.png', 4)}
                         >
                             {localize('4. Run bot')}
                         </Step>
@@ -137,7 +138,7 @@ class DtraderTabs extends React.Component {
                             align="left"
                             image_name="dbot-step5.png"
                             current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step5.png')}
+                            onClick={() => this.clickHandler('dbot-step5.png', 5)}
                         >
                             {localize('5. Check profit')}
                         </Step>
@@ -149,7 +150,7 @@ class DtraderTabs extends React.Component {
                 <VideoWrapper>
                     <Image
                         img_name={this.state.current_step_image}
-                        alt="DMT5 platform"
+                        alt={localize('DBot - Step') + this.state.step}
                         width="100%"
                     />
                 </VideoWrapper>

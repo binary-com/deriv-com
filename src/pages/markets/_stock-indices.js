@@ -1,8 +1,9 @@
 import React from 'react'
+import OtherMarkets from './_other-markets.js'
 
 const StockIndices = () => {
     return (<div>
-        StockIndices
+        <OtherMarkets except='stock indices' />
     </div>)
 }
 

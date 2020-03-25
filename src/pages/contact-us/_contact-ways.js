@@ -73,9 +73,10 @@ const StyledHeader = styled(Header)`
 
 const StyledText = styled(Text)`
     margin-bottom: ${props => props.marginBttom || '0.8rem'};
+    font-size: var(--text-size-sm);
 
     @media ${device.tabletL} {
-        font-size: ${props => props.secondary ? '3rem' : '2rem'};
+        font-size: ${props => (props.secondary ? '3rem' : '2rem')};
     }
 `
 
@@ -163,7 +164,7 @@ export const ContactWays = () => {
                         <ClickToCall href="tel:+441942316229">+44 1942 316229</ClickToCall>
                     </StyledText>
                     <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
-                    <StyledText marginBttom="1.9rem">
+                    <StyledText mb="1.9rem">
                         {localize('Sat-Sun: 8:00 am - 5:00 pm (GMT+8)')}
                     </StyledText>
                 </CallContact>
@@ -182,9 +183,6 @@ export const ContactWays = () => {
                     >
                         {localize('support@deriv.com')}
                     </LinkText>
-                    {/* <StyledText secondary="true" weight="bold" color="red">
-                        <EmailContainer>{localize('support@deriv.com')}</EmailContainer>
-                    </StyledText> */}
                 </Contact>
 
                 {/*

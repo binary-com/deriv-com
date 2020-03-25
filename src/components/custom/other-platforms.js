@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
 import { Card, Header, NavCard, CardLink } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
@@ -19,20 +19,18 @@ import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
 `
-
+const icon72 = css`
+    width: 72px;
+    height: 72px;
+`
 const StyledDbot = styled(DBot)`
-    width: 72px;
-    height: 72px;
+    ${icon72}
 `
-
 const StyledDmt5 = styled(DMT5)`
-    width: 72px;
-    height: 72px;
+    ${icon72}
 `
-
 const StyledDTrader = styled(DTrader)`
-    width: 72px;
-    height: 72px;
+    ${icon72}
 `
 
 const StyledSmarttrader = styled(Smarttrader)`
@@ -45,18 +43,12 @@ const StyledHeader = styled(Header)`
         font-size: var(--text-size-header-1);
     }
 `
-
 const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
 
     @media ${device.tabletL} {
         margin: 1rem 0;
     }
-`
-
-const StyledSubHeader = styled(Header)`
-    margin: 0.8rem auto;
-    max-width: ${props => props.maxWidth || ''};
 `
 const StyledFlexGridContainer = styled(FlexGridContainer)`
     @media ${device.tabletL} {
@@ -87,11 +79,6 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
         />
     </StyledLink>
 )
-const cardProptypes = {
-    is_selected: PropTypes.bool,
-    word_break_cover: PropTypes.bool,
-}
-TraderCard.propTypes = { ...cardProptypes }
 
 export const BotCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dbot">
@@ -109,7 +96,6 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
         />
     </StyledLink>
 )
-BotCard.propTypes = { ...cardProptypes }
 
 export const DMT5Card = ({ is_selected, word_break_cover }) => (
     <StyledLink to="/dmt5">
@@ -127,7 +113,6 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
         />
     </StyledLink>
 )
-DMT5Card.propTypes = { ...cardProptypes }
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink to={smarttrader_url} external="true" target="_blank">
@@ -147,21 +132,20 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
         />
     </StyledLink>
 )
-SmarttraderCard.propTypes = { ...cardProptypes }
 
 export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
     <SectionContainer padding="0">
         {is_nav ? null : (
             <HeaderWrapper>
-                <StyledHeader font_size="4.8rem" align="center" lh="5rem">
+                <StyledHeader size="4.8rem" align="center" lh="5rem">
                     {header ? header : localize('Check out our other platforms')}
                 </StyledHeader>
                 {subHeader && (
-                    <StyledSubHeader as="h4" align="center" weight="500" maxWidth="67.6rem">
+                    <Header as="h4" align="center" weight="500" max_width="67.6rem" m="0.8rem auto">
                         {localize(
                             'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
                         )}
-                    </StyledSubHeader>
+                    </Header>
                 )}
             </HeaderWrapper>
         )}
@@ -172,6 +156,15 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
         </StyledFlexGridContainer>
     </SectionContainer>
 )
+
+const cardProptypes = {
+    is_selected: PropTypes.bool,
+    word_break_cover: PropTypes.bool,
+}
+BotCard.propTypes = { ...cardProptypes }
+DMT5Card.propTypes = { ...cardProptypes }
+SmarttraderCard.propTypes = { ...cardProptypes }
+TraderCard.propTypes = { ...cardProptypes }
 
 OtherPlatform.propTypes = {
     exclude: PropTypes.string,
@@ -260,7 +253,7 @@ export const NavMarket = () => (
 )
 
 export const NavCompany = () => (
-    <Flex wrap="wrap" jc="flex-start" mw="42rem">
+    <Flex wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink title={localize('Our story')} to="/about/#story" />
         <CardLink title={localize('Contact us')} to="/contact-us/" />
         <CardLink title={localize('Our leadership')} to="/about/#leadership" />
@@ -270,7 +263,7 @@ export const NavCompany = () => (
 )
 
 export const NavResources = () => (
-    <Flex wrap="wrap" jc="flex-start" mw="42rem">
+    <Flex wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink title={localize('Help Centre')} to="/help-centre/" />
         <CardLink title={localize('Payment methods')} to="/payment-methods/" />
         {/* TODO: add this when blog is ready */}

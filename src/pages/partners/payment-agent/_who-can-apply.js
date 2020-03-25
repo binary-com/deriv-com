@@ -95,7 +95,7 @@ const WhoCanApply = () => {
         <SectionWrapper padding="8rem 0">
             <Section>
                 <StyledCol>
-                    <StyledHeader font_size="3.6rem">{localize('Who can apply')}</StyledHeader>
+                    <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
                     <Wrapper>
                         <TradingExperts />
                         <Content max_width="36.4rem">
@@ -138,9 +138,7 @@ const WhoCanApply = () => {
                 <Flex width="auto">
                     <LineVertical />
                     <Col>
-                        <SecondaryHeader font_size="3.6rem">
-                            {localize('How to apply')}
-                        </SecondaryHeader>
+                        <SecondaryHeader size="3.6rem">{localize('How to apply')}</SecondaryHeader>
                         <Wrapper>
                             <Email />
                             <Content max_width="36.4rem">

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StyledLink, Text } from 'components/elements'
+import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
@@ -18,12 +18,6 @@ const DFYASection = styled(Container)`
     & > * {
         width: auto;
     }
-
-    @media ${device.tabletL} {
-        ${StyledLink} {
-            font-size: var(--text-size-l);
-        }
-    }
 `
 const StyledIcon = styled(ContactUsIcon)`
     @media ${device.tabletL} {
@@ -36,7 +30,7 @@ export const DidntFindYourAnswerBanner = () => (
     <DFYAWrapper>
         <DFYASection>
             <StyledIcon />
-            <Text size="var(--text-size-l)" color="white" weight="bold" margin="0 2.4rem">
+            <Text size="var(--text-size-l)" color="white" weight="bold" m="0 2.4rem">
                 {localize('Didn’t find your answer?')}
             </Text>
             <LinkButton secondary="true" to="/contact-us" weight="bold" color="black">

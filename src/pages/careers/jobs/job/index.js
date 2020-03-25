@@ -104,12 +104,12 @@ const Job = () => {
             <Banner>
                 <StyledContainer>
                     <Text color="white">{team_names[job.team]}</Text>
-                    <StyledHeader as="h2" color="white" margin="1.6rem 0 0.8rem">
+                    <StyledHeader as="h2" color="white" m="1.6rem 0 0.8rem">
                         {job.title}
                     </StyledHeader>
                     <Flex height="auto" jc="flex-start" ai="center">
                         <Location />
-                        <Text color="white" margin="0 2.4rem 0 0.8rem">
+                        <Text color="white" m="0 2.4rem 0 0.8rem">
                             {locations[job.location]}
                         </Text>
                         <Text color="white">{job.type.join(', ')}</Text>

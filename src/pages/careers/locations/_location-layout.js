@@ -153,11 +153,11 @@ export const LocationLayout = ({ location, images }) => {
             />
             <Container direction="column">
                 <FirstSection padding="12rem 0">
-                    <Header align="center" as="h2" font_size={'var(--text-size-header-1)'}>
+                    <Header align="center" as="h2" size={'var(--text-size-header-1)'}>
                         {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">
-                        <Text secondary>{location.first_p}</Text>
+                        <Text size="var(--text-size-sm)">{location.first_p}</Text>
                         <ImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}
@@ -172,7 +172,7 @@ export const LocationLayout = ({ location, images }) => {
                 <Header
                     align="center"
                     as="h2"
-                    font_size={'var(--text-size-header-1)'}
+                    size={'var(--text-size-header-1)'}
                     style={{ marginBottom: '6.4rem' }}
                 >
                     Our office
@@ -224,7 +224,7 @@ export const LocationLayout = ({ location, images }) => {
                                 width="100%"
                             />
                         </ImageWrapper>
-                        <Flex p="3.2rem 6rem" direction="column" mw="44.4rem">
+                        <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
                             <div style={{ maxWidth: '32.4rem' }}>
                                 <Header as="h3">Location</Header>
                                 <CardText>{location.map_text}</CardText>
@@ -250,7 +250,7 @@ export const LocationLayout = ({ location, images }) => {
             <Header
                 align="center"
                 as="h2"
-                font_size={'var(--text-size-header-1)'}
+                size={'var(--text-size-header-1)'}
                 style={{ marginBottom: '6.4rem' }}
             >
                 {`Open positions in ${display_name}`}

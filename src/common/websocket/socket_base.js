@@ -1,5 +1,3 @@
-// TODO: add language
-// const getLanguage      = require('../language').get;
 import { State } from '../storage'
 import {
     cloneObject,
@@ -187,7 +185,7 @@ const BinarySocketBase = (() => {
             config = options
             buffered_sends = []
         }
-        // TODO: [translation] remove this condition when production is ready
+
         const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${
             getLanguage() === 'ach' ? getCrowdin() : getLanguage()
         }&brand=${brand_name.toLowerCase()}`

@@ -107,9 +107,6 @@ const ResultWrapper = styled.div`
         margin-bottom: 3.6rem;
     }
 `
-const StyledHeader = styled(Header)`
-    margin-bottom: 4rem;
-`
 
 const ListWrapper = styled.div`
     margin-right: 2.4rem;
@@ -117,9 +114,6 @@ const ListWrapper = styled.div`
     width: 38.4rem;
     line-height: 1.5;
 
-    ${Header} {
-        margin-bottom: 1.6rem;
-    }
     @media ${device.laptopL} {
         max-width: auto;
         width: auto;
@@ -302,7 +296,9 @@ class HelpCentre extends Component {
                     <Backdrop>
                         <Container align="left" justify="flex-start" direction="column">
                             <StyledContainer align="normal" direction="column">
-                                <StyledHeader as="h1">{localize('How can we help?')}</StyledHeader>
+                                <Header mb="4rem" as="h1">
+                                    {localize('How can we help?')}
+                                </Header>
                                 <SearchForm onSubmit={this.handleSubmit}>
                                     <SearchIconBig />
                                     <Search
@@ -343,7 +339,7 @@ class HelpCentre extends Component {
                                             return (
                                                 <ArticleDiv key={idx}>
                                                     <ListWrapper>
-                                                        <Header font_size="3.6rem">
+                                                        <Header size="3.6rem" mb="1.6rem">
                                                             {localize(item.category)}
                                                         </Header>
                                                         {item.articles.map((ar, idxb) => {

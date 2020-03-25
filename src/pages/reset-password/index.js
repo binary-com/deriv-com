@@ -21,11 +21,6 @@ const ButtonContainer = styled.div`
     margin-top: 2rem;
 `
 
-const SecondaryHeader = styled(Header)`
-    margin-top: 0.5rem;
-    margin-bottom: 3.8rem;
-`
-
 const InputGroup = styled.div`
     margin-bottom: 3.4rem;
 `
@@ -85,9 +80,9 @@ const ResetPassword = () => (
             <Header as="h2" align="center">
                 {localize('Reset password')}
             </Header>
-            <SecondaryHeader as="h4" align="center" weight="500">
+            <Header as="h4" align="center" weight="500" mt="0.5rem" mb="3.8rem">
                 {localize("We'll email you instructions to reset your password.")}
-            </SecondaryHeader>
+            </Header>
             <Formik
                 initialValues={{ email: '' }}
                 initialStatus={{}}

@@ -34,7 +34,7 @@ const trading = [
             />
         ),
         image_name: 'make-smarter.png',
-        image_alt: localize('Make smarter'),
+        image_alt: localize('Charts'),
     },
     {
         title: (
@@ -47,7 +47,7 @@ const trading = [
             'Forex, indices, commodities and synthetic indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.',
         ),
         image_name: 'trade-what-you-want.png',
-        image_alt: localize('Trade what you want'),
+        image_alt: localize('Trading Market'),
     },
     {
         title: <Localize translate_text="...And<0/>how you want" components={[<br key={0} />]} />,
@@ -55,7 +55,7 @@ const trading = [
             'Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second.',
         ),
         image_name: 'how-you-want.png',
-        image_alt: localize('How you want'),
+        image_alt: localize('Trade Types'),
     },
 ]
 const PlatformContainer = styled.div`
@@ -83,6 +83,7 @@ const Dtrader = () => {
                 Logo={dtrader_logo}
                 background_image_name="dtrader-artboard.png"
                 background_svg={DTraderBG}
+                background_alt={localize('DTrader Board')}
             />
             <Show.Desktop>
                 <DNumber items={items} justify="space-around" />

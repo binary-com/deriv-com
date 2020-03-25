@@ -66,7 +66,7 @@ commands:
             mv artifact.tar ${OLDPWD}/
       - run:
           name: "Tag commit id as artifact identifer"
-          command: echo "${CIRCLE_SHA1}" > artifact-info.txt
+          command: echo "${CIRCLE_TAG}" > artifact-info.txt
   upload_artifact:
     description: "upload build artifact to s3 bucket"
     steps:
@@ -76,7 +76,7 @@ commands:
           aws-access-key-id: env_CONTEXT_ARTIFACT_S3_AWS_ACCESS_KEY_ID
           aws-secret-access-key: env_CONTEXT_ARTIFACT_S3_AWS_SECRET_ACCESS_KEY
           aws-region: env_CONTEXT_ARTIFACT_S3_AWS_REGION
-          arguments: '--metadata "{\"x-amz-artifact-id\": \"${CIRCLE_SHA1}\" }"'
+          arguments: '--metadata "{\"x-amz-artifact-id\": \"${CIRCLE_TAG}\" }"'
   upload_checksum:
     description: "upload artifact checksum to s3"
     steps:
@@ -91,14 +91,14 @@ commands:
     parameters:
       docker_image_tag:
         type: string
-        default: "latest"
+        default: "latest-staging"
     steps:
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
           name: Building docker image
           command: |
-            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_image_tag >> .
+            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG} -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_image_tag >> .
   docker_push:
     description: "Push image to docker hub"
     steps:
@@ -131,10 +131,7 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - docker_build:
-          docker_image_tag: latest-staging
-      - docker_push
-  release:
+  release_staging:
     docker:
       - image: circleci/node:lts-stretch
         environment:
@@ -142,11 +139,25 @@ jobs:
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
+      - npm_test
+      - build
+      - docker_build
+      - docker_push
+  release_production:
+    docker:
+      - image: circleci/node:lts-stretch
+        environment:
+          - GATSBY_CPU_COUNT=2
+    steps:
+      - git_checkout_from_cache
+      - npm_install_from_cache
+      - npm_test
       - build
       - compress
       - upload_artifact  # uploading the built code to s3 to create a backup of key services separate from Kubernetes deployment
       - upload_checksum  # uploading compressed artifact checksum to cross match artifact fingerprint
-      - docker_build
+      - docker_build:
+          docker_image_tag: latest
       - docker_push
   deploy_staging:
     docker:
@@ -166,18 +177,33 @@ workflows:
           filters:
             branches:
               only: /^dev/
+  release_staging:
+    jobs:
+      - release_staging:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^staging.*/
+          context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
       - deploy_staging:
           filters:
             branches:
-              only: /^dev/
-  build_and_push_master:
+              ignore: /.*/
+            tags:
+              only: /^staging.*/
+  release_production:
     jobs:
-      - release:
+      - release_production:
           filters:
             branches:
-              only: /^master/
+              ignore: /.*/
+            tags:
+              only: /^production.*/
           context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
       - deploy_production:
           filters:
             branches:
-              only: /^master/
+              ignore: /.*/
+            tags:
+              only: /^production.*/

@@ -173,7 +173,7 @@ const About = () => {
                     {is_leadership && (
                         <ContentWrapper>
                             <LeadershipWrapper mt="4rem" ai="center">
-                                <Box mw="28.2rem" mr="2.4rem">
+                                <Box max_width="28.2rem" mr="2.4rem">
                                     <Image
                                         width="28.2rem"
                                         img_name="jean-yves.png"

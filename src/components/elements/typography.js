@@ -12,7 +12,7 @@ const BaseElement = css`
     /* prettier-ignore */
     color: var(--color-${props => props.color || 'black-3'});
     line-height: ${props => props.lh || '1.5'};
-    max-width:  ${props => props.mw || ''};
+    max-width:  ${props => props.max_width || ''};
     min-width:  ${props => props.min_width || ''};
     ${Margins}
     ${Paddings}

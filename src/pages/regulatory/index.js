@@ -90,7 +90,7 @@ const Regulatory = () => (
                     {localize('Binary Investments (Europe) Ltd')}
                 </StyledHeader>
                 <Box>
-                    <Text lh="1.55" mw="79.2rem">
+                    <Text lh="1.55" max_width="79.2rem">
                         <Localize
                             translate_text="Binary Investments (Europe) Ltd, with a registered office at W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                             components={[
@@ -105,7 +105,7 @@ const Regulatory = () => (
                             ]}
                         />
                     </Text>
-                    <Text lh="1.55" mt="2rem" mw="79.2rem">
+                    <Text lh="1.55" mt="2rem" max_width="79.2rem">
                         {localize(
                             'European Union residents who wish to trade investment products will have their accounts opened with Binary Investments (Europe) Ltd.',
                         )}
@@ -134,7 +134,7 @@ const Regulatory = () => (
         <SectionContainer padding="2.4rem 0 0">
             <GridContainer>
                 <Box padding="0 0 4rem">
-                    <Text lh="1.55" mw="79.2rem">
+                    <Text lh="1.55" max_width="79.2rem">
                         {localize(
                             'EU passporting rights: Binary Investments (Europe) Ltd is entitled to provide its services to EU member states through EU passporting rights. Refer to the map above for the list of EU countries that have access to Deriv and Binary.com.',
                         )}

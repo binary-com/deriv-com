@@ -94,7 +94,7 @@ const PaymentMethods = () => {
                     <Header as="h1" align="center" mb="1.6rem">
                         {localize('Payment methods')}
                     </Header>
-                    <Text mw="99.6rem" align="center" size="var(--text-size-m)">
+                    <Text max_width="99.6rem" align="center" size="var(--text-size-m)">
                         {localize(
                             'All your deposits and withdrawals are processed within 1 working day. However, there may be additional processing time required by your bank or money transfer service.',
                         )}

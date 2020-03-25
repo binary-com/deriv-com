@@ -141,7 +141,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
                     {header ? header : localize('Check out our other platforms')}
                 </StyledHeader>
                 {subHeader && (
-                    <Header as="h4" align="center" weight="500" mw="67.6rem" m="0.8rem auto">
+                    <Header as="h4" align="center" weight="500" max_width="67.6rem" m="0.8rem auto">
                         {localize(
                             'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
                         )}
@@ -253,7 +253,7 @@ export const NavMarket = () => (
 )
 
 export const NavCompany = () => (
-    <Flex wrap="wrap" jc="flex-start" mw="42rem">
+    <Flex wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink title={localize('Our story')} to="/about/#story" />
         <CardLink title={localize('Contact us')} to="/contact-us/" />
         <CardLink title={localize('Our leadership')} to="/about/#leadership" />
@@ -263,7 +263,7 @@ export const NavCompany = () => (
 )
 
 export const NavResources = () => (
-    <Flex wrap="wrap" jc="flex-start" mw="42rem">
+    <Flex wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink title={localize('Help Centre')} to="/help-centre/" />
         <CardLink title={localize('Payment methods')} to="/payment-methods/" />
         {/* TODO: add this when blog is ready */}

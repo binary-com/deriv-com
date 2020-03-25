@@ -42,7 +42,7 @@ export const OurAwards = () => {
                 {localize('Our awards')}
             </Header>
             <Flex>
-                <Text align="center" weight="500" max_width="98.4rem" size="var(--text-size-m)">
+                <Text align="center" weight="500" mw="98.4rem" size="var(--text-size-m)">
                     {localize(
                         'The Binary Group has 20 years of experience in providing excellent trading services. We’re proud that our dedication has led to a number of prestigious awards over the years.',
                     )}

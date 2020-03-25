@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 const Content = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: ${props => props.max_width};
+    max-width: ${props => props.mw};
 `
 const Separator = styled.div`
     width: 1px;
@@ -97,7 +97,7 @@ const WhoCanApply = () => {
                     <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
                     <Wrapper>
                         <TradingExperts />
-                        <Content max_width="36.4rem">
+                        <Content mw="36.4rem">
                             <Header as="h4">{localize('Trading experts')}</Header>
                             <Text>
                                 {localize(
@@ -108,7 +108,7 @@ const WhoCanApply = () => {
                     </Wrapper>
                     <Wrapper>
                         <SoftwareDeveloper />
-                        <Content max_width="36.4rem">
+                        <Content mw="36.4rem">
                             <Header as="h4">{localize('Software developers')}</Header>
                             <Text>
                                 {localize(
@@ -119,7 +119,7 @@ const WhoCanApply = () => {
                     </Wrapper>
                     <Wrapper>
                         <CommunityManagers />
-                        <Content max_width="36.4rem">
+                        <Content mw="36.4rem">
                             <Header as="h4">{localize('Community managers')}</Header>
                             <Text>
                                 {localize(
@@ -138,7 +138,7 @@ const WhoCanApply = () => {
                         </SecondaryHeader>
                         <Wrapper>
                             <Apply />
-                            <Content max_width="32.4rem">
+                            <Content mw="32.4rem">
                                 <Header as="h4">{localize('Sign up')}</Header>
                                 <Text>
                                     {localize(
@@ -149,7 +149,7 @@ const WhoCanApply = () => {
                         </Wrapper>
                         <Wrapper>
                             <Advertise />
-                            <Content max_width="32.4rem">
+                            <Content mw="32.4rem">
                                 <Header as="h4">{localize('Advertise')}</Header>
                                 <Text>
                                     {localize(
@@ -160,7 +160,7 @@ const WhoCanApply = () => {
                         </Wrapper>
                         <Wrapper>
                             <Earn />
-                            <Content max_width="32.4rem">
+                            <Content mw="32.4rem">
                                 <Header as="h4">{localize('Earn')}</Header>
                                 <Text>
                                     {localize(

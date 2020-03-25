@@ -111,7 +111,7 @@ const ResponsibleTrading = () => {
                     <StyledHeader
                         as="h3"
                         align="center"
-                        max_width="105rem"
+                        mw="105rem"
                         pt="2.4rem"
                         size="var(--text-size-m)"
                     >
@@ -145,7 +145,7 @@ const ResponsibleTrading = () => {
                     <StyledFlex m="4rem 0" jc="space-between" wrap="wrap">
                         <ListWrapper laptop_mb="4rem">
                             <StyledHeader
-                                max_width="36rem"
+                                mw="36rem"
                                 size="var(--text-size-header-1)"
                                 align="center"
                                 m="0 auto"

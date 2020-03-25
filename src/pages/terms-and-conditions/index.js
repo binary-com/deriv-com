@@ -33,7 +33,7 @@ const TermsAndConditions = () => {
                         align="center"
                         weight="normal"
                         lh="3rem"
-                        max_width="98.4rem"
+                        mw="98.4rem"
                         mt="1.6rem"
                     >
                         {localize(

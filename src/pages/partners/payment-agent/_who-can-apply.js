@@ -98,7 +98,7 @@ const WhoCanApply = () => {
                     <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
                     <Wrapper>
                         <TradingExperts />
-                        <Content max_width="36.4rem">
+                        <Content mw="36.4rem">
                             <Header as="h4" lh="1.5">
                                 {localize('Currency exchangers')}
                             </Header>
@@ -111,7 +111,7 @@ const WhoCanApply = () => {
                     </Wrapper>
                     <Wrapper>
                         <Affiliates />
-                        <Content max_width="36.4rem">
+                        <Content mw="36.4rem">
                             <Header as="h4" lh="1.5">
                                 {localize('Affiliates')}
                             </Header>
@@ -122,7 +122,7 @@ const WhoCanApply = () => {
                     </Wrapper>
                     <Wrapper>
                         <CommunityManagers />
-                        <Content max_width="36.4rem">
+                        <Content mw="36.4rem">
                             <Header as="h4" lh="1.5">
                                 {localize('Community managers')}
                             </Header>
@@ -141,7 +141,7 @@ const WhoCanApply = () => {
                         <SecondaryHeader size="3.6rem">{localize('How to apply')}</SecondaryHeader>
                         <Wrapper>
                             <Email />
-                            <Content max_width="36.4rem">
+                            <Content mw="36.4rem">
                                 <Header as="h4" lh="1.5">
                                     {localize('Drop us an email')}
                                 </Header>
@@ -178,7 +178,7 @@ const WhoCanApply = () => {
                         </Wrapper>
                         <Wrapper>
                             <Reply />
-                            <Content max_width="36.4rem">
+                            <Content mw="36.4rem">
                                 <Header as="h4" lh="1.5">
                                     {localize('Wait for our reply')}
                                 </Header>
@@ -191,7 +191,7 @@ const WhoCanApply = () => {
                         </Wrapper>
                         <Wrapper>
                             <Listed />
-                            <Content max_width="36.4rem">
+                            <Content mw="36.4rem">
                                 <Header as="h4" lh="1.5">
                                     {localize('Get listed')}
                                 </Header>

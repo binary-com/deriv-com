@@ -93,7 +93,7 @@ export const WhyTrade = ({ children, header }) => {
             <ContainerWrapper>
                 <Wrapper>
                     <LeftContent>
-                        <StyledHeader font_size="3.6rem">{localize(header)}</StyledHeader>
+                        <StyledHeader size="3.6rem">{localize(header)}</StyledHeader>
                     </LeftContent>
                     <RightContent>
                         {children.map((child, idx) => {
@@ -102,7 +102,7 @@ export const WhyTrade = ({ children, header }) => {
                                 return (
                                     <Item key={idx}>
                                         {icon}
-                                        {<Text margin="0 0 0 2.4rem">{text}</Text>}
+                                        {<Text ml="2.4rem">{text}</Text>}
                                     </Item>
                                 )
                             }

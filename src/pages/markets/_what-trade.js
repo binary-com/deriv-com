@@ -14,7 +14,7 @@ const ContentWrapper = styled.section`
     padding: 8rem 22.2rem;
 
     @media ${device.tablet} {
-        padding: 8rem 14rem;
+        padding: 8rem 10rem;
     }
 `
 const DemoButon = styled(Button)`
@@ -47,12 +47,12 @@ export const WhatTrade = ({ header, sub_header, learn_more_section }) => {
     return (
         <ContentWrapper>
             <Container direction="column">
-                <Header margin="0 0 1.6rem 0" align="center" font_size="3.6rem">
+                <Header mb="1.6rem" align="center" size="3.6rem">
                     {localize(header)}
                 </Header>
                 {sub_header.map((prop, idx) => {
                     return (
-                        <Text margin="0 0 1.5rem 0" align="center" key={idx}>
+                        <Text mb="1.5rem" align="center" key={idx}>
                             {prop.text}
                         </Text>
                     )

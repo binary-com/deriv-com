@@ -2,42 +2,42 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex, Container } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
-import { Text, Header } from 'components/elements'
+import { localize } from 'components/localization'
+import { Text, Header, StyledLink } from 'components/elements'
 // icons
 import Forex from 'images/svg/market-forex.svg'
 import Commodities from 'images/svg/market-commodities.svg'
 import StockIndices from 'images/svg/market-stock-indices.svg'
 import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
 
-const trade_type = {
+const markets_type = {
     'forex': {
-        icon: Forex,
-        title: 'Forex',
-        content: 'Forex gives you the chance to profit from changes in the relative values of currencies on the forex market.',
-        to: '/markets#forex'
+        'icon': Forex,
+        'title': 'Forex',
+        'content': 'Forex gives you the chance to profit from changes in the relative values of currencies on the forex market.',
+        'to': '/markets#forex',
     },
     'stock indices': {
-        icon: StockIndices,
-        title: 'Stock indices',
-        content: 'Stock indices trading allows you to profit from the price movements in a market without buying assets.',
-        to: '/markets#stock'
+        'icon': StockIndices,
+        'title': 'Stock indices',
+        'content': 'Stock indices trading allows you to profit from the price movements in a market without buying assets.',
+        'to': '/markets#stock',
     },
     'Synthetic Indices': {
-        icon: SyntheticIndices,
-        title: 'Synthetic Indices',
-        content: 'Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks.',
-        to: '/markets#synthetic'
+        'icon': SyntheticIndices,
+        'title': 'Synthetic Indices',
+        'content': 'Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks.',
+        'to': '/markets#synthetic',
     },
     'commodities': {
-        icon: Commodities,
-        title: 'Commodities trading',
-        content: 'Commodities on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil.',
-        to: '/markets#commodities'
+        'icon': Commodities,
+        'title': 'Commodities trading',
+        'content': 'Commodities on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil.',
+        'to': '/markets#commodities',
     },
 }
 
-const StyledLink = styled(LocalizedLink)`
+const Link = styled(StyledLink)`
     color: var(--color-red);
     text-decoration: none;
     font-weight: bold;
@@ -55,7 +55,7 @@ const CardWrapper = styled(Flex)`
     }
 `
 const Card = ({ name }) => {
-    const Icon = styled(trade_type[name].icon)`
+    const Icon = styled(markets_type[name].icon)`
         width: 64px;
         height: 64px;
     `
@@ -63,12 +63,12 @@ const Card = ({ name }) => {
         <Flex direction='column' max_width='38.4rem' jc='space-between' height='24rem'>
             <div>
                 <Icon />
-                <Text weight='bold' mt='0.8rem'>{localize(trade_type[name].title)}</Text>
-                <Text mt='0.8rem'>{localize(trade_type[name].content)}</Text>
+                <Text weight='bold' mt='0.8rem'>{localize(markets_type[name].title)}</Text>
+                <Text mt='0.8rem'>{localize(markets_type[name].content)}</Text>
             </div>
             <div>
                 <Text size='var(--text-size-xs)' lh='1.43' padding='1rem 1.6rem'>
-                    <StyledLink to={trade_type[name].to}>{localize('Learn more about ' + name)}</StyledLink>
+                    <Link to={markets_type[name].to}>{localize('Learn more about ' + name)}</Link>
                 </Text>
             </div>
         </Flex >
@@ -81,7 +81,7 @@ const OtherMarkets = ({ except }) => {
         <Container direction='column'>
             <Header size='var(--text-size-header-1)' mb='4rem' align='center'>{localize('Other markets you might be interested in')}</Header>
             <CardWrapper jc='space-between'>
-                {markets.map(market => market !== except ? (<Card name={market} />) : (null))}
+                {markets.map(market => market !== except ? (<Card name={market} key={market} />) : (null))}
             </CardWrapper>
         </Container>
     )

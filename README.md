@@ -98,7 +98,10 @@ Deriv.com static content
 
 ## Release
 
-There are 2 types of release:
+
+`git tag ${RELEASE_TARGET}_vYYYYMMDD_${INTEGER} -m 'some message'`
+
+Based on `RELEASE_TARGET` there are 2 types of release:
 
 1. Release to staging: 
     1. `git tag staging_v20191205 -m 'release staging'` # the tag needs to follow the RegExp format `/^staging.*/`

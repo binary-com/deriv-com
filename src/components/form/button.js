@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { Paddings } from 'themes/function'
+import { Paddings, Margins } from 'themes/function'
 import { LocalizedLink } from 'components/localization'
 
 const SharedButtonStyle = css`
@@ -85,9 +85,11 @@ export const LinkButton = styled(LocalizedLink)`
     text-align: center;
     text-decoration: none;
 `
+
 const Button = styled.button`
     ${SharedButtonStyle}
     ${Paddings}
+    ${Margins}
 
     &:hover {
         cursor: pointer;

@@ -43,7 +43,7 @@ const SEO = ({ description, meta, title, no_index }) => {
         for (page in pages) {
             const link = {}
             link.rel = 'alternate'
-            link.href = "https://deriv.com"+pages[page]
+            link.href = 'https://deriv.com' + pages[page]
             link.hreflang = pages[page].split('/')[1]
             links.push(link)
         }
@@ -146,7 +146,19 @@ const SEO = ({ description, meta, title, no_index }) => {
                       ]
                     : []),
             ].concat(meta)}
-        ></Helmet>
+        >
+            <script
+                src="https://www.datadoghq-browser-agent.com/datadog-rum-us.js"
+                type="text/javascript"
+            ></script>
+            <script>
+                {`window.location.hostname === 'www.deriv.com' && window.DD_RUM &&
+                    window.DD_RUM.init({
+                        clientToken: 'pubc42fda54523c5fb23c564e3d8bceae88',
+                        applicationId: 'f0aef779-d9ec-4517-807e-a84c683c4265',
+                    })`}
+            </script>
+        </Helmet>
     )
 }
 

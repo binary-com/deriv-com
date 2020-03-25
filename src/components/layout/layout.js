@@ -10,7 +10,7 @@ const Main = styled.main`
     height: 100%;
 `
 
-const Layout = ({ children, type, padding_top }) => {
+const Layout = ({ children, type, padding_top, no_login_signup }) => {
     const is_static = type === 'static'
     let Navigation = <></>
     switch (type) {
@@ -18,7 +18,7 @@ const Layout = ({ children, type, padding_top }) => {
             Navigation = <NavStatic />
             break
         case 'partners':
-            Navigation = <NavPartners />
+            Navigation = <NavPartners no_login_signup={no_login_signup} />
             break
         case 'careers':
             Navigation = <NavCareers />
@@ -40,6 +40,7 @@ const Layout = ({ children, type, padding_top }) => {
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
+    no_login_signup: PropTypes.bool,
     padding_top: PropTypes.string,
     type: PropTypes.string,
 }

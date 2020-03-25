@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { QueryImage, Text, Header } from 'components/elements'
-import { LocalizedLink } from 'components/localization'
+import { LocalizedLink, localize } from 'components/localization'
 // SVG
 import Chevron from 'images/svg/carousel-chevron.svg'
 
@@ -84,7 +84,12 @@ const StyledLink = styled.div`
 const TeamCard = ({ to, img_data, display_team_name, tagline }) => (
     <StyledCard height="38.8rem" to={to}>
         <ImageWrapper>
-            <QueryImage data={img_data} height="14.4rem" width="100%" alt={display_team_name} />
+            <QueryImage
+                data={img_data}
+                height="14.4rem"
+                width="100%"
+                alt={localize('Team ') + display_team_name}
+            />
         </ImageWrapper>
         <StyledContent>
             <StyledHeader as="h5">{display_team_name}</StyledHeader>

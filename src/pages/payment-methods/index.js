@@ -8,14 +8,6 @@ import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 
-const StyledHeader = styled(Header)`
-    margin-bottom: 1.6rem;
-`
-
-const StyledText = styled(Text)`
-    max-width: 99.6rem;
-`
-
 const AccordionContainer = styled.div`
     width: 100%;
 `
@@ -99,14 +91,14 @@ const PaymentMethods = () => {
             />
             <SectionContainer>
                 <Container direction="column">
-                    <StyledHeader as="h1" align="center">
+                    <Header as="h1" align="center" mb="1.6rem">
                         {localize('Payment methods')}
-                    </StyledHeader>
-                    <StyledText align="center" size="var(--text-size-m)">
+                    </Header>
+                    <Text max_width="99.6rem" align="center" size="var(--text-size-m)">
                         {localize(
                             'All your deposits and withdrawals are processed within 1 working day. However, there may be additional processing time required by your bank or money transfer service.',
                         )}
-                    </StyledText>
+                    </Text>
                 </Container>
             </SectionContainer>
             <Divider height="2px" />

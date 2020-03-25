@@ -5,9 +5,10 @@ import { Input, Button } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
+import { deriv_app_url } from 'common/utility'
+// SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import { deriv_app_url } from 'common/utility'
 
 const Wrapper = styled.div`
     padding: 3.3rem 8.5rem;
@@ -190,7 +191,7 @@ const SignupFlat = ({
                 <RightWrapper>
                     <Text
                         align="center"
-                        secondary="true"
+                        size="var(--text-size-sm)"
                         color={dark ? 'white' : 'black'}
                         weight="bold"
                     >

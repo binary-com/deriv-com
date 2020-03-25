@@ -27,10 +27,10 @@ const YourControl = () => {
     return (
         <SectionContainer background="grey-8">
             <Container direction="column">
-                <Header as="h3" font_size="var(--text-size-header-1)" align="center">
+                <Header as="h3" size="var(--text-size-header-1)" align="center">
                     {localize('You are in control')}
                 </Header>
-                <Text size="var(--text-size-m)" margin="1.6rem 0 3.2rem">
+                <Text size="var(--text-size-m)" m="1.6rem 0 3.2rem">
                     {localize('As a payment agent, you are an independent exchanger. You can:')}
                 </Text>
                 <CssGrid

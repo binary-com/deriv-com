@@ -28,6 +28,16 @@ const Tr = styled.tr`
 const Td = styled.td`
     vertical-align: middle;
     padding: 0 2rem;
+    position: relative;
+`
+
+const HoverTd = styled(Td)`
+    transition: background 0.25s;
+    cursor: pointer;
+
+    &:hover {
+        background: var(--color-grey-2);
+    }
 `
 
 const Description = styled.div`
@@ -55,6 +65,42 @@ const StyledText = styled(Text)`
         `}
 `
 
+const Tooltip = styled.span`
+    position: absolute;
+    top: 0.8rem;
+    padding: 0.8rem;
+    background: var(--color-grey-8);
+    left: 0;
+    border-radius: 16px;
+    margin-left: 1.6rem;
+    opacity: 0;
+    transition: opacity 0.25s;
+    font-size: var(--text-size-xxs);
+
+    &::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        transform: rotate(45deg);
+        position: absolute;
+        left: 2.4rem;
+        top: 2.1rem;
+        background: var(--color-grey-8);
+    }
+`
+
+const HoverText = styled(Text)`
+    cursor: pointer;
+
+    &:hover {
+        font-weight: bold;
+
+        & ~ span {
+            opacity: 1;
+        }
+    }
+`
+
 const ExpandList = ({ data }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
@@ -63,7 +109,7 @@ const ExpandList = ({ data }) => {
     }
     return (
         <>
-            <Tr onClick={toggleExpand}>
+            <Tr>
                 <Td>{data.method}</Td>
                 <Td>
                     <Text>{data.currencies}</Text>
@@ -76,11 +122,14 @@ const ExpandList = ({ data }) => {
                     )}
                 </Td>
                 <Td>
-                    {Array.isArray(data.min_max_withdrawal) ? (
-                        data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
-                    ) : (
-                        <Text>{data.min_max_withdrawal}</Text>
-                    )}
+                    <>
+                        {Array.isArray(data.min_max_withdrawal) ? (
+                            data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
+                        ) : (
+                            <HoverText>{data.min_max_withdrawal}</HoverText>
+                        )}
+                        {data.tooltip && <Tooltip>{data.tooltip}</Tooltip>}
+                    </>
                 </Td>
                 <Td>
                     <Text>{data.deposit_time}</Text>
@@ -88,9 +137,9 @@ const ExpandList = ({ data }) => {
                 <Td>
                     <Text>{data.withdrawal_time}</Text>
                 </Td>
-                <Td>
+                <HoverTd onClick={toggleExpand}>
                     <StyledChevron expanded={is_expanded} />
-                </Td>
+                </HoverTd>
             </Tr>
             <tr>
                 <ExpandedContent colSpan="7">

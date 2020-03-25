@@ -41,10 +41,6 @@ const Thead = styled.thead`
 
 const Tbody = styled.tbody`
     text-align: left;
-
-    tr {
-        cursor: pointer;
-    }
 `
 
 const Tr = styled.tr`
@@ -71,10 +67,18 @@ const PaymentMethods = () => {
             const filtered_payment_data = payment_methods.map(payment => {
                 if (payment.is_crypto) {
                     payment.data = payment.data.map(data => {
-                        data.min_max_withdrawal =
-                            response.website_status.crypto_config[
-                                data.currencies
-                            ].minimum_withdrawal
+                        const minimum_withdrawal = +response.website_status.crypto_config[
+                            data.currencies
+                        ].minimum_withdrawal
+
+                        const min_log_n = Math.floor(Math.log10(minimum_withdrawal))
+                        const min_division = min_log_n < 0 ? Math.pow(10, 1 - min_log_n) : 100
+
+                        const result_min_withdrawal =
+                            Math.round(minimum_withdrawal * min_division) / min_division
+
+                        data.min_max_withdrawal = result_min_withdrawal
+                        data.tooltip = minimum_withdrawal
                         return data
                     })
                 }
@@ -203,6 +207,11 @@ const PaymentMethods = () => {
                                                     values={{ note: pd.note }}
                                                 />
                                             </Text>
+                                            {pd.note_2 && (
+                                                <Text weight="500" size="var(--text-size-xxs)">
+                                                    {pd.note_2}
+                                                </Text>
+                                            )}
                                         </Notes>
                                     )}
                                 </AccordionItem>

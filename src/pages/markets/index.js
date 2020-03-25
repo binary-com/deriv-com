@@ -26,12 +26,23 @@ const Item = styled.div`
     padding: 1.2rem 2.4rem;
     border-bottom: ${props => props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
+    z-index: 10;
 
     h4 {
         color: var(--color-red);
         opacity: ${props => props.name === props.active_tab ? '1' : '0.32'};
         font-weight: ${props => props.name === props.active_tab ? 'bold' : 'normal'};
     }
+`
+const TabWrapper = styled.div`
+    position: relative;
+`
+const Separator = styled.div`
+    position: absolute;
+    width: 100%;
+    top: -2px;
+    height: 2px;
+    background-color: var(--color-grey-21);
 `
 const Markets = () => {
     const [active_tab, setTab] = useTabState('forex');
@@ -57,10 +68,13 @@ const Markets = () => {
                     <Header as='h4'>{localize('Synthetic indices')}</Header>
                 </Item>
             </Tabs>
-            {active_tab === 'forex' && <Forex />}
-            {active_tab === 'commodities' && <Commodities />}
-            {active_tab === 'stock' && <StockIndices />}
-            {active_tab === 'synthetic' && <SyntheticIndices />}
+            <TabWrapper>
+                <Separator />
+                {active_tab === 'forex' && <Forex />}
+                {active_tab === 'commodities' && <Commodities />}
+                {active_tab === 'stock' && <StockIndices />}
+                {active_tab === 'synthetic' && <SyntheticIndices />}
+            </TabWrapper>
         </Layout>
     )
 }

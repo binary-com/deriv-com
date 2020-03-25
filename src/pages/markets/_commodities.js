@@ -1,8 +1,9 @@
 import React from 'react'
+import OtherMarkets from './_other-markets.js'
 
 const Commodities = () => {
     return (<div>
-        Commodities
+        <OtherMarkets except='commodities' />
     </div>)
 }
 

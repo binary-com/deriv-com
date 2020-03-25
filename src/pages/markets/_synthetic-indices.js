@@ -1,8 +1,9 @@
 import React from 'react'
+import OtherMarkets from './_other-markets.js'
 
 const SyntheticIndices = () => {
     return (<div>
-        SyntheticIndices
+        <OtherMarkets except='Synthetic Indices' />
     </div>)
 }
 

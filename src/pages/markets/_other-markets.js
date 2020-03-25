@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex, Container } from 'components/containers'
-import { localize } from 'components/localization'
-import { Text, Header, StyledLink } from 'components/elements'
+import { localize, LocalizedLink } from 'components/localization'
+import { Text, Header } from 'components/elements'
 // icons
 import Forex from 'images/svg/market-forex.svg'
 import Commodities from 'images/svg/market-commodities.svg'
@@ -37,7 +37,7 @@ const markets_type = {
     },
 }
 
-const Link = styled(StyledLink)`
+const Link = styled(LocalizedLink)`
     color: var(--color-red);
     text-decoration: none;
     font-weight: bold;

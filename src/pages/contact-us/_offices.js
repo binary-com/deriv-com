@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import GoogleMapReact from 'google-map-react'
 import { Text, LinkText } from 'components/elements/typography'
 import { Header, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
 import device from 'themes/device'
+import Marker from 'images/svg/marker.svg'
 
 const Wrapper = styled.section`
     width: 100%;
@@ -135,7 +137,20 @@ export const Offices = () => {
                 <OfficeWrapper>
                     <Office>
                         <ImageWrapper>
-                            <MapLink
+                            <div style={{ height: '100vh', width: '100%' }}>
+                                <GoogleMapReact
+                                    bootstrapURLKeys={{
+                                        key: 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU',
+                                    }}
+                                    defaultCenter={{ lat: 35.9035779, lng: 14.4586205 }}
+                                    defaultZoom={11}
+                                >
+                                    <div lat={35.9035779} lng={14.4586205}>
+                                        tesdfsdf
+                                    </div>
+                                </GoogleMapReact>
+                            </div>
+                            {/* <MapLink
                                 rel="noopener noreferrer"
                                 target="_blank"
                                 href="https://g.page/r/CRyKELlnWQ3iEAE"
@@ -146,7 +161,7 @@ export const Offices = () => {
                                     width="49rem"
                                     height="100%"
                                 />
-                            </MapLink>
+                            </MapLink> */}
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
-import styled from 'styled-components'
 import { WhatTrade } from './_what-trade'
 import { WhyTrade } from './_why-trade'
+import { LearnMore } from './_learn-more'
 import { localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
@@ -9,7 +9,7 @@ import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Leverage from 'images/svg/leverage.svg'
 
-const sub_header = [
+const what_trade_sub_header = [
     {
         text: localize(
             'Foreign exchange, otherwise known as forex or FX, is the buying and selling of currencies. Forex relates to buying and selling currencies on the forex market with the aim to make a profit off the changes in their value.',
@@ -21,24 +21,36 @@ const sub_header = [
         ),
     },
 ]
+const learn_more_data = [
+    {
+        header: localize('Torquatos nostros quos dolores suscipiantur'),
+        text: localize('test1'),
+    },
+    {
+        header: localize('Alii autem quibus ego'),
+        text: localize('test2'),
+    },
+    {
+        header: localize('Alii autem, quibus ego assentior, cum a natura?'),
+        text: localize('test3'),
+    },
+    {
+        header: localize('At vero eos censes tantas'),
+        text: localize('test4'),
+    },
+]
 
-const StyledLeverage = styled(Leverage)`
-    overflow: visible;
-`
 const Forex = () => {
     const learn_more_section = useRef(null)
     return (
         <>
             <WhatTrade
-                sub_header={sub_header}
+                sub_header={what_trade_sub_header}
                 header={localize('What is forex?')}
                 learn_more_section={learn_more_section}
             />
             <WhyTrade header={localize('Why trade forex on Deriv')}>
-                <div
-                    text={localize('High leverage, tight spreads')}
-                    icon={<StyledLeverage />}
-                ></div>
+                <div text={localize('High leverage, tight spreads')} icon={<Leverage />}></div>
                 <div
                     text={localize('Responsive, easy-to-use platforms')}
                     icon={<ResponsiveWebsite />}
@@ -53,7 +65,9 @@ const Forex = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
-            <div ref={learn_more_section} />
+            <div ref={learn_more_section}>
+                <LearnMore data={learn_more_data} header={localize('Learn more about forex')} />
+            </div>
         </>
     )
 }

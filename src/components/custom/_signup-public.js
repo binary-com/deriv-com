@@ -7,6 +7,7 @@ import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
+// SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chervon-right.svg'
@@ -219,11 +220,11 @@ const SignupPublic = ({
             </div>
             <SignupFormWrapper>
                 <div>
-                    <StyledHeader font_size="3.2rem">
+                    <StyledHeader size="3.2rem">
                         {localize('Join over 1 million traders worldwide')}
                     </StyledHeader>
                     <br />
-                    <StyledHeader as="h4" weight="500" font_size="2.6rem">
+                    <StyledHeader as="h4" weight="500" size="2.6rem">
                         {localize('Sign up for your demo account now.')}
                     </StyledHeader>
                     <InputGroup>
@@ -290,7 +291,7 @@ const SignupPublic = ({
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
                 <LinkFlex ai="center" onClick={redirectToDerivApp}>
-                    <StyledHeader font_size="2.8rem" width="28.2rem" align="center" color="grey-8">
+                    <StyledHeader size="2.8rem" max_width="28.2rem" align="center" color="grey-8">
                         {localize('Get a taste of the Deriv experience')}
                     </StyledHeader>
                     <ChevronRight />
@@ -305,7 +306,7 @@ const SignupPublic = ({
                         <RedBanner width="100%" />
                     </MobileRedBanner>
                     <DerivExperience onClick={redirectToDerivApp}>
-                        <Header font_size="3rem">
+                        <Header size="3rem">
                             {localize('Get a taste of the Deriv experience')}
                         </Header>
                         <Arrow />

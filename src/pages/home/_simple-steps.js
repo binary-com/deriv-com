@@ -71,7 +71,7 @@ const ClientCard = styled.article`
 const SimpleSteps = () => (
     <StyledSection>
         <Container direction="column">
-            <Header align="center" font_size="var(--text-size-header-1)" as="h2">
+            <Header align="center" size="var(--text-size-header-1)" as="h2">
                 {localize('3 simple steps')}
             </Header>
         </Container>

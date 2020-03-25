@@ -67,7 +67,7 @@ const BoldSpan = styled.span`
 `
 
 const DescText = styled(ParimaryText)`
-    max-width: ${props => (props.mw ? props.mw : '38rem')};
+    max-width: ${props => (props.max_width ? props.max_width : '38rem')};
     margin-bottom: 3.2rem;
 
     &:last-child {
@@ -133,7 +133,7 @@ const WhoWeLookFor = () => {
                             and support each other to find robust solutions that solve problems for
                             our customers and partners.
                         </DescText>
-                        <DescText mw="40.7rem">
+                        <DescText max_width="40.7rem">
                             <BoldSpan>We’re purpose-driven.</BoldSpan> Our customers are at the
                             heart of everything we do, and that drives us to succeed. We value
                             commitment over complacency and accept challenges rather than the status

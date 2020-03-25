@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import EUgrid from './_eu-grid'
 // import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
-import { Header, Text, Divider } from 'components/elements'
+import { Header, Text, LinkText, Divider } from 'components/elements'
 import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
@@ -17,7 +17,6 @@ import device from 'themes/device.js'
 const StyledHeader = styled(Header)`
     max-width: ${props => props.maxwidth || '100%'};
     margin: 0 auto;
-    padding: ${props => props.padding || '0'};
 
     @media ${device.tabletS} {
         text-align: center;
@@ -30,19 +29,8 @@ const Box = styled.div`
     padding: ${props => props.padding || '4rem 0 0'};
 
     ${Text} {
-        max-width: ${props => props.mw || '62.2rem'};
-
         @media ${device.tabletS} {
             text-align: center;
-        }
-    }
-    & a {
-        color: var(--color-red);
-        font-weight: bold;
-        text-decoration: none;
-
-        :hover {
-            text-decoration: underline;
         }
     }
 
@@ -53,6 +41,9 @@ const Box = styled.div`
 const Europe = styled(EU)`
     max-width: 100%;
     margin: 0;
+`
+const MaxText = styled(Text)`
+    max-width: 62.2rem;
 `
 // will be added once the proper documents are ready
 // const AccordionWrapper = styled(Flex)`
@@ -85,7 +76,7 @@ const Regulatory = () => (
                         'The services offered on Deriv and Binary.com are provided by the Binary Group. The group has several subsidiary companies that are licensed to operate Deriv and Binary.com in their registered jurisdictions.',
                     )}
                 </StyledHeader>
-                <StyledHeader as="h4" align="center" weight="normal" lh="3.6rem" padding="2rem 0 0">
+                <StyledHeader as="h4" align="center" weight="normal" lh="3.6rem" pt="2rem">
                     {localize(
                         'Since 1999, the group has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements.',
                     )}
@@ -95,16 +86,18 @@ const Regulatory = () => (
         <Divider />
         <SectionContainer padding="8rem 0 0">
             <GridContainer>
-                <StyledHeader font_size="3.6rem" align="center" lh="4.5rem">
+                <StyledHeader size="3.6rem" align="center" lh="4.5rem">
                     {localize('Binary Investments (Europe) Ltd')}
                 </StyledHeader>
-                <Box mw="79.2rem">
-                    <Text lh="1.55">
+                <Box>
+                    <Text lh="1.55" max_width="79.2rem">
                         <Localize
                             translate_text="Binary Investments (Europe) Ltd, with a registered office at W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                             components={[
-                                <a
+                                <LinkText
+                                    color="red"
                                     key={0}
+                                    weight="bold"
                                     target="_blank"
                                     href="/WS-Binary-Investments-Europe-Limited.pdf"
                                     rel="noopener noreferrer"
@@ -112,7 +105,7 @@ const Regulatory = () => (
                             ]}
                         />
                     </Text>
-                    <Text lh="1.55" margin="2rem 0 0" mw="79.2rem">
+                    <Text lh="1.55" mt="2rem" max_width="79.2rem">
                         {localize(
                             'European Union residents who wish to trade investment products will have their accounts opened with Binary Investments (Europe) Ltd.',
                         )}
@@ -140,8 +133,8 @@ const Regulatory = () => (
         </SectionContainer>
         <SectionContainer padding="2.4rem 0 0">
             <GridContainer>
-                <Box padding="0 0 4rem" mw="79.2rem">
-                    <Text lh="1.55">
+                <Box padding="0 0 4rem">
+                    <Text lh="1.55" max_width="79.2rem">
                         {localize(
                             'EU passporting rights: Binary Investments (Europe) Ltd is entitled to provide its services to EU member states through EU passporting rights. Refer to the map above for the list of EU countries that have access to Deriv and Binary.com.',
                         )}
@@ -169,48 +162,52 @@ const Regulatory = () => (
                             <Labuan />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader font_size="3.6rem" lh="4.5rem">
+                            <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
                                 {localize('Binary (FX) Ltd')}
                             </StyledHeader>
-                            <Text lh="1.55" margin="0.8rem 0 0">
+                            <MaxText lh="1.55" mt="0.8rem">
                                 <Localize
                                     translate_text="Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia. Licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business <0>licence no. MB/18/0024</0>."
                                     components={[
-                                        <a
+                                        <LinkText
                                             key={0}
+                                            color="red"
+                                            weight="bold"
                                             target="_blank"
                                             href="/Labuan-license.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
                                 />
-                            </Text>
-                            <Text lh="1.55" margin="2rem 0 0">
+                            </MaxText>
+                            <MaxText lh="1.55" mt="2rem">
                                 {localize(
                                     'Clients who wish to trade FX and CFDs with straight-through processing will have their account opened with Binary (FX) Ltd.',
                                 )}
-                            </Text>
+                            </MaxText>
                         </CssGridColumn>
                         <CssGridColumn align="center">
                             <Vanuatu />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader font_size="3.6rem" lh="4.5rem">
+                            <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
                                 {localize('Binary (V) Ltd')}
                             </StyledHeader>
-                            <Text lh="1.55" margin="0.8rem 0 0">
+                            <MaxText lh="1.55" mt="0.8rem">
                                 <Localize
                                     translate_text="Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu. Licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>."
                                     components={[
-                                        <a
+                                        <LinkText
                                             key={0}
+                                            color="red"
+                                            weight="bold"
                                             target="_blank"
                                             href="/Vanuatu-Financial-Services-Commission.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
                                 />
-                            </Text>
+                            </MaxText>
                         </CssGridColumn>
                         {/* Will be added later */}
                         {/* <CssGridColumn align="center">
@@ -218,10 +215,10 @@ const Regulatory = () => (
                         </CssGridColumn> */}
 
                         {/* <CssGridColumn>
-                            <StyledHeader font_size="3.6rem" lh="4.5rem">
+                            <StyledHeader size="3.6rem" lh="4.5rem" as='h4'>
                                 {localize('Binary (SVG) Ltd')}
                             </StyledHeader>
-                            <Text lh="1.55" margin="0.8rem 0 0">
+                            <Text lh="1.55" mt="0.8rem">
                                 {localize(
                                     'Binary (SVG) Ltd, Hinds Buildings, Kingstown, St. Vincent and the Grenadines; company number 25299 BC 2019.',
                                 )}
@@ -231,22 +228,24 @@ const Regulatory = () => (
                             <FSC />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader font_size="3.6rem" lh="4.5rem">
+                            <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
                                 {localize('Binary (BVI) Ltd')}
                             </StyledHeader>
-                            <Text lh="1.55" margin="0.8rem 0 0">
+                            <MaxText lh="1.55" mt="0.8rem">
                                 <Localize
                                     translate_text="Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands. Licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
                                     components={[
-                                        <a
+                                        <LinkText
                                             key={0}
+                                            color="red"
+                                            weight="bold"
                                             target="_blank"
                                             href="/BVI_license.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
                                 />
-                            </Text>
+                            </MaxText>
                         </CssGridColumn>
                     </CssGrid>
                 </Box>

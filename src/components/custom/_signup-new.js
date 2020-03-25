@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { getLanguage } from '../../common/utility'
+import { getLanguage } from 'common/utility'
 import { Input, Button } from 'components/form'
 import { FlexGridContainer } from 'components/containers'
-import { Header, Text, Checkbox } from 'components/elements'
+import { Header, Text, LinkText, Checkbox } from 'components/elements'
+import { localize, Localize } from 'components/localization'
 import Login from 'common/login'
 import device from 'themes/device.js'
+// SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import { localize, Localize } from 'components/localization'
 
 const SignupContent = styled.div`
     width: 48.4rem;
@@ -33,8 +34,6 @@ const Line = styled.div`
     background-color: var(--color-grey-7);
 `
 const StyledText = styled(Text)`
-    font-size: ${props => props.fontSize || 'var(--text-size-xs)'};
-
     @media ${props => device.tabletL && props.notedBox} {
         width: 15rem;
     }
@@ -82,15 +81,12 @@ const SocialButton = styled(Button)`
         }};
     }
 `
-const MutedText = styled(Text)`
-    text-align: left;
-    align-self: start;
-`
+
 const SocialWrapper = styled(FlexGridContainer)`
     width: 100%;
     margin-top: var(--text-size-s);
 `
-export const LoginText = styled(MutedText)`
+const LoginText = styled(Text)`
     text-align: center;
     align-self: center;
     margin-top: 2.4rem;
@@ -113,27 +109,6 @@ const Span = styled.span`
 `
 const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
-`
-const LoginLink = styled.a`
-    font-size: ${props => (props.fs ? props.fs : 'var(--text-size-s)')};
-    font-weight: bold;
-    color: var(--color-red);
-    text-decoration: none;
-    cursor: pointer;
-
-    :hover {
-        text-decoration: underline;
-    }
-`
-const ExternalLink = styled.a`
-    text-decoration: none;
-    font-size: var(--text-size-xs);
-    font-weight: bold;
-    color: var(--color-red);
-
-    :hover {
-        text-decoration: underline;
-    }
 `
 
 const SignupNew = ({
@@ -158,7 +133,7 @@ const SignupNew = ({
             : `/${getLanguage()}/terms-and-conditions/`
     return (
         <SignupContent>
-            <Header as="h4" margin="0 0 0.8rem 0">
+            <Header as="h4" mb="0.8rem">
                 {localize('Sign up')}
             </Header>
 
@@ -166,7 +141,7 @@ const SignupNew = ({
             <NoteBox>
                 <StyledText
                     notedBox
-                    fontSize="var(--text-size-xs)"
+                    size="var(--text-size-xs)"
                     color="grey-16"
                     lh="1.14"
                     align="center"
@@ -174,11 +149,13 @@ const SignupNew = ({
                     <Localize
                         translate_text="Got a Binary.com account? Simply <0>log in</0> to Deriv.com with your Binary.com credentials"
                         components={[
-                            <LoginLink
-                                fs="var(--text-size-xs)"
+                            <LinkText
+                                weight="bold"
+                                color="red"
+                                size="var(--text-size-xs)"
                                 onClick={() => Login.redirectToLogin()}
                                 key={0}
-                            ></LoginLink>,
+                            />,
                         ]}
                     />
                 </StyledText>
@@ -208,12 +185,15 @@ const SignupNew = ({
                         fontSize="var(--text-size-xs)"
                         translate_text="I agree to the <0>terms and conditions</0>"
                         components={[
-                            <ExternalLink
+                            <LinkText
                                 href={url}
                                 target="_blank"
+                                color="red"
                                 rel="noopener noreferrer"
                                 key={0}
-                            ></ExternalLink>,
+                                size="var(--text-size-xs)"
+                                weight="bold"
+                            />,
                         ]}
                     />
                 </CheckboxSpan>
@@ -228,7 +208,7 @@ const SignupNew = ({
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-5" align="center" fontSize="var(--text-size-xs)">
+                <StyledText color="grey-5" align="center" size="var(--text-size-xs)">
                     {localize('Or sign up with ')}
                 </StyledText>
                 <Line />
@@ -262,9 +242,9 @@ const SignupNew = ({
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account? ')}
-                <LoginLink weight="bold" onClick={handleLogin}>
+                <LinkText color="red" weight="bold" onClick={handleLogin}>
                     {localize('Log in')}
-                </LoginLink>
+                </LinkText>
             </LoginText>
         </SignupContent>
     )

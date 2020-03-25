@@ -39,7 +39,7 @@ const BackDrop = styled.section`
 
 const Hero = () => (
     <BackDrop>
-        <Header as="h1" font_size="var(--text-size-xl)" align="center" color="white">
+        <Header as="h1" size="var(--text-size-xl)" align="center" color="white">
             Our locations
         </Header>
         <Text size="var(--text-size-sm)" color="white">
@@ -67,7 +67,7 @@ const CountryCard = ({ open_positions, country_name, city_name, link, img_data, 
         <CountryCardWrapper to={link}>
             <QueryImage data={img_data} alt={city_name + localize('Office')} width="100%" />
             <div style={{ padding: '32px' }}>
-                <Header as="h5" font_size="var(--text-size-sm)">
+                <Header as="h5" size="var(--text-size-sm)">
                     {city_name}
                 </Header>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
@@ -123,7 +123,7 @@ const Locations = () => {
             <Hero />
             <Container direction="column">
                 <SectionContainer>
-                    <Header as="h2" align="center" font_size={'var(--text-size-header-1)'}>
+                    <Header as="h2" align="center" size={'var(--text-size-header-1)'}>
                         Explore our locations
                     </Header>
                     <CssGrid

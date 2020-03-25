@@ -5,6 +5,7 @@ import { Text, Header } from './typography.js'
 import { Flex, Show } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
+// SVG
 import Arrow from 'images/svg/card-arrow.svg'
 import Diagonal from 'images/svg/pink-right-diagonal.svg'
 
@@ -51,6 +52,7 @@ const CardCover = styled.div`
         }
     }
 `
+
 const CardWrapper = styled.article`
     ${CardStyle}
     position: relative;
@@ -124,6 +126,10 @@ const IconContainer = styled.div`
     display: flex;
     justify-content: center;
 
+    svg {
+        width: 8.25rem;
+        height: 8.25rem;
+    }
     div {
         svg {
             width: 7.2rem;
@@ -322,7 +328,7 @@ export const NavCard = ({ icon, title, content, to, style, external, target, cla
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
                 <NavIcon />
                 <NavContent>
-                    <ResponsiveHeader font_size="var(--text-size-xs)" lh="1.14" margin="0 0 0.8rem">
+                    <ResponsiveHeader size="var(--text-size-xs)" lh="1.14" mb="0.8rem">
                         {title}
                     </ResponsiveHeader>
                     <ResponsiveText size="var(--text-size-xxs)" color="grey-5">
@@ -385,9 +391,9 @@ export const CardLink = ({ title, to, style, external }) => {
                 <RelativeFlex jc="flex-start" width="auto">
                     <ResponsiveHeader
                         color="black-3"
-                        font_size="var(--text-size-xs)"
+                        size="var(--text-size-xs)"
                         lh="1.14"
-                        margin="0 0 1.6rem"
+                        mb="1.6rem"
                         weight="normal"
                     >
                         {title}

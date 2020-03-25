@@ -20,52 +20,39 @@ const StyledSection = styled(SectionContainer)`
             }
         }
 
-        div {
-            width: 100%;
+        ${Flex} {
             max-width: 58.8rem;
-            text-align: center;
-            justify-content: space-between;
-
-            h4 {
-                color: var(--color-white);
-                text-align: center;
-            }
-            p {
-                color: var(--color-white);
-                text-align: center;
-                margin-top: 0.8rem;
-            }
         }
     }
+`
+
+const LightButton = styled(LinkButton)`
+    color: var(--color-white);
+    margin-top: 1.6rem;
 `
 
 const CTA = () => {
     return (
         <StyledSection padding="4rem 0">
             <Container>
-                <Flex direction="column" ai="center">
-                    <Header as="h4">{localize('Got more questions?')}</Header>
-                    <Text>{localize('The Deriv affiliate management team is here to help.')}</Text>
-                    <LinkButton
-                        external
-                        to="mailto:affiliates@deriv.com"
-                        style={{ marginTop: '1.6rem', color: 'var(--color-white)' }}
-                        tertiary
-                    >
+                <Flex direction="column" ai="center" jc="space-between">
+                    <Header as="h4" align="center" color="white">
+                        {localize('Got more questions?')}
+                    </Header>
+                    <Text align="center" color="white" mt="0.8rem">
+                        {localize('The Deriv affiliate management team is here to help.')}
+                    </Text>
+                    <LightButton external to="mailto:affiliates@deriv.com" tertiary>
                         {localize('Contact us')}
-                    </LinkButton>
+                    </LightButton>
                 </Flex>
                 <Flex direction="column" ai="center">
-                    <Header as="h4">
+                    <Header as="h4" align="center" color="white">
                         {localize(
                             'Enjoy generous commissions and all the other benefits of being a Deriv partner',
                         )}
                     </Header>
-                    <Button
-                        style={{ marginTop: '2rem' }}
-                        onClick={Partner.redirectToSignup}
-                        secondary
-                    >
+                    <Button mt="2rem" onClick={Partner.redirectToSignup} secondary>
                         {localize('Sign up')}
                     </Button>
                 </Flex>

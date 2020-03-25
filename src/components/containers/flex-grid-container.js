@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Container from './container'
+import device from 'themes/device'
 
 const FlexGridContainer = styled(Container)`
     flex-wrap: wrap;
@@ -13,6 +14,10 @@ const FlexGridContainer = styled(Container)`
         flex-shrink: 0;
         width: ${props => (props.content_width ? props.content_width : '48%')};
         margin: ${props => (props.gap ? props.gap : '0 1.5rem')};
+
+        @media ${device.tabletL} {
+            margin: ${props => (props.mobile_gap ? props.mobile_gap : '1.5rem 0')};
+        }
     }
 
     /*  Handle no margin on every grid size,

@@ -50,21 +50,21 @@ export const Trade = () => {
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
                                 <Image
                                     img_name="dtrader_trade.png"
-                                    alt={localize('DTrader platform')}
+                                    alt={localize('DTrader')}
                                     width="100%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
                                 <Image
                                     img_name="dbot_trade.png"
-                                    alt={localize('DBot platform')}
+                                    alt={localize('DBot')}
                                     width="100%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
                                 <Image
                                     img_name="dmt5_trade.png"
-                                    alt={localize('DMT5 platform')}
+                                    alt={localize('DMT5')}
                                     width="100%"
                                 />
                             </ImageWrapper>

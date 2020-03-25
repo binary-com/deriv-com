@@ -256,7 +256,7 @@ const WhatOurClientsSay = () => {
                                         name={trader.name}
                                         title={trader.title}
                                         img_path={trader.img_path}
-                                        img_alt={localize('Trader')}
+                                        img_alt={trader.name + localize(" - Deriv's Client")}
                                     />
                                 </div>
                             ))}

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Stories from './_story_constant'
 // import { Container } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
-import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
@@ -28,7 +27,7 @@ const YearWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: ${props => (props.left ? props.margin_left || '9.4rem' : '-9.4rem')};
+    margin-left: ${props => (props.left ? props.margin_left || '9.5rem' : '-9rem')};
     margin-bottom: ${props => props.margin_bottom || 'unset'};
 
     p {
@@ -45,23 +44,27 @@ const YearWrapper = styled.div`
 const ContentWrapper = styled.div`
     width: ${props => props.content_width || '39.6rem'};
     padding: 0 0 0 1rem;
-
-    @media ${device.tabletL} {
-        ${Header} {
-            text-align: center;
-        }
-    }
 `
+// const StyledHeaderWrapper = styled.div`
+//     position: relative;
+//     width: 100%;
+
+//     ::before {
+//         content: '';
+//         left: 50%;
+//         position: absolute;
+//     }
+// `
 const StyledHeader = styled(Header)`
-    width: 18rem;
-    margin-left: 50%;
+    width: 100% ;
+    margin-left: ${props => (props.left ? '50%' : '49.99%')};
     margin-bottom: 2.5rem;
     position: relative;
-    transform: ${props => (props.left ? 'translateX(-88.7%)' : 'translateX(-1%)')};
+    transform: ${props => (props.left ? 'translateX(-88%)' : '')};
 
     ::before {
         content: '';
-        width: 3px;
+        width: 2.2px;
         height: 2rem;
         border-top: 1.7rem solid red;
         border-bottom: 17px solid red;
@@ -75,12 +78,6 @@ const StyledHeader = styled(Header)`
         }
     }
 
-    @media ${device.laptopL} {
-        transform: ${props => (props.left ? 'translateX(-88%)' : 'translateX(-1%)')};
-    }
-    @media ${device.laptop} {
-        transform: ${props => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
-    }
     @media ${device.tablet} {
         margin: auto;
         align-items: center;
@@ -122,7 +119,7 @@ const StyledLine = styled(StorySVG)`
 export const OurHistory = () => {
     return (
         <StorySection>
-            <Header size="3.6rem" align="center" mb="9.2rem">
+            <Header font_size="3.6rem" align="center" margin="0 0 9.2rem 0">
                 {localize('Our history')}
             </Header>
             <SVGContainer>
@@ -130,6 +127,7 @@ export const OurHistory = () => {
             </SVGContainer>
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
+                    {/* <StyledHeaderWrapper> */}
                     <StyledHeader
                         left={story.left}
                         as="h2"
@@ -138,6 +136,7 @@ export const OurHistory = () => {
                     >
                         {story.year}
                     </StyledHeader>
+                    {/* </StyledHeaderWrapper> */}
 
                     {story.contents.map((content, idxa) =>
                         content.left ? (
@@ -167,16 +166,18 @@ export const OurHistory = () => {
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
                                             <Header
-                                                pl="1.1rem"
+                                                padding="0 0 0 1.1rem"
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
-                                                mt={header.margin_top}
+                                                margin={header.margin_top + ' 0 0 0'}
                                             >
                                                 {header.header}
                                             </Header>
                                             <Splitter />
-                                            <Text pl="1.1rem">{content.texts[id].text}</Text>
+                                            <Text padding="0 0 0 1.1rem">
+                                                {content.texts[id].text}
+                                            </Text>
                                         </div>
                                     ))}
                                 </ContentWrapper>
@@ -196,7 +197,7 @@ export const OurHistory = () => {
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
-                                                mt={header.margin_top}
+                                                margin={header.margin_top + ' 0 0 0'}
                                             >
                                                 {header.header}
                                             </Header>
@@ -211,12 +212,18 @@ export const OurHistory = () => {
                                     outer_image_width={content.outer_image_width}
                                     margin_right={content.margin_right}
                                 >
-                                    <Flex jc="flex-start" ml="1rem">
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: 'flex-start',
+                                            marginLeft: '1rem',
+                                        }}
+                                    >
                                         <Image
                                             width={content.image_width}
                                             img_name={content.image}
                                         />
-                                    </Flex>
+                                    </div>
                                 </LogoContainer>
                             </YearWrapper>
                         ),

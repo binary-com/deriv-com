@@ -85,6 +85,7 @@ const LinkWrapper = styled.div`
 `
 const DHero = ({
     title,
+    background_alt,
     background_svg,
     background_image_name,
     content,
@@ -144,7 +145,11 @@ const DHero = ({
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>
-                            <Image img_name={background_image_name} width="54.3rem" />
+                            <Image
+                                img_name={background_image_name}
+                                alt={background_alt}
+                                width="54.3rem"
+                            />
                         </LottieWrapper>
                     </Show.Desktop>
                 </div>
@@ -154,6 +159,7 @@ const DHero = ({
 }
 
 DHero.propTypes = {
+    background_alt: PropTypes.string,
     background_image_name: PropTypes.string,
     background_svg: PropTypes.func,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

@@ -31,7 +31,10 @@ const ButtonWrapper = styled.div`
 `
 const PageNotFound = () => (
     <Layout>
-        <SEO title={localize('404: Not found')} />
+        <SEO
+            title={localize('404 - Page not found')}
+            description={localize('The page you are looking for does not exist.')}
+        />
         <PageNotFoundContainer>
             <ImageSection width="50%">
                 <Image

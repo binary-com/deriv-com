@@ -6,6 +6,7 @@ import 'swiper/css/swiper.css'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
+import { localize } from 'components/localization'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import QuoteMark from 'images/svg/quotemark.svg'
 import NegarImage from 'images/common/careers/negar.jpg'
@@ -194,6 +195,7 @@ EmployeeSlide.propTypes = {
 
 const kelcent = {
     name: 'Kelcent Tan, Principal and Compliance Officer',
+    img_alt: localize('Kelcent - Principal and Compliance Officer'),
     img_path: KelcentImage,
     quote:
         'We have a working culture where everyone is open and willing to share their  knowledge and expertise. This gives me invaluable insights into how other departments operate and helps me understand how my role impacts business operations as a whole.',
@@ -201,6 +203,7 @@ const kelcent = {
 }
 const negar = {
     name: 'Negar Naghshbandi, Front-end Developer & Team Lead',
+    img_alt: localize('Negar - Front-end Developer & Team Lead'),
     img_path: NegarImage,
     quote:
         'The most exciting thing for me is the culture of the company and the people I work with. I learn something new everyday and I can pair-program with anyone when needed because everyone is approachable and eager to help.',
@@ -208,6 +211,7 @@ const negar = {
 }
 const mahdi = {
     name: 'Mahdi Pourziaei, Front-end Developer',
+    img_alt: localize('Mahdi - Front-end Developer'),
     img_path: MahdiImage,
     quote: `Two words: 'autonomy' and 'friendly'. Working at Deriv has been full of growth as I get to pick my own challenges and see them through, and it really wouldn’t feel as empowering without the friendly culture. I’m happy to be amongst all the brilliant people here.`,
     index: 3,
@@ -272,7 +276,7 @@ const EmployeeTestimonialCarousel = () => {
                                         quote={employee_slide.quote}
                                         name={employee_slide.name}
                                         img_path={employee_slide.img_path}
-                                        img_alt={employee_slide.name}
+                                        img_alt={employee_slide.img_alt}
                                     />
                                 </div>
                             ))}

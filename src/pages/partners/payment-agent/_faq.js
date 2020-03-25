@@ -15,6 +15,7 @@ const AccordionWrapper = styled.div`
 
 const RelativeContainer = styled(SectionContainer)`
     position: relative;
+    overflow: hidden;
 `
 
 const TopLeftDot = styled(DotPattern)`

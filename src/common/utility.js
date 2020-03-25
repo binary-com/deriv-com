@@ -80,6 +80,7 @@ function debounce(func, wait, immediate) {
 
 const deriv_app_url = 'https://deriv.app'
 const deriv_bot_app_url = 'https://deriv.app/bot'
+const smarttrader_url = 'https://smarttrader.deriv.app'
 const brand_name = 'Deriv'
 
 export {
@@ -97,6 +98,7 @@ export {
     PromiseClass,
     sanitize,
     sentenceCase,
+    smarttrader_url,
     toISOFormat,
     toHashFormat,
 }

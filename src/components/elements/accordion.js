@@ -150,7 +150,10 @@ const AccordionContent = ({ children, nodes }) => {
 
     const getHeight = child_idx => {
         if (active_idx === child_idx) {
-            return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+            return (
+                nodes[active_idx] &&
+                nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+            )
         }
         return 0
     }

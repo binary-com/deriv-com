@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex, Container } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
@@ -86,4 +87,10 @@ const OtherMarkets = ({ except }) => {
     )
 }
 
+OtherMarkets.propTypes = {
+    except: PropTypes.string,
+}
+Card.propTypes = {
+    name: PropTypes.string,
+}
 export default OtherMarkets

@@ -26,6 +26,7 @@ const DemoButon = styled(Button)`
 const ButtonWrapper = styled.div`
     display: flex;
     flex-direction: row;
+    margin-top: 3.2rem;
 
     * {
         margin-right: 1.6rem;

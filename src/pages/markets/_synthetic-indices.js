@@ -10,7 +10,6 @@ import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
 import MarketandRisk from 'images/svg/market-and-risk.svg'
 import SevenTrading from 'images/svg/seven-trading.svg'
 
-
 const what_trade_sub_header = [
     {
         text: localize(

@@ -3,6 +3,7 @@ import { WhatTrade } from './_what-trade'
 import { WhyTrade } from './_why-trade'
 import { LearnMore } from './_learn-more'
 import OtherMarkets from './_other-markets.js'
+import SimpleSteps from 'common/_simple-steps'
 import { localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
@@ -66,6 +67,7 @@ const Forex = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            <SimpleSteps />
             <div ref={learn_more_section}>
                 <LearnMore data={learn_more_data} header={localize('Learn more about forex')} />
             </div>

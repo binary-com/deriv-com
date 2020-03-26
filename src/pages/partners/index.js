@@ -66,7 +66,7 @@ const Partners = () => {
                     {localize('Partner with a trusted online trading provider')}
                 </StyledHeader>
                 <Button onClick={Partner.redirectToSignup} secondary>
-                    {localize('Sign up as affiliate & IB')}
+                    {localize('Sign up as our affiliate & IB')}
                 </Button>
             </Hero>
             <SectionContainer padding="8rem 0 4rem">

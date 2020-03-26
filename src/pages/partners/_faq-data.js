@@ -13,7 +13,7 @@ const ItemContainer = styled(SectionContainer)`
 
 const HeaderPrimary = styled(Header)`
     margin-top: 3.2rem;
-    font-size: var(--text-size-m);
+    font-size: var(--text-size-s);
 `
 
 const TextPrimary = styled(Text)`
@@ -53,7 +53,7 @@ const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
 
 const AffiliateGeneral = (
     <ItemContainer>
-        <Header as="h4">{localize('What is the Deriv Affiliate Programme?')}</Header>
+        <Header as="h5">{localize('What is the Deriv Affiliate Programme?')}</Header>
         <TextPrimary>
             {localize(
                 'The Deriv Affiliate Programme is an exciting partnership programme where you benefit from bringing in new clients to trade on our DTrader and DBot platforms.',
@@ -97,7 +97,7 @@ const AffiliateGeneral = (
 
             <Text>
                 {localize(
-                    'Develops web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                    'Manages an active online community that’s passionate about online trading, investing, or personal finance.',
                 )}
             </Text>
         </StyledUl>
@@ -116,7 +116,7 @@ const AffiliateGeneral = (
         <HeaderPrimary>{localize('What does ‘referred client’ mean?')}</HeaderPrimary>
         <TextPrimary>
             {localize(
-                'A referred client is someone who has clicked on your unique affiliate link, signed up with Deriv, and deposited money into their Deriv account. They must be aged 18 years and above and have not previously been a Deriv or Binary.com customer.',
+                'A referred client is someone who has clicked on your unique affiliate link, signed up with Deriv, and deposited money into their Deriv account. They must be aged 18 years and above and have not previously been a Deriv or Binary.com client.',
             )}
         </TextPrimary>
         <HeaderPrimary>{localize('Who can sign up as a Deriv client?')}</HeaderPrimary>
@@ -218,7 +218,7 @@ const AffiliateAccountManagement = (
         </HeaderPrimary>
         <TextPrimary>
             {localize(
-                'We don’t allow the use of unauthorised incentives, gifts, and payments to encourage client signups. If we find out that you did this, we may withhold your affiliate commissions. However, if you have a specific incentive in mind, you may contact your account manager to discuss it further.',
+                'Feel free to discuss any incentive plan you have with your account manager. Please remember that we don’t allow unauthorised incentives, gifts, and payments to encourage client signups. If there are any violations, we may withhold commissions.',
             )}
         </TextPrimary>
     </ItemContainer>

@@ -24,17 +24,21 @@ const CardWrapper = styled(Flex)`
         right: 0;
     }
 `
-const CardContainer = styled.div`
+
+const CardContainer = styled(Flex)`
     width: 40.8rem;
     height: 27.6rem;
     padding: 2.4rem 2.8rem 2.8rem 2.8rem;
-    border: 1px solid red;
-    background: var(--color-grey-8);
     position: absolute;
-    z-index: 10;
+    border-radius: 15px 15px 0 0;
+    border: 1px solid var(--color-grey-15);
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--color-grey-8);
+    z-index: ${props => props.title === 'Digital options' ? '20' : '10'};
 
     ${Header} {
-        color: var(--color-black-3);
+        color: ${props => props.active_tab === props.title ? ('var(--color-red)') : ('var(--color-black-3)')};
         opacity: 0.5;
     }
     ${Text} {
@@ -45,11 +49,14 @@ const IconContainer = styled(Flex)`
     * {
         margin-right: 1.6rem;
     }
+    svg {
+        opacity: 0.5;
+    }
     svg:last-child {
         margin-right: 0;
     }
 `
-const Card = ({ title, content }) => {
+const Card = ({ title, content, sendActiveTab, active_tab }) => {
     let Icons;
     switch (title) {
         case 'Margin':
@@ -66,24 +73,23 @@ const Card = ({ title, content }) => {
             break;
     }
     return (
-        <CardContainer title={title}>
+        <CardContainer title={title} active_tab={active_tab} onClick={() => sendActiveTab(title)}>
             <div>
                 <Header as='h4' align='center'>{title}</Header>
-                <Text>{content}</Text>
+                <Text align='center'>{content}</Text>
             </div>
-            <div>
-                {Icons.length === 0 ? (null) : (
-                    <IconContainer>
-                        <Text>{localize('Available on:')}</Text>
-                        {Icons.map((Icon, index) => <Icon key={index} />)}
-                    </IconContainer>
-                )}
-            </div>
+            {Icons.length === 0 ? (null) : (
+                <IconContainer ai='center' height='auto'>
+                    <Text>{localize('Available on:')}</Text>
+                    {Icons.map((Icon, index) => <Icon key={index} />)}
+                </IconContainer>
+            )}
         </CardContainer>
     )
 }
 
 const AvailableTrades = ({ Margin, DigitalOptions, Multipliers, title }) => {
+    const [active_tab, setTab] = useTabState('Margin');
     return (
         <SectionContainer>
             <Header size='var(--text-size-header-1)' align='center'>{localize(title + ' trades available on Deriv')}</Header>
@@ -111,6 +117,15 @@ const AvailableTrades = ({ Margin, DigitalOptions, Multipliers, title }) => {
             </ContentWrapper> */}
         </SectionContainer>
     )
+}
+
+const useTabState = () => {
+    const [active_tab, setActiveTab] = React.useState()
+    const setTab = tab => {
+        if (tab === active_tab) return
+        setActiveTab(tab)
+    }
+    return [active_tab, setTab]
 }
 
 export default AvailableTrades

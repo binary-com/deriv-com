@@ -26,14 +26,14 @@ const FadeOutUp = keyframes`
     }
 `
 const NavDropdown = styled.div`
-    display: flex;
+    display: ${props => (props.is_open ? 'flex' : 'none')};
     width: 100%;
     position: absolute;
     padding: 4rem 0;
     z-index: -1;
     height: auto;
-    background-color: #ffffff;
     transform: translateY(-18rem);
+    background-color: #ffffff;
     opacity: 0;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     transition: all 0.35s ease-in-out;

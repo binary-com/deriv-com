@@ -69,9 +69,6 @@ const StyledText = styled(Text)`
 const HoverText = styled(Text)`
     cursor: pointer;
 
-    &:hover {
-        font-weight: bold;
-    }
     & > .tooltip {
         padding: 0.8rem;
         border-radius: 4px;

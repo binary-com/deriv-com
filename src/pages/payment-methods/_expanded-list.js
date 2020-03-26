@@ -30,6 +30,14 @@ const Td = styled.td`
     vertical-align: middle;
     padding: 0 2rem;
     position: relative;
+
+    & .tooltip {
+        padding: 0.8rem;
+        border-radius: 4px;
+        font-weight: normal;
+        color: var(--color-black-3);
+        background: var(--color-grey-7);
+    }
 `
 
 const HoverTd = styled(Td)`
@@ -67,15 +75,8 @@ const StyledText = styled(Text)`
 `
 
 const HoverText = styled(Text)`
+    width: fit-content;
     cursor: pointer;
-
-    & > .tooltip {
-        padding: 0.8rem;
-        border-radius: 4px;
-        font-weight: normal;
-        color: var(--color-black-3);
-        background: var(--color-grey-7);
-    }
 `
 
 const ExpandList = ({ data, is_crypto }) => {
@@ -105,21 +106,19 @@ const ExpandList = ({ data, is_crypto }) => {
                         ) : (
                             <>
                                 {is_crypto ? (
-                                    <HoverText>
-                                        <span data-tip={data.tooltip} data-for={data.name}>
-                                            {data.min_max_withdrawal}
-                                        </span>
-                                        {data.tooltip && (
-                                            <ReactTooltip
-                                                className="tooltip"
-                                                id={data.name}
-                                                effect="solid"
-                                                arrowColor="var(--color-grey-7)"
-                                            />
-                                        )}
+                                    <HoverText data-tip={data.tooltip} data-for={data.name}>
+                                        {data.min_max_withdrawal}
                                     </HoverText>
                                 ) : (
                                     <Text>{data.min_max_withdrawal}</Text>
+                                )}
+                                {data.tooltip && (
+                                    <ReactTooltip
+                                        className="tooltip"
+                                        id={data.name}
+                                        effect="solid"
+                                        arrowColor="var(--color-grey-7)"
+                                    />
                                 )}
                             </>
                         )}

@@ -60,7 +60,9 @@ const payment_data = [
                 min_max_withdrawal: 'N/A',
                 deposit_time: localize('instant'),
                 withdrawal_time: localize('24-48 hours'),
-                description: localize(''),
+                description: localize(
+                    'Help2Pay is a payment facility that allows online bank transfers for clients across Southeast Asia.',
+                ),
                 name: 'Help2Pay',
             },
         ],
@@ -110,7 +112,9 @@ const payment_data = [
                 min_max_withdrawal: 'N/A',
                 deposit_time: localize('instant'),
                 withdrawal_time: localize('24-48 hours'),
-                description: localize(''),
+                description: localize(
+                    'Help2Pay is a payment facility that allows online bank transfers for clients across Southeast Asia.',
+                ),
                 name: 'Help2Pay',
             },
         ],
@@ -256,7 +260,9 @@ const payment_data = [
                 min_max_withdrawal: 'N/A',
                 deposit_time: localize('instant'),
                 withdrawal_time: localize('24-48 hours'),
-                description: localize(''),
+                description: localize(
+                    'DragonPhoenix is a payment facility that allows online bank transfers for clients across Southeast Asia.',
+                ),
                 name: 'DragonPhoenix',
             },
             {
@@ -266,7 +272,9 @@ const payment_data = [
                 min_max_withdrawal: '10 - 10,000',
                 deposit_time: localize('instant'),
                 withdrawal_time: localize('24-48 hours'),
-                description: localize(''),
+                description: localize(
+                    'ZingPay is a payment facility that allows online bank transfers for clients in South Africa.',
+                ),
                 name: 'ZingPay',
             },
         ],

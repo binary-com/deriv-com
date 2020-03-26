@@ -40,6 +40,8 @@ const YearWrapper = styled.div`
         justify-content: left;
         text-align: left;
         margin-left: 0;
+        align-items: left;
+        width: 34.7rem;
     }
 `
 const ContentWrapper = styled.div`
@@ -47,6 +49,8 @@ const ContentWrapper = styled.div`
     padding: 0 0 0 1rem;
 
     @media ${device.tablet} {
+        width: 34.7rem;
+
         ${Header} {
             text-align: left;
         }
@@ -83,8 +87,8 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.tablet} {
         align-items: left;
-        margin-left: 10%;
-        transform: translateX(-10%);
+        margin-left: 0;
+        transform: unset;
     }
 `
 const Splitter = styled.div`
@@ -126,7 +130,6 @@ const StyledLine = styled(StorySVG)`
 
 export const OurHistory = () => {
     let is_mobile = window.screen.width <= size.tablet
-    console.log('ismobile:', is_mobile)
     return (
         <StorySection>
             <Header size="3.6rem" align="center" mb="9.2rem">

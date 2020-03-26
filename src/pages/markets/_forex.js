@@ -3,8 +3,10 @@ import { WhatTrade } from './_what-trade'
 import { WhyTrade } from './_why-trade'
 import { LearnMore } from './_learn-more'
 import OtherMarkets from './_other-markets.js'
+import AvailableTrades from './_available-trades.js'
 import SimpleSteps from 'common/_simple-steps'
 import { localize } from 'components/localization'
+//SVG
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
@@ -26,19 +28,19 @@ const what_trade_sub_header = [
 const learn_more_data = [
     {
         header: localize('Torquatos nostros quos dolores suscipiantur'),
-        text: [localize('test1-1'),localize('test1-2'),],
+        text: [localize('test1-1'), localize('test1-2'),],
     },
     {
         header: localize('Alii autem quibus ego'),
-        text: [localize('test2-1'),localize('test2-2'),],
+        text: [localize('test2-1'), localize('test2-2'),],
     },
     {
         header: localize('Alii autem, quibus ego assentior, cum a natura?'),
-        text: [localize('test3-1'),localize('test3-2'),],
+        text: [localize('test3-1'), localize('test3-2'),],
     },
     {
         header: localize('At vero eos censes tantas'),
-        text: [localize('test4-1'),localize('test4-2'),],
+        text: [localize('test4-1'), localize('test4-2'),],
     },
 ]
 
@@ -46,6 +48,7 @@ const Forex = () => {
     const learn_more_section = useRef(null)
     return (
         <>
+            <AvailableTrades Margin DigitalOptions Multipliers title='Forex'/>
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What is forex?')}
@@ -72,7 +75,7 @@ const Forex = () => {
                 <LearnMore data={learn_more_data} header={localize('Learn more about forex')} />
             </div>
             <OtherMarkets except='forex' />
-           
+
         </>
     )
 }

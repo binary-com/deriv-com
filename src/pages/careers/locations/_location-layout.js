@@ -225,7 +225,7 @@ export const LocationLayout = ({ location, images }) => {
                     <Flex jc="unset" tablet_direction="column">
                         <ImageWrapper>
                             <Iframe
-                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=AIzaSyC3f47bs568fv_ls9fMFwX7iVbQ1jVZzzQ`}
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU`}
                             />
                         </ImageWrapper>
                         <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">

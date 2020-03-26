@@ -177,7 +177,7 @@ export const Offices = () => {
                         <ImageWrapper>
                             <Iframe
                                 src={
-                                    'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=AIzaSyC3f47bs568fv_ls9fMFwX7iVbQ1jVZzzQ'
+                                    'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
                                 }
                             />
                         </ImageWrapper>
@@ -237,7 +237,7 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <Iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=AIzaSyC3f47bs568fv_ls9fMFwX7iVbQ1jVZzzQ" />
+                            <Iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU" />
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>

@@ -25,19 +25,19 @@ const what_trade_sub_header = [
 const learn_more_data = [
     {
         header: localize('Torquatos nostros quos dolores suscipiantur'),
-        text: localize('test1'),
+        text: [localize('test1-1'),localize('test1-2'),],
     },
     {
         header: localize('Alii autem quibus ego'),
-        text: localize('test2'),
+        text: [localize('test2-1'),localize('test2-2'),],
     },
     {
         header: localize('Alii autem, quibus ego assentior, cum a natura?'),
-        text: localize('test3'),
+        text: [localize('test3-1'),localize('test3-2'),],
     },
     {
         header: localize('At vero eos censes tantas'),
-        text: localize('test4'),
+        text: [localize('test4-1'),localize('test4-2'),],
     },
 ]
 
@@ -66,11 +66,11 @@ const Forex = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
-           
-            <OtherMarkets except='forex' />
             <div ref={learn_more_section}>
                 <LearnMore data={learn_more_data} header={localize('Learn more about forex')} />
             </div>
+            <OtherMarkets except='forex' />
+           
         </>
     )
 }

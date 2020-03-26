@@ -3,12 +3,19 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 // import { localize } from 'components/localization'
 import { Container } from 'components/containers'
-// import device from 'themes/device'
-import { Header, Accordion, AccordionItem } from 'components/elements'
+import device from 'themes/device'
+import { Header, Text, Accordion, AccordionItem } from 'components/elements'
 
 const ContentWrapper = styled.section`
     width: 100%;
-    padding: 0 32.4rem;
+    padding: 8rem 32.4rem;
+
+    @media ${device.laptopM} {
+        padding: 8rem 14rem;
+    }
+    @media ${device.tablet} {
+        padding: 8rem 4rem;
+    }
 `
 
 const AccordionWrapper = styled.div`
@@ -18,7 +25,7 @@ const AccordionWrapper = styled.div`
 export const LearnMore = ({ data, header }) => {
     return (
         <ContentWrapper>
-            <Header size="3.6rem" align="center">
+            <Header mb="4rem" size="3.6rem" align="center">
                 {header}
             </Header>
             <Container direction="column">
@@ -33,7 +40,13 @@ export const LearnMore = ({ data, header }) => {
                                         marginBottom: '2.4rem',
                                     }}
                                 >
-                                    {record.text}
+                                    {record.text.map((item, idx2) => {
+                                        return (
+                                            <Text mb="1.5rem" key={idx2}>
+                                                {item}
+                                            </Text>
+                                        )
+                                    })}
                                 </AccordionItem>
                             )
                         })}

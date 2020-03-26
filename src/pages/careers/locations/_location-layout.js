@@ -131,6 +131,12 @@ const CardText = styled(Text)`
     margin-bottom: 4rem;
 `
 
+const Iframe = styled.iframe`
+    width: 100%;
+    height: 100%;
+    border: 0;
+`
+
 export const LocationLayout = ({ location, images }) => {
     const { display_name, name } = location
     if (!display_name) return null
@@ -218,10 +224,8 @@ export const LocationLayout = ({ location, images }) => {
                 <LocationCard>
                     <Flex jc="unset" tablet_direction="column">
                         <ImageWrapper>
-                            <QueryImage
-                                data={images[location.map]}
-                                alt={location.display_name + localize(' Office Location Map')}
-                                width="100%"
+                            <Iframe
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=AIzaSyC3f47bs568fv_ls9fMFwX7iVbQ1jVZzzQ`}
                             />
                         </ImageWrapper>
                         <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">

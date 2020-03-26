@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import ReactTooltip from 'react-tooltip'
 import { Button } from 'components/form/'
 import Chevron from 'images/svg/chevron-thick.svg'
 import { Text } from 'components/elements'
@@ -65,39 +66,18 @@ const StyledText = styled(Text)`
         `}
 `
 
-const Tooltip = styled.span`
-    position: absolute;
-    top: 0.8rem;
-    padding: 0.8rem;
-    background: var(--color-grey-8);
-    left: 0;
-    border-radius: 16px;
-    margin-left: 1.6rem;
-    opacity: 0;
-    transition: opacity 0.25s;
-    font-size: var(--text-size-xxs);
-
-    &::before {
-        content: '';
-        width: 8px;
-        height: 8px;
-        transform: rotate(45deg);
-        position: absolute;
-        left: 2.4rem;
-        top: 2.1rem;
-        background: var(--color-grey-8);
-    }
-`
-
 const HoverText = styled(Text)`
     cursor: pointer;
 
     &:hover {
         font-weight: bold;
-
-        & ~ span {
-            opacity: 1;
-        }
+    }
+    & > .tooltip {
+        padding: 0.8rem;
+        border-radius: 4px;
+        font-weight: normal;
+        color: var(--color-black-3);
+        background: var(--color-grey-7);
     }
 `
 
@@ -128,11 +108,22 @@ const ExpandList = ({ data, is_crypto }) => {
                         ) : (
                             <>
                                 {is_crypto ? (
-                                    <HoverText>{data.min_max_withdrawal}</HoverText>
+                                    <HoverText>
+                                        <span data-tip={data.tooltip} data-for={data.name}>
+                                            {data.min_max_withdrawal}
+                                        </span>
+                                        {data.tooltip && (
+                                            <ReactTooltip
+                                                className="tooltip"
+                                                id={data.name}
+                                                effect="solid"
+                                                arrowColor="var(--color-grey-7)"
+                                            />
+                                        )}
+                                    </HoverText>
                                 ) : (
                                     <Text>{data.min_max_withdrawal}</Text>
                                 )}
-                                {data.tooltip && <Tooltip>{data.tooltip}</Tooltip>}
                             </>
                         )}
                     </>

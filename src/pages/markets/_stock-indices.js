@@ -1,7 +1,9 @@
 import React, { useRef } from 'react'
+import styled from 'styled-components'
 import OtherMarkets from './_other-markets.js'
 import { WhatTrade } from './_what-trade'
 import { WhyTrade } from './_why-trade'
+import { LinkButton } from 'components/form'
 import SimpleSteps from 'common/_simple-steps'
 import { localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
@@ -48,6 +50,10 @@ const simple_step_content = [
         icon: <WithdrawIcon />,
     },
 ]
+const LinkButtonWrapper = styled.div`
+    margin-top: 6.1rem;   
+    text-align: center;
+`
 const StockIndices = () => {
     const learn_more_section = useRef(null)
 
@@ -83,6 +89,13 @@ const StockIndices = () => {
             <SimpleSteps
                 header={localize('Start trading stock indices on Deriv in 3 simple steps')}
                 content={simple_step_content}
+                component={
+                    <LinkButtonWrapper>
+                        <LinkButton to="/signup/" secondary="true">
+                            {localize('Sign up now')}
+                        </LinkButton>
+                    </LinkButtonWrapper>
+                }
             />
             <OtherMarkets except="stock indices" />
         </div>

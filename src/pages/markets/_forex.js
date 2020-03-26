@@ -1,10 +1,12 @@
 import React, { useRef } from 'react'
+import styled from 'styled-components'
 import { WhatTrade } from './_what-trade'
 import { WhyTrade } from './_why-trade'
 import { LearnMore } from './_learn-more'
 import OtherMarkets from './_other-markets.js'
 import SimpleSteps from 'common/_simple-steps'
 import { localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
@@ -68,6 +70,11 @@ const simple_step_content = [
     },
 ]
 
+const LinkButtonWrapper = styled.div`
+    margin-top: 6.1rem;   
+    text-align: center;
+`
+
 const Forex = () => {
     const learn_more_section = useRef(null)
     return (
@@ -96,7 +103,15 @@ const Forex = () => {
             <SimpleSteps
                 header={localize('Start trading forex on Deriv in 3 simple steps')}
                 content={simple_step_content}
+                component={
+                    <LinkButtonWrapper>
+                        <LinkButton to="/signup/" secondary="true">
+                            {localize('Sign up now')}
+                        </LinkButton>
+                    </LinkButtonWrapper>
+                }
             />
+
             <div ref={learn_more_section}>
                 <LearnMore data={learn_more_data} header={localize('Learn more about forex')} />
             </div>

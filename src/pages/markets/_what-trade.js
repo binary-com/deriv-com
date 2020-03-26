@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { localize, LocalizedLink } from 'components/localization'
+import { localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container } from 'components/containers'
-import { Button } from 'components/form'
 import device from 'themes/device'
 
 const ContentWrapper = styled.section`
@@ -17,12 +17,7 @@ const ContentWrapper = styled.section`
         padding: 8rem 10rem;
     }
 `
-const DemoButon = styled(Button)`
-    font-size: 1.4rem;
-    width: 18.9rem;
-    height: 4rem;
-    border-radius: 4px;
-`
+
 const ButtonWrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -58,11 +53,10 @@ export const WhatTrade = ({ header, sub_header }) => {
                     )
                 })}
                 <ButtonWrapper>
-                    <LocalizedLink to="/signup/">
-                        <DemoButon type="submit" secondary="true">
-                            {localize('Create demo account')}
-                        </DemoButon>
-                    </LocalizedLink>
+                    <LinkButton to="/signup/" secondary="true">
+                        {localize('Create demo account')}
+                    </LinkButton>
+
                     {/* <Button tertiary onClick={handleScrollToElement}>
                         {localize('Learn more about forex')}
                     </Button> */}

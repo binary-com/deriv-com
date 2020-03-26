@@ -64,7 +64,7 @@ const ClientCard = styled.article`
     }
 `
 
-const SimpleSteps = ({ header, content }) => (
+const SimpleSteps = ({ header, content, component }) => (
     <StyledSection>
         <Container direction="column">
             <Header align="center" size="var(--text-size-header-1)" as="h2">
@@ -84,10 +84,12 @@ const SimpleSteps = ({ header, content }) => (
                 )
             })}
         </StyledFlex>
+        {component}
     </StyledSection>
 )
 SimpleSteps.propTypes = {
-    content: PropTypes.object,
-    header: PropTypes.string,
+    component: PropTypes.object,
+    content: PropTypes.object.isRequired,
+    header: PropTypes.string.isRequired,
 }
 export default SimpleSteps

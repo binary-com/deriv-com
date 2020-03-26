@@ -194,7 +194,11 @@ const PaymentMethods = () => {
                                             </Thead>
                                             <Tbody>
                                                 {pd.data.map((data, indx) => (
-                                                    <ExpandList key={indx} data={data} />
+                                                    <ExpandList
+                                                        key={indx}
+                                                        data={data}
+                                                        is_crypto={pd.is_crypto}
+                                                    />
                                                 ))}
                                             </Tbody>
                                         </StyledTable>

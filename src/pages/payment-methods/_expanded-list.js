@@ -36,7 +36,7 @@ const HoverTd = styled(Td)`
     cursor: pointer;
 
     &:hover {
-        background: var(--color-grey-2);
+        background: var(--color-grey-8);
     }
 `
 
@@ -101,7 +101,7 @@ const HoverText = styled(Text)`
     }
 `
 
-const ExpandList = ({ data }) => {
+const ExpandList = ({ data, is_crypto }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
     const toggleExpand = () => {
@@ -126,9 +126,15 @@ const ExpandList = ({ data }) => {
                         {Array.isArray(data.min_max_withdrawal) ? (
                             data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
                         ) : (
-                            <HoverText>{data.min_max_withdrawal}</HoverText>
+                            <>
+                                {is_crypto ? (
+                                    <HoverText>{data.min_max_withdrawal}</HoverText>
+                                ) : (
+                                    <Text>{data.min_max_withdrawal}</Text>
+                                )}
+                                {data.tooltip && <Tooltip>{data.tooltip}</Tooltip>}
+                            </>
                         )}
-                        {data.tooltip && <Tooltip>{data.tooltip}</Tooltip>}
                     </>
                 </Td>
                 <Td>
@@ -159,6 +165,7 @@ const ExpandList = ({ data }) => {
 
 ExpandList.propTypes = {
     data: PropTypes.object,
+    is_crypto: PropTypes.bool,
 }
 
 export default ExpandList

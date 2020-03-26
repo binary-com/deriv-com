@@ -9,7 +9,9 @@ import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
 import MarketandRisk from 'images/svg/market-and-risk.svg'
 import SevenTrading from 'images/svg/seven-trading.svg'
-
+import PractiseIcon from 'images/svg/cross-hair-icon.svg'
+import TradeIcon from 'images/svg/chart-icon.svg'
+import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
 const what_trade_sub_header = [
     {
@@ -21,6 +23,30 @@ const what_trade_sub_header = [
         text: localize(
             'Unlike financial markets, Synthetic Indices are available 24/7, have constant volatility, fixed generation intervals, and are free of market and liquidity risks.',
         ),
+    },
+]
+
+const simple_step_content = [
+    {
+        header: localize('Practise'),
+        text: localize(
+            'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
+        ),
+        icon: <PractiseIcon />,
+    },
+    {
+        header: localize('Trade'),
+        text: localize(
+            'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
+        ),
+        icon: <TradeIcon />,
+    },
+    {
+        header: localize('Withdraw'),
+        text: localize(
+            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+        ),
+        icon: <WithdrawIcon />,
     },
 ]
 const StockIndices = () => {
@@ -55,7 +81,10 @@ const StockIndices = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
-            <SimpleSteps />
+            <SimpleSteps
+                header={localize('Start trading Synthetic Indices on Deriv in 3 simple steps')}
+                content={simple_step_content}
+            />
             <OtherMarkets except="Synthetic Indices" />
         </div>
     )

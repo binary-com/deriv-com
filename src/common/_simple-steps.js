@@ -1,13 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
-// Icons
-import PractiseIcon from 'images/svg/cross-hair-icon.svg'
-import TradeIcon from 'images/svg/chart-icon.svg'
-import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
 const StyledSection = styled(SectionContainer)`
     border-bottom: 1px solid rgba(151, 151, 151, 0.2);
@@ -68,49 +64,30 @@ const ClientCard = styled.article`
     }
 `
 
-const SimpleSteps = () => (
+const SimpleSteps = ({ header, content }) => (
     <StyledSection>
         <Container direction="column">
             <Header align="center" size="var(--text-size-header-1)" as="h2">
-                {localize('3 simple steps')}
+                {header}
             </Header>
         </Container>
         <StyledFlex wrap="wrap">
-            <ClientCard>
-                <Flex ai="center">
-                    <Header as="h4">{localize('Practise')}</Header>
-                    <PractiseIcon />
-                </Flex>
-                <Text>
-                    {localize(
-                        'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
-                    )}
-                </Text>
-            </ClientCard>
-            <ClientCard m="0 2rem">
-                <Flex ai="center">
-                    <Header as="h4">{localize('Trade')}</Header>
-                    <TradeIcon />
-                </Flex>
-                <Text>
-                    {localize(
-                        'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
-                    )}
-                </Text>
-            </ClientCard>
-            <ClientCard>
-                <Flex ai="center">
-                    <Header as="h4">{localize('Withdraw')}</Header>
-                    <WithdrawIcon />
-                </Flex>
-                <Text>
-                    {localize(
-                        'Get your funds quickly and easily. We support a variety of withdrawal options.',
-                    )}
-                </Text>
-            </ClientCard>
+            {content.map((item, idx) => {
+                return (
+                    <ClientCard key={idx} m="0 0 0 2rem">
+                        <Flex ai="center">
+                            <Header as="h4">{item.header}</Header>
+                            {item.icon}
+                        </Flex>
+                        <Text>{item.text}</Text>
+                    </ClientCard>
+                )
+            })}
         </StyledFlex>
     </StyledSection>
 )
-
+SimpleSteps.propTypes = {
+    content: PropTypes.object,
+    header: PropTypes.string,
+}
 export default SimpleSteps

@@ -9,6 +9,9 @@ import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import NoCommission from 'images/svg/no-commission.svg'
 import MetalAndOil from 'images/svg/precious-metals-and-oils.svg'
 import VariableSpreads from 'images/svg/variable-spreads.svg'
+import PractiseIcon from 'images/svg/cross-hair-icon.svg'
+import TradeIcon from 'images/svg/chart-icon.svg'
+import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
 const what_trade_sub_header = [
     {
@@ -20,6 +23,29 @@ const what_trade_sub_header = [
         text: localize(
             'On Deriv, commodities trading lets you speculate on the price movement of a particular asset to profit from the price difference when the market moves in the direction that you have predicted.',
         ),
+    },
+]
+const simple_step_content = [
+    {
+        header: localize('Practise'),
+        text: localize(
+            'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
+        ),
+        icon: <PractiseIcon />,
+    },
+    {
+        header: localize('Trade'),
+        text: localize(
+            'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
+        ),
+        icon: <TradeIcon />,
+    },
+    {
+        header: localize('Withdraw'),
+        text: localize(
+            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+        ),
+        icon: <WithdrawIcon />,
     },
 ]
 const Commodities = () => {
@@ -53,7 +79,10 @@ const Commodities = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
-            <SimpleSteps />
+            <SimpleSteps
+                header={localize('Start trading commodities on Deriv in 3 simple steps')}
+                content={simple_step_content}
+            />
             <OtherMarkets except="commodities" />
         </div>
     )

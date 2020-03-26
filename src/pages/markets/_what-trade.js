@@ -32,7 +32,7 @@ const ButtonWrapper = styled.div`
         margin-right: 1.6rem;
     }
     @media ${device.tablet} {
-        flex-direction: column;    
+        flex-direction: column;
 
         * {
             margin-top: 1rem;
@@ -40,10 +40,10 @@ const ButtonWrapper = styled.div`
         }
     }
 `
-export const WhatTrade = ({ header, sub_header, learn_more_section }) => {
-    const handleScrollToElement = () => {
-        learn_more_section.current.scrollIntoView()
-    }
+export const WhatTrade = ({ header, sub_header }) => {
+    // const handleScrollToElement = () => {
+    //     learn_more_section.current.scrollIntoView()
+    // }
     return (
         <ContentWrapper>
             <Container direction="column">
@@ -63,9 +63,9 @@ export const WhatTrade = ({ header, sub_header, learn_more_section }) => {
                             {localize('Create demo account')}
                         </DemoButon>
                     </LocalizedLink>
-                    <Button tertiary onClick={handleScrollToElement}>
+                    {/* <Button tertiary onClick={handleScrollToElement}>
                         {localize('Learn more about forex')}
-                    </Button>
+                    </Button> */}
                 </ButtonWrapper>
             </Container>
         </ContentWrapper>

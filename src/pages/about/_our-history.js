@@ -5,7 +5,7 @@ import Stories from './_story_constant'
 import { Header, Text, Image } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
-import device from 'themes/device'
+import device, { size } from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
 
 const StorySection = styled.section`
@@ -37,18 +37,18 @@ const YearWrapper = styled.div`
 
     @media ${device.tablet} {
         flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        margin: auto;
+        justify-content: left;
+        text-align: left;
+        margin-left: 0;
     }
 `
 const ContentWrapper = styled.div`
     width: ${props => props.content_width || '39.6rem'};
     padding: 0 0 0 1rem;
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         ${Header} {
-            text-align: center;
+            text-align: left;
         }
     }
 `
@@ -82,8 +82,9 @@ const StyledHeader = styled(Header)`
         transform: ${props => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
     }
     @media ${device.tablet} {
-        margin: auto;
-        align-items: center;
+        align-items: left;
+        margin-left: 10%;
+        transform: translateX(-10%);
     }
 `
 const Splitter = styled.div`
@@ -91,6 +92,10 @@ const Splitter = styled.div`
     height: 0.1rem;
     border: 1px solid var(--color-grey-20);
     margin: 0.5rem 0 1rem 0;
+
+    @media ${device.tablet} {
+        display: none;
+    }
 `
 const LogoContainer = styled.div`
     width: ${props => props.outer_image_width || '28.2rem'};
@@ -99,7 +104,7 @@ const LogoContainer = styled.div`
     margin-right: ${props => (props.left ? '' : props.margin_right || '2rem')};
 
     @media ${device.tablet} {
-        text-align: center;
+        text-align: left;
     }
 `
 const SVGContainer = styled.div`
@@ -120,6 +125,8 @@ const StyledLine = styled(StorySVG)`
 `
 
 export const OurHistory = () => {
+    let is_mobile = window.screen.width <= size.tablet
+    console.log('ismobile:', is_mobile)
     return (
         <StorySection>
             <Header size="3.6rem" align="center" mb="9.2rem">
@@ -140,7 +147,7 @@ export const OurHistory = () => {
                     </StyledHeader>
 
                     {story.contents.map((content, idxa) =>
-                        content.left ? (
+                        content.left || is_mobile ? (
                             <YearWrapper
                                 key={idxa}
                                 color={story.color}
@@ -156,7 +163,12 @@ export const OurHistory = () => {
                                     margin_right={content.margin_right}
                                     height={content.asset_height}
                                 >
-                                    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: is_mobile ? 'flex-start' : 'flex-end',
+                                        }}
+                                    >
                                         <Image
                                             width={content.image_width}
                                             img_name={content.image}
@@ -168,7 +180,6 @@ export const OurHistory = () => {
                                         <div key={id}>
                                             <Header
                                                 pl="1.1rem"
-                                                mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
                                                 mt={header.margin_top}
@@ -193,7 +204,6 @@ export const OurHistory = () => {
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
                                             <Header
-                                                mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
                                                 mt={header.margin_top}

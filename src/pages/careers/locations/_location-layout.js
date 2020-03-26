@@ -9,7 +9,7 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { toHashFormat } from 'common/utility'
+import { toHashFormat, map_api_key } from 'common/utility'
 import { localize } from 'components/localization'
 import MapPin from 'images/svg/map.svg'
 
@@ -131,6 +131,12 @@ const CardText = styled(Text)`
     margin-bottom: 4rem;
 `
 
+const Iframe = styled.iframe`
+    width: 100%;
+    height: 100%;
+    border: 0;
+`
+
 export const LocationLayout = ({ location, images }) => {
     const { display_name, name } = location
     if (!display_name) return null
@@ -218,10 +224,8 @@ export const LocationLayout = ({ location, images }) => {
                 <LocationCard>
                     <Flex jc="unset" tablet_direction="column">
                         <ImageWrapper>
-                            <QueryImage
-                                data={images[location.map]}
-                                alt={location.display_name + localize(' Office Location Map')}
-                                width="100%"
+                            <Iframe
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
                             />
                         </ImageWrapper>
                         <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">

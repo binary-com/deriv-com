@@ -4,6 +4,7 @@ import { Text, LinkText } from 'components/elements/typography'
 import { Header, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
+import { map_api_key } from 'common/utility'
 // SVG
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
@@ -176,9 +177,7 @@ export const Offices = () => {
                     <Office>
                         <ImageWrapper>
                             <Iframe
-                                src={
-                                    'https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
-                                }
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=${map_api_key}`}
                             />
                         </ImageWrapper>
                         <Content>
@@ -237,7 +236,9 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <Iframe src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU" />
+                            <Iframe
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=${map_api_key}`}
+                            />
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>

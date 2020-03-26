@@ -9,7 +9,7 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { toHashFormat } from 'common/utility'
+import { toHashFormat, map_api_key } from 'common/utility'
 import { localize } from 'components/localization'
 import MapPin from 'images/svg/map.svg'
 
@@ -225,7 +225,7 @@ export const LocationLayout = ({ location, images }) => {
                     <Flex jc="unset" tablet_direction="column">
                         <ImageWrapper>
                             <Iframe
-                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU`}
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
                             />
                         </ImageWrapper>
                         <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">

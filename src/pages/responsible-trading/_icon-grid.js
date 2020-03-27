@@ -18,24 +18,26 @@ import BadJudgement from 'images/svg/bad-judgement.svg'
 const GridCol = styled(CssGridColumn)`
     width: 100%;
 
-    ${Text} {
-        margin-top: 1.8rem;
-
-        @media ${device.tabletL} {
+    @media ${device.tabletS} {
+        text-align: center;
+    }
+    @media ${device.tabletL} {
+        ${Text} {
             font-size: 2rem;
-        }
-        @media ${device.tabletS} {
-            text-align: center;
         }
     }
     @media ${device.tabletS} {
-        text-align: center;
+        ${Text} {
+            text-align: center;
+        }
     }
 `
 const Col = ({ Icon, content }) => (
     <GridCol>
         <Icon />
-        <Text lh="1.55">{content}</Text>
+        <Text lh="1.55" mt="1.8rem">
+            {content}
+        </Text>
     </GridCol>
 )
 Col.propTypes = {

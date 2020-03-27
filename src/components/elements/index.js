@@ -7,12 +7,9 @@ import Divider from './divider'
 import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
 import Checkbox from './checkbox'
-import Hero from './hero'
 import Image from './image'
 import QueryImage from './query-image'
 import { StyledLink } from './link'
-import LinearLoader from './loader'
-import Modal, { useModal } from './modal'
 import {
     OffCanvasMenuWrapper as OffCanvasMenu,
     OffCanvasMenuPartner,
@@ -20,7 +17,7 @@ import {
 } from './off-canvas-menu'
 import SideTab from './side-tab'
 import Tabs from './default-tab'
-import { Text, LinkText, Header } from './typography'
+import { Text, LinkText, LocalizedLinkText, Header } from './typography'
 
 export {
     Accordion,
@@ -36,14 +33,10 @@ export {
     DotLoader,
     Dropdown,
     Checkbox,
-    Hero,
     Image,
     QueryImage,
     StyledLink,
-    LinearLoader,
-    Modal,
     NavCard,
-    useModal,
     OffCanvasMenu,
     OffCanvasMenuPartner,
     moveOffCanvasMenu,
@@ -51,5 +44,6 @@ export {
     Tabs,
     Text,
     LinkText,
+    LocalizedLinkText,
     Header,
 }

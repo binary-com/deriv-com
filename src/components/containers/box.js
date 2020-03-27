@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Margins, Paddings } from 'themes/function'
 
-const Wrapper = styled.div`
+const Box = styled.div`
     width: ${props => (props.width ? props.width : '')};
     height: ${props => (props.height ? props.height : '')};
     max-width: ${props => (props.max_width ? props.max_width : '')};
@@ -10,4 +10,4 @@ const Wrapper = styled.div`
     ${Paddings}
 `
 
-export default Wrapper
+export default Box

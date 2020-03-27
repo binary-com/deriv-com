@@ -265,9 +265,7 @@ const IBGeneral = (
         <HeaderPrimary>
             {localize('How much do I need to pay to join your IB programme?')}
         </HeaderPrimary>
-        <TextPrimary>
-            {localize('The Deriv IB Programme is completely free and always will be.')}
-        </TextPrimary>
+        <TextPrimary>{localize('The Deriv IB Programme is completely free.')}</TextPrimary>
         <HeaderPrimary>
             {localize(
                 'Are there any minimum client or volume conditions that I need to meet before I can withdraw my commissions?',

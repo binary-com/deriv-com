@@ -406,7 +406,7 @@ const ib_dmt5_advanced = {
     name: localize('DMT5 Advanced'),
     description: localize('Earn when your clients trade on a DMT5 Advanced account.'),
     assets: [
-        [{ title: localize('Assets'), style: { minWidth: '13rem' } }, localize('Forex and metals')],
+        [{ title: localize('Asset'), style: { minWidth: '13rem' } }, localize('Forex and metals')],
         [
             { title: localize('Commission per round trade'), style: { maxWidth: '16rem' } },
             localize('5 per lot'),

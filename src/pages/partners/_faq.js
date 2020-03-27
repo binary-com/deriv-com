@@ -31,6 +31,8 @@ const BottomRightDot = styled(DotPattern)`
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 `
 
 const Faq = () => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from './_hero'
 import AboutDeriv from './_about-deriv'
+import DerivNumber from './_deriv-numbers'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
@@ -14,6 +15,7 @@ const Partner = () => {
             />
             <Hero />
             <AboutDeriv />
+            <DerivNumber />
         </Layout>
     )
 }

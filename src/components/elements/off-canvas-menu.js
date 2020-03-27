@@ -265,10 +265,14 @@ export const OffCanvasMenuPartner = props => {
     return (
         <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
-                <SingleLink weight="bold" to="/partners/" onClick={handleArrowClick}>
+                <SingleLink weight="bold" to="/partners/affiliate-ib/" onClick={handleArrowClick}>
                     {localize('Affiliate & IB')}
                 </SingleLink>
-                <SingleLink weight="bold" to="/partners/payment-agent/" onClick={handleArrowClick}>
+                <SingleLink
+                    weight="bold"
+                    to="/partners/payment-agent/affiliate-ib/"
+                    onClick={handleArrowClick}
+                >
                     {localize('Payment agent')}
                 </SingleLink>
             </OffCanvasMenuContainer>

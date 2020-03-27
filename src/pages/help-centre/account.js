@@ -67,7 +67,7 @@ const ChangingPersonalDetails = () => (
         <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>
         <Text>
             <Localize
-                translate_text="If you have not made a deposit or created a Deriv MT5 (DMT5) account, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
+                translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
                 components={[
                     <strong key={0} />,
                     <ExternalLink
@@ -81,7 +81,7 @@ const ChangingPersonalDetails = () => (
         </Text>
         <StyledText>
             {localize(
-                'If you have made a deposit or created a DMT5 account, you can submit a ticket requesting the desired changes. Please attach your proofs of identity and address.',
+                'If the account has been fully authenticated, you can submit a ticket requesting the desired changes. Please attach your proof of identity and address.',
             )}
         </StyledText>
     </ArticleWrapper>

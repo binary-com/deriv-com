@@ -130,7 +130,7 @@ const AffiliateGeneral = (
 )
 const AffiliateAccountManagement = (
     <ItemContainer>
-        <Header as="h4">{localize('How can I sign up as a Deriv affiliate?')}</Header>
+        <Header as="h5">{localize('How can I sign up as a Deriv affiliate?')}</Header>
         <TextPrimary>
             <Localize
                 translate_text="All you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
@@ -226,7 +226,7 @@ const AffiliateAccountManagement = (
 
 const AffiliateReferralTools = (
     <ItemContainer>
-        <Header as="h4">{localize('What kind of referral tools do you offer?')}</Header>
+        <Header as="h5">{localize('What kind of referral tools do you offer?')}</Header>
         <TextPrimary>
             <Localize
                 translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, please contact your account manager at <0>affiliates@deriv.com</0>."
@@ -247,7 +247,7 @@ const scrollToIb = e => {
 
 const IBGeneral = (
     <ItemContainer>
-        <Header as="h4">{localize('What is the Deriv IB Programme?')}</Header>
+        <Header as="h5">{localize('What is the Deriv IB Programme?')}</Header>
         <TextPrimary>
             {localize(
                 'The Deriv IB Programme is a partnership where you benefit from referring new clients to trade on our DMT5 platform.',
@@ -279,7 +279,7 @@ const IBGeneral = (
 
 const IBAccountManagement = (
     <ItemContainer>
-        <Header as="h4">{localize('How can I sign up as a Deriv IB?')}</Header>
+        <Header as="h5">{localize('How can I sign up as a Deriv IB?')}</Header>
         <TextPrimary>
             <Localize
                 translate_text="If you’re interested in becoming an IB, all you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
@@ -312,7 +312,7 @@ const IBAccountManagement = (
 
 const IBReferralTools = (
     <ItemContainer>
-        <Header as="h4">{localize('Do you offer any referral tools to your IBs?')}</Header>
+        <Header as="h5">{localize('Do you offer any referral tools to your IBs?')}</Header>
         <TextPrimary>
             {localize(
                 'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our DMT5 platform.',

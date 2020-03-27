@@ -5,10 +5,6 @@ import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, Image } from 'components/elements'
 
-const SubHeaderWrapper = styled.div`
-    margin: 1.6rem 0 6rem 0;
-`
-
 const platforms = Object.freeze({
     trader: 'dtrader',
     bot: 'dbot',
@@ -42,17 +38,13 @@ export const Trade = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <Header font_size="var(--text-size-header-1)" as="h2" align="center">
+                <Header size="var(--text-size-header-1)" as="h2" align="center">
                     {localize('Trade the way you like')}
                 </Header>
-                <SubHeaderWrapper>
-                    <Header weight="500" lh="1.5" as="h4" align="center">
-                        {localize(
-                            'Choose from three powerful platforms -- designed with you in mind',
-                        )}
-                    </Header>
-                </SubHeaderWrapper>
-                <Flex>
+                <Header weight="500" as="h4" align="center" m="1.6rem 0 6rem">
+                    {localize('Choose from three powerful platforms -- designed with you in mind')}
+                </Header>
+                <Flex width="100%">
                     <div style={{ width: '60%' }}>
                         <ImageContainer>
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>

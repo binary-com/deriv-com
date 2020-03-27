@@ -37,9 +37,6 @@ const StyledCheckbox = styled.div`
     border-radius: 3px;
     margin-right: 0.8rem;
 
-    /* border: ${props =>
-        props.secondary ? '2px solid var(--color-red)' : '2px solid var(--grey-5)'}; */
-
     ${Icon} {
         visibility: ${props => (props.checked ? 'visible' : 'hidden')};
     }

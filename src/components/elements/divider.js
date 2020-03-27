@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Margins } from 'themes/function'
 
 const Divider = styled.hr`
     border: none;
@@ -7,6 +8,7 @@ const Divider = styled.hr`
 
     /* prettier-ignore */
     background-color: var(--color-${props => props.color || 'grey-2'});
+    ${Margins}
 `
 
 export default Divider

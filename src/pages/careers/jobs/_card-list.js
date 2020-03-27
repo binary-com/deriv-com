@@ -68,7 +68,7 @@ const StyledFlex = styled(Flex)`
 const CardList = ({ position }) => {
     return (
         <JobCard to={`careers/jobs/job#${toHashFormat(position.id)}`}>
-            <Header font_size="var(--text-size-sm)">{position.title}</Header>
+            <Header size="var(--text-size-sm)">{position.title}</Header>
             <Flex jc="flex-start" ai="center" tablet_ai="flex-start" tablet_direction="column">
                 <Text>{team_names[position.team]}</Text>
                 <StyledFlex width="auto" height="auto" ai="center">

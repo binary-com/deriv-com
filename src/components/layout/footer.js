@@ -512,7 +512,7 @@ const Footer = () => (
                             ]}
                         />
                     </StyledText>
-                    <StyledText margin="1rem 0 0 0">
+                    <StyledText mt="1rem">
                         {localize(
                             "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
                         )}

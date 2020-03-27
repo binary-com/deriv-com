@@ -30,16 +30,14 @@ const StyledFlex = styled(Flex)`
 const StyledSection = styled(SectionContainer)`
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 `
-const StyledHeader = styled(Header)`
-    margin-bottom: 2rem;
-`
+
 const MoreReason = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <StyledHeader font_size="3.6rem" align="center">
+                <Header as="h3" size="3.6rem" align="center" mb="2rem">
                     {localize('More reasons to join')}
-                </StyledHeader>
+                </Header>
                 <StyledFlex wrap="wrap" jc="center">
                     <Reason>
                         <HighValue />

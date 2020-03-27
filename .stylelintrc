@@ -20,7 +20,8 @@
                 "ignore": ["after-comment"],
                 "except": ["inside-block-and-after-rule", "first-nested"]
             }
-        ]
+        ],
+        "value-keyword-case": null
     },
     "syntax": "scss"
 }

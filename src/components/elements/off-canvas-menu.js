@@ -34,6 +34,10 @@ const StyledLink = styled(props => <LocalizedLink {...props} />)`
     font-weight: 400;
     text-decoration: none;
     line-height: 2.8rem;
+
+    &:first-child {
+        margin-top: 2.5rem;
+    }
 `
 
 const OffCanvasMenuContainer = styled.div`

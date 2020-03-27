@@ -422,7 +422,7 @@ const ib_dmt5_advanced = {
 }
 const ib_dmt5_synthetic = {
     name: localize('DMT5 Synthetic Indices'),
-    description: localize('Earn when your clients trade on a DMT5 Synthetic account.'),
+    description: localize('Earn when your clients trade on a DMT5 Synthetic Indices account.'),
     assets: [
         [
             localize('Asset'),

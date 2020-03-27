@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { Header, Text, CardStyle } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 // import device from 'themes/device'
 // Icons
@@ -10,8 +10,9 @@ import PartnerPaymentAgent from 'images/svg/partner-payment-agent.svg'
 
 const StyledSection = styled(SectionContainer)``
 const StyledFlex = styled(Flex)``
-const ClientCard = styled.article`
+const ClientCard = styled(LocalizedLink)`
     ${CardStyle}
+    text-decoration: none;
     max-width: 38.4rem;
     padding: 3.2rem;
     min-height: 23.7rem;
@@ -62,7 +63,7 @@ const PartnershipOpportunities = () => (
             </Header>
         </Container>
         <StyledFlex wrap="wrap">
-            <ClientCard first>
+            <ClientCard to="/partners/affiliate-ib/" first>
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Affiliate and IB programmes')}
@@ -75,7 +76,7 @@ const PartnershipOpportunities = () => (
                     )}
                 </Text>
             </ClientCard>
-            <ClientCard>
+            <ClientCard to="/partners/payment-agent/">
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
                         {localize('Payment agent programme')}

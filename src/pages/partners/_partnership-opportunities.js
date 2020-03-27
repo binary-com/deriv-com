@@ -32,7 +32,7 @@ const ClientCard = styled.article`
         height: 24px;
     }
     &:hover {
-        transform: translateY(-1.5rem) scale(1.03);
+        transform: translateY(-1.5rem);
         ${props =>
             props.first
                 ? css`

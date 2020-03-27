@@ -9,7 +9,7 @@ const query = graphql`
     query {
         deriv_platform: file(relativePath: { eq: "partner-deriv-platform.png" }) {
             childImageSharp {
-                fluid(maxWidth: 486, srcSetBreakpoints: [400, 600, 1280]) {
+                fluid(maxWidth: 486, srcSetBreakpoints: [340, 400, 600, 1280]) {
                     ...GatsbyImageSharpFluid_withWebp_noBase64
                     originalName
                 }
@@ -24,6 +24,11 @@ const WrapContainer = styled(Flex)`
     }
 `
 
+const ImageWrapper = styled.div`
+    width: 48.6rem;
+    height: 32rem;
+`
+
 const AboutDeriv = () => {
     const data = useStaticQuery(query)
     return (
@@ -32,13 +37,11 @@ const AboutDeriv = () => {
                 About Deriv
             </Header>
             <WrapContainer mb="8rem">
-                <QueryImage
-                    data={data.deriv_platform}
-                    alt={'Deriv platform'}
-                    width="48.6rem"
-                    height="32rem"
-                />
-                <Flex direction="column" ml="2.4rem">
+                <ImageWrapper>
+                    <QueryImage data={data.deriv_platform} alt={'Deriv platform'} />
+                </ImageWrapper>
+
+                <Flex direction="column" ml="2.4rem" max_width="69rem">
                     <Text size="var(--text-size-m)" mb="2rem">
                         Deriv is the next step in the evolution of Binary.com, the company with a
                         proven record of delivering market-leading products that are trusted around

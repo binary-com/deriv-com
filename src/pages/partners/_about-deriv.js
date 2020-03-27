@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -17,7 +18,11 @@ const query = graphql`
     }
 `
 
-const WrapContainer = styled(Flex)``
+const WrapContainer = styled(Flex)`
+    @media ${device.laptopM} {
+        flex-wrap: wrap;
+    }
+`
 
 const AboutDeriv = () => {
     const data = useStaticQuery(query)

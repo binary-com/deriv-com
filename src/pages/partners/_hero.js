@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PartnerVideo from './partner-video.mp4'
 import { localize } from 'components/localization'
-import { Flex } from 'components/containers'
+import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 
 const StyledHero = styled.div`
@@ -28,11 +28,12 @@ const StyledVideo = styled.video`
     }
 `
 
-const Content = styled(Flex)`
+const Content = styled.div`
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
 `
 
 const Hero = () => {
@@ -50,12 +51,14 @@ const Hero = () => {
                 <source src={PartnerVideo} type="video/mp4" />
             </StyledVideo>
             <Content direction="column">
-                <Header as="h1" color="white" align="center">
-                    Deriv partnership programmes
-                </Header>
-                <Header color="white" align="center" size="var(--text-size-header-1)">
-                    Partner with a trusted online trading provider.
-                </Header>
+                <Container direction="column" height="100%">
+                    <Header as="h1" color="white" align="center">
+                        Deriv partnership programmes
+                    </Header>
+                    <Header color="white" align="center" size="var(--text-size-header-1)">
+                        Partner with a trusted online trading provider.
+                    </Header>
+                </Container>
             </Content>
         </StyledHero>
     )

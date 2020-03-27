@@ -1,5 +1,6 @@
 import React from 'react'
 import Hero from './_hero'
+import AboutDeriv from './_about-deriv'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
@@ -12,6 +13,7 @@ const Partner = () => {
                 description={localize('Partner with a trusted online trading provider')}
             />
             <Hero />
+            <AboutDeriv />
         </Layout>
     )
 }

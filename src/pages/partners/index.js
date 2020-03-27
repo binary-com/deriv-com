@@ -3,6 +3,7 @@ import Hero from './_hero'
 import AboutDeriv from './_about-deriv'
 import DerivNumber from './_deriv-numbers'
 import WhyChooseUs from './_why-choose-us'
+import PartnershipOpportunities from './_partnership-opportunities'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
@@ -18,6 +19,7 @@ const Partner = () => {
             <AboutDeriv />
             <DerivNumber />
             <WhyChooseUs />
+            <PartnershipOpportunities />
         </Layout>
     )
 }

@@ -35,6 +35,7 @@ const CardContainer = styled(Flex)`
     flex-direction: column;
     justify-content: space-between;
     background: var(--color-grey-8);
+    cursor: pointer;
     z-index: ${props => props.title === 'Digital options' ? '20' : '10'};
 
     ${Header} {
@@ -56,7 +57,7 @@ const IconContainer = styled(Flex)`
         margin-right: 0;
     }
 `
-const Card = ({ title, content, sendActiveTab, active_tab }) => {
+const Card = ({ title, content, active_tab, onTabChange }) => {
     let Icons;
     switch (title) {
         case 'Margin':
@@ -73,7 +74,7 @@ const Card = ({ title, content, sendActiveTab, active_tab }) => {
             break;
     }
     return (
-        <CardContainer title={title} active_tab={active_tab} onClick={() => sendActiveTab(title)}>
+        <CardContainer title={title} active_tab={active_tab} onClick={() => onTabChange(title)}>
             <div>
                 <Header as='h4' align='center'>{title}</Header>
                 <Text align='center'>{content}</Text>
@@ -87,45 +88,50 @@ const Card = ({ title, content, sendActiveTab, active_tab }) => {
         </CardContainer>
     )
 }
-
-const AvailableTrades = ({ Margin, DigitalOptions, Multipliers, title }) => {
-    const [active_tab, setTab] = useTabState('Margin');
-    return (
-        <SectionContainer>
-            <Header size='var(--text-size-header-1)' align='center'>{localize(title + ' trades available on Deriv')}</Header>
-            <CardWrapper>
-                {Margin &&
-                    <Card
-                        title='Margin'
-                        content='Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.'
-                    />}
-                {DigitalOptions &&
-                    <Card
-                        title='Digital options'
-                        content='Digital options allow you to trade on the future value of an asset without needing to buy the asset. You stand a chance to win a fixed payout, and your potential loss never exceeds the amount you paid to open the position.'
-                    />}
-                {Multipliers &&
-                    <Card
-                        title='Multipliers'
-                        content='Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.'
-                    />}
-            </CardWrapper>
-            {/* <ContentWrapper>
+class AvailableTrades extends React.Component {
+    state = {
+        active_tab: 'Margin',
+    }
+    handleTabChange = new_tab => {
+        if (new_tab === this.state.active_tab) return
+        this.setState({ active_tab: new_tab })
+    }
+    render() {
+        const { Margin, DigitalOptions, Multipliers, title } = this.props;
+        return (
+            <SectionContainer>
+                <Header size='var(--text-size-header-1)' align='center'>{localize(title + ' trades available on Deriv')}</Header>
+                <CardWrapper>
+                    {Margin &&
+                        <Card
+                            title='Margin'
+                            content='Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.'
+                            onTabChange={this.handleTabChange}
+                            active_tab={this.state.active_tab}
+                        />}
+                    {DigitalOptions &&
+                        <Card
+                            title='Digital options'
+                            content='Digital options allow you to trade on the future value of an asset without needing to buy the asset. You stand a chance to win a fixed payout, and your potential loss never exceeds the amount you paid to open the position.'
+                            onTabChange={this.handleTabChange}
+                            active_tab={this.state.active_tab}
+                        />}
+                    {Multipliers &&
+                        <Card
+                            title='Multipliers'
+                            content='Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.'
+                            onTabChange={this.handleTabChange}
+                            active_tab={this.state.active_tab}
+                        />}
+                </CardWrapper>
+                {/* <ContentWrapper>
                 {active_tab === 'margin' && <Margin />}
                 {active_tab === 'digital options' && <DigitalOptions />}
                 {active_tab === 'multipliers' && <Multipliers />}
             </ContentWrapper> */}
-        </SectionContainer>
-    )
-}
-
-const useTabState = () => {
-    const [active_tab, setActiveTab] = React.useState()
-    const setTab = tab => {
-        if (tab === active_tab) return
-        setActiveTab(tab)
+            </SectionContainer>
+        )
     }
-    return [active_tab, setTab]
 }
 
 export default AvailableTrades

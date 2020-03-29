@@ -33,17 +33,17 @@ const CardContainer = styled(Flex)`
     border-radius: 15px 15px 0 0;
     flex-direction: column;
     justify-content: space-between;
-    background-color: ${props => props.active_tab === props.title ? ('var(--color-white)') : ('var(--color-grey-8)')};
+    background-color: ${props => props.active_tab === props.name ? ('var(--color-white)') : ('var(--color-grey-8)')};
     cursor: pointer;
     box-shadow: -20px 0 20px -20px rgba(0,0,0,0.1), 20px 0 20px -20px rgba(0,0,0,0.1), 0 -15px 20px -20px rgba(0,0,0,0.1);
-    z-index: ${props => props.active_tab === props.title ? '30' : props.z_index};
+    z-index: ${props => props.active_tab === props.name ? '30' : props.z_index};
 
     ${Header} {
-        color: ${props => props.active_tab === props.title ? ('var(--color-red)') : ('var(--color-black-3)')};
-        opacity: ${props => props.active_tab === props.title ? ('1') : ('0.5')};
+        color: ${props => props.active_tab === props.name ? ('var(--color-red)') : ('var(--color-black-3)')};
+        opacity: ${props => props.active_tab === props.name ? ('1') : ('0.5')};
     }
     ${Text} {
-        opacity: ${props => props.active_tab === props.title ? ('1') : ('0.4')};
+        opacity: ${props => props.active_tab === props.name ? ('1') : ('0.4')};
     }
 `
 const IconContainer = styled(Flex)`
@@ -51,7 +51,7 @@ const IconContainer = styled(Flex)`
         margin-right: 1.6rem;
     }
     svg {
-        opacity: ${props => props.active_tab === props.title ? ('1') : ('0.5')};
+        opacity: ${props => props.active_tab === props.name ? ('1') : ('0.5')};
     }
     svg:last-child {
         margin-right: 0;
@@ -59,9 +59,9 @@ const IconContainer = styled(Flex)`
 `
 const ContentWrapper = styled(Container)``
 
-const Card = ({ title, content, active_tab, onTabChange }) => {
+const Card = ({ name, content, active_tab, onTabChange }) => {
     let Icons;
-    switch (title) {
+    switch (name) {
         case 'Margin':
             Icons = [DMT5]
             break;
@@ -76,13 +76,13 @@ const Card = ({ title, content, active_tab, onTabChange }) => {
             break;
     }
     return (
-        <CardContainer title={title} active_tab={active_tab} onClick={() => onTabChange(title)} z_index={title === 'Options' ? '20' : '10'}>
+        <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)} z_index={name === 'Options' ? '20' : '10'}>
             <div>
-                <Header as='h4' align='center'>{title}</Header>
+                <Header as='h4' align='center'>{name}</Header>
                 <Text align='center'>{content}</Text>
             </div>
             {Icons.length === 0 ? (null) : (
-                <IconContainer ai='center' height='auto' title={title} active_tab={active_tab}>
+                <IconContainer ai='center' height='auto' name={name} active_tab={active_tab}>
                     <Text>{localize('Available on:')}</Text>
                     {Icons.map((Icon, index) => <Icon key={index} />)}
                 </IconContainer>
@@ -99,28 +99,28 @@ class AvailableTrades extends React.Component {
         this.setState({ active_tab: new_tab })
     }
     render() {
-        const { Margin, DigitalOptions, Multipliers, title } = this.props;
+        const { Margin, DigitalOptions, Multipliers, name } = this.props;
         return (
             <SectionContainer>
-                <Header size='var(--text-size-header-1)' align='center'>{localize(title + ' trades available on Deriv')}</Header>
+                <Header size='var(--text-size-header-1)' align='center'>{localize(name + ' trades available on Deriv')}</Header>
                 <CardWrapper>
                     {Margin &&
                         <Card
-                            title='Margin'
+                            name='Margin'
                             content='Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.'
                             onTabChange={this.handleTabChange}
                             active_tab={this.state.active_tab}
                         />}
                     {DigitalOptions &&
                         <Card
-                            title='Options'
+                            name='Options'
                             content='Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on Forex.'
                             onTabChange={this.handleTabChange}
                             active_tab={this.state.active_tab}
                         />}
                     {Multipliers &&
                         <Card
-                            title='Multipliers'
+                            name='Multipliers'
                             content='Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.'
                             onTabChange={this.handleTabChange}
                             active_tab={this.state.active_tab}

@@ -22,7 +22,7 @@ const ContentWrapper = styled.div`
 `
 const Row = styled(Box)`
     border-radius: 4px;
-    border: 1px solid var(--color-grey-2);
+    border: 1px solid var(--color-grey-22);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
 
     div:last-child {
@@ -30,7 +30,7 @@ const Row = styled(Box)`
     }
 `
 const Col = styled(Box)`
-    border-right: 1px solid var(--color-grey-2);
+    border-right: 1px solid var(--color-grey-22);
 
     ${Text} {
         text-align: center;

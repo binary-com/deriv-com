@@ -24,7 +24,7 @@ import GBPAUD from 'images/svg/symbols/gbp-aud.svg'
 import GBPCAD from 'images/svg/symbols/gbp-cad.svg'
 import GBPCHF from 'images/svg/symbols/gbp-chf.svg'
 import GBPINDEX from 'images/svg/symbols/gbp-index.svg'
-import SBPJPY from 'images/svg/symbols/gbp-jpy.svg'
+import GBPJPY from 'images/svg/symbols/gbp-jpy.svg'
 import GBPNOK from 'images/svg/symbols/gbp-nok.svg'
 import GBPNZD from 'images/svg/symbols/gbp-nzd.svg'
 import GBPSGD from 'images/svg/symbols/gbp-sgd.svg'
@@ -78,7 +78,7 @@ export {
     GBPCAD,
     GBPCHF,
     GBPINDEX,
-    SBPJPY,
+    GBPJPY,
     GBPNOK,
     GBPNZD,
     GBPSGD,

@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Accordion, AccordionItem, Text } from 'components/elements'
-import { SectionContainer, CssGrid, Box } from 'components/containers'
+import { SectionContainer, CssGrid, Box, Flex } from 'components/containers'
 import { localize } from 'components/localization'
-//SVG
+//Symbols
+import { AUDCAD, AUDCHF, AUDINDEX, AUDJPY, AUDNZD, AUDSGD, AUDUSD, CHFJPY, EURAUD, EURCAD, EURCHF, EURGBP, EURHKD, EURILS, EURINDEX, EURJPY, EURMXN, EURSGD, EURTRY, EURUSD, EURZAR, EURZND, GBPAUD, GBPCAD, GBPCHF, GBPINDEX, GBPJPY, GBPNOK, GBPNZD, GBPSGD, GBPTRY, GBPUSD, HKDJPY, NZDCHF, NZDJPY, NZDSGD, NZDUSD, SGDJPY, USDCAD, USDCHF, USDHKD, USDILS, USDINDEX, USDJPY, USDMXN, USDNOK, USDPLN, USDRUB, USDSEK, USDSGD, USDTHB, USDTRY } from 'components/elements/symbols.js'
 
 const header_style = {
     padding: '2.4rem 10.2rem',
@@ -28,14 +29,20 @@ const Row = styled(Box)`
         border-right: unset;
     }
 `
-const Col = styled.div`
+const Col = styled(Box)`
     border-right: 1px solid var(--color-grey-2);
-    height: 100%;
-    padding: 2.4rem 0;
 
     ${Text} {
         text-align: center;
         font-weight: bold;
+    }
+`
+const Symbol = styled(Flex)`
+    padding: 0.8rem 0;
+
+    ${Text} {
+        font-weight: normal;
+        margin-left: 1.6rem;
     }
 `
 const Margin = () => {
@@ -61,8 +68,79 @@ const Margin = () => {
                     <ContentWrapper>
                         <Row>
                             <CssGrid columns='repeat(4, 1fr)'>
-                                <Col>
+                                <Col p='2.4rem 0'>
                                     <Text>{localize('Major pairs')}</Text>
+                                </Col>
+                                <Col p='2.4rem 0'>
+                                    <Text>{localize('Minor pairs')}</Text>
+                                </Col>
+                                <Col p='2.4rem 0'>
+                                    <Text>{localize('SmartFX')}</Text>
+                                </Col>
+                                <Col p='2.4rem 0'>
+                                    <Text>{localize('Exotic pairs')}</Text>
+                                </Col>
+                            </CssGrid>
+                        </Row>
+                        <Row>
+                            <CssGrid columns='repeat(4, 1fr)'>
+                                <Col>
+                                    <Symbol ai='center'>
+                                        <AUDJPY />
+                                        <Text>{localize('AUD/JPY')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <AUDUSD />
+                                        <Text>{localize('AUD/USD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <EURAUD />
+                                        <Text>{localize('EUR/AUD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <EURCAD />
+                                        <Text>{localize('EUR/CAD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <EURCHF />
+                                        <Text>{localize('EUR/CHF')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <EURGBP />
+                                        <Text>{localize('EUR/GBP')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <EURJPY />
+                                        <Text>{localize('EUR/JPY')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <EURUSD />
+                                        <Text>{localize('EUR/USD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <GBPAUD />
+                                        <Text>{localize('GBP/AUD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <GBPJPY />
+                                        <Text>{localize('GBP/JPY')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <GBPUSD />
+                                        <Text>{localize('GBP/USD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <USDCAD />
+                                        <Text>{localize('USD/CAD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <USDCHF />
+                                        <Text>{localize('USD/CHF')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <USDJPY />
+                                        <Text>{localize('USD/JPY')}</Text>
+                                    </Symbol>
                                 </Col>
                                 <Col>
                                     <Text>{localize('Minor pairs')}</Text>
@@ -73,22 +151,6 @@ const Margin = () => {
                                 <Col>
                                     <Text>{localize('Exotic pairs')}</Text>
                                 </Col>
-                            </CssGrid>
-                        </Row>
-                        <Row>
-                            <CssGrid columns='repeat(4, 1fr)'>
-                                <Col>
-                                    
-                                </Col>
-                                <Col>
-                                        <Text>{localize('Minor pairs')}</Text>
-                                    </Col>
-                                    <Col>
-                                        <Text>{localize('SmartFX')}</Text>
-                                    </Col>
-                                    <Col>
-                                        <Text>{localize('Exotic pairs')}</Text>
-                                    </Col>
                             </CssGrid>
                         </Row>
                     </ContentWrapper>

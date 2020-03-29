@@ -7,6 +7,7 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
+import { isBrowser } from 'common/utility'
 
 const StorySection = styled.section`
     width: 100%;
@@ -70,11 +71,11 @@ const ContentWrapper = styled.div`
         ${Header} {
             text-align: left;
             margin-bottom: 1rem;
-            max-width: 33rem
+            max-width: 33rem;
         }
         ${Text} {
             font-size: var(--text-size-sm);
-            margin-bottom: 4rem;          
+            margin-bottom: 4rem;
         }
     }
 `
@@ -155,7 +156,7 @@ const StyledLine = styled(StorySVG)`
 `
 
 export const OurHistory = () => {
-    let is_mobile = window.screen.width <= size.tablet
+    let is_mobile = isBrowser() ? window.screen.width <= size.tablet : false
     return (
         <StorySection>
             <Header size="3.6rem" align="center" mb="9.2rem">

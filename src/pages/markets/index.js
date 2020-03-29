@@ -1,26 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
-import Forex from './_forex'
-import Commodities from './_commodities'
-import SyntheticIndices from './_synthetic-indices'
-import StockIndices from './_stock-indices'
+import Forex from './forex/_forex.js'
+import Commodities from './commodities/_commodities.js'
+import SyntheticIndices from './synthetic/_synthetic-indices.js'
+import StockIndices from './stock/_stock-indices.js'
 import { Hero } from './_hero'
 import { getLocationHash } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-
-const useTabState = () => {
-    const [active_tab, setActiveTab] = React.useState('forex')
-    const setTab = tab => {
-        if (tab === active_tab) return
-        setActiveTab(tab)
-        navigate(`#${tab}`)
-    }
-    return [active_tab, setTab]
-}
 
 const Item = styled.div`
     padding: 1.2rem 2.4rem;
@@ -77,6 +67,16 @@ const Markets = () => {
             </TabWrapper>
         </Layout>
     )
+}
+
+const useTabState = () => {
+    const [active_tab, setActiveTab] = React.useState('forex')
+    const setTab = tab => {
+        if (tab === active_tab) return
+        setActiveTab(tab)
+        navigate(`#${tab}`)
+    }
+    return [active_tab, setTab]
 }
 
 export default WithIntl()(Markets)

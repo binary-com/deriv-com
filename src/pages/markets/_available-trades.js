@@ -1,6 +1,6 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
-import { SectionContainer, Flex } from 'components/containers'
+import styled from 'styled-components'
+import { SectionContainer, Flex, Container } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 //SVG
@@ -57,6 +57,8 @@ const IconContainer = styled(Flex)`
         margin-right: 0;
     }
 `
+const ContentWrapper = styled(Container)``
+
 const Card = ({ title, content, active_tab, onTabChange }) => {
     let Icons;
     switch (title) {
@@ -124,11 +126,11 @@ class AvailableTrades extends React.Component {
                             active_tab={this.state.active_tab}
                         />}
                 </CardWrapper>
-                {/* <ContentWrapper>
-                {active_tab === 'margin' && <Margin />}
-                {active_tab === 'digital options' && <DigitalOptions />}
-                {active_tab === 'multipliers' && <Multipliers />}
-            </ContentWrapper> */}
+                <ContentWrapper>
+                    {this.state.active_tab === 'Margin' && <Margin />}
+                    {this.state.active_tab === 'Digital options' && <DigitalOptions />}
+                    {this.state.active_tab === 'Multipliers' && <Multipliers />}
+                </ContentWrapper>
             </SectionContainer>
         )
     }

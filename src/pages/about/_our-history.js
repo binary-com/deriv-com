@@ -14,6 +14,12 @@ const StorySection = styled.section`
     background-color: var(--color-white);
     padding: 8rem 0 0 0;
     position: relative;
+
+    @media ${device.tablet} {
+        > ${Header} {
+            margin-bottom: 4rem;
+        }
+    }
 `
 const Story = styled.div`
     /* prettier-ignore */
@@ -21,6 +27,11 @@ const Story = styled.div`
     width: 100%;
     margin: auto;
     padding: 2rem 0;
+
+    @media ${device.tablet} {
+        margin-bottom: 4rem;
+        background-color: var(--color-${props => (props.bgColor == 'black' ? 'black' : 'white')});
+    }
 `
 
 const YearWrapper = styled.div`
@@ -39,9 +50,9 @@ const YearWrapper = styled.div`
         flex-direction: column;
         justify-content: left;
         text-align: left;
-        margin-left: 0;
+        margin-left: 2rem;
         align-items: left;
-        width: 34.7rem;
+        width: 42.9rem;
     }
 `
 const ContentWrapper = styled.div`
@@ -49,10 +60,15 @@ const ContentWrapper = styled.div`
     padding: 0 0 0 1rem;
 
     @media ${device.tablet} {
-        width: 34.7rem;
+        width: 42.9rem;
 
         ${Header} {
             text-align: left;
+            margin-bottom: 1rem;
+        }
+        ${Text} {
+            font-size: var(--text-size-sm);
+            margin-bottom: 4rem;
         }
     }
 `
@@ -87,8 +103,10 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.tablet} {
         align-items: left;
-        margin-left: 0;
+        margin-left: 2rem;
         transform: unset;
+        font-size: var(--text-size-xxl);
+        margin-bottom: 1rem;
     }
 `
 const Splitter = styled.div`
@@ -109,6 +127,8 @@ const LogoContainer = styled.div`
 
     @media ${device.tablet} {
         text-align: left;
+        margin-bottom: 1rem;
+        width: 37rem;
     }
 `
 const SVGContainer = styled.div`
@@ -173,7 +193,11 @@ export const OurHistory = () => {
                                         }}
                                     >
                                         <Image
-                                            width={content.image_width}
+                                            width={
+                                                is_mobile
+                                                    ? content.image_mobile_width
+                                                    : content.image_width
+                                            }
                                             img_name={content.image}
                                         />
                                     </div>
@@ -226,7 +250,11 @@ export const OurHistory = () => {
                                 >
                                     <Flex jc="flex-start" ml="1rem">
                                         <Image
-                                            width={content.image_width}
+                                            width={
+                                                is_mobile
+                                                    ? content.image_mobile_width
+                                                    : content.image_width
+                                            }
                                             img_name={content.image}
                                         />
                                     </Flex>

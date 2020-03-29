@@ -12,9 +12,7 @@ import DBot from 'images/svg/dbot-icon-green.svg'
 //     max-width: 99.6rem;
 // `
 const CardWrapper = styled(Flex)`
-    width: 120rem;
     height: 27.6rem;
-    margin: 4rem auto 0 auto;
     position: relative;
 
     div:first-child {
@@ -35,7 +33,7 @@ const CardContainer = styled(Flex)`
     justify-content: space-between;
     background-color: ${props => props.active_tab === props.name ? ('var(--color-white)') : ('var(--color-grey-8)')};
     cursor: pointer;
-    box-shadow: -20px 0 20px -20px rgba(0,0,0,0.1), 20px 0 20px -20px rgba(0,0,0,0.1), 0 -15px 20px -20px rgba(0,0,0,0.1);
+    box-shadow: -20px 0 20px -20px rgba(0,0,0,0.1), 20px 0 20px -20px rgba(0,0,0,0.1);
     z-index: ${props => props.active_tab === props.name ? '30' : props.z_index};
 
     ${Header} {
@@ -57,7 +55,9 @@ const IconContainer = styled(Flex)`
         margin-right: 0;
     }
 `
-const ContentWrapper = styled(Container)``
+const ContentWrapper = styled.div`
+    width: 100%;
+`
 
 const Card = ({ name, content, active_tab, onTabChange }) => {
     let Icons;
@@ -103,34 +103,36 @@ class AvailableTrades extends React.Component {
         return (
             <SectionContainer>
                 <Header size='var(--text-size-header-1)' align='center'>{localize(name + ' trades available on Deriv')}</Header>
-                <CardWrapper>
-                    {Margin &&
-                        <Card
-                            name='Margin'
-                            content='Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.'
-                            onTabChange={this.handleTabChange}
-                            active_tab={this.state.active_tab}
-                        />}
-                    {DigitalOptions &&
-                        <Card
-                            name='Options'
-                            content='Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on Forex.'
-                            onTabChange={this.handleTabChange}
-                            active_tab={this.state.active_tab}
-                        />}
-                    {Multipliers &&
-                        <Card
-                            name='Multipliers'
-                            content='Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.'
-                            onTabChange={this.handleTabChange}
-                            active_tab={this.state.active_tab}
-                        />}
-                </CardWrapper>
-                <ContentWrapper>
-                    {this.state.active_tab === 'Margin' && <Margin />}
-                    {this.state.active_tab === 'Options' && <DigitalOptions />}
-                    {this.state.active_tab === 'Multipliers' && <Multipliers />}
-                </ContentWrapper>
+                <Container direction='column' style={{ boxShadow: '0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05)', marginTop: '4rem' }}>
+                    <CardWrapper>
+                        {Margin &&
+                            <Card
+                                name='Margin'
+                                content='Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.'
+                                onTabChange={this.handleTabChange}
+                                active_tab={this.state.active_tab}
+                            />}
+                        {DigitalOptions &&
+                            <Card
+                                name='Options'
+                                content='Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on Forex.'
+                                onTabChange={this.handleTabChange}
+                                active_tab={this.state.active_tab}
+                            />}
+                        {Multipliers &&
+                            <Card
+                                name='Multipliers'
+                                content='Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.'
+                                onTabChange={this.handleTabChange}
+                                active_tab={this.state.active_tab}
+                            />}
+                    </CardWrapper>
+                    <ContentWrapper>
+                        {this.state.active_tab === 'Margin' && <Margin />}
+                        {this.state.active_tab === 'Options' && <DigitalOptions />}
+                        {this.state.active_tab === 'Multipliers' && <Multipliers />}
+                    </ContentWrapper>
+                </Container>
             </SectionContainer>
         )
     }

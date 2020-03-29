@@ -55,11 +55,11 @@ const payment_data = [
             },
             {
                 method: <Help2Pay />,
-                currencies: 'USD EUR GBP AUD',
+                currencies: 'USD',
                 min_max_deposit: '10 - 50,000',
                 min_max_withdrawal: 'N/A',
-                deposit_time: localize('instant'),
-                withdrawal_time: localize('24-48 hours'),
+                deposit_time: localize('Instant'),
+                withdrawal_time: localize('Not applicable'),
                 description: localize(
                     'Help2Pay is a payment facility that allows online bank transfers for clients across Southeast Asia.',
                 ),
@@ -104,18 +104,6 @@ const payment_data = [
                 withdrawal_time: localize('1 working day'),
                 description: localize('Deposit and withdraw using your Maestro debit card.'),
                 name: 'maestro',
-            },
-            {
-                method: <Help2Pay />,
-                currencies: 'USD EUR GBP AUD',
-                min_max_deposit: '10 - 50,000',
-                min_max_withdrawal: 'N/A',
-                deposit_time: localize('instant'),
-                withdrawal_time: localize('24-48 hours'),
-                description: localize(
-                    'Help2Pay is a payment facility that allows online bank transfers for clients across Southeast Asia.',
-                ),
-                name: 'Help2Pay',
             },
         ],
     },
@@ -191,7 +179,7 @@ const payment_data = [
                 method: <Qiwi />,
                 currencies: 'USD EUR',
                 min_max_deposit: ['5 - 200 (USD)', '5 - 150 (EUR)'],
-                min_max_withdrawal: ['5 - 200 (USD)', '5 - 150 (EUR)'],
+                min_max_withdrawal: ['5 - 180 (USD)', '5 - 150 (EUR)'],
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('1 working day'),
                 description: localize(
@@ -255,11 +243,11 @@ const payment_data = [
             },
             {
                 method: <DragonPhoenix />,
-                currencies: 'USD EUR GBP AUD',
+                currencies: 'USD',
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: 'N/A',
-                deposit_time: localize('instant'),
-                withdrawal_time: localize('24-48 hours'),
+                deposit_time: localize('Instant'),
+                withdrawal_time: localize('Not applicable'),
                 description: localize(
                     'DragonPhoenix is a payment facility that allows online bank transfers for clients across Southeast Asia.',
                 ),
@@ -270,8 +258,8 @@ const payment_data = [
                 currencies: 'USD EUR GBP AUD',
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: '10 - 10,000',
-                deposit_time: localize('instant'),
-                withdrawal_time: localize('24-48 hours'),
+                deposit_time: localize('Instant'),
+                withdrawal_time: localize('1 to 3 working days'),
                 description: localize(
                     'ZingPay is a payment facility that allows online bank transfers for clients in South Africa.',
                 ),

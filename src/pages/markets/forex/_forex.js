@@ -1,9 +1,12 @@
 import React, { useRef } from 'react'
-import { WhatTrade } from './_what-trade'
-import { WhyTrade } from './_why-trade'
-import { LearnMore } from './_learn-more'
-import OtherMarkets from './_other-markets.js'
-import AvailableTrades from './_available-trades.js'
+import { WhatTrade } from '../_what-trade'
+import { WhyTrade } from '../_why-trade'
+import { LearnMore } from '../_learn-more'
+import OtherMarkets from '../_other-markets.js'
+import AvailableTrades from '../_available-trades.js'
+import Margin from './_margin.js'
+import DigitalOptions from './_digital-options.js'
+import Multipliers from './_multipliers.js'
 import SimpleSteps from 'common/_simple-steps'
 import { localize } from 'components/localization'
 //SVG
@@ -48,7 +51,7 @@ const Forex = () => {
     const learn_more_section = useRef(null)
     return (
         <>
-            <AvailableTrades Margin DigitalOptions Multipliers title='Forex'/>
+            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} Multipliers={Multipliers} title='Forex' />
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What is forex?')}

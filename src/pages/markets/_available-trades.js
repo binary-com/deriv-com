@@ -31,19 +31,19 @@ const CardContainer = styled(Flex)`
     padding: 2.4rem 2.8rem 2.8rem 2.8rem;
     position: absolute;
     border-radius: 15px 15px 0 0;
-    border: 1px solid var(--color-grey-15);
     flex-direction: column;
     justify-content: space-between;
-    background: var(--color-grey-8);
+    background-color: ${props => props.active_tab === props.title ? ('var(--color-white)') : ('var(--color-grey-8)')};
     cursor: pointer;
-    z-index: ${props => props.title === 'Digital options' ? '20' : '10'};
+    box-shadow: 0 0 15px 1px rgba(0,0,0,0.1), 0 1px 0 1px rgba(255,255,255,1), 0 -1px 0 1px rgba(255,255,255,1);
+    z-index: ${props => props.active_tab === props.title ? '30' : props.z_index};
 
     ${Header} {
         color: ${props => props.active_tab === props.title ? ('var(--color-red)') : ('var(--color-black-3)')};
-        opacity: 0.5;
+        opacity: ${props => props.active_tab === props.title ? ('1') : ('0.5')};
     }
     ${Text} {
-        opacity: 0.4;
+        opacity: ${props => props.active_tab === props.title ? ('1') : ('0.4')};
     }
 `
 const IconContainer = styled(Flex)`
@@ -51,7 +51,7 @@ const IconContainer = styled(Flex)`
         margin-right: 1.6rem;
     }
     svg {
-        opacity: 0.5;
+        opacity: ${props => props.active_tab === props.title ? ('1') : ('0.5')};
     }
     svg:last-child {
         margin-right: 0;
@@ -65,7 +65,7 @@ const Card = ({ title, content, active_tab, onTabChange }) => {
         case 'Margin':
             Icons = [DMT5]
             break;
-        case 'Digital options':
+        case 'Options':
             Icons = [DTrader, DBot]
             break;
         case 'Multipliers':
@@ -76,13 +76,13 @@ const Card = ({ title, content, active_tab, onTabChange }) => {
             break;
     }
     return (
-        <CardContainer title={title} active_tab={active_tab} onClick={() => onTabChange(title)}>
+        <CardContainer title={title} active_tab={active_tab} onClick={() => onTabChange(title)} z_index={title === 'Options' ? '20' : '10'}>
             <div>
                 <Header as='h4' align='center'>{title}</Header>
                 <Text align='center'>{content}</Text>
             </div>
             {Icons.length === 0 ? (null) : (
-                <IconContainer ai='center' height='auto'>
+                <IconContainer ai='center' height='auto' title={title} active_tab={active_tab}>
                     <Text>{localize('Available on:')}</Text>
                     {Icons.map((Icon, index) => <Icon key={index} />)}
                 </IconContainer>
@@ -113,8 +113,8 @@ class AvailableTrades extends React.Component {
                         />}
                     {DigitalOptions &&
                         <Card
-                            title='Digital options'
-                            content='Digital options allow you to trade on the future value of an asset without needing to buy the asset. You stand a chance to win a fixed payout, and your potential loss never exceeds the amount you paid to open the position.'
+                            title='Options'
+                            content='Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on Forex.'
                             onTabChange={this.handleTabChange}
                             active_tab={this.state.active_tab}
                         />}
@@ -128,7 +128,7 @@ class AvailableTrades extends React.Component {
                 </CardWrapper>
                 <ContentWrapper>
                     {this.state.active_tab === 'Margin' && <Margin />}
-                    {this.state.active_tab === 'Digital options' && <DigitalOptions />}
+                    {this.state.active_tab === 'Options' && <DigitalOptions />}
                     {this.state.active_tab === 'Multipliers' && <Multipliers />}
                 </ContentWrapper>
             </SectionContainer>

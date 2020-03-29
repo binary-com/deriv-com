@@ -35,7 +35,7 @@ const CardContainer = styled(Flex)`
     justify-content: space-between;
     background-color: ${props => props.active_tab === props.title ? ('var(--color-white)') : ('var(--color-grey-8)')};
     cursor: pointer;
-    box-shadow: 0 0 15px 1px rgba(0,0,0,0.1), 0 1px 0 1px rgba(255,255,255,1), 0 -1px 0 1px rgba(255,255,255,1);
+    box-shadow: -20px 0 20px -20px rgba(0,0,0,0.1), 20px 0 20px -20px rgba(0,0,0,0.1), 0 -15px 20px -20px rgba(0,0,0,0.1);
     z-index: ${props => props.active_tab === props.title ? '30' : props.z_index};
 
     ${Header} {

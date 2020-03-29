@@ -19,6 +19,9 @@ const ContentWrapper = styled.div`
     padding-bottom: 4rem;
     max-width: 99.6rem;
     margin: 0 auto;
+    max-height: 55.2rem;
+    overflow: hidden;
+    overflow-y: scroll;
 `
 const Row = styled(Box)`
     border-radius: 4px;
@@ -143,7 +146,62 @@ const Margin = () => {
                                     </Symbol>
                                 </Col>
                                 <Col>
-                                    <Text>{localize('Minor pairs')}</Text>
+                                    <Symbol ai='center'>
+                                        <AUDCAD />
+                                        <Text>{localize('AUD/CAD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <AUDCHF />
+                                        <Text>{localize('AUD/CHF')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <AUDNZD />
+                                        <Text>{localize('AUD/NZD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <EURZND />
+                                        <Text>{localize('EUR/ZND')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <GBPCAD />
+                                        <Text>{localize('GBP/CAD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <GBPCHF />
+                                        <Text>{localize('GBP/CHF')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <GBPNOK />
+                                        <Text>{localize('GBP/NOK')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <GBPNZD />
+                                        <Text>{localize('GBP/NZD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <NZDJPY />
+                                        <Text>{localize('NZD/JPY')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <NZDUSD />
+                                        <Text>{localize('NZD/USD')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <USDMXN />
+                                        <Text>{localize('USD/MXN')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <USDNOK />
+                                        <Text>{localize('USD/NOK')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <USDPLN />
+                                        <Text>{localize('USD/PLN')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <USDSEK />
+                                        <Text>{localize('USD/SEK')}</Text>
+                                    </Symbol>
                                 </Col>
                                 <Col>
                                     <Text>{localize('SmartFX')}</Text>

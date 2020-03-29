@@ -20,6 +20,10 @@ const StorySection = styled.section`
             margin-bottom: 4rem;
         }
     }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
 `
 const Story = styled.div`
     /* prettier-ignore */
@@ -52,7 +56,8 @@ const YearWrapper = styled.div`
         text-align: left;
         margin-left: 2rem;
         align-items: left;
-        width: 42.9rem;
+        max-width: 42.9rem;
+        width: auto;
     }
 `
 const ContentWrapper = styled.div`
@@ -60,15 +65,16 @@ const ContentWrapper = styled.div`
     padding: 0 0 0 1rem;
 
     @media ${device.tablet} {
-        width: 42.9rem;
+        width: auto;
 
         ${Header} {
             text-align: left;
             margin-bottom: 1rem;
+            max-width: 33rem
         }
         ${Text} {
             font-size: var(--text-size-sm);
-            margin-bottom: 4rem;
+            margin-bottom: 4rem;          
         }
     }
 `

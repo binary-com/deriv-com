@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="33" viewBox="0 0 32 33">
     <defs>
-        <rect id="prefix__a" width="12" height="8" x="0" y="0" rx="1"/>
-        <path id="prefix__c" d="M1 0h4.6v4.284H0V1c0-.552.448-1 1-1z"/>
+        <rect id="usdindexprefix__a" width="12" height="8" x="0" y="0" rx="1"/>
+        <path id="usdindexprefix__c" d="M1 0h4.6v4.284H0V1c0-.552.448-1 1-1z"/>
     </defs>
     <g fill="none" fill-rule="evenodd">
         <g transform="translate(0 1) translate(5 6)">
@@ -28,12 +28,12 @@
             <circle cx="11" cy="4" r="1" fill="#B0B3BF"/>
         </g>
         <g transform="translate(0 1) translate(17 3)">
-            <mask id="prefix__b" fill="#fff">
-                <use xlink:href="#prefix__a"/>
+            <mask id="usdindexprefix__b" fill="#fff">
+                <use xlink:href="#usdindexprefix__a"/>
             </mask>
-            <use fill="#FFF" xlink:href="#prefix__a"/>
-            <path fill="#F44336" d="M12 7.344c0 .362-.294.656-.656.656H.656C.294 8 0 7.706 0 7.344h12zm0-1.224v.612H0V6.12h12zm0-1.224v.612H0v-.612h12zm0-1.224v.612H0v-.612h12zm0-1.224v.612H0v-.612h12zm0-1.224v.612H0v-.612h12zM11.388 0c.304 0 .557.222.604.513L12 .612H.344C.344.274.618 0 .956 0h10.432z" mask="url(#prefix__b)"/>
-            <use fill="#0D47A1" xlink:href="#prefix__c"/>
+            <use fill="#FFF" xlink:href="#usdindexprefix__a"/>
+            <path fill="#F44336" d="M12 7.344c0 .362-.294.656-.656.656H.656C.294 8 0 7.706 0 7.344h12zm0-1.224v.612H0V6.12h12zm0-1.224v.612H0v-.612h12zm0-1.224v.612H0v-.612h12zm0-1.224v.612H0v-.612h12zm0-1.224v.612H0v-.612h12zM11.388 0c.304 0 .557.222.604.513L12 .612H.344C.344.274.618 0 .956 0h10.432z" mask="url(#usdindexprefix__b)"/>
+            <use fill="#0D47A1" xlink:href="#usdindexprefix__c"/>
             <rect width="11.5" height="7.5" x=".25" y=".25" stroke="#000" stroke-opacity=".04" stroke-width=".5" rx="1"/>
         </g>
     </g>

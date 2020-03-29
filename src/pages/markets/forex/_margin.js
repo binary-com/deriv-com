@@ -19,9 +19,6 @@ const ContentWrapper = styled.div`
     padding-bottom: 4rem;
     max-width: 99.6rem;
     margin: 0 auto;
-    max-height: 55.2rem;
-    overflow: hidden;
-    overflow-y: scroll;
 `
 const Row = styled(Box)`
     border-radius: 4px;
@@ -85,7 +82,7 @@ const Margin = () => {
                                 </Col>
                             </CssGrid>
                         </Row>
-                        <Row>
+                        <Row style={{ maxHeight: '55.2rem', overflowY: 'scroll' }} >
                             <CssGrid columns='repeat(4, 1fr)'>
                                 <Col>
                                     <Symbol ai='center'>
@@ -204,7 +201,22 @@ const Margin = () => {
                                     </Symbol>
                                 </Col>
                                 <Col>
-                                    <Text>{localize('SmartFX')}</Text>
+                                    <Symbol ai='center'>
+                                        <AUDINDEX />
+                                        <Text>{localize('AUD Index')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <EURINDEX />
+                                        <Text>{localize('EUR Index')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <GBPINDEX />
+                                        <Text>{localize('GBP Index')}</Text>
+                                    </Symbol>
+                                    <Symbol ai='center'>
+                                        <USDINDEX />
+                                        <Text>{localize('USD Index')}</Text>
+                                    </Symbol>
                                 </Col>
                                 <Col>
                                     <Text>{localize('Exotic pairs')}</Text>

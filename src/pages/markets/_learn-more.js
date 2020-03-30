@@ -36,6 +36,7 @@ export const LearnMore = ({ data, header }) => {
                                 <AccordionItem
                                     key={idx}
                                     header={record.header}
+                                    plus
                                     parent_style={{
                                         marginBottom: '2.4rem',
                                     }}

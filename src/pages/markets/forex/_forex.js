@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import styled from 'styled-components'
 import { WhatTrade } from '../_what-trade'
 import { WhyTrade } from '../_why-trade'
 import { LearnMore } from '../_learn-more'
@@ -9,12 +10,16 @@ import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
 import SimpleSteps from 'common/_simple-steps'
 import { localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 //SVG
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Leverage from 'images/svg/leverage.svg'
+import PractiseIcon from 'images/svg/cross-hair-icon.svg'
+import TradeIcon from 'images/svg/chart-icon.svg'
+import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
 const what_trade_sub_header = [
     {
@@ -31,21 +36,49 @@ const what_trade_sub_header = [
 const learn_more_data = [
     {
         header: localize('Torquatos nostros quos dolores suscipiantur'),
-        text: [localize('test1-1'), localize('test1-2'),],
+        text: [localize('test1-1'), localize('test1-2')],
     },
     {
         header: localize('Alii autem quibus ego'),
-        text: [localize('test2-1'), localize('test2-2'),],
+        text: [localize('test2-1'), localize('test2-2')],
     },
     {
         header: localize('Alii autem, quibus ego assentior, cum a natura?'),
-        text: [localize('test3-1'), localize('test3-2'),],
+        text: [localize('test3-1'), localize('test3-2')],
     },
     {
         header: localize('At vero eos censes tantas'),
-        text: [localize('test4-1'), localize('test4-2'),],
+        text: [localize('test4-1'), localize('test4-2')],
     },
 ]
+const simple_step_content = [
+    {
+        header: localize('Practise'),
+        text: localize(
+            'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
+        ),
+        icon: <PractiseIcon />,
+    },
+    {
+        header: localize('Trade'),
+        text: localize(
+            'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
+        ),
+        icon: <TradeIcon />,
+    },
+    {
+        header: localize('Withdraw'),
+        text: localize(
+            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+        ),
+        icon: <WithdrawIcon />,
+    },
+]
+
+const LinkButtonWrapper = styled.div`
+    margin-top: 6.1rem;   
+    text-align: center;
+`
 
 const Forex = () => {
     const learn_more_section = useRef(null)
@@ -73,12 +106,22 @@ const Forex = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
-            <SimpleSteps />
+            <SimpleSteps
+                header={localize('Start trading forex on Deriv in 3 simple steps')}
+                content={simple_step_content}
+                component={
+                    <LinkButtonWrapper>
+                        <LinkButton to="/signup/" secondary="true">
+                            {localize('Sign up now')}
+                        </LinkButton>
+                    </LinkButtonWrapper>
+                }
+            />
+
             <div ref={learn_more_section}>
                 <LearnMore data={learn_more_data} header={localize('Learn more about forex')} />
             </div>
             <OtherMarkets except='forex' />
-
         </>
     )
 }

@@ -10,6 +10,8 @@ import ContinuousIndices from './continuous-indices.js'
 import Americas from './americas.js'
 import AsiaOceania from './asia-oceania.js'
 import Europe from './europe.js'
+import Metals from './metals.js'
+import Energy from './energy.js'
 
 export {
     MajorPairs,
@@ -24,4 +26,6 @@ export {
     Americas,
     AsiaOceania,
     Europe,
+    Metals,
+    Energy,
 }

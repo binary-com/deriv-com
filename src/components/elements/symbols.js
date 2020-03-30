@@ -78,6 +78,11 @@ import OTCSWISS from 'images/svg/symbols/otcswiss.svg'
 import OTCGERMAN from 'images/svg/symbols/otcgerman.svg'
 import OTCFRENCH from 'images/svg/symbols/otcfrench.svg'
 import OTCDUTCH from 'images/svg/symbols/otcdutch.svg'
+import GOLDUSD from 'images/svg/symbols/gold-usd.svg'
+import PALLADIUMUSD from 'images/svg/symbols/palladium-usd.svg'
+import PLATINUMUSD from 'images/svg/symbols/platinum-usd.svg'
+import SILVERUSD from 'images/svg/symbols/silver-usd.svg'
+import OILUSD from 'images/svg/symbols/oil-usd.svg'
 
 export {
     AUDCAD,
@@ -160,4 +165,9 @@ export {
     OTCGERMAN,
     OTCFRENCH,
     OTCDUTCH,
+    GOLDUSD,
+    PALLADIUMUSD,
+    PLATINUMUSD,
+    SILVERUSD,
+    OILUSD,
 }

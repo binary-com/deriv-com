@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import { VolatilityIndices, DailyResetIndices, CrashBoom, StepIndices } from '../sub-markets'
+import { Energy, Metals } from '../sub-markets'
 import { Accordion, AccordionItem, Text } from 'components/elements'
 import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'
@@ -97,35 +97,23 @@ const Margin = () => {
                 >
                     <ContentWrapper>
                         <Row>
-                            <CssGrid columns="repeat(4, 1fr)">
+                            <CssGrid columns="repeat(2, 1fr)">
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Volatility indices')}</Text>
+                                    <Text weight="bold">{localize('Metals')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Daily reset indices')}</Text>
-                                </Col>
-                                <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Crash boom')}</Text>
-                                </Col>
-                                <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Step indices')}</Text>
+                                    <Text weight="bold">{localize('Energy')}</Text>
                                 </Col>
                             </CssGrid>
                         </Row>
                         <Row>
-                            <Scrollbar style={{ maxHeight: '47.6rem' }}>
-                                <CssGrid columns="repeat(4, 1fr)">
+                            <Scrollbar style={{ maxHeight: '19.2rem' }}>
+                                <CssGrid columns="repeat(2, 1fr)">
                                     <Col>
-                                        <VolatilityIndices />
+                                        <Metals />
                                     </Col>
                                     <Col>
-                                        <DailyResetIndices />
-                                    </Col>
-                                    <Col>
-                                        <CrashBoom />
-                                    </Col>
-                                    <Col>
-                                        <StepIndices />
+                                        <Energy />
                                     </Col>
                                 </CssGrid>
                             </Scrollbar>

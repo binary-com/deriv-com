@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import { ContinuousIndices, DailyResetIndices } from '../sub-markets'
+import { Energy, Metals } from '../sub-markets'
 import { Accordion, AccordionItem, Text } from 'components/elements'
 import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'
@@ -38,7 +38,6 @@ const Col = styled(Box)`
         text-align: center;
     }
 `
-
 const DigitalOptions = () => {
     return (
         <SectionContainer padding="0">
@@ -57,7 +56,7 @@ const DigitalOptions = () => {
                 </AccordionItem>
                 <AccordionItem
                     header_style={header_style}
-                    header={localize('Option trades available on Synthetic Indices')}
+                    header={localize('How does margin trading work?')}
                 >
                     <ContentWrapper>
                         <Text>
@@ -100,21 +99,21 @@ const DigitalOptions = () => {
                         <Row>
                             <CssGrid columns="repeat(2, 1fr)">
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Continuous indices')}</Text>
+                                    <Text weight="bold">{localize('Metals')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Daily reset indices')}</Text>
+                                    <Text weight="bold">{localize('Energy')}</Text>
                                 </Col>
                             </CssGrid>
                         </Row>
                         <Row>
-                            <Scrollbar style={{ maxHeight: '55.2rem' }}>
+                            <Scrollbar style={{ maxHeight: '19.2rem' }}>
                                 <CssGrid columns="repeat(2, 1fr)">
                                     <Col>
-                                        <ContinuousIndices />
+                                        <Metals />
                                     </Col>
                                     <Col>
-                                        <DailyResetIndices />
+                                        <Energy />
                                     </Col>
                                 </CssGrid>
                             </Scrollbar>

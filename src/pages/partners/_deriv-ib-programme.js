@@ -17,9 +17,9 @@ const TitleWrapper = styled.div`
 `
 
 const StyledSection = styled(SectionContainer)`
-    box-shadow: ${props => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
+    box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
     padding-bottom: 0;
-    text-align: ${props => props.align || 'left'};
+    text-align: ${(props) => props.align || 'left'};
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -96,7 +96,7 @@ const DerivIBProgramme = () => {
                         {localize('Earn commission from your clients’ trades on DMT5.')}
                     </Header>
                 </TitleWrapper>
-                <SectionContainer padding="8rem 0 9.6rem 0">
+                <SectionContainer padding="4rem 0 9.6rem 0">
                     <StyledHeaderCommission as="h4" mb="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
@@ -124,11 +124,11 @@ const StyledChevron = styled(Chevron)`
     margin-top: 0.8rem;
     height: 16px;
     cursor: pointer;
-    transform: ${props => (props.is_expand ? 'rotate(-180deg)' : 'inherit ')};
+    transform: ${(props) => (props.is_expand ? 'rotate(-180deg)' : 'inherit ')};
 `
 
 const StyledTR = styled(TR)`
-    display: ${props => (props.hidden ? 'hidden' : 'block')};
+    display: ${(props) => (props.hidden ? 'hidden' : 'block')};
 `
 
 const DMT5Synthetic = ({ data }) => {

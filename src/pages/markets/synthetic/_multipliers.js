@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import { MajorPairs, MinorPairs, SmartFX } from '../sub-markets'
+import { ContinuousIndices, DailyResetIndices } from '../sub-markets'
 import { Accordion, AccordionItem, Text } from 'components/elements'
 import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'
@@ -97,29 +97,23 @@ const Multipliers = () => {
                 >
                     <ContentWrapper>
                         <Row>
-                            <CssGrid columns="repeat(3, 1fr)">
+                            <CssGrid columns="repeat(2, 1fr)">
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Major pairs')}</Text>
+                                    <Text weight="bold">{localize('Continuous indices')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Minor pairs')}</Text>
-                                </Col>
-                                <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('SmartFX')}</Text>
+                                    <Text weight="bold">{localize('Daily reset indices')}</Text>
                                 </Col>
                             </CssGrid>
                         </Row>
                         <Row>
                             <Scrollbar style={{ maxHeight: '55.2rem' }}>
-                                <CssGrid columns="repeat(3, 1fr)">
+                                <CssGrid columns="repeat(2, 1fr)">
                                     <Col>
-                                        <MajorPairs />
+                                        <ContinuousIndices />
                                     </Col>
                                     <Col>
-                                        <MinorPairs />
-                                    </Col>
-                                    <Col>
-                                        <SmartFX />
+                                        <DailyResetIndices />
                                     </Col>
                                 </CssGrid>
                             </Scrollbar>

@@ -1,45 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
+import { MajorPairs, MinorPairs, SmartFX } from '../sub-markets'
 import { Accordion, AccordionItem, Text } from 'components/elements'
-import { SectionContainer, CssGrid, Box, Flex } from 'components/containers'
+import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'
 import 'react-perfect-scrollbar/dist/css/styles.css'
-//Symbols
-import {
-    AUDCAD,
-    AUDCHF,
-    AUDINDEX,
-    AUDJPY,
-    AUDNZD,
-    AUDUSD,
-    EURAUD,
-    EURCAD,
-    EURCHF,
-    EURGBP,
-    EURINDEX,
-    EURJPY,
-    EURUSD,
-    EURZND,
-    GBPAUD,
-    GBPCAD,
-    GBPCHF,
-    GBPINDEX,
-    GBPJPY,
-    GBPNOK,
-    GBPNZD,
-    GBPUSD,
-    NZDJPY,
-    NZDUSD,
-    USDCAD,
-    USDCHF,
-    USDINDEX,
-    USDJPY,
-    USDMXN,
-    USDNOK,
-    USDPLN,
-    USDSEK,
-} from 'components/elements/symbols.js'
 
 const header_style = {
     padding: '2.4rem 10.2rem',
@@ -70,18 +36,9 @@ const Col = styled(Box)`
 
     ${Text} {
         text-align: center;
-        font-weight: bold;
     }
 `
-const Symbol = styled(Flex)`
-    padding: 0.8rem 0;
-    height: unset;
 
-    ${Text} {
-        font-weight: normal;
-        margin-left: 1.6rem;
-    }
-`
 const DigitalOptions = () => {
     return (
         <SectionContainer padding="0">
@@ -143,13 +100,13 @@ const DigitalOptions = () => {
                         <Row>
                             <CssGrid columns="repeat(3, 1fr)">
                                 <Col p="2.4rem 0">
-                                    <Text>{localize('Major pairs')}</Text>
+                                    <Text weight="bold">{localize('Major pairs')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text>{localize('Minor pairs')}</Text>
+                                    <Text weight="bold">{localize('Minor pairs')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text>{localize('SmartFX')}</Text>
+                                    <Text weight="bold">{localize('SmartFX')}</Text>
                                 </Col>
                             </CssGrid>
                         </Row>
@@ -157,138 +114,13 @@ const DigitalOptions = () => {
                             <Scrollbar style={{ maxHeight: '55.2rem' }}>
                                 <CssGrid columns="repeat(3, 1fr)">
                                     <Col>
-                                        <Symbol ai="center">
-                                            <AUDJPY />
-                                            <Text>{localize('AUD/JPY')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <AUDUSD />
-                                            <Text>{localize('AUD/USD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <EURAUD />
-                                            <Text>{localize('EUR/AUD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <EURCAD />
-                                            <Text>{localize('EUR/CAD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <EURCHF />
-                                            <Text>{localize('EUR/CHF')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <EURGBP />
-                                            <Text>{localize('EUR/GBP')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <EURJPY />
-                                            <Text>{localize('EUR/JPY')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <EURUSD />
-                                            <Text>{localize('EUR/USD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <GBPAUD />
-                                            <Text>{localize('GBP/AUD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <GBPJPY />
-                                            <Text>{localize('GBP/JPY')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <GBPUSD />
-                                            <Text>{localize('GBP/USD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <USDCAD />
-                                            <Text>{localize('USD/CAD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <USDCHF />
-                                            <Text>{localize('USD/CHF')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <USDJPY />
-                                            <Text>{localize('USD/JPY')}</Text>
-                                        </Symbol>
+                                        <MajorPairs />
                                     </Col>
                                     <Col>
-                                        <Symbol ai="center">
-                                            <AUDCAD />
-                                            <Text>{localize('AUD/CAD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <AUDCHF />
-                                            <Text>{localize('AUD/CHF')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <AUDNZD />
-                                            <Text>{localize('AUD/NZD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <EURZND />
-                                            <Text>{localize('EUR/ZND')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <GBPCAD />
-                                            <Text>{localize('GBP/CAD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <GBPCHF />
-                                            <Text>{localize('GBP/CHF')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <GBPNOK />
-                                            <Text>{localize('GBP/NOK')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <GBPNZD />
-                                            <Text>{localize('GBP/NZD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <NZDJPY />
-                                            <Text>{localize('NZD/JPY')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <NZDUSD />
-                                            <Text>{localize('NZD/USD')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <USDMXN />
-                                            <Text>{localize('USD/MXN')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <USDNOK />
-                                            <Text>{localize('USD/NOK')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <USDPLN />
-                                            <Text>{localize('USD/PLN')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <USDSEK />
-                                            <Text>{localize('USD/SEK')}</Text>
-                                        </Symbol>
+                                        <MinorPairs />
                                     </Col>
                                     <Col>
-                                        <Symbol ai="center">
-                                            <AUDINDEX />
-                                            <Text>{localize('AUD Index')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <EURINDEX />
-                                            <Text>{localize('EUR Index')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <GBPINDEX />
-                                            <Text>{localize('GBP Index')}</Text>
-                                        </Symbol>
-                                        <Symbol ai="center">
-                                            <USDINDEX />
-                                            <Text>{localize('USD Index')}</Text>
-                                        </Symbol>
+                                        <SmartFX />
                                     </Col>
                                 </CssGrid>
                             </Scrollbar>

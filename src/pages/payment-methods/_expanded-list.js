@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import ReactTooltip from 'react-tooltip'
 import { Button } from 'components/form/'
 import Chevron from 'images/svg/chevron-thick.svg'
 import { Text } from 'components/elements'
@@ -28,6 +29,24 @@ const Tr = styled.tr`
 const Td = styled.td`
     vertical-align: middle;
     padding: 0 2rem;
+    position: relative;
+
+    & .tooltip {
+        padding: 0.8rem;
+        border-radius: 4px;
+        font-weight: normal;
+        color: var(--color-black-3);
+        background: var(--color-grey-7);
+    }
+`
+
+const HoverTd = styled(Td)`
+    transition: background 0.25s;
+    cursor: pointer;
+
+    &:hover {
+        background: var(--color-grey-8);
+    }
 `
 
 const Description = styled.div`
@@ -55,7 +74,12 @@ const StyledText = styled(Text)`
         `}
 `
 
-const ExpandList = ({ data }) => {
+const HoverText = styled(Text)`
+    width: fit-content;
+    cursor: pointer;
+`
+
+const ExpandList = ({ data, is_crypto }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
     const toggleExpand = () => {
@@ -63,7 +87,7 @@ const ExpandList = ({ data }) => {
     }
     return (
         <>
-            <Tr onClick={toggleExpand}>
+            <Tr>
                 <Td>{data.method}</Td>
                 <Td>
                     <Text>{data.currencies}</Text>
@@ -76,11 +100,29 @@ const ExpandList = ({ data }) => {
                     )}
                 </Td>
                 <Td>
-                    {Array.isArray(data.min_max_withdrawal) ? (
-                        data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
-                    ) : (
-                        <Text>{data.min_max_withdrawal}</Text>
-                    )}
+                    <>
+                        {Array.isArray(data.min_max_withdrawal) ? (
+                            data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
+                        ) : (
+                            <>
+                                {is_crypto ? (
+                                    <HoverText data-tip={data.tooltip} data-for={data.name}>
+                                        {data.min_max_withdrawal}
+                                    </HoverText>
+                                ) : (
+                                    <Text>{data.min_max_withdrawal}</Text>
+                                )}
+                                {data.tooltip && (
+                                    <ReactTooltip
+                                        className="tooltip"
+                                        id={data.name}
+                                        effect="solid"
+                                        arrowColor="var(--color-grey-7)"
+                                    />
+                                )}
+                            </>
+                        )}
+                    </>
                 </Td>
                 <Td>
                     <Text>{data.deposit_time}</Text>
@@ -88,9 +130,9 @@ const ExpandList = ({ data }) => {
                 <Td>
                     <Text>{data.withdrawal_time}</Text>
                 </Td>
-                <Td>
+                <HoverTd onClick={toggleExpand}>
                     <StyledChevron expanded={is_expanded} />
-                </Td>
+                </HoverTd>
             </Tr>
             <tr>
                 <ExpandedContent colSpan="7">
@@ -110,6 +152,7 @@ const ExpandList = ({ data }) => {
 
 ExpandList.propTypes = {
     data: PropTypes.object,
+    is_crypto: PropTypes.bool,
 }
 
 export default ExpandList

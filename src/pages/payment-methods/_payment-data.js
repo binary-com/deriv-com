@@ -259,6 +259,7 @@ const payment_data = [
         note: localize(
             'The minimum amount for withdrawal will vary depending on the latest exchange rates.',
         ),
+        note_2: localize('*Figures have been rounded'),
         data: [
             {
                 method: <Bitcoin />,

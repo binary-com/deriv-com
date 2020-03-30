@@ -76,11 +76,7 @@ export const Affiliates = () => {
                     {localize('Public relations')}
                 </StyledHeader>
                 <StyledText>{localize('For media enquiries')}</StyledText>
-                <StyledLinkText
-                    weight="bold"
-                    color="red"
-                    href="mailto:pr@deriv.com"
-                >
+                <StyledLinkText weight="bold" color="red" href="mailto:pr@deriv.com">
                     {localize('pr@deriv.com')}
                 </StyledLinkText>
             </Content>
@@ -91,11 +87,7 @@ export const Affiliates = () => {
                 <StyledText>
                     {localize('For enquiries about our affiliate and IB programmes')}
                 </StyledText>
-                <StyledLinkText
-                    weight="bold"
-                    color="red"
-                    href="mailto:affiliates@deriv.com"
-                >
+                <StyledLinkText weight="bold" color="red" href="mailto:affiliates@deriv.com">
                     {localize('affiliates@deriv.com')}
                 </StyledLinkText>
             </Content>
@@ -104,11 +96,7 @@ export const Affiliates = () => {
                     {localize('Business development')}
                 </StyledHeader>
                 <StyledText>{localize('For collaboration opportunities')}</StyledText>
-                <StyledLinkText
-                    weight="bold"
-                    color="red"
-                    href="mailto:marketing@deriv.com"
-                >
+                <StyledLinkText weight="bold" color="red" href="mailto:marketing@deriv.com">
                     {localize('marketing@deriv.com')}
                 </StyledLinkText>
             </Content>

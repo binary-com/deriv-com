@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import OtherMarkets from '../_other-markets.js'
 import { WhatTrade } from '../_what-trade'
 import { WhyTrade } from '../_why-trade'
+import AvailableTrades from '../_available-trades.js'
+import Margin from './_margin.js'
+import DigitalOptions from './_digital-options.js'
 import SimpleSteps from 'common/_simple-steps'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
@@ -51,13 +54,14 @@ const simple_step_content = [
     },
 ]
 const LinkButtonWrapper = styled.div`
-    margin-top: 6.1rem;   
+    margin-top: 6.1rem;
     text-align: center;
 `
 const Commodities = () => {
     const learn_more_section = useRef(null)
     return (
         <div>
+            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Commodity" />
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What are commodities?')}

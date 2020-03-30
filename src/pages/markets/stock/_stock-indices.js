@@ -62,7 +62,7 @@ const StockIndices = () => {
 
     return (
         <div>
-            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} title="Stock" />
+            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Stock indices" />
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What are stock indices?')}

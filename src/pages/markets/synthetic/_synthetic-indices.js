@@ -68,7 +68,7 @@ const StockIndices = () => {
                 Margin={Margin}
                 DigitalOptions={DigitalOptions}
                 Multipliers={Multipliers}
-                title="Synthetic Indices"
+                name="Synthetic Indices"
             />
             <WhatTrade
                 sub_header={what_trade_sub_header}

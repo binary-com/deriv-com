@@ -56,7 +56,7 @@ const payment_data = [
             {
                 method: <Help2Pay />,
                 currencies: 'USD',
-                min_max_deposit: '10 - 50,000',
+                min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: 'N/A',
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('Not applicable'),

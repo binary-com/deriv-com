@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import OtherMarkets from '../_other-markets.js'
 import { WhatTrade } from '../_what-trade'
 import { WhyTrade } from '../_why-trade'
+import AvailableTrades from '../_available-trades.js'
+import Margin from './_margin.js'
+import DigitalOptions from './_digital-options.js'
 import SimpleSteps from 'common/_simple-steps'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
@@ -51,7 +54,7 @@ const simple_step_content = [
     },
 ]
 const LinkButtonWrapper = styled.div`
-    margin-top: 6.1rem;   
+    margin-top: 6.1rem;
     text-align: center;
 `
 const StockIndices = () => {
@@ -59,6 +62,7 @@ const StockIndices = () => {
 
     return (
         <div>
+            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} title="Stock" />
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What are stock indices?')}

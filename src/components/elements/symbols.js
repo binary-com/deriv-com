@@ -67,6 +67,9 @@ import BOOM1000 from 'images/svg/symbols/boom-indices-1000.svg'
 import CRASH500 from 'images/svg/symbols/crash-indices-500.svg'
 import CRASH1000 from 'images/svg/symbols/crash-indices-1000.svg'
 import STEPINDICES from 'images/svg/symbols/step-indices.svg'
+import OTCUS from 'images/svg/symbols/otcus.svg'
+import OTCUSTECH from 'images/svg/symbols/otcustech.svg'
+import OTCWALLSTREET from 'images/svg/symbols/otcwallstreet.svg'
 
 export {
     AUDCAD,
@@ -138,4 +141,7 @@ export {
     CRASH500,
     CRASH1000,
     STEPINDICES,
+    OTCUS,
+    OTCUSTECH,
+    OTCWALLSTREET,
 }

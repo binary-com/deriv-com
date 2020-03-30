@@ -9,6 +9,7 @@ import StepIndices from './step-indices.js'
 import ContinuousIndices from './continuous-indices.js'
 import Americas from './americas.js'
 import AsiaOceania from './asia-oceania.js'
+import Europe from './europe.js'
 
 export {
     MajorPairs,
@@ -22,4 +23,5 @@ export {
     ContinuousIndices,
     Americas,
     AsiaOceania,
+    Europe,
 }

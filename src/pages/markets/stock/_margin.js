@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import { Americas, AsiaOceania } from '../sub-markets'
+import { Americas, AsiaOceania, Europe } from '../sub-markets'
 import { Accordion, AccordionItem, Text } from 'components/elements'
 import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'
@@ -102,10 +102,10 @@ const Margin = () => {
                                     <Text weight="bold">{localize('Americas')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Daily reset indices')}</Text>
+                                    <Text weight="bold">{localize('Asia/Oceania')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Crash boom')}</Text>
+                                    <Text weight="bold">{localize('Europe')}</Text>
                                 </Col>
                             </CssGrid>
                         </Row>
@@ -117,6 +117,9 @@ const Margin = () => {
                                     </Col>
                                     <Col>
                                         <AsiaOceania />
+                                    </Col>
+                                    <Col>
+                                        <Europe />
                                     </Col>
                                 </CssGrid>
                             </Scrollbar>

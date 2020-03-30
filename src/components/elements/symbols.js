@@ -73,6 +73,11 @@ import OTCWALLSTREET from 'images/svg/symbols/otcwallstreet.svg'
 import OTCAUSTRALIAN from 'images/svg/symbols/otcaustralian.svg'
 import OTCHONGKONG from 'images/svg/symbols/otchongkong.svg'
 import OTCJAPANESE from 'images/svg/symbols/otcjapanese.svg'
+import OTCUK from 'images/svg/symbols/otcuk.svg'
+import OTCSWISS from 'images/svg/symbols/otcswiss.svg'
+import OTCGERMAN from 'images/svg/symbols/otcgerman.svg'
+import OTCFRENCH from 'images/svg/symbols/otcfrench.svg'
+import OTCDUTCH from 'images/svg/symbols/otcdutch.svg'
 
 export {
     AUDCAD,
@@ -150,4 +155,9 @@ export {
     OTCAUSTRALIAN,
     OTCHONGKONG,
     OTCJAPANESE,
+    OTCUK,
+    OTCSWISS,
+    OTCGERMAN,
+    OTCFRENCH,
+    OTCDUTCH,
 }

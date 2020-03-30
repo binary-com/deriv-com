@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import { VolatilityIndices, DailyResetIndices, CrashBoom, ExoticPairs } from '../sub-markets'
+import { VolatilityIndices, DailyResetIndices, CrashBoom, StepIndices } from '../sub-markets'
 import { Accordion, AccordionItem, Text } from 'components/elements'
 import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'
@@ -108,7 +108,7 @@ const Margin = () => {
                                     <Text weight="bold">{localize('Crash boom')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Exotic pairs')}</Text>
+                                    <Text weight="bold">{localize('Step indices')}</Text>
                                 </Col>
                             </CssGrid>
                         </Row>
@@ -125,7 +125,7 @@ const Margin = () => {
                                         <CrashBoom />
                                     </Col>
                                     <Col>
-                                        <ExoticPairs />
+                                        <StepIndices />
                                     </Col>
                                 </CssGrid>
                             </Scrollbar>

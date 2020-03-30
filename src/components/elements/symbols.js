@@ -66,6 +66,7 @@ import BOOM500 from 'images/svg/symbols/boom-indices-500.svg'
 import BOOM1000 from 'images/svg/symbols/boom-indices-1000.svg'
 import CRASH500 from 'images/svg/symbols/crash-indices-500.svg'
 import CRASH1000 from 'images/svg/symbols/crash-indices-1000.svg'
+import STEPINDICES from 'images/svg/symbols/step-indices.svg'
 
 export {
     AUDCAD,
@@ -136,4 +137,5 @@ export {
     BOOM1000,
     CRASH500,
     CRASH1000,
+    STEPINDICES,
 }

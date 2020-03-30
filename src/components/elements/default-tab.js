@@ -106,8 +106,8 @@ const Tabs = ({ children, tab_break }) => {
             </TabList>
 
             <Content>
-                {React.Children.map(children, (comp, index) =>
-                    selected_tab === index ? comp : undefined,
+                {React.Children.map(children, (el, index) =>
+                    selected_tab === index ? el : undefined,
                 )}
             </Content>
         </Flex>

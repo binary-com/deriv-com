@@ -119,6 +119,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
                             overflow: 'hidden',
                             transition: `height ${TRANSITION_DURATION}ms ease`,
                             height,
+                            ...child.props.content_style,
                         }}
                     >
                         {child}
@@ -195,6 +196,7 @@ const AccordionContent = ({ children, nodes }) => {
                             /* prettier-ignore */
                             transition: `height ${TRANSITION_DURATION}ms ease`,
                             height: height,
+                            ...child.props.content_style,
                         }}
                     >
                         {child}

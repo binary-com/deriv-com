@@ -62,7 +62,7 @@ const Card = ({ img_data, to, display_team_name, tagline, position_count }) => (
             <Text size="var(--text-size-xs)">{`${position_count} ${
                 position_count === 1 ? 'position' : 'positions'
             }`}</Text>
-            <Header as="h4" font_size="var(--text-size-sm)" margin="1.6rem 0">
+            <Header as="h4" size="var(--text-size-sm)" m="1.6rem 0">
                 {display_team_name}
             </Header>
             <Text>{tagline}</Text>

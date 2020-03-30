@@ -7,6 +7,10 @@ import { Text, Header } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
+export const Li = styled(Text).attrs({
+    as: 'li',
+})``
+
 export const Ul = styled.ul`
     list-style: unset;
     color: var(--color-white);
@@ -17,7 +21,7 @@ export const Ul = styled.ul`
     > *:not(:last-child) {
         padding-bottom: 0.8rem;
     }
-    li {
+    ${Li} {
         @media ${device.tabletL} {
             font-size: var(--text-size-sm);
             font-weight: 300;
@@ -30,14 +34,7 @@ export const Ol = styled(Ul).attrs({
     list-style-type: decimal;
 `
 
-export const Li = styled(Text).attrs({
-    as: 'li',
-})``
-
 const ErrorHeader = styled(Header)`
-    font-size: var(--text-size-sm);
-    padding-bottom: 0.8rem;
-
     @media ${device.tabletL} {
         font-weight: normal;
     }
@@ -64,7 +61,7 @@ const ListNoBullets = styled.ul`
     margin-bottom: 4.2rem;
     list-style: none;
 
-    li {
+    ${Li} {
         max-width: 38.4rem;
     }
     > *:not(:last-child) {
@@ -106,7 +103,7 @@ SearchSuccess.propTypes = {
 
 export const SearchError = ({ search }) => (
     <>
-        <ErrorHeader as="h5" color="black">
+        <ErrorHeader as="h5" color="black" size="var(--text-size-sm)" mb="0.8rem">
             {localize("Sorry, we couldn’t find any results matching '{{search}}'.", { search })}
         </ErrorHeader>
         <SearchText color="green">{localize('Search tips:')}</SearchText>

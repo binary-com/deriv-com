@@ -1,16 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 import { IconGrid } from './_icon-grid'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
+import { Text } from 'components/elements'
 import { GridContainer, SectionContainer, SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-
-const SectionHeader = styled.p`
-    font-size: 2rem;
-    color: var(--color-black-2);
-    text-align: left;
-`
 
 const CheckEmail = () => {
     return (
@@ -25,11 +19,11 @@ const CheckEmail = () => {
             />
             <SectionContainer>
                 <GridContainer align="center">
-                    <SectionHeader>
+                    <Text size="var(--text-size-sm)" color="var(--color-black-2)" align="left">
                         {localize(
                             "If you don't see an email from us within a few minutes, a few things could have happened:",
                         )}
-                    </SectionHeader>
+                    </Text>
                     <IconGrid />
                     <LinkButton secondary="true" to="/signup/">
                         {localize('Re-enter your email and try again')}

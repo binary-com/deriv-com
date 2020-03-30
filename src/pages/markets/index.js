@@ -49,18 +49,18 @@ const Markets = () => {
                 <Item onClick={() => setTab('forex')} active_tab={active_tab} name="forex">
                     <Header as="h4">{localize('Forex')}</Header>
                 </Item>
+                <Item onClick={() => setTab('synthetic')} active_tab={active_tab} name="synthetic">
+                    <Header as="h4">{localize('Synthetic Indices')}</Header>
+                </Item>
+                <Item onClick={() => setTab('stock')} active_tab={active_tab} name="stock">
+                    <Header as="h4">{localize('Stock indices')}</Header>
+                </Item>
                 <Item
                     onClick={() => setTab('commodities')}
                     active_tab={active_tab}
                     name="commodities"
                 >
                     <Header as="h4">{localize('Commodities')}</Header>
-                </Item>
-                <Item onClick={() => setTab('stock')} active_tab={active_tab} name="stock">
-                    <Header as="h4">{localize('Stock indices')}</Header>
-                </Item>
-                <Item onClick={() => setTab('synthetic')} active_tab={active_tab} name="synthetic">
-                    <Header as="h4">{localize('Synthetic Indices')}</Header>
                 </Item>
             </Flex>
             <TabWrapper>

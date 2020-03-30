@@ -11,9 +11,6 @@ import {
     INDEX100,
     INDEX10S1,
     INDEX100S1,
-    HFVOL10,
-    HFVOL50,
-    HFVOL100,
 } from 'components/elements/symbols.js'
 
 const Symbol = styled(Flex)`
@@ -33,21 +30,9 @@ const Symbol = styled(Flex)`
     }
 `
 
-const VolatilityIndices = () => {
+const ContinuousIndices = () => {
     return (
         <>
-            <Symbol ai="center">
-                <HFVOL10 />
-                <Text>{localize('HF Volatility 10 Index')}</Text>
-            </Symbol>
-            <Symbol ai="center">
-                <HFVOL50 />
-                <Text>{localize('HF Volatility 50 Index')}</Text>
-            </Symbol>
-            <Symbol ai="center">
-                <HFVOL100 />
-                <Text>{localize('HF Volatility 100 Index')}</Text>
-            </Symbol>
             <Symbol ai="center">
                 <INDEX10S1 />
                 <Text>{localize('Volatility 10 (1s) Index')}</Text>
@@ -80,4 +65,4 @@ const VolatilityIndices = () => {
     )
 }
 
-export default VolatilityIndices
+export default ContinuousIndices

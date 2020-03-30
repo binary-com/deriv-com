@@ -6,9 +6,11 @@ import { Flex } from 'components/containers'
 import { BOOM500, BOOM1000, CRASH500, CRASH1000 } from 'components/elements/symbols.js'
 
 const Symbol = styled(Flex)`
-    padding: 0.8rem 0 0.8rem 3.5rem;
+    padding: 0.8rem 0;
     height: unset;
     justify-content: flex-start;
+    width: 17.8rem;
+    margin: 0 auto;
 
     svg {
         width: 32px;

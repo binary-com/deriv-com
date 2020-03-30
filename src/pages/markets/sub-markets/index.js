@@ -6,6 +6,7 @@ import VolatilityIndices from './volatility-indices.js'
 import DailyResetIndices from './daily-reset-indices.js'
 import CrashBoom from './crash-boom.js'
 import StepIndices from './step-indices.js'
+import ContinuousIndices from './continuous-indices.js'
 
 export {
     MajorPairs,
@@ -16,4 +17,5 @@ export {
     DailyResetIndices,
     CrashBoom,
     StepIndices,
+    ContinuousIndices,
 }

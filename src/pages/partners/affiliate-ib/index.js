@@ -58,7 +58,7 @@ const Partners = () => {
     return (
         <Layout type="partners" padding_top="10rem">
             <SEO
-                title={localize('Affiliate & IBs')}
+                title={localize('Affiliates & IBs')}
                 description={localize('Partner with a trusted online trading provider')}
             />
             <Hero>

@@ -29,7 +29,7 @@ const DerivNumbers = () => {
     return (
         <Container direction="column">
             <Header as="h2" align="center" mb="4rem">
-                Why choose us?
+                Deriv in numbers
             </Header>
             <Wrapper mb="8rem">
                 <Card direction="column">

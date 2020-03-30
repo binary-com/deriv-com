@@ -89,7 +89,7 @@ const NavRight = styled.div`
     overflow: hidden;
     padding: 0;
     justify-content: center;
-    transition: ${props => {
+    transition: ${(props) => {
         if (props.move) {
             return 'all 0.25s'
         } else {
@@ -100,7 +100,7 @@ const NavRight = styled.div`
         }
     }};
     transform: translateX(
-        ${props => {
+        ${(props) => {
             if (props.move) {
                 return 0
             } else {
@@ -126,7 +126,7 @@ const NavLink = styled.li`
         margin-right: 0;
     }
 
-    ${props => {
+    ${(props) => {
         if (props.margin) return 'margin: 0 4rem;'
     }}
 `
@@ -425,7 +425,7 @@ const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
 
     @media ${device.tabletL} {
-        justify-content: ${props => (props.no_login_signup ? 'flex-start' : 'space-between')};
+        justify-content: ${(props) => (props.no_login_signup ? 'flex-start' : 'space-between')};
     }
 
     ${LogoLinkMobile} {
@@ -492,9 +492,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <StyledLink
                                     activeClassName="active"
                                     to="/partners/affiliate-ib/"
-                                    aria-label={localize('Affiliate & IBs')}
+                                    aria-label={localize('Affiliates & IBs')}
                                 >
-                                    {localize('Affiliate & IBs')}
+                                    {localize('Affiliates & IBs')}
                                 </StyledLink>
                             </NavLink>
                             <NavLink>

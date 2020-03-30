@@ -56,8 +56,8 @@ const WhyChooseUs = () => {
                             Diverse opportunities
                         </Header>
                         <Text>
-                            All Deriv partnership programmes are free to join. There are absolutely
-                            no charges or hidden fees to worry about.
+                            We have a range of partnership opportunities that you can benefit from,
+                            regardless of your skill set or background.
                         </Text>
                     </Card>
                     <Card direction="column">

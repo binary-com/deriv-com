@@ -148,6 +148,7 @@ jobs:
       - image: circleci/node:lts-stretch
         environment:
           - GATSBY_CPU_COUNT=2
+          - GATSBY_MAP_API_KEY=${GATSBY_MAP_API_KEY}
     steps:
       - git_checkout_from_cache
       - npm_install_from_cache
@@ -185,7 +186,8 @@ workflows:
               ignore: /.*/
             tags:
               only: /^staging.*/
-          context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
+          #context: binary-frontend-artifact-upload  # using context to retrieve shared secret from circle ci
+          context: binary-frontend-deploy
       - deploy_staging:
           filters:
             branches:

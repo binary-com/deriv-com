@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import { VolatilityIndices, MinorPairs, SmartFX, ExoticPairs } from '../sub-markets'
+import { VolatilityIndices, DailyResetIndices, SmartFX, ExoticPairs } from '../sub-markets'
 import { Accordion, AccordionItem, Text } from 'components/elements'
 import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'
@@ -99,10 +99,10 @@ const Margin = () => {
                         <Row>
                             <CssGrid columns="repeat(4, 1fr)">
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Major pairs')}</Text>
+                                    <Text weight="bold">{localize('Volatility indices')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Minor pairs')}</Text>
+                                    <Text weight="bold">{localize('Daily reset indices')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
                                     <Text weight="bold">{localize('SmartFX')}</Text>
@@ -119,7 +119,7 @@ const Margin = () => {
                                         <VolatilityIndices />
                                     </Col>
                                     <Col>
-                                        <MinorPairs />
+                                        <DailyResetIndices />
                                     </Col>
                                     <Col>
                                         <SmartFX />

@@ -36,7 +36,6 @@ const Col = styled(Box)`
 
     ${Text} {
         text-align: center;
-        font-weight: bold;
     }
 `
 const Margin = () => {
@@ -100,16 +99,16 @@ const Margin = () => {
                         <Row>
                             <CssGrid columns="repeat(4, 1fr)">
                                 <Col p="2.4rem 0">
-                                    <Text>{localize('Major pairs')}</Text>
+                                    <Text weight="bold">{localize('Major pairs')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text>{localize('Minor pairs')}</Text>
+                                    <Text weight="bold">{localize('Minor pairs')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text>{localize('SmartFX')}</Text>
+                                    <Text weight="bold">{localize('SmartFX')}</Text>
                                 </Col>
                                 <Col p="2.4rem 0">
-                                    <Text>{localize('Exotic pairs')}</Text>
+                                    <Text weight="bold">{localize('Exotic pairs')}</Text>
                                 </Col>
                             </CssGrid>
                         </Row>

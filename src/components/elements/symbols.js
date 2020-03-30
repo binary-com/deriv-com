@@ -62,6 +62,10 @@ import HFVOL50 from 'images/svg/symbols/hf-volatility-50.svg'
 import HFVOL100 from 'images/svg/symbols/hf-volatility-100.svg'
 import MARKETBULL from 'images/svg/symbols/marketbull.svg'
 import MARKETBEAR from 'images/svg/symbols/marketbear.svg'
+import BOOM500 from 'images/svg/symbols/boom-indices-500.svg'
+import BOOM1000 from 'images/svg/symbols/boom-indices-1000.svg'
+import CRASH500 from 'images/svg/symbols/crash-indices-500.svg'
+import CRASH1000 from 'images/svg/symbols/crash-indices-1000.svg'
 
 export {
     AUDCAD,
@@ -128,4 +132,8 @@ export {
     HFVOL100,
     MARKETBULL,
     MARKETBEAR,
+    BOOM500,
+    BOOM1000,
+    CRASH500,
+    CRASH1000,
 }

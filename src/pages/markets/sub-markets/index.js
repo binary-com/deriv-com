@@ -8,6 +8,7 @@ import CrashBoom from './crash-boom.js'
 import StepIndices from './step-indices.js'
 import ContinuousIndices from './continuous-indices.js'
 import Americas from './americas.js'
+import AsiaOceania from './asia-oceania.js'
 
 export {
     MajorPairs,
@@ -20,4 +21,5 @@ export {
     StepIndices,
     ContinuousIndices,
     Americas,
+    AsiaOceania,
 }

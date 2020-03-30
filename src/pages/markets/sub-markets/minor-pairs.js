@@ -7,7 +7,7 @@ import {
     AUDCAD,
     AUDCHF,
     AUDNZD,
-    EURZND,
+    EURNZD,
     GBPCAD,
     GBPCHF,
     GBPNOK,
@@ -50,7 +50,7 @@ const MinorPairs = () => {
                 <Text>{localize('AUD/NZD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURZND />
+                <EURNZD />
                 <Text>{localize('EUR/ZND')}</Text>
             </Symbol>
             <Symbol ai="center">

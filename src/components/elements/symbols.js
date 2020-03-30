@@ -19,7 +19,7 @@ import EURSGD from 'images/svg/symbols/eur-sgd.svg'
 import EURTRY from 'images/svg/symbols/eur-try.svg'
 import EURUSD from 'images/svg/symbols/eur-usd.svg'
 import EURZAR from 'images/svg/symbols/eur-zar.svg'
-import EURZND from 'images/svg/symbols/eur-znd.svg'
+import EURNZD from 'images/svg/symbols/eur-nzd.svg'
 import GBPAUD from 'images/svg/symbols/gbp-aud.svg'
 import GBPCAD from 'images/svg/symbols/gbp-cad.svg'
 import GBPCHF from 'images/svg/symbols/gbp-chf.svg'
@@ -70,6 +70,9 @@ import STEPINDICES from 'images/svg/symbols/step-indices.svg'
 import OTCUS from 'images/svg/symbols/otcus.svg'
 import OTCUSTECH from 'images/svg/symbols/otcustech.svg'
 import OTCWALLSTREET from 'images/svg/symbols/otcwallstreet.svg'
+import OTCAUSTRALIAN from 'images/svg/symbols/otcaustralian.svg'
+import OTCHONGKONG from 'images/svg/symbols/otchongkong.svg'
+import OTCJAPANESE from 'images/svg/symbols/otcjapanese.svg'
 
 export {
     AUDCAD,
@@ -93,7 +96,7 @@ export {
     EURTRY,
     EURUSD,
     EURZAR,
-    EURZND,
+    EURNZD,
     GBPAUD,
     GBPCAD,
     GBPCHF,
@@ -144,4 +147,7 @@ export {
     OTCUS,
     OTCUSTECH,
     OTCWALLSTREET,
+    OTCAUSTRALIAN,
+    OTCHONGKONG,
+    OTCJAPANESE,
 }

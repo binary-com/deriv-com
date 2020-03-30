@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import { Americas } from '../sub-markets'
+import { Americas, AsiaOceania } from '../sub-markets'
 import { Accordion, AccordionItem, Text } from 'components/elements'
 import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'
@@ -114,6 +114,9 @@ const Margin = () => {
                                 <CssGrid columns="repeat(3, 1fr)">
                                     <Col>
                                         <Americas />
+                                    </Col>
+                                    <Col>
+                                        <AsiaOceania />
                                     </Col>
                                 </CssGrid>
                             </Scrollbar>

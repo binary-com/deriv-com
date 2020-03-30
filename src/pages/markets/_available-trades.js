@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
@@ -90,6 +91,13 @@ const Card = ({ name, content, active_tab, onTabChange }) => {
         </CardContainer>
     )
 }
+
+Card.propTypes = {
+    active_tab: PropTypes.string,
+    content: PropTypes.string,
+    name: PropTypes.string,
+    onTabChange: PropTypes.func,
+}
 class AvailableTrades extends React.Component {
     state = {
         active_tab: 'Margin',
@@ -136,6 +144,13 @@ class AvailableTrades extends React.Component {
             </SectionContainer>
         )
     }
+}
+
+AvailableTrades.propTypes = {
+    DigitalOptions: PropTypes.func,
+    Margin: PropTypes.func,
+    Multipliers: PropTypes.func,
+    name: PropTypes.string
 }
 
 export default AvailableTrades

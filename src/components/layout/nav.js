@@ -465,7 +465,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     <HomeContainer justify="flex-start">
                         <HomeLink to="/">
                             <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv homepage')}
+                                {localize('Deriv website')}
                             </Text>
                         </HomeLink>
                         <HomeLink to="/about">
@@ -492,18 +492,18 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <StyledLink
                                     activeClassName="active"
                                     to="/partners/affiliate-ib/"
-                                    aria-label={localize('Affiliate & IB')}
+                                    aria-label={localize('Affiliate & IBs')}
                                 >
-                                    {localize('Affiliate & IB')}
+                                    {localize('Affiliate & IBs')}
                                 </StyledLink>
                             </NavLink>
                             <NavLink>
                                 <StyledLink
                                     activeClassName="active"
                                     to="/partners/payment-agent/"
-                                    aria-label={localize('Payment agent')}
+                                    aria-label={localize('Payment agents')}
                                 >
-                                    {localize('Payment agent')}
+                                    {localize('Payment agents')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
@@ -565,7 +565,7 @@ export const NavCareers = () => {
                     <HomeContainer justify="flex-start">
                         <HomeLink to="/">
                             <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv homepage')}
+                                {localize('Deriv website')}
                             </Text>
                         </HomeLink>
                         <HomeLink to="/about">

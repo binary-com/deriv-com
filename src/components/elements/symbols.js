@@ -50,6 +50,16 @@ import USDSEK from 'images/svg/symbols/usd-sek.svg'
 import USDSGD from 'images/svg/symbols/usd-sgd.svg'
 import USDTHB from 'images/svg/symbols/usd-thb.svg'
 import USDTRY from 'images/svg/symbols/usd-try.svg'
+import INDEX10 from 'images/svg/symbols/index10.svg'
+import INDEX25 from 'images/svg/symbols/index25.svg'
+import INDEX50 from 'images/svg/symbols/index50.svg'
+import INDEX75 from 'images/svg/symbols/index75.svg'
+import INDEX100 from 'images/svg/symbols/index100.svg'
+import INDEX10S1 from 'images/svg/symbols/index10s1.svg'
+import INDEX100S1 from 'images/svg/symbols/index100s1.svg'
+import HFVOL10 from 'images/svg/symbols/hf-volatility-10.svg'
+import HFVOL50 from 'images/svg/symbols/hf-volatility-50.svg'
+import HFVOL100 from 'images/svg/symbols/hf-volatility-100.svg'
 
 export {
     AUDCAD,
@@ -104,4 +114,14 @@ export {
     USDSGD,
     USDTHB,
     USDTRY,
+    INDEX10,
+    INDEX25,
+    INDEX50,
+    INDEX75,
+    INDEX100,
+    INDEX10S1,
+    INDEX100S1,
+    HFVOL10,
+    HFVOL50,
+    HFVOL100,
 }

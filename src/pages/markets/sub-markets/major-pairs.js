@@ -24,6 +24,10 @@ const Symbol = styled(Flex)`
     padding: 0.8rem 0;
     height: unset;
 
+    svg {
+        width: 32px;
+        height: 32px;
+    }
     ${Text} {
         font-weight: normal;
         margin-left: 1.6rem;

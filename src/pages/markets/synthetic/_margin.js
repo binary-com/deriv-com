@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import { MajorPairs, MinorPairs, SmartFX, ExoticPairs } from '../sub-markets'
+import { VolatilityIndices, MinorPairs, SmartFX, ExoticPairs } from '../sub-markets'
 import { Accordion, AccordionItem, Text } from 'components/elements'
 import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'
@@ -113,10 +113,10 @@ const Margin = () => {
                             </CssGrid>
                         </Row>
                         <Row>
-                            <Scrollbar style={{ maxHeight: '55.2rem' }}>
+                            <Scrollbar style={{ maxHeight: '47.6rem' }}>
                                 <CssGrid columns="repeat(4, 1fr)">
                                     <Col>
-                                        <MajorPairs />
+                                        <VolatilityIndices />
                                     </Col>
                                     <Col>
                                         <MinorPairs />

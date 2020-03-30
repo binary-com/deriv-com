@@ -369,7 +369,7 @@ const Footer = () => (
                             <Title>{localize('PARTNER WITH US')}</Title>
                         </div>
                         <div>
-                            <Link to="/partners">{localize('Affiliate and IBs')}</Link>
+                            <Link to="/partners">{localize('Affiliates and IBs')}</Link>
                         </div>
                         <div>
                             <Link to="/partners/payment-agent">{localize('Payment agents')}</Link>
@@ -462,10 +462,10 @@ const Footer = () => (
                         header_style={mobile_accordion_header}
                     >
                         <Item>
-                            <Link to="/partners">{localize('Affiliate and IB')}</Link>
+                            <Link to="/partners">{localize('Affiliates and IBs')}</Link>
                         </Item>
                         <Item>
-                            <Link to="/partners/payment-agent">{localize('Payment agent')}</Link>
+                            <Link to="/partners/payment-agent">{localize('Payment agents')}</Link>
                         </Item>
                     </AccordionItem>
                 </Accordion>

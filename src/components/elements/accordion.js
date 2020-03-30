@@ -30,7 +30,7 @@ const AccordionHeader = styled.div`
 
     ${Text} {
         margin-right: auto;
-        
+
         @media ${device.tabletL} {
             font-size: var(--text-size-sm);
         }
@@ -56,8 +56,8 @@ const Accordion = ({ children, has_single_state, is_default_open }) => {
             {children}
         </SingleAccordionContent>
     ) : (
-            <AccordionContent nodes={nodes} >{children}</AccordionContent>
-        )
+        <AccordionContent nodes={nodes}>{children}</AccordionContent>
+    )
 }
 Accordion.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
@@ -111,14 +111,15 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
                         ) : child.props.arrow_thin ? (
                             <Arrow expanded={is_expanded ? 'true' : 'false'} />
                         ) : (
-                                <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
-                            )}
+                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                        )}
                     </AccordionHeader>
                     <div
                         style={{
                             overflow: 'hidden',
                             transition: `height ${TRANSITION_DURATION}ms ease`,
                             height,
+                            ...child.props.content_style,
                         }}
                     >
                         {child}
@@ -150,7 +151,10 @@ const AccordionContent = ({ children, nodes }) => {
 
     const getHeight = child_idx => {
         if (active_idx === child_idx) {
-            return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+            return (
+                nodes[active_idx] &&
+                nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+            )
         }
         return 0
     }
@@ -183,8 +187,8 @@ const AccordionContent = ({ children, nodes }) => {
                         ) : child.props.arrow_thin ? (
                             <Arrow expanded={is_expanded ? 'true' : 'false'} />
                         ) : (
-                                <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
-                            )}
+                            <ThickArrow expanded={is_expanded ? 'true' : 'false'} />
+                        )}
                     </AccordionHeader>
                     <div
                         style={{
@@ -192,6 +196,7 @@ const AccordionContent = ({ children, nodes }) => {
                             /* prettier-ignore */
                             transition: `height ${TRANSITION_DURATION}ms ease`,
                             height: height,
+                            ...child.props.content_style,
                         }}
                     >
                         {child}

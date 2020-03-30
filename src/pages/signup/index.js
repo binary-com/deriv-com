@@ -64,7 +64,7 @@ const NewSignup = () => {
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>
                         <StyledGraph />
-                        <Header margin="2.4rem 0 0 0" font_size="3.6rem">
+                        <Header mt="2.4rem" size="3.6rem">
                             {localize('Start trading with Deriv')}
                         </Header>
                         <br />
@@ -91,7 +91,6 @@ const NewSignup = () => {
 
 NewSignup.propTypes = {
     autofocus: PropTypes.bool,
-    closeModal: PropTypes.func,
 }
 
 export default WithIntl()(NewSignup)

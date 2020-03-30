@@ -18,6 +18,14 @@ const Wrapper = styled.section`
     @media ${device.tabletL} {
         flex-wrap: wrap;
         height: auto;
+        padding: 5rem 1rem;
+
+        div {
+            margin-top: 5rem;
+        }
+        div:first-child {
+            margin-top: 0;
+        }
     }
 `
 const Content = styled.div`
@@ -41,27 +49,36 @@ const Content = styled.div`
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 0.8rem;
+
+    @media ${device.tabletL} {
+        font-size: 4rem;
+    }
 `
 const StyledText = styled(Text)`
     text-align: center;
-`
 
+    @media ${device.tabletL} {
+        font-size: var(--text-size-sm);
+    }
+`
+const StyledLinkText = styled(LinkText)`
+    font-size: var(--text-size-sm);
+
+    @media ${device.tabletL} {
+        font-size: 2.5rem;
+    }
+`
 export const Affiliates = () => {
     return (
         <Wrapper>
             <Content>
                 <StyledHeader as="h3" align="center">
-                    {localize('Public Relations')}
+                    {localize('Public relations')}
                 </StyledHeader>
                 <StyledText>{localize('For media enquiries')}</StyledText>
-                <LinkText
-                    weight="bold"
-                    size="var(--text-size-sm)"
-                    color="red"
-                    href="mailto:pr@deriv.com"
-                >
+                <StyledLinkText weight="bold" color="red" href="mailto:pr@deriv.com">
                     {localize('pr@deriv.com')}
-                </LinkText>
+                </StyledLinkText>
             </Content>
             <Content>
                 <StyledHeader as="h3" align="center">
@@ -70,28 +87,18 @@ export const Affiliates = () => {
                 <StyledText>
                     {localize('For enquiries about our affiliate and IB programmes')}
                 </StyledText>
-                <LinkText
-                    weight="bold"
-                    size="var(--text-size-sm)"
-                    color="red"
-                    href="mailto:affiliates@deriv.com"
-                >
+                <StyledLinkText weight="bold" color="red" href="mailto:affiliates@deriv.com">
                     {localize('affiliates@deriv.com')}
-                </LinkText>
+                </StyledLinkText>
             </Content>
             <Content>
                 <StyledHeader as="h3" align="center">
                     {localize('Business development')}
                 </StyledHeader>
                 <StyledText>{localize('For collaboration opportunities')}</StyledText>
-                <LinkText
-                    weight="bold"
-                    size="var(--text-size-sm)"
-                    color="red"
-                    href="mailto:marketing@deriv.com"
-                >
+                <StyledLinkText weight="bold" color="red" href="mailto:marketing@deriv.com">
                     {localize('marketing@deriv.com')}
-                </LinkText>
+                </StyledLinkText>
             </Content>
         </Wrapper>
     )

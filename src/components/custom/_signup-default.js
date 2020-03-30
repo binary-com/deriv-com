@@ -6,6 +6,7 @@ import { FlexGridContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
+// SVG
 import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 
@@ -17,7 +18,7 @@ const Wrapper = styled.div`
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
-    margin: var(--text-size-m) 0;
+    margin: 2.4rem 0;
 `
 const EmailButton = styled(Button)`
     width: auto;
@@ -30,19 +31,15 @@ const SocialButton = styled(Button)`
     flex: inherit !important;
     width: 48%;
 `
-const MutedText = styled(Text)`
-    text-align: left;
-    color: var(--color-grey);
-    align-self: start;
-`
 const SocialWrapper = styled(FlexGridContainer)`
     width: 100%;
     margin-top: var(--text-size-s);
 `
-export const LoginText = styled(MutedText)`
+const LoginText = styled(Text)`
     text-align: center;
     align-self: center;
     margin-top: 2.4rem;
+    color: var(--color-grey);
 
     @media ${device.tabletL} {
         margin-bottom: 0;

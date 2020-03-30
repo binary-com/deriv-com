@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { localize } from 'components/localization'
@@ -16,9 +16,21 @@ const CardWrapper = styled(Flex)`
     div:first-child {
         left: 0;
     }
-    div:last-child {
-        right: 0;
-    }
+
+    ${(props) => {
+        if (props.tab_counts === 2)
+            return css`
+                div:last-child {
+                    left: 33.3%;
+                }
+            `
+        if (props.tab_counts === 3)
+            return css`
+                div:last-child {
+                    right: 0;
+                }
+            `
+    }}
 `
 
 const CardContainer = styled(Flex)`
@@ -116,6 +128,7 @@ class AvailableTrades extends React.Component {
     }
     render() {
         const { Margin, DigitalOptions, Multipliers, name } = this.props
+        const tab_counts = Multipliers ? 3 : 2
         return (
             <SectionContainer>
                 <Header size="var(--text-size-header-1)" align="center">
@@ -129,7 +142,7 @@ class AvailableTrades extends React.Component {
                         marginTop: '4rem',
                     }}
                 >
-                    <CardWrapper>
+                    <CardWrapper tab_counts={tab_counts}>
                         {Margin && (
                             <Card
                                 name="Margin"

@@ -13,7 +13,7 @@ import FriendlySupport from 'images/svg/friendly-support.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import ExtendedTime from 'images/svg/extended-trading-times.svg'
-import MinimalCaapital from 'images/svg/minimal-capital.svg'
+import MinimalCapital from 'images/svg/minimal-capital.svg'
 import PractiseIcon from 'images/svg/cross-hair-icon.svg'
 import TradeIcon from 'images/svg/chart-icon.svg'
 import WithdrawIcon from 'images/svg/withdraw-icon.svg'
@@ -62,7 +62,6 @@ const StockIndices = () => {
 
     return (
         <div>
-            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Stock indices" />
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What are stock indices?')}
@@ -71,7 +70,7 @@ const StockIndices = () => {
             <WhyTrade header={localize('Why trade stock indices on Deriv')}>
                 <div
                     text={localize('Minimal capital requirements, limited risk')}
-                    icon={<MinimalCaapital />}
+                    icon={<MinimalCapital />}
                 ></div>
                 <div
                     text={localize('Extended trading time, up to 18 hours a day')}
@@ -90,6 +89,7 @@ const StockIndices = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Stock indices" />
             <SimpleSteps
                 header={localize('Start trading stock indices on Deriv in 3 simple steps')}
                 content={simple_step_content}

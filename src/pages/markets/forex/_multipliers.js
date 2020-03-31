@@ -14,6 +14,13 @@ const header_style = {
     borderTop: '1px solid var(--color-grey-2)',
     boxShadow: 'unset',
 }
+const first_item_style = {
+    padding: '2.4rem 10.2rem',
+    height: 'auto',
+    borderBottom: 'unset',
+    borderTop: 'unset',
+    boxShadow: 'unset',
+}
 
 const ContentWrapper = styled.div`
     padding-top: 2.5rem;
@@ -43,7 +50,7 @@ const Multipliers = () => {
         <SectionContainer padding="0">
             <Accordion>
                 <AccordionItem
-                    header_style={header_style}
+                    header_style={first_item_style}
                     header={localize('What is margin trading?')}
                 >
                     <ContentWrapper>

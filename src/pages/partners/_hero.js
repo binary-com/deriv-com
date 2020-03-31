@@ -9,6 +9,7 @@ const StyledHero = styled.div`
     width: 100%;
     height: 80rem;
     position: relative;
+    background: var(--color-black);
 `
 
 const StyledVideo = styled.video`

@@ -14,7 +14,7 @@ const StyledButton = styled(Button)`
 const StyledChevron = styled(Chevron)`
     height: 16px;
     width: 16px;
-    transform: ${props => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
+    transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
 
@@ -56,7 +56,7 @@ const Description = styled.div`
     background: var(--color-grey-8);
     width: 100%;
     padding: 0 3.2rem;
-    ${props =>
+    ${(props) =>
         props.is_expanded &&
         css`
             max-height: 40rem;
@@ -67,7 +67,7 @@ const Description = styled.div`
 
 const StyledText = styled(Text)`
     font-size: 0;
-    ${props =>
+    ${(props) =>
         props.is_expanded &&
         css`
             font-size: var(--text-size-s);

@@ -29,7 +29,7 @@ const Th = styled.th`
 const StyledTable = styled.table`
     border-collapse: collapse;
     width: 100%;
-    margin-bottom: ${props => (props.has_note ? '2.4rem' : 0)};
+    margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
 
 const Thead = styled.thead`
@@ -63,10 +63,10 @@ const PaymentMethods = () => {
     const [payment_methods, setPaymentMethods] = React.useState(payment_data)
 
     React.useEffect(() => {
-        BinarySocketBase.wait('website_status').then(response => {
-            const filtered_payment_data = payment_methods.map(payment => {
+        BinarySocketBase.wait('website_status').then((response) => {
+            const filtered_payment_data = payment_methods.map((payment) => {
                 if (payment.is_crypto) {
-                    payment.data = payment.data.map(data => {
+                    payment.data = payment.data.map((data) => {
                         const minimum_withdrawal = +response.website_status.crypto_config[
                             data.currencies
                         ].minimum_withdrawal

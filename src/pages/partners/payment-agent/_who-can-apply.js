@@ -11,7 +11,7 @@ import {
     StyledHeader,
     SecondaryHeader,
     LineStyle,
-} from '../_who-can-apply'
+} from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'

@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 const Content = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: ${props => props.max_width};
+    max-width: ${(props) => props.max_width};
 `
 const Separator = styled.div`
     width: 1px;

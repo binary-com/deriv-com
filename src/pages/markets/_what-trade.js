@@ -21,8 +21,11 @@ const ContentWrapper = styled.section`
 const ButtonWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    margin-top: 3.2rem;
+    margin-top: 1.7rem;
 
+    ${LinkButton} {
+        width: 23.7rem;
+    }
     * {
         margin-right: 1.6rem;
     }

@@ -3,69 +3,19 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
-import { Container } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 
-const ContentWrapper = styled.section`
-    display: flex;
-    flex-direction: row;
-    height: 58.4rem;
-    width: 100%;
-    padding: 0 22.2rem;
-    position: relative;
-
-    @media ${device.tablet} {
-        height: 70rem;
-        padding: 0 14rem;
-    }
+const ContentWrapper = styled(Flex)`
+    max-width: 99.6rem;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
 `
-const Background = styled.div`
-    background-color: rgba(242, 243, 244, 0.3);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 71%;
-    height: 100%;
-
-    @media ${device.tablet} {
-        height: auto;
-    }
-`
-const ContainerWrapper = styled.div`
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    margin-top: 8rem;
-
-    @media ${device.tablet} {
-        height: auto;
-        margin-top: 0;
-    }
-`
-const Wrapper = styled(Container)`
-    @media ${device.tablet} {
-        flex-direction: column;
-        padding: 0;
-        height: auto;
-    }
-`
-const LeftContent = styled.div`
-    width: 50%;
-    padding: 2.4rem 2.4rem 8rem;
-    margin: auto;
-
-    @media ${device.tablet} {
-        width: 100%;
-    }
-`
+const LeftContent = styled.div``
 const RightContent = styled.div`
-    width: 50%;
+    width: 100%;
     max-width: 48.6rem;
-
-    @media ${device.tablet} {
-        width: 100%;
-    }
 `
 const Item = styled.div`
     display: flex;
@@ -88,29 +38,30 @@ const StyledHeader = styled(Header)`
 
 export const WhyTrade = ({ children, header }) => {
     return (
-        <ContentWrapper>
-            <Background />
-            <ContainerWrapper>
-                <Wrapper>
-                    <LeftContent>
-                        <StyledHeader size="3.6rem">{localize(header)}</StyledHeader>
-                    </LeftContent>
-                    <RightContent>
-                        {children.map((child, idx) => {
-                            {
-                                const { text, icon } = child.props
-                                return (
-                                    <Item key={idx}>
-                                        {icon}
-                                        {<Text ml="2.4rem">{text}</Text>}
-                                    </Item>
-                                )
-                            }
-                        })}
-                    </RightContent>
-                </Wrapper>
-            </ContainerWrapper>
-        </ContentWrapper>
+        <SectionContainer>
+            <ContentWrapper>
+                <LeftContent>
+                    <StyledHeader size="3.6rem">{localize(header)}</StyledHeader>
+                </LeftContent>
+                <RightContent>
+                    {children.map((child, idx) => {
+                        {
+                            const { text, icon } = child.props
+                            return (
+                                <Item key={idx}>
+                                    {icon}
+                                    {
+                                        <Text ml="2.4rem" weight="bold">
+                                            {text}
+                                        </Text>
+                                    }
+                                </Item>
+                            )
+                        }
+                    })}
+                </RightContent>
+            </ContentWrapper>
+        </SectionContainer>
     )
 }
 WhyTrade.propTypes = {

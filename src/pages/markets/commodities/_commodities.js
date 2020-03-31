@@ -56,12 +56,12 @@ const simple_step_content = [
 const LinkButtonWrapper = styled.div`
     margin-top: 6.1rem;
     text-align: center;
+    height: 3rem;
 `
 const Commodities = () => {
     const learn_more_section = useRef(null)
     return (
         <div>
-            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Commodity" />
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What are commodities?')}
@@ -89,6 +89,7 @@ const Commodities = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Commodity" />
             <SimpleSteps
                 header={localize('Start trading commodities on Deriv in 3 simple steps')}
                 content={simple_step_content}

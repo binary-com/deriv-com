@@ -69,6 +69,7 @@ const IconContainer = styled(Flex)`
 `
 const ContentWrapper = styled.div`
     width: 100%;
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
 `
 
 const Card = ({ name, content, active_tab, onTabChange }) => {
@@ -137,8 +138,6 @@ class AvailableTrades extends React.Component {
                 <Container
                     direction="column"
                     style={{
-                        boxShadow:
-                            '0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05)',
                         marginTop: '4rem',
                     }}
                 >

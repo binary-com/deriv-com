@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
 import 'swiper/css/swiper.css'
 import device from 'themes/device'
-import { SectionContainer, Container, CssGrid, Flex, Wrapper, Show } from 'components/containers'
+import { SectionContainer, Container, CssGrid, Flex, Box, Show } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
@@ -161,15 +161,15 @@ const SliderWrapper = styled.div`
     }
 `
 const SwiperWrapper = styled.div`
-    .swiper-container { 
+    .swiper-container {
         min-height: 572px;
-    }    
+    }
 `
 const LeaderMobile = styled.div`
     width: 100%;
     max-width: 304px;
     height: 532px;
-    box-shadow: 0 20px 20px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
     > p {
@@ -200,14 +200,14 @@ const Leaders = () => {
                     >
                         {leaders_data.map((leader, index) => (
                             <LeaderWrapper key={index} direction="column" ai="center">
-                                <Wrapper margin={{ bottom: '0.8rem' }} width="100%" position="relative">
+                                <Box margin={{ bottom: '0.8rem' }} width="100%" position="relative">
                                     <Image img_name={leader.image + '.png'} alt={leader.name} />
                                     <DescriptionWrapper>
                                         <Text lh="1.71" size="var(--text-size-xs)" color="white">
                                             {leader.description}
                                         </Text>
                                     </DescriptionWrapper>
-                                </Wrapper>
+                                </Box>
                                 <StyledHeader as="h4" align="center" lh="3.6rem">
                                     {leader.name}
                                 </StyledHeader>
@@ -220,13 +220,22 @@ const Leaders = () => {
             <Container style={{ width: '100%', overflow: 'hidden' }}>
                 <SliderWrapper>
                     <SwiperWrapper>
-                        <Swiper {...params} >
-                            {leaders_data.map(leader => (
+                        <Swiper {...params}>
+                            {leaders_data.map((leader) => (
                                 <LeaderMobile key={leader.name}>
-                                    <Image img_name={leader.image + '-mobile.png'} alt={leader.name} />
-                                    <Header font_size='24px' align='center' margin='16px 0 0 0'>{leader.name}</Header>
-                                    <Text align='center' secondary margin='0 auto'>{localize(leader.position)}</Text>
-                                    <Text margin='16px 16px 32px 16px' secondary>{localize(leader.description)}</Text>
+                                    <Image
+                                        img_name={leader.image + '-mobile.png'}
+                                        alt={leader.name}
+                                    />
+                                    <Header size="24px" align="center" m="16px 0 0 0">
+                                        {leader.name}
+                                    </Header>
+                                    <Text align="center" margin="0 auto" size="2rem">
+                                        {localize(leader.position)}
+                                    </Text>
+                                    <Text m="16px 16px 32px 16px" size="2rem">
+                                        {localize(leader.description)}
+                                    </Text>
                                 </LeaderMobile>
                             ))}
                         </Swiper>

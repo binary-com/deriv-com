@@ -25,11 +25,13 @@ const ExternalLink = styled.a`
         text-decoration: underline;
     }
 `
+const StyledHeader = styled(Header)`
+    margin-bottom: 2.4rem;
+`
+
 const Forex = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is forex?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What is forex?')}</StyledHeader>
         <Text>
             {localize(
                 'Forex is the global decentralised market for the buying and selling of currencies.',
@@ -39,9 +41,7 @@ const Forex = () => (
 )
 const Commodities = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are commodities?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What are commodities?')}</StyledHeader>
         <Text>
             {localize(
                 'A commodity is either grown or produced naturally in the environment. Examples include crude oil, metals, gold, and silver.',
@@ -51,9 +51,7 @@ const Commodities = () => (
 )
 const StockIndices = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are stock indices?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What are stock indices?')}</StyledHeader>
         <Text>
             {localize(
                 'Stock indices measure the value of a selection of companies in the stock market. This allows investors to see how a particular set of assets is performing.',
@@ -63,9 +61,7 @@ const StockIndices = () => (
 )
 const SyntheticIndices = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are synthetic indices?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What are synthetic indices?')}</StyledHeader>
         <Text>
             {localize(
                 'Exclusive to Deriv, synthetic indices are our very own set of synthetic markets engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
@@ -75,9 +71,7 @@ const SyntheticIndices = () => (
 )
 const CFD = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are contracts for difference (CFDs)?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What are contracts for difference (CFDs)?')}</StyledHeader>
         <Text>
             {localize(
                 'A contract for differences (CFD) is a contract that pays the difference between the value of an asset at the time of opening a trade and its value at closing the trade.',
@@ -87,9 +81,7 @@ const CFD = () => (
 )
 const DigitalOptions = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are digital options?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>
         <Text>
             {localize(
                 'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results. ',
@@ -99,9 +91,7 @@ const DigitalOptions = () => (
 )
 const TradingPlatforms = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How many trading platforms do you offer?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How many trading platforms do you offer?')}</StyledHeader>
         <Text>
             {localize(
                 'We offer three trading platforms: DTrader, DBot, and DMT5. Each platform caters to a variety of trading styles and experiences, whether you’re a new or seasoned trader.',
@@ -111,9 +101,7 @@ const TradingPlatforms = () => (
 )
 const AutomateTradingStrategy = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How can I automate my trading strategy?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How can I automate my trading strategy?')}</StyledHeader>
         <Text>
             {localize(
                 'You can create and run your own automated trading strategies with DBot. You can also download ready-made trading robots (also known as Expert Advisors) for DMT5 by going to the ‘Market’ tab in the DMT5 platform.',
@@ -123,9 +111,7 @@ const AutomateTradingStrategy = () => (
 )
 const TradingLimits = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What are my trading limits?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What are my trading limits?')}</StyledHeader>
         <Text>
             <Localize
                 translate_text="You can see your account’s trading limits by going to <0>Settings > Security and safety ></0> <1>Account limits</1>. Please note that if your account balance exceeds the maximum account cash balance, you must withdraw funds from your account to bring your account balance below the maximum limit."
@@ -144,9 +130,9 @@ const TradingLimits = () => (
 )
 const WeekendContracts = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize('What contracts are available for trading on weekends?')}
-        </Header>
+        </StyledHeader>
         <Text>
             {localize(
                 'You can trade synthetic indices 24/7 in all countries except Australia, France, Germany, Greece, Italy, Luxembourg, Singapore, and Spain due to regulatory requirements.',

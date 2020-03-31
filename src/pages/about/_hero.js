@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { localize, Localize } from 'components/localization'
-import { Container, Wrapper, Flex } from 'components/containers'
+import { Container, Box, Flex } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import device from 'themes/device'
 
@@ -43,7 +43,7 @@ const Separator = styled.span`
 
 const StyledHeader = styled(Header)`
     transition: color 0.25s;
-    ${props =>
+    ${(props) =>
         props.active
             ? css`
                   color: var(--color-white);
@@ -59,13 +59,13 @@ const StyledHeader = styled(Header)`
 const TrailNavigation = styled.span`
     height: 4px;
     width: 4.6rem;
-    background: ${props => (props.active ? 'var(--color-red)' : 'var(--color-black)')};
+    background: ${(props) => (props.active ? 'var(--color-red)' : 'var(--color-black)')};
     margin: 1rem 0;
     transition: background 0.25s;
 `
 
 const ContentWrapper = styled.div`
-    margin-top: ${props => props.margin_top || 'none'};
+    margin-top: ${(props) => props.margin_top || 'none'};
     white-space: normal;
     max-width: 79.2rem;
 `
@@ -74,7 +74,7 @@ const LeadershipWrapper = styled(Flex)`
     @media ${device.tabletL} {
         flex-direction: column;
 
-        ${Wrapper} {
+        ${Box} {
             width: 28.2rem;
             margin-bottom: 4rem;
         }
@@ -85,14 +85,6 @@ const LeadershipWrapper = styled(Flex)`
             text-align: center;
         }
     }
-`
-
-const LeadershipTitle = styled(Header)`
-    margin-bottom: 0.8rem;
-`
-
-const LeadershipPosition = styled(Header)`
-    margin-bottom: 1.6rem;
 `
 
 const Hero = ({ navigation, setNavigation }) => {
@@ -114,7 +106,7 @@ const Hero = ({ navigation, setNavigation }) => {
                     >
                         <StyledHeader
                             as="h2"
-                            font_size="var(--text-size-m)"
+                            size="var(--text-size-m)"
                             weight="normal"
                             active={is_story}
                         >
@@ -131,7 +123,7 @@ const Hero = ({ navigation, setNavigation }) => {
                     >
                         <StyledHeader
                             as="h2"
-                            font_size="var(--text-size-m)"
+                            size="var(--text-size-m)"
                             weight="normal"
                             active={is_leadership}
                         >
@@ -142,13 +134,13 @@ const Hero = ({ navigation, setNavigation }) => {
                 </NavigationWrapper>
                 {is_story && (
                     <ContentWrapper margin_top="9.1rem">
-                        <Text margin="0 0 1.5rem 0" secondary="true" color="white">
+                        <Text mb="1.5rem" size="var(--text-size-sm)" color="white">
                             {localize(
                                 'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
                             )}
                         </Text>
 
-                        <Text secondary color="white">
+                        <Text size="var(--text-size-sm)" color="white">
                             {localize(
                                 'Our evolution is powered by over 20 years of customer focus and innovation.',
                             )}
@@ -158,30 +150,31 @@ const Hero = ({ navigation, setNavigation }) => {
                 {is_leadership && (
                     <ContentWrapper>
                         <LeadershipWrapper mt="4rem" ai="center">
-                            <Wrapper max_width="28.2rem" margin={{ right: '2.4rem' }}>
+                            <Box max_width="28.2rem" mr="2.4rem">
                                 <Image
                                     width="28.2rem"
                                     img_name="jean-yves.png"
                                     alt={localize('Jean Yves')}
                                 />
-                            </Wrapper>
-
+                            </Box>
                             <div>
-                                <LeadershipTitle
+                                <Header
                                     as="h3"
                                     size="var(--text-size-header-1)"
                                     color="white"
+                                    mb="0.8rem"
                                 >
                                     <Localize translate_text="Jean-Yves Sireau" />
-                                </LeadershipTitle>
-                                <LeadershipPosition
+                                </Header>
+                                <Header
                                     as="h4"
                                     weight="normal"
                                     color="white"
                                     lh="3.6rem"
+                                    mb="1.6rem"
                                 >
                                     {localize('Founder and Chief Executive Officer')}
-                                </LeadershipPosition>
+                                </Header>
                                 <Text color="white">
                                     {localize(
                                         'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his digital options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',

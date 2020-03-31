@@ -2,9 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
-import { Flex } from 'components/containers'
+import { Flex, Show } from 'components/containers'
+import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
+// SVG
 import Arrow from 'images/svg/card-arrow.svg'
+import Diagonal from 'images/svg/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
@@ -24,14 +27,14 @@ const CardCover = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: ${props => props.background_color};
+    background-color: ${(props) => props.background_color};
     border-radius: 6px;
     top: 0;
     transition: 0.18s cubic-bezier(0.1, 0.25, 0.25, 1);
     display: flex;
     align-items: center;
     flex-direction: row;
-    transform: ${props =>
+    transform: ${(props) =>
         props.is_selected ? 'translate3d(-3%, 0, 0)' : 'translate3d(-105%, 0, 0)'};
 
     & > div {
@@ -49,13 +52,14 @@ const CardCover = styled.div`
         }
     }
 `
+
 const CardWrapper = styled.article`
     ${CardStyle}
     position: relative;
     overflow: hidden;
-    min-height: ${props => (props.min_height ? props.min_height : '0')};
-    width: ${props => (props.width ? props.width : '38.4rem')};
-    padding: ${props => (props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem')};
+    min-height: ${(props) => (props.min_height ? props.min_height : '0')};
+    width: ${(props) => (props.width ? props.width : '38.4rem')};
+    padding: ${(props) => (props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem')};
     border-radius: 6px;
 
     &:hover {
@@ -93,7 +97,7 @@ const CardChildrenWrapper = styled.article`
     }
 
     ${CardStyle}
-    width: ${props => (props.width ? props.width : '50.2rem')};
+    width: ${(props) => (props.width ? props.width : '50.2rem')};
     height: 100%;
     min-height: 26.8rem;
     padding: 2.6rem;
@@ -122,6 +126,10 @@ const IconContainer = styled.div`
     display: flex;
     justify-content: center;
 
+    svg {
+        width: 8.25rem;
+        height: 8.25rem;
+    }
     div {
         svg {
             width: 7.2rem;
@@ -139,7 +147,7 @@ const CardContentContainer = styled.div`
 const Content = ({ content }) => (
     <>
         {Array.isArray(content) ? (
-            content.map(text => <CardContent key={text}>{text}</CardContent>)
+            content.map((text) => <CardContent key={text}>{text}</CardContent>)
         ) : (
             <CardContent>{content}</CardContent>
         )}
@@ -178,12 +186,7 @@ export const Card = ({
                                     {word_break_cover ? (
                                         <Flex direction="column" jc="flex-start" ai="flex-start">
                                             <h4>{cover_content.split(' ')[0]}</h4>
-                                            <h4>
-                                                {cover_content
-                                                    .split(' ')
-                                                    .slice(1)
-                                                    .join(' ')}
-                                            </h4>
+                                            <h4>{cover_content.split(' ').slice(1).join(' ')}</h4>
                                         </Flex>
                                     ) : (
                                         <h4>{cover_content}</h4>
@@ -253,4 +256,155 @@ CardChildren.propTypes = {
     icon_width: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
+}
+
+const NavContent = styled.div`
+    width: 100%;
+    max-width: 21.3rem;
+    display: flex;
+    flex-direction: column;
+
+    ${Text} {
+        font-size: var(--text-size-xxs);
+        color: var(--color-grey-5);
+        transition: color 0.25s;
+    }
+`
+const RightDiagonal = styled(Diagonal)`
+    opacity: 0;
+    transition: opacity 0.2s;
+    position: absolute;
+    right: 0;
+`
+
+const ResponsiveHeader = styled(Header)`
+    transition: color 0.2s;
+    @media ${device.tabletS} {
+        font-size: 16px;
+    }
+`
+const ResponsiveText = styled(Text)`
+    transition: color 0.2s;
+    @media ${device.tabletS} {
+        font-size: 10.5px;
+    }
+`
+
+const FlexHover = styled(Flex)`
+    &:hover {
+        ${RightDiagonal} {
+            opacity: 1;
+        }
+        ${Text} {
+            color: var(--color-black-3);
+        }
+    }
+`
+export const NavCard = ({ icon, title, content, to, style, external, target, className }) => {
+    const NavIcon = styled(icon)`
+        width: 24px;
+        height: 24px;
+        margin-right: 1.6rem;
+    `
+    return (
+        <LocalizedLink
+            to={to}
+            style={{
+                textDecoration: 'none',
+                width: '100%',
+                maxWidth: '27.7rem',
+                position: 'relative',
+                ...style,
+            }}
+            external={external}
+            target={target}
+            className={className}
+        >
+            <FlexHover jc="flex-start" direction="row" tablet_direction="row">
+                <NavIcon />
+                <NavContent>
+                    <ResponsiveHeader size="var(--text-size-xs)" lh="1.14" mb="0.8rem">
+                        {title}
+                    </ResponsiveHeader>
+                    <ResponsiveText size="var(--text-size-xxs)" color="grey-5">
+                        {content}
+                    </ResponsiveText>
+                </NavContent>
+                <Show.Desktop>
+                    <RightDiagonal />
+                </Show.Desktop>
+            </FlexHover>
+        </LocalizedLink>
+    )
+}
+
+NavCard.propTypes = {
+    className: PropTypes.string,
+    content: PropTypes.string,
+    external: PropTypes.string,
+    icon: PropTypes.func,
+    style: PropTypes.object,
+    target: PropTypes.string,
+    title: PropTypes.string,
+    to: PropTypes.string,
+}
+
+const LinkRightDiagonal = styled(RightDiagonal)`
+    opacity: 0;
+    right: -25px;
+`
+
+const HoverFlex = styled(Flex)`
+    &:hover {
+        ${ResponsiveHeader} {
+            color: var(--color-red);
+        }
+        ${LinkRightDiagonal} {
+            opacity: 1;
+        }
+    }
+`
+
+const RelativeFlex = styled(Flex)`
+    position: relative;
+`
+
+export const CardLink = ({ title, to, style, external }) => {
+    return (
+        <LocalizedLink
+            to={to}
+            style={{
+                textDecoration: 'none',
+                width: '100%',
+                maxWidth: '20rem',
+                position: 'relative',
+                ...style,
+            }}
+            external={external}
+        >
+            <HoverFlex jc="flex-start" direction="row" tablet_direction="row">
+                <RelativeFlex jc="flex-start" width="auto">
+                    <ResponsiveHeader
+                        color="black-3"
+                        size="var(--text-size-xs)"
+                        lh="1.14"
+                        mb="1.6rem"
+                        weight="normal"
+                    >
+                        {title}
+                    </ResponsiveHeader>
+                    <LinkRightDiagonal />
+                </RelativeFlex>
+            </HoverFlex>
+        </LocalizedLink>
+    )
+}
+
+CardLink.propTypes = {
+    content: PropTypes.string,
+    external: PropTypes.bool,
+    icon: PropTypes.object,
+    style: PropTypes.object,
+    title: PropTypes.string,
+    to: PropTypes.string,
 }

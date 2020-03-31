@@ -5,10 +5,6 @@ import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, Image } from 'components/elements'
 
-const SubHeaderWrapper = styled.div`
-    margin: 1.6rem 0 6rem 0;
-`
-
 const platforms = Object.freeze({
     trader: 'dtrader',
     bot: 'dbot',
@@ -19,9 +15,9 @@ const ImageWrapper = styled.div`
     height: 100%;
     width: 100%;
     max-width: 65.7rem;
-    visibility: ${props => (props.is_selected ? 'initial' : 'hidden')};
-    opacity: ${props => (props.is_selected ? '1' : '0')};
-    z-index: ${props => (props.is_selected ? '0' : '10')};
+    visibility: ${(props) => (props.is_selected ? 'initial' : 'hidden')};
+    opacity: ${(props) => (props.is_selected ? '1' : '0')};
+    z-index: ${(props) => (props.is_selected ? '0' : '10')};
     position: absolute;
     transition: all 0.25s;
 `
@@ -42,37 +38,33 @@ export const Trade = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <Header font_size="var(--text-size-header-1)" as="h2" align="center">
+                <Header size="var(--text-size-header-1)" as="h2" align="center">
                     {localize('Trade the way you like')}
                 </Header>
-                <SubHeaderWrapper>
-                    <Header weight="500" lh="1.5" as="h4" align="center">
-                        {localize(
-                            'Choose from three powerful platforms -- designed with you in mind',
-                        )}
-                    </Header>
-                </SubHeaderWrapper>
-                <Flex>
+                <Header weight="500" as="h4" align="center" m="1.6rem 0 6rem">
+                    {localize('Choose from three powerful platforms -- designed with you in mind')}
+                </Header>
+                <Flex width="100%">
                     <div style={{ width: '60%' }}>
                         <ImageContainer>
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
                                 <Image
                                     img_name="dtrader_trade.png"
-                                    alt={localize('DTrader platform')}
+                                    alt={localize('DTrader')}
                                     width="100%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
                                 <Image
                                     img_name="dbot_trade.png"
-                                    alt={localize('DBot platform')}
+                                    alt={localize('DBot')}
                                     width="100%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
                                 <Image
                                     img_name="dmt5_trade.png"
-                                    alt={localize('DMT5 platform')}
+                                    alt={localize('DMT5')}
                                     width="100%"
                                 />
                             </ImageWrapper>

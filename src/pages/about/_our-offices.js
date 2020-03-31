@@ -52,13 +52,13 @@ const Oval = styled.div`
     border-radius: 50%;
     position: absolute;
     visibility: visible;
-    top: ${props => props.top || '87%'};
-    left: ${props => props.left || '11%'};
+    top: ${(props) => props.top || '87%'};
+    left: ${(props) => props.left || '11%'};
 `
 const Pinpoint = styled.div`
     position: absolute;
-    top: ${props => props.top};
-    left: ${props => props.left};
+    top: ${(props) => props.top};
+    left: ${(props) => props.left};
 
     > svg {
         opacity: 0;
@@ -73,7 +73,7 @@ const Pinpoint = styled.div`
 
 const PinpointWrapper = styled(Labuan)`
     position: relative;
-    left: ${props => props.left || '-4%'};
+    left: ${(props) => props.left || '-4%'};
 `
 const CyberjayaWrapper = styled(Cyberjaya)`
     ${PinpointWrapper}
@@ -89,10 +89,6 @@ const ParaguayWrapper = styled(Paraguay)`
 `
 const MaltaWrapper = styled(Malta)`
     ${PinpointWrapper}
-`
-const StyledHeader = styled(Header)`
-    font-size: 3.6rem;
-    margin-bottom: 4rem;
 `
 const NumberWrapper = styled.div`
     display: flex;
@@ -122,7 +118,9 @@ const MapLink = styled.a`
 export const OurOffices = () => {
     return (
         <OfficeContainer>
-            <StyledHeader align="center">{localize('Our offices')}</StyledHeader>
+            <Header align="center" size="3.6rem" mb="4rem">
+                {localize('Our offices')}
+            </Header>
             <MapWrapper>
                 <StyledMap />
                 <Pinpoint top="66%" left="25%">

@@ -18,7 +18,7 @@ const StyledContainer = styled(SectionContainer)`
 `
 const Row = styled(SectionContainer)`
     display: flex;
-    flex-direction: ${props => props.flex_direction};
+    flex-direction: ${(props) => props.flex_direction};
     justify-content: space-between;
     padding: 2rem 0;
 
@@ -40,9 +40,6 @@ const Content = styled.div`
     flex-direction: column;
     margin-top: 4rem;
 
-    ${Text} {
-        margin-top: 0.8rem;
-    }
     @media ${device.tabletL} {
         ${(Text, Header)} {
             text-align: center;
@@ -53,7 +50,7 @@ const WhyUs = ({ items }) => {
     return (
         <StyledContainer>
             <Container direction="column">
-                <Header font_size="3.6rem" align="center">
+                <Header size="3.6rem" align="center">
                     {localize('Why partner with us')}
                 </Header>
                 {items.map((item, index) => {
@@ -61,8 +58,8 @@ const WhyUs = ({ items }) => {
                     return (
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
-                                <Header font_size="2.8rem">{item.title}</Header>
-                                <Text>{item.subtitle}</Text>
+                                <Header size="2.8rem">{item.title}</Header>
+                                <Text mt="0.8rem">{item.subtitle}</Text>
                             </Content>
                             <Image img_name={item.image_name} alt={item.image_alt} width="100%" />
                         </Row>

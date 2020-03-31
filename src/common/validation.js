@@ -6,7 +6,7 @@ const validation_regex = {
 
 const validation = {
     // Validation will return a string for error message
-    email: input => {
+    email: (input) => {
         if (!input) {
             return localize('Email is required')
         } else if (!validation_regex.email.test(input)) {
@@ -16,19 +16,5 @@ const validation = {
         }
     },
 }
-
-export const testValidation = input => ({
-    email: message => {
-        const result = !validation_regex.email.test(input) && message
-
-        if (result) {
-            return result
-        }
-
-        return {
-            required: message => !input && message,
-        }
-    },
-})
 
 export default validation

@@ -18,9 +18,9 @@ import device from 'themes/device'
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 
-const getAllArticles = articles =>
+const getAllArticles = (articles) =>
     articles
-        .map(category => category.articles)
+        .map((category) => category.articles)
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
@@ -43,8 +43,8 @@ const StyledContainer = styled.div`
 `
 const SearchSection = styled.section`
     ${Backdrop} {
-        max-height: ${props => (props.show ? '100rem' : '0')};
-        transition: ${props => (props.has_transition ? 'max-height 0.6s ease-in-out' : 'none')};
+        max-height: ${(props) => (props.show ? '100rem' : '0')};
+        transition: ${(props) => (props.has_transition ? 'max-height 0.6s ease-in-out' : 'none')};
         overflow: hidden;
     }
 `
@@ -107,9 +107,6 @@ const ResultWrapper = styled.div`
         margin-bottom: 3.6rem;
     }
 `
-const StyledHeader = styled(Header)`
-    margin-bottom: 4rem;
-`
 
 const ListWrapper = styled.div`
     margin-right: 2.4rem;
@@ -117,9 +114,6 @@ const ListWrapper = styled.div`
     width: 38.4rem;
     line-height: 1.5;
 
-    ${Header} {
-        margin-bottom: 1.6rem;
-    }
     @media ${device.laptopL} {
         max-width: auto;
         width: auto;
@@ -201,15 +195,15 @@ class HelpCentre extends Component {
         }
     }
 
-    handleInputChange = e => {
+    handleInputChange = (e) => {
         e.preventDefault()
         const { name, value } = e.target
         this.setState({ [name]: `${sanitize(value)}` })
     }
 
-    handleSubmit = e => e.preventDefault()
+    handleSubmit = (e) => e.preventDefault()
 
-    handleSelectArticle = article => {
+    handleSelectArticle = (article) => {
         navigate(`#${article.label}`)
         this.setState({
             toggle_search: false,
@@ -219,14 +213,14 @@ class HelpCentre extends Component {
     }
 
     toggleSearch = () =>
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
             toggle_search: !prevState.toggle_search,
             search_has_transition: true,
         }))
 
     clearSearch = () => this.setState({ search: '' })
 
-    toggleArticle = category => {
+    toggleArticle = (category) => {
         if (this.state.all_categories[category]) {
             const all_categories = { ...this.state.all_categories }
             all_categories[category].is_expanded = !all_categories[category].is_expanded
@@ -236,7 +230,7 @@ class HelpCentre extends Component {
 
     componentDidMount = () => {
         const current_label = getLocationHash()
-        const deepClone = arr => {
+        const deepClone = (arr) => {
             const out = []
             for (let i = 0, len = arr.length; i < len; i++) {
                 const item = arr[i]
@@ -258,14 +252,14 @@ class HelpCentre extends Component {
         const all_articles = getAllArticles(articles)
 
         const duplicate_articles = deepClone(all_articles)
-        const translated_articles = duplicate_articles.map(article => {
+        const translated_articles = duplicate_articles.map((article) => {
             article.title = localize(article.title.props.translate_text)
             article.sub_category = localize(article.sub_category.props.translate_text)
             return article
         })
 
         const all_categories = {}
-        Object.keys(all_articles).forEach(article => {
+        Object.keys(all_articles).forEach((article) => {
             all_categories[all_articles[article].category] = { is_expanded: false }
         })
 
@@ -302,7 +296,9 @@ class HelpCentre extends Component {
                     <Backdrop>
                         <Container align="left" justify="flex-start" direction="column">
                             <StyledContainer align="normal" direction="column">
-                                <StyledHeader as="h1">{localize('How can we help?')}</StyledHeader>
+                                <Header mb="4rem" as="h1">
+                                    {localize('How can we help?')}
+                                </Header>
                                 <SearchForm onSubmit={this.handleSubmit}>
                                     <SearchIconBig />
                                     <Search
@@ -343,7 +339,7 @@ class HelpCentre extends Component {
                                             return (
                                                 <ArticleDiv key={idx}>
                                                     <ListWrapper>
-                                                        <Header font_size="3.6rem">
+                                                        <Header size="3.6rem" mb="1.6rem">
                                                             {localize(item.category)}
                                                         </Header>
                                                         {item.articles.map((ar, idxb) => {

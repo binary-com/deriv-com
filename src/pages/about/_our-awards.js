@@ -18,15 +18,6 @@ const AwardContainer = styled.section`
         padding: 8rem 6rem;
     }
 `
-
-const StyledHeader = styled(Header)`
-    font-size: 3.6rem;
-    margin-bottom: 1.6rem;
-`
-const StyledText = styled(Text)`
-    font-size: var(--text-size-m);
-    max-width: ${props => (props.maxW ? props.maxW : '')};
-`
 const ImageWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -39,7 +30,6 @@ const ImageWrapper = styled.div`
         flex-wrap: wrap;
     }
 `
-
 const ImageItem = styled.div`
     margin-right: 1.6rem;
     margin-top: 2rem;
@@ -48,13 +38,15 @@ const ImageItem = styled.div`
 export const OurAwards = () => {
     return (
         <AwardContainer>
-            <StyledHeader align="center">{localize('Our awards')}</StyledHeader>
+            <Header align="center" mb="1.6rem" size="var(--text-size-header-1)">
+                {localize('Our awards')}
+            </Header>
             <Flex>
-                <StyledText align="center" weight="500" maxW="98.4rem">
+                <Text align="center" weight="500" max_width="98.4rem" size="var(--text-size-m)">
                     {localize(
                         'The Binary Group has 20 years of experience in providing excellent trading services. We’re proud that our dedication has led to a number of prestigious awards over the years.',
                     )}
-                </StyledText>
+                </Text>
             </Flex>
             <ImageWrapper>
                 <ImageItem>

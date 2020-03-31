@@ -142,13 +142,13 @@ const Team = () => {
                 team_description={team.description}
             />
             <TeamWrapper>
-                <Header as="h2" font_size="var(--text-size-l)" align="center">
+                <Header as="h2" size="var(--text-size-l)" align="center">
                     Open positions
                 </Header>
                 <LinkList
                     list_items={
                         team.positions &&
-                        team.positions.map(position => ({
+                        team.positions.map((position) => ({
                             text: position.title,
                             to: `careers/jobs/job#${toHashFormat(position.id)}`,
                             middle_text: locations[position.location],

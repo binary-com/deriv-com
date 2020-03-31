@@ -249,14 +249,14 @@ const WhatOurClientsSay = () => {
                     </ButtonWrapper>
                     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                         <Swiper {...params} getSwiper={updateSwiper}>
-                            {our_client_slides.map(trader => (
+                            {our_client_slides.map((trader) => (
                                 <div className="swiper-slide" key={trader.name}>
                                     <ClientSlide
                                         quote={trader.quote}
                                         name={trader.name}
                                         title={trader.title}
                                         img_path={trader.img_path}
-                                        img_alt={localize('Trader')}
+                                        img_alt={trader.name + localize(" - Deriv's Client")}
                                     />
                                 </div>
                             ))}

@@ -26,9 +26,6 @@ const query = graphql`
         cyberjaya_grid_4: file(relativePath: { eq: "careers/cyberjaya_grid_4.png" }) {
             ...fadeIn
         }
-        map_cyberjaya: file(relativePath: { eq: "careers/map_cyberjaya.png" }) {
-            ...fadeIn
-        }
     }
 `
 

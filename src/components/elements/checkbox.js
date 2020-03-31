@@ -9,7 +9,7 @@ const CheckboxContainer = styled.div`
 
 const Icon = styled.svg`
     fill: none;
-    stroke: ${props => {
+    stroke: ${(props) => {
         if (props.secondary) return 'var(--color-white)'
         return 'var(--color-black)'
     }};
@@ -26,22 +26,19 @@ const StyledCheckbox = styled.div`
     display: inline-block;
     width: 1.6rem;
     height: 1.6rem;
-    background: ${props => {
+    background: ${(props) => {
         if (props.secondary && props.checked) return 'var(--color-red)'
         return 'var(--color-white)'
     }};
-    border: ${props => {
+    border: ${(props) => {
         if (props.secondary && props.checked) return '2px solid var(--color-red)'
         return '2px solid var(--color-grey-5)'
     }};
     border-radius: 3px;
     margin-right: 0.8rem;
 
-    /* border: ${props =>
-        props.secondary ? '2px solid var(--color-red)' : '2px solid var(--grey-5)'}; */
-
     ${Icon} {
-        visibility: ${props => (props.checked ? 'visible' : 'hidden')};
+        visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
     }
 `
 

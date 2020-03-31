@@ -8,7 +8,7 @@ const StyledHeader = styled(Header)`
 `
 
 export const NoOpenPositionsHeader = ({ children }) => (
-    <StyledHeader align="center" font_size="var(--text-size-l)" as="h4">
+    <StyledHeader align="center" size="var(--text-size-l)" as="h4">
         {children}
     </StyledHeader>
 )

@@ -46,7 +46,7 @@ const Step = styled(Header)`
     font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;
-    ${props =>
+    ${(props) =>
         props.image_name === props.current_image
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
@@ -54,7 +54,7 @@ const Step = styled(Header)`
     @media ${device.tabletL} {
         text-align: left;
         border: none;
-        margin-top: ${props => (props.no_margin ? '0' : '2rem')};
+        margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
 `
 
@@ -63,9 +63,10 @@ class DtraderTabs extends React.Component {
     interval_ref = undefined
     state = {
         current_step_image: 'dmt-5-step-1.png',
+        step: 1,
     }
-    clickHandler = image_name => {
-        this.setState({ current_step_image: image_name })
+    clickHandler = (image_name, step) => {
+        this.setState({ current_step_image: image_name, step })
     }
     render() {
         return (
@@ -79,7 +80,7 @@ class DtraderTabs extends React.Component {
                             no_margin
                             image_name="dmt-5-step-1.png"
                             current_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dmt-5-step-1.png')}
+                            onClick={() => this.clickHandler('dmt-5-step-1.png', 1)}
                         >
                             {localize('1. Sign up with Deriv')}
                         </Step>
@@ -91,7 +92,7 @@ class DtraderTabs extends React.Component {
                             align="left"
                             image_name="dmt-5-step-2.png"
                             current_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dmt-5-step-2.png')}
+                            onClick={() => this.clickHandler('dmt-5-step-2.png', 2)}
                         >
                             {localize('2. Create a DMT5 account')}
                         </Step>
@@ -103,7 +104,7 @@ class DtraderTabs extends React.Component {
                             align="left"
                             image_name="dmt-5-step-3.png"
                             current_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dmt-5-step-3.png')}
+                            onClick={() => this.clickHandler('dmt-5-step-3.png', 3)}
                         >
                             {localize('3. Fund your account')}
                         </Step>
@@ -112,7 +113,7 @@ class DtraderTabs extends React.Component {
                 <VideoWrapper>
                     <Image
                         img_name={this.state.current_step_image}
-                        alt="DMT5 platform"
+                        alt={localize('DMT5 - Step') + this.state.step}
                         width="100%"
                     />
                 </VideoWrapper>

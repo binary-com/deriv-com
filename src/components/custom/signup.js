@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import { Box } from 'components/containers'
 import Login from 'common/login'
 import { LocalStore } from 'common/storage'
 import TrafficSource from 'common/traffic-source'
 import validation from 'common/validation'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import Wrapper from 'components/containers/wrapper'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
@@ -15,11 +15,10 @@ import SignupPublic from 'components/custom/_signup-public'
 import SignupSimple from 'components/custom/_signup-simple'
 import { Header, Image, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device.js'
 
 const Form = styled.form`
     height: 100%;
-    background-color: ${props => props.bgColor || 'var(--color-white)'};
+    background-color: ${(props) => props.bgColor || 'var(--color-white)'};
 `
 const ResponseWrapper = styled.div`
     justify-content: center;
@@ -28,21 +27,7 @@ const ResponseWrapper = styled.div`
     flex-direction: column;
     padding: 2rem 1rem;
 `
-const MutedText = styled(Text)`
-    text-align: left;
-    color: var(--color-grey);
-    align-self: start;
-`
-export const LoginText = styled(MutedText)`
-    text-align: center;
-    align-self: center;
-    margin-top: 2.4rem;
-
-    @media ${device.tabletL} {
-        margin-bottom: 0;
-    }
-`
-const EmailImgWrapper = styled(Wrapper)`
+const EmailImgWrapper = styled(Box)`
     display: flex;
     justify-content: center;
 `
@@ -55,7 +40,7 @@ const EmailLink = styled(StyledLink)`
     text-align: center;
 `
 
-const validateEmail = email => {
+const validateEmail = (email) => {
     const error_message = validation.email(email)
 
     return error_message
@@ -77,7 +62,7 @@ class Signup extends Component {
         submit_status: '',
         submit_error_msg: '',
     }
-    handleValidation = param => {
+    handleValidation = (param) => {
         const message = typeof param === 'object' ? param.target.value : param
 
         this.setState({
@@ -85,7 +70,7 @@ class Signup extends Component {
         })
     }
 
-    handleInputChange = e => {
+    handleInputChange = (e) => {
         const { name, value } = e.target
 
         this.setState({
@@ -94,7 +79,7 @@ class Signup extends Component {
         this.handleValidation(value)
     }
 
-    getVerifyEmailRequest = email => {
+    getVerifyEmailRequest = (email) => {
         const utm_data = TrafficSource.getData()
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
         const signup_device = LocalStore.get('signup_device')
@@ -120,7 +105,7 @@ class Signup extends Component {
         }
     }
 
-    handleEmailSignup = e => {
+    handleEmailSignup = (e) => {
         e.preventDefault()
         this.setState({ is_submitting: true })
         const { email, email_error_msg } = this.state
@@ -133,7 +118,7 @@ class Signup extends Component {
         }
 
         const verify_email_req = this.getVerifyEmailRequest(email)
-        BinarySocketBase.send(verify_email_req).then(response => {
+        BinarySocketBase.send(verify_email_req).then((response) => {
             if (response.error) {
                 return this.setState({
                     is_submitting: false,
@@ -152,20 +137,14 @@ class Signup extends Component {
 
     clearEmail = () => this.setState({ email: '', email_error_msg: '' })
 
-    handleSocialSignup = e => {
+    handleSocialSignup = (e) => {
         e.preventDefault()
         Login.initOneAll(e.currentTarget.id)
     }
 
-    handleLogin = e => {
+    handleLogin = (e) => {
         e.preventDefault()
         Login.redirectToLogin()
-    }
-
-    handleModalClose = () => {
-        const { closeModal } = this.props
-
-        if (closeModal) closeModal()
     }
 
     renderSwitch(param) {
@@ -213,7 +192,7 @@ class Signup extends Component {
                         <Header as="h3" align="center" weight="normal">
                             {localize('Check your email')}
                         </Header>
-                        <EmailImgWrapper width="100%" margin={{ top: '1rem', bottom: '1.6rem' }}>
+                        <EmailImgWrapper width="100%" mt="1rem" mb="1.6rem">
                             <Image img_name="view-email.png" alt="Email image" width="80%" />
                         </EmailImgWrapper>
                         <Text align="center">
@@ -222,11 +201,7 @@ class Signup extends Component {
                                 values={{ email: this.state.email }}
                             />
                         </Text>
-                        <EmailLink
-                            to="/check-email/"
-                            align="center"
-                            onClick={this.handleModalClose}
-                        >
+                        <EmailLink to="/check-email/" align="center">
                             {localize("Didn't receive your email?")}
                         </EmailLink>
                     </ResponseWrapper>
@@ -245,7 +220,6 @@ Signup.propTypes = {
     appearance: PropTypes.oneOf(Object.keys(Appearances)),
     autofocus: PropTypes.bool,
     bgColor: PropTypes.string,
-    closeModal: PropTypes.func,
     onSubmit: PropTypes.func,
 }
 

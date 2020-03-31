@@ -12,7 +12,7 @@ const Card = styled(Flex)`
     padding: 2.4rem;
     max-width: 20.8rem;
     min-height: 15.8rem;
-    margin: 0 1.2rem;
+    margin: 2rem 1.2rem 0;
     justify-content: flex-start;
 
     &:first-child {
@@ -21,14 +21,11 @@ const Card = styled(Flex)`
     &:last-child {
         margin-right: 0;
     }
-    @media (max-width: 1360px) {
-        margin: 1.2rem;
-    }
 `
 const DerivNumbers = () => {
     return (
         <Container direction="column">
-            <Header as="h2" align="center" mb="4rem">
+            <Header as="h2" align="center" mb="2rem">
                 Deriv in numbers
             </Header>
             <Wrapper mb="8rem">

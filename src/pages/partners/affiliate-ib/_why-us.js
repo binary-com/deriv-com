@@ -18,7 +18,7 @@ const StyledContainer = styled(SectionContainer)`
 `
 const Row = styled(SectionContainer)`
     display: flex;
-    flex-direction: ${props => props.flex_direction};
+    flex-direction: ${(props) => props.flex_direction};
     justify-content: space-between;
     padding: 2rem 0;
 

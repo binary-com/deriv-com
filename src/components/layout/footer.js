@@ -374,7 +374,7 @@ const Footer = () => (
                             </Link>
                         </div>
                         <div>
-                            <Link to="/partners/payment-agent/">{localize('Payment agents')}</Link>
+                            <Link to="/partners/payment-agent">{localize('Payment agents')}</Link>
                         </div>
                     </Col>
                     <Col margin_top width="25%">
@@ -469,7 +469,7 @@ const Footer = () => (
                             </Link>
                         </Item>
                         <Item>
-                            <Link to="/partners/payment-agent/">{localize('Payment agents')}</Link>
+                            <Link to="/partners/payment-agent">{localize('Payment agents')}</Link>
                         </Item>
                     </AccordionItem>
                 </Accordion>
@@ -529,7 +529,7 @@ const Footer = () => (
                 <Row>
                     <StyledText>
                         <Localize
-                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs) and other complex derivatives and financial products. Secure and responsible trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs) and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                             components={[
                                 <BoldLink key={0} target="_blank" to="/responsible-trading/" />,
                             ]}

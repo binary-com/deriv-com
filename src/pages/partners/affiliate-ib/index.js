@@ -38,7 +38,7 @@ const why_partner_with_us_items = [
         image_alt: localize('Multiple income opportunities'),
     },
     {
-        title: localize('No charges and hidden fees. Prompt monthly and daily payments.'),
+        title: localize('Zero charges with prompt monthly and daily payouts'),
         subtitle: localize(
             'All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily.',
         ),
@@ -48,17 +48,17 @@ const why_partner_with_us_items = [
     {
         title: localize('Optimise conversions with great user experience and creative support'),
         subtitle: localize(
-            'We’ve designed the most customer-centric and intuitive trading experience for Deriv that’s optimised to convert visitors into clients. We’ll also provide you with all the tools and creative materials you need to drive traffic to Deriv.',
+            'We’ve designed a customer-centric and intuitive trading experience for Deriv that’s optimised to convert visitors into clients. We’ll also provide you with the tools and creative materials you need to drive traffic to Deriv.',
         ),
         image_name: 'marketing-material.png',
         image_alt: localize('Marketing material'),
     },
 ]
-const Partners = () => {
+const AffiliateIb = () => {
     return (
         <Layout type="partners" padding_top="10rem">
             <SEO
-                title={localize('Affiliates and IBs')}
+                title={localize('Partners')}
                 description={localize('Partner with a trusted online trading provider')}
             />
             <Hero>
@@ -66,7 +66,7 @@ const Partners = () => {
                     {localize('Partner with a trusted online trading provider')}
                 </StyledHeader>
                 <Button onClick={Partner.redirectToSignup} secondary>
-                    {localize('Sign up as affiliate & IB')}
+                    {localize('Sign up as our affiliate & IB')}
                 </Button>
             </Hero>
             <SectionContainer padding="8rem 0 4rem">
@@ -90,4 +90,4 @@ const Partners = () => {
     )
 }
 
-export default WithIntl()(Partners)
+export default WithIntl()(AffiliateIb)

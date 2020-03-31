@@ -8,8 +8,6 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import PartnerAffiliate from 'images/svg/partner-affiliate.svg'
 import PartnerPaymentAgent from 'images/svg/partner-payment-agent.svg'
 
-const StyledSection = styled(SectionContainer)``
-const StyledFlex = styled(Flex)``
 const ClientCard = styled(LocalizedLink)`
     ${CardStyle}
     text-decoration: none;
@@ -34,7 +32,7 @@ const ClientCard = styled(LocalizedLink)`
     }
     &:hover {
         transform: translateY(-1.5rem);
-        ${props =>
+        ${(props) =>
             props.first
                 ? css`
                       svg > g > path:first-child {
@@ -56,13 +54,13 @@ const ClientCard = styled(LocalizedLink)`
 `
 
 const PartnershipOpportunities = () => (
-    <StyledSection>
+    <SectionContainer>
         <Container direction="column">
             <Header align="center" size="var(--text-size-header-1)" as="h2" mb="4rem">
                 {localize('Partnership opportunities')}
             </Header>
         </Container>
-        <StyledFlex wrap="wrap">
+        <Flex wrap="wrap">
             <ClientCard to="/partners/affiliate-ib/" first>
                 <Flex ai="center" height="auto" mb="0.8rem">
                     <Header as="h4" size="var(--text-size-sm)">
@@ -103,8 +101,8 @@ const PartnershipOpportunities = () => (
                     )}
                 </Text>
             </ClientCard> */}
-        </StyledFlex>
-    </StyledSection>
+        </Flex>
+    </SectionContainer>
 )
 
 export default PartnershipOpportunities

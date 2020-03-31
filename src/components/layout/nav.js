@@ -492,18 +492,18 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <StyledLink
                                     activeClassName="active"
                                     to="/partners/"
-                                    aria-label={localize('Affiliate & IB')}
+                                    aria-label={localize('Affiliates & IBs')}
                                 >
-                                    {localize('Affiliate & IB')}
+                                    {localize('Affiliates & IBs')}
                                 </StyledLink>
                             </NavLink>
                             <NavLink>
                                 <StyledLink
                                     activeClassName="active"
                                     to="/partners/payment-agent/"
-                                    aria-label={localize('Payment agent')}
+                                    aria-label={localize('Payment agents')}
                                 >
-                                    {localize('Payment agent')}
+                                    {localize('Payment agents')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>

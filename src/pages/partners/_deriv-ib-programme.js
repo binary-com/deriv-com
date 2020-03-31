@@ -17,9 +17,9 @@ const TitleWrapper = styled.div`
 `
 
 const StyledSection = styled(SectionContainer)`
-    box-shadow: ${props => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
+    box-shadow: ${(props) => (props.shadow ? '0 1px 0 0 rgba(0, 0, 0, 0.1)' : '')};
     padding-bottom: 0;
-    text-align: ${props => props.align || 'left'};
+    text-align: ${(props) => props.align || 'left'};
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -96,7 +96,7 @@ const DerivIBProgramme = () => {
                         {localize('Earn commission from your clients’ trades on DMT5.')}
                     </Header>
                 </TitleWrapper>
-                <SectionContainer padding="8rem 0 9.6rem 0">
+                <SectionContainer padding="4rem 0 9.6rem 0">
                     <StyledHeaderCommission as="h4" mb="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
@@ -124,11 +124,11 @@ const StyledChevron = styled(Chevron)`
     margin-top: 0.8rem;
     height: 16px;
     cursor: pointer;
-    transform: ${props => (props.is_expand ? 'rotate(-180deg)' : 'inherit ')};
+    transform: ${(props) => (props.is_expand ? 'rotate(-180deg)' : 'inherit ')};
 `
 
 const StyledTR = styled(TR)`
-    display: ${props => (props.hidden ? 'hidden' : 'block')};
+    display: ${(props) => (props.hidden ? 'hidden' : 'block')};
 `
 
 const DMT5Synthetic = ({ data }) => {
@@ -374,7 +374,7 @@ const DMT5Advanced = ({ data }) => {
 }
 const ib_dmt5_standard = {
     name: localize('DMT5 Standard'),
-    description: localize('Earn when your customers trade on a DMT5 Standard account.'),
+    description: localize('Earn when your clients trade on a DMT5 Standard account.'),
     assets: [
         [
             { title: localize('Asset'), style: { minWidth: '13rem' } },
@@ -404,9 +404,9 @@ const ib_dmt5_standard = {
 }
 const ib_dmt5_advanced = {
     name: localize('DMT5 Advanced'),
-    description: localize('Earn when your customers trade on a DMT5 Advanced account.'),
+    description: localize('Earn when your clients trade on a DMT5 Advanced account.'),
     assets: [
-        [{ title: localize('Assets'), style: { minWidth: '13rem' } }, localize('Forex and metals')],
+        [{ title: localize('Asset'), style: { minWidth: '13rem' } }, localize('Forex and metals')],
         [
             { title: localize('Commission per round trade'), style: { maxWidth: '16rem' } },
             localize('5 per lot'),
@@ -422,7 +422,7 @@ const ib_dmt5_advanced = {
 }
 const ib_dmt5_synthetic = {
     name: localize('DMT5 Synthetic Indices'),
-    description: localize('Earn when your customers trade on a DMT5 Synthetic account.'),
+    description: localize('Earn when your clients trade on a DMT5 Synthetic Indices account.'),
     assets: [
         [
             localize('Asset'),

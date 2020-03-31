@@ -21,7 +21,7 @@ const Card = styled(Flex)`
     &:last-child {
         margin-right: 0;
     }
-    @media (max-width: 1351px) {
+    @media (max-width: 1360px) {
         margin: 1.2rem;
     }
 `

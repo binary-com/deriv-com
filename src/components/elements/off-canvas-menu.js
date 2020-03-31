@@ -266,7 +266,7 @@ export const OffCanvasMenuPartner = (props) => {
         <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
                 <SingleLink weight="bold" to="/partners/affiliate-ib/" onClick={handleArrowClick}>
-                    {localize('Affiliates & IBs')}
+                    {localize('Affiliates and IBs')}
                 </SingleLink>
                 <SingleLink
                     weight="bold"

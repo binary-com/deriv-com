@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { navigate } from '@reach/router'
 import Forex from './forex/_forex.js'
 import Commodities from './commodities/_commodities.js'
 import SyntheticIndices from './synthetic/_synthetic-indices.js'
 import StockIndices from './stock/_stock-indices.js'
 import { Hero } from './_hero'
 import Signup, { Appearances } from 'components/custom/signup'
-import { getLocationHash } from 'common/utility'
+import { getLocationHash, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO, Flex } from 'components/containers'
@@ -39,25 +38,33 @@ const Separator = styled.div`
 const Markets = () => {
     const [active_tab, setTab] = useTabState('forex')
     React.useEffect(() => {
-        const new_tab = getLocationHash() || 'forex'
-        setTab(new_tab)
+        if (getLocationHash() === active_tab) return
+        setTab(getLocationHash())
     })
+    const handleTabChange = (tab_name) => {
+        setTab(tab_name)
+        isBrowser() && window.history.pushState(null, null, `#${tab_name}`)
+    }
     return (
         <Layout>
             <SEO description={localize('')} title={localize('')} />
             <Hero />
             <Flex mt="4rem">
-                <Item onClick={() => setTab('forex')} active_tab={active_tab} name="forex">
+                <Item onClick={() => handleTabChange('forex')} active_tab={active_tab} name="forex">
                     <Header as="h4">{localize('Forex')}</Header>
                 </Item>
-                <Item onClick={() => setTab('synthetic')} active_tab={active_tab} name="synthetic">
+                <Item
+                    onClick={() => handleTabChange('synthetic')}
+                    active_tab={active_tab}
+                    name="synthetic"
+                >
                     <Header as="h4">{localize('Synthetic Indices')}</Header>
                 </Item>
-                <Item onClick={() => setTab('stock')} active_tab={active_tab} name="stock">
+                <Item onClick={() => handleTabChange('stock')} active_tab={active_tab} name="stock">
                     <Header as="h4">{localize('Stock indices')}</Header>
                 </Item>
                 <Item
-                    onClick={() => setTab('commodities')}
+                    onClick={() => handleTabChange('commodities')}
                     active_tab={active_tab}
                     name="commodities"
                 >
@@ -77,11 +84,10 @@ const Markets = () => {
 }
 
 const useTabState = () => {
-    const [active_tab, setActiveTab] = React.useState('forex')
+    const [active_tab, setActiveTab] = React.useState(getLocationHash())
     const setTab = (tab) => {
         if (tab === active_tab) return
         setActiveTab(tab)
-        navigate(`#${tab}`)
     }
     return [active_tab, setTab]
 }

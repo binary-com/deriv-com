@@ -225,7 +225,7 @@ export const NavMarket = () => (
             )}
             title={localize('Forex')}
             style={{ marginRight: '5.6rem' }}
-            to="/markets/#forex"
+            to="/markets#forex"
         />
         <NavCard
             icon={StockIndices}
@@ -233,20 +233,20 @@ export const NavMarket = () => (
                 'Predict broader market trends and diversify your risk with stock indices.',
             )}
             title={localize('Stock indices')}
-            to="/markets/#stock"
+            to="/markets#stock"
         />
         <NavCard
             icon={Commodities}
             content={localize("Trade natural resources that are central to the world's economy.")}
             title={localize('Commodities')}
-            to="/markets/#commodities"
+            to="/markets#commodities"
             style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
         />
         <NavCard
             icon={SyntheticIndices}
             content={localize('Enjoy synthetic markets that emulate real-world market movements.')}
             title={localize('Synthetic Indices')}
-            to="/markets/#synthetic"
+            to="/markets#synthetic"
             style={{ marginTop: '3.2rem' }}
         />
     </Flex>

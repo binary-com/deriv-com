@@ -2,7 +2,8 @@ import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { WhatTrade } from '../_what-trade'
 import { WhyTrade } from '../_why-trade'
-import { LearnMore } from '../_learn-more'
+// TODO: active when design was ready
+// import { LearnMore } from '../_learn-more'
 import OtherMarkets from '../_other-markets.js'
 import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
@@ -33,24 +34,25 @@ const what_trade_sub_header = [
         ),
     },
 ]
-const learn_more_data = [
-    {
-        header: localize('Torquatos nostros quos dolores suscipiantur'),
-        text: [localize('test1-1'), localize('test1-2')],
-    },
-    {
-        header: localize('Alii autem quibus ego'),
-        text: [localize('test2-1'), localize('test2-2')],
-    },
-    {
-        header: localize('Alii autem, quibus ego assentior, cum a natura?'),
-        text: [localize('test3-1'), localize('test3-2')],
-    },
-    {
-        header: localize('At vero eos censes tantas'),
-        text: [localize('test4-1'), localize('test4-2')],
-    },
-]
+// TODO: active when design was ready
+// const learn_more_data = [
+//     {
+//         header: localize('Torquatos nostros quos dolores suscipiantur'),
+//         text: [localize('test1-1'), localize('test1-2')],
+//     },
+//     {
+//         header: localize('Alii autem quibus ego'),
+//         text: [localize('test2-1'), localize('test2-2')],
+//     },
+//     {
+//         header: localize('Alii autem, quibus ego assentior, cum a natura?'),
+//         text: [localize('test3-1'), localize('test3-2')],
+//     },
+//     {
+//         header: localize('At vero eos censes tantas'),
+//         text: [localize('test4-1'), localize('test4-2')],
+//     },
+// ]
 const simple_step_content = [
     {
         header: localize('Practise'),
@@ -76,7 +78,7 @@ const simple_step_content = [
 ]
 
 const LinkButtonWrapper = styled.div`
-    margin-top: 6.1rem;   
+    margin-top: 6.1rem;
     text-align: center;
 `
 
@@ -84,7 +86,6 @@ const Forex = () => {
     const learn_more_section = useRef(null)
     return (
         <>
-            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} Multipliers={Multipliers} title='Forex' />
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What is forex?')}
@@ -106,6 +107,12 @@ const Forex = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            <AvailableTrades
+                Margin={Margin}
+                DigitalOptions={DigitalOptions}
+                Multipliers={Multipliers}
+                name="Forex"
+            />
             <SimpleSteps
                 header={localize('Start trading forex on Deriv in 3 simple steps')}
                 content={simple_step_content}
@@ -117,11 +124,11 @@ const Forex = () => {
                     </LinkButtonWrapper>
                 }
             />
-
             <div ref={learn_more_section}>
-                <LearnMore data={learn_more_data} header={localize('Learn more about forex')} />
+                {/* TODO: active when design was ready */}
+                {/* <LearnMore data={learn_more_data} header={localize('Learn more about forex')} /> */}
             </div>
-            <OtherMarkets except='forex' />
+            <OtherMarkets except="forex" />
         </>
     )
 }

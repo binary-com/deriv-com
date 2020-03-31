@@ -6,6 +6,7 @@ import Commodities from './commodities/_commodities.js'
 import SyntheticIndices from './synthetic/_synthetic-indices.js'
 import StockIndices from './stock/_stock-indices.js'
 import { Hero } from './_hero'
+import Signup, { Appearances } from 'components/custom/signup'
 import { getLocationHash } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -70,6 +71,7 @@ const Markets = () => {
                 {active_tab === 'stock' && <StockIndices />}
                 {active_tab === 'synthetic' && <SyntheticIndices />}
             </TabWrapper>
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

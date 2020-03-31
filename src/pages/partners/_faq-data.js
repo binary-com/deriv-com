@@ -13,7 +13,7 @@ const ItemContainer = styled(SectionContainer)`
 
 const HeaderPrimary = styled(Header)`
     margin-top: 3.2rem;
-    font-size: var(--text-size-m);
+    font-size: var(--text-size-s);
 `
 
 const TextPrimary = styled(Text)`
@@ -53,7 +53,7 @@ const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
 
 const AffiliateGeneral = (
     <ItemContainer>
-        <Header as="h4">{localize('What is the Deriv Affiliate Programme?')}</Header>
+        <Header as="h5">{localize('What is the Deriv Affiliate Programme?')}</Header>
         <TextPrimary>
             {localize(
                 'The Deriv Affiliate Programme is an exciting partnership programme where you benefit from bringing in new clients to trade on our DTrader and DBot platforms.',
@@ -97,7 +97,7 @@ const AffiliateGeneral = (
 
             <Text>
                 {localize(
-                    'Develops web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                    'Manages an active online community that’s passionate about online trading, investing, or personal finance.',
                 )}
             </Text>
         </StyledUl>
@@ -116,7 +116,7 @@ const AffiliateGeneral = (
         <HeaderPrimary>{localize('What does ‘referred client’ mean?')}</HeaderPrimary>
         <TextPrimary>
             {localize(
-                'A referred client is someone who has clicked on your unique affiliate link, signed up with Deriv, and deposited money into their Deriv account. They must be aged 18 years and above and have not previously been a Deriv or Binary.com customer.',
+                'A referred client is someone who has clicked on your unique affiliate link, signed up with Deriv, and deposited money into their Deriv account. They must be aged 18 years and above and have not previously been a Deriv or Binary.com client.',
             )}
         </TextPrimary>
         <HeaderPrimary>{localize('Who can sign up as a Deriv client?')}</HeaderPrimary>
@@ -130,7 +130,7 @@ const AffiliateGeneral = (
 )
 const AffiliateAccountManagement = (
     <ItemContainer>
-        <Header as="h4">{localize('How can I sign up as a Deriv affiliate?')}</Header>
+        <Header as="h5">{localize('How can I sign up as a Deriv affiliate?')}</Header>
         <TextPrimary>
             <Localize
                 translate_text="All you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
@@ -218,7 +218,7 @@ const AffiliateAccountManagement = (
         </HeaderPrimary>
         <TextPrimary>
             {localize(
-                'We don’t allow the use of unauthorised incentives, gifts, and payments to encourage client signups. If we find out that you did this, we may withhold your affiliate commissions. However, if you have a specific incentive in mind, you may contact your account manager to discuss it further.',
+                'Feel free to discuss any incentive plan you have with your account manager. Please remember that we don’t allow unauthorised incentives, gifts, and payments to encourage client signups. If there are any violations, we may withhold commissions.',
             )}
         </TextPrimary>
     </ItemContainer>
@@ -226,7 +226,7 @@ const AffiliateAccountManagement = (
 
 const AffiliateReferralTools = (
     <ItemContainer>
-        <Header as="h4">{localize('What kind of referral tools do you offer?')}</Header>
+        <Header as="h5">{localize('What kind of referral tools do you offer?')}</Header>
         <TextPrimary>
             <Localize
                 translate_text="We have a tried-and-tested selection of referral tools, including banners, videos, reviews, and text ads. If you’d like certain tools to be customised to your site requirements, please contact your account manager at <0>affiliates@deriv.com</0>."
@@ -247,7 +247,7 @@ const scrollToIb = e => {
 
 const IBGeneral = (
     <ItemContainer>
-        <Header as="h4">{localize('What is the Deriv IB Programme?')}</Header>
+        <Header as="h5">{localize('What is the Deriv IB Programme?')}</Header>
         <TextPrimary>
             {localize(
                 'The Deriv IB Programme is a partnership where you benefit from referring new clients to trade on our DMT5 platform.',
@@ -265,9 +265,7 @@ const IBGeneral = (
         <HeaderPrimary>
             {localize('How much do I need to pay to join your IB programme?')}
         </HeaderPrimary>
-        <TextPrimary>
-            {localize('The Deriv IB Programme is completely free and always will be.')}
-        </TextPrimary>
+        <TextPrimary>{localize('The Deriv IB Programme is completely free.')}</TextPrimary>
         <HeaderPrimary>
             {localize(
                 'Are there any minimum client or volume conditions that I need to meet before I can withdraw my commissions?',
@@ -281,7 +279,7 @@ const IBGeneral = (
 
 const IBAccountManagement = (
     <ItemContainer>
-        <Header as="h4">{localize('How can I sign up as a Deriv IB?')}</Header>
+        <Header as="h5">{localize('How can I sign up as a Deriv IB?')}</Header>
         <TextPrimary>
             <Localize
                 translate_text="If you’re interested in becoming an IB, all you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
@@ -314,7 +312,7 @@ const IBAccountManagement = (
 
 const IBReferralTools = (
     <ItemContainer>
-        <Header as="h4">{localize('Do you offer any referral tools to your IBs?')}</Header>
+        <Header as="h5">{localize('Do you offer any referral tools to your IBs?')}</Header>
         <TextPrimary>
             {localize(
                 'Definitely. We’ll provide you with banners, videos, reviews, links, and text ads that you can use to bring new clients to our DMT5 platform.',

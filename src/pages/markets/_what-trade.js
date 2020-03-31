@@ -13,6 +13,10 @@ const ContentWrapper = styled.section`
     width: 100%;
     padding: 8rem 22.2rem;
 
+    ${Container} {
+        max-width: 99.6rem;
+    }
+
     @media ${device.tablet} {
         padding: 8rem 10rem;
     }

@@ -64,12 +64,6 @@ const StockIndices = () => {
 
     return (
         <div>
-            <AvailableTrades
-                Margin={Margin}
-                DigitalOptions={DigitalOptions}
-                Multipliers={Multipliers}
-                name="Synthetic Indices"
-            />
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What are Synthetic Indices?')}
@@ -97,6 +91,12 @@ const StockIndices = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            <AvailableTrades
+                Margin={Margin}
+                DigitalOptions={DigitalOptions}
+                Multipliers={Multipliers}
+                name="Synthetic Indices"
+            />
             <SimpleSteps
                 header={localize('Start trading Synthetic Indices on Deriv in 3 simple steps')}
                 content={simple_step_content}

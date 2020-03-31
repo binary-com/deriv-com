@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { HeaderPrimary, TextPrimary, StyledLink, LocalizedLinkText } from '../_faq-data'
+import {
+    HeaderPrimary,
+    TextPrimary,
+    StyledLink,
+    LocalizedLinkText,
+} from '../affiliate-ib/_faq-data'
 import { localize, Localize } from 'components/localization'
 import { Header } from 'components/elements'
 

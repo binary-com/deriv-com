@@ -92,8 +92,8 @@ const BlackNav = styled.section`
     }
 `
 const Col = styled.div`
-    width: ${props => props.width};
-    ${props => (props.margin_top ? 'margin-top: 3.9rem;' : '')}
+    width: ${(props) => props.width};
+    ${(props) => (props.margin_top ? 'margin-top: 3.9rem;' : '')}
 
     div {
         margin-top: 0.8rem;
@@ -145,11 +145,11 @@ const StyledContainer = styled(Container)`
     padding: 1.6rem 0;
 `
 const Row = styled.div`
-    margin-top: ${props => (props.mt ? props.mt : '0')};
-    margin-bottom: ${props => (props.mb ? props.mb : '0')};
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
     width: 100%;
     align-items: center;
-    display: ${props => (props.flex ? 'flex' : 'block')};
+    display: ${(props) => (props.flex ? 'flex' : 'block')};
 `
 const StyledText = styled(Text)`
     text-align: justify;
@@ -525,7 +525,7 @@ const Footer = () => (
                 <Row>
                     <StyledText>
                         <Localize
-                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs) and other complex derivatives and financial products. Secure and responsible trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                             components={[
                                 <BoldLink key={0} target="_blank" to="/responsible-trading/" />,
                             ]}

@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import { VolatilityIndices, DailyResetIndices, CrashBoom, StepIndices } from '../sub-markets'
+import {
+    VolatilityIndices,
+    DailyResetIndices,
+    CrashBoom,
+    StepIndices,
+} from '../sub-markets/_submarkets.js'
 import { Accordion, AccordionItem, Text } from 'components/elements'
 import { SectionContainer, CssGrid, Box } from 'components/containers'
 import { localize } from 'components/localization'

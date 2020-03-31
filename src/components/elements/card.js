@@ -11,7 +11,7 @@ import Diagonal from 'images/svg/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background-color: var(--color-white);
 `
 

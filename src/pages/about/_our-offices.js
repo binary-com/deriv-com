@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import Map from 'images/svg/world-map.svg'
 import device from 'themes/device'
 import Labuan from 'images/svg/labuan-pin-location.svg'
@@ -52,13 +52,13 @@ const Oval = styled.div`
     border-radius: 50%;
     position: absolute;
     visibility: visible;
-    top: ${props => props.top || '87%'};
-    left: ${props => props.left || '11%'};
+    top: ${(props) => props.top || '87%'};
+    left: ${(props) => props.left || '11%'};
 `
 const Pinpoint = styled.div`
     position: absolute;
-    top: ${props => props.top};
-    left: ${props => props.left};
+    top: ${(props) => props.top};
+    left: ${(props) => props.left};
 
     > svg {
         opacity: 0;
@@ -73,7 +73,7 @@ const Pinpoint = styled.div`
 
 const PinpointWrapper = styled(Labuan)`
     position: relative;
-    left: ${props => props.left || '-4%'};
+    left: ${(props) => props.left || '-4%'};
 `
 const CyberjayaWrapper = styled(Cyberjaya)`
     ${PinpointWrapper}
@@ -112,7 +112,7 @@ const Number = styled.div`
     text-align: center;
     align-items: center;
 `
-const MapLink = styled.a`
+const MapLink = styled(LocalizedLink)`
     cursor: pointer;
 `
 export const OurOffices = () => {
@@ -127,11 +127,7 @@ export const OurOffices = () => {
                     <Oval />
                     <ParaguayWrapper />
                 </Pinpoint>
-                <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://g.page/r/CRyKELlnWQ3iEAE"
-                >
+                <MapLink to="/contact-us/#malta">
                     <Pinpoint top="21.6%" left="49.6%">
                         <Oval />
                         <MaltaWrapper />
@@ -142,11 +138,7 @@ export const OurOffices = () => {
                     <DubaiWrapper />
                 </Pinpoint>
 
-                <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://g.page/r/CQODFgzIJPYtEAE"
-                >
+                <MapLink to="/contact-us/#cyberjaya">
                     <Pinpoint top="46%" left="63.6%">
                         <Oval top="83%" left="88%" />
                         <CyberjayaWrapper />

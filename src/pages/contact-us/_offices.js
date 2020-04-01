@@ -4,7 +4,7 @@ import { Text, LinkText } from 'components/elements/typography'
 import { Header, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
-import { map_api_key } from 'common/utility'
+import { map_api_key, getLocationHash, isBrowser } from 'common/utility'
 // SVG
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
@@ -114,8 +114,8 @@ const ImageWrapper = styled.div`
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
-    color: ${props => props.color || 'var(--color-black-3)'};
-    text-indent: ${props => props.textIndent || '0'};
+    color: ${(props) => props.color || 'var(--color-black-3)'};
+    text-indent: ${(props) => props.textIndent || '0'};
 
     @media ${device.laptop} {
         font-size: var(--text-size-sm);
@@ -167,6 +167,15 @@ const Iframe = styled.iframe`
 `
 
 export const Offices = () => {
+    React.useEffect(() => {
+        if (isBrowser()) {
+            const element_id = getLocationHash()
+            const padding_top = 300
+            const offset_top =
+                document.getElementById('office-' + element_id).offsetTop - padding_top
+            window.scroll({ top: offset_top, behavior: 'smooth' })
+        }
+    }, [])
     return (
         <Wrapper>
             <StyledHeader as="h3" align="center">
@@ -174,7 +183,7 @@ export const Offices = () => {
             </StyledHeader>
             <OfficesWrapper>
                 <OfficeWrapper>
-                    <Office>
+                    <Office id="office-malta">
                         <ImageWrapper>
                             <Iframe
                                 src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=${map_api_key}`}
@@ -208,7 +217,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <EvenOffice>
+                    <EvenOffice id="office-cyberjaya">
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}

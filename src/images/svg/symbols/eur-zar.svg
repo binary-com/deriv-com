@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="33" viewBox="0 0 32 33">
     <defs>
-        <rect id="prefix__a" width="24" height="16" x="0" y="0" rx="2"/>
-        <rect id="prefix__c" width="24" height="16" x="0" y="0" rx="2"/>
+        <rect id="eurzarprefix__a" width="24" height="16" x="0" y="0" rx="2"/>
+        <rect id="eurzarprefix__c" width="24" height="16" x="0" y="0" rx="2"/>
     </defs>
     <g fill="none" fill-rule="evenodd" transform="translate(0 5)">
         <g fill-rule="nonzero">
@@ -13,15 +13,15 @@
         <g transform="translate(8 8)">
             <path fill="#072CB4" fill-rule="nonzero" d="M0 11h24v3c0 1.105-.895 2-2 2H2c-1.105 0-2-.895-2-2v-3z"/>
             <path fill="#F44E46" fill-rule="nonzero" d="M2 0h20c1.105 0 2 .895 2 2v3H0V2C0 .895.895 0 2 0z"/>
-            <mask id="prefix__b" fill="#fff">
-                <use xlink:href="#prefix__a"/>
+            <mask id="eurzarprefix__b" fill="#fff">
+                <use xlink:href="#eurzarprefix__a"/>
             </mask>
-            <path fill="#06A86E" fill-rule="nonzero" stroke="#FFF" d="M8.167 5.5L24.5 5.5 24.5 10.5 8.167 10.5 -0.5 17 -0.5 -1z" mask="url(#prefix__b)"/>
+            <path fill="#06A86E" fill-rule="nonzero" stroke="#FFF" d="M8.167 5.5L24.5 5.5 24.5 10.5 8.167 10.5 -0.5 17 -0.5 -1z" mask="url(#eurzarprefix__b)"/>
             <g>
-                <mask id="prefix__d" fill="#fff">
-                    <use xlink:href="#prefix__c"/>
+                <mask id="eurzarprefix__d" fill="#fff">
+                    <use xlink:href="#eurzarprefix__c"/>
                 </mask>
-                <path fill="#262626" fill-rule="nonzero" stroke="#FFBF2E" d="M-1.5 2.96L4.8 8 -1.5 13.04z" mask="url(#prefix__d)"/>
+                <path fill="#262626" fill-rule="nonzero" stroke="#FFBF2E" d="M-1.5 2.96L4.8 8 -1.5 13.04z" mask="url(#eurzarprefix__d)"/>
             </g>
             <rect width="23" height="15" x=".5" y=".5" fill-rule="nonzero" stroke="#000" stroke-opacity=".04" rx="1"/>
         </g>

@@ -26,7 +26,7 @@ const FadeOutUp = keyframes`
     }
 `
 const NavDropdown = styled.div`
-    display: ${props => (props.is_open ? 'flex' : 'none')};
+    display: ${(props) => (props.is_open ? 'flex' : 'none')};
     width: 100%;
     position: absolute;
     padding: 4rem 0;
@@ -37,9 +37,9 @@ const NavDropdown = styled.div`
     opacity: 0;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     transition: all 0.35s ease-in-out;
-    animation-name: ${props => (props.is_open ? FadeInDown : FadeOutUp)};
+    animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
-    animation-duration: ${props => (props.has_animation ? '0.3s' : '0')};
+    animation-duration: ${(props) => (props.has_animation ? '0.3s' : '0')};
 `
 const StyledContainer = styled(Container)`
     justify-content: flex-start;

@@ -52,13 +52,13 @@ const Oval = styled.div`
     border-radius: 50%;
     position: absolute;
     visibility: visible;
-    top: ${props => props.top || '87%'};
-    left: ${props => props.left || '11%'};
+    top: ${(props) => props.top || '87%'};
+    left: ${(props) => props.left || '11%'};
 `
 const Pinpoint = styled.div`
     position: absolute;
-    top: ${props => props.top};
-    left: ${props => props.left};
+    top: ${(props) => props.top};
+    left: ${(props) => props.left};
 
     > svg {
         opacity: 0;
@@ -73,7 +73,7 @@ const Pinpoint = styled.div`
 
 const PinpointWrapper = styled(Labuan)`
     position: relative;
-    left: ${props => props.left || '-4%'};
+    left: ${(props) => props.left || '-4%'};
 `
 const CyberjayaWrapper = styled(Cyberjaya)`
     ${PinpointWrapper}

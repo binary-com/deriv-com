@@ -42,10 +42,10 @@ const StyledText = styled(Text)`
     position: relative;
     font-size: var(--text-size-s);
     max-width: fit-content;
-    opacity: ${props => (props.disabled ? '0.32' : '1')};
+    opacity: ${(props) => (props.disabled ? '0.32' : '1')};
 
     &:hover {
-        text-decoration: ${props => (props.disabled ? '' : 'underline')};
+        text-decoration: ${(props) => (props.disabled ? '' : 'underline')};
     }
 `
 

@@ -9,10 +9,10 @@ import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 const Section = styled(SectionContainer)`
-    background-color: ${props => props.bgcolor || 'transparent'};
+    background-color: ${(props) => props.bgcolor || 'transparent'};
 `
 const StyledHeader = styled(Header)`
-    max-width: ${props => props.maxwidth || '100%'};
+    max-width: ${(props) => props.maxwidth || '100%'};
     margin: 0 auto;
 `
 const Column = styled.article`

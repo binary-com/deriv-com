@@ -41,7 +41,7 @@ const StyledUl = styled.ul`
     padding-left: 1.8rem;
 `
 
-const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
+const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
     color: var(--color-red);
     font-weight: bold;
     text-decoration: none;
@@ -236,7 +236,7 @@ const AffiliateReferralTools = (
     </ItemContainer>
 )
 
-const scrollToIb = e => {
+const scrollToIb = (e) => {
     e.preventDefault()
     if (isBrowser()) {
         const padding_top = 80

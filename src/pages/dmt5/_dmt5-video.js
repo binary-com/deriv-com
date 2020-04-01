@@ -46,7 +46,7 @@ const Step = styled(Header)`
     font-weight: 500;
     cursor: pointer;
     padding-left: 1.8rem;
-    ${props =>
+    ${(props) =>
         props.image_name === props.current_image
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
@@ -54,7 +54,7 @@ const Step = styled(Header)`
     @media ${device.tabletL} {
         text-align: left;
         border: none;
-        margin-top: ${props => (props.no_margin ? '0' : '2rem')};
+        margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
 `
 

@@ -33,7 +33,7 @@ const StyledForm = styled(Form)`
     width: 40rem;
 `
 
-const resetValidation = values => {
+const resetValidation = (values) => {
     let errors = {}
 
     const email_error = validation.email(values.email)
@@ -49,7 +49,7 @@ const resetSubmission = (values, actions) => {
     BinarySocketBase.send({
         verify_email: values.email,
         type: 'reset_password',
-    }).then(response => {
+    }).then((response) => {
         actions.setSubmitting(false)
         if (response.error) {
             actions.setStatus({

@@ -28,8 +28,8 @@ const MarketWrapper = styled(Flex)`
 `
 const MarketCard = styled.article`
     display: flex;
-    margin-bottom: ${props => props.mb || ''};
-    margin-right: ${props => props.mr || ''};
+    margin-bottom: ${(props) => props.mb || ''};
+    margin-right: ${(props) => props.mr || ''};
 
     svg {
         margin-right: 2rem;

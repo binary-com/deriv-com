@@ -119,7 +119,7 @@ commands:
           name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
           command: |
             echo $CA_CRT | base64 --decode > ca.crt
-            kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1}
+            kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG}
 jobs:
   test:
     docker:

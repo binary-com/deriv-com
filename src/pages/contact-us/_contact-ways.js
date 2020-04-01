@@ -72,11 +72,11 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledText = styled(Text)`
-    margin-bottom: ${props => props.marginBttom || '0.8rem'};
+    margin-bottom: ${(props) => props.marginBttom || '0.8rem'};
     font-size: var(--text-size-sm);
 
     @media ${device.tabletL} {
-        font-size: ${props => (props.secondary ? '3rem' : '2rem')};
+        font-size: ${(props) => (props.secondary ? '3rem' : '2rem')};
     }
 `
 

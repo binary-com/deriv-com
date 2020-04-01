@@ -270,7 +270,7 @@ const EmployeeTestimonialCarousel = () => {
                 <SliderWrapper>
                     <SwiperWrapper>
                         <Swiper {...params} getSwiper={updateSwiper}>
-                            {employee_testimonials.map(employee_slide => (
+                            {employee_testimonials.map((employee_slide) => (
                                 <div className="swiper-slide" key={employee_slide.name}>
                                     <EmployeeSlide
                                         quote={employee_slide.quote}

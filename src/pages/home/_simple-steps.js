@@ -35,7 +35,7 @@ const ClientCard = styled.article`
     padding: 3.2rem;
     height: 100%;
     min-height: 22rem;
-    margin: ${props => (props.m ? props.m : '')};
+    margin: ${(props) => (props.m ? props.m : '')};
     position: relative;
     overflow: hidden;
     transition: transform 0.3s;
@@ -51,7 +51,7 @@ const ClientCard = styled.article`
 
     @media (max-width: 1185px) {
         margin: 2rem;
-        order: ${props => (props.order ? props.order : '')};
+        order: ${(props) => (props.order ? props.order : '')};
     }
     @media ${device.tabletL} {
         width: 100%;

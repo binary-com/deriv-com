@@ -114,8 +114,8 @@ const ImageWrapper = styled.div`
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
-    color: ${props => props.color || 'var(--color-black-3)'};
-    text-indent: ${props => props.textIndent || '0'};
+    color: ${(props) => props.color || 'var(--color-black-3)'};
+    text-indent: ${(props) => props.textIndent || '0'};
 
     @media ${device.laptop} {
         font-size: var(--text-size-sm);

@@ -10,7 +10,7 @@ const SharedButtonStyle = css`
     transition: all 0.25s;
     font-weight: bold;
     height: fit-content;
-    ${props => {
+    ${(props) => {
         if (props.primary)
             return css`
                 border: 2px solid var(--color-red);
@@ -55,11 +55,11 @@ const SharedButtonStyle = css`
             `
         if (props.social)
             return css`
-                background: ${props => {
+                background: ${(props) => {
                     if (props.provider === 'google') return 'var(--color-white)'
                     if (props.provider === 'facebook') return 'var(--color-blue)'
                 }};
-                border: ${props =>
+                border: ${(props) =>
                     props.provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};
 
                 svg {
@@ -95,7 +95,7 @@ const Button = styled.button`
         cursor: pointer;
     }
 
-    ${props => {
+    ${(props) => {
         if (props.disabled)
             return css`
                 pointer-events: none;

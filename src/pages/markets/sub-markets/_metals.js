@@ -8,6 +8,9 @@ import { GOLDUSD, PALLADIUMUSD, PLATINUMUSD, SILVERUSD } from 'components/elemen
 const Symbol = styled(Flex)`
     padding: 0.8rem 0;
     height: unset;
+    justify-content: flex-start;
+    width: 15.7rem;
+    margin: 0 auto;
 
     svg {
         width: 32px;

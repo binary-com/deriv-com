@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import OtherMarkets from '../_other-markets.js'
 import { WhatTrade } from '../_what-trade'
@@ -21,7 +21,7 @@ import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 const what_trade_sub_header = [
     {
         text: localize(
-            'Stock indices track the performance of the broad stock market or a particular market sector. Stock indices trading allows you to profit from the price movements in a market without buying assets.',
+            'Stock indices track the performance of the broad stock market or a particular market sector. Trading stock indices allows you to profit from the price movements in a market without buying the underlying assets',
         ),
     },
     {
@@ -34,14 +34,14 @@ const simple_step_content = [
     {
         header: localize('Practise'),
         text: localize(
-            'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
+            'Open a demo account and practise with an unlimited amount of virtual funds.',
         ),
         icon: <PractiseIcon />,
     },
     {
         header: localize('Trade'),
         text: localize(
-            'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
+            'Open a real account, make a 1deposit, and start trading stock indices and other markets.',
         ),
         icon: <TradeIcon />,
     },
@@ -58,14 +58,14 @@ const LinkButtonWrapper = styled.div`
     text-align: center;
 `
 const StockIndices = () => {
-    const learn_more_section = useRef(null)
+    // const learn_more_section = useRef(null)
 
     return (
         <div>
             <WhatTrade
                 sub_header={what_trade_sub_header}
                 header={localize('What are stock indices?')}
-                learn_more_section={learn_more_section}
+                // learn_more_section={learn_more_section}
             />
             <WhyTrade header={localize('Why trade stock indices on Deriv')}>
                 <div

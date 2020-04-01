@@ -119,6 +119,49 @@ Card.propTypes = {
     name: PropTypes.string,
     onTabChange: PropTypes.func,
 }
+const TabsContent = {
+    Forex: {
+        margin: localize(
+            'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
+        ),
+        options: localize(
+            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on forex',
+        ),
+        multipliers: localize(
+            'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment',
+        ),
+    },
+    Commodity: {
+        margin: localize(
+            'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
+        ),
+        options: localize(
+            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on forex',
+        ),
+        multipliers: localize(
+            'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment',
+        ),
+    },
+    'Stock indices': {
+        margin: localize(
+            'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
+        ),
+        options: localize(
+            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on stock indices',
+        ),
+    },
+    'Synthetic Indices': {
+        margin: localize(
+            'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
+        ),
+        options: localize(
+            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on forex',
+        ),
+        multipliers: localize(
+            'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment',
+        ),
+    },
+}
 class AvailableTrades extends React.Component {
     state = {
         active_tab: 'Margin',
@@ -145,7 +188,7 @@ class AvailableTrades extends React.Component {
                         {Margin && (
                             <Card
                                 name="Margin"
-                                content="Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss."
+                                content={TabsContent[name].margin}
                                 onTabChange={this.handleTabChange}
                                 active_tab={this.state.active_tab}
                             />
@@ -153,7 +196,7 @@ class AvailableTrades extends React.Component {
                         {DigitalOptions && (
                             <Card
                                 name="Options"
-                                content="Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on forex"
+                                content={TabsContent[name].options}
                                 onTabChange={this.handleTabChange}
                                 active_tab={this.state.active_tab}
                             />
@@ -161,7 +204,7 @@ class AvailableTrades extends React.Component {
                         {Multipliers && (
                             <Card
                                 name="Multipliers"
-                                content="Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment"
+                                content={TabsContent[name].multipliers}
                                 onTabChange={this.handleTabChange}
                                 active_tab={this.state.active_tab}
                             />

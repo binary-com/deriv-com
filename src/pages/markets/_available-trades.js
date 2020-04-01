@@ -10,9 +10,6 @@ import DTrader from 'images/svg/dtrader-icon-green.svg'
 import DBot from 'images/svg/dbot-icon-green.svg'
 
 const CardWrapper = styled(Flex)`
-    height: 27.6rem;
-    position: relative;
-
     div:first-child {
         left: 0;
     }
@@ -141,7 +138,7 @@ class AvailableTrades extends React.Component {
                         marginTop: '4rem',
                     }}
                 >
-                    <CardWrapper tab_counts={tab_counts}>
+                    <CardWrapper tab_counts={tab_counts} height="27.6rem" position="relative">
                         {Margin && (
                             <Card
                                 name="Margin"

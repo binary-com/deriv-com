@@ -4,14 +4,11 @@ import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
-import { Container } from 'components/containers'
+import { Container, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 
-const ContentWrapper = styled.section`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 8rem 22.2rem;
+const ContentWrapper = styled(SectionContainer)`
+    padding: 8rem 0;
 
     ${Container} {
         max-width: 99.6rem;
@@ -23,19 +20,12 @@ const ContentWrapper = styled.section`
 `
 
 const ButtonWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin-top: 1.7rem;
+    margin-top: 3.9rem;
 
     ${LinkButton} {
-        width: 23.7rem;
-    }
-    * {
-        margin-right: 1.6rem;
+        width: 17.2rem;
     }
     @media ${device.tablet} {
-        flex-direction: column;
-
         * {
             margin-top: 1rem;
             margin-right: 0;

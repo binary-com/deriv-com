@@ -9,7 +9,7 @@ import Signup, { Appearances } from 'components/custom/signup'
 import { getLocationHash, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { SEO, Flex } from 'components/containers'
+import { SEO, Flex, Box } from 'components/containers'
 import { Header } from 'components/elements'
 
 const Item = styled.div`
@@ -25,9 +25,7 @@ const Item = styled.div`
         font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
 `
-const TabWrapper = styled.div`
-    position: relative;
-`
+
 const Separator = styled.div`
     position: absolute;
     width: 100%;
@@ -36,10 +34,15 @@ const Separator = styled.div`
     background-color: var(--color-grey-21);
 `
 const Markets = () => {
-    const [active_tab, setTab] = useTabState('forex')
+    const [active_tab, setTab] = useTabState()
     React.useEffect(() => {
         if (getLocationHash() === active_tab) return
-        setTab(getLocationHash())
+        if (getLocationHash().length === 0) {
+            setTab('forex')
+            isBrowser() && window.history.pushState(null, null, '#forex')
+        } else {
+            setTab(getLocationHash())
+        }
     })
     const handleTabChange = (tab_name) => {
         setTab(tab_name)
@@ -71,20 +74,20 @@ const Markets = () => {
                     <Header as="h4">{localize('Commodities')}</Header>
                 </Item>
             </Flex>
-            <TabWrapper>
+            <Box position="relative">
                 <Separator />
                 {active_tab === 'forex' && <Forex />}
                 {active_tab === 'commodities' && <Commodities />}
                 {active_tab === 'stock' && <StockIndices />}
                 {active_tab === 'synthetic' && <SyntheticIndices />}
-            </TabWrapper>
+            </Box>
             <Signup appearance={Appearances.public} />
         </Layout>
     )
 }
 
 const useTabState = () => {
-    const [active_tab, setActiveTab] = React.useState(getLocationHash())
+    const [active_tab, setActiveTab] = React.useState('forex')
     const setTab = (tab) => {
         if (tab === active_tab) return
         setActiveTab(tab)

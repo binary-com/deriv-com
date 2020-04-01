@@ -3,33 +3,15 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer, Flex, Box } from 'components/containers'
 import device from 'themes/device'
 
-const ContentWrapper = styled(Flex)`
-    max-width: 99.6rem;
-    margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
-`
-const LeftContent = styled.div``
-const RightContent = styled.div`
-    width: 100%;
-    max-width: 48.6rem;
-`
-const Item = styled.div`
-    display: flex;
-    flex-direction: row;
-    padding: 2.4rem;
-    margin-bottom: 1.6rem;
-    height: 7.2rem;
+const Item = styled(Flex)`
     border-radius: 6px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background-color: var(--color-white);
 `
 const StyledHeader = styled(Header)`
-    max-width: 38.4rem;
-
     @media ${device.tablet} {
         text-align: center;
         max-width: unset;
@@ -39,16 +21,24 @@ const StyledHeader = styled(Header)`
 export const WhyTrade = ({ children, header }) => {
     return (
         <SectionContainer>
-            <ContentWrapper>
-                <LeftContent>
-                    <StyledHeader size="3.6rem">{localize(header)}</StyledHeader>
-                </LeftContent>
-                <RightContent>
+            <Flex max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
+                <div>
+                    <StyledHeader size="3.6rem" max_width="38.4rem">
+                        {localize(header)}
+                    </StyledHeader>
+                </div>
+                <Box max_width="48.6rem" width="100%">
                     {children.map((child, idx) => {
                         {
                             const { text, icon } = child.props
                             return (
-                                <Item key={idx}>
+                                <Item
+                                    key={idx}
+                                    ai="center"
+                                    jc="flex-start"
+                                    p="2rem 2.4rem"
+                                    mb="1.6rem"
+                                >
                                     {icon}
                                     {
                                         <Text ml="2.4rem" weight="bold">
@@ -59,8 +49,8 @@ export const WhyTrade = ({ children, header }) => {
                             )
                         }
                     })}
-                </RightContent>
-            </ContentWrapper>
+                </Box>
+            </Flex>
         </SectionContainer>
     )
 }

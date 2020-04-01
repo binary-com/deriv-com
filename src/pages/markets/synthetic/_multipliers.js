@@ -50,49 +50,22 @@ const Multipliers = () => {
             <Accordion>
                 <AccordionItem
                     header_style={first_item_style}
-                    header={localize('What is margin trading?')}
-                >
-                    <ContentWrapper>
-                        <Text>
-                            {localize(
-                                'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss. ',
-                            )}
-                        </Text>
-                    </ContentWrapper>
-                </AccordionItem>
-                <AccordionItem
-                    header_style={header_style}
                     header={localize('How does multiplier trading work?')}
                 >
                     <ContentWrapper>
                         <Text>
                             {localize(
-                                'Margin trading gives you more trading power, meaning that with the same capital, you will be able to buy more of an asset.',
+                                'Multipliers give you additional trading power so that you can control a position that is larger than the amount of capital at your disposal.',
                             )}
                         </Text>
                         <Text mt="1.8rem">
                             {localize(
-                                'The result is a more substantial profit when you win a trade and of course, a more significant loss when you lose.',
+                                'Traditionally, the higher the multiplier, the higher your trading power, and the higher your potential profit or loss',
                             )}
                         </Text>
                         <Text mt="1.8rem">
                             {localize(
-                                'For example, when trading on margin, you can purchase 1,000 units of an asset that is trading at USD 50 for only USD 500.',
-                            )}
-                        </Text>
-                        <Text mt="1.8rem">
-                            {localize(
-                                'Typically, the contract should cost you USD 50,000, but with margin trading, you only pay 1% of the supposed capital. That is a leverage of 100:1.',
-                            )}
-                        </Text>
-                        <Text mt="1.8rem">
-                            {localize(
-                                'At Deriv, we offer high leverage, up to 1000:1, to make trading accessible and less capital intensive.',
-                            )}
-                        </Text>
-                        <Text mt="1.8rem">
-                            {localize(
-                                'This ability to expand trading results has made margin a popular trading strategy among new and experienced traders.',
+                                'The unique benefit of trading on our platform is that your loss never exceeds the amount you paid to buy the contract',
                             )}
                         </Text>
                     </ContentWrapper>

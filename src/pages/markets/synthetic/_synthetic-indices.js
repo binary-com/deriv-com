@@ -27,7 +27,7 @@ const what_trade_sub_header = [
     },
     {
         text: localize(
-            'Unlike financial markets, Synthetic Indices are available 24/7, have constant volatility, fixed generation intervals, and are free of market and liquidity risks.',
+            'Unlike financial markets, Synthetic Indices are available 24/7, have constant volatility, fixed generation intervals, and are free of market and liquidity risks',
         ),
     },
 ]
@@ -36,14 +36,14 @@ const simple_step_content = [
     {
         header: localize('Practise'),
         text: localize(
-            'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
+            'Open a demo account and practise with an unlimited amount of virtual funds',
         ),
         icon: <PractiseIcon />,
     },
     {
         header: localize('Trade'),
         text: localize(
-            'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
+            'Open a real account, make a deposit, and start trading Synthetic Indices and other markets',
         ),
         icon: <TradeIcon />,
     },

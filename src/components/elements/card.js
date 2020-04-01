@@ -11,7 +11,7 @@ import Diagonal from 'images/svg/pink-right-diagonal.svg'
 
 export const CardStyle = css`
     box-sizing: border-box;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background-color: var(--color-white);
 `
 
@@ -27,14 +27,14 @@ const CardCover = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: ${props => props.background_color};
+    background-color: ${(props) => props.background_color};
     border-radius: 6px;
     top: 0;
     transition: 0.18s cubic-bezier(0.1, 0.25, 0.25, 1);
     display: flex;
     align-items: center;
     flex-direction: row;
-    transform: ${props =>
+    transform: ${(props) =>
         props.is_selected ? 'translate3d(-3%, 0, 0)' : 'translate3d(-105%, 0, 0)'};
 
     & > div {
@@ -57,9 +57,9 @@ const CardWrapper = styled.article`
     ${CardStyle}
     position: relative;
     overflow: hidden;
-    min-height: ${props => (props.min_height ? props.min_height : '0')};
-    width: ${props => (props.width ? props.width : '38.4rem')};
-    padding: ${props => (props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem')};
+    min-height: ${(props) => (props.min_height ? props.min_height : '0')};
+    width: ${(props) => (props.width ? props.width : '38.4rem')};
+    padding: ${(props) => (props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem')};
     border-radius: 6px;
 
     &:hover {
@@ -97,7 +97,7 @@ const CardChildrenWrapper = styled.article`
     }
 
     ${CardStyle}
-    width: ${props => (props.width ? props.width : '50.2rem')};
+    width: ${(props) => (props.width ? props.width : '50.2rem')};
     height: 100%;
     min-height: 26.8rem;
     padding: 2.6rem;
@@ -147,7 +147,7 @@ const CardContentContainer = styled.div`
 const Content = ({ content }) => (
     <>
         {Array.isArray(content) ? (
-            content.map(text => <CardContent key={text}>{text}</CardContent>)
+            content.map((text) => <CardContent key={text}>{text}</CardContent>)
         ) : (
             <CardContent>{content}</CardContent>
         )}
@@ -186,12 +186,7 @@ export const Card = ({
                                     {word_break_cover ? (
                                         <Flex direction="column" jc="flex-start" ai="flex-start">
                                             <h4>{cover_content.split(' ')[0]}</h4>
-                                            <h4>
-                                                {cover_content
-                                                    .split(' ')
-                                                    .slice(1)
-                                                    .join(' ')}
-                                            </h4>
+                                            <h4>{cover_content.split(' ').slice(1).join(' ')}</h4>
                                         </Flex>
                                     ) : (
                                         <h4>{cover_content}</h4>

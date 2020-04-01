@@ -127,7 +127,7 @@ export const OurOffices = () => {
                     <Oval />
                     <ParaguayWrapper />
                 </Pinpoint>
-                <MapLink to="/contact-us/#malta">
+                <MapLink to="/contact-us/#malta" anchor>
                     <Pinpoint top="21.6%" left="49.6%">
                         <Oval />
                         <MaltaWrapper />
@@ -138,7 +138,7 @@ export const OurOffices = () => {
                     <DubaiWrapper />
                 </Pinpoint>
 
-                <MapLink to="/contact-us/#cyberjaya">
+                <MapLink to="/contact-us/#cyberjaya" anchor>
                     <Pinpoint top="46%" left="63.6%">
                         <Oval top="83%" left="88%" />
                         <CyberjayaWrapper />

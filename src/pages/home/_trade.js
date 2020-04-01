@@ -15,9 +15,9 @@ const ImageWrapper = styled.div`
     height: 100%;
     width: 100%;
     max-width: 65.7rem;
-    visibility: ${props => (props.is_selected ? 'initial' : 'hidden')};
-    opacity: ${props => (props.is_selected ? '1' : '0')};
-    z-index: ${props => (props.is_selected ? '0' : '10')};
+    visibility: ${(props) => (props.is_selected ? 'initial' : 'hidden')};
+    opacity: ${(props) => (props.is_selected ? '1' : '0')};
+    z-index: ${(props) => (props.is_selected ? '0' : '10')};
     position: absolute;
     transition: all 0.25s;
 `

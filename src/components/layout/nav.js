@@ -89,7 +89,7 @@ const NavRight = styled.div`
     overflow: hidden;
     padding: 0;
     justify-content: center;
-    transition: ${props => {
+    transition: ${(props) => {
         if (props.move) {
             return 'all 0.25s'
         } else {
@@ -100,7 +100,7 @@ const NavRight = styled.div`
         }
     }};
     transform: translateX(
-        ${props => {
+        ${(props) => {
             if (props.move) {
                 return 0
             } else {
@@ -126,7 +126,7 @@ const NavLink = styled.li`
         margin-right: 0;
     }
 
-    ${props => {
+    ${(props) => {
         if (props.margin) return 'margin: 0 4rem;'
     }}
 `
@@ -425,7 +425,7 @@ const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
 
     @media ${device.tabletL} {
-        justify-content: ${props => (props.no_login_signup ? 'flex-start' : 'space-between')};
+        justify-content: ${(props) => (props.no_login_signup ? 'flex-start' : 'space-between')};
     }
 
     ${LogoLinkMobile} {
@@ -465,7 +465,7 @@ export const NavPartners = ({ no_login_signup }) => {
                     <HomeContainer justify="flex-start">
                         <HomeLink to="/">
                             <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv homepage')}
+                                {localize('Deriv website')}
                             </Text>
                         </HomeLink>
                         <HomeLink to="/about">
@@ -483,7 +483,7 @@ export const NavPartners = ({ no_login_signup }) => {
                 <StyledNav>
                     <StyledNavWrapper no_login_signup>
                         <NavLeft>
-                            <LogoLink to="/partners" aria-label={localize('Partners')}>
+                            <LogoLink to="/partners/" aria-label={localize('Partners')}>
                                 <LogoPartner />
                             </LogoLink>
                         </NavLeft>
@@ -491,19 +491,19 @@ export const NavPartners = ({ no_login_signup }) => {
                             <NavLink>
                                 <StyledLink
                                     activeClassName="active"
-                                    to="/partners/"
-                                    aria-label={localize('Affiliate & IB')}
+                                    to="/partners/affiliate-ib/"
+                                    aria-label={localize('Affiliates and IBs')}
                                 >
-                                    {localize('Affiliate & IB')}
+                                    {localize('Affiliates and IBs')}
                                 </StyledLink>
                             </NavLink>
                             <NavLink>
                                 <StyledLink
                                     activeClassName="active"
                                     to="/partners/payment-agent/"
-                                    aria-label={localize('Payment agent')}
+                                    aria-label={localize('Payment agents')}
                                 >
-                                    {localize('Payment agent')}
+                                    {localize('Payment agents')}
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
@@ -565,7 +565,7 @@ export const NavCareers = () => {
                     <HomeContainer justify="flex-start">
                         <HomeLink to="/">
                             <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv homepage')}
+                                {localize('Deriv website')}
                             </Text>
                         </HomeLink>
                         <HomeLink to="/about">

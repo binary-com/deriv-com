@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Globe from './globe.mp4'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { Container } from 'components/containers'
@@ -12,24 +13,30 @@ const BackgroundWrapper = styled.div`
 const ImageWrapper = styled.div`
     position: absolute;
     width: 100%;
-    height: 60rem;
-    top: 0;
-    left: 0;
+    height: 100%;
+    background: black;
 `
 const StyledContainer = styled(Container)`
     padding-top: 20.7rem;
 
-    h4, h1 {
+    h4,
+    h1 {
         max-width: 79.8rem;
         z-index: 10;
     }
+`
+const Video = styled.video`
+    width: 100%;
+    height: 100%;
 `
 export const Hero = () => {
     return (
         <BackgroundWrapper>
             <ImageWrapper>
                 {/* TODO: we need to replace this DIV with an video later */}
-                <div style={{ background: 'black', width: '100%', height: '100%' }}></div>
+                <Video width="100%" height="100%" autoPlay muted playsInline loop>
+                    <source src={Globe} type="video/mp4" />
+                </Video>
             </ImageWrapper>
             <StyledContainer direction="column">
                 <Header as="h1" color="white" lh="1.15" align="center">
@@ -42,7 +49,7 @@ export const Hero = () => {
                     font_size="var(--text-size-m)"
                     weight="500"
                     align="center"
-                    mt='1.6rem'
+                    mt="1.6rem"
                 >
                     {localize(
                         'Get the guidance you need to start trading on our platform. Browse through all the markets that we offer, learn about our trade types, and gain insight on how to make smarter trading decisions.',

@@ -15,11 +15,13 @@ const ArticleWrapper = styled.div`
     margin-left: 12.6rem;
 `
 
+const StyledHeader = styled(Header)`
+    margin-bottom: 2.4rem;
+`
+
 const VerifyAccount = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('Do I need to verify my Deriv account?')}
-        </Header>
+        <StyledHeader as="h4">{localize('Do I need to verify my Deriv account?')}</StyledHeader>
         <Text>
             {localize(
                 'No, you do not need to verify your Deriv account unless prompted. If your account requires verification, we will contact you via email to initiate the process and provide you with clear instructions on how to submit your documents.',
@@ -29,9 +31,7 @@ const VerifyAccount = () => (
 )
 const VerificationDuration = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How long does verification take?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How long does verification take?')}</StyledHeader>
         <Text>
             {localize(
                 'We’ll typically take 1-3 business days to review your documents and will inform you of the result via email once it’s done.',
@@ -41,9 +41,7 @@ const VerificationDuration = () => (
 )
 const DocumentsDeclined = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('Why were my documents declined?')}
-        </Header>
+        <StyledHeader as="h4">{localize('Why were my documents declined?')}</StyledHeader>
         <Text>
             {localize(
                 'We may decline your verification documents if they are insufficiently clear, invalid, expired, or have cropped edges.',

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Hero from '../_hero'
+import Hero from '../affiliate-ib/_hero'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'

@@ -11,7 +11,7 @@ import {
     StyledHeader,
     SecondaryHeader,
     LineStyle,
-} from '../_who-can-apply'
+} from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
@@ -95,7 +95,7 @@ const WhoCanApply = () => {
         <SectionWrapper padding="8rem 0">
             <Section>
                 <StyledCol>
-                    <StyledHeader font_size="3.6rem">{localize('Who can apply')}</StyledHeader>
+                    <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
                     <Wrapper>
                         <TradingExperts />
                         <Content max_width="36.4rem">
@@ -138,9 +138,7 @@ const WhoCanApply = () => {
                 <Flex width="auto">
                     <LineVertical />
                     <Col>
-                        <SecondaryHeader font_size="3.6rem">
-                            {localize('How to apply')}
-                        </SecondaryHeader>
+                        <SecondaryHeader size="3.6rem">{localize('How to apply')}</SecondaryHeader>
                         <Wrapper>
                             <Email />
                             <Content max_width="36.4rem">

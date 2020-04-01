@@ -28,22 +28,19 @@ const GridCol = styled.article`
     column-gap: 2.4rem;
     align-items: center;
     height: 100%;
-
-    ${Text} {
-        margin-top: 0.8rem;
-        font-size: 1.6rem;
-
-        @media ${device.tabletL} {
-            font-size: 2rem;
-        }
+`
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
     }
 `
+
 const Col = ({ Icon, content }) => (
     <GridCol>
         <Icon />
-        <Text color="black-3" lh="1.55">
+        <StyledText color="black-3" lh="1.55" mt="0.8rem">
             {content}
-        </Text>
+        </StyledText>
     </GridCol>
 )
 Col.propTypes = {

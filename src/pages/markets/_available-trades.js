@@ -8,6 +8,7 @@ import { Header, Text } from 'components/elements'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader-icon-green.svg'
 import DBot from 'images/svg/dbot-icon-green.svg'
+import SmartTrader from 'images/svg/smarttrader-green.svg'
 
 const CardWrapper = styled(Flex)`
     div:first-child {
@@ -54,10 +55,10 @@ const CardContainer = styled(Flex)`
     }
 `
 const IconContainer = styled(Flex)`
-    * {
-        margin-right: 1.6rem;
-    }
     svg {
+        margin-right: 0.8rem;
+        width: 32px;
+        height: 32px;
         opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.5')};
     }
     svg:last-child {
@@ -76,7 +77,7 @@ const Card = ({ name, content, active_tab, onTabChange }) => {
             Icons = [DMT5]
             break
         case 'Options':
-            Icons = [DTrader, DBot]
+            Icons = [DTrader, DBot, SmartTrader]
             break
         case 'Multipliers':
             Icons = [DTrader]
@@ -96,11 +97,13 @@ const Card = ({ name, content, active_tab, onTabChange }) => {
                 <Header as="h4" align="center">
                     {name}
                 </Header>
-                <Text align="center">{content}</Text>
+                <Text align="center" mt="0.8rem">
+                    {content}
+                </Text>
             </div>
             {Icons.length === 0 ? null : (
                 <IconContainer ai="center" height="auto" name={name} active_tab={active_tab}>
-                    <Text>{localize('Available on:')}</Text>
+                    <Text mr="1.6rem">{localize('Available on:')}</Text>
                     {Icons.map((Icon, index) => (
                         <Icon key={index} />
                     ))}
@@ -150,7 +153,7 @@ class AvailableTrades extends React.Component {
                         {DigitalOptions && (
                             <Card
                                 name="Options"
-                                content="Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on Forex."
+                                content="Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on forex"
                                 onTabChange={this.handleTabChange}
                                 active_tab={this.state.active_tab}
                             />
@@ -158,7 +161,7 @@ class AvailableTrades extends React.Component {
                         {Multipliers && (
                             <Card
                                 name="Multipliers"
-                                content="Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment."
+                                content="Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment"
                                 onTabChange={this.handleTabChange}
                                 active_tab={this.state.active_tab}
                             />

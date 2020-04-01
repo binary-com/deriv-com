@@ -25,7 +25,7 @@ import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 const what_trade_sub_header = [
     {
         text: localize(
-            'Foreign exchange, otherwise known as forex or FX, is the buying and selling of currencies. Forex relates to buying and selling currencies on the forex market with the aim to make a profit off the changes in their value.',
+            'Foreign exchange, otherwise known as forex or FX, is the buying and selling of currencies. Where the primary purpose for this exchange is gaining profit from changes in the relative values of currencies on the forex market, we call it forex trading.',
         ),
     },
     {
@@ -57,14 +57,14 @@ const simple_step_content = [
     {
         header: localize('Practise'),
         text: localize(
-            'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
+            'Open a demo account and practise with an unlimited amount of virtual funds.',
         ),
         icon: <PractiseIcon />,
     },
     {
         header: localize('Trade'),
         text: localize(
-            'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
+            'Open a real account, make a deposit, and start trading forex and other markets.',
         ),
         icon: <TradeIcon />,
     },

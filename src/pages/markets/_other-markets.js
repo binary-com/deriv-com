@@ -22,7 +22,7 @@ const markets_type = {
         icon: StockIndices,
         title: 'Stock indices',
         content:
-            'Stock indices trading allows you to profit from the price movements in a market without buying assets.',
+            'Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets.',
         to: '/markets#stock',
     },
     'Synthetic Indices': {
@@ -36,7 +36,7 @@ const markets_type = {
         icon: Commodities,
         title: 'Commodities trading',
         content:
-            'Commodities on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil.',
+            'Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil.',
         to: '/markets#commodities',
     },
 }

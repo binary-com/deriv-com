@@ -17,18 +17,4 @@ const validation = {
     },
 }
 
-export const testValidation = input => ({
-    email: message => {
-        const result = !validation_regex.email.test(input) && message
-
-        if (result) {
-            return result
-        }
-
-        return {
-            required: message => !input && message,
-        }
-    },
-})
-
 export default validation

@@ -34,21 +34,21 @@ const simple_step_content = [
     {
         header: localize('Practise'),
         text: localize(
-            'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
+            'Open a demo account and practise with an unlimited amount of virtual funds.',
         ),
         icon: <PractiseIcon />,
     },
     {
         header: localize('Trade'),
         text: localize(
-            'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
+            'Open a real account, make a deposit, and start trading commodities and other markets',
         ),
         icon: <TradeIcon />,
     },
     {
         header: localize('Withdraw'),
         text: localize(
-            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+            'Conveniently withdraw your funds through any of our supported withdrawal methods',
         ),
         icon: <WithdrawIcon />,
     },

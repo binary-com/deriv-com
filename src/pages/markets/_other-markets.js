@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import { Flex, Container, SectionContainer } from 'components/containers'
 import { localize, LocalizedLink } from 'components/localization'
 import { Text, Header } from 'components/elements'
-// icons
-import Forex from 'images/svg/market-forex.svg'
-import Commodities from 'images/svg/market-commodities.svg'
-import StockIndices from 'images/svg/market-stock-indices.svg'
-import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
+//TODO: using temp svg as a function for having dynamic id
+import Forex from 'pages/markets-svg/_market-forex.js'
+import Commodities from 'pages/markets-svg/_market-commodities.js'
+import StockIndices from 'pages/markets-svg/_market-stock.js'
+import SyntheticIndices from 'pages/markets-svg/_market-synthetic.js'
 
 const markets_type = {
     forex: {
@@ -17,6 +17,7 @@ const markets_type = {
         content:
             'Forex gives you the chance to profit from changes in the relative values of currencies on the forex market.',
         to: '/markets#forex',
+        id: 'marketforexothermarkets',
     },
     'stock indices': {
         icon: StockIndices,
@@ -24,6 +25,7 @@ const markets_type = {
         content:
             'Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets.',
         to: '/markets#stock',
+        id: 'marketstockothermarkets',
     },
     'Synthetic Indices': {
         icon: SyntheticIndices,
@@ -31,6 +33,7 @@ const markets_type = {
         content:
             'Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks.',
         to: '/markets#synthetic',
+        id: 'marketsyntheticothermarkets',
     },
     commodities: {
         icon: Commodities,
@@ -38,6 +41,7 @@ const markets_type = {
         content:
             'Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil.',
         to: '/markets#commodities',
+        id: 'marketcommoditiesothermarket',
     },
 }
 
@@ -57,19 +61,22 @@ const CardWrapper = styled(Flex)`
     }
 `
 const Card = ({ name }) => {
-    const Icon = styled(markets_type[name].icon)`
-        width: 64px;
-        height: 64px;
+    const Icon = markets_type[name].icon
+    const ContentWrapper = styled.div`
+        svg {
+            width: 64px;
+            height: 64px;
+        }
     `
     return (
         <Flex direction="column" max_width="38.4rem" jc="space-between" height="24rem">
-            <div>
-                <Icon />
+            <ContentWrapper>
+                <Icon dynamic_id={markets_type[name].id} />
                 <Text weight="bold" mt="0.8rem">
                     {localize(markets_type[name].title)}
                 </Text>
                 <Text mt="0.8rem">{localize(markets_type[name].content)}</Text>
-            </div>
+            </ContentWrapper>
             <div>
                 <Text size="var(--text-size-xs)" lh="1.43" padding="1rem 1.6rem">
                     <Link to={markets_type[name].to}>{localize('Learn more about ' + name)}</Link>

@@ -36,7 +36,7 @@ export const SharedLinkStyle = css`
         }
     }
 
-    ${props =>
+    ${(props) =>
         props.active &&
         css`
             text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);

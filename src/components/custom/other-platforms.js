@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
-import { Card, Header, NavCard, CardLink } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
-import { smarttrader_url } from 'common/utility'
+import { Card, Header, NavCard, CardLink, LinkText } from 'components/elements'
+import { localize, LocalizedLink, Localize } from 'components/localization'
+import { smarttrader_url, binary_url } from 'common/utility'
 import device from 'themes/device'
 // icons
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -122,7 +122,11 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
             title={localize('SmartTrader')}
             Icon={StyledSmarttrader}
             content={[
-                localize('Trade the world’s markets with our popular user-friendly platform.'),
+                <Localize
+                    key={0}
+                    translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
+                    components={[<LinkText key={0} href={binary_url} />]}
+                />,
             ]}
             is_inline_icon
             min_height="11.6rem"
@@ -206,7 +210,13 @@ export const NavPlatform = () => (
         />
         <NavCard
             icon={Smarttrader}
-            content={localize('Trade the world’s markets with our popular user-friendly platform.')}
+            content={
+                <Localize
+                    key={0}
+                    translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
+                    components={[<LinkText key={0} href={binary_url} />]}
+                />
+            }
             title={localize('SmartTrader')}
             to={smarttrader_url}
             style={{ marginTop: '3.2rem' }}

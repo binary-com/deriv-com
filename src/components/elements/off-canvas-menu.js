@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
-import { LocalizedLink, localize } from 'components/localization'
-import { Accordion, AccordionItem, NavCard } from 'components/elements'
-import { smarttrader_url } from 'common/utility'
+import { LocalizedLink, localize, Localize } from 'components/localization'
+import { Accordion, AccordionItem, NavCard, LinkText } from 'components/elements'
+import { smarttrader_url, binary_url } from 'common/utility'
 import { useOutsideClick } from 'components/hooks/outside-click'
 // SVG
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -116,9 +116,13 @@ export const OffCanvasMenuWrapper = (props) => {
                         <Flex>
                             <NavCard
                                 icon={Smarttrader}
-                                content={localize(
-                                    'Trade the world’s markets with our popular user-friendly platform.',
-                                )}
+                                content={[
+                                    <Localize
+                                        key={0}
+                                        translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
+                                        components={[<LinkText key={0} href={binary_url} />]}
+                                    />,
+                                ]}
                                 title={localize('SmartTrader')}
                                 to={smarttrader_url}
                                 external="true"

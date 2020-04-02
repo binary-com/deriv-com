@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Stories from './_story_constant'
 // import { Container } from 'components/containers'
@@ -156,7 +156,14 @@ const StyledLine = styled(StorySVG)`
 `
 
 export const OurHistory = () => {
-    let is_mobile = isBrowser() ? window.screen.width <= size.tablet : false
+    const [is_mobile, setMobile] = useState(false)
+    const handleResizeWindow = () => {
+        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
+    }
+    useEffect(() => {
+        window.addEventListener('resize', handleResizeWindow)
+    })
+
     return (
         <StorySection>
             <Header size="3.6rem" align="center" mb="9.2rem">

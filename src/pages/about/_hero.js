@@ -43,7 +43,7 @@ const Separator = styled.span`
 
 const StyledHeader = styled(Header)`
     transition: color 0.25s;
-    ${props =>
+    ${(props) =>
         props.active
             ? css`
                   color: var(--color-white);
@@ -54,20 +54,28 @@ const StyledHeader = styled(Header)`
                       color: rgba(255, 255, 255, 0.5);
                   }
               `}
+
+    @media ${device.tablet} {
+        font-size: var(--text-size-m);
+    }
 `
 
 const TrailNavigation = styled.span`
     height: 4px;
     width: 4.6rem;
-    background: ${props => (props.active ? 'var(--color-red)' : 'var(--color-black)')};
+    background: ${(props) => (props.active ? 'var(--color-red)' : 'var(--color-black)')};
     margin: 1rem 0;
     transition: background 0.25s;
 `
 
 const ContentWrapper = styled.div`
-    margin-top: ${props => props.margin_top || 'none'};
+    margin-top: ${(props) => props.margin_top || 'none'};
     white-space: normal;
     max-width: 79.2rem;
+
+    @media ${device.tablet} {
+        font-size: var(--text-size-s);
+    }
 `
 
 const LeadershipWrapper = styled(Flex)`

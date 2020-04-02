@@ -167,16 +167,6 @@ const Iframe = styled.iframe`
 `
 
 export const Offices = () => {
-    // React.useEffect(() => {
-    //     if (isBrowser()) {
-    //         const element_id = getLocationHash()
-    //         const padding_top = 300
-    //         console.log(element_id)
-    //         const offset_top =
-    //             document.getElementById('office-' + element_id).offsetTop - padding_top
-    //         window.scrollBy({ top: offset_top, behavior: 'smooth' })
-    //     }
-    // }, [])
     return (
         <Wrapper>
             <StyledHeader as="h3" align="center">
@@ -252,7 +242,7 @@ export const Offices = () => {
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>
-                    <Office>
+                    <Office id="labuan">
                         <ImageWrapper>
                             <MapContainer>
                                 <Image
@@ -286,7 +276,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <EvenOffice>
+                    <EvenOffice id="dubai">
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Dubai')}
@@ -320,7 +310,7 @@ export const Offices = () => {
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>
-                    <Office>
+                    <Office id="paraguay">
                         <ImageWrapper>
                             <MapContainer>
                                 <Image

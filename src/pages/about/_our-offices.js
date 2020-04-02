@@ -123,31 +123,36 @@ export const OurOffices = () => {
             </Header>
             <MapWrapper>
                 <StyledMap />
-                <Pinpoint top="66%" left="25%">
-                    <Oval />
-                    <ParaguayWrapper />
-                </Pinpoint>
+                <MapLink to="/contact-us/#paraguay" anchor>
+                    <Pinpoint top="66%" left="25%">
+                        <Oval />
+                        <ParaguayWrapper />
+                    </Pinpoint>
+                </MapLink>
                 <MapLink to="/contact-us/#malta" anchor>
                     <Pinpoint top="21.6%" left="49.6%">
                         <Oval />
                         <MaltaWrapper />
                     </Pinpoint>
                 </MapLink>
-                <Pinpoint top="30.6%" left="63.7%">
-                    <Oval />
-                    <DubaiWrapper />
-                </Pinpoint>
-
+                <MapLink to="/contact-us/#dubai" anchor>
+                    <Pinpoint top="30.6%" left="63.7%">
+                        <Oval />
+                        <DubaiWrapper />
+                    </Pinpoint>
+                </MapLink>
                 <MapLink to="/contact-us/#cyberjaya" anchor>
                     <Pinpoint top="46%" left="63.6%">
                         <Oval top="83%" left="88%" />
                         <CyberjayaWrapper />
                     </Pinpoint>
                 </MapLink>
-                <Pinpoint top="44.6%" left="85%">
-                    <Oval left="8%" />
-                    <LabuanWrapper />
-                </Pinpoint>
+                <MapLink to="/contact-us/#labuan" anchor>
+                    <Pinpoint top="44.6%" left="85%">
+                        <Oval left="8%" />
+                        <LabuanWrapper />
+                    </Pinpoint>
+                </MapLink>
             </MapWrapper>
 
             <NumberWrapper>

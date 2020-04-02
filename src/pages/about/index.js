@@ -5,11 +5,11 @@ import { Show } from '../../components/containers'
 import { OurStory } from './_our-story'
 import Leaders from './_leaders'
 import { Container, Box, Flex, SEO } from 'components/containers'
-import { getLocationHash } from 'common/utility'
+import { getLocationHash, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header, Text, Image } from 'components/elements'
-import device from 'themes/device'
+import device, { size } from 'themes/device'
 
 const Background = styled.div`
     background: var(--color-black);
@@ -142,12 +142,14 @@ const useTabState = (tab) => {
 }
 // Test notification netlify
 const About = () => {
+    const [is_mobile, setMobile] = useState(false)
     const [active_tab, setTab] = useTabState('story')
     const is_story = active_tab === 'story'
     const is_leadership = active_tab === 'leadership'
     useEffect(() => {
         const new_tab = getLocationHash() || 'story'
         setTab(new_tab)
+        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     })
     return (
         <Layout>
@@ -253,7 +255,7 @@ const About = () => {
                     )}
                 </StyledContainer>
             </Background>
-            {is_story && <OurStory />}
+            {is_story && <OurStory is_mobile_menu={is_mobile} />}
             {is_leadership && <Leaders />}
         </Layout>
     )

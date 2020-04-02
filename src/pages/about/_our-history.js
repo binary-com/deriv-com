@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Stories from './_story_constant'
 // import { Container } from 'components/containers'
@@ -160,11 +161,12 @@ const StyledLine = styled(StorySVG)`
     }
 `
 
-export const OurHistory = () => {
-    const [is_mobile, setMobile] = useState(false)
+export const OurHistory = (props) => {
+    const [is_mobile, setMobile] = useState(props.is_mobile_menu)
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     }
+
     useEffect(() => {
         window.addEventListener('resize', handleResizeWindow)
     })
@@ -285,4 +287,8 @@ export const OurHistory = () => {
             ))}
         </StorySection>
     )
+}
+
+OurHistory.propTypes = {
+    is_mobile_menu: PropTypes.bool,
 }

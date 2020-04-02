@@ -98,7 +98,6 @@ const LeadershipWrapper = styled(Flex)`
 const Hero = ({ navigation, setNavigation }) => {
     const is_story = navigation === 'story'
     const is_leadership = navigation === 'leadership'
-
     return (
         <Background>
             <StyledContainer direction="column">

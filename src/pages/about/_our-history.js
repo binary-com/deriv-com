@@ -111,7 +111,7 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.tablet} {
         align-items: left;
-        margin-left: 2rem;
+        margin-left: 1rem;
         transform: unset;
         font-size: var(--text-size-xl);
         margin-bottom: 1rem;
@@ -137,6 +137,10 @@ const LogoContainer = styled.div`
         text-align: left;
         margin-bottom: 1rem;
         width: 37rem;
+        margin-left: 0;
+    }
+    @media ${device.mobileS} {
+        margin-left: 5rem;
     }
 `
 const SVGContainer = styled.div`

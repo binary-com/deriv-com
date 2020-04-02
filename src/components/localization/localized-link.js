@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import styled, { css } from 'styled-components'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
@@ -70,16 +71,21 @@ export const LocalizedLink = ({ to, ...props }) => {
     if (props.external_link) return <ExternalLink href={to}>{props.children}</ExternalLink>
 
     // internal links should end with / e.g. /about/
-    let internal_to = path_to.charAt(to.length - 1) === '/' ? path_to : path_to + '/'
+    let internal_to = path_to.charAt(to.length - 1) === '/' ? path_to : path_to
 
     if (props.has_no_end_slash) {
         internal_to = internal_to.substring(0, internal_to.length - 1)
+    }
+
+    if (props.anchor) {
+        return <AnchorLink {...props} to={internal_to} />
     }
 
     return <GatsbyLink {...props} to={internal_to} />
 }
 
 LocalizedLink.propTypes = {
+    anchor: PropTypes.bool,
     children: PropTypes.node,
     external: PropTypes.string,
     external_link: PropTypes.bool,

@@ -15,7 +15,7 @@ import Labuan from 'images/svg/footer-labuan.svg'
 import device from 'themes/device.js'
 
 const StyledHeader = styled(Header)`
-    max-width: ${props => props.maxwidth || '100%'};
+    max-width: ${(props) => props.maxwidth || '100%'};
     margin: 0 auto;
 
     @media ${device.tabletS} {
@@ -26,7 +26,7 @@ const Box = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: ${props => props.padding || '4rem 0 0'};
+    padding: ${(props) => props.padding || '4rem 0 0'};
 
     ${Text} {
         @media ${device.tabletS} {

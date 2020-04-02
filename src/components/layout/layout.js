@@ -5,7 +5,7 @@ import Footer from './footer'
 import { Nav, NavStatic, NavPartners, NavCareers } from './nav'
 
 const Main = styled.main`
-    padding-top: ${props => props.padding_top || '7rem'};
+    padding-top: ${(props) => props.padding_top || '7rem'};
     background: var(--color-white);
     height: 100%;
 `

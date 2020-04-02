@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    background-color: ${props => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
+    background-color: ${(props) => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     height: 26.9rem;
     width: 100%;
 
@@ -81,7 +81,7 @@ const SocialWrapper = styled.div`
     align-items: center;
 `
 const SocialButton = styled(Button)`
-    background-color: ${props => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
+    background-color: ${(props) => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     border: none;
 `
 
@@ -98,7 +98,7 @@ const DemoButton = styled(Button)`
     width: auto;
 `
 const Splitter = styled.div`
-    background-color: ${props => (props.dark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)')};
+    background-color: ${(props) => (props.dark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)')};
     height: 20rem;
     width: 0.2rem;
     margin-top: 1rem;

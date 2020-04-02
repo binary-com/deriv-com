@@ -101,7 +101,7 @@ const SocialButton = styled(Button)`
 
     @media ${device.tabletL} {
         height: 6rem;
-        margin-right: ${props => (props.margin_right ? props.margin_right : '0')};
+        margin-right: ${(props) => (props.margin_right ? props.margin_right : '0')};
         justify-content: center;
         align-items: center;
 
@@ -112,7 +112,7 @@ const SocialButton = styled(Button)`
 `
 
 const StyledHeader = styled(Header)`
-    width: ${props => props.width || '48.6rem'};
+    width: ${(props) => props.width || '48.6rem'};
 
     @media ${device.tablet} {
         width: auto;
@@ -120,7 +120,7 @@ const StyledHeader = styled(Header)`
 
     @media (max-width: 800px) {
         margin-top: 2rem;
-        ${props => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
+        ${(props) => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
     }
 `
 const StyledText = styled(Text)`
@@ -150,7 +150,7 @@ const ImageWrapper = styled(Flex)`
         display: none;
     }
 `
-const redirectToDerivApp = e => {
+const redirectToDerivApp = (e) => {
     e.preventDefault()
     window.open(deriv_app_url, '_blank')
 }
@@ -193,8 +193,9 @@ const DerivExperience = styled.div`
 const MobileRedBanner = styled.div`
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: -2px;
     max-height: 100%;
+    overflow: hidden;
 `
 const MobilePlatform = styled.div`
     width: 100%;

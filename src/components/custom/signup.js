@@ -18,7 +18,7 @@ import { localize, Localize } from 'components/localization'
 
 const Form = styled.form`
     height: 100%;
-    background-color: ${props => props.bgColor || 'var(--color-white)'};
+    background-color: ${(props) => props.bgColor || 'var(--color-white)'};
 `
 const ResponseWrapper = styled.div`
     justify-content: center;
@@ -40,7 +40,7 @@ const EmailLink = styled(StyledLink)`
     text-align: center;
 `
 
-const validateEmail = email => {
+const validateEmail = (email) => {
     const error_message = validation.email(email)
 
     return error_message
@@ -62,7 +62,7 @@ class Signup extends Component {
         submit_status: '',
         submit_error_msg: '',
     }
-    handleValidation = param => {
+    handleValidation = (param) => {
         const message = typeof param === 'object' ? param.target.value : param
 
         this.setState({
@@ -70,7 +70,7 @@ class Signup extends Component {
         })
     }
 
-    handleInputChange = e => {
+    handleInputChange = (e) => {
         const { name, value } = e.target
 
         this.setState({
@@ -79,7 +79,7 @@ class Signup extends Component {
         this.handleValidation(value)
     }
 
-    getVerifyEmailRequest = email => {
+    getVerifyEmailRequest = (email) => {
         const utm_data = TrafficSource.getData()
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
         const signup_device = LocalStore.get('signup_device')
@@ -105,7 +105,7 @@ class Signup extends Component {
         }
     }
 
-    handleEmailSignup = e => {
+    handleEmailSignup = (e) => {
         e.preventDefault()
         this.setState({ is_submitting: true })
         const { email, email_error_msg } = this.state
@@ -118,7 +118,7 @@ class Signup extends Component {
         }
 
         const verify_email_req = this.getVerifyEmailRequest(email)
-        BinarySocketBase.send(verify_email_req).then(response => {
+        BinarySocketBase.send(verify_email_req).then((response) => {
             if (response.error) {
                 return this.setState({
                     is_submitting: false,
@@ -137,12 +137,12 @@ class Signup extends Component {
 
     clearEmail = () => this.setState({ email: '', email_error_msg: '' })
 
-    handleSocialSignup = e => {
+    handleSocialSignup = (e) => {
         e.preventDefault()
         Login.initOneAll(e.currentTarget.id)
     }
 
-    handleLogin = e => {
+    handleLogin = (e) => {
         e.preventDefault()
         Login.redirectToLogin()
     }

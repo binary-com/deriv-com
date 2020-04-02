@@ -94,7 +94,7 @@ const Tr = styled.tr`
 const StyledTable = styled.table`
     border-collapse: collapse;
     width: 86%;
-    margin-bottom: ${props => (props.has_note ? '2.4rem' : 0)};
+    margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 2.4rem;

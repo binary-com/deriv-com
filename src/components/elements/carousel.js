@@ -70,7 +70,7 @@ const SliderWrapper = styled(Container)`
 const ChevronContainer = styled.div`
     display: flex;
     align-items: center;
-    padding: ${props => (props.left ? '0 0 0 4rem' : '0 4rem 0 0')};
+    padding: ${(props) => (props.left ? '0 0 0 4rem' : '0 4rem 0 0')};
 
     &:hover {
         cursor: pointer;

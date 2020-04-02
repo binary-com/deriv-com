@@ -22,7 +22,7 @@ const Content = styled.div`
     max-width: 58.8rem;
     display: flex;
     flex-direction: column;
-    margin-right: ${props => props.margin_right};
+    margin-right: ${(props) => props.margin_right};
 
     ${Text} {
         margin-top: 0.8rem;
@@ -37,14 +37,14 @@ const ImageWrapper = styled.div`
     max-width: 58.8rem;
     width: 100%;
     max-height: 30rem;
-    margin-right: ${props => props.margin_right};
+    margin-right: ${(props) => props.margin_right};
 
     @media ${device.tabletL} {
         margin: 2rem auto;
     }
 `
 const StyledHeader = styled(Header)`
-    margin-top: ${props => (props.second_title_margin ? '2.4rem' : '4rem')};
+    margin-top: ${(props) => (props.second_title_margin ? '2.4rem' : '4rem')};
     font-size: var(--text-size-header-1);
     line-height: 1.25;
 
@@ -53,7 +53,7 @@ const StyledHeader = styled(Header)`
     }
 `
 const Row = styled.div`
-    flex-direction: ${props => props.flex_direction};
+    flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
     margin-top: 4rem;

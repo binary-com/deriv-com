@@ -45,7 +45,7 @@ const DescContainer = styled(Flex)`
 `
 
 const ImageDescription = styled.div`
-    ${props =>
+    ${(props) =>
         props.left
             ? css`
                   margin-right: 6.4rem;
@@ -67,7 +67,7 @@ const BoldSpan = styled.span`
 `
 
 const DescText = styled(ParimaryText)`
-    max-width: ${props => (props.max_width ? props.max_width : '38rem')};
+    max-width: ${(props) => (props.max_width ? props.max_width : '38rem')};
     margin-bottom: 3.2rem;
 
     &:last-child {

@@ -44,9 +44,9 @@ const leaders_data = [
     },
     {
         name: 'Shyamala Siva',
-        position: localize('Human Resources and Customer Service Operations Manager'),
+        position: localize('Head of Human Resources'),
         description: localize(
-            'Shyamala has been with the group for over 10 years, ensuring smooth workplace and customer service operations. Shyamala is a Certified Public Accountant and holds a master’s degree in corporate governance from HELP University in Malaysia.',
+            'Shyamala has been with the group for over 15 years, ensuring smooth workplace and workforce operations. She is a Certified Public Accountant and holds a master’s degree in corporate governance from HELP University in Malaysia.',
         ),
         image: 'shyamala-siva.png',
     },

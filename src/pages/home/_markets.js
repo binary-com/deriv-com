@@ -12,6 +12,7 @@ import SyntheticIndicesIcon from 'images/svg/market-synthetic-indices.svg'
 // Images
 const StyledSection = styled(SectionContainer)`
     background-color: rgba(242, 243, 244, 0.3);
+    box-shadow: inset 0 1px 0 0 #f2f3f4;
 
     @media ${device.tabletL} {
         padding: 5rem 0;
@@ -35,7 +36,7 @@ const MarketCard = styled.article`
         margin-right: 2rem;
     }
     div {
-        max-width: 38.4rem;
+        max-width: 40rem;
 
         ${Text} {
             padding-top: 8px;

@@ -39,7 +39,7 @@ const ChevronRight = styled(StyledChevron)`
 const ChevronLeft = StyledChevron
 
 const ClientCard = styled.article`
-    width: 58rem;
+    width: 58.2rem;
     padding-top: 5.2rem;
     position: relative;
     overflow: hidden;
@@ -50,7 +50,7 @@ const ClientCard = styled.article`
 `
 
 const QuoteText = styled(Text)`
-    text-align: center;
+    text-align: left;
     padding-bottom: 3.2rem;
     z-index: 10;
     position: relative;
@@ -128,8 +128,8 @@ const ButtonWrapper = styled.div`
         position: absolute;
     }
     ${Next} {
-        top: 30%;
-        right: 20%;
+        top: 50%;
+        right: 28%;
         width: 31px;
 
         @media ${device.tabletL} {
@@ -140,8 +140,8 @@ const ButtonWrapper = styled.div`
         }
     }
     ${Prev} {
-        top: 30%;
-        left: 20%;
+        top: 50%;
+        left: 28%;
         width: 31px;
 
         @media ${device.tabletL} {

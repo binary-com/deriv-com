@@ -81,10 +81,12 @@ function debounce(func, wait, immediate) {
 const deriv_app_url = 'https://deriv.app'
 const deriv_bot_app_url = 'https://deriv.app/bot'
 const smarttrader_url = 'https://smarttrader.deriv.app'
+const binary_url = 'https://binary.com'
 const brand_name = 'Deriv'
 const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 
 export {
+    binary_url,
     deriv_app_url,
     deriv_bot_app_url,
     debounce,

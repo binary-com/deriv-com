@@ -10,6 +10,11 @@ const Item = styled(Flex)`
     border-radius: 6px;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     background-color: var(--color-white);
+
+    svg {
+        width: 32px;
+        height: 32px;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {

@@ -10,8 +10,8 @@ import { Localize, localize, WithIntl } from 'components/localization'
 import DemoIcon from 'images/svg/demo-account.svg'
 
 const Section = styled(SectionContainer)`
-    background-color: ${props => props.bgcolor || 'transparent'};
-    padding: ${props => props.padding || 'transparent'};
+    background-color: ${(props) => props.bgcolor || 'transparent'};
+    padding: ${(props) => props.padding || 'transparent'};
 `
 const StyledHeader = styled(Header)`
     @media ${device.laptop} {
@@ -22,10 +22,10 @@ const StyledHeader = styled(Header)`
 const ListWrapper = styled.div`
     width: 50%;
     max-width: 48.7rem;
-    padding-left: ${props => props.pl || ''};
+    padding-left: ${(props) => props.pl || ''};
 
     @media ${device.laptop} {
-        margin-bottom: ${props => props.laptop_mb || ''};
+        margin-bottom: ${(props) => props.laptop_mb || ''};
         width: 100%;
     }
 `

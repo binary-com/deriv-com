@@ -65,7 +65,7 @@ const RevenueShare = [
         data: [localize('≤ USD 20,000 per month '), localize('> USD 20,000 per month ')],
     },
     {
-        title: localize('Commission rate'),
+        title: localize('Commission'),
         data: ['30%', '45%'],
     },
 ]
@@ -176,7 +176,7 @@ const DerivAffiliateProgramme = () => {
                                     </Text>
                                     <Text>
                                         <Localize
-                                            translate_text="This plan is available exclusively to EU-based affiliates."
+                                            translate_text="This plan is only available for clients based in the EU."
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>

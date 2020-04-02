@@ -6,11 +6,11 @@ export const Card = styled.section`
     margin-top: 1.6rem;
     width: 38.4rem;
     min-width: 38.4rem;
-    height: ${props => (props.height ? props.height : '42rem')};
+    height: ${(props) => (props.height ? props.height : '42rem')};
     background-color: var(--color-white);
     border-radius: 0.4rem;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    padding: ${props => (props.padding ? props.padding : '3.2rem')};
+    padding: ${(props) => (props.padding ? props.padding : '3.2rem')};
     position: relative;
     display: flex;
     flex-direction: column;

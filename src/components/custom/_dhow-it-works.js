@@ -9,7 +9,7 @@ import device from 'themes/device.js'
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: left;
-        ${props =>
+        ${(props) =>
             props.as === 'h4' ? 'font-size: var(--text-size-sm);' : 'font-size: var(--text-size-l)'}
     }
 `

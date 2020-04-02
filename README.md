@@ -76,3 +76,37 @@ Deriv.com static content
 
     - This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs
     - To cleanup all branches run `npm run deploy-dev`
+
+## 📦 GH-pages deployment
+
+1. **Basic name.github.io/deriv-com/**
+
+    ```sh
+    npm run deploy-dev
+    ```
+
+    ⚠️ This will remove your branch deployments
+
+2. **To a specific branch:**
+
+    ```sh
+    branch_name=fix_all_the_bugs npm run deploy-branch
+    ```
+
+    - This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs
+    - To cleanup all branches run `npm run deploy-dev`
+
+## Release
+
+
+`git tag ${RELEASE_TARGET}_vYYYYMMDD_${INTEGER} -m 'some message'`
+
+Based on `RELEASE_TARGET` there are 2 types of release:
+
+1. Release to staging: 
+    1. `git tag staging_v20191205 -m 'release staging'` # the tag needs to follow the RegExp format `/^staging.*/`
+    2. `git push origin staging_v20191205`
+
+2. Release to production:
+    1. `git tag production_v20191205 -m 'release production'` # the tag needs to follow the RegExp format `/^production.*/`
+    2. `git push origin production_v20191205`

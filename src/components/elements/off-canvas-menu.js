@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
-import { LocalizedLink, localize } from 'components/localization'
-import { Accordion, AccordionItem, NavCard } from 'components/elements'
-import { smarttrader_url } from 'common/utility'
+import { LocalizedLink, localize, Localize } from 'components/localization'
+import { Accordion, AccordionItem, NavCard, LinkText } from 'components/elements'
+import { smarttrader_url, binary_url } from 'common/utility'
 import { useOutsideClick } from 'components/hooks/outside-click'
 // SVG
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -21,13 +21,13 @@ const OffCanvasMenu = styled.section`
     opacity: 0.98;
     transition: left 0.4s;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    left: ${props => (props.is_canvas_menu_open ? '0' : '-254px')};
+    left: ${(props) => (props.is_canvas_menu_open ? '0' : '-254px')};
 `
 
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
     top: 10rem;
 `
-const StyledLink = styled(props => <LocalizedLink {...props} />)`
+const StyledLink = styled((props) => <LocalizedLink {...props} />)`
     color: var(--color-black-3);
     margin-top: 3rem;
     font-size: 2rem;
@@ -65,7 +65,7 @@ const content_style = {
     display: 'flex',
 }
 
-export const OffCanvasMenuWrapper = props => {
+export const OffCanvasMenuWrapper = (props) => {
     const canvas = useRef()
 
     const handleArrowClick = () => {
@@ -116,9 +116,13 @@ export const OffCanvasMenuWrapper = props => {
                         <Flex>
                             <NavCard
                                 icon={Smarttrader}
-                                content={localize(
-                                    'Trade the world’s markets with our popular user-friendly platform.',
-                                )}
+                                content={[
+                                    <Localize
+                                        key={0}
+                                        translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
+                                        components={[<LinkText key={0} href={binary_url} />]}
+                                    />,
+                                ]}
                                 title={localize('SmartTrader')}
                                 to={smarttrader_url}
                                 external="true"
@@ -242,14 +246,14 @@ const SingleLink = styled(StyledLink)`
     margin-bottom: 1.6rem;
 `
 
-export const OffCanvasMenuPartner = props => {
+export const OffCanvasMenuPartner = (props) => {
     const canvas = useRef()
 
     const handleArrowClick = () => {
         props.closeOffCanvasMenu()
     }
 
-    const outerClick = e => {
+    const outerClick = (e) => {
         if (!canvas.current.contains(e.target)) {
             props.closeOffCanvasMenu()
         } else return
@@ -265,11 +269,11 @@ export const OffCanvasMenuPartner = props => {
     return (
         <OffCanvasMenuSecondary is_canvas_menu_open={props.is_canvas_menu_open} ref={canvas}>
             <OffCanvasMenuContainer>
-                <SingleLink weight="bold" to="/partners/" onClick={handleArrowClick}>
-                    {localize('Affiliate & IB')}
+                <SingleLink weight="bold" to="/partners/affiliate-ib/" onClick={handleArrowClick}>
+                    {localize('Affiliates and IBs')}
                 </SingleLink>
                 <SingleLink weight="bold" to="/partners/payment-agent/" onClick={handleArrowClick}>
-                    {localize('Payment agent')}
+                    {localize('Payment agents')}
                 </SingleLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>

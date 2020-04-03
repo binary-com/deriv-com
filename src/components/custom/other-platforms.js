@@ -125,7 +125,14 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
                 <Localize
                     key={0}
                     translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[<LinkText key={0} href={binary_url} />]}
+                    components={[
+                        <LinkText
+                            key={0}
+                            href={binary_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        />,
+                    ]}
                 />,
             ]}
             is_inline_icon
@@ -214,7 +221,14 @@ export const NavPlatform = () => (
                 <Localize
                     key={0}
                     translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[<LinkText key={0} href={binary_url} />]}
+                    components={[
+                        <LinkText
+                            key={0}
+                            href={binary_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        />,
+                    ]}
                 />
             }
             title={localize('SmartTrader')}

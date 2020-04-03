@@ -62,22 +62,22 @@ const DifferentAccounts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize(
-                'What are the differences between the DMT5 Standard, Advanced, and Synthetic Indices accounts?',
+                'What are the differences between the DMT5 Financial, Financial Pro, and Synthetic accounts?',
             )}
         </StyledHeader>
         <Text>
             {localize(
-                'The DMT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.',
+                'The DMT5 Financial account offers new and experienced traders high leverage and variable spreads for maximum flexibility.',
             )}
         </Text>
         <StyledText>
             {localize(
-                'The DMT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
+                'The DMT5 Financial Pro account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
             )}
         </StyledText>
         <StyledText>
             {localize(
-                'The DMT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.',
+                'The DMT5 Synthetic account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.',
             )}
         </StyledText>
     </ArticleWrapper>
@@ -176,7 +176,7 @@ const DMT5Article = () => {
             />
             <DifferentAccounts
                 text={localize(
-                    'What are the differences between the DMT5 Standard, Advanced, and Synthetic Indices accounts?',
+                    'What are the differences between the DMT5 Financial, Financial Pro, and Synthetic accounts?',
                 )}
                 label="differences-of-dmt5-accounts"
             />

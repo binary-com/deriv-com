@@ -373,8 +373,8 @@ const DMT5Advanced = ({ data }) => {
     )
 }
 const ib_dmt5_standard = {
-    name: localize('DMT5 Standard'),
-    description: localize('Earn when your clients trade on a DMT5 Standard account.'),
+    name: localize('DMT5 Financial'),
+    description: localize('Earn when your clients trade on a DMT5 Financial account.'),
     assets: [
         [
             { title: localize('Asset'), style: { minWidth: '13rem' } },
@@ -403,8 +403,8 @@ const ib_dmt5_standard = {
     ),
 }
 const ib_dmt5_advanced = {
-    name: localize('DMT5 Advanced'),
-    description: localize('Earn when your clients trade on a DMT5 Advanced account.'),
+    name: localize('DMT5 Financial Pro'),
+    description: localize('Earn when your clients trade on a DMT5 Financial Pro account.'),
     assets: [
         [{ title: localize('Asset'), style: { minWidth: '13rem' } }, localize('Forex and metals')],
         [
@@ -421,8 +421,8 @@ const ib_dmt5_advanced = {
     ),
 }
 const ib_dmt5_synthetic = {
-    name: localize('DMT5 Synthetic Indices'),
-    description: localize('Earn when your clients trade on a DMT5 Synthetic Indices account.'),
+    name: localize('DMT5 Synthetic'),
+    description: localize('Earn when your clients trade on a DMT5 Synthetic account.'),
     assets: [
         [
             localize('Asset'),

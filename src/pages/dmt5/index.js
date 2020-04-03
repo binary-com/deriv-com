@@ -27,9 +27,9 @@ const trading = [
         subtitle: localize(
             'The Financial account offers new and experienced traders high leverage and variable spreads for maximum flexibility. Trade commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs with high leverage.',
         ),
-        second_title: localize('DMT5 Advanced account'),
+        second_title: localize('DMT5 Financial Pro account'),
         second_subtitle: localize(
-            'The Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes.',
+            'The Financial Pro account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes.',
         ),
         image_name: 'dmt-5-ipad-iphone.png',
         image_alt: localize('DMT5 Platform'),
@@ -41,7 +41,7 @@ const trading = [
         ),
         second_title: localize('Practice with Demo accounts'),
         second_subtitle: localize(
-            'Create demo accounts (DMT5 Financial, DMT5 Advanced, or DMT5 Synthetic) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
+            'Create demo accounts (DMT5 Financial, DMT5 Financial Pro, or DMT5 Synthetic) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
         ),
         image_name: 'dmt-5-mac.png',
         image_alt: localize('DMT5 Demo Account'),

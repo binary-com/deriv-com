@@ -25,7 +25,7 @@ const StyledContainer = styled(Container)`
         padding: 12rem 4rem;
     }
     @media ${device.tabletL} {
-        padding: 5rem 2rem;
+        padding: 5rem 1.6rem;
         width: 100%;
 
         > h1 {

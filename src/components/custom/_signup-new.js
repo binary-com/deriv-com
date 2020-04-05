@@ -23,8 +23,8 @@ const SignupContent = styled.div`
     border-radius: 0.6rem;
     box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
 
-    @media ${device.mobileM} {
-        width: 36rem;
+    @media ${device.mobileL} {
+        width: 100%;
     }
 `
 

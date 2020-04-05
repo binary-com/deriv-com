@@ -101,10 +101,10 @@ class Dbot extends Component {
                 <DHero
                     title={localize('DBot')}
                     content={localize('Automate your trading ideas without writing code')}
-                    start_automating
+                    join_us_for_free
                     go_to_live_demo
                     Logo={dbot_logo}
-                    background_image_name="dbot-artboard.png"
+                    background_image_name="dbot_trade.png"
                     background_svg={DBotBG}
                     background_alt={localize('DBot Board')}
                 />

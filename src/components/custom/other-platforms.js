@@ -197,7 +197,9 @@ export const NavPlatform = () => (
 
         <DMT5NavCard
             icon={DMT5}
-            content={localize('The platform of choice for professionals worldwide.')}
+            content={localize(
+                'Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals worldwide.',
+            )}
             title={localize('DMT5')}
             to="/dmt5"
         />
@@ -210,13 +212,7 @@ export const NavPlatform = () => (
         />
         <NavCard
             icon={Smarttrader}
-            content={
-                <Localize
-                    key={0}
-                    translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[<LinkText key={0} href={binary_url} />]}
-                />
-            }
+            content={localize('Trade the world’s markets with our popular user-friendly platform.')}
             title={localize('SmartTrader')}
             to={smarttrader_url}
             style={{ marginTop: '3.2rem' }}

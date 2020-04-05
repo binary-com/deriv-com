@@ -15,10 +15,15 @@ import SignupPublic from 'components/custom/_signup-public'
 import SignupSimple from 'components/custom/_signup-simple'
 import { Header, Image, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device.js'
 
 const Form = styled.form`
     height: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
+
+    @media ${device.mobileL} {
+        width: 100%;
+    }
 `
 const ResponseWrapper = styled.div`
     justify-content: center;

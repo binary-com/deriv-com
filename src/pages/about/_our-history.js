@@ -56,7 +56,7 @@ const YearWrapper = styled.div`
         flex-direction: column;
         justify-content: left;
         text-align: left;
-        margin-left: 2rem;
+        margin: auto;
         align-items: left;
         max-width: 42.9rem;
         width: auto;
@@ -111,8 +111,8 @@ const StyledHeader = styled(Header)`
         transform: ${(props) => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
     }
     @media ${device.tablet} {
-        align-items: left;
-        margin-left: 1rem;
+        margin-left: -27rem;
+        width: auto;
         transform: unset;
         font-size: var(--text-size-xl);
         margin-bottom: 1rem;

@@ -80,10 +80,6 @@ const NavigationWrapper = styled(Flex)`
 const Navigation = styled(Flex)`
     cursor: pointer;
     margin: 0 2.4rem;
-
-    @media ${device.tabletL} {
-        margin: 0 auto;
-    }
 `
 
 const Separator = styled.span`

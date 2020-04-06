@@ -19,7 +19,7 @@ const StorySection = styled.section`
 
     @media ${device.tablet} {
         > ${Header} {
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
         }
     }
 
@@ -139,6 +139,11 @@ const LogoContainer = styled.div`
         margin-bottom: 1rem;
         width: 37rem;
         margin-left: 0;
+        height: 10rem;
+
+        > * {
+            margin: auto 0;
+        }
     }
     @media ${device.mobileS} {
         margin-left: 5rem;

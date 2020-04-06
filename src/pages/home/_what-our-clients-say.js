@@ -200,7 +200,7 @@ const fabio = {
     index: 2,
 }
 const paul = {
-    name: 'Paul Mugenda ',
+    name: 'Paul Mugenda',
     title: localize('Forex trader '),
     img_path: PaulImage,
     quote: localize(

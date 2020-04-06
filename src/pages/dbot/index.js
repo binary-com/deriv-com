@@ -32,7 +32,7 @@ const trading = [
         subtitle: localize(
             "Martingale, D'Alembert, Oscar's Grind, Cutler's RSI, Bollinger Bands, and SMA Crossover — load and customise proven strategies or create your own from scratch.",
         ),
-        image_name: 'dbot-strategy.png',
+        image_name: 'dbot_strategy',
         image_alt: localize('Strategy'),
     },
     {
@@ -45,7 +45,7 @@ const trading = [
         subtitle: localize(
             'Simply drag, drop, and configure pre-built blocks and indicators onto a canvas to build your bot. No coding needed.',
         ),
-        image_name: 'dbot-build-strategy.png',
+        image_name: 'dbot_build_strategy',
         image_alt: localize('Create your Strategy '),
     },
     {
@@ -58,7 +58,7 @@ const trading = [
         subtitle: localize(
             'Use analysis tools, indicators, and smart logic such as take-profit and stop-loss to maximise your profits and limit losses.',
         ),
-        image_name: 'dbot-maximise-profits.png',
+        image_name: 'dbot_maximise_profits',
         image_alt: localize('Tools'),
     },
     {
@@ -68,7 +68,7 @@ const trading = [
         subtitle: localize(
             'See how your bot is performing as it executes each trade and receive notifications via Telegram.',
         ),
-        image_name: 'dbot-track-your-performance.png',
+        image_name: 'dbot_track_your_performance',
         image_alt: localize('Performance Tracking'),
     },
     {
@@ -76,7 +76,7 @@ const trading = [
         subtitle: localize(
             'Access tutorials, guides, and reference information as you build your bot.',
         ),
-        image_name: 'dbot-get-integrated-help.png',
+        image_name: 'dbot_get_integrated_help',
         image_alt: localize('Tutorials'),
     },
     {
@@ -84,7 +84,7 @@ const trading = [
         subtitle: localize(
             'Enjoy the convenience and security of storing your strategies on your Google Drive.',
         ),
-        image_name: 'dbot-save-your-strategies.png',
+        image_name: 'dbot_save_your_strategies',
         image_alt: localize('Save Strategies'),
     },
 ]

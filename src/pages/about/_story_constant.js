@@ -285,7 +285,7 @@ const Stories = [
                         ),
                     },
                 ],
-                image: 'dubay-paraguay-flags.png',
+                image: 'dubai-paraguay-flags.png',
                 image_alt: localize('Dubai and Paraguay Flag'),
                 image_position: 'left',
                 margin_bottom: '6rem',

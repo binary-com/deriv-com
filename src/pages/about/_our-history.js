@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Stories from './_story_constant'
+import Show from 'components/containers/show'
 // import { Container } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -146,6 +147,17 @@ const LogoContainer = styled.div`
         margin-left: 5rem;
     }
 `
+const LogoDiv = styled.div`
+    display: flex;
+    justify-content: ${(props) => (props.is_mobile ? 'flex-start' : 'flex-end')};
+
+    @media ${device.tablet} {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+`
+
 const SVGContainer = styled.div`
     position: absolute;
     height: 93%;
@@ -175,9 +187,16 @@ export const OurHistory = (props) => {
 
     return (
         <StorySection>
-            <Header size="3.6rem" align="center" mb="9.2rem">
-                {localize('Our history')}
-            </Header>
+            <Show.Mobile>
+                <Header size="4.5rem" align="center" mb="4rem">
+                    {localize('Our history')}
+                </Header>
+            </Show.Mobile>
+            <Show.Desktop>
+                <Header size="3.6rem" align="center" mb="5rem">
+                    {localize('Our history')}
+                </Header>
+            </Show.Desktop>
             <SVGContainer>
                 <StyledLine />
             </SVGContainer>
@@ -209,20 +228,12 @@ export const OurHistory = (props) => {
                                     margin_right={content.margin_right}
                                     height={content.asset_height}
                                 >
-                                    <div
-                                        style={{
-                                            position: 'absolute',
-                                            top: '50%',
-                                            transform: 'translate(0, -50%)',
-                                            display: 'flex',
-                                            justifyContent: is_mobile ? 'flex-start' : 'flex-end',
-                                        }}
-                                    >
+                                    <LogoDiv>
                                         <Image
                                             width={content.image_width}
                                             img_name={content.image}
                                         />
-                                    </div>
+                                    </LogoDiv>
                                 </LogoContainer>
                                 <ContentWrapper content_width={content.content_width} left>
                                     {content.headers.map((header, id) => (

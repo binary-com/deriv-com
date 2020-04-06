@@ -10,6 +10,10 @@ const OurNumbersWrapper = styled.section`
     width: 100%;
     background-color: var(--color-grey-8);
     margin: auto;
+
+    @media ${device.tablet} {
+        padding-top: 8rem;
+    }
 `
 
 const StyledHeader = styled(Header)`
@@ -43,10 +47,10 @@ const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
             <Show.Mobile>
-                <Header as="h6" size="4rem" color="black-2" align="center">
+                <Header as="h6" size="4.5rem" color="black-2" align="center">
                     {localize('Our numbers')}
                 </Header>
-                <StyledHeader as="h6" size="2rem" align="center" weight="400">
+                <StyledHeader as="h6" size="3rem" align="center" weight="400">
                     {localize(
                         'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
                     )}

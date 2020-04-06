@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
 import { NavPlatform, NavCompany, NavResources } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { LocalizedLink, localize } from 'components/localization'
+import { LocalizedLink, Localize, localize } from 'components/localization'
 import { Button } from 'components/form'
 import { Container, Show } from 'components/containers'
 import { OffCanvasMenu, OffCanvasMenuPartner, moveOffCanvasMenu, Text } from 'components/elements'
@@ -13,6 +13,7 @@ import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import Partner from 'common/partner'
 import device from 'themes/device'
+import { binary_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -60,6 +61,8 @@ const Wrapper = styled(Container)`
 `
 const NavLeft = styled.div`
     text-align: left;
+    display: flex;
+    align-items: center;
     @media ${device.tabletL} {
         display: none;
     }
@@ -181,6 +184,24 @@ const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
 }
+
+const Binary = styled(Text)`
+    width: 80px;
+    margin-left: 0.5rem;
+    line-height: 1;
+`
+
+const BinaryLink = styled.a`
+    display: inline-block;
+    color: var(--color-white);
+    font-size: var(--text-size-xxs);
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+`
 
 export const Nav = () => {
     const button_ref = useRef(null)
@@ -310,6 +331,20 @@ export const Nav = () => {
                         <LogoLink to="/" aria-label={localize('Home')}>
                             <Logo />
                         </LogoLink>
+                        <Binary size="var(--text-size-xxs)" color="white">
+                            <Localize
+                                translate_text="A <0>Binary.com</0> brand"
+                                components={[
+                                    <BinaryLink
+                                        key={0}
+                                        href={binary_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        color="white"
+                                    />,
+                                ]}
+                            />
+                        </Binary>
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>

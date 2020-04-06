@@ -174,7 +174,7 @@ export const Offices = () => {
             </StyledHeader>
             <OfficesWrapper>
                 <OfficeWrapper>
-                    <Office>
+                    <Office id="malta">
                         <ImageWrapper>
                             <Iframe
                                 src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=${map_api_key}`}
@@ -208,7 +208,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <EvenOffice>
+                    <EvenOffice id="cyberjaya">
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
@@ -242,7 +242,7 @@ export const Offices = () => {
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>
-                    <Office>
+                    <Office id="labuan">
                         <ImageWrapper>
                             <MapContainer>
                                 <Image
@@ -276,7 +276,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <EvenOffice>
+                    <EvenOffice id="dubai">
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Dubai')}
@@ -310,7 +310,7 @@ export const Offices = () => {
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>
-                    <Office>
+                    <Office id="paraguay">
                         <ImageWrapper>
                             <MapContainer>
                                 <Image

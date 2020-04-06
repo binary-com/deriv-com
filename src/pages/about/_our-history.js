@@ -139,11 +139,8 @@ const LogoContainer = styled.div`
         margin-bottom: 1rem;
         width: 37rem;
         margin-left: 0;
-        height: 10rem;
-
-        > * {
-            margin: auto 0;
-        }
+        height: ${(props) => props.height || '10rem'};
+        position: relative;
     }
     @media ${device.mobileS} {
         margin-left: 5rem;
@@ -214,16 +211,15 @@ export const OurHistory = (props) => {
                                 >
                                     <div
                                         style={{
+                                            position: 'absolute',
+                                            top: '50%',
+                                            transform: 'translate(0, -50%)',
                                             display: 'flex',
                                             justifyContent: is_mobile ? 'flex-start' : 'flex-end',
                                         }}
                                     >
                                         <Image
-                                            width={
-                                                is_mobile
-                                                    ? content.image_mobile_width
-                                                    : content.image_width
-                                            }
+                                            width={content.image_width}
                                             img_name={content.image}
                                         />
                                     </div>

@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { graphql, useStaticQuery } from 'gatsby'
 import { deriv_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Container, Show, Flex } from 'components/containers'
-import { Header, Image } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
@@ -83,17 +84,30 @@ const LinkWrapper = styled.div`
         flex-direction: column;
     }
 `
+const query = graphql`
+    query {
+        DBot: file(relativePath: { eq: "dbot-artboard.png" }) {
+            ...fadeIn
+        }
+        DMT5: file(relativePath: { eq: "dmt5-platform.png" }) {
+            ...fadeIn
+        }
+        DTrader: file(relativePath: { eq: "dtrader-artboard.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const DHero = ({
     title,
     background_alt,
     background_svg,
-    background_image_name,
     content,
     join_us_for_free,
     go_to_live_demo,
     start_automating,
     Logo,
 }) => {
+    const data = useStaticQuery(query)
     const handleRedirect = () => {
         window.open(deriv_app_url, '_blank')
     }
@@ -145,11 +159,7 @@ const DHero = ({
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>
-                            <Image
-                                img_name={background_image_name}
-                                alt={background_alt}
-                                width="54.3rem"
-                            />
+                            <QueryImage data={data[title]} alt={background_alt} width="54.3rem" />
                         </LottieWrapper>
                     </Show.Desktop>
                 </div>

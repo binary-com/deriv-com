@@ -81,7 +81,6 @@ const Dtrader = () => {
                 join_us_for_free
                 go_to_live_demo
                 Logo={dtrader_logo}
-                background_image_name="dtrader-artboard.png"
                 background_svg={DTraderBG}
                 background_alt={localize('DTrader Board')}
             />

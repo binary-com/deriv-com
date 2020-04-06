@@ -104,7 +104,6 @@ class Dbot extends Component {
                     start_automating
                     go_to_live_demo
                     Logo={dbot_logo}
-                    background_image_name="dbot-artboard.png"
                     background_svg={DBotBG}
                     background_alt={localize('DBot Board')}
                 />

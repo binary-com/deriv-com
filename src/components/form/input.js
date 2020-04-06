@@ -8,10 +8,6 @@ import CrossIcon from 'images/svg/cross.svg'
 
 const RelativeWrapper = styled.div`
     position: relative;
-
-    @media ${device.tabletL} {
-        margin-right: 1rem;
-    }
 `
 const InputWrapper = styled.div`
     width: 100%;

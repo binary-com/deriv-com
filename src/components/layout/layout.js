@@ -39,7 +39,7 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
         setShowCookieBanner(!has_cookie)
     })
     const onAccept = () => {
-        Cookies.set('has_cookie_accepted', 1, { expires: 30 })
+        Cookies.set('has_cookie_accepted', 1, { sameSite: 'strict', secure: true })
         setShowCookieBanner(false)
     }
     return (

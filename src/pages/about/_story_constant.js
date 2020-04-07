@@ -320,7 +320,7 @@ const Stories = [
                 margin_left: '-0.7rem',
                 margin_bottom: '6rem',
                 outer_image_width: '35.7rem',
-                content_width: '41rem',
+                content_width: '40rem',
                 image_width: '30.4rem',
                 image_mobile_width: '27.9rem',
                 asset_height: '26rem',

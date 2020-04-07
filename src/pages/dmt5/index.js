@@ -67,6 +67,7 @@ const DMT5 = () => {
                 }
                 join_us_for_free
                 Logo={dmt5_logo}
+                image_name="dmt5"
                 background_svg={DMT5BG}
                 background_alt={localize('DMT5')}
             />

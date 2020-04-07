@@ -88,6 +88,7 @@ class Dbot extends Component {
                     go_to_live_demo
                     Logo={dbot_logo}
                     background_svg={DBotBG}
+                    image_name="dbot"
                     background_alt={localize('DBot Board')}
                 />
                 <DNumber items={items} justify="space-around" />

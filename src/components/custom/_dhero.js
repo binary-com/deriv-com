@@ -86,13 +86,13 @@ const LinkWrapper = styled.div`
 `
 const query = graphql`
     query {
-        DBot: file(relativePath: { eq: "dbot_trade.png" }) {
+        dbot: file(relativePath: { eq: "dbot_trade.png" }) {
             ...fadeIn
         }
-        DMT5: file(relativePath: { eq: "dmt5_trade.png" }) {
+        dmt5: file(relativePath: { eq: "dmt5_trade.png" }) {
             ...fadeIn
         }
-        DTrader: file(relativePath: { eq: "dtrader_trade.png" }) {
+        dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
             ...fadeIn
         }
     }
@@ -102,6 +102,7 @@ const DHero = ({
     background_alt,
     background_svg,
     content,
+    image_name,
     join_us_for_free,
     go_to_live_demo,
     Logo,
@@ -153,7 +154,11 @@ const DHero = ({
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>
-                            <QueryImage data={data[title]} alt={background_alt} width="54.3rem" />
+                            <QueryImage
+                                data={data[image_name]}
+                                alt={background_alt}
+                                width="54.3rem"
+                            />
                         </LottieWrapper>
                     </Show.Desktop>
                 </div>
@@ -168,6 +173,7 @@ DHero.propTypes = {
     background_svg: PropTypes.func,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
+    image_name: PropTypes.string,
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.func,
     title: PropTypes.string,

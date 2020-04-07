@@ -6,6 +6,7 @@ import Footer from './footer'
 import { Nav, NavStatic, NavPartners, NavCareers } from './nav'
 import CookieBanner from 'components/custom/cookie-banner'
 import { Show } from 'components/containers'
+import { isEuCountry } from 'common/country-base'
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};
@@ -36,8 +37,11 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
     // Handle cookie banners
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     React.useEffect(() => {
-        const has_cookie = Cookies.get('has_cookie_accepted')
-        setShowCookieBanner(!has_cookie)
+        const clients_country = Cookies.get('clients_country')
+        if (isEuCountry(clients_country)) {
+            const has_cookie = Cookies.get('has_cookie_accepted')
+            setShowCookieBanner(!has_cookie)
+        }
     }, [])
     const onAccept = () => {
         Cookies.set('has_cookie_accepted', 1)

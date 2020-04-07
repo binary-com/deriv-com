@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { navigate } from '@reach/router'
 import { Show } from '../../components/containers'
 import { OurStory } from './_our-story'
@@ -8,9 +9,19 @@ import { Container, Box, Flex, SEO } from 'components/containers'
 import { getLocationHash } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import device from 'themes/device'
 
+const query = graphql`
+    query {
+        jean_yves_mobile: file(relativePath: { eq: "leaders/jean-yves-mobile.png" }) {
+            ...fadeIn
+        }
+        jean_yves: file(relativePath: { eq: "leaders/jean-yves.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const Background = styled.div`
     background: var(--color-black);
     width: 100%;
@@ -149,6 +160,8 @@ const About = () => {
         const new_tab = getLocationHash() || 'story'
         setTab(new_tab)
     })
+
+    const data = useStaticQuery(query)
     return (
         <Layout>
             <SEO
@@ -212,18 +225,18 @@ const About = () => {
                             <LeadershipWrapper mt="4rem" ai="center">
                                 <Show.Desktop>
                                     <Box max_width="28.2rem" mr="2.4rem">
-                                        <Image
-                                            width="28.2rem"
-                                            img_name="jean-yves.png"
+                                        <QueryImage
+                                            data={data['jean_yves']}
                                             alt={localize('Jean Yves')}
+                                            width="28.2rem"
                                         />
                                     </Box>
                                 </Show.Desktop>
                                 <Show.Mobile>
-                                    <Image
-                                        width="328px"
-                                        img_name="jean-yves-mobile.png"
+                                    <QueryImage
+                                        data={data['jean_yves_mobile']}
                                         alt={localize('Jean Yves')}
+                                        width="328px"
                                     />
                                 </Show.Mobile>
                                 <div>

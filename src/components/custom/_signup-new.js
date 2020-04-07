@@ -180,6 +180,7 @@ const SignupNew = ({
             <label>
                 <Checkbox onChange={handleChange} checked={checkBoxState} />
                 <CheckboxSpan>
+                    {/* <Show.Desktop> */}
                     <Localize
                         fontSize="var(--text-size-xs)"
                         translate_text="I agree to the <0>terms and conditions</0>"
@@ -195,6 +196,24 @@ const SignupNew = ({
                             />,
                         ]}
                     />
+                    {/* </Show.Desktop> */}
+                    {/* <Show.Mobile>
+                        <Localize
+                            fontSize="1.75rem"
+                            translate_text="I agree to the <0>terms and conditions</0>"
+                            components={[
+                                <LinkText
+                                    href={url}
+                                    target="_blank"
+                                    color="red"
+                                    rel="noopener noreferrer"
+                                    key={0}
+                                    size="1.75rem"
+                                    weight="bold"
+                                />,
+                            ]}
+                        />
+                    </Show.Mobile> */}
                 </CheckboxSpan>
             </label>
             <EmailButton
@@ -203,7 +222,7 @@ const SignupNew = ({
                 secondary="true"
                 disabled={is_submitting || !checkBoxState}
             >
-                {localize('Create demo account')}
+                {localize('Create free demo account')}
             </EmailButton>
             <SignupWithContainer>
                 <Line />

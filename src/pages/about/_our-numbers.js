@@ -69,6 +69,7 @@ const OurNumbers = () => (
             <StyledGridContainer
                 content_width="21.5rem"
                 gap="1.6rem 0.8rem"
+                mobile_gap="4rem 1rem"
                 grid="5"
                 justify="center"
             >

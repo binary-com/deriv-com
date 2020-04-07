@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Show from 'components/containers/show'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import Map from 'images/svg/world-map.svg'
 import SmallMap from 'images/svg/world-map-small.svg'
 import device from 'themes/device'
@@ -122,7 +122,7 @@ const Number = styled.div`
         margin-bottom: 4rem;
     }
 `
-const MapLink = styled.a`
+const MapLink = styled(LocalizedLink)`
     cursor: pointer;
 `
 export const OurOffices = () => {
@@ -142,69 +142,67 @@ export const OurOffices = () => {
             <MapWrapper>
                 <Show.Mobile>
                     <StyledSmallMap />
-                    <Pinpoint top="72" left="26">
-                        <Oval />
-                    </Pinpoint>
-                    <MapLink
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://g.page/r/CRyKELlnWQ3iEAE"
-                    >
+                    <MapLink to="/contact-us/#paraguay" anchor>
+                        <Pinpoint top="72" left="26">
+                            <Oval />
+                        </Pinpoint>
+                    </MapLink>
+
+                    <MapLink to="/contact-us/#malta" anchor>
                         <Pinpoint top="29.6" left="51">
                             <Oval />
                         </Pinpoint>
                     </MapLink>
-                    <Pinpoint top="37.6" left="64.7">
-                        <Oval />
-                    </Pinpoint>
-                    <MapLink
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://g.page/r/CQODFgzIJPYtEAE"
-                    >
+                    <MapLink to="/contact-us/#dubai" anchor>
+                        <Pinpoint top="37.6" left="64.7">
+                            <Oval />
+                        </Pinpoint>
+                    </MapLink>
+
+                    <MapLink to="/contact-us/#cyberjaya" anchor>
                         <Pinpoint top="55" left="81.6">
                             <Oval top="83" left="88" />
                         </Pinpoint>
                     </MapLink>
-                    <Pinpoint top="53.6" left="87">
-                        <Oval left="8" />
-                    </Pinpoint>
+                    <MapLink to="/contact-us/#labuan" anchor>
+                        <Pinpoint top="53.6" left="87">
+                            <Oval left="8" />
+                        </Pinpoint>
+                    </MapLink>
                 </Show.Mobile>
 
                 <Show.Desktop>
                     <StyledMap />
-                    <Pinpoint top="66" left="25">
-                        <Oval />
-                        <ParaguayWrapper />
-                    </Pinpoint>
-                    <MapLink
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://g.page/r/CRyKELlnWQ3iEAE"
-                    >
+                    <MapLink to="/contact-us/#paraguay" anchor>
+                        <Pinpoint top="66" left="25">
+                            <Oval />
+                            <ParaguayWrapper />
+                        </Pinpoint>
+                    </MapLink>
+                    <MapLink to="/contact-us/#malta" anchor>
                         <Pinpoint top="21.6" left="49.6">
                             <Oval />
                             <MaltaWrapper />
                         </Pinpoint>
                     </MapLink>
-                    <Pinpoint top="30.6" left="63.7">
-                        <Oval />
-                        <DubaiWrapper />
-                    </Pinpoint>
-                    <MapLink
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        href="https://g.page/r/CQODFgzIJPYtEAE"
-                    >
+                    <MapLink to="/contact-us/#dubai" anchor>
+                        <Pinpoint top="30.6" left="63.7">
+                            <Oval />
+                            <DubaiWrapper />
+                        </Pinpoint>
+                    </MapLink>
+                    <MapLink to="/contact-us/#cyberjaya" anchor>
                         <Pinpoint top="46" left="63.6">
                             <Oval top="83" left="88" />
                             <CyberjayaWrapper />
                         </Pinpoint>
                     </MapLink>
-                    <Pinpoint top="44.6" left="85">
-                        <Oval left="8" />
-                        <LabuanWrapper />
-                    </Pinpoint>
+                    <MapLink to="/contact-us/#labuan" anchor>
+                        <Pinpoint top="44.6" left="85">
+                            <Oval left="8" />
+                            <LabuanWrapper />
+                        </Pinpoint>
+                    </MapLink>
                 </Show.Desktop>
             </MapWrapper>
 

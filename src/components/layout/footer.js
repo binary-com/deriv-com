@@ -310,7 +310,7 @@ const Footer = () => (
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </div>
                         <div>
-                            <Link to={smarttrader_url} external target="_blank">
+                            <Link to={smarttrader_url} external="true" target="_blank">
                                 {localize('SmartTrader')}
                             </Link>
                         </div>
@@ -401,7 +401,7 @@ const Footer = () => (
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </Item>
                         <Item>
-                            <Link to={smarttrader_url} external target="_blank">
+                            <Link to={smarttrader_url} external="true" target="_blank">
                                 {localize('SmartTrader')}
                             </Link>
                         </Item>

@@ -35,7 +35,7 @@ module.exports = {
                     '/**/reset-password',
                 ],
                 serialize: ({ site, allSitePage }) =>
-                    allSitePage.edges.map(edge => {
+                    allSitePage.edges.map((edge) => {
                         const path = edge.node.path
                         let priority = 0.7
                         if (path === '/') {
@@ -43,7 +43,7 @@ module.exports = {
                         } else if (path.match(/dbot|dtrader|dmt5|about/)) {
                             priority = 1.0
                         } else {
-                            Object.keys(language_config).forEach(lang => {
+                            Object.keys(language_config).forEach((lang) => {
                                 if (path === `/${lang}/`) {
                                     priority = 1.0
                                 }
@@ -121,6 +121,12 @@ module.exports = {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
                 policy: [{ userAgent: '*', allow: '/' }],
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-anchor-links',
+            options: {
+                offset: -300,
             },
         },
     ],

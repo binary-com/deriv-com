@@ -147,6 +147,7 @@ const Stories = [
                 image_width: '15.6rem',
                 image_mobile_width: '15.1rem',
                 asset_height: '14rem',
+                content_width: '38.6rem',
             },
         ],
     },
@@ -170,6 +171,7 @@ const Stories = [
                 image_position: 'left',
                 image_width: '11.4rem',
                 image_mobile_width: '11.4rem',
+                content_width: '38.3rem',
             },
             {
                 left: true,
@@ -186,6 +188,7 @@ const Stories = [
                 image_position: 'center',
                 image_width: '21.4rem',
                 image_mobile_width: '21.5rem',
+                content_width: '38.6rem',
             },
         ],
     },

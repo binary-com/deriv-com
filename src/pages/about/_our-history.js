@@ -64,11 +64,11 @@ const YearWrapper = styled.div`
     }
 `
 const ContentWrapper = styled.div`
-    width: ${(props) => props.content_width || '39.6rem'};
-    padding: 0 0 0 1rem;
+    width: ${(props) => props.content_width || '38.4rem'};
+    padding: 0;
 
     @media ${device.tablet} {
-        width: auto;
+        width: 41.9rem;
 
         ${Header} {
             text-align: left;

@@ -73,11 +73,9 @@ const ContentWrapper = styled.div`
         ${Header} {
             text-align: left;
             margin-bottom: 1rem;
-            max-width: 33rem;
-            font-size: var(--text-size-l);
+            max-width: 36rem;
         }
         ${Text} {
-            font-size: var(--text-size-s);
             margin-bottom: 4rem;
         }
     }
@@ -112,10 +110,9 @@ const StyledHeader = styled(Header)`
         transform: ${(props) => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
     }
     @media ${device.tablet} {
-        margin-left: -27rem;
+        margin-left: -24rem;
         width: auto;
         transform: unset;
-        font-size: var(--text-size-xl);
         margin-bottom: 1rem;
     }
 `
@@ -188,7 +185,7 @@ export const OurHistory = (props) => {
     return (
         <StorySection>
             <Show.Mobile>
-                <Header size="4.5rem" align="center" mb="4rem">
+                <Header size="4.5rem" align="center" mb="2rem">
                     {localize('Our history')}
                 </Header>
             </Show.Mobile>
@@ -202,14 +199,26 @@ export const OurHistory = (props) => {
             </SVGContainer>
             {Stories.map((story, idx) => (
                 <Story key={idx} bgColor={story.bgColor}>
-                    <StyledHeader
-                        left={story.left}
-                        as="h2"
-                        color={story.color || 'red-4'}
-                        align="center"
-                    >
-                        {story.year}
-                    </StyledHeader>
+                    <Show.Mobile>
+                        <StyledHeader
+                            left={story.left}
+                            size="6rem"
+                            color={story.color || 'red-4'}
+                            align="center"
+                        >
+                            {story.year}
+                        </StyledHeader>
+                    </Show.Mobile>
+                    <Show.Desktop>
+                        <StyledHeader
+                            left={story.left}
+                            as="h2"
+                            color={story.color || 'red-4'}
+                            align="center"
+                        >
+                            {story.year}
+                        </StyledHeader>
+                    </Show.Desktop>
 
                     {story.contents.map((content, idxa) =>
                         content.left || is_mobile ? (
@@ -238,16 +247,32 @@ export const OurHistory = (props) => {
                                 <ContentWrapper content_width={content.content_width} left>
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
-                                            <Header
-                                                pl="1.1rem"
-                                                as="h3"
-                                                color={story.color}
-                                                mt={header.margin_top}
-                                            >
-                                                {header.header}
-                                            </Header>
-                                            <Splitter />
-                                            <Text pl="1.1rem">{content.texts[id].text}</Text>
+                                            <Show.Mobile>
+                                                <Header
+                                                    pl="1.1rem"
+                                                    color={story.color}
+                                                    mt={header.margin_top}
+                                                    size="4rem"
+                                                >
+                                                    {header.header}
+                                                </Header>
+                                                <Splitter />
+                                                <Text size="2rem" pl="1.1rem">
+                                                    {content.texts[id].text}
+                                                </Text>
+                                            </Show.Mobile>
+                                            <Show.Desktop>
+                                                <Header
+                                                    pl="1.1rem"
+                                                    as="h4"
+                                                    color={story.color}
+                                                    mt={header.margin_top}
+                                                >
+                                                    {header.header}
+                                                </Header>
+                                                <Splitter />
+                                                <Text pl="1.1rem">{content.texts[id].text}</Text>
+                                            </Show.Desktop>
                                         </div>
                                     ))}
                                 </ContentWrapper>
@@ -264,7 +289,7 @@ export const OurHistory = (props) => {
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
                                             <Header
-                                                as="h3"
+                                                as="h4"
                                                 color={story.color}
                                                 mt={header.margin_top}
                                             >

@@ -192,17 +192,33 @@ const About = () => {
 
                     {is_story && (
                         <ContentWrapper margin_top="9.1rem">
-                            <Text mb="1.5rem" size="var(--text-size-s)" secondary color="white">
-                                {localize(
-                                    'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
-                                )}
-                            </Text>
+                            <Show.Desktop>
+                                <Text mb="1.5rem" size="var(--text-size-s)" secondary color="white">
+                                    {localize(
+                                        'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
+                                    )}
+                                </Text>
 
-                            <Text secondary color="white">
-                                {localize(
-                                    'Our evolution is powered by over 20 years of customer focus and innovation.',
-                                )}
-                            </Text>
+                                <Text secondary color="white">
+                                    {localize(
+                                        'Our evolution is powered by over 20 years of customer focus and innovation.',
+                                    )}
+                                </Text>
+                            </Show.Desktop>
+
+                            <Show.Mobile>
+                                <Text mb="1.5rem" size="2rem" secondary color="white">
+                                    {localize(
+                                        'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
+                                    )}
+                                </Text>
+
+                                <Text size="2rem" secondary color="white">
+                                    {localize(
+                                        'Our evolution is powered by over 20 years of customer focus and innovation.',
+                                    )}
+                                </Text>
+                            </Show.Mobile>
                         </ContentWrapper>
                     )}
                     {is_leadership && (

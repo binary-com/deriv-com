@@ -35,7 +35,7 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [{ header: localize('First digital option purchased') }],
+                headers: [{ header: localize('First binary option purchased') }],
                 texts: [
                     {
                         text: localize(

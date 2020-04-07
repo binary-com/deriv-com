@@ -73,7 +73,7 @@ const ContentWrapper = styled.div`
         ${Header} {
             text-align: left;
             margin-bottom: 1rem;
-            max-width: 36rem;
+            max-width: 41rem;
         }
         ${Text} {
             margin-bottom: 4rem;

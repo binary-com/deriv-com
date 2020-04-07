@@ -48,7 +48,9 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
             <Main padding_top={padding_top} is_static={is_static}>
                 {children}
             </Main>
-            <CookieBanner onAccept={onAccept} is_open={show_cookie_banner} />
+            {show_cookie_banner && (
+                <CookieBanner onAccept={onAccept} is_open={show_cookie_banner} />
+            )}
             {!is_static && <Footer has_banner_cookie={show_cookie_banner} />}
         </>
     )

@@ -5,6 +5,7 @@ import Cookies from 'js-cookie'
 import Footer from './footer'
 import { Nav, NavStatic, NavPartners, NavCareers } from './nav'
 import CookieBanner from 'components/custom/cookie-banner'
+import { Show } from 'components/containers'
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};
@@ -48,9 +49,12 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
             <Main padding_top={padding_top} is_static={is_static}>
                 {children}
             </Main>
-            {show_cookie_banner && (
-                <CookieBanner onAccept={onAccept} is_open={show_cookie_banner} />
-            )}
+            <Show.Eu>
+                {show_cookie_banner && (
+                    <CookieBanner onAccept={onAccept} is_open={show_cookie_banner} />
+                )}
+            </Show.Eu>
+
             {!is_static && <Footer has_banner_cookie={show_cookie_banner} />}
         </>
     )

@@ -1,13 +1,57 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import Stories from './_story_constant'
 // import { Container } from 'components/containers'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
 
+const query = graphql`
+    query {
+        regent_market_logo: file(relativePath: { eq: "regent-market-logo.png" }) {
+            ...fadeIn
+        }
+        flag_malta: file(relativePath: { eq: "flag-malta.png" }) {
+            ...fadeIn
+        }
+        bet_on_markets_logo: file(relativePath: { eq: "bet-on-markets-logo.png" }) {
+            ...fadeIn
+        }
+        isle_of_man_flag: file(relativePath: { eq: "isle-of-man-flag.png" }) {
+            ...fadeIn
+        }
+        awards: file(relativePath: { eq: "awards.png" }) {
+            ...fadeIn
+        }
+        logo_binary: file(relativePath: { eq: "logo-binary.png" }) {
+            ...fadeIn
+        }
+        eu_flag: file(relativePath: { eq: "eu-flag.png" }) {
+            ...fadeIn
+        }
+        logo_developers: file(relativePath: { eq: "logo-developers.png" }) {
+            ...fadeIn
+        }
+        laptop: file(relativePath: { eq: "laptop.png" }) {
+            ...fadeIn
+        }
+        logo_mt5: file(relativePath: { eq: "logo-mt5.png" }) {
+            ...fadeIn
+        }
+        flag_labuan: file(relativePath: { eq: "flag-labuan.png" }) {
+            ...fadeIn
+        }
+        dubai_paraguay_flags: file(relativePath: { eq: "dubai-paraguay-flags.png" }) {
+            ...fadeIn
+        }
+        deriv_laptop: file(relativePath: { eq: "deriv-laptop.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const StorySection = styled.section`
     width: 100%;
     margin: auto;
@@ -120,6 +164,7 @@ const StyledLine = styled(StorySVG)`
 `
 
 export const OurHistory = () => {
+    const data = useStaticQuery(query)
     return (
         <StorySection>
             <Header size="3.6rem" align="center" mb="9.2rem">
@@ -157,9 +202,10 @@ export const OurHistory = () => {
                                     height={content.asset_height}
                                 >
                                     <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                                        <Image
+                                        <QueryImage
+                                            data={data[content.image]}
+                                            alt={content.image_alt}
                                             width={content.image_width}
-                                            img_name={content.image}
                                         />
                                     </div>
                                 </LogoContainer>
@@ -212,9 +258,10 @@ export const OurHistory = () => {
                                     margin_right={content.margin_right}
                                 >
                                     <Flex jc="flex-start" ml="1rem">
-                                        <Image
+                                        <QueryImage
+                                            data={data[content.image]}
+                                            alt={content.image_alt}
                                             width={content.image_width}
-                                            img_name={content.image}
                                         />
                                     </Flex>
                                 </LogoContainer>

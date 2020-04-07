@@ -1,23 +1,50 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Container } from 'components/containers'
 import { Button } from 'components/form'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 
+const FadeInDown = keyframes`
+    from {
+        opacity: 0;
+        bottom: -18.4rem;
+    }
+    to {
+        opacity: 1;
+        bottom: 0;
+    }
+`
+const FadeOutUp = keyframes`
+    from {
+        opacity: 1;
+        bottom: 0;
+    }
+    to {
+        opacity:0;
+        bottom: -18.4rem;
+    }
+`
+
 const Wrapper = styled.div`
     background: var(--color-black);
     position: fixed;
-    bottom: 0;
+    bottom: -18.4rem;
     width: 100%;
+    height: 18.4rem;
     padding: 4.8rem 0;
+    transition: all 0.5s ease-in-out;
     z-index: 200;
+    opacity: 0;
+    animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
+    animation-fill-mode: both;
+    animation-duration: ${(props) => (props.has_animation ? '0.5s' : '0')};
 `
 
-const CookieBanner = ({ onAccept }) => {
+const CookieBanner = ({ onAccept, is_open }) => {
     return (
-        <Wrapper>
+        <Wrapper is_open={is_open}>
             <Container direction="column">
                 <Text color="white" mb="2.4rem">
                     <Localize
@@ -41,6 +68,7 @@ const CookieBanner = ({ onAccept }) => {
 }
 
 CookieBanner.propTypes = {
+    is_open: PropTypes.bool,
     onAccept: PropTypes.func,
 }
 

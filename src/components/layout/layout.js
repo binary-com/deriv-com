@@ -37,9 +37,9 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
     React.useEffect(() => {
         const has_cookie = Cookies.get('has_cookie_accepted')
         setShowCookieBanner(!has_cookie)
-    })
+    }, [])
     const onAccept = () => {
-        Cookies.set('has_cookie_accepted', 1, { sameSite: 'strict', secure: true })
+        Cookies.set('has_cookie_accepted', 1)
         setShowCookieBanner(false)
     }
     return (
@@ -48,8 +48,8 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
             <Main padding_top={padding_top} is_static={is_static}>
                 {children}
             </Main>
-            {show_cookie_banner && <CookieBanner onAccept={onAccept} />}
-            {!is_static && <Footer />}
+            <CookieBanner onAccept={onAccept} is_open={show_cookie_banner} />
+            {!is_static && <Footer has_banner_cookie={show_cookie_banner} />}
         </>
     )
 }

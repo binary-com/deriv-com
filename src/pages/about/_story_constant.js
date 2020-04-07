@@ -39,7 +39,7 @@ const Stories = [
                 texts: [
                     {
                         text: localize(
-                            'Regent Markets opens its first office in Malta. The first digital option is purchased. ',
+                            'Regent Markets opens its first office in Malta. The first binary option is purchased. ',
                         ),
                     },
                 ],
@@ -63,7 +63,7 @@ const Stories = [
                 texts: [
                     {
                         text: localize(
-                            'Regent Markets launches BetOnMarkets.com, the first platform to offer digital options to retail traders.',
+                            'Regent Markets launches BetOnMarkets.com, the first platform to offer binary options to retail traders.',
                         ),
                     },
                 ],

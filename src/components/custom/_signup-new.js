@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { getLanguage } from 'common/utility'
 import { Input, Button } from 'components/form'
-import { FlexGridContainer } from 'components/containers'
+import { FlexGridContainer, Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Login from 'common/login'
@@ -34,7 +34,7 @@ const Line = styled.div`
 `
 const StyledText = styled(Text)`
     @media ${(props) => device.tabletL && props.notedBox} {
-        width: 15rem;
+        width: 12rem;
     }
 `
 const NoteBox = styled.div`
@@ -108,6 +108,17 @@ const Span = styled.span`
 `
 const CheckboxSpan = styled.span`
     font-size: var(--text-size-xs);
+
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
+    }
+`
+const StyledLinkText = styled(LinkText)`
+    font-size: var(--text-size-xs);
+
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
+    }
 `
 
 const SignupNew = ({
@@ -180,40 +191,20 @@ const SignupNew = ({
             <label>
                 <Checkbox onChange={handleChange} checked={checkBoxState} />
                 <CheckboxSpan>
-                    {/* <Show.Desktop> */}
                     <Localize
                         fontSize="var(--text-size-xs)"
                         translate_text="I agree to the <0>terms and conditions</0>"
                         components={[
-                            <LinkText
+                            <StyledLinkText
                                 href={url}
                                 target="_blank"
                                 color="red"
                                 rel="noopener noreferrer"
                                 key={0}
-                                size="var(--text-size-xs)"
                                 weight="bold"
                             />,
                         ]}
                     />
-                    {/* </Show.Desktop> */}
-                    {/* <Show.Mobile>
-                        <Localize
-                            fontSize="1.75rem"
-                            translate_text="I agree to the <0>terms and conditions</0>"
-                            components={[
-                                <LinkText
-                                    href={url}
-                                    target="_blank"
-                                    color="red"
-                                    rel="noopener noreferrer"
-                                    key={0}
-                                    size="1.75rem"
-                                    weight="bold"
-                                />,
-                            ]}
-                        />
-                    </Show.Mobile> */}
                 </CheckboxSpan>
             </label>
             <EmailButton
@@ -226,9 +217,17 @@ const SignupNew = ({
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-5" align="center" size="var(--text-size-xs)">
-                    {localize('Or sign up with ')}
-                </StyledText>
+                <Show.Desktop>
+                    <StyledText color="grey-5" align="center" size="var(--text-size-xs)">
+                        {localize('Or sign up with ')}
+                    </StyledText>
+                </Show.Desktop>
+                <Show.Mobile>
+                    <StyledText color="grey-5" align="center" size="1.5rem">
+                        {localize('Or sign up with ')}
+                    </StyledText>
+                </Show.Mobile>
+
                 <Line />
             </SignupWithContainer>
 

@@ -86,13 +86,13 @@ const LinkWrapper = styled.div`
 `
 const query = graphql`
     query {
-        DBot: file(relativePath: { eq: "dbot-artboard.png" }) {
+        DBot: file(relativePath: { eq: "dbot_trade.png" }) {
             ...fadeIn
         }
-        DMT5: file(relativePath: { eq: "dmt5-platform.png" }) {
+        DMT5: file(relativePath: { eq: "dmt5_trade.png" }) {
             ...fadeIn
         }
-        DTrader: file(relativePath: { eq: "dtrader-artboard.png" }) {
+        DTrader: file(relativePath: { eq: "dtrader_trade.png" }) {
             ...fadeIn
         }
     }

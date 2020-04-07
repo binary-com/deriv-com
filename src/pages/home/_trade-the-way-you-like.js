@@ -8,7 +8,7 @@ import { OtherPlatform } from 'components/custom/other-platforms.js'
 
 const query = graphql`
     query {
-        dtrader_artboard: file(relativePath: { eq: "dtrader-artboard.png" }) {
+        dtrader_artboard: file(relativePath: { eq: "dtrader_trade.png" }) {
             ...fadeIn
         }
     }

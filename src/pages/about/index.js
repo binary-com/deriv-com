@@ -36,7 +36,7 @@ const StyledContainer = styled(Container)`
 const ContentWrapper = styled.div`
     margin-top: ${(props) => props.margin_top || 'none'};
     white-space: normal;
-    max-width: 79.2rem;
+    max-width: 79.8rem;
 `
 
 const LeadershipWrapper = styled(Flex)`

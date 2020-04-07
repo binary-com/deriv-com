@@ -7,7 +7,7 @@ import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import DBotBG from 'images/svg/dbot-bg.svg'
@@ -23,12 +23,7 @@ const PlatformContainer = styled.div`
 `
 const trading = [
     {
-        title: (
-            <Localize
-                translate_text="Start with a popular<0/>strategy"
-                components={[<br key={0} />]}
-            />
-        ),
+        title: localize('Start with a popular strategy'),
         subtitle: localize(
             "Martingale, D'Alembert, Oscar's Grind, Cutler's RSI, Bollinger Bands, and SMA Crossover — load and customise proven strategies or create your own from scratch.",
         ),
@@ -36,12 +31,7 @@ const trading = [
         image_alt: localize('Strategy'),
     },
     {
-        title: (
-            <Localize
-                translate_text="Build your strategy<0/>visually"
-                components={[<br key={0} />]}
-            />
-        ),
+        title: localize('Build your strategy visually'),
         subtitle: localize(
             'Simply drag, drop, and configure pre-built blocks and indicators onto a canvas to build your bot. No coding needed.',
         ),
@@ -49,12 +39,7 @@ const trading = [
         image_alt: localize('Create your Strategy '),
     },
     {
-        title: (
-            <Localize
-                translate_text="Maximise profits,<0/>limit losses"
-                components={[<br key={0} />]}
-            />
-        ),
+        title: localize('Maximise profits, limit losses'),
         subtitle: localize(
             'Use analysis tools, indicators, and smart logic such as take-profit and stop-loss to maximise your profits and limit losses.',
         ),
@@ -62,9 +47,7 @@ const trading = [
         image_alt: localize('Tools'),
     },
     {
-        title: (
-            <Localize translate_text="Track your<0/>performance" components={[<br key={0} />]} />
-        ),
+        title: localize('Track your performance'),
         subtitle: localize(
             'See how your bot is performing as it executes each trade and receive notifications via Telegram.',
         ),
@@ -72,7 +55,7 @@ const trading = [
         image_alt: localize('Performance Tracking'),
     },
     {
-        title: <Localize translate_text="Get<0/>integrated help" components={[<br key={0} />]} />,
+        title: localize('Get integrated help'),
         subtitle: localize(
             'Access tutorials, guides, and reference information as you build your bot.',
         ),
@@ -80,7 +63,7 @@ const trading = [
         image_alt: localize('Tutorials'),
     },
     {
-        title: <Localize translate_text="Save<0/>your strategies" components={[<br key={0} />]} />,
+        title: localize('Save your strategies'),
         subtitle: localize(
             'Enjoy the convenience and security of storing your strategies on your Google Drive.',
         ),
@@ -101,7 +84,7 @@ class Dbot extends Component {
                 <DHero
                     title={localize('DBot')}
                     content={localize('Automate your trading ideas without writing code')}
-                    start_automating
+                    join_us_for_free
                     go_to_live_demo
                     Logo={dbot_logo}
                     background_svg={DBotBG}

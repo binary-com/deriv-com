@@ -104,7 +104,6 @@ const DHero = ({
     content,
     join_us_for_free,
     go_to_live_demo,
-    start_automating,
     Logo,
 }) => {
     const data = useStaticQuery(query)
@@ -143,11 +142,6 @@ const DHero = ({
                                     {localize('Create demo account')}
                                 </TryForFree>
                             ) : null}
-                            {start_automating ? (
-                                <TryForFree secondary="true" to="/signup/">
-                                    {localize('Start automating')}
-                                </TryForFree>
-                            ) : null}
                             {go_to_live_demo ? (
                                 <GoToLiveDemo tertiary onClick={handleRedirect}>
                                     {localize('Go to live demo')}
@@ -176,7 +170,6 @@ DHero.propTypes = {
     go_to_live_demo: PropTypes.bool,
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.func,
-    start_automating: PropTypes.bool,
     title: PropTypes.string,
 }
 

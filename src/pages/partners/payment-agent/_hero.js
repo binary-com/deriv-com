@@ -26,7 +26,7 @@ const PAHero = () => {
                     'Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv.',
                 )}
             </MiddleHeader>
-            <LinkButton secondary external to="mailto:paymentagents@deriv.com">
+            <LinkButton secondary external="true" to="mailto:paymentagents@deriv.com">
                 {localize('Send us an email to apply')}
             </LinkButton>
         </Hero>

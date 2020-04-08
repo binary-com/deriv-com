@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SEO, Wrapper } from 'components/containers'
+import { SEO, Box } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text, Image } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import { LinkButton } from 'components/form'
 
-const ImageSection = styled(Wrapper)`
+const ImageSection = styled(Box)`
     display: flex;
     justify-content: center;
     align-items: center;

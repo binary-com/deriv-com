@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Stories from './_story_constant'
 // import { Container } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
+import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import StorySVG from 'images/svg/story-line.svg'
@@ -16,7 +17,7 @@ const StorySection = styled.section`
 `
 const Story = styled.div`
     /* prettier-ignore */
-    background-color: var(--color-${props => props.bgColor || 'white'});
+    background-color: var(--color-${(props) => props.bgColor || 'white'});
     width: 100%;
     margin: auto;
     padding: 2rem 0;
@@ -27,11 +28,11 @@ const YearWrapper = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-left: ${props => (props.left ? props.margin_left || '9.4rem' : '-9.4rem')};
-    margin-bottom: ${props => props.margin_bottom || 'unset'};
+    margin-left: ${(props) => (props.left ? props.margin_left || '9.4rem' : '-9.4rem')};
+    margin-bottom: ${(props) => props.margin_bottom || 'unset'};
 
     p {
-        color: ${props => props.color || 'black'};
+        color: ${(props) => props.color || 'black'};
     }
 
     @media ${device.tablet} {
@@ -42,15 +43,21 @@ const YearWrapper = styled.div`
     }
 `
 const ContentWrapper = styled.div`
-    width: ${props => props.content_width || '39.6rem'};
+    width: ${(props) => props.content_width || '39.6rem'};
     padding: 0 0 0 1rem;
+
+    @media ${device.tabletL} {
+        ${Header} {
+            text-align: center;
+        }
+    }
 `
 const StyledHeader = styled(Header)`
     width: 18rem;
     margin-left: 50%;
     margin-bottom: 2.5rem;
     position: relative;
-    transform: ${props => (props.left ? 'translateX(-88.7%)' : 'translateX(-1%)')};
+    transform: ${(props) => (props.left ? 'translateX(-88.7%)' : 'translateX(-1%)')};
 
     ::before {
         content: '';
@@ -60,8 +67,8 @@ const StyledHeader = styled(Header)`
         border-bottom: 17px solid red;
         position: absolute;
         top: 32.6%;
-        right: ${props => (props.left ? '1rem' : '')};
-        left: ${props => (props.left ? '' : '1rem')};
+        right: ${(props) => (props.left ? '1rem' : '')};
+        left: ${(props) => (props.left ? '' : '1rem')};
 
         @media ${device.tablet} {
             display: none;
@@ -69,10 +76,10 @@ const StyledHeader = styled(Header)`
     }
 
     @media ${device.laptopL} {
-        transform: ${props => (props.left ? 'translateX(-88%)' : 'translateX(-1%)')};
+        transform: ${(props) => (props.left ? 'translateX(-88%)' : 'translateX(-1%)')};
     }
     @media ${device.laptop} {
-        transform: ${props => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
+        transform: ${(props) => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
     }
     @media ${device.tablet} {
         margin: auto;
@@ -86,10 +93,10 @@ const Splitter = styled.div`
     margin: 0.5rem 0 1rem 0;
 `
 const LogoContainer = styled.div`
-    width: ${props => props.outer_image_width || '28.2rem'};
-    text-align: ${props => props.image_position};
-    margin-left: ${props => (props.left ? '2rem' : '')};
-    margin-right: ${props => (props.left ? '' : props.margin_right || '2rem')};
+    width: ${(props) => props.outer_image_width || '28.2rem'};
+    text-align: ${(props) => props.image_position};
+    margin-left: ${(props) => (props.left ? '2rem' : '')};
+    margin-right: ${(props) => (props.left ? '' : props.margin_right || '2rem')};
 
     @media ${device.tablet} {
         text-align: center;
@@ -115,7 +122,7 @@ const StyledLine = styled(StorySVG)`
 export const OurHistory = () => {
     return (
         <StorySection>
-            <Header font_size="3.6rem" align="center" margin="0 0 9.2rem 0">
+            <Header size="3.6rem" align="center" mb="9.2rem">
                 {localize('Our history')}
             </Header>
             <SVGContainer>
@@ -160,18 +167,16 @@ export const OurHistory = () => {
                                     {content.headers.map((header, id) => (
                                         <div key={id}>
                                             <Header
-                                                padding="0 0 0 1.1rem"
+                                                pl="1.1rem"
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
-                                                margin={header.margin_top + ' 0 0 0'}
+                                                mt={header.margin_top}
                                             >
                                                 {header.header}
                                             </Header>
                                             <Splitter />
-                                            <Text padding="0 0 0 1.1rem">
-                                                {content.texts[id].text}
-                                            </Text>
+                                            <Text pl="1.1rem">{content.texts[id].text}</Text>
                                         </div>
                                     ))}
                                 </ContentWrapper>
@@ -191,7 +196,7 @@ export const OurHistory = () => {
                                                 mobile_text_align="center"
                                                 as="h3"
                                                 color={story.color}
-                                                margin={header.margin_top + ' 0 0 0'}
+                                                mt={header.margin_top}
                                             >
                                                 {header.header}
                                             </Header>
@@ -206,18 +211,12 @@ export const OurHistory = () => {
                                     outer_image_width={content.outer_image_width}
                                     margin_right={content.margin_right}
                                 >
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            justifyContent: 'flex-start',
-                                            marginLeft: '1rem',
-                                        }}
-                                    >
+                                    <Flex jc="flex-start" ml="1rem">
                                         <Image
                                             width={content.image_width}
                                             img_name={content.image}
                                         />
-                                    </div>
+                                    </Flex>
                                 </LogoContainer>
                             </YearWrapper>
                         ),

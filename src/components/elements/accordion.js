@@ -12,12 +12,12 @@ import Minus from 'images/svg/minus.svg'
 const ThickArrow = styled(ChevronThick)`
     transform: rotate(-180deg);
     transition: transform 0.25s linear;
-    ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
+    ${(props) => (props.expanded === 'true' ? 'transform: inherit;' : '')}
 `
 
 const Arrow = styled(Chevron)`
     transition: transform 0.25s linear;
-    ${props => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
 `
 
 const AccordionHeader = styled.div`
@@ -67,7 +67,7 @@ Accordion.propTypes = {
 }
 
 const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
-    const getHeight = active_idx => {
+    const getHeight = (active_idx) => {
         return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
     }
 
@@ -90,7 +90,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
             <div
                 key={child_idx}
                 style={child.props.parent_style}
-                ref={div => {
+                ref={(div) => {
                     nodes[child_idx] = { ref: div }
                 }}
             >
@@ -141,7 +141,7 @@ SingleAccordionContent.propTypes = {
 const AccordionContent = ({ children, nodes }) => {
     const [active_idx, setActiveIdx] = useState(-1)
 
-    const toggle = child_idx => {
+    const toggle = (child_idx) => {
         const is_closed = active_idx === child_idx || child_idx === -1
         if (is_closed) setActiveIdx(-1)
         else {
@@ -149,9 +149,12 @@ const AccordionContent = ({ children, nodes }) => {
         }
     }
 
-    const getHeight = child_idx => {
+    const getHeight = (child_idx) => {
         if (active_idx === child_idx) {
-            return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+            return (
+                nodes[active_idx] &&
+                nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+            )
         }
         return 0
     }
@@ -163,7 +166,7 @@ const AccordionContent = ({ children, nodes }) => {
         return (
             <div
                 style={child.props.parent_style}
-                ref={div => {
+                ref={(div) => {
                     nodes[child_idx] = { ref: div }
                 }}
             >

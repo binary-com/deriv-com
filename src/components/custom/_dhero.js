@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { deriv_app_url } from 'common/utility'
-import { LocalizedLink, localize } from 'components/localization'
+import { localize } from 'components/localization'
 import { Container, Show, Flex } from 'components/containers'
-import device from 'themes/device.js'
 import { Header, Image } from 'components/elements'
-import { Button } from 'components/form'
+import { Button, LinkButton } from 'components/form'
+import device from 'themes/device.js'
 
 const HeroContent = styled.div`
     display: flex;
@@ -18,9 +18,6 @@ const HeroContent = styled.div`
         color: var(--color-white);
         display: flex;
         margin-top: 1.5rem;
-    }
-    h4:first-child {
-        margin-top: 0;
     }
 `
 const StyledHeader = styled(Header)`
@@ -38,16 +35,13 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
 `
-const TryForFree = styled(Button)`
-    a {
-        text-decoration: none;
-        color: var(--color-white);
-    }
 
+const TryForFree = styled(LinkButton)`
     @media ${device.tabletL} {
         width: 100%;
         margin-top: 18.5rem;
         max-width: 47rem;
+        margin-bottom: 2.4rem;
     }
 `
 const StyledContainer = styled(Container)`
@@ -85,16 +79,18 @@ const InformationWrapper = styled(Flex)`
 const LinkWrapper = styled.div`
     @media ${device.tabletL} {
         text-align: center;
+        display: flex;
+        flex-direction: column;
     }
 `
 const DHero = ({
     title,
+    background_alt,
     background_svg,
     background_image_name,
     content,
     join_us_for_free,
     go_to_live_demo,
-    start_automating,
     Logo,
 }) => {
     const handleRedirect = () => {
@@ -128,17 +124,8 @@ const DHero = ({
                     <div>
                         <LinkWrapper>
                             {join_us_for_free ? (
-                                <TryForFree secondary="true">
-                                    <LocalizedLink to="/signup/">
-                                        {localize('Create demo account')}
-                                    </LocalizedLink>
-                                </TryForFree>
-                            ) : null}
-                            {start_automating ? (
-                                <TryForFree secondary="true">
-                                    <LocalizedLink to="/signup/">
-                                        {localize('Start automating')}
-                                    </LocalizedLink>
+                                <TryForFree secondary="true" to="/signup/">
+                                    {localize('Create demo account')}
                                 </TryForFree>
                             ) : null}
                             {go_to_live_demo ? (
@@ -152,7 +139,11 @@ const DHero = ({
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>
-                            <Image img_name={background_image_name} width="54.3rem" />
+                            <Image
+                                img_name={background_image_name}
+                                alt={background_alt}
+                                width="54.3rem"
+                            />
                         </LottieWrapper>
                     </Show.Desktop>
                 </div>
@@ -162,13 +153,13 @@ const DHero = ({
 }
 
 DHero.propTypes = {
+    background_alt: PropTypes.string,
     background_image_name: PropTypes.string,
     background_svg: PropTypes.func,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.func,
-    start_automating: PropTypes.bool,
     title: PropTypes.string,
 }
 

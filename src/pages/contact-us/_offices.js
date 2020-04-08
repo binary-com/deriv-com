@@ -1,11 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Text, LinkText } from 'components/elements/typography'
 import { Header, Image } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device, { size } from 'themes/device'
+import { map_api_key } from 'common/utility'
+// SVG
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
-import device from 'themes/device'
 
 const Wrapper = styled.section`
     width: 100%;
@@ -15,7 +17,7 @@ const Wrapper = styled.section`
 
     @media (max-width: 1380px) {
         height: auto;
-        padding: 8rem 1rem;
+        padding: 5rem 2rem;
     }
 `
 const OfficesWrapper = styled.div`
@@ -48,44 +50,48 @@ const Office = styled.div`
     }
 
     @media ${device.laptop} {
-        flex-direction: column;
         height: auto;
         align-items: center;
-    }
-    @media ${device.mobileL} {
-        align-items: flex-start;
-        margin: 2.4rem;
+        flex-direction: column-reverse;
+        margin-top: 3rem;
     }
 `
 
 const EvenOffice = styled(Office)`
     @media ${device.laptop} {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 0.8rem;
+
+    @media ${device.laptop} {
+        margin-bottom: 0;
+    }
 `
 const Content = styled.div`
     width: 50%;
 
-    :nth-child(even) {
-        margin-left: 2.4rem;
-        width: 100%;
-    }
-
-    @media ${device.laptop} {
-        width: auto;
-
+    @media (min-width: ${size.laptop}px) {
         :nth-child(even) {
-            margin-left: 0;
-            width: auto;
+            margin-left: 2.4rem;
+            width: 100%;
         }
+    }
+    @media ${device.laptop} {
+        width: 100%;
+        margin-left: 0;
     }
 `
 const AddressContainer = styled.div`
     display: flex;
     flex-direction: row;
+
+    @media ${device.laptop} {
+        ${Text} {
+            font-size: var(--text-size-sm);
+        }
+    }
 `
 const MapIconWrapper = styled.div`
     margin-top: 0.4rem;
@@ -98,22 +104,22 @@ const PhoneIcon = styled(PhoneSVG)`
 `
 const ImageWrapper = styled.div`
     height: 21rem;
+    width: 100%;
+    max-width: 48.6rem;
 
-    @media ${device.mobileL} {
-        display: none;
+    @media ${device.laptop} {
+        margin-top: 2rem;
+        height: 17.75rem;
     }
-`
-const MapLink = styled.a`
-    width: fit-content;
-    height: fit-content;
-    text-decoration: none;
-    position: relative;
-    cursor: pointer;
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
-    color: ${props => props.color || 'var(--color-black-3)'};
-    text-indent: ${props => props.textIndent || '0'};
+    color: ${(props) => props.color || 'var(--color-black-3)'};
+    text-indent: ${(props) => props.textIndent || '0'};
+
+    @media ${device.laptop} {
+        font-size: var(--text-size-sm);
+    }
 `
 const Splitter = styled.div`
     background-color: var(--color-grey-8);
@@ -121,10 +127,45 @@ const Splitter = styled.div`
     width: 98rem;
     margin-top: 6.3rem;
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         width: auto;
+        margin-top: 3rem;
+        height: 0.2rem;
     }
 `
+const MapContainer = styled.div`
+    width: 48.6rem;
+    height: 20rem;
+
+    @media ${device.laptop} {
+        width: 328px;
+        height: 142px;
+    }
+    @media (max-width: 359px) {
+        width: 280px;
+    }
+`
+const AddressTextShared = css`
+    font-size: var(--text-size-s);
+
+    @media ${device.laptop} {
+        font-size: var(--text-size-sm);
+    }
+`
+const StyledLinkText = styled(LinkText)`
+    ${AddressTextShared}
+`
+const ClickToCall = styled.a`
+    text-decoration: none;
+    color: inherit;
+`
+
+const Iframe = styled.iframe`
+    width: 100%;
+    height: 100%;
+    border: 0;
+`
+
 export const Offices = () => {
     return (
         <Wrapper>
@@ -133,20 +174,11 @@ export const Offices = () => {
             </StyledHeader>
             <OfficesWrapper>
                 <OfficeWrapper>
-                    <Office>
+                    <Office id="malta">
                         <ImageWrapper>
-                            <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://g.page/r/CRyKELlnWQ3iEAE"
-                            >
-                                <Image
-                                    img_name="map-malta.png"
-                                    alt={localize('Malta Office')}
-                                    width="49rem"
-                                    height="100%"
-                                />
-                            </MapLink>
+                            <Iframe
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=${map_api_key}`}
+                            />
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -157,27 +189,26 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
+                                <StyledLinkText
                                     target="_blank"
                                     color="black-3"
-                                    size="var(--text-size-s)"
                                     href="https://g.page/r/CRyKELlnWQ3iEAE"
                                 >
                                     <Localize
-                                        translate_text="Level 3, W Business Centre,<0 />Triq Dun Karm Birkirkara BKR9033 Malta."
+                                        translate_text="Level 3, W Business Centre,<0/>Triq Dun Karm Birkirkara BKR 9033 Malta"
                                         components={[<br key={0} />]}
                                     />
-                                </LinkText>
+                                </StyledLinkText>
                             </AddressContainer>
 
                             <StyledText>
                                 <PhoneIcon />
-                                +356 2131 6105
+                                <ClickToCall href="tel:+35621316105">+356 2131 6105</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <EvenOffice>
+                    <EvenOffice id="cyberjaya">
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
@@ -187,47 +218,40 @@ export const Offices = () => {
                                 <MapIconWrapper>
                                     <MapIcon />
                                 </MapIconWrapper>
-                                <LinkText
+                                <StyledLinkText
                                     target="_blank"
                                     color="black-3"
                                     size="var(--text-size-s)"
                                     href="https://g.page/r/CQODFgzIJPYtEAE"
                                 >
                                     <Localize
-                                        translate_text="C-13, iTech Tower, Jalan Impact, Cyber 6,<0 />63000 Cyberjaya, Selangor, Malaysia."
+                                        translate_text="C-13, iTech Tower, Jalan Impact, Cyber 6,<0 />63000 Cyberjaya, Selangor, Malaysia"
                                         components={[<br key={0} />]}
                                     />
-                                </LinkText>
+                                </StyledLinkText>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +60 3 8322 8178
+                                <ClickToCall href="tel:+60383228178">+60 3 8322 8178</ClickToCall>
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <MapLink
-                                rel="noopener noreferrer"
-                                target="_blank"
-                                href="https://g.page/r/CQODFgzIJPYtEAE"
-                            >
-                                <Image
-                                    img_name="map-cyberjaya.png"
-                                    alt={localize('Malaysia Office')}
-                                    width="49rem"
-                                    height="100%"
-                                />
-                            </MapLink>
+                            <Iframe
+                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=${map_api_key}`}
+                            />
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>
-                    <Office>
+                    <Office id="labuan">
                         <ImageWrapper>
-                            <Image
-                                img_name="map-labuan.png"
-                                alt={localize('Labuan Office')}
-                                width="49rem"
-                                height="100%"
-                            />
+                            <MapContainer>
+                                <Image
+                                    img_name="map-labuan.png"
+                                    alt={localize('Labuan Office Location')}
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </MapContainer>
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -240,19 +264,19 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia."
+                                        translate_text="F16, 1st Floor, Paragon Labuan,<0 />Jalan Tun Mustapha, 87000, Labuan, Malaysia"
                                         components={[<br key={0} />]}
                                     />
                                 </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +60 87 50 4126
+                                <ClickToCall href="tel:+6087504126">+60 8750 4126</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <EvenOffice>
+                    <EvenOffice id="dubai">
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Dubai')}
@@ -264,34 +288,38 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="1902, Jumeirah Business Center 1, <0 /> JLT Cluster G, Dubai, UAE."
+                                        translate_text="1902, Jumeirah Business Center 1,<0/>JLT Cluster G, Dubai, UAE."
                                         components={[<br key={0} />]}
                                     />
                                 </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +9714 399 0404
+                                <ClickToCall href="tel:+97143990404">+971 4 399 0404</ClickToCall>
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <Image
-                                img_name="map-dubai-office.png"
-                                alt={localize('Dubai Office')}
-                                width="49rem"
-                                height="100%"
-                            />
+                            <MapContainer>
+                                <Image
+                                    img_name="map-dubai-office.png"
+                                    alt={localize('Dubai Office Location')}
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </MapContainer>
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>
-                    <Office>
+                    <Office id="paraguay">
                         <ImageWrapper>
-                            <Image
-                                img_name="map-paraguay.png"
-                                alt={localize('paraguay Office')}
-                                width="49rem"
-                                height="100%"
-                            />
+                            <MapContainer>
+                                <Image
+                                    img_name="map-paraguay.png"
+                                    alt={localize('Paraguay Office Location')}
+                                    width="100%"
+                                    height="100%"
+                                />
+                            </MapContainer>
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -304,14 +332,14 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma,<0 />Trinidad, Asuncion, Paraguay."
+                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma, Trinidad, Asuncion, Paraguay"
                                         components={[<br key={0} />]}
                                     />
                                 </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                +595 99 129 8762
+                                <ClickToCall href="tel:+595991298762">+595 99 129 8762</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>

@@ -17,25 +17,23 @@ class LanguageSwitch extends Component {
     componentWillReceiveProps(nextProps) {
         this.setState({ language: nextProps.i18n.language })
     }
-    displayName = () => {
-
-    }
+    displayName = () => {}
     renderLanguageChoice = (lang) => {
         const { display_name, path, short_name } = language_config[lang]
         const to = `/${path}`
-        let text = this.props.short_name === 'true' ? (short_name) : (display_name);
+        let text = this.props.short_name === 'true' ? short_name : display_name
 
         return {
             value: to,
-            text: text
+            text: text,
         }
     }
     getCurrentLanguage() {
         const { display_name, short_name } = language_config[this.state.language]
-        return this.props.short_name === 'true' ? (short_name) : (display_name);
+        return this.props.short_name === 'true' ? short_name : display_name
     }
 
-    handleSelect = e => {
+    handleSelect = (e) => {
         const { id } = e.target
         const current_lang = localStorage.getItem('i18n') || 'en'
         const path = id === '/en' ? '/' : id
@@ -55,7 +53,7 @@ class LanguageSwitch extends Component {
 
                 const destination_path = `${path}${
                     current_lang === 'en' ? current_path : current_path.replace(/\/.+?\//u, '/')
-                    }${current_hash}`
+                }${current_hash}`
 
                 navigate(destination_path, { hrefLang: path })
             }
@@ -79,5 +77,5 @@ LanguageSwitch.propTypes = {
     i18n: PropTypes.shape({
         language: PropTypes.string,
     }),
-    short_name: PropTypes.string
+    short_name: PropTypes.string,
 }

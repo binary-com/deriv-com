@@ -1,6 +1,6 @@
 import extend from 'extend'
 
-const toISOFormat = date => {
+const toISOFormat = (date) => {
     if (date instanceof Date) {
         const utc_year = date.getUTCFullYear()
         const utc_month = (date.getUTCMonth() + 1 < 10 ? '0' : '') + (date.getMonth() + 1)
@@ -12,21 +12,21 @@ const toISOFormat = date => {
     return ''
 }
 
-const toHashFormat = string => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
+const toHashFormat = (string) => string.replace(/\s+/g, '-').toLowerCase() // change space to dash then lowercase all
 
 const isBrowser = () => typeof window !== 'undefined'
 
-const isEmptyObject = obj => {
+const isEmptyObject = (obj) => {
     let is_empty = true
     if (obj && obj instanceof Object) {
-        Object.keys(obj).forEach(key => {
+        Object.keys(obj).forEach((key) => {
             if (Object.prototype.hasOwnProperty.call(obj, key)) is_empty = false
         })
     }
     return is_empty
 }
 
-const cloneObject = obj =>
+const cloneObject = (obj) =>
     !isEmptyObject(obj) ? extend(true, Array.isArray(obj) ? [] : {}, obj) : obj
 
 const getPropertyValue = (obj, k) => {
@@ -55,17 +55,17 @@ class PromiseClass {
     }
 }
 
-const sanitize = input => input.replace(/[.*+?^${}()|[\]\\]/g, '')
+const sanitize = (input) => input.replace(/[.*+?^${}()|[\]\\]/g, '')
 
-const sentenceCase = input => input.charAt(0).toUpperCase() + input.slice(1)
+const sentenceCase = (input) => input.charAt(0).toUpperCase() + input.slice(1)
 
 function debounce(func, wait, immediate) {
     let timeout
-    return function() {
+    return function () {
         const context = this
         const args = arguments
 
-        const later = function() {
+        const later = function () {
             timeout = null
             if (!immediate) func.apply(context, args)
         }
@@ -80,9 +80,13 @@ function debounce(func, wait, immediate) {
 
 const deriv_app_url = 'https://deriv.app'
 const deriv_bot_app_url = 'https://deriv.app/bot'
+const smarttrader_url = 'https://smarttrader.deriv.app'
+const binary_url = 'https://binary.com'
 const brand_name = 'Deriv'
+const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 
 export {
+    binary_url,
     deriv_app_url,
     deriv_bot_app_url,
     debounce,
@@ -94,9 +98,11 @@ export {
     getPropertyValue,
     getLanguage,
     getLocationHash,
+    map_api_key,
     PromiseClass,
     sanitize,
     sentenceCase,
+    smarttrader_url,
     toISOFormat,
     toHashFormat,
 }

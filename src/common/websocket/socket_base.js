@@ -1,5 +1,3 @@
-// TODO: add language
-// const getLanguage      = require('../language').get;
 import { State } from '../storage'
 import {
     cloneObject,
@@ -38,11 +36,11 @@ const BinarySocketBase = (() => {
         clear: () => {
             sent_requests.items = []
         },
-        has: msg_type => sent_requests.items.indexOf(msg_type) >= 0,
-        add: msg_type => {
+        has: (msg_type) => sent_requests.items.indexOf(msg_type) >= 0,
+        add: (msg_type) => {
             if (!sent_requests.has(msg_type)) sent_requests.items.push(msg_type)
         },
-        remove: msg_type => {
+        remove: (msg_type) => {
             if (sent_requests.has(msg_type))
                 sent_requests.items.splice(sent_requests.items.indexOf(msg_type, 1))
         },
@@ -56,11 +54,11 @@ const BinarySocketBase = (() => {
             }
             waiting_list.items[msg_type].push(promise_obj)
         },
-        resolve: response => {
+        resolve: (response) => {
             const msg_type = response.msg_type
             const this_promises = waiting_list.items[msg_type]
             if (this_promises && this_promises.length) {
-                this_promises.forEach(pr => {
+                this_promises.forEach((pr) => {
                     if (!waiting_list.another_exists(pr, msg_type)) {
                         pr.resolve(response)
                     }
@@ -70,12 +68,12 @@ const BinarySocketBase = (() => {
         },
         another_exists: (pr, msg_type) =>
             Object.keys(waiting_list.items).some(
-                type => type !== msg_type && waiting_list.items[type].indexOf(pr) !== -1,
+                (type) => type !== msg_type && waiting_list.items[type].indexOf(pr) !== -1,
             ),
     }
 
     const clearTimeouts = () => {
-        Object.keys(timeouts).forEach(key => {
+        Object.keys(timeouts).forEach((key) => {
             clearTimeout(timeouts[key])
             delete timeouts[key]
         })
@@ -86,7 +84,7 @@ const BinarySocketBase = (() => {
     const isClose = () => !binary_socket || hasReadyState(2, 3)
 
     const hasReadyState = (...states) =>
-        binary_socket && states.some(s => binary_socket.readyState === s)
+        binary_socket && states.some((s) => binary_socket.readyState === s)
 
     const sendBufferedRequests = () => {
         while (buffered_sends.length > 0 && is_available) {
@@ -98,7 +96,7 @@ const BinarySocketBase = (() => {
     const wait = (...msg_types) => {
         const promise_obj = new PromiseClass()
         let is_resolved = true
-        msg_types.forEach(msg_type => {
+        msg_types.forEach((msg_type) => {
             const last_response = State.get(['response', msg_type])
             if (!last_response) {
                 if (msg_type !== 'authorize') {
@@ -122,12 +120,12 @@ const BinarySocketBase = (() => {
      *      msg_type: {string}   specify the type of request call
      *      callback: {function} to call on response of streaming requests
      */
-    const send = function(data, options = {}) {
+    const send = function (data, options = {}) {
         const promise_obj = options.promise || new PromiseClass()
 
         if (!data || isEmptyObject(data)) return promise_obj.promise
 
-        const msg_type = options.msg_type || no_duplicate_requests.find(c => c in data)
+        const msg_type = options.msg_type || no_duplicate_requests.find((c) => c in data)
 
         // Fetch from state
         if (!options.forced && msg_type && no_duplicate_requests.indexOf(msg_type) !== -1) {
@@ -136,7 +134,7 @@ const BinarySocketBase = (() => {
                 promise_obj.resolve(last_response)
                 return promise_obj.promise
             } else if (sent_requests.has(msg_type)) {
-                return wait(msg_type).then(response => {
+                return wait(msg_type).then((response) => {
                     promise_obj.resolve(response)
                     return promise_obj.promise
                 })
@@ -147,7 +145,7 @@ const BinarySocketBase = (() => {
             data.req_id = ++req_id
         }
         promises[data.req_id] = {
-            callback: response => {
+            callback: (response) => {
                 if (typeof options.callback === 'function') {
                     options.callback(response)
                 } else {
@@ -179,7 +177,7 @@ const BinarySocketBase = (() => {
         return promise_obj.promise
     }
 
-    const init = options => {
+    const init = (options) => {
         if (wrong_app_id === getAppId()) {
             return
         }
@@ -187,7 +185,7 @@ const BinarySocketBase = (() => {
             config = options
             buffered_sends = []
         }
-        // TODO: [translation] remove this condition when production is ready
+
         const socket_url = `${getSocketURL()}?app_id=${getAppId()}&l=${
             getLanguage() === 'ach' ? getCrowdin() : getLanguage()
         }&brand=${brand_name.toLowerCase()}`
@@ -216,7 +214,7 @@ const BinarySocketBase = (() => {
             }
         }
 
-        binary_socket.onmessage = msg => {
+        binary_socket.onmessage = (msg) => {
             config.wsEvent('message')
             const response = msg.data ? JSON.parse(msg.data) : undefined
             if (response) {
@@ -267,7 +265,7 @@ const BinarySocketBase = (() => {
         }
     }
 
-    const clear = msg_type => {
+    const clear = (msg_type) => {
         buffered_sends = []
         if (msg_type) {
             State.set(['response', msg_type], undefined)
@@ -275,7 +273,7 @@ const BinarySocketBase = (() => {
         }
     }
 
-    const availability = status => {
+    const availability = (status) => {
         if (typeof status !== 'undefined') {
             is_available = !!status
         }
@@ -292,10 +290,10 @@ const BinarySocketBase = (() => {
         hasReadyState,
         sendBuffered: sendBufferedRequests,
         get: () => binary_socket,
-        setOnDisconnect: onDisconnect => {
+        setOnDisconnect: (onDisconnect) => {
             config.onDisconnect = onDisconnect
         },
-        setOnReconnect: onReconnect => {
+        setOnReconnect: (onReconnect) => {
             config.onReconnect = onReconnect
         },
         removeOnReconnect: () => {

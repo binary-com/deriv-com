@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import styled, { css } from 'styled-components'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
@@ -35,6 +36,16 @@ export const SharedLinkStyle = css`
             width: 1.6rem;
         }
     }
+
+    ${(props) =>
+        props.active &&
+        css`
+            text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
+
+            &::before {
+                width: 1.6rem;
+            }
+        `}
 `
 const ExternalLink = styled.a`
     ${SharedLinkStyle}
@@ -51,7 +62,7 @@ export const LocalizedLink = ({ to, ...props }) => {
     const { is_default, path } = language_config[locale]
     const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
 
-    if (props.external)
+    if (props.external || props.external === 'true')
         return (
             <a {...props} href={to}>
                 {props.children}
@@ -60,18 +71,23 @@ export const LocalizedLink = ({ to, ...props }) => {
     if (props.external_link) return <ExternalLink href={to}>{props.children}</ExternalLink>
 
     // internal links should end with / e.g. /about/
-    let internal_to = path_to.charAt(to.length - 1) === '/' ? path_to : path_to + '/'
+    let internal_to = path_to.charAt(to.length - 1) === '/' ? path_to : path_to
 
     if (props.has_no_end_slash) {
         internal_to = internal_to.substring(0, internal_to.length - 1)
+    }
+
+    if (props.anchor) {
+        return <AnchorLink {...props} to={internal_to} />
     }
 
     return <GatsbyLink {...props} to={internal_to} />
 }
 
 LocalizedLink.propTypes = {
+    anchor: PropTypes.bool,
     children: PropTypes.node,
-    external: PropTypes.bool,
+    external: PropTypes.string,
     external_link: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
     props: PropTypes.object,

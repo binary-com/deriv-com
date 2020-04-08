@@ -2,7 +2,6 @@ import React from 'react'
 import { localize } from 'components/localization'
 // SVG
 import BankTransfer from 'images/svg/payment-bank-transfer.svg'
-import InternetBankTransfer from 'images/svg/payment-internet-bank-transfer.svg'
 import Paytrust from 'images/svg/payment-paytrust.svg'
 import Visa from 'images/svg/payment-visa.svg'
 import MasterCard from 'images/svg/payment-mastercard.svg'
@@ -15,13 +14,15 @@ import Webmoney from 'images/svg/payment-webmoney.svg'
 import Qiwi from 'images/svg/payment-qiwi.svg'
 import PaysafeCard from 'images/svg/payment-paysafe-card.svg'
 import Jeton from 'images/svg/payment-jeton.svg'
-import Iwallet from 'images/svg/payment-i-wallet.svg'
 import Sticpay from 'images/svg/payment-sticpay.svg'
 import Airtm from 'images/svg/payment-airtm.svg'
 import Bitcoin from 'images/svg/payment-bitcoin.svg'
 import Ethereum from 'images/svg/payment-ethereum.svg'
 import Litecoin from 'images/svg/payment-litecoin.svg'
 import Tether from 'images/svg/payment-tether.svg'
+import Help2Pay from 'images/svg/payment-help-pay.svg'
+import DragonPhoenix from 'images/svg/payment-dragon-phoenix.svg'
+import ZingPay from 'images/svg/payment-zing-pay.svg'
 
 const payment_data = [
     {
@@ -38,21 +39,8 @@ const payment_data = [
                     'Use your bank account to deposit and withdraw. Bank charges apply.',
                 ),
                 name: 'bank transfer',
-                reference: 'bank-transfer-doc.pdf',
             },
-            {
-                method: <InternetBankTransfer />,
-                currencies: 'USD GBP EUR',
-                min_max_deposit: '25 - 10,000',
-                min_max_withdrawal: '25 - 10,000',
-                deposit_time: localize('1 working day'),
-                withdrawal_time: localize('1 working day'),
-                description: localize(
-                    'Secure and easy online real-time money transfers directly from your bank account.',
-                ),
-                name: 'internet bank transfer',
-                reference: 'bank-transfer-doc.pdf',
-            },
+
             {
                 method: <Paytrust />,
                 currencies: 'USD',
@@ -64,7 +52,43 @@ const payment_data = [
                     'Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam.',
                 ),
                 name: 'paytrust88',
-                reference: 'bank-transfer-doc.pdf',
+            },
+            {
+                method: <Help2Pay />,
+                currencies: 'USD',
+                min_max_deposit: '10 - 10,000',
+                min_max_withdrawal: 'N/A',
+                deposit_time: localize('Instant'),
+                withdrawal_time: localize('Not applicable'),
+                description: localize(
+                    'Help2Pay is a payment facility that allows online bank transfers for clients across Southeast Asia.',
+                ),
+                name: 'Help2Pay',
+            },
+            {
+                method: <DragonPhoenix />,
+                currencies: 'USD',
+                min_max_deposit: '10 - 10,000',
+                min_max_withdrawal: 'N/A',
+                deposit_time: localize('Instant'),
+                withdrawal_time: localize('Not applicable'),
+                description: localize(
+                    'DragonPhoenix is a payment facility that allows online bank transfers for clients across Southeast Asia.',
+                ),
+                name: 'DragonPhoenix',
+            },
+            {
+                method: <ZingPay />,
+                currencies: 'USD EUR GBP AUD',
+                min_max_deposit: '10 - 10,000',
+                min_max_withdrawal: '10 - 10,000',
+                deposit_time: localize('Instant'),
+                withdrawal_time: localize('1 to 3 working days'),
+                description: localize(
+                    'ZingPay is a payment facility that allows online bank transfers for clients in South Africa.',
+                ),
+                name: 'ZingPay',
+                reference: 'ZingPay_infographic_FA.pdf',
             },
         ],
     },
@@ -83,7 +107,7 @@ const payment_data = [
                     'Deposit and withdraw using your Visa credit or debit card. Charges and interest rates apply.',
                 ),
                 name: 'visa',
-                reference: 'bank-transfer-doc.pdf',
+                reference: 'Visa_master payment method.pdf',
             },
             {
                 method: <MasterCard />,
@@ -96,7 +120,6 @@ const payment_data = [
                     'Deposit and withdraw using your Mastercard credit or debit card. Charges and interest rates apply.',
                 ),
                 name: 'mastercard',
-                reference: 'bank-transfer-doc.pdf',
             },
             {
                 method: <Maestro />,
@@ -107,7 +130,6 @@ const payment_data = [
                 withdrawal_time: localize('1 working day'),
                 description: localize('Deposit and withdraw using your Maestro debit card.'),
                 name: 'maestro',
-                reference: 'bank-transfer-doc.pdf',
             },
         ],
     },
@@ -126,6 +148,7 @@ const payment_data = [
                 ),
                 url: 'https://www.fasapay.com/',
                 name: 'fasapay',
+                reference: 'Fasapay_payment method.pdf',
             },
             {
                 method: <PerfectMoney />,
@@ -139,6 +162,7 @@ const payment_data = [
                 ),
                 url: 'https://perfectmoney.is/',
                 name: 'perfect money',
+                reference: 'perfect money_payment method.pdf',
             },
             {
                 method: <Skrill />,
@@ -152,6 +176,7 @@ const payment_data = [
                 ),
                 url: 'https://www.skrill.com/',
                 name: 'skrill',
+                reference: 'Skrill_payment method.pdf',
             },
             {
                 method: <Neteller />,
@@ -165,6 +190,7 @@ const payment_data = [
                 ),
                 url: 'https://www.neteller.com/',
                 name: 'neteller',
+                reference: 'Neteller_payment method.pdf',
             },
             {
                 method: <Webmoney />,
@@ -178,12 +204,13 @@ const payment_data = [
                 ),
                 url: 'https://www.wmtransfer.com/',
                 name: 'webmoney',
+                reference: 'WebMoney _payment method.pdf',
             },
             {
                 method: <Qiwi />,
                 currencies: 'USD EUR',
                 min_max_deposit: ['5 - 200 (USD)', '5 - 150 (EUR)'],
-                min_max_withdrawal: ['5 - 200 (USD)', '5 - 150 (EUR)'],
+                min_max_withdrawal: ['5 - 180 (USD)', '5 - 150 (EUR)'],
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('1 working day'),
                 description: localize(
@@ -217,20 +244,9 @@ const payment_data = [
                 ),
                 url: 'https://www.jeton.com/',
                 name: 'jeton',
+                reference: 'Jeton_payment method.pdf',
             },
-            {
-                method: <Iwallet />,
-                currencies: 'USD',
-                min_max_deposit: '5 - 10,000',
-                min_max_withdrawal: 'N/A',
-                deposit_time: localize('Instant'),
-                withdrawal_time: localize('1 working day'),
-                description: localize(
-                    'A complete payment service with competitive fees, tight security, and efficient customer support. Available worldwide.',
-                ),
-                url: 'https://www.iwl.hk/',
-                name: 'iwallet',
-            },
+
             {
                 method: <Sticpay />,
                 currencies: 'USD GBP EUR',
@@ -243,6 +259,7 @@ const payment_data = [
                 ),
                 url: 'https://www.sticpay.com/',
                 name: 'sticpay',
+                reference: 'Sticpay_payment method.pdf',
             },
             {
                 method: <Airtm />,
@@ -256,6 +273,7 @@ const payment_data = [
                 ),
                 url: 'https://www.airtm.io/#/',
                 name: 'airtm',
+                reference: 'AirTM_payment method.pdf',
             },
         ],
     },
@@ -265,6 +283,7 @@ const payment_data = [
         note: localize(
             'The minimum amount for withdrawal will vary depending on the latest exchange rates.',
         ),
+        note_2: localize('*Figures have been rounded'),
         data: [
             {
                 method: <Bitcoin />,
@@ -277,6 +296,7 @@ const payment_data = [
                     'Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.',
                 ),
                 name: 'bitcoin',
+                reference: 'Bitcoin_payment method.pdf',
             },
             {
                 method: <Ethereum />,
@@ -301,6 +321,7 @@ const payment_data = [
                     'Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing.',
                 ),
                 name: 'litecoin',
+                reference: 'Litecoin_payment method.pdf',
             },
             {
                 method: <Tether />,

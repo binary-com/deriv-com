@@ -1,10 +1,12 @@
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { isProduction } from 'common/websocket/config'
+import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv-footer.svg'
@@ -26,9 +28,13 @@ const StyledFooter = styled.footer`
     width: 100%;
     margin: 0 auto;
     border-top: 1px solid var(--color-red);
+    margin-bottom: ${(props) => (props.has_banner_cookie ? '18.4rem' : '0')};
 
     ${Container} {
         min-width: 328px;
+        @media ${device.mobileM} {
+            min-width: auto;
+        }
     }
 `
 const StyledGrid = styled(CssGrid)`
@@ -54,6 +60,9 @@ const InfoSection = styled.div`
         @media ${device.tabletL} {
             font-size: var(--text-size-sm);
             max-width: unset;
+        }
+        @media ${device.mobileM} {
+            max-width: auto;
         }
     }
 `
@@ -84,8 +93,8 @@ const BlackNav = styled.section`
     }
 `
 const Col = styled.div`
-    width: ${props => props.width};
-    ${props => (props.margin_top ? 'margin-top: 3.9rem;' : '')}
+    width: ${(props) => props.width};
+    ${(props) => (props.margin_top ? 'margin-top: 3.9rem;' : '')}
 
     div {
         margin-top: 0.8rem;
@@ -137,11 +146,11 @@ const StyledContainer = styled(Container)`
     padding: 1.6rem 0;
 `
 const Row = styled.div`
-    margin-top: ${props => (props.mt ? props.mt : '0')};
-    margin-bottom: ${props => (props.mb ? props.mb : '0')};
+    margin-top: ${(props) => (props.mt ? props.mt : '0')};
+    margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
     width: 100%;
     align-items: center;
-    display: ${props => (props.flex ? 'flex' : 'block')};
+    display: ${(props) => (props.flex ? 'flex' : 'block')};
 `
 const StyledText = styled(Text)`
     text-align: justify;
@@ -226,7 +235,7 @@ const Item = styled.div`
 `
 const MobileLanguageSwitcher = styled.div`
     margin-top: 0.8rem;
-    
+
     > ul {
         top: 0;
         width: 80px;
@@ -236,10 +245,10 @@ const mobile_accordion_header = {
     border: 'none',
     padding: '0 2rem',
     backgroundColor: 'var(--color-grey-8)',
-    boxShadow: 'none'
+    boxShadow: 'none',
 }
-const Footer = () => (
-    <StyledFooter>
+const Footer = ({ has_banner_cookie }) => (
+    <StyledFooter has_banner_cookie={has_banner_cookie}>
         <Container>
             <StyledGrid columns="repeat(12, 1fr)" columngap="2.4rem" rowgap="3.9rem">
                 <InfoSection>
@@ -249,8 +258,8 @@ const Footer = () => (
                             'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.',
                         )}
                     </Text>
-                    <SocialMedia mt='3.1rem' jc='flex-start' direction='column'>
-                        <SocialWrapper mt='0.8rem' jc='space-between' direction='column'>
+                    <SocialMedia mt="3.1rem" jc="flex-start" direction="column">
+                        <SocialWrapper mt="0.8rem" jc="space-between" direction="column">
                             <div>
                                 <Text>{localize('CONNECT WITH US')}</Text>
                             </div>
@@ -281,7 +290,7 @@ const Footer = () => (
                         <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
-                                    {!isProduction() && <LanguageSwitcher short_name='true' />}
+                                    {!isProduction() && <LanguageSwitcher short_name="true" />}
                                 </MobileLanguageSwitcher>
                             </Show.Mobile>
                         </div>
@@ -300,6 +309,11 @@ const Footer = () => (
                         </div>
                         <div>
                             <Link to="/dmt5">{localize('DMT5')}</Link>
+                        </div>
+                        <div>
+                            <Link to={smarttrader_url} external="true" target="_blank">
+                                {localize('SmartTrader')}
+                            </Link>
                         </div>
                     </Col>
                     <Col width="40%">
@@ -322,7 +336,7 @@ const Footer = () => (
                     </Col>
                     <Col width="25%">
                         <div>
-                            <Title>{localize('SUPPORT')}</Title>
+                            <Title>{localize('RESOURCES')}</Title>
                         </div>
                         <div>
                             <Link to="/help-centre">{localize('Help Centre')}</Link>
@@ -330,19 +344,19 @@ const Footer = () => (
                         <div>
                             <Link to="/payment-methods">{localize('Payment methods')}</Link>
                         </div>
-                        <div>
-                            <Link to="/why-choose-us">{localize('Why choose us')}</Link>
-                        </div>
                     </Col>
                     <Col margin_top width="23%">
                         <div>
-                            <Title>{localize('COMPANY')}</Title>
+                            <Title>{localize('ABOUT US')}</Title>
                         </div>
                         <div>
                             <Link to="/about#story">{localize('Our story')}</Link>
                         </div>
                         <div>
                             <Link to="/about#leadership">{localize('Our leadership')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/why-choose-us">{localize('Why choose us?')}</Link>
                         </div>
                         <div>
                             <Link to="/contact-us">{localize('Contact us')}</Link>
@@ -356,7 +370,12 @@ const Footer = () => (
                             <Title>{localize('PARTNER WITH US')}</Title>
                         </div>
                         <div>
-                            <Link to="/partners">{localize('Partner programmes')}</Link>
+                            <Link to="/partners/affiliate-ib/">
+                                {localize('Affiliates and IBs')}
+                            </Link>
+                        </div>
+                        <div>
+                            <Link to="/partners/payment-agent">{localize('Payment agents')}</Link>
                         </div>
                     </Col>
                     <Col margin_top width="25%">
@@ -368,7 +387,11 @@ const Footer = () => (
         <Show.Mobile>
             <MobileAccordion>
                 <Accordion>
-                    <AccordionItem header={localize('TRADE')} arrow_thin header_style={mobile_accordion_header}>
+                    <AccordionItem
+                        header={localize('TRADE')}
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
                         <Item>
                             <Link to="/dtrader">{localize('DTrader')}</Link>
                         </Item>
@@ -378,8 +401,17 @@ const Footer = () => (
                         <Item>
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </Item>
+                        <Item>
+                            <Link to={smarttrader_url} external="true" target="_blank">
+                                {localize('SmartTrader')}
+                            </Link>
+                        </Item>
                     </AccordionItem>
-                    <AccordionItem header={localize('LEGAL')} arrow_thin header_style={mobile_accordion_header}>
+                    <AccordionItem
+                        header={localize('LEGAL')}
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
                         <Item>
                             <Link to="/regulatory">{localize('Regulatory information')}</Link>
                         </Item>
@@ -394,28 +426,51 @@ const Footer = () => (
                             </Link>
                         </Item>
                     </AccordionItem>
-                    <AccordionItem header='SUPPORT' arrow_thin header_style={mobile_accordion_header}>
+                    <AccordionItem
+                        header="RESOURCES"
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
                         <Item>
                             <Link to="/help-centre">{localize('Help Centre')}</Link>
                         </Item>
                         <Item>
                             <Link to="/payment-methods">{localize('Payment methods')}</Link>
                         </Item>
-                        <Item>
-                            <Link to="/why-choose-us">{localize('Why choose us')}</Link>
-                        </Item>
                     </AccordionItem>
-                    <AccordionItem header='COMPANY' arrow_thin header_style={mobile_accordion_header}>
+                    <AccordionItem
+                        header="ABOUT US"
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
                         <Item>
-                            <Link to="/about">{localize('About us')}</Link>
+                            <Link to="/about/#story">{localize('Our story')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/about/#leadership">{localize('Our leadership')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/why-choose-us">{localize('Why choose us?')}</Link>
                         </Item>
                         <Item>
                             <Link to="/contact-us">{localize('Contact us')}</Link>
                         </Item>
-                    </AccordionItem>
-                    <AccordionItem header='PARTNER WITH US' arrow_thin header_style={mobile_accordion_header}>
                         <Item>
-                            <Link to="/partners">{localize('Partner programmes')}</Link>
+                            <Link to="/careers">{localize('Careers')}</Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem
+                        header="PARTNER WITH US"
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
+                        <Item>
+                            <Link to="/partners/affiliate-ib/">
+                                {localize('Affiliates and IBs')}
+                            </Link>
+                        </Item>
+                        <Item>
+                            <Link to="/partners/payment-agent">{localize('Payment agents')}</Link>
                         </Item>
                     </AccordionItem>
                 </Accordion>
@@ -462,7 +517,7 @@ const Footer = () => (
                             ]}
                         />
                     </StyledText>
-                    <StyledText margin='1rem 0 0 0'>
+                    <StyledText mt="1rem">
                         {localize(
                             "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
                         )}
@@ -475,7 +530,7 @@ const Footer = () => (
                 <Row>
                     <StyledText>
                         <Localize
-                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs) and other complex derivatives and financial products. Secure and responsible trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                             components={[
                                 <BoldLink key={0} target="_blank" to="/responsible-trading/" />,
                             ]}
@@ -494,5 +549,9 @@ const Footer = () => (
         </BlackNav>
     </StyledFooter>
 )
+
+Footer.propTypes = {
+    has_banner_cookie: PropTypes.bool,
+}
 
 export default Footer

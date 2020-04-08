@@ -16,17 +16,14 @@ const StyledSection = styled(SectionContainer)`
 const StyledContainer = styled(Container)`
     display: flex;
     flex-direction: column;
-
-    div:first-child {
-        margin-top: 0;
-    }
 `
 const Content = styled.div`
     width: 100%;
     max-width: 58.8rem;
     display: flex;
     flex-direction: column;
-    margin-right: ${props => props.margin_right};
+    justify-content: center;
+    margin-right: ${(props) => props.margin_right};
 
     ${Text} {
         margin-top: 0.8rem;
@@ -41,14 +38,13 @@ const ImageWrapper = styled.div`
     max-width: 58.8rem;
     width: 100%;
     max-height: 30rem;
-    margin-right: ${props => props.margin_right};
+    margin-right: ${(props) => props.margin_right};
 
     @media ${device.tabletL} {
         margin: 2rem auto;
     }
 `
 const StyledHeader = styled(Header)`
-    margin-top: ${props => (props.second_title_margin ? '2.4rem' : '4rem')};
     font-size: var(--text-size-header-1);
     line-height: 1.25;
 
@@ -57,10 +53,14 @@ const StyledHeader = styled(Header)`
     }
 `
 const Row = styled.div`
-    flex-direction: ${props => props.flex_direction};
+    flex-direction: ${(props) => props.flex_direction};
     width: 100%;
     display: flex;
     margin-top: 4rem;
+
+    &:first-child {
+        margin-top: 0;
+    }
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -77,14 +77,12 @@ const DTrading = ({ trading, reverse, two_title }) => {
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
                                 <StyledHeader>{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
-                                {two_title ? (
+                                {two_title && (
                                     <>
-                                        <StyledHeader second_title_margin="true">
-                                            {item.second_title}
-                                        </StyledHeader>
+                                        <StyledHeader mt="2.4rem">{item.second_title}</StyledHeader>
                                         <Text>{item.second_subtitle}</Text>
                                     </>
-                                ) : null}
+                                )}
                             </Content>
                             <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
                                 <Image

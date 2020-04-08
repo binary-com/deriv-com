@@ -23,7 +23,7 @@ const TabButton = styled.button`
     transition: border-color 0.2s ease-in;
     border: none;
     border-bottom: 2px solid var(--color-grey-2);
-    ${props =>
+    ${(props) =>
         props.selected &&
         css`
             border-color: var(--color-red);
@@ -36,7 +36,7 @@ const TabButton = styled.button`
     &:focus,
     &:active {
         border-bottom: 2px solid
-            ${props => (props.selected ? 'var(--color-red)' : 'var(--color-red-2)')};
+            ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-red-2)')};
     }
 `
 
@@ -46,7 +46,7 @@ const TabList = styled.div`
     width: 100%;
     justify-content: center;
     position: relative;
-    @media (max-width: ${props => props.breakPoint}) {
+    @media (max-width: ${(props) => props.breakPoint}) {
         flex-direction: column;
 
         & > div,
@@ -83,7 +83,7 @@ TabPanel.propTypes = {
 
 const Tabs = ({ children, tab_break }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
-    const selectTab = tabIndex => {
+    const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
     }
 
@@ -106,8 +106,8 @@ const Tabs = ({ children, tab_break }) => {
             </TabList>
 
             <Content>
-                {React.Children.map(children, (comp, index) =>
-                    selected_tab === index ? comp : undefined,
+                {React.Children.map(children, (el, index) =>
+                    selected_tab === index ? el : undefined,
                 )}
             </Content>
         </Flex>

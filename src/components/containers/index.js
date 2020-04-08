@@ -6,7 +6,7 @@ import GridContainer from './grid-container'
 import CssGrid, { CssGridColumn } from './css-grid'
 import SEO from './seo'
 import Show from './show'
-import Wrapper from './wrapper'
+import Box from './box'
 
 export {
     Container,
@@ -16,7 +16,7 @@ export {
     SectionContainer,
     SEO,
     Show,
-    Wrapper,
+    Box,
     CssGrid,
     CssGridColumn,
 }

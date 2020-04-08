@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import Map from 'images/svg/world-map.svg'
 import device from 'themes/device'
 import Labuan from 'images/svg/labuan-pin-location.svg'
@@ -52,13 +52,13 @@ const Oval = styled.div`
     border-radius: 50%;
     position: absolute;
     visibility: visible;
-    top: ${props => props.top || '87%'};
-    left: ${props => props.left || '11%'};
+    top: ${(props) => props.top || '87%'};
+    left: ${(props) => props.left || '11%'};
 `
 const Pinpoint = styled.div`
     position: absolute;
-    top: ${props => props.top};
-    left: ${props => props.left};
+    top: ${(props) => props.top};
+    left: ${(props) => props.left};
 
     > svg {
         opacity: 0;
@@ -73,7 +73,7 @@ const Pinpoint = styled.div`
 
 const PinpointWrapper = styled(Labuan)`
     position: relative;
-    left: ${props => props.left || '-4%'};
+    left: ${(props) => props.left || '-4%'};
 `
 const CyberjayaWrapper = styled(Cyberjaya)`
     ${PinpointWrapper}
@@ -89,10 +89,6 @@ const ParaguayWrapper = styled(Paraguay)`
 `
 const MaltaWrapper = styled(Malta)`
     ${PinpointWrapper}
-`
-const StyledHeader = styled(Header)`
-    font-size: 3.6rem;
-    margin-bottom: 4rem;
 `
 const NumberWrapper = styled.div`
     display: flex;
@@ -116,48 +112,47 @@ const Number = styled.div`
     text-align: center;
     align-items: center;
 `
-const MapLink = styled.a`
+const MapLink = styled(LocalizedLink)`
     cursor: pointer;
 `
 export const OurOffices = () => {
     return (
         <OfficeContainer>
-            <StyledHeader align="center">{localize('Our offices')}</StyledHeader>
+            <Header align="center" size="3.6rem" mb="4rem">
+                {localize('Our offices')}
+            </Header>
             <MapWrapper>
                 <StyledMap />
-                <Pinpoint top="66%" left="25%">
-                    <Oval />
-                    <ParaguayWrapper />
-                </Pinpoint>
-                <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://g.page/r/CRyKELlnWQ3iEAE"
-                >
+                <MapLink to="/contact-us/#paraguay" anchor>
+                    <Pinpoint top="66%" left="25%">
+                        <Oval />
+                        <ParaguayWrapper />
+                    </Pinpoint>
+                </MapLink>
+                <MapLink to="/contact-us/#malta" anchor>
                     <Pinpoint top="21.6%" left="49.6%">
                         <Oval />
                         <MaltaWrapper />
                     </Pinpoint>
                 </MapLink>
-                <Pinpoint top="30.6%" left="63.7%">
-                    <Oval />
-                    <DubaiWrapper />
-                </Pinpoint>
-
-                <MapLink
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    href="https://g.page/r/CQODFgzIJPYtEAE"
-                >
+                <MapLink to="/contact-us/#dubai" anchor>
+                    <Pinpoint top="30.6%" left="63.7%">
+                        <Oval />
+                        <DubaiWrapper />
+                    </Pinpoint>
+                </MapLink>
+                <MapLink to="/contact-us/#cyberjaya" anchor>
                     <Pinpoint top="46%" left="63.6%">
                         <Oval top="83%" left="88%" />
                         <CyberjayaWrapper />
                     </Pinpoint>
                 </MapLink>
-                <Pinpoint top="44.6%" left="85%">
-                    <Oval left="8%" />
-                    <LabuanWrapper />
-                </Pinpoint>
+                <MapLink to="/contact-us/#labuan" anchor>
+                    <Pinpoint top="44.6%" left="85%">
+                        <Oval left="8%" />
+                        <LabuanWrapper />
+                    </Pinpoint>
+                </MapLink>
             </MapWrapper>
 
             <NumberWrapper>

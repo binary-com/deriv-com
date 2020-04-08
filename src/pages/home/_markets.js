@@ -28,8 +28,8 @@ const MarketWrapper = styled(Flex)`
 `
 const MarketCard = styled.article`
     display: flex;
-    margin-bottom: ${props => props.mb || ''};
-    margin-right: ${props => props.mr || ''};
+    margin-bottom: ${(props) => props.mb || ''};
+    margin-right: ${(props) => props.mr || ''};
 
     svg {
         margin-right: 2rem;
@@ -60,7 +60,7 @@ const MarketCard = styled.article`
 const Markets = () => (
     <StyledSection>
         <Container direction="column">
-            <Header align="center" font_size="var(--text-size-header-1)" as="h2">
+            <Header align="center" size="var(--text-size-header-1)" as="h2">
                 {localize('Markets')}
             </Header>
             <MarketWrapper wrap="wrap">

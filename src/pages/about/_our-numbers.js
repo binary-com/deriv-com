@@ -67,6 +67,7 @@ const OurNumbers = () => (
             </Show.Desktop>
             <StyledGridContainer
                 content_width="21.5rem"
+                mobile_content_width="26rem"
                 gap="1.6rem 0.8rem"
                 mobile_gap="4rem 1rem"
                 grid="5"

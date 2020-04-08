@@ -60,8 +60,6 @@ const ClientCard = styled.article`
     }
 
     &:hover {
-        transform: translateY(-1.5rem) scale(1.03);
-
         svg > g > path:nth-child(2) {
             fill: var(--color-red);
         }

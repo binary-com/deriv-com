@@ -66,7 +66,7 @@ const Description = styled.div`
         props.is_expanded &&
         css`
             max-height: 40rem;
-            padding: 3.6rem 3.2rem;
+            padding: 2.4rem 3.2rem;
             border-bottom: 1px solid var(--color-grey-8);
         `}
 `

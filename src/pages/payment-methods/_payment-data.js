@@ -331,7 +331,7 @@ const payment_data = [
                 deposit_time: localize('3 blockchain confirmations'),
                 withdrawal_time: localize(' 1 working day'),
                 description: localize(
-                    'Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies.',
+                    'Deposit and withdraw in Tether, a cryptocurrency that’s pegged to USD.',
                 ),
                 name: 'tether',
             },

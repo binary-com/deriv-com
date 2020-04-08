@@ -29,12 +29,7 @@ const ExpandedContent = styled.td`
 `
 
 const Tr = styled.tr`
-    border-bottom: 1px solid var(--color-grey-8);
-    ${(props) =>
-        props.is_expanded &&
-        css`
-            border-bottom: none;
-        `}
+    border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
 `
 
 const Td = styled.td`
@@ -77,12 +72,7 @@ const Description = styled.div`
 `
 
 const StyledText = styled(Text)`
-    font-size: 0;
-    ${(props) =>
-        props.is_expanded &&
-        css`
-            font-size: var(--text-size-s);
-        `}
+    font-size: ${(props) => (props.is_expanded ? 'var(--text-size-s)' : '0')};
 `
 
 const CenterIcon = styled.a`

@@ -33,6 +33,8 @@ module.exports = {
                     '/**/check-email',
                     '/reset-password',
                     '/**/reset-password',
+                    '/ach',
+                    '/ach/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {

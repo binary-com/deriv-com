@@ -25,7 +25,7 @@ const StyledContainer = styled(Container)`
         padding: 12rem 4rem;
     }
     @media ${device.tabletL} {
-        padding: 5rem 1.6rem;
+        padding: 5rem 2rem;
         width: 100%;
 
         > h1 {
@@ -37,6 +37,10 @@ const ContentWrapper = styled.div`
     margin-top: ${(props) => props.margin_top || 'none'};
     white-space: normal;
     max-width: 79.8rem;
+
+    @media ${device.mobileL} {
+        max-width: 42.8rem;
+    }
 `
 
 const LeadershipWrapper = styled(Flex)`
@@ -81,8 +85,11 @@ const Navigation = styled(Flex)`
     cursor: pointer;
     margin: 0 2.4rem;
 
-    @media ${device.mobileL} {
-        margin: 0 1rem;
+    @media ${device.tablet} {
+        margin: ${(props) => (props.left ? '0 3rem 0 0' : '0 0 0 3rem')};
+    }
+    @media ${device.mobileS} {
+        margin: ${(props) => (props.left ? '0 2rem 0 0' : '0 0 0 2rem')};
     }
 `
 
@@ -165,7 +172,12 @@ const About = () => {
                         {localize('About us')}
                     </Header>
                     <NavigationWrapper direction="row">
-                        <Navigation width="auto" direction="column" onClick={() => setTab('story')}>
+                        <Navigation
+                            left
+                            width="auto"
+                            direction="column"
+                            onClick={() => setTab('story')}
+                        >
                             <StyledHeader
                                 as="h2"
                                 size="var(--text-size-m)"

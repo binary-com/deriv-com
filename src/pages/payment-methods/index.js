@@ -120,6 +120,9 @@ const PaymentMethods = () => {
                                         background: 'var(--color-white)',
                                         boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
                                     }}
+                                    header_style={{
+                                        borderRadius: '6px',
+                                    }}
                                     style={{
                                         padding: '2.2rem 4.8rem',
                                         position: 'relative',
@@ -127,7 +130,7 @@ const PaymentMethods = () => {
                                         paddingBottom: pd.note ? '5rem' : '2.2rem',
                                     }}
                                     parent_style={{
-                                        marginBottom: '4rem',
+                                        marginBottom: '2.4rem',
                                     }}
                                     header={pd.name}
                                 >

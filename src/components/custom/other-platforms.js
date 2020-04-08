@@ -221,7 +221,7 @@ export const NavPlatform = () => (
         />
         <NavCard
             icon={Smarttrader}
-            content={localize('Trade the world’s markets with our popular user-friendly platform.')}
+            content={localize('Trade the world’s markets on Binary.com’s classic platform.')}
             title={localize('SmartTrader')}
             to={smarttrader_url}
             style={{ marginTop: '3.2rem' }}

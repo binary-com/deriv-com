@@ -1,5 +1,6 @@
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
@@ -27,10 +28,10 @@ const StyledFooter = styled.footer`
     width: 100%;
     margin: 0 auto;
     border-top: 1px solid var(--color-red);
+    margin-bottom: ${(props) => (props.has_banner_cookie ? '18.4rem' : '0')};
 
     ${Container} {
         min-width: 328px;
-
         @media ${device.mobileM} {
             min-width: auto;
         }
@@ -246,8 +247,8 @@ const mobile_accordion_header = {
     backgroundColor: 'var(--color-grey-8)',
     boxShadow: 'none',
 }
-const Footer = () => (
-    <StyledFooter>
+const Footer = ({ has_banner_cookie }) => (
+    <StyledFooter has_banner_cookie={has_banner_cookie}>
         <Container>
             <StyledGrid columns="repeat(12, 1fr)" columngap="2.4rem" rowgap="3.9rem">
                 <InfoSection>
@@ -548,5 +549,9 @@ const Footer = () => (
         </BlackNav>
     </StyledFooter>
 )
+
+Footer.propTypes = {
+    has_banner_cookie: PropTypes.bool,
+}
 
 export default Footer

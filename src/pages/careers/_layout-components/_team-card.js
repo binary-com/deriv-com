@@ -29,7 +29,7 @@ const Bounce = keyframes`
 export const StyledCard = styled(LocalizedLink)`
     text-decoration: none;
     position: relative;
-    height: ${props => (props.height ? props.height : 'auto')};
+    height: ${(props) => (props.height ? props.height : 'auto')};
     width: 100%;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 4px;
@@ -53,7 +53,7 @@ export const StyledCard = styled(LocalizedLink)`
 
 export const NormalCard = styled.article`
     position: relative;
-    height: ${props => (props.height ? props.height : 'auto')};
+    height: ${(props) => (props.height ? props.height : 'auto')};
     width: 100%;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 4px;

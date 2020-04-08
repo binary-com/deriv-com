@@ -34,7 +34,7 @@ const Line = styled.div`
     background-color: var(--color-grey-7);
 `
 const StyledText = styled(Text)`
-    @media ${props => device.tabletL && props.notedBox} {
+    @media ${(props) => device.tabletL && props.notedBox} {
         width: 15rem;
     }
 `
@@ -72,11 +72,11 @@ const SignupWithContainer = styled.div`
 const SocialButton = styled(Button)`
     box-shadow: none;
     width: 48%;
-    background-color: ${props => props.bgColor || 'var(--color-white)'};
+    background-color: ${(props) => props.bgColor || 'var(--color-white)'};
     border: solid 1px var(--color-grey-7);
 
     &:hover {
-        background: ${props => {
+        background: ${(props) => {
             if (props.provider === 'facebook') return 'var(--color-grey-4)'
         }};
     }
@@ -124,7 +124,7 @@ const SignupNew = ({
 }) => {
     const [checkBoxState, setCheckBoxState] = useState(false)
 
-    const handleChange = event => {
+    const handleChange = (event) => {
         setCheckBoxState(event.currentTarget.checked)
     }
     const url =

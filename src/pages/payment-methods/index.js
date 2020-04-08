@@ -214,11 +214,6 @@ const PaymentMethods = () => {
                                                     values={{ note: pd.note }}
                                                 />
                                             </Text>
-                                            {pd.note_2 && (
-                                                <Text weight="500" size="var(--text-size-xxs)">
-                                                    {pd.note_2}
-                                                </Text>
-                                            )}
                                         </Notes>
                                     )}
                                 </AccordionItem>

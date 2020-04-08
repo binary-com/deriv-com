@@ -9,7 +9,7 @@
 import { isBrowser } from '../utility'
 const domain_config = {
     production: {
-        hostname: 'www.deriv.com',
+        hostname: 'deriv.com',
         app_id: 11780,
     },
     staging: {

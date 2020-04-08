@@ -6,7 +6,7 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 // Icons
 import ForexIcon from 'images/svg/market-forex.svg'
-import IndicesIcon from 'images/svg/market-indices.svg'
+import IndicesIcon from 'images/svg/market-stock-indices.svg'
 import CommoditiesIcon from 'images/svg/market-commodities.svg'
 import SyntheticIndicesIcon from 'images/svg/market-synthetic-indices.svg'
 // Images

@@ -11,6 +11,8 @@ import DBot from 'images/svg/dbot-icon-green.svg'
 import SmartTrader from 'images/svg/smarttrader-green.svg'
 
 const CardWrapper = styled(Flex)`
+    max-width: 120rem;
+
     div:first-child {
         left: 0;
     }

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { getLanguage } from 'common/utility'
 import { Input, Button } from 'components/form'
-import { FlexGridContainer, Show } from 'components/containers'
+import { Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Login from 'common/login'
@@ -24,6 +24,7 @@ const SignupContent = styled.div`
 
     @media ${device.mobileL} {
         width: 100%;
+        padding: 6rem 2rem;
     }
 `
 
@@ -65,25 +66,41 @@ const SignupWithContainer = styled.div`
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 2.6rem;
+
+    @media ${device.tabletL} {
+        margin-top: 4rem;
+    }
 `
 
 const SocialButton = styled(Button)`
     box-shadow: none;
-    width: 48%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
     border: solid 1px var(--color-grey-7);
+    width: 19.4rem;
+    height: 4.8rem;
 
     &:hover {
         background: ${(props) => {
             if (props.provider === 'facebook') return 'var(--color-grey-4)'
         }};
     }
+
+    @media ${device.tabletL} {
+        width: 20rem;
+        height: 6rem;
+    }
 `
 
-const SocialWrapper = styled(FlexGridContainer)`
+const SocialWrapper = styled.div`
     width: 100%;
-    margin-top: var(--text-size-s);
+    margin-top: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+
+    @media ${device.tabletL} {
+        margin-top: 2rem;
+    }
 `
 const LoginText = styled(Text)`
     text-align: center;
@@ -92,6 +109,7 @@ const LoginText = styled(Text)`
 
     @media ${device.tabletL} {
         margin-bottom: 0;
+        margin-top: 3.75rem;
     }
 `
 const Span = styled.span`

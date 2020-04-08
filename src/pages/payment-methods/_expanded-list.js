@@ -29,7 +29,12 @@ const ExpandedContent = styled.td`
 `
 
 const Tr = styled.tr`
-    border-bottom: 1px solid var(--color-grey-2);
+    border-bottom: 1px solid var(--color-grey-8);
+    ${(props) =>
+        props.is_expanded &&
+        css`
+            border-bottom: none;
+        `}
 `
 
 const Td = styled.td`
@@ -58,7 +63,7 @@ const HoverTd = styled(Td)`
 const Description = styled.div`
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: max-height 0.3s, padding 0.3s;
     background: var(--color-white);
     width: 100%;
     padding: 0 3.2rem;
@@ -66,8 +71,8 @@ const Description = styled.div`
         props.is_expanded &&
         css`
             max-height: 40rem;
-            margin-bottom: 4rem;
-            padding: 2.6rem 3.2rem;
+            padding: 3.6rem 3.2rem;
+            border-bottom: 1px solid var(--color-grey-8);
         `}
 `
 
@@ -104,7 +109,7 @@ const ExpandList = ({ data, is_crypto }) => {
     }
     return (
         <>
-            <Tr>
+            <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
                 <Td>
                     <Text>{data.currencies}</Text>

@@ -80,6 +80,10 @@ const NavigationWrapper = styled(Flex)`
 const Navigation = styled(Flex)`
     cursor: pointer;
     margin: 0 2.4rem;
+
+    @media ${device.mobileS} {
+        margin: 0 1rem;
+    }
 `
 
 const Separator = styled.span`

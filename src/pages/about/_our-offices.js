@@ -21,6 +21,9 @@ const OfficeContainer = styled.section`
     @media ${device.laptopLC} {
         padding: 8rem 2rem;
     }
+    @media ${device.laptopLC} {
+        padding: 5rem 2rem;
+    }
 `
 const MapWrapper = styled.div`
     position: relative;
@@ -110,6 +113,7 @@ const NumberWrapper = styled.div`
     }
     @media ${device.tablet} {
         flex-direction: column;
+        padding: 0 5rem;
     }
 `
 const Number = styled.div`
@@ -119,7 +123,9 @@ const Number = styled.div`
     align-items: center;
 
     @media ${device.tablet} {
-        margin-bottom: 4rem;
+        :not(:last-child) {
+            margin-bottom: 4rem;
+        }
     }
 `
 const MapLink = styled(LocalizedLink)`

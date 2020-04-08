@@ -81,7 +81,7 @@ const Navigation = styled(Flex)`
     cursor: pointer;
     margin: 0 2.4rem;
 
-    @media ${device.mobileS} {
+    @media ${device.mobileL} {
         margin: 0 1rem;
     }
 `

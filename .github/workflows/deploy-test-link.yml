@@ -19,12 +19,18 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-node-
 
-            - run: npm ci
-            - run: npm run test
-            - run: npm run build
+            - run: |
+              npm ci
+              npm run test  
+              npm run build
+            - name: create folder
+              run: |
+                mkdir -p ${GITHUB_REF#refs/heads/}
+                cp -r ./public/. ${GITHUB_REF#refs/heads/}
 
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./public
+                  publish_dir: ${GITHUB_REF#refs/heads/}
+                  keep_files: true

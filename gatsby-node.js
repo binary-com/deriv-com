@@ -1,6 +1,5 @@
 const language_config = require(`./i18n-config.js`)
 const path = require('path')
-const fs = require('fs')
 
 const translations_cache = {}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
@@ -50,11 +49,3 @@ exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
         },
     })
 }
-
-// exports.onPostBuild = function() {
-//     fs.renameSync(path.join(__dirname, 'public'), path.join(__dirname, 'public-blog'));
-
-//     fs.mkdirSync(path.join(__dirname, 'public'));
-
-//     fs.renameSync(path.join(__dirname, 'public-blog'), path.join(__dirname, 'public', 'blog'));
-//   };

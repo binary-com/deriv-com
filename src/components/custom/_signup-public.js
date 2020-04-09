@@ -256,7 +256,7 @@ const SignupPublic = ({
                             {localize('Sign up')}
                         </EmailButton>
                     </InputGroup>
-                    <SocialWrapper jc="center" ai="center">
+                    <SocialWrapper jc="unset" ai="center">
                         <StyledText>{localize('or sign in with')}</StyledText>
                         {/* <SocialButton
                             onClick={handleSocialSignup}

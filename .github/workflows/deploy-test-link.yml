@@ -16,10 +16,9 @@ jobs:
                   key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
                       ${{ runner.os }}-node-
-              run: |
-                  npm ci
             - name: Compile application
               run: |
+                  npm ci
                   npm run test
                   npm run build
             - name: create folder

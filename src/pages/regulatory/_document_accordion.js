@@ -11,8 +11,8 @@ import device from 'themes/device'
 const IconContainer = styled(Flex)`
     justify-content: flex-start;
     align-items: center;
-    min-width: ${props => props.minWidth || ''};
-    padding-bottom: ${props => props.paddingBottom || ''};
+    min-width: ${(props) => props.minWidth || ''};
+    padding-bottom: ${(props) => props.paddingBottom || ''};
     text-decoration: none;
 
     svg {

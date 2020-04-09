@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { navigate } from '@reach/router'
+import { Show } from '../../components/containers'
 import { OurStory } from './_our-story'
 import Leaders from './_leaders'
+import { Container, Box, Flex, SEO } from 'components/containers'
 import { getLocationHash } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { Container, Box, Flex, SEO } from 'components/containers'
 import { Header, Text, Image } from 'components/elements'
 import device from 'themes/device'
 
@@ -23,15 +24,17 @@ const StyledContainer = styled(Container)`
     @media ${device.laptopL} {
         padding: 12rem 4rem;
     }
-    @media ${device.tablet} {
-        padding: 8rem 4rem;
-    }
-    @media ${device.mobileL} {
-        padding: 8rem 2rem;
+    @media ${device.tabletL} {
+        padding: 5rem 2rem;
+        width: 100%;
+
+        > h1 {
+            font-size: 4.5rem;
+        }
     }
 `
 const ContentWrapper = styled.div`
-    margin-top: ${props => props.margin_top || 'none'};
+    margin-top: ${(props) => props.margin_top || 'none'};
     white-space: normal;
     max-width: 79.2rem;
 `
@@ -45,11 +48,28 @@ const LeadershipWrapper = styled(Flex)`
             margin-bottom: 4rem;
         }
         ${Header} {
-            text-align: center;
+            text-align: left;
         }
         ${Text} {
-            text-align: center;
+            text-align: left;
         }
+    }
+`
+
+const LeadershipTitle = styled(Header)`
+    margin-bottom: 0.8rem;
+
+    @media ${device.tabletL} {
+        font-size: 4.5rem;
+    }
+`
+
+const LeadershipPosition = styled(Header)`
+    margin-bottom: 1.6rem;
+
+    @media ${device.tabletL} {
+        font-size: 3rem;
+        margin-bottom: 2rem;
     }
 `
 
@@ -59,17 +79,26 @@ const NavigationWrapper = styled(Flex)`
 
 const Navigation = styled(Flex)`
     cursor: pointer;
+    margin: 0 2.4rem;
+
+    @media ${device.tabletL} {
+        margin: 0 auto;
+    }
 `
 
 const Separator = styled.span`
     width: 2px;
     height: 3rem;
     background: white;
+
+    @media ${device.tabletL} {
+        height: 36px;
+    }
 `
 
 const StyledHeader = styled(Header)`
     transition: color 0.25s;
-    ${props =>
+    ${(props) =>
         props.active
             ? css`
                   color: var(--color-white);
@@ -80,17 +109,31 @@ const StyledHeader = styled(Header)`
                       color: rgba(255, 255, 255, 0.5);
                   }
               `}
+    @media ${device.tabletL} {
+        font-size: 3rem;
+    }
 `
 const TrailNavigation = styled.span`
     height: 4px;
     width: 4.6rem;
-    background: ${props => (props.active ? 'var(--color-red)' : 'var(--color-black)')};
+    background: ${(props) => (props.active ? 'var(--color-red)' : 'var(--color-black)')};
     margin: 1rem 0;
     transition: background 0.25s;
+
+    @media ${device.tabletL} {
+        margin: 4px 0;
+        width: 5.6rem;
+    }
 `
-const useTabState = tab => {
+const StyledText = styled(Text)`
+    max-width: 48.6rem;
+    @media ${device.tabletL} {
+        font-size: var(--text-size-sm);
+    }
+`
+const useTabState = (tab) => {
     const [active_tab, setActiveTab] = useState(tab)
-    const setTab = tab => {
+    const setTab = (tab) => {
         if (tab === active_tab) return
         setActiveTab(tab)
         navigate(`#${tab}`)
@@ -120,12 +163,7 @@ const About = () => {
                         {localize('About us')}
                     </Header>
                     <NavigationWrapper direction="row">
-                        <Navigation
-                            width="auto"
-                            direction="column"
-                            m="0 2.4rem"
-                            onClick={() => setTab('story')}
-                        >
+                        <Navigation width="auto" direction="column" onClick={() => setTab('story')}>
                             <StyledHeader
                                 as="h2"
                                 size="var(--text-size-m)"
@@ -140,7 +178,6 @@ const About = () => {
                         <Navigation
                             width="auto"
                             direction="column"
-                            m="0 2.4rem"
                             onClick={() => setTab('leadership')}
                         >
                             <StyledHeader
@@ -157,13 +194,13 @@ const About = () => {
 
                     {is_story && (
                         <ContentWrapper margin_top="9.1rem">
-                            <Text mb="1.5rem" size="var(--text-size-sm)" color="white">
+                            <Text margin="0 0 1.5rem 0" secondary color="white">
                                 {localize(
                                     'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
                                 )}
                             </Text>
 
-                            <Text size="var(--text-size-sm)" color="white">
+                            <Text secondary color="white">
                                 {localize(
                                     'Our evolution is powered by over 20 years of customer focus and innovation.',
                                 )}
@@ -173,31 +210,43 @@ const About = () => {
                     {is_leadership && (
                         <ContentWrapper>
                             <LeadershipWrapper mt="4rem" ai="center">
-                                <Box max_width="28.2rem" mr="2.4rem">
+                                <Show.Desktop>
+                                    <Box max_width="28.2rem" mr="2.4rem">
+                                        <Image
+                                            width="28.2rem"
+                                            img_name="jean-yves.png"
+                                            alt={localize('Jean Yves')}
+                                        />
+                                    </Box>
+                                </Show.Desktop>
+                                <Show.Mobile>
                                     <Image
-                                        width="28.2rem"
-                                        img_name="jean-yves.png"
+                                        width="328px"
+                                        img_name="jean-yves-mobile.png"
                                         alt={localize('Jean Yves')}
                                     />
-                                </Box>
+                                </Show.Mobile>
                                 <div>
-                                    <Header as="h3" color="white" mb="0.8rem">
+                                    <LeadershipTitle
+                                        as="h3"
+                                        size="var(--text-size-header-1)"
+                                        color="white"
+                                    >
                                         <Localize translate_text="Jean-Yves Sireau" />
-                                    </Header>
-                                    <Header
+                                    </LeadershipTitle>
+                                    <LeadershipPosition
                                         as="h4"
                                         weight="normal"
                                         color="white"
                                         lh="3.6rem"
-                                        mb="1.6rem"
                                     >
                                         {localize('Founder and Chief Executive Officer')}
-                                    </Header>
-                                    <Text color="white">
+                                    </LeadershipPosition>
+                                    <StyledText color="white">
                                         {localize(
                                             'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
                                         )}
-                                    </Text>
+                                    </StyledText>
                                 </div>
                             </LeadershipWrapper>
                         </ContentWrapper>

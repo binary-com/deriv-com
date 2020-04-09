@@ -88,7 +88,7 @@ const SignupDefault = ({
                 />
             </InputGroup>
             <EmailButton type="submit" secondary="true" disabled={is_submitting}>
-                {localize('Create demo account')}
+                {localize('Create free demo account')}
             </EmailButton>
             <Text color="grey" align="center">
                 {localize('Or sign in with')}

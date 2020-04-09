@@ -88,7 +88,7 @@ const HeroGrid = styled.section`
 `
 
 const ButtonWrapper = styled(Flex)`
-    margin-top: 6rem;
+    margin-top: 9.6rem;
     height: 40px;
 
     ${Button} {
@@ -145,7 +145,7 @@ const CheckMarkBullet = ({ children }) => (
     <li>
         <Flex jc="unset" ai="center">
             <CheckMark />
-            <CheckBoxText ml="1.6rem" size="1.8rem" weight="500" lh="2" color="white">
+            <CheckBoxText ml="1rem" size="2.4rem" lh="1.5" color="white">
                 {children}
             </CheckBoxText>
         </Flex>
@@ -178,9 +178,9 @@ export const Hero = () => {
                             <HeroHeader
                                 as="h1"
                                 color="white"
-                                mb="3.2rem"
+                                mb="2.4rem"
                                 size="var(--text-size-xl)"
-                                lh="1.15"
+                                lh="1.25"
                             >
                                 {localize('Simple. Flexible. Reliable.')}
                             </HeroHeader>
@@ -208,7 +208,7 @@ export const Hero = () => {
                         <div>
                             <ButtonWrapper jc="unset">
                                 <HeroButton type="submit" secondary="true" to="/signup/">
-                                    {localize('Create demo account')}
+                                    {localize('Create free demo account')}
                                 </HeroButton>
                             </ButtonWrapper>
                         </div>

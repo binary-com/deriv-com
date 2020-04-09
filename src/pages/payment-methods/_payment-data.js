@@ -1,4 +1,5 @@
 import React from 'react'
+import styled, { css } from 'styled-components'
 import { localize } from 'components/localization'
 // SVG
 import BankTransfer from 'images/svg/payment-bank-transfer.svg'
@@ -24,12 +25,85 @@ import Help2Pay from 'images/svg/payment-help-pay.svg'
 import DragonPhoenix from 'images/svg/payment-dragon-phoenix.svg'
 import ZingPay from 'images/svg/payment-zing-pay.svg'
 
+const icon_css = css`
+    width: 72px;
+    height: 72px;
+`
+
+const BankTransferIc = styled(BankTransfer)`
+    ${icon_css}
+`
+const PaytrustIc = styled(Paytrust)`
+    ${icon_css}
+`
+const VisaIc = styled(Visa)`
+    ${icon_css}
+`
+const MasterCardIc = styled(MasterCard)`
+    ${icon_css}
+`
+const MaestroIc = styled(Maestro)`
+    ${icon_css}
+`
+const FasapayIc = styled(Fasapay)`
+    ${icon_css}
+`
+
+const PerfectMoneyIc = styled(PerfectMoney)`
+    ${icon_css}
+`
+const SkrillIc = styled(Skrill)`
+    ${icon_css}
+`
+const NetellerIc = styled(Neteller)`
+    ${icon_css}
+`
+const WebmoneyIc = styled(Webmoney)`
+    ${icon_css}
+`
+const QiwiIc = styled(Qiwi)`
+    ${icon_css}
+`
+const PaysafeCardIc = styled(PaysafeCard)`
+    ${icon_css}
+`
+const JetonIc = styled(Jeton)`
+    ${icon_css}
+`
+const SticpayIc = styled(Sticpay)`
+    ${icon_css}
+`
+const AirtmIc = styled(Airtm)`
+    ${icon_css}
+`
+const BitcoinIc = styled(Bitcoin)`
+    ${icon_css}
+`
+const EthereumIc = styled(Ethereum)`
+    ${icon_css}
+`
+const LitecoinIc = styled(Litecoin)`
+    ${icon_css}
+`
+const TetherIc = styled(Tether)`
+    ${icon_css}
+`
+const Help2PayIc = styled(Help2Pay)`
+    ${icon_css}
+`
+const DragonPhoenixIc = styled(DragonPhoenix)`
+    ${icon_css}
+`
+const ZingPayIc = styled(ZingPay)`
+    ${icon_css}
+`
+
 const payment_data = [
     {
         name: localize('Bank wire'),
         data: [
             {
-                method: <BankTransfer />,
+                method: <BankTransferIc />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '500 - 100,000',
                 min_max_withdrawal: '500 - 100,000',
@@ -42,7 +116,7 @@ const payment_data = [
             },
 
             {
-                method: <Paytrust />,
+                method: <PaytrustIc />,
                 currencies: 'USD',
                 min_max_deposit: '25 - 10,000',
                 min_max_withdrawal: 'N/A',
@@ -54,7 +128,7 @@ const payment_data = [
                 name: 'paytrust88',
             },
             {
-                method: <Help2Pay />,
+                method: <Help2PayIc />,
                 currencies: 'USD',
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: 'N/A',
@@ -66,7 +140,7 @@ const payment_data = [
                 name: 'Help2Pay',
             },
             {
-                method: <DragonPhoenix />,
+                method: <DragonPhoenixIc />,
                 currencies: 'USD',
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: 'N/A',
@@ -78,7 +152,7 @@ const payment_data = [
                 name: 'DragonPhoenix',
             },
             {
-                method: <ZingPay />,
+                method: <ZingPayIc />,
                 currencies: 'USD EUR GBP AUD',
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: '10 - 10,000',
@@ -97,7 +171,7 @@ const payment_data = [
         note: localize('Mastercard and Maestro withdrawals are only available for UK Clients.'),
         data: [
             {
-                method: <Visa />,
+                method: <VisaIc />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: '10 - 10,000',
@@ -110,7 +184,7 @@ const payment_data = [
                 reference: 'Visa_master payment method.pdf',
             },
             {
-                method: <MasterCard />,
+                method: <MasterCardIc />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: '10 - 10,000',
@@ -122,7 +196,7 @@ const payment_data = [
                 name: 'mastercard',
             },
             {
-                method: <Maestro />,
+                method: <MaestroIc />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: '10 - 10,000',
@@ -137,7 +211,7 @@ const payment_data = [
         name: localize('E-wallets'),
         data: [
             {
-                method: <Fasapay />,
+                method: <FasapayIc />,
                 currencies: 'USD',
                 min_max_deposit: '5 - 10,000',
                 min_max_withdrawal: '5 - 10,000',
@@ -151,7 +225,7 @@ const payment_data = [
                 reference: 'Fasapay_payment method.pdf',
             },
             {
-                method: <PerfectMoney />,
+                method: <PerfectMoneyIc />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5 - 10,000',
                 min_max_withdrawal: '5 - 10,000',
@@ -165,7 +239,7 @@ const payment_data = [
                 reference: 'perfect money_payment method.pdf',
             },
             {
-                method: <Skrill />,
+                method: <SkrillIc />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: '5 - 10,000',
@@ -179,7 +253,7 @@ const payment_data = [
                 reference: 'Skrill_payment method.pdf',
             },
             {
-                method: <Neteller />,
+                method: <NetellerIc />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '5 - 10,000',
                 min_max_withdrawal: '5 - 10,000',
@@ -193,7 +267,7 @@ const payment_data = [
                 reference: 'Neteller_payment method.pdf',
             },
             {
-                method: <Webmoney />,
+                method: <WebmoneyIc />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5 - 10,000',
                 min_max_withdrawal: '5 - 10,000',
@@ -207,7 +281,7 @@ const payment_data = [
                 reference: 'WebMoney _payment method.pdf',
             },
             {
-                method: <Qiwi />,
+                method: <QiwiIc />,
                 currencies: 'USD EUR',
                 min_max_deposit: ['5 - 200 (USD)', '5 - 150 (EUR)'],
                 min_max_withdrawal: ['5 - 180 (USD)', '5 - 150 (EUR)'],
@@ -220,7 +294,7 @@ const payment_data = [
                 name: 'qiwi',
             },
             {
-                method: <PaysafeCard />,
+                method: <PaysafeCardIc />,
                 currencies: 'USD GBP EUR AUD',
                 min_max_deposit: '5 - 1,000',
                 min_max_withdrawal: '5 - 750',
@@ -233,7 +307,7 @@ const payment_data = [
                 name: 'paysafe',
             },
             {
-                method: <Jeton />,
+                method: <JetonIc />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5 - 10,000',
                 min_max_withdrawal: 'N/A',
@@ -248,7 +322,7 @@ const payment_data = [
             },
 
             {
-                method: <Sticpay />,
+                method: <SticpayIc />,
                 currencies: 'USD GBP EUR',
                 min_max_deposit: '5 - 10,000',
                 min_max_withdrawal: '5 - 10,000',
@@ -262,7 +336,7 @@ const payment_data = [
                 reference: 'Sticpay_payment method.pdf',
             },
             {
-                method: <Airtm />,
+                method: <AirtmIc />,
                 currencies: 'USD',
                 min_max_deposit: '5 - 2,500',
                 min_max_withdrawal: '5 - 2,500',
@@ -285,7 +359,7 @@ const payment_data = [
         ),
         data: [
             {
-                method: <Bitcoin />,
+                method: <BitcoinIc />,
                 currencies: 'BTC',
                 min_max_deposit: '-',
                 min_max_withdrawal: '0.00292789',
@@ -298,7 +372,7 @@ const payment_data = [
                 reference: 'Bitcoin_payment method.pdf',
             },
             {
-                method: <Ethereum />,
+                method: <EthereumIc />,
                 currencies: 'ETH',
                 min_max_deposit: '-',
                 min_max_withdrawal: '',
@@ -310,7 +384,7 @@ const payment_data = [
                 name: 'ethereum',
             },
             {
-                method: <Litecoin />,
+                method: <LitecoinIc />,
                 currencies: 'LTC',
                 min_max_deposit: '-',
                 min_max_withdrawal: '',
@@ -323,7 +397,7 @@ const payment_data = [
                 reference: 'Litecoin_payment method.pdf',
             },
             {
-                method: <Tether />,
+                method: <TetherIc />,
                 currencies: 'UST',
                 min_max_deposit: '-',
                 min_max_withdrawal: '',

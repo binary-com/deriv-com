@@ -7,6 +7,9 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 import { deriv_app_url } from 'common/utility'
 // SVG
+{
+    /* TODO: add when facebook issue is fixed */
+}
 // import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 
@@ -174,6 +177,7 @@ const SignupFlat = ({
                                 <Google />
                             </span>
                         </SocialButton>
+                        {/* TODO: add when facebook issue is fixed */}
                         {/* <SocialButton
                             dark={dark}
                             onClick={handleSocialSignup}

@@ -8,6 +8,9 @@ import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
 // SVG
+{
+    /* TODO: add when facebook issue is fixed */
+}
 // import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chervon-right.svg'
@@ -258,6 +261,7 @@ const SignupPublic = ({
                     </InputGroup>
                     <SocialWrapper jc="unset" ai="center">
                         <StyledText>{localize('or sign in with')}</StyledText>
+                        {/* TODO: add when facebook issue is fixed */}
                         {/* <SocialButton
                             onClick={handleSocialSignup}
                             provider="facebook"

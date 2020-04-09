@@ -9,6 +9,9 @@ import { localize, Localize } from 'components/localization'
 import Login from 'common/login'
 import device from 'themes/device.js'
 // SVG
+{
+    /* TODO: add when facebook issue is fixed */
+}
 // import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 
@@ -227,6 +230,7 @@ const SignupNew = ({
                     </span>
                     <Span>Google</Span>
                 </SocialButton>
+                {/* TODO: add when facebook issue is fixed */}
                 {/* <SocialButton
                     onClick={handleSocialSignup}
                     provider="facebook"

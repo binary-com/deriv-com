@@ -7,6 +7,9 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 // SVG
+{
+    /* TODO: add when facebook issue is fixed */
+}
 // import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 
@@ -105,6 +108,7 @@ const SignupDefault = ({
                         <Google />
                     </span>
                 </SocialButton>
+                {/* TODO: add when facebook issue is fixed */}
                 {/* <SocialButton
                     onClick={handleSocialSignup}
                     provider="facebook"

@@ -1,5 +1,6 @@
 const language_config = require(`./i18n-config.js`)
 const path = require('path')
+const fs = require('fs')
 
 const translations_cache = {}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
@@ -10,7 +11,7 @@ exports.onCreatePage = ({ page, actions }) => {
     // So everything in src/pages/
     deletePage(page)
 
-    Object.keys(language_config).map(lang => {
+    Object.keys(language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`
@@ -41,12 +42,19 @@ exports.onCreatePage = ({ page, actions }) => {
 }
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
-    const config = getConfig();
-    if (config.optimization)
-        config.optimization.minimizer[0].options.parallel = 2;
+    const config = getConfig()
+    if (config.optimization) config.optimization.minimizer[0].options.parallel = 2
     actions.setWebpackConfig({
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
     })
 }
+
+// exports.onPostBuild = function() {
+//     fs.renameSync(path.join(__dirname, 'public'), path.join(__dirname, 'public-blog'));
+
+//     fs.mkdirSync(path.join(__dirname, 'public'));
+
+//     fs.renameSync(path.join(__dirname, 'public-blog'), path.join(__dirname, 'public', 'blog'));
+//   };

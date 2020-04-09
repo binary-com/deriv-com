@@ -4,7 +4,27 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: Git checkout
-              uses: actions/checkout@v1
-            - name: Branch name
-              run: echo running on branch ${GITHUB_REF#refs/heads/}
+            - uses: actions/checkout@v2
+
+            - name: Setup Node
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '12.x'
+
+            - name: Cache dependencies
+              uses: actions/cache@v1
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+
+            - run: npm ci
+            - run: npm run test
+            - run: npm run build
+
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./public

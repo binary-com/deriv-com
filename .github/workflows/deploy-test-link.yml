@@ -5,12 +5,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-
             - name: Setup Node
               uses: actions/setup-node@v1
               with:
                   node-version: '12.x'
-
             - name: Cache dependencies
               uses: actions/cache@v1
               with:
@@ -18,19 +16,18 @@ jobs:
                   key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
                   restore-keys: |
                       ${{ runner.os }}-node-
-
-            - run: |
-              npm ci
-              npm run test  
-              npm run build
+              run: |
+                  npm ci
+            - name: Compile application
+              run: |
+                  npm run test
+                  npm run build
             - name: create folder
               run: |
-                mkdir -p ${GITHUB_REF#refs/heads/}
-                cp -r ./public/. ${GITHUB_REF#refs/heads/}
-
+                  mkdir -p ${GITHUB_REF#refs/heads/}
+                  cp -r ./public/. ${GITHUB_REF#refs/heads/}
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ${GITHUB_REF#refs/heads/}
-                  keep_files: true

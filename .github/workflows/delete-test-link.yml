@@ -1,5 +1,5 @@
-name: Deploy test links
-on: [pull_request]
+name: Delete test link
+on: delete
 jobs:
     build:
         runs-on: ubuntu-latest

@@ -7,7 +7,7 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 import { deriv_app_url } from 'common/utility'
 // SVG
-import Facebook from 'images/svg/facebook-blue.svg'
+// import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 
 const Wrapper = styled.div`
@@ -79,6 +79,7 @@ const SocialWrapper = styled.div`
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: center;
 `
 const SocialButton = styled(Button)`
     background-color: ${(props) => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
@@ -173,7 +174,7 @@ const SignupFlat = ({
                                 <Google />
                             </span>
                         </SocialButton>
-                        <SocialButton
+                        {/* <SocialButton
                             dark={dark}
                             onClick={handleSocialSignup}
                             provider="facebook"
@@ -184,7 +185,7 @@ const SignupFlat = ({
                             <span>
                                 <Facebook />
                             </span>
-                        </SocialButton>
+                        </SocialButton> */}
                     </SocialWrapper>
                 </CenterWrapper>
                 <Splitter dark={dark}></Splitter>

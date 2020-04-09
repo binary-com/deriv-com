@@ -8,7 +8,7 @@ import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
 // SVG
-import Facebook from 'images/svg/facebook-blue.svg'
+// import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chervon-right.svg'
 import BackgroundPattern from 'images/common/bg_banner_signup.png'
@@ -256,9 +256,9 @@ const SignupPublic = ({
                             {localize('Sign up')}
                         </EmailButton>
                     </InputGroup>
-                    <SocialWrapper jc="unset" ai="center">
+                    <SocialWrapper jc="center" ai="center">
                         <StyledText>{localize('or sign in with')}</StyledText>
-                        <SocialButton
+                        {/* <SocialButton
                             onClick={handleSocialSignup}
                             provider="facebook"
                             id="facebook"
@@ -271,7 +271,7 @@ const SignupPublic = ({
                             <Show.Mobile>
                                 <Text>Facebook</Text>
                             </Show.Mobile>
-                        </SocialButton>
+                        </SocialButton> */}
                         <SocialButton
                             onClick={handleSocialSignup}
                             provider="google"

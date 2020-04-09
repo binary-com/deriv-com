@@ -7,7 +7,7 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device.js'
 // SVG
-import Facebook from 'images/svg/facebook.svg'
+// import Facebook from 'images/svg/facebook.svg'
 import Google from 'images/svg/google.svg'
 
 const Wrapper = styled.div`
@@ -93,7 +93,7 @@ const SignupDefault = ({
             <Text color="grey" align="center">
                 {localize('Or sign in with')}
             </Text>
-            <SocialWrapper justify="space-between" gap="0" grid="2">
+            <SocialWrapper justify="center" gap="0" grid="2">
                 <SocialButton
                     onClick={handleSocialSignup}
                     provider="google"
@@ -105,7 +105,7 @@ const SignupDefault = ({
                         <Google />
                     </span>
                 </SocialButton>
-                <SocialButton
+                {/* <SocialButton
                     onClick={handleSocialSignup}
                     provider="facebook"
                     id="facebook"
@@ -115,7 +115,7 @@ const SignupDefault = ({
                     <span>
                         <Facebook />
                     </span>
-                </SocialButton>
+                </SocialButton> */}
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}

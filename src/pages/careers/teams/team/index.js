@@ -148,7 +148,7 @@ const Team = () => {
                 <LinkList
                     list_items={
                         team.positions &&
-                        team.positions.map(position => ({
+                        team.positions.map((position) => ({
                             text: position.title,
                             to: `careers/jobs/job#${toHashFormat(position.id)}`,
                             middle_text: locations[position.location],

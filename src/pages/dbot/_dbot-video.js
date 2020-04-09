@@ -42,12 +42,12 @@ const StepCommon = css`
     @media ${device.tabletL} {
         text-align: left;
         border: none;
-        margin-top: ${props => (props.no_margin ? '0' : '2rem')};
+        margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
 `
 const Step = styled(Header)`
     ${StepCommon}
-    ${props =>
+    ${(props) =>
         props.current_step_image === props.image_name
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};

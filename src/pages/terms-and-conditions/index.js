@@ -8,7 +8,7 @@ import { Header, Tabs } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 
 const Section = styled(SectionContainer)`
-    background-color: ${props => props.bgcolor || 'transparent'};
+    background-color: ${(props) => props.bgcolor || 'transparent'};
 `
 
 const TabWrapper = styled.div``
@@ -25,7 +25,7 @@ const TermsAndConditions = () => {
             <Section>
                 <Flex direction="column" ai="center" mb="8rem">
                     <Header as="h1" align="center" lh="7.2rem">
-                        {localize('Legal')}
+                        {localize('Terms and conditions')}
                     </Header>
 
                     <Header

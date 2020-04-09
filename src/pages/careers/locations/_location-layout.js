@@ -143,7 +143,7 @@ export const LocationLayout = ({ location, images }) => {
 
     const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
     const mapped_positions = positions
-        ? positions.map(position => ({
+        ? positions.map((position) => ({
               text: position.title,
               to: `careers/jobs/job#${toHashFormat(position.id)}`,
           }))

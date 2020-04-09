@@ -16,6 +16,7 @@ export const CardStyle = css`
 `
 
 const CardContent = styled(Text)`
+    font-size: var(--text-size-xs);
     margin-top: 0.5rem;
     line-height: 1.25;
 
@@ -126,16 +127,6 @@ const IconContainer = styled.div`
     display: flex;
     justify-content: center;
 
-    svg {
-        width: 8.25rem;
-        height: 8.25rem;
-    }
-    div {
-        svg {
-            width: 7.2rem;
-            height: 7.2rem;
-        }
-    }
     ${Header} {
         display: flex;
         align-items: center;
@@ -153,6 +144,13 @@ const Content = ({ content }) => (
         )}
     </>
 )
+
+const IconWrapper = styled.div`
+    & > svg {
+        width: 7.2rem;
+        height: 7.2rem;
+    }
+`
 
 Content.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
@@ -195,9 +193,9 @@ export const Card = ({
                                 </div>
                             </CardCover>
                             <IconContainer>
-                                <div>
+                                <IconWrapper>
                                     <Icon />
-                                </div>
+                                </IconWrapper>
                                 <CardContentContainer>
                                     <Header as="h4" weight="bold">
                                         {title}
@@ -291,6 +289,11 @@ const ResponsiveText = styled(Text)`
 `
 
 const FlexHover = styled(Flex)`
+    & > svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 1.6rem;
+    }
     &:hover {
         ${RightDiagonal} {
             opacity: 1;
@@ -300,12 +303,7 @@ const FlexHover = styled(Flex)`
         }
     }
 `
-export const NavCard = ({ icon, title, content, to, style, external, target, className }) => {
-    const NavIcon = styled(icon)`
-        width: 24px;
-        height: 24px;
-        margin-right: 1.6rem;
-    `
+export const NavCard = ({ icon: Icon, title, content, to, style, external, target, className }) => {
     return (
         <LocalizedLink
             to={to}
@@ -321,7 +319,7 @@ export const NavCard = ({ icon, title, content, to, style, external, target, cla
             className={className}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
-                <NavIcon />
+                <Icon />
                 <NavContent>
                     <ResponsiveHeader size="var(--text-size-xs)" lh="1.14" mb="0.8rem">
                         {title}
@@ -340,7 +338,7 @@ export const NavCard = ({ icon, title, content, to, style, external, target, cla
 
 NavCard.propTypes = {
     className: PropTypes.string,
-    content: PropTypes.string,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     external: PropTypes.string,
     icon: PropTypes.func,
     style: PropTypes.object,

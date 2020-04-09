@@ -91,7 +91,6 @@ const DHero = ({
     content,
     join_us_for_free,
     go_to_live_demo,
-    start_automating,
     Logo,
 }) => {
     const handleRedirect = () => {
@@ -126,12 +125,7 @@ const DHero = ({
                         <LinkWrapper>
                             {join_us_for_free ? (
                                 <TryForFree secondary="true" to="/signup/">
-                                    {localize('Create demo account')}
-                                </TryForFree>
-                            ) : null}
-                            {start_automating ? (
-                                <TryForFree secondary="true" to="/signup/">
-                                    {localize('Start automating')}
+                                    {localize('Create free demo account')}
                                 </TryForFree>
                             ) : null}
                             {go_to_live_demo ? (
@@ -166,7 +160,6 @@ DHero.propTypes = {
     go_to_live_demo: PropTypes.bool,
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.func,
-    start_automating: PropTypes.bool,
     title: PropTypes.string,
 }
 

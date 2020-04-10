@@ -68,11 +68,9 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
             cover_content={localize('Discover DTrader now')}
             title={localize('DTrader')}
             Icon={StyledDTrader}
-            content={[
-                localize('A whole new trading experience on a powerful yet easy to use platform.'),
-            ]}
+            content={[localize('The platform to start with. It’s powerful yet easy to use.')]}
             is_inline_icon
-            min_height="11.6rem"
+            min_height="12.4rem"
             is_selected={is_selected}
             width="100%"
             word_break_cover={word_break_cover}
@@ -89,7 +87,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
             Icon={StyledDbot}
             content={[localize('Automated trading at your fingertips. No coding needed.')]}
             is_inline_icon
-            min_height="11.6rem"
+            min_height="12.4rem"
             is_selected={is_selected}
             width="100%"
             word_break_cover={word_break_cover}
@@ -104,9 +102,13 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
             cover_content={localize('Discover DMT5 now')}
             title={localize('DMT5')}
             Icon={StyledDmt5}
-            content={[localize('The platform of choice for professionals worldwide.')]}
+            content={[
+                localize(
+                    'Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals worldwide.',
+                ),
+            ]}
             is_inline_icon
-            min_height="11.6rem"
+            min_height="12.4rem"
             is_selected={is_selected}
             width="100%"
             word_break_cover={word_break_cover}

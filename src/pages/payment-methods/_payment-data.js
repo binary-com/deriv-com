@@ -162,7 +162,7 @@ const payment_data = [
                     'ZingPay is a payment facility that allows online bank transfers for clients in South Africa.',
                 ),
                 name: 'ZingPay',
-                reference: 'ZingPay_infographic_FA.pdf',
+                reference: 'ZingPay_payment_method.pdf',
             },
         ],
     },
@@ -181,7 +181,7 @@ const payment_data = [
                     'Deposit and withdraw using your Visa credit or debit card. Charges and interest rates apply.',
                 ),
                 name: 'visa',
-                reference: 'Visa_master payment method.pdf',
+                reference: 'Visa_master_payment_method.pdf',
             },
             {
                 method: <MasterCardIc />,
@@ -222,7 +222,7 @@ const payment_data = [
                 ),
                 url: 'https://www.fasapay.com/',
                 name: 'fasapay',
-                reference: 'Fasapay_payment method.pdf',
+                reference: 'Fasapay_payment_method.pdf',
             },
             {
                 method: <PerfectMoneyIc />,
@@ -236,7 +236,7 @@ const payment_data = [
                 ),
                 url: 'https://perfectmoney.is/',
                 name: 'perfect money',
-                reference: 'perfect money_payment method.pdf',
+                reference: 'perfect_money_payment_method.pdf',
             },
             {
                 method: <SkrillIc />,
@@ -250,7 +250,7 @@ const payment_data = [
                 ),
                 url: 'https://www.skrill.com/',
                 name: 'skrill',
-                reference: 'Skrill_payment method.pdf',
+                reference: 'Skrill_payment_method.pdf',
             },
             {
                 method: <NetellerIc />,
@@ -264,7 +264,7 @@ const payment_data = [
                 ),
                 url: 'https://www.neteller.com/',
                 name: 'neteller',
-                reference: 'Neteller_payment method.pdf',
+                reference: 'Neteller_payment_method.pdf',
             },
             {
                 method: <WebmoneyIc />,
@@ -278,7 +278,7 @@ const payment_data = [
                 ),
                 url: 'https://www.wmtransfer.com/',
                 name: 'webmoney',
-                reference: 'WebMoney _payment method.pdf',
+                reference: 'WebMoney_payment_method.pdf',
             },
             {
                 method: <QiwiIc />,
@@ -318,7 +318,7 @@ const payment_data = [
                 ),
                 url: 'https://www.jeton.com/',
                 name: 'jeton',
-                reference: 'Jeton_payment method.pdf',
+                reference: 'Jeton_payment_method.pdf',
             },
 
             {
@@ -333,7 +333,7 @@ const payment_data = [
                 ),
                 url: 'https://www.sticpay.com/',
                 name: 'sticpay',
-                reference: 'Sticpay_payment method.pdf',
+                reference: 'Sticpay_payment_method.pdf',
             },
             {
                 method: <AirtmIc />,
@@ -347,7 +347,7 @@ const payment_data = [
                 ),
                 url: 'https://www.airtm.io/#/',
                 name: 'airtm',
-                reference: 'AirTM_payment method.pdf',
+                reference: 'AirTM_payment_method.pdf',
             },
         ],
     },
@@ -369,7 +369,7 @@ const payment_data = [
                     'Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.',
                 ),
                 name: 'bitcoin',
-                reference: 'Bitcoin_payment method.pdf',
+                reference: 'Bitcoin_payment_method.pdf',
             },
             {
                 method: <EthereumIc />,
@@ -394,7 +394,7 @@ const payment_data = [
                     'Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing.',
                 ),
                 name: 'litecoin',
-                reference: 'Litecoin_payment method.pdf',
+                reference: 'Litecoin_payment_method.pdf',
             },
             {
                 method: <TetherIc />,

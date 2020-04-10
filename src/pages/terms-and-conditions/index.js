@@ -25,7 +25,7 @@ const TermsAndConditions = () => {
             <Section>
                 <Flex direction="column" ai="center" mb="8rem">
                     <Header as="h1" align="center" lh="7.2rem">
-                        {localize('Legal')}
+                        {localize('Terms and conditions')}
                     </Header>
 
                     <Header

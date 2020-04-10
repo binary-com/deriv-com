@@ -225,7 +225,7 @@ const SignupPublic = ({
                         {localize('Join over 1 million traders worldwide')}
                     </StyledHeader>
                     <br />
-                    <StyledHeader as="h4" weight="500" size="2.6rem">
+                    <StyledHeader as="h4" weight="normal" size="1.6rem">
                         {localize('Sign up for your demo account now.')}
                     </StyledHeader>
                     <InputGroup>
@@ -240,7 +240,7 @@ const SignupPublic = ({
                                 tabletBackground="green-1"
                                 inputColor="var(grey-5)"
                                 labelFocusColor="grey-7"
-                                label={localize('Email')}
+                                label={localize('Email address')}
                                 placeholder={'example@mail.com'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
@@ -260,6 +260,20 @@ const SignupPublic = ({
                         <StyledText>{localize('or sign in with')}</StyledText>
                         <SocialButton
                             onClick={handleSocialSignup}
+                            provider="facebook"
+                            id="facebook"
+                            type="button"
+                            social
+                        >
+                            <span>
+                                <Facebook />
+                            </span>
+                            <Show.Mobile>
+                                <Text>Facebook</Text>
+                            </Show.Mobile>
+                        </SocialButton>
+                        <SocialButton
+                            onClick={handleSocialSignup}
                             provider="google"
                             id="google"
                             type="button"
@@ -271,20 +285,6 @@ const SignupPublic = ({
                             </span>
                             <Show.Mobile>
                                 <Text>Google</Text>
-                            </Show.Mobile>
-                        </SocialButton>
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="facebook"
-                            id="facebook"
-                            type="button"
-                            social
-                        >
-                            <span>
-                                <Facebook />
-                            </span>
-                            <Show.Mobile>
-                                <Text>Facebook</Text>
                             </Show.Mobile>
                         </SocialButton>
                     </SocialWrapper>

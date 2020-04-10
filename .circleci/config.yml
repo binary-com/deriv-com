@@ -180,7 +180,7 @@ workflows:
           filters:
             branches:
               only: /^dev/
-              ignore: /^crowdin/
+              ignore: /^l10n_crowdin/
   build_deploy_staging:
     jobs:
       - build_staging:

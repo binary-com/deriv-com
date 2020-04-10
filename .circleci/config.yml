@@ -181,6 +181,9 @@ workflows:
             branches:
               only: /^dev/
               ignore: /^l10n_crowdin/
+             tags:
+               ignore: /^staging.*/
+               ignore: /^production.*/
   build_deploy_staging:
     jobs:
       - build_staging:

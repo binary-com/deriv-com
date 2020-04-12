@@ -69,7 +69,7 @@ const ContentWrapper = styled.div`
     margin-left: 1.2rem;
 
     @media ${device.tablet} {
-        width: 41.9rem;
+        width: 328px;
 
         ${Header} {
             text-align: left;

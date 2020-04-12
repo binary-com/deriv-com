@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import OtherMarkets from '../_other-markets.js'
-import { WhatTrade } from '../_what-trade'
 import { WhyTrade } from '../_why-trade'
 import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
@@ -14,60 +14,37 @@ import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import ExtendedTime from 'images/svg/extended-trading-times.svg'
 import MinimalCapital from 'images/svg/minimal-capital.svg'
-import PractiseIcon from 'images/svg/cross-hair-icon.svg'
-import TradeIcon from 'images/svg/chart-icon.svg'
-import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
-const what_trade_sub_header = [
-    {
-        text: localize(
-            'Stock indices track the performance of the broad stock market or a particular market sector. Trading stock indices allows you to profit from the price movements in a market without buying the underlying assets',
-        ),
-    },
-    {
-        text: localize(
-            'At Deriv, our stock indices are sourced from over-the-counter (OTC) markets. So you get competitively priced asset baskets and can trade outside regular hours of major stock markets.',
-        ),
-    },
-]
-const simple_step_content = [
-    {
-        header: localize('Practise'),
-        text: localize(
-            'Open a demo account and practise with an unlimited amount of virtual funds.',
-        ),
-        icon: <PractiseIcon />,
-    },
-    {
-        header: localize('Trade'),
-        text: localize(
-            'Open a real account, make a 1deposit, and start trading stock indices and other markets.',
-        ),
-        icon: <TradeIcon />,
-    },
-    {
-        header: localize('Withdraw'),
-        text: localize(
-            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
-        ),
-        icon: <WithdrawIcon />,
-    },
-]
+// const what_trade_sub_header = [
+//     {
+//         text: localize(
+//             'Stock indices track the performance of the broad stock market or a particular market sector. Trading stock indices allows you to profit from the price movements in a market without buying the underlying assets',
+//         ),
+//     },
+//     {
+//         text: localize(
+//             'At Deriv, our stock indices are sourced from over-the-counter (OTC) markets. So you get competitively priced asset baskets and can trade outside regular hours of major stock markets.',
+//         ),
+//     },
+// ]
+
 const LinkButtonWrapper = styled.div`
     margin-top: 6.1rem;
     text-align: center;
 `
-const StockIndices = () => {
+const StockIndices = ({ simple_step_content }) => {
+    simple_step_content[1].text =
+        'Open a real account, make a deposit, and start trading stock indices and other markets. '
     // const learn_more_section = useRef(null)
 
     return (
         <div>
-            <WhatTrade
-                sub_header={what_trade_sub_header}
-                header={localize('What are stock indices?')}
-                // learn_more_section={learn_more_section}
-            />
-            <WhyTrade header={localize('Why trade stock indices on Deriv')}>
+            <WhyTrade
+                header={localize('Why trade stock indices on Deriv')}
+                text={localize(
+                    'Profit from the price movements in a broad market or sector without owning underlying assets. Sourced from over-the-counter (OTC) markets, our stock indices offer competitively priced asset baskets and allow you to trade outside the regular hours of major stock markets.',
+                )}
+            >
                 <div
                     text={localize('Minimal capital requirements, limited risk')}
                     icon={<MinimalCapital />}
@@ -89,6 +66,12 @@ const StockIndices = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            {/* <WhatTrade
+                sub_header={what_trade_sub_header}
+                header={localize('What are stock indices?')}
+                // learn_more_section={learn_more_section}
+            /> */}
+
             <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Stock indices" />
             <SimpleSteps
                 header={localize('Start trading stock indices on Deriv in 3 simple steps')}
@@ -101,9 +84,11 @@ const StockIndices = () => {
                     </LinkButtonWrapper>
                 }
             />
-            <OtherMarkets except="stock indices" />
+            <OtherMarkets except="stock_indices" />
         </div>
     )
 }
-
+StockIndices.propTypes = {
+    simple_step_content: PropTypes.object,
+}
 export default StockIndices

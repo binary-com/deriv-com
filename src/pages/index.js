@@ -10,9 +10,9 @@ import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import Signup, { Appearances } from 'components/custom/signup'
-import PractiseIcon from 'images/svg/cross-hair-icon.svg'
-import TradeIcon from 'images/svg/chart-icon.svg'
-import WithdrawIcon from 'images/svg/withdraw-icon.svg'
+import PractiseIcon from 'images/svg/aim.svg'
+import TradeIcon from 'images/svg/trade.svg'
+import WithdrawIcon from 'images/svg/withdraw.svg'
 
 const simple_step_content = [
     {

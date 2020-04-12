@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import OtherMarkets from '../_other-markets.js'
-import { WhatTrade } from '../_what-trade'
 import { WhyTrade } from '../_why-trade'
 import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
@@ -15,61 +15,37 @@ import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
 import MarketandRisk from 'images/svg/market-and-risk.svg'
 import SevenTrading from 'images/svg/seven-trading.svg'
-import PractiseIcon from 'images/svg/cross-hair-icon.svg'
-import TradeIcon from 'images/svg/chart-icon.svg'
-import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
-const what_trade_sub_header = [
-    {
-        text: localize(
-            'Synthetic Indices are our own set of indices engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
-        ),
-    },
-    {
-        text: localize(
-            'Unlike financial markets, Synthetic Indices are available 24/7, have constant volatility, fixed generation intervals, and are free of market and liquidity risks',
-        ),
-    },
-]
+// const what_trade_sub_header = [
+//     {
+//         text: localize(
+//             'Synthetic Indices are our own set of indices engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
+//         ),
+//     },
+//     {
+//         text: localize(
+//             'Unlike financial markets, Synthetic Indices are available 24/7, have constant volatility, fixed generation intervals, and are free of market and liquidity risks',
+//         ),
+//     },
+// ]
 
-const simple_step_content = [
-    {
-        header: localize('Practise'),
-        text: localize(
-            'Open a demo account and practise with an unlimited amount of virtual funds',
-        ),
-        icon: <PractiseIcon />,
-    },
-    {
-        header: localize('Trade'),
-        text: localize(
-            'Open a real account, make a deposit, and start trading Synthetic Indices and other markets',
-        ),
-        icon: <TradeIcon />,
-    },
-    {
-        header: localize('Withdraw'),
-        text: localize(
-            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
-        ),
-        icon: <WithdrawIcon />,
-    },
-]
 const LinkButtonWrapper = styled.div`
     margin-top: 6.1rem;
     text-align: center;
 `
-const StockIndices = () => {
-    const learn_more_section = useRef(null)
+const StockIndices = ({ simple_step_content }) => {
+    simple_step_content[1].text =
+        'Open a real account, make a deposit, and start trading Synthetic Indices and other markets. '
+    // const learn_more_section = useRef(null)
 
     return (
         <div>
-            <WhatTrade
-                sub_header={what_trade_sub_header}
-                header={localize('What are Synthetic Indices?')}
-                learn_more_section={learn_more_section}
-            />
-            <WhyTrade header={localize('Why trade Synthetic Indices on Deriv')}>
+            <WhyTrade
+                header={localize('Why trade Synthetic Indices on Deriv')}
+                text={localize(
+                    'Our exclusive Synthetic Indices are engineered to simulate real-world market movements, unaffected by real-world events and disruptions. Unlike financial markets, Synthetic Indices are available 24/7, have constantly volatility, fixed generation intervals, and are free of market and liquidity risks.',
+                )}
+            >
                 <div
                     text={localize('High leverage, tight spreads, and 24/7 trading')}
                     icon={<SevenTrading />}
@@ -91,6 +67,12 @@ const StockIndices = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            {/* <WhatTrade
+                sub_header={what_trade_sub_header}
+                header={localize('What are Synthetic Indices?')}
+                learn_more_section={learn_more_section}
+            /> */}
+
             <AvailableTrades
                 Margin={Margin}
                 DigitalOptions={DigitalOptions}
@@ -108,9 +90,11 @@ const StockIndices = () => {
                     </LinkButtonWrapper>
                 }
             />
-            <OtherMarkets except="Synthetic Indices" />
+            <OtherMarkets except="Synthetic_Indices" />
         </div>
     )
 }
-
+StockIndices.propTypes = {
+    simple_step_content: PropTypes.object,
+}
 export default StockIndices

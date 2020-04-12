@@ -1,6 +1,6 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { WhatTrade } from '../_what-trade'
+import PropTypes from 'prop-types'
 import { WhyTrade } from '../_why-trade'
 // TODO: active when design was ready
 // import { LearnMore } from '../_learn-more'
@@ -18,22 +18,19 @@ import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Leverage from 'images/svg/leverage.svg'
-import PractiseIcon from 'images/svg/cross-hair-icon.svg'
-import TradeIcon from 'images/svg/chart-icon.svg'
-import WithdrawIcon from 'images/svg/withdraw-icon.svg'
 
-const what_trade_sub_header = [
-    {
-        text: localize(
-            'Foreign exchange, otherwise known as forex or FX, is the buying and selling of currencies. Where the primary purpose for this exchange is gaining profit from changes in the relative values of currencies on the forex market, we call it forex trading.',
-        ),
-    },
-    {
-        text: localize(
-            'Trading forex has several benefits including round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunity to trade on world events.',
-        ),
-    },
-]
+// const what_trade_sub_header = [
+//     {
+//         text: localize(
+//             'Foreign exchange, otherwise known as forex or FX, is the buying and selling of currencies. Where the primary purpose for this exchange is gaining profit from changes in the relative values of currencies on the forex market, we call it forex trading.',
+//         ),
+//     },
+//     {
+//         text: localize(
+//             'Trading forex has several benefits including round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunity to trade on world events.',
+//         ),
+//     },
+// ]
 // TODO: active when design was ready
 // const learn_more_data = [
 //     {
@@ -53,45 +50,24 @@ const what_trade_sub_header = [
 //         text: [localize('test4-1'), localize('test4-2')],
 //     },
 // ]
-const simple_step_content = [
-    {
-        header: localize('Practise'),
-        text: localize(
-            'Open a demo account and practise with an unlimited amount of virtual funds.',
-        ),
-        icon: <PractiseIcon />,
-    },
-    {
-        header: localize('Trade'),
-        text: localize(
-            'Open a real account, make a deposit, and start trading forex and other markets.',
-        ),
-        icon: <TradeIcon />,
-    },
-    {
-        header: localize('Withdraw'),
-        text: localize(
-            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
-        ),
-        icon: <WithdrawIcon />,
-    },
-]
 
 const LinkButtonWrapper = styled.div`
     margin-top: 6.1rem;
     text-align: center;
 `
 
-const Forex = () => {
-    const learn_more_section = useRef(null)
+const Forex = ({ simple_step_content }) => {
+    simple_step_content[1].text =
+        'Open a real account, make a deposit, and start trading forex and other markets. '
+    // const learn_more_section = useRef(null)
     return (
         <>
-            <WhatTrade
-                sub_header={what_trade_sub_header}
-                header={localize('What is forex?')}
-                learn_more_section={learn_more_section}
-            />
-            <WhyTrade header={localize('Why trade forex on Deriv')}>
+            <WhyTrade
+                header={localize('Why trade forex on Deriv')}
+                text={localize(
+                    'Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events.',
+                )}
+            >
                 <div text={localize('High leverage, tight spreads')} icon={<Leverage />}></div>
                 <div
                     text={localize('Responsive, easy-to-use platforms')}
@@ -107,6 +83,12 @@ const Forex = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            {/* <WhatTrade
+                sub_header={what_trade_sub_header}
+                header={localize('What is forex?')}
+                learn_more_section={learn_more_section}
+            /> */}
+
             <AvailableTrades
                 Margin={Margin}
                 DigitalOptions={DigitalOptions}
@@ -124,13 +106,15 @@ const Forex = () => {
                     </LinkButtonWrapper>
                 }
             />
-            <div ref={learn_more_section}>
-                {/* TODO: active when design was ready */}
-                {/* <LearnMore data={learn_more_data} header={localize('Learn more about forex')} /> */}
-            </div>
+            {/* TODO: active when design was ready */}
+            {/* <div ref={learn_more_section}>
+                <LearnMore data={learn_more_data} header={localize('Learn more about forex')} />
+            </div> */}
             <OtherMarkets except="forex" />
         </>
     )
 }
-
+Forex.propTypes = {
+    simple_step_content: PropTypes.object,
+}
 export default Forex

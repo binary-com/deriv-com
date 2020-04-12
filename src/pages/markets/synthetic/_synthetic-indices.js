@@ -64,12 +64,12 @@ const StockIndices = () => {
 
     return (
         <div>
-            <WhatTrade
-                sub_header={what_trade_sub_header}
-                header={localize('What are Synthetic Indices?')}
-                learn_more_section={learn_more_section}
-            />
-            <WhyTrade header={localize('Why trade Synthetic Indices on Deriv')}>
+            <WhyTrade
+                header={localize('Why trade Synthetic Indices on Deriv')}
+                text={localize(
+                    'Our exclusive Synthetic Indices are engineered to simulate real-world market movements, unaffected by real-world events and disruptions. Unlike financial markets, Synthetic Indices are available 24/7, have constantly volatility, fixed generation intervals, and are free of market and liquidity risks.',
+                )}
+            >
                 <div
                     text={localize('High leverage, tight spreads, and 24/7 trading')}
                     icon={<SevenTrading />}
@@ -91,6 +91,12 @@ const StockIndices = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            <WhatTrade
+                sub_header={what_trade_sub_header}
+                header={localize('What are Synthetic Indices?')}
+                learn_more_section={learn_more_section}
+            />
+
             <AvailableTrades
                 Margin={Margin}
                 DigitalOptions={DigitalOptions}

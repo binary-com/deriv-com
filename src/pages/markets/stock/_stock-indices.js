@@ -62,12 +62,12 @@ const StockIndices = () => {
 
     return (
         <div>
-            <WhatTrade
-                sub_header={what_trade_sub_header}
-                header={localize('What are stock indices?')}
-                // learn_more_section={learn_more_section}
-            />
-            <WhyTrade header={localize('Why trade stock indices on Deriv')}>
+            <WhyTrade
+                header={localize('Why trade stock indices on Deriv')}
+                text={localize(
+                    'Profit from the price movements in a broad market or sector without owning underlying assets. Sourced from over-the-counter (OTC) markets, our stock indices offer competitively priced asset baskets and allow you to trade outside the regular hours of major stock markets.',
+                )}
+            >
                 <div
                     text={localize('Minimal capital requirements, limited risk')}
                     icon={<MinimalCapital />}
@@ -89,6 +89,12 @@ const StockIndices = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            <WhatTrade
+                sub_header={what_trade_sub_header}
+                header={localize('What are stock indices?')}
+                // learn_more_section={learn_more_section}
+            />
+
             <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Stock indices" />
             <SimpleSteps
                 header={localize('Start trading stock indices on Deriv in 3 simple steps')}

@@ -1,12 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Flex, Container, SectionContainer } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
-import { Text, Header } from 'components/elements'
+import PropTypes from 'prop-types'
+import { Container, Flex, SectionContainer } from 'components/containers'
+import { Header, Text } from 'components/elements'
+import { localize } from 'components/localization'
+import Box from 'components/containers/box'
+import Commodities from 'pages/markets-svg/_market-commodities.js'
 //TODO: using temp svg as a function for having dynamic id
 import Forex from 'pages/markets-svg/_market-forex.js'
-import Commodities from 'pages/markets-svg/_market-commodities.js'
 import StockIndices from 'pages/markets-svg/_market-stock.js'
 import SyntheticIndices from 'pages/markets-svg/_market-synthetic.js'
 
@@ -15,19 +16,11 @@ const markets_type = {
         icon: Forex,
         title: 'Forex',
         content:
-            'Forex gives you the chance to profit from changes in the relative values of currencies on the forex market.',
+            'Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market.',
         to: '/markets#forex',
         id: 'marketforexothermarkets',
     },
-    'stock indices': {
-        icon: StockIndices,
-        title: 'Stock indices',
-        content:
-            'Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets.',
-        to: '/markets#stock',
-        id: 'marketstockothermarkets',
-    },
-    'Synthetic Indices': {
+    Synthetic_Indices: {
         icon: SyntheticIndices,
         title: 'Synthetic Indices',
         content:
@@ -35,9 +28,18 @@ const markets_type = {
         to: '/markets#synthetic',
         id: 'marketsyntheticothermarkets',
     },
+    stock_indices: {
+        icon: StockIndices,
+        title: 'Stock indices',
+        content:
+            'Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets.',
+        to: '/markets#stock',
+        id: 'marketstockothermarkets',
+    },
+
     commodities: {
         icon: Commodities,
-        title: 'Commodities trading',
+        title: 'Commodities',
         content:
             'Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil.',
         to: '/markets#commodities',
@@ -45,60 +47,58 @@ const markets_type = {
     },
 }
 
-const Link = styled(LocalizedLink)`
-    color: var(--color-red);
-    text-decoration: none;
-    font-weight: bold;
-`
-const CardWrapper = styled(Flex)`
-    ${Flex} {
-        border-left: 1px solid var(--color-grey-8);
-        padding-left: 1.2rem;
-    }
-    div:first-child {
-        border-left: none;
-        padding-left: 0;
-    }
-`
 const Card = ({ name }) => {
     const Icon = markets_type[name].icon
-    const ContentWrapper = styled.div`
+
+    const StyledFlex = styled(Flex)`
+        border-radius: 1.6rem;
+        box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+        background-color: var(--color-white);
+        top: 0;
+
         svg {
             width: 64px;
             height: 64px;
         }
     `
     return (
-        <Flex direction="column" max_width="38.4rem" jc="space-between" height="24rem">
-            <ContentWrapper>
-                <Icon dynamic_id={markets_type[name].id} />
-                <Text weight="bold" mt="0.8rem">
-                    {localize(markets_type[name].title)}
-                </Text>
-                <Text mt="0.8rem">{localize(markets_type[name].content)}</Text>
-            </ContentWrapper>
-            <div>
-                <Text size="var(--text-size-xs)" lh="1.43" padding="1rem 1.6rem">
-                    <Link to={markets_type[name].to}>{localize('Learn more about ' + name)}</Link>
-                </Text>
-            </div>
-        </Flex>
+        <StyledFlex direction="column" height="29.6rem" width="28.2rem" p="2.4rem 2.4rem 6.4rem">
+            <Icon dynamic_id={markets_type[name].id} />
+            <Text weight="bold" mt="0.8rem">
+                {localize(markets_type[name].title)}
+            </Text>
+            <Text mt="0.8rem">{localize(markets_type[name].content)}</Text>
+        </StyledFlex>
     )
 }
 
 const OtherMarkets = ({ except }) => {
-    const markets = ['forex', 'commodities', 'stock indices', 'Synthetic Indices']
+    const markets = ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities']
+
+    const Wrapper = styled(Box)`
+        position: relative;
+        width: 100%;
+        height: 19.2rem;
+        background-color: rgba(133, 172, 176, 0.24);
+        border-radius: 16px;
+    `
+    const CardWrapper = styled(Flex)`
+        left: 2.4rem;
+        top: 4rem;
+    `
     return (
-        <SectionContainer>
-            <Container direction="column">
-                <Header size="var(--text-size-header-1)" mb="4rem" align="center">
+        <SectionContainer padding="4rem 0 15.8rem 8rem">
+            <Container height="34rem">
+                <Header size="var(--text-size-header-1)" align="center" max_width="28.2rem">
                     {localize('Other markets you might be interested in')}
                 </Header>
-                <CardWrapper jc="space-between">
-                    {markets.map((market) =>
-                        market !== except ? <Card name={market} key={market} /> : null,
-                    )}
-                </CardWrapper>
+                <Wrapper>
+                    <CardWrapper max_width="93rem" jc="space-around" position="absolute">
+                        {markets.map((market) =>
+                            market !== except ? <Card name={market} key={market} /> : null,
+                        )}
+                    </CardWrapper>
+                </Wrapper>
             </Container>
         </SectionContainer>
     )

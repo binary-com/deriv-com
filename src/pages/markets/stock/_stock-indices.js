@@ -84,7 +84,7 @@ const StockIndices = ({ simple_step_content }) => {
                     </LinkButtonWrapper>
                 }
             />
-            <OtherMarkets except="stock indices" />
+            <OtherMarkets except="stock_indices" />
         </div>
     )
 }

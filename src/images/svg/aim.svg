@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="aim-icon">
+<title id="aim-icon">Aim icon</title>
     <g fill="none" fill-rule="evenodd">
         <path d="M0 0H32V32H0z"/>
         <circle cx="14" cy="18" r="14" fill="#FF444F" fill-rule="nonzero"/>

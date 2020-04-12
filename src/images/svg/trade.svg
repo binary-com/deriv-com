@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="28" viewBox="0 0 32 28">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="28" viewBox="0 0 32 28" role="img" aria-labelledby="trade-icon">
+<title id="trade-icon">Trade icon</title>
     <g fill="none" fill-rule="evenodd" transform="translate(0 -2)">
         <path d="M0 0H32V32H0z"/>
         <path fill="#333" fill-rule="nonzero" d="M14 21h4v5h7c.552 0 1 .448 1 1v2c0 .552-.448 1-1 1H7c-.552 0-1-.448-1-1v-2c0-.552.448-1 1-1h7v-5z"/>

@@ -11,6 +11,33 @@ import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO, Flex, Box } from 'components/containers'
 import { Header } from 'components/elements'
+import PractiseIcon from 'images/svg/aim.svg'
+import TradeIcon from 'images/svg/trade.svg'
+import WithdrawIcon from 'images/svg/withdraw.svg'
+
+const simple_step_content = [
+    {
+        header: localize('Practise'),
+        text: localize(
+            'Open a demo account and practise with an unlimited amount of virtual funds.',
+        ),
+        icon: <PractiseIcon />,
+    },
+    {
+        header: localize('Trade'),
+        text: localize(
+            'Open a real account, make a deposit, and start trading Synthetic Indices and other markets.',
+        ),
+        icon: <TradeIcon />,
+    },
+    {
+        header: localize('Withdraw'),
+        text: localize(
+            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+        ),
+        icon: <WithdrawIcon />,
+    },
+]
 
 const Item = styled.div`
     padding: 1.2rem 2.4rem;
@@ -76,10 +103,16 @@ const Markets = () => {
             </Flex>
             <Box position="relative">
                 <Separator />
-                {active_tab === 'forex' && <Forex />}
-                {active_tab === 'commodities' && <Commodities />}
-                {active_tab === 'stock' && <StockIndices />}
-                {active_tab === 'synthetic' && <SyntheticIndices />}
+                {active_tab === 'forex' && <Forex simple_step_content={simple_step_content} />}
+                {active_tab === 'commodities' && (
+                    <Commodities simple_step_content={simple_step_content} />
+                )}
+                {active_tab === 'stock' && (
+                    <StockIndices simple_step_content={simple_step_content} />
+                )}
+                {active_tab === 'synthetic' && (
+                    <SyntheticIndices simple_step_content={simple_step_content} />
+                )}
             </Box>
             <Signup appearance={Appearances.public} />
         </Layout>

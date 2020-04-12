@@ -24,9 +24,9 @@ const StyledFlex = styled(Flex)`
 const ClientCard = styled.article`
     background-color: var(--color-white);
     border-radius: 4px;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
-    width: 28.2rem;
-    padding: 3.2rem;
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    width: 31.6rem;
+    padding: 3.2rem 2.4rem;
     height: 100%;
     min-height: 22rem;
     margin: ${(props) => (props.m ? props.m : '')};

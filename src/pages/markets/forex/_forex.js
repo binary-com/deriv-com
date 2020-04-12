@@ -86,12 +86,12 @@ const Forex = () => {
     const learn_more_section = useRef(null)
     return (
         <>
-            <WhatTrade
-                sub_header={what_trade_sub_header}
-                header={localize('What is forex?')}
-                learn_more_section={learn_more_section}
-            />
-            <WhyTrade header={localize('Why trade forex on Deriv')}>
+            <WhyTrade
+                header={localize('Why trade forex on Deriv')}
+                text={localize(
+                    'Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events.',
+                )}
+            >
                 <div text={localize('High leverage, tight spreads')} icon={<Leverage />}></div>
                 <div
                     text={localize('Responsive, easy-to-use platforms')}
@@ -107,6 +107,12 @@ const Forex = () => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
+            <WhatTrade
+                sub_header={what_trade_sub_header}
+                header={localize('What is forex?')}
+                learn_more_section={learn_more_section}
+            />
+
             <AvailableTrades
                 Margin={Margin}
                 DigitalOptions={DigitalOptions}

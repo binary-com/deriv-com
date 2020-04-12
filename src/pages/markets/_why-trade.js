@@ -23,14 +23,15 @@ const StyledHeader = styled(Header)`
     }
 `
 
-export const WhyTrade = ({ children, header }) => {
+export const WhyTrade = ({ children, header, text }) => {
     return (
         <SectionContainer>
-            <Flex max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
+            <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
-                    <StyledHeader size="3.6rem" max_width="38.4rem">
+                    <StyledHeader align="center" mb="1.6rem" size="3.6rem" max_width="43.9rem">
                         {localize(header)}
                     </StyledHeader>
+                    <Text align="center">{localize(text)}</Text>
                 </div>
                 <Box max_width="48.6rem" width="100%">
                     {children.map((child, idx) => {
@@ -63,4 +64,5 @@ WhyTrade.propTypes = {
     children: PropTypes.node,
     header: PropTypes.string,
     icon: PropTypes.object,
+    text: PropTypes.string,
 }

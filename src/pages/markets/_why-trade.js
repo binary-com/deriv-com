@@ -3,18 +3,21 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
+import { LinkButton } from 'components/form'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import device from 'themes/device'
 
 const Item = styled(Flex)`
-    border-radius: 6px;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    background-color: var(--color-white);
-
     svg {
         width: 32px;
         height: 32px;
     }
+`
+const ItemContainer = styled(Box)`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 140.4rem;
 `
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
@@ -22,32 +25,25 @@ const StyledHeader = styled(Header)`
         max-width: unset;
     }
 `
-
 export const WhyTrade = ({ children, header, text }) => {
     return (
         <SectionContainer>
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
-                    <StyledHeader align="center" mb="1.6rem" size="3.6rem" max_width="43.9rem">
+                    <StyledHeader align="center" mb="1.6rem" size="3.6rem">
                         {localize(header)}
                     </StyledHeader>
                     <Text align="center">{localize(text)}</Text>
                 </div>
-                <Box max_width="48.6rem" width="100%">
+                <ItemContainer max_width="48.6rem" width="100%" mt="3.2rem" mb="3.2rem">
                     {children.map((child, idx) => {
                         {
                             const { text, icon } = child.props
                             return (
-                                <Item
-                                    key={idx}
-                                    ai="center"
-                                    jc="flex-start"
-                                    p="2rem 2.4rem"
-                                    mb="1.6rem"
-                                >
+                                <Item key={idx} ai="center" direction="column" width="18rem">
                                     {icon}
                                     {
-                                        <Text ml="2.4rem" weight="bold">
+                                        <Text align="center" mt="1.6rem" max_width="18rem">
                                             {text}
                                         </Text>
                                     }
@@ -55,7 +51,10 @@ export const WhyTrade = ({ children, header, text }) => {
                             )
                         }
                     })}
-                </Box>
+                </ItemContainer>
+                <LinkButton to="/signup/" secondary="true">
+                    {localize('Create demo account')}
+                </LinkButton>
             </Flex>
         </SectionContainer>
     )

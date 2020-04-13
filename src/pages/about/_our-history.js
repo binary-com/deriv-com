@@ -35,8 +35,7 @@ const Story = styled.div`
     margin: auto;
     padding: 2rem 0;
 
-    @media ${device.tablet} {
-        margin-bottom: 4rem;
+    @media ${device.tablet} {       
         background-color: var(--color-${(props) => (props.bgColor == 'black' ? 'black' : 'white')});
     }
 `
@@ -77,7 +76,7 @@ const ContentWrapper = styled.div`
             max-width: 41rem;
         }
         ${Text} {
-            margin-bottom: 4rem;
+            margin-bottom: 1rem;
         }
     }
 `
@@ -136,7 +135,7 @@ const LogoContainer = styled.div`
     @media ${device.tablet} {
         text-align: left;
         margin-bottom: 1rem;
-        width: 300px;
+        width: 284px;
         margin-left: 0;
         height: ${(props) => props.height || '10rem'};
         position: relative;

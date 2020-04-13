@@ -5,9 +5,26 @@ import AvailableOptions from '../_available-options.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize, Localize } from 'components/localization'
+//SVG
 import Dtrader from 'images/svg/dtrader-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import SmartTrader from 'images/svg/smarttrader.svg'
+import RiseFall from 'images/svg/options/rise-fall.svg'
+import HigherLower from 'images/svg/options/higher-lower.svg'
+import EbEo from 'images/svg/options/eb-eo.svg'
+import SbGo from 'images/svg/options/sb-go.svg'
+import MatchesDiffers from 'images/svg/options/matches-differs.svg'
+import EvenOdd from 'images/svg/options/even-odd.svg'
+import RcRp from 'images/svg/options/rc-rp.svg'
+import HighLowTicks from 'images/svg/options/hl-ticks.svg'
+import TNT from 'images/svg/options/tnt.svg'
+import Asians from 'images/svg/options/asians.svg'
+import OuOd from 'images/svg/options/ou-od.svg'
+import HighClose from 'images/svg/options/high-close.svg'
+import HighLow from 'images/svg/options/high-low.svg'
+import CloseLow from 'images/svg/options/close-low.svg'
+import CallSpread from 'images/svg/options/call-spread.svg'
+import PutSpread from 'images/svg/options/put-spread.svg'
 
 const Descriptions = styled.div`
     padding-bottom: 4rem;
@@ -62,6 +79,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('Up/Down')}
+                                svg={RiseFall}
                                 content={
                                     <Localize
                                         translate_text="<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot."
@@ -72,6 +90,7 @@ const DigitalOptions = () => {
                         </Col>
                         <Col>
                             <AvailableOptions
+                                svg={HigherLower}
                                 content={
                                     <Localize
                                         translate_text="<0>Higher/Lower:</0> Predict whether the market price will finish higher or lower than a price target (the barrier)."
@@ -85,6 +104,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('In/Out')}
+                                svg={EbEo}
                                 content={
                                     <Localize
                                         translate_text="<0>Ends Between/Ends Outside:</0> Predict whether the market will stop inside or outside two price targets at the end of the period."
@@ -95,6 +115,7 @@ const DigitalOptions = () => {
                         </Col>
                         <Col>
                             <AvailableOptions
+                                svg={SbGo}
                                 content={
                                     <Localize
                                         translate_text="<0>Stays Between/Goes Outside:</0> Predict whether the market will stay inside or go outside two price targets at any time during the contract period."
@@ -108,6 +129,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('Digits')}
+                                svg={MatchesDiffers}
                                 content={
                                     <Localize
                                         translate_text="<0>Matches/Differs:</0> Predict whether the last digit of the last tick will match your prediction."
@@ -118,6 +140,7 @@ const DigitalOptions = () => {
                         </Col>
                         <Col>
                             <AvailableOptions
+                                svg={OuOd}
                                 content={
                                     <Localize
                                         translate_text="<0>Over/Under:</0> Select whether the last digit of the last tick will be higher or lower than your prediction."
@@ -129,6 +152,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 remove_title
+                                svg={EvenOdd}
                                 content={
                                     <Localize
                                         translate_text="<0>Even/Odd:</0> Predict whether the last digit of the last tick will be an even number or odd number."
@@ -142,6 +166,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('Reset Call/Reset Put')}
+                                svg={RcRp}
                                 content={localize(
                                     'Predict whether the market will end up higher or lower than either the current level or the level at a predetermined time (reset time).',
                                 )}
@@ -150,6 +175,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('High/Low Ticks')}
+                                svg={HighLowTicks}
                                 content={localize(
                                     'Predict the highest or lowest tick among the next five ticks.',
                                 )}
@@ -160,6 +186,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('Touch/No Touch:')}
+                                svg={TNT}
                                 content={localize(
                                     'Predict whether the market will touch or not touch a target at any time during the contract period.',
                                 )}
@@ -168,6 +195,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('Asians')}
+                                svg={Asians}
                                 content={localize(
                                     'Predict whether the market will end higher or lower than the average price.',
                                 )}
@@ -178,6 +206,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('Only Ups/Only Downs')}
+                                svg={OuOd}
                                 content={localize(
                                     'Predict whether consecutive ticks will rise or fall successively.',
                                 )}
@@ -188,6 +217,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('Lookbacks')}
+                                svg={HighClose}
                                 content={
                                     <Localize
                                         translate_text="<0>High-Close:</0> When you purchase a ‘High-Close’ contract, your win or loss will be equal to the multiplier times the difference between the high and the close over the duration of the contract."
@@ -198,6 +228,7 @@ const DigitalOptions = () => {
                         </Col>
                         <Col>
                             <AvailableOptions
+                                svg={HighLow}
                                 content={
                                     <Localize
                                         translate_text="<0>High-Low:</0> When you purchase a ‘High-Low’ contract, your win or loss will be equal to the multiplier times the difference between the high and the low over the duration of the contract."
@@ -209,6 +240,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 remove_title
+                                svg={CloseLow}
                                 content={
                                     <Localize
                                         translate_text="<0>Close-Low:</0> When you purchase a ‘Close-Low’ contract, your win or loss will be equal to the multiplier times the difference between the close and the low over the duration of the contract."
@@ -222,6 +254,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('Call Spread/Put Spread')}
+                                svg={CallSpread}
                                 content={
                                     <Localize
                                         translate_text="<0>Call Spread:</0> Predict whether the exit spot will be higher or equal to the upper barrier."
@@ -232,6 +265,7 @@ const DigitalOptions = () => {
                         </Col>
                         <Col>
                             <AvailableOptions
+                                svg={PutSpread}
                                 content={
                                     <Localize
                                         translate_text="<0>Put Spread:</0> Predict whether the exit spot will be lower or equal to the upper barrier."

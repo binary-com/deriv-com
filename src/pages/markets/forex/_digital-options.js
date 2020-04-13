@@ -5,9 +5,17 @@ import AvailableOptions from '../_available-options.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
+//SVG
 import Dtrader from 'images/svg/dtrader-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import SmartTrader from 'images/svg/smarttrader.svg'
+import RiseFall from 'images/svg/options/rise-fall.svg'
+import HigherLower from 'images/svg/options/higher-lower.svg'
+import EbEo from 'images/svg/options/eb-eo.svg'
+import SbGo from 'images/svg/options/sb-go.svg'
+import TNT from 'images/svg/options/tnt.svg'
+import CallSpread from 'images/svg/options/call-spread.svg'
+import PutSpread from 'images/svg/options/put-spread.svg'
 
 const Descriptions = styled.div`
     padding-bottom: 4rem;
@@ -62,6 +70,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 title={localize('Up/Down')}
+                                svg={RiseFall}
                                 content={
                                     <Localize
                                         translate_text="<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot."
@@ -72,6 +81,7 @@ const DigitalOptions = () => {
                         </Col>
                         <Col>
                             <AvailableOptions
+                                svg={HigherLower}
                                 content={
                                     <Localize
                                         translate_text="<0>Higher/Lower:</0> Predict whether the market price will finish higher or lower than a price target (the barrier)."
@@ -84,6 +94,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
+                                svg={EbEo}
                                 title={localize('In/Out')}
                                 content={
                                     <Localize
@@ -95,6 +106,7 @@ const DigitalOptions = () => {
                         </Col>
                         <Col>
                             <AvailableOptions
+                                svg={SbGo}
                                 content={
                                     <Localize
                                         translate_text="<0>Stays Between/Goes Outside:</0> Predict whether the market will stay inside or go outside two price targets at any time during the contract period."
@@ -107,6 +119,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
+                                svg={CallSpread}
                                 title={localize('Call Spread/Put Spread')}
                                 content={
                                     <Localize
@@ -118,6 +131,7 @@ const DigitalOptions = () => {
                         </Col>
                         <Col>
                             <AvailableOptions
+                                svg={PutSpread}
                                 content={
                                     <Localize
                                         translate_text="<0>Put Spread:</0> Predict whether the exit spot will be lower or equal to the upper barrier."
@@ -130,6 +144,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
+                                svg={TNT}
                                 title={localize('Touch/No Touch:')}
                                 content={localize(
                                     'Predict whether the market will touch or not touch a target at any time during the contract period.',

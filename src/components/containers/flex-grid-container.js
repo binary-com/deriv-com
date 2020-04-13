@@ -17,6 +17,7 @@ const FlexGridContainer = styled(Container)`
 
         @media ${device.tabletL} {
             margin: ${(props) => (props.mobile_gap ? props.mobile_gap : '1.5rem 0')};
+            width: ${(props) => (props.mobile_content_width ? props.mobile_content_width : '48%')};
         }
     }
 

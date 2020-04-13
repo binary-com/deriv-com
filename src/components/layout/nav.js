@@ -21,6 +21,7 @@ import device from 'themes/device'
 import { binary_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
+import LogoSignup from 'images/svg/logo_deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
 import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
@@ -427,7 +428,7 @@ export const Nav = () => {
 export const NavStatic = () => (
     <StaticWrapper>
         <StyledLink to="/">
-            <Logo />
+            <LogoSignup />
         </StyledLink>
     </StaticWrapper>
 )

@@ -16,6 +16,7 @@ export const CardStyle = css`
 `
 
 const CardContent = styled(Text)`
+    font-size: var(--text-size-xs);
     margin-top: 0.5rem;
     line-height: 1.25;
 
@@ -337,7 +338,7 @@ export const NavCard = ({ icon: Icon, title, content, to, style, external, targe
 
 NavCard.propTypes = {
     className: PropTypes.string,
-    content: PropTypes.string,
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     external: PropTypes.string,
     icon: PropTypes.func,
     style: PropTypes.object,

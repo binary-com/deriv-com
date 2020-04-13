@@ -41,7 +41,7 @@ const trading = [
         ),
         second_title: localize('Practice with Demo accounts'),
         second_subtitle: localize(
-            'Create demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
+            'Create free demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
         ),
         image_name: 'dmt-5-mac.png',
         image_alt: localize('DMT5 Demo Account'),

@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/practice.png'
+import { isBrowser } from 'common/utility'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -24,7 +25,10 @@ const SEO = ({ description, meta, title, no_index }) => {
             }
         `,
     )
-
+    let no_index_staging
+    if (isBrowser() && window.location.hostname == 'dev.deriv.com') {
+        no_index_staging = true
+    }
     const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
 
@@ -139,7 +143,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                     name: 'referrer',
                     content: 'origin',
                 },
-                ...(no_index || is_ach_page
+                ...(no_index || no_index_staging || is_ach_page
                     ? [
                           {
                               name: 'robots',

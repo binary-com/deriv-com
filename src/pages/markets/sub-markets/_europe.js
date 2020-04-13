@@ -13,19 +13,16 @@ import {
 } from 'components/elements/symbols.js'
 
 const Symbol = styled(Flex)`
-    padding: 0.8rem 0;
-    height: unset;
-    justify-content: flex-start;
-    width: 15.81rem;
-    margin: 0 auto;
+    width: fit-content;
+    margin: 1.6rem 2.4rem 0 0;
 
     svg {
         width: 32px;
         height: 32px;
+        margin-right: 0.8rem;
     }
     ${Text} {
         font-weight: normal;
-        margin-left: 1.6rem;
     }
 `
 
@@ -44,7 +41,7 @@ const Europe = () => {
                 <OTCFRENCH />
                 <Text>{localize('French Index')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol ai="center" mr="0 !important">
                 <OTCGERMAN />
                 <Text>{localize('German Index')}</Text>
             </Symbol>

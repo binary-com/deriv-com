@@ -1,127 +1,76 @@
 import React from 'react'
 import styled from 'styled-components'
-import Scrollbar from 'react-perfect-scrollbar'
 import { Americas, AsiaOceania, Europe } from '../sub-markets/_submarkets.js'
-import { Accordion, AccordionItem, Text } from 'components/elements'
-import { SectionContainer, CssGrid, Box } from 'components/containers'
+import { Text } from 'components/elements'
+import { SectionContainer, Flex } from 'components/containers'
 import { localize } from 'components/localization'
-import 'react-perfect-scrollbar/dist/css/styles.css'
+import DMT5 from 'images/svg/dmt5-icon.svg'
 
-const header_style = {
-    padding: '2.4rem 10.2rem',
-    height: 'auto',
-    borderBottom: 'unset',
-    borderTop: '1px solid var(--color-grey-2)',
-    boxShadow: 'unset',
-}
-const first_item_style = {
-    padding: '2.4rem 10.2rem',
-    height: 'auto',
-    borderBottom: 'unset',
-    borderTop: 'unset',
-    boxShadow: 'unset',
-}
-
-const ContentWrapper = styled.div`
-    padding-top: 2.5rem;
+const Descriptions = styled.div`
     padding-bottom: 4rem;
-    max-width: 99.6rem;
-    margin: 0 auto;
+    border-bottom: 1px solid var(--color-grey-21);
 `
-const Row = styled(Box)`
-    border-radius: 4px;
-    border: 1px solid var(--color-grey-22);
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
-
-    div:last-child {
-        border-right: unset;
-    }
+const Col = styled(Flex)`
+    ${(props) => props.border_left && 'border-left: 1px solid #e3e4e5;'}
 `
-const Col = styled(Box)`
-    border-right: 1px solid var(--color-grey-22);
-    height: 100%;
-
-    ${Text} {
-        text-align: center;
-    }
+const Row = styled(Flex)`
+    border: 1px solid #e3e4e5;
+    ${(props) => props.romve_border_top && 'border-top: unset;'}
 `
 const Margin = () => {
     return (
-        <SectionContainer padding="0">
-            <Accordion>
-                <AccordionItem
-                    header_style={first_item_style}
-                    header={localize('How does margin trading work?')}
+        <SectionContainer padding="4rem 0 8rem 0">
+            <Flex max_width="79.2rem" m="0 auto" direction="column">
+                <Descriptions>
+                    <Text>
+                        {localize(
+                            'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
+                        )}
+                    </Text>
+                    <Flex jc="flex-end" ai="center" mt="2rem" pr="8rem">
+                        <Text mr="0.8rem">{localize('Available on')}</Text>
+                        <DMT5 />
+                    </Flex>
+                </Descriptions>
+                <Text weight="bold" mt="2.4rem">
+                    {localize('Instruments available for margin trading')}
+                </Text>
+                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
+                    <Col max_width="13.2rem">
+                        <Text weight="bold" max_width="9.7rem" align="center">
+                            {localize('Americas')}
+                        </Text>
+                    </Col>
+                    <Col wrap="wrap" jc="flex-start" p="2.7rem 0 2.7rem 1.6rem" border_left>
+                        <Americas />
+                    </Col>
+                </Row>
+                <Row jc="flex-start" ai="center" romve_border_top>
+                    <Col max_width="13.2rem">
+                        <Text weight="bold" max_width="9.7rem" align="center">
+                            {localize('Asia/Oceania')}
+                        </Text>
+                    </Col>
+                    <Col wrap="wrap" jc="flex-start" p="3.2rem 0 3.2rem 1.6rem" border_left>
+                        <AsiaOceania />
+                    </Col>
+                </Row>
+                <Row
+                    jc="flex-start"
+                    ai="center"
+                    romve_border_top
+                    background="rgba(242, 243, 244, 0.3)"
                 >
-                    <ContentWrapper>
-                        <Text>
-                            {localize(
-                                'Margin trading gives you more trading power, meaning that with the same capital, you will be able to buy more of an asset.',
-                            )}
+                    <Col max_width="13.2rem">
+                        <Text weight="bold" max_width="9.7rem" align="center">
+                            {localize('Europe')}
                         </Text>
-                        <Text mt="1.8rem">
-                            {localize(
-                                'The result is a more substantial profit when you win a trade and of course, a more significant loss when you lose.',
-                            )}
-                        </Text>
-                        <Text mt="1.8rem">
-                            {localize(
-                                'For example, when trading on margin, you can purchase 1,000 units of an asset that is trading at USD 50 for only USD 500',
-                            )}
-                        </Text>
-                        <Text mt="1.8rem">
-                            {localize(
-                                'Typically, the contract should cost you USD 50,000, but with margin trading, you only pay 1% of the supposed capital. That is a leverage of 100:1.',
-                            )}
-                        </Text>
-                        <Text mt="1.8rem">
-                            {localize(
-                                'At Deriv, we offer high leverage, up to 1000:1, to make trading more accessible and less capital intensive.',
-                            )}
-                        </Text>
-                        <Text mt="1.8rem">
-                            {localize(
-                                'This ability to expand trading results has made margin a popular trading strategy among new and experienced traders.',
-                            )}
-                        </Text>
-                    </ContentWrapper>
-                </AccordionItem>
-                <AccordionItem
-                    header_style={header_style}
-                    header={localize('View Synthetic Indices available on Deriv')}
-                >
-                    <ContentWrapper>
-                        <Row>
-                            <CssGrid columns="repeat(3, 1fr)">
-                                <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Americas')}</Text>
-                                </Col>
-                                <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Asia/Oceania')}</Text>
-                                </Col>
-                                <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Europe')}</Text>
-                                </Col>
-                            </CssGrid>
-                        </Row>
-                        <Row>
-                            <Scrollbar style={{ maxHeight: '28.8rem' }}>
-                                <CssGrid columns="repeat(3, 1fr)">
-                                    <Col>
-                                        <Americas />
-                                    </Col>
-                                    <Col>
-                                        <AsiaOceania />
-                                    </Col>
-                                    <Col>
-                                        <Europe />
-                                    </Col>
-                                </CssGrid>
-                            </Scrollbar>
-                        </Row>
-                    </ContentWrapper>
-                </AccordionItem>
-            </Accordion>
+                    </Col>
+                    <Col wrap="wrap" jc="flex-start" p="0.8rem 0 2.4rem 1.6rem" border_left>
+                        <Europe />
+                    </Col>
+                </Row>
+            </Flex>
         </SectionContainer>
     )
 }

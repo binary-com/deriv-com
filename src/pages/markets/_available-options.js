@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import { Text } from 'components/elements'
 import { Flex, Box } from 'components/containers'
 
-const AvailableOptions = ({ title, content }) => {
+const AvailableOptions = ({ title, content, remove_title }) => {
     return (
-        <Flex direction="column">
-            <Box mb="0.8rem" height="2.4rem">
-                <Text weight="bold">{title ? title : null}</Text>
-            </Box>
+        <Flex direction="column" mt={remove_title ? '1.6rem !important' : ''}>
+            {!remove_title && (
+                <Box mb="0.8rem" height="2.4rem">
+                    <Text weight="bold">{title ? title : null}</Text>
+                </Box>
+            )}
             <Flex jc="flex-start">
                 <div
                     style={{
@@ -29,6 +31,7 @@ const AvailableOptions = ({ title, content }) => {
 
 AvailableOptions.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    remove_title: PropTypes.bool,
     title: PropTypes.string,
 }
 export default AvailableOptions

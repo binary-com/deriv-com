@@ -6,16 +6,16 @@ import { Flex } from 'components/containers'
 import { OILUSD } from 'components/elements/symbols.js'
 
 const Symbol = styled(Flex)`
-    padding: 0.8rem 0;
-    height: unset;
+    width: fit-content;
+    margin-right: 2.4rem;
 
     svg {
         width: 32px;
         height: 32px;
+        margin-right: 0.8rem;
     }
     ${Text} {
         font-weight: normal;
-        margin-left: 1.6rem;
     }
 `
 

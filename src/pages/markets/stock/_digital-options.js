@@ -1,135 +1,170 @@
 import React from 'react'
 import styled from 'styled-components'
-import Scrollbar from 'react-perfect-scrollbar'
 import { Americas, AsiaOceania, Europe } from '../sub-markets/_submarkets.js'
-import { Accordion, AccordionItem, Text } from 'components/elements'
-import { SectionContainer, CssGrid, Box } from 'components/containers'
+import AvailableOptions from '../_available-options.js'
+import { Text } from 'components/elements'
+import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import 'react-perfect-scrollbar/dist/css/styles.css'
+//SVG
+import Dtrader from 'images/svg/dtrader-icon.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import SmartTrader from 'images/svg/smarttrader.svg'
+import RiseFall from 'images/svg/options/rise-fall.svg'
+import HigherLower from 'images/svg/options/higher-lower.svg'
+import EbEo from 'images/svg/options/eb-eo.svg'
+import SbGo from 'images/svg/options/sb-go.svg'
+import TNT from 'images/svg/options/tnt.svg'
 
-const header_style = {
-    padding: '2.4rem 10.2rem',
-    height: 'auto',
-    borderBottom: 'unset',
-    borderTop: '1px solid var(--color-grey-2)',
-    boxShadow: 'unset',
-}
-const first_item_style = {
-    padding: '2.4rem 10.2rem',
-    height: 'auto',
-    borderBottom: 'unset',
-    borderTop: 'unset',
-    boxShadow: 'unset',
-}
-
-const ContentWrapper = styled.div`
-    padding-top: 2.5rem;
+const Descriptions = styled.div`
     padding-bottom: 4rem;
-    max-width: 99.6rem;
-    margin: 0 auto;
+    border-bottom: 1px solid var(--color-grey-21);
 `
-const Row = styled(Box)`
-    border-radius: 4px;
-    border: 1px solid var(--color-grey-22);
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
+const Col = styled(Flex)`
+    ${(props) => props.border_left && 'border-left: 1px solid #e3e4e5;'}
+`
+const Row = styled(Flex)`
+    border: ${(props) => (props.remove_border ? '' : '1px solid #e3e4e5')};
+    ${(props) => props.romve_border_top && 'border-top: unset;'}
+`
+const Options = styled(Descriptions)`
+    margin-top: 1.6rem;
 
-    div:last-child {
-        border-right: unset;
+    ${Row} {
+        margin-top: 4rem;
+        border: unset;
+        justify-content: space-between;
+
+        ${Col} {
+            max-width: 38.4rem;
+        }
+    }
+    div:first-child {
+        margin-top: 0;
     }
 `
-const Col = styled(Box)`
-    border-right: 1px solid var(--color-grey-22);
-    height: 100%;
 
-    ${Text} {
-        text-align: center;
-    }
-`
 const DigitalOptions = () => {
     return (
-        <SectionContainer padding="0">
-            <Accordion>
-                <AccordionItem
-                    header={localize('Option trades available on stock indices')}
-                    header_style={first_item_style}
+        <SectionContainer padding="4rem 0 8rem 0">
+            <Flex max_width="79.2rem" m="0 auto" direction="column">
+                <Descriptions>
+                    <Text>
+                        {localize(
+                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on stock indices.',
+                        )}
+                    </Text>
+                    <Flex jc="flex-end" ai="center" mt="2rem">
+                        <Text mr="0.8rem">{localize('Available on')}</Text>
+                        <Dtrader style={{ marginRight: '0.8rem' }} />
+                        <DBot style={{ marginRight: '0.8rem' }} />
+                        <SmartTrader width="32px" height="32px" />
+                    </Flex>
+                </Descriptions>
+                <Text weight="bold" mt="2.4rem">
+                    {localize('Option trades available on stock indices')}
+                </Text>
+                <Options>
+                    <Row>
+                        <Col>
+                            <AvailableOptions
+                                title={localize('Up/Down')}
+                                svg={RiseFall}
+                                content={
+                                    <Localize
+                                        translate_text="<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot."
+                                        components={[<strong key={0} />]}
+                                    />
+                                }
+                            />
+                        </Col>
+                        <Col>
+                            <AvailableOptions
+                                svg={HigherLower}
+                                content={
+                                    <Localize
+                                        translate_text="<0>Higher/Lower:</0> Predict whether the market price will finish higher or lower than a price target (the barrier)."
+                                        components={[<strong key={0} />]}
+                                    />
+                                }
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <AvailableOptions
+                                title={localize('In/Out')}
+                                svg={EbEo}
+                                content={
+                                    <Localize
+                                        translate_text="<0>Ends Between/Ends Outside:</0> Predict whether the market will stop inside or outside two price targets at the end of the period."
+                                        components={[<strong key={0} />]}
+                                    />
+                                }
+                            />
+                        </Col>
+                        <Col>
+                            <AvailableOptions
+                                svg={SbGo}
+                                content={
+                                    <Localize
+                                        translate_text="<0>Stays Between/Goes Outside:</0> Predict whether the market will stay inside or go outside two price targets at any time during the contract period."
+                                        components={[<strong key={0} />]}
+                                    />
+                                }
+                            />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <AvailableOptions
+                                svg={TNT}
+                                title={localize('Touch/No Touch:')}
+                                content={localize(
+                                    'Predict whether the market will touch or not touch a target at any time during the contract period.',
+                                )}
+                            />
+                        </Col>
+                    </Row>
+                </Options>
+                <Text weight="bold" mt="2.4rem">
+                    {localize('Instruments available for options trading')}
+                </Text>
+                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
+                    <Col max_width="13.2rem">
+                        <Text weight="bold" max_width="9.7rem" align="center">
+                            {localize('Americas')}
+                        </Text>
+                    </Col>
+                    <Col wrap="wrap" jc="flex-start" p="2.7rem 0 2.7rem 1.6rem" border_left>
+                        <Americas />
+                    </Col>
+                </Row>
+                <Row jc="flex-start" ai="center" romve_border_top>
+                    <Col max_width="13.2rem">
+                        <Text weight="bold" max_width="9.7rem" align="center">
+                            {localize('Asia/Oceania')}
+                        </Text>
+                    </Col>
+                    <Col wrap="wrap" jc="flex-start" p="3.2rem 0 3.2rem 1.6rem" border_left>
+                        <AsiaOceania />
+                    </Col>
+                </Row>
+                <Row
+                    jc="flex-start"
+                    ai="center"
+                    romve_border_top
+                    background="rgba(242, 243, 244, 0.3)"
                 >
-                    <ContentWrapper>
-                        <Text weight="bold" align="center">
-                            {localize('Up/Down')}
+                    <Col max_width="13.2rem">
+                        <Text weight="bold" max_width="9.7rem" align="center">
+                            {localize('Europe')}
                         </Text>
-                        <Text mt="1.8rem">
-                            <Localize
-                                translate_text="<0>Rise/Fall</0>: Predict whether the exit spot will be strictly higher or lower than the entry spot.If you select ‘Higher’, you win the payout if the exit spot is strictly higher than the entry spot. If you select ‘Lower’, you win the payout if the exit spot is strictly lower than the entry spot. If you select ‘Allow equals’, you win the payout if the exit spot is higher than or equal to the entry spot for ‘Higher’. Similarly, you win the payout if the exit spot is lower than or equal to the entry spot for ‘Lower’."
-                                components={[<strong key={0} />]}
-                            />
-                        </Text>
-                        <Text mt="1.8rem">
-                            <Localize
-                                translate_text="<0>Higher/Lower</0>: Predict whether the market price will finish higher or lower than a price target (the barrier). If you select ‘Higher’, you win the payout if the exit spot is strictly higher than the barrier. If you select ‘Lower’, you win the payout if the exit spot is strictly lower than the barrier. If the exit spot is equal to the barrier, you don't win the payout."
-                                components={[<strong key={0} />]}
-                            />
-                        </Text>
-                        <Text weight="bold" align="center" mt="1.8rem">
-                            {localize('In/Out')}
-                        </Text>
-                        <Text mt="1.8rem">
-                            <Localize
-                                translate_text="<0>Ends Between/Ends Outside</0>: Predict whether the market will stop inside or outside two price targets at the end of the period. If you select ‘Ends Between’, you win the payout if the exit spot is strictly higher than the low barrier and lower than the high barrier. If you select ‘Ends Outside’, you win the payout if the exit spot is either strictly higher than the high barrier, or strictly lower than the low barrier. If the exit spot is equal to either the low barrier or the high barrier, you don't win the payout."
-                                components={[<strong key={0} />]}
-                            />
-                        </Text>
-                        <Text mt="1.8rem">
-                            <Localize
-                                translate_text="<0>Stays Between/Goes Outside</0>: Predict whether the market will stay inside or go outside two price targets at any time during the contract period. If you select ‘Stays Between’, you win the payout if the market stays between (does not touch). either the high barrier or the low barrier at any time during the contract period. If you select ‘Goes Outside’, you win the payout if the market touches either the high barrier or the low barrier at any time during the contract period."
-                                components={[<strong key={0} />]}
-                            />
-                        </Text>
-                        <Text weight="bold" align="center">
-                            {localize('Touch/No Touch')}
-                        </Text>
-                        <Text mt="1.8rem">
-                            {localize(
-                                'Predict whether the market will touch or not touch a target at any time during the contract period. If you select ‘Touches’, you win the payout if the market touches the barrier at any time during the contract period. If you select ‘Does Not Touch’, you win the payout if the market never touches the barrier at any time during the contract period.',
-                            )}
-                        </Text>
-                    </ContentWrapper>
-                </AccordionItem>
-                <AccordionItem
-                    header_style={header_style}
-                    header={localize('View Synthetic Indices available on Deriv')}
-                >
-                    <ContentWrapper>
-                        <Row>
-                            <CssGrid columns="repeat(3, 1fr)">
-                                <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Americas')}</Text>
-                                </Col>
-                                <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Asia/Oceania')}</Text>
-                                </Col>
-                                <Col p="2.4rem 0">
-                                    <Text weight="bold">{localize('Europe')}</Text>
-                                </Col>
-                            </CssGrid>
-                        </Row>
-                        <Row>
-                            <Scrollbar style={{ maxHeight: '28.8rem' }}>
-                                <CssGrid columns="repeat(3, 1fr)">
-                                    <Col>
-                                        <Americas />
-                                    </Col>
-                                    <Col>
-                                        <AsiaOceania />
-                                    </Col>
-                                    <Col>
-                                        <Europe />
-                                    </Col>
-                                </CssGrid>
-                            </Scrollbar>
-                        </Row>
-                    </ContentWrapper>
-                </AccordionItem>
-            </Accordion>
+                    </Col>
+                    <Col wrap="wrap" jc="flex-start" p="0.8rem 0 2.4rem 1.6rem" border_left>
+                        <Europe />
+                    </Col>
+                </Row>
+            </Flex>
         </SectionContainer>
     )
 }

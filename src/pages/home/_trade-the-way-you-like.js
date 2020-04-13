@@ -15,7 +15,7 @@ const StyledSection = styled(SectionContainer)`
 const TradeTheWayYouLike = () => {
     return (
         <StyledSection padding="5rem 2rem">
-            <Header size="3rem" align="center">
+            <Header as="h2" align="center">
                 {localize('Trade the way you like')}
             </Header>
             <Text size="var(--text-size-sm)" mt="2rem" align="center">

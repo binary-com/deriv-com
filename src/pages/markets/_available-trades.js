@@ -40,9 +40,10 @@ const CardContainer = styled(Flex)`
 
     ${Flex} {
         svg {
-            width: ${(props) => (props.active_tab === props.name ? '32px' : '0')};
-            height: ${(props) => (props.active_tab === props.name ? '32px' : '0')};
+            width: 32px;
+            height: 32px;
             margin-right: 1.6rem;
+            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0')};
         }
         h4 {
             color: ${(props) =>

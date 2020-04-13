@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Flex, SectionContainer, Show } from 'components/containers'
+import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Box from 'components/containers/box'
@@ -49,9 +49,6 @@ const markets_type = {
 }
 const Section = styled(SectionContainer)`
     @media ${device.laptopM} {
-        padding: 8rem 0 8.8rem 8rem;
-    }
-    @media ${device.tablet} {
         padding: 8rem 0 8.8rem 0;
     }
 `
@@ -92,6 +89,7 @@ const OtherMarkets = ({ except }) => {
     const StyledFlex = styled(Flex)`
         @media ${device.laptopM} {
             flex-direction: column;
+            margin: auto;
         }
     `
     const Wrapper = styled(Box)`
@@ -108,19 +106,19 @@ const OtherMarkets = ({ except }) => {
         top: 4rem;
         max-height: 29.6rem;
     `
+    const StyledHeader = styled(Header)`
+        @media ${device.laptopM} {
+            text-align: center;
+            max-width: unset;
+        }
+    `
     return (
         <Section padding="8rem 0 8.8rem 12rem">
             <StyledFlex tablet_jc="center">
-                <Show.Desktop>
-                    <Header size="var(--text-size-header-1)" align="left" max_width="28.2rem">
-                        {localize('Other markets you might be interested in')}
-                    </Header>
-                </Show.Desktop>
-                <Show.Mobile>
-                    <Header size="var(--text-size-header-1)" align="center">
-                        {localize('Other markets you might be interested in')}
-                    </Header>
-                </Show.Mobile>
+                <StyledHeader size="var(--text-size-header-1)" align="left" max_width="28.2rem">
+                    {localize('Other markets you might be interested in')}
+                </StyledHeader>
+
                 <Box position="relative" width="100%" max_width="103.8rem" height="32rem">
                     <Wrapper>
                         <CardWrapper

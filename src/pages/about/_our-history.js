@@ -111,7 +111,7 @@ const StyledHeader = styled(Header)`
         transform: ${(props) => (props.left ? 'translateX(-87%)' : 'translateX(-1%)')};
     }
     @media ${device.tablet} {
-        margin-left: -24rem;
+        margin-left: -186px;
         width: auto;
         transform: unset;
         margin-bottom: 1rem;
@@ -136,13 +136,13 @@ const LogoContainer = styled.div`
     @media ${device.tablet} {
         text-align: left;
         margin-bottom: 1rem;
-        width: 37rem;
+        width: 300px;
         margin-left: 0;
         height: ${(props) => props.height || '10rem'};
         position: relative;
     }
     @media ${device.mobileS} {
-        margin-left: 5rem;
+        margin-left: 0;
     }
 `
 const LogoDiv = styled.div`

@@ -5,7 +5,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/practice.png'
-import { isBrowser } from 'common/utility'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -26,7 +25,7 @@ const SEO = ({ description, meta, title, no_index }) => {
         `,
     )
     let no_index_staging
-    if (isBrowser() && window.location.hostname == 'dev.deriv.com') {
+    if (process.env.GATSBY_ENV === 'staging') {
         no_index_staging = true
     }
     const metaDescription = description || queries.site.siteMetadata.description

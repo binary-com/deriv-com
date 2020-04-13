@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Container, Flex, SectionContainer, Show } from 'components/containers'
+import { Flex, SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Box from 'components/containers/box'
@@ -10,6 +10,7 @@ import Commodities from 'pages/markets-svg/_market-commodities.js'
 import Forex from 'pages/markets-svg/_market-forex.js'
 import StockIndices from 'pages/markets-svg/_market-stock.js'
 import SyntheticIndices from 'pages/markets-svg/_market-synthetic.js'
+import device from 'themes/device'
 
 const markets_type = {
     forex: {
@@ -46,7 +47,14 @@ const markets_type = {
         id: 'marketcommoditiesothermarket',
     },
 }
-
+const Section = styled(SectionContainer)`
+    @media ${device.laptopM} {
+        padding: 8rem 0 8.8rem 8rem;
+    }
+    @media ${device.tablet} {
+        padding: 8rem 0 8.8rem 0;
+    }
+`
 const Card = ({ name }) => {
     const Icon = markets_type[name].icon
 
@@ -62,7 +70,13 @@ const Card = ({ name }) => {
         }
     `
     return (
-        <StyledFlex direction="column" height="29.6rem" width="28.2rem" p="2.4rem 2.4rem 6.4rem">
+        <StyledFlex
+            direction="column"
+            height="29.6rem"
+            max_width="28.2rem"
+            width="100%"
+            p="2.4rem 2.4rem 6.4rem"
+        >
             <Icon dynamic_id={markets_type[name].id} />
             <Text weight="bold" mt="0.8rem">
                 {localize(markets_type[name].title)}
@@ -75,42 +89,54 @@ const Card = ({ name }) => {
 const OtherMarkets = ({ except }) => {
     const markets = ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities']
 
+    const StyledFlex = styled(Flex)`
+        @media ${device.laptopM} {
+            flex-direction: column;
+        }
+    `
     const Wrapper = styled(Box)`
         position: relative;
+        max-width: 103.8rem;
         width: 100%;
         height: 19.2rem;
-        background-color: rgba(133, 172, 176, 0.24);
+        background: rgba(133, 172, 176, 0.24);
         border-radius: 16px;
     `
+
     const CardWrapper = styled(Flex)`
         left: 2.4rem;
         top: 4rem;
+        max-height: 29.6rem;
     `
     return (
-        <SectionContainer padding="8rem 0 8.8rem 8rem">
-            <Container height="34rem">
-                <Flex tablet_direction="column" tablet_jc="center">
-                    <Show.Desktop>
-                        <Header size="var(--text-size-header-1)" align="center" max_width="28.2rem">
-                            {localize('Other markets you might be interested in')}
-                        </Header>
-                    </Show.Desktop>
-                    <Show.Mobile>
-                        <Header size="var(--text-size-header-1)" align="center">
-                            {localize('Other markets you might be interested in')}
-                        </Header>
-                    </Show.Mobile>
-
+        <Section padding="8rem 0 8.8rem 12rem">
+            <StyledFlex tablet_jc="center">
+                <Show.Desktop>
+                    <Header size="var(--text-size-header-1)" align="left" max_width="28.2rem">
+                        {localize('Other markets you might be interested in')}
+                    </Header>
+                </Show.Desktop>
+                <Show.Mobile>
+                    <Header size="var(--text-size-header-1)" align="center">
+                        {localize('Other markets you might be interested in')}
+                    </Header>
+                </Show.Mobile>
+                <Box position="relative" width="100%" max_width="103.8rem" height="32rem">
                     <Wrapper>
-                        <CardWrapper max_width="93rem" jc="space-around" position="absolute">
+                        <CardWrapper
+                            max_width="93rem"
+                            jc="space-around"
+                            position="absolute"
+                            height="100%"
+                        >
                             {markets.map((market) =>
                                 market !== except ? <Card name={market} key={market} /> : null,
                             )}
                         </CardWrapper>
                     </Wrapper>
-                </Flex>
-            </Container>
-        </SectionContainer>
+                </Box>
+            </StyledFlex>
+        </Section>
     )
 }
 

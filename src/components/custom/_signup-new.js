@@ -189,7 +189,7 @@ const SignupNew = ({
             <Show.Desktop>
                 <Header as="h4" mb="0.8rem">
                     {localize('Sign up')}
-                </Header>{' '}
+                </Header>
                 <Text>{localize('Enter your email address to begin')}</Text>
             </Show.Desktop>
             <Show.Mobile>

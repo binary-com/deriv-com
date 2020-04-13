@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import OtherMarkets from '../_other-markets.js'
 import { WhyTrade } from '../_why-trade'
@@ -8,7 +7,6 @@ import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import SimpleSteps from 'common/_simple-steps'
 import { localize } from 'components/localization'
-import { LinkButton } from 'components/form'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import NoCommission from 'images/svg/no-commission.svg'
@@ -28,17 +26,12 @@ import VariableSpreads from 'images/svg/variable-spreads.svg'
 //     },
 // ]
 
-const LinkButtonWrapper = styled.div`
-    margin-top: 6.1rem;
-    text-align: center;
-    height: 3rem;
-`
 const Commodities = ({ simple_step_content }) => {
     simple_step_content[1].text =
         'Open a real account, make a deposit, and start trading commodities and other markets. '
     // const learn_more_section = useRef(null)
     return (
-        <div>
+        <>
             <WhyTrade
                 header={localize('Why trade commodities on Deriv')}
                 text={localize(
@@ -76,16 +69,10 @@ const Commodities = ({ simple_step_content }) => {
             <SimpleSteps
                 header={localize('Start trading commodities on Deriv in 3 simple steps')}
                 content={simple_step_content}
-                component={
-                    <LinkButtonWrapper>
-                        <LinkButton to="/signup/" secondary="true">
-                            {localize('Sign up now')}
-                        </LinkButton>
-                    </LinkButtonWrapper>
-                }
+                sign_up
             />
             <OtherMarkets except="commodities" />
-        </div>
+        </>
     )
 }
 Commodities.propTypes = {

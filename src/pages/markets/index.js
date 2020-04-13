@@ -79,7 +79,7 @@ const Markets = () => {
         <Layout>
             <SEO description={localize('')} title={localize('')} />
             <Hero />
-            <Flex mt="4rem">
+            <Flex mt="4rem" background="var(--color-grey-23)">
                 <Item onClick={() => handleTabChange('forex')} active_tab={active_tab} name="forex">
                     <Header as="h4">{localize('Forex')}</Header>
                 </Item>

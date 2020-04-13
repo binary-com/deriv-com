@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import OtherMarkets from '../_other-markets.js'
 import { WhyTrade } from '../_why-trade'
@@ -7,7 +6,6 @@ import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import SimpleSteps from 'common/_simple-steps'
-import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
@@ -28,10 +26,6 @@ import MinimalCapital from 'images/svg/minimal-capital.svg'
 //     },
 // ]
 
-const LinkButtonWrapper = styled.div`
-    margin-top: 6.1rem;
-    text-align: center;
-`
 const StockIndices = ({ simple_step_content }) => {
     simple_step_content[1].text =
         'Open a real account, make a deposit, and start trading stock indices and other markets. '
@@ -76,13 +70,7 @@ const StockIndices = ({ simple_step_content }) => {
             <SimpleSteps
                 header={localize('Start trading stock indices on Deriv in 3 simple steps')}
                 content={simple_step_content}
-                component={
-                    <LinkButtonWrapper>
-                        <LinkButton to="/signup/" secondary="true">
-                            {localize('Sign up now')}
-                        </LinkButton>
-                    </LinkButtonWrapper>
-                }
+                sign_up
             />
             <OtherMarkets except="stock_indices" />
         </div>

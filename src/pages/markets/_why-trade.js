@@ -9,8 +9,8 @@ import device from 'themes/device'
 
 const Item = styled(Flex)`
     svg {
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
     }
 `
 const ItemContainer = styled(Box)`
@@ -27,7 +27,7 @@ const StyledHeader = styled(Header)`
 `
 export const WhyTrade = ({ children, header, text }) => {
     return (
-        <SectionContainer>
+        <SectionContainer background="var(--color-grey-23)">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
                     <StyledHeader align="center" mb="1.6rem" size="3.6rem">
@@ -53,7 +53,7 @@ export const WhyTrade = ({ children, header, text }) => {
                     })}
                 </ItemContainer>
                 <LinkButton to="/signup/" secondary="true">
-                    {localize('Create demo account')}
+                    {localize('Create free demo account')}
                 </LinkButton>
             </Flex>
         </SectionContainer>

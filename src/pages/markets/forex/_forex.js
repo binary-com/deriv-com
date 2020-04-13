@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { WhyTrade } from '../_why-trade'
 // TODO: active when design was ready
@@ -11,7 +10,6 @@ import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
 import SimpleSteps from 'common/_simple-steps'
 import { localize } from 'components/localization'
-import { LinkButton } from 'components/form'
 //SVG
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
@@ -50,11 +48,6 @@ import Leverage from 'images/svg/leverage.svg'
 //         text: [localize('test4-1'), localize('test4-2')],
 //     },
 // ]
-
-const LinkButtonWrapper = styled.div`
-    margin-top: 6.1rem;
-    text-align: center;
-`
 
 const Forex = ({ simple_step_content }) => {
     simple_step_content[1].text =
@@ -98,13 +91,7 @@ const Forex = ({ simple_step_content }) => {
             <SimpleSteps
                 header={localize('Start trading forex on Deriv in 3 simple steps')}
                 content={simple_step_content}
-                component={
-                    <LinkButtonWrapper>
-                        <LinkButton to="/signup/" secondary="true">
-                            {localize('Sign up now')}
-                        </LinkButton>
-                    </LinkButtonWrapper>
-                }
+                sign_up
             />
             {/* TODO: active when design was ready */}
             {/* <div ref={learn_more_section}>

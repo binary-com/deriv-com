@@ -1,17 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
+import Pattern from 'images/svg/pattern.svg'
 
 const StyledSection = styled(SectionContainer)`
+    position: relative;
+
+    ${Container} {
+        ${Header} {
+            z-index: 1;
+        }
+    }
     @media ${device.tabletL} {
         padding: 5rem 0;
     }
 `
 const StyledFlex = styled(Flex)`
-    margin: 6rem 0 0 0;
+    margin: 4rem 0 0 0;
 
     @media ${device.tabletL} {
         margin: 0;
@@ -28,7 +38,6 @@ const ClientCard = styled.article`
     width: 31.6rem;
     padding: 3.2rem 2.4rem;
     height: 100%;
-    min-height: 22rem;
     margin: ${(props) => (props.m ? props.m : '')};
     position: relative;
     overflow: hidden;
@@ -61,9 +70,32 @@ const ClientCard = styled.article`
         }
     }
 `
+const BackgroundPattern = styled(Pattern)`
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 1440px;
+    max-height: 497px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+`
+const LinkButtonWrapper = styled.div`
+    margin-top: 4.2rem;
+    text-align: center;
+    height: 3rem;
 
-const SimpleSteps = ({ header, content, component }) => (
+    ${LinkButton} {
+        position: relative;
+    }
+`
+
+const SimpleSteps = ({ header, content, sign_up }) => (
     <StyledSection>
+        <BackgroundPattern />
         <Container direction="column">
             <Header align="center" size="var(--text-size-header-1)" as="h2">
                 {header}
@@ -82,12 +114,18 @@ const SimpleSteps = ({ header, content, component }) => (
                 )
             })}
         </StyledFlex>
-        {component}
+        {sign_up && (
+            <LinkButtonWrapper>
+                <LinkButton to="/signup/" secondary="true">
+                    {localize('Sign up now')}
+                </LinkButton>
+            </LinkButtonWrapper>
+        )}
     </StyledSection>
 )
 SimpleSteps.propTypes = {
-    component: PropTypes.object,
     content: PropTypes.object.isRequired,
     header: PropTypes.string.isRequired,
+    sign_up: PropTypes.bool,
 }
 export default SimpleSteps

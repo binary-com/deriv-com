@@ -22,6 +22,7 @@ const Content = styled.div`
     max-width: 58.8rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-right: ${(props) => props.margin_right};
 
     ${Text} {
@@ -44,7 +45,6 @@ const ImageWrapper = styled.div`
     }
 `
 const StyledHeader = styled(Header)`
-    margin-top: ${(props) => (props.second_title_margin ? '2.4rem' : '4rem')};
     font-size: var(--text-size-header-1);
     line-height: 1.25;
 
@@ -75,7 +75,7 @@ const DTrading = ({ trading, reverse, two_title }) => {
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
-                                <StyledHeader mt="4rem">{item.title}</StyledHeader>
+                                <StyledHeader>{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
                                     <>

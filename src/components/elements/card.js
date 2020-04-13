@@ -16,6 +16,7 @@ export const CardStyle = css`
 `
 
 const CardContent = styled(Text)`
+    font-size: var(--text-size-xs);
     margin-top: 0.5rem;
     line-height: 1.25;
 

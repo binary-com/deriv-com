@@ -3,121 +3,102 @@ import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { localize } from 'components/localization'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 //SVG
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DTrader from 'images/svg/dtrader-icon-green.svg'
-import DBot from 'images/svg/dbot-icon-green.svg'
-import SmartTrader from 'images/svg/smarttrader-green.svg'
+import MarginIcon from 'images/svg/margin.svg'
+import OptionsIcon from 'images/svg/options.svg'
+import MultipliersIcon from 'images/svg/multipliers.svg'
 
 const CardWrapper = styled(Flex)`
-    max-width: 120rem;
+    max-width: 100.6rem;
+    justify-content: flex-start;
+    z-index: 1;
+    height: 80px;
+    align-items: flex-end;
+    padding-left: 8px;
+    overflow: hidden;
 
     div:first-child {
-        left: 0;
+        z-index: 3;
+        margin: 0 -0.3rem;
     }
-
-    ${(props) => {
-        if (props.tab_counts === 2)
-            return css`
-                div:last-child {
-                    left: 33.3%;
-                }
-            `
-        if (props.tab_counts === 3)
-            return css`
-                div:last-child {
-                    right: 0;
-                }
-            `
-    }}
+    div:nth-child(2) {
+        z-index: 2;
+    }
+    div:last-child {
+        z-index: 1;
+    }
 `
-
 const CardContainer = styled(Flex)`
-    width: 40.8rem;
-    height: 27.6rem;
-    padding: 2.4rem 2.8rem 2.8rem 2.8rem;
-    position: absolute;
-    border-radius: 15px 15px 0 0;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: ${(props) =>
-        props.active_tab === props.name ? 'var(--color-white)' : 'var(--color-grey-8)'};
+    position: relative;
+    width: 250px;
+    height: 77.2px;
+    padding: 0;
+    margin: 0 -0.8rem;
     cursor: pointer;
-    box-shadow: -20px 0 20px -20px rgba(0, 0, 0, 0.1), 20px 0 20px -20px rgba(0, 0, 0, 0.1);
-    z-index: ${(props) => (props.active_tab === props.name ? '30' : props.z_index)};
+    z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
 
-    ${Header} {
-        color: ${(props) =>
-            props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
-        opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.5')};
+    ${Flex} {
+        svg {
+            width: ${(props) => (props.active_tab === props.name ? '32px' : '0')};
+            height: ${(props) => (props.active_tab === props.name ? '32px' : '0')};
+            margin-right: 1.6rem;
+        }
+        h4 {
+            color: ${(props) =>
+                props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
+            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.56')};
+        }
     }
-    ${Text} {
-        opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.4')};
-    }
-`
-const IconContainer = styled(Flex)`
-    svg {
-        margin-right: 0.8rem;
-        width: 32px;
-        height: 32px;
-        opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.5')};
-    }
-    svg:last-child {
-        margin-right: 0;
+    ::before {
+        content: ''; /* To generate the box */
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        border-bottom: none;
+        border-radius: 10px 30px 0 0;
+        background: #f3f3f3;
+        transform: perspective(14px) rotateX(1.4deg);
+        transform-origin: bottom left;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+        ${(props) => {
+            if (props.active_tab === props.name)
+                return css`
+                    background-color: #ffffff;
+                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+                `
+        }}
     }
 `
 const ContentWrapper = styled.div`
     width: 100%;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    max-width: 99.6rem;
+    display: block;
+    background: #ffffff;
+    border-radius: 0.15em;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 `
 
-const Card = ({ name, content, active_tab, onTabChange }) => {
-    let Icons
-    switch (name) {
-        case 'Margin':
-            Icons = [DMT5]
-            break
-        case 'Options':
-            Icons = [DTrader, DBot, SmartTrader]
-            break
-        case 'Multipliers':
-            Icons = [DTrader]
-            break
-        default:
-            Icons = []
-            break
-    }
+const Card = ({ name, active_tab, onTabChange }) => {
     return (
-        <CardContainer
-            name={name}
-            active_tab={active_tab}
-            onClick={() => onTabChange(name)}
-            z_index={name === 'Options' ? '20' : '10'}
-        >
-            <div>
-                <Header as="h4" align="center">
-                    {name}
+        <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
+            <Flex height="fit-content" p="2.71rem 0 0 3.2rem" jc="flex-start" ai="center">
+                {active_tab === 'Margin' && <MarginIcon />}
+                {active_tab === 'Options' && <OptionsIcon />}
+                {active_tab === 'Multipliers' && <MultipliersIcon />}
+                <Header as="h4" width="auto">
+                    {localize(name)}
                 </Header>
-                <Text align="center" mt="0.8rem">
-                    {content}
-                </Text>
-            </div>
-            {Icons.length === 0 ? null : (
-                <IconContainer ai="center" height="auto" name={name} active_tab={active_tab}>
-                    <Text mr="1.6rem">{localize('Available on:')}</Text>
-                    {Icons.map((Icon, index) => (
-                        <Icon key={index} />
-                    ))}
-                </IconContainer>
-            )}
+            </Flex>
         </CardContainer>
     )
 }
 
 Card.propTypes = {
     active_tab: PropTypes.string,
-    content: PropTypes.string,
     name: PropTypes.string,
     onTabChange: PropTypes.func,
 }
@@ -171,7 +152,6 @@ class AvailableTrades extends React.Component {
     }
     render() {
         const { Margin, DigitalOptions, Multipliers, name } = this.props
-        const tab_counts = Multipliers ? 3 : 2
         return (
             <SectionContainer>
                 <Header size="var(--text-size-header-1)" align="center">
@@ -180,15 +160,15 @@ class AvailableTrades extends React.Component {
                 <Container
                     direction="column"
                     style={{
-                        marginTop: '4rem',
+                        marginTop: '2.8rem',
                     }}
                 >
-                    <CardWrapper tab_counts={tab_counts} height="27.6rem" position="relative">
+                    <CardWrapper position="relative">
                         {Margin && (
                             <Card
                                 name="Margin"
                                 content={TabsContent[name].margin}
-                                onTabChange={this.handleTabChange}
+                                onTabChange={() => this.handleTabChange('Margin')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
@@ -196,7 +176,7 @@ class AvailableTrades extends React.Component {
                             <Card
                                 name="Options"
                                 content={TabsContent[name].options}
-                                onTabChange={this.handleTabChange}
+                                onTabChange={() => this.handleTabChange('Options')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
@@ -204,7 +184,7 @@ class AvailableTrades extends React.Component {
                             <Card
                                 name="Multipliers"
                                 content={TabsContent[name].multipliers}
-                                onTabChange={this.handleTabChange}
+                                onTabChange={() => this.handleTabChange('Multipliers')}
                                 active_tab={this.state.active_tab}
                             />
                         )}

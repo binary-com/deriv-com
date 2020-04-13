@@ -24,10 +24,7 @@ const SEO = ({ description, meta, title, no_index }) => {
             }
         `,
     )
-    let no_index_staging
-    if (process.env.GATSBY_ENV === 'staging') {
-        no_index_staging = true
-    }
+    const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Container, Flex, SectionContainer } from 'components/containers'
+import { Container, Flex, SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import Box from 'components/containers/box'
@@ -87,18 +87,28 @@ const OtherMarkets = ({ except }) => {
         top: 4rem;
     `
     return (
-        <SectionContainer padding="4rem 0 15.8rem 8rem">
+        <SectionContainer padding="8rem 0 8.8rem 8rem">
             <Container height="34rem">
-                <Header size="var(--text-size-header-1)" align="center" max_width="28.2rem">
-                    {localize('Other markets you might be interested in')}
-                </Header>
-                <Wrapper>
-                    <CardWrapper max_width="93rem" jc="space-around" position="absolute">
-                        {markets.map((market) =>
-                            market !== except ? <Card name={market} key={market} /> : null,
-                        )}
-                    </CardWrapper>
-                </Wrapper>
+                <Flex tablet_direction="column" tablet_jc="center">
+                    <Show.Desktop>
+                        <Header size="var(--text-size-header-1)" align="center" max_width="28.2rem">
+                            {localize('Other markets you might be interested in')}
+                        </Header>
+                    </Show.Desktop>
+                    <Show.Mobile>
+                        <Header size="var(--text-size-header-1)" align="center">
+                            {localize('Other markets you might be interested in')}
+                        </Header>
+                    </Show.Mobile>
+
+                    <Wrapper>
+                        <CardWrapper max_width="93rem" jc="space-around" position="absolute">
+                            {markets.map((market) =>
+                                market !== except ? <Card name={market} key={market} /> : null,
+                            )}
+                        </CardWrapper>
+                    </Wrapper>
+                </Flex>
             </Container>
         </SectionContainer>
     )

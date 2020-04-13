@@ -6,19 +6,16 @@ import { Flex } from 'components/containers'
 import { BOOM500, BOOM1000, CRASH500, CRASH1000 } from 'components/elements/symbols.js'
 
 const Symbol = styled(Flex)`
-    padding: 0.8rem 0;
-    height: unset;
-    justify-content: flex-start;
-    width: 17.8rem;
-    margin: 0 auto;
+    width: fit-content;
+    margin: 1.6rem 2.4rem 0 0;
 
     svg {
         width: 32px;
         height: 32px;
+        margin-right: 0.8rem;
     }
     ${Text} {
         font-weight: normal;
-        margin-left: 1.6rem;
     }
 `
 
@@ -39,7 +36,7 @@ const CrashBoom = () => {
             </Symbol>
             <Symbol ai="center">
                 <CRASH500 />
-                <Text>{localize('Crash 1000 Index')}</Text>
+                <Text>{localize('Crash 500 Index')}</Text>
             </Symbol>
         </>
     )

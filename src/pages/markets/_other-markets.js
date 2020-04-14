@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import Box from 'components/containers/box'
 import Commodities from 'pages/markets-svg/_market-commodities.js'
 //TODO: using temp svg as a function for having dynamic id
 import Forex from 'pages/markets-svg/_market-forex.js'
 import StockIndices from 'pages/markets-svg/_market-stock.js'
 import SyntheticIndices from 'pages/markets-svg/_market-synthetic.js'
+import Arrow from 'images/svg/arrow.svg'
 import device from 'themes/device'
 
 const markets_type = {
@@ -52,20 +53,51 @@ const Section = styled(SectionContainer)`
         padding: 8rem 0 8.8rem 0;
     }
 `
+const LearnMore = styled(LocalizedLink)`
+    opacity: ${(props) => (props.visibility ? '1' : '0')};
+    width: 142px;
+    height: 40px;
+    border-radius: 23px;
+    background-color: #f4f4f6;
+    position: absolute;
+    bottom: -20px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: opacity 0.1s linear;
+
+    ${Text} {
+        font-weight: bold;
+        color: var(--color-red);
+    }
+`
+const StyledFlex = styled(Flex)`
+    border-radius: 1.6rem;
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    background-color: var(--color-white);
+    top: 0;
+
+    svg {
+        width: 64px;
+        height: 64px;
+    }
+    ${LearnMore} {
+        svg {
+            transform: scaleX(-1);
+            width: 16px;
+            height: 16px;
+        }
+    }
+`
 const Card = ({ name }) => {
+    const [button_visibility, setButtonVisibility] = React.useState(false)
     const Icon = markets_type[name].icon
 
-    const StyledFlex = styled(Flex)`
-        border-radius: 1.6rem;
-        box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-        background-color: var(--color-white);
-        top: 0;
-
-        svg {
-            width: 64px;
-            height: 64px;
-        }
-    `
     return (
         <StyledFlex
             direction="column"
@@ -74,12 +106,19 @@ const Card = ({ name }) => {
             width="100%"
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"
+            position="relative"
+            onMouseEnter={() => setButtonVisibility(true)}
+            onMouseLeave={() => setButtonVisibility(false)}
         >
             <Icon dynamic_id={markets_type[name].id} />
             <Text weight="bold" mt="0.8rem">
                 {localize(markets_type[name].title)}
             </Text>
             <Text mt="0.8rem">{localize(markets_type[name].content)}</Text>
+            <LearnMore to={markets_type[name].to} visibility={button_visibility}>
+                <Text>{localize('Learn more')}</Text>
+                <Arrow />
+            </LearnMore>
         </StyledFlex>
     )
 }

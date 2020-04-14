@@ -102,6 +102,6 @@ const Forex = ({ simple_step_content }) => {
     )
 }
 Forex.propTypes = {
-    simple_step_content: PropTypes.object,
+    simple_step_content: PropTypes.array,
 }
 export default Forex

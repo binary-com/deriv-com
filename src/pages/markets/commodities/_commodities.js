@@ -76,6 +76,6 @@ const Commodities = ({ simple_step_content }) => {
     )
 }
 Commodities.propTypes = {
-    simple_step_content: PropTypes.object,
+    simple_step_content: PropTypes.array,
 }
 export default Commodities

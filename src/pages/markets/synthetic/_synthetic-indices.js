@@ -83,6 +83,6 @@ const StockIndices = ({ simple_step_content }) => {
     )
 }
 StockIndices.propTypes = {
-    simple_step_content: PropTypes.object,
+    simple_step_content: PropTypes.array,
 }
 export default StockIndices

@@ -124,7 +124,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
     </StyledSection>
 )
 SimpleSteps.propTypes = {
-    content: PropTypes.object.isRequired,
+    content: PropTypes.array.isRequired,
     header: PropTypes.string.isRequired,
     sign_up: PropTypes.bool,
 }

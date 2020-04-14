@@ -8,13 +8,9 @@ import { Container } from 'components/containers'
 const BackgroundWrapper = styled.div`
     position: relative;
     height: 60rem;
+    background: var(--color-black-6);
     width: 100%;
-`
-const ImageWrapper = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: black;
+    overflow: hidden;
 `
 const StyledContainer = styled(Container)`
     padding-top: 20.7rem;
@@ -26,18 +22,20 @@ const StyledContainer = styled(Container)`
     }
 `
 const Video = styled.video`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
     width: 100%;
     height: 100%;
 `
 export const Hero = () => {
     return (
         <BackgroundWrapper>
-            <ImageWrapper>
-                {/* TODO: we need to replace this DIV with an video later */}
-                <Video width="100%" height="100%" autoPlay muted playsInline loop>
-                    <source src={Globe} type="video/mp4" />
-                </Video>
-            </ImageWrapper>
+            {/* TODO: we need to replace this DIV with an video later */}
+            <Video width="100%" height="100%" autoPlay muted playsInline loop>
+                <source src={Globe} type="video/mp4" />
+            </Video>
             <StyledContainer direction="column">
                 <Header as="h1" color="white" lh="1.15" align="center">
                     {localize('Markets to trade on Deriv')}

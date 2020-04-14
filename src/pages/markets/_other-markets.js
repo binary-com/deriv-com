@@ -72,7 +72,8 @@ const Card = ({ name }) => {
             height="29.6rem"
             max_width="28.2rem"
             width="100%"
-            p="2.4rem 2.4rem 6.4rem"
+            p="2.4rem 2.4rem 4rem"
+            jc="flex-start"
         >
             <Icon dynamic_id={markets_type[name].id} />
             <Text weight="bold" mt="0.8rem">

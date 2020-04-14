@@ -21,14 +21,10 @@ jobs:
                   npm ci
                   npm run test
                   npm run build
-            - name: create folder
-              run: |
-                  mkdir -p ${GITHUB_REF#refs/heads/}
-                  cp -r ./public/. ${GITHUB_REF#refs/heads/}
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@releases/v3
               with:
                   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
                   BRANCH: gh-pages # The branch the action should deploy to.
-                  FOLDER: ${GITHUB_REF#refs/heads/}
+                  FOLDER: public
                   TARGET_FOLDER: ${GITHUB_REF#refs/heads/}

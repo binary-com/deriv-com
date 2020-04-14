@@ -54,7 +54,7 @@ const Section = styled(SectionContainer)`
     }
 `
 const LearnMore = styled(LocalizedLink)`
-    opacity: ${(props) => (props.visibility ? '1' : '0')};
+    opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
     width: 142px;
     height: 40px;
     border-radius: 23px;
@@ -95,7 +95,7 @@ const StyledFlex = styled(Flex)`
     }
 `
 const Card = ({ name }) => {
-    const [button_visibility, setButtonVisibility] = React.useState(false)
+    const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[name].icon
 
     return (
@@ -107,8 +107,8 @@ const Card = ({ name }) => {
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"
             position="relative"
-            onMouseEnter={() => setButtonVisibility(true)}
-            onMouseLeave={() => setButtonVisibility(false)}
+            onMouseEnter={() => setButtonVisibility('true')}
+            onMouseLeave={() => setButtonVisibility('false')}
         >
             <Icon dynamic_id={markets_type[name].id} />
             <Text weight="bold" mt="0.8rem">

@@ -5,10 +5,10 @@ import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 // Icons
-import ForexIcon from 'images/svg/market-forex.svg'
-import IndicesIcon from 'images/svg/market-stock-indices.svg'
-import CommoditiesIcon from 'images/svg/market-commodities.svg'
-import SyntheticIndicesIcon from 'images/svg/market-synthetic-indices.svg'
+import ForexIcon from 'pages/markets-svg/_market-forex.js'
+import StockIcon from 'pages/markets-svg/_market-stock.js'
+import CommoditiesIcon from 'pages/markets-svg/_market-commodities.js'
+import SyntheticIndicesIcon from 'pages/markets-svg/_market-synthetic.js'
 // Images
 const StyledSection = styled(SectionContainer)`
     background-color: rgba(242, 243, 244, 0.3);
@@ -66,7 +66,7 @@ const Markets = () => (
             </Header>
             <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
-                    <ForexIcon />
+                    <ForexIcon dynamic_id={'home_page_market_forex'} />
                     <div>
                         <Header as="h4">{localize('Forex')}</Header>
                         <Text>
@@ -77,7 +77,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mb="4rem">
-                    <IndicesIcon />
+                    <StockIcon dynamic_id="home_page_market_stock" />
                     <div>
                         <Header as="h4">{localize('Stock indices')}</Header>
                         <Text>
@@ -88,7 +88,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mr="2.4rem">
-                    <CommoditiesIcon />
+                    <CommoditiesIcon dynamic_id="home_page_market_commodities" />
                     <div>
                         <Header as="h4">{localize('Commodities')}</Header>
                         <Text>
@@ -99,7 +99,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard>
-                    <SyntheticIndicesIcon />
+                    <SyntheticIndicesIcon dynamic_id="home_page_market_synthetic" />
                     <div>
                         <Header as="h4">{localize('Synthetic indices')}</Header>
                         <Text>

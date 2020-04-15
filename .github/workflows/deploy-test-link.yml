@@ -11,13 +11,6 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: '12.x'
-            - name: Cache dependencies
-              uses: actions/cache@v1
-              with:
-                  path: ~/.npm
-                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-node-
             - name: Compile application
               run: |
                   npm ci
@@ -29,4 +22,3 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   BRANCH: gh-pages # The branch the action should deploy to.
                   FOLDER: public
-                  TARGET_FOLDER: ${GITHUB_REF#refs/heads/}

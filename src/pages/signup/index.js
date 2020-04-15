@@ -17,6 +17,11 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: row;
     background-color: rgba(200, 214, 215, 0.22);
+
+    @media ${device.mobileL} {
+        height: 100%;
+        padding: 0;
+    }
 `
 const Content = styled.div`
     width: 40.5rem;
@@ -40,6 +45,10 @@ const Line = styled.div`
 const StyledDiv = styled.div`
     padding: 6rem 0;
     background-color: rgba(200, 214, 215, 0.22);
+
+    @media ${device.mobileL} {
+        padding: 0;
+    }
 `
 
 const StyledGraph = styled(Graph)`

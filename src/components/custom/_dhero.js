@@ -140,7 +140,7 @@ const DHero = ({
                         <LinkWrapper>
                             {join_us_for_free ? (
                                 <TryForFree secondary="true" to="/signup/">
-                                    {localize('Create demo account')}
+                                    {localize('Create free demo account')}
                                 </TryForFree>
                             ) : null}
                             {go_to_live_demo ? (

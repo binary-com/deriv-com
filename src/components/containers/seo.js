@@ -24,7 +24,7 @@ const SEO = ({ description, meta, title, no_index }) => {
             }
         `,
     )
-
+    const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
 
@@ -139,7 +139,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                     name: 'referrer',
                     content: 'origin',
                 },
-                ...(no_index || is_ach_page
+                ...(no_index || no_index_staging || is_ach_page
                     ? [
                           {
                               name: 'robots',
@@ -154,7 +154,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                 type="text/javascript"
             ></script>
             <script>
-                {`window.location.hostname === 'www.deriv.com' && window.DD_RUM &&
+                {`window.location.hostname === 'deriv.com' && window.DD_RUM &&
                     window.DD_RUM.init({
                         clientToken: 'pubc42fda54523c5fb23c564e3d8bceae88',
                         applicationId: 'f0aef779-d9ec-4517-807e-a84c683c4265',

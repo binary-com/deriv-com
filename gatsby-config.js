@@ -131,5 +131,29 @@ module.exports = {
                 offset: -300,
             },
         },
+        {
+            resolve: `gatsby-plugin-amp`,
+            options: {
+                analytics: {
+                    type: 'gtag',
+                    dataCredentials: 'include',
+                    config: {
+                        vars: {
+                            gtag_id: '',
+                            config: {
+                                'GA-0000': {
+                                    page_location: '{{pathname}}',
+                                },
+                            },
+                        },
+                    },
+                },
+                canonicalBaseUrl: 'http://www.example.com/',
+                components: ['amp-img'],
+                pathIdentifier: '/amp/',
+                relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
+                useAmpClientIdApi: true,
+            },
+        },
     ],
 }

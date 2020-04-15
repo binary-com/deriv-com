@@ -3,7 +3,10 @@ import styled from 'styled-components'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
-import { Header, Image } from 'components/elements'
+import { Header } from 'components/elements'
+import Dtrader from 'images/common/dtrader_trade.png'
+import DBot from 'images/common/dbot_trade.png'
+import DMT5 from 'images/common/dmt5_trade.png'
 
 const platforms = Object.freeze({
     trader: 'dtrader',
@@ -48,25 +51,13 @@ export const Trade = () => {
                     <div style={{ width: '100%', maxWidth: '65.7rem', marginRight: '6rem' }}>
                         <ImageContainer>
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
-                                <Image
-                                    img_name="dtrader_trade.png"
-                                    alt={localize('DTrader')}
-                                    width="100%"
-                                />
+                                <img src={Dtrader} alt={localize('DTrader')} width="100%" />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
-                                <Image
-                                    img_name="dbot_trade.png"
-                                    alt={localize('DBot')}
-                                    width="100%"
-                                />
+                                <img img_name={DBot} alt={localize('DBot')} width="100%" />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
-                                <Image
-                                    img_name="dmt5_trade.png"
-                                    alt={localize('DMT5')}
-                                    width="100%"
-                                />
+                                <img img_name={DMT5} alt={localize('DMT5')} width="100%" />
                             </ImageWrapper>
                         </ImageContainer>
                     </div>

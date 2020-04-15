@@ -1,9 +1,14 @@
 import React from 'react'
-import { SEO } from 'components/containers'
-import { Text } from 'components/elements'
+import { Hero } from '../home/_hero'
+import { Trade } from '../home/_trade'
+import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
+import Markets from '../home/_markets'
+import SimpleSteps from '../home/_simple-steps'
+import WhatOurClientsSay from '../home/_what-our-clients-say'
+import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import GetStartedImage from 'images/common/help-centre/dbot-button-get-started.png'
+import Signup, { Appearances } from 'components/custom/signup'
 
 const Home = () => {
     return (
@@ -14,8 +19,17 @@ const Home = () => {
                     'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
                 )}
             />
-            <Text>Hello AMP</Text>
-            <img src={GetStartedImage} layout="responsive" width="266" height="150"></img>
+            <Hero />
+            <Show.Mobile>
+                <TradeTheWayYouLike />
+            </Show.Mobile>
+            <Show.Desktop>
+                <Trade />
+            </Show.Desktop>
+            <Markets />
+            <SimpleSteps />
+            <WhatOurClientsSay />
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

@@ -91,7 +91,7 @@ const Card = ({ name, active_tab, onTabChange }) => {
                 {active_tab === 'Options' && <OptionsIcon />}
                 {active_tab === 'Multipliers' && <MultipliersIcon />}
                 <Header as="h4" width="auto">
-                    {localize(name)}
+                    {name}
                 </Header>
             </Flex>
         </CardContainer>
@@ -167,7 +167,7 @@ class AvailableTrades extends React.Component {
                     <CardWrapper position="relative">
                         {Margin && (
                             <Card
-                                name="Margin"
+                                name={localize('Margin')}
                                 content={TabsContent[name].margin}
                                 onTabChange={() => this.handleTabChange('Margin')}
                                 active_tab={this.state.active_tab}
@@ -175,7 +175,7 @@ class AvailableTrades extends React.Component {
                         )}
                         {DigitalOptions && (
                             <Card
-                                name="Options"
+                                name={localize('Options')}
                                 content={TabsContent[name].options}
                                 onTabChange={() => this.handleTabChange('Options')}
                                 active_tab={this.state.active_tab}
@@ -183,7 +183,7 @@ class AvailableTrades extends React.Component {
                         )}
                         {Multipliers && (
                             <Card
-                                name="Multipliers"
+                                name={localize('Multipliers')}
                                 content={TabsContent[name].multipliers}
                                 onTabChange={() => this.handleTabChange('Multipliers')}
                                 active_tab={this.state.active_tab}

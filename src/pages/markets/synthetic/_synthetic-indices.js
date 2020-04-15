@@ -14,24 +14,9 @@ import ExclusiveTradeType from 'images/svg/exclusive-trade-types.svg'
 import MarketandRisk from 'images/svg/market-and-risk.svg'
 import SevenTrading from 'images/svg/seven-trading.svg'
 
-// const what_trade_sub_header = [
-//     {
-//         text: localize(
-//             'Synthetic Indices are our own set of indices engineered to simulate real-world market movements, unaffected by the sways of actual events and other outside disruptions.',
-//         ),
-//     },
-//     {
-//         text: localize(
-//             'Unlike financial markets, Synthetic Indices are available 24/7, have constant volatility, fixed generation intervals, and are free of market and liquidity risks',
-//         ),
-//     },
-// ]
-
 const StockIndices = ({ simple_step_content }) => {
     simple_step_content[1].text =
-        'Open a real account, make a deposit, and start trading Synthetic Indices and other markets. '
-    // const learn_more_section = useRef(null)
-
+        'Open a real account, make a deposit, and start trading Synthetic Indices and other markets.'
     return (
         <div>
             <WhyTrade
@@ -61,12 +46,6 @@ const StockIndices = ({ simple_step_content }) => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
-            {/* <WhatTrade
-                sub_header={what_trade_sub_header}
-                header={localize('What are Synthetic Indices?')}
-                learn_more_section={learn_more_section}
-            /> */}
-
             <AvailableTrades
                 Margin={Margin}
                 DigitalOptions={DigitalOptions}

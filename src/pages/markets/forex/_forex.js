@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { WhyTrade } from '../_why-trade'
-// TODO: active when design was ready
-// import { LearnMore } from '../_learn-more'
 import OtherMarkets from '../_other-markets.js'
 import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
@@ -17,42 +15,9 @@ import AdvancedCharting from 'images/svg/advanced-charting-widgets.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Leverage from 'images/svg/leverage.svg'
 
-// const what_trade_sub_header = [
-//     {
-//         text: localize(
-//             'Foreign exchange, otherwise known as forex or FX, is the buying and selling of currencies. Where the primary purpose for this exchange is gaining profit from changes in the relative values of currencies on the forex market, we call it forex trading.',
-//         ),
-//     },
-//     {
-//         text: localize(
-//             'Trading forex has several benefits including round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunity to trade on world events.',
-//         ),
-//     },
-// ]
-// TODO: active when design was ready
-// const learn_more_data = [
-//     {
-//         header: localize('Torquatos nostros quos dolores suscipiantur'),
-//         text: [localize('test1-1'), localize('test1-2')],
-//     },
-//     {
-//         header: localize('Alii autem quibus ego'),
-//         text: [localize('test2-1'), localize('test2-2')],
-//     },
-//     {
-//         header: localize('Alii autem, quibus ego assentior, cum a natura?'),
-//         text: [localize('test3-1'), localize('test3-2')],
-//     },
-//     {
-//         header: localize('At vero eos censes tantas'),
-//         text: [localize('test4-1'), localize('test4-2')],
-//     },
-// ]
-
 const Forex = ({ simple_step_content }) => {
     simple_step_content[1].text =
-        'Open a real account, make a deposit, and start trading forex and other markets. '
-    // const learn_more_section = useRef(null)
+        'Open a real account, make a deposit, and start trading forex and other markets.'
     return (
         <>
             <WhyTrade
@@ -76,12 +41,6 @@ const Forex = ({ simple_step_content }) => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
-            {/* <WhatTrade
-                sub_header={what_trade_sub_header}
-                header={localize('What is forex?')}
-                learn_more_section={learn_more_section}
-            /> */}
-
             <AvailableTrades
                 Margin={Margin}
                 DigitalOptions={DigitalOptions}

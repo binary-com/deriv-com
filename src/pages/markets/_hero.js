@@ -32,7 +32,6 @@ const Video = styled.video`
 export const Hero = () => {
     return (
         <BackgroundWrapper>
-            {/* TODO: we need to replace this DIV with an video later */}
             <Video width="100%" height="100%" autoPlay muted playsInline loop>
                 <source src={Globe} type="video/mp4" />
             </Video>

@@ -13,24 +13,9 @@ import Deposit from 'images/svg/deposit-and-withdrawal.svg'
 import ExtendedTime from 'images/svg/extended-trading-times.svg'
 import MinimalCapital from 'images/svg/minimal-capital.svg'
 
-// const what_trade_sub_header = [
-//     {
-//         text: localize(
-//             'Stock indices track the performance of the broad stock market or a particular market sector. Trading stock indices allows you to profit from the price movements in a market without buying the underlying assets',
-//         ),
-//     },
-//     {
-//         text: localize(
-//             'At Deriv, our stock indices are sourced from over-the-counter (OTC) markets. So you get competitively priced asset baskets and can trade outside regular hours of major stock markets.',
-//         ),
-//     },
-// ]
-
 const StockIndices = ({ simple_step_content }) => {
     simple_step_content[1].text =
-        'Open a real account, make a deposit, and start trading stock indices and other markets. '
-    // const learn_more_section = useRef(null)
-
+        'Open a real account, make a deposit, and start trading stock indices and other markets.'
     return (
         <div>
             <WhyTrade
@@ -60,12 +45,6 @@ const StockIndices = ({ simple_step_content }) => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
-            {/* <WhatTrade
-                sub_header={what_trade_sub_header}
-                header={localize('What are stock indices?')}
-                // learn_more_section={learn_more_section}
-            /> */}
-
             <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Stock indices" />
             <SimpleSteps
                 header={localize('Start trading stock indices on Deriv in 3 simple steps')}

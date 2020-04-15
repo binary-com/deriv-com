@@ -134,22 +134,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-amp`,
             options: {
-                analytics: {
-                    type: 'gtag',
-                    dataCredentials: 'include',
-                    config: {
-                        vars: {
-                            gtag_id: '',
-                            config: {
-                                'GA-0000': {
-                                    page_location: '{{pathname}}',
-                                },
-                            },
-                        },
-                    },
-                },
-                canonicalBaseUrl: 'http://www.example.com/',
-                components: ['amp-img'],
+                canonicalBaseUrl: 'https://deriv.com/',
                 pathIdentifier: '/amp/',
                 relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
                 useAmpClientIdApi: true,

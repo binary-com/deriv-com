@@ -28,9 +28,6 @@ const BinarySocketBase = (() => {
 
     const timeouts = {}
     const promises = {}
-
-    const no_duplicate_requests = ['landing_company', 'asset_index']
-
     const sent_requests = {
         items: [],
         clear: () => {
@@ -125,10 +122,10 @@ const BinarySocketBase = (() => {
 
         if (!data || isEmptyObject(data)) return promise_obj.promise
 
-        const msg_type = options.msg_type || no_duplicate_requests.find((c) => c in data)
+        const msg_type = options.msg_type
 
         // Fetch from state
-        if (!options.forced && msg_type && no_duplicate_requests.indexOf(msg_type) !== -1) {
+        if (!options.forced && msg_type) {
             const last_response = State.get(['response', msg_type])
             if (last_response) {
                 promise_obj.resolve(last_response)
@@ -265,28 +262,11 @@ const BinarySocketBase = (() => {
         }
     }
 
-    const clear = (msg_type) => {
-        buffered_sends = []
-        if (msg_type) {
-            State.set(['response', msg_type], undefined)
-            sent_requests.remove(msg_type)
-        }
-    }
-
-    const availability = (status) => {
-        if (typeof status !== 'undefined') {
-            is_available = !!status
-        }
-        return is_available
-    }
-
     return {
         init,
         wait,
         send,
-        clear,
         clearTimeouts,
-        availability,
         hasReadyState,
         sendBuffered: sendBufferedRequests,
         get: () => binary_socket,

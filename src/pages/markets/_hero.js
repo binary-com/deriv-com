@@ -24,7 +24,7 @@ const StyledContainer = styled(Container)`
 const Video = styled.video`
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 20%;
     transform: translate(-50%, -50%) scale(2);
     width: 100%;
     height: 100%;

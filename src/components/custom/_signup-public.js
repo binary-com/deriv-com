@@ -64,6 +64,10 @@ const BackgroundWrapper = styled(Flex)`
 
 const InputWrapper = styled.div`
     width: 28rem;
+
+    @media ${device.tabletL} {
+        margin-right: 1rem;
+    }
 `
 const InputGroup = styled.div`
     display: flex;

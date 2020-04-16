@@ -78,6 +78,9 @@ const SharedButtonStyle = css`
         outline: none;
         transform: scale(0.95);
     }
+
+    ${Paddings}
+    ${Margins}
 `
 
 export const LinkButton = styled(LocalizedLink)`
@@ -88,8 +91,6 @@ export const LinkButton = styled(LocalizedLink)`
 
 const Button = styled.button`
     ${SharedButtonStyle}
-    ${Paddings}
-    ${Margins}
 
     &:hover {
         cursor: pointer;

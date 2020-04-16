@@ -61,7 +61,7 @@ const MarketCard = styled.article`
 const Markets = () => (
     <StyledSection>
         <Container direction="column">
-            <Header align="center" size="var(--text-size-header-1)" as="h2">
+            <Header align="center" as="h2">
                 {localize('Markets')}
             </Header>
             <MarketWrapper wrap="wrap">

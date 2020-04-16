@@ -27,7 +27,7 @@ const Margin = () => {
         <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
-                    <Text>
+                    <Text align="center">
                         {localize(
                             'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
                         )}

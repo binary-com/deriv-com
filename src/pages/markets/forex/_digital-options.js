@@ -50,7 +50,7 @@ const DigitalOptions = () => {
         <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
-                    <Text>
+                    <Text align="center">
                         {localize(
                             'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on forex.',
                         )}

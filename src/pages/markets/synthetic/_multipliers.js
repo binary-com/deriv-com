@@ -23,7 +23,7 @@ const Multipliers = () => {
         <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
-                    <Text>
+                    <Text align="center">
                         {localize(
                             'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.',
                         )}

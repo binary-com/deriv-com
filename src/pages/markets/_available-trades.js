@@ -13,9 +13,9 @@ const CardWrapper = styled(Flex)`
     max-width: 100.6rem;
     justify-content: flex-start;
     z-index: 1;
-    height: 80px;
+    height: 8rem;
     align-items: flex-end;
-    padding-left: 8px;
+    padding-left: 0.8rem;
     overflow: hidden;
 
     div:first-child {
@@ -31,8 +31,8 @@ const CardWrapper = styled(Flex)`
 `
 const CardContainer = styled(Flex)`
     position: relative;
-    width: 250px;
-    height: 77.2px;
+    width: 25rem;
+    height: 7.72rem;
     padding: 0;
     margin: 0 -0.8rem;
     cursor: pointer;
@@ -56,7 +56,7 @@ const CardContainer = styled(Flex)`
         position: absolute;
         top: 0;
         right: 0;
-        bottom: 0;
+        bottom: -1rem;
         left: 0;
         z-index: -1;
         border-bottom: none;

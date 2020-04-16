@@ -57,10 +57,6 @@ const ExoticPairs = () => {
                 <Text>{localize('EUR/HKD')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <CHFJPY />
-                <Text>{localize('CHF/JPY')}</Text>
-            </Symbol>
-            <Symbol ai="center">
                 <EURILS />
                 <Text>{localize('EUR/ILS')}</Text>
             </Symbol>

@@ -52,7 +52,7 @@ const MinorPairs = () => {
             </Symbol>
             <Symbol ai="center">
                 <EURNZD />
-                <Text>{localize('EUR/ZND')}</Text>
+                <Text>{localize('EUR/NZD')}</Text>
             </Symbol>
             <Symbol ai="center">
                 <GBPCAD />

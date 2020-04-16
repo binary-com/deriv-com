@@ -10,18 +10,15 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import RobertoImage from 'images/common/roberto.png'
 import FabioImage from 'images/common/fabio.png'
+import PaulImage from 'images/common/paul.png'
 
 const StyledSection = styled(SectionContainer)`
-    height: 43.1rem;
-
     @media ${device.tabletL} {
         height: unset;
         padding: 5rem 0;
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-header-1);
-
     @media ${device.tabletL} {
         font-size: 4.5rem;
     }
@@ -39,7 +36,7 @@ const ChevronRight = styled(StyledChevron)`
 const ChevronLeft = StyledChevron
 
 const ClientCard = styled.article`
-    width: 58rem;
+    width: 58.2rem;
     padding-top: 5.2rem;
     position: relative;
     overflow: hidden;
@@ -50,7 +47,7 @@ const ClientCard = styled.article`
 `
 
 const QuoteText = styled(Text)`
-    text-align: center;
+    text-align: left;
     padding-bottom: 3.2rem;
     z-index: 10;
     position: relative;
@@ -128,7 +125,7 @@ const ButtonWrapper = styled.div`
         position: absolute;
     }
     ${Next} {
-        top: 30%;
+        top: 50%;
         right: 20%;
         width: 31px;
 
@@ -140,7 +137,7 @@ const ButtonWrapper = styled.div`
         }
     }
     ${Prev} {
-        top: 30%;
+        top: 50%;
         left: 20%;
         width: 31px;
 
@@ -198,8 +195,17 @@ const fabio = {
     ),
     index: 2,
 }
+const paul = {
+    name: 'Paul Mugenda',
+    title: localize('Forex trader '),
+    img_path: PaulImage,
+    quote: localize(
+        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
+    ),
+    index: 2,
+}
 
-const our_client_slides = [roberto, fabio]
+const our_client_slides = [roberto, fabio, paul]
 
 const WhatOurClientsSay = () => {
     const [swiper, updateSwiper] = useState(null)
@@ -221,6 +227,7 @@ const WhatOurClientsSay = () => {
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
+        height: '100%',
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,

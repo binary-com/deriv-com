@@ -38,14 +38,14 @@ export const Trade = () => {
     return (
         <StyledSection>
             <Container direction="column">
-                <Header size="var(--text-size-header-1)" as="h2" align="center">
+                <Header as="h2" align="center">
                     {localize('Trade the way you like')}
                 </Header>
-                <Header weight="500" as="h4" align="center" m="1.6rem 0 6rem">
+                <Header weight="normal" as="h4" align="center" m="1.6rem 0 6rem">
                     {localize('Choose from three powerful platforms -- designed with you in mind')}
                 </Header>
-                <Flex width="100%">
-                    <div style={{ width: '60%' }}>
+                <Flex width="100%" direction="flex-start">
+                    <div style={{ width: '100%', maxWidth: '65.7rem', marginRight: '6rem' }}>
                         <ImageContainer>
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
                                 <Image
@@ -70,7 +70,7 @@ export const Trade = () => {
                             </ImageWrapper>
                         </ImageContainer>
                     </div>
-                    <div style={{ width: '40%' }}>
+                    <div style={{ width: '100%', maxWidth: '38.4rem' }}>
                         <CssGrid row_gap="1.6rem" height="0%">
                             <div
                                 onMouseEnter={() => setSelected(platforms.trader)}

@@ -159,7 +159,7 @@ const payment_data = [
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('1 working day'),
                 description: localize(
-                    'ZingPay is a payment facility that allows online bank transfers for clients in South Africa.',
+                    'An easy and accessible way to deposit and withdraw directly using your bank account in South Africa.',
                 ),
                 name: 'ZingPay',
                 reference: 'zingpay-payment-method.pdf',
@@ -260,7 +260,7 @@ const payment_data = [
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('1 working day'),
                 description: localize(
-                    'Used by over 20 million clients worldwide. Enjoy instant access, free withdrawals, and reward points that you can redeem for cash.',
+                    'Used by over 20 million clients worldwide. Enjoy instant access and free withdrawals.',
                 ),
                 url: 'https://www.neteller.com/',
                 name: 'neteller',
@@ -310,7 +310,7 @@ const payment_data = [
                 method: <JetonIc />,
                 currencies: 'USD EUR',
                 min_max_deposit: '5 - 10,000',
-                min_max_withdrawal: 'N/A',
+                min_max_withdrawal: '5 - 10,000',
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('1 working day'),
                 description: localize(
@@ -343,7 +343,7 @@ const payment_data = [
                 deposit_time: localize('Instant'),
                 withdrawal_time: localize('1 working day'),
                 description: localize(
-                    'Easily convert your currency to USD and transfer money worldwide. Used by more than 500,000 clients in 163 countries.',
+                    'Easily convert your currency to USD and transfer money worldwide.',
                 ),
                 url: 'https://www.airtm.io/#/',
                 name: 'airtm',

@@ -130,10 +130,10 @@ const payment_data = [
             {
                 method: <Help2PayIc />,
                 currencies: 'USD',
-                min_max_deposit: '10 - 10,000',
-                min_max_withdrawal: 'N/A',
+                min_max_deposit: '5 - 10,000',
+                min_max_withdrawal: '5 - 10,000',
                 deposit_time: localize('Instant'),
-                withdrawal_time: localize('Not applicable'),
+                withdrawal_time: localize('1 working day'),
                 description: localize(
                     'Help2Pay is a payment facility that allows online bank transfers for clients across Southeast Asia.',
                 ),
@@ -141,11 +141,11 @@ const payment_data = [
             },
             {
                 method: <DragonPhoenixIc />,
-                currencies: 'USD',
+                currencies: 'USD EUR GBP AUD',
                 min_max_deposit: '10 - 10,000',
-                min_max_withdrawal: 'N/A',
+                min_max_withdrawal: '10 - 10,000',
                 deposit_time: localize('Instant'),
-                withdrawal_time: localize('Not applicable'),
+                withdrawal_time: localize('1 - 2 working days'),
                 description: localize(
                     'DragonPhoenix is a payment facility that allows online bank transfers for clients across Southeast Asia.',
                 ),
@@ -157,7 +157,7 @@ const payment_data = [
                 min_max_deposit: '10 - 10,000',
                 min_max_withdrawal: '10 - 10,000',
                 deposit_time: localize('Instant'),
-                withdrawal_time: localize('1 to 3 working days'),
+                withdrawal_time: localize('1 working day'),
                 description: localize(
                     'ZingPay is a payment facility that allows online bank transfers for clients in South Africa.',
                 ),
@@ -362,9 +362,9 @@ const payment_data = [
                 method: <BitcoinIc />,
                 currencies: 'BTC',
                 min_max_deposit: '-',
-                min_max_withdrawal: '0.00292789',
+                min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
-                withdrawal_time: localize(' 1 working day'),
+                withdrawal_time: localize(' 1 working day + 3 blockchain confirmations'),
                 description: localize(
                     'Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.',
                 ),
@@ -377,7 +377,7 @@ const payment_data = [
                 min_max_deposit: '-',
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
-                withdrawal_time: localize(' 1 working day'),
+                withdrawal_time: localize('1 working day'),
                 description: localize(
                     'Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies.',
                 ),
@@ -389,7 +389,7 @@ const payment_data = [
                 min_max_deposit: '-',
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
-                withdrawal_time: localize(' 1 working day'),
+                withdrawal_time: localize(' 1 working day + 3 blockchain confirmations'),
                 description: localize(
                     'Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing.',
                 ),

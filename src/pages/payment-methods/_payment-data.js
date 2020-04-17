@@ -366,7 +366,7 @@ const payment_data = [
                 min_max_deposit: '-',
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
-                withdrawal_time: localize(' 1 working day + 3 blockchain confirmations'),
+                withdrawal_time: localize('1 working day + 3 blockchain confirmations'),
                 description: localize(
                     'Deposit and withdraw in Bitcoin, the world’s first cryptocurrency.',
                 ),
@@ -379,7 +379,7 @@ const payment_data = [
                 min_max_deposit: '-',
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
-                withdrawal_time: localize('1 working day'),
+                withdrawal_time: localize('1 working day + 3 blockchain confirmations'),
                 description: localize(
                     'Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies.',
                 ),
@@ -391,7 +391,7 @@ const payment_data = [
                 min_max_deposit: '-',
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
-                withdrawal_time: localize(' 1 working day + 3 blockchain confirmations'),
+                withdrawal_time: localize('1 working day + 3 blockchain confirmations'),
                 description: localize(
                     'Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing.',
                 ),
@@ -404,7 +404,7 @@ const payment_data = [
                 min_max_deposit: '-',
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
-                withdrawal_time: localize(' 1 working day'),
+                withdrawal_time: localize('1 working day + 3 blockchain confirmations'),
                 description: localize(
                     'Deposit and withdraw in Tether, a cryptocurrency that’s pegged to USD.',
                 ),

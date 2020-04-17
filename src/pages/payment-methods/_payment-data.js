@@ -194,6 +194,7 @@ const payment_data = [
                     'Deposit and withdraw using your Mastercard credit or debit card. Charges and interest rates apply.',
                 ),
                 name: 'mastercard',
+                reference: 'mastercard-payment-method.pdf',
             },
             {
                 method: <MaestroIc />,
@@ -204,6 +205,7 @@ const payment_data = [
                 withdrawal_time: localize('1 working day'),
                 description: localize('Deposit and withdraw using your Maestro debit card.'),
                 name: 'maestro',
+                reference: 'maestrocard-payment-method.pdf',
             },
         ],
     },

@@ -761,7 +761,7 @@
     "-1886118844": "Hay muchas maneras de controlar sus pérdidas con DBot. Aquí hay un ejemplo simple de cómo puede implementar el control de pérdidas en su estrategia:",
     "-986689483": "1. Cree las siguientes variables:",
     "-985220032": "pérdidaMáxima",
-    "-1101689220": "2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to 'false' to prevent the bot from running another cycle.",
+    "-1101689220": "2. Use un bloque lógico para comprobar si <0>actualPL</0> excede <0>pérdidaMáxima</0>. Si lo hace, establezca <0>operarDenuevo</0> en 'falso' para evitar que el robot ejecute otro ciclo.",
     "-1739325003": "Logic block",
     "-148855952": "Actualice actualPL",
     "-1650334312": "The panel on the right of the workspace gives you information about all your trades in DBot. The 'Summary' tab shows information such as your total stake, total payout, profit/loss, etc.",

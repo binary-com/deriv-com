@@ -134,8 +134,23 @@ module.exports = {
         {
             resolve: `gatsby-plugin-amp`,
             options: {
-                canonicalBaseUrl: 'https://deriv.com/',
-                pathIdentifier: '/amp/',
+                analytics: {
+                    type: 'gtag',
+                    dataCredentials: 'include',
+                    config: {
+                        vars: {
+                            gtag_id: 'UA-139927388-1',
+                            config: {
+                                'UA-139927388-1': {
+                                    page_location: '{{pathname}}',
+                                },
+                            },
+                        },
+                    },
+                },
+                canonicalBaseUrl: 'http://deriv.com/',
+                components: ['amp-video', 'amp-carousel', 'amp-sidebar'],
+                pathIdentifier: '/landing',
                 relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
                 useAmpClientIdApi: true,
             },

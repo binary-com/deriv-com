@@ -9,7 +9,7 @@ import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 
-import 'react-perfect-scrollbar/dist/css/styles.css'
+// import 'react-perfect-scrollbar/dist/css/styles.css'
 
 const AccordionContainer = styled.div`
     width: 100%;

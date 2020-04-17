@@ -7,7 +7,7 @@ import { useOutsideClick } from 'components/hooks/outside-click'
 import Chevron from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
 
-import 'react-perfect-scrollbar/dist/css/styles.css'
+// import 'react-perfect-scrollbar/dist/css/styles.css'
 
 const DropdownContainer = styled.ul`
     list-style: none;
@@ -20,7 +20,7 @@ const DropdownContainer = styled.ul`
     height: 32px;
 
     /* ul has no focus attributes, it needs to pass on active props instead */
-    ${props => props.active && 'border-color: var(--color-green) !important;'}
+    ${(props) => props.active && 'border-color: var(--color-green) !important;'}
 
     &:hover {
         border-color: var(--color-grey-5);
@@ -87,7 +87,7 @@ const UnorderedList = styled.ul`
     overflow: hidden;
     background-color: var(--color-white);
     opacity: 0;
-    ${props =>
+    ${(props) =>
         props.open &&
         css`
             opacity: 1;
@@ -100,7 +100,7 @@ const Arrow = styled(Chevron)`
     right: 8px;
     top: 25%;
     transition: transform 0.2s linear;
-    ${props => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
 `
 
 const Dropdown = ({ default_option, onChange, option_list }) => {
@@ -113,7 +113,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
 
     useEffect(() => setSelectedOption(default_option), [])
 
-    const toggleListVisibility = e => {
+    const toggleListVisibility = (e) => {
         e.preventDefault()
         const open_dropdown =
             e.keyCode === Keycodes.SPACE ||
@@ -123,8 +123,8 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
         // adding each item nodes a listener (click and keys)
         // and filter if there is null nodes in the array
         Array.from(nodes.values())
-            .filter(node => node !== null)
-            .forEach(node => addItemListener(node))
+            .filter((node) => node !== null)
+            .forEach((node) => addItemListener(node))
 
         if (e.keyCode === Keycodes.ESCAPE) {
             closeList()
@@ -144,7 +144,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
         setOpen(false)
     }
 
-    const focusNextListItem = direction => {
+    const focusNextListItem = (direction) => {
         const activeElement = document.activeElement
 
         if (activeElement.id === 'selected_dropdown') {
@@ -161,13 +161,13 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
         }
     }
 
-    const addItemListener = node => {
-        node.addEventListener('click', e => {
+    const addItemListener = (node) => {
+        node.addEventListener('click', (e) => {
             e.preventDefault()
             onChange(e)
             closeList()
         })
-        node.addEventListener('keydown', e => {
+        node.addEventListener('keydown', (e) => {
             e.preventDefault()
             switch (e.keyCode) {
                 case Keycodes.ENTER:
@@ -208,12 +208,12 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
                     <Scrollbar style={{ maxHeight: '17rem' }}>
-                        {option_list.map(option => (
+                        {option_list.map((option) => (
                             <ListItem
                                 tabIndex="0"
                                 id={option.value}
                                 key={option.value}
-                                ref={c => nodes.set(option.value, c)}
+                                ref={(c) => nodes.set(option.value, c)}
                             >
                                 {option.text}
                             </ListItem>

@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import ReactTooltip from 'react-tooltip'
 import { Button } from 'components/form/'
-import Chevron from 'images/svg/chevron-thick.svg'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
+// SVG
+import Chevron from 'images/svg/chevron-thick.svg'
+import PDF from 'images/svg/pdf-icon-black.svg'
 
 const StyledButton = styled(Button)`
     margin-top: 1.6rem;
@@ -17,13 +19,17 @@ const StyledChevron = styled(Chevron)`
     transform: ${(props) => (props.expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
+const StyledPDF = styled(PDF)`
+    height: 32px;
+    width: 32px;
+`
 
 const ExpandedContent = styled.td`
     text-align: left;
 `
 
 const Tr = styled.tr`
-    border-bottom: 1px solid var(--color-grey-2);
+    border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
 `
 
 const Td = styled.td`
@@ -52,31 +58,37 @@ const HoverTd = styled(Td)`
 const Description = styled.div`
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3s;
-    background: var(--color-grey-8);
+    transition: max-height 0.3s, padding 0.3s;
+    background: var(--color-white);
     width: 100%;
     padding: 0 3.2rem;
     ${(props) =>
         props.is_expanded &&
         css`
             max-height: 40rem;
-            margin-bottom: 4rem;
-            padding: 2.6rem 3.2rem;
+            padding: 2.4rem 3.2rem;
+            border-bottom: 1px solid var(--color-grey-8);
         `}
 `
 
 const StyledText = styled(Text)`
-    font-size: 0;
-    ${(props) =>
-        props.is_expanded &&
-        css`
-            font-size: var(--text-size-s);
-        `}
+    font-size: ${(props) => (props.is_expanded ? 'var(--text-size-s)' : '0')};
+`
+
+const CenterIcon = styled.a`
+    display: flex;
+    justify-content: center;
 `
 
 const HoverText = styled(Text)`
     width: fit-content;
     cursor: pointer;
+`
+
+const Withdrawal = styled(Td)`
+    & > p {
+        max-width: 12.1rem;
+    }
 `
 
 const ExpandList = ({ data, is_crypto }) => {
@@ -87,7 +99,7 @@ const ExpandList = ({ data, is_crypto }) => {
     }
     return (
         <>
-            <Tr>
+            <Tr is_expanded={is_expanded}>
                 <Td>{data.method}</Td>
                 <Td>
                     <Text>{data.currencies}</Text>
@@ -127,15 +139,24 @@ const ExpandList = ({ data, is_crypto }) => {
                 <Td>
                     <Text>{data.deposit_time}</Text>
                 </Td>
-                <Td>
+                <Withdrawal>
                     <Text>{data.withdrawal_time}</Text>
+                </Withdrawal>
+                <Td>
+                    {data.reference ? (
+                        <CenterIcon href={data.reference} target="_blank" rel="noopener noreferrer">
+                            <StyledPDF />
+                        </CenterIcon>
+                    ) : (
+                        <Text align="center">-</Text>
+                    )}
                 </Td>
                 <HoverTd onClick={toggleExpand}>
                     <StyledChevron expanded={is_expanded} />
                 </HoverTd>
             </Tr>
             <tr>
-                <ExpandedContent colSpan="7">
+                <ExpandedContent colSpan="8">
                     <Description is_expanded={is_expanded}>
                         <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
                         {data.url && (

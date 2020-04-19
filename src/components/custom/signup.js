@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { Box } from 'components/containers'
@@ -13,12 +14,17 @@ import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
 import SignupSimple from 'components/custom/_signup-simple'
-import { Header, Image, StyledLink, Text } from 'components/elements'
+import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device.js'
 
 const Form = styled.form`
     height: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
+
+    @media ${device.mobileL} {
+        width: 100%;
+    }
 `
 const ResponseWrapper = styled.div`
     justify-content: center;
@@ -27,10 +33,7 @@ const ResponseWrapper = styled.div`
     flex-direction: column;
     padding: 2rem 1rem;
 `
-const EmailImgWrapper = styled(Box)`
-    display: flex;
-    justify-content: center;
-`
+
 const EmailLink = styled(StyledLink)`
     display: table;
     font-size: 1.4rem;
@@ -192,9 +195,20 @@ class Signup extends Component {
                         <Header as="h3" align="center" weight="normal">
                             {localize('Check your email')}
                         </Header>
-                        <EmailImgWrapper width="100%" mt="1rem" mb="1.6rem">
-                            <Image img_name="view-email.png" alt="Email image" width="80%" />
-                        </EmailImgWrapper>
+                        <StaticQuery
+                            query={graphql`
+                                query {
+                                    view_email: file(relativePath: { eq: "view-email.png" }) {
+                                        ...fadeIn
+                                    }
+                                }
+                            `}
+                            render={(data) => (
+                                <Box m="3.2rem 0">
+                                    <QueryImage data={data.view_email} alt="Email image" />
+                                </Box>
+                            )}
+                        />
                         <Text align="center">
                             <Localize
                                 translate_text="We've sent a message to {{email}} with a link to activate your account."

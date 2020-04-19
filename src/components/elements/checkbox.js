@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import device from 'themes/device.js'
 
 const CheckboxContainer = styled.div`
     display: inline-block;
@@ -39,6 +40,11 @@ const StyledCheckbox = styled.div`
 
     ${Icon} {
         visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
+    }
+
+    @media ${device.mobileL} {
+        width: 2rem;
+        height: 2rem;
     }
 `
 

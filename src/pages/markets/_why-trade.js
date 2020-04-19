@@ -30,10 +30,12 @@ export const WhyTrade = ({ children, header, text }) => {
         <SectionContainer background="var(--color-grey-23)">
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
-                    <StyledHeader align="center" mb="1.6rem" size="3.6rem">
+                    <StyledHeader align="center" mb="1.6rem" size="3.6rem" lh="1.25">
                         {localize(header)}
                     </StyledHeader>
-                    <Text align="center">{localize(text)}</Text>
+                    <Text align="center" p="0 1px">
+                        {localize(text)}
+                    </Text>
                 </div>
                 <ItemContainer max_width="48.6rem" width="100%" mt="3.2rem" mb="3.2rem">
                     {children.map((child, idx) => {

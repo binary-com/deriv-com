@@ -27,7 +27,7 @@ const Row = styled(Flex)`
     ${(props) => props.romve_border_top && 'border-top: unset;'}
 `
 const Options = styled(Descriptions)`
-    margin-top: 1.6rem;
+    margin-top: 2.4rem;
 
     ${Row} {
         margin-top: 4rem;
@@ -142,7 +142,7 @@ const DigitalOptions = () => {
                 <Row jc="flex-start" ai="center" romve_border_top>
                     <Col max_width="13.2rem">
                         <Text weight="bold" max_width="9.7rem" align="center">
-                            {localize('Asia/Oceania')}
+                            {localize('Asia/ Oceania')}
                         </Text>
                     </Col>
                     <Col wrap="wrap" jc="flex-start" p="3.2rem 0 3.2rem 1.6rem" border_left>

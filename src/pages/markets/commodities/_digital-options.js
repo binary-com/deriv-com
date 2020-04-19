@@ -27,7 +27,7 @@ const Row = styled(Flex)`
     ${(props) => props.romve_border_top && 'border-top: unset;'}
 `
 const Options = styled(Descriptions)`
-    margin-top: 1.6rem;
+    margin-top: 2.4rem;
 
     ${Row} {
         margin-top: 4rem;

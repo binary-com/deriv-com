@@ -44,7 +44,7 @@ export const Hero = () => {
                     color="white"
                     lh="1.5"
                     font_size="var(--text-size-m)"
-                    weight="500"
+                    weight="normal"
                     align="center"
                     mt="1.6rem"
                 >

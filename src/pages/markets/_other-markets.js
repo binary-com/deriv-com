@@ -111,7 +111,7 @@ const Card = ({ name }) => {
             onMouseLeave={() => setButtonVisibility('false')}
         >
             <Icon dynamic_id={markets_type[name].id} />
-            <Text weight="bold" mt="0.8rem">
+            <Text weight="bold" mt="1.6rem">
                 {localize(markets_type[name].title)}
             </Text>
             <Text mt="0.8rem">{localize(markets_type[name].content)}</Text>
@@ -155,7 +155,7 @@ const OtherMarkets = ({ except }) => {
     return (
         <Section padding="8rem 0 8.8rem 12rem">
             <StyledFlex tablet_jc="center">
-                <StyledHeader size="var(--text-size-header-1)" align="left" max_width="28.2rem">
+                <StyledHeader as="h3" align="left" max_width="28.2rem">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
 

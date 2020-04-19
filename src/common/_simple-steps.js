@@ -61,14 +61,6 @@ const ClientCard = styled.article`
         margin-top: 0;
         padding: 2rem;
     }
-
-    &:hover {
-        transform: translateY(-1.5rem) scale(1.03);
-
-        svg > g > path:nth-child(2) {
-            fill: var(--color-red);
-        }
-    }
 `
 const BackgroundPattern = styled(Pattern)`
     z-index: 0;

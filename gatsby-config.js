@@ -10,6 +10,16 @@ module.exports = {
         siteUrl: 'https://www.deriv.com',
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-amp`,
+            options: {
+                canonicalBaseUrl: 'https://deriv.com/',
+                components: [],
+                pathIdentifier: '/amp/',
+                relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
+                useAmpClientIdApi: true,
+            },
+        },
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
         {
@@ -129,15 +139,6 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -300,
-            },
-        },
-        {
-            resolve: `gatsby-plugin-amp`,
-            options: {
-                canonicalBaseUrl: 'https://deriv.com/',
-                pathIdentifier: '/amp/',
-                relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
-                useAmpClientIdApi: true,
             },
         },
     ],

@@ -72,10 +72,6 @@ const SEO = ({ description, meta, title, no_index }) => {
                     ),
                 },
                 {
-                    name: 'viewport',
-                    content: 'width=device-width, initial-scale=1.0',
-                },
-                {
                     name: 'google',
                     content: 'notranslate',
                 },

@@ -57,12 +57,12 @@ module.exports = {
         short_name: 'TIE'
     },
     zh_cn: {
-        path: 'zh_cn',
+        path: 'zh-cn',
         display_name: '简体中文',
         short_name: '简体中'
     },
     zh_tw: {
-        path: 'zh_tw',
+        path: 'zh-tw',
         display_name: '繁體中文',
         short_name: '繁體中'
     },

@@ -148,7 +148,7 @@ module.exports = {
                         },
                     },
                 },
-                canonicalBaseUrl: 'http://deriv.com/',
+                canonicalBaseUrl: 'https://deriv.com/',
                 components: ['amp-video', 'amp-carousel', 'amp-sidebar'],
                 pathIdentifier: '/landing',
                 relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',

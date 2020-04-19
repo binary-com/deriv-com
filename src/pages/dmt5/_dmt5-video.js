@@ -76,7 +76,7 @@ const DtraderTabs = () => {
     const data = useStaticQuery(query)
     const [current_step, setStep] = React.useState('step_1')
     const clickHandler = (incoming_step) => {
-        if (incoming_step === current_step) return
+        if (incoming_step == current_step) return
         setStep(incoming_step)
     }
     return (

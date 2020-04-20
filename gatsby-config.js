@@ -15,7 +15,7 @@ module.exports = {
             options: {
                 canonicalBaseUrl: 'https://deriv.com/',
                 components: ['amp-sidebar', 'amp-animation', 'amp-position-observer'],
-                pathIdentifier: '/',
+                pathIdentifier: '/amp/',
                 relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
                 useAmpClientIdApi: true,
             },

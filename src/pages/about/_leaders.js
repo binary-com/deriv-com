@@ -280,7 +280,7 @@ const Leaders = () => {
         <StyledSection>
             <Helmet>
                 <noscript>
-                    {`<link rel="stylesheet" type="text/css" href="swiper/css/swiper.css" />`}
+                    {`<link rel="stylesheet" type="text/css" href="/css/swiper.css" />`}
                 </noscript>
             </Helmet>
             <Container>

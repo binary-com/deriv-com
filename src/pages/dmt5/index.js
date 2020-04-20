@@ -31,7 +31,7 @@ const trading = [
         second_subtitle: localize(
             'The Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes.',
         ),
-        image_name: 'dmt-5-ipad-iphone.png',
+        image_name: 'dmt_5_ipad_iphone',
         image_alt: localize('DMT5 Platform'),
     },
     {
@@ -43,7 +43,7 @@ const trading = [
         second_subtitle: localize(
             'Create free demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
         ),
-        image_name: 'dmt-5-mac.png',
+        image_name: 'dmt_5_mac',
         image_alt: localize('DMT5 Demo Account'),
     },
 ]
@@ -67,7 +67,7 @@ const DMT5 = () => {
                 }
                 join_us_for_free
                 Logo={dmt5_logo}
-                background_image_name="dmt5-platform.png"
+                image_name="dmt5"
                 background_svg={DMT5BG}
                 background_alt={localize('DMT5')}
             />

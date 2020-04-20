@@ -1,10 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 
+const query = graphql`
+    query {
+        mena: file(relativePath: { eq: "mena.png" }) {
+            ...fadeIn
+        }
+        wealth: file(relativePath: { eq: "wealth.png" }) {
+            ...fadeIn
+        }
+        winner: file(relativePath: { eq: "winner.png" }) {
+            ...fadeIn
+        }
+        global_brand: file(relativePath: { eq: "global-brand.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const AwardContainer = styled.section`
     width: 100%;
     padding: 8rem 22.8rem;
@@ -36,6 +53,7 @@ const ImageItem = styled.div`
 `
 
 export const OurAwards = () => {
+    const data = useStaticQuery(query)
     return (
         <AwardContainer>
             <Header align="center" mb="1.6rem" size="var(--text-size-header-1)">
@@ -50,21 +68,25 @@ export const OurAwards = () => {
             </Flex>
             <ImageWrapper>
                 <ImageItem>
-                    <Image img_name="mena.png" alt={localize('Mena FFXPO')} width="28.5rem" />
+                    <QueryImage data={data['mena']} alt={localize('Mena FFXPO')} width="28.5rem" />
                 </ImageItem>
                 <ImageItem>
-                    <Image
-                        img_name="wealth.png"
+                    <QueryImage
+                        data={data['wealth']}
                         alt={localize('Personal Wealth')}
                         width="28.5rem"
                     />
                 </ImageItem>
                 <ImageItem>
-                    <Image img_name="winner.png" alt={localize('Award Winner')} width="28.5rem" />
+                    <QueryImage
+                        data={data['winner']}
+                        alt={localize('Award Winner')}
+                        width="28.5rem"
+                    />
                 </ImageItem>
                 <ImageItem>
-                    <Image
-                        img_name="global-brand.png"
+                    <QueryImage
+                        data={data['global_brand']}
                         alt={localize('Global Brand')}
                         width="28.5rem"
                     />

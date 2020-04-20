@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Input, Button } from 'components/form'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
@@ -15,6 +16,13 @@ import BackgroundPattern from 'images/common/bg_banner_signup.png'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
+const query = graphql`
+    query {
+        deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
 
@@ -216,11 +224,12 @@ const SignupPublic = ({
     handleSocialSignup,
     is_submitting,
 }) => {
+    const data = useStaticQuery(query)
     return (
         <Wrapper>
             <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
                 <ImageWrapper ai="center">
-                    <Image img_name="deriv-platform-banner.png" width="100%" />
+                    <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
                 </ImageWrapper>
             </div>
             <SignupFormWrapper>
@@ -305,7 +314,11 @@ const SignupPublic = ({
             <Show.Mobile>
                 <MobileBackground>
                     <MobilePlatform>
-                        <Image img_name="deriv-platform-banner.png" width="100%" />
+                        <QueryImage
+                            data={data['deriv_platform']}
+                            alt="deriv platform"
+                            width="100%"
+                        />
                     </MobilePlatform>
                     <MobileRedBanner>
                         <RedBanner width="100%" />

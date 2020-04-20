@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { graphql, useStaticQuery } from 'gatsby'
 import { deriv_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Container, Show, Flex } from 'components/containers'
-import { Header, Image } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
@@ -83,16 +84,30 @@ const LinkWrapper = styled.div`
         flex-direction: column;
     }
 `
+const query = graphql`
+    query {
+        dbot: file(relativePath: { eq: "dbot_trade.png" }) {
+            ...fadeIn
+        }
+        dmt5: file(relativePath: { eq: "dmt5_trade.png" }) {
+            ...fadeIn
+        }
+        dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const DHero = ({
     title,
     background_alt,
     background_svg,
-    background_image_name,
     content,
+    image_name,
     join_us_for_free,
     go_to_live_demo,
     Logo,
 }) => {
+    const data = useStaticQuery(query)
     const handleRedirect = () => {
         window.open(deriv_app_url, '_blank')
     }
@@ -139,8 +154,8 @@ const DHero = ({
                 <div>
                     <Show.Desktop>
                         <LottieWrapper>
-                            <Image
-                                img_name={background_image_name}
+                            <QueryImage
+                                data={data[image_name]}
                                 alt={background_alt}
                                 width="54.3rem"
                             />
@@ -158,6 +173,7 @@ DHero.propTypes = {
     background_svg: PropTypes.func,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
+    image_name: PropTypes.string,
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.func,
     title: PropTypes.string,

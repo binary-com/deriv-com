@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
-import SwiperStyle from 'swiper/css/swiper.css'
+import { Helmet } from 'react-helmet'
 import { Header, Text, Divider } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -238,6 +238,11 @@ const WhatOurClientsSay = () => {
     }
     return (
         <>
+            <Helmet>
+                <noscript>
+                    {`<link rel="stylesheet" type="text/css" href="swiper/css/swiper.css" />`}
+                </noscript>
+            </Helmet>
             <StyledSection>
                 <Container direction="column">
                     <StyledHeader align="center" as="h2">
@@ -257,7 +262,7 @@ const WhatOurClientsSay = () => {
                             </button>
                         </Prev>
                     </ButtonWrapper>
-                    <div className={SwiperStyle} style={{ maxWidth: '800px', margin: '0 auto' }}>
+                    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                         <Swiper {...params} getSwiper={updateSwiper}>
                             {our_client_slides.map((trader) => (
                                 <div className="swiper-slide" key={trader.name}>

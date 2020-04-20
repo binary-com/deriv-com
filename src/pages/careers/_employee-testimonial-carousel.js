@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
-import SwiperStyle from 'swiper/css/swiper.css'
+import { Helmet } from 'react-helmet'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
@@ -251,6 +251,11 @@ const EmployeeTestimonialCarousel = () => {
 
     return (
         <>
+            <Helmet>
+                <noscript>
+                    {`<link rel="stylesheet" type="text/css" href="swiper/css/swiper.css" />`}
+                </noscript>
+            </Helmet>
             <StyledSection padding="12rem 0">
                 <StyledHeader align="center" as="h2">
                     In the words of our employees
@@ -268,7 +273,7 @@ const EmployeeTestimonialCarousel = () => {
                     </Prev>
                 </ButtonWrapper>
                 <SliderWrapper>
-                    <SwiperWrapper className={SwiperStyle}>
+                    <SwiperWrapper>
                         <Swiper {...params} getSwiper={updateSwiper}>
                             {employee_testimonials.map((employee_slide) => (
                                 <div className="swiper-slide" key={employee_slide.name}>

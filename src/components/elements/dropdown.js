@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
-import ScrollbarStyle from 'react-perfect-scrollbar/dist/css/styles.css'
 import Keycodes from 'common/keycodes'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import Chevron from 'images/svg/chevron-bottom.svg'
@@ -194,6 +194,11 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
 
     return (
         <DropdownContainer active={is_open} ref={dropdown_ref}>
+            <Helmet>
+                <noscript>
+                    {`<link rel="stylesheet" type="text/css" href="react-perfect-scrollbar/dist/css/styles.css" />`}
+                </noscript>
+            </Helmet>
             <DropdownSelected
                 role="button"
                 id="selected_dropdown"
@@ -206,7 +211,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             </DropdownSelected>
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
-                    <Scrollbar className={ScrollbarStyle} style={{ maxHeight: '17rem' }}>
+                    <Scrollbar style={{ maxHeight: '17rem' }}>
                         {option_list.map((option) => (
                             <ListItem
                                 tabIndex="0"

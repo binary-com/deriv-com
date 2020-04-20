@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 import Scrollbar from 'react-perfect-scrollbar'
-import ScrollbarStyle from 'react-perfect-scrollbar/dist/css/styles.css'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
 import Layout from 'components/layout/layout'
@@ -89,6 +89,11 @@ const PaymentMethods = () => {
     }, [])
     return (
         <Layout>
+            <Helmet>
+                <noscript>
+                    {`<link rel="stylesheet" type="text/css" href="react-perfect-scrollbar/dist/css/styles.css" />`}
+                </noscript>
+            </Helmet>
             <SEO
                 title={localize('Payment methods')}
                 description={localize(
@@ -130,7 +135,7 @@ const PaymentMethods = () => {
                                     }}
                                     header={pd.name}
                                 >
-                                    <Scrollbar className={ScrollbarStyle}>
+                                    <Scrollbar>
                                         <StyledTable has_note={!!pd.note}>
                                             <Thead>
                                                 <Tr>

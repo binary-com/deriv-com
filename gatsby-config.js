@@ -14,8 +14,8 @@ module.exports = {
             resolve: `gatsby-plugin-amp`,
             options: {
                 canonicalBaseUrl: 'https://deriv.com/',
-                components: [],
-                pathIdentifier: '/amp/',
+                components: ['amp-sidebar', 'amp-animation', 'amp-position-observer'],
+                pathIdentifier: '/',
                 relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
                 useAmpClientIdApi: true,
             },

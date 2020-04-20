@@ -1,24 +1,26 @@
 import React from 'react'
-import styled from 'styled-components'
-// import { SEO } from 'components/containers'
-// import { WithIntl } from 'components/localization'
+import Header from './homepage/_header'
+import Footer from './homepage/_footer'
+import Hero from './homepage/_hero'
+import ScrollTop from './components/scroll-top'
+import { SEO } from 'components/containers'
+import { WithIntl, localize } from 'components/localization'
 
-const White = styled.p`
-    color: white;
-`
-
-const Home = () => {
+const Amp = () => {
     return (
         <>
-            {/* <SEO
+            <ScrollTop />
+            <Header />
+            <SEO
                 title={localize('Online trading platform | Forex, commodities and indices')}
                 description={localize(
                     'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
                 )}
-            /> */}
-            <White>Hello amp</White>
+            />
+            <Hero />
+            <Footer />
         </>
     )
 }
 
-export default Home
+export default WithIntl()(Amp)

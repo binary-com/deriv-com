@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { MajorPairs, MinorPairs, SmartFX } from '../sub-markets/_submarkets.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import DTrader from 'images/svg/dtrader-icon.svg'
 
 const Descriptions = styled.div`
@@ -29,7 +29,9 @@ const Multipliers = () => {
                     </Text>
                     <Flex jc="flex-end" ai="center" mt="2rem" pr="8rem">
                         <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <DTrader />
+                        <LocalizedLink to="/dtrader/">
+                            <DTrader />
+                        </LocalizedLink>
                     </Flex>
                 </Descriptions>
                 <Text weight="bold" mt="2.4rem">

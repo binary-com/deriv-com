@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Metals, Energy } from '../sub-markets/_submarkets.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 
 const Descriptions = styled.div`
@@ -29,7 +29,9 @@ const Margin = () => {
                     </Text>
                     <Flex jc="flex-end" ai="center" mt="2rem" pr="8rem">
                         <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <DMT5 />
+                        <LocalizedLink to="/dmt5/">
+                            <DMT5 />
+                        </LocalizedLink>
                     </Flex>
                 </Descriptions>
                 <Text weight="bold" mt="2.4rem">

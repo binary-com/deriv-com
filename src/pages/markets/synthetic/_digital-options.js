@@ -4,7 +4,7 @@ import { ContinuousIndices, DailyResetIndices } from '../sub-markets/_submarkets
 import AvailableOptions from '../_available-options.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 //SVG
 import Dtrader from 'images/svg/dtrader-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
@@ -66,9 +66,19 @@ const DigitalOptions = () => {
                     </Text>
                     <Flex jc="flex-end" ai="center" mt="2rem">
                         <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <Dtrader style={{ marginRight: '0.8rem' }} />
-                        <DBot style={{ marginRight: '0.8rem' }} />
-                        <SmartTrader width="32px" height="32px" />
+                        <LocalizedLink to="/dtrader/">
+                            <Dtrader style={{ marginRight: '0.8rem' }} />
+                        </LocalizedLink>
+                        <LocalizedLink to="/dbot/">
+                            <DBot style={{ marginRight: '0.8rem' }} />
+                        </LocalizedLink>
+                        <a
+                            href="https://smarttrader.deriv.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <SmartTrader width="32px" height="32px" />
+                        </a>
                     </Flex>
                 </Descriptions>
                 <Text weight="bold" mt="2.4rem">

@@ -55,19 +55,6 @@ const Markets = () => {
                     </Li>
                     <Li>
                         <div>
-                            <Synthetic width="64" height="64" />
-                        </div>
-                        <Box ml="1.6rem">
-                            <Header as="h4">{localize('Synthetic Indices')}</Header>
-                            <Text>
-                                {localize(
-                                    'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
-                                )}
-                            </Text>
-                        </Box>
-                    </Li>
-                    <Li>
-                        <div>
                             <Commodities width="64" height="64" />
                         </div>
                         <Box ml="1.6rem">
@@ -75,6 +62,19 @@ const Markets = () => {
                             <Text>
                                 {localize(
                                     'Trade natural resources that are central to the world’s economy and profit from the opportunities created by volatile markets.',
+                                )}
+                            </Text>
+                        </Box>
+                    </Li>
+                    <Li>
+                        <div>
+                            <Synthetic width="64" height="64" />
+                        </div>
+                        <Box ml="1.6rem">
+                            <Header as="h4">{localize('Synthetic Indices')}</Header>
+                            <Text>
+                                {localize(
+                                    'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
                                 )}
                             </Text>
                         </Box>

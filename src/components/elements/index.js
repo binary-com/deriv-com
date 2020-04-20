@@ -2,7 +2,6 @@ import { Accordion, AccordionItem } from './accordion'
 import AutoCarousel from './auto-carousel'
 import BackgroundImage from './background-image'
 import { Card, CardChildren, CardStyle, NavCard, CardLink } from './card'
-import Carousel from './carousel'
 import Divider from './divider'
 import DotLoader from './dot-loader'
 import Dropdown from './dropdown'
@@ -28,7 +27,6 @@ export {
     CardChildren,
     CardLink,
     CardStyle,
-    Carousel,
     Divider,
     DotLoader,
     Dropdown,

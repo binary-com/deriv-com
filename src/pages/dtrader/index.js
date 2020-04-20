@@ -33,7 +33,7 @@ const trading = [
                 components={[<br key={0} />]}
             />
         ),
-        image_name: 'make-smarter.png',
+        image_name: 'make_smarter',
         image_alt: localize('Charts'),
     },
     {
@@ -46,7 +46,7 @@ const trading = [
         subtitle: localize(
             'Forex, indices, commodities and synthetic indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.',
         ),
-        image_name: 'trade-what-you-want.png',
+        image_name: 'trade_what_you_want',
         image_alt: localize('Trading Market'),
     },
     {
@@ -54,7 +54,7 @@ const trading = [
         subtitle: localize(
             'Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second.',
         ),
-        image_name: 'how-you-want.png',
+        image_name: 'how_you_want',
         image_alt: localize('Trade Types'),
     },
 ]
@@ -81,7 +81,7 @@ const Dtrader = () => {
                 join_us_for_free
                 go_to_live_demo
                 Logo={dtrader_logo}
-                background_image_name="dtrader-artboard.png"
+                image_name="dtrader"
                 background_svg={DTraderBG}
                 background_alt={localize('DTrader Board')}
             />

@@ -53,21 +53,21 @@ const Footer = () => (
                         components={[
                             <LocalizedLinkText
                                 key={0}
-                                href="/Vanuatu-Financial-Services-Commission.pdf"
+                                to="/Vanuatu-Financial-Services-Commission.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
                             />,
                             <LocalizedLinkText
                                 key={1}
-                                href="/BVI_license.pdf"
+                                to="/BVI_license.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
                             />,
                             <LocalizedLinkText
                                 key={2}
-                                href="/Labuan-license.pdf"
+                                to="/Labuan-license.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"

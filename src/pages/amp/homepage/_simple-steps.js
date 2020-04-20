@@ -85,7 +85,7 @@ const SimpleSteps = () => {
                         </Text>
                     </Li>
                 </Ul>
-                <MediumButton to="/signup" target="_blank" rel="noopener noreferrer" secondary>
+                <MediumButton to="/signup/" target="_blank" rel="noopener noreferrer" secondary>
                     {localize('Sign up now')}
                 </MediumButton>
             </Container>

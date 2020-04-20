@@ -99,7 +99,7 @@ const Hero = () => {
                 <amp-img src={HeroPlatform} width="540" height="345" />
             </FullWidth>
 
-            <BigButton secondary to="/signup" target="_blank" rel="noopener noreferrer">
+            <BigButton secondary to="/signup/" target="_blank" rel="noopener noreferrer">
                 {localize('Create free demo account')}
             </BigButton>
         </HandleAmp>

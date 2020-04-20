@@ -7,21 +7,13 @@ import Trade from './homepage/_trade'
 import Markets from './homepage/_markets'
 import SimpleSteps from './homepage/_simple-steps'
 import OurClients from './homepage/_our-clients'
-import { UrlProvider } from './homepage/_context'
-import ScrollTop from './components/scroll-top'
+import ScrollTop from './components/_scroll-top'
 import { SEO } from 'components/containers'
 import { WithIntl, localize } from 'components/localization'
-import { isBrowser } from 'common/utility'
 
-const Amp = ({ language }) => {
-    const [url_search, setUrlSearch] = React.useState('')
-    React.useEffect(() => {
-        if (isBrowser()) {
-            setUrlSearch(window.location.search)
-        }
-    }, [])
+const Amp = () => {
     return (
-        <UrlProvider value={{ language, url_search }}>
+        <>
             <ScrollTop />
             <Header />
             <SEO
@@ -37,7 +29,7 @@ const Amp = ({ language }) => {
             <SimpleSteps />
             <OurClients />
             <Footer />
-        </UrlProvider>
+        </>
     )
 }
 

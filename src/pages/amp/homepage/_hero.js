@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import UrlContext, { getSignupUrl } from './_context'
 import { Container, Box, Flex } from 'components/containers'
 import { LinkButton } from 'components/form'
 import { Text, Header } from 'components/elements'
@@ -65,7 +64,6 @@ const FullWidth = styled(Container)`
 `
 
 const Hero = () => {
-    const url_context = React.useContext(UrlContext)
     return (
         <HandleAmp bg="var(--color-black)" p="12rem 0">
             <FullWidth jc="center" ai="center" fd="row" fw="wrap-reverse">
@@ -101,11 +99,8 @@ const Hero = () => {
                 <amp-img src={HeroPlatform} width="540" height="345" />
             </FullWidth>
             <BigButton
-                external
                 secondary
-                to={getSignupUrl(url_context.language, url_context.url_search)}
-                target="_blank"
-                rel="noopener noreferrer"
+                to="/signup/?t=QUERY_PARAM(t)&utm_source=QUERY_PARAM(utm_source)&utm_medium=QUERY_PARAM(utm_medium)&utm_campaign=QUERY_PARAM(utm_campaign)"
             >
                 {localize('Create free demo account')}
             </BigButton>

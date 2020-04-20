@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import UrlContext, { getSignupUrl } from './_context'
 import { Container, Box, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -45,7 +44,6 @@ const Li = styled(Flex).attrs({ as: 'li' })`
 `
 
 const SimpleSteps = () => {
-    const url_context = React.useContext(UrlContext)
     return (
         <HandleAmp p="8rem 0 1.6rem">
             <Container fd="column" ai="center">
@@ -88,10 +86,7 @@ const SimpleSteps = () => {
                     </Li>
                 </Ul>
                 <MediumButton
-                    external
-                    to={getSignupUrl(url_context.language, url_context.url_search)}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    to="/signup/?t=QUERY_PARAM(t)&utm_source=QUERY_PARAM(utm_source)&utm_medium=QUERY_PARAM(utm_medium)&utm_campaign=QUERY_PARAM(utm_campaign)"
                     secondary
                 >
                     {localize('Sign up now')}

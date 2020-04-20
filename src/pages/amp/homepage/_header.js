@@ -29,7 +29,7 @@ const HamburgerMenu = styled.button`
     }
 `
 
-const LinkText = styled(Link)`
+const LinkText = styled(Text)`
     font-size: var(--text-size-sm);
     color: var(--color-white);
     text-decoration: none;
@@ -102,15 +102,9 @@ const Header = () => (
                     </Binary>
                 </Flex>
                 <LinkWrapper ai="center" jc="center">
-                    <LinkText to="/#trade" on="tap:trade.scrollTo()">
-                        {localize('Trade')}
-                    </LinkText>
-                    <LinkText to="/#markets" on="tap:markets.scrollTo()">
-                        {localize('Markets')}
-                    </LinkText>
-                    <LinkText to="/#our-clients" on="tap:our-clients.scrollTo()">
-                        {localize('Testimonials')}
-                    </LinkText>
+                    <LinkText on="tap:trade.scrollTo()">{localize('Trade')}</LinkText>
+                    <LinkText on="tap:markets.scrollTo()">{localize('Markets')}</LinkText>
+                    <LinkText on="tap:our-clients.scrollTo()">{localize('Testimonials')}</LinkText>
                 </LinkWrapper>
                 <HamburgerMenu on="tap:sidebar1.toggle">
                     <Hamburger width="18" height="16" />
@@ -119,15 +113,9 @@ const Header = () => (
         </HeaderWrapper>
         <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
             <Flex ai="flex-start" jc="center" p="2rem 2rem" fd="column">
-                <BlackLink to="/#trade" on="tap:trade.scrollTo()">
-                    {localize('Trade')}
-                </BlackLink>
-                <BlackLink to="/#markets" on="tap:markets.scrollTo()">
-                    {localize('Markets')}
-                </BlackLink>
-                <BlackLink to="/#our-clients" on="tap:our-clients.scrollTo()">
-                    {localize('Testimonials')}
-                </BlackLink>
+                <BlackLink on="tap:trade.scrollTo()">{localize('Trade')}</BlackLink>
+                <BlackLink on="tap:markets.scrollTo()">{localize('Markets')}</BlackLink>
+                <BlackLink on="tap:our-clients.scrollTo()">{localize('Testimonials')}</BlackLink>
             </Flex>
         </amp-sidebar>
     </>

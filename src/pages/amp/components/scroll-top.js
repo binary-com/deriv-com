@@ -2,6 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import Chevron from 'images/svg/chevron.svg'
 
+const WhiteArrow = styled(Chevron)`
+    & polyline {
+        stroke: var(--color-white);
+    }
+`
+
 const ScrollTopBtn = styled.button`
     color: var(--color-white);
     font-size: 2.4rem;
@@ -80,7 +86,7 @@ const ScrollTop = () => {
                 />
             </amp-animation>
             <ScrollTopBtn id="scrollToTopButton" on="tap:top.scrollTo()">
-                <Chevron width="16" height="16" />
+                <WhiteArrow width="16" height="16" />
             </ScrollTopBtn>
         </>
     )

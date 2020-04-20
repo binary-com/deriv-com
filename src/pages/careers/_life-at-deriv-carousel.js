@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
-import 'swiper/css/swiper.css'
+import { Helmet } from 'react-helmet'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
@@ -188,6 +188,9 @@ const LifeAtDerivCarousel = () => {
     }
     return (
         <>
+            <Helmet>
+                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
+            </Helmet>
             <StyledSection>
                 <Container direction="column">
                     <StyledHeader align="center" as="h2">

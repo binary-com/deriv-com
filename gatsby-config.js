@@ -15,7 +15,6 @@ module.exports = {
             options: {
                 canonicalBaseUrl: 'https://deriv.com/',
                 components: [
-                    'amp-sidebar',
                     'amp-animation',
                     'amp-position-observer',
                     'amp-carousel',

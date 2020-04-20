@@ -6,7 +6,6 @@ import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import Deriv from 'images/svg/logo-deriv.svg'
-import Hamburger from 'images/svg/hamburger_menu.svg'
 
 const HeaderWrapper = styled.header`
     position: fixed;
@@ -16,17 +15,6 @@ const HeaderWrapper = styled.header`
     z-index: 100;
     padding: 2.4rem 0;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.8);
-`
-
-const HamburgerMenu = styled.button`
-    cursor: pointer;
-    display: none;
-    border: none;
-    background: none;
-    @media ${device.tabletL} {
-        display: block;
-        cursor: pointer;
-    }
 `
 
 const LinkText = styled(Text)`
@@ -43,22 +31,12 @@ const LinkText = styled(Text)`
     }
 `
 
-const BlackLink = styled(LinkText)`
-    color: var(--color-black);
-    margin: 1.6rem 2rem;
-    font-size: var(--text-size-m);
-`
-
 const Binary = styled(Text)`
     width: 80px;
     margin-left: 0.5rem;
     line-height: 1;
     color: var(--color-white);
     font-size: var(--text-size-xxs);
-
-    @media ${device.mobileS} {
-        display: none;
-    }
 `
 
 const BinaryLink = styled.a`
@@ -106,18 +84,8 @@ const Header = () => (
                     <LinkText on="tap:markets.scrollTo()">{localize('Markets')}</LinkText>
                     <LinkText on="tap:our-clients.scrollTo()">{localize('Testimonials')}</LinkText>
                 </LinkWrapper>
-                <HamburgerMenu on="tap:sidebar1.toggle">
-                    <Hamburger width="18" height="16" />
-                </HamburgerMenu>
             </Container>
         </HeaderWrapper>
-        <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
-            <Flex ai="flex-start" jc="center" p="2rem 2rem" fd="column">
-                <BlackLink on="tap:trade.scrollTo()">{localize('Trade')}</BlackLink>
-                <BlackLink on="tap:markets.scrollTo()">{localize('Markets')}</BlackLink>
-                <BlackLink on="tap:our-clients.scrollTo()">{localize('Testimonials')}</BlackLink>
-            </Flex>
-        </amp-sidebar>
     </>
 )
 

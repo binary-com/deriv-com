@@ -195,9 +195,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
     return (
         <DropdownContainer active={is_open} ref={dropdown_ref}>
             <Helmet>
-                <noscript>
-                    {`<link rel="stylesheet" type="text/css" href="/css/perfect-scrollbar.css" />`}
-                </noscript>
+                <link rel="stylesheet" type="text/css" href="/css/perfect-scrollbar.css" />
             </Helmet>
             <DropdownSelected
                 role="button"

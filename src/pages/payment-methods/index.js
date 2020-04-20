@@ -90,9 +90,7 @@ const PaymentMethods = () => {
     return (
         <Layout>
             <Helmet>
-                <noscript>
-                    {`<link rel="stylesheet" type="text/css" href="/css/perfect-scrollbar.css" />`}
-                </noscript>
+                <link rel="stylesheet" type="text/css" href="/css/perfect-scrollbar.css" />
             </Helmet>
             <SEO
                 title={localize('Payment methods')}

@@ -189,9 +189,7 @@ const LifeAtDerivCarousel = () => {
     return (
         <>
             <Helmet>
-                <noscript>
-                    {`<link rel="stylesheet" type="text/css" href="/css/swiper.css" />`}
-                </noscript>
+                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
             </Helmet>
             <StyledSection>
                 <Container direction="column">

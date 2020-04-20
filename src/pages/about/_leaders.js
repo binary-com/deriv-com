@@ -279,9 +279,7 @@ const Leaders = () => {
     return (
         <StyledSection>
             <Helmet>
-                <noscript>
-                    {`<link rel="stylesheet" type="text/css" href="/css/swiper.css" />`}
-                </noscript>
+                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
             </Helmet>
             <Container>
                 <Show.Desktop>

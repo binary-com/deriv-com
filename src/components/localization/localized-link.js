@@ -84,13 +84,9 @@ export const LocalizedLink = ({ to, ...props }) => {
     }
 
     return (
-        <GatsbyLink
-            target={target}
-            rel={rel}
-            className={className}
-            style={style}
-            to={internal_to}
-        />
+        <GatsbyLink target={target} rel={rel} className={className} style={style} to={internal_to}>
+            {props.children}
+        </GatsbyLink>
     )
 }
 

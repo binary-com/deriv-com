@@ -101,6 +101,7 @@ const Hero = () => {
             <BigButton
                 secondary
                 to="/signup/?t=QUERY_PARAM(t)&utm_source=QUERY_PARAM(utm_source)&utm_medium=QUERY_PARAM(utm_medium)&utm_campaign=QUERY_PARAM(utm_campaign)"
+                target="_blank"
             >
                 {localize('Create free demo account')}
             </BigButton>

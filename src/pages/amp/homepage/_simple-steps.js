@@ -88,6 +88,7 @@ const SimpleSteps = () => {
                 <MediumButton
                     to="/signup/?t=QUERY_PARAM(t)&utm_source=QUERY_PARAM(utm_source)&utm_medium=QUERY_PARAM(utm_medium)&utm_campaign=QUERY_PARAM(utm_campaign)"
                     secondary
+                    target="_blank"
                 >
                     {localize('Sign up now')}
                 </MediumButton>

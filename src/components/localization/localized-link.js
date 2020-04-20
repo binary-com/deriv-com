@@ -65,7 +65,7 @@ export const LocalizedLink = ({ to, ...props }) => {
     if (props.external || props.external === 'true') {
         const { target, rel, className, style } = props
         return (
-            <a {...props} target={target} rel={rel} className={className} style={style} href={to}>
+            <a target={target} rel={rel} className={className} style={style} href={to}>
                 {props.children}
             </a>
         )

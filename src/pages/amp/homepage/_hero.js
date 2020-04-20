@@ -101,8 +101,8 @@ const Hero = () => {
             </FullWidth>
 
             <BigButton
-                secondary="true"
-                external="true"
+                secondary
+                external
                 to={internal_links.signupUrl()}
                 target="_blank"
                 rel="noopener noreferrer"

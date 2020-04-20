@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Box, Flex } from 'components/containers'
-import { Text, LocalizedLinkText } from 'components/elements'
+import { Text, LinkText, LocalizedLinkText } from 'components/elements'
 import Warning from 'images/svg/warning.svg'
 import { Localize, localize } from 'components/localization'
 
@@ -30,9 +30,9 @@ const Footer = () => (
                     as a Category 3 Investment Services provider by the Malta Financial Services
                     Authority (<0>view licence</0>)."
                         components={[
-                            <LocalizedLinkText
+                            <LinkText
                                 key={0}
-                                to="/WS-Binary-Investments-Europe-Limited.pdf"
+                                href="/WS-Binary-Investments-Europe-Limited.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
@@ -51,23 +51,23 @@ const Footer = () => (
                         Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services
                         Authority to carry on a money-broking business (<2>view licence</2>)."
                         components={[
-                            <LocalizedLinkText
+                            <LinkText
                                 key={0}
-                                to="/Vanuatu-Financial-Services-Commission.pdf"
+                                href="/Vanuatu-Financial-Services-Commission.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
                             />,
-                            <LocalizedLinkText
+                            <LinkText
                                 key={1}
-                                to="/BVI_license.pdf"
+                                href="/BVI_license.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
                             />,
-                            <LocalizedLinkText
+                            <LinkText
                                 key={2}
-                                to="/Labuan-license.pdf"
+                                href="/Labuan-license.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"

@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 import { Container, Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
 import Deriv from 'images/svg/logo-deriv.svg'
 
 const HeaderWrapper = styled.header`
@@ -52,7 +51,7 @@ const BinaryLink = styled.a`
 `
 
 const LinkWrapper = styled(Flex)`
-    @media ${device.tabletL} {
+    @media (max-width: 680px) {
         display: none;
     }
 `

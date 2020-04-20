@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
-// import 'swiper/css/swiper.css'
+import SwiperStyle from 'swiper/css/swiper.css'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
@@ -268,7 +268,7 @@ const EmployeeTestimonialCarousel = () => {
                     </Prev>
                 </ButtonWrapper>
                 <SliderWrapper>
-                    <SwiperWrapper>
+                    <SwiperWrapper className={SwiperStyle}>
                         <Swiper {...params} getSwiper={updateSwiper}>
                             {employee_testimonials.map((employee_slide) => (
                                 <div className="swiper-slide" key={employee_slide.name}>

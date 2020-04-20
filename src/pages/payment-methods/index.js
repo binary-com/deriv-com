@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Scrollbar from 'react-perfect-scrollbar'
+import ScrollbarStyle from 'react-perfect-scrollbar/dist/css/styles.css'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
 import Layout from 'components/layout/layout'
@@ -8,8 +9,6 @@ import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elem
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-
-// import 'react-perfect-scrollbar/dist/css/styles.css'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -131,7 +130,7 @@ const PaymentMethods = () => {
                                     }}
                                     header={pd.name}
                                 >
-                                    <Scrollbar>
+                                    <Scrollbar className={ScrollbarStyle}>
                                         <StyledTable has_note={!!pd.note}>
                                             <Thead>
                                                 <Tr>

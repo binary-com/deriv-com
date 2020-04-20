@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
+import SwiperStyle from 'swiper/css/swiper.css'
 import { graphql, useStaticQuery } from 'gatsby'
-// import 'swiper/css/swiper.css'
 import device from 'themes/device'
 import { SectionContainer, Container, CssGrid, Flex, Box, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -311,7 +311,7 @@ const Leaders = () => {
             </Container>
             <Container style={{ width: '100%', overflow: 'hidden' }}>
                 <SliderWrapper>
-                    <SwiperWrapper>
+                    <SwiperWrapper className={SwiperStyle}>
                         <Swiper {...params}>
                             {leaders_data.map((leader) => (
                                 <LeaderMobile key={leader.name}>

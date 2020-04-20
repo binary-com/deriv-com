@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
-// import 'swiper/css/swiper.css'
+import SwiperStyle from 'swiper/css/swiper.css'
 import { Header, Text, Divider } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -257,7 +257,7 @@ const WhatOurClientsSay = () => {
                             </button>
                         </Prev>
                     </ButtonWrapper>
-                    <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+                    <div className={SwiperStyle} style={{ maxWidth: '800px', margin: '0 auto' }}>
                         <Swiper {...params} getSwiper={updateSwiper}>
                             {our_client_slides.map((trader) => (
                                 <div className="swiper-slide" key={trader.name}>

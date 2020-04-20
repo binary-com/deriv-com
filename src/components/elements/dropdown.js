@@ -1,13 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Scrollbars } from 'react-touch-scrollbars'
+import Scrollbar from 'react-perfect-scrollbar'
+import ScrollbarStyle from 'react-perfect-scrollbar/dist/css/styles.css'
 import Keycodes from 'common/keycodes'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import Chevron from 'images/svg/chevron-bottom.svg'
 import device from 'themes/device'
-
-// import 'react-perfect-scrollbar/dist/css/styles.css'
 
 const DropdownContainer = styled.ul`
     list-style: none;
@@ -207,7 +206,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             </DropdownSelected>
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
-                    <Scrollbars style={{ maxHeight: '17rem' }}>
+                    <Scrollbar className={ScrollbarStyle} style={{ maxHeight: '17rem' }}>
                         {option_list.map((option) => (
                             <ListItem
                                 tabIndex="0"
@@ -218,7 +217,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                                 {option.text}
                             </ListItem>
                         ))}
-                    </Scrollbars>
+                    </Scrollbar>
                 </UnorderedList>
             </ListContainer>
         </DropdownContainer>

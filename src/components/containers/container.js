@@ -8,7 +8,8 @@ const Container = styled(Box)`
     align-items: ${(props) => (props.align || props.ai ? props.align || props.ai : 'center')};
     justify-content: ${(props) =>
         props.justify || props.jc ? props.justify || props.jc : 'center'};
-    flex-direction: ${(props) => (props.direction ? props.direction : 'row')};
+    flex-direction: ${(props) =>
+        props.direction || props.fd ? props.direction || props.fd : 'row'};
     width: 80%;
 
     @media ${device.desktop} {

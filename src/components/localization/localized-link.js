@@ -62,12 +62,14 @@ export const LocalizedLink = ({ to, ...props }) => {
     const { is_default, path } = language_config[locale]
     const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
 
-    if (props.external || props.external === 'true')
+    if (props.external || props.external === 'true') {
+        const { target, rel, className, style } = props
         return (
-            <a {...props} href={to}>
+            <a {...props} target={target} rel={rel} className={className} style={style} href={to}>
                 {props.children}
             </a>
         )
+    }
     if (props.external_link) return <ExternalLink href={to}>{props.children}</ExternalLink>
 
     // internal links should end with / e.g. /about/
@@ -87,9 +89,13 @@ export const LocalizedLink = ({ to, ...props }) => {
 LocalizedLink.propTypes = {
     anchor: PropTypes.bool,
     children: PropTypes.node,
+    className: PropTypes.string,
     external: PropTypes.string,
     external_link: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
     props: PropTypes.object,
+    rel: PropTypes.string,
+    style: PropTypes.object,
+    target: PropTypes.string,
     to: PropTypes.string.isRequired,
 }

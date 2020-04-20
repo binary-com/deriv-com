@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Box, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
+import { localize } from 'components/localization'
 import Paul from 'images/common/paul.png'
 import Fabio from 'images/common/fabio.png'
 import Roberto from 'images/common/roberto.png'
@@ -50,9 +51,9 @@ const FullWidth = styled.div`
 const OurClients = () => {
     return (
         <Box p="8rem 0" bg="white" id="our-clients">
-            <Container direction="column" ai="center">
+            <Container fd="column" ai="center">
                 <Header as="h2" mb="2.2rem" align="center">
-                    What our clients say about Deriv
+                    {localize('What our clients say about Deriv')}
                 </Header>
                 <FullWidth>
                     <amp-carousel
@@ -68,10 +69,9 @@ const OurClients = () => {
                         <ClientCard>
                             <Wrapper>
                                 <Text mb="3.2rem" align="center">
-                                    Customer service support very awesome and first to respond to
-                                    queries and helping on marketing part. No much struggle
-                                    introducing new members to binary.com since the company name
-                                    already have a known truck of good ethics.
+                                    {localize(
+                                        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
+                                    )}
                                 </Text>
                                 <Divider />
                                 <Flex>
@@ -82,7 +82,9 @@ const OurClients = () => {
                                         <Text weight="bold" mb="0.4rem">
                                             Paul Mugenda
                                         </Text>
-                                        <Text size="var(--text-size-xs)">Forex trader</Text>
+                                        <Text size="var(--text-size-xs)">
+                                            {localize('Forex trader')}
+                                        </Text>
                                     </Box>
                                 </Flex>
                             </Wrapper>
@@ -90,11 +92,9 @@ const OurClients = () => {
                         <ClientCard>
                             <Wrapper>
                                 <Text mb="3.2rem" align="center">
-                                    It surpassed my expectations. Binary got it right with Deriv.
-                                    Trading on the platform is excellent and it allows for making
-                                    accurate graphical analyses of the market and adding support and
-                                    resistance markings with the use of horizontal lines, RSI, FIBO
-                                    and much more.
+                                    {localize(
+                                        'It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more.',
+                                    )}
                                 </Text>
                                 <Divider />
                                 <Flex>
@@ -106,7 +106,7 @@ const OurClients = () => {
                                             Fábio Oliveira
                                         </Text>
                                         <Text size="var(--text-size-xs)">
-                                            CEO - Bitcoin Informer
+                                            {localize('CEO - Bitcoin Informer')}
                                         </Text>
                                     </Box>
                                 </Flex>
@@ -115,11 +115,12 @@ const OurClients = () => {
                         <ClientCard>
                             <Wrapper>
                                 <Text mb="3.2rem" align="center">
-                                    I am very excited about all the technology involved in Deriv.com
-                                    — an intuitive and optimised platform.
+                                    {localize(
+                                        'I am very excited about all the technology involved in Deriv.com — an intuitive and optimised platform.',
+                                    )}
                                 </Text>
                                 <Divider />
-                                <Flex width="auto">
+                                <Flex>
                                     <div>
                                         <amp-img src={Roberto} width="50" height="50" />
                                     </div>
@@ -127,7 +128,9 @@ const OurClients = () => {
                                         <Text weight="bold" mb="0.4rem">
                                             Roberto Arcanjo
                                         </Text>
-                                        <Text size="var(--text-size-xs)">CEO - Mercado Trader</Text>
+                                        <Text size="var(--text-size-xs)">
+                                            {localize('CEO - Mercado Trader')}
+                                        </Text>
                                     </Box>
                                 </Flex>
                             </Wrapper>

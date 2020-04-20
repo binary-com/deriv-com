@@ -4,6 +4,7 @@ import internal_link from '../utils/_internal-links'
 import { Container, Box, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { localize } from 'components/localization'
 import device from 'themes/device'
 import SimpleStepsBG from 'images/common/simple-steps.png'
 import SimpleStepIcon1 from 'images/svg/simple-steps-1.svg'
@@ -46,9 +47,9 @@ const Li = styled(Flex).attrs({ as: 'li' })`
 const SimpleSteps = () => {
     return (
         <HandleAmp p="8rem 0 1.6rem">
-            <Container direction="column" ai="center">
+            <Container fd="column" ai="center">
                 <Header as="h2" align="center" mb="4rem">
-                    3 simple steps
+                    {localize('3 simple steps')}
                 </Header>
                 <Ul>
                     <Li>
@@ -57,28 +58,31 @@ const SimpleSteps = () => {
                             <SimpleStepIcon1 width="32" height="32" />
                         </Flex>
                         <Text>
-                            Open a demo account and start trading for free. Practise with an
-                            unlimited amount of virtual funds.
+                            {localize(
+                                'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
+                            )}
                         </Text>
                     </Li>
                     <Li>
                         <Flex ai="center" mb="0.8rem">
-                            <Header as="h4">Trade</Header>
+                            <Header as="h4">{localize('Trade')}</Header>
                             <SimpleStepIcon2 width="32" height="32" />
                         </Flex>
                         <Text>
-                            Open a real account, make a deposit, and start trading for real. Trade
-                            forex, indices, commodities, and more.
+                            {localize(
+                                'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
+                            )}
                         </Text>
                     </Li>
                     <Li>
                         <Flex alignItems="center" mb="0.8rem">
-                            <Header as="h4">Withdraw</Header>
+                            <Header as="h4">{localize('Withdraw')}</Header>
                             <SimpleStepIcon3 width="32" height="32" />
                         </Flex>
                         <Text>
-                            Get your funds quickly and easily. We support a variety of withdrawal
-                            options.
+                            {localize(
+                                'Get your funds quickly and easily. We support a variety of withdrawal options.',
+                            )}
                         </Text>
                     </Li>
                 </Ul>
@@ -89,7 +93,7 @@ const SimpleSteps = () => {
                     rel="noopener noreferrer"
                     secondary
                 >
-                    Sign up now
+                    {localize('Sign up now')}
                 </MediumButton>
             </Container>
         </HandleAmp>

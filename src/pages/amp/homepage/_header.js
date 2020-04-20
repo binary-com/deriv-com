@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { Container, Flex } from 'components/containers'
 import { Text } from 'components/elements'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import Deriv from 'images/svg/logo-deriv.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
@@ -52,7 +53,7 @@ const Binary = styled(Text)`
     width: 80px;
     margin-left: 0.5rem;
     line-height: 1;
-    color: white;
+    color: var(--color-white);
     font-size: var(--text-size-xxs);
 
     @media ${device.mobileS} {
@@ -87,26 +88,28 @@ const Header = () => (
                         <Deriv width="212" height="27" />
                     </Link>
                     <Binary>
-                        A{' '}
-                        <BinaryLink
-                            href="https://binary.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Binary.com
-                        </BinaryLink>{' '}
-                        brand
+                        <Localize
+                            translate_text="A <0>Binary.com</0> brand"
+                            components={[
+                                <BinaryLink
+                                    key={0}
+                                    href="https://binary.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                />,
+                            ]}
+                        />
                     </Binary>
                 </Flex>
                 <LinkWrapper ai="center" jc="center">
                     <LinkText to="/#trade" on="tap:trade.scrollTo()">
-                        Trade
+                        {localize('Trade')}
                     </LinkText>
                     <LinkText to="/#markets" on="tap:markets.scrollTo()">
-                        Markets
+                        {localize('Markets')}
                     </LinkText>
                     <LinkText to="/#our-clients" on="tap:our-clients.scrollTo()">
-                        Testimonials
+                        {localize('Testimonials')}
                     </LinkText>
                 </LinkWrapper>
                 <HamburgerMenu on="tap:sidebar1.toggle">
@@ -115,15 +118,15 @@ const Header = () => (
             </Container>
         </HeaderWrapper>
         <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
-            <Flex ai="flex-start" jc="center" p="2rem 2rem" direction="column">
+            <Flex ai="flex-start" jc="center" p="2rem 2rem" fd="column">
                 <BlackLink to="/#trade" on="tap:trade.scrollTo()">
-                    Trade
+                    {localize('Trade')}
                 </BlackLink>
                 <BlackLink to="/#markets" on="tap:markets.scrollTo()">
-                    Markets
+                    {localize('Markets')}
                 </BlackLink>
                 <BlackLink to="/#our-clients" on="tap:our-clients.scrollTo()">
-                    Testimonials
+                    {localize('Testimonials')}
                 </BlackLink>
             </Flex>
         </amp-sidebar>

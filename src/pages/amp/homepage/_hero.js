@@ -4,6 +4,7 @@ import internal_links from '../utils/_internal-links'
 import { Container, Box, Flex } from 'components/containers'
 import { LinkButton } from 'components/form'
 import { Text, Header } from 'components/elements'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import HeroImg from 'images/common/hero-image.jpg'
 import HeroPlatform from 'images/common/hero-platform.png'
@@ -66,31 +67,33 @@ const FullWidth = styled(Container)`
 const Hero = () => {
     return (
         <HandleAmp bg="var(--color-black)" p="12rem 0">
-            <FullWidth jc="center" ai="center" direction="row" wrap="wrap-reverse">
+            <FullWidth jc="center" ai="center" fd="row" fw="wrap-reverse">
                 <Box mt="3.2rem">
                     <Header as="h1" mb="2.4rem" size="var(--text-size-xl)" lh="1.25">
-                        Simple. Flexible. Reliable.
+                        {localize('Simple. Flexible. Reliable.')}
                     </Header>
                     <Header as="h2" size="var(--text-size-m)" weight="300" mb="1.4rem">
-                        Trade <strong>forex</strong>, <strong>commodities</strong>,{' '}
-                        <strong>stock</strong> and <strong>synthetic indices</strong>
+                        <Localize
+                            translate_text="Trade <0>forex</0>, <0>commodities</0>, <0>stock</0> and <0>synthetic indices</0>"
+                            components={[<strong key={0} />]}
+                        />
                     </Header>
                     <Flex ai="center" jc="flex-start" mb="0.8rem">
                         <CheckIcon width="18" height="18" />
                         <Text ml="1rem" size="2.4rem" lh="1.5" weight="300">
-                            Built upon 20+ years of experience
+                            {localize('Built upon 20+ years of experience')}
                         </Text>
                     </Flex>
                     <Flex ai="center" jc="flex-start" mb="0.8rem">
                         <CheckIcon width="18" height="18" />
                         <Text ml="1rem" size="2.4rem" lh="1.5" weight="300">
-                            100+ tradable assets
+                            {localize('100+ tradable assets')}
                         </Text>
                     </Flex>
                     <Flex ai="center" jc="flex-start" mb="0.8rem">
                         <CheckIcon width="18" height="18" />
                         <Text ml="1rem" size="2.4rem" lh="1.5" weight="300">
-                            24x7 trading, sharp prices, tight spreads
+                            {localize('24x7 trading, sharp prices, tight spreads')}
                         </Text>
                     </Flex>
                 </Box>
@@ -104,7 +107,7 @@ const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Create free demo account
+                {localize('Create free demo account')}
             </BigButton>
         </HandleAmp>
     )

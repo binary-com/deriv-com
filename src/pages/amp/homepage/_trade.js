@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, Box } from 'components/containers'
 import { Text, Header } from 'components/elements'
+import { localize } from 'components/localization'
 import Dtrader from 'images/common/dtrader_trade.png'
 import Dbot from 'images/common/dbot_trade.png'
 import Dmt5 from 'images/common/dmt5_trade.png'
@@ -34,14 +35,14 @@ const Card = styled(Flex)`
 const Trade = () => {
     return (
         <Gradient p="8rem 0 1.6rem" id="trade">
-            <Container direction="column">
+            <Container fd="column">
                 <Header as="h2" align="center" mb="1.2rem">
-                    Trade the way you like
+                    {localize('Trade the way you like')}
                 </Header>
                 <Text align="center" size="var(--text-size-m)" mb="4rem" weight="300">
-                    Choose from three powerful platforms — designed with you in mind
+                    {localize('Choose from three powerful platforms — designed with you in mind')}
                 </Text>
-                <Flex wrap="wrap" jc="center" ai="center">
+                <Flex fw="wrap" jc="center" ai="center">
                     <FullWidth
                         max_width="65.8rem"
                         mr={[0, 0, 0, '5.6rem']}
@@ -96,9 +97,11 @@ const Trade = () => {
                                 <DtraderIcon width="72" height="72" />
                             </div>
                             <Box ml="1.6rem">
-                                <Header as="h4">Dtrader</Header>
+                                <Header as="h4">{localize('Dtrader')}</Header>
                                 <Text weight="300">
-                                    The platform to start with. It’s powerful yet easy to use.
+                                    {localize(
+                                        'The platform to start with. It’s powerful yet easy to use.',
+                                    )}
                                 </Text>
                             </Box>
                         </Card>
@@ -114,9 +117,11 @@ const Trade = () => {
                                 <DbotIcon width="72" height="72" />
                             </div>
                             <Box ml="1.6rem">
-                                <Header as="h4">DBot</Header>
+                                <Header as="h4">{localize('DBot')}</Header>
                                 <Text weight="300">
-                                    Automated trading at your fingertips. No coding needed.
+                                    {localize(
+                                        'Automated trading at your fingertips. No coding needed.',
+                                    )}
                                 </Text>
                             </Box>
                         </Card>
@@ -131,9 +136,11 @@ const Trade = () => {
                                 <Dmt5Icon width="72" height="72" />
                             </div>
                             <Box ml="1.6rem">
-                                <Header as="h4">DMT5</Header>
+                                <Header as="h4">{localize('DMT5')}</Header>
                                 <Text weight="300">
-                                    The platform of choice for professionals worldwide.
+                                    {localize(
+                                        'The platform of choice for professionals worldwide.',
+                                    )}
                                 </Text>
                             </Box>
                         </Card>

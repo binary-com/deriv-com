@@ -14,6 +14,15 @@ const FullWidth = styled(Box)`
     width: 100%;
 `
 
+const CarouselWrapper = styled(FullWidth)`
+    margin-right: 5.6rem;
+
+    @media (max-width: 1240px) {
+        margin-right: 0;
+        margin-bottom: 3.2rem;
+    }
+`
+
 const Gradient = styled(Box)`
     background-image: linear-gradient(var(--color-grey-2), var(--color-white));
 `
@@ -43,7 +52,7 @@ const Trade = () => {
                     {localize('Choose from three powerful platforms — designed with you in mind')}
                 </Text>
                 <Flex fw="wrap" jc="center" ai="center">
-                    <FullWidth
+                    <CarouselWrapper
                         max_width="65.8rem"
                         mr={[0, 0, 0, '5.6rem']}
                         mb={['5.6rem', '5.6rem', '5.6rem', 0]}
@@ -83,7 +92,7 @@ const Trade = () => {
                                 alt="blueberries"
                             ></amp-img>
                         </amp-carousel>
-                    </FullWidth>
+                    </CarouselWrapper>
                     <FullWidth max_width="38.4rem">
                         <Card
                             role="button"

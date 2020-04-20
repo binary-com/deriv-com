@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Box, Flex } from 'components/containers'
-import { Text, LinkText } from 'components/elements'
+import { Text, LocalizedLinkText } from 'components/elements'
 import Warning from 'images/svg/warning.svg'
 import { Localize, localize } from 'components/localization'
 
@@ -30,9 +30,9 @@ const Footer = () => (
                     as a Category 3 Investment Services provider by the Malta Financial Services
                     Authority (<0>view licence</0>)."
                         components={[
-                            <LinkText
+                            <LocalizedLinkText
                                 key={0}
-                                href="https://deriv.com/WS-Binary-Investments-Europe-Limited.pdf"
+                                to="/WS-Binary-Investments-Europe-Limited.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
@@ -51,23 +51,23 @@ const Footer = () => (
                         Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services
                         Authority to carry on a money-broking business (<2>view licence</2>)."
                         components={[
-                            <LinkText
+                            <LocalizedLinkText
                                 key={0}
-                                href="https://deriv.com/Vanuatu-Financial-Services-Commission.pdf"
+                                href="/Vanuatu-Financial-Services-Commission.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
                             />,
-                            <LinkText
+                            <LocalizedLinkText
                                 key={1}
-                                href="https://deriv.com/BVI_license.pdf"
+                                href="/BVI_license.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
                             />,
-                            <LinkText
+                            <LocalizedLinkText
                                 key={2}
-                                href="https://deriv.com/Labuan-license.pdf"
+                                href="/Labuan-license.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
@@ -98,9 +98,9 @@ const Footer = () => (
                         money. Before trading in the complex financial products offered, please be sure
                         to understand the risks involved and learn about <0>Secure and responsible trading</0>."
                         components={[
-                            <LinkText
+                            <LocalizedLinkText
                                 key={0}
-                                href="https://deriv.com/responsible-trading/"
+                                to="/responsible-trading/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"

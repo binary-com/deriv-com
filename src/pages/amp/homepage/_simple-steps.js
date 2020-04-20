@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import internal_link from '../utils/_internal-links'
 import { Container, Box, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -86,13 +85,7 @@ const SimpleSteps = () => {
                         </Text>
                     </Li>
                 </Ul>
-                <MediumButton
-                    external
-                    to={internal_link.signupUrl()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    secondary
-                >
+                <MediumButton to="/signup" target="_blank" rel="noopener noreferrer" secondary>
                     {localize('Sign up now')}
                 </MediumButton>
             </Container>

@@ -54,6 +54,7 @@ export const LocalizedLink = ({ to, ...props }) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
     const is_index = to === `/`
+    const { target, rel, className, style } = props
 
     // If it's the default language, don't do anything
     // If it's another language, add the "path"
@@ -63,7 +64,6 @@ export const LocalizedLink = ({ to, ...props }) => {
     const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
 
     if (props.external || props.external === 'true') {
-        const { target, rel, className, style } = props
         return (
             <a target={target} rel={rel} className={className} style={style} href={to}>
                 {props.children}
@@ -83,7 +83,15 @@ export const LocalizedLink = ({ to, ...props }) => {
         return <AnchorLink {...props} to={internal_to} />
     }
 
-    return <GatsbyLink {...props} to={internal_to} />
+    return (
+        <GatsbyLink
+            target={target}
+            rel={rel}
+            className={className}
+            style={style}
+            to={internal_to}
+        />
+    )
 }
 
 LocalizedLink.propTypes = {

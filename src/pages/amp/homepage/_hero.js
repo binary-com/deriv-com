@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import internal_links from '../utils/_internal-links'
 import { Container, Box, Flex } from 'components/containers'
 import { LinkButton } from 'components/form'
 import { Text, Header } from 'components/elements'
@@ -100,13 +99,7 @@ const Hero = () => {
                 <amp-img src={HeroPlatform} width="540" height="345" />
             </FullWidth>
 
-            <BigButton
-                secondary
-                external
-                to={internal_links.signupUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+            <BigButton secondary to="/signup" target="_blank" rel="noopener noreferrer">
                 {localize('Create free demo account')}
             </BigButton>
         </HandleAmp>

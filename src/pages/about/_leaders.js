@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
+import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
-import 'swiper/css/swiper.css'
 import device from 'themes/device'
 import { SectionContainer, Container, CssGrid, Flex, Box, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -278,6 +278,9 @@ const Leaders = () => {
 
     return (
         <StyledSection>
+            <Helmet>
+                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
+            </Helmet>
             <Container>
                 <Show.Desktop>
                     <CssGrid

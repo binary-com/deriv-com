@@ -10,7 +10,7 @@ exports.onCreatePage = ({ page, actions }) => {
     // So everything in src/pages/
     deletePage(page)
 
-    Object.keys(language_config).map(lang => {
+    Object.keys(language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`
@@ -41,9 +41,8 @@ exports.onCreatePage = ({ page, actions }) => {
 }
 
 exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
-    const config = getConfig();
-    if (config.optimization)
-        config.optimization.minimizer[0].options.parallel = 2;
+    const config = getConfig()
+    if (config.optimization) config.optimization.minimizer[0].options.parallel = 2
     actions.setWebpackConfig({
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

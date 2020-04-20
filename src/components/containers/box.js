@@ -6,7 +6,7 @@ const Box = styled.div`
     height: ${(props) => (props.height ? props.height : '')};
     max-width: ${(props) => (props.max_width ? props.max_width : '')};
     position: ${(props) => (props.position ? props.position : '')};
-    background: ${(props) => (props.background ? props.background : '')};
+    background: ${(props) => (props.background || props.bg ? props.background || props.bg : '')};
     ${Margins}
     ${Paddings}
 `

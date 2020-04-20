@@ -7,7 +7,7 @@ import { isBrowser } from 'common/utility'
 
 // HOC that pre renders a page with the translated language (during build)
 // Without this HOC the page will be translated on the client side dynamically
-export const WithIntl = () => WrappedComponent => {
+export const WithIntl = () => (WrappedComponent) => {
     const WrapWithIntl = ({ pageContext }, props) => {
         const addResources = (pc, language) => {
             if (pc && pc.localeResources) {

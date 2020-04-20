@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
-import 'swiper/css/swiper.css'
+import { Helmet } from 'react-helmet'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
@@ -251,6 +251,9 @@ const EmployeeTestimonialCarousel = () => {
 
     return (
         <>
+            <Helmet>
+                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
+            </Helmet>
             <StyledSection padding="12rem 0">
                 <StyledHeader align="center" as="h2">
                     In the words of our employees

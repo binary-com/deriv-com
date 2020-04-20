@@ -1,7 +1,8 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { Text, LinkText } from 'components/elements/typography'
-import { Header, Image } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { map_api_key } from 'common/utility'
@@ -9,6 +10,19 @@ import { map_api_key } from 'common/utility'
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
 
+const query = graphql`
+    query {
+        map_paraguay: file(relativePath: { eq: "map-paraguay.png" }) {
+            ...fadeIn
+        }
+        map_dubai_office: file(relativePath: { eq: "map-dubai-office.png" }) {
+            ...fadeIn
+        }
+        map_labuan: file(relativePath: { eq: "map-labuan.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const Wrapper = styled.section`
     width: 100%;
     height: 100%;
@@ -167,6 +181,7 @@ const Iframe = styled.iframe`
 `
 
 export const Offices = () => {
+    const data = useStaticQuery(query)
     return (
         <Wrapper>
             <StyledHeader as="h3" align="center">
@@ -245,8 +260,8 @@ export const Offices = () => {
                     <Office id="labuan">
                         <ImageWrapper>
                             <MapContainer>
-                                <Image
-                                    img_name="map-labuan.png"
+                                <QueryImage
+                                    data={data['map_labuan']}
                                     alt={localize('Labuan Office Location')}
                                     width="100%"
                                     height="100%"
@@ -300,8 +315,8 @@ export const Offices = () => {
                         </Content>
                         <ImageWrapper>
                             <MapContainer>
-                                <Image
-                                    img_name="map-dubai-office.png"
+                                <QueryImage
+                                    data={data['map_dubai_office']}
                                     alt={localize('Dubai Office Location')}
                                     width="100%"
                                     height="100%"
@@ -313,8 +328,8 @@ export const Offices = () => {
                     <Office id="paraguay">
                         <ImageWrapper>
                             <MapContainer>
-                                <Image
-                                    img_name="map-paraguay.png"
+                                <QueryImage
+                                    data={data['map_paraguay']}
                                     alt={localize('Paraguay Office Location')}
                                     width="100%"
                                     height="100%"

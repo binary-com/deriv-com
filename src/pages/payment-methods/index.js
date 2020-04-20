@@ -122,6 +122,9 @@ const PaymentMethods = () => {
                                         background: 'var(--color-white)',
                                         boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
                                     }}
+                                    header_style={{
+                                        borderRadius: '6px',
+                                    }}
                                     style={{
                                         padding: '2.2rem 4.8rem',
                                         position: 'relative',
@@ -129,7 +132,7 @@ const PaymentMethods = () => {
                                         paddingBottom: pd.note ? '5rem' : '2.2rem',
                                     }}
                                     parent_style={{
-                                        marginBottom: '4rem',
+                                        marginBottom: '2.4rem',
                                     }}
                                     header={pd.name}
                                 >
@@ -191,6 +194,9 @@ const PaymentMethods = () => {
                                                             {localize('processing time')}
                                                         </BoldText>
                                                     </Th>
+                                                    <Th>
+                                                        <BoldText>{localize('Reference')}</BoldText>
+                                                    </Th>
                                                     <Th />
                                                 </Tr>
                                             </Thead>
@@ -213,11 +219,6 @@ const PaymentMethods = () => {
                                                     values={{ note: pd.note }}
                                                 />
                                             </Text>
-                                            {pd.note_2 && (
-                                                <Text weight="500" size="var(--text-size-xxs)">
-                                                    {pd.note_2}
-                                                </Text>
-                                            )}
                                         </Notes>
                                     )}
                                 </AccordionItem>

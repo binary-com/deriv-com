@@ -13,16 +13,12 @@ import FabioImage from 'images/common/fabio.png'
 import PaulImage from 'images/common/paul.png'
 
 const StyledSection = styled(SectionContainer)`
-    height: 43.1rem;
-
     @media ${device.tabletL} {
         height: unset;
         padding: 5rem 0;
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-header-1);
-
     @media ${device.tabletL} {
         font-size: 4.5rem;
     }
@@ -231,6 +227,7 @@ const WhatOurClientsSay = () => {
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
+        height: '100%',
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,

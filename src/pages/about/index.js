@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { navigate } from '@reach/router'
 import { Show } from '../../components/containers'
 import { OurStory } from './_our-story'
 import Leaders from './_leaders'
 import { Container, Box, Flex, SEO } from 'components/containers'
-import { getLocationHash } from 'common/utility'
+import { getLocationHash, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { Header, Text, Image } from 'components/elements'
-import device from 'themes/device'
+import { Header, Text, QueryImage } from 'components/elements'
+import device, { size } from 'themes/device'
 
+const query = graphql`
+    query {
+        jean_yves_mobile: file(relativePath: { eq: "leaders/jean-yves-mobile.png" }) {
+            ...fadeIn
+        }
+        jean_yves: file(relativePath: { eq: "leaders/jean-yves.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const Background = styled.div`
     background: var(--color-black);
     width: 100%;
@@ -36,7 +47,11 @@ const StyledContainer = styled(Container)`
 const ContentWrapper = styled.div`
     margin-top: ${(props) => props.margin_top || 'none'};
     white-space: normal;
-    max-width: 79.2rem;
+    max-width: 79.8rem;
+
+    @media ${device.mobileL} {
+        max-width: 42.8rem;
+    }
 `
 
 const LeadershipWrapper = styled(Flex)`
@@ -81,8 +96,11 @@ const Navigation = styled(Flex)`
     cursor: pointer;
     margin: 0 2.4rem;
 
-    @media ${device.tabletL} {
-        margin: 0 auto;
+    @media ${device.tablet} {
+        margin: ${(props) => (props.left ? '0 3rem 0 0' : '0 0 0 3rem')};
+    }
+    @media ${device.mobileS} {
+        margin: ${(props) => (props.left ? '0 2rem 0 0' : '0 0 0 2rem')};
     }
 `
 
@@ -142,13 +160,17 @@ const useTabState = (tab) => {
 }
 // Test notification netlify
 const About = () => {
+    const [is_mobile, setMobile] = useState(false)
     const [active_tab, setTab] = useTabState('story')
     const is_story = active_tab === 'story'
     const is_leadership = active_tab === 'leadership'
     useEffect(() => {
         const new_tab = getLocationHash() || 'story'
         setTab(new_tab)
+        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     })
+
+    const data = useStaticQuery(query)
     return (
         <Layout>
             <SEO
@@ -163,7 +185,12 @@ const About = () => {
                         {localize('About us')}
                     </Header>
                     <NavigationWrapper direction="row">
-                        <Navigation width="auto" direction="column" onClick={() => setTab('story')}>
+                        <Navigation
+                            left
+                            width="auto"
+                            direction="column"
+                            onClick={() => setTab('story')}
+                        >
                             <StyledHeader
                                 as="h2"
                                 size="var(--text-size-m)"
@@ -194,17 +221,33 @@ const About = () => {
 
                     {is_story && (
                         <ContentWrapper margin_top="9.1rem">
-                            <Text margin="0 0 1.5rem 0" secondary color="white">
-                                {localize(
-                                    'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
-                                )}
-                            </Text>
+                            <Show.Desktop>
+                                <Text mb="1.5rem" size="var(--text-size-s)" secondary color="white">
+                                    {localize(
+                                        'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
+                                    )}
+                                </Text>
 
-                            <Text secondary color="white">
-                                {localize(
-                                    'Our evolution is powered by over 20 years of customer focus and innovation.',
-                                )}
-                            </Text>
+                                <Text secondary color="white">
+                                    {localize(
+                                        'Our evolution is powered by over 20 years of customer focus and innovation.',
+                                    )}
+                                </Text>
+                            </Show.Desktop>
+
+                            <Show.Mobile>
+                                <Text mb="1.5rem" size="2rem" secondary color="white">
+                                    {localize(
+                                        'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
+                                    )}
+                                </Text>
+
+                                <Text size="2rem" secondary color="white">
+                                    {localize(
+                                        'Our evolution is powered by over 20 years of customer focus and innovation.',
+                                    )}
+                                </Text>
+                            </Show.Mobile>
                         </ContentWrapper>
                     )}
                     {is_leadership && (
@@ -212,18 +255,18 @@ const About = () => {
                             <LeadershipWrapper mt="4rem" ai="center">
                                 <Show.Desktop>
                                     <Box max_width="28.2rem" mr="2.4rem">
-                                        <Image
-                                            width="28.2rem"
-                                            img_name="jean-yves.png"
+                                        <QueryImage
+                                            data={data['jean_yves']}
                                             alt={localize('Jean Yves')}
+                                            width="28.2rem"
                                         />
                                     </Box>
                                 </Show.Desktop>
                                 <Show.Mobile>
-                                    <Image
-                                        width="328px"
-                                        img_name="jean-yves-mobile.png"
+                                    <QueryImage
+                                        data={data['jean_yves_mobile']}
                                         alt={localize('Jean Yves')}
+                                        width="328px"
                                     />
                                 </Show.Mobile>
                                 <div>
@@ -253,7 +296,7 @@ const About = () => {
                     )}
                 </StyledContainer>
             </Background>
-            {is_story && <OurStory />}
+            {is_story && <OurStory is_mobile_menu={is_mobile} />}
             {is_leadership && <Leaders />}
         </Layout>
     )

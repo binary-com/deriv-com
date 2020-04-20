@@ -80,7 +80,7 @@ const ScrollTop = () => {
                 />
             </amp-animation>
             <ScrollTopBtn id="scrollToTopButton" on="tap:top.scrollTo()">
-                <amp-img src={Chevron} width="16" height="16" />
+                <Chevron width="16" height="16" />
             </ScrollTopBtn>
         </>
     )

@@ -6,7 +6,7 @@ import { Container, Flex, Box } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
-import { binary_url } from 'common/utility'
+import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 import Platform from 'images/common/interim-bg.png'
 
@@ -107,7 +107,7 @@ const HeroDeriv = ({ interim_type }) => {
                                 <FitButton
                                     external
                                     white
-                                    to={binary_url}
+                                    to={smarttrader_url}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

@@ -58,7 +58,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <TradingPlatform width="64" height="64" />
+                            <SyntheticIndices width="64" height="64" />
                         </div>
                         <Box ml="1.6rem">
                             <Header as="h4">{localize('Over 100+ financial instruments')}</Header>
@@ -71,7 +71,7 @@ const Everything = () => {
                     </Li>
                     <Li>
                         <div>
-                            <SyntheticIndices width="64" height="64" />
+                            <TradingPlatform width="64" height="64" />
                         </div>
                         <Box ml="1.6rem">
                             <Header as="h4">{localize('4 trading platforms in one place')}</Header>

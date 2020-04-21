@@ -68,7 +68,6 @@ const HeroDeriv = ({ interim_type }) => {
                     <ImgWrapper>
                         <QueryImage
                             width="58.9rem"
-                            height="34.5rem"
                             data={data[interim_type]}
                             alt={`${interim_type} platforms`}
                         />

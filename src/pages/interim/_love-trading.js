@@ -6,7 +6,7 @@ import { Container, Flex, Box } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
-import { smarttrader_url } from 'common/utility'
+import { smarttrader_url, deriv_app_url } from 'common/utility'
 import device from 'themes/device'
 import Platform from 'images/common/interim-bg.png'
 
@@ -95,7 +95,13 @@ const HeroDeriv = ({ interim_type }) => {
                                 <White as="h3" mb="3rem">
                                     {localize('Love Binary Bot?')}
                                 </White>
-                                <FitButton white to="/dbot" target="_blank">
+                                <FitButton
+                                    external
+                                    white
+                                    to={deriv_app_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     {localize('Try DBot on Deriv')}
                                 </FitButton>
                             </>

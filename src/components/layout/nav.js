@@ -6,8 +6,8 @@ import PlatformsDropdown from '../custom/platforms-dropdown'
 import { NavPlatform, NavCompany, NavResources } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, Localize, localize } from 'components/localization'
-import { Button } from 'components/form'
-import { Container, Show } from 'components/containers'
+import { Button, LinkButton } from 'components/form'
+import { Container, Show, Flex } from 'components/containers'
 import { OffCanvasMenu, OffCanvasMenuPartner, moveOffCanvasMenu, Text } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -421,6 +421,39 @@ export const Nav = () => {
         </NavWrapper>
     )
 }
+
+export const NavInterim = () => (
+    <NavWrapper>
+        <StyledNav>
+            <Container jc="space-between" p="2.4rem 0">
+                <Flex ai="center" jc="flex-start">
+                    <LogoLink to="/" aria-label={localize('Home')}>
+                        <Logo />
+                    </LogoLink>
+                    <Binary size="var(--text-size-xxs)" color="white">
+                        <Localize
+                            translate_text="A <0>Binary.com</0> brand"
+                            components={[
+                                <BinaryLink
+                                    key={0}
+                                    href={binary_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    color="white"
+                                />,
+                            ]}
+                        />
+                    </Binary>
+                </Flex>
+                <Flex jc="flex-end">
+                    <LinkButton secondary to="/dtrader">
+                        {localize('Explore deriv')}
+                    </LinkButton>
+                </Flex>
+            </Container>
+        </StyledNav>
+    </NavWrapper>
+)
 
 export const NavStatic = () => (
     <StaticWrapper>

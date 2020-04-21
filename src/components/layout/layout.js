@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import Footer from './footer'
-import { Nav, NavStatic, NavPartners, NavCareers } from './nav'
+import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
 import CookieBanner from 'components/custom/cookie-banner'
 import { Show } from 'components/containers'
 import { isEuCountry } from 'common/country-base'
@@ -22,6 +22,9 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
     switch (type) {
         case 'static':
             Navigation = <NavStatic />
+            break
+        case 'interim':
+            Navigation = <NavInterim />
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />

@@ -87,7 +87,7 @@ const DBanner = ({ title, data }) => {
 }
 
 DBanner.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.object.isRequired,
     title: PropTypes.string,
 }
 

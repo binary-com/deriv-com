@@ -61,7 +61,7 @@ const HeroDeriv = ({ interim_type }) => {
                         <Header as="h4" weight="normal" mb="4rem">
                             {localize('Built upon 20+ years of experience')}
                         </Header>
-                        <FitButton secondary to="/dtrader">
+                        <FitButton secondary to="/">
                             {localize('Explore Deriv')}
                         </FitButton>
                     </ResponsiveFlex>

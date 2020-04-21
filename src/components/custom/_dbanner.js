@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import BackgroundPattern from 'images/common/bg_banner_signup.png'
+import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
@@ -20,16 +21,34 @@ const Wrapper = styled.div`
 
     @media (max-width: 800px) {
         flex-direction: column;
+        height: 414px;
     }
 `
 
 const BackgroundWrapper = styled(Flex)`
     width: 25%;
-    background-image: url(${BackgroundPattern});
+    background-image: url(${(props) =>
+        props.is_trader ? BackgroundPatternTrader : BackgroundPattern});
     clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
 
     @media (max-width: 800px) {
-        display: none;
+        clip-path: polygon(0 0, 100% 0%, 305% 163%, 0% 60%);
+        width: 100%;
+        height: 50%;
+    }
+`
+
+const ImageContainer = styled.div`
+    position: absolute;
+    left: 5%;
+    height: 100%;
+
+    @media (max-width: 800px) {
+        left: 0;
+        height: unset;
+        width: 100%;
+        top: 12%;
+        margin-bottom: 2rem;
     }
 `
 
@@ -47,31 +66,58 @@ const ImageWrapper = styled(Flex)`
         width: 30rem;
     }
     @media (max-width: 800px) {
-        display: none;
+        height: auto;
+        width: 286px;
+        text-align: center;
+        margin: 0 auto;
     }
 `
 
 const TextWrapper = styled.div`
     margin: auto;
+
+    @media (max-width: 800px) {
+        margin-top: 35px;
+        margin-bottom: 40px;
+    }
 `
 const DemoButton = styled.div`
     text-align: center;
+    height: auto;
+
+    @media (max-width: 800px) {
+        margin: unset;
+
+        a {
+            font-size: 14px;
+            display: inline-block;
+            padding: 1.3rem 1.6rem;
+        }
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.laptopM} {
         font-size: 4rem;
         max-width: 60rem;
     }
+    @media (max-width: 800px) {
+        font-size: 24px;
+        max-width: 329px;
+    }
 `
-const DBanner = ({ title, data }) => {
+const DBanner = ({ title, data, is_trader }) => {
     return (
         <Wrapper>
-            <div style={{ position: 'absolute', left: '5%', height: '100%' }}>
+            <ImageContainer>
                 <ImageWrapper ai="center">
                     <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
                 </ImageWrapper>
-            </div>
-            <BackgroundWrapper direction="column" ai="center"></BackgroundWrapper>
+            </ImageContainer>
+            <BackgroundWrapper
+                is_trader={is_trader}
+                direction="column"
+                ai="center"
+            ></BackgroundWrapper>
             <TextWrapper>
                 <StyledHeader align="center" color="white" size="5.6rem" mb="3.2rem">
                     {title}
@@ -88,6 +134,7 @@ const DBanner = ({ title, data }) => {
 
 DBanner.propTypes = {
     data: PropTypes.object.isRequired,
+    is_trader: PropTypes.bool,
     title: PropTypes.string,
 }
 

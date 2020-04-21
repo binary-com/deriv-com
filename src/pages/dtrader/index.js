@@ -102,7 +102,11 @@ const Dtrader = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>
-            <DBanner title={localize('Get into the DTrader experience')} data={data} />
+            <DBanner
+                is_trader={true}
+                title={localize('Get into the DTrader experience')}
+                data={data}
+            />
         </Layout>
     )
 }

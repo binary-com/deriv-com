@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import DtraderVideo from './_dtrader-video.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
+import DBanner from 'components/custom/_dbanner.js'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DNumber from 'components/custom/_dnumbers.js'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
@@ -11,8 +13,14 @@ import Layout from 'components/layout/layout'
 import dtrader_logo from 'images/svg/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DTraderBG from 'images/svg/dtrader-bg.svg'
-import Signup, { Appearances } from 'components/custom/signup'
 
+const query = graphql`
+    query {
+        deriv_platform: file(relativePath: { eq: "dtrader-banner.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const items = [
     { title: '50+', subtitle: localize('tradable assets and growing') },
     { title: '$0.35', subtitle: localize('minimum stake') },
@@ -62,6 +70,7 @@ const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
 const Dtrader = () => {
+    const data = useStaticQuery(query)
     return (
         <Layout>
             <SEO
@@ -93,7 +102,7 @@ const Dtrader = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>
-            <Signup appearance={Appearances.public} />
+            <DBanner title={localize('Get into the DTrader experience')} data={data} />
         </Layout>
     )
 }

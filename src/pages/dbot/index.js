@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { graphql, StaticQuery } from 'gatsby'
 import DBotVideo from './_dbot-video.js'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
+import DBanner from 'components/custom/_dbanner.js'
 import DNumber from 'components/custom/_dnumbers.js'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -11,8 +13,13 @@ import { localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import DBotBG from 'images/svg/dbot-bg.svg'
-import Signup, { Appearances } from 'components/custom/signup'
-
+const query = graphql`
+    query {
+        deriv_platform: file(relativePath: { eq: "dbot-banner.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const items = [
     { title: '3', subtitle: localize('pre-built strategies included') },
     { title: 'FREE', subtitle: localize('zero cost to build') },
@@ -81,6 +88,7 @@ class Dbot extends Component {
                     )}
                     title={localize('DBot Trading | Auto Trading Robot')}
                 />
+
                 <DHero
                     title={localize('DBot')}
                     content={localize('Automate your trading ideas without writing code')}
@@ -97,7 +105,12 @@ class Dbot extends Component {
                 <PlatformContainer>
                     <OtherPlatform exclude="dbot" />
                 </PlatformContainer>
-                <Signup appearance={Appearances.public} />
+                <StaticQuery
+                    query={query}
+                    render={(data) => (
+                        <DBanner title={localize('Get into the DBot experience')} data={data} />
+                    )}
+                />
             </Layout>
         )
     }

@@ -28,6 +28,13 @@ const NavWrapper = styled.div`
     position: fixed;
     z-index: 100;
 `
+
+const InterimNav = styled.nav`
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background: var(--color-black);
+`
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 
@@ -423,36 +430,34 @@ export const Nav = () => {
 }
 
 export const NavInterim = () => (
-    <NavWrapper>
-        <StyledNav>
-            <Container jc="space-between" p="2.4rem 0">
-                <Flex ai="center" jc="flex-start">
-                    <LogoLink to="/" aria-label={localize('Home')}>
-                        <Logo />
-                    </LogoLink>
-                    <Binary size="var(--text-size-xxs)" color="white">
-                        <Localize
-                            translate_text="A <0>Binary.com</0> brand"
-                            components={[
-                                <BinaryLink
-                                    key={0}
-                                    href={binary_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    color="white"
-                                />,
-                            ]}
-                        />
-                    </Binary>
-                </Flex>
-                <Flex jc="flex-end">
-                    <LinkButton secondary to="/dtrader">
-                        {localize('Explore deriv')}
-                    </LinkButton>
-                </Flex>
-            </Container>
-        </StyledNav>
-    </NavWrapper>
+    <InterimNav>
+        <Container jc="space-between" p="2.4rem 0">
+            <Flex ai="center" jc="flex-start">
+                <LogoLink to="/" aria-label={localize('Home')}>
+                    <Logo />
+                </LogoLink>
+                <Binary size="var(--text-size-xxs)" color="white">
+                    <Localize
+                        translate_text="A <0>Binary.com</0> brand"
+                        components={[
+                            <BinaryLink
+                                key={0}
+                                href={binary_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                color="white"
+                            />,
+                        ]}
+                    />
+                </Binary>
+            </Flex>
+            <Flex jc="flex-end">
+                <LinkButton secondary to="/dtrader">
+                    {localize('Explore deriv')}
+                </LinkButton>
+            </Flex>
+        </Container>
+    </InterimNav>
 )
 
 export const NavStatic = () => (

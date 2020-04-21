@@ -5,10 +5,10 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 
-const Interim = ({ referrer }) => {
+const Interim = () => {
     return (
         <Layout type="interim">
-            <SEO title={localize('Interim | ') + referrer} />
+            <SEO title={localize('Interim | Deriv')} />
             <Hero />
         </Layout>
     )

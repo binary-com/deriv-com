@@ -35,29 +35,38 @@ const query = graphql`
 const HeroDeriv = () => {
     const data = useStaticQuery(query)
     return (
-        <Section bg="var(--color-black)" p="8rem 0">
-            <Container fw="wrap-reverse">
-                <ResponsiveFlex fd="column" max_width="58.8rem">
-                    <Header as="h2" mb="1.2rem">
-                        {localize(
-                            'Introducing Deriv — our new comprehensive online trading service',
-                        )}
-                    </Header>
-                    <Header as="h4" weight="normal" mb="4rem">
-                        {localize('Built upon 20+ years of experience')}
-                    </Header>
-                    <FitButton secondary to="/dtrader">
-                        {localize('Explore deriv')}
-                    </FitButton>
-                </ResponsiveFlex>
-                <QueryImage
-                    width="58.9rem"
-                    height="34.5rem"
-                    data={data['platform']}
-                    alt="Deriv platforms"
-                />
+        <>
+            <Section bg="var(--color-black)" p="8rem 0">
+                <Container fw="wrap-reverse">
+                    <ResponsiveFlex fd="column" max_width="58.8rem">
+                        <Header as="h2" mb="1.2rem">
+                            {localize(
+                                'Introducing Deriv — our new comprehensive online trading service',
+                            )}
+                        </Header>
+                        <Header as="h4" weight="normal" mb="4rem">
+                            {localize('Built upon 20+ years of experience')}
+                        </Header>
+                        <FitButton secondary to="/dtrader">
+                            {localize('Explore deriv')}
+                        </FitButton>
+                    </ResponsiveFlex>
+                    <QueryImage
+                        width="58.9rem"
+                        height="34.5rem"
+                        data={data['platform']}
+                        alt="Deriv platforms"
+                    />
+                </Container>
+            </Section>
+            <Container p="8rem 0">
+                <Header as="h4" weight="normal" align="center">
+                    {localize(
+                        'In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new, clean, and modern as we enter our 21st year.',
+                    )}
+                </Header>
             </Container>
-        </Section>
+        </>
     )
 }
 

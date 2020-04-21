@@ -30,7 +30,7 @@ const AvailableOptions = ({ title, content, remove_title, svg }) => {
 AvailableOptions.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     remove_title: PropTypes.bool,
-    svg: PropTypes.object,
+    svg: PropTypes.func,
     title: PropTypes.string,
 }
 export default AvailableOptions

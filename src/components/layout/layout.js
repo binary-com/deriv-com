@@ -16,7 +16,7 @@ const Main = styled.main`
     position: relative;
 `
 
-const Layout = ({ children, type, padding_top, no_login_signup }) => {
+const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const is_static = type === 'static'
     // Handle navigation types
     let Navigation = <></>
@@ -26,7 +26,7 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
             Navigation = <NavStatic />
             break
         case 'interim':
-            Navigation = <NavInterim />
+            Navigation = <NavInterim interim_type={interim_type} />
             FooterNav = <Copyright />
             break
         case 'partners':
@@ -74,6 +74,7 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
 
 Layout.propTypes = {
     children: PropTypes.node.isRequired,
+    interim_type: PropTypes.string,
     no_login_signup: PropTypes.bool,
     padding_top: PropTypes.string,
     type: PropTypes.string,

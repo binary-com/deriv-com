@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex, Box } from 'components/containers'
@@ -39,7 +40,7 @@ const query = graphql`
     }
 `
 
-const HeroDeriv = () => {
+const HeroDeriv = ({ interim_type }) => {
     const data = useStaticQuery(query)
     return (
         <>
@@ -47,9 +48,12 @@ const HeroDeriv = () => {
                 <Container fw="wrap-reverse">
                     <ResponsiveFlex fd="column" max_width="58.8rem">
                         <Header as="h2" mb="1.2rem">
-                            {localize(
-                                'Introducing Deriv — our new comprehensive online trading service',
-                            )}
+                            {interim_type === 'dbot'
+                                ? localize('Introducing Deriv — the home to DBot')
+                                : localize(
+                                      'Introducing Deriv — our new comprehensive online trading service',
+                                  )}
+                            {}
                         </Header>
                         <Header as="h4" weight="normal" mb="4rem">
                             {localize('Built upon 20+ years of experience')}
@@ -79,4 +83,7 @@ const HeroDeriv = () => {
     )
 }
 
+HeroDeriv.propTypes = {
+    interim_type: PropTypes.string,
+}
 export default HeroDeriv

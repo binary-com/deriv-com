@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex, Box } from 'components/containers'
@@ -61,13 +62,16 @@ const White = styled(Header)`
 
 const query = graphql`
     query {
-        smarttrader: file(relativePath: { eq: "smarttrader.png" }) {
+        deriv: file(relativePath: { eq: "smarttrader.png" }) {
+            ...fadeIn
+        }
+        dbot: file(relativePath: { eq: "interim-dbot.png" }) {
             ...fadeIn
         }
     }
 `
 
-const HeroDeriv = () => {
+const HeroDeriv = ({ interim_type }) => {
     const data = useStaticQuery(query)
     return (
         <>
@@ -82,27 +86,44 @@ const HeroDeriv = () => {
                         </FitButton>
                     </Flex>
                     <AbsoluteWrapper>
-                        <QueryImage data={data['smarttrader']} width="54rem" height="27.5rem" />
+                        <QueryImage data={data[interim_type]} width="54rem" height="27.5rem" />
                     </AbsoluteWrapper>
 
                     <RightFlex fd="column" ml="2.4rem" ai="flex-start">
-                        <White as="h3" mb="3rem">
-                            {localize('Love trading on Binary.com’s signature platform? ')}
-                        </White>
-                        <FitButton
-                            external
-                            white
-                            to={binary_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {localize('Try SmartTrader on Deriv')}
-                        </FitButton>
+                        {interim_type === 'dbot' ? (
+                            <>
+                                <White as="h3" mb="3rem">
+                                    {localize('Love Binary Bot?')}
+                                </White>
+                                <FitButton white to="/dbot" target="_blank">
+                                    {localize('Try DBot on Deriv')}
+                                </FitButton>
+                            </>
+                        ) : (
+                            <>
+                                <White as="h3" mb="3rem">
+                                    {localize('Love trading on Binary.com’s signature platform? ')}
+                                </White>
+                                <FitButton
+                                    external
+                                    white
+                                    to={binary_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {localize('Try SmartTrader on Deriv')}
+                                </FitButton>
+                            </>
+                        )}
                     </RightFlex>
                 </Container>
             </Section>
         </>
     )
+}
+
+HeroDeriv.propTypes = {
+    interim_type: PropTypes.string,
 }
 
 export default HeroDeriv

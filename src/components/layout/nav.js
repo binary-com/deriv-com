@@ -434,11 +434,11 @@ export const Nav = () => {
     )
 }
 
-export const NavInterim = () => (
+export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <Container jc="space-between" p="2.4rem 0">
             <Flex ai="center" jc="flex-start">
-                <LogoLink to="/" aria-label={localize('Home')}>
+                <LogoLink to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                     <Logo />
                 </LogoLink>
                 <Binary size="var(--text-size-xxs)" color="white">
@@ -712,4 +712,8 @@ NavStatic.propTypes = {
 
 NavPartners.propTypes = {
     no_login_signup: PropTypes.bool,
+}
+
+NavInterim.propTypes = {
+    interim_type: PropTypes.string,
 }

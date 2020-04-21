@@ -98,7 +98,7 @@ const HeroDeriv = ({ interim_type }) => {
                                 <FitButton
                                     external
                                     white
-                                    to={deriv_app_url}
+                                    to={deriv_app_url + '/bot'}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

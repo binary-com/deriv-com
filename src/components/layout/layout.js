@@ -18,6 +18,20 @@ const Main = styled.main`
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const is_static = type === 'static'
+
+    // Handle cookie banners
+    const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
+    React.useEffect(() => {
+        const clients_country = Cookies.get('clients_country')
+        if (isEuCountry(clients_country)) {
+            const has_cookie = Cookies.get('has_cookie_accepted')
+            setShowCookieBanner(!has_cookie)
+        }
+    }, [])
+    const onAccept = () => {
+        Cookies.set('has_cookie_accepted', 1)
+        setShowCookieBanner(false)
+    }
     // Handle navigation types
     let Navigation = <></>
     let FooterNav = <></>
@@ -41,20 +55,6 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             Navigation = <Nav />
             FooterNav = <Footer has_banner_cookie={show_cookie_banner} />
             break
-    }
-
-    // Handle cookie banners
-    const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
-    React.useEffect(() => {
-        const clients_country = Cookies.get('clients_country')
-        if (isEuCountry(clients_country)) {
-            const has_cookie = Cookies.get('has_cookie_accepted')
-            setShowCookieBanner(!has_cookie)
-        }
-    }, [])
-    const onAccept = () => {
-        Cookies.set('has_cookie_accepted', 1)
-        setShowCookieBanner(false)
     }
     return (
         <>

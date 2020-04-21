@@ -457,7 +457,7 @@ export const NavInterim = ({ interim_type }) => (
                 </Binary>
             </Flex>
             <Flex jc="flex-end">
-                <LinkButton secondary to="/dtrader">
+                <LinkButton secondary to="/">
                     {localize('Explore Deriv')}
                 </LinkButton>
             </Flex>

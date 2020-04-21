@@ -57,7 +57,6 @@ const DigitalOptions = () => {
                     </Text>
                     <Flex jc="flex-end" ai="center" mt="2rem">
                         <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <Text mr="0.8rem">{localize('Available on')}</Text>
                         <LocalizedLink to="/dtrader/">
                             <Dtrader style={{ marginRight: '0.8rem' }} />
                         </LocalizedLink>

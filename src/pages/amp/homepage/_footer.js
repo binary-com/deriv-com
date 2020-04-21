@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Box, Flex } from 'components/containers'
-import { Text, LocalizedLinkText } from 'components/elements'
+import { Text, LinkText, LocalizedLinkText } from 'components/elements'
 import Warning from 'images/svg/warning.svg'
 import { Localize, localize } from 'components/localization'
 
@@ -30,9 +30,9 @@ const Footer = () => (
                     as a Category 3 Investment Services provider by the Malta Financial Services
                     Authority (<0>view licence</0>)."
                         components={[
-                            <LocalizedLinkText
+                            <LinkText
                                 key={0}
-                                to="/WS-Binary-Investments-Europe-Limited.pdf"
+                                href="/WS-Binary-Investments-Europe-Limited.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
@@ -51,23 +51,23 @@ const Footer = () => (
                         Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services
                         Authority to carry on a money-broking business (<2>view licence</2>)."
                         components={[
-                            <LocalizedLinkText
+                            <LinkText
                                 key={0}
-                                to="/Vanuatu-Financial-Services-Commission.pdf"
+                                href="/Vanuatu-Financial-Services-Commission.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
                             />,
-                            <LocalizedLinkText
+                            <LinkText
                                 key={1}
-                                to="/BVI_license.pdf"
+                                href="/BVI_license.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
                             />,
-                            <LocalizedLinkText
+                            <LinkText
                                 key={2}
-                                to="/Labuan-license.pdf"
+                                href="/Labuan-license.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"
@@ -88,15 +88,7 @@ const Footer = () => (
                 </Flex>
                 <Text>
                     <Localize
-                        translate_text="The financial products offered via this website include digitals, contracts for
-                        difference (CFDs), and other complex derivatives and financial products. Trading
-                        options may not be suitable for everyone. Trading CFDs carries a high level of
-                        risk since leverage can work both to your advantage and disadvantage. As a
-                        result, the products offered on this website may not be suitable for all
-                        investors because of the risk of losing all of your invested capital. You should
-                        never invest money that you cannot afford to lose, and never trade with borrowed
-                        money. Before trading in the complex financial products offered, please be sure
-                        to understand the risks involved and learn about <0>Secure and responsible trading</0>."
+                        translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                         components={[
                             <LocalizedLinkText
                                 key={0}

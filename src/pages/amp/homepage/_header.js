@@ -79,9 +79,15 @@ const Header = () => (
                     </Binary>
                 </Flex>
                 <LinkWrapper ai="center" jc="center">
-                    <LinkText on="tap:trade.scrollTo()">{localize('Trade')}</LinkText>
-                    <LinkText on="tap:markets.scrollTo()">{localize('Markets')}</LinkText>
-                    <LinkText on="tap:our-clients.scrollTo()">{localize('Testimonials')}</LinkText>
+                    <LinkText role="button" tabIndex="-1" on="tap:trade.scrollTo()">
+                        {localize('Trade')}
+                    </LinkText>
+                    <LinkText role="button" tabIndex="-1" on="tap:markets.scrollTo()">
+                        {localize('Markets')}
+                    </LinkText>
+                    <LinkText role="button" tabIndex="-1" on="tap:our-clients.scrollTo()">
+                        {localize('Testimonials')}
+                    </LinkText>
                 </LinkWrapper>
             </Container>
         </HeaderWrapper>

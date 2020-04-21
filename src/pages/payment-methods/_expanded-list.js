@@ -144,7 +144,11 @@ const ExpandList = ({ data, is_crypto }) => {
                 </Withdrawal>
                 <Td>
                     {data.reference ? (
-                        <CenterIcon href={data.reference} target="_blank" rel="noopener noreferrer">
+                        <CenterIcon
+                            href={`/payment-methods/${data.reference}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <StyledPDF />
                         </CenterIcon>
                     ) : (

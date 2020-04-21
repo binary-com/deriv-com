@@ -13,12 +13,22 @@ module.exports = {
         {
             resolve: `gatsby-plugin-amp`,
             options: {
+                analytics: {
+                    type: 'gtag',
+                    dataCredentials: 'include',
+                    config: {
+                        vars: {
+                            gtag_id: 'UA-139927388-1',
+                            config: {
+                                'UA-139927388-1': {
+                                    page_location: '{{pathname}}',
+                                },
+                            },
+                        },
+                    },
+                },
                 canonicalBaseUrl: 'https://deriv.com/',
-                components: [
-                    'amp-animation',
-                    'amp-position-observer',
-                    'amp-carousel',
-                ],
+                components: ['amp-animation', 'amp-position-observer', 'amp-carousel'],
                 pathIdentifier: '/amp/',
                 relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
                 useAmpClientIdApi: true,

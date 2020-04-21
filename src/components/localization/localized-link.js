@@ -65,7 +65,14 @@ export const LocalizedLink = ({ to, ...props }) => {
 
     if (props.external || props.external === 'true') {
         return (
-            <a target={target} rel={rel} className={className} style={style} href={to}>
+            <a
+                target={target}
+                rel={rel}
+                className={className}
+                data-amp-replace="QUERY_PARAM"
+                style={style}
+                href={to}
+            >
                 {props.children}
             </a>
         )
@@ -84,7 +91,14 @@ export const LocalizedLink = ({ to, ...props }) => {
     }
 
     return (
-        <GatsbyLink target={target} rel={rel} className={className} style={style} to={internal_to}>
+        <GatsbyLink
+            target={target}
+            rel={rel}
+            data-amp-replace="QUERY_PARAM"
+            className={className}
+            style={style}
+            to={internal_to}
+        >
             {props.children}
         </GatsbyLink>
     )

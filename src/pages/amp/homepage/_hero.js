@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import util from './_util'
 import { Container, Box, Flex } from 'components/containers'
 import { LinkButton } from 'components/form'
 import { Text, Header } from 'components/elements'
@@ -98,8 +99,7 @@ const Hero = () => {
                 </Box>
                 <amp-img src={HeroPlatform} width="540" height="345" />
             </FullWidth>
-
-            <BigButton secondary to="/signup/" target="_blank" rel="noopener noreferrer">
+            <BigButton secondary to={util.getSignupUrl()} target="_blank">
                 {localize('Create free demo account')}
             </BigButton>
         </HandleAmp>

@@ -166,7 +166,6 @@ SEO.defaultProps = {
 
 SEO.propTypes = {
     description: PropTypes.string,
-    is_amp_page: PropTypes.bool,
     meta: PropTypes.arrayOf(PropTypes.object),
     no_index: PropTypes.bool,
     title: PropTypes.string.isRequired,

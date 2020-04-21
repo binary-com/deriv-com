@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 const Container = styled.div`
     height: 1px;
@@ -20,10 +19,6 @@ const External = () => {
             ></amp-iframe>
         </Container>
     )
-}
-
-External.propTypes = {
-    children: PropTypes.nodes,
 }
 
 export default External

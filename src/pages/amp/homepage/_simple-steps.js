@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import util from './_util'
 import { Container, Box, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -85,11 +86,7 @@ const SimpleSteps = () => {
                         </Text>
                     </Li>
                 </Ul>
-                <MediumButton
-                    to="/signup/?t=QUERY_PARAM(t)&utm_source=QUERY_PARAM(utm_source)&utm_medium=QUERY_PARAM(utm_medium)&utm_campaign=QUERY_PARAM(utm_campaign)"
-                    secondary
-                    target="_blank"
-                >
+                <MediumButton to={util.getSignupUrl()} secondary target="_blank">
                     {localize('Sign up now')}
                 </MediumButton>
             </Container>

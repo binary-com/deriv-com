@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Container, Box, Flex } from 'components/containers'
 import { Text, Header } from 'components/elements'
 import { localize } from 'components/localization'
-import Paul from 'images/common/paul.png'
 import Fabio from 'images/common/fabio.png'
 import Roberto from 'images/common/roberto.png'
 
@@ -66,29 +65,6 @@ const OurClients = () => {
                         loop=""
                         delay={3000}
                     >
-                        <ClientCard>
-                            <Wrapper>
-                                <Text mb="3.2rem" align="center">
-                                    {localize(
-                                        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
-                                    )}
-                                </Text>
-                                <Divider />
-                                <Flex>
-                                    <div>
-                                        <amp-img src={Paul} width="50" height="50" />
-                                    </div>
-                                    <Box ml="0.8rem">
-                                        <Text weight="bold" mb="0.4rem">
-                                            Paul Mugenda
-                                        </Text>
-                                        <Text size="var(--text-size-xs)">
-                                            {localize('Forex trader')}
-                                        </Text>
-                                    </Box>
-                                </Flex>
-                            </Wrapper>
-                        </ClientCard>
                         <ClientCard>
                             <Wrapper>
                                 <Text mb="3.2rem" align="center">

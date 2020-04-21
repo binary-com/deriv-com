@@ -8,6 +8,7 @@ import Markets from './homepage/_markets'
 import SimpleSteps from './homepage/_simple-steps'
 import OurClients from './homepage/_our-clients'
 import ScrollTop from './components/_scroll-top'
+import External from './components/_external'
 import { SEO } from 'components/containers'
 import { WithIntl, localize } from 'components/localization'
 
@@ -29,6 +30,7 @@ const Amp = () => {
             <SimpleSteps />
             <OurClients />
             <Footer />
+            <External />
         </>
     )
 }

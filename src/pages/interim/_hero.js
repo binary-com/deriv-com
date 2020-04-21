@@ -5,10 +5,17 @@ import { Container, Flex, Box } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 
 const Section = styled(Box)`
     ${Header} {
         color: var(--color-white);
+    }
+`
+
+const ImgWrapper = styled(Box)`
+    @media ${device.tabletS} {
+        display: none;
     }
 `
 
@@ -48,15 +55,17 @@ const HeroDeriv = () => {
                             {localize('Built upon 20+ years of experience')}
                         </Header>
                         <FitButton secondary to="/dtrader">
-                            {localize('Explore deriv')}
+                            {localize('Explore Deriv')}
                         </FitButton>
                     </ResponsiveFlex>
-                    <QueryImage
-                        width="58.9rem"
-                        height="34.5rem"
-                        data={data['platform']}
-                        alt="Deriv platforms"
-                    />
+                    <ImgWrapper>
+                        <QueryImage
+                            width="58.9rem"
+                            height="34.5rem"
+                            data={data['platform']}
+                            alt="Deriv platforms"
+                        />
+                    </ImgWrapper>
                 </Container>
             </Section>
             <Container p="8rem 0">

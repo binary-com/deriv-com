@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import Footer from './footer'
+import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
 import CookieBanner from 'components/custom/cookie-banner'
 import { Show } from 'components/containers'
@@ -19,21 +20,26 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
     const is_static = type === 'static'
     // Handle navigation types
     let Navigation = <></>
+    let FooterNav = <></>
     switch (type) {
         case 'static':
             Navigation = <NavStatic />
             break
         case 'interim':
             Navigation = <NavInterim />
+            FooterNav = <Copyright />
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />
+            FooterNav = <Footer has_banner_cookie={show_cookie_banner} />
             break
         case 'careers':
             Navigation = <NavCareers />
+            FooterNav = <Footer has_banner_cookie={show_cookie_banner} />
             break
         default:
             Navigation = <Nav />
+            FooterNav = <Footer has_banner_cookie={show_cookie_banner} />
             break
     }
 
@@ -61,8 +67,7 @@ const Layout = ({ children, type, padding_top, no_login_signup }) => {
                     <CookieBanner onAccept={onAccept} is_open={show_cookie_banner} />
                 )}
             </Show.Eu>
-
-            {!is_static && <Footer has_banner_cookie={show_cookie_banner} />}
+            {FooterNav}
         </>
     )
 }

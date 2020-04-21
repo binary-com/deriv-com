@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
-// import { LinkButton } from 'components/form'
+import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import BinaryLogo from 'images/svg/interim/binary-logo.svg'
 import EasySignup from 'images/svg/interim/easy-sign-up.svg'
@@ -109,6 +109,9 @@ const Everything = () => {
                         </Box>
                     </Li>
                 </Ul>
+                <LinkButton secondary to="/dtrader" mt="2rem">
+                    {localize('Explore Deriv now')}
+                </LinkButton>
             </Container>
         </Box>
     )

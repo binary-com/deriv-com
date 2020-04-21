@@ -43,6 +43,11 @@ const LogoLink = styled(LocalizedLink)`
             width: 20rem;
         }
     }
+    @media ${device.tabletS} {
+        & svg {
+            width: 15rem;
+        }
+    }
 `
 
 const StyledNav = styled.nav`
@@ -453,7 +458,7 @@ export const NavInterim = () => (
             </Flex>
             <Flex jc="flex-end">
                 <LinkButton secondary to="/dtrader">
-                    {localize('Explore deriv')}
+                    {localize('Explore Deriv')}
                 </LinkButton>
             </Flex>
         </Container>

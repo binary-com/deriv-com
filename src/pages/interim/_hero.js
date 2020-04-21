@@ -34,7 +34,10 @@ const FitButton = styled(LinkButton)`
 
 const query = graphql`
     query {
-        platform: file(relativePath: { eq: "hero-platform.png" }) {
+        deriv: file(relativePath: { eq: "hero-platform.png" }) {
+            ...fadeIn
+        }
+        dbot: file(relativePath: { eq: "interim-dbot-bg.png" }) {
             ...fadeIn
         }
     }
@@ -66,8 +69,8 @@ const HeroDeriv = ({ interim_type }) => {
                         <QueryImage
                             width="58.9rem"
                             height="34.5rem"
-                            data={data['platform']}
-                            alt="Deriv platforms"
+                            data={data[interim_type]}
+                            alt={`${interim_type} platforms`}
                         />
                     </ImgWrapper>
                 </Container>

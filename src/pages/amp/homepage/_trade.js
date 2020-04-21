@@ -49,7 +49,7 @@ const Trade = () => {
                     {localize('Trade the way you like')}
                 </Header>
                 <Text align="center" size="var(--text-size-m)" mb="4rem" weight="300">
-                    {localize('Choose from three powerful platforms — designed with you in mind')}
+                    {localize('Choose from three powerful platforms -- designed with you in mind')}
                 </Text>
                 <Flex fw="wrap" jc="center" ai="center">
                     <CarouselWrapper

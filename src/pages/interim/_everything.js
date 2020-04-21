@@ -8,26 +8,26 @@ import BinaryLogo from 'images/svg/interim/binary-logo.svg'
 import EasySignup from 'images/svg/interim/easy-sign-up.svg'
 import Support from 'images/svg/interim/support.svg'
 import SyntheticIndices from 'images/svg/interim/synthetic-indices.svg'
-// import TradingPlatform from 'images/svg/interim/trading-platforms.svg'
-// import UserFriendly from 'images/svg/interim/user-friendly.svg'
+import TradingPlatform from 'images/svg/interim/trading-platforms.svg'
+import UserFriendly from 'images/svg/interim/user-friendly.svg'
 
 const Ul = styled(Flex).attrs({ as: 'ul' })`
-    max-width: 996px;
+    width: 100%;
     flex-wrap: wrap;
 `
 
 const Li = styled(Flex).attrs({ as: 'li' })`
-    max-width: 462px;
+    max-width: 48.6rem;
     display: flex;
     margin: 2rem 1.2rem;
 `
 
 const Everything = () => {
     return (
-        <Box p="8rem 0 1.6rem" bg="var(--color-white)" id="markets">
+        <Box p="8rem 0" bg="var(--color-grey-8)" id="markets">
             <Container fd="column" ai="center">
-                <Header as="h2" align="center" mb="4rem">
-                    {localize('Markets')}
+                <Header as="h3" align="center" mb="2rem">
+                    {localize('Everything you love about Binary.com, and more')}
                 </Header>
                 <Ul jc="center" ai="center">
                     <Li>
@@ -35,36 +35,36 @@ const Everything = () => {
                             <BinaryLogo width="64" height="64" />
                         </div>
                         <Box ml="1.6rem">
-                            <Header as="h4">{localize('Forex')}</Header>
+                            <Header as="h4">{localize('From the creators of Binary.com')}</Header>
                             <Text>
                                 {localize(
-                                    'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
+                                    'Trade confidently on a service created by the trusted online trading brand with over 20 years of experience.',
                                 )}
                             </Text>
                         </Box>
                     </Li>
                     <Li>
                         <div>
-                            <Support width="64" height="64" />
+                            <UserFriendly width="64" height="64" />
                         </div>
                         <Box ml="1.6rem">
-                            <Header as="h4">{localize('Stock indices')}</Header>
+                            <Header as="h4">{localize('User-friendly, modern design')}</Header>
                             <Text>
                                 {localize(
-                                    'Predict broader market trends and diversify your risk with indices that measure the overall performance of a market.',
+                                    'Enjoy an intuitive, easy-to-use interface, even for new traders.',
                                 )}
                             </Text>
                         </Box>
                     </Li>
                     <Li>
                         <div>
-                            <EasySignup width="64" height="64" />
+                            <TradingPlatform width="64" height="64" />
                         </div>
                         <Box ml="1.6rem">
-                            <Header as="h4">{localize('Commodities')}</Header>
+                            <Header as="h4">{localize('Over 100+ financial instruments')}</Header>
                             <Text>
                                 {localize(
-                                    'Trade natural resources that are central to the world’s economy and profit from the opportunities created by volatile markets.',
+                                    'Trade what you like - forex, commodities, stock and synthetic indices. ',
                                 )}
                             </Text>
                         </Box>
@@ -74,10 +74,36 @@ const Everything = () => {
                             <SyntheticIndices width="64" height="64" />
                         </div>
                         <Box ml="1.6rem">
-                            <Header as="h4">{localize('Synthetic Indices')}</Header>
+                            <Header as="h4">{localize('4 trading platforms in one place')}</Header>
                             <Text>
                                 {localize(
-                                    'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',
+                                    'Trade the way you like on the Deriv MetaTrader 5 (DMT5), DTrader, DBot — and the classic SmartTrader. ',
+                                )}
+                            </Text>
+                        </Box>
+                    </Li>
+                    <Li>
+                        <div>
+                            <Support width="64" height="64" />
+                        </div>
+                        <Box ml="1.6rem">
+                            <Header as="h4">{localize('Support when you need it')}</Header>
+                            <Text>
+                                {localize(
+                                    'Get access to friendly customer support 7 days a week, an enriched Help Centre, plus other helpful content. ',
+                                )}
+                            </Text>
+                        </Box>
+                    </Li>
+                    <Li>
+                        <div>
+                            <EasySignup width="64" height="64" />
+                        </div>
+                        <Box ml="1.6rem">
+                            <Header as="h4">{localize('Easy sign-up')}</Header>
+                            <Text>
+                                {localize(
+                                    'Explore the new website, then just log in with your Binary.com credentials to start trading right away.',
                                 )}
                             </Text>
                         </Box>

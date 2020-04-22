@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="28" viewBox="0 0 32 28" role="img" aria-labelledby="trade-icon">
+<title id="trade-icon">Trade icon</title>
+    <g fill="none" fill-rule="evenodd" transform="translate(0 -2)">
+        <path d="M0 0H32V32H0z"/>
+        <path fill="#333" fill-rule="nonzero" d="M14 21h4v5h7c.552 0 1 .448 1 1v2c0 .552-.448 1-1 1H7c-.552 0-1-.448-1-1v-2c0-.552.448-1 1-1h7v-5z"/>
+        <rect width="32" height="21" y="2" fill="#FF6444" fill-rule="nonzero" rx="2"/>
+        <path fill="#FFF" fill-opacity=".56" fill-rule="nonzero" d="M24.853 6.362c.905-.634 2.152-.414 2.785.491.602.86.434 2.028-.36 2.686l-.131.1-10 7c-.838.586-1.973.442-2.64-.308L14.4 16.2l-1.941-2.588-5.467 3.124c-.913.522-2.065.245-2.646-.611l-.082-.133c-.522-.913-.245-2.065.611-2.646l.133-.082 7-4c.827-.473 1.864-.294 2.487.407l.105.129 1.838 2.451 8.415-5.89z"/>
+    </g>
+</svg>

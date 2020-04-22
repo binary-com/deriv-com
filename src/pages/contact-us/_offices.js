@@ -354,7 +354,9 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+595991298762">+595 99 129 8762</ClickToCall>
+                                <ClickToCall href="tel:+5959925502654">
+                                    +595 992 550 2654
+                                </ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>

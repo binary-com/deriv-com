@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
+import Copy from './copyright'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { isProduction } from 'common/websocket/config'
 import { smarttrader_url } from 'common/utility'
@@ -14,7 +15,6 @@ import Twitter from 'images/svg/footer-twitter.svg'
 import Instagram from 'images/svg/footer-instagram.svg'
 import Facebook from 'images/svg/footer-facebook.svg'
 import Warning from 'images/svg/warning.svg'
-import Copyright from 'images/svg/copyright.svg'
 
 const DerivLogo = styled(Logo)`
     width: 14.5rem;
@@ -77,21 +77,7 @@ const Items = styled.div`
         display: none;
     }
 `
-const BlackNav = styled.section`
-    background-color: var(--color-black);
-    width: 100%;
 
-    p {
-        font-size: var(--text-size-xs);
-        color: var(--color-white);
-        display: flex;
-        align-items: center;
-        line-height: normal;
-    }
-    svg {
-        margin-right: 0.8rem;
-    }
-`
 const Col = styled.div`
     width: ${(props) => props.width};
     ${(props) => (props.margin_top ? 'margin-top: 3.9rem;' : '')}
@@ -539,14 +525,7 @@ const Footer = ({ has_banner_cookie }) => (
                 </Row>
             </StyledContainer>
         </Disclaimer>
-        <BlackNav>
-            <StyledContainer justify="flex-start">
-                <StyledText>
-                    <Copyright width="1.6rem" />
-                    {new Date().getUTCFullYear()} {localize('Deriv | All rights reserved')}
-                </StyledText>
-            </StyledContainer>
-        </BlackNav>
+        <Copy />
     </StyledFooter>
 )
 

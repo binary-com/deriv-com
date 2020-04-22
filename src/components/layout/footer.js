@@ -241,7 +241,7 @@ const Footer = ({ has_banner_cookie }) => (
                     <DerivLogo />
                     <Text>
                         {localize(
-                            'Deriv is a new trading platform created by the Binary Group, a multi-award winning pioneer in online trading.',
+                            'Deriv is a new trading service from the creators of Binary.com, a multi-award winning pioneer in online trading.',
                         )}
                     </Text>
                     <SocialMedia mt="3.1rem" jc="flex-start" direction="column">
@@ -505,7 +505,7 @@ const Footer = ({ has_banner_cookie }) => (
                     </StyledText>
                     <StyledText mt="1rem">
                         {localize(
-                            "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
+                            "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
                         )}
                     </StyledText>
                 </Row>

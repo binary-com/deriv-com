@@ -109,7 +109,8 @@ const DHero = ({
 }) => {
     const data = useStaticQuery(query)
     const handleRedirect = () => {
-        window.open(deriv_app_url, '_blank')
+        const path = image_name === 'dbot' ? '/bot' : '/'
+        window.open(deriv_app_url + path, '_blank')
     }
     const DLogo = styled(Logo)`
         margin-right: 1.6rem;

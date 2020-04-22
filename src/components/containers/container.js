@@ -10,6 +10,7 @@ const Container = styled(Box)`
         props.justify || props.jc ? props.justify || props.jc : 'center'};
     flex-direction: ${(props) =>
         props.direction || props.fd ? props.direction || props.fd : 'row'};
+    flex-wrap: ${(props) => (props.wrap || props.fw ? props.wrap || props.fw : '')};
     width: 80%;
 
     @media ${device.desktop} {

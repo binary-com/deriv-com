@@ -363,7 +363,7 @@ const payment_data = [
             {
                 method: <BitcoinIc />,
                 currencies: 'BTC',
-                min_max_deposit: '-',
+                min_max_deposit: localize('No minimum'),
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
                 withdrawal_time: localize('1 working day + 3 blockchain confirmations'),
@@ -376,7 +376,7 @@ const payment_data = [
             {
                 method: <EthereumIc />,
                 currencies: 'ETH',
-                min_max_deposit: '-',
+                min_max_deposit: localize('No minimum'),
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
                 withdrawal_time: localize('1 working day + 3 blockchain confirmations'),
@@ -388,7 +388,7 @@ const payment_data = [
             {
                 method: <LitecoinIc />,
                 currencies: 'LTC',
-                min_max_deposit: '-',
+                min_max_deposit: localize('No minimum'),
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
                 withdrawal_time: localize('1 working day + 3 blockchain confirmations'),
@@ -401,7 +401,7 @@ const payment_data = [
             {
                 method: <TetherIc />,
                 currencies: 'UST',
-                min_max_deposit: '-',
+                min_max_deposit: localize('No minimum'),
                 min_max_withdrawal: '',
                 deposit_time: localize('3 blockchain confirmations'),
                 withdrawal_time: localize('1 working day + 3 blockchain confirmations'),

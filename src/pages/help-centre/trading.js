@@ -133,11 +133,7 @@ const WeekendContracts = () => (
         <StyledHeader as="h4">
             {localize('What contracts are available for trading on weekends?')}
         </StyledHeader>
-        <Text>
-            {localize(
-                'You can trade synthetic indices 24/7 in all countries except Australia, France, Germany, Greece, Italy, Luxembourg, Singapore, and Spain due to regulatory requirements.',
-            )}
-        </Text>
+        <Text>{localize('Synthetic indices are available for trading 24/7.')}</Text>
     </ArticleWrapper>
 )
 

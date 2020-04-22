@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import BackgroundPattern from 'images/common/bg_banner_signup.png'
-import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
@@ -27,8 +25,7 @@ const Wrapper = styled.div`
 
 const BackgroundWrapper = styled(Flex)`
     width: 25%;
-    background-image: url(${(props) =>
-        props.is_trader ? BackgroundPatternTrader : BackgroundPattern});
+    background-image: url(${(props) => props.background_pattern});
     clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
 
     @media (max-width: 800px) {
@@ -105,7 +102,7 @@ const StyledHeader = styled(Header)`
         max-width: 329px;
     }
 `
-const DBanner = ({ title, data, is_trader }) => {
+const DBanner = ({ title, data, background_pattern }) => {
     return (
         <Wrapper>
             <ImageContainer>
@@ -114,7 +111,7 @@ const DBanner = ({ title, data, is_trader }) => {
                 </ImageWrapper>
             </ImageContainer>
             <BackgroundWrapper
-                is_trader={is_trader}
+                background_pattern={background_pattern}
                 direction="column"
                 ai="center"
             ></BackgroundWrapper>
@@ -133,8 +130,8 @@ const DBanner = ({ title, data, is_trader }) => {
 }
 
 DBanner.propTypes = {
+    background_pattern: PropTypes.object,
     data: PropTypes.object.isRequired,
-    is_trader: PropTypes.bool,
     title: PropTypes.string,
 }
 

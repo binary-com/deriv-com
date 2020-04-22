@@ -13,6 +13,8 @@ import { localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import DBotBG from 'images/svg/dbot-bg.svg'
+import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
+
 const query = graphql`
     query {
         deriv_platform: file(relativePath: { eq: "dbot-banner.png" }) {
@@ -108,7 +110,11 @@ class Dbot extends Component {
                 <StaticQuery
                     query={query}
                     render={(data) => (
-                        <DBanner title={localize('Get into the DBot experience')} data={data} />
+                        <DBanner
+                            title={localize('Get into the DBot experience')}
+                            data={data}
+                            background_pattern={BackgroundPatternDBot}
+                        />
                     )}
                 />
             </Layout>

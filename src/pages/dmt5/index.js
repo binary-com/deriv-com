@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import DMT5Video from './_dmt5-video.js'
+import BackgroundPatternDMT5 from 'images/common/bg_banner_dmt5.png'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
@@ -11,8 +13,15 @@ import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DMT5BG from 'images/svg/dmt5-bg.svg'
-import Signup, { Appearances } from 'components/custom/signup'
+import DBanner from 'components/custom/_dbanner.js'
 
+const query = graphql`
+    query {
+        deriv_platform: file(relativePath: { eq: "dmt5-banner.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const items = [
     { title: '70+', subtitle: localize('tradable assets and growing') },
     { title: '1:1,000', subtitle: localize('maximum leverage') },
@@ -49,6 +58,7 @@ const trading = [
 ]
 
 const DMT5 = () => {
+    const data = useStaticQuery(query)
     return (
         <Layout>
             <SEO
@@ -79,7 +89,11 @@ const DMT5 = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dmt5" />
             </PlatformContainer>
-            <Signup appearance={Appearances.public} />
+            <DBanner
+                background_pattern={BackgroundPatternDMT5}
+                title={localize('Get into the DMT5 experience')}
+                data={data}
+            />
         </Layout>
     )
 }

@@ -34,7 +34,7 @@ module.exports = {
                     'amp-carousel',
                     'amp-iframe',
                 ],
-                pathIdentifier: '/',
+                pathIdentifier: '/amp/',
                 relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
                 useAmpClientIdApi: true,
             },

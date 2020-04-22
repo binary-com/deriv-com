@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="16" viewBox="0 0 24 16">
     <defs>
-        <rect id="prefix__a" width="24" height="16" x="0" y="0" rx="2"/>
+        <rect id="uaeprefix__a" width="24" height="16" x="0" y="0" rx="2"/>
     </defs>
     <g fill="none" fill-rule="evenodd">
-        <mask id="prefix__b" fill="#fff">
-            <use xlink:href="#prefix__a"/>
+        <mask id="uaeprefix__b" fill="#fff">
+            <use xlink:href="#uaeprefix__a"/>
         </mask>
-        <use fill="#FF323E" fill-rule="nonzero" xlink:href="#prefix__a"/>
-        <path fill="#262626" fill-rule="nonzero" d="M6 11L24 11 24 16 6 16z" mask="url(#prefix__b)"/>
-        <path fill="#FFF" fill-rule="nonzero" d="M6 5L24 5 24 11 6 11z" mask="url(#prefix__b)"/>
-        <path fill="#12833B" fill-rule="nonzero" d="M6 0L24 0 24 5 6 5z" mask="url(#prefix__b)"/>
-        <rect width="23" height="15" x=".5" y=".5" fill-rule="nonzero" stroke="#000" stroke-opacity=".04" mask="url(#prefix__b)" rx="1"/>
+        <use fill="#FF323E" fill-rule="nonzero" xlink:href="#uaeprefix__a"/>
+        <path fill="#262626" fill-rule="nonzero" d="M6 11L24 11 24 16 6 16z" mask="url(#uaeprefix__b)"/>
+        <path fill="#FFF" fill-rule="nonzero" d="M6 5L24 5 24 11 6 11z" mask="url(#uaeprefix__b)"/>
+        <path fill="#12833B" fill-rule="nonzero" d="M6 0L24 0 24 5 6 5z" mask="url(#uaeprefix__b)"/>
+        <rect width="23" height="15" x=".5" y=".5" fill-rule="nonzero" stroke="#000" stroke-opacity=".04" mask="url(#uaeprefix__b)" rx="1"/>
     </g>
 </svg>

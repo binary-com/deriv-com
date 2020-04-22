@@ -11,8 +11,8 @@ import {
 } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, Localize, localize } from 'components/localization'
-import { Button } from 'components/form'
-import { Container, Show } from 'components/containers'
+import { Button, LinkButton } from 'components/form'
+import { Container, Show, Flex } from 'components/containers'
 import { OffCanvasMenu, OffCanvasMenuPartner, moveOffCanvasMenu, Text } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -33,12 +33,24 @@ const NavWrapper = styled.div`
     position: fixed;
     z-index: 100;
 `
+
+const InterimNav = styled.nav`
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background: var(--color-black);
+`
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 
     @media (max-width: 1150px) {
         & svg {
             width: 20rem;
+        }
+    }
+    @media ${device.tabletS} {
+        & svg {
+            width: 15rem;
         }
     }
 `
@@ -425,6 +437,37 @@ export const Nav = () => {
     )
 }
 
+export const NavInterim = ({ interim_type }) => (
+    <InterimNav>
+        <Container jc="space-between" p="2.4rem 0">
+            <Flex ai="center" jc="flex-start">
+                <LogoLink to={`/interim/${interim_type}`} aria-label={localize('Home')}>
+                    <Logo />
+                </LogoLink>
+                <Binary size="var(--text-size-xxs)" color="white">
+                    <Localize
+                        translate_text="A <0>Binary.com</0> brand"
+                        components={[
+                            <BinaryLink
+                                key={0}
+                                href={binary_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                color="white"
+                            />,
+                        ]}
+                    />
+                </Binary>
+            </Flex>
+            <Flex jc="flex-end">
+                <LinkButton secondary to="/">
+                    {localize('Explore Deriv')}
+                </LinkButton>
+            </Flex>
+        </Container>
+    </InterimNav>
+)
+
 export const NavStatic = () => (
     <StaticWrapper>
         <StyledLink to="/">
@@ -672,4 +715,8 @@ NavStatic.propTypes = {
 
 NavPartners.propTypes = {
     no_login_signup: PropTypes.bool,
+}
+
+NavInterim.propTypes = {
+    interim_type: PropTypes.string,
 }

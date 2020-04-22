@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Americas, AsiaOceania, Europe } from '../sub-markets/_submarkets.js'
+import AvailablePlatforms from '../_available-platforms.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
-import DMT5 from 'images/svg/dmt5-icon.svg'
+import { localize } from 'components/localization'
+import { OTCGERMAN } from 'components/elements/symbols.js'
 
 const Descriptions = styled.div`
     padding-bottom: 4rem;
@@ -27,49 +27,26 @@ const Margin = () => {
                             'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
                         )}
                     </Text>
-                    <Flex jc="flex-end" ai="center" mt="2rem" pr="8rem">
-                        <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <LocalizedLink to="/dmt5/">
-                            <DMT5 />
-                        </LocalizedLink>
-                    </Flex>
+                    <AvailablePlatforms dmt5 />
                 </Descriptions>
                 <Text weight="bold" mt="2.4rem">
                     {localize('Instruments available for margin trading')}
                 </Text>
-                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
-                    <Col max_width="13.2rem">
-                        <Text weight="bold" max_width="9.7rem" align="center">
-                            {localize('Americas')}
-                        </Text>
-                    </Col>
-                    <Col wrap="wrap" jc="flex-start" p="2.7rem 0 2.7rem 1.6rem" border_left>
-                        <Americas />
-                    </Col>
-                </Row>
-                <Row jc="flex-start" ai="center" romve_border_top>
-                    <Col max_width="13.2rem">
-                        <Text weight="bold" max_width="9.7rem" align="center">
-                            {localize('Asia/ Oceania')}
-                        </Text>
-                    </Col>
-                    <Col wrap="wrap" jc="flex-start" p="3.2rem 0 3.2rem 1.6rem" border_left>
-                        <AsiaOceania />
-                    </Col>
-                </Row>
-                <Row
-                    jc="flex-start"
-                    ai="center"
-                    romve_border_top
-                    background="rgba(242, 243, 244, 0.3)"
-                >
+                <Row jc="flex-start" ai="center" background="rgba(242, 243, 244, 0.3)">
                     <Col max_width="13.2rem">
                         <Text weight="bold" max_width="9.7rem" align="center">
                             {localize('Europe')}
                         </Text>
                     </Col>
-                    <Col wrap="wrap" jc="flex-start" p="0.8rem 0 2.4rem 1.6rem" border_left>
-                        <Europe />
+                    <Col
+                        wrap="wrap"
+                        jc="flex-start"
+                        p="2.4rem 0 2.4rem 1.6rem"
+                        border_left
+                        ai="center"
+                    >
+                        <OTCGERMAN />
+                        <Text>{localize('German Index')}</Text>
                     </Col>
                 </Row>
             </Flex>

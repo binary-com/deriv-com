@@ -17,7 +17,7 @@ const PlatformsContainer = styled(Flex)`
     svg {
         width: 24px;
         height: 24px;
-        margin-left: 0.3rem;
+        margin: 0 0.3rem;
     }
     a:last-child {
         margin-right: 0;

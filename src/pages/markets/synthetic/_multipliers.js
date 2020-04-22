@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ContinuousIndices, DailyResetIndices } from '../sub-markets/_submarkets.js'
+import AvailablePlatforms from '../_available-platforms.js'
+import { ContinuousIndices } from '../sub-markets/_submarkets.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
-import Dtrader from 'images/svg/dtrader-icon.svg'
+import { localize } from 'components/localization'
 
 const Descriptions = styled.div`
     padding-bottom: 4rem;
@@ -28,12 +28,7 @@ const Multipliers = () => {
                             'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.',
                         )}
                     </Text>
-                    <Flex jc="flex-end" ai="center" mt="2rem" pr="8rem">
-                        <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <LocalizedLink to="/dtrader/">
-                            <Dtrader />
-                        </LocalizedLink>
-                    </Flex>
+                    <AvailablePlatforms dtrader />
                 </Descriptions>
                 <Text weight="bold" mt="2.4rem">
                     {localize('Instruments available for multipliers')}
@@ -48,16 +43,6 @@ const Multipliers = () => {
                         <CssGrid columns="1fr 1fr 1fr" row_gap="1.6rem">
                             <ContinuousIndices />
                         </CssGrid>
-                    </Col>
-                </Row>
-                <Row jc="flex-start" ai="center" romve_border_top>
-                    <Col max_width="13.2rem">
-                        <Text weight="bold" align="center">
-                            {localize('Daily reset indices')}
-                        </Text>
-                    </Col>
-                    <Col wrap="wrap" jc="flex-start" p="3.2rem 0 3.2rem 1.6rem" border_left>
-                        <DailyResetIndices />
                     </Col>
                 </Row>
             </Flex>

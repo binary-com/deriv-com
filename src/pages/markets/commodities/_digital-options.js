@@ -2,13 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Metals, Energy } from '../sub-markets/_submarkets.js'
 import AvailableOptions from '../_available-options.js'
+import AvailablePlatforms from '../_available-platforms.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 //SVG
-import Dtrader from 'images/svg/dtrader-icon.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import SmartTrader from 'images/svg/smarttrader.svg'
 import RiseFall from 'images/svg/options/rise-fall.svg'
 import HigherLower from 'images/svg/options/higher-lower.svg'
 import EbEo from 'images/svg/options/eb-eo.svg'
@@ -53,22 +51,7 @@ const DigitalOptions = () => {
                             'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on commodities.',
                         )}
                     </Text>
-                    <Flex jc="flex-end" ai="center" mt="2rem">
-                        <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <LocalizedLink to="/dtrader/">
-                            <Dtrader style={{ marginRight: '0.8rem' }} />
-                        </LocalizedLink>
-                        <LocalizedLink to="/dbot/">
-                            <DBot style={{ marginRight: '0.8rem' }} />
-                        </LocalizedLink>
-                        <a
-                            href="https://smarttrader.deriv.app/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <SmartTrader width="32px" height="32px" />
-                        </a>
-                    </Flex>
+                    <AvailablePlatforms dtrader dbot smarttrader />
                 </Descriptions>
                 <Text weight="bold" mt="2.4rem">
                     {localize('Option trades available on commodities')}

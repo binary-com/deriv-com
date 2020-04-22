@@ -2,28 +2,43 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { WithIntl } from 'components/localization'
+export const sizes = {
+    mobileS: 320,
+    mobileM: 375,
+}
+export const mediaqueries = Object.keys(sizes).reduce((accumulator, label) => {
+    accumulator[label] = (...args) => css`
+        @media (max-width: ${sizes[label]}px) {
+            ${css(...args)};
+        }
+    `
+    return accumulator
+}, {})
 
-// function unitizedPx(number) {
-//     return number + 'px'
-// }
+export const generateResponsiveStyles = (stylesGenerator) => (props) => {
+    return Object.keys(mediaqueries).reduce((rules, mq) => {
+        if (!props[mq]) return rules
+        const styles = mediaqueries[mq]`        
+        ${stylesGenerator(props[mq])}
+        `
+        return [...rules, styles]
+    }, [])
+}
+
 const baseStyles = ({ top, left, right, bottom }) => css`
     margin-top: ${top ? top + 'px' : null};
     margin-right: ${right ? right + 'px' : null};
     margin-bottom: ${bottom ? bottom + 'px' : null};
     margin-left: ${left ? left + 'px' : null};
 `
+const responsiveStyles = generateResponsiveStyles(baseStyles)
 
 export const Root = styled.div`
-    ${({ top, left, right, bottom, sm, md, lg, xl }) => `
-        ${baseStyles({ top, left, right, bottom })}
-        ${sm && baseStyles(sm)}
-        ${md && baseStyles(md)}
-        ${lg && baseStyles(lg)}
-        ${xl && baseStyles(xl)}
-      `}
+    ${baseStyles}
+    ${responsiveStyles}
 `
 
-const Spacer = ({ top, left, bottom, right, children, sm, md, lg, xl }) => {
+const Spacer = ({ top, left, bottom, right, children, mobileS }) => {
     return (
         <Root
             style={{
@@ -37,10 +52,7 @@ const Spacer = ({ top, left, bottom, right, children, sm, md, lg, xl }) => {
             left={left}
             bottom={bottom}
             right={right}
-            sm={sm}
-            md={md}
-            lg={lg}
-            xl={xl}
+            mobileS={mobileS}
         >
             {children}
         </Root>
@@ -51,16 +63,13 @@ Spacer.propTypes = {
     bottom: PropTypes.number,
     children: PropTypes.node,
     left: PropTypes.number,
-    lg: PropTypes.object,
-    md: PropTypes.object,
+    mobileS: PropTypes.object,
     right: PropTypes.number,
-    sm: PropTypes.object,
     top: PropTypes.number,
-    xl: PropTypes.object,
 }
 const UseResponsiveCss = () => {
     return (
-        <Spacer md={{ bottom: 10, left: 200 }} left={300}>
+        <Spacer mobileS={{ left: 10, top: 40 }} left={300} top={200}>
             cool component here
         </Spacer>
     )

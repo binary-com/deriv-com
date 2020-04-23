@@ -224,9 +224,17 @@ export const LocationLayout = ({ location, images }) => {
                 <LocationCard>
                     <Flex jc="unset" tablet_direction="column">
                         <ImageWrapper>
-                            <Iframe
-                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
-                            />
+                            {location.has_iframe ? (
+                                <Iframe
+                                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
+                                />
+                            ) : (
+                                <QueryImage
+                                    data={images[location.map]}
+                                    alt={location.display_name + localize(' Map')}
+                                    width="100%"
+                                />
+                            )}
                         </ImageWrapper>
                         <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
                             <div style={{ maxWidth: '32.4rem' }}>

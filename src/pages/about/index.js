@@ -54,7 +54,7 @@ const ContentWrapper = styled.div`
     }
 `
 
-const LeadershipWrapper = styled(Flex)`
+const LeadershipWrapper = styled(Container)`
     @media ${device.tabletL} {
         flex-direction: column;
 

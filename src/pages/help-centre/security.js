@@ -13,6 +13,7 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+    margin-top: 1.6rem;
 `
 
 const StyledHeader = styled(Header)`

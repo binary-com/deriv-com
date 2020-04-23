@@ -136,7 +136,7 @@ const PaymentMethods = () => {
                                     }}
                                     header={pd.name}
                                 >
-                                    <Scrollbar>
+                                    <Scrollbar options={{ suppressScrollY: true }}>
                                         <StyledTable has_note={!!pd.note}>
                                             <Thead>
                                                 <Tr>

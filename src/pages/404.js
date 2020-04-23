@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { SEO, Box } from 'components/containers'
+import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
@@ -15,13 +15,12 @@ const query = graphql`
     }
 `
 
-const ImageSection = styled(Box)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+const ImageWrapper = styled.div`
+    width: 100%;
+    max-width: 59.4rem;
 `
 const PageNotFoundContainerInfo = styled.div`
-    width: 50%;
+    margin-left: 2.4rem;
 
     * {
         margin: 1.6rem 0;
@@ -29,11 +28,11 @@ const PageNotFoundContainerInfo = styled.div`
 `
 const PageNotFoundContainer = styled.div`
     display: flex;
-    flex-wrap: nowrap;
     width: 100%;
     justify-content: center;
     align-items: center;
     padding: 16rem 0;
+    flex-wrap: wrap;
 `
 const ButtonWrapper = styled.div`
     margin-top: 2.6rem;
@@ -48,14 +47,10 @@ const PageNotFound = () => {
                 description={localize('The page you are looking for does not exist.')}
             />
             <PageNotFoundContainer>
-                <ImageSection width="50%">
-                    <QueryImage
-                        data={data['page_not_found']}
-                        alt={localize('Page not found')}
-                        width="59.4rem"
-                        height="48rem"
-                    />
-                </ImageSection>
+                <ImageWrapper>
+                    <QueryImage data={data['page_not_found']} alt={localize('Page not found')} />
+                </ImageWrapper>
+
                 <PageNotFoundContainerInfo>
                     <Header as="h3">{localize("This channel doesn't work")}</Header>
                     <Text>

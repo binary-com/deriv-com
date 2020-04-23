@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="aim-icon">
+<title id="aim-icon">Aim icon</title>
+    <g fill="none" fill-rule="evenodd">
+        <path d="M0 0H32V32H0z"/>
+        <circle cx="14" cy="18" r="14" fill="#FF444F" fill-rule="nonzero"/>
+        <circle cx="14" cy="18" r="8" fill-rule="nonzero" stroke="#FFF" stroke-opacity=".56" stroke-width="4"/>
+        <rect width="2" height="22" x="19.121" y=".879" fill="#333" fill-rule="nonzero" rx="1" transform="scale(-1 1) rotate(-45 0 60.456)"/>
+        <path fill="#333" fill-rule="nonzero" d="M28.363.924l.164 1.63c.05.485.434.87.92.919l1.629.164c.564.057.976.561.919 1.126-.024.235-.129.455-.296.623l-3.313 3.313c-.218.218-.523.327-.83.296l-3.298-.334c-.486-.049-.87-.433-.92-.919l-.333-3.298c-.03-.307.078-.612.296-.83L26.614.301c.401-.401 1.052-.401 1.453 0 .167.167.272.387.296.623z"/>
+    </g>
+</svg>

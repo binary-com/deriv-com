@@ -505,7 +505,7 @@ const Footer = ({ has_banner_cookie }) => (
                     </StyledText>
                     <StyledText mt="1rem">
                         {localize(
-                            "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
+                            "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
                         )}
                     </StyledText>
                 </Row>

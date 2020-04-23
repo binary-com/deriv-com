@@ -107,7 +107,6 @@ class DtraderTabs extends React.Component {
         let entry
         for (entry of entries) {
             if (entry.isIntersecting) {
-                this.my_ref.current.play()
                 this.my_ref.current.ontimeupdate = () => {
                     if (this.my_ref.current) {
                         this.setState({
@@ -139,10 +138,6 @@ class DtraderTabs extends React.Component {
                     transition: true,
                 })
             })
-        }
-
-        if (!this.my_ref.current.is_playing) {
-            this.my_ref.current.play()
         }
     }
     clickHandler = (time) => {
@@ -211,7 +206,7 @@ class DtraderTabs extends React.Component {
                 </TabsWrapper>
                 <VideoWrapper>
                     <MacbookFrame />
-                    <Video ref={this.my_ref} preload="metadata" muted>
+                    <Video ref={this.my_ref} preload="metadata" autoplay="autoplay" muted>
                         <source src="/Dtrader_GIF.mp4" type="video/mp4" />
                         <source src="/Dtrader_GIF.webm" type="video/webm" />
                     </Video>

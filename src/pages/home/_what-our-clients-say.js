@@ -10,7 +10,6 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import RobertoImage from 'images/common/roberto.png'
 import FabioImage from 'images/common/fabio.png'
-import PaulImage from 'images/common/paul.png'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -195,17 +194,8 @@ const fabio = {
     ),
     index: 2,
 }
-const paul = {
-    name: 'Paul Mugenda',
-    title: localize('Forex trader '),
-    img_path: PaulImage,
-    quote: localize(
-        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
-    ),
-    index: 2,
-}
 
-const our_client_slides = [roberto, fabio, paul]
+const our_client_slides = [roberto, fabio]
 
 const WhatOurClientsSay = () => {
     const [swiper, updateSwiper] = useState(null)

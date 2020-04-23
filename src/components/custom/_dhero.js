@@ -40,7 +40,7 @@ const Wrapper = styled.div`
 const TryForFree = styled(LinkButton)`
     @media ${device.tabletL} {
         width: 100%;
-        margin-top: 18.5rem;
+        margin-top: 3.2rem;
         max-width: 47rem;
         margin-bottom: 2.4rem;
     }
@@ -73,6 +73,13 @@ const GoToLiveDemo = styled(Button)`
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
+
+    @media ${device.mobileL} {
+        font-size: 4.8rem;
+    }
+    @media ${device.mobileS} {
+        font-size: 4rem;
+    }
 `
 const InformationWrapper = styled(Flex)`
     min-height: 36rem;

@@ -48,13 +48,13 @@ const StepCommon = css`
     @media ${device.tabletL} {
         text-align: left;
         border: none;
-        margin-top: ${props => (props.no_margin ? '0' : '2rem')};
+        margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
 `
 const Step = styled(Header)`
     ${StepCommon}
     margin-top: 0;
-    ${props =>
+    ${(props) =>
         props.start_time < props.current_time && props.current_time < props.end_time
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
@@ -103,7 +103,7 @@ class DtraderTabs extends React.Component {
         progress_percentage: 0,
         transition: true,
     }
-    handler = entries => {
+    handler = (entries) => {
         let entry
         for (entry of entries) {
             if (entry.isIntersecting) {
@@ -145,7 +145,7 @@ class DtraderTabs extends React.Component {
             this.my_ref.current.play()
         }
     }
-    clickHandler = time => {
+    clickHandler = (time) => {
         this.my_ref.current.currentTime = time
         this.my_ref.current.pause()
         this.setState({ transition: false })
@@ -212,8 +212,8 @@ class DtraderTabs extends React.Component {
                 <VideoWrapper>
                     <MacbookFrame />
                     <Video ref={this.my_ref} preload="metadata" muted>
-                        <source src="/Dtrader_GIF.webm" type="video/webm" />
                         <source src="/Dtrader_GIF.mp4" type="video/mp4" />
+                        <source src="/Dtrader_GIF.webm" type="video/webm" />
                     </Video>
                 </VideoWrapper>
             </Container>

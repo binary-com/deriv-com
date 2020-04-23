@@ -23,6 +23,7 @@ export const cyberjaya = {
         'Our office in Cyberjaya is located in iTech Tower, a 20-storey office building in the vibrant Shaftsbury Square. Easily accessible via major highways, it takes just 30 minutes to get to Cyberjaya from downtown Kuala Lumpur.',
     address: address_cyberjaya,
     google_map_link: 'https://g.page/r/CQODFgzIJPYtEAE',
+    has_iframe: true,
 }
 
 export const malta = {
@@ -42,6 +43,7 @@ export const malta = {
 
     address: address_malta,
     google_map_link: 'https://g.page/r/CRyKELlnWQ3iEAE',
+    has_iframe: true,
 }
 
 export const dubai = {

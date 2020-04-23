@@ -325,7 +325,7 @@ const Leaders = () => {
                                     <Header size="24px" align="center" m="16px 0 0 0">
                                         {leader.name}
                                     </Header>
-                                    <Text align="center" margin="0 auto" size="2rem">
+                                    <Text align="center" m="0 auto" size="2rem">
                                         {localize(leader.position)}
                                     </Text>
                                     <Text m="16px 16px 32px 16px" size="2rem">

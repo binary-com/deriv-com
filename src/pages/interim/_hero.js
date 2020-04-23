@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import CtaBinary from './_cta-binary'
 import { Container, Flex, Box } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -49,8 +50,8 @@ const HeroDeriv = ({ interim_type }) => {
         <>
             <Section bg="var(--color-black)" p="8rem 0">
                 <Container fw="wrap-reverse">
-                    <ResponsiveFlex fd="column" max_width="58.8rem">
-                        <Header as="h2" mb="1.2rem">
+                    <ResponsiveFlex fd="column" max_width="58.8rem" ai="center">
+                        <Header as="h2" mb="1.2rem" align="center">
                             {interim_type === 'dbot'
                                 ? localize('Introducing Deriv — the home to DBot')
                                 : localize(
@@ -58,12 +59,13 @@ const HeroDeriv = ({ interim_type }) => {
                                   )}
                             {}
                         </Header>
-                        <Header as="h4" weight="normal" mb="4rem">
+                        <Header as="h4" weight="normal" mb="4rem" align="center">
                             {localize('Built upon 20+ years of experience')}
                         </Header>
                         <FitButton secondary to="/">
                             {localize('Explore Deriv')}
                         </FitButton>
+                        <CtaBinary white />
                     </ResponsiveFlex>
                     <ImgWrapper>
                         <QueryImage

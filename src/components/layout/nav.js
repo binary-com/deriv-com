@@ -27,6 +27,7 @@ import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
+import BinaryLogo from 'images/svg/binary.svg'
 
 const NavWrapper = styled.div`
     width: 100%;
@@ -348,6 +349,14 @@ export const Nav = () => {
                         <LogoLink to="/" aria-label={localize('Home')}>
                             <Logo />
                         </LogoLink>
+                        <LocalizedLink
+                            external
+                            to={binary_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <BinaryLogo width="24" height="24" />
+                        </LocalizedLink>
                         <Binary size="var(--text-size-xxs)" color="white">
                             <Localize
                                 translate_text="A <0>Binary.com</0> brand"
@@ -444,6 +453,9 @@ export const NavInterim = ({ interim_type }) => (
                 <LogoLink to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                     <Logo />
                 </LogoLink>
+                <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+                    <BinaryLogo width="24" height="24" />
+                </LocalizedLink>
                 <Binary size="var(--text-size-xxs)" color="white">
                     <Localize
                         translate_text="A <0>Binary.com</0> brand"

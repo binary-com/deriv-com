@@ -98,7 +98,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
                 return (
                     <ClientCard key={idx} m="0 0 0 2rem">
                         <Flex ai="center">
-                            <Header as="h4">{localize(item.header)}</Header>
+                            <Header as="h4">{item.header}</Header>
                             {item.icon}
                         </Flex>
                         <Text>{localize(item.text)}</Text>

@@ -65,7 +65,7 @@ const HeroDeriv = ({ interim_type }) => {
                         <FitButton secondary to="/">
                             {localize('Explore Deriv')}
                         </FitButton>
-                        <CtaBinary white />
+                        <CtaBinary is_white />
                     </ResponsiveFlex>
                     <ImgWrapper>
                         <QueryImage

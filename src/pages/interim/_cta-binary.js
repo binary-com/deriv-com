@@ -7,11 +7,11 @@ import { binary_url } from 'common/utility'
 import BinaryWhite from 'images/svg/interim/binary-white.svg'
 import BinaryBlue from 'images/svg/binary.svg'
 
-const CtaBinary = ({ white }) => {
-    const color = white ? 'white' : 'black'
+const CtaBinary = ({ is_white }) => {
+    const color = is_white ? 'white' : 'black'
     return (
         <Flex mt="1.6rem" ai="center">
-            {white ? <BinaryWhite /> : <BinaryBlue />}
+            {is_white ? <BinaryWhite /> : <BinaryBlue />}
             <Text ml="4px" max_width="20rem" color={color} size="var(--text-size-xs)">
                 <Localize
                     translate_text="No sign up needed. Log in with your <0>Binary.com</0> credentials."
@@ -34,7 +34,7 @@ const CtaBinary = ({ white }) => {
 }
 
 CtaBinary.propTypes = {
-    white: PropTypes.bool,
+    is_white: PropTypes.bool,
 }
 
 export default CtaBinary

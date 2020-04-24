@@ -123,7 +123,7 @@ const HeroDeriv = ({ interim_type }) => {
                                 </FitButton>
                             </>
                         )}
-                        <CtaBinary white />
+                        <CtaBinary is_white />
                     </RightFlex>
                 </Container>
             </Section>

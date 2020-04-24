@@ -171,7 +171,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 content={localize(
                                     'Enjoy synthetic markets that emulate real-world market movements.',
                                 )}
-                                title={localize('Synthetic Indices')}
+                                title={localize('Synthetic indices')}
                                 to="markets#synthetic"
                             />
                         </Flex>

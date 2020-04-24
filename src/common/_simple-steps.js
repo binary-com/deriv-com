@@ -90,7 +90,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
         <BackgroundPattern />
         <Container direction="column">
             <Header align="center" size="var(--text-size-header-1)" as="h2">
-                {localize(header)}
+                {header}
             </Header>
         </Container>
         <StyledFlex wrap="wrap">
@@ -101,7 +101,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
                             <Header as="h4">{item.header}</Header>
                             {item.icon}
                         </Flex>
-                        <Text>{localize(item.text)}</Text>
+                        <Text>{item.text}</Text>
                     </ClientCard>
                 )
             })}

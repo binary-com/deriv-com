@@ -38,7 +38,7 @@ const Backdrop = styled.div`
 `
 const StyledContainer = styled.div`
     @media ${device.tabletL} {
-        padding: 10rem 0 2rem 0;
+        padding: 2rem 0 2rem 0;
     }
 `
 const SearchSection = styled.section`
@@ -183,6 +183,12 @@ const ArticleDiv = styled.div`
     margin-bottom: 8rem;
 `
 
+const ResponsiveHeader = styled(Header)`
+    @media ${device.mobileM} {
+        font-size: 4rem;
+    }
+`
+
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
@@ -296,9 +302,9 @@ class HelpCentre extends Component {
                     <Backdrop>
                         <Container align="left" justify="flex-start" direction="column">
                             <StyledContainer align="normal" direction="column">
-                                <Header mb="4rem" as="h1">
+                                <ResponsiveHeader mb="4rem" as="h1">
                                     {localize('How can we help?')}
-                                </Header>
+                                </ResponsiveHeader>
                                 <SearchForm onSubmit={this.handleSubmit}>
                                     <SearchIconBig />
                                     <Search

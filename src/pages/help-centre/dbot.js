@@ -48,6 +48,9 @@ const ArticleWrapper = styled.div`
     @media ${device.laptopL} {
         margin-left: 2rem;
     }
+    @media ${device.tabletL} {
+        margin-left: 0;
+    }
 `
 const StyledText = styled(Text)`
     margin-top: 1.7rem;

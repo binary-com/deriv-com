@@ -258,10 +258,12 @@ const SwiperWrapper = styled.div`
 const LeaderMobile = styled.div`
     width: 100%;
     max-width: 304px;
-    height: 532px;
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
+    &.swiper-slide {
+        height: 532px;
+    }
     > p {
         max-width: 273px;
     }

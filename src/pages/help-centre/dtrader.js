@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Article } from './_article'
 import { Text, Header } from 'components/elements/typography'
 import { localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -14,6 +15,10 @@ const ArticleWrapper = styled.div`
     line-height: 1.5;
     margin-left: 12.6rem;
     margin-top: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
+    }
 `
 const StyledHeader = styled(Header)`
     margin-bottom: 2.4rem;

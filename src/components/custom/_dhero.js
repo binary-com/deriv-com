@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 
 const TryForFree = styled(LinkButton)`
     @media ${device.tabletL} {
-        width: 100%;
+        width: fit-content;
         margin-top: 3.2rem;
         max-width: 47rem;
         margin-bottom: 2.4rem;
@@ -67,7 +67,7 @@ const GoToLiveDemo = styled(Button)`
         margin-left: 0;
     }
     @media ${device.tabletL} {
-        width: 100%;
+        width: fit-content;
         max-width: 47rem;
     }
 `

@@ -137,10 +137,10 @@ const ExpandList = ({ data, is_crypto }) => {
                     </>
                 </Td>
                 <Td>
-                    <Text>{data.deposit_time}</Text>
+                    <Text>{localize(data.deposit_time)}</Text>
                 </Td>
                 <Withdrawal>
-                    <Text>{data.withdrawal_time}</Text>
+                    <Text>{localize(data.withdrawal_time)}</Text>
                 </Withdrawal>
                 <Td>
                     {data.reference ? (
@@ -162,7 +162,9 @@ const ExpandList = ({ data, is_crypto }) => {
             <tr>
                 <ExpandedContent colSpan="8">
                     <Description is_expanded={is_expanded}>
-                        <StyledText is_expanded={is_expanded}>{data.description}</StyledText>
+                        <StyledText is_expanded={is_expanded}>
+                            {localize(data.description)}
+                        </StyledText>
                         {data.url && (
                             <StyledButton onClick={() => window.open(data.url, '_blank')} tertiary>
                                 {localize('Learn more')}

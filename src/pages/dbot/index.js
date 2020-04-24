@@ -15,7 +15,7 @@ import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
     { title: '3', subtitle: localize('pre-built strategies included') },
-    { title: 'FREE', subtitle: localize('zero cost to build') },
+    { title: localize('FREE'), subtitle: localize('zero cost to build') },
     { title: '50+', subtitle: localize('assets to unleash your bot') },
 ]
 const PlatformContainer = styled.div`
@@ -92,7 +92,10 @@ class Dbot extends Component {
                     background_alt={localize('DBot Board')}
                 />
                 <DNumber items={items} justify="space-around" />
-                <DHowItWorks Video={DBotVideo} title="Build a trading robot in 5 easy steps" />
+                <DHowItWorks
+                    Video={DBotVideo}
+                    title={localize('Build a trading robot in 5 easy steps')}
+                />
                 <DTrading trading={trading} />
                 <PlatformContainer>
                     <OtherPlatform exclude="dbot" />

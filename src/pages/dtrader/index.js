@@ -88,7 +88,7 @@ const Dtrader = () => {
             <Show.Desktop>
                 <DNumber items={items} justify="space-around" />
             </Show.Desktop>
-            <DHowItWorks Video={DtraderVideo} title="Make a trade in 3 easy steps" />
+            <DHowItWorks Video={DtraderVideo} title={localize('Make a trade in 3 easy steps')} />
             <DTrading trading={trading} />
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />

@@ -17,24 +17,27 @@ const markets_type = {
     forex: {
         icon: Forex,
         title: 'Forex',
-        content:
+        content: localize(
             'Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market.',
+        ),
         to: '/markets#forex',
         id: 'marketforexothermarkets',
     },
     Synthetic_Indices: {
         icon: SyntheticIndices,
         title: 'Synthetic Indices',
-        content:
+        content: localize(
             'Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks.',
+        ),
         to: '/markets#synthetic',
         id: 'marketsyntheticothermarkets',
     },
     stock_indices: {
         icon: StockIndices,
         title: 'Stock indices',
-        content:
+        content: localize(
             'Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets.',
+        ),
         to: '/markets#stock',
         id: 'marketstockothermarkets',
     },
@@ -42,8 +45,9 @@ const markets_type = {
     commodities: {
         icon: Commodities,
         title: 'Commodities',
-        content:
+        content: localize(
             'Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil.',
+        ),
         to: '/markets#commodities',
         id: 'marketcommoditiesothermarket',
     },

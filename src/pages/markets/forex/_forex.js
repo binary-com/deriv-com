@@ -16,8 +16,6 @@ import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Leverage from 'images/svg/leverage.svg'
 
 const Forex = ({ simple_step_content }) => {
-    simple_step_content[1].text =
-        'Open a real account, make a deposit, and start trading forex and other markets.'
     return (
         <>
             <WhyTrade

@@ -139,7 +139,7 @@ const WeekendContracts = () => (
 
 const TradingArticle = () => {
     return (
-        <Article header="Trading">
+        <Article header={localize('Trading')}>
             <Forex text={localize('What is forex?')} label="what-is-forex" />
             <Commodities text={localize('What are commodities?')} label="what-are-commodities" />
             <StockIndices

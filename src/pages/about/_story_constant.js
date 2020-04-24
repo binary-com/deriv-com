@@ -39,7 +39,7 @@ const Stories = [
                 texts: [
                     {
                         text: localize(
-                            'Regent Markets opens its first office in Malta. The first binary option is purchased. ',
+                            'Regent Markets opens its first office in Malta. The first binary option is purchased.',
                         ),
                     },
                 ],
@@ -226,13 +226,13 @@ const Stories = [
             {
                 left: false,
                 headers: [
-                    { header: localize('CFDs on MT5 ') },
+                    { header: localize('CFDs on MT5') },
                     { header: localize('Webtrader'), margin_top: '2.4rem' },
                 ],
                 texts: [
                     {
                         text: localize(
-                            'Binary.com adds Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders. ',
+                            'Binary.com adds Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders.',
                         ),
                     },
                     {
@@ -280,7 +280,7 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [{ header: localize('Continued expansion ') }],
+                headers: [{ header: localize('Continued expansion') }],
                 texts: [
                     {
                         text: localize(
@@ -309,7 +309,7 @@ const Stories = [
                 texts: [
                     {
                         text: localize(
-                            'We celebrate 20 years of innovation and growth! Inspired by our clients who are driven to succeed, we launch Deriv.com. Featuring customisable charts and tools, Deriv is created to be a place where people can trade what they want, how they want. ',
+                            'We celebrate 20 years of innovation and growth! Inspired by our clients who are driven to succeed, we launch Deriv.com. Featuring customisable charts and tools, Deriv is created to be a place where people can trade what they want, how they want.',
                         ),
                     },
                 ],

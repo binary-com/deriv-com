@@ -46,7 +46,7 @@ export const WhyTrade = ({ children, header, text }) => {
                                     {icon}
                                     {
                                         <Text align="center" mt="1.6rem" max_width="18rem">
-                                            {text}
+                                            {localize(text)}
                                         </Text>
                                     }
                                 </Item>

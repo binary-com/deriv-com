@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
 import { Flex, Show } from 'components/containers'
-import { LocalizedLink } from 'components/localization'
+import { LocalizedLink, localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
 import Arrow from 'images/svg/card-arrow.svg'
@@ -322,10 +322,10 @@ export const NavCard = ({ icon: Icon, title, content, to, style, external, targe
                 <Icon />
                 <NavContent>
                     <ResponsiveHeader size="var(--text-size-xs)" lh="1.14" mb="0.8rem">
-                        {title}
+                        {localize(title)}
                     </ResponsiveHeader>
                     <ResponsiveText size="var(--text-size-xxs)" color="grey-5">
-                        {content}
+                        {localize(content)}
                     </ResponsiveText>
                 </NavContent>
                 <Show.Desktop>

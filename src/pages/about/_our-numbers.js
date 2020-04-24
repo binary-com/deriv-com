@@ -102,7 +102,7 @@ const OurNumbers = () => (
                 <article>
                     <Show.Desktop>
                         <NumberHeader size="3.6rem">USD 7B+</NumberHeader>
-                        <Text align="center">{localize('Total trade turnover ')}</Text>
+                        <Text align="center">{localize('Total trade turnover')}</Text>
                     </Show.Desktop>
                     <Show.Mobile>
                         <NumberHeader size="4.5rem">1.2M+</NumberHeader>

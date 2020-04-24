@@ -197,7 +197,7 @@ export const NavPlatform = () => (
         <NavCard
             icon={DTrader}
             content={localize(
-                'A whole new trading experience on a powerful yet easy to use platform. ',
+                'A whole new trading experience on a powerful yet easy to use platform.',
             )}
             title={localize('DTrader')}
             style={{ marginRight: '5.6rem' }}

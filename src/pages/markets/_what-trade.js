@@ -45,7 +45,7 @@ export const WhatTrade = ({ header, sub_header }) => {
                 {sub_header.map((prop, idx) => {
                     return (
                         <Text mb="1.5rem" align="center" key={idx}>
-                            {prop.text}
+                            {localize(prop.text)}
                         </Text>
                     )
                 })}

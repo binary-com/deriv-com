@@ -227,8 +227,8 @@ const DMT5Standard = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <>
-                        <Header as="h4">{data.name}</Header>
-                        <Text>{data.description}</Text>
+                        <Header as="h4">{localize(data.name)}</Header>
+                        <Text>{localize(data.description)}</Text>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -241,7 +241,7 @@ const DMT5Standard = ({ data }) => {
                                                         lh="2.2"
                                                         style={item.style}
                                                     >
-                                                        {item.title}
+                                                        {localize(item.title)}
                                                     </StyledText>
                                                 </TitleTR>
                                             )
@@ -249,20 +249,22 @@ const DMT5Standard = ({ data }) => {
                                             return (
                                                 <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold" style={item.style}>
-                                                        {item.title}
+                                                        {localize(item.title)}
                                                     </StyledText>
                                                 </TitleTR>
                                             )
                                         } else if (idxa === 0 && typeof item === 'string') {
                                             return (
                                                 <TR isTitle="true" key={idxa}>
-                                                    <StyledText weight="bold">{item}</StyledText>
+                                                    <StyledText weight="bold">
+                                                        {localize(item)}
+                                                    </StyledText>
                                                 </TR>
                                             )
                                         } else {
                                             return (
                                                 <StyledTR key={idxa}>
-                                                    <StyledText>{item}</StyledText>
+                                                    <StyledText>{localize(item)}</StyledText>
                                                 </StyledTR>
                                             )
                                         }
@@ -304,8 +306,8 @@ const DMT5Advanced = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <>
-                        <Header as="h4">{data.name}</Header>
-                        <Text>{data.description}</Text>
+                        <Header as="h4">{localize(data.name)}</Header>
+                        <Text>{localize(data.description)}</Text>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -319,7 +321,7 @@ const DMT5Advanced = ({ data }) => {
                                                         lh="2.2"
                                                         style={item.style}
                                                     >
-                                                        {item.title}
+                                                        {localize(item.title)}
                                                     </StyledText>
                                                 </TitleTR>
                                             )
@@ -327,20 +329,22 @@ const DMT5Advanced = ({ data }) => {
                                             return (
                                                 <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold" style={item.style}>
-                                                        {item.title}
+                                                        {localize(item.title)}
                                                     </StyledText>
                                                 </TitleTR>
                                             )
                                         } else if (idxa === 0 && typeof item === 'string') {
                                             return (
                                                 <TR isTitle="true" key={idxa}>
-                                                    <StyledText weight="bold">{item}</StyledText>
+                                                    <StyledText weight="bold">
+                                                        {localize('item')}
+                                                    </StyledText>
                                                 </TR>
                                             )
                                         } else {
                                             return (
                                                 <StyledTR key={idxa}>
-                                                    <StyledText>{item}</StyledText>
+                                                    <StyledText>{localize('item')}</StyledText>
                                                 </StyledTR>
                                             )
                                         }

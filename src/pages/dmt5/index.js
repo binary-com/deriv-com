@@ -74,7 +74,10 @@ const DMT5 = () => {
             <Show.Desktop>
                 <DNumber items={items} justify="space-around" />
             </Show.Desktop>
-            <DHowItWorks Video={DMT5Video} title="Get started with DMT5 in 3 easy steps" />
+            <DHowItWorks
+                Video={DMT5Video}
+                title={localize('Get started with DMT5 in 3 easy steps')}
+            />
             <DTrading trading={trading} reverse two_title />
             <PlatformContainer>
                 <OtherPlatform exclude="dmt5" />

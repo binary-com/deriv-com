@@ -299,14 +299,14 @@ const Leaders = () => {
                                     <QueryImage data={data[leader.image]} alt={leader.name} />
                                     <DescriptionWrapper>
                                         <Text lh="1.71" size="var(--text-size-xs)" color="white">
-                                            {leader.description}
+                                            {localize(leader.description)}
                                         </Text>
                                     </DescriptionWrapper>
                                 </Box>
                                 <StyledHeader as="h4" align="center" lh="3.6rem">
                                     {leader.name}
                                 </StyledHeader>
-                                <Text align="center">{leader.position}</Text>
+                                <Text align="center">{localize(leader.position)}</Text>
                             </LeaderWrapper>
                         ))}
                     </CssGrid>

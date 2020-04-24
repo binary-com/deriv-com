@@ -48,13 +48,13 @@ const StepCommon = css`
     @media ${device.tabletL} {
         text-align: left;
         border: none;
-        margin-top: ${props => (props.no_margin ? '0' : '2rem')};
+        margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
 `
 const Step = styled(Header)`
     ${StepCommon}
     margin-top: 0;
-    ${props =>
+    ${(props) =>
         props.start_time < props.current_time && props.current_time < props.end_time
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
@@ -102,12 +102,17 @@ class DtraderTabs extends React.Component {
         current_time: 0,
         progress_percentage: 0,
         transition: true,
+        handler: 0,
+        is_ios: true,
     }
-    handler = entries => {
+    handler = async (entries) => {
         let entry
         for (entry of entries) {
             if (entry.isIntersecting) {
-                this.my_ref.current.play()
+                if (!this.state.is_ios) {
+                    this.updatePlay()
+                }
+
                 this.my_ref.current.ontimeupdate = () => {
                     if (this.my_ref.current) {
                         this.setState({
@@ -126,13 +131,29 @@ class DtraderTabs extends React.Component {
     observer = isBrowser() && new IntersectionObserver(this.handler)
     componentDidMount() {
         const node = this.my_ref.current
+        this.updatePlay()
         this.observer.observe(node)
+
+        const is_ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream
+
+        this.setState({ is_ios })
     }
     componentWillUnmount() {
         window.clearInterval(this.interval_ref)
         this.observer.disconnect()
     }
-    componentDidUpdate() {
+
+    updatePlay = async () => {
+        if (!this.my_ref.current.is_playing) {
+            try {
+                await this.my_ref.current.play()
+            } catch (err) {
+                // eslint-disable-next-line no-console
+                console.log(err)
+            }
+        }
+    }
+    componentDidUpdate(prev_props, prev_state) {
         if (this.state.transition === false) {
             requestAnimationFrame(() => {
                 this.setState({
@@ -140,15 +161,14 @@ class DtraderTabs extends React.Component {
                 })
             })
         }
-
-        if (!this.my_ref.current.is_playing) {
-            this.my_ref.current.play()
+        if (prev_state.handler !== this.state.handler) {
+            this.updatePlay()
         }
     }
-    clickHandler = time => {
+    clickHandler = (time) => {
         this.my_ref.current.currentTime = time
         this.my_ref.current.pause()
-        this.setState({ transition: false })
+        this.setState({ transition: false, handler: time })
         this.progressHandler()
     }
     handleRedirect = () => {
@@ -211,9 +231,16 @@ class DtraderTabs extends React.Component {
                 </TabsWrapper>
                 <VideoWrapper>
                     <MacbookFrame />
-                    <Video ref={this.my_ref} preload="metadata" muted>
-                        <source src="/Dtrader_GIF.webm" type="video/webm" />
+
+                    <Video
+                        ref={this.my_ref}
+                        controls={this.state.is_ios}
+                        preload="metadata"
+                        muted
+                        playsinline
+                    >
                         <source src="/Dtrader_GIF.mp4" type="video/mp4" />
+                        <source src="/Dtrader_GIF.webm" type="video/webm" />
                     </Video>
                 </VideoWrapper>
             </Container>

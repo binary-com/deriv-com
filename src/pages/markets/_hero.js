@@ -5,6 +5,7 @@ import Globe2 from './globe.webm'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { Container } from 'components/containers'
+import device from 'themes/device'
 
 const BackgroundWrapper = styled.div`
     position: relative;
@@ -12,6 +13,10 @@ const BackgroundWrapper = styled.div`
     background: var(--color-black-6);
     width: 100%;
     overflow: hidden;
+
+    @media ${device.tabletL} {
+        height: unset;
+    }
 `
 const StyledContainer = styled(Container)`
     padding-top: 20.7rem;
@@ -21,6 +26,18 @@ const StyledContainer = styled(Container)`
         max-width: 79.8rem;
         z-index: 10;
     }
+    @media ${device.tabletL} {
+        padding: 12.5rem 0;
+
+        h1 {
+            font-size: var(--text-size-xl);
+            text-align: left;
+        }
+        h4 {
+            font-size: 3rem;
+            text-align: left;
+        }
+    }
 `
 const Video = styled.video`
     position: absolute;
@@ -29,6 +46,10 @@ const Video = styled.video`
     transform: translate(-50%, -50%) scale(2);
     width: 100%;
     height: 100%;
+
+    @media ${device.tabletL} {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
 `
 export const Hero = () => {
     return (

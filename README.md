@@ -1,10 +1,7 @@
 <h1 align="center">
-  deriv-com
+  Deriv.com
 </h1>
 
-Deriv.com static content
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cbcd400a-686a-4470-b000-4780f427fee8/deploy-status)](https://app.netlify.com/sites/deriv-com/deploys)
 
 ## Requirements
 

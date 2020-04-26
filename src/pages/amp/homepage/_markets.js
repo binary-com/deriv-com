@@ -71,7 +71,7 @@ const Markets = () => {
                             <Synthetic width="64" height="64" />
                         </div>
                         <Box ml="1.6rem">
-                            <Header as="h4">{localize('Synthetic Indices')}</Header>
+                            <Header as="h4">{localize('Synthetic indices')}</Header>
                             <Text>
                                 {localize(
                                     'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',

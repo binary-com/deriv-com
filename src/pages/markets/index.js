@@ -10,6 +10,7 @@ import { getLocationHash, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO, Flex, Box } from 'components/containers'
+import device from 'themes/device'
 import { Header } from 'components/elements'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
@@ -51,6 +52,14 @@ const Item = styled.div`
         opacity: ${(props) => (props.name === props.active_tab ? '1' : '0.32')};
         font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
+    @media ${device.tabletL} {
+        padding: 1.5rem 3rem;
+
+        ${Header} {
+            font-size: 3rem;
+            width: max-content;
+        }
+    }
 `
 
 const Separator = styled.div`
@@ -59,6 +68,13 @@ const Separator = styled.div`
     top: -2px;
     height: 2px;
     background-color: var(--color-grey-21);
+`
+const TabsContainer = styled(Flex)`
+    @media ${device.tabletL} {
+        justify-content: flex-start;
+        overflow: scroll;
+        padding-top: 2rem;
+    }
 `
 const Markets = () => {
     const [active_tab, setTab] = useTabState()
@@ -79,7 +95,7 @@ const Markets = () => {
         <Layout>
             <SEO description={localize('')} title={localize('')} />
             <Hero />
-            <Flex pt="4rem" background="var(--color-grey-23)">
+            <TabsContainer pt="4rem" background="var(--color-grey-23)">
                 <Item onClick={() => handleTabChange('forex')} active_tab={active_tab} name="forex">
                     <Header as="h4">{localize('Forex')}</Header>
                 </Item>
@@ -100,7 +116,7 @@ const Markets = () => {
                 >
                     <Header as="h4">{localize('Commodities')}</Header>
                 </Item>
-            </Flex>
+            </TabsContainer>
             <Box position="relative">
                 <Separator />
                 {active_tab === 'forex' && <Forex simple_step_content={simple_step_content} />}

@@ -309,7 +309,7 @@ const Footer = ({ has_banner_cookie }) => (
                     </Col>
                     <Col grid_name="markets">
                         <div>
-                            <Title>{localize('Markets')}</Title>
+                            <Title>{localize('MARKETS')}</Title>
                         </div>
                         <div>
                             <Link to="/markets#forex">{localize('Forex')}</Link>
@@ -413,6 +413,24 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to={smarttrader_url} external="true" target="_blank">
                                 {localize('SmartTrader')}
                             </Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem
+                        header={localize('MARKETS')}
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
+                        <Item>
+                            <Link to="/markets#forex">{localize('Forex')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/markets#stock">{localize('Stock indices')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/markets#commodities">{localize('Commodities')}</Link>
                         </Item>
                     </AccordionItem>
                     <AccordionItem

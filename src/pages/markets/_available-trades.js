@@ -4,11 +4,25 @@ import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
+import device from 'themes/device'
 //SVG
 import MarginIcon from 'images/svg/margin.svg'
 import OptionsIcon from 'images/svg/options.svg'
 import MultipliersIcon from 'images/svg/multipliers.svg'
 
+const StyledSection = styled(SectionContainer)`
+    padding: 5rem 0;
+`
+const StyledHeader = styled(Header)`
+    max-width: 35.75rem;
+    font-size: 4rem;
+    margin: 0 auto;
+`
+const StyledContainer = styled(Container)`
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+`
 const CardWrapper = styled(Flex)`
     max-width: 100.6rem;
     justify-content: flex-start;
@@ -81,6 +95,10 @@ const ContentWrapper = styled.div`
     background: #ffffff;
     border-radius: 0.15em;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+
+    @media ${device.tabletL} {
+        padding: 0 2rem;
+    }
 `
 
 const Card = ({ name, active_tab, onTabChange }) => {
@@ -154,11 +172,11 @@ class AvailableTrades extends React.Component {
     render() {
         const { Margin, DigitalOptions, Multipliers, name } = this.props
         return (
-            <SectionContainer>
-                <Header size="var(--text-size-header-1)" align="center">
+            <StyledSection>
+                <StyledHeader size="var(--text-size-header-1)" align="center">
                     {localize(name + ' trades available on Deriv')}
-                </Header>
-                <Container
+                </StyledHeader>
+                <StyledContainer
                     direction="column"
                     style={{
                         marginTop: '2.8rem',
@@ -195,8 +213,8 @@ class AvailableTrades extends React.Component {
                         {this.state.active_tab === 'Options' && <DigitalOptions />}
                         {this.state.active_tab === 'Multipliers' && <Multipliers />}
                     </ContentWrapper>
-                </Container>
-            </SectionContainer>
+                </StyledContainer>
+            </StyledSection>
         )
     }
 }

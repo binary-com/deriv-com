@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import Box from 'components/containers/box'
@@ -48,9 +48,30 @@ const markets_type = {
         id: 'marketcommoditiesothermarket',
     },
 }
+
+const MobileCard = styled(Flex)`
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    min-height: 32.5rem;
+    width: 100%;
+    max-width: 35.25rem;
+    height: 100%;
+    padding: 3rem;
+    align-items: center;
+    flex-direction: column;
+
+    svg {
+        width: 48px;
+        height: 48px;
+    }
+`
 const Section = styled(SectionContainer)`
+    padding: 8rem 0 8.8rem 12rem;
+
     @media ${device.laptopM} {
         padding: 8rem 0 8.8rem 0;
+    }
+    @media ${device.tabletL} {
+        padding: 5rem 0;
     }
 `
 const LearnMore = styled(LocalizedLink)`
@@ -60,7 +81,7 @@ const LearnMore = styled(LocalizedLink)`
     border-radius: 23px;
     background-color: #f4f4f6;
     position: absolute;
-    bottom: -20px;
+    bottom: ${(props) => (props.bottom === 'true' ? '-20px' : '20px')};
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -122,7 +143,6 @@ const Card = ({ name }) => {
         </StyledFlex>
     )
 }
-
 const OtherMarkets = ({ except }) => {
     const markets = ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities']
 
@@ -147,32 +167,95 @@ const OtherMarkets = ({ except }) => {
         max-height: 29.6rem;
     `
     const StyledHeader = styled(Header)`
+        max-width: 28.2rem;
+
         @media ${device.laptopM} {
             text-align: center;
             max-width: unset;
         }
+        @media ${device.tabletL} {
+            max-width: 34.125rem;
+            margin: 0 auto;
+            font-size: 4rem;
+        }
     `
     return (
-        <Section padding="8rem 0 8.8rem 12rem">
+        <Section>
             <StyledFlex tablet_jc="center">
-                <StyledHeader as="h3" align="left" max_width="28.2rem">
+                <StyledHeader as="h3" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
-
-                <Box position="relative" width="100%" max_width="103.8rem" height="32rem">
-                    <Wrapper>
-                        <CardWrapper
-                            max_width="93rem"
-                            jc="space-around"
-                            position="absolute"
-                            height="100%"
-                        >
-                            {markets.map((market) =>
-                                market !== except ? <Card name={market} key={market} /> : null,
-                            )}
-                        </CardWrapper>
-                    </Wrapper>
-                </Box>
+                <Show.Desktop>
+                    <Box position="relative" width="100%" max_width="103.8rem" height="32rem">
+                        <Wrapper>
+                            <CardWrapper
+                                max_width="93rem"
+                                jc="space-around"
+                                position="absolute"
+                                height="100%"
+                            >
+                                {markets.map((market) =>
+                                    market !== except ? <Card name={market} key={market} /> : null,
+                                )}
+                            </CardWrapper>
+                        </Wrapper>
+                    </Box>
+                </Show.Desktop>
+                <Show.Mobile>
+                    <Flex direction="column">
+                        <MobileCard m="3rem auto 0 auto">
+                            <Flex width="100%" jc="space-between" mb="3rem">
+                                <Text size="2rem" weight="bold">
+                                    {localize('Forex')}
+                                </Text>
+                                <Forex dynamic_id="mobile_forex_icon" />
+                            </Flex>
+                            <Text size="2rem">
+                                {localize(
+                                    'Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market.',
+                                )}
+                            </Text>
+                            <LearnMore to="/markets#forex" visibility="true" bottom="20px">
+                                <Text>{localize('Learn more')}</Text>
+                                <Arrow />
+                            </LearnMore>
+                        </MobileCard>
+                        <MobileCard m="5.5rem auto 0 auto">
+                            <Flex width="100%" jc="space-between" mb="3rem">
+                                <Text size="2rem" weight="bold">
+                                    {localize('Forex')}
+                                </Text>
+                                <Forex dynamic_id="mobile_forex_icon" />
+                            </Flex>
+                            <Text size="2rem">
+                                {localize(
+                                    'Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market.',
+                                )}
+                            </Text>
+                            <LearnMore to="/markets#synthetic" visibility="true" bottom="20px">
+                                <Text>{localize('Learn more')}</Text>
+                                <Arrow />
+                            </LearnMore>
+                        </MobileCard>
+                        <MobileCard m="5.5rem auto 0 auto">
+                            <Flex width="100%" jc="space-between" mb="3rem">
+                                <Text size="2rem" weight="bold">
+                                    {localize('Forex')}
+                                </Text>
+                                <Forex dynamic_id="mobile_forex_icon" />
+                            </Flex>
+                            <Text size="2rem">
+                                {localize(
+                                    'Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market.',
+                                )}
+                            </Text>
+                            <LearnMore to="/markets#forex" visibility="true" bottom="20px">
+                                <Text>{localize('Learn more')}</Text>
+                                <Arrow />
+                            </LearnMore>
+                        </MobileCard>
+                    </Flex>
+                </Show.Mobile>
             </StyledFlex>
         </Section>
     )

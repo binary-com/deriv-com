@@ -47,9 +47,12 @@ const ClientCard = styled.article`
         padding-bottom: 1.6rem;
 
         @media ${device.tabletL} {
-            font-size: 2rem;
+            font-size: 3rem;
             padding-bottom: 1rem;
         }
+    }
+    ${Text} {
+        font-size: 2rem;
     }
 
     @media (max-width: 1185px) {
@@ -58,8 +61,9 @@ const ClientCard = styled.article`
     }
     @media ${device.tabletL} {
         width: 100%;
+        max-width: 39.5rem;
         margin-top: 0;
-        padding: 2rem;
+        padding: 3rem;
     }
 `
 const BackgroundPattern = styled(Pattern)`
@@ -82,16 +86,21 @@ const LinkButtonWrapper = styled.div`
 
     ${LinkButton} {
         position: relative;
+        font-size: 1.75rem;
     }
 `
-
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 4rem;
+    }
+`
 const SimpleSteps = ({ header, content, sign_up }) => (
     <StyledSection>
         <BackgroundPattern />
         <Container direction="column">
-            <Header align="center" size="var(--text-size-header-1)" as="h2">
+            <StyledHeader align="center" size="var(--text-size-header-1)" as="h2">
                 {header}
-            </Header>
+            </StyledHeader>
         </Container>
         <StyledFlex wrap="wrap">
             {content.map((item, idx) => {

@@ -300,11 +300,11 @@ export const OurHistory = (props) => {
                                                     mt={header.margin_top}
                                                     size="4rem"
                                                 >
-                                                    {localize(header.header)}
+                                                    {header.header}
                                                 </Header>
                                                 <Splitter />
                                                 <Text size="2rem" pl="1.1rem">
-                                                    {localize(content.texts[id].text)}
+                                                    {content.texts[id].text}
                                                 </Text>
                                             </Show.Mobile>
                                             <Show.Desktop>
@@ -314,12 +314,10 @@ export const OurHistory = (props) => {
                                                     color={story.color}
                                                     mt={header.margin_top}
                                                 >
-                                                    {localize(header.header)}
+                                                    {header.header}
                                                 </Header>
                                                 <Splitter />
-                                                <Text pl="1.1rem">
-                                                    {localize(content.texts[id].text)}
-                                                </Text>
+                                                <Text pl="1.1rem">{content.texts[id].text}</Text>
                                             </Show.Desktop>
                                         </div>
                                     ))}
@@ -341,10 +339,10 @@ export const OurHistory = (props) => {
                                                 color={story.color}
                                                 mt={header.margin_top}
                                             >
-                                                {localize(header.header)}
+                                                {header.header}
                                             </Header>
                                             <Splitter />
-                                            <Text>{localize(content.texts[id].text)}</Text>
+                                            <Text>{content.texts[id].text}</Text>
                                         </div>
                                     ))}
                                 </ContentWrapper>
@@ -357,7 +355,7 @@ export const OurHistory = (props) => {
                                     <Flex jc="flex-start" ml="1rem">
                                         <QueryImage
                                             data={data[content.image]}
-                                            alt={localize(content.image_alt)}
+                                            alt={content.image_alt}
                                             width={
                                                 is_mobile
                                                     ? content.image_mobile_width

@@ -14,6 +14,11 @@ const Section = styled(Box)`
         color: var(--color-white);
     }
 `
+const ResponsiveHeader = styled(Header)`
+    @media ${device.mobileL} {
+        font-size: var(--text-size-l);
+    }
+`
 
 const ImgWrapper = styled(Box)`
     @media ${device.tabletS} {
@@ -51,14 +56,14 @@ const HeroDeriv = ({ interim_type }) => {
             <Section bg="var(--color-black)" p="8rem 0">
                 <Container fw="wrap-reverse">
                     <ResponsiveFlex fd="column" max_width="58.8rem" ai="center">
-                        <Header as="h2" mb="1.2rem" align="center">
+                        <ResponsiveHeader as="h2" mb="1.2rem" align="center">
                             {interim_type === 'dbot'
                                 ? localize('Introducing Deriv — the home to DBot')
                                 : localize(
                                       'Introducing Deriv — our new comprehensive online trading service',
                                   )}
                             {}
-                        </Header>
+                        </ResponsiveHeader>
                         <Header as="h4" weight="normal" mb="4rem" align="center">
                             {localize('Built upon 20+ years of experience')}
                         </Header>

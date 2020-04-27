@@ -54,6 +54,11 @@ const LogoLink = styled(LocalizedLink)`
             width: 15rem;
         }
     }
+    @media ${device.mobileL} {
+        & svg {
+            width: 13rem;
+        }
+    }
 `
 
 const StyledNav = styled.nav`
@@ -205,9 +210,12 @@ const handleScroll = (show, hide) => {
 }
 
 const Binary = styled(Text)`
-    width: 80px;
+    width: 8rem;
     margin-left: 0.5rem;
     line-height: 1;
+    @media (max-width: 345px) {
+        width: 6rem;
+    }
 `
 
 const BinaryLink = styled.a`
@@ -446,6 +454,12 @@ export const Nav = () => {
     )
 }
 
+const ResponsiveBinary = styled(BinaryLogo)`
+    @media ${device.mobileL} {
+        width: 20px;
+    }
+`
+
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <Container jc="space-between" p="2.4rem 0">
@@ -454,7 +468,7 @@ export const NavInterim = ({ interim_type }) => (
                     <Logo />
                 </LogoLink>
                 <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
-                    <BinaryLogo width="24" height="24" />
+                    <ResponsiveBinary width="24" height="24" />
                 </LocalizedLink>
                 <Binary size="var(--text-size-xxs)" color="white">
                     <Localize

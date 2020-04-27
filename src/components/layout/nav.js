@@ -185,9 +185,11 @@ const CloseMenu = styled(Close)`
 const LogoLinkMobile = styled(LocalizedLink)`
     cursor: pointer;
     display: none;
+
     @media ${device.tabletL} {
         display: block;
         cursor: pointer;
+        margin-left: 2rem;
     }
 `
 
@@ -196,6 +198,10 @@ const MobileLogin = styled(Button)`
     font-size: 14px;
     @media ${device.tabletL} {
         display: block;
+        margin-left: auto;
+    }
+    @media ${device.mobileL} {
+        font-size: var(--text-size-xxs);
     }
 `
 const handleScroll = (show, hide) => {

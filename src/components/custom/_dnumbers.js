@@ -14,6 +14,9 @@ const NumberWrapper = styled.div`
     ${Text} {
         padding-top: 0.8rem;
     }
+    @media ${device.tabletL} {
+        margin: 1.2rem 0;
+    }
 `
 const StyledContainer = styled(Container)`
     display: flex;

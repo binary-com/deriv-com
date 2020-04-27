@@ -15,11 +15,15 @@ import { SectionContainer, Container, SEO } from 'components/containers'
 import DNumber from 'components/custom/_dnumbers.js'
 import { localize, WithIntl } from 'components/localization'
 import Partner from 'common/partner'
+import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
     width: 100%;
     max-width: 70rem;
     margin-bottom: 4rem;
+    @media ${device.tabletL} {
+        font-size: var(--text-size-xl);
+    }
 `
 const items = [
     { title: '47K+', subtitle: localize('members') },

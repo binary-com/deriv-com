@@ -14,9 +14,11 @@ const StyledSection = styled(SectionContainer)`
     padding: 5rem 0;
 `
 const StyledHeader = styled(Header)`
-    max-width: 35.75rem;
-    font-size: 4rem;
-    margin: 0 auto;
+    @media ${device.tabletL} {
+        max-width: 35.75rem;
+        font-size: 4rem;
+        margin: 0 auto;
+    }
 `
 const StyledContainer = styled(Container)`
     @media ${device.tabletL} {

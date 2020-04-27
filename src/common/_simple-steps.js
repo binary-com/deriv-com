@@ -23,6 +23,10 @@ const StyledSection = styled(SectionContainer)`
 const StyledFlex = styled(Flex)`
     margin: 4rem 0 0 0;
 
+    article:first-child {
+        margin-left: 0;
+    }
+
     @media ${device.tabletL} {
         margin: 0;
 
@@ -32,16 +36,14 @@ const StyledFlex = styled(Flex)`
     }
 `
 const ClientCard = styled.article`
+    margin: 0 0 0 2rem;
     background-color: var(--color-white);
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 31.6rem;
     padding: 3.2rem 2.4rem;
     height: 100%;
-    margin: ${(props) => (props.m ? props.m : '')};
     position: relative;
-    overflow: hidden;
-    transition: transform 0.3s;
 
     ${Header} {
         padding-bottom: 1.6rem;
@@ -50,9 +52,6 @@ const ClientCard = styled.article`
             font-size: 3rem;
             padding-bottom: 1rem;
         }
-    }
-    ${Text} {
-        font-size: 2rem;
     }
 
     @media (max-width: 1185px) {
@@ -64,6 +63,10 @@ const ClientCard = styled.article`
         max-width: 39.5rem;
         margin-top: 0;
         padding: 3rem;
+
+        ${Text} {
+            font-size: 2rem;
+        }
     }
 `
 const BackgroundPattern = styled(Pattern)`
@@ -105,7 +108,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
         <StyledFlex wrap="wrap">
             {content.map((item, idx) => {
                 return (
-                    <ClientCard key={idx} m="0 0 0 2rem">
+                    <ClientCard key={idx}>
                         <Flex ai="center">
                             <Header as="h4">{item.header}</Header>
                             {item.icon}

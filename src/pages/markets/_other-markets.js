@@ -167,14 +167,12 @@ const OtherMarkets = ({ except }) => {
         max-height: 29.6rem;
     `
     const StyledHeader = styled(Header)`
-        max-width: 28.2rem;
-
         @media ${device.laptopM} {
             text-align: center;
             max-width: unset;
         }
         @media ${device.tabletL} {
-            max-width: 34.125rem;
+            max-width: 28.2rem;
             margin: 0 auto;
             font-size: 4rem;
         }

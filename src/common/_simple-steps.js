@@ -28,10 +28,14 @@ const StyledFlex = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        margin: 0;
+        flex-direction: column;
+        align-items: center;
 
+        article {
+            margin: 2rem auto;
+        }
         article:first-child {
-            margin-top: 2rem;
+            margin-left: auto;
         }
     }
 `

@@ -4,7 +4,7 @@ import Globe from './globe.mp4'
 import Globe2 from './globe.webm'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
-import { Container } from 'components/containers'
+import { Container, Show } from 'components/containers'
 import device from 'themes/device'
 
 const BackgroundWrapper = styled.div`
@@ -54,10 +54,12 @@ const Video = styled.video`
 export const Hero = () => {
     return (
         <BackgroundWrapper>
-            <Video width="100%" height="100%" autoPlay muted playsInline loop>
-                <source src={Globe} type="video/mp4" />
-                <source src={Globe2} type="video/webm" />
-            </Video>
+            <Show.Desktop>
+                <Video width="100%" height="100%" autoPlay muted playsInline loop>
+                    <source src={Globe} type="video/mp4" />
+                    <source src={Globe2} type="video/webm" />
+                </Video>
+            </Show.Desktop>
             <StyledContainer direction="column">
                 <Header as="h1" color="white" lh="1.15" align="center">
                     {localize('Markets to trade on Deriv')}

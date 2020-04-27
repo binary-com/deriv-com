@@ -84,12 +84,6 @@ const DemoButton = styled.div`
 
     @media (max-width: 800px) {
         margin: unset;
-
-        a {
-            font-size: 14px;
-            display: inline-block;
-            padding: 1.3rem 1.6rem;
-        }
     }
 `
 const StyledHeader = styled(Header)`

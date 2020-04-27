@@ -101,7 +101,7 @@ const Everything = () => {
                             <Header as="h4">{localize('Over 100+ financial instruments')}</Header>
                             <Text>
                                 {localize(
-                                    'Trade what you like - forex, commodities, stock and synthetic indices.',
+                                    'Trade what you like - forex, commodities, stock indices and synthetic indices.',
                                 )}
                             </Text>
                         </Box>

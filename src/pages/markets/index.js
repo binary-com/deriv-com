@@ -93,7 +93,7 @@ const Markets = () => {
     }
     return (
         <Layout>
-            <SEO description={localize('')} title={localize('')} />
+            <SEO description={localize('Markets to trade')} title={localize('Markets')} />
             <Hero />
             <TabsContainer pt="4rem" background="var(--color-grey-23)">
                 <Item onClick={() => handleTabChange('forex')} active_tab={active_tab} name="forex">

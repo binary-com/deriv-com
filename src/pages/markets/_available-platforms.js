@@ -11,6 +11,8 @@ import DBot from 'images/svg/dbot-icon.svg'
 import SmartTrader from 'images/svg/smarttrader.svg'
 
 const PlatformsContainer = styled(Flex)`
+    margin-top: 1.6rem;
+
     a {
         text-decoration: none;
         margin-right: 0.8rem;
@@ -32,6 +34,7 @@ const PlatformsContainer = styled(Flex)`
 
     @media ${device.tabletL} {
         justify-content: flex-start;
+        margin-top: 3rem;
     }
 `
 const StyledText = styled(Text)`
@@ -53,7 +56,7 @@ const StyledFlex = styled(Flex)`
 `
 const AvailablePlatforms = ({ dmt5, dtrader, dbot, smarttrader }) => {
     return (
-        <PlatformsContainer ai="center" mt="1.6rem">
+        <PlatformsContainer ai="center">
             <StyledText>{localize('Available on')}</StyledText>
             {dmt5 && (
                 <LocalizedLink to="/dmt5/">

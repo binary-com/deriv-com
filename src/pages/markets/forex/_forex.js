@@ -7,7 +7,7 @@ import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
 import SimpleSteps from 'common/_simple-steps'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 //SVG
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
@@ -19,23 +19,29 @@ const Forex = ({ simple_step_content }) => {
     return (
         <>
             <WhyTrade
-                header={localize('Why trade forex on Deriv')}
-                text={localize(
-                    'Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events.',
-                )}
+                header={<Localize translate_text="Why trade forex on Deriv" />}
+                text={
+                    <Localize translate_text="Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events." />
+                }
             >
-                <div text={localize('High leverage, tight spreads')} icon={<Leverage />}></div>
                 <div
-                    text={localize('Responsive, easy-to-use platforms')}
+                    text={<Localize translate_text="High leverage, tight spreads" />}
+                    icon={<Leverage />}
+                ></div>
+                <div
+                    text={<Localize translate_text="Responsive, easy-to-use platforms" />}
                     icon={<ResponsiveWebsite />}
                 ></div>
-                <div text={localize('Advanced charting widgets')} icon={<AdvancedCharting />}></div>
                 <div
-                    text={localize('Convenient deposit and withdrawal methods')}
+                    text={<Localize translate_text="Advanced charting widgets" />}
+                    icon={<AdvancedCharting />}
+                ></div>
+                <div
+                    text={<Localize translate_text="Convenient deposit and withdrawal methods" />}
                     icon={<Deposit />}
                 ></div>
                 <div
-                    text={localize('Friendly support, 7 days a week')}
+                    text={<Localize translate_text="Friendly support, 7 days a week" />}
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
@@ -46,7 +52,9 @@ const Forex = ({ simple_step_content }) => {
                 name="Forex"
             />
             <SimpleSteps
-                header={localize('Start trading forex on Deriv in 3 simple steps')}
+                header={
+                    <Localize translate_text="Start trading forex on Deriv in 3 simple steps" />
+                }
                 content={simple_step_content}
                 sign_up
             />

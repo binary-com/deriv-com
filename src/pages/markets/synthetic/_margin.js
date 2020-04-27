@@ -5,6 +5,7 @@ import { VolatilityIndices, CrashBoom, StepIndices } from '../sub-markets/_subma
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 
 const Descriptions = styled.div`
     padding-bottom: 4rem;
@@ -17,21 +18,27 @@ const Row = styled(Flex)`
     border: 1px solid #e3e4e5;
     ${(props) => props.romve_border_top && 'border-top: unset;'}
 `
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+        text-align: left;
+    }
+`
 const Margin = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
-                    <Text align="center">
+                    <StyledText align="center">
                         {localize(
                             'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
                         )}
-                    </Text>
+                    </StyledText>
                     <AvailablePlatforms dmt5 />
                 </Descriptions>
-                <Text weight="bold" mt="2.4rem">
+                <StyledText weight="bold" mt="2.4rem">
                     {localize('Instruments available for margin trading')}
-                </Text>
+                </StyledText>
                 <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
                     <Col max_width="13.2rem">
                         <Text weight="bold" max_width="9.7rem" align="center">

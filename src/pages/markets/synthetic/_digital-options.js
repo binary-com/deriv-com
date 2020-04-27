@@ -88,7 +88,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={localize('Up/Down')}
+                                title={<Localize translate_text="Up/Down" />}
                                 svg={RiseFall}
                                 content={
                                     <Localize
@@ -113,7 +113,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={localize('In/Out')}
+                                title={<Localize translate_text="In/Out" />}
                                 svg={EbEo}
                                 content={
                                     <Localize
@@ -138,7 +138,7 @@ const DigitalOptions = () => {
                     <Row wrap="wrap">
                         <Col>
                             <AvailableOptions
-                                title={localize('Digits')}
+                                title={<Localize translate_text="Digits" />}
                                 svg={MatchesDiffers}
                                 content={
                                     <Localize
@@ -175,58 +175,58 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={localize('Reset Call/Reset Put')}
+                                title={<Localize translate_text="Reset Call/Reset Put" />}
                                 svg={RcRp}
-                                content={localize(
-                                    'Predict whether the market will end up higher or lower than either the current level or the level at a predetermined time (reset time).',
-                                )}
+                                content={
+                                    <Localize translate_text="Predict whether the market will end up higher or lower than either the current level or the level at a predetermined time (reset time)." />
+                                }
                             />
                         </Col>
                         <Col>
                             <AvailableOptions
-                                title={localize('High/Low Ticks')}
+                                title={<Localize translate_text="High/Low Ticks" />}
                                 svg={HighLowTicks}
-                                content={localize(
-                                    'Predict the highest or lowest tick among the next five ticks.',
-                                )}
+                                content={
+                                    <Localize translate_text="Predict the highest or lowest tick among the next five ticks." />
+                                }
                             />
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={localize('Touch/No Touch:')}
+                                title={<Localize translate_text="Touch/No Touch:" />}
                                 svg={TNT}
-                                content={localize(
-                                    'Predict whether the market will touch or not touch a target at any time during the contract period.',
-                                )}
+                                content={
+                                    <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />
+                                }
                             />
                         </Col>
                         <Col>
                             <AvailableOptions
-                                title={localize('Asians')}
+                                title={<Localize translate_text="Asians" />}
                                 svg={Asians}
-                                content={localize(
-                                    'Predict whether the market will end higher or lower than the average price.',
-                                )}
+                                content={
+                                    <Localize translate_text="Predict whether the market will end higher or lower than the average price." />
+                                }
                             />
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={localize('Only Ups/Only Downs')}
+                                title={<Localize translate_text="Only Ups/Only Downs" />}
                                 svg={OuOd}
-                                content={localize(
-                                    'Predict whether consecutive ticks will rise or fall successively.',
-                                )}
+                                content={
+                                    <Localize translate_text="Predict whether consecutive ticks will rise or fall successively." />
+                                }
                             />
                         </Col>
                     </Row>
                     <Row wrap="wrap">
                         <Col>
                             <AvailableOptions
-                                title={localize('Lookbacks')}
+                                title={<Localize translate_text="Lookbacks" />}
                                 svg={HighClose}
                                 content={
                                     <Localize
@@ -263,7 +263,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={localize('Call Spread/Put Spread')}
+                                title={<Localize translate_text="Call Spread/Put Spread" />}
                                 svg={CallSpread}
                                 content={
                                     <Localize

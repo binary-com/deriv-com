@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Header } from 'components/elements'
 //SVG
 import MarginIcon from 'images/svg/margin.svg'
@@ -91,7 +91,7 @@ const Card = ({ name, active_tab, onTabChange }) => {
                 {active_tab === 'Options' && <OptionsIcon />}
                 {active_tab === 'Multipliers' && <MultipliersIcon />}
                 <Header as="h4" width="auto">
-                    {localize(name)}
+                    {name}
                 </Header>
             </Flex>
         </CardContainer>
@@ -128,21 +128,21 @@ class AvailableTrades extends React.Component {
                     <CardWrapper position="relative">
                         {Margin && (
                             <Card
-                                name={localize('Margin')}
+                                name={<Localize translate_text="Margin" />}
                                 onTabChange={() => this.handleTabChange('Margin')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
                         {DigitalOptions && (
                             <Card
-                                name={localize('Options')}
+                                name={<Localize translate_text="Options" />}
                                 onTabChange={() => this.handleTabChange('Options')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
                         {Multipliers && (
                             <Card
-                                name={localize('Multipliers')}
+                                name={<Localize translate_text="Multipliers" />}
                                 onTabChange={() => this.handleTabChange('Multipliers')}
                                 active_tab={this.state.active_tab}
                             />

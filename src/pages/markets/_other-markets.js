@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import Box from 'components/containers/box'
 import Commodities from 'pages/markets-svg/_market-commodities.js'
 //TODO: using temp svg as a function for having dynamic id
@@ -17,8 +17,8 @@ const markets_type = {
     forex: {
         icon: Forex,
         title: 'Forex',
-        content: localize(
-            'Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market.',
+        content: (
+            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
         ),
         to: '/markets#forex',
         id: 'marketforexothermarkets',
@@ -26,8 +26,8 @@ const markets_type = {
     Synthetic_Indices: {
         icon: SyntheticIndices,
         title: 'Synthetic Indices',
-        content: localize(
-            'Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks.',
+        content: (
+            <Localize translate_text="Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
         ),
         to: '/markets#synthetic',
         id: 'marketsyntheticothermarkets',
@@ -35,8 +35,8 @@ const markets_type = {
     stock_indices: {
         icon: StockIndices,
         title: 'Stock indices',
-        content: localize(
-            'Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets.',
+        content: (
+            <Localize translate_text="Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
         ),
         to: '/markets#stock',
         id: 'marketstockothermarkets',
@@ -45,8 +45,8 @@ const markets_type = {
     commodities: {
         icon: Commodities,
         title: 'Commodities',
-        content: localize(
-            'Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil.',
+        content: (
+            <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
         ),
         to: '/markets#commodities',
         id: 'marketcommoditiesothermarket',

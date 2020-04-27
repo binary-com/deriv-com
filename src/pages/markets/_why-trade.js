@@ -31,10 +31,10 @@ export const WhyTrade = ({ children, header, text }) => {
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <div>
                     <StyledHeader align="center" mb="1.6rem" size="3.6rem" lh="1.25">
-                        {localize(header)}
+                        {header}
                     </StyledHeader>
                     <Text align="center" p="0 1px">
-                        {localize(text)}
+                        {text}
                     </Text>
                 </div>
                 <ItemContainer max_width="48.6rem" width="100%" mt="3.2rem" mb="3.2rem">
@@ -46,7 +46,7 @@ export const WhyTrade = ({ children, header, text }) => {
                                     {icon}
                                     {
                                         <Text align="center" mt="1.6rem" max_width="18rem">
-                                            {localize(text)}
+                                            {text}
                                         </Text>
                                     }
                                 </Item>

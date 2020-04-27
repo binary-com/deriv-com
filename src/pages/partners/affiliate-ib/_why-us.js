@@ -75,12 +75,12 @@ const WhyUs = ({ items }) => {
                     return (
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
-                                <Header size="2.8rem">{localize(item.title)}</Header>
-                                <Text mt="0.8rem">{localize(item.subtitle)}</Text>
+                                <Header size="2.8rem">{item.title}</Header>
+                                <Text mt="0.8rem">{item.subtitle}</Text>
                             </Content>
                             <QueryImage
                                 data={data[item.image_name]}
-                                alt={localize(item.image_alt)}
+                                alt={item.image_alt}
                                 width="100%"
                             />
                         </Row>

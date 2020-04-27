@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex, Box } from 'components/containers'
-import { localize } from 'components/localization'
 
 const AvailableOptions = ({ title, content, remove_title, svg }) => {
     const Icon = styled(svg)`
@@ -15,13 +14,13 @@ const AvailableOptions = ({ title, content, remove_title, svg }) => {
         <Flex direction="column" mt={remove_title ? '1.6rem !important' : ''}>
             {!remove_title && (
                 <Box mb="0.8rem" height="2.4rem">
-                    <Text weight="bold">{title ? localize(title) : null}</Text>
+                    <Text weight="bold">{title ? title : null}</Text>
                 </Box>
             )}
             <Flex jc="flex-start">
                 <Icon />
                 <Box max_width="28.8rem">
-                    <Text>{localize(content)}</Text>
+                    <Text>{content}</Text>
                 </Box>
             </Flex>
         </Flex>

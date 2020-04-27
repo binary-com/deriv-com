@@ -5,7 +5,7 @@ import { Table, TR, TC } from './_table.js'
 import { Card, CardWrapper } from './_partner-card.js'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import Partner from 'common/partner'
 import device from 'themes/device'
@@ -227,8 +227,8 @@ const DMT5Standard = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <>
-                        <Header as="h4">{localize(data.name)}</Header>
-                        <Text>{localize(data.description)}</Text>
+                        <Header as="h4">{data.name}</Header>
+                        <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -241,7 +241,7 @@ const DMT5Standard = ({ data }) => {
                                                         lh="2.2"
                                                         style={item.style}
                                                     >
-                                                        {localize(item.title)}
+                                                        {item.title}
                                                     </StyledText>
                                                 </TitleTR>
                                             )
@@ -249,22 +249,20 @@ const DMT5Standard = ({ data }) => {
                                             return (
                                                 <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold" style={item.style}>
-                                                        {localize(item.title)}
+                                                        {item.title}
                                                     </StyledText>
                                                 </TitleTR>
                                             )
                                         } else if (idxa === 0 && typeof item === 'string') {
                                             return (
                                                 <TR isTitle="true" key={idxa}>
-                                                    <StyledText weight="bold">
-                                                        {localize(item)}
-                                                    </StyledText>
+                                                    <StyledText weight="bold">{item}</StyledText>
                                                 </TR>
                                             )
                                         } else {
                                             return (
                                                 <StyledTR key={idxa}>
-                                                    <StyledText>{localize(item)}</StyledText>
+                                                    <StyledText>{item}</StyledText>
                                                 </StyledTR>
                                             )
                                         }
@@ -306,8 +304,8 @@ const DMT5Advanced = ({ data }) => {
             <div>
                 {!is_calculated ? (
                     <>
-                        <Header as="h4">{localize(data.name)}</Header>
-                        <Text>{localize(data.description)}</Text>
+                        <Header as="h4">{data.name}</Header>
+                        <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
@@ -321,7 +319,7 @@ const DMT5Advanced = ({ data }) => {
                                                         lh="2.2"
                                                         style={item.style}
                                                     >
-                                                        {localize(item.title)}
+                                                        {item.title}
                                                     </StyledText>
                                                 </TitleTR>
                                             )
@@ -329,7 +327,7 @@ const DMT5Advanced = ({ data }) => {
                                             return (
                                                 <TitleTR isTitle="true" key={idxa}>
                                                     <StyledText weight="bold" style={item.style}>
-                                                        {localize(item.title)}
+                                                        {item.title}
                                                     </StyledText>
                                                 </TitleTR>
                                             )
@@ -377,18 +375,23 @@ const DMT5Advanced = ({ data }) => {
     )
 }
 const ib_dmt5_standard = {
-    name: localize('DMT5 Standard'),
-    description: localize('Earn when your clients trade on a DMT5 Standard account.'),
+    name: <Localize translate_text="DMT5 Standard" />,
+    description: (
+        <Localize translate_text="Earn when your clients trade on a DMT5 Standard account." />
+    ),
     assets: [
         [
-            { title: localize('Asset'), style: { minWidth: '13rem' } },
-            localize('Forex and metals'),
-            localize('Cryptocurrencies'),
+            { title: <Localize translate_text="Asset" />, style: { minWidth: '13rem' } },
+            <Localize key={0} translate_text="Forex and metals" />,
+            <Localize key={1} translate_text="Cryptocurrencies" />,
         ],
         [
-            { title: localize('Commission per round trade'), style: { maxWidth: '16rem' } },
-            localize('10 per lot'),
-            localize('0.3% per lot'),
+            {
+                title: <Localize translate_text="Commission per round trade" />,
+                style: { maxWidth: '16rem' },
+            },
+            <Localize key={0} translate_text="10 per lot" />,
+            <Localize key={1} translate_text="0.3% per lot" />,
         ],
     ],
     calculation: (
@@ -407,13 +410,21 @@ const ib_dmt5_standard = {
     ),
 }
 const ib_dmt5_advanced = {
-    name: localize('DMT5 Advanced'),
-    description: localize('Earn when your clients trade on a DMT5 Advanced account.'),
+    name: <Localize translate_text="DMT5 Advanced" />,
+    description: (
+        <Localize translate_text="Earn when your clients trade on a DMT5 Advanced account." />
+    ),
     assets: [
-        [{ title: localize('Asset'), style: { minWidth: '13rem' } }, localize('Forex and metals')],
         [
-            { title: localize('Commission per round trade'), style: { maxWidth: '16rem' } },
-            localize('5 per lot'),
+            { title: <Localize translate_text="Asset" />, style: { minWidth: '13rem' } },
+            localize('Forex and metals'),
+        ],
+        [
+            {
+                title: <Localize translate_text="Commission per round trade" />,
+                style: { maxWidth: '16rem' },
+            },
+            <Localize key={0} translate_text="5 per lot" />,
         ],
     ],
     calculation: (
@@ -425,40 +436,42 @@ const ib_dmt5_advanced = {
     ),
 }
 const ib_dmt5_synthetic = {
-    name: localize('DMT5 Synthetic Indices'),
-    description: localize('Earn when your clients trade on a DMT5 Synthetic Indices account.'),
+    name: <Localize translate_text="DMT5 Synthetic Indices" />,
+    description: (
+        <Localize translate_text="Earn when your clients trade on a DMT5 Synthetic Indices account." />
+    ),
     assets: [
         [
-            localize('Asset'),
-            localize('Crash 500 Index'),
-            localize('Crash 1000 Index'),
-            localize('Boom 500 Index'),
-            localize('Boom 1000 Index'),
-            localize('Volatility 10 Index'),
-            localize('Volatility 25 Index'),
-            localize('Volatility 50 Index'),
-            localize('Volatility 75 Index'),
-            localize('Volatility 100 Index'),
-            localize('HF Volatility 10 Index'),
-            localize('HF Volatility 50 Index'),
-            localize('HF Volatility 100 Index'),
-            localize('Step Index'),
+            <Localize key={0} translate_text="Asset" />,
+            <Localize key={1} translate_text="Crash 500 Index" />,
+            <Localize key={2} translate_text="Crash 1000 Index" />,
+            <Localize key={3} translate_text="Boom 500 Index" />,
+            <Localize key={4} translate_text="Boom 1000 Index" />,
+            <Localize key={5} translate_text="Volatility 10 Index" />,
+            <Localize key={6} translate_text="Volatility 25 Index" />,
+            <Localize key={7} translate_text="Volatility 50 Index" />,
+            <Localize key={8} translate_text="Volatility 75 Index" />,
+            <Localize key={9} translate_text="Volatility 100 Index" />,
+            <Localize key={10} translate_text="HF Volatility 10 Index" />,
+            <Localize key={11} translate_text="HF Volatility 50 Index" />,
+            <Localize key={12} translate_text="HF Volatility 100 Index" />,
+            <Localize key={13} translate_text="Step Index" />,
         ],
         [
-            localize('Commission per round trade (per USD 100k)'),
-            localize('0.30'),
-            localize('0.20'),
-            localize('0.30'),
-            localize('0.20'),
-            localize('1.50'),
-            localize('3.50'),
-            localize('7.50'),
-            localize('10.00'),
-            localize('15.00'),
-            localize('1.50'),
-            localize('7.50'),
-            localize('15.00'),
-            localize('0.20'),
+            <Localize key={0} translate_text="Commission per round trade (per USD 100k)" />,
+            '0.30',
+            '0.20',
+            '0.30',
+            '0.20',
+            '1.50',
+            '3.50',
+            '7.50',
+            '10.00',
+            '15.00',
+            '1.50',
+            '7.50',
+            '15.00',
+            '0.20',
         ],
     ],
     calculation: (

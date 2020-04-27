@@ -40,12 +40,12 @@ export const WhatTrade = ({ header, sub_header }) => {
         <ContentWrapper>
             <Container direction="column">
                 <Header mb="1.6rem" align="center" size="3.6rem">
-                    {localize(header)}
+                    {header}
                 </Header>
                 {sub_header.map((prop, idx) => {
                     return (
                         <Text mb="1.5rem" align="center" key={idx}>
-                            {localize(prop.text)}
+                            {prop.text}
                         </Text>
                     )
                 })}

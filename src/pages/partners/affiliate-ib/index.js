@@ -13,7 +13,7 @@ import { Button } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
 import DNumber from 'components/custom/_dnumbers.js'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import Partner from 'common/partner'
 
 const StyledHeader = styled(Header)`
@@ -22,10 +22,10 @@ const StyledHeader = styled(Header)`
     margin-bottom: 4rem;
 `
 const items = [
-    { title: '47K+', subtitle: localize('members') },
-    { title: '$14M+', subtitle: localize('paid out') },
-    { title: '150+', subtitle: localize('countries') },
-    { title: '1M+', subtitle: localize('clients') },
+    { title: '47K+', subtitle: <Localize translate_text="members" /> },
+    { title: '$14M+', subtitle: <Localize translate_text="paid out" /> },
+    { title: '150+', subtitle: <Localize translate_text="countries" /> },
+    { title: '1M+', subtitle: <Localize translate_text="clients" /> },
 ]
 
 const why_partner_with_us_items = [

@@ -14,9 +14,9 @@ import DMT5BG from 'images/svg/dmt5-bg.svg'
 import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
-    { title: '70+', subtitle: localize('tradable assets and growing') },
-    { title: '1:1,000', subtitle: localize('maximum leverage') },
-    { title: '30', subtitle: localize('maximum lot size') },
+    { title: '70+', subtitle: <Localize translate_text="tradable assets and growing" /> },
+    { title: '1:1,000', subtitle: <Localize translate_text="maximum leverage" /> },
+    { title: '30', subtitle: <Localize translate_text="maximum lot size" /> },
 ]
 const PlatformContainer = styled.div`
     padding: 8rem 0;
@@ -76,7 +76,7 @@ const DMT5 = () => {
             </Show.Desktop>
             <DHowItWorks
                 Video={DMT5Video}
-                title={localize('Get started with DMT5 in 3 easy steps')}
+                title={<Localize translate_text="Get started with DMT5 in 3 easy steps" />}
             />
             <DTrading trading={trading} reverse two_title />
             <PlatformContainer>

@@ -22,7 +22,7 @@ const DHowItWorks = ({ Video, title }) => {
                     {localize('How it works')}
                 </StyledHeader>
                 <StyledHeader as="h2" align="center" size="var(--text-size-header-1)" mt="0.8rem">
-                    {localize(title)}
+                    {title}
                 </StyledHeader>
                 <Video />
             </Container>

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import device from 'themes/device'
-import { localize } from 'components/localization'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 
@@ -32,9 +31,9 @@ const DNumbers = ({ items, justify }) => {
                 {items.map((item, index) => (
                     <NumberWrapper key={index}>
                         <Header as="h2" align="center">
-                            {localize(item.title)}
+                            {item.title}
                         </Header>
-                        <Text align="center">{localize(item.subtitle)}</Text>
+                        <Text align="center">{item.subtitle}</Text>
                     </NumberWrapper>
                 ))}
             </StyledContainer>

@@ -14,10 +14,10 @@ import DTraderBG from 'images/svg/dtrader-bg.svg'
 import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
-    { title: '50+', subtitle: localize('tradable assets and growing') },
-    { title: '$0.35', subtitle: localize('minimum stake') },
-    { title: '1s - 365d', subtitle: localize('flexible trade duration') },
-    { title: '>200%', subtitle: localize('potential payout') },
+    { title: '50+', subtitle: <Localize translate_text="tradable assets and growing" /> },
+    { title: '$0.35', subtitle: <Localize translate_text="minimum stake" /> },
+    { title: '1s - 365d', subtitle: <Localize translate_text="flexible trade duration" /> },
+    { title: '>200%', subtitle: <Localize translate_text="potential payout" /> },
 ]
 const trading = [
     {
@@ -88,7 +88,10 @@ const Dtrader = () => {
             <Show.Desktop>
                 <DNumber items={items} justify="space-around" />
             </Show.Desktop>
-            <DHowItWorks Video={DtraderVideo} title={localize('Make a trade in 3 easy steps')} />
+            <DHowItWorks
+                Video={DtraderVideo}
+                title={<Localize translate_text="Make a trade in 3 easy steps" />}
+            />
             <DTrading trading={trading} />
             <PlatformContainer>
                 <OtherPlatform exclude="dtrader" />

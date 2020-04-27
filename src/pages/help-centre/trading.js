@@ -84,7 +84,7 @@ const DigitalOptions = () => (
         <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>
         <Text>
             {localize(
-                'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results. ',
+                'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results.',
             )}
         </Text>
     </ArticleWrapper>

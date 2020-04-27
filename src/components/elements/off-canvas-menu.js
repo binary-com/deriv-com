@@ -11,6 +11,10 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
+import Forex from 'images/svg/market-forex.svg'
+import Commodities from 'images/svg/market-commodities.svg'
+import StockIndices from 'images/svg/market-stock-indices.svg'
+import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -126,8 +130,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             />
                         </Flex>
                     </AccordionItem>
-                    {/* TODO: add this when market is ready */}
-                    {/* <AccordionItem
+                    <AccordionItem
                         header={localize('Markets')}
                         header_style={header_style}
                         style={content_style}
@@ -168,11 +171,11 @@ export const OffCanvasMenuWrapper = (props) => {
                                 content={localize(
                                     'Enjoy synthetic markets that emulate real-world market movements.',
                                 )}
-                                title={localize('Synthetic Indices')}
+                                title={localize('Synthetic indices')}
                                 to="markets#synthetic"
                             />
                         </Flex>
-                    </AccordionItem> */}
+                    </AccordionItem>
                     <AccordionItem
                         header={localize('About us')}
                         header_style={header_style}

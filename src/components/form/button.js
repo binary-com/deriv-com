@@ -71,6 +71,17 @@ const SharedButtonStyle = css`
                     background: var(--color-grey-4);
                 }
             `
+        if (props.white)
+            return css`
+                border: 2px solid var(--color-white);
+                color: var(--color-white);
+                background: transparent;
+
+                &:hover {
+                    background-color: var(--color-white);
+                    color: var(--color-red);
+                }
+            `
     }}
 
     &:focus,

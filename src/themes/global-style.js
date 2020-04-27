@@ -34,11 +34,6 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         background: var(--color-black);
     }
-    .force-opacity {
-        img {
-            opacity: 1 !important;
-        }
-    }
 `
 
 export default GlobalStyle

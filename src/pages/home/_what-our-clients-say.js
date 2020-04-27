@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
-import 'swiper/css/swiper.css'
+import { Helmet } from 'react-helmet'
 import { Header, Text, Divider } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -235,6 +235,9 @@ const WhatOurClientsSay = () => {
     }
     return (
         <>
+            <Helmet>
+                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
+            </Helmet>
             <StyledSection>
                 <Container direction="column">
                     <StyledHeader align="center" as="h2">

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 import Scrollbar from 'react-perfect-scrollbar'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
@@ -8,8 +9,6 @@ import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elem
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-
-import 'react-perfect-scrollbar/dist/css/styles.css'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -90,6 +89,9 @@ const PaymentMethods = () => {
     }, [])
     return (
         <Layout>
+            <Helmet>
+                <link rel="stylesheet" type="text/css" href="/css/perfect-scrollbar.css" />
+            </Helmet>
             <SEO
                 title={localize('Payment methods')}
                 description={localize(

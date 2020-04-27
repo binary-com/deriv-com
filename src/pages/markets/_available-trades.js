@@ -53,6 +53,8 @@ const CardContainer = styled(Flex)`
     z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
 
     ${Flex} {
+        padding: 2.71rem 0 0 3.2rem;
+
         svg {
             width: 32px;
             height: 32px;
@@ -63,6 +65,18 @@ const CardContainer = styled(Flex)`
             color: ${(props) =>
                 props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.56')};
+        }
+
+        @media ${device.tabletL} {
+            height: 100%;
+            justify-content: flex-start;
+            padding: 1rem 0 0 1.5rem;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                margin-right: 1rem;
+            }
         }
     }
     ::before {
@@ -87,6 +101,10 @@ const CardContainer = styled(Flex)`
                 `
         }}
     }
+    @media ${device.tabletL} {
+        width: 15.5rem;
+        height: 6rem;
+    }
 `
 const ContentWrapper = styled.div`
     width: 100%;
@@ -100,17 +118,21 @@ const ContentWrapper = styled.div`
         padding: 0 2rem;
     }
 `
-
+const CardHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
+    }
+`
 const Card = ({ name, active_tab, onTabChange }) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
-            <Flex height="fit-content" p="2.71rem 0 0 3.2rem" jc="flex-start" ai="center">
+            <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'Margin' && <MarginIcon />}
                 {active_tab === 'Options' && <OptionsIcon />}
                 {active_tab === 'Multipliers' && <MultipliersIcon />}
-                <Header as="h4" width="auto">
+                <CardHeader as="h4" width="auto">
                     {name}
-                </Header>
+                </CardHeader>
             </Flex>
         </CardContainer>
     )

@@ -67,26 +67,32 @@ const AvailablePlatforms = ({ dmt5, dtrader, dbot, smarttrader }) => {
             )}
             {dtrader && (
                 <LocalizedLink to="/dtrader/">
-                    <Flex background="var(--color-grey-4)" direction="row" ai="center" p="0.8rem">
+                    <StyledFlex direction="row" ai="center">
                         <DTrader />
-                        <Text>{localize('DTrader')}</Text>
-                    </Flex>
+                        <Show.Desktop>
+                            <Text>{localize('DTrader')}</Text>
+                        </Show.Desktop>
+                    </StyledFlex>
                 </LocalizedLink>
             )}
             {dbot && (
                 <LocalizedLink to="/dbot/">
-                    <Flex background="var(--color-grey-4)" direction="row" ai="center" p="0.8rem">
+                    <StyledFlex direction="row" ai="center">
                         <DBot />
-                        <Text>{localize('DBot')}</Text>
-                    </Flex>
+                        <Show.Desktop>
+                            <Text>{localize('DBot')}</Text>
+                        </Show.Desktop>
+                    </StyledFlex>
                 </LocalizedLink>
             )}
             {smarttrader && (
                 <a href="https://smarttrader.deriv.app/" target="_blank" rel="noopener noreferrer">
-                    <Flex background="var(--color-grey-4)" direction="row" ai="center" p="0.8rem">
+                    <StyledFlex direction="row" ai="center">
                         <SmartTrader />
-                        <Text>{localize('SmartTrader')}</Text>
-                    </Flex>
+                        <Show.Desktop>
+                            <Text>{localize('SmartTrader')}</Text>
+                        </Show.Desktop>
+                    </StyledFlex>
                 </a>
             )}
         </PlatformsContainer>

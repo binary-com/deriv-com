@@ -34,11 +34,11 @@ const trading = [
     {
         title: localize('DMT5 Standard account'),
         subtitle: localize(
-            'The Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility. Trade commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs with high leverage.',
+            'Get started easily with a DMT5 Standard account for high leverage on your forex trades.',
         ),
         second_title: localize('DMT5 Advanced account'),
         second_subtitle: localize(
-            'The Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes.',
+            'Get your trades placed straight through to the market with a DMT5 Advanced account — a 100% A-Book account with tight spreads.',
         ),
         image_name: 'dmt_5_ipad_iphone',
         image_alt: localize('DMT5 Platform'),
@@ -46,11 +46,11 @@ const trading = [
     {
         title: localize('DMT5 Synthetic Indices account'),
         subtitle: localize(
-            'The Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. Available for trading 24/7 and audited for fairness by an independent third party.',
+            'Trade 24/7 with a DMT5 Synthetic Indices account. Trade indices that simulate the movements of real markets.',
         ),
         second_title: localize('Practice with Demo accounts'),
         second_subtitle: localize(
-            'Create free demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
+            'Create demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
         ),
         image_name: 'dmt_5_mac',
         image_alt: localize('DMT5 Demo Account'),

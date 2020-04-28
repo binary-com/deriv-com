@@ -282,6 +282,9 @@ const Footer = ({ has_banner_cookie }) => (
                             </div>
                         </SocialWrapper> */}
                         <div>
+                            <Show.Desktop>{!isProduction() && <LanguageSwitcher />}</Show.Desktop>
+                        </div>
+                        <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
                                     {!isProduction() && <LanguageSwitcher short_name="true" />}

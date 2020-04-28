@@ -41,6 +41,7 @@ const StyledFooter = styled.footer`
 const StyledGrid = styled(CssGrid)`
     margin: 4rem 0;
     grid-template-areas: 'info info info . . items items items items items items items';
+    column-gap: 2.4rem;
 
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
@@ -69,10 +70,13 @@ const InfoSection = styled.div`
 `
 const Items = styled.div`
     grid-area: items;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 2.4rem;
+    row-gap: 4rem;
+    grid-template-areas:
+        'trade trade markets markets legal legal legal'
+        'resource resource about about partner partner partner';
 
     @media ${device.tabletL} {
         display: none;
@@ -81,6 +85,7 @@ const Items = styled.div`
 
 const Col = styled.div`
     width: ${(props) => props.width};
+    grid-area: ${(props) => props.grid_name};
     ${(props) => (props.margin_top ? 'margin-top: 3.9rem;' : '')}
 
     div {
@@ -277,6 +282,9 @@ const Footer = ({ has_banner_cookie }) => (
                             </div>
                         </SocialWrapper> */}
                         <div>
+                            <Show.Desktop>{!isProduction() && <LanguageSwitcher />}</Show.Desktop>
+                        </div>
+                        <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
                                     {!isProduction() && <LanguageSwitcher short_name="true" />}
@@ -286,7 +294,7 @@ const Footer = ({ has_banner_cookie }) => (
                     </SocialMedia>
                 </InfoSection>
                 <Items>
-                    <Col width="23%">
+                    <Col grid_name="trade">
                         <div>
                             <Title>{localize('TRADE')}</Title>
                         </div>
@@ -305,7 +313,24 @@ const Footer = ({ has_banner_cookie }) => (
                             </Link>
                         </div>
                     </Col>
-                    <Col width="40%">
+                    <Col grid_name="markets">
+                        <div>
+                            <Title>{localize('MARKETS')}</Title>
+                        </div>
+                        <div>
+                            <Link to="/markets#forex">{localize('Forex')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/markets#stock">{localize('Stock indices')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/markets#commodities">{localize('Commodities')}</Link>
+                        </div>
+                    </Col>
+                    <Col grid_name="legal">
                         <div>
                             <Title>{localize('LEGAL')}</Title>
                         </div>
@@ -323,7 +348,7 @@ const Footer = ({ has_banner_cookie }) => (
                             </Link>
                         </div>
                     </Col>
-                    <Col width="25%">
+                    <Col grid_name="resource">
                         <div>
                             <Title>{localize('RESOURCES')}</Title>
                         </div>
@@ -334,7 +359,7 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to="/payment-methods">{localize('Payment methods')}</Link>
                         </div>
                     </Col>
-                    <Col margin_top width="23%">
+                    <Col grid_name="about">
                         <div>
                             <Title>{localize('ABOUT US')}</Title>
                         </div>
@@ -343,6 +368,9 @@ const Footer = ({ has_banner_cookie }) => (
                         </div>
                         <div>
                             <Link to="/about#leadership">{localize('Our leadership')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/partners">{localize('Partnership programmes')}</Link>
                         </div>
                         <div>
                             <Link to="/why-choose-us">{localize('Why choose us?')}</Link>
@@ -354,7 +382,7 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to="/careers">{localize('Careers')}</Link>
                         </div>
                     </Col>
-                    <Col margin_top width="40%">
+                    <Col grid_name="partner">
                         <div>
                             <Title>{localize('PARTNER WITH US')}</Title>
                         </div>
@@ -366,9 +394,6 @@ const Footer = ({ has_banner_cookie }) => (
                         <div>
                             <Link to="/partners/payment-agent">{localize('Payment agents')}</Link>
                         </div>
-                    </Col>
-                    <Col margin_top width="25%">
-                        {!isProduction() && <LanguageSwitcher />}
                     </Col>
                 </Items>
             </StyledGrid>
@@ -394,6 +419,24 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to={smarttrader_url} external="true" target="_blank">
                                 {localize('SmartTrader')}
                             </Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem
+                        header={localize('MARKETS')}
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
+                        <Item>
+                            <Link to="/markets#forex">{localize('Forex')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/markets#stock">{localize('Stock indices')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/markets#commodities">{localize('Commodities')}</Link>
                         </Item>
                     </AccordionItem>
                     <AccordionItem

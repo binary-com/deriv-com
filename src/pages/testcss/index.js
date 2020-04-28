@@ -2,6 +2,8 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { WithIntl } from 'components/localization'
+import { Box } from 'components/containers'
+
 export const sizes = {
     mobileS: 320,
     mobileM: 375,
@@ -69,9 +71,13 @@ Spacer.propTypes = {
 }
 const UseResponsiveCss = () => {
     return (
-        <Spacer mobileS={{ left: 10, top: 40 }} left={300} top={200}>
+        // <Spacer mobileS={{ left: 10, top: 40 }} left={300} top={200}>
+        //     cool component here
+        // </Spacer>
+
+        <Box mobileS={{ ml: 10 }} ml={300}>
             cool component here
-        </Spacer>
+        </Box>
     )
 }
 

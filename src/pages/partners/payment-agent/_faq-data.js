@@ -13,7 +13,7 @@ const HeaderFaq = styled(HeaderPrimary)`
     font-size: var(--text-size-s);
 `
 
-const General = (
+const General = () => (
     <>
         <Header as="h5">{localize('What is the Deriv Payment Agent Programme?')}</Header>
         <TextPrimary>
@@ -21,10 +21,10 @@ const General = (
                 'It is a partnership arrangement where a payment agent is authorised to process deposits and withdrawals for our clients.',
             )}
         </TextPrimary>
-        <HeaderFaq>{localize('Why do clients need a payment agent? ')}</HeaderFaq>
+        <HeaderFaq>{localize('Why do clients need a payment agent?')}</HeaderFaq>
         <TextPrimary>
             {localize(
-                "Many of our clients are looking for ways to fund their accounts using payment methods that are not directly available on Deriv. As a payment agent, you'll be able to help them fund their accounts while charging a fixed commission per transaction. ",
+                "Many of our clients are looking for ways to fund their accounts using payment methods that are not directly available on Deriv. As a payment agent, you'll be able to help them fund their accounts while charging a fixed commission per transaction.",
             )}
         </TextPrimary>
         <HeaderFaq>
@@ -41,7 +41,7 @@ const General = (
         </TextPrimary>
         <HeaderFaq>
             {localize(
-                'What happens if a payment agent charges more than the set commission threshold? ',
+                'What happens if a payment agent charges more than the set commission threshold?',
             )}
         </HeaderFaq>
         <TextPrimary>
@@ -57,7 +57,7 @@ const General = (
         </TextPrimary>
     </>
 )
-const AccountManagement = (
+const AccountManagement = () => (
     <>
         <Header as="h5">
             {localize('How can I add, remove or change my accepted payment methods?')}
@@ -73,7 +73,7 @@ const AccountManagement = (
         </HeaderFaq>
         <TextPrimary>
             {localize(
-                'We do not pay commissions to payment agents. You set your own commission rate per transaction and our clients will bear the necessary fees. ',
+                'We do not pay commissions to payment agents. You set your own commission rate per transaction and our clients will bear the necessary fees.',
             )}
         </TextPrimary>
         <HeaderFaq>{localize('Can I advertise my services to Deriv clients?')}</HeaderFaq>
@@ -92,7 +92,7 @@ const AccountManagement = (
         </HeaderFaq>
         <TextPrimary>
             {localize(
-                'Yes. As a payment agent, you will still be able to trade with your account. ',
+                'Yes. As a payment agent, you will still be able to trade with your account.',
             )}
         </TextPrimary>
     </>

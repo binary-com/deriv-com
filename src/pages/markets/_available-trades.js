@@ -117,7 +117,7 @@ class AvailableTrades extends React.Component {
         return (
             <SectionContainer>
                 <Header size="var(--text-size-header-1)" align="center">
-                    {localize(name + ' trades available on Deriv')}
+                    {name + ' ' + localize('trades available on Deriv')}
                 </Header>
                 <Container
                     direction="column"

@@ -252,8 +252,8 @@ class HelpCentre extends Component {
 
         const duplicate_articles = deepClone(all_articles)
         const translated_articles = duplicate_articles.map((article) => {
-            article.title = localize(article.title.props.translate_text)
-            article.sub_category = localize(article.sub_category.props.translate_text)
+            article.title = article.title.props.translate_text
+            article.sub_category = article.sub_category.props.translate_text
             return article
         })
 
@@ -339,7 +339,7 @@ class HelpCentre extends Component {
                                                 <ArticleDiv key={idx}>
                                                     <ListWrapper>
                                                         <Header size="3.6rem" mb="1.6rem">
-                                                            {localize(item.category)}
+                                                            {item.category}
                                                         </Header>
                                                         {item.articles.map((ar, idxb) => {
                                                             const category_is_expanded =
@@ -370,7 +370,7 @@ class HelpCentre extends Component {
                                                                                     ar.label,
                                                                                 )}
                                                                             >
-                                                                                {localize(ar.title)}
+                                                                                {ar.title}
                                                                             </StyledLink>
                                                                         </li>
                                                                     )}

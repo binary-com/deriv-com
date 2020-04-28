@@ -4,6 +4,7 @@ import { withTranslation } from 'react-i18next'
 import { navigate } from 'gatsby'
 import language_config from '../../../i18n-config'
 import { Dropdown } from 'components/elements'
+import { isProduction } from 'common/websocket/config'
 
 const languages = Object.keys(language_config)
 
@@ -19,6 +20,7 @@ class LanguageSwitch extends Component {
     }
     displayName = () => {}
     renderLanguageChoice = (lang) => {
+        if (lang === 'ach' && isProduction()) return
         const { display_name, path, short_name } = language_config[lang]
         const to = `/${path}`
         let text = this.props.short_name === 'true' ? short_name : display_name

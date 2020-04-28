@@ -15,8 +15,6 @@ import MarketandRisk from 'images/svg/market-and-risk.svg'
 import SevenTrading from 'images/svg/seven-trading.svg'
 
 const StockIndices = ({ simple_step_content }) => {
-    simple_step_content[1].text =
-        'Open a real account, make a deposit, and start trading Synthetic Indices and other markets.'
     return (
         <div>
             <WhyTrade

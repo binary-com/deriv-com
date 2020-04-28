@@ -1,15 +1,19 @@
 import styled, { css } from 'styled-components'
-import { Margins, Paddings } from 'themes/function'
+import { Margins, Paddings } from '../../themes/function'
 import { size } from 'themes/device'
 
-export const mediaqueries = Object.keys(size).reduce((accumulator, label) => {
-    accumulator[label] = (...args) => css`
-        @media (max-width: ${size[label]}px) {
-            ${css(...args)};
-        }
-    `
-    return accumulator
-}, {})
+export const mediaqueries = Object.keys(size)
+    .sort(function (a, b) {
+        return size[b] - size[a]
+    })
+    .reduce((accumulator, label) => {
+        accumulator[label] = (...args) => css`
+            @media (max-width: ${size[label]}px) {
+                ${css(...args)};
+            }
+        `
+        return accumulator
+    }, {})
 
 export const generateResponsiveStyles = (stylesGenerator) => (props) => {
     return Object.keys(mediaqueries).reduce((rules, mq) => {
@@ -21,12 +25,11 @@ export const generateResponsiveStyles = (stylesGenerator) => (props) => {
     }, [])
 }
 
-const baseStyles = ({ top, left, right, bottom }) => css`
-    margin-top: ${top ? top + 'px' : null};
-    margin-right: ${right ? right + 'px' : null};
-    margin-bottom: ${bottom ? bottom + 'px' : null};
-    margin-left: ${left ? left + 'px' : null};
+const baseStyles = ({ m, mt, ml, mr, mb, p, pt, pl, pr, pb }) => css`
+    ${Margins({ m, mt, ml, mr, mb })}
+    ${Paddings({ p, pt, pl, pr, pb })}
 `
+
 const responsiveStyles = generateResponsiveStyles(baseStyles)
 
 const Box = styled.div`
@@ -35,10 +38,11 @@ const Box = styled.div`
     max-width: ${(props) => (props.max_width ? props.max_width : '')};
     position: ${(props) => (props.position ? props.position : '')};
     background: ${(props) => (props.background || props.bg ? props.background || props.bg : '')};
-    ${Margins}
-    ${Paddings}
     ${baseStyles}
     ${responsiveStyles}
 `
-
+export const Root = styled.div`
+    ${baseStyles}
+    ${responsiveStyles}
+`
 export default Box

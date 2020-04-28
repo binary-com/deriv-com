@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, Box } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
+import { binary_url } from 'common/utility'
 import BinaryLogo from 'images/svg/interim/binary-logo.svg'
 import EasySignup from 'images/svg/interim/easy-sign-up.svg'
 import Support from 'images/svg/interim/support.svg'
@@ -30,6 +31,42 @@ const Everything = () => {
                     {localize('Everything you love about Binary.com, and more')}
                 </Header>
                 <Ul jc="center" ai="center">
+                    <Li>
+                        <div>
+                            <EasySignup width="64" height="64" />
+                        </div>
+                        <Box ml="1.6rem">
+                            <Header as="h4">{localize('No sign up required')}</Header>
+                            <Text>
+                                <Localize
+                                    translate_text="Explore the new website, then just log in with your <0>Binary.com</0> credentials to start trading right away."
+                                    components={[
+                                        <LocalizedLinkText
+                                            key={0}
+                                            external
+                                            weight="bold"
+                                            to={binary_url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </Text>
+                        </Box>
+                    </Li>
+                    <Li>
+                        <div>
+                            <Support width="64" height="64" />
+                        </div>
+                        <Box ml="1.6rem">
+                            <Header as="h4">{localize('Support when you need it')}</Header>
+                            <Text>
+                                {localize(
+                                    'Get access to friendly customer support 7 days a week, an enriched Help Centre, plus other helpful content.',
+                                )}
+                            </Text>
+                        </Box>
+                    </Li>
                     <Li>
                         <div>
                             <BinaryLogo width="64" height="64" />
@@ -64,7 +101,7 @@ const Everything = () => {
                             <Header as="h4">{localize('Over 100+ financial instruments')}</Header>
                             <Text>
                                 {localize(
-                                    'Trade what you like - forex, commodities, stock and synthetic indices. ',
+                                    'Trade what you like - forex, commodities, stock indices and synthetic indices.',
                                 )}
                             </Text>
                         </Box>
@@ -77,33 +114,7 @@ const Everything = () => {
                             <Header as="h4">{localize('4 trading platforms in one place')}</Header>
                             <Text>
                                 {localize(
-                                    'Trade the way you like on the Deriv MetaTrader 5 (DMT5), DTrader, DBot — and the classic SmartTrader. ',
-                                )}
-                            </Text>
-                        </Box>
-                    </Li>
-                    <Li>
-                        <div>
-                            <Support width="64" height="64" />
-                        </div>
-                        <Box ml="1.6rem">
-                            <Header as="h4">{localize('Support when you need it')}</Header>
-                            <Text>
-                                {localize(
-                                    'Get access to friendly customer support 7 days a week, an enriched Help Centre, plus other helpful content. ',
-                                )}
-                            </Text>
-                        </Box>
-                    </Li>
-                    <Li>
-                        <div>
-                            <EasySignup width="64" height="64" />
-                        </div>
-                        <Box ml="1.6rem">
-                            <Header as="h4">{localize('Easy sign-up')}</Header>
-                            <Text>
-                                {localize(
-                                    'Explore the new website, then just log in with your Binary.com credentials to start trading right away.',
+                                    'Trade the way you like on the Deriv MetaTrader 5 (DMT5), DTrader, DBot — and the classic SmartTrader.',
                                 )}
                             </Text>
                         </Box>

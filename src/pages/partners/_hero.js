@@ -54,10 +54,10 @@ const Hero = () => {
             <Content direction="column">
                 <Container direction="column" height="100%">
                     <Header as="h1" color="white" align="center">
-                        Deriv partnership programmes
+                        {localize('Deriv partnership programmes')}
                     </Header>
                     <Header color="white" align="center" size="var(--text-size-header-1)">
-                        Partner with a trusted online trading provider.
+                        {localize('Partner with a trusted online trading provider.')}
                     </Header>
                 </Container>
             </Content>

@@ -7,16 +7,19 @@ import DHero from 'components/custom/_dhero.js'
 import DNumber from 'components/custom/_dnumbers.js'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import DBotBG from 'images/svg/dbot-bg.svg'
 import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
-    { title: '3', subtitle: localize('pre-built strategies included') },
-    { title: 'FREE', subtitle: localize('zero cost to build') },
-    { title: '50+', subtitle: localize('assets to unleash your bot') },
+    { title: '3', subtitle: <Localize translate_text="pre-built strategies included" /> },
+    {
+        title: <Localize translate_text="FREE" />,
+        subtitle: <Localize translate_text="zero cost to build" />,
+    },
+    { title: '50+', subtitle: <Localize translate_text="assets to unleash your bot" /> },
 ]
 const PlatformContainer = styled.div`
     padding: 8rem 0;
@@ -92,7 +95,10 @@ class Dbot extends Component {
                     background_alt={localize('DBot Board')}
                 />
                 <DNumber items={items} justify="space-around" />
-                <DHowItWorks Video={DBotVideo} title="Build a trading robot in 5 easy steps" />
+                <DHowItWorks
+                    Video={DBotVideo}
+                    title={<Localize translate_text="Build a trading robot in 5 easy steps" />}
+                />
                 <DTrading trading={trading} />
                 <PlatformContainer>
                     <OtherPlatform exclude="dbot" />

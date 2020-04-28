@@ -6,7 +6,6 @@ import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import Copy from './copyright'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
-import { isProduction } from 'common/websocket/config'
 import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
@@ -282,12 +281,12 @@ const Footer = ({ has_banner_cookie }) => (
                             </div>
                         </SocialWrapper> */}
                         <div>
-                            <Show.Desktop>{!isProduction() && <LanguageSwitcher />}</Show.Desktop>
+                            <Show.Desktop>{<LanguageSwitcher />}</Show.Desktop>
                         </div>
                         <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
-                                    {!isProduction() && <LanguageSwitcher short_name="true" />}
+                                    {<LanguageSwitcher short_name="true" />}
                                 </MobileLanguageSwitcher>
                             </Show.Mobile>
                         </div>

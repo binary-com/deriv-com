@@ -119,7 +119,7 @@ const payment_data = [
                 method: <PaytrustIc />,
                 currencies: 'USD',
                 min_max_deposit: '25 - 10,000',
-                min_max_withdrawal: 'N/A',
+                min_max_withdrawal: <Localize translate_text="N/A" />,
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (

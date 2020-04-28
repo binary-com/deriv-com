@@ -11,10 +11,10 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
-import Forex from 'images/svg/market-forex.svg'
-import Commodities from 'images/svg/market-commodities.svg'
-import StockIndices from 'images/svg/market-stock-indices.svg'
-import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
+import Forex from 'components/svgs/_market-forex.js'
+import Commodities from 'components/svgs/_market-commodities.js'
+import StockIndices from 'components/svgs/_market-stock.js'
+import SyntheticIndices from 'components/svgs/_market-synthetic.js'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -137,7 +137,7 @@ export const OffCanvasMenuWrapper = (props) => {
                     >
                         <Flex mb="3.2rem">
                             <NavCard
-                                icon={Forex}
+                                icon={() => <Forex dynamic_id="mobile_markets" />}
                                 content={localize(
                                     'Trade the world’s largest financial market with popular forex pairs.',
                                 )}
@@ -147,7 +147,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="3.2rem">
                             <NavCard
-                                icon={Commodities}
+                                icon={() => <Commodities dynamic_id="mobile_commodities" />}
                                 content={localize(
                                     "Trade natural resources that are central to the world's economy.",
                                 )}
@@ -157,7 +157,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="3.2rem">
                             <NavCard
-                                icon={StockIndices}
+                                icon={() => <StockIndices dynamic_id="mobile_stock" />}
                                 content={localize(
                                     'Predict broader market trends and diversify your risk with stock indices.',
                                 )}
@@ -167,7 +167,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
-                                icon={SyntheticIndices}
+                                icon={() => <SyntheticIndices dynamic_id="mobile_synthetic" />}
                                 content={localize(
                                     'Enjoy synthetic markets that emulate real-world market movements.',
                                 )}

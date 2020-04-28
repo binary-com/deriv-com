@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
-import { LocalizedLink, localize } from 'components/localization'
+import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard } from 'components/elements'
 import { smarttrader_url } from 'common/utility'
 import { useOutsideClick } from 'components/hooks/outside-click'
@@ -90,40 +90,40 @@ export const OffCanvasMenuWrapper = (props) => {
                         <Flex mb="2rem">
                             <NavCard
                                 icon={DTrader}
-                                content={localize(
-                                    'A whole new trading experience on a powerful yet easy to use platform. ',
-                                )}
-                                title={localize('DTrader')}
+                                content={
+                                    <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
+                                }
+                                title={<Localize translate_text="DTrader" />}
                                 to="/dtrader"
                             />
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
                                 icon={DBot}
-                                content={localize(
-                                    'Automated trading at your fingertips. No coding needed.',
-                                )}
-                                title={localize('DBot')}
+                                content={
+                                    <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                                }
+                                title={<Localize translate_text="DBot" />}
                                 to="/dbot"
                             />
                         </Flex>
                         <Flex mb="2rem">
                             <NavCard
                                 icon={DMT5}
-                                content={localize(
-                                    'The platform of choice for professionals worldwide.',
-                                )}
-                                title={localize('DMT5')}
+                                content={
+                                    <Localize translate_text="The platform of choice for professionals worldwide." />
+                                }
+                                title={<Localize translate_text="DMT5" />}
                                 to="/dmt5"
                             />
                         </Flex>
                         <Flex>
                             <NavCard
                                 icon={Smarttrader}
-                                content={localize(
-                                    'Trade the world’s markets with our popular user-friendly platform.',
-                                )}
-                                title={localize('SmartTrader')}
+                                content={
+                                    <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                }
+                                title={<Localize translate_text="SmartTrader" />}
                                 to={smarttrader_url}
                                 external="true"
                                 target="_blank"

@@ -167,7 +167,7 @@ const DormantFee = () => (
 
 const AccountArticle = () => {
     return (
-        <Article header="Account">
+        <Article header={localize('Account')}>
             <WhoCanOpenAnAccount
                 text={localize("Why can't I create an account?")}
                 label="who-can-open-an-account"
@@ -186,12 +186,15 @@ const AccountArticle = () => {
                 )}
                 label="recovering-your-password"
             />
-            <CloseAccount text="How can I close my account?" label="close-your-account" />
+            <CloseAccount
+                text={localize('How can I close my account?')}
+                label="close-your-account"
+            />
             <UnsubscribeEmail
-                text="How do I unsubscribe from marketing emails?"
+                text={localize('How do I unsubscribe from marketing emails?')}
                 label="unsubscribe-marketing-emails"
             />
-            <DormantFee text="What is a dormant fee?" label="what-is-dormant-fee" />
+            <DormantFee text={localize('What is a dormant fee?')} label="what-is-dormant-fee" />
         </Article>
     )
 }

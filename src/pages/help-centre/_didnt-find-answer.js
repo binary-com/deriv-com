@@ -28,6 +28,7 @@ const StyledIcon = styled(ContactUsIcon)`
     @media ${device.tabletL} {
         width: 30px;
         height: 30px;
+        margin-right: 1.6rem;
     }
 `
 const MiddleText = styled(Text)`

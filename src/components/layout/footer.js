@@ -11,9 +11,10 @@ import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv-footer.svg'
-import Twitter from 'images/svg/footer-twitter.svg'
-import Instagram from 'images/svg/footer-instagram.svg'
-import Facebook from 'images/svg/footer-facebook.svg'
+/* TODO: [social-media] uncomment when social media accounts are ready for Deriv */
+// import Twitter from 'images/svg/footer-twitter.svg'
+// import Instagram from 'images/svg/footer-instagram.svg'
+// import Facebook from 'images/svg/footer-facebook.svg'
 import Warning from 'images/svg/warning.svg'
 
 const DerivLogo = styled(Logo)`
@@ -182,26 +183,27 @@ const StaticAsset = styled.a`
         font-size: var(--text-size-sm);
     }
 `
-const ExternalLink = styled.a`
-    text-decoration: none;
-`
+/* TODO: [social-media] uncomment when social media accounts are ready for Deriv */
+// const ExternalLink = styled.a`
+//     text-decoration: none;
+// `
 
-const SocialWrapper = styled(Flex)`
-    svg {
-        width: 4.2rem;
-        margin-right: 1rem;
-    }
-    ${Text} {
-        margin-top: 0;
-        letter-spacing: 2px;
-        color: var(--color-black-6);
-        margin-bottom: 0.8rem;
+// const SocialWrapper = styled(Flex)`
+//     svg {
+//         width: 4.2rem;
+//         margin-right: 1rem;
+//     }
+//     ${Text} {
+//         margin-top: 0;
+//         letter-spacing: 2px;
+//         color: var(--color-black-6);
+//         margin-bottom: 0.8rem;
 
-        @media ${device.tabletL} {
-            margin-bottom: 1rem;
-        }
-    }
-`
+//         @media ${device.tabletL} {
+//             margin-bottom: 1rem;
+//         }
+//     }
+// `
 const SocialMedia = styled(Flex)`
     @media ${device.tabletL} {
         margin-top: 2rem;
@@ -250,7 +252,8 @@ const Footer = ({ has_banner_cookie }) => (
                         )}
                     </Text>
                     <SocialMedia mt="3.1rem" jc="flex-start" direction="column">
-                        <SocialWrapper mt="0.8rem" jc="space-between" direction="column">
+                        {/* TODO: [social-media] uncomment when social media accounts are ready for Deriv */}
+                        {/* <SocialWrapper mt="0.8rem" jc="space-between" direction="column">
                             <div>
                                 <Text>{localize('CONNECT WITH US')}</Text>
                             </div>
@@ -277,7 +280,7 @@ const Footer = ({ has_banner_cookie }) => (
                                     <Twitter />
                                 </ExternalLink>
                             </div>
-                        </SocialWrapper>
+                        </SocialWrapper> */}
                         <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>

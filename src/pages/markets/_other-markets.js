@@ -116,9 +116,9 @@ const Card = ({ name }) => {
         >
             <Icon dynamic_id={markets_type[name].id} />
             <Text weight="bold" mt="1.6rem">
-                {localize(markets_type[name].title)}
+                {markets_type[name].title}
             </Text>
-            <Text mt="0.8rem">{localize(markets_type[name].content)}</Text>
+            <Text mt="0.8rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility={button_visibility}>
                 <Text>{localize('Learn more')}</Text>
                 <Arrow />

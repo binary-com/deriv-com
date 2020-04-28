@@ -28,7 +28,12 @@ module.exports = {
                     },
                 },
                 canonicalBaseUrl: 'https://deriv.com/',
-                components: ['amp-animation', 'amp-position-observer', 'amp-carousel'],
+                components: [
+                    'amp-animation',
+                    'amp-position-observer',
+                    'amp-carousel',
+                    'amp-iframe',
+                ],
                 pathIdentifier: '/amp/',
                 relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
                 useAmpClientIdApi: true,

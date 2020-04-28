@@ -55,7 +55,7 @@ const Faq = () => {
                         header_style={header_style}
                         plus
                     >
-                        {General}
+                        {<General />}
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Account management')}
@@ -63,7 +63,7 @@ const Faq = () => {
                         header_style={header_style}
                         plus
                     >
-                        {AccountManagement}
+                        {<AccountManagement />}
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>

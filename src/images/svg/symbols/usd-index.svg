@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="33" viewBox="0 0 32 33">
+    <defs>
+        <rect id="usdindexprefix__a" width="12" height="8" x="0" y="0" rx="1"/>
+        <path id="usdindexprefix__c" d="M1 0h4.6v4.284H0V1c0-.552.448-1 1-1z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(0 1) translate(5 6)">
+            <path fill="#6E7287" d="M3 8H19V18H3z"/>
+            <path fill="#D2D3DA" d="M2 18h18c.552 0 1 .448 1 1H1c0-.552.448-1 1-1zM1 8h20c0 .552-.448 1-1 1H2c-.552 0-1-.448-1-1z"/>
+            <rect width="22" height="1" y="19" fill="#B0B3BF" rx=".5"/>
+            <g>
+                <path fill="#B0B3BF" d="M0.25 0H1.75V9H0.25z" transform="translate(2 9)"/>
+                <path fill="#E9E9ED" d="M.333 8h1.334c.184 0 .333.15.333.333V9H0v-.667C0 8.149.15 8 .333 8zM0 0h2v.667C2 .851 1.85 1 1.667 1H.333C.149 1 0 .85 0 .667V0z" transform="translate(2 9)"/>
+            </g>
+            <g>
+                <path fill="#B0B3BF" d="M0.25 0H1.75V9H0.25z" transform="translate(7 9)"/>
+                <path fill="#E9E9ED" d="M.333 8h1.334c.184 0 .333.15.333.333V9H0v-.667C0 8.149.15 8 .333 8zM0 0h2v.667C2 .851 1.85 1 1.667 1H.333C.149 1 0 .85 0 .667V0z" transform="translate(7 9)"/>
+            </g>
+            <g>
+                <path fill="#B0B3BF" d="M0.25 0H1.75V9H0.25z" transform="translate(13 9)"/>
+                <path fill="#E9E9ED" d="M.333 8h1.334c.184 0 .333.15.333.333V9H0v-.667C0 8.149.15 8 .333 8zM0 0h2v.667C2 .851 1.85 1 1.667 1H.333C.149 1 0 .85 0 .667V0z" transform="translate(13 9)"/>
+            </g>
+            <g>
+                <path fill="#B0B3BF" d="M0.25 0H1.75V9H0.25z" transform="translate(18 9)"/>
+                <path fill="#E9E9ED" d="M.333 8h1.334c.184 0 .333.15.333.333V9H0v-.667C0 8.149.15 8 .333 8zM0 0h2v.667C2 .851 1.85 1 1.667 1H.333C.149 1 0 .85 0 .667V0z" transform="translate(18 9)"/>
+            </g>
+            <path fill="#F4F4F6" stroke="#B0B3BF" stroke-linecap="round" stroke-linejoin="round" d="M0.5 7.5L21.5 7.5 11 0.5z"/>
+            <circle cx="11" cy="4" r="1" fill="#B0B3BF"/>
+        </g>
+        <g transform="translate(0 1) translate(17 3)">
+            <mask id="usdindexprefix__b" fill="#fff">
+                <use xlink:href="#usdindexprefix__a"/>
+            </mask>
+            <use fill="#FFF" xlink:href="#usdindexprefix__a"/>
+            <path fill="#F44336" d="M12 7.344c0 .362-.294.656-.656.656H.656C.294 8 0 7.706 0 7.344h12zm0-1.224v.612H0V6.12h12zm0-1.224v.612H0v-.612h12zm0-1.224v.612H0v-.612h12zm0-1.224v.612H0v-.612h12zm0-1.224v.612H0v-.612h12zM11.388 0c.304 0 .557.222.604.513L12 .612H.344C.344.274.618 0 .956 0h10.432z" mask="url(#usdindexprefix__b)"/>
+            <use fill="#0D47A1" xlink:href="#usdindexprefix__c"/>
+            <rect width="11.5" height="7.5" x=".25" y=".25" stroke="#000" stroke-opacity=".04" stroke-width=".5" rx="1"/>
+        </g>
+    </g>
+</svg>

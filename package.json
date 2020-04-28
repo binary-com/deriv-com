@@ -67,7 +67,7 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "build": "gatsby build",
+        "build": "gatsby clean && gatsby build",
         "develop": "gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",

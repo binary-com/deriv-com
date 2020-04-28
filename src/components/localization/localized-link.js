@@ -6,6 +6,8 @@ import styled, { css } from 'styled-components'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 
+const non_localized_links = ['/careers']
+
 export const SharedLinkStyle = css`
     color: var(--color-white);
     text-decoration: none;
@@ -56,12 +58,13 @@ export const LocalizedLink = ({ to, ...props }) => {
     const is_index = to === `/`
     const { target, rel, className, style } = props
 
-    // If it's the default language, don't do anything
+    // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
     // However, if the homepage/index page is linked don't add the "to"
     // Because otherwise this would add a trailing slash
     const { is_default, path } = language_config[locale]
-    const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
+    const path_to =
+        is_default || non_localized_links.includes(to) ? to : `/${path}${is_index ? `` : `${to}`}`
 
     if (props.external || props.external === 'true') {
         return (

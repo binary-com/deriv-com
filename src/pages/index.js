@@ -8,7 +8,7 @@ import Markets from './home/_markets'
 import WhatOurClientsSay from './home/_what-our-clients-say'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import Signup, { Appearances } from 'components/custom/signup'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
@@ -16,23 +16,23 @@ import WithdrawIcon from 'images/svg/withdraw.svg'
 
 const simple_step_content = [
     {
-        header: localize('Practise'),
-        text: localize(
-            'Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds.',
+        header: <Localize translate_text="Practise" />,
+        text: (
+            <Localize translate_text="Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds." />
         ),
         icon: <PractiseIcon />,
     },
     {
-        header: localize('Trade'),
-        text: localize(
-            'Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more.',
+        header: <Localize translate_text="Trade" />,
+        text: (
+            <Localize translate_text="Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more." />
         ),
         icon: <TradeIcon />,
     },
     {
-        header: localize('Withdraw'),
-        text: localize(
-            'Get your funds quickly and easily. We support a variety of withdrawal options.',
+        header: <Localize translate_text="Withdraw" />,
+        text: (
+            <Localize translate_text="Get your funds quickly and easily. We support a variety of withdrawal options." />
         ),
         icon: <WithdrawIcon />,
     },
@@ -54,7 +54,10 @@ const Home = () => {
                 <Trade />
             </Show.Desktop>
             <Markets />
-            <SimpleSteps content={simple_step_content} header={localize('3 simple steps')} />
+            <SimpleSteps
+                content={simple_step_content}
+                header={<Localize translate_text="3 simple steps" />}
+            />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
             {/* TODO: investigate performance and enable later */}

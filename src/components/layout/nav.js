@@ -327,7 +327,7 @@ export const Nav = () => {
                         Content={NavMarket}
                         title={localize('Markets')}
                         description={localize(
-                            'Enjoy our wide range of assets on financial and synthetic markets. ',
+                            'Enjoy our wide range of assets on financial and synthetic markets.',
                         )}
                     />
                     <PlatformsDropdown

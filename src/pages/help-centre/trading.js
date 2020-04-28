@@ -84,7 +84,7 @@ const DigitalOptions = () => (
         <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>
         <Text>
             {localize(
-                'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results. ',
+                'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results.',
             )}
         </Text>
     </ArticleWrapper>
@@ -139,7 +139,7 @@ const WeekendContracts = () => (
 
 const TradingArticle = () => {
     return (
-        <Article header="Trading">
+        <Article header={localize('Trading')}>
             <Forex text={localize('What is forex?')} label="what-is-forex" />
             <Commodities text={localize('What are commodities?')} label="what-are-commodities" />
             <StockIndices

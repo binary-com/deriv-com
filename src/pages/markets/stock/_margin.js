@@ -2,21 +2,27 @@ import React from 'react'
 import styled from 'styled-components'
 import AvailablePlatforms from '../_available-platforms.js'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize } from 'components/localization'
-import { OTCGERMAN } from 'components/elements/symbols.js'
+import { OTCDUTCH } from 'components/elements/symbols.js'
 import device from 'themes/device'
 
-const StyledSection = styled(SectionContainer)`
-    padding: 4rem 0 8rem 0;
-
-    @media ${device.tabletL} {
-        padding: 3rem 0;
-    }
-`
 const Descriptions = styled.div`
     padding-bottom: 4rem;
-    border-bottom: 1px solid var(--color-grey-21);
+    border-bottom: 1px solid var(--color-grey-22);
+`
+const Col = styled(Flex)`
+    border-left: 1px solid var(--color-grey-22);
+    max-width: 12.9rem;
+
+    @media ${device.tabletL} {
+        max-width: 10rem;
+    }
+`
+const Row = styled(Flex)`
+    border: 1px solid var(--color-grey-22);
+    margin-top: 2.4rem;
+    border-radius: 8px;
 `
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
@@ -24,37 +30,52 @@ const StyledText = styled(Text)`
         text-align: left;
     }
 `
-const Col = styled(Flex)`
-    ${(props) => props.border_left && 'border-left: 1px solid #e3e4e5;'}
-    max-width: 13.2rem;
+const Symbol = styled(Flex)`
+    width: fit-content;
+
+    svg {
+        width: 32px;
+        height: 32px;
+        margin-right: 0.8rem;
+    }
+    ${Text} {
+        font-weight: normal;
+        font-size: var(--text-size-xs);
+        line-height: 1.14;
+    }
+`
+const MarketsList = styled(CssGrid)`
+    border-left: 1px solid var(--color-grey-22);
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    padding: 2.4rem;
+    grid-row-gap: 1.6rem;
 
     @media ${device.tabletL} {
-        max-width: 8.75rem;
+        grid-template-columns: repeat(1, 1fr);
+
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+        ${Text} {
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
     }
 `
-const Row = styled(Flex)`
-    border: 1px solid #e3e4e5;
-    ${(props) => props.romve_border_top && 'border-top: unset;'}
-`
-const AvailableTradeText = styled(Text)`
+
+const Title = styled(Text)`
     @media ${device.tabletL} {
-        font-size: 2rem;
-        margin: 2rem 0;
-    }
-`
-const TitleText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 1.5rem;
-    }
-`
-const MarketContainer = styled(Col)`
-    @media ${device.tabletL} {
-        max-width: fit-content;
+        text-align: center;
+        max-width: 8rem;
+        font-weight: 600;
     }
 `
 const Margin = () => {
     return (
-        <StyledSection>
+        <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
                     <StyledText align="center">
@@ -64,28 +85,22 @@ const Margin = () => {
                     </StyledText>
                     <AvailablePlatforms dmt5 />
                 </Descriptions>
-                <AvailableTradeText weight="bold" mt="2.4rem">
+                <StyledText weight="bold" mt="2.4rem">
                     {localize('Instruments available for margin trading')}
-                </AvailableTradeText>
-                <Row jc="flex-start" ai="center" background="rgba(242, 243, 244, 0.3)">
+                </StyledText>
+                <Row jc="flex-start" ai="center">
                     <Col>
-                        <TitleText weight="bold" max_width="9.7rem" align="center">
-                            {localize('Europe')}
-                        </TitleText>
+                        <Title weight="bold">{localize('Europe')}</Title>
                     </Col>
-                    <MarketContainer
-                        wrap="wrap"
-                        jc="flex-start"
-                        p="2rem 7px"
-                        border_left
-                        ai="center"
-                    >
-                        <OTCGERMAN />
-                        <Text>{localize('German Index')}</Text>
-                    </MarketContainer>
+                    <MarketsList>
+                        <Symbol ai="center">
+                            <OTCDUTCH />
+                            <Text>{localize('Dutch Index')}</Text>
+                        </Symbol>
+                    </MarketsList>
                 </Row>
             </Flex>
-        </StyledSection>
+        </SectionContainer>
     )
 }
 

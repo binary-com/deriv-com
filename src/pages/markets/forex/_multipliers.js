@@ -54,6 +54,7 @@ const Title = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
         max-width: 4rem;
+        font-weight: 600;
     }
 `
 const Multipliers = () => {

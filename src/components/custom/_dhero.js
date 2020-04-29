@@ -42,6 +42,7 @@ const TryForFree = styled(LinkButton)`
         margin-right: 0.2rem;
         font-size: 1.55rem;
         margin-bottom: 2.4rem;
+        padding: 1.2rem 1.6rem;
     }
 `
 const StyledContainer = styled(Container)`

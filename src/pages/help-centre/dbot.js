@@ -65,6 +65,11 @@ const ImageWrapper = styled.div`
         padding: 2.4rem 0;
         width: auto;
     }
+    @media ${device.mobileM} {
+        & > img {
+            max-width: 37rem;
+        }
+    }
 `
 
 const Th = styled.th`

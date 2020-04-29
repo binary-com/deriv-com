@@ -241,7 +241,7 @@ const mobile_accordion_header = {
     backgroundColor: 'var(--color-grey-8)',
     boxShadow: 'none',
 }
-const Footer = ({ has_banner_cookie }) => (
+const Footer = ({ has_banner_cookie, no_language }) => (
     <StyledFooter has_banner_cookie={has_banner_cookie}>
         <Container>
             <StyledGrid columns="repeat(12, 1fr)" columngap="2.4rem" rowgap="3.9rem">
@@ -282,7 +282,7 @@ const Footer = ({ has_banner_cookie }) => (
                                 </ExternalLink>
                             </div>
                         </SocialWrapper> */}
-                        <div>{!isProduction() && <LanguageSwitcher />}</div>
+                        <div>{(!isProduction() || no_language) && <LanguageSwitcher />}</div>
                         {/* <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
@@ -576,6 +576,7 @@ const Footer = ({ has_banner_cookie }) => (
 
 Footer.propTypes = {
     has_banner_cookie: PropTypes.bool,
+    no_language: PropTypes.bool,
 }
 
 export default Footer

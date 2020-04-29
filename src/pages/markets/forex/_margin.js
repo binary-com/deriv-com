@@ -13,6 +13,11 @@ const Descriptions = styled.div`
 `
 const Col = styled(Flex)`
     border-left: 1px solid var(--color-grey-22);
+    max-width: 12.9rem;
+
+    @media ${device.tabletL} {
+        max-width: 7rem;
+    }
 `
 const Row = styled(Flex)`
     border: 1px solid var(--color-grey-22);
@@ -31,6 +36,25 @@ const MarketsList = styled(CssGrid)`
     width: 100%;
     padding: 2.4rem;
     grid-row-gap: 1.6rem;
+
+    @media ${device.tabletL} {
+        grid-template-columns: repeat(3, 1fr);
+
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+        ${Text} {
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+    }
+`
+const Title = styled(Text)`
+    @media ${device.tabletL} {
+        text-align: center;
+    }
 `
 const Margin = () => {
     return (
@@ -48,24 +72,24 @@ const Margin = () => {
                     {localize('Instruments available for margin trading')}
                 </StyledText>
                 <Row jc="flex-start" ai="center">
-                    <Col max_width="12.9rem">
-                        <Text weight="bold">{localize('Major pairs')}</Text>
+                    <Col>
+                        <Title weight="bold">{localize('Major pairs')}</Title>
                     </Col>
                     <MarketsList>
                         <MajorPairs />
                     </MarketsList>
                 </Row>
                 <Row jc="flex-start" ai="center">
-                    <Col max_width="12.9rem">
-                        <Text weight="bold">{localize('Minor pairs')}</Text>
+                    <Col>
+                        <Title weight="bold">{localize('Minor pairs')}</Title>
                     </Col>
                     <MarketsList>
                         <MinorPairs />
                     </MarketsList>
                 </Row>
                 <Row jc="flex-start" ai="center">
-                    <Col max_width="12.9rem">
-                        <Text weight="bold">{localize('Exotic pairs')}</Text>
+                    <Col>
+                        <Title weight="bold">{localize('Exotic pairs')}</Title>
                     </Col>
                     <MarketsList>
                         <ExoticPairs />

@@ -316,7 +316,7 @@ const DigitalOptions = () => {
                 <Text weight="bold" mt="2.4rem">
                     {localize('Instruments available for options trading')}
                 </Text>
-                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
+                <Row jc="flex-start" ai="center" mt="1.6rem">
                     <Col>
                         <Title weight="bold" align="center">
                             {localize('Continuous indices')}
@@ -326,7 +326,7 @@ const DigitalOptions = () => {
                         <ContinuousIndices />
                     </MarketsList>
                 </Row>
-                <Row jc="flex-start" ai="center" romve_border_top>
+                <Row jc="flex-start" ai="center">
                     <Col>
                         <Title weight="bold" align="center">
                             {localize('Daily reset indices')}

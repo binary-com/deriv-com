@@ -72,7 +72,7 @@ const Multipliers = () => {
                 <StyledText weight="bold" mt="2.4rem">
                     {localize('Instruments available for multipliers')}
                 </StyledText>
-                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
+                <Row jc="flex-start" ai="center" mt="1.6rem">
                     <Col max_width="13.2rem">
                         <Title weight="bold">{localize('Major pairs')}</Title>
                     </Col>

@@ -92,6 +92,8 @@ const GoToLiveDemo = styled(Button)`
 
     @media ${device.tabletL} {
         max-width: 100%;
+        margin: 4rem auto;
+        font-size: 1.75rem;
     }
 `
 

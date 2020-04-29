@@ -155,8 +155,8 @@ const MapContainer = styled.div`
         width: 328px;
         height: 142px;
     }
-    @media (max-width: 359px) {
-        width: 280px;
+    @media ${device.mobileL} {
+        width: 100%;
     }
 `
 const AddressTextShared = css`
@@ -191,9 +191,11 @@ export const Offices = () => {
                 <OfficeWrapper>
                     <Office id="malta">
                         <ImageWrapper>
-                            <Iframe
-                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=${map_api_key}`}
-                            />
+                            <MapContainer>
+                                <Iframe
+                                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=${map_api_key}`}
+                                />
+                            </MapContainer>
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -251,9 +253,11 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <Iframe
-                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=${map_api_key}`}
-                            />
+                            <MapContainer>
+                                <Iframe
+                                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=${map_api_key}`}
+                                />
+                            </MapContainer>
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>

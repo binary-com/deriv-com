@@ -43,9 +43,13 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+    margin-top: 1.6rem;
 
     @media ${device.laptopL} {
         margin-left: 2rem;
+    }
+    @media ${device.tabletL} {
+        margin-left: 0;
     }
 `
 const StyledText = styled(Text)`
@@ -60,6 +64,11 @@ const ImageWrapper = styled.div`
         margin-left: 0;
         padding: 2.4rem 0;
         width: auto;
+    }
+    @media ${device.mobileL} {
+        & > img {
+            width: 37rem !important;
+        }
     }
 `
 
@@ -82,9 +91,10 @@ const Thead = styled.thead`
     border: 1px solid var(--color-grey-7);
 `
 
-const Tbody = styled.tbody`
+const Td = styled.td`
     text-align: left;
-    width: 48.6rem;
+    width: 100%;
+    max-width: 48.6rem;
     display: inline-block;
     padding: 1.6rem;
 `
@@ -93,7 +103,7 @@ const Tr = styled.tr`
 `
 const StyledTable = styled.table`
     border-collapse: collapse;
-    width: 86%;
+    width: 100%;
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
 const StyledHeader = styled(Header)`
@@ -545,7 +555,7 @@ const ControlLosses = () => (
                 alt={localize('Control loss')}
                 loading="lazy"
                 width="61.2rem"
-                style={{ width: '61.2rem' }}
+                style={{ width: '100%', maxWidth: '61.2rem' }}
             />
         </ImageWrapper>
         <Text mb="2.4rem">{localize('1. Create the following variables:')}</Text>
@@ -555,49 +565,49 @@ const ControlLosses = () => (
                     <Th>
                         <Text weight="bold">{localize('currentPL')}</Text>
                     </Th>
-                    <Tbody>
+                    <Td>
                         <Text>
                             {localize(
                                 'This will store the cumulative profit or loss while the bot is running. Set the initial value to 0.',
                             )}
                         </Text>
-                    </Tbody>
+                    </Td>
                 </Tr>
                 <Tr>
                     <Th>
                         <Text weight="bold">{localize('currentStake')}</Text>
                     </Th>
-                    <Tbody>
+                    <Td>
                         <Text>
                             {localize(
                                 'This will store the stake amount used in the last purchased contract. You can assign any amount based on your strategy.',
                             )}
                         </Text>
-                    </Tbody>
+                    </Td>
                 </Tr>
                 <Tr>
                     <Th>
                         <Text weight="bold">{localize('maximumLoss')}</Text>
                     </Th>
-                    <Tbody>
+                    <Td>
                         <Text>
                             {localize(
                                 'This is your loss limit. You can assign any amount based on your strategy. The value must be a positive number.',
                             )}
                         </Text>
-                    </Tbody>
+                    </Td>
                 </Tr>
                 <Tr>
                     <Th>
                         <Text weight="bold">{localize('tradeAgain')}</Text>
                     </Th>
-                    <Tbody>
+                    <Td>
                         <Text>
                             {localize(
                                 "This will be used to stop trading when your loss limit is reached. Set the initial value to 'true'.",
                             )}
                         </Text>
-                    </Tbody>
+                    </Td>
                 </Tr>
             </Thead>
         </StyledTable>

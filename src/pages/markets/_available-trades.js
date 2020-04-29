@@ -125,7 +125,7 @@ const CardHeader = styled(Header)`
         font-size: 1.75rem;
     }
 `
-const Card = ({ name, active_tab, onTabChange }) => {
+const Card = ({ display_name, active_tab, onTabChange, name }) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
             <Flex height="fit-content" jc="flex-start" ai="center">
@@ -133,7 +133,7 @@ const Card = ({ name, active_tab, onTabChange }) => {
                 {active_tab === 'Options' && <OptionsIcon />}
                 {active_tab === 'Multipliers' && <MultipliersIcon />}
                 <CardHeader as="h4" width="auto">
-                    {name}
+                    {display_name}
                 </CardHeader>
             </Flex>
         </CardContainer>
@@ -142,6 +142,7 @@ const Card = ({ name, active_tab, onTabChange }) => {
 
 Card.propTypes = {
     active_tab: PropTypes.string,
+    display_name: PropTypes.object,
     name: PropTypes.string,
     onTabChange: PropTypes.func,
 }
@@ -170,21 +171,24 @@ class AvailableTrades extends React.Component {
                     <CardWrapper position="relative">
                         {Margin && (
                             <Card
-                                name={<Localize translate_text="Margin" />}
+                                name="Margin"
+                                display_name={<Localize translate_text="Margin" />}
                                 onTabChange={() => this.handleTabChange('Margin')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
                         {DigitalOptions && (
                             <Card
-                                name={<Localize translate_text="Options" />}
+                                name="Options"
+                                display_name={<Localize translate_text="Options" />}
                                 onTabChange={() => this.handleTabChange('Options')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
                         {Multipliers && (
                             <Card
-                                name={<Localize translate_text="Multipliers" />}
+                                name="Multipliers"
+                                display_name={<Localize translate_text="Multipliers" />}
                                 onTabChange={() => this.handleTabChange('Multipliers')}
                                 active_tab={this.state.active_tab}
                             />

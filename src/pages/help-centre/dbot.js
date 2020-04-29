@@ -65,7 +65,7 @@ const ImageWrapper = styled.div`
         padding: 2.4rem 0;
         width: auto;
     }
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         & > img {
             width: 37rem !important;
         }

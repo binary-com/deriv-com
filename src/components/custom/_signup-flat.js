@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { Input, Button } from 'components/form'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
+import { Container } from 'components/containers'
 import device from 'themes/device.js'
 import { deriv_app_url } from 'common/utility'
 // SVG
@@ -28,14 +29,6 @@ const FormWrapper = styled(Wrapper)`
     padding: 0;
     height: 100%;
     width: 70%;
-`
-const CenterWrapper = styled.div`
-    width: 70%;
-    height: 100%;
-
-    @media ${device.tabletL} {
-        width: 100%;
-    }
 `
 const RightWrapper = styled.div`
     display: flex;
@@ -125,7 +118,7 @@ const SignupFlat = ({
     return (
         <Wrapper dark={dark}>
             <FormWrapper>
-                <CenterWrapper>
+                <Container>
                     <StyledHeader as="h3" weight="bold" color={dark ? 'white' : 'black'}>
                         {localize('Join over 1 million traders worldwide')}
                     </StyledHeader>
@@ -186,7 +179,7 @@ const SignupFlat = ({
                             </span>
                         </SocialButton>
                     </SocialWrapper>
-                </CenterWrapper>
+                </Container>
                 <Splitter dark={dark}></Splitter>
                 <RightWrapper>
                     <Text

@@ -39,7 +39,10 @@ const Box = styled.div`
     }
 `
 const Europe = styled(EU)`
-    max-width: 100%;
+    max-width: 69rem;
+    max-height: 63rem;
+    width: 100%;
+    height: 100%;
     margin: 0;
 `
 const MaxText = styled(Text)`

@@ -15,6 +15,11 @@ export const Card = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media ${device.mobileL} {
+        width: 36.4rem;
+        min-width: 36.4rem;
+    }
 `
 export const CardWrapper = styled(Flex)`
     justify-content: center;

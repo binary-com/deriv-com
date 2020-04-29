@@ -13,7 +13,7 @@ import { Button } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
 import DNumber from 'components/custom/_dnumbers.js'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import Partner from 'common/partner'
 import device from 'themes/device'
 
@@ -26,36 +26,38 @@ const StyledHeader = styled(Header)`
     }
 `
 const items = [
-    { title: '47K+', subtitle: localize('members') },
-    { title: '$14M+', subtitle: localize('paid out') },
-    { title: '150+', subtitle: localize('countries') },
-    { title: '1M+', subtitle: localize('clients') },
+    { title: '47K+', subtitle: <Localize translate_text="members" /> },
+    { title: '$14M+', subtitle: <Localize translate_text="paid out" /> },
+    { title: '150+', subtitle: <Localize translate_text="countries" /> },
+    { title: '1M+', subtitle: <Localize translate_text="clients" /> },
 ]
 
 const why_partner_with_us_items = [
     {
-        title: localize('Multiple income opportunities and generous commissions'),
-        subtitle: localize(
-            'Start off as an affiliate and get ensuing access to our IB programme. Earn commission for as long as your referred clients keep trading.',
+        title: <Localize translate_text="Multiple income opportunities and generous commissions" />,
+        subtitle: (
+            <Localize translate_text="Start off as an affiliate and get ensuing access to our IB programme. Earn commission for as long as your referred clients keep trading." />
         ),
         image_name: 'multiple_income_opportunities',
-        image_alt: localize('Multiple income opportunities'),
+        image_alt: <Localize translate_text="Multiple income opportunities" />,
     },
     {
-        title: localize('Zero charges with prompt monthly and daily payouts'),
-        subtitle: localize(
-            'All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily.',
+        title: <Localize translate_text="Zero charges with prompt monthly and daily payouts" />,
+        subtitle: (
+            <Localize translate_text="All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your DMT5 account daily." />
         ),
         image_name: 'daily_ib_commission',
-        image_alt: localize('Daily IB commission'),
+        image_alt: <Localize translate_text="Daily IB commission" />,
     },
     {
-        title: localize('Optimise conversions with great user experience and creative support'),
-        subtitle: localize(
-            'We’ve designed a customer-centric and intuitive trading experience for Deriv that’s optimised to convert visitors into clients. We’ll also provide you with the tools and creative materials you need to drive traffic to Deriv.',
+        title: (
+            <Localize translate_text="Optimise conversions with great user experience and creative support" />
+        ),
+        subtitle: (
+            <Localize translate_text="We’ve designed a customer-centric and intuitive trading experience for Deriv that’s optimised to convert visitors into clients. We’ll also provide you with the tools and creative materials you need to drive traffic to Deriv." />
         ),
         image_name: 'marketing_material',
-        image_alt: localize('Marketing material'),
+        image_alt: <Localize translate_text="Marketing material" />,
     },
 ]
 const AffiliateIb = () => {

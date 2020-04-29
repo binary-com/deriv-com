@@ -499,7 +499,7 @@ const ResetWorkspace = () => (
         <StyledHeader as="h4">{localize('How do I reset the workspace?')}</StyledHeader>
         <Text>
             {localize(
-                "Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost. ",
+                "Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost.",
             )}
         </Text>
         <ImageWrapper>
@@ -580,7 +580,7 @@ const ControlLosses = () => (
                     <Td>
                         <Text>
                             {localize(
-                                'This will store the stake amount used in the last purchased contract. You can assign any amount based on your strategy. ',
+                                'This will store the stake amount used in the last purchased contract. You can assign any amount based on your strategy.',
                             )}
                         </Text>
                     </Td>

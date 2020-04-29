@@ -210,16 +210,19 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             <ListContainer aria-expanded={`${is_open ? 'true' : 'false'}`} role="list">
                 <UnorderedList open={is_open}>
                     <Scrollbar style={{ maxHeight: '17rem' }}>
-                        {option_list.map((option) => (
-                            <ListItem
-                                tabIndex="0"
-                                id={option.value}
-                                key={option.value}
-                                ref={(c) => nodes.set(option.value, c)}
-                            >
-                                {option.text}
-                            </ListItem>
-                        ))}
+                        {option_list.map(
+                            (option) =>
+                                option && (
+                                    <ListItem
+                                        tabIndex="0"
+                                        id={option.value}
+                                        key={option.value}
+                                        ref={(c) => nodes.set(option.value, c)}
+                                    >
+                                        {option.text}
+                                    </ListItem>
+                                ),
+                        )}
                     </Scrollbar>
                 </UnorderedList>
             </ListContainer>

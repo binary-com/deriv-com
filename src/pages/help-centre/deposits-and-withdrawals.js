@@ -161,7 +161,7 @@ const WithdrawMaestroMastercard = () => (
 
 const DepositsAndWithdrawalArticle = () => {
     return (
-        <Article header="Deposits and withdrawals">
+        <Article header={localize('Deposits and withdrawals')}>
             <PaymentMethods
                 text={localize('What payment methods do you support?')}
                 label="payment-methods"

@@ -1,5 +1,5 @@
 import React from 'react'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 const Stories = [
     {
@@ -9,7 +9,7 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [{ header: localize('Regent Markets is born') }],
+                headers: [{ header: <Localize translate_text="Regent Markets is born" /> }],
                 texts: [
                     {
                         text: (
@@ -21,7 +21,7 @@ const Stories = [
                     },
                 ],
                 image: 'regent_market_logo',
-                image_alt: localize('Regent Market'),
+                image_alt: <Localize translate_text="Regent Market" />,
                 image_position: 'center',
                 image_width: '28.2rem',
                 image_mobile_width: '25.9rem',
@@ -35,17 +35,17 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [{ header: localize('First binary option purchased') }],
+                headers: [{ header: <Localize translate_text="First binary option purchased" /> }],
                 texts: [
                     {
-                        text: localize(
-                            'Regent Markets opens its first office in Malta. The first binary option is purchased. ',
+                        text: (
+                            <Localize translate_text="Regent Markets opens its first office in Malta. The first binary option is purchased." />
                         ),
                     },
                 ],
 
                 image: 'flag_malta',
-                image_alt: localize('Malta Flag'),
+                image_alt: <Localize translate_text="Malta Flag" />,
                 image_position: 'right',
                 image_width: '11.4rem',
                 image_mobile_width: '10.3rem',
@@ -59,16 +59,16 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [{ header: localize('BetOnMarkets.com') }],
+                headers: [{ header: <Localize translate_text="BetOnMarkets.com" /> }],
                 texts: [
                     {
-                        text: localize(
-                            'Regent Markets launches BetOnMarkets.com, the first platform to offer binary options to retail traders.',
+                        text: (
+                            <Localize translate_text="Regent Markets launches BetOnMarkets.com, the first platform to offer binary options to retail traders." />
                         ),
                     },
                 ],
                 image: 'bet_on_markets_logo',
-                image_alt: localize('Bet on Markets'),
+                image_alt: <Localize translate_text="Bet on Markets" />,
                 image_position: 'center',
                 image_width: '28.2rem',
                 image_mobile_width: '24rem',
@@ -83,16 +83,16 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [{ header: localize('A new hub') }],
+                headers: [{ header: <Localize translate_text="A new hub" /> }],
                 texts: [
                     {
-                        text: localize(
-                            'Regent Markets establishes a second office, a tech hub in Cyberjaya, the Silicon Valley of Malaysia.',
+                        text: (
+                            <Localize translate_text="Regent Markets establishes a second office, a tech hub in Cyberjaya, the Silicon Valley of Malaysia." />
                         ),
                     },
                 ],
                 image: 'isle_of_man_flag',
-                image_alt: localize('Isle of Man Flag'),
+                image_alt: <Localize translate_text="Isle of Man Flag" />,
                 image_position: 'right',
                 image_width: '11.4rem',
                 image_mobile_width: '11.1rem',
@@ -106,7 +106,7 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [{ header: localize('Recognition after recognition') }],
+                headers: [{ header: <Localize translate_text="Recognition after recognition" /> }],
                 texts: [
                     {
                         text: (
@@ -118,7 +118,7 @@ const Stories = [
                     },
                 ],
                 image: 'awards',
-                image_alt: localize('Awards'),
+                image_alt: <Localize translate_text="Awards" />,
                 image_position: 'center',
                 image_width: '25.2rem',
                 image_mobile_width: '23.7rem',
@@ -133,16 +133,16 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [{ header: localize('Binary.com') }],
+                headers: [{ header: <Localize translate_text="Binary.com" /> }],
                 texts: [
                     {
-                        text: localize(
-                            'BetOnMarkets rebrands to Binary.com. The rebrand comes with enhanced features, a new range of trade types, and a variety of charting applications.',
+                        text: (
+                            <Localize translate_text="BetOnMarkets rebrands to Binary.com. The rebrand comes with enhanced features, a new range of trade types, and a variety of charting applications." />
                         ),
                     },
                 ],
                 image: 'logo_binary',
-                image_alt: localize('Binary Logo'),
+                image_alt: <Localize translate_text="Binary Logo" />,
                 image_position: 'center',
                 image_width: '15.6rem',
                 image_mobile_width: '15.1rem',
@@ -158,16 +158,16 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [{ header: localize('Licensed financial product') }],
+                headers: [{ header: <Localize translate_text="Licensed financial product" /> }],
                 texts: [
                     {
-                        text: localize(
-                            'The Malta Financial Services Authority grants Binary.com a Category 3 Investment Services licence. The licence authorises Binary.com to offer our service to clients in the European Union as a financial product.',
+                        text: (
+                            <Localize translate_text="The Malta Financial Services Authority grants Binary.com a Category 3 Investment Services licence. The licence authorises Binary.com to offer our service to clients in the European Union as a financial product." />
                         ),
                     },
                 ],
                 image: 'eu_flag',
-                image_alt: localize('EU Flag'),
+                image_alt: <Localize translate_text="EU Flag" />,
                 image_position: 'left',
                 image_width: '11.4rem',
                 image_mobile_width: '11.4rem',
@@ -175,16 +175,16 @@ const Stories = [
             },
             {
                 left: true,
-                headers: [{ header: localize('Binary.com Websocket API') }],
+                headers: [{ header: <Localize translate_text="Binary.com Websocket API" /> }],
                 texts: [
                     {
-                        text: localize(
-                            'Third-party developers can now build customised applications and trading interfaces that interact with the Binary.com system, increasing our accessibility. ',
+                        text: (
+                            <Localize translate_text="Third-party developers can now build customised applications and trading interfaces that interact with the Binary.com system, increasing our accessibility." />
                         ),
                     },
                 ],
                 image: 'logo_developers',
-                image_alt: localize('Binary Developers'),
+                image_alt: <Localize translate_text="Binary Developers" />,
                 image_position: 'center',
                 image_width: '21.4rem',
                 image_mobile_width: '21.5rem',
@@ -200,24 +200,24 @@ const Stories = [
             {
                 left: true,
                 headers: [
-                    { header: localize('Binary Bot') },
-                    { header: localize('Tick Trade app'), margin_top: '2.4rem' },
+                    { header: <Localize translate_text="Binary Bot" /> },
+                    { header: <Localize translate_text="Tick Trade app" />, margin_top: '2.4rem' },
                 ],
                 texts: [
                     {
-                        text: localize(
-                            'Binary.com introduces Binary Bot, an innovative platform that offers a drag-and-drop programming tool, enabling traders to automate their trading strategies without knowing how to code.',
+                        text: (
+                            <Localize translate_text="Binary.com introduces Binary Bot, an innovative platform that offers a drag-and-drop programming tool, enabling traders to automate their trading strategies without knowing how to code." />
                         ),
                     },
                     {
-                        text: localize(
-                            'Binary.com brings a new and exciting online trading experience to mobile with the Tick Trade app.',
+                        text: (
+                            <Localize translate_text="Binary.com brings a new and exciting online trading experience to mobile with the Tick Trade app." />
                         ),
                     },
                 ],
 
                 image: 'laptop',
-                image_alt: localize('Binary Trading'),
+                image_alt: <Localize translate_text="Binary Trading" />,
                 image_position: 'center',
                 image_width: '25rem',
                 image_mobile_width: '18.8rem',
@@ -226,24 +226,24 @@ const Stories = [
             {
                 left: false,
                 headers: [
-                    { header: localize('CFDs on MT5 ') },
-                    { header: localize('Webtrader'), margin_top: '2.4rem' },
+                    { header: <Localize translate_text="CFDs on MT5" /> },
+                    { header: <Localize translate_text="Webtrader" />, margin_top: '2.4rem' },
                 ],
                 texts: [
                     {
-                        text: localize(
-                            'Binary.com adds Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders. ',
+                        text: (
+                            <Localize translate_text="Binary.com adds Contracts for Difference (CFDs), the most popular form of derivative trading for retail traders." />
                         ),
                     },
                     {
-                        text: localize(
-                            'Binary.com makes it possible to monitor multiple trade activities, market movements, and charts with this full-screen trading interface on Binary.com.',
+                        text: (
+                            <Localize translate_text="Binary.com makes it possible to monitor multiple trade activities, market movements, and charts with this full-screen trading interface on Binary.com." />
                         ),
                     },
                 ],
 
                 image: 'logo_mt5',
-                image_alt: localize('MT5 Logo'),
+                image_alt: <Localize translate_text="MT5 Logo" />,
                 image_position: 'center',
                 image_width: '28.2rem',
                 image_mobile_width: '19.4rem',
@@ -257,16 +257,16 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [{ header: localize('New office') }],
+                headers: [{ header: <Localize translate_text="New office" /> }],
                 texts: [
                     {
-                        text: localize(
-                            'Binary.com opens a third office in Labuan, Malaysia, as part of our business expansion.',
+                        text: (
+                            <Localize translate_text="Binary.com opens a third office in Labuan, Malaysia, as part of our business expansion." />
                         ),
                     },
                 ],
                 image: 'flag_labuan',
-                image_alt: localize('Labuan Flag'),
+                image_alt: <Localize translate_text="Labuan Flag" />,
                 image_position: 'right',
                 image_width: '11.4rem',
                 image_mobile_width: '11.1rem',
@@ -280,16 +280,16 @@ const Stories = [
         contents: [
             {
                 left: false,
-                headers: [{ header: localize('Continued expansion ') }],
+                headers: [{ header: <Localize translate_text="Continued expansion" /> }],
                 texts: [
                     {
-                        text: localize(
-                            'Offices are opened in Dubai and Paraguay to support our growth.',
+                        text: (
+                            <Localize translate_text="Offices are opened in Dubai and Paraguay to support our growth." />
                         ),
                     },
                 ],
                 image: 'dubai_paraguay_flags',
-                image_alt: localize('Dubai and Paraguay Flag'),
+                image_alt: <Localize translate_text="Dubai and Paraguay Flag" />,
                 image_position: 'left',
                 margin_bottom: '6rem',
                 image_width: '19.2rem',
@@ -305,16 +305,16 @@ const Stories = [
         contents: [
             {
                 left: true,
-                headers: [{ header: localize('Deriv.com') }],
+                headers: [{ header: <Localize translate_text="Deriv.com" /> }],
                 texts: [
                     {
-                        text: localize(
-                            'We celebrate 20 years of innovation and growth! Inspired by our clients who are driven to succeed, we launch Deriv.com. Featuring customisable charts and tools, Deriv is created to be a place where people can trade what they want, how they want. ',
+                        text: (
+                            <Localize translate_text="We celebrate 20 years of innovation and growth! Inspired by our clients who are driven to succeed, we launch Deriv.com. Featuring customisable charts and tools, Deriv is created to be a place where people can trade what they want, how they want." />
                         ),
                     },
                 ],
                 image: 'deriv_laptop',
-                image_alt: localize('Deriv Trading'),
+                image_alt: <Localize translate_text="Deriv Trading" />,
                 image_position: 'center',
                 margin_right: '6rem',
                 margin_left: '-0.7rem',

@@ -83,7 +83,7 @@ export const SearchSuccess = ({ suggested_topics, max_length }) => (
             <ListWrapper key={idx}>
                 <ListNoBullets>
                     <StyledLink to={convertToHash(article.category, article.label)}>
-                        {article.title}
+                        {localize(article.title)}
                     </StyledLink>
                 </ListNoBullets>
             </ListWrapper>

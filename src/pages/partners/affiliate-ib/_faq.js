@@ -64,7 +64,7 @@ const Faq = () => {
                         style={item_style}
                         plus
                     >
-                        {AffiliateGeneral}
+                        {<AffiliateGeneral />}
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Account management')}
@@ -73,7 +73,7 @@ const Faq = () => {
                         style={item_style}
                         plus
                     >
-                        {AffiliateAccountManagement}
+                        {<AffiliateAccountManagement />}
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Referral tools')}
@@ -82,7 +82,7 @@ const Faq = () => {
                         style={item_style}
                         plus
                     >
-                        {AffiliateReferralTools}
+                        {<AffiliateReferralTools />}
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>
@@ -98,7 +98,7 @@ const Faq = () => {
                         style={item_style}
                         plus
                     >
-                        {IBGeneral}
+                        {<IBGeneral />}
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Account management')}
@@ -107,7 +107,7 @@ const Faq = () => {
                         style={item_style}
                         plus
                     >
-                        {IBAccountManagement}
+                        {<IBAccountManagement />}
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Referral tools')}
@@ -116,7 +116,7 @@ const Faq = () => {
                         style={item_style}
                         plus
                     >
-                        {IBReferralTools}
+                        {<IBReferralTools />}
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>

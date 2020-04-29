@@ -67,7 +67,7 @@ const ImageWrapper = styled.div`
     }
     @media ${device.mobileM} {
         & > img {
-            max-width: 37rem;
+            width: 37rem !important;
         }
     }
 `

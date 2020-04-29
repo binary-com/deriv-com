@@ -51,7 +51,7 @@ const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
     }
 `
 
-const AffiliateGeneral = (
+const AffiliateGeneral = () => (
     <ItemContainer>
         <Header as="h5">{localize('What is the Deriv Affiliate Programme?')}</Header>
         <TextPrimary>
@@ -128,7 +128,7 @@ const AffiliateGeneral = (
         </TextPrimary>
     </ItemContainer>
 )
-const AffiliateAccountManagement = (
+const AffiliateAccountManagement = () => (
     <ItemContainer>
         <Header as="h5">{localize('How can I sign up as a Deriv affiliate?')}</Header>
         <TextPrimary>
@@ -224,7 +224,7 @@ const AffiliateAccountManagement = (
     </ItemContainer>
 )
 
-const AffiliateReferralTools = (
+const AffiliateReferralTools = () => (
     <ItemContainer>
         <Header as="h5">{localize('What kind of referral tools do you offer?')}</Header>
         <TextPrimary>
@@ -245,7 +245,7 @@ const scrollToIb = (e) => {
     }
 }
 
-const IBGeneral = (
+const IBGeneral = () => (
     <ItemContainer>
         <Header as="h5">{localize('What is the Deriv IB Programme?')}</Header>
         <TextPrimary>
@@ -277,7 +277,7 @@ const IBGeneral = (
     </ItemContainer>
 )
 
-const IBAccountManagement = (
+const IBAccountManagement = () => (
     <ItemContainer>
         <Header as="h5">{localize('How can I sign up as a Deriv IB?')}</Header>
         <TextPrimary>
@@ -310,7 +310,7 @@ const IBAccountManagement = (
     </ItemContainer>
 )
 
-const IBReferralTools = (
+const IBReferralTools = () => (
     <ItemContainer>
         <Header as="h5">{localize('Do you offer any referral tools to your IBs?')}</Header>
         <TextPrimary>

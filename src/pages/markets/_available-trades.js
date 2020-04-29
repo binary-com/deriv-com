@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 //SVG
@@ -145,46 +145,7 @@ Card.propTypes = {
     name: PropTypes.string,
     onTabChange: PropTypes.func,
 }
-const TabsContent = {
-    Forex: {
-        margin: localize(
-            'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
-        ),
-        options: localize(
-            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on forex.',
-        ),
-        multipliers: localize(
-            'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.',
-        ),
-    },
-    Commodity: {
-        margin: localize(
-            'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
-        ),
-        options: localize(
-            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on Commodities.',
-        ),
-    },
-    'Stock indices': {
-        margin: localize(
-            'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
-        ),
-        options: localize(
-            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on stock indices',
-        ),
-    },
-    'Synthetic Indices': {
-        margin: localize(
-            'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment',
-        ),
-        options: localize(
-            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options, lookbacks, and call/put spreads on Synthetic Indices.',
-        ),
-        multipliers: localize(
-            'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment',
-        ),
-    },
-}
+
 class AvailableTrades extends React.Component {
     state = {
         active_tab: 'Margin',
@@ -198,7 +159,7 @@ class AvailableTrades extends React.Component {
         return (
             <StyledSection>
                 <StyledHeader size="var(--text-size-header-1)" align="center">
-                    {localize(name + ' trades available on Deriv')}
+                    {name + ' ' + localize('trades available on Deriv')}
                 </StyledHeader>
                 <StyledContainer
                     direction="column"
@@ -209,24 +170,21 @@ class AvailableTrades extends React.Component {
                     <CardWrapper position="relative">
                         {Margin && (
                             <Card
-                                name={localize('Margin')}
-                                content={TabsContent[name].margin}
+                                name={<Localize translate_text="Margin" />}
                                 onTabChange={() => this.handleTabChange('Margin')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
                         {DigitalOptions && (
                             <Card
-                                name={localize('Options')}
-                                content={TabsContent[name].options}
+                                name={<Localize translate_text="Options" />}
                                 onTabChange={() => this.handleTabChange('Options')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
                         {Multipliers && (
                             <Card
-                                name={localize('Multipliers')}
-                                content={TabsContent[name].multipliers}
+                                name={<Localize translate_text="Multipliers" />}
                                 onTabChange={() => this.handleTabChange('Multipliers')}
                                 active_tab={this.state.active_tab}
                             />

@@ -4,13 +4,12 @@ import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
 import { Helmet } from 'react-helmet'
 import { Header, Text, Divider } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import RobertoImage from 'images/common/roberto.png'
 import FabioImage from 'images/common/fabio.png'
-import PaulImage from 'images/common/paul.png'
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
@@ -179,33 +178,24 @@ ClientSlide.propTypes = {
 
 const roberto = {
     name: 'Roberto Arcanjo',
-    title: localize('CEO - Mercado Trader'),
+    title: <Localize translate_text="CEO - Mercado Trader" />,
     img_path: RobertoImage,
-    quote: localize(
-        'I am very excited about all the technology involved in Deriv.com —  an intuitive and optimised platform.',
+    quote: (
+        <Localize translate_text="I am very excited about all the technology involved in Deriv.com —  an intuitive and optimised platform." />
     ),
     index: 1,
 }
 const fabio = {
     name: 'Fábio Oliveira',
-    title: localize('CEO - Bitcoin Informer'),
+    title: <Localize translate_text="CEO - Bitcoin Informer" />,
     img_path: FabioImage,
-    quote: localize(
-        'It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more.',
-    ),
-    index: 2,
-}
-const paul = {
-    name: 'Paul Mugenda',
-    title: localize('Forex trader '),
-    img_path: PaulImage,
-    quote: localize(
-        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
+    quote: (
+        <Localize translate_text="It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more." />
     ),
     index: 2,
 }
 
-const our_client_slides = [roberto, fabio, paul]
+const our_client_slides = [roberto, fabio]
 
 const WhatOurClientsSay = () => {
     const [swiper, updateSwiper] = useState(null)

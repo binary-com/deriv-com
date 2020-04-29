@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import CtaBinary from './_cta-binary'
 import { Container, Flex, Box } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -25,7 +26,7 @@ const Section = styled(Box)`
 `
 
 const AbsoluteWrapper = styled(Box)`
-    margin-bottom: -5.4rem;
+    margin-bottom: -3.8rem;
 
     @media (max-width: 1375px) {
         display: none;
@@ -75,24 +76,25 @@ const HeroDeriv = ({ interim_type }) => {
     const data = useStaticQuery(query)
     return (
         <>
-            <Section bg="var(--color-black)" p="3.6rem 0 5.4rem">
+            <Section bg="var(--color-black)" p="3.2rem 0">
                 <Container jc="space-around">
-                    <Flex fd="column">
-                        <Header as="h3" mb="4rem">
+                    <Flex fd="column" ai="center" max_width="28.2rem">
+                        <Header as="h3" mb="4rem" align="center">
                             {localize('Be among the first to try Deriv')}
                         </Header>
                         <FitButton secondary to="/">
                             {localize('Visit Deriv now')}
                         </FitButton>
+                        <CtaBinary />
                     </Flex>
                     <AbsoluteWrapper>
-                        <QueryImage data={data[interim_type]} width="54rem" height="27.5rem" />
+                        <QueryImage data={data[interim_type]} width="54rem" height="29.6rem" />
                     </AbsoluteWrapper>
 
-                    <RightFlex fd="column" ml="2.4rem" ai="flex-start">
+                    <RightFlex fd="column" ml="2.4rem" ai="center">
                         {interim_type === 'dbot' ? (
                             <>
-                                <White as="h3" mb="3rem">
+                                <White as="h3" mb="3rem" align="center">
                                     {localize('Love Binary Bot?')}
                                 </White>
                                 <FitButton
@@ -107,7 +109,7 @@ const HeroDeriv = ({ interim_type }) => {
                             </>
                         ) : (
                             <>
-                                <White as="h3" mb="3rem">
+                                <White as="h3" mb="3rem" align="center">
                                     {localize('Love trading on Binary.com’s signature platform? ')}
                                 </White>
                                 <FitButton
@@ -121,6 +123,7 @@ const HeroDeriv = ({ interim_type }) => {
                                 </FitButton>
                             </>
                         )}
+                        <CtaBinary is_white />
                     </RightFlex>
                 </Container>
             </Section>

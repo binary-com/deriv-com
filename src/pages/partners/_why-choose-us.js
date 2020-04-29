@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import { localize } from 'components/localization'
 // SVG
 import Hand from 'images/svg/hand-icon.svg'
 import Lamp from 'images/svg/lamp-icon.svg'
@@ -37,37 +38,40 @@ const WhyChooseUs = () => {
         <SectionContainer background="grey-4">
             <Container direction="column">
                 <Header as="h2" align="center" mb="4rem">
-                    Why choose us?
+                    {localize('Why choose us?')}
                 </Header>
                 <Wrapper>
                     <Card direction="column">
                         <Hand />
                         <Header as="h4" mb="0.8rem">
-                            Partnership with a trusted pioneer
+                            {localize('Partnership with a trusted pioneer')}
                         </Header>
                         <Text>
-                            Benefit from our extensive experience of more than 20 years and our
-                            internationally acclaimed reputation.
+                            {localize(
+                                'Benefit from our extensive experience of more than 20 years and our internationally acclaimed reputation.',
+                            )}
                         </Text>
                     </Card>
                     <Card direction="column">
                         <Lamp />
                         <Header as="h4" mb="0.8rem">
-                            Diverse opportunities
+                            {localize('Diverse opportunities')}
                         </Header>
                         <Text>
-                            We have a range of partnership opportunities that you can benefit from,
-                            regardless of your skill set or background.
+                            {localize(
+                                'We have a range of partnership opportunities that you can benefit from, regardless of your skill set or background.',
+                            )}
                         </Text>
                     </Card>
                     <Card direction="column">
                         <HiddenFee />
                         <Header as="h4" mb="0.8rem">
-                            No charges or hidden fees
+                            {localize('No charges or hidden fees')}
                         </Header>
                         <Text>
-                            All Deriv partnership programmes are free to join. There are absolutely
-                            no charges or hidden fees to worry about.
+                            {localize(
+                                'All Deriv partnership programmes are free to join. There are absolutely no charges or hidden fees to worry about.',
+                            )}
                         </Text>
                     </Card>
                 </Wrapper>

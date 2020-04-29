@@ -72,7 +72,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={localize('Up/Down')}
+                                title={<Localize translate_text="Up/Down" />}
                                 svg={RiseFall}
                                 content={
                                     <Localize
@@ -98,7 +98,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 svg={EbEo}
-                                title={localize('In/Out')}
+                                title={<Localize translate_text="In/Out" />}
                                 content={
                                     <Localize
                                         translate_text="<0>Ends Between/Ends Outside:</0> Predict whether the market will stop inside or outside two price targets at the end of the period."
@@ -123,7 +123,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 svg={CallSpread}
-                                title={localize('Call Spread/Put Spread')}
+                                title={<Localize translate_text="Call Spread/Put Spread" />}
                                 content={
                                     <Localize
                                         translate_text="<0>Call Spread:</0> Predict whether the exit spot will be higher or equal to the upper barrier."
@@ -148,7 +148,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 svg={TNT}
-                                title={localize('Touch/No Touch:')}
+                                title={<Localize translate_text="Touch/No Touch:" />}
                                 content={localize(
                                     'Predict whether the market will touch or not touch a target at any time during the contract period.',
                                 )}

@@ -70,7 +70,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={localize('Up/Down')}
+                                title={<Localize translate_text="Up/Down" />}
                                 svg={RiseFall}
                                 content={
                                     <Localize
@@ -95,7 +95,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={localize('In/Out')}
+                                title={<Localize translate_text="In/Out" />}
                                 svg={EbEo}
                                 content={
                                     <Localize
@@ -121,10 +121,10 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 svg={TNT}
-                                title={localize('Touch/No Touch:')}
-                                content={localize(
-                                    'Predict whether the market will touch or not touch a target at any time during the contract period.',
-                                )}
+                                title={<Localize translate_text="Touch/No Touch:" />}
+                                content={
+                                    <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />
+                                }
                             />
                         </Col>
                     </Row>

@@ -8,7 +8,7 @@ import { Hero } from './_hero'
 import Signup, { Appearances } from 'components/custom/signup'
 import { getLocationHash, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Flex, Box } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
@@ -18,23 +18,23 @@ import WithdrawIcon from 'images/svg/withdraw.svg'
 
 const simple_step_content = [
     {
-        header: localize('Practise'),
-        text: localize(
-            'Open a demo account and practise with an unlimited amount of virtual funds.',
+        header: <Localize translate_text="Practise" />,
+        text: (
+            <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
         ),
         icon: <PractiseIcon />,
     },
     {
-        header: localize('Trade'),
-        text: localize(
-            'Open a real account, make a deposit, and start trading Synthetic Indices and other markets.',
+        header: <Localize translate_text="Trade" />,
+        text: (
+            <Localize translate_text="Open a real account, make a deposit, and start trading Synthetic Indices and other markets." />
         ),
         icon: <TradeIcon />,
     },
     {
-        header: localize('Withdraw'),
-        text: localize(
-            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+        header: <Localize translate_text="Withdraw" />,
+        text: (
+            <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
         ),
         icon: <WithdrawIcon />,
     },

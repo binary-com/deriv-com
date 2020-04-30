@@ -293,6 +293,11 @@ const FlexHover = styled(Flex)`
         width: 24px;
         height: 24px;
         margin-right: 1.6rem;
+
+        @media ${device.mobileL} {
+            width: 30px;
+            height: 30px;
+        }
     }
     &:hover {
         ${RightDiagonal} {

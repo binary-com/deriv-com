@@ -5,10 +5,10 @@ import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 // Icons
-import ForexIcon from 'pages/markets-svg/_market-forex.js'
-import StockIcon from 'pages/markets-svg/_market-stock.js'
-import CommoditiesIcon from 'pages/markets-svg/_market-commodities.js'
-import SyntheticIndicesIcon from 'pages/markets-svg/_market-synthetic.js'
+import ForexIcon from 'components/svgs/_market-forex.js'
+import StockIcon from 'components/svgs/_market-stock.js'
+import CommoditiesIcon from 'components/svgs/_market-commodities.js'
+import SyntheticIndicesIcon from 'components/svgs/_market-synthetic.js'
 // Images
 const StyledSection = styled(SectionContainer)`
     background-color: rgba(242, 243, 244, 0.3);

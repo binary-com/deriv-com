@@ -14,6 +14,11 @@ const DFYASection = styled(Container)`
     padding: 3.5rem 0;
     justify-content: flex-start;
     align-items: center;
+    @media ${device.mobileL} {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 
     & > * {
         width: auto;
@@ -23,6 +28,13 @@ const StyledIcon = styled(ContactUsIcon)`
     @media ${device.tabletL} {
         width: 30px;
         height: 30px;
+        margin-right: 1.6rem;
+    }
+`
+const MiddleText = styled(Text)`
+    @media ${device.mobileL} {
+        margin: 1.6rem 0;
+        text-align: center;
     }
 `
 
@@ -30,9 +42,9 @@ export const DidntFindYourAnswerBanner = () => (
     <DFYAWrapper>
         <DFYASection>
             <StyledIcon />
-            <Text size="var(--text-size-l)" color="white" weight="bold" m="0 2.4rem">
+            <MiddleText size="var(--text-size-l)" color="white" weight="bold" m="0 2.4rem">
                 {localize('Didn’t find your answer?')}
-            </Text>
+            </MiddleText>
             <LinkButton secondary="true" to="/contact-us" weight="bold" color="black">
                 {localize('Contact us')}
             </LinkButton>

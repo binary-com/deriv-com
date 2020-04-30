@@ -252,20 +252,22 @@ const ResponsibleTrading = () => {
                 </Container>
             </Section>
             <Section padding="4rem 0">
-                <Flex ai="center" direction="column">
-                    <DemoIcon />
-                    <NewHeader as="h4" size="var(--text-size-header-1)" align="center">
-                        {localize('New to trading?')}
-                    </NewHeader>
-                    <StyledHeader as="h5" align="center" weight="400" lh="2.4rem" mb="4rem">
-                        {localize(
-                            'Use our demo account and learn how to trade by using risk-free virtual funds.',
-                        )}
-                    </StyledHeader>
-                    <LinkButton secondary="true" to="/signup/">
-                        {localize('Create free demo account')}
-                    </LinkButton>
-                </Flex>
+                <Container>
+                    <Flex ai="center" direction="column">
+                        <DemoIcon />
+                        <NewHeader as="h4" size="var(--text-size-header-1)" align="center">
+                            {localize('New to trading?')}
+                        </NewHeader>
+                        <StyledHeader as="h5" align="center" weight="400" lh="2.4rem" mb="4rem">
+                            {localize(
+                                'Use our demo account and learn how to trade by using risk-free virtual funds.',
+                            )}
+                        </StyledHeader>
+                        <LinkButton secondary="true" to="/signup/">
+                            {localize('Create free demo account')}
+                        </LinkButton>
+                    </Flex>
+                </Container>
             </Section>
         </Layout>
     )

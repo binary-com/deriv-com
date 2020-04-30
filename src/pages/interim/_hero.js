@@ -58,17 +58,18 @@ const HeroDeriv = ({ interim_type }) => {
                     <ResponsiveFlex fd="column" max_width="58.8rem" ai="center">
                         <ResponsiveHeader as="h2" mb="1.2rem" align="center">
                             {interim_type === 'dbot'
-                                ? localize('Introducing Deriv — the home to DBot')
-                                : localize(
-                                      'Introducing Deriv — our new comprehensive online trading service',
-                                  )}
-                            {}
+                                ? localize('Introducing DBot on Deriv.com')
+                                : localize('You inspired us to create something new')}
                         </ResponsiveHeader>
                         <Header as="h4" weight="normal" mb="4rem" align="center">
-                            {localize('Built upon 20+ years of experience')}
+                            {interim_type === 'dbot'
+                                ? localize('Our improved bot builder at our new home')
+                                : localize(
+                                      'Enjoy trading your way on Deriv.com, Binary.com’s new home',
+                                  )}
                         </Header>
                         <FitButton secondary to="/">
-                            {localize('Explore Deriv')}
+                            {localize('Explore Deriv.com')}
                         </FitButton>
                         <CtaBinary is_white />
                     </ResponsiveFlex>
@@ -81,11 +82,20 @@ const HeroDeriv = ({ interim_type }) => {
                     </ImgWrapper>
                 </Container>
             </Section>
-            <Container p="8rem 0">
+            <Container p="8rem 0" fd="column">
+                {interim_type === 'dbot' && (
+                    <Header as="h4" weight="normal" align="center" mb="3.6rem">
+                        {localize('You read right. We are rebranding Binary.com to Deriv.com.')}
+                    </Header>
+                )}
                 <Header as="h4" weight="normal" align="center">
-                    {localize(
-                        'In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new, clean, and modern as we enter our 21st year.',
-                    )}
+                    {interim_type === 'dbot'
+                        ? localize(
+                              'Here’s why: In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
+                          )
+                        : localize(
+                              'In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
+                          )}
                 </Header>
             </Container>
         </>

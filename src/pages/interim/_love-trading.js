@@ -26,7 +26,7 @@ const Section = styled(Box)`
 `
 
 const AbsoluteWrapper = styled(Box)`
-    margin-bottom: -3.8rem;
+    margin-bottom: -3.2rem;
 
     @media (max-width: 1375px) {
         display: none;

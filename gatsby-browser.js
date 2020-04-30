@@ -33,7 +33,6 @@ export const onInitialClientRender = () => {
             document.head.appendChild(jipt)
         }
     }
-
     // Configure traffic source
     TrafficSource.initUtmCookie()
     TrafficSource.setData()

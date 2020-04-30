@@ -4,6 +4,7 @@ import { Article } from './_article'
 import { deriv_app_url } from 'common/utility'
 import { Text, Header } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -14,6 +15,11 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+    margin-top: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
+    }
 `
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -84,7 +90,7 @@ const DigitalOptions = () => (
         <StyledHeader as="h4">{localize('What are digital options?')}</StyledHeader>
         <Text>
             {localize(
-                'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results. ',
+                'A digital option is a financial instrument with a fixed payout where you predict the outcome from only two possible results.',
             )}
         </Text>
     </ArticleWrapper>
@@ -133,17 +139,13 @@ const WeekendContracts = () => (
         <StyledHeader as="h4">
             {localize('What contracts are available for trading on weekends?')}
         </StyledHeader>
-        <Text>
-            {localize(
-                'You can trade synthetic indices 24/7 in all countries except Australia, France, Germany, Greece, Italy, Luxembourg, Singapore, and Spain due to regulatory requirements.',
-            )}
-        </Text>
+        <Text>{localize('Synthetic indices are available for trading 24/7.')}</Text>
     </ArticleWrapper>
 )
 
 const TradingArticle = () => {
     return (
-        <Article header="Trading">
+        <Article header={localize('Trading')}>
             <Forex text={localize('What is forex?')} label="what-is-forex" />
             <Commodities text={localize('What are commodities?')} label="what-are-commodities" />
             <StockIndices

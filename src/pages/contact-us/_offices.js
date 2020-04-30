@@ -1,7 +1,8 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { Text, LinkText } from 'components/elements/typography'
-import { Header, Image } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { map_api_key } from 'common/utility'
@@ -9,6 +10,19 @@ import { map_api_key } from 'common/utility'
 import MapSVG from 'images/svg/map.svg'
 import PhoneSVG from 'images/svg/phone.svg'
 
+const query = graphql`
+    query {
+        map_paraguay: file(relativePath: { eq: "map-paraguay.png" }) {
+            ...fadeIn
+        }
+        map_dubai_office: file(relativePath: { eq: "map-dubai-office.png" }) {
+            ...fadeIn
+        }
+        map_labuan: file(relativePath: { eq: "map-labuan.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const Wrapper = styled.section`
     width: 100%;
     height: 100%;
@@ -141,8 +155,8 @@ const MapContainer = styled.div`
         width: 328px;
         height: 142px;
     }
-    @media (max-width: 359px) {
-        width: 280px;
+    @media ${device.mobileL} {
+        width: 100%;
     }
 `
 const AddressTextShared = css`
@@ -167,6 +181,7 @@ const Iframe = styled.iframe`
 `
 
 export const Offices = () => {
+    const data = useStaticQuery(query)
     return (
         <Wrapper>
             <StyledHeader as="h3" align="center">
@@ -174,11 +189,13 @@ export const Offices = () => {
             </StyledHeader>
             <OfficesWrapper>
                 <OfficeWrapper>
-                    <Office>
+                    <Office id="malta">
                         <ImageWrapper>
-                            <Iframe
-                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=${map_api_key}`}
-                            />
+                            <MapContainer>
+                                <Iframe
+                                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=${map_api_key}`}
+                                />
+                            </MapContainer>
                         </ImageWrapper>
                         <Content>
                             <StyledHeader as="h4" align="left">
@@ -208,7 +225,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <EvenOffice>
+                    <EvenOffice id="cyberjaya">
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Malaysia')}
@@ -236,17 +253,19 @@ export const Offices = () => {
                             </StyledText>
                         </Content>
                         <ImageWrapper>
-                            <Iframe
-                                src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=${map_api_key}`}
-                            />
+                            <MapContainer>
+                                <Iframe
+                                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=${map_api_key}`}
+                                />
+                            </MapContainer>
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>
-                    <Office>
+                    <Office id="labuan">
                         <ImageWrapper>
                             <MapContainer>
-                                <Image
-                                    img_name="map-labuan.png"
+                                <QueryImage
+                                    data={data['map_labuan']}
                                     alt={localize('Labuan Office Location')}
                                     width="100%"
                                     height="100%"
@@ -276,7 +295,7 @@ export const Offices = () => {
                         </Content>
                     </Office>
                     <Splitter></Splitter>
-                    <EvenOffice>
+                    <EvenOffice id="dubai">
                         <Content>
                             <StyledHeader as="h4" align="left">
                                 {localize('Dubai')}
@@ -300,8 +319,8 @@ export const Offices = () => {
                         </Content>
                         <ImageWrapper>
                             <MapContainer>
-                                <Image
-                                    img_name="map-dubai-office.png"
+                                <QueryImage
+                                    data={data['map_dubai_office']}
                                     alt={localize('Dubai Office Location')}
                                     width="100%"
                                     height="100%"
@@ -310,11 +329,11 @@ export const Offices = () => {
                         </ImageWrapper>
                     </EvenOffice>
                     <Splitter></Splitter>
-                    <Office>
+                    <Office id="paraguay">
                         <ImageWrapper>
                             <MapContainer>
-                                <Image
-                                    img_name="map-paraguay.png"
+                                <QueryImage
+                                    data={data['map_paraguay']}
                                     alt={localize('Paraguay Office Location')}
                                     width="100%"
                                     height="100%"
@@ -339,7 +358,9 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+595991298762">+595 99 129 8762</ClickToCall>
+                                <ClickToCall href="tel:+5959925502654">
+                                    +595 992 550 2654
+                                </ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>

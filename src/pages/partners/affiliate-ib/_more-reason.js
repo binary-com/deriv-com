@@ -15,6 +15,11 @@ const Reason = styled.div`
     &:nth-child(2) {
         margin-right: 2.4rem;
         margin-left: 2.4rem;
+
+        @media ${device.mobileL} {
+            margin-right: 0;
+            margin-left: 0;
+        }
     }
     h4 {
         margin-top: 1.6rem;

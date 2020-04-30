@@ -3,28 +3,43 @@ import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
-import { NavPlatform, NavCompany, NavResources } from 'components/custom/other-platforms.js'
+import {
+    NavPlatform,
+    NavCompany,
+    NavResources,
+    NavMarket,
+} from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { LocalizedLink, localize } from 'components/localization'
-import { Button } from 'components/form'
-import { Container, Show } from 'components/containers'
+import { LocalizedLink, Localize, localize } from 'components/localization'
+import { Button, LinkButton } from 'components/form'
+import { Container, Show, Flex } from 'components/containers'
 import { OffCanvasMenu, OffCanvasMenuPartner, moveOffCanvasMenu, Text } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import Partner from 'common/partner'
 import device from 'themes/device'
+import { binary_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
+import LogoSignup from 'images/svg/logo_deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
 import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
+import BinaryLogo from 'images/svg/binary.svg'
 
 const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
+`
+
+const InterimNav = styled.nav`
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    background: var(--color-black);
 `
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
@@ -32,6 +47,16 @@ const LogoLink = styled(LocalizedLink)`
     @media (max-width: 1150px) {
         & svg {
             width: 20rem;
+        }
+    }
+    @media ${device.tabletS} {
+        & svg {
+            width: 15rem;
+        }
+    }
+    @media ${device.mobileL} {
+        & svg {
+            width: 13rem;
         }
     }
 `
@@ -60,6 +85,8 @@ const Wrapper = styled(Container)`
 `
 const NavLeft = styled.div`
     text-align: left;
+    display: flex;
+    align-items: center;
     @media ${device.tabletL} {
         display: none;
     }
@@ -164,9 +191,11 @@ const CloseMenu = styled(Close)`
 const LogoLinkMobile = styled(LocalizedLink)`
     cursor: pointer;
     display: none;
+
     @media ${device.tabletL} {
         display: block;
         cursor: pointer;
+        margin-left: 2rem;
     }
 `
 
@@ -175,12 +204,37 @@ const MobileLogin = styled(Button)`
     font-size: 14px;
     @media ${device.tabletL} {
         display: block;
+        margin-left: auto;
+    }
+    @media ${device.mobileL} {
+        font-size: var(--text-size-xxs);
     }
 `
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
 }
+
+const Binary = styled(Text)`
+    width: 8rem;
+    margin-left: 0.5rem;
+    line-height: 1;
+    @media (max-width: 345px) {
+        width: 6rem;
+    }
+`
+
+const BinaryLink = styled.a`
+    display: inline-block;
+    color: var(--color-white);
+    font-size: var(--text-size-xxs);
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+`
 
 export const Nav = () => {
     const button_ref = useRef(null)
@@ -199,18 +253,18 @@ export const Nav = () => {
         setIsTradeOpen(!is_trade_open)
         setHasTradeAnimation(true)
     }
-    // add this when market is ready
+
     // market
-    // const market_ref = useRef(null)
-    // const link_market_ref = useRef(null)
-    // const [is_market_open, setIsMarketOpen] = useState(false)
-    // const [has_market_animation, setHasMarketAnimation] = useState(false)
-    // const closeMarket = () => setIsMarketOpen(false)
-    // useOutsideClick(market_ref, closeMarket, link_market_ref)
-    // const handleMarketClick = () => {
-    //     setIsMarketOpen(!is_market_open)
-    //     setHasMarketAnimation(true)
-    // }
+    const market_ref = useRef(null)
+    const link_market_ref = useRef(null)
+    const [is_market_open, setIsMarketOpen] = useState(false)
+    const [has_market_animation, setHasMarketAnimation] = useState(false)
+    const closeMarket = () => setIsMarketOpen(false)
+    useOutsideClick(market_ref, closeMarket, link_market_ref)
+    const handleMarketClick = () => {
+        setIsMarketOpen(!is_market_open)
+        setHasMarketAnimation(true)
+    }
 
     // company
     const company_ref = useRef(null)
@@ -272,17 +326,16 @@ export const Nav = () => {
                             'Be in full control of your trading with our new and improved platforms.',
                         )}
                     />
-                    {/* TODO: add this when market is ready */}
-                    {/* <PlatformsDropdown
+                    <PlatformsDropdown
                         forward_ref={market_ref}
                         is_open={is_market_open}
                         has_animation={has_market_animation}
                         Content={NavMarket}
                         title={localize('Markets')}
                         description={localize(
-                            'Enjoy our wide range of assets on financial and synthetic markets. ',
+                            'Enjoy our wide range of assets on financial and synthetic markets.',
                         )}
-                    /> */}
+                    />
                     <PlatformsDropdown
                         forward_ref={company_ref}
                         is_open={is_company_open}
@@ -310,6 +363,28 @@ export const Nav = () => {
                         <LogoLink to="/" aria-label={localize('Home')}>
                             <Logo />
                         </LogoLink>
+                        <LocalizedLink
+                            external
+                            to={binary_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <BinaryLogo width="24" height="24" />
+                        </LocalizedLink>
+                        <Binary size="var(--text-size-xxs)" color="white">
+                            <Localize
+                                translate_text="A <0>Binary.com</0> brand"
+                                components={[
+                                    <BinaryLink
+                                        key={0}
+                                        href={binary_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        color="white"
+                                    />,
+                                ]}
+                            />
+                        </Binary>
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>
@@ -321,8 +396,7 @@ export const Nav = () => {
                                 {localize('Trade')}
                             </StyledButton>
                         </NavLink>
-                        {/* TODO: add this when market is ready */}
-                        {/* <NavLink onClick={handleMarketClick}>
+                        <NavLink onClick={handleMarketClick}>
                             <StyledButton
                                 aria-label={localize('Markets')}
                                 active={is_market_open}
@@ -330,7 +404,7 @@ export const Nav = () => {
                             >
                                 {localize('Markets')}
                             </StyledButton>
-                        </NavLink> */}
+                        </NavLink>
                         <NavLink onClick={handleCompanyClick}>
                             <StyledButton
                                 aria-label={localize('About us')}
@@ -361,7 +435,7 @@ export const Nav = () => {
                         </Button>
                         <LocalizedLink to="/signup/">
                             <SignupButton ref={button_ref} secondary="true">
-                                <span>{localize('Create demo account')}</span>
+                                <span>{localize('Create free demo account')}</span>
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
@@ -386,10 +460,50 @@ export const Nav = () => {
     )
 }
 
+const ResponsiveBinary = styled(BinaryLogo)`
+    @media ${device.mobileL} {
+        width: 20px;
+    }
+`
+
+export const NavInterim = ({ interim_type }) => (
+    <InterimNav>
+        <Container jc="space-between" p="2.4rem 0">
+            <Flex ai="center" jc="flex-start">
+                <LogoLink to={`/interim/${interim_type}`} aria-label={localize('Home')}>
+                    <Logo />
+                </LogoLink>
+                <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+                    <ResponsiveBinary width="24" height="24" />
+                </LocalizedLink>
+                <Binary size="var(--text-size-xxs)" color="white">
+                    <Localize
+                        translate_text="A <0>Binary.com</0> brand"
+                        components={[
+                            <BinaryLink
+                                key={0}
+                                href={binary_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                color="white"
+                            />,
+                        ]}
+                    />
+                </Binary>
+            </Flex>
+            <Flex jc="flex-end">
+                <LinkButton secondary to="/">
+                    {localize('Explore Deriv')}
+                </LinkButton>
+            </Flex>
+        </Container>
+    </InterimNav>
+)
+
 export const NavStatic = () => (
     <StaticWrapper>
         <StyledLink to="/">
-            <Logo />
+            <LogoSignup />
         </StyledLink>
     </StaticWrapper>
 )
@@ -633,4 +747,8 @@ NavStatic.propTypes = {
 
 NavPartners.propTypes = {
     no_login_signup: PropTypes.bool,
+}
+
+NavInterim.propTypes = {
+    interim_type: PropTypes.string,
 }

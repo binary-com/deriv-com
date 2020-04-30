@@ -4,6 +4,7 @@ import { Article } from './_article'
 import { deriv_app_url } from 'common/utility'
 import { Text, Header } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -14,6 +15,11 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+    margin-top: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
+    }
 `
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -62,7 +68,7 @@ const DifferentAccounts = () => (
     <ArticleWrapper>
         <StyledHeader as="h4">
             {localize(
-                'What are the differences between the DMT5 Financial, Financial Pro, and Synthetic accounts?',
+                'What are the differences between the DMT5 Financial, Financial STP, and Synthetic accounts?',
             )}
         </StyledHeader>
         <Text>
@@ -72,7 +78,7 @@ const DifferentAccounts = () => (
         </Text>
         <StyledText>
             {localize(
-                'The DMT5 Financial Pro account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
+                'The DMT5 Financial STP account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.',
             )}
         </StyledText>
         <StyledText>
@@ -176,7 +182,7 @@ const DMT5Article = () => {
             />
             <DifferentAccounts
                 text={localize(
-                    'What are the differences between the DMT5 Financial, Financial Pro, and Synthetic accounts?',
+                    'What are the differences between the DMT5 Financial, Financial STP, and Synthetic accounts?',
                 )}
                 label="differences-of-dmt5-accounts"
             />

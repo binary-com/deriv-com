@@ -5,6 +5,7 @@ import { Article } from './_article'
 import { deriv_app_url } from 'common/utility'
 import { Text, Header } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -15,6 +16,11 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+    margin-top: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
+    }
 `
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -167,7 +173,7 @@ const DormantFee = () => (
 
 const AccountArticle = () => {
     return (
-        <Article header="Account">
+        <Article header={localize('Account')}>
             <WhoCanOpenAnAccount
                 text={localize("Why can't I create an account?")}
                 label="who-can-open-an-account"
@@ -186,12 +192,15 @@ const AccountArticle = () => {
                 )}
                 label="recovering-your-password"
             />
-            <CloseAccount text="How can I close my account?" label="close-your-account" />
+            <CloseAccount
+                text={localize('How can I close my account?')}
+                label="close-your-account"
+            />
             <UnsubscribeEmail
-                text="How do I unsubscribe from marketing emails?"
+                text={localize('How do I unsubscribe from marketing emails?')}
                 label="unsubscribe-marketing-emails"
             />
-            <DormantFee text="What is a dormant fee?" label="what-is-dormant-fee" />
+            <DormantFee text={localize('What is a dormant fee?')} label="what-is-dormant-fee" />
         </Article>
     )
 }

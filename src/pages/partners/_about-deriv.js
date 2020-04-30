@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
+import { localize } from 'components/localization'
 import device from 'themes/device'
 
 const query = graphql`
@@ -34,7 +35,7 @@ const AboutDeriv = () => {
     return (
         <Container direction="column">
             <Header mt="4rem" align="center" mb="4rem" as="h2">
-                About Deriv
+                {localize('About Deriv')}
             </Header>
             <WrapContainer mb="8rem">
                 <ImageWrapper>
@@ -43,16 +44,14 @@ const AboutDeriv = () => {
 
                 <Flex direction="column" ml="2.4rem" max_width="69rem">
                     <Text size="var(--text-size-m)" mb="2rem">
-                        Deriv is the next step in the evolution of Binary.com, the company with a
-                        proven record of delivering market-leading products that are trusted around
-                        the world.
+                        {localize(
+                            'Deriv is the next step in the evolution of Binary.com, the company with a proven record of delivering market-leading products that are trusted around the world.',
+                        )}
                     </Text>
                     <Text size="var(--text-size-m)">
-                        We offer the widest selection of derivatives to trade, with sharp prices and
-                        tight spreads that attract over a million online traders worldwide. Our
-                        technology provides an intuitive and powerful trading experience, enabling
-                        our clients to understand risk more effectively to make better trading
-                        decisions.
+                        {localize(
+                            'We offer the widest selection of derivatives to trade, with sharp prices and tight spreads that attract over a million online traders worldwide. Our technology provides an intuitive and powerful trading experience, enabling our clients to understand risk more effectively to make better trading decisions.',
+                        )}
                     </Text>
                 </Flex>
             </WrapContainer>

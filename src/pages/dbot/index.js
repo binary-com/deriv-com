@@ -14,77 +14,63 @@ import DBotBG from 'images/svg/dbot-bg.svg'
 import Signup, { Appearances } from 'components/custom/signup'
 
 const items = [
-    { title: '3', subtitle: localize('pre-built strategies included') },
-    { title: 'FREE', subtitle: localize('zero cost to build') },
-    { title: '50+', subtitle: localize('assets to unleash your bot') },
+    { title: '3', subtitle: <Localize translate_text="pre-built strategies included" /> },
+    {
+        title: <Localize translate_text="FREE" />,
+        subtitle: <Localize translate_text="zero cost to build" />,
+    },
+    { title: '50+', subtitle: <Localize translate_text="assets to unleash your bot" /> },
 ]
 const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
 const trading = [
     {
-        title: (
-            <Localize
-                translate_text="Start with a popular<0/>strategy"
-                components={[<br key={0} />]}
-            />
-        ),
+        title: localize('Start with a popular strategy'),
         subtitle: localize(
             "Martingale, D'Alembert, Oscar's Grind, Cutler's RSI, Bollinger Bands, and SMA Crossover — load and customise proven strategies or create your own from scratch.",
         ),
-        image_name: 'dbot-strategy.png',
+        image_name: 'dbot_strategy',
         image_alt: localize('Strategy'),
     },
     {
-        title: (
-            <Localize
-                translate_text="Build your strategy<0/>visually"
-                components={[<br key={0} />]}
-            />
-        ),
+        title: localize('Build your strategy visually'),
         subtitle: localize(
             'Simply drag, drop, and configure pre-built blocks and indicators onto a canvas to build your bot. No coding needed.',
         ),
-        image_name: 'dbot-build-strategy.png',
+        image_name: 'dbot_build_strategy',
         image_alt: localize('Create your Strategy '),
     },
     {
-        title: (
-            <Localize
-                translate_text="Maximise profits,<0/>limit losses"
-                components={[<br key={0} />]}
-            />
-        ),
+        title: localize('Maximise profits, limit losses'),
         subtitle: localize(
             'Use analysis tools, indicators, and smart logic such as take-profit and stop-loss to maximise your profits and limit losses.',
         ),
-        image_name: 'dbot-maximise-profits.png',
+        image_name: 'dbot_maximise_profits',
         image_alt: localize('Tools'),
     },
     {
-        title: (
-            <Localize translate_text="Track your<0/>performance" components={[<br key={0} />]} />
-        ),
+        title: localize('Track your performance'),
         subtitle: localize(
             'See how your bot is performing as it executes each trade and receive notifications via Telegram.',
         ),
-        image_name: 'dbot-track-your-performance.png',
+        image_name: 'dbot_track_your_performance',
         image_alt: localize('Performance Tracking'),
     },
     {
-        title: <Localize translate_text="Get<0/>integrated help" components={[<br key={0} />]} />,
+        title: localize('Get integrated help'),
         subtitle: localize(
             'Access tutorials, guides, and reference information as you build your bot.',
         ),
-        image_name: 'dbot-get-integrated-help.png',
+        image_name: 'dbot_get_integrated_help',
         image_alt: localize('Tutorials'),
     },
     {
-        title: <Localize translate_text="Save<0/>your strategies" components={[<br key={0} />]} />,
+        title: localize('Save your strategies'),
         subtitle: localize(
             'Enjoy the convenience and security of storing your strategies on your Google Drive.',
         ),
-        image_name: 'dbot-save-your-strategies.png',
+        image_name: 'dbot_save_your_strategies',
         image_alt: localize('Save Strategies'),
     },
 ]
@@ -101,15 +87,18 @@ class Dbot extends Component {
                 <DHero
                     title={localize('DBot')}
                     content={localize('Automate your trading ideas without writing code')}
-                    start_automating
+                    join_us_for_free
                     go_to_live_demo
                     Logo={dbot_logo}
-                    background_image_name="dbot-artboard.png"
                     background_svg={DBotBG}
+                    image_name="dbot"
                     background_alt={localize('DBot Board')}
                 />
                 <DNumber items={items} justify="space-around" />
-                <DHowItWorks Video={DBotVideo} title="Build a trading robot in 5 easy steps" />
+                <DHowItWorks
+                    Video={DBotVideo}
+                    title={<Localize translate_text="Build a trading robot in 5 easy steps" />}
+                />
                 <DTrading trading={trading} />
                 <PlatformContainer>
                     <OtherPlatform exclude="dbot" />

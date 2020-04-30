@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -22,6 +23,7 @@ const Content = styled.div`
     max-width: 58.8rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-right: ${(props) => props.margin_right};
 
     ${Text} {
@@ -44,12 +46,11 @@ const ImageWrapper = styled.div`
     }
 `
 const StyledHeader = styled(Header)`
-    margin-top: ${(props) => (props.second_title_margin ? '2.4rem' : '4rem')};
     font-size: var(--text-size-header-1);
     line-height: 1.25;
 
     @media ${device.tabletL} {
-        margin-top: 0;
+        margin-top: 2rem;
     }
 `
 const Row = styled.div`
@@ -66,7 +67,45 @@ const Row = styled.div`
         flex-direction: column;
     }
 `
+const query = graphql`
+    query {
+        dbot_strategy: file(relativePath: { eq: "dbot-strategy.png" }) {
+            ...fadeIn
+        }
+        dbot_build_strategy: file(relativePath: { eq: "dbot-build-strategy.png" }) {
+            ...fadeIn
+        }
+        dbot_maximise_profits: file(relativePath: { eq: "dbot-maximise-profits.png" }) {
+            ...fadeIn
+        }
+        dbot_track_your_performance: file(relativePath: { eq: "dbot-track-your-performance.png" }) {
+            ...fadeIn
+        }
+        dbot_get_integrated_help: file(relativePath: { eq: "dbot-get-integrated-help.png" }) {
+            ...fadeIn
+        }
+        dbot_save_your_strategies: file(relativePath: { eq: "dbot-save-your-strategies.png" }) {
+            ...fadeIn
+        }
+        dmt_5_ipad_iphone: file(relativePath: { eq: "dmt-5-ipad-iphone.png" }) {
+            ...fadeIn
+        }
+        dmt_5_mac: file(relativePath: { eq: "dmt-5-mac.png" }) {
+            ...fadeIn
+        }
+        make_smarter: file(relativePath: { eq: "make-smarter.png" }) {
+            ...fadeIn
+        }
+        trade_what_you_want: file(relativePath: { eq: "trade-what-you-want.png" }) {
+            ...fadeIn
+        }
+        how_you_want: file(relativePath: { eq: "how-you-want.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const DTrading = ({ trading, reverse, two_title }) => {
+    const data = useStaticQuery(query)
     return (
         <StyledSection>
             <StyledContainer>
@@ -75,7 +114,7 @@ const DTrading = ({ trading, reverse, two_title }) => {
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
-                                <StyledHeader mt="4rem">{item.title}</StyledHeader>
+                                <StyledHeader>{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                                 {two_title && (
                                     <>
@@ -85,9 +124,9 @@ const DTrading = ({ trading, reverse, two_title }) => {
                                 )}
                             </Content>
                             <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
-                                <Image
-                                    img_name={item.image_name}
-                                    alt={item.image_alt}
+                                <QueryImage
+                                    data={data[item.image_name]}
+                                    alt={data[item.image_alt]}
                                     width="100%"
                                 />
                             </ImageWrapper>

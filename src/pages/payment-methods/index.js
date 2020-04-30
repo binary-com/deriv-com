@@ -1,15 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Helmet } from 'react-helmet'
 import Scrollbar from 'react-perfect-scrollbar'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-
-import 'react-perfect-scrollbar/dist/css/styles.css'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -90,6 +89,9 @@ const PaymentMethods = () => {
     }, [])
     return (
         <Layout>
+            <Helmet>
+                <link rel="stylesheet" type="text/css" href="/css/perfect-scrollbar.css" />
+            </Helmet>
             <SEO
                 title={localize('Payment methods')}
                 description={localize(
@@ -120,6 +122,9 @@ const PaymentMethods = () => {
                                         background: 'var(--color-white)',
                                         boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
                                     }}
+                                    header_style={{
+                                        borderRadius: '6px',
+                                    }}
                                     style={{
                                         padding: '2.2rem 4.8rem',
                                         position: 'relative',
@@ -127,11 +132,11 @@ const PaymentMethods = () => {
                                         paddingBottom: pd.note ? '5rem' : '2.2rem',
                                     }}
                                     parent_style={{
-                                        marginBottom: '4rem',
+                                        marginBottom: '2.4rem',
                                     }}
                                     header={pd.name}
                                 >
-                                    <Scrollbar>
+                                    <Scrollbar options={{ suppressScrollY: true }}>
                                         <StyledTable has_note={!!pd.note}>
                                             <Thead>
                                                 <Tr>
@@ -189,6 +194,9 @@ const PaymentMethods = () => {
                                                             {localize('processing time')}
                                                         </BoldText>
                                                     </Th>
+                                                    <Th>
+                                                        <BoldText>{localize('Reference')}</BoldText>
+                                                    </Th>
                                                     <Th />
                                                 </Tr>
                                             </Thead>
@@ -206,16 +214,8 @@ const PaymentMethods = () => {
                                     {pd.note && (
                                         <Notes>
                                             <Text weight="500" size="var(--text-size-xxs)">
-                                                <Localize
-                                                    translate_text="Note: {{note}}"
-                                                    values={{ note: pd.note }}
-                                                />
+                                                {localize('Note:')} {pd.note}
                                             </Text>
-                                            {pd.note_2 && (
-                                                <Text weight="500" size="var(--text-size-xxs)">
-                                                    {pd.note_2}
-                                                </Text>
-                                            )}
                                         </Notes>
                                     )}
                                 </AccordionItem>

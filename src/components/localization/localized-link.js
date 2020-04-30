@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import styled, { css } from 'styled-components'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
+
+const non_localized_links = ['/careers']
 
 export const SharedLinkStyle = css`
     color: var(--color-white);
@@ -53,37 +56,67 @@ export const LocalizedLink = ({ to, ...props }) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
     const is_index = to === `/`
+    const { target, rel, className, style } = props
 
-    // If it's the default language, don't do anything
+    // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
     // However, if the homepage/index page is linked don't add the "to"
     // Because otherwise this would add a trailing slash
     const { is_default, path } = language_config[locale]
-    const path_to = is_default ? to : `/${path}${is_index ? `` : `${to}`}`
+    const path_to =
+        is_default || non_localized_links.includes(to) ? to : `/${path}${is_index ? `` : `${to}`}`
 
-    if (props.external || props.external === 'true')
+    if (props.external || props.external === 'true') {
         return (
-            <a {...props} href={to}>
+            <a
+                target={target}
+                rel={rel}
+                className={className}
+                data-amp-replace="QUERY_PARAM"
+                style={style}
+                href={to}
+            >
                 {props.children}
             </a>
         )
+    }
     if (props.external_link) return <ExternalLink href={to}>{props.children}</ExternalLink>
 
     // internal links should end with / e.g. /about/
-    let internal_to = path_to.charAt(to.length - 1) === '/' ? path_to : path_to + '/'
+    let internal_to = path_to.charAt(to.length - 1) === '/' ? path_to : path_to
 
     if (props.has_no_end_slash) {
         internal_to = internal_to.substring(0, internal_to.length - 1)
     }
 
-    return <GatsbyLink {...props} to={internal_to} />
+    if (props.anchor) {
+        return <AnchorLink {...props} to={internal_to} />
+    }
+
+    return (
+        <GatsbyLink
+            target={target}
+            rel={rel}
+            data-amp-replace="QUERY_PARAM"
+            className={className}
+            style={style}
+            to={internal_to}
+        >
+            {props.children}
+        </GatsbyLink>
+    )
 }
 
 LocalizedLink.propTypes = {
+    anchor: PropTypes.bool,
     children: PropTypes.node,
+    className: PropTypes.string,
     external: PropTypes.string,
     external_link: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
     props: PropTypes.object,
+    rel: PropTypes.string,
+    style: PropTypes.object,
+    target: PropTypes.string,
     to: PropTypes.string.isRequired,
 }

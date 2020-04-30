@@ -1,10 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
-import { Header, Image } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 
+const query = graphql`
+    query {
+        dtrader_trade: file(relativePath: { eq: "dtrader_trade.png" }) {
+            ...fadeIn
+        }
+        dmt5_trade: file(relativePath: { eq: "dmt5_trade.png" }) {
+            ...fadeIn
+        }
+        dbot_trade: file(relativePath: { eq: "dbot_trade.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const platforms = Object.freeze({
     trader: 'dtrader',
     bot: 'dbot',
@@ -34,43 +48,43 @@ const StyledSection = styled(SectionContainer)`
 export const Trade = () => {
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
-
+    const data = useStaticQuery(query)
     return (
         <StyledSection>
             <Container direction="column">
-                <Header size="var(--text-size-header-1)" as="h2" align="center">
+                <Header as="h2" align="center">
                     {localize('Trade the way you like')}
                 </Header>
-                <Header weight="500" as="h4" align="center" m="1.6rem 0 6rem">
+                <Header weight="normal" as="h4" align="center" m="1.6rem 0 6rem">
                     {localize('Choose from three powerful platforms -- designed with you in mind')}
                 </Header>
-                <Flex width="100%">
-                    <div style={{ width: '60%' }}>
+                <Flex width="100%" direction="flex-start">
+                    <div style={{ width: '100%', maxWidth: '65.7rem', marginRight: '6rem' }}>
                         <ImageContainer>
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
-                                <Image
-                                    img_name="dtrader_trade.png"
+                                <QueryImage
+                                    data={data['dtrader_trade']}
                                     alt={localize('DTrader')}
                                     width="100%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
-                                <Image
-                                    img_name="dbot_trade.png"
+                                <QueryImage
+                                    data={data['dbot_trade']}
                                     alt={localize('DBot')}
                                     width="100%"
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
-                                <Image
-                                    img_name="dmt5_trade.png"
+                                <QueryImage
+                                    data={data['dmt5_trade']}
                                     alt={localize('DMT5')}
                                     width="100%"
                                 />
                             </ImageWrapper>
                         </ImageContainer>
                     </div>
-                    <div style={{ width: '40%' }}>
+                    <div style={{ width: '100%', maxWidth: '38.4rem' }}>
                         <CssGrid row_gap="1.6rem" height="0%">
                             <div
                                 onMouseEnter={() => setSelected(platforms.trader)}

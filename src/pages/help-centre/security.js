@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Header, Text } from '../../components/elements/typography'
 import { Article } from './_article'
 import { localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -13,6 +14,11 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+    margin-top: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
+    }
 `
 
 const StyledHeader = styled(Header)`
@@ -52,7 +58,7 @@ const DocumentsDeclined = () => (
 
 const SecurityArticle = () => {
     return (
-        <Article header="Security">
+        <Article header={localize('Security')}>
             <VerifyAccount
                 text={localize('Do I need to verify my Deriv account?')}
                 label="verify-account"

@@ -68,11 +68,9 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
             cover_content={localize('Discover DTrader now')}
             title={localize('DTrader')}
             Icon={StyledDTrader}
-            content={[
-                localize('A whole new trading experience on a powerful yet easy to use platform.'),
-            ]}
+            content={[localize('The platform to start with. It’s powerful yet easy to use.')]}
             is_inline_icon
-            min_height="11.6rem"
+            min_height="12.4rem"
             is_selected={is_selected}
             width="100%"
             word_break_cover={word_break_cover}
@@ -89,7 +87,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
             Icon={StyledDbot}
             content={[localize('Automated trading at your fingertips. No coding needed.')]}
             is_inline_icon
-            min_height="11.6rem"
+            min_height="12.4rem"
             is_selected={is_selected}
             width="100%"
             word_break_cover={word_break_cover}
@@ -104,9 +102,13 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
             cover_content={localize('Discover DMT5 now')}
             title={localize('DMT5')}
             Icon={StyledDmt5}
-            content={[localize('The platform of choice for professionals worldwide.')]}
+            content={[
+                localize(
+                    'Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals worldwide.',
+                ),
+            ]}
             is_inline_icon
-            min_height="11.6rem"
+            min_height="12.4rem"
             is_selected={is_selected}
             width="100%"
             word_break_cover={word_break_cover}
@@ -125,7 +127,14 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
                 <Localize
                     key={0}
                     translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[<LinkText key={0} href={binary_url} />]}
+                    components={[
+                        <LinkText
+                            key={0}
+                            href={binary_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        />,
+                    ]}
                 />,
             ]}
             is_inline_icon
@@ -187,37 +196,37 @@ export const NavPlatform = () => (
     <Flex wrap="wrap" jc="flex-start">
         <NavCard
             icon={DTrader}
-            content={localize(
-                'A whole new trading experience on a powerful yet easy to use platform. ',
-            )}
-            title={localize('DTrader')}
+            content={
+                <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
+            }
+            title={<Localize translate_text="DTrader" />}
             style={{ marginRight: '5.6rem' }}
             to="/dtrader"
         />
 
         <DMT5NavCard
             icon={DMT5}
-            content={localize('The platform of choice for professionals worldwide.')}
-            title={localize('DMT5')}
+            content={
+                <Localize translate_text="Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals worldwide." />
+            }
+            title={<Localize translate_text="DMT5" />}
             to="/dmt5"
         />
         <NavCard
             icon={DBot}
-            content={localize('Automated trading at your fingertips. No coding needed.')}
-            title={localize('DBot')}
+            content={
+                <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+            }
+            title={<Localize translate_text="DBot" />}
             to="/dbot"
             style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
         />
         <NavCard
             icon={Smarttrader}
             content={
-                <Localize
-                    key={0}
-                    translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[<LinkText key={0} href={binary_url} />]}
-                />
+                <Localize translate_text="Trade the world’s markets on Binary.com’s classic platform." />
             }
-            title={localize('SmartTrader')}
+            title={<Localize translate_text="SmartTrader" />}
             to={smarttrader_url}
             style={{ marginTop: '3.2rem' }}
             external="true"
@@ -230,33 +239,37 @@ export const NavMarket = () => (
     <Flex wrap="wrap" jc="flex-start">
         <NavCard
             icon={Forex}
-            content={localize(
-                'Trade the world’s largest financial market with popular forex pairs.',
-            )}
-            title={localize('Forex')}
+            content={
+                <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
+            }
+            title={<Localize translate_text="Forex" />}
             style={{ marginRight: '5.6rem' }}
-            to="/markets/#trade"
+            to="/markets#forex"
         />
         <NavCard
             icon={StockIndices}
-            content={localize(
-                'Predict broader market trends and diversify your risk with stock indices.',
-            )}
-            title={localize('Stock indices')}
-            to="/markets/#stock"
+            content={
+                <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
+            }
+            title={<Localize translate_text="Stock indices" />}
+            to="/markets#stock"
         />
         <NavCard
             icon={Commodities}
-            content={localize("Trade natural resources that are central to the world's economy.")}
-            title={localize('Commodities')}
-            to="/markets/#commodities"
+            content={
+                <Localize translate_text="Trade natural resources that are central to the world's economy." />
+            }
+            title={<Localize translate_text="Commodities" />}
+            to="/markets#commodities"
             style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
         />
         <NavCard
             icon={SyntheticIndices}
-            content={localize('Enjoy synthetic markets that emulate real-world market movements.')}
-            title={localize('Synthetic Indices')}
-            to="/markets/#synthetic"
+            content={
+                <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
+            }
+            title={<Localize translate_text="Synthetic Indices" />}
+            to="/markets#synthetic"
             style={{ marginTop: '3.2rem' }}
         />
     </Flex>

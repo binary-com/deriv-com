@@ -1,16 +1,42 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
+import SimpleSteps from '../common/_simple-steps'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
 import Markets from './home/_markets'
-import SimpleSteps from './home/_simple-steps'
 import WhatOurClientsSay from './home/_what-our-clients-say'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 import Signup, { Appearances } from 'components/custom/signup'
+import PractiseIcon from 'images/svg/aim.svg'
+import TradeIcon from 'images/svg/trade.svg'
+import WithdrawIcon from 'images/svg/withdraw.svg'
 
+const simple_step_content = [
+    {
+        header: <Localize translate_text="Practise" />,
+        text: (
+            <Localize translate_text="Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds." />
+        ),
+        icon: <PractiseIcon />,
+    },
+    {
+        header: <Localize translate_text="Trade" />,
+        text: (
+            <Localize translate_text="Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more." />
+        ),
+        icon: <TradeIcon />,
+    },
+    {
+        header: <Localize translate_text="Withdraw" />,
+        text: (
+            <Localize translate_text="Get your funds quickly and easily. We support a variety of withdrawal options." />
+        ),
+        icon: <WithdrawIcon />,
+    },
+]
 const Home = () => {
     return (
         <Layout>
@@ -28,7 +54,10 @@ const Home = () => {
                 <Trade />
             </Show.Desktop>
             <Markets />
-            <SimpleSteps />
+            <SimpleSteps
+                content={simple_step_content}
+                header={<Localize translate_text="3 simple steps" />}
+            />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
             {/* TODO: investigate performance and enable later */}

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
-import { Link } from 'gatsby'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
@@ -11,7 +10,7 @@ import { convertToHash } from './_utility'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
@@ -38,7 +37,7 @@ const Backdrop = styled.div`
 `
 const StyledContainer = styled.div`
     @media ${device.tabletL} {
-        padding: 10rem 0 2rem 0;
+        padding: 2rem 0 2rem 0;
     }
 `
 const SearchSection = styled.section`
@@ -145,7 +144,7 @@ const ListNoBullets = styled.ul`
         padding-bottom: 1.6rem;
     }
 `
-const StyledLink = styled(Link)`
+const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     color: black;
     font-size: var(--text-size-s);
@@ -181,6 +180,12 @@ const ArticleDiv = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 8rem;
+`
+
+const ResponsiveHeader = styled(Header)`
+    @media ${device.mobileM} {
+        font-size: 4rem;
+    }
 `
 
 class HelpCentre extends Component {
@@ -253,8 +258,8 @@ class HelpCentre extends Component {
 
         const duplicate_articles = deepClone(all_articles)
         const translated_articles = duplicate_articles.map((article) => {
-            article.title = localize(article.title.props.translate_text)
-            article.sub_category = localize(article.sub_category.props.translate_text)
+            article.title = article.title.props.translate_text
+            article.sub_category = article.sub_category.props.translate_text
             return article
         })
 
@@ -296,9 +301,9 @@ class HelpCentre extends Component {
                     <Backdrop>
                         <Container align="left" justify="flex-start" direction="column">
                             <StyledContainer align="normal" direction="column">
-                                <Header mb="4rem" as="h1">
+                                <ResponsiveHeader mb="4rem" as="h1">
                                     {localize('How can we help?')}
-                                </Header>
+                                </ResponsiveHeader>
                                 <SearchForm onSubmit={this.handleSubmit}>
                                     <SearchIconBig />
                                     <Search
@@ -340,7 +345,7 @@ class HelpCentre extends Component {
                                                 <ArticleDiv key={idx}>
                                                     <ListWrapper>
                                                         <Header size="3.6rem" mb="1.6rem">
-                                                            {localize(item.category)}
+                                                            {item.category}
                                                         </Header>
                                                         {item.articles.map((ar, idxb) => {
                                                             const category_is_expanded =

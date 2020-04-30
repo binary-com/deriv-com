@@ -11,11 +11,10 @@ const RelativeWrapper = styled.div`
 `
 const InputWrapper = styled.div`
     width: 100%;
-    border: ${props => props.border || '1px solid var(--color-grey-2)'};
+    border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
 
     @media ${device.tabletL} {
-        width: 27rem;
         height: 5rem;
     }
 
@@ -27,10 +26,10 @@ const InputWrapper = styled.div`
         }
     }
     &:focus-within {
-        border-color: ${props => props.focusBorder || 'var(--color-green)'};
+        border-color: ${(props) => props.focusBorder || 'var(--color-green)'};
     }
 
-    ${props =>
+    ${(props) =>
         props.error &&
         css`
             border-color: var(--color-red-1) !important;
@@ -57,8 +56,8 @@ const StyledError = styled(CrossIcon)`
 
 const StyledInput = styled.input`
     background: none;
-    color: var(--color- ${props => props.inputColor || 'black'});
-    font-size: var(--text-size-s);
+    color: var(--color- ${(props) => props.inputColor || 'black'});
+    font-size: 16px;
     padding: 1rem 1rem 1rem 0.8rem;
     width: 95%;
     display: block;
@@ -84,7 +83,7 @@ const StyledInput = styled.input`
 
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: var(--color- ${props => props.labelFocusColor || 'green'});
+            color: var(--color- ${(props) => props.labelFocusColor || 'green'});
         }
         &::placeholder {
             opacity: 0.5;
@@ -116,7 +115,7 @@ const StyledLabel = styled.label`
     padding: 0 0.4rem;
 
     /* prettier-ignore */
-    background-color: var(--color-${props => props.background || 'grey-1'});
+    background-color: var(--color-${(props) => props.background || 'grey-1'});
 `
 
 const Input = ({

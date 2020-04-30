@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Input, Button } from 'components/form'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
@@ -15,6 +16,13 @@ import BackgroundPattern from 'images/common/bg_banner_signup.png'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
+const query = graphql`
+    query {
+        deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
 
@@ -24,6 +32,7 @@ const ChevronRight = styled(Chevron)`
         }
     }
 `
+
 const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -49,6 +58,10 @@ const SignupFormWrapper = styled(Flex)`
 
     @media (max-width: 800px) {
         width: 100%;
+
+        & > div {
+            width: 100%;
+        }
     }
 `
 
@@ -64,6 +77,10 @@ const BackgroundWrapper = styled(Flex)`
 
 const InputWrapper = styled.div`
     width: 28rem;
+
+    @media ${device.tabletL} {
+        margin-right: 1rem;
+    }
 `
 const InputGroup = styled.div`
     display: flex;
@@ -97,17 +114,11 @@ const SocialButton = styled(Button)`
     background-color: var(--color-white);
     border: solid 1px var(--color-grey-7);
     height: 4rem;
-    margin-right: 1.2rem;
+    margin: 0 0.8rem;
 
     @media ${device.tabletL} {
-        height: 6rem;
-        margin-right: ${(props) => (props.margin_right ? props.margin_right : '0')};
         justify-content: center;
         align-items: center;
-
-        svg {
-            margin-right: 1rem;
-        }
     }
 `
 
@@ -125,7 +136,7 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Text)`
     width: auto;
-    margin-right: 4rem;
+    margin-right: 2rem;
 
     @media ${device.tabletL} {
         width: max-content-fit;
@@ -212,11 +223,12 @@ const SignupPublic = ({
     handleSocialSignup,
     is_submitting,
 }) => {
+    const data = useStaticQuery(query)
     return (
         <Wrapper>
             <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
                 <ImageWrapper ai="center">
-                    <Image img_name="deriv-platform-banner.png" width="100%" />
+                    <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
                 </ImageWrapper>
             </div>
             <SignupFormWrapper>
@@ -225,7 +237,7 @@ const SignupPublic = ({
                         {localize('Join over 1 million traders worldwide')}
                     </StyledHeader>
                     <br />
-                    <StyledHeader as="h4" weight="500" size="2.6rem">
+                    <StyledHeader as="h4" weight="normal" size="1.6rem">
                         {localize('Sign up for your demo account now.')}
                     </StyledHeader>
                     <InputGroup>
@@ -240,7 +252,7 @@ const SignupPublic = ({
                                 tabletBackground="green-1"
                                 inputColor="var(grey-5)"
                                 labelFocusColor="grey-7"
-                                label={localize('Email')}
+                                label={localize('Email address')}
                                 placeholder={'example@mail.com'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
@@ -260,21 +272,6 @@ const SignupPublic = ({
                         <StyledText>{localize('or sign in with')}</StyledText>
                         <SocialButton
                             onClick={handleSocialSignup}
-                            provider="google"
-                            id="google"
-                            type="button"
-                            social
-                            margin_right="1rem"
-                        >
-                            <span>
-                                <Google />
-                            </span>
-                            <Show.Mobile>
-                                <Text>Google</Text>
-                            </Show.Mobile>
-                        </SocialButton>
-                        <SocialButton
-                            onClick={handleSocialSignup}
                             provider="facebook"
                             id="facebook"
                             type="button"
@@ -283,9 +280,17 @@ const SignupPublic = ({
                             <span>
                                 <Facebook />
                             </span>
-                            <Show.Mobile>
-                                <Text>Facebook</Text>
-                            </Show.Mobile>
+                        </SocialButton>
+                        <SocialButton
+                            onClick={handleSocialSignup}
+                            provider="google"
+                            id="google"
+                            type="button"
+                            social
+                        >
+                            <span>
+                                <Google />
+                            </span>
                         </SocialButton>
                     </SocialWrapper>
                 </div>
@@ -301,7 +306,11 @@ const SignupPublic = ({
             <Show.Mobile>
                 <MobileBackground>
                     <MobilePlatform>
-                        <Image img_name="deriv-platform-banner.png" width="100%" />
+                        <QueryImage
+                            data={data['deriv_platform']}
+                            alt="deriv platform"
+                            width="100%"
+                        />
                     </MobilePlatform>
                     <MobileRedBanner>
                         <RedBanner width="100%" />

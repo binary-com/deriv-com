@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import Copy from './copyright'
+import { isProduction } from 'common/websocket/config'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
@@ -225,14 +226,15 @@ const Item = styled.div`
         font-size: var(--text-size-sm);
     }
 `
-const MobileLanguageSwitcher = styled.div`
-    margin-top: 0.8rem;
+// TODO: uncomment this when language-switcher is ready
+// const MobileLanguageSwitcher = styled.div`
+//     margin-top: 0.8rem;
 
-    > ul {
-        top: 0;
-        width: 80px;
-    }
-`
+//     > ul {
+//         top: 0;
+//         width: 80px;
+//     }
+// `
 const mobile_accordion_header = {
     border: 'none',
     padding: '0 2rem',
@@ -280,16 +282,14 @@ const Footer = ({ has_banner_cookie }) => (
                                 </ExternalLink>
                             </div>
                         </SocialWrapper> */}
-                        <div>
-                            <Show.Desktop>{<LanguageSwitcher />}</Show.Desktop>
-                        </div>
-                        <div>
+                        <div>{!isProduction() && <LanguageSwitcher />}</div>
+                        {/* <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
                                     {<LanguageSwitcher short_name="true" />}
                                 </MobileLanguageSwitcher>
                             </Show.Mobile>
-                        </div>
+                        </div> */}
                     </SocialMedia>
                 </InfoSection>
                 <Items>

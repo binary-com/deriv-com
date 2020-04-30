@@ -10,9 +10,10 @@ import { localize } from 'components/localization'
 import { smarttrader_url, deriv_app_url } from 'common/utility'
 import device from 'themes/device'
 import Platform from 'images/common/interim-bg.png'
+import PlatformMt5 from 'images/common/interim-bg-dmt5.png'
 
 const Section = styled(Box)`
-    background-image: url(${Platform});
+    background-image: url(${(props) => props.background});
     width: 100%;
     background-size: cover;
     position: relative;
@@ -57,8 +58,7 @@ const RightFlex = styled(Flex)`
 
 const White = styled(Header)`
     color: var(--color-white);
-    width: auto;
-    max-width: 38.4rem;
+    width: 38.4rem;
 `
 
 const query = graphql`
@@ -69,21 +69,27 @@ const query = graphql`
         dbot: file(relativePath: { eq: "interim-dbot.png" }) {
             ...fadeIn
         }
+        dmt5: file(relativePath: { eq: "interim-dmt5.png" }) {
+            ...fadeIn
+        }
     }
 `
 
 const HeroDeriv = ({ interim_type }) => {
     const data = useStaticQuery(query)
+    const is_dbot = interim_type === 'dbot'
+    const is_deriv = interim_type === 'deriv'
+    const is_dmt5 = interim_type === 'dmt5'
     return (
         <>
-            <Section bg="var(--color-black)" p="3.2rem 0">
+            <Section background={is_dmt5 ? PlatformMt5 : Platform} p="3.2rem 0">
                 <Container jc="space-around">
                     <Flex fd="column" ai="center" max_width="28.2rem">
                         <Header as="h3" mb="4rem" align="center">
                             {localize('Be among the first to try Deriv')}
                         </Header>
                         <FitButton secondary to="/">
-                            {localize('Visit Deriv now')}
+                            {localize('Visit Deriv.com now')}
                         </FitButton>
                         <CtaBinary />
                     </Flex>
@@ -92,22 +98,7 @@ const HeroDeriv = ({ interim_type }) => {
                     </AbsoluteWrapper>
 
                     <RightFlex fd="column" ml="2.4rem" ai="center">
-                        {interim_type === 'dbot' ? (
-                            <>
-                                <White as="h3" mb="3rem" align="center">
-                                    {localize('Love Binary Bot?')}
-                                </White>
-                                <FitButton
-                                    external
-                                    white
-                                    to={deriv_app_url + '/bot'}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    {localize('Try DBot on Deriv')}
-                                </FitButton>
-                            </>
-                        ) : (
+                        {is_deriv && (
                             <>
                                 <White as="h3" mb="3rem" align="center">
                                     {localize('Love trading on Binary.com’s signature platform? ')}
@@ -119,7 +110,39 @@ const HeroDeriv = ({ interim_type }) => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Try SmartTrader on Deriv')}
+                                    {localize('Try SmartTrader on Deriv.com')}
+                                </FitButton>
+                            </>
+                        )}
+                        {is_dbot && (
+                            <>
+                                <White as="h3" mb="3rem" align="center">
+                                    {localize('Love Binary Bot?')}
+                                </White>
+                                <FitButton
+                                    external
+                                    white
+                                    to={deriv_app_url + '/bot'}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {localize('Try DBot on Deriv.com')}
+                                </FitButton>
+                            </>
+                        )}
+                        {is_dmt5 && (
+                            <>
+                                <White as="h3" mb="3rem" align="center">
+                                    {localize('Love MT5 on Binary.com?')}
+                                </White>
+                                <FitButton
+                                    external
+                                    white
+                                    to={deriv_app_url + '/bot'}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {localize('Try MT5 on Deriv.com')}
                                 </FitButton>
                             </>
                         )}

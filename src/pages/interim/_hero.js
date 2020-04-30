@@ -46,27 +46,34 @@ const query = graphql`
         dbot: file(relativePath: { eq: "interim-dbot-bg.png" }) {
             ...fadeIn
         }
+        dmt5: file(relativePath: { eq: "interim-dmt5-bg.png" }) {
+            ...fadeIn
+        }
     }
 `
 
 const HeroDeriv = ({ interim_type }) => {
     const data = useStaticQuery(query)
+    const is_dbot = interim_type === 'dbot'
+    const is_deriv = interim_type === 'deriv'
+    const is_dmt5 = interim_type === 'dmt5'
     return (
         <>
             <Section bg="var(--color-black)" p="8rem 0">
                 <Container fw="wrap-reverse">
                     <ResponsiveFlex fd="column" max_width="58.8rem" ai="center">
                         <ResponsiveHeader as="h2" mb="1.2rem" align="center">
-                            {interim_type === 'dbot'
-                                ? localize('Introducing DBot on Deriv.com')
-                                : localize('You inspired us to create something new')}
+                            {is_deriv && localize('You inspired us to create something new')}
+                            {is_dbot && localize('Introducing DBot on Deriv.com')}
+                            {is_dmt5 && localize('Introducing MT5 on Deriv.com')}
                         </ResponsiveHeader>
                         <Header as="h4" weight="normal" mb="4rem" align="center">
-                            {interim_type === 'dbot'
-                                ? localize('Our improved bot builder at our new home')
-                                : localize(
-                                      'Enjoy trading your way on Deriv.com, Binary.com’s new home',
-                                  )}
+                            {is_deriv &&
+                                localize(
+                                    'Enjoy trading your way on Deriv.com, Binary.com’s new home',
+                                )}
+                            {is_dbot && localize('Our improved bot builder at our new home')}
+                            {is_dmt5 && localize('Trade on MT5 at our new home')}
                         </Header>
                         <FitButton secondary to="/">
                             {localize('Explore Deriv.com')}
@@ -83,19 +90,20 @@ const HeroDeriv = ({ interim_type }) => {
                 </Container>
             </Section>
             <Container p="8rem 0" fd="column">
-                {interim_type === 'dbot' && (
+                {is_dbot && (
                     <Header as="h4" weight="normal" align="center" mb="3.6rem">
                         {localize('You read right. We are rebranding Binary.com to Deriv.com.')}
                     </Header>
                 )}
                 <Header as="h4" weight="normal" align="center">
-                    {interim_type === 'dbot'
-                        ? localize(
-                              'Here’s why: In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
-                          )
-                        : localize(
-                              'In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
-                          )}
+                    {(is_deriv || is_dmt5) &&
+                        localize(
+                            'In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
+                        )}
+                    {is_dbot &&
+                        localize(
+                            'Here’s why: In 2019, we celebrated our 20th year anniversary. Inspired by your love for online trading, we decided to create something new as part of our renewed commitment to making online trading effortless and accessible for you.',
+                        )}
                 </Header>
             </Container>
         </>

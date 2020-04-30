@@ -121,7 +121,7 @@ const Everything = () => {
                     </Li>
                 </Ul>
                 <LinkButton secondary to="/" mt="2rem">
-                    {localize('Explore Deriv now')}
+                    {localize('Explore Deriv.com now')}
                 </LinkButton>
             </Container>
         </Box>

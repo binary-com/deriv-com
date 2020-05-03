@@ -75,12 +75,16 @@ const StyledDropDown = styled.li`
     border-bottom: 1px solid var(--color-red);
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     ${Text} {
         ${TabsText}
     }
 `
 const ChevronWrapper = styled(Chevron)`
+    min-width: 16px;
+    width: 16px;
+    height: 16px;
     transform: ${(props) => (props.active_tab === '-' ? 'rotate(0deg)' : 'rotate(180deg)')};
 `
 const ItemWrapper = styled.div`

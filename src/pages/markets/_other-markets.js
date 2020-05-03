@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import Box from 'components/containers/box'
-import Commodities from 'pages/markets-svg/_market-commodities.js'
+import Commodities from 'components/svgs/_market-commodities.js'
 //TODO: using temp svg as a function for having dynamic id
-import Forex from 'pages/markets-svg/_market-forex.js'
-import StockIndices from 'pages/markets-svg/_market-stock.js'
-import SyntheticIndices from 'pages/markets-svg/_market-synthetic.js'
+import Forex from 'components/svgs/_market-forex.js'
+import StockIndices from 'components/svgs/_market-stock.js'
+import SyntheticIndices from 'components/svgs/_market-synthetic.js'
 import Arrow from 'images/svg/arrow.svg'
 import device from 'themes/device'
 
@@ -17,24 +17,27 @@ const markets_type = {
     forex: {
         icon: Forex,
         title: 'Forex',
-        content:
-            'Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market.',
+        content: (
+            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
+        ),
         to: '/markets#forex',
         id: 'marketforexothermarkets',
     },
     Synthetic_Indices: {
         icon: SyntheticIndices,
         title: 'Synthetic Indices',
-        content:
-            'Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks.',
+        content: (
+            <Localize translate_text="Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
+        ),
         to: '/markets#synthetic',
         id: 'marketsyntheticothermarkets',
     },
     stock_indices: {
         icon: StockIndices,
         title: 'Stock indices',
-        content:
-            'Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets.',
+        content: (
+            <Localize translate_text="Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
+        ),
         to: '/markets#stock',
         id: 'marketstockothermarkets',
     },
@@ -42,8 +45,9 @@ const markets_type = {
     commodities: {
         icon: Commodities,
         title: 'Commodities',
-        content:
-            'Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil.',
+        content: (
+            <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
+        ),
         to: '/markets#commodities',
         id: 'marketcommoditiesothermarket',
     },
@@ -112,9 +116,9 @@ const Card = ({ name }) => {
         >
             <Icon dynamic_id={markets_type[name].id} />
             <Text weight="bold" mt="1.6rem">
-                {localize(markets_type[name].title)}
+                {markets_type[name].title}
             </Text>
-            <Text mt="0.8rem">{localize(markets_type[name].content)}</Text>
+            <Text mt="0.8rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility={button_visibility}>
                 <Text>{localize('Learn more')}</Text>
                 <Arrow />

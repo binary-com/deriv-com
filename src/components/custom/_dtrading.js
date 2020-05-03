@@ -50,7 +50,7 @@ const StyledHeader = styled(Header)`
     line-height: 1.25;
 
     @media ${device.tabletL} {
-        margin-top: 0;
+        margin-top: 2rem;
     }
 `
 const Row = styled.div`

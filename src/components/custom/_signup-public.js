@@ -32,6 +32,7 @@ const ChevronRight = styled(Chevron)`
         }
     }
 `
+
 const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -57,6 +58,10 @@ const SignupFormWrapper = styled(Flex)`
 
     @media (max-width: 800px) {
         width: 100%;
+
+        & > div {
+            width: 100%;
+        }
     }
 `
 
@@ -109,17 +114,11 @@ const SocialButton = styled(Button)`
     background-color: var(--color-white);
     border: solid 1px var(--color-grey-7);
     height: 4rem;
-    margin-right: 1.2rem;
+    margin: 0 0.8rem;
 
     @media ${device.tabletL} {
-        height: 6rem;
-        margin-right: ${(props) => (props.margin_right ? props.margin_right : '0')};
         justify-content: center;
         align-items: center;
-
-        svg {
-            margin-right: 1rem;
-        }
     }
 `
 
@@ -137,7 +136,7 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Text)`
     width: auto;
-    margin-right: 4rem;
+    margin-right: 2rem;
 
     @media ${device.tabletL} {
         width: max-content-fit;
@@ -281,9 +280,6 @@ const SignupPublic = ({
                             <span>
                                 <Facebook />
                             </span>
-                            <Show.Mobile>
-                                <Text>Facebook</Text>
-                            </Show.Mobile>
                         </SocialButton>
                         <SocialButton
                             onClick={handleSocialSignup}
@@ -291,14 +287,10 @@ const SignupPublic = ({
                             id="google"
                             type="button"
                             social
-                            margin_right="1rem"
                         >
                             <span>
                                 <Google />
                             </span>
-                            <Show.Mobile>
-                                <Text>Google</Text>
-                            </Show.Mobile>
                         </SocialButton>
                     </SocialWrapper>
                 </div>

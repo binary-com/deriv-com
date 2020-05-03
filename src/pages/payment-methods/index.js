@@ -7,7 +7,7 @@ import payment_data from './_payment-data'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 
 const AccordionContainer = styled.div`
@@ -136,7 +136,7 @@ const PaymentMethods = () => {
                                     }}
                                     header={pd.name}
                                 >
-                                    <Scrollbar>
+                                    <Scrollbar options={{ suppressScrollY: true }}>
                                         <StyledTable has_note={!!pd.note}>
                                             <Thead>
                                                 <Tr>
@@ -214,10 +214,7 @@ const PaymentMethods = () => {
                                     {pd.note && (
                                         <Notes>
                                             <Text weight="500" size="var(--text-size-xxs)">
-                                                <Localize
-                                                    translate_text="Note: {{note}}"
-                                                    values={{ note: pd.note }}
-                                                />
+                                                {localize('Note:')} {pd.note}
                                             </Text>
                                         </Notes>
                                     )}

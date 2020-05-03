@@ -50,6 +50,14 @@ const TabsWrapper = styled.div`
     div:first-child {
         margin-top: 0;
     }
+
+    @media ${device.tabletL} {
+        width: 80%;
+        margin: 2rem 0 0;
+    }
+    @media ${device.mobileL} {
+        width: 100%;
+    }
 `
 const VideoWrapper = styled.div`
     max-width: 79.2rem;
@@ -82,6 +90,8 @@ const GoToLiveDemo = styled(Button)`
 
     @media ${device.tabletL} {
         max-width: 100%;
+        margin: 4rem auto;
+        font-size: 1.75rem;
     }
 `
 const handleRedirect = () => {

@@ -27,6 +27,7 @@ import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
+import BinaryLogo from 'images/svg/binary.svg'
 
 const NavWrapper = styled.div`
     width: 100%;
@@ -51,6 +52,11 @@ const LogoLink = styled(LocalizedLink)`
     @media ${device.tabletS} {
         & svg {
             width: 15rem;
+        }
+    }
+    @media ${device.mobileL} {
+        & svg {
+            width: 13rem;
         }
     }
 `
@@ -185,9 +191,11 @@ const CloseMenu = styled(Close)`
 const LogoLinkMobile = styled(LocalizedLink)`
     cursor: pointer;
     display: none;
+
     @media ${device.tabletL} {
         display: block;
         cursor: pointer;
+        margin-left: 2rem;
     }
 `
 
@@ -196,6 +204,10 @@ const MobileLogin = styled(Button)`
     font-size: 14px;
     @media ${device.tabletL} {
         display: block;
+        margin-left: auto;
+    }
+    @media ${device.mobileL} {
+        font-size: var(--text-size-xxs);
     }
 `
 const handleScroll = (show, hide) => {
@@ -204,9 +216,12 @@ const handleScroll = (show, hide) => {
 }
 
 const Binary = styled(Text)`
-    width: 80px;
+    width: 8rem;
     margin-left: 0.5rem;
     line-height: 1;
+    @media (max-width: 345px) {
+        width: 6rem;
+    }
 `
 
 const BinaryLink = styled.a`
@@ -318,7 +333,7 @@ export const Nav = () => {
                         Content={NavMarket}
                         title={localize('Markets')}
                         description={localize(
-                            'Enjoy our wide range of assets on financial and synthetic markets. ',
+                            'Enjoy our wide range of assets on financial and synthetic markets.',
                         )}
                     />
                     <PlatformsDropdown
@@ -348,6 +363,14 @@ export const Nav = () => {
                         <LogoLink to="/" aria-label={localize('Home')}>
                             <Logo />
                         </LogoLink>
+                        <LocalizedLink
+                            external
+                            to={binary_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <BinaryLogo width="24" height="24" />
+                        </LocalizedLink>
                         <Binary size="var(--text-size-xxs)" color="white">
                             <Localize
                                 translate_text="A <0>Binary.com</0> brand"
@@ -437,6 +460,12 @@ export const Nav = () => {
     )
 }
 
+const ResponsiveBinary = styled(BinaryLogo)`
+    @media ${device.mobileL} {
+        width: 20px;
+    }
+`
+
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <Container jc="space-between" p="2.4rem 0">
@@ -444,6 +473,9 @@ export const NavInterim = ({ interim_type }) => (
                 <LogoLink to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                     <Logo />
                 </LogoLink>
+                <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+                    <ResponsiveBinary width="24" height="24" />
+                </LocalizedLink>
                 <Binary size="var(--text-size-xxs)" color="white">
                     <Localize
                         translate_text="A <0>Binary.com</0> brand"

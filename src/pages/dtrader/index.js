@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import DtraderVideo from './_dtrader-video.js'
 import DTrading from 'components/custom/_dtrading.js'
@@ -8,8 +8,11 @@ import DNumber from 'components/custom/_dnumbers.js'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { Show, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
+import { size } from 'themes/device'
+import { isBrowser } from 'common/utility'
 import dtrader_logo from 'images/svg/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
+import DTraderBGMobile from 'images/svg/dtrader-bg-mobile.svg'
 import DTraderBG from 'images/svg/dtrader-bg.svg'
 import Signup, { Appearances } from 'components/custom/signup'
 
@@ -62,6 +65,14 @@ const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
 const Dtrader = () => {
+    const [is_mobile, setMobile] = useState(false)
+    const handleResizeWindow = () => {
+        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResizeWindow)
+    })
     return (
         <Layout>
             <SEO
@@ -82,7 +93,7 @@ const Dtrader = () => {
                 go_to_live_demo
                 Logo={dtrader_logo}
                 image_name="dtrader"
-                background_svg={DTraderBG}
+                background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
                 background_alt={localize('DTrader Board')}
             />
             <Show.Desktop>

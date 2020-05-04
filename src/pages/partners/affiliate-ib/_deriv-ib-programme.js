@@ -373,9 +373,9 @@ const DMT5Advanced = ({ data }) => {
     )
 }
 const ib_dmt5_standard = {
-    name: <Localize translate_text="DMT5 Standard" />,
+    name: <Localize translate_text="DMT5 Financial" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Standard account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Financial account." />
     ),
     assets: [
         [
@@ -408,9 +408,9 @@ const ib_dmt5_standard = {
     ),
 }
 const ib_dmt5_advanced = {
-    name: <Localize translate_text="DMT5 Advanced" />,
+    name: <Localize translate_text="DMT5 Financial STP" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Advanced account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Financial STP account." />
     ),
     assets: [
         [
@@ -434,9 +434,9 @@ const ib_dmt5_advanced = {
     ),
 }
 const ib_dmt5_synthetic = {
-    name: <Localize translate_text="DMT5 Synthetic Indices" />,
+    name: <Localize translate_text="DMT5 Synthetic" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Synthetic Indices account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Synthetic account." />
     ),
     assets: [
         [

@@ -23,11 +23,11 @@ const PlatformContainer = styled.div`
 `
 const trading = [
     {
-        title: localize('DMT5 Financial account'),
+        title: localize('Financial'),
         subtitle: localize(
             'The Financial account offers new and experienced traders high leverage and variable spreads for maximum flexibility. Trade commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs with high leverage.',
         ),
-        second_title: localize('DMT5 Financial STP account'),
+        second_title: localize('Financial STP'),
         second_subtitle: localize(
             'The Financial STP account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes.',
         ),
@@ -35,13 +35,13 @@ const trading = [
         image_alt: localize('DMT5 Platform'),
     },
     {
-        title: localize('DMT5 Synthetic account'),
+        title: localize('Synthetic'),
         subtitle: localize(
             'The Synthetic account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. Available for trading 24/7 and audited for fairness by an independent third party.',
         ),
         second_title: localize('Practice with Demo accounts'),
         second_subtitle: localize(
-            'Create free demo accounts (DMT5 Financial, DMT5 Financial STP, or DMT5 Synthetic) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
+            'Create free demo accounts (Financial, Financial STP, or Synthetic) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
         ),
         image_name: 'dmt_5_mac',
         image_alt: localize('DMT5 Demo Account'),

@@ -20,6 +20,12 @@ const HeroContent = styled.div`
         display: flex;
         margin-top: 1.5rem;
     }
+    @media ${device.mobileL} {
+        ${Header} {
+            margin-bottom: 100px;
+            font-size: 32px;
+        }
+    }
 `
 const StyledHeader = styled(Header)`
     color: var(--color-white);
@@ -42,6 +48,9 @@ const Wrapper = styled.div`
         padding: unset;
         max-height: unset;
     }
+    @media ${device.mobileL} {
+        height: 640px;
+    }
 `
 const LottieWrapper = styled.div`
     width: 100%;
@@ -58,6 +67,13 @@ const LottieWrapper = styled.div`
         width: 80%;
         margin-bottom: 7rem;
     }
+
+    @media ${device.mobileL} {
+        width: 90%;
+    }
+    @media ${device.mobileM} {
+        width: 100%;
+    }
 `
 
 const GoToLiveDemo = styled(Button)`
@@ -67,13 +83,29 @@ const GoToLiveDemo = styled(Button)`
 
     @media ${device.tabletL} {
         margin-left: 0;
-    }
-    @media ${device.tabletL} {
         max-width: 47rem;
+    }
+    @media ${device.mobileL} {
+        font-size: 14px;
+        min-height: 40px;
+    }
+`
+const DemoButton = styled(LinkButton)`
+    @media ${device.mobileL} {
+        font-size: 14px;
+        min-height: 40px;
+        margin-right: 2px;
     }
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
+`
+const InformationWrapper = styled(Flex)`
+    width: 66%;
+
+    @media ${device.mobileL} {
+        width: 100%;
+    }
 `
 const ContentWrapper = styled.div`
     display: flex;
@@ -88,6 +120,9 @@ const ContentWrapper = styled.div`
         flex-direction: column-reverse;
         top: 5rem;
         align-items: center;
+    }
+    @media ${device.mobileL} {
+        right: 5rem;
     }
 `
 const LinkWrapper = styled.div`
@@ -165,7 +200,7 @@ const DHero = ({
         <Wrapper>
             <BackgroundSVG />
             <ContentWrapper>
-                <Flex height="unset" width="66%" direction="column">
+                <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1" weight={500}>
                         <DLogo />
                         {title}
@@ -175,9 +210,11 @@ const DHero = ({
                     </HeroContent>
                     <LinkWrapper>
                         {join_us_for_free ? (
-                            <LinkButton secondary="true" to="/signup/">
-                                {localize('Create free demo account')}
-                            </LinkButton>
+                            <DemoButton secondary="true" to="/signup/">
+                                {is_mobile
+                                    ? localize('Create demo account')
+                                    : localize('Create free demo account')}
+                            </DemoButton>
                         ) : null}
                         {go_to_live_demo ? (
                             <GoToLiveDemo tertiary onClick={handleRedirect}>
@@ -185,7 +222,7 @@ const DHero = ({
                             </GoToLiveDemo>
                         ) : null}
                     </LinkWrapper>
-                </Flex>
+                </InformationWrapper>
                 <LottieWrapper>
                     <QueryImage
                         data={data[is_mobile ? image_name + '_mobile' : image_name]}

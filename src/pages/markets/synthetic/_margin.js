@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import AvailablePlatforms from '../_available-platforms.js'
+import MarketsAccordion from '../_markets_accordion.js'
 import { VolatilityIndices, CrashBoom, StepIndices } from '../sub-markets/_submarkets.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
 const Descriptions = styled.div`
@@ -18,11 +19,7 @@ const Col = styled(Flex)`
         max-width: 10rem;
     }
 `
-const Row = styled(Flex)`
-    border: 1px solid var(--color-grey-22);
-    margin-top: 2.4rem;
-    border-radius: 8px;
-`
+const Row = styled(Flex)``
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 2rem;
@@ -31,9 +28,10 @@ const StyledText = styled(Text)`
 `
 const MarketsList = styled(CssGrid)`
     border-left: 1px solid var(--color-grey-22);
+    border-right: 1px solid var(--color-grey-22);
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    padding: 2.4rem;
+    padding: 2.4rem 1.6rem;
     grid-row-gap: 1.6rem;
 
     @media ${device.tabletL} {
@@ -57,6 +55,54 @@ const Title = styled(Text)`
         font-weight: 600;
     }
 `
+const MarketsWrapper = styled(Flex)`
+    flex-direction: column;
+
+    > div {
+        margin-top: 2.4rem;
+    }
+`
+const DetailsContainer = styled(Flex)`
+    flex-direction: column;
+
+    ${Text} {
+        font-size: 1.4rem;
+        margin-top: 1.6rem;
+
+        @media ${device.tabletL} {
+            margin-top: 1rem;
+        }
+    }
+`
+const VolatilityIndicesDetails = () => {
+    return (
+        <DetailsContainer>
+            <Text>
+                {localize(
+                    'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+                )}
+            </Text>
+            <Text>
+                <Localize
+                    translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                    components={[<strong key={0} />]}
+                />
+            </Text>
+            <Text>
+                <Localize
+                    translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s) and 100 (1s)</0>."
+                    components={[<strong key={0} />]}
+                />
+            </Text>
+            <Text>
+                <Localize
+                    translate_text="<0>Two ticks</0> are generated <0>every second</0> for <0>HF (High Frequency) indices</0>."
+                    components={[<strong key={0} />]}
+                />
+            </Text>
+        </DetailsContainer>
+    )
+}
 const Margin = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
@@ -72,36 +118,53 @@ const Margin = () => {
                 <StyledText weight="bold" mt="2.4rem">
                     {localize('Instruments available for margin trading')}
                 </StyledText>
-                <Row jc="flex-start" ai="center" mt="1.6rem">
-                    <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="9.7rem" align="center">
-                            {localize('Volatility indices')}
-                        </Title>
-                    </Col>
-                    <MarketsList>
-                        <VolatilityIndices />
-                    </MarketsList>
-                </Row>
-                <Row jc="flex-start" ai="center">
-                    <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="9.7rem" align="center">
-                            {localize('Crash boom')}
-                        </Title>
-                    </Col>
-                    <MarketsList>
-                        <CrashBoom />
-                    </MarketsList>
-                </Row>
-                <Row jc="flex-start" ai="center">
-                    <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="9.7rem" align="center">
-                            {localize('Step indices')}
-                        </Title>
-                    </Col>
-                    <MarketsList>
-                        <StepIndices />
-                    </MarketsList>
-                </Row>
+                <MarketsWrapper direction="column">
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col max_width="13.2rem">
+                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                        {localize('Volatility indices')}
+                                    </Title>
+                                </Col>
+                                <MarketsList>
+                                    <VolatilityIndices />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={VolatilityIndicesDetails}
+                    />
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col max_width="13.2rem">
+                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                        {localize('Crash boom')}
+                                    </Title>
+                                </Col>
+                                <MarketsList>
+                                    <CrashBoom />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={() => <>detail</>}
+                    />
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col max_width="13.2rem">
+                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                        {localize('Step indices')}
+                                    </Title>
+                                </Col>
+                                <MarketsList>
+                                    <StepIndices />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={() => <>details</>}
+                    />
+                </MarketsWrapper>
             </Flex>
         </SectionContainer>
     )

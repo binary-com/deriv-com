@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import CtaBinary from './_cta-binary'
 import { Container, Flex, Box } from 'components/containers'
@@ -13,47 +13,43 @@ import Platform from 'images/common/interim-bg.png'
 import PlatformMt5 from 'images/common/interim-bg-dmt5.png'
 
 const Section = styled(Box)`
-    background-image: url(${(props) => props.background});
     width: 100%;
+    ${(props) =>
+        props.is_dmt5
+            ? css`
+                  background-image: url(${PlatformMt5});
+              `
+            : css`
+                  background-image: url(${Platform});
+              `}
     background-size: cover;
     position: relative;
 
-    @media (max-width: 1375px) {
-        background: white;
-    }
-    @media ${device.mobileL} {
+    @media (max-width: 1240px) {
         display: none;
+    }
+`
+
+const Responsive = styled(Container)`
+    @media ${device.tablet} {
+        flex-direction: column;
     }
 `
 
 const AbsoluteWrapper = styled(Box)`
     margin-bottom: -3.2rem;
-
-    @media (max-width: 1375px) {
+    width: 54rem;
+    @media (max-width: 1370px) {
         display: none;
     }
 `
 
-const FitButton = styled(LinkButton)`
-    width: fit-content;
+const MarBot = styled(Flex)`
+    margin-left: ${(props) => (props.is_dmt5 ? '1.2rem' : '0')};
 `
 
-const RightFlex = styled(Flex)`
-    @media (max-width: 1375px) {
-        ${Header} {
-            color: var(--color-black);
-        }
-        ${FitButton} {
-            border: 2px solid var(--color-red);
-            color: var(--color-red);
-            background: transparent;
-
-            &:hover {
-                background-color: var(--color-red);
-                color: var(--color-white);
-            }
-        }
-    }
+const FitButton = styled(LinkButton)`
+    width: fit-content;
 `
 
 const White = styled(Header)`
@@ -64,6 +60,9 @@ const White = styled(Header)`
 const query = graphql`
     query {
         deriv: file(relativePath: { eq: "smarttrader.png" }) {
+            ...fadeIn
+        }
+        deriv_mobile: file(relativePath: { eq: "deriv-platform-banner.png" }) {
             ...fadeIn
         }
         dbot: file(relativePath: { eq: "interim-dbot.png" }) {
@@ -82,8 +81,8 @@ const HeroDeriv = ({ interim_type }) => {
     const is_dmt5 = interim_type === 'dmt5'
     return (
         <>
-            <Section background={is_dmt5 ? PlatformMt5 : Platform} p="3.2rem 0">
-                <Container jc="space-around">
+            <Section is_dmt5={is_dmt5} p="3.2rem 0">
+                <Responsive jc="space-between" position="relative">
                     <Flex fd="column" ai="center" max_width="28.2rem">
                         <Header as="h3" mb="4rem" align="center">
                             {localize('Be among the first to try Deriv.com')}
@@ -94,10 +93,10 @@ const HeroDeriv = ({ interim_type }) => {
                         <CtaBinary />
                     </Flex>
                     <AbsoluteWrapper>
-                        <QueryImage data={data[interim_type]} width="54rem" height="29.6rem" />
+                        <QueryImage data={data[interim_type]} width="100%" height="29.6rem" />
                     </AbsoluteWrapper>
 
-                    <RightFlex fd="column" ml="2.4rem" ai="center">
+                    <MarBot is_dmt5={is_dmt5} width="auto" fd="column" ai="center">
                         {is_deriv && (
                             <>
                                 <White as="h3" mb="3rem" align="center">
@@ -147,8 +146,8 @@ const HeroDeriv = ({ interim_type }) => {
                             </>
                         )}
                         <CtaBinary is_white />
-                    </RightFlex>
-                </Container>
+                    </MarBot>
+                </Responsive>
             </Section>
         </>
     )

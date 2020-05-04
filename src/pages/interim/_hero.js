@@ -22,15 +22,17 @@ const ResponsiveHeader = styled(Header)`
 
 const ImgWrapper = styled(Box)`
     margin-left: 2.4rem;
+    width: 100%;
+    max-width: 56.5rem;
 
     @media ${device.tabletS} {
-        display: none;
+        margin-left: 0;
     }
 `
 
 const ResponsiveFlex = styled(Flex)`
     @media (max-width: 1400px) {
-        margin-top: 2.4rem;
+        margin-bottom: 2.4rem;
         max-width: 100%;
         margin-right: 0;
     }
@@ -38,6 +40,19 @@ const ResponsiveFlex = styled(Flex)`
 
 const FitButton = styled(LinkButton)`
     width: fit-content;
+`
+
+const Desktop = styled(Flex)`
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+const Mobile = styled(Flex)`
+    display: none;
+
+    @media ${device.tabletL} {
+        display: flex;
+    }
 `
 
 const query = graphql`
@@ -62,7 +77,7 @@ const HeroDeriv = ({ interim_type }) => {
     return (
         <>
             <Section bg="var(--color-black)" p="8rem 0">
-                <Container fw="wrap-reverse">
+                <Container fw="wrap">
                     <ResponsiveFlex fd="column" max_width="58.8rem" ai="center">
                         {is_deriv && (
                             <ResponsiveHeader as="h2" align="center" lh="1.25">
@@ -82,18 +97,26 @@ const HeroDeriv = ({ interim_type }) => {
                             {is_dbot && localize('Our improved bot builder at our new home')}
                             {is_dmt5 && localize('Trade on MT5 at our new home')}
                         </Header>
-                        <FitButton secondary to="/">
-                            {localize('Explore Deriv.com')}
-                        </FitButton>
-                        <CtaBinary is_white />
+                        <Desktop width="auto" fd="column" ai="center">
+                            <FitButton secondary to="/">
+                                {localize('Explore Deriv.com')}
+                            </FitButton>
+                            <CtaBinary is_white />
+                        </Desktop>
                     </ResponsiveFlex>
                     <ImgWrapper>
                         <QueryImage
-                            width="56.5rem"
+                            width="100%"
                             data={data[interim_type]}
                             alt={`${interim_type} platforms`}
                         />
                     </ImgWrapper>
+                    <Mobile mt="4rem" fd="column" ai="center">
+                        <FitButton secondary to="/">
+                            {localize('Explore Deriv.com')}
+                        </FitButton>
+                        <CtaBinary is_white />
+                    </Mobile>
                 </Container>
             </Section>
             <Container p="8rem 0" fd="column">

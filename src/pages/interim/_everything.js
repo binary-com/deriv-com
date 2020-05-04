@@ -5,6 +5,7 @@ import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import { binary_url } from 'common/utility'
+import device from 'themes/device'
 import Enhanced from 'images/svg/interim/enhanced.svg'
 import EasySignup from 'images/svg/interim/easy-sign-up.svg'
 import Support from 'images/svg/interim/support.svg'
@@ -16,11 +17,20 @@ const Ul = styled(Flex).attrs({ as: 'ul' })`
     width: 100%;
     flex-wrap: wrap;
 `
-
 const Li = styled(Flex).attrs({ as: 'li' })`
     max-width: 48.6rem;
     display: flex;
     margin: 2rem 1.2rem;
+
+    @media ${device.mobileL} {
+        flex-direction: column;
+    }
+`
+const ResponsiveBox = styled(Box)`
+    @media ${device.mobileL} {
+        margin-left: 0;
+        margin-top: 1.6rem;
+    }
 `
 
 const Everything = () => {
@@ -35,7 +45,7 @@ const Everything = () => {
                         <div>
                             <EasySignup width="64" height="64" />
                         </div>
-                        <Box ml="1.6rem">
+                        <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('No sign up required')}</Header>
                             <Text>
                                 <Localize
@@ -52,73 +62,72 @@ const Everything = () => {
                                     ]}
                                 />
                             </Text>
-                        </Box>
+                        </ResponsiveBox>
                     </Li>
                     <Li>
                         <div>
                             <SyntheticIndices width="64" height="64" />
                         </div>
-                        <Box ml="1.6rem">
+                        <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('Over 100+ financial instruments')}</Header>
                             <Text>
                                 {localize(
                                     'Trade what you like - forex, commodities, stock and synthetic indices.',
                                 )}
                             </Text>
-                        </Box>
+                        </ResponsiveBox>
                     </Li>
                     <Li>
                         <div>
                             <Enhanced width="64" height="64" />
                         </div>
-                        <Box ml="1.6rem">
+                        <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('An enhanced experience')}</Header>
                             <Text>
                                 {localize(
                                     'Trade confidently on a service created by the trusted online trading brand with over 20 years of experience.',
                                 )}
                             </Text>
-                        </Box>
+                        </ResponsiveBox>
                     </Li>
-
                     <Li>
                         <div>
                             <TradingPlatform width="64" height="64" />
                         </div>
-                        <Box ml="1.6rem">
+                        <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('4 trading platforms in one place')}</Header>
                             <Text>
                                 {localize(
                                     'Trade the way you like on the Deriv MetaTrader 5 (DMT5), DTrader, DBot — and the classic SmartTrader.',
                                 )}
                             </Text>
-                        </Box>
+                        </ResponsiveBox>
                     </Li>
                     <Li>
                         <div>
                             <UserFriendly width="64" height="64" />
                         </div>
-                        <Box ml="1.6rem">
+                        <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('User-friendly, modern design')}</Header>
                             <Text>
                                 {localize(
                                     'Enjoy an intuitive, easy-to-use interface, even for new traders.',
                                 )}
                             </Text>
-                        </Box>
+                        </ResponsiveBox>
                     </Li>
                     <Li>
                         <div>
                             <Support width="64" height="64" />
                         </div>
-                        <Box ml="1.6rem">
+                        <ResponsiveBox ml="1.6rem">
                             <Header as="h4">{localize('Support when you need it')}</Header>
                             <Text>
                                 {localize(
                                     'Get access to friendly customer support 7 days a week, an enriched Help Centre, plus other helpful content.',
                                 )}
                             </Text>
-                        </Box>
+                        </ResponsiveBox>
                     </Li>
                 </Ul>
                 <LinkButton secondary to="/" mt="2rem">

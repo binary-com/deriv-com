@@ -34,7 +34,7 @@ const Faq = () => {
         marginBottom: '2.4rem',
     }
     const item_style = {
-        padding: '4rem',
+        padding: '2.4rem 4rem',
         background: 'var(--color-grey-4)',
     }
     const header_style = {

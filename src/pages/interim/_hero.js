@@ -21,6 +21,8 @@ const ResponsiveHeader = styled(Header)`
 `
 
 const ImgWrapper = styled(Box)`
+    margin-left: 2.4rem;
+
     @media ${device.tabletS} {
         display: none;
     }
@@ -62,8 +64,13 @@ const HeroDeriv = ({ interim_type }) => {
             <Section bg="var(--color-black)" p="8rem 0">
                 <Container fw="wrap-reverse">
                     <ResponsiveFlex fd="column" max_width="58.8rem" ai="center">
-                        <ResponsiveHeader as="h2" mb="1.2rem" align="center">
-                            {is_deriv && localize('You inspired us to create something new')}
+                        {is_deriv && (
+                            <ResponsiveHeader as="h2" align="center" lh="1.25">
+                                {localize('You inspired us')}
+                            </ResponsiveHeader>
+                        )}
+                        <ResponsiveHeader as="h2" mb="1.2rem" align="center" lh="1.25">
+                            {is_deriv && localize('to create something new')}
                             {is_dbot && localize('Introducing DBot on Deriv.com')}
                             {is_dmt5 && localize('Introducing MT5 on Deriv.com')}
                         </ResponsiveHeader>
@@ -82,7 +89,7 @@ const HeroDeriv = ({ interim_type }) => {
                     </ResponsiveFlex>
                     <ImgWrapper>
                         <QueryImage
-                            width="58.9rem"
+                            width="56.5rem"
                             data={data[interim_type]}
                             alt={`${interim_type} platforms`}
                         />

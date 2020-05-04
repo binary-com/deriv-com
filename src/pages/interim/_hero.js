@@ -4,9 +4,10 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import CtaBinary from './_cta-binary'
 import { Container, Flex, Box } from 'components/containers'
-import { Header, QueryImage } from 'components/elements'
+import { Header, QueryImage, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
+import { binary_url } from 'common/utility'
 import device from 'themes/device'
 
 const Section = styled(Box)`
@@ -90,10 +91,28 @@ const HeroDeriv = ({ interim_type }) => {
                             {is_dmt5 && localize('Introducing MT5 on Deriv.com')}
                         </ResponsiveHeader>
                         <Header as="h4" weight="normal" mb="4rem" align="center">
-                            {is_deriv &&
-                                localize(
-                                    'Enjoy trading your way on Deriv.com, Binary.com’s new home',
-                                )}
+                            {is_deriv && (
+                                <Localize
+                                    translate_text="Enjoy trading your way on <0>Deriv.com</0>, <1>Binary.com</1>’s new home"
+                                    components={[
+                                        <LocalizedLinkText
+                                            key={0}
+                                            weight="bold"
+                                            to="/"
+                                            color="white"
+                                        />,
+                                        <LocalizedLinkText
+                                            key={1}
+                                            external
+                                            color="white"
+                                            weight="bold"
+                                            to={binary_url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            )}
                             {is_dbot && localize('Our improved bot builder at our new home')}
                             {is_dmt5 && localize('Trade on MT5 at our new home')}
                         </Header>

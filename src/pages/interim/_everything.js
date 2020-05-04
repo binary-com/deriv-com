@@ -38,7 +38,7 @@ const Everything = () => {
         <Box p="8rem 0" bg="var(--color-grey-8)" id="markets">
             <Container fd="column" ai="center">
                 <Header as="h3" align="center" mb="2rem">
-                    {localize('Deriv.com is Everything you love about Binary.com, and more')}
+                    {localize('Deriv.com is everything you love about Binary.com, and more')}
                 </Header>
                 <Ul jc="center" ai="center">
                     <Li>

@@ -37,7 +37,7 @@ module.exports = {
                     'amp-mega-menu',
                     'amp-accordion',
                 ],
-                pathIdentifier: '/',
+                pathIdentifier: '/', // Change to `/` to test on development, `/amp/` is for production
                 relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
                 useAmpClientIdApi: true,
             },

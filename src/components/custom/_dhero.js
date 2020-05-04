@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     width: 100%;
     display: flex;
     height: 575px;
-    padding: 12rem 0 9rem 12rem;
+    padding: 12rem 12rem 9rem 12rem;
 
     @media ${device.laptopM} {
         max-height: 429px;
@@ -23,10 +23,13 @@ const Wrapper = styled.div`
     @media ${device.laptopM} {
         padding: 0 0 0 5rem;
     }
+    @media ${device.tabletL} {
+        max-height: 349px;
+    }
     @media ${device.tablet} {
         padding: unset;
         max-height: unset;
-        height: 780px;
+        height: 760px;
     }
     @media ${device.mobileL} {
         height: 640px;
@@ -44,11 +47,17 @@ const HeroContent = styled.div`
         margin-top: 1.5rem;
         margin-bottom: 13.4rem;
     }
+
     @media ${device.laptopM} {
         ${Header} {
             margin-bottom: 100px;
             font-size: 32px;
             margin-left: 16px;
+        }
+    }
+    @media ${device.tabletL} {
+        ${Header} {
+            margin-bottom: 50px;
         }
     }
 `
@@ -81,17 +90,25 @@ const LottieWrapper = styled.div`
         width: 67%;
         margin-bottom: 7rem;
     }
+    @media ${device.tabletS} {
+        width: 85%;
+        margin-bottom: 12rem;
+    }
+    @media ${device.mobileL} {
+        width: 67%;
+        margin-bottom: 7rem;
+    }
 `
 
 const GoToLiveDemo = styled(Button)`
     color: var(--color-white);
     border-color: var(--color-black-5);
-    margin-left: 2.4rem;
+    margin-left: 1.6rem;
+    min-height: 40px;
 
     @media ${device.laptopM} {
         font-size: 14px;
         margin-left: 0;
-        min-height: 40px;
         width: 190px;
     }
     @media ${device.mobileL} {
@@ -99,10 +116,11 @@ const GoToLiveDemo = styled(Button)`
     }
 `
 const DemoButton = styled(LinkButton)`
+    min-height: 40px;
+
     @media ${device.laptopM} {
         width: 200px;
         font-size: 14px;
-        min-height: 40px;
         margin-right: 2px;
     }
     @media ${device.mobileL} {
@@ -117,6 +135,9 @@ const InformationWrapper = styled(Flex)`
 
     @media ${device.laptop} {
         width: 77%;
+    }
+    @media ${device.tabletL} {
+        width: 52%;
     }
     @media ${device.tablet} {
         width: 100%;
@@ -200,14 +221,20 @@ const DHero = ({
             max-width: 400px;
             height: 46%;
         }
+        @media ${device.tabletL} {
+            max-width: 400px;
+            height: 350px;
+        }
         @media ${device.mobileL} {
             height: unset;
             top: 0;
         }
     `
     const [is_mobile, setMobile] = useState(false)
+    const [is_tablet, setTablet] = useState(false)
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+        setTablet(isBrowser() ? window.screen.width <= size.tabletL : false)
     }
 
     useEffect(() => {
@@ -228,7 +255,7 @@ const DHero = ({
                     <LinkWrapper>
                         {join_us_for_free ? (
                             <DemoButton secondary="true" to="/signup/">
-                                {is_mobile
+                                {is_tablet
                                     ? localize('Create demo account')
                                     : localize('Create free demo account')}
                             </DemoButton>

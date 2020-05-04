@@ -9,6 +9,29 @@ import { Header, QueryImage } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
 import device, { size } from 'themes/device.js'
 
+const Wrapper = styled.div`
+    position: relative;
+    background-color: var(--color-black);
+    width: 100%;
+    display: flex;
+    height: 575px;
+    padding: 12rem 0 9rem 12rem;
+
+    @media ${device.laptopM} {
+        max-height: 429px;
+    }
+    @media ${device.laptopM} {
+        padding: 0 0 0 5rem;
+    }
+    @media ${device.tablet} {
+        padding: unset;
+        max-height: unset;
+        height: 780px;
+    }
+    @media ${device.mobileL} {
+        height: 640px;
+    }
+`
 const HeroContent = styled.div`
     display: flex;
     flex-direction: column;
@@ -19,11 +42,13 @@ const HeroContent = styled.div`
         color: var(--color-white);
         display: flex;
         margin-top: 1.5rem;
+        margin-bottom: 13.4rem;
     }
-    @media ${device.mobileL} {
+    @media ${device.laptopM} {
         ${Header} {
             margin-bottom: 100px;
             font-size: 32px;
+            margin-left: 16px;
         }
     }
 `
@@ -32,47 +57,29 @@ const StyledHeader = styled(Header)`
     display: flex;
     margin-top: 0;
     font-size: 2.4rem;
-`
-const Wrapper = styled.div`
-    position: relative;
-    background-color: var(--color-black);
-    width: 100%;
-    display: flex;
-    height: 575px;
-    padding: 12rem 0 9rem 12rem;
 
-    @media ${device.laptop} {
-        max-height: 429px;
-    }
-    @media ${device.tablet} {
-        padding: unset;
-        max-height: unset;
-    }
-    @media ${device.mobileL} {
-        height: 640px;
+    @media ${device.laptopM} {
+        margin-left: 16px;
     }
 `
+
 const LottieWrapper = styled.div`
     width: 100%;
     height: 100%;
     max-width: 606px;
     max-height: 360px;
 
-    @media ${device.laptop} {
+    @media ${device.laptopM} {
         right: 0;
         top: 5rem;
         width: 58%;
     }
+    @media ${device.laptop} {
+        width: 88%;
+    }
     @media ${device.tablet} {
-        width: 80%;
+        width: 67%;
         margin-bottom: 7rem;
-    }
-
-    @media ${device.mobileL} {
-        width: 90%;
-    }
-    @media ${device.mobileM} {
-        width: 100%;
     }
 `
 
@@ -81,20 +88,25 @@ const GoToLiveDemo = styled(Button)`
     border-color: var(--color-black-5);
     margin-left: 2.4rem;
 
-    @media ${device.tabletL} {
+    @media ${device.laptopM} {
+        font-size: 14px;
         margin-left: 0;
-        max-width: 47rem;
+        min-height: 40px;
+        width: 190px;
     }
     @media ${device.mobileL} {
-        font-size: 14px;
-        min-height: 40px;
+        width: 160px;
     }
 `
 const DemoButton = styled(LinkButton)`
-    @media ${device.mobileL} {
+    @media ${device.laptopM} {
+        width: 200px;
         font-size: 14px;
         min-height: 40px;
         margin-right: 2px;
+    }
+    @media ${device.mobileL} {
+        width: 172px;
     }
 `
 const StyledContent = styled(Header)`
@@ -103,7 +115,10 @@ const StyledContent = styled(Header)`
 const InformationWrapper = styled(Flex)`
     width: 66%;
 
-    @media ${device.mobileL} {
+    @media ${device.laptop} {
+        width: 77%;
+    }
+    @media ${device.tablet} {
         width: 100%;
     }
 `
@@ -115,23 +130,25 @@ const ContentWrapper = styled.div`
     right: 12rem;
     width: 84%;
 
+    @media ${device.laptop} {
+        right: unset;
+    }
     @media ${device.tablet} {
         flex-direction: column;
         flex-direction: column-reverse;
         top: 5rem;
         align-items: center;
-    }
-    @media ${device.mobileL} {
-        right: 5rem;
+        width: 100%;
     }
 `
 const LinkWrapper = styled.div`
-    @media ${device.laptop} {
-        flex-wrap: wrap;
-    }
     @media ${device.tabletL} {
         text-align: center;
         display: flex;
+        justify-content: start;
+    }
+    @media ${device.mobileL} {
+        justify-content: space-around;
     }
 `
 
@@ -176,12 +193,12 @@ const DHero = ({
         right: 0;
         height: 100%;
 
-        @media ${device.laptop} {
+        @media ${device.laptopM} {
             max-width: 492px;
         }
         @media ${device.tablet} {
             max-width: 400px;
-            top: -100px;
+            height: 46%;
         }
         @media ${device.mobileL} {
             height: unset;

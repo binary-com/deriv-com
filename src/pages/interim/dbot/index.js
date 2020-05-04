@@ -10,7 +10,7 @@ import { localize, WithIntl } from 'components/localization'
 const Interim = () => {
     return (
         <Layout type="interim" interim_type="dbot">
-            <SEO title={localize('Interim | DBot')} />
+            <SEO title={localize('Interim | DBot')} no_index />
             <Hero interim_type="dbot" />
             <Everything />
             <LoveTrading interim_type="dbot" />

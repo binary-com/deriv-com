@@ -258,10 +258,12 @@ const SwiperWrapper = styled.div`
 const LeaderMobile = styled.div`
     width: 100%;
     max-width: 304px;
-    height: 532px;
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
+    &.swiper-slide {
+        height: 532px;
+    }
     > p {
         max-width: 273px;
     }
@@ -325,7 +327,7 @@ const Leaders = () => {
                                     <Header size="24px" align="center" m="16px 0 0 0">
                                         {leader.name}
                                     </Header>
-                                    <Text align="center" margin="0 auto" size="2rem">
+                                    <Text align="center" m="0 auto" size="2rem">
                                         {leader.position}
                                     </Text>
                                     <Text m="16px 16px 32px 16px" size="2rem">

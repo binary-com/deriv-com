@@ -334,15 +334,13 @@ const DMT5Advanced = ({ data }) => {
                                         } else if (idxa === 0 && typeof item === 'string') {
                                             return (
                                                 <TR isTitle="true" key={idxa}>
-                                                    <StyledText weight="bold">
-                                                        {localize('item')}
-                                                    </StyledText>
+                                                    <StyledText weight="bold">{item}</StyledText>
                                                 </TR>
                                             )
                                         } else {
                                             return (
                                                 <StyledTR key={idxa}>
-                                                    <StyledText>{localize('item')}</StyledText>
+                                                    <StyledText>{item}</StyledText>
                                                 </StyledTR>
                                             )
                                         }

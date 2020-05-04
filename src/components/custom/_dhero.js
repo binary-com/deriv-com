@@ -39,10 +39,10 @@ const Wrapper = styled.div`
 
 const TryForFree = styled(LinkButton)`
     @media ${device.tabletL} {
-        width: 100%;
-        margin-top: 18.5rem;
-        max-width: 47rem;
+        margin-right: 0.2rem;
+        font-size: 1.55rem;
         margin-bottom: 2.4rem;
+        padding: 1.2rem 1.6rem;
     }
 `
 const StyledContainer = styled(Container)`
@@ -65,23 +65,32 @@ const GoToLiveDemo = styled(Button)`
 
     @media ${device.tabletL} {
         margin-left: 0;
-    }
-    @media ${device.tabletL} {
-        width: 100%;
-        max-width: 47rem;
+        padding: 1rem 2.9rem;
+        font-size: 1.55rem;
     }
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
+
+    @media ${device.mobileL} {
+        font-size: 4.8rem;
+    }
+    @media ${device.mobileS} {
+        font-size: 4rem;
+    }
 `
 const InformationWrapper = styled(Flex)`
     min-height: 36rem;
+    @media ${device.tabletL} {
+        align-items: flex-start;
+    }
 `
 const LinkWrapper = styled.div`
     @media ${device.tabletL} {
+        margin-top: 12rem;
         text-align: center;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
     }
 `
 const query = graphql`

@@ -56,7 +56,7 @@ export const LocalizedLink = ({ to, ...props }) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
     const is_index = to === `/`
-    const { target, rel, className, style } = props
+    const { target, rel, className, style, on } = props
 
     // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
@@ -75,6 +75,7 @@ export const LocalizedLink = ({ to, ...props }) => {
                 data-amp-replace="QUERY_PARAM"
                 style={style}
                 href={to}
+                on={on}
             >
                 {props.children}
             </a>
@@ -101,6 +102,7 @@ export const LocalizedLink = ({ to, ...props }) => {
             className={className}
             style={style}
             to={internal_to}
+            on={on}
         >
             {props.children}
         </GatsbyLink>
@@ -114,6 +116,7 @@ LocalizedLink.propTypes = {
     external: PropTypes.string,
     external_link: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
+    on: PropTypes.string,
     props: PropTypes.object,
     rel: PropTypes.string,
     style: PropTypes.object,

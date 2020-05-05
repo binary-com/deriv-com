@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Container, Flex } from 'components/containers'
+import { Container, Flex, Box } from 'components/containers'
 import { Text, Header, NavCard, CardLink, Divider } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { binary_url, smarttrader_url } from 'common/utility'
@@ -120,7 +120,11 @@ const ResponsiveDeriv = styled.img`
 `
 
 const OffCanvas = styled(Flex)`
-    width: 25.3rem;
+    width: 30rem;
+
+    & > amp-accordion {
+        width: 100%;
+    }
 `
 const NoBorder = styled(Header)`
     border: none;
@@ -128,6 +132,11 @@ const NoBorder = styled(Header)`
 
 const Section = styled.section`
     margin-bottom: 24px;
+`
+
+const ResponsiveCard = styled(CardLink)`
+    margin-top: 2rem;
+    display: block;
 `
 
 const HeaderNav = () => (
@@ -175,7 +184,7 @@ const HeaderNav = () => (
                                             </Header>
                                             <Text size="var(--text-size-xs)">
                                                 {localize(
-                                                    'Be in full control of your trading with our new and improved platforms. ',
+                                                    'Be in full control of your trading with our new and improved platforms.',
                                                 )}
                                             </Text>
                                         </PlatformInfo>
@@ -264,7 +273,7 @@ const HeaderNav = () => (
                                             </Header>
                                             <Text size="var(--text-size-xs)">
                                                 {localize(
-                                                    'Be in full control of your trading with our new and improved platforms. ',
+                                                    'Enjoy our wide range of assets on financial and synthetic markets.',
                                                 )}
                                             </Text>
                                         </PlatformInfo>
@@ -352,7 +361,7 @@ const HeaderNav = () => (
                                             </Header>
                                             <Text size="var(--text-size-xs)">
                                                 {localize(
-                                                    'Be in full control of your trading with our new and improved platforms. ',
+                                                    "Get to know our leadership team, learn about our history, and see why we're different.",
                                                 )}
                                             </Text>
                                         </PlatformInfo>
@@ -389,7 +398,7 @@ const HeaderNav = () => (
                                             </Header>
                                             <Text size="var(--text-size-xs)">
                                                 {localize(
-                                                    'Be in full control of your trading with our new and improved platforms. ',
+                                                    'Help yourself to various resources that can help you get the best out of your trading experience.',
                                                 )}
                                             </Text>
                                         </PlatformInfo>
@@ -421,23 +430,181 @@ const HeaderNav = () => (
                 <amp-accordion animate>
                     <Section>
                         <NoBorder as="h4">{localize('Trade')}</NoBorder>
-                        <Text>Hello</Text>
+                        <Box ml="1.6rem">
+                            <Flex m="2rem 0">
+                                <NavCard
+                                    icon={() => (
+                                        <amp-img
+                                            src={DTrader}
+                                            alt="Dtrader"
+                                            width="30"
+                                            height="30"
+                                        />
+                                    )}
+                                    content={
+                                        <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
+                                    }
+                                    title={<Localize translate_text="DTrader" />}
+                                    to="/dtrader"
+                                />
+                            </Flex>
+                            <Flex mb="2rem">
+                                <NavCard
+                                    icon={() => (
+                                        <amp-img src={DBot} alt="DBot" width="30" height="30" />
+                                    )}
+                                    content={
+                                        <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                                    }
+                                    title={<Localize translate_text="DBot" />}
+                                    to="/dbot"
+                                />
+                            </Flex>
+                            <Flex mb="2rem">
+                                <NavCard
+                                    icon={() => (
+                                        <amp-img src={DMT5} alt="DMT5" width="30" height="30" />
+                                    )}
+                                    content={
+                                        <Localize translate_text="The platform of choice for professionals worldwide." />
+                                    }
+                                    title={<Localize translate_text="DMT5" />}
+                                    to="/dmt5"
+                                />
+                            </Flex>
+                            <Flex>
+                                <NavCard
+                                    icon={() => (
+                                        <amp-img
+                                            src={Smarttrader}
+                                            alt="Smarttrader"
+                                            width="30"
+                                            height="30"
+                                        />
+                                    )}
+                                    content={
+                                        <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                    }
+                                    title={<Localize translate_text="SmartTrader" />}
+                                    to={smarttrader_url}
+                                    external="true"
+                                    target="_blank"
+                                />
+                            </Flex>
+                        </Box>
                     </Section>
                     <Section>
                         <NoBorder as="h4">{localize('Markets')}</NoBorder>
-                        <Text>Hello</Text>
+                        <Box ml="1.6rem">
+                            <Flex m="2rem 0 3.2rem">
+                                <NavCard
+                                    icon={() => (
+                                        <amp-img src={Forex} alt="Forex" width="30" height="30" />
+                                    )}
+                                    content={localize(
+                                        'Trade the world’s largest financial market with popular forex pairs.',
+                                    )}
+                                    title={localize('Forex')}
+                                    to="/markets#forex"
+                                />
+                            </Flex>
+                            <Flex mb="3.2rem">
+                                <NavCard
+                                    icon={() => (
+                                        <amp-img
+                                            src={Commodities}
+                                            alt="Commodities"
+                                            width="30"
+                                            height="30"
+                                        />
+                                    )}
+                                    content={localize(
+                                        "Trade natural resources that are central to the world's economy.",
+                                    )}
+                                    title={localize('Commodities')}
+                                    to="/markets#commodities"
+                                />
+                            </Flex>
+                            <Flex mb="3.2rem">
+                                <NavCard
+                                    icon={() => (
+                                        <amp-img
+                                            src={StockIndices}
+                                            alt="Stock indices"
+                                            width="30"
+                                            height="30"
+                                        />
+                                    )}
+                                    content={localize(
+                                        'Predict broader market trends and Boxersify your risk with stock indices.',
+                                    )}
+                                    title={localize('Stock Indices')}
+                                    to="/markets#stock"
+                                />
+                            </Flex>
+                            <Flex>
+                                <NavCard
+                                    icon={() => (
+                                        <amp-img
+                                            src={SyntheticIndices}
+                                            alt="Synthetic Indices"
+                                            width="30"
+                                            height="30"
+                                        />
+                                    )}
+                                    content={localize(
+                                        'Enjoy synthetic markets that emulate real-world market movements.',
+                                    )}
+                                    title={localize('Synthetic indices')}
+                                    to="markets#synthetic"
+                                />
+                            </Flex>
+                        </Box>
                     </Section>
                     <Section>
                         <NoBorder as="h4">{localize('About us')}</NoBorder>
-                        <Text>Hello</Text>
+                        <Box ml="1.6rem">
+                            <ResponsiveCard to="/about/#story" title={localize('Our story')} />
+                            <ResponsiveCard
+                                to="/about/#leadership"
+                                title={localize('Our leadership')}
+                            />
+                            <ResponsiveCard
+                                to="/why-choose-us/"
+                                title={localize('Why choose us?')}
+                            />
+                            <ResponsiveCard to="/contact-us/" title={localize('Contact us')} />
+                            <ResponsiveCard to="/careers/" title={localize('Careers')} />
+                        </Box>
                     </Section>
                     <Section>
                         <NoBorder as="h4">{localize('Resources')}</NoBorder>
-                        <Text>Hello</Text>
+                        <Box ml="1.6rem">
+                            <ResponsiveCard to="/help-centre/" title={localize('Help Centre')} />
+                            <ResponsiveCard
+                                to="/payment-methods/"
+                                title={localize('Payment methods')}
+                            />
+                        </Box>
                     </Section>
                     <Section>
                         <NoBorder as="h4">{localize('Legal')}</NoBorder>
-                        <Text>Hello</Text>
+                        <Box ml="1.6rem">
+                            <ResponsiveCard
+                                to="/regulatory/"
+                                title={localize('Regulatory information')}
+                            />
+
+                            <ResponsiveCard
+                                to="/terms-and-conditions/"
+                                title={localize('Terms and conditions')}
+                            />
+
+                            <ResponsiveCard
+                                to="/responsible-trading/"
+                                title={localize('Secure and responsible trading')}
+                            />
+                        </Box>
                     </Section>
                 </amp-accordion>
             </OffCanvas>

@@ -279,6 +279,7 @@ const ResponsiveHeader = styled(Header)`
     transition: color 0.2s;
     line-height: 1.14;
     margin-bottom: 0.8rem;
+    width: 100%;
     @media ${device.tabletS} {
         font-size: 16px;
     }
@@ -327,6 +328,7 @@ export const NavCard = ({ icon: Icon, title, content, to, style, external, targe
             external={external}
             target={target}
             className={className}
+            on="tap:sidebar1.close"
         >
             <FlexHover jc="flex-start" fd="row" tablet_direction="row">
                 <Icon />
@@ -373,18 +375,19 @@ const RelativeFlex = styled(Flex)`
     position: relative;
 `
 
-export const CardLink = ({ title, to, style, external }) => {
+export const CardLink = ({ title, to, style, external, className }) => {
     return (
         <LocalizedLink
             to={to}
             style={{
                 textDecoration: 'none',
                 width: '100%',
-                maxWidth: '20rem',
+                maxWidth: '25rem',
                 position: 'relative',
                 ...style,
             }}
             external={external}
+            className={className}
         >
             <HoverFlex jc="flex-start" fd="row" tablet_direction="row">
                 <RelativeFlex jc="flex-start" width="auto">
@@ -399,6 +402,7 @@ export const CardLink = ({ title, to, style, external }) => {
 }
 
 CardLink.propTypes = {
+    className: PropTypes.string,
     content: PropTypes.string,
     external: PropTypes.bool,
     icon: PropTypes.object,

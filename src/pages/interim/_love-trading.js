@@ -100,7 +100,7 @@ const HeroDeriv = ({ interim_type }) => {
                         {is_deriv && (
                             <>
                                 <White as="h3" mb="3rem" align="center">
-                                    {localize('Love trading on Binary.com’s signature platform? ')}
+                                    {localize('Love trading on Binary.com’s signature platform?')}
                                 </White>
                                 <FitButton
                                     external

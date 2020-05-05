@@ -30,7 +30,7 @@ const items = [
 ]
 const trading = [
     {
-        title: localize('Make smarter trading decisions'),
+        title: <Localize translate_text="Make smarter trading decisions" />,
         subtitle: (
             <Localize translate_text="Customise your chart with technical indicators and widgets  — everything you need to make smarter trading decisions." />
         ),
@@ -39,7 +39,7 @@ const trading = [
         image_alt: localize('Charts'),
     },
     {
-        title: localize('Trade what you want, when you want...'),
+        title: <Localize translate_text="Trade what you want, when you want..." />,
         subtitle: (
             <Localize translate_text="Forex, indices, commodities and synthetic indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here." />
         ),
@@ -48,7 +48,7 @@ const trading = [
         image_alt: localize('Trading Market'),
     },
     {
-        title: localize('...And how you want'),
+        title: <Localize translate_text="...And how you want" />,
         subtitle: (
             <Localize translate_text="Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second." />
         ),

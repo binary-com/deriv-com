@@ -70,12 +70,7 @@ const DMT5 = () => {
             />
             <DHero
                 title={localize('DMT5')}
-                content={
-                    <Localize
-                        translate_text="The all-in-one FX<0/>and CFD trading<0/>platform"
-                        components={[<br key={0} />]}
-                    />
-                }
+                content={<Localize translate_text="The all-in-one FX and CFD trading platform" />}
                 join_us_for_free
                 Logo={dmt5_logo}
                 image_name="dmt5"

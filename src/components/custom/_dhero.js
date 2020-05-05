@@ -38,7 +38,6 @@ const HeroContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    max-width: 58.4rem;
 
     ${Header} {
         color: var(--color-white);
@@ -127,12 +126,19 @@ const StyledContent = styled(Header)`
 `
 const InformationWrapper = styled(Flex)`
     width: 100%;
-    max-width: 571px;
+    max-width: 558px;
     position: absolute;
     top: 120px;
 
-    @media ${device.laptop} {
+    @media (max-width: 1420px) {
         width: 77%;
+        max-width: 385px;
+    }
+    @media ${device.laptop} {
+        max-width: 390px;
+    }
+    @media ${device.laptopM} {
+        max-width: 390px;
     }
     @media ${device.tabletL} {
         width: 52%;
@@ -143,7 +149,8 @@ const InformationWrapper = styled(Flex)`
         top: 350px;
     }
     @media ${device.mobileL} {
-        top: 260px;
+        top: 280px;
+        max-width: 321px;
     }
 `
 

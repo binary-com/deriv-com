@@ -31,7 +31,7 @@ const Wrapper = styled.div`
         flex-direction: column-reverse;
         max-height: unset;
         max-height: 640px;
-        padding: 0 16px 40px 16px;
+        padding: 0 16px 40px 13px;
     }
 `
 const HeroContent = styled.div`
@@ -85,7 +85,7 @@ const LottieWrapper = styled.div`
         transform: translateX(-50%);
     }
     @media ${device.tabletS} {
-        width: 77%;
+        width: 75%;
     }
     @media ${device.mobileM} {
         width: 91%;
@@ -97,29 +97,27 @@ const GoToLiveDemo = styled(Button)`
     border-color: var(--color-black-5);
     margin-left: 1.6rem;
     min-height: 40px;
+    max-width: 139px;
+    width: 100%;
 
     @media ${device.laptopM} {
         font-size: 14px;
         margin-left: 0;
-        width: 190px;
     }
-    @media ${device.tabletL} {
-        width: 135px;
-    }
-    @media ${device.tablet} {
-        width: 160px;
+    @media ${device.mobileL} {
+        max-width: 160px;
     }
 `
 const DemoButton = styled(LinkButton)`
     min-height: 40px;
+    max-width: 202px;
+    width: 100%;
 
     @media ${device.laptopM} {
-        width: 200px;
         font-size: 14px;
         margin-right: 2px;
     }
     @media ${device.tablet} {
-        width: 172px;
         max-width: 172px;
     }
 `
@@ -128,14 +126,15 @@ const StyledContent = styled(Header)`
 `
 const InformationWrapper = styled(Flex)`
     width: 66%;
+    max-width: 399px;
+    position: absolute;
+    top: 120px;
 
     @media ${device.laptop} {
         width: 77%;
     }
     @media ${device.tabletL} {
         width: 52%;
-        position: absolute;
-        top: 60px;
     }
     @media ${device.tablet} {
         width: 100%;
@@ -147,8 +146,14 @@ const InformationWrapper = styled(Flex)`
 `
 
 const LinkWrapper = styled.div`
+    position: absolute;
+    top: 444px;
+    width: 100%;
+
+    @media ${device.laptopM} {
+        top: 350px;
+    }
     @media ${device.tabletL} {
-        position: absolute;
         top: 270px;
     }
     @media ${device.tablet} {
@@ -208,13 +213,13 @@ const DHero = ({
         @media ${device.laptopM} {
             max-width: 492px;
         }
-        @media ${device.tablet} {
-            max-width: 400px;
-            height: 46%;
-        }
         @media ${device.tabletL} {
             max-width: 400px;
             height: 350px;
+        }
+        @media ${device.tabletS} {
+            max-width: 340px;
+            height: 296px;
         }
         @media ${device.mobileL} {
             height: unset;

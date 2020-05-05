@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import AvailablePlatforms from '../_available-platforms.js'
+import MarketsAccordion from '../_markets_accordion.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize } from 'components/localization'
@@ -19,11 +20,7 @@ const Col = styled(Flex)`
         max-width: 10rem;
     }
 `
-const Row = styled(Flex)`
-    border: 1px solid var(--color-grey-22);
-    margin-top: 2.4rem;
-    border-radius: 8px;
-`
+const Row = styled(Flex)``
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 2rem;
@@ -46,6 +43,7 @@ const Symbol = styled(Flex)`
 `
 const MarketsList = styled(CssGrid)`
     border-left: 1px solid var(--color-grey-22);
+    border-right: 1px solid var(--color-grey-22);
     grid-template-columns: repeat(1, 1fr);
     width: 100%;
     padding: 2.4rem;
@@ -73,6 +71,34 @@ const Title = styled(Text)`
         font-weight: 600;
     }
 `
+const MarketsWrapper = styled(Flex)`
+    flex-direction: column;
+
+    > div {
+        margin-top: 2.4rem;
+    }
+`
+const DetailsContainer = styled(Flex)`
+    flex-direction: column;
+
+    ${Text} {
+        font-size: 1.4rem;
+        margin-top: 1.6rem;
+
+        @media ${device.tabletL} {
+            margin-top: 1rem;
+        }
+    }
+`
+const EuropeDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'The Dutch Index follows the stock performance of the 25 most traded companies in the Netherlands.',
+            )}
+        </Text>
+    </DetailsContainer>
+)
 const Margin = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
@@ -88,17 +114,24 @@ const Margin = () => {
                 <StyledText weight="bold" mt="2.4rem">
                     {localize('Instruments available for margin trading')}
                 </StyledText>
-                <Row jc="flex-start" ai="center">
-                    <Col>
-                        <Title weight="bold">{localize('Europe')}</Title>
-                    </Col>
-                    <MarketsList>
-                        <Symbol ai="center">
-                            <OTCDUTCH />
-                            <Text>{localize('Dutch Index')}</Text>
-                        </Symbol>
-                    </MarketsList>
-                </Row>
+                <MarketsWrapper direction="column">
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col>
+                                    <Title weight="bold">{localize('Europe')}</Title>
+                                </Col>
+                                <MarketsList>
+                                    <Symbol ai="center">
+                                        <OTCDUTCH />
+                                        <Text>{localize('Dutch Index')}</Text>
+                                    </Symbol>
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={EuropeDetails}
+                    />
+                </MarketsWrapper>
             </Flex>
         </SectionContainer>
     )

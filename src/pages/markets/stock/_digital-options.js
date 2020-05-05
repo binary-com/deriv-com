@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Americas, AsiaOceania, Europe } from '../sub-markets/_submarkets.js'
 import AvailableOptions from '../_available-options.js'
+import MarketsAccordion from '../_markets_accordion.js'
 import AvailablePlatforms from '../_available-platforms.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
@@ -25,10 +26,36 @@ const Col = styled(Flex)`
         max-width: 10rem;
     }
 `
-const Row = styled(Flex)`
-    border: 1px solid var(--color-grey-22);
-    margin-top: 2.4rem;
-    border-radius: 8px;
+const Row = styled(Flex)``
+
+const MarketsWrapper = styled(Flex)`
+    flex-direction: column;
+
+    > div {
+        margin-top: 2.4rem;
+    }
+`
+const MarketsList = styled(CssGrid)`
+    border-left: 1px solid var(--color-grey-22);
+    border-right: 1px solid var(--color-grey-22);
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 2.4rem 1.6rem;
+    grid-row-gap: 1.6rem;
+
+    @media ${device.tabletL} {
+        grid-template-columns: repeat(1, 1fr);
+
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+        ${Text} {
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+    }
 `
 const Options = styled(Descriptions)`
     margin-top: 2.4rem;
@@ -56,27 +83,6 @@ const StyledText = styled(Text)`
         text-align: left;
     }
 `
-const MarketsList = styled(CssGrid)`
-    border-left: 1px solid var(--color-grey-22);
-    width: 100%;
-    padding: 2.4rem;
-    grid-row-gap: 1.6rem;
-
-    @media ${device.tabletL} {
-        grid-template-columns: ${(props) =>
-            props.mobile_col_template ? props.mobile_col_template : 'repeat(3, 1fr)'};
-
-        svg {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
-        }
-        ${Text} {
-            font-size: 1.5rem;
-            line-height: 1.5;
-        }
-    }
-`
 const Title = styled(Text)`
     @media ${device.tabletL} {
         text-align: center;
@@ -84,6 +90,118 @@ const Title = styled(Text)`
         font-weight: 600;
     }
 `
+
+const DetailsContainer = styled(Flex)`
+    flex-direction: column;
+
+    ${Text} {
+        font-size: 1.4rem;
+        margin-top: 1.6rem;
+
+        @media ${device.tabletL} {
+            margin-top: 1rem;
+        }
+    }
+`
+const AmericasDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'Each of these indices replicates the performance of top publicly traded companies in a segment of the US economy. ',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The US Index</0> follows the stock performance of the 500 largest publicly-traded companies in the US. "
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The US Tech Index</0> follows the stock performance of the 100 largest non-financial companies in the US."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The Wall Street Index</0> follows the stock performance of 30 large listed companies in the US."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+const AsiaOceaniaDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'Each of these indices replicates the performance of top publicly traded companies in a financial market in the Asia/Oceania region.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The Australian Index</0> tracks the stock performance of the 200 largest listed companies in Australia. "
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The Hong Kong Index</0> tracks the stock performance of the 50 largest listed companies in Hong Kong."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The Japanese Index</0> tracks the stock performance of 225 large, publicly owned companies in Japan."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+const EuropeDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'Each of these indices replicates the performance of top publicly traded companies in a financial market in Europe.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The Dutch Index</0> follows the stock performance of the 25 most traded companies in the Netherlands."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The Euro 50 Index</0> follows the performance of the 50 largest and most liquid stocks in the EU."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The French Index</0> tracks the performance of the 40 most traded stocks among the top 100 listed companies in France."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The German Index</0> follows the stock performance of the 30 major listed companies in Germany."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The Swiss Index</0> follows the performance of the 20 largest and most liquid stocks in Switzerland."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>The UK Index</0> follows the stock performance of the top 100 listed companies in the UK. "
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
 const DigitalOptions = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
@@ -165,36 +283,62 @@ const DigitalOptions = () => {
                 <Text weight="bold" mt="2.4rem">
                     {localize('Instruments available for options trading')}
                 </Text>
-                <Row jc="flex-start" ai="center" mt="1.6rem">
-                    <Col>
-                        <Title weight="bold" max_width="9.7rem" align="center">
-                            {localize('Americas')}
-                        </Title>
-                    </Col>
-                    <MarketsList columns="repeat(3, 1fr)" mobile_col_template="repeat(2, 1fr)">
-                        <Americas />
-                    </MarketsList>
-                </Row>
-                <Row jc="flex-start" ai="center">
-                    <Col>
-                        <Title weight="bold" max_width="9.7rem" align="center">
-                            {localize('Asia/ Oceania')}
-                        </Title>
-                    </Col>
-                    <MarketsList columns="repeat(3, 1fr)" mobile_col_template="repeat(1, 1fr)">
-                        <AsiaOceania />
-                    </MarketsList>
-                </Row>
-                <Row jc="flex-start" ai="center">
-                    <Col>
-                        <Title weight="bold" max_width="9.7rem" align="center">
-                            {localize('Europe')}
-                        </Title>
-                    </Col>
-                    <MarketsList columns="repeat(4, 1fr)" mobile_col_template="repeat(2, 1fr)">
-                        <Europe />
-                    </MarketsList>
-                </Row>
+                <MarketsWrapper direction="column">
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col>
+                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                        {localize('Americas')}
+                                    </Title>
+                                </Col>
+                                <MarketsList
+                                    columns="repeat(3, 1fr)"
+                                    mobile_col_template="repeat(2, 1fr)"
+                                >
+                                    <Americas />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={AmericasDetails}
+                    />
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col>
+                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                        {localize('Asia/ Oceania')}
+                                    </Title>
+                                </Col>
+                                <MarketsList
+                                    columns="repeat(3, 1fr)"
+                                    mobile_col_template="repeat(1, 1fr)"
+                                >
+                                    <AsiaOceania />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={AsiaOceaniaDetails}
+                    />
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col>
+                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                        {localize('Europe')}
+                                    </Title>
+                                </Col>
+                                <MarketsList
+                                    columns="repeat(4, 1fr)"
+                                    mobile_col_template="repeat(2, 1fr)"
+                                >
+                                    <Europe />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={EuropeDetails}
+                    />
+                </MarketsWrapper>
             </Flex>
         </SectionContainer>
     )

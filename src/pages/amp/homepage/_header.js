@@ -5,17 +5,17 @@ import { Text, Header, NavCard, CardLink, Divider } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { binary_url, smarttrader_url } from 'common/utility'
 import device from 'themes/device'
-import Deriv from 'images/svg/logo-deriv.svg'
-import BinaryLogo from 'images/svg/binary.svg'
-import Hamburger from 'images/svg/hamburger_menu.svg'
-import DTrader from 'images/svg/dtrader-icon.svg'
-import DMT5 from 'images/svg/dmt5-icon.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import Smarttrader from 'images/svg/smarttrader.svg'
-import Forex from 'images/svg/market-forex.svg'
-import Commodities from 'images/svg/market-commodities.svg'
-import StockIndices from 'images/svg/market-stock-indices.svg'
-import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
+import Deriv from 'images/amp-svg/logo-deriv.svg'
+import BinaryLogo from 'images/amp-svg/binary.svg'
+import Hamburger from 'images/amp-svg/hamburger_menu.svg'
+import DTrader from 'images/amp-svg/dtrader-icon.svg'
+import DMT5 from 'images/amp-svg/dmt5-icon.svg'
+import DBot from 'images/amp-svg/dbot-icon.svg'
+import Smarttrader from 'images/amp-svg/smarttrader.svg'
+import Forex from 'images/amp-svg/market-forex.svg'
+import Commodities from 'images/amp-svg/market-commodities.svg'
+import StockIndices from 'images/amp-svg/market-stock-indices.svg'
+import SyntheticIndices from 'images/amp-svg/market-synthetic-indices.svg'
 
 const HeaderWrapper = styled.header`
     position: fixed;
@@ -98,20 +98,22 @@ const PlatformInfo = styled.div`
     max-width: 37.7rem;
 `
 
-const MarginDivider = styled(Divider)`
+const MarginDivider = styled(Divider).attrs({ as: 'div' })`
     margin: 0 6.9rem;
     width: 2px;
     height: 14.1rem;
     background: var(--color-grey-8);
 `
 
-const Normal = styled(Container)`
+const Normal = styled(Container).attrs({ as: 'nav' })`
+    background: var(--color-black);
+
     & * {
         white-space: normal;
     }
 `
 
-const ResponsiveDeriv = styled(Deriv)`
+const ResponsiveDeriv = styled.img`
     @media ${device.mobileM} {
         width: 120px;
     }
@@ -135,7 +137,8 @@ const HeaderNav = () => (
                 <Normal jc="space-between">
                     <Flex ai="center" jc="flex-start">
                         <LocalizedLink to="/amp">
-                            <ResponsiveDeriv />
+                            <ResponsiveDeriv src={Deriv} alt="deriv logo" />
+                            {/* <ResponsiveDeriv /> */}
                         </LocalizedLink>
                         <LocalizedLink
                             external
@@ -143,7 +146,7 @@ const HeaderNav = () => (
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <BinaryLogo width="24" height="24" />
+                            <amp-img src={BinaryLogo} width="24" height="24" />
                         </LocalizedLink>
                         <Binary>
                             <Localize
@@ -177,9 +180,16 @@ const HeaderNav = () => (
                                             </Text>
                                         </PlatformInfo>
                                         <MarginDivider />
-                                        <Flex wrap="wrap" jc="flex-start">
+                                        <Flex fw="wrap" jc="flex-start">
                                             <NavCard
-                                                icon={DTrader}
+                                                icon={() => (
+                                                    <amp-img
+                                                        src={DTrader}
+                                                        alt="Dtrader"
+                                                        width="30"
+                                                        height="30"
+                                                    />
+                                                )}
                                                 content={
                                                     <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
                                                 }
@@ -189,7 +199,14 @@ const HeaderNav = () => (
                                             />
 
                                             <DMT5NavCard
-                                                icon={DMT5}
+                                                icon={() => (
+                                                    <amp-img
+                                                        src={DMT5}
+                                                        alt="DMT5"
+                                                        width="30"
+                                                        height="30"
+                                                    />
+                                                )}
                                                 content={
                                                     <Localize translate_text="Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals worldwide." />
                                                 }
@@ -197,7 +214,14 @@ const HeaderNav = () => (
                                                 to="/dmt5"
                                             />
                                             <NavCard
-                                                icon={DBot}
+                                                icon={() => (
+                                                    <amp-img
+                                                        src={DBot}
+                                                        alt="DBot"
+                                                        width="30"
+                                                        height="30"
+                                                    />
+                                                )}
                                                 content={
                                                     <Localize translate_text="Automated trading at your fingertips. No coding needed." />
                                                 }
@@ -209,7 +233,14 @@ const HeaderNav = () => (
                                                 }}
                                             />
                                             <NavCard
-                                                icon={Smarttrader}
+                                                icon={() => (
+                                                    <amp-img
+                                                        src={Smarttrader}
+                                                        alt="Smarttrader"
+                                                        width="30"
+                                                        height="30"
+                                                    />
+                                                )}
                                                 content={
                                                     <Localize translate_text="Trade the world’s markets on Binary.com’s classic platform." />
                                                 }
@@ -238,9 +269,16 @@ const HeaderNav = () => (
                                             </Text>
                                         </PlatformInfo>
                                         <MarginDivider />
-                                        <Flex wrap="wrap" jc="flex-start">
+                                        <Flex fw="wrap" jc="flex-start">
                                             <NavCard
-                                                icon={Forex}
+                                                icon={() => (
+                                                    <amp-img
+                                                        src={Forex}
+                                                        alt="Forex"
+                                                        width="30"
+                                                        height="30"
+                                                    />
+                                                )}
                                                 content={
                                                     <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
                                                 }
@@ -249,7 +287,14 @@ const HeaderNav = () => (
                                                 to="/markets#forex"
                                             />
                                             <NavCard
-                                                icon={StockIndices}
+                                                icon={() => (
+                                                    <amp-img
+                                                        src={StockIndices}
+                                                        alt="Stock indices"
+                                                        width="30"
+                                                        height="30"
+                                                    />
+                                                )}
                                                 content={
                                                     <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
                                                 }
@@ -257,7 +302,14 @@ const HeaderNav = () => (
                                                 to="/markets#stock"
                                             />
                                             <NavCard
-                                                icon={Commodities}
+                                                icon={() => (
+                                                    <amp-img
+                                                        src={Commodities}
+                                                        alt="Commodities"
+                                                        width="30"
+                                                        height="30"
+                                                    />
+                                                )}
                                                 content={
                                                     <Localize translate_text="Trade natural resources that are central to the world's economy." />
                                                 }
@@ -269,7 +321,14 @@ const HeaderNav = () => (
                                                 }}
                                             />
                                             <NavCard
-                                                icon={SyntheticIndices}
+                                                icon={() => (
+                                                    <amp-img
+                                                        src={SyntheticIndices}
+                                                        alt="Synthetic Indices"
+                                                        width="30"
+                                                        height="30"
+                                                    />
+                                                )}
                                                 content={
                                                     <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
                                                 }
@@ -298,7 +357,7 @@ const HeaderNav = () => (
                                             </Text>
                                         </PlatformInfo>
                                         <MarginDivider />
-                                        <Flex wrap="wrap" jc="flex-start" max_width="42rem">
+                                        <Flex fw="wrap" jc="flex-start" max_width="42rem">
                                             <CardLink
                                                 title={localize('Our story')}
                                                 to="/about/#story"
@@ -352,7 +411,7 @@ const HeaderNav = () => (
                     </Nav>
 
                     <HamburgerMenu on="tap:sidebar1.toggle">
-                        <Hamburger width="18" height="16" />
+                        <amp-img src={Hamburger} width="18" height="16" />
                     </HamburgerMenu>
                 </Normal>
             </amp-mega-menu>

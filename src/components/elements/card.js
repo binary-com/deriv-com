@@ -277,19 +277,24 @@ const RightDiagonal = styled(Diagonal)`
 
 const ResponsiveHeader = styled(Header)`
     transition: color 0.2s;
+    line-height: 1.14;
+    margin-bottom: 0.8rem;
     @media ${device.tabletS} {
         font-size: 16px;
     }
 `
 const ResponsiveText = styled(Text)`
     transition: color 0.2s;
+    color: var(--color-grey-5);
+
     @media ${device.tabletS} {
         font-size: 10.5px;
     }
 `
 
 const FlexHover = styled(Flex)`
-    & > svg {
+    & > svg,
+    & > amp-img {
         width: 24px;
         height: 24px;
         margin-right: 1.6rem;
@@ -323,15 +328,11 @@ export const NavCard = ({ icon: Icon, title, content, to, style, external, targe
             target={target}
             className={className}
         >
-            <FlexHover jc="flex-start" direction="row" tablet_direction="row">
+            <FlexHover jc="flex-start" fd="row" tablet_direction="row">
                 <Icon />
                 <NavContent>
-                    <ResponsiveHeader size="var(--text-size-xs)" lh="1.14" mb="0.8rem">
-                        {title}
-                    </ResponsiveHeader>
-                    <ResponsiveText size="var(--text-size-xxs)" color="grey-5">
-                        {content}
-                    </ResponsiveText>
+                    <ResponsiveHeader size="var(--text-size-xs)">{title}</ResponsiveHeader>
+                    <ResponsiveText size="var(--text-size-xxs)">{content}</ResponsiveText>
                 </NavContent>
                 <Show.Desktop>
                     <RightDiagonal />
@@ -385,15 +386,9 @@ export const CardLink = ({ title, to, style, external }) => {
             }}
             external={external}
         >
-            <HoverFlex jc="flex-start" direction="row" tablet_direction="row">
+            <HoverFlex jc="flex-start" fd="row" tablet_direction="row">
                 <RelativeFlex jc="flex-start" width="auto">
-                    <ResponsiveHeader
-                        color="black-3"
-                        size="var(--text-size-xs)"
-                        lh="1.14"
-                        mb="1.6rem"
-                        weight="normal"
-                    >
+                    <ResponsiveHeader size="var(--text-size-xs)" weight="normal">
                         {title}
                     </ResponsiveHeader>
                     <LinkRightDiagonal />

@@ -200,7 +200,7 @@ export const articles = [
             },
             {
                 title: (
-                    <Localize translate_text="What are the differences between the DMT5 Standard, Advanced, and Synthetic Indices accounts?" />
+                    <Localize translate_text="What are the differences between the DMT5 Financial, Financial STP, and Synthetic accounts?" />
                 ),
                 category: 'DMT5',
                 sub_category: <Localize translate_text="Accounts" />,

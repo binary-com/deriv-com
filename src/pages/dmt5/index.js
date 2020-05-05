@@ -32,28 +32,28 @@ const PlatformContainer = styled.div`
 `
 const trading = [
     {
-        title: localize('DMT5 Standard account'),
-        subtitle: localize(
-            'Get started easily with a DMT5 Standard account for high leverage on your forex trades.',
+        title: <Localize translate_text="Financial" />,
+        subtitle: (
+            <Localize translate_text="The Financial account offers new and experienced traders high leverage and variable spreads for maximum flexibility. Trade commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs with high leverage." />
         ),
-        second_title: localize('DMT5 Advanced account'),
-        second_subtitle: localize(
-            'Get your trades placed straight through to the market with a DMT5 Advanced account — a 100% A-Book account with tight spreads.',
+        second_title: <Localize translate_text="Financial STP" />,
+        second_subtitle: (
+            <Localize translate_text="The Financial STP account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes." />
         ),
         image_name: 'dmt_5_ipad_iphone',
-        image_alt: localize('DMT5 Platform'),
+        image_alt: <Localize translate_text="DMT5 Platform" />,
     },
     {
-        title: localize('DMT5 Synthetic Indices account'),
-        subtitle: localize(
-            'Trade 24/7 with a DMT5 Synthetic Indices account. Trade indices that simulate the movements of real markets.',
+        title: <Localize translate_text="Synthetic" />,
+        subtitle: (
+            <Localize translate_text="The Synthetic account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. Available for trading 24/7 and audited for fairness by an independent third party." />
         ),
-        second_title: localize('Practise with Demo accounts'),
-        second_subtitle: localize(
-            'Create demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
+        second_title: <Localize translate_text="Practice with Demo accounts" />,
+        second_subtitle: (
+            <Localize translate_text="Create free demo accounts (Financial, Financial STP, or Synthetic) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques." />
         ),
         image_name: 'dmt_5_mac',
-        image_alt: localize('DMT5 Demo Account'),
+        image_alt: <Localize translate_text="DMT5 Demo Account" />,
     },
 ]
 

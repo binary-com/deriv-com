@@ -9,7 +9,7 @@ import {
     OTCGERMAN,
     OTCFRENCH,
     OTCDUTCH,
-    OTCHONGKONG,
+    EURO50INDEX,
 } from 'components/elements/symbols.js'
 
 const Symbol = styled(Flex)`
@@ -35,7 +35,7 @@ const Europe = () => {
                 <Text>{localize('Dutch Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <OTCHONGKONG />
+                <EURO50INDEX />
                 <Text>{localize('Euro 50 Index')}</Text>
             </Symbol>
             <Symbol ai="center">

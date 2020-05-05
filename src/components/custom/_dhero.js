@@ -44,6 +44,7 @@ const HeroContent = styled.div`
         color: var(--color-white);
         display: flex;
         margin-top: 1.5rem;
+        line-height: 1.25;
     }
 
     @media ${device.laptopM} {
@@ -125,8 +126,8 @@ const StyledContent = styled(Header)`
     font-size: 5.6rem;
 `
 const InformationWrapper = styled(Flex)`
-    width: 66%;
-    max-width: 399px;
+    width: 100%;
+    max-width: 571px;
     position: absolute;
     top: 120px;
 
@@ -135,6 +136,7 @@ const InformationWrapper = styled(Flex)`
     }
     @media ${device.tabletL} {
         width: 52%;
+        top: 60px;
     }
     @media ${device.tablet} {
         width: 100%;

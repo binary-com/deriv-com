@@ -74,35 +74,51 @@ const DetailsContainer = styled(Flex)`
         }
     }
 `
-const VolatilityIndicesDetails = () => {
-    return (
-        <DetailsContainer>
-            <Text>
-                {localize(
-                    'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
-                )}
-            </Text>
-            <Text>
-                <Localize
-                    translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
-                    components={[<strong key={0} />]}
-                />
-            </Text>
-            <Text>
-                <Localize
-                    translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s) and 100 (1s)</0>."
-                    components={[<strong key={0} />]}
-                />
-            </Text>
-            <Text>
-                <Localize
-                    translate_text="<0>Two ticks</0> are generated <0>every second</0> for <0>HF (High Frequency) indices</0>."
-                    components={[<strong key={0} />]}
-                />
-            </Text>
-        </DetailsContainer>
-    )
-}
+const VolatilityIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s) and 100 (1s)</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>Two ticks</0> are generated <0>every second</0> for <0>HF (High Frequency) indices</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+const CrashBoomDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a series of 1000 or 500 ticks.',
+            )}
+        </Text>
+    </DetailsContainer>
+)
+const StepIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'With these indices, there is an equal probability of up/down movement in a price series with a fixed step size of 0.1.',
+            )}
+        </Text>
+    </DetailsContainer>
+)
 const Margin = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
@@ -147,7 +163,7 @@ const Margin = () => {
                                 </MarketsList>
                             </Row>
                         )}
-                        renderDetails={() => <>detail</>}
+                        renderDetails={CrashBoomDetails}
                     />
                     <MarketsAccordion
                         renderTitle={() => (
@@ -162,7 +178,7 @@ const Margin = () => {
                                 </MarketsList>
                             </Row>
                         )}
-                        renderDetails={() => <>details</>}
+                        renderDetails={StepIndicesDetails}
                     />
                 </MarketsWrapper>
             </Flex>

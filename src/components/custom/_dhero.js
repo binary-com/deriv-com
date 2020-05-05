@@ -212,6 +212,9 @@ const query = graphql`
         dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {
             ...fadeIn
         }
+        dmt5_mobile: file(relativePath: { eq: "dmt5_trade_mobile.png" }) {
+            ...fadeIn
+        }
     }
 `
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import DMT5Video from './_dmt5-video.js'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
@@ -11,10 +11,10 @@ import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DMT5BG from 'images/svg/dmt5-bg.svg'
-// import DMT5BGMobile from 'images/svg/dmt5-bg.svg'
+import DMT5BGMobile from 'images/svg/dmt5-bg-mobile.svg'
 import Signup, { Appearances } from 'components/custom/signup'
-// import { size } from 'themes/device'
-// import { isBrowser } from 'common/utility'
+import { size } from 'themes/device'
+import { isBrowser } from 'common/utility'
 
 const items = [
     { title: '70+', subtitle: <Localize translate_text="tradable assets and growing" /> },
@@ -52,14 +52,14 @@ const trading = [
 ]
 
 const DMT5 = () => {
-    // const [is_mobile, setMobile] = useState(false)
-    // const handleResizeWindow = () => {
-    //     setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-    // }
+    const [is_mobile, setMobile] = useState(false)
+    const handleResizeWindow = () => {
+        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+    }
 
-    // useEffect(() => {
-    //     window.addEventListener('resize', handleResizeWindow)
-    // })
+    useEffect(() => {
+        window.addEventListener('resize', handleResizeWindow)
+    })
     return (
         <Layout>
             <SEO
@@ -79,8 +79,7 @@ const DMT5 = () => {
                 join_us_for_free
                 Logo={dmt5_logo}
                 image_name="dmt5"
-                // background_svg={is_mobile ? DMT5BGMobile : DMT5BG}
-                background_svg={DMT5BG}
+                background_svg={is_mobile ? DMT5BGMobile : DMT5BG}
                 background_alt={localize('DMT5')}
             />
             <Show.Desktop>

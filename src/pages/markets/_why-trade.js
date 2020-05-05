@@ -99,7 +99,7 @@ export const WhyTrade = ({ children, header, text }) => {
 }
 WhyTrade.propTypes = {
     children: PropTypes.node,
-    header: PropTypes.string,
+    header: PropTypes.object,
     icon: PropTypes.object,
-    text: PropTypes.string,
+    text: PropTypes.object,
 }

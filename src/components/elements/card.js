@@ -343,12 +343,12 @@ export const NavCard = ({ icon: Icon, title, content, to, style, external, targe
 
 NavCard.propTypes = {
     className: PropTypes.string,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,
     icon: PropTypes.func,
     style: PropTypes.object,
     target: PropTypes.string,
-    title: PropTypes.string,
+    title: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     to: PropTypes.string,
 }
 

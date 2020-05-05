@@ -24,7 +24,7 @@ const Title = styled(Flex)`
     }
 `
 const StyledChevron = styled(ChevronThick)`
-    transform: rotate(${(props) => (props.is_show_detail == true ? '0' : '180')}deg);
+    transform: rotate(${(props) => (props.is_show_detail == 'true' ? '0' : '180')}deg);
     transition: transform 100ms linear;
 `
 const Details = styled(Box)`
@@ -43,7 +43,11 @@ const MarketsAccordion = ({ renderTitle, renderDetails }) => {
             <Title>
                 {renderTitle()}
                 <Button onClick={() => setShow(!is_show_detail)}>
-                    <StyledChevron width="16px" height="16px" is_show_detail={is_show_detail} />
+                    <StyledChevron
+                        width="16px"
+                        height="16px"
+                        is_show_detail={String(is_show_detail)}
+                    />
                 </Button>
             </Title>
             {is_show_detail && (

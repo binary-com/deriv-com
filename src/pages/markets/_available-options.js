@@ -31,6 +31,6 @@ AvailableOptions.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     remove_title: PropTypes.bool,
     svg: PropTypes.func,
-    title: PropTypes.string,
+    title: PropTypes.object,
 }
 export default AvailableOptions

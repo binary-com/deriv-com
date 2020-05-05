@@ -11,7 +11,10 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import DBotBG from 'images/svg/dbot-bg.svg'
+import DBotBGMobile from 'images/svg/dbot-bg-mobile.svg'
 import Signup, { Appearances } from 'components/custom/signup'
+import { size } from 'themes/device'
+import { isBrowser } from 'common/utility'
 
 const items = [
     { title: '3', subtitle: <Localize translate_text="pre-built strategies included" /> },
@@ -75,6 +78,16 @@ const trading = [
     },
 ]
 class Dbot extends Component {
+    state = { is_mobile: false }
+
+    handleResizeWindow = () => {
+        this.setState({
+            is_mobile: isBrowser() ? window.screen.width <= size.mobileL : false,
+        })
+    }
+    componentDidMount() {
+        window.addEventListener('resize', this.handleResizeWindow)
+    }
     render() {
         return (
             <Layout>
@@ -90,7 +103,7 @@ class Dbot extends Component {
                     join_us_for_free
                     go_to_live_demo
                     Logo={dbot_logo}
-                    background_svg={DBotBG}
+                    background_svg={this.state.is_mobile ? DBotBGMobile : DBotBG}
                     image_name="dbot"
                     background_alt={localize('DBot Board')}
                 />

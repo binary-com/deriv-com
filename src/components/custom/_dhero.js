@@ -173,6 +173,28 @@ const LinkWrapper = styled.div`
     }
 `
 
+// const query = graphql`
+//     query {
+//         dbot: file(relativePath: { eq: "dbot_trade.png" }) {
+//             ...fadeIn
+//         }
+//         dmt5: file(relativePath: { eq: "dmt5_trade.png" }) {
+//             ...fadeIn
+//         }
+//         dtrader: file(relativePath: { eq: "dtrader_trade.png" }) {
+//             ...fadeIn
+//         }
+//         dtrader_mobile: file(relativePath: { eq: "dtrader_trade_mobile.png" }) {
+//             ...fadeIn
+//         }
+//         dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {
+//             ...fadeIn
+//         }
+//         dmt5_mobile: file(relativePath: { eq: "dmt5_trade_mobile.png" }) {
+//             ...fadeIn
+//         }
+//     }
+// `
 const query = graphql`
     query {
         dbot: file(relativePath: { eq: "dbot_trade.png" }) {
@@ -185,6 +207,9 @@ const query = graphql`
             ...fadeIn
         }
         dtrader_mobile: file(relativePath: { eq: "dtrader_trade_mobile.png" }) {
+            ...fadeIn
+        }
+        dbot_mobile: file(relativePath: { eq: "dbot_trade_mobile.png" }) {
             ...fadeIn
         }
     }

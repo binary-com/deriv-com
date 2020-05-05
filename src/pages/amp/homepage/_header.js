@@ -70,12 +70,6 @@ const Binary = styled(Text)`
     font-size: var(--text-size-xxs);
 `
 
-const BlackLink = styled(LinkText)`
-    color: var(--color-black);
-    margin: 1.6rem 2rem;
-    font-size: var(--text-size-m);
-`
-
 const BinaryLink = styled.a`
     display: inline-block;
     color: var(--color-white);
@@ -117,6 +111,23 @@ const Normal = styled(Container)`
     }
 `
 
+const ResponsiveDeriv = styled(Deriv)`
+    @media ${device.mobileM} {
+        width: 120px;
+    }
+`
+
+const OffCanvas = styled(Flex)`
+    width: 25.3rem;
+`
+const NoBorder = styled(Header)`
+    border: none;
+`
+
+const Section = styled.section`
+    margin-bottom: 24px;
+`
+
 const HeaderNav = () => (
     <>
         <HeaderWrapper>
@@ -124,7 +135,7 @@ const HeaderNav = () => (
                 <Normal jc="space-between">
                     <Flex ai="center" jc="flex-start">
                         <LocalizedLink to="/amp">
-                            <Deriv />
+                            <ResponsiveDeriv />
                         </LocalizedLink>
                         <LocalizedLink
                             external
@@ -347,17 +358,30 @@ const HeaderNav = () => (
             </amp-mega-menu>
         </HeaderWrapper>
         <amp-sidebar id="sidebar1" layout="nodisplay" side="left">
-            <Flex ai="flex-start" jc="center" p="2rem 2rem" fd="column">
-                <BlackLink role="button" tabIndex="-1" on="tap:trade.scrollTo()">
-                    {localize('Trade')}
-                </BlackLink>
-                <BlackLink role="button" tabIndex="-1" on="tap:markets.scrollTo()">
-                    {localize('Markets')}
-                </BlackLink>
-                <BlackLink role="button" tabIndex="-1" on="tap:our-clients.scrollTo()">
-                    {localize('Testimonials')}
-                </BlackLink>
-            </Flex>
+            <OffCanvas ai="flex-start" jc="flex-start" p="4rem 2rem" fd="column">
+                <amp-accordion animate>
+                    <Section>
+                        <NoBorder as="h4">{localize('Trade')}</NoBorder>
+                        <Text>Hello</Text>
+                    </Section>
+                    <Section>
+                        <NoBorder as="h4">{localize('Markets')}</NoBorder>
+                        <Text>Hello</Text>
+                    </Section>
+                    <Section>
+                        <NoBorder as="h4">{localize('About us')}</NoBorder>
+                        <Text>Hello</Text>
+                    </Section>
+                    <Section>
+                        <NoBorder as="h4">{localize('Resources')}</NoBorder>
+                        <Text>Hello</Text>
+                    </Section>
+                    <Section>
+                        <NoBorder as="h4">{localize('Legal')}</NoBorder>
+                        <Text>Hello</Text>
+                    </Section>
+                </amp-accordion>
+            </OffCanvas>
         </amp-sidebar>
     </>
 )

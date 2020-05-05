@@ -167,7 +167,7 @@ const DHero = ({
                             <QueryImage
                                 data={data[image_name]}
                                 alt={background_alt}
-                                width="54.3rem"
+                                width="58.4rem"
                             />
                         </LottieWrapper>
                     </Show.Desktop>

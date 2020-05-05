@@ -8,13 +8,13 @@ import { Header, QueryImage } from 'components/elements'
 
 const query = graphql`
     query {
-        dtrader_trade: file(relativePath: { eq: "dtrader_trade.png" }) {
+        dtrader_trade: file(relativePath: { eq: "dtrader_trade_home.png" }) {
             ...fadeIn
         }
-        dmt5_trade: file(relativePath: { eq: "dmt5_trade.png" }) {
+        dmt5_trade: file(relativePath: { eq: "dmt5_trade_home.png" }) {
             ...fadeIn
         }
-        dbot_trade: file(relativePath: { eq: "dbot_trade.png" }) {
+        dbot_trade: file(relativePath: { eq: "dbot_trade_home.png" }) {
             ...fadeIn
         }
     }
@@ -56,7 +56,7 @@ export const Trade = () => {
                     {localize('Trade the way you like')}
                 </Header>
                 <Header weight="normal" as="h4" align="center" m="1.6rem 0 6rem">
-                    {localize('Choose from three powerful platforms -- designed with you in mind')}
+                    {localize('Choose from three powerful platforms — designed with you in mind')}
                 </Header>
                 <Flex width="100%" direction="flex-start">
                     <div style={{ width: '100%', maxWidth: '65.7rem', marginRight: '6rem' }}>

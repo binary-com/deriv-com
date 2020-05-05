@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import DMT5Video from './_dmt5-video.js'
+import BackgroundPatternDMT5 from 'images/common/bg_banner_dmt5.png'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
@@ -11,8 +13,15 @@ import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DMT5BG from 'images/svg/dmt5-bg.svg'
-import Signup, { Appearances } from 'components/custom/signup'
+import DBanner from 'components/custom/_dbanner.js'
 
+const query = graphql`
+    query {
+        deriv_platform: file(relativePath: { eq: "dmt5-banner.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const items = [
     { title: '70+', subtitle: <Localize translate_text="tradable assets and growing" /> },
     { title: '1:1,000', subtitle: <Localize translate_text="maximum leverage" /> },
@@ -23,32 +32,33 @@ const PlatformContainer = styled.div`
 `
 const trading = [
     {
-        title: localize('DMT5 Standard account'),
-        subtitle: localize(
-            'The Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility. Trade commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs with high leverage.',
+        title: <Localize translate_text="Financial" />,
+        subtitle: (
+            <Localize translate_text="The Financial account offers new and experienced traders high leverage and variable spreads for maximum flexibility. Trade commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs with high leverage." />
         ),
-        second_title: localize('DMT5 Advanced account'),
-        second_subtitle: localize(
-            'The Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes.',
+        second_title: <Localize translate_text="Financial STP" />,
+        second_subtitle: (
+            <Localize translate_text="The Financial STP account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers. Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes." />
         ),
         image_name: 'dmt_5_ipad_iphone',
-        image_alt: localize('DMT5 Platform'),
+        image_alt: <Localize translate_text="DMT5 Platform" />,
     },
     {
-        title: localize('DMT5 Synthetic Indices account'),
-        subtitle: localize(
-            'The Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. Available for trading 24/7 and audited for fairness by an independent third party.',
+        title: <Localize translate_text="Synthetic" />,
+        subtitle: (
+            <Localize translate_text="The Synthetic account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. Available for trading 24/7 and audited for fairness by an independent third party." />
         ),
-        second_title: localize('Practice with Demo accounts'),
-        second_subtitle: localize(
-            'Create free demo accounts (DMT5 Standard, DMT5 Advanced, or DMT5 Synthetic Indices) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques.',
+        second_title: <Localize translate_text="Practice with Demo accounts" />,
+        second_subtitle: (
+            <Localize translate_text="Create free demo accounts (Financial, Financial STP, or Synthetic) — the best way for you to check out the platform, get familiar with the tools, and learn trading techniques." />
         ),
         image_name: 'dmt_5_mac',
-        image_alt: localize('DMT5 Demo Account'),
+        image_alt: <Localize translate_text="DMT5 Demo Account" />,
     },
 ]
 
 const DMT5 = () => {
+    const data = useStaticQuery(query)
     return (
         <Layout>
             <SEO
@@ -82,7 +92,11 @@ const DMT5 = () => {
             <PlatformContainer>
                 <OtherPlatform exclude="dmt5" />
             </PlatformContainer>
-            <Signup appearance={Appearances.public} />
+            <DBanner
+                background_pattern={BackgroundPatternDMT5}
+                title={<Localize translate_text="Get into the DMT5 experience" />}
+                data={data}
+            />
         </Layout>
     )
 }

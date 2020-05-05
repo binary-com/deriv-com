@@ -28,7 +28,7 @@ const TradeTheWayYouLike = () => {
                 {localize('Trade the way you like')}
             </Header>
             <Text size="var(--text-size-sm)" mt="2rem" align="center">
-                {localize('Choose from three powerful platforms -- designed with you in mind')}
+                {localize('Choose from three powerful platforms — designed with you in mind')}
             </Text>
             <ImageWrapper>
                 <QueryImage data={data['dtrader_artboard']} alt={localize('Dtrader artboard')} />

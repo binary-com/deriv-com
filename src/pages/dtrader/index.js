@@ -31,31 +31,28 @@ const items = [
 const trading = [
     {
         title: localize('Make smarter trading decisions'),
-        subtitle: localize(
-            'Customise your chart with technical indicators and widgets  — everything you need to make smarter trading decisions.',
+        subtitle: (
+            <Localize translate_text="Customise your chart with technical indicators and widgets  — everything you need to make smarter trading decisions." />
         ),
-        // (
-        //     <Localize
-        //         translate_text="Customise your chart with technical indicators and widgets  — everything you need to make smarter trading decisions."
-        //         components={[<br key={0} />]}
-        //     />
-        // ),
+
         image_name: 'make_smarter',
         image_alt: localize('Charts'),
     },
     {
         title: localize('Trade what you want, when you want...'),
-        subtitle: localize(
-            'Forex, indices, commodities and synthetic indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here.',
+        subtitle: (
+            <Localize translate_text="Forex, indices, commodities and synthetic indices — whether it’s the world markets or synthetic markets that excite you, you’ll find them here." />
         ),
+
         image_name: 'trade_what_you_want',
         image_alt: localize('Trading Market'),
     },
     {
         title: localize('...And how you want'),
-        subtitle: localize(
-            'Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second.',
+        subtitle: (
+            <Localize translate_text="Choose from a variety of customisable trade types with stakes as low as $0.35 and durations as short as a second." />
         ),
+
         image_name: 'how_you_want',
         image_alt: localize('Trade Types'),
     },
@@ -101,7 +98,7 @@ const Dtrader = () => {
             </PlatformContainer>
             <DBanner
                 background_pattern={BackgroundPatternTrader}
-                title={localize('Get into the DTrader experience')}
+                title={<Localize translate_text="Get into the DTrader experience" />}
                 data={data}
             />
         </Layout>

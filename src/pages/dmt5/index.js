@@ -94,7 +94,7 @@ const DMT5 = () => {
             </PlatformContainer>
             <DBanner
                 background_pattern={BackgroundPatternDMT5}
-                title={localize('Get into the DMT5 experience')}
+                title={<Localize translate_text="Get into the DMT5 experience" />}
                 data={data}
             />
         </Layout>

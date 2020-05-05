@@ -117,7 +117,7 @@ class Dbot extends Component {
                     query={query}
                     render={(data) => (
                         <DBanner
-                            title={localize('Get into the DBot experience')}
+                            title={<Localize translate_text="Get into the DBot experience" />}
                             data={data}
                             background_pattern={BackgroundPatternDBot}
                         />

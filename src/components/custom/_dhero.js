@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
-import { deriv_app_url, isBrowser } from 'common/utility'
+import { deriv_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button, LinkButton } from 'components/form'
-import device, { size } from 'themes/device.js'
+import device from 'themes/device.js'
 
 const Wrapper = styled.div`
     position: relative;
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     @media ${device.tablet} {
         flex-direction: column-reverse;
         max-height: 640px;
-        padding: 0 13px 40px 13px;
+        padding: 0 16px 40px 16px;
     }
 `
 const HeroContent = styled.div`
@@ -87,6 +87,27 @@ const LottieWrapper = styled.div`
         width: 91%;
     }
 `
+const LinkWrapper = styled.div`
+    position: absolute;
+    top: 444px;
+    width: 100%;
+    display: flex;
+
+    @media ${device.laptopM} {
+        top: 350px;
+    }
+    @media ${device.tabletL} {
+        top: 270px;
+    }
+    @media ${device.tablet} {
+        position: unset;
+        top: unset;
+        justify-content: start;
+    }
+    @media (max-width: 359px) {
+        flex-wrap: wrap;
+    }
+`
 
 const GoToLiveDemo = styled(Button)`
     color: var(--color-white);
@@ -103,24 +124,19 @@ const GoToLiveDemo = styled(Button)`
     @media ${device.mobileL} {
         max-width: 160px;
     }
+    @media ${device.mobileM} {
+        max-width: 150px;
+    }
     @media ${device.mobileS} {
-        max-width: 172px;
+        max-width: 132px;
     }
 `
 const DemoButton = styled(LinkButton)`
-    display: inline-block;
     height: 40px;
+    min-height: 40px;
     width: 202px;
-    border: unset;
-    vertical-align: bottom;
-
-    @media ${device.laptopM} {
-        font-size: 14px;
-        margin-right: 2px;
-    }
-    @media ${device.mobileL} {
-        width: 172px;
-    }
+    font-size: 14px;
+    margin-right: 2px;
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
@@ -153,26 +169,9 @@ const InformationWrapper = styled(Flex)`
         top: 280px;
         max-width: 328px;
     }
-`
-
-const LinkWrapper = styled.div`
-    position: absolute;
-    top: 444px;
-    width: 100%;
-
-    @media ${device.laptopM} {
-        top: 350px;
-    }
-    @media ${device.tabletL} {
-        top: 270px;
-    }
-    @media ${device.tablet} {
-        position: unset;
-        top: unset;
-        justify-content: start;
-    }
     @media ${device.mobileS} {
-        flex-wrap: wrap;
+        top: 230px;
+        max-width: 328px;
     }
 `
 
@@ -205,6 +204,7 @@ const DHero = ({
     background_svg,
     content,
     image_name,
+    is_mobile,
     join_us_for_free,
     go_to_live_demo,
     Logo,
@@ -229,6 +229,7 @@ const DHero = ({
         @media ${device.tabletL} {
             max-width: 400px;
             height: 350px;
+            width: 70%;
         }
         @media ${device.tabletS} {
             max-width: 340px;
@@ -239,16 +240,16 @@ const DHero = ({
             top: 0;
         }
     `
-    const [is_mobile, setMobile] = useState(false)
-    const [is_tablet, setTablet] = useState(false)
-    const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-        setTablet(isBrowser() ? window.screen.width <= size.tabletL : false)
-    }
+    // const [is_mobile, setMobile] = useState(false)
+    // const [is_tablet, setTablet] = useState(false)
+    // const handleResizeWindow = () => {
+    //     setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+    //     setTablet(isBrowser() ? window.screen.width <= size.tabletL : false)
+    // }
 
-    useEffect(() => {
-        window.addEventListener('resize', handleResizeWindow)
-    })
+    // useEffect(() => {
+    //     window.addEventListener('resize', handleResizeWindow)
+    // })
     return (
         <Wrapper>
             <BackgroundSVG />
@@ -264,7 +265,7 @@ const DHero = ({
             <LinkWrapper>
                 {join_us_for_free ? (
                     <DemoButton secondary="true" to="/signup/">
-                        {is_tablet
+                        {is_mobile
                             ? localize('Create demo account')
                             : localize('Create free demo account')}
                     </DemoButton>
@@ -292,6 +293,7 @@ DHero.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     go_to_live_demo: PropTypes.bool,
     image_name: PropTypes.string,
+    is_mobile: PropTypes.bool,
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.func,
     title: PropTypes.string,

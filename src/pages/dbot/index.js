@@ -115,6 +115,7 @@ class Dbot extends Component {
                     Logo={dbot_logo}
                     background_svg={this.state.is_mobile ? DBotBGMobile : DBotBG}
                     image_name="dbot"
+                    is_mobile={this.state.is_mobile}
                     background_alt={localize('DBot Board')}
                 />
                 <DNumber items={items} justify="space-around" />

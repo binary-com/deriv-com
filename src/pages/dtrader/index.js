@@ -64,8 +64,9 @@ const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
 const Dtrader = () => {
-    const [is_mobile, setMobile] = useState(false)
+    const [is_mobile, setMobile] = useState('')
     const handleResizeWindow = () => {
+        // console.log('is_mobile', is_mobile)
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
 
@@ -93,6 +94,7 @@ const Dtrader = () => {
                 go_to_live_demo
                 Logo={dtrader_logo}
                 image_name="dtrader"
+                is_mobile={is_mobile}
                 background_svg={is_mobile ? DTraderBGMobile : DTraderBG}
                 background_alt={localize('DTrader Board')}
             />

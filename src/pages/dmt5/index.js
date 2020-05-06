@@ -85,6 +85,7 @@ const DMT5 = () => {
                 join_us_for_free
                 Logo={dmt5_logo}
                 image_name="dmt5"
+                is_mobile={is_mobile}
                 background_svg={is_mobile ? DMT5BGMobile : DMT5BG}
                 background_alt={localize('DMT5')}
             />

@@ -41,13 +41,11 @@ const Location = ({ children, to }) => {
             const response = JSON.parse(msg.data)
             if (response.error) {
                 showEu(true)
-                binary_socket.close()
-                return
+            } else {
+                showEu(isEuCountry(response.clients_country))
+                Cookies.set('clients_country', response.clients_country)
             }
 
-            showEu(isEuCountry(response.clients_country))
-
-            Cookies.set('clients_country', response.clients_country)
             binary_socket.close()
         }
     }, [])

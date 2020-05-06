@@ -26,6 +26,10 @@ const Title = styled(Flex)`
 const StyledChevron = styled(ChevronThick)`
     transform: rotate(${(props) => (props.is_show_detail == 'true' ? '0' : '180')}deg);
     transition: transform 100ms linear;
+
+    @media ${device.tabletL} {
+        height: 24px;
+    }
 `
 const Details = styled(Box)`
     border-radius: 0 0 8px 8px;

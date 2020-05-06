@@ -13,7 +13,6 @@ const Descriptions = styled.div`
     border-bottom: 1px solid var(--color-grey-22);
 `
 const Col = styled(Flex)`
-    border-left: 1px solid var(--color-grey-22);
     max-width: 12.9rem;
 
     @media ${device.tabletL} {

@@ -16,7 +16,7 @@ import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
 
-const simple_step_content = [
+const simple_step_content_forex = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
@@ -27,7 +27,76 @@ const simple_step_content = [
     {
         header: <Localize translate_text="Trade" />,
         text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading Synthetic Indices and other markets." />
+            <Localize translate_text="Open a real account, make a deposit, and start trading forex and other markets." />
+        ),
+        icon: <TradeIcon />,
+    },
+    {
+        header: <Localize translate_text="Withdraw" />,
+        text: (
+            <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
+        ),
+        icon: <WithdrawIcon />,
+    },
+]
+const simple_step_content_synthetic = [
+    {
+        header: <Localize translate_text="Practise" />,
+        text: (
+            <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
+        ),
+        icon: <PractiseIcon />,
+    },
+    {
+        header: <Localize translate_text="Trade" />,
+        text: (
+            <Localize translate_text="Open a real account, make a deposit, and start trading synthetic indices and other markets." />
+        ),
+        icon: <TradeIcon />,
+    },
+    {
+        header: <Localize translate_text="Withdraw" />,
+        text: (
+            <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
+        ),
+        icon: <WithdrawIcon />,
+    },
+]
+const simple_step_content_stock = [
+    {
+        header: <Localize translate_text="Practise" />,
+        text: (
+            <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
+        ),
+        icon: <PractiseIcon />,
+    },
+    {
+        header: <Localize translate_text="Trade" />,
+        text: (
+            <Localize translate_text="Open a real account, make a deposit, and start trading stock indices and other markets." />
+        ),
+        icon: <TradeIcon />,
+    },
+    {
+        header: <Localize translate_text="Withdraw" />,
+        text: (
+            <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
+        ),
+        icon: <WithdrawIcon />,
+    },
+]
+const simple_step_content_commodities = [
+    {
+        header: <Localize translate_text="Practise" />,
+        text: (
+            <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
+        ),
+        icon: <PractiseIcon />,
+    },
+    {
+        header: <Localize translate_text="Trade" />,
+        text: (
+            <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
         ),
         icon: <TradeIcon />,
     },
@@ -119,15 +188,17 @@ const Markets = () => {
             </TabsContainer>
             <Box position="relative">
                 <Separator />
-                {active_tab === 'forex' && <Forex simple_step_content={simple_step_content} />}
+                {active_tab === 'forex' && (
+                    <Forex simple_step_content={simple_step_content_forex} />
+                )}
                 {active_tab === 'commodities' && (
-                    <Commodities simple_step_content={simple_step_content} />
+                    <Commodities simple_step_content={simple_step_content_commodities} />
                 )}
                 {active_tab === 'stock' && (
-                    <StockIndices simple_step_content={simple_step_content} />
+                    <StockIndices simple_step_content={simple_step_content_stock} />
                 )}
                 {active_tab === 'synthetic' && (
-                    <SyntheticIndices simple_step_content={simple_step_content} />
+                    <SyntheticIndices simple_step_content={simple_step_content_synthetic} />
                 )}
             </Box>
             <Signup appearance={Appearances.public} />

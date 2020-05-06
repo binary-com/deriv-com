@@ -137,6 +137,7 @@ const DemoButton = styled(LinkButton)`
     width: 202px;
     font-size: 14px;
     margin-right: 2px;
+    border: unset;
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;

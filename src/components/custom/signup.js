@@ -116,8 +116,15 @@ class Signup extends Component {
         }
 
         const verify_email_req = this.getVerifyEmailRequest(email)
-        BinarySocketBase.send(verify_email_req).then((response) => {
+        const binary_socket = BinarySocketBase.init()
+
+        binary_socket.onopen = () => {
+            binary_socket.send(JSON.stringify(verify_email_req))
+        }
+        binary_socket.onmessage = (msg) => {
+            const response = JSON.parse(msg.data)
             if (response.error) {
+                binary_socket.close()
                 return this.setState({
                     is_submitting: false,
                     submit_status: 'error',
@@ -130,7 +137,8 @@ class Signup extends Component {
                 submit_status: 'success',
             })
             if (this.props.onSubmit) this.props.onSubmit(this.state.submit_status)
-        })
+            binary_socket.close()
+        }
     }
 
     clearEmail = () => this.setState({ email: '', email_error_msg: '' })

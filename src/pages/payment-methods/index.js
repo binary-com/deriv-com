@@ -63,7 +63,13 @@ const PaymentMethods = () => {
     const [payment_methods, setPaymentMethods] = React.useState(payment_data)
 
     React.useEffect(() => {
-        BinarySocketBase.wait('website_status').then((response) => {
+        const binary_socket = BinarySocketBase.init()
+
+        binary_socket.onopen = () => {
+            binary_socket.send(JSON.stringify({ website_status: 1 }))
+        }
+        binary_socket.onmessage = (msg) => {
+            const response = JSON.parse(msg.data)
             const filtered_payment_data = payment_methods.map((payment) => {
                 if (payment.is_crypto) {
                     payment.data = payment.data.map((data) => {
@@ -86,7 +92,8 @@ const PaymentMethods = () => {
             })
 
             setPaymentMethods(filtered_payment_data)
-        })
+            binary_socket.close()
+        }
     }, [])
     return (
         <Layout>

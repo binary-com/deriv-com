@@ -242,6 +242,7 @@ const DigitalOptions = () => {
                                         components={[<strong key={0} />]}
                                     />
                                 }
+                                mobile_pt="2.4rem"
                             />
                         </Col>
                     </Row>
@@ -262,6 +263,7 @@ const DigitalOptions = () => {
                                 content={
                                     <Localize translate_text="Predict the highest or lowest tick among the next five ticks." />
                                 }
+                                mobile_pt="2.4rem"
                             />
                         </Col>
                     </Row>
@@ -282,6 +284,7 @@ const DigitalOptions = () => {
                                 content={
                                     <Localize translate_text="Predict whether the market will end higher or lower than the average price." />
                                 }
+                                mobile_pt="2.4rem"
                             />
                         </Col>
                     </Row>
@@ -330,6 +333,7 @@ const DigitalOptions = () => {
                                         components={[<strong key={0} />]}
                                     />
                                 }
+                                mobile_pt="2.4rem"
                             />
                         </Col>
                     </Row>

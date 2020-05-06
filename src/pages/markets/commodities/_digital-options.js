@@ -65,6 +65,7 @@ const MarketsList = styled(CssGrid)`
 
     @media ${device.tabletL} {
         grid-template-columns: repeat(2, 1fr);
+        padding: 2rem;
 
         svg {
             width: 24px;

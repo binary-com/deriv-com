@@ -8,6 +8,12 @@ import { localize, WithIntl } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
+const ResponsiveLinkButton = styled(LinkButton)`
+    @media ${device.mobileL} {
+        font-size: 1.75rem;
+    }
+`
+
 const Section = styled(SectionContainer)`
     background-color: ${(props) => props.bgcolor || 'transparent'};
 `
@@ -22,8 +28,12 @@ const Column = styled.article`
         margin-bottom: 1rem;
     }
 
-    @media (max-width: 1275px) {
-        max-width: 200px;
+    @media ${device.tabletL} {
+        max-width: 100%;
+
+        ${Text} {
+            font-size: 2rem;
+        }
     }
 `
 
@@ -33,7 +43,7 @@ const ColumnContainer = styled(Flex)`
         align-items: center;
 
         article:nth-child(2) {
-            margin: 2rem 0;
+            margin: 3rem 0;
         }
     }
 `
@@ -71,7 +81,7 @@ const WhyChooseUs = () => {
                     </Header>
                     <ColumnContainer mt="4rem" jc="space-around">
                         <Column>
-                            <Header as="h3" size="var(--text-size-sm)" align="center">
+                            <Header as="h4" align="center">
                                 {localize('Unlimited virtual funds')}
                             </Header>
                             <Text align="center">
@@ -81,7 +91,7 @@ const WhyChooseUs = () => {
                             </Text>
                         </Column>
                         <Column>
-                            <Header as="h3" size="var(--text-size-sm)" align="center">
+                            <Header as="h4" align="center">
                                 {localize('All markets and platforms')}
                             </Header>
                             <Text align="center">
@@ -89,7 +99,7 @@ const WhyChooseUs = () => {
                             </Text>
                         </Column>
                         <Column>
-                            <Header as="h3" size="var(--text-size-sm)" align="center">
+                            <Header as="h4" align="center">
                                 {localize('No credit card needed')}
                             </Header>
                             <Text align="center">
@@ -100,9 +110,9 @@ const WhyChooseUs = () => {
                         </Column>
                     </ColumnContainer>
                     <Flex mt="3.2rem">
-                        <LinkButton to="/signup" secondary="true">
+                        <ResponsiveLinkButton to="/signup" secondary="true">
                             {localize("Sounds great. Let's get started.")}
-                        </LinkButton>
+                        </ResponsiveLinkButton>
                     </Flex>
                 </GridContainer>
             </Section>

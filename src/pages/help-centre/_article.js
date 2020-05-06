@@ -6,6 +6,7 @@ import Layout from 'components/layout/layout'
 import { localize } from 'components/localization'
 import { SideTab, StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
+import device from 'themes/device'
 
 const Content = styled.div`
     display: flex;
@@ -16,6 +17,10 @@ const Content = styled.div`
 const TabWrapper = styled.div`
     width: 100%;
     margin-top: 8rem;
+
+    @media ${device.tabletL} {
+        margin-top: 0;
+    }
 `
 const ContactContainer = styled.div`
     margin-top: 8rem;

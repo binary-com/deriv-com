@@ -127,7 +127,7 @@ const StyledContent = styled(Header)`
 `
 const InformationWrapper = styled(Flex)`
     width: 100%;
-    max-width: 558px;
+    max-width: 562px;
     position: absolute;
     top: 120px;
 
@@ -139,7 +139,7 @@ const InformationWrapper = styled(Flex)`
         max-width: 390px;
     }
     @media ${device.laptopM} {
-        max-width: 390px;
+        max-width: 410px;
     }
     @media ${device.tabletL} {
         width: 52%;
@@ -151,7 +151,7 @@ const InformationWrapper = styled(Flex)`
     }
     @media ${device.mobileL} {
         top: 280px;
-        max-width: 321px;
+        max-width: 328px;
     }
 `
 

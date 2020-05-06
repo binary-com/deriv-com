@@ -41,8 +41,4 @@ const Box = styled.div`
     ${baseStyles}
     ${responsiveStyles}
 `
-export const Root = styled.div`
-    ${baseStyles}
-    ${responsiveStyles}
-`
 export default Box

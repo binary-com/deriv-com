@@ -20,18 +20,14 @@ const Wrapper = styled.div`
     @media ${device.laptopM} {
         max-height: 429px;
     }
-    @media ${device.laptopM} {
-        padding: 0 0 0 5rem;
-    }
     @media ${device.tabletL} {
         max-height: 349px;
         flex-direction: column;
     }
     @media ${device.tablet} {
         flex-direction: column-reverse;
-        max-height: unset;
         max-height: 640px;
-        padding: 0 16px 40px 13px;
+        padding: 0 13px 40px 13px;
     }
 `
 const HeroContent = styled.div`
@@ -107,18 +103,23 @@ const GoToLiveDemo = styled(Button)`
     @media ${device.mobileL} {
         max-width: 160px;
     }
+    @media ${device.mobileS} {
+        max-width: 172px;
+    }
 `
 const DemoButton = styled(LinkButton)`
-    min-height: 40px;
-    max-width: 202px;
-    width: 100%;
+    display: inline-block;
+    height: 40px;
+    width: 202px;
+    border: unset;
+    vertical-align: bottom;
 
     @media ${device.laptopM} {
         font-size: 14px;
         margin-right: 2px;
     }
-    @media ${device.tablet} {
-        max-width: 172px;
+    @media ${device.mobileL} {
+        width: 172px;
     }
 `
 const StyledContent = styled(Header)`
@@ -169,6 +170,9 @@ const LinkWrapper = styled.div`
         position: unset;
         top: unset;
         justify-content: start;
+    }
+    @media ${device.mobileS} {
+        flex-wrap: wrap;
     }
 `
 

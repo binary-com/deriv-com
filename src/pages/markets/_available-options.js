@@ -3,12 +3,18 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex, Box } from 'components/containers'
+import device from 'themes/device'
 
 const AvailableOptions = ({ title, content, remove_title, svg }) => {
     const Icon = styled(svg)`
         margin-right: 1.6rem;
         width: 80px;
         height: 80px;
+
+        @media ${device.tabletL} {
+            width: 60px;
+            height: 60px;
+        }
     `
     return (
         <Flex direction="column" mt={remove_title ? '1.6rem !important' : ''}>

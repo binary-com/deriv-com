@@ -49,13 +49,8 @@ const ClientCard = styled.article`
     height: 100%;
     position: relative;
 
-    ${Header} {
-        padding-bottom: 1.6rem;
-
-        @media ${device.tabletL} {
-            font-size: 3rem;
-            padding-bottom: 1rem;
-        }
+    ${Flex} {
+        padding-bottom: 0.8rem;
     }
 
     @media (max-width: 1185px) {
@@ -70,6 +65,12 @@ const ClientCard = styled.article`
 
         ${Text} {
             font-size: 2rem;
+        }
+        ${Header} {
+            font-size: 3rem;
+        }
+        ${Flex} {
+            padding-bottom: 2rem;
         }
     }
 `
@@ -94,6 +95,10 @@ const LinkButtonWrapper = styled.div`
     ${LinkButton} {
         position: relative;
         font-size: 1.75rem;
+    }
+
+    @media ${device.tabletL} {
+        margin-top: 1rem;
     }
 `
 const StyledHeader = styled(Header)`

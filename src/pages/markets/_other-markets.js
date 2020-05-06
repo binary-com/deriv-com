@@ -74,6 +74,13 @@ const LearnMore = styled(LocalizedLink)`
         font-weight: bold;
         color: var(--color-red);
     }
+
+    @media ${device.tabletL} {
+        ${Text} {
+            font-size: var(--text-size-sm);
+            margin-right: 1rem;
+        }
+    }
 `
 const MobileCardWrapper = styled(Flex)`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
@@ -160,11 +167,7 @@ const MobileCard = ({ name }) => {
                 </Text>
                 <Icon dynamic_id={markets_type[name].id + '_mobile'} />
             </Flex>
-            <Text size="2rem">
-                {localize(
-                    'Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market.',
-                )}
-            </Text>
+            <Text size="2rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility="true">
                 <Text>{localize('Learn more')}</Text>
                 <Arrow />
@@ -202,6 +205,7 @@ const StyledHeader = styled(Header)`
         max-width: 28.2rem;
         margin: 0 auto;
         font-size: 4rem;
+        margin-bottom: 2rem;
     }
 `
 const MobileCardContainer = styled(Flex)`
@@ -235,6 +239,9 @@ const OtherMarkets = ({ except }) => {
                 </MarketsWrapper>
             </Show.Desktop>
             <Show.Mobile>
+                <StyledHeader as="h3" align="left">
+                    {localize('Other markets you might be interested in')}
+                </StyledHeader>
                 <MobileCardContainer direction="column">
                     {markets.map((market) =>
                         market !== except ? <MobileCard name={market} key={market} /> : null,

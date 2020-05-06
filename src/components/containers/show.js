@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import { size } from 'themes/device'
 import { isEuCountry } from 'common/country-base'
 
-const handleEu = (setVisible, to) => is_eu_country => {
+const handleEu = (setVisible, to) => (is_eu_country) => {
     switch (to) {
         case 'eu':
             setVisible(is_eu_country)
@@ -30,18 +30,18 @@ const Location = ({ children, to }) => {
     return visible ? <>{children}</> : null
 }
 
-export const Eu = props => <Location {...props} to="eu" />
+export const Eu = (props) => <Location {...props} to="eu" />
 
-export const NonEu = props => <Location {...props} to="non-eu" />
+export const NonEu = (props) => <Location {...props} to="non-eu" />
 
 const MaxWidth = styled.div`
-    @media (max-width: ${props => props.max_width}px) {
+    @media (max-width: ${(props) => props.max_width}px) {
         display: none !important;
     }
 `
 
 const MinWidth = styled.div`
-    @media (min-width: ${props => props.min_width}px) {
+    @media (min-width: ${(props) => props.min_width}px) {
         display: none !important;
     }
 `

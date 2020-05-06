@@ -25,9 +25,9 @@ const Location = ({ children, to }) => {
         if (!to) return
 
         const clients_country = Cookies.get('clients_country')
+        const showEu = handleEu(setVisible, to)
 
         if (clients_country) {
-            const showEu = handleEu(setVisible, to)
             showEu(isEuCountry(clients_country))
             return
         }
@@ -40,13 +40,11 @@ const Location = ({ children, to }) => {
         binary_socket.onmessage = (msg) => {
             const response = JSON.parse(msg.data)
             if (response.error) {
-                const showEu = handleEu(setVisible, to)
                 showEu(true)
                 binary_socket.close()
                 return
             }
 
-            const showEu = handleEu(setVisible, to)
             showEu(isEuCountry(response.clients_country))
 
             Cookies.set('clients_country', response.clients_country)

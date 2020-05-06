@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import CtaBinary from './_cta-binary'
 import { Container, Flex, Box } from 'components/containers'
@@ -10,55 +10,51 @@ import { localize } from 'components/localization'
 import { smarttrader_url, deriv_app_url } from 'common/utility'
 import device from 'themes/device'
 import Platform from 'images/common/interim-bg.png'
+import PlatformMt5 from 'images/common/interim-bg-dmt5.png'
 
 const Section = styled(Box)`
-    background-image: url(${Platform});
     width: 100%;
+    ${(props) =>
+        props.is_dmt5
+            ? css`
+                  background-image: url(${PlatformMt5});
+              `
+            : css`
+                  background-image: url(${Platform});
+              `}
     background-size: cover;
     position: relative;
 
-    @media (max-width: 1375px) {
-        background: white;
-    }
-    @media ${device.mobileL} {
+    @media (max-width: 1240px) {
         display: none;
     }
 `
 
-const AbsoluteWrapper = styled(Box)`
-    margin-bottom: -3.8rem;
+const Responsive = styled(Container)`
+    @media ${device.tablet} {
+        flex-direction: column;
+    }
+`
 
-    @media (max-width: 1375px) {
+const AbsoluteWrapper = styled(Box)`
+    margin-bottom: -3.2rem;
+    width: 54rem;
+    @media (max-width: 1370px) {
         display: none;
     }
+`
+
+const MarBot = styled(Flex)`
+    margin-left: ${(props) => (props.is_dmt5 ? '1.2rem' : '0')};
 `
 
 const FitButton = styled(LinkButton)`
     width: fit-content;
 `
 
-const RightFlex = styled(Flex)`
-    @media (max-width: 1375px) {
-        ${Header} {
-            color: var(--color-black);
-        }
-        ${FitButton} {
-            border: 2px solid var(--color-red);
-            color: var(--color-red);
-            background: transparent;
-
-            &:hover {
-                background-color: var(--color-red);
-                color: var(--color-white);
-            }
-        }
-    }
-`
-
 const White = styled(Header)`
     color: var(--color-white);
-    width: auto;
-    max-width: 38.4rem;
+    width: 38.4rem;
 `
 
 const query = graphql`
@@ -66,7 +62,13 @@ const query = graphql`
         deriv: file(relativePath: { eq: "smarttrader.png" }) {
             ...fadeIn
         }
+        deriv_mobile: file(relativePath: { eq: "deriv-platform-banner.png" }) {
+            ...fadeIn
+        }
         dbot: file(relativePath: { eq: "interim-dbot.png" }) {
+            ...fadeIn
+        }
+        dmt5: file(relativePath: { eq: "interim-dmt5.png" }) {
             ...fadeIn
         }
     }
@@ -74,25 +76,44 @@ const query = graphql`
 
 const HeroDeriv = ({ interim_type }) => {
     const data = useStaticQuery(query)
+    const is_dbot = interim_type === 'dbot'
+    const is_deriv = interim_type === 'deriv'
+    const is_dmt5 = interim_type === 'dmt5'
     return (
         <>
-            <Section bg="var(--color-black)" p="3.2rem 0">
-                <Container jc="space-around">
+            <Section is_dmt5={is_dmt5} p="3.2rem 0">
+                <Responsive jc="space-between" position="relative">
                     <Flex fd="column" ai="center" max_width="28.2rem">
                         <Header as="h3" mb="4rem" align="center">
-                            {localize('Be among the first to try Deriv')}
+                            {localize('Be among the first to try Deriv.com')}
                         </Header>
                         <FitButton secondary to="/">
-                            {localize('Visit Deriv now')}
+                            {localize('Visit Deriv.com now')}
                         </FitButton>
                         <CtaBinary />
                     </Flex>
                     <AbsoluteWrapper>
-                        <QueryImage data={data[interim_type]} width="54rem" height="29.6rem" />
+                        <QueryImage data={data[interim_type]} width="100%" height="29.6rem" />
                     </AbsoluteWrapper>
 
-                    <RightFlex fd="column" ml="2.4rem" ai="center">
-                        {interim_type === 'dbot' ? (
+                    <MarBot is_dmt5={is_dmt5} width="auto" fd="column" ai="center">
+                        {is_deriv && (
+                            <>
+                                <White as="h3" mb="3rem" align="center">
+                                    {localize('Love trading on Binary.com’s signature platform?')}
+                                </White>
+                                <FitButton
+                                    external
+                                    white
+                                    to={smarttrader_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {localize('Try SmartTrader on Deriv.com')}
+                                </FitButton>
+                            </>
+                        )}
+                        {is_dbot && (
                             <>
                                 <White as="h3" mb="3rem" align="center">
                                     {localize('Love Binary Bot?')}
@@ -104,28 +125,29 @@ const HeroDeriv = ({ interim_type }) => {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Try DBot on Deriv')}
+                                    {localize('Try DBot on Deriv.com')}
                                 </FitButton>
                             </>
-                        ) : (
+                        )}
+                        {is_dmt5 && (
                             <>
                                 <White as="h3" mb="3rem" align="center">
-                                    {localize('Love trading on Binary.com’s signature platform? ')}
+                                    {localize('Love MT5 on Binary.com?')}
                                 </White>
                                 <FitButton
                                     external
                                     white
-                                    to={smarttrader_url}
+                                    to={deriv_app_url + '/bot'}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {localize('Try SmartTrader on Deriv')}
+                                    {localize('Try MT5 on Deriv.com')}
                                 </FitButton>
                             </>
                         )}
                         <CtaBinary is_white />
-                    </RightFlex>
-                </Container>
+                    </MarBot>
+                </Responsive>
             </Section>
         </>
     )

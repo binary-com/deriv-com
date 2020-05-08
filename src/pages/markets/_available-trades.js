@@ -4,11 +4,27 @@ import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import { Header } from 'components/elements'
+import device from 'themes/device'
 //SVG
 import MarginIcon from 'images/svg/margin.svg'
 import OptionsIcon from 'images/svg/options.svg'
 import MultipliersIcon from 'images/svg/multipliers.svg'
 
+const StyledSection = styled(SectionContainer)`
+    padding: 5rem 0;
+`
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        max-width: 35.75rem;
+        font-size: 4rem;
+        margin: 0 auto;
+    }
+`
+const StyledContainer = styled(Container)`
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+`
 const CardWrapper = styled(Flex)`
     max-width: 100.6rem;
     justify-content: flex-start;
@@ -39,6 +55,8 @@ const CardContainer = styled(Flex)`
     z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
 
     ${Flex} {
+        padding: 2.71rem 0 0 3.2rem;
+
         svg {
             width: 32px;
             height: 32px;
@@ -49,6 +67,18 @@ const CardContainer = styled(Flex)`
             color: ${(props) =>
                 props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.56')};
+        }
+
+        @media ${device.tabletL} {
+            height: 100%;
+            justify-content: flex-start;
+            padding: 1rem 0 0 1.5rem;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                margin-right: 1rem;
+            }
         }
     }
     ::before {
@@ -73,6 +103,10 @@ const CardContainer = styled(Flex)`
                 `
         }}
     }
+    @media ${device.tabletL} {
+        width: 15.5rem;
+        height: 6rem;
+    }
 `
 const ContentWrapper = styled.div`
     width: 100%;
@@ -81,18 +115,26 @@ const ContentWrapper = styled.div`
     background: #ffffff;
     border-radius: 0.15em;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-`
 
-const Card = ({ name, active_tab, onTabChange }) => {
+    @media ${device.tabletL} {
+        padding: 0 2rem;
+    }
+`
+const CardHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
+    }
+`
+const Card = ({ display_name, active_tab, onTabChange, name }) => {
     return (
         <CardContainer name={name} active_tab={active_tab} onClick={() => onTabChange(name)}>
-            <Flex height="fit-content" p="2.71rem 0 0 3.2rem" jc="flex-start" ai="center">
+            <Flex height="fit-content" jc="flex-start" ai="center">
                 {active_tab === 'Margin' && <MarginIcon />}
                 {active_tab === 'Options' && <OptionsIcon />}
                 {active_tab === 'Multipliers' && <MultipliersIcon />}
-                <Header as="h4" width="auto">
-                    {name}
-                </Header>
+                <CardHeader as="h4" width="auto">
+                    {display_name}
+                </CardHeader>
             </Flex>
         </CardContainer>
     )
@@ -100,6 +142,7 @@ const Card = ({ name, active_tab, onTabChange }) => {
 
 Card.propTypes = {
     active_tab: PropTypes.string,
+    display_name: PropTypes.object,
     name: PropTypes.string,
     onTabChange: PropTypes.func,
 }
@@ -115,11 +158,11 @@ class AvailableTrades extends React.Component {
     render() {
         const { Margin, DigitalOptions, Multipliers, name } = this.props
         return (
-            <SectionContainer>
-                <Header size="var(--text-size-header-1)" align="center">
+            <StyledSection>
+                <StyledHeader size="var(--text-size-header-1)" align="center">
                     {name + ' ' + localize('trades available on Deriv')}
-                </Header>
-                <Container
+                </StyledHeader>
+                <StyledContainer
                     direction="column"
                     style={{
                         marginTop: '2.8rem',
@@ -128,21 +171,24 @@ class AvailableTrades extends React.Component {
                     <CardWrapper position="relative">
                         {Margin && (
                             <Card
-                                name={<Localize translate_text="Margin" />}
+                                name="Margin"
+                                display_name={<Localize translate_text="Margin" />}
                                 onTabChange={() => this.handleTabChange('Margin')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
                         {DigitalOptions && (
                             <Card
-                                name={<Localize translate_text="Options" />}
+                                name="Options"
+                                display_name={<Localize translate_text="Options" />}
                                 onTabChange={() => this.handleTabChange('Options')}
                                 active_tab={this.state.active_tab}
                             />
                         )}
                         {Multipliers && (
                             <Card
-                                name={<Localize translate_text="Multipliers" />}
+                                name="Multipliers"
+                                display_name={<Localize translate_text="Multipliers" />}
                                 onTabChange={() => this.handleTabChange('Multipliers')}
                                 active_tab={this.state.active_tab}
                             />
@@ -153,8 +199,8 @@ class AvailableTrades extends React.Component {
                         {this.state.active_tab === 'Options' && <DigitalOptions />}
                         {this.state.active_tab === 'Multipliers' && <Multipliers />}
                     </ContentWrapper>
-                </Container>
-            </SectionContainer>
+                </StyledContainer>
+            </StyledSection>
         )
     }
 }

@@ -57,6 +57,7 @@ const ContentWrapper = styled.div`
 const LeadershipWrapper = styled(Flex)`
     @media ${device.tabletL} {
         flex-direction: column;
+        margin-top: 1.6rem;
 
         ${Box} {
             width: 28.2rem;
@@ -75,7 +76,8 @@ const LeadershipTitle = styled(Header)`
     margin-bottom: 0.8rem;
 
     @media ${device.tabletL} {
-        font-size: 4.5rem;
+        font-size: 4rem;
+        margin-top: 1.6rem;
     }
 `
 
@@ -83,13 +85,13 @@ const LeadershipPosition = styled(Header)`
     margin-bottom: 1.6rem;
 
     @media ${device.tabletL} {
-        font-size: 3rem;
+        font-size: 2.4rem;
         margin-bottom: 2rem;
     }
 `
 
 const NavigationWrapper = styled(Flex)`
-    margin-top: 1.6rem;
+    margin: 1.6rem 0;
 `
 
 const Navigation = styled(Flex)`
@@ -129,6 +131,12 @@ const StyledHeader = styled(Header)`
               `}
     @media ${device.tabletL} {
         font-size: 3rem;
+    }
+    @media ${device.mobileL} {
+        font-size: 2rem;
+    }
+    @media ${device.mobileM} {
+        font-size: 1.8rem;
     }
 `
 const TrailNavigation = styled.span`
@@ -262,11 +270,11 @@ const About = () => {
                                         />
                                     </Box>
                                 </Show.Desktop>
-                                <Show.Mobile>
+                                <Show.Mobile style={{ width: '100%' }}>
                                     <QueryImage
                                         data={data['jean_yves_mobile']}
                                         alt={localize('Jean Yves')}
-                                        width="328px"
+                                        width="100%"
                                     />
                                 </Show.Mobile>
                                 <div>

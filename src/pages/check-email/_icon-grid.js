@@ -28,6 +28,15 @@ const GridCol = styled.article`
     column-gap: 2.4rem;
     align-items: center;
     height: 100%;
+
+    @media ${device.mobileL} {
+        grid-template-columns: 4rem 1fr;
+
+        & > svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
 `
 const StyledText = styled(Text)`
     @media ${device.tabletL} {

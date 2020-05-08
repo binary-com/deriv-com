@@ -189,3 +189,33 @@ const MyPageName = () => {
 
 export default WithIntl()(About)
 ```
+
+#### CSS responsive function
+
+to create a responsive component for different breakpoints, please use <Box> component and inject the css styles for available breakpoints.
+
+Usage example:
+
+```js
+import { Box } from 'components/containers'
+
+const UseResponsiveCss = () => {
+    return (
+        <Box
+            style={{
+                backgroundColor: 'red',
+                height: '300px',
+                width: '300px',
+                color: 'white',
+                fontSize: '40px',
+            }}
+            ml="100px"
+            pl="80px"
+            laptop={{ ml: '40px', pl: '50px' }}
+            mobileS={{ ml: '20px' }}
+        >
+            component here
+        </Box>
+    )
+}
+```

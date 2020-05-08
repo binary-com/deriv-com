@@ -77,7 +77,7 @@ const StyledCard = styled(Card)`
 `
 
 const TitleTR = styled(TR)`
-    height: 5rem;
+    height: 6rem;
 `
 const DerivIBProgramme = () => {
     return (
@@ -334,15 +334,13 @@ const DMT5Advanced = ({ data }) => {
                                         } else if (idxa === 0 && typeof item === 'string') {
                                             return (
                                                 <TR isTitle="true" key={idxa}>
-                                                    <StyledText weight="bold">
-                                                        {localize('item')}
-                                                    </StyledText>
+                                                    <StyledText weight="bold">{item}</StyledText>
                                                 </TR>
                                             )
                                         } else {
                                             return (
                                                 <StyledTR key={idxa}>
-                                                    <StyledText>{localize('item')}</StyledText>
+                                                    <StyledText>{item}</StyledText>
                                                 </StyledTR>
                                             )
                                         }
@@ -375,9 +373,9 @@ const DMT5Advanced = ({ data }) => {
     )
 }
 const ib_dmt5_standard = {
-    name: <Localize translate_text="DMT5 Standard" />,
+    name: <Localize translate_text="DMT5 Financial" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Standard account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Financial account." />
     ),
     assets: [
         [
@@ -410,9 +408,9 @@ const ib_dmt5_standard = {
     ),
 }
 const ib_dmt5_advanced = {
-    name: <Localize translate_text="DMT5 Advanced" />,
+    name: <Localize translate_text="DMT5 Financial STP" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Advanced account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Financial STP account." />
     ),
     assets: [
         [
@@ -436,9 +434,9 @@ const ib_dmt5_advanced = {
     ),
 }
 const ib_dmt5_synthetic = {
-    name: <Localize translate_text="DMT5 Synthetic Indices" />,
+    name: <Localize translate_text="DMT5 Synthetic" />,
     description: (
-        <Localize translate_text="Earn when your clients trade on a DMT5 Synthetic Indices account." />
+        <Localize translate_text="Earn when your clients trade on a DMT5 Synthetic account." />
     ),
     assets: [
         [

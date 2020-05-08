@@ -46,10 +46,13 @@ const resetValidation = (values) => {
 }
 
 const resetSubmission = (values, actions) => {
-    BinarySocketBase.send({
-        verify_email: values.email,
-        type: 'reset_password',
-    }).then((response) => {
+    const binary_socket = BinarySocketBase.init()
+
+    binary_socket.onopen = () => {
+        binary_socket.send(JSON.stringify({ verify_email: values.email, type: 'reset_password' }))
+    }
+    binary_socket.onmessage = (msg) => {
+        const response = JSON.parse(msg.data)
         actions.setSubmitting(false)
         if (response.error) {
             actions.setStatus({
@@ -64,7 +67,8 @@ const resetSubmission = (values, actions) => {
                 'Please check your email and click on the link provided to reset your password.',
             ),
         })
-    })
+        binary_socket.close()
+    }
 }
 
 const ResetPassword = () => (

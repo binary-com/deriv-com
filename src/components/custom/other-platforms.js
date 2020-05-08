@@ -150,7 +150,7 @@ export const OtherPlatform = ({ header, subHeader, exclude, is_nav }) => (
     <SectionContainer padding="0">
         {is_nav ? null : (
             <HeaderWrapper>
-                <StyledHeader size="4.8rem" align="center" lh="5rem">
+                <StyledHeader size="var(--text-size-l)" align="center" lh="5rem">
                     {header ? header : localize('Check out our other platforms')}
                 </StyledHeader>
                 {subHeader && (

@@ -32,6 +32,7 @@ const ChevronRight = styled(Chevron)`
         }
     }
 `
+
 const Wrapper = styled.div`
     position: relative;
     display: flex;
@@ -42,7 +43,7 @@ const Wrapper = styled.div`
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
 
-    @media (max-width: 800px) {
+    @media (max-width: 991px) {
         flex-direction: column;
         height: auto;
     }
@@ -56,8 +57,12 @@ const SignupFormWrapper = styled(Flex)`
         padding: 0 2rem;
     }
 
-    @media (max-width: 800px) {
+    @media ${device.mobileM} {
         width: 100%;
+
+        & > div {
+            width: 100%;
+        }
     }
 `
 
@@ -68,7 +73,7 @@ const BackgroundWrapper = styled(Flex)`
     background-image: url(${BackgroundPattern});
     clip-path: polygon(14rem 0, 100% 0%, 100% 100%, 0% 100%);
 
-    @media (max-width: 800px) {
+    @media (max-width: 991px) {
         display: none;
     }
 `
@@ -91,7 +96,7 @@ const EmailButton = styled(Button)`
     height: 4rem;
 
     @media ${device.tabletL} {
-        width: 13rem;
+        width: auto;
         font-size: 1.75rem;
         margin-left: 0;
         height: 5rem;
@@ -112,17 +117,11 @@ const SocialButton = styled(Button)`
     background-color: var(--color-white);
     border: solid 1px var(--color-grey-7);
     height: 4rem;
-    margin-right: 1.2rem;
+    margin: 0 0.8rem;
 
     @media ${device.tabletL} {
-        height: 6rem;
-        margin-right: ${(props) => (props.margin_right ? props.margin_right : '0')};
         justify-content: center;
         align-items: center;
-
-        svg {
-            margin-right: 1rem;
-        }
     }
 `
 
@@ -133,14 +132,14 @@ const StyledHeader = styled(Header)`
         width: auto;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 991px) {
         margin-top: 2rem;
         ${(props) => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
     }
 `
 const StyledText = styled(Text)`
     width: auto;
-    margin-right: 4rem;
+    margin-right: 2rem;
 
     @media ${device.tabletL} {
         width: max-content-fit;
@@ -159,9 +158,9 @@ const ImageWrapper = styled(Flex)`
     }
 
     @media (max-width: 1350px) {
-        width: 30rem;
+        width: 25rem;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 1230px) {
         display: none;
     }
 `
@@ -186,7 +185,7 @@ const MobileBackground = styled.div`
     position: relative;
     padding-bottom: 4rem;
 
-    @media (min-width: 800px) {
+    @media (min-width: 991px) {
         display: none;
     }
 `
@@ -284,9 +283,6 @@ const SignupPublic = ({
                             <span>
                                 <Facebook />
                             </span>
-                            <Show.Mobile>
-                                <Text>Facebook</Text>
-                            </Show.Mobile>
                         </SocialButton>
                         <SocialButton
                             onClick={handleSocialSignup}
@@ -294,14 +290,10 @@ const SignupPublic = ({
                             id="google"
                             type="button"
                             social
-                            margin_right="1rem"
                         >
                             <span>
                                 <Google />
                             </span>
-                            <Show.Mobile>
-                                <Text>Google</Text>
-                            </Show.Mobile>
                         </SocialButton>
                     </SocialWrapper>
                 </div>
@@ -320,7 +312,7 @@ const SignupPublic = ({
                     <ChevronRight />
                 </LinkFlex>
             </BackgroundWrapper>
-            <Show.Mobile>
+            <Show.Mobile style={{ width: '100%' }}>
                 <MobileBackground>
                     <MobilePlatform>
                         <QueryImage

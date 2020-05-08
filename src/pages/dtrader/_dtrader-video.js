@@ -92,6 +92,8 @@ const GoToLiveDemo = styled(Button)`
 
     @media ${device.tabletL} {
         max-width: 100%;
+        margin: 4rem auto;
+        font-size: 1.75rem;
     }
 `
 
@@ -222,7 +224,7 @@ class DtraderTabs extends React.Component {
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(13)}
                         >
-                            {localize('3. Make your trade')}
+                            {localize('3. Purchase your opinion')}
                         </Step>
                     </Tab>
                     <GoToLiveDemo secondary="true" onClick={this.handleRedirect}>

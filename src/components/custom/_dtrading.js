@@ -27,7 +27,7 @@ const Content = styled.div`
     margin-right: ${(props) => props.margin_right};
 
     ${Text} {
-        margin-top: 0.8rem;
+        margin-top: 2.2rem;
     }
 
     @media ${device.tabletL} {
@@ -46,11 +46,11 @@ const ImageWrapper = styled.div`
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-header-1);
+    font-size: var(--text-size-l);
     line-height: 1.25;
 
     @media ${device.tabletL} {
-        margin-top: 0;
+        margin-top: 2rem;
     }
 `
 const Row = styled.div`

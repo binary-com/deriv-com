@@ -468,7 +468,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                         </Item>
                     </AccordionItem>
                     <AccordionItem
-                        header="RESOURCES"
+                        header={localize('RESOURCES')}
                         arrow_thin
                         header_style={mobile_accordion_header}
                     >
@@ -480,7 +480,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                         </Item>
                     </AccordionItem>
                     <AccordionItem
-                        header="ABOUT US"
+                        header={localize('ABOUT US')}
                         arrow_thin
                         header_style={mobile_accordion_header}
                     >
@@ -501,7 +501,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                         </Item>
                     </AccordionItem>
                     <AccordionItem
-                        header="PARTNER WITH US"
+                        header={localize('PARTNER WITH US')}
                         arrow_thin
                         header_style={mobile_accordion_header}
                     >

@@ -29,7 +29,7 @@ const WaysWrapper = styled.div`
     display: flex;
     flex-direction: row;
 
-    @media ${device.tabletS} {
+    @media (max-width: 740px) {
         flex-direction: column;
         height: auto;
     }
@@ -159,7 +159,7 @@ export const ContactWays = () => {
                     <StyledHeader as="h3" align="center">
                         {localize('Call Us')}
                     </StyledHeader>
-                    <StyledText>{localize('International help desk')}</StyledText>
+                    <StyledText align="center">{localize('International help desk')}</StyledText>
                     <StyledText secondary="true" weight="bold">
                         <ClickToCall href="tel:+441942316229">+44 1942 316229</ClickToCall>
                     </StyledText>

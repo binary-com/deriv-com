@@ -35,6 +35,12 @@ const NavWrapper = styled.div`
     z-index: 100;
 `
 
+const ResponsiveLogo = styled(Logo)`
+    @media (max-width: 1104px) {
+        width: 160px;
+    }
+`
+
 const InterimNav = styled.nav`
     width: 100%;
     position: fixed;
@@ -47,6 +53,11 @@ const LogoLink = styled(LocalizedLink)`
     @media (max-width: 1150px) {
         & svg {
             width: 20rem;
+        }
+    }
+    @media (max-width: 1104px) {
+        & svg {
+            width: 15rem;
         }
     }
     @media ${device.tabletS} {
@@ -106,6 +117,9 @@ const NavCenter = styled.ul`
     display: flex;
     justify-content: space-between;
 
+    @media (max-width: 1104px) {
+        font-size: var(--text-size-xs);
+    }
     @media ${device.tabletL} {
         display: none;
     }
@@ -191,9 +205,11 @@ const CloseMenu = styled(Close)`
 const LogoLinkMobile = styled(LocalizedLink)`
     cursor: pointer;
     display: none;
+
     @media ${device.tabletL} {
         display: block;
         cursor: pointer;
+        margin-left: 2rem;
     }
 `
 
@@ -202,6 +218,10 @@ const MobileLogin = styled(Button)`
     font-size: 14px;
     @media ${device.tabletL} {
         display: block;
+        margin-left: auto;
+    }
+    @media ${device.mobileL} {
+        font-size: var(--text-size-xxs);
     }
 `
 const handleScroll = (show, hide) => {
@@ -355,7 +375,7 @@ export const Nav = () => {
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
-                            <Logo />
+                            <ResponsiveLogo />
                         </LogoLink>
                         <LocalizedLink
                             external

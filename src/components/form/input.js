@@ -57,7 +57,7 @@ const StyledError = styled(CrossIcon)`
 const StyledInput = styled.input`
     background: none;
     color: var(--color- ${(props) => props.inputColor || 'black'});
-    font-size: var(--text-size-s);
+    font-size: 16px;
     padding: 1rem 1rem 1rem 0.8rem;
     width: 95%;
     display: block;

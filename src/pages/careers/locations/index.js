@@ -39,15 +39,17 @@ const BackDrop = styled.section`
 
 const Hero = () => (
     <BackDrop>
-        <Header as="h1" size="var(--text-size-xl)" align="center" color="white">
-            Our locations
-        </Header>
-        <Text size="var(--text-size-sm)" color="white">
-            From IT to marketing to data analytics, we offer opportunities for people of almost
-            every skill set across our locations around the globe. As we expand, our culture of
-            collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and rewarding
-            career experience.
-        </Text>
+        <Container fd="column">
+            <Header as="h1" size="var(--text-size-xl)" align="center" color="white">
+                Our locations
+            </Header>
+            <Text size="var(--text-size-sm)" color="white">
+                From IT to marketing to data analytics, we offer opportunities for people of almost
+                every skill set across our locations around the globe. As we expand, our culture of
+                collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and
+                rewarding career experience.
+            </Text>
+        </Container>
     </BackDrop>
 )
 

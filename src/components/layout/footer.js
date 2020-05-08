@@ -4,17 +4,18 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
-import { localize, Localize, LanguageSwitcher } from 'components/localization'
+import Copy from './copyright'
 import { isProduction } from 'common/websocket/config'
+import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv-footer.svg'
-import Twitter from 'images/svg/footer-twitter.svg'
-import Instagram from 'images/svg/footer-instagram.svg'
-import Facebook from 'images/svg/footer-facebook.svg'
+/* TODO: [social-media] uncomment when social media accounts are ready for Deriv */
+// import Twitter from 'images/svg/footer-twitter.svg'
+// import Instagram from 'images/svg/footer-instagram.svg'
+// import Facebook from 'images/svg/footer-facebook.svg'
 import Warning from 'images/svg/warning.svg'
-import Copyright from 'images/svg/copyright.svg'
 
 const DerivLogo = styled(Logo)`
     width: 14.5rem;
@@ -40,6 +41,7 @@ const StyledFooter = styled.footer`
 const StyledGrid = styled(CssGrid)`
     margin: 4rem 0;
     grid-template-areas: 'info info info . . items items items items items items items';
+    column-gap: 2.4rem;
 
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
@@ -68,32 +70,22 @@ const InfoSection = styled.div`
 `
 const Items = styled.div`
     grid-area: items;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 2.4rem;
+    row-gap: 4rem;
+    grid-template-areas:
+        'trade trade markets markets legal legal legal'
+        'resource resource about about partner partner partner';
 
     @media ${device.tabletL} {
         display: none;
     }
 `
-const BlackNav = styled.section`
-    background-color: var(--color-black);
-    width: 100%;
 
-    p {
-        font-size: var(--text-size-xs);
-        color: var(--color-white);
-        display: flex;
-        align-items: center;
-        line-height: normal;
-    }
-    svg {
-        margin-right: 0.8rem;
-    }
-`
 const Col = styled.div`
     width: ${(props) => props.width};
+    grid-area: ${(props) => props.grid_name};
     ${(props) => (props.margin_top ? 'margin-top: 3.9rem;' : '')}
 
     div {
@@ -191,26 +183,27 @@ const StaticAsset = styled.a`
         font-size: var(--text-size-sm);
     }
 `
-const ExternalLink = styled.a`
-    text-decoration: none;
-`
+/* TODO: [social-media] uncomment when social media accounts are ready for Deriv */
+// const ExternalLink = styled.a`
+//     text-decoration: none;
+// `
 
-const SocialWrapper = styled(Flex)`
-    svg {
-        width: 4.2rem;
-        margin-right: 1rem;
-    }
-    ${Text} {
-        margin-top: 0;
-        letter-spacing: 2px;
-        color: var(--color-black-6);
-        margin-bottom: 0.8rem;
+// const SocialWrapper = styled(Flex)`
+//     svg {
+//         width: 4.2rem;
+//         margin-right: 1rem;
+//     }
+//     ${Text} {
+//         margin-top: 0;
+//         letter-spacing: 2px;
+//         color: var(--color-black-6);
+//         margin-bottom: 0.8rem;
 
-        @media ${device.tabletL} {
-            margin-bottom: 1rem;
-        }
-    }
-`
+//         @media ${device.tabletL} {
+//             margin-bottom: 1rem;
+//         }
+//     }
+// `
 const SocialMedia = styled(Flex)`
     @media ${device.tabletL} {
         margin-top: 2rem;
@@ -233,14 +226,15 @@ const Item = styled.div`
         font-size: var(--text-size-sm);
     }
 `
-const MobileLanguageSwitcher = styled.div`
-    margin-top: 0.8rem;
+// TODO: uncomment this when language-switcher is ready
+// const MobileLanguageSwitcher = styled.div`
+//     margin-top: 0.8rem;
 
-    > ul {
-        top: 0;
-        width: 80px;
-    }
-`
+//     > ul {
+//         top: 0;
+//         width: 80px;
+//     }
+// `
 const mobile_accordion_header = {
     border: 'none',
     padding: '0 2rem',
@@ -259,7 +253,8 @@ const Footer = ({ has_banner_cookie }) => (
                         )}
                     </Text>
                     <SocialMedia mt="3.1rem" jc="flex-start" direction="column">
-                        <SocialWrapper mt="0.8rem" jc="space-between" direction="column">
+                        {/* TODO: [social-media] uncomment when social media accounts are ready for Deriv */}
+                        {/* <SocialWrapper mt="0.8rem" jc="space-between" direction="column">
                             <div>
                                 <Text>{localize('CONNECT WITH US')}</Text>
                             </div>
@@ -286,18 +281,19 @@ const Footer = ({ has_banner_cookie }) => (
                                     <Twitter />
                                 </ExternalLink>
                             </div>
-                        </SocialWrapper>
-                        <div>
+                        </SocialWrapper> */}
+                        <div>{!isProduction() && <LanguageSwitcher />}</div>
+                        {/* <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
-                                    {!isProduction() && <LanguageSwitcher short_name="true" />}
+                                    {<LanguageSwitcher short_name="true" />}
                                 </MobileLanguageSwitcher>
                             </Show.Mobile>
-                        </div>
+                        </div> */}
                     </SocialMedia>
                 </InfoSection>
                 <Items>
-                    <Col width="23%">
+                    <Col grid_name="trade">
                         <div>
                             <Title>{localize('TRADE')}</Title>
                         </div>
@@ -316,7 +312,24 @@ const Footer = ({ has_banner_cookie }) => (
                             </Link>
                         </div>
                     </Col>
-                    <Col width="40%">
+                    <Col grid_name="markets">
+                        <div>
+                            <Title>{localize('MARKETS')}</Title>
+                        </div>
+                        <div>
+                            <Link to="/markets#forex">{localize('Forex')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/markets#stock">{localize('Stock indices')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/markets#commodities">{localize('Commodities')}</Link>
+                        </div>
+                    </Col>
+                    <Col grid_name="legal">
                         <div>
                             <Title>{localize('LEGAL')}</Title>
                         </div>
@@ -334,7 +347,7 @@ const Footer = ({ has_banner_cookie }) => (
                             </Link>
                         </div>
                     </Col>
-                    <Col width="25%">
+                    <Col grid_name="resource">
                         <div>
                             <Title>{localize('RESOURCES')}</Title>
                         </div>
@@ -345,7 +358,7 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to="/payment-methods">{localize('Payment methods')}</Link>
                         </div>
                     </Col>
-                    <Col margin_top width="23%">
+                    <Col grid_name="about">
                         <div>
                             <Title>{localize('ABOUT US')}</Title>
                         </div>
@@ -354,6 +367,9 @@ const Footer = ({ has_banner_cookie }) => (
                         </div>
                         <div>
                             <Link to="/about#leadership">{localize('Our leadership')}</Link>
+                        </div>
+                        <div>
+                            <Link to="/partners">{localize('Partnership programmes')}</Link>
                         </div>
                         <div>
                             <Link to="/why-choose-us">{localize('Why choose us?')}</Link>
@@ -365,7 +381,7 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to="/careers">{localize('Careers')}</Link>
                         </div>
                     </Col>
-                    <Col margin_top width="40%">
+                    <Col grid_name="partner">
                         <div>
                             <Title>{localize('PARTNER WITH US')}</Title>
                         </div>
@@ -377,9 +393,6 @@ const Footer = ({ has_banner_cookie }) => (
                         <div>
                             <Link to="/partners/payment-agent">{localize('Payment agents')}</Link>
                         </div>
-                    </Col>
-                    <Col margin_top width="25%">
-                        {!isProduction() && <LanguageSwitcher />}
                     </Col>
                 </Items>
             </StyledGrid>
@@ -405,6 +418,24 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to={smarttrader_url} external="true" target="_blank">
                                 {localize('SmartTrader')}
                             </Link>
+                        </Item>
+                    </AccordionItem>
+                    <AccordionItem
+                        header={localize('MARKETS')}
+                        arrow_thin
+                        header_style={mobile_accordion_header}
+                    >
+                        <Item>
+                            <Link to="/markets#forex">{localize('Forex')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/markets#stock">{localize('Stock indices')}</Link>
+                        </Item>
+                        <Item>
+                            <Link to="/markets#commodities">{localize('Commodities')}</Link>
                         </Item>
                     </AccordionItem>
                     <AccordionItem
@@ -519,7 +550,7 @@ const Footer = ({ has_banner_cookie }) => (
                     </StyledText>
                     <StyledText mt="1rem">
                         {localize(
-                            "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
+                            "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
                         )}
                     </StyledText>
                 </Row>
@@ -539,14 +570,7 @@ const Footer = ({ has_banner_cookie }) => (
                 </Row>
             </StyledContainer>
         </Disclaimer>
-        <BlackNav>
-            <StyledContainer justify="flex-start">
-                <StyledText>
-                    <Copyright width="1.6rem" />
-                    {new Date().getUTCFullYear()} {localize('Deriv | All rights reserved')}
-                </StyledText>
-            </StyledContainer>
-        </BlackNav>
+        <Copy />
     </StyledFooter>
 )
 

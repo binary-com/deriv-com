@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import { convertToHash } from './_utility'
-import { Text, Header } from 'components/elements'
+import { Text, Header, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -47,14 +46,10 @@ const SearchText = styled(Text)`
 const ListWrapper = styled.div`
     margin-right: 2.4rem;
     max-width: 100rem;
-    width: 100rem;
+    width: 100%;
 
     ${Header} {
         margin-bottom: 1.6rem;
-    }
-
-    @media ${device.tabletL} {
-        padding-top: 3.55rem;
     }
 `
 const ListNoBullets = styled.ul`
@@ -68,7 +63,7 @@ const ListNoBullets = styled.ul`
         padding-bottom: 1.6rem;
     }
 `
-const StyledLink = styled(Link)`
+const StyledLink = styled(LocalizedLinkText)`
     text-decoration: none;
     color: black;
     font-size: var(--text-size-s);
@@ -88,7 +83,7 @@ export const SearchSuccess = ({ suggested_topics, max_length }) => (
             <ListWrapper key={idx}>
                 <ListNoBullets>
                     <StyledLink to={convertToHash(article.category, article.label)}>
-                        {article.title}
+                        {localize(article.title)}
                     </StyledLink>
                 </ListNoBullets>
             </ListWrapper>

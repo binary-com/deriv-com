@@ -10,6 +10,10 @@ const OurNumbersWrapper = styled.section`
     width: 100%;
     background-color: var(--color-grey-8);
     margin: auto;
+
+    @media ${device.tablet} {
+        padding-top: 8rem;
+    }
 `
 
 const StyledHeader = styled(Header)`
@@ -18,7 +22,6 @@ const StyledHeader = styled(Header)`
 `
 
 const NumberHeader = styled(Text)`
-    font-size: 3.6rem;
     font-weight: bold;
     line-height: 6rem;
     text-align: center;
@@ -43,10 +46,10 @@ const OurNumbers = () => (
     <OurNumbersWrapper>
         <OurNumbersContainer>
             <Show.Mobile>
-                <Header as="h6" size="4rem" color="black-2" align="center">
+                <Header as="h6" size="4.5rem" color="black-2" align="center">
                     {localize('Our numbers')}
                 </Header>
-                <StyledHeader as="h6" size="2rem" align="center" weight="400">
+                <StyledHeader as="h6" size="3rem" align="center" weight="400">
                     {localize(
                         'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
                     )}
@@ -64,29 +67,75 @@ const OurNumbers = () => (
             </Show.Desktop>
             <StyledGridContainer
                 content_width="21.5rem"
+                mobile_content_width="26rem"
                 gap="1.6rem 0.8rem"
+                mobile_gap="4rem 1rem"
                 grid="5"
                 justify="center"
             >
                 <article>
-                    <NumberHeader>20</NumberHeader>
-                    <Text align="center">{localize('Years of industry experience')}</Text>
+                    <Show.Desktop>
+                        <NumberHeader size="3.6rem">20</NumberHeader>
+                        <Text align="center">{localize('Years of industry experience')}</Text>
+                    </Show.Desktop>
+
+                    <Show.Mobile>
+                        <NumberHeader size="4.5rem">20</NumberHeader>
+                        <Text size="2rem" align="center">
+                            {localize('Years of industry experience')}
+                        </Text>
+                    </Show.Mobile>
                 </article>
                 <article>
-                    <NumberHeader>1.2M+</NumberHeader>
-                    <Text align="center">{localize('Trading accounts opened')}</Text>
+                    <Show.Desktop>
+                        <NumberHeader size="3.6rem">1.2M+</NumberHeader>
+                        <Text align="center">{localize('Trading accounts opened')}</Text>
+                    </Show.Desktop>
+
+                    <Show.Mobile>
+                        <NumberHeader size="4.5rem">USD 7B+</NumberHeader>
+                        <Text size="2rem" align="center">
+                            {localize('Total trade turnover ')}
+                        </Text>
+                    </Show.Mobile>
                 </article>
                 <article>
-                    <NumberHeader>USD 7B+</NumberHeader>
-                    <Text align="center">{localize('Total trade turnover ')}</Text>
+                    <Show.Desktop>
+                        <NumberHeader size="3.6rem">USD 7B+</NumberHeader>
+                        <Text align="center">{localize('Total trade turnover')}</Text>
+                    </Show.Desktop>
+                    <Show.Mobile>
+                        <NumberHeader size="4.5rem">1.2M+</NumberHeader>
+                        <Text size="2rem" align="center">
+                            {localize('Trading accounts opened')}
+                        </Text>
+                    </Show.Mobile>
                 </article>
                 <article>
-                    <NumberHeader>27M+</NumberHeader>
-                    <Text align="center">{localize('Trades last month')}</Text>
+                    <Show.Desktop>
+                        <NumberHeader size="3.6rem">43M+</NumberHeader>
+                        <Text align="center">{localize('Trades last month')}</Text>
+                    </Show.Desktop>
+
+                    <Show.Mobile>
+                        <NumberHeader size="4.5rem">43M+</NumberHeader>
+                        <Text size="2rem" align="center">
+                            {localize('Trades last month')}
+                        </Text>
+                    </Show.Mobile>
                 </article>
                 <article>
-                    <NumberHeader>USD 9M+</NumberHeader>
-                    <Text align="center">{localize('Withdrawal last month')}</Text>
+                    <Show.Desktop>
+                        <NumberHeader size="3.6rem">USD 6M+</NumberHeader>
+                        <Text align="center">{localize('Withdrawal last month')}</Text>
+                    </Show.Desktop>
+
+                    <Show.Mobile>
+                        <NumberHeader size="4.5rem">USD 6M+</NumberHeader>
+                        <Text size="2rem" align="center">
+                            {localize('Withdrawal last month')}
+                        </Text>
+                    </Show.Mobile>
                 </article>
             </StyledGridContainer>
         </OurNumbersContainer>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="advanced-charting-widgets">
+<title id="advanced-charting-widgets">Advanced Charting Widgets</title>
+    <defs>
+        <linearGradient id="advancedprefix__a" x1="0%" x2="100%" y1="96.228%" y2="3.772%">
+            <stop offset="0%" stop-color="#FF444F"/>
+            <stop offset="100%" stop-color="#FF6444"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path d="M0 0H32V32H0z"/>
+        <path fill="url(#advancedprefix__a)" d="M28 16c.552 0 1 .448 1 1v11c0 .552-.448 1-1 1h-9c-.552 0-1-.448-1-1V17c0-.552.448-1 1-1zm-14 8c.552 0 1 .448 1 1v3c0 .552-.448 1-1 1H4c-.552 0-1-.448-1-1v-3c0-.552.448-1 1-1zm14-7h-9v11h9V17zm-14 8H4v3h10v-3zm-4 1v1H8v-1h2zm3 0v1h-2v-1h2zm-6 0v1H5v-1h2zm20-1v1h-7v-1h7zm0-3v1h-7v-1h7zM14 4c.552 0 1 .304 1 .68v15.64c0 .376-.448.68-1 .68H4c-.552 0-1-.304-1-.68V4.68C3 4.304 3.448 4 4 4zm0 1H4v15h10V5zm13 14v1h-7v-1h7zM6 16v1H5v-1h1zm7 0v1H7v-1h6zM28 4c.552 0 1 .448 1 1v7c0 .552-.448 1-1 1h-9c-.552 0-1-.448-1-1V5c0-.552.448-1 1-1zM6 12v1H5v-1h1zm7 0v1H7v-1h6zm15-7h-9v7h9V5zm-4 4v1h-1V9h1zm3 0v1h-1V9h1zm-6 0v1h-1V9h1zM6 8v1H5V8h1zm7 0v1H7V8h6zm11-1v1h-1V7h1zm3 0v1h-1V7h1zm-6 0v1h-1V7h1z"/>
+    </g>
+</svg>

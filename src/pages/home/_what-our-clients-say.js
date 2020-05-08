@@ -2,27 +2,22 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
-import 'swiper/css/swiper.css'
+import { Helmet } from 'react-helmet'
 import { Header, Text, Divider } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import RobertoImage from 'images/common/roberto.png'
 import FabioImage from 'images/common/fabio.png'
-import PaulImage from 'images/common/paul.png'
 
 const StyledSection = styled(SectionContainer)`
-    height: 43.1rem;
-
     @media ${device.tabletL} {
         height: unset;
         padding: 5rem 0;
     }
 `
 const StyledHeader = styled(Header)`
-    font-size: var(--text-size-header-1);
-
     @media ${device.tabletL} {
         font-size: 4.5rem;
     }
@@ -183,33 +178,24 @@ ClientSlide.propTypes = {
 
 const roberto = {
     name: 'Roberto Arcanjo',
-    title: localize('CEO - Mercado Trader'),
+    title: <Localize translate_text="CEO - Mercado Trader" />,
     img_path: RobertoImage,
-    quote: localize(
-        'I am very excited about all the technology involved in Deriv.com —  an intuitive and optimised platform.',
+    quote: (
+        <Localize translate_text="I am very excited about all the technology involved in Deriv.com —  an intuitive and optimised platform." />
     ),
     index: 1,
 }
 const fabio = {
     name: 'Fábio Oliveira',
-    title: localize('CEO - Bitcoin Informer'),
+    title: <Localize translate_text="CEO - Bitcoin Informer" />,
     img_path: FabioImage,
-    quote: localize(
-        'It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more.',
-    ),
-    index: 2,
-}
-const paul = {
-    name: 'Paul Mugenda',
-    title: localize('Forex trader '),
-    img_path: PaulImage,
-    quote: localize(
-        'Customer service support very awesome and first to respond to queries and helping on marketing part. No much struggle introducing new members to binary.com since the company name already have a known truck of good ethics.',
+    quote: (
+        <Localize translate_text="It surpassed my expectations. Binary got it right with Deriv. Trading on the platform is excellent and it allows for making accurate graphical analyses of the market and adding support and resistance markings with the use of horizontal lines, RSI, FIBO and much more." />
     ),
     index: 2,
 }
 
-const our_client_slides = [roberto, fabio, paul]
+const our_client_slides = [roberto, fabio]
 
 const WhatOurClientsSay = () => {
     const [swiper, updateSwiper] = useState(null)
@@ -231,6 +217,7 @@ const WhatOurClientsSay = () => {
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
+        height: '100%',
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
@@ -238,6 +225,9 @@ const WhatOurClientsSay = () => {
     }
     return (
         <>
+            <Helmet>
+                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
+            </Helmet>
             <StyledSection>
                 <Container direction="column">
                     <StyledHeader align="center" as="h2">

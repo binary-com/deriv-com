@@ -6,8 +6,8 @@ import PropTypes from 'prop-types'
 
 const ImageWrapper = styled.div`
     & .gatsby-image-wrapper {
-        width: ${props => props.width};
-        height: ${props => props.height};
+        width: ${(props) => props.width};
+        height: ${(props) => props.height};
     }
 `
 
@@ -29,7 +29,7 @@ const Image = ({ img_name, alt, width, height }) => (
                 allImageSharp {
                     edges {
                         node {
-                            fluid(maxWidth: 1024, srcSetBreakpoints: [600, 1280, 1920]) {
+                            fluid(maxWidth: 1024, srcSetBreakpoints: [600, 1280]) {
                                 ...GatsbyImageSharpFluid_withWebp_noBase64
                                 originalName
                             }
@@ -38,9 +38,9 @@ const Image = ({ img_name, alt, width, height }) => (
                 }
             }
         `}
-        render={data => {
+        render={(data) => {
             const image = data.allImageSharp.edges.find(
-                edge => edge.node.fluid.originalName === img_name,
+                (edge) => edge.node.fluid.originalName === img_name,
             )
             if (!image) return null
 

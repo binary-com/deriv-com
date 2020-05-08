@@ -24,7 +24,7 @@ const SEO = ({ description, meta, title, no_index }) => {
             }
         `,
     )
-
+    const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
 
@@ -70,10 +70,6 @@ const SEO = ({ description, meta, title, no_index }) => {
                     content: localize(
                         'digital options, forex, forex trading, online trading, financial trading, digitals trading, index trading, trading indices, forex trades, trading commodities, digital options strategy, binary broker, binary bet, digital options trading platform, binary strategy, finance, investment, trading',
                     ),
-                },
-                {
-                    name: 'viewport',
-                    content: 'width=device-width, initial-scale=1.0',
                 },
                 {
                     name: 'google',
@@ -139,7 +135,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                     name: 'referrer',
                     content: 'origin',
                 },
-                ...(no_index || is_ach_page
+                ...(no_index || no_index_staging || is_ach_page
                     ? [
                           {
                               name: 'robots',

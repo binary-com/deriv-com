@@ -71,6 +71,17 @@ const SharedButtonStyle = css`
                     background: var(--color-grey-4);
                 }
             `
+        if (props.white)
+            return css`
+                border: 2px solid var(--color-white);
+                color: var(--color-white);
+                background: transparent;
+
+                &:hover {
+                    background-color: var(--color-white);
+                    color: var(--color-red);
+                }
+            `
     }}
 
     &:focus,
@@ -78,18 +89,20 @@ const SharedButtonStyle = css`
         outline: none;
         transform: scale(0.95);
     }
+
+    ${Paddings}
+    ${Margins}
 `
 
 export const LinkButton = styled(LocalizedLink)`
     ${SharedButtonStyle}
     text-align: center;
     text-decoration: none;
+    display: inline-block;
 `
 
 const Button = styled.button`
     ${SharedButtonStyle}
-    ${Paddings}
-    ${Margins}
 
     &:hover {
         cursor: pointer;

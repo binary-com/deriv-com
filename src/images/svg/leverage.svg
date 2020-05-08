@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" role="img" aria-labelledby="leverage">
+<title id="leverage">Leverage</title>
+    <defs>
+        <linearGradient id="leverageprefix__a" x1="0%" x2="100%" y1="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF444F"/>
+            <stop offset="100%" stop-color="#FF6444"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path d="M0 0H32V32H0z" transform="translate(-2 -2)"/>
+        <path fill="url(#leverageprefix__a)" d="M28 2c1.105 0 2 .895 2 2v24c0 1.105-.895 2-2 2H4c-1.105 0-2-.895-2-2V4c0-1.105.895-2 2-2zm0 1H4c-.552 0-1 .448-1 1v24c0 .552.448 1 1 1h24c.552 0 1-.448 1-1V4c0-.552-.448-1-1-1zm-6 15c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 1c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm.854-9.854c.173.174.192.443.057.638l-.057.07-13 13c-.196.195-.512.195-.708 0-.173-.174-.192-.443-.057-.638l.057-.07 13-13c.196-.195.512-.195.708 0zM10 6c2.21 0 4 1.79 4 4s-1.79 4-4 4-4-1.79-4-4 1.79-4 4-4zm0 1c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3z" transform="translate(-2 -2)"/>
+    </g>
+</svg>

@@ -43,7 +43,9 @@ const Location = ({ children, to }) => {
                 showEu(true)
             } else {
                 showEu(isEuCountry(response.website_status.clients_country))
-                Cookies.set('clients_country', response.website_status.clients_country)
+                Cookies.set('clients_country', response.website_status.clients_country, {
+                    expires: 7,
+                })
             }
 
             binary_socket.close()

@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 
-const non_localized_links = ['/careers']
+const non_localized_links = ['/careers', '/careers/']
 
 export const SharedLinkStyle = css`
     color: var(--color-white);
@@ -56,17 +56,18 @@ export const LocalizedLink = ({ to, ...props }) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
     const is_index = to === `/`
-    const { target, rel, className, style } = props
+    const { target, rel, className, style, is_binary_link } = props
 
     // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
     // However, if the homepage/index page is linked don't add the "to"
     // Because otherwise this would add a trailing slash
     const { is_default, path } = language_config[locale]
-    const path_to =
-        is_default || non_localized_links.includes(to) ? to : `/${path}${is_index ? `` : `${to}`}`
+    const is_non_localized = non_localized_links.includes(to)
+    const path_to = is_default || is_non_localized ? to : `/${path}${is_index ? `` : `${to}`}`
 
     if (props.external || props.external === 'true') {
+        const lang_to = is_binary_link ? `${to}/${locale}/trading.html` : to
         return (
             <a
                 target={target}
@@ -74,7 +75,7 @@ export const LocalizedLink = ({ to, ...props }) => {
                 className={className}
                 data-amp-replace="QUERY_PARAM"
                 style={style}
-                href={to}
+                href={lang_to}
             >
                 {props.children}
             </a>
@@ -91,6 +92,21 @@ export const LocalizedLink = ({ to, ...props }) => {
 
     if (props.anchor) {
         return <AnchorLink {...props} to={internal_to} />
+    }
+    if (is_non_localized) {
+        const path_target = is_non_localized ? '_blank' : target
+        const path_external = window.location.origin + internal_to
+        return (
+            <a
+                target={path_target}
+                rel={rel}
+                className={className}
+                style={style}
+                href={path_external}
+            >
+                {props.children}
+            </a>
+        )
     }
 
     return (
@@ -114,6 +130,7 @@ LocalizedLink.propTypes = {
     external: PropTypes.string,
     external_link: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
+    is_binary_link: PropTypes.bool,
     props: PropTypes.object,
     rel: PropTypes.string,
     style: PropTypes.object,

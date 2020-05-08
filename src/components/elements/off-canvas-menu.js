@@ -125,6 +125,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 }
                                 title={<Localize translate_text="SmartTrader" />}
                                 to={smarttrader_url}
+                                is_binary_link
                                 external="true"
                                 target="_blank"
                             />

@@ -36,7 +36,8 @@ const Wrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
-    height: 33.3rem;
+    min-height: 35.3rem;
+    align-items: center;
     width: 100%;
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
@@ -61,6 +62,8 @@ const SignupFormWrapper = styled(Flex)`
 `
 
 const BackgroundWrapper = styled(Flex)`
+    min-height: 35.3rem;
+    height: 100%;
     width: 50%;
     background-image: url(${BackgroundPattern});
     clip-path: polygon(14rem 0, 100% 0%, 100% 100%, 0% 100%);
@@ -305,7 +308,13 @@ const SignupPublic = ({
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
                 <LinkFlex ai="center" onClick={redirectToDerivApp}>
-                    <StyledHeader size="2.8rem" max_width="28.2rem" align="center" color="grey-8">
+                    <StyledHeader
+                        size="2.8rem"
+                        max_width="28.2rem"
+                        align="center"
+                        color="grey-8"
+                        mr="1.2rem"
+                    >
                         {localize('Get a taste of the Deriv experience')}
                     </StyledHeader>
                     <ChevronRight />

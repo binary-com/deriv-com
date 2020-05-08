@@ -116,6 +116,7 @@ const HeroDeriv = ({ interim_type }) => {
                                     external
                                     white
                                     to={smarttrader_url}
+                                    is_binary_link
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >

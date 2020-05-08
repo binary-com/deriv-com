@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
 import { deriv_app_url } from 'common/utility'
-import { Text, Header } from 'components/elements/typography'
+import { Text, Header, LocalizedLinkText } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
 
 const ArticleWrapper = styled.div`
@@ -16,16 +15,6 @@ const ArticleWrapper = styled.div`
     line-height: 1.5;
     margin-left: 12.6rem;
 `
-const ExternalLink = styled.a`
-    text-decoration: none;
-    font-size: var(--text-size-s);
-    font-weight: bold;
-    color: var(--color-red);
-
-    :hover {
-        text-decoration: underline;
-    }
-`
 const StyledText = styled(Text)`
     margin-top: 1.7rem;
 `
@@ -36,11 +25,6 @@ const StyledListItem = styled.li`
 const StyledHeader = styled(Header)`
     margin-bottom: 2.4rem;
 `
-
-const urlResetPassword =
-    getLanguage() === 'en' || getLanguage() == null
-        ? '/reset-password/'
-        : `/${getLanguage()}/reset-password/`
 
 const WhoCanOpenAnAccount = () => (
     <ArticleWrapper>
@@ -70,8 +54,10 @@ const ChangingPersonalDetails = () => (
                 translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
                 components={[
                     <strong key={0} />,
-                    <ExternalLink
-                        href={`${deriv_app_url}/account/personal-details`}
+                    <LocalizedLinkText
+                        to={`${deriv_app_url}/account/personal-details`}
+                        external
+                        weight="bold"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -107,8 +93,9 @@ const RecoveringPassword = () => (
             <Localize
                 translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
                 components={[
-                    <ExternalLink
-                        href={urlResetPassword}
+                    <LocalizedLinkText
+                        to="/reset-password"
+                        weight="bold"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -138,9 +125,11 @@ const UnsubscribeEmail = () => (
                 translate_text="You can do this easily by going to <0>Settings > Profile ></0> <1>Personal details</1>. Uncheck the email preference box, and click the ‘Submit’ button to unsubscribe."
                 components={[
                     <strong key={0} />,
-                    <ExternalLink
-                        href={`${deriv_app_url}/account/personal-details`}
+                    <LocalizedLinkText
+                        to={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
+                        external
+                        weight="bold"
                         rel="noopener noreferrer"
                         key={1}
                     />,

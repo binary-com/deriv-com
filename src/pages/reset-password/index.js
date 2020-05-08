@@ -124,10 +124,20 @@ const ResetPassword = () => (
                             {status.success && status.success}
                         </Text>
                         <ButtonContainer>
-                            <StyledButton tertiary onClick={Login.redirectToLogin} type="button">
+                            <StyledButton
+                                tertiary
+                                onClick={Login.redirectToLogin}
+                                type="button"
+                                m="0.8rem 0"
+                            >
                                 {localize('Return to log in')}
                             </StyledButton>
-                            <StyledButton secondary="true" disabled={isSubmitting} type="submit">
+                            <StyledButton
+                                secondary="true"
+                                disabled={isSubmitting}
+                                type="submit"
+                                m="0.8rem 0"
+                            >
                                 {localize('Reset my password')}
                             </StyledButton>
                         </ButtonContainer>

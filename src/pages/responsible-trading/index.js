@@ -241,7 +241,7 @@ const ResponsibleTrading = () => {
                                         <StyledLink
                                             size="var(--text-size-s)"
                                             weight="bold"
-                                            to="contact-us"
+                                            to="/contact-us"
                                             key={0}
                                         />,
                                     ]}

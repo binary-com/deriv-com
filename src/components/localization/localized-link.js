@@ -5,6 +5,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import styled, { css } from 'styled-components'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
+import { isBrowser } from 'common/utility'
 
 const non_localized_links = ['/careers', '/careers/']
 
@@ -95,7 +96,8 @@ export const LocalizedLink = ({ to, ...props }) => {
     }
     if (is_non_localized) {
         const path_target = is_non_localized ? '_blank' : target
-        const path_external = window.location.origin + internal_to
+        const origin = isBrowser() ? window.location.origin : 'https://deriv.com'
+        const path_external = origin + internal_to
         return (
             <a
                 target={path_target}

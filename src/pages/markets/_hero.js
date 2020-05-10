@@ -23,8 +23,14 @@ const StyledContainer = styled(Container)`
 
     h4,
     h1 {
-        max-width: 79.8rem;
+        max-width: 76.1rem;
         z-index: 10;
+    }
+    h1 {
+        line-height: 1.25;
+    }
+    h4 {
+        line-height: 1.5;
     }
     @media ${device.tabletL} {
         padding: 12.5rem 0;

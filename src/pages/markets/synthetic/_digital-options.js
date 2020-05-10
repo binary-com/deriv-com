@@ -149,7 +149,7 @@ const DigitalOptions = () => {
                 <Descriptions>
                     <StyledText align="center">
                         {localize(
-                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options, lookbacks, and call/put spreads on Synthetic Indices.',
+                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options, lookbacks, and Call/Put spreads on synthetic indices.',
                         )}
                     </StyledText>
                     <AvailablePlatforms dtrader dbot smarttrader />
@@ -270,7 +270,7 @@ const DigitalOptions = () => {
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={<Localize translate_text="Touch/No Touch:" />}
+                                title={<Localize translate_text="Touch/No Touch" />}
                                 svg={TNT}
                                 content={
                                     <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />

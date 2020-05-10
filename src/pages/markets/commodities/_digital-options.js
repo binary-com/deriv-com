@@ -155,7 +155,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 svg={TNT}
-                                title={<Localize translate_text="Touch/No Touch:" />}
+                                title={<Localize translate_text="Touch/No Touch" />}
                                 content={
                                     <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />
                                 }

@@ -109,7 +109,7 @@ const Multipliers = () => {
                     <AvailablePlatforms dtrader />
                 </Descriptions>
                 <StyledText weight="bold" mt="2.4rem">
-                    {localize('Instruments available for multipliers')}
+                    {localize('Instruments available for multipliers trading')}
                 </StyledText>
                 <MarketsWrapper>
                     <MarketsAccordion

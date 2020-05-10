@@ -6,7 +6,7 @@ import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
 
 const StyledFlex = styled(Flex)`
-    @media ${device.tab} {
+    @media ${device.tabletL} {
         padding-top: ${(props) => (props.mobile_pt ? props.mobile_pt : '')};
     }
 `

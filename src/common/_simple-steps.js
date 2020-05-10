@@ -94,7 +94,7 @@ const LinkButtonWrapper = styled.div`
 
     ${LinkButton} {
         position: relative;
-        font-size: 1.75rem;
+        font-size: 1.4rem;
     }
 
     @media ${device.tabletL} {

@@ -70,7 +70,7 @@ const Multipliers = () => {
                     <AvailablePlatforms dtrader />
                 </Descriptions>
                 <StyledText weight="bold" mt="2.4rem">
-                    {localize('Instruments available for multipliers')}
+                    {localize('Instruments available for multipliers trading')}
                 </StyledText>
                 <Row jc="flex-start" ai="center" mt="1.6rem">
                     <Col max_width="13.2rem">

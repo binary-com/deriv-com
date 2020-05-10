@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 const Button = styled(Flex)`
     max-width: 5.8rem;
     margin: auto 0;
+    cursor: pointer;
 
     @media ${device.tabletL} {
         max-width: unset;

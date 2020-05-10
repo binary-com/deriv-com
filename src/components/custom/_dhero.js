@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 
     @media ${device.laptopM} {
         max-height: 429px;
+        padding: 12rem 12rem 9rem 2rem;
     }
     @media ${device.tabletL} {
         max-height: 349px;
@@ -122,22 +123,22 @@ const GoToLiveDemo = styled(Button)`
         margin-left: 0;
     }
     @media ${device.mobileL} {
-        max-width: 160px;
-    }
-    @media ${device.mobileM} {
-        max-width: 150px;
-    }
-    @media ${device.mobileS} {
-        max-width: 132px;
+        max-width: 128px;
+        padding: 10px 11px;
     }
 `
 const DemoButton = styled(LinkButton)`
+    padding: 1.3rem 1.6rem;
     height: 40px;
     min-height: 40px;
     width: 202px;
     font-size: 14px;
     margin-right: 2px;
     border: unset;
+
+    @media ${device.mobileL} {
+        padding: 1.5rem 1.6rem;
+    }
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
@@ -229,28 +230,14 @@ const DHero = ({
         }
         @media ${device.tabletL} {
             max-width: 400px;
-            height: 350px;
             width: 70%;
-        }
-        @media ${device.tabletS} {
-            max-width: 340px;
-            height: 296px;
+            height: initial;
         }
         @media ${device.mobileL} {
-            height: unset;
-            top: 0;
+            max-width: 250px;
+            min-height: 244px;
         }
     `
-    // const [is_mobile, setMobile] = useState(false)
-    // const [is_tablet, setTablet] = useState(false)
-    // const handleResizeWindow = () => {
-    //     setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-    //     setTablet(isBrowser() ? window.screen.width <= size.tabletL : false)
-    // }
-
-    // useEffect(() => {
-    //     window.addEventListener('resize', handleResizeWindow)
-    // })
     return (
         <Wrapper>
             <BackgroundSVG />
@@ -266,9 +253,7 @@ const DHero = ({
             <LinkWrapper>
                 {join_us_for_free ? (
                     <DemoButton secondary="true" to="/signup/">
-                        {is_mobile
-                            ? localize('Create demo account')
-                            : localize('Create free demo account')}
+                        {localize('Create free demo account')}
                     </DemoButton>
                 ) : null}
                 {go_to_live_demo ? (

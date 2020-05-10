@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import { Container, Flex } from 'components/containers'
 import { Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import Deriv from 'images/svg/logo-deriv.svg'
+import BinaryLogo from 'images/svg/binary.svg'
+import { binary_url } from 'common/utility'
 
 const HeaderWrapper = styled.header`
     position: fixed;
@@ -61,9 +62,17 @@ const Header = () => (
         <HeaderWrapper>
             <Container jc="space-between">
                 <Flex ai="center" jc="flex-start">
-                    <Link to="/">
-                        <Deriv width="212" height="27" />
-                    </Link>
+                    <LocalizedLink to="/amp">
+                        <Deriv />
+                    </LocalizedLink>
+                    <LocalizedLink
+                        external
+                        to={binary_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <BinaryLogo width="24" height="24" />
+                    </LocalizedLink>
                     <Binary>
                         <Localize
                             translate_text="A <0>Binary.com</0> brand"

@@ -54,6 +54,10 @@ const StyledHeader = styled(Header)`
     display: flex;
     margin-top: 0;
     font-size: 2.4rem;
+
+    @media ${device.laptopM} {
+        font-size: 24px;
+    }
 `
 
 const LottieWrapper = styled.div`
@@ -94,6 +98,9 @@ const LinkWrapper = styled.div`
     width: 100%;
     display: flex;
 
+    @media (max-width: 1420px) {
+        top: 480px;
+    }
     @media ${device.laptopM} {
         top: 350px;
     }
@@ -114,7 +121,7 @@ const GoToLiveDemo = styled(Button)`
     color: var(--color-white);
     border-color: var(--color-black-5);
     margin-left: 1.6rem;
-    min-height: 40px;
+    height: 40px;
     max-width: 139px;
     width: 100%;
 
@@ -125,6 +132,7 @@ const GoToLiveDemo = styled(Button)`
     @media ${device.mobileL} {
         max-width: 128px;
         padding: 10px 11px;
+        height: 42px;
     }
 `
 const DemoButton = styled(LinkButton)`
@@ -138,6 +146,7 @@ const DemoButton = styled(LinkButton)`
 
     @media ${device.mobileL} {
         padding: 1.5rem 1.6rem;
+        height: 42px;
     }
 `
 const StyledContent = styled(Header)`

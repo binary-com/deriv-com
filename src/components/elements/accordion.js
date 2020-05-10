@@ -39,6 +39,12 @@ const AccordionHeader = styled.div`
         cursor: pointer;
     }
 `
+const ResponsiveWrapper = styled.div`
+    @media ${device.tablet} {
+        margin-left: 1.6rem;
+        margin-right: 1.6rem;
+    }
+`
 
 const AccordionWrapper = styled.div`
     width: 100%;
@@ -87,7 +93,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
         React.useEffect(() => setHeight(getHeight(child_idx)), [is_expanded])
 
         return (
-            <div
+            <ResponsiveWrapper
                 key={child_idx}
                 style={child.props.parent_style}
                 ref={(div) => {
@@ -125,7 +131,7 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
                         {child}
                     </div>
                 </AccordionWrapper>
-            </div>
+            </ResponsiveWrapper>
         )
     })
 

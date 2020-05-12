@@ -1046,7 +1046,7 @@
     "-1237186896": "Solo Arriba/Solo Abajo",
     "-1184168503": "Prediga si los ticks consecutivos aumentarán o disminuirán sucesivamente.",
     "-1386887449": "Retroactivos",
-    "-1064775608": "<0>Alto-Bajo:</0> Cuando compra un contrato \"Alto-Bajo\", su ganancia o pérdida será igual al valor de multiplicador por la diferencia entre alto y bajo a lo largo de la duración del contrato.",
+    "-1064775608": "<0>Alto-Bajo:</0> Cuando compra un contrato \"Alto-Bajo\", su ganancia o pérdida será igual al valor del multiplicador por la diferencia entre alto y bajo a lo largo de la duración del contrato.",
     "-1262587128": "Índices de reajuste diario",
     "-1771870004": "Índices de volatilidad",
     "-1355338178": "Crash boom",

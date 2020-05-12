@@ -10,7 +10,7 @@ import Commodities from 'components/svgs/_market-commodities.js'
 import Forex from 'components/svgs/_market-forex.js'
 import StockIndices from 'components/svgs/_market-stock.js'
 import SyntheticIndices from 'components/svgs/_market-synthetic.js'
-import Arrow from 'images/svg/arrow.svg'
+import Arrow from 'images/svg/arrow-right.svg'
 import device from 'themes/device'
 
 const markets_type = {
@@ -99,7 +99,6 @@ const MobileCardWrapper = styled(Flex)`
     }
     ${LearnMore} {
         svg {
-            transform: scaleX(-1);
             width: 16px;
             height: 16px;
         }
@@ -123,7 +122,7 @@ const StyledFlex = styled(Flex)`
 
     ${LearnMore} {
         svg {
-            transform: scaleX(-1);
+            transform: rotate(0);
             width: 16px;
             height: 16px;
         }
@@ -151,7 +150,7 @@ const Card = ({ name }) => {
             </Text>
             <Text mt="0.8rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility={button_visibility}>
-                <Text>{localize('Learn more')}</Text>
+                <Text mr="1rem">{localize('Learn more')}</Text>
                 <Arrow />
             </LearnMore>
         </StyledFlex>

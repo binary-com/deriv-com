@@ -76,7 +76,7 @@ const Regulatory = () => (
                     padding="1.6rem 0 0"
                 >
                     {localize(
-                        'The services offered on Deriv and Binary.com are provided by the Binary Group. The group has several subsidiary companies that are licensed to operate Deriv and Binary.com in their registered jurisdictions.',
+                        'The services offered on Deriv and Binary.com are provided by the Deriv Group. The group has several subsidiary companies that are licensed to operate Deriv and Binary.com in their registered jurisdictions.',
                     )}
                 </StyledHeader>
                 <StyledHeader as="h4" align="center" weight="normal" lh="3.6rem" pt="2rem">

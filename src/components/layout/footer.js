@@ -320,7 +320,7 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to="/markets#forex">{localize('Forex')}</Link>
                         </div>
                         <div>
-                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
+                            <Link to="/markets#synthetic">{localize('Synthetic indices')}</Link>
                         </div>
                         <div>
                             <Link to="/markets#stock">{localize('Stock indices')}</Link>
@@ -429,7 +429,7 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to="/markets#forex">{localize('Forex')}</Link>
                         </Item>
                         <Item>
-                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
+                            <Link to="/markets#synthetic">{localize('Synthetic indices')}</Link>
                         </Item>
                         <Item>
                             <Link to="/markets#stock">{localize('Stock indices')}</Link>

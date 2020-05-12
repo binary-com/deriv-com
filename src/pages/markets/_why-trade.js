@@ -46,7 +46,7 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledText = styled(Text)`
-    padding: 0 1px;
+    padding: 0 2px;
     @media ${device.tabletL} {
         font-size: 2rem;
         padding: 0;

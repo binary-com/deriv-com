@@ -173,7 +173,7 @@ const Markets = () => {
                     active_tab={active_tab}
                     name="synthetic"
                 >
-                    <Header as="h4">{localize('Synthetic Indices')}</Header>
+                    <Header as="h4">{localize('Synthetic indices')}</Header>
                 </Item>
                 <Item onClick={() => handleTabChange('stock')} active_tab={active_tab} name="stock">
                     <Header as="h4">{localize('Stock indices')}</Header>

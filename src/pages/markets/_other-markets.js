@@ -25,9 +25,9 @@ const markets_type = {
     },
     Synthetic_Indices: {
         icon: SyntheticIndices,
-        title: 'Synthetic Indices',
+        title: 'Synthetic indices',
         content: (
-            <Localize translate_text="Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
+            <Localize translate_text="Synthetic indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
         ),
         to: '/markets#synthetic',
         id: 'marketsyntheticothermarkets',

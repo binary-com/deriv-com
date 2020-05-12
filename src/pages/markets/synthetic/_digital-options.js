@@ -155,7 +155,7 @@ const DigitalOptions = () => {
                     <AvailablePlatforms dtrader dbot smarttrader />
                 </Descriptions>
                 <StyledText weight="bold" mt="2.4rem">
-                    {localize('Option trades available on Synthetic Indices')}
+                    {localize('Option trades available on synthetic indices')}
                 </StyledText>
                 <Options>
                     <Row>

@@ -41,7 +41,7 @@ const Forex = ({ simple_step_content }) => {
                     icon={<Deposit />}
                 ></div>
                 <div
-                    text={<Localize translate_text="Friendly support, 7 days a week" />}
+                    text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>

@@ -19,10 +19,10 @@ const Wrapper = styled.div`
 
     @media ${device.laptopM} {
         max-height: 429px;
-        padding: 12rem 12rem 9rem 2rem;
+        padding: 8rem 12rem 8rem 4rem;
     }
     @media ${device.tabletL} {
-        max-height: 349px;
+        max-height: 304px;
         flex-direction: column;
     }
     @media ${device.tablet} {
@@ -68,34 +68,71 @@ const LottieWrapper = styled.div`
     right: 12rem;
 
     @media ${device.laptopM} {
-        right: 0;
-        top: 5rem;
-        width: 58%;
+        max-width: 500px;
+        top: 8rem;
+        right: 8rem;
     }
     @media ${device.laptop} {
-        width: 88%;
+        max-width: 450px;
+        right: 10rem;
     }
     @media ${device.tabletL} {
-        width: 50%;
+        max-width: 390px;
+        top: 5rem;
+        right: 2rem;
     }
-    @media ${device.tablet} {
-        width: 66%;
+    @media ${device.tabletS} {
+        max-width: 380px;
+        top: 5rem;
+        right: 2rem;
+    }
+    @media ${device.mobileL} {
+        max-width: 328px;
         top: 34px;
         left: 50%;
         right: unset;
         transform: translateX(-50%);
     }
-    @media ${device.tabletS} {
-        width: 75%;
-    }
-    @media ${device.mobileM} {
-        width: 91%;
-    }
 `
+
+// const LottieWrapper = styled.div`
+//     width: 100%;
+//     max-width: 606px;
+//     position: absolute;
+//     top: 10.8rem;
+//     right: 12rem;
+
+//     @media ${device.laptopM} {
+//         top: 5rem;
+//         width: 45%;
+//     }
+//     @media ${device.laptop} {
+//         width: 50%;
+//     }
+//     @media ${device.tabletL} {
+//         width: 44%;
+//     }
+//     @media ${device.tablet} {
+//         width: 61%;
+//         top: 34px;
+//         left: 50%;
+//         right: unset;
+//         transform: translateX(-50%);
+//     }
+//     @media ${device.tabletS} {
+//         width: 75%;
+//     }
+//     @media ${device.mobileL} {
+//         width: 79%;
+//     }
+//     @media ${device.mobileM} {
+//         top: 34px;
+//         width: 91%;
+//     }
+// `
 const LinkWrapper = styled.div`
     position: absolute;
     top: 444px;
-    width: 100%;
     display: flex;
 
     @media (max-width: 1420px) {
@@ -105,7 +142,7 @@ const LinkWrapper = styled.div`
         top: 350px;
     }
     @media ${device.tabletL} {
-        top: 270px;
+        top: 236px;
     }
     @media ${device.tablet} {
         position: unset;
@@ -136,7 +173,7 @@ const GoToLiveDemo = styled(Button)`
     }
 `
 const DemoButton = styled(LinkButton)`
-    padding: 1.3rem 1.6rem;
+    padding: 1.3rem 0;
     height: 40px;
     min-height: 40px;
     width: 202px;
@@ -169,7 +206,8 @@ const InformationWrapper = styled(Flex)`
         max-width: 410px;
     }
     @media ${device.tabletL} {
-        width: 52%;
+        width: 46%;
+        max-width: 400px;
         top: 60px;
     }
     @media ${device.tablet} {
@@ -235,12 +273,23 @@ const DHero = ({
         height: 100%;
 
         @media ${device.laptopM} {
+            width: 48%;
             max-width: 492px;
+            height: initial;
+        }
+        @media ${device.laptop} {
+            width: 50%;
         }
         @media ${device.tabletL} {
-            max-width: 400px;
+            width: 45%;
+            max-width: 350px;
+        }
+        @media ${device.tablet} {
             width: 70%;
-            height: initial;
+        }
+        @media ${device.tabletS} {
+            width: 80%;
+            max-width: 337px;
         }
         @media ${device.mobileL} {
             max-width: 250px;

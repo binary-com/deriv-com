@@ -65,12 +65,13 @@ const PlatformContainer = styled.div`
 `
 const Dtrader = () => {
     const [is_mobile, setMobile] = useState('')
+
     const handleResizeWindow = () => {
-        // console.log('is_mobile', is_mobile)
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
 
     useEffect(() => {
+        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
     })
     const data = useStaticQuery(query)

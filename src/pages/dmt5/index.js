@@ -67,6 +67,7 @@ const DMT5 = () => {
     }
 
     useEffect(() => {
+        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
     })
     const data = useStaticQuery(query)

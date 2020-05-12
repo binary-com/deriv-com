@@ -95,6 +95,9 @@ class Dbot extends Component {
         })
     }
     componentDidMount() {
+        this.setState({
+            is_mobile: isBrowser() ? window.screen.width <= size.mobileL : false,
+        })
         window.addEventListener('resize', this.handleResizeWindow)
     }
     render() {

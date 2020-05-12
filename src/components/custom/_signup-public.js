@@ -100,6 +100,7 @@ const EmailButton = styled(Button)`
         font-size: 1.4rem;
         margin-left: 0;
         height: 5rem;
+        min-width: 15rem;
     }
 `
 const SocialWrapper = styled(Flex)`

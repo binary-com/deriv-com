@@ -74,18 +74,18 @@ const RevenueShare = [
 ]
 const Turnover = [
     {
-        title: localize('Probability of return'),
+        title: <Localize translate_text="Probability of return" />,
         data: [
             '0-19.999%',
             '20-39.999%',
             '40-59.999%',
             '60-79.999%',
             '80-94.999%',
-            localize('95% and above'),
+            <Localize key={0} translate_text="95% and above" />,
         ],
     },
     {
-        title: localize('Commission'),
+        title: <Localize translate_text="Commission" />,
         data: ['1.5%', '1%', '0.75%', '0.5%', '0.4%', '0%'],
     },
 ]

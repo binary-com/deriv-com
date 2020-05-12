@@ -128,7 +128,7 @@ const DHero = ({
         position: absolute;
         top: 0;
         right: 0;
-        height: 109%;
+        height: 112%;
     `
     return (
         <Wrapper>

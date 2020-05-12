@@ -24,7 +24,7 @@ class LanguageSwitch extends Component {
         const { display_name, path, short_name } = language_config[lang]
         const current_short_name = language_config[this.state.language].short_name
         const is_selected = current_short_name === short_name
-        const to = `/${path}`
+        const to = `/${path}/`
         let text = this.props.short_name === 'true' ? short_name : display_name
 
         return {

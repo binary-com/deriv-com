@@ -65,7 +65,7 @@ export const LocalizedLink = ({ to, ...props }) => {
     // Because otherwise this would add a trailing slash
     const { is_default, path } = language_config[locale]
     const is_non_localized = non_localized_links.includes(to)
-    const path_to = is_default || is_non_localized ? to : `/${path}${is_index ? `` : `${to}`}`
+    const path_to = is_default || is_non_localized ? to : `/${path}${is_index ? `` : `${to}`}/`
 
     if (props.external || props.external === 'true') {
         const lang_to = is_binary_link ? `${to}/${locale}/trading.html` : to

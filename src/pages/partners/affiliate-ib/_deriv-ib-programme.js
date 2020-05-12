@@ -145,12 +145,12 @@ const DMT5Synthetic = ({ data }) => {
     }
     return (
         <Card
-            height={is_expand && !is_calculated ? '76rem' : '42rem'}
+            height={is_expand && !is_calculated ? '76rem' : '46rem'}
             padding="3.2rem 3.2rem 8.2rem"
         >
             <div>
                 {!is_calculated ? (
-                    <>
+                    <div>
                         <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length} is_balance={true}>
@@ -196,7 +196,7 @@ const DMT5Synthetic = ({ data }) => {
                                 {localize("How it's calculated")}
                             </Button>
                         </HowItsCalculate>
-                    </>
+                    </div>
                 ) : (
                     <>
                         <Header as="h4" lh="1.5">
@@ -226,7 +226,7 @@ const DMT5Standard = ({ data }) => {
         <Card padding="3.2rem 3.2rem 8.2rem">
             <div>
                 {!is_calculated ? (
-                    <>
+                    <div>
                         <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
@@ -275,7 +275,7 @@ const DMT5Standard = ({ data }) => {
                                 {localize("How it's calculated")}
                             </Button>
                         </HowItsCalculate>
-                    </>
+                    </div>
                 ) : (
                     <>
                         <Header as="h4">{localize('How it’s calculated')}</Header>
@@ -303,7 +303,7 @@ const DMT5Advanced = ({ data }) => {
         <StyledCard padding="3.2rem 3.2rem 8.2rem">
             <div>
                 {!is_calculated ? (
-                    <>
+                    <div>
                         <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
@@ -353,7 +353,7 @@ const DMT5Advanced = ({ data }) => {
                                 {localize("How it's calculated")}
                             </Button>
                         </HowItsCalculate>
-                    </>
+                    </div>
                 ) : (
                     <>
                         <Header as="h4">{localize('How it’s calculated')}</Header>
@@ -395,14 +395,10 @@ const ib_dmt5_standard = {
     calculation: (
         <>
             <Text>
-                {localize(
-                    'For forex and metal assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 10 in commission. A round trade of 1 lot of USD/CAD will pay out USD 10 in commission.',
-                )}
+                <Localize translate_text="For forex and metal assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 10 in commission. A round trade of 1 lot of USD/CAD will pay out USD 10 in commission." />
             </Text>
             <Text mt="2rem">
-                {localize(
-                    'For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 30 in commission.',
-                )}
+                <Localize translate_text="For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 30 in commission." />
             </Text>
         </>
     ),

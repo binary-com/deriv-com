@@ -41,12 +41,12 @@ class LanguageSwitch extends Component {
     handleSelect = (e) => {
         const { id } = e.target
         const current_lang = localStorage.getItem('i18n') || 'en'
-        const path = id === '/en' ? '/' : id
+        const path = id === '/en/' ? '/' : id
 
         if (!(`/${current_lang}` === id)) {
-            if (path === '/ach') {
+            if (path === '/ach/') {
                 localStorage.setItem('i18n', 'ach')
-                window.location.href = '/ach'
+                window.location.href = '/ach/'
             } else {
                 /*
                 can be something like /es/about/

@@ -81,21 +81,11 @@ const ImageWrapper = styled.div`
 `
 const query = graphql`
     query {
-        teamfocus: file(relativePath: { eq: "careers/team-focus.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 650, srcSetBreakpoints: [400, 600, 960, 1280, 1920]) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
+        teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
+            ...backGroundBlur
         }
-        peopleeating: file(relativePath: { eq: "careers/people-eating.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 650, srcSetBreakpoints: [400, 600, 960, 1280, 1920]) {
-                    ...GatsbyImageSharpFluid_withWebp_noBase64
-                    originalName
-                }
-            }
+        peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
+            ...backGroundBlur
         }
     }
 `

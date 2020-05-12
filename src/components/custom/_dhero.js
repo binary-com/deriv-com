@@ -95,41 +95,6 @@ const LottieWrapper = styled.div`
     }
 `
 
-// const LottieWrapper = styled.div`
-//     width: 100%;
-//     max-width: 606px;
-//     position: absolute;
-//     top: 10.8rem;
-//     right: 12rem;
-
-//     @media ${device.laptopM} {
-//         top: 5rem;
-//         width: 45%;
-//     }
-//     @media ${device.laptop} {
-//         width: 50%;
-//     }
-//     @media ${device.tabletL} {
-//         width: 44%;
-//     }
-//     @media ${device.tablet} {
-//         width: 61%;
-//         top: 34px;
-//         left: 50%;
-//         right: unset;
-//         transform: translateX(-50%);
-//     }
-//     @media ${device.tabletS} {
-//         width: 75%;
-//     }
-//     @media ${device.mobileL} {
-//         width: 79%;
-//     }
-//     @media ${device.mobileM} {
-//         top: 34px;
-//         width: 91%;
-//     }
-// `
 const LinkWrapper = styled.div`
     position: absolute;
     top: 444px;

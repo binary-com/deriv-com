@@ -61,11 +61,14 @@ const StyledHeaderCommission = styled(StyledHeader)`
 
 const RevenueShare = [
     {
-        title: localize('Net revenue'),
-        data: [localize('≤ USD 20,000 per month'), localize('> USD 20,000 per month')],
+        title: <Localize translate_text="Net revenue" />,
+        data: [
+            <Localize key={0} translate_text="≤ USD 20,000 per month" />,
+            <Localize key={1} translate_text="> USD 20,000 per month" />,
+        ],
     },
     {
-        title: localize('Commission'),
+        title: <Localize translate_text="Commission" />,
         data: ['30%', '45%'],
     },
 ]

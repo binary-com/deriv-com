@@ -62,7 +62,7 @@ const StyledHeaderCommission = styled(StyledHeader)`
 const RevenueShare = [
     {
         title: localize('Net revenue'),
-        data: [localize('≤ USD 20,000 per month '), localize('> USD 20,000 per month ')],
+        data: [localize('≤ USD 20,000 per month'), localize('> USD 20,000 per month')],
     },
     {
         title: localize('Commission'),

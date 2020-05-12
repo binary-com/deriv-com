@@ -97,7 +97,7 @@ const EmailButton = styled(Button)`
 
     @media ${device.tabletL} {
         width: auto;
-        font-size: 1.75rem;
+        font-size: 1.4rem;
         margin-left: 0;
         height: 5rem;
     }

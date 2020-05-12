@@ -131,6 +131,10 @@ const StyledTR = styled(TR)`
     display: ${(props) => (props.hidden ? 'hidden' : 'block')};
 `
 
+const SyntheticTable = styled(Table)`
+    grid-template-columns: 54% 46%;
+`
+
 const DMT5Synthetic = ({ data }) => {
     const [is_expand, setExpand] = React.useState(false)
     const [is_calculated, setCalculated] = React.useState(false)
@@ -146,14 +150,14 @@ const DMT5Synthetic = ({ data }) => {
     return (
         <Card
             height={is_expand && !is_calculated ? '76rem' : '46rem'}
-            padding="3.2rem 3.2rem 8.2rem"
+            padding="3.2rem 1.6rem 8.2rem"
         >
             <div>
                 {!is_calculated ? (
                     <div>
                         <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
-                        <Table grid_col_number={data.assets.length} is_balance={true}>
+                        <SyntheticTable grid_col_number={data.assets.length} is_balance={true}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
                                     {asset.map((item, idxa) => {
@@ -187,7 +191,7 @@ const DMT5Synthetic = ({ data }) => {
                                     })}
                                 </TC>
                             ))}
-                        </Table>
+                        </SyntheticTable>
                         {has_expansion && (
                             <StyledChevron onClick={toggleExpand} is_expand={is_expand} />
                         )}

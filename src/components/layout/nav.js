@@ -13,7 +13,13 @@ import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, Localize, localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
-import { OffCanvasMenu, OffCanvasMenuPartner, moveOffCanvasMenu, Text } from 'components/elements'
+import {
+    OffCanvasMenu,
+    OffCanvasMenuPartner,
+    moveOffCanvasMenu,
+    Text,
+    LocalizedLinkText,
+} from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import Partner from 'common/partner'
@@ -238,16 +244,12 @@ const Binary = styled(Text)`
     }
 `
 
-const BinaryLink = styled.a`
+const BinaryLink = styled(LocalizedLinkText)`
     display: inline-block;
     color: var(--color-white);
     font-size: var(--text-size-xxs);
     font-weight: bold;
     text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
 `
 
 export const Nav = () => {
@@ -391,7 +393,9 @@ export const Nav = () => {
                                 components={[
                                     <BinaryLink
                                         key={0}
-                                        href={binary_url}
+                                        external
+                                        to={binary_url}
+                                        is_binary_link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         color="white"
@@ -496,7 +500,9 @@ export const NavInterim = ({ interim_type }) => (
                         components={[
                             <BinaryLink
                                 key={0}
-                                href={binary_url}
+                                external
+                                to={binary_url}
+                                is_binary_link
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 color="white"

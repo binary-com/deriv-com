@@ -58,6 +58,7 @@ const CardWrapper = styled.article`
     ${CardStyle}
     position: relative;
     overflow: hidden;
+    height: 100%;
     min-height: ${(props) => (props.min_height ? props.min_height : '0')};
     width: ${(props) => (props.width ? props.width : '38.4rem')};
     padding: ${(props) => (props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem')};

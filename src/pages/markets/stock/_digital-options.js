@@ -106,12 +106,12 @@ const AmericasDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'Each of these indices replicates the performance of top publicly traded companies in a segment of the US economy. ',
+                'Each of these indices replicates the performance of top publicly traded companies in a segment of the US economy.',
             )}
         </Text>
         <Text>
             <Localize
-                translate_text="<0>The US Index</0> follows the stock performance of the 500 largest publicly-traded companies in the US. "
+                translate_text="<0>The US Index</0> follows the stock performance of the 500 largest publicly-traded companies in the US."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -195,7 +195,7 @@ const EuropeDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>The UK Index</0> follows the stock performance of the top 100 listed companies in the UK. "
+                translate_text="<0>The UK Index</0> follows the stock performance of the top 100 listed companies in the UK."
                 components={[<strong key={0} />]}
             />
         </Text>

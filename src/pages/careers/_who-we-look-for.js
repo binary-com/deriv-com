@@ -81,7 +81,7 @@ const ImageWrapper = styled.div`
 `
 const query = graphql`
     query {
-        teamfocus: file(relativePath: { eq: "careers/team-focus.png" }) {
+        teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 650, srcSetBreakpoints: [400, 600, 960, 1280, 1920]) {
                     ...GatsbyImageSharpFluid_withWebp_noBase64
@@ -89,7 +89,7 @@ const query = graphql`
                 }
             }
         }
-        peopleeating: file(relativePath: { eq: "careers/people-eating.png" }) {
+        peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 650, srcSetBreakpoints: [400, 600, 960, 1280, 1920]) {
                     ...GatsbyImageSharpFluid_withWebp_noBase64

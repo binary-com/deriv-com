@@ -183,7 +183,7 @@ const About = () => {
         <Layout>
             <SEO
                 description={localize(
-                    'Deriv is the new platform developed by Binary Group - a pioneer and award-winning online trading platform in the trading market.',
+                    'Deriv is the new platform developed by Deriv Group - a pioneer and award-winning online trading platform in the trading market.',
                 )}
                 title={localize('About Us | An Online Trading Platform')}
             />

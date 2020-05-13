@@ -101,7 +101,7 @@ export const IconGrid = () => (
                 Icon={ProvenTrackRecord}
                 title={localize('Proven track record')}
                 content={localize(
-                    'Binary Group – the owners of the Deriv and Binary.com brands – has a history that dates back to 1999 when we laid the groundwork for the world’s first fixed-odds trading service. Since then, we have grown from strength to strength, garnering the trust of traders around the world.',
+                    'Deriv Group – the owners of the Deriv and Binary.com brands – has a history that dates back to 1999 when we laid the groundwork for the world’s first fixed-odds trading service. Since then, we have grown from strength to strength, garnering the trust of traders around the world.',
                 )}
             />
             <Col

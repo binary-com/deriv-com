@@ -68,6 +68,10 @@ module.exports = {
                     '/amp/**',
                     '/**/amp',
                     '/**/amp/**',
+                    '/interim',
+                    '/interim/**',
+                    '/**/interim',
+                    '/**/interim/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {

@@ -4,7 +4,7 @@ import AvailablePlatforms from '../_available-platforms.js'
 import MarketsAccordion from '../_markets_accordion.js'
 import { VolatilityIndices, CrashBoom, StepIndices } from '../sub-markets/_submarkets.js'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid } from 'components/containers'
+import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
@@ -155,7 +155,8 @@ const Margin = () => {
                             <Row jc="flex-start" ai="center">
                                 <Col max_width="13.2rem">
                                     <Title weight="bold" max_width="9.7rem" align="center">
-                                        {localize('Crash boom')}
+                                        <Show.Desktop>{localize('Crash/Boom')}</Show.Desktop>
+                                        <Show.Mobile>{localize('Crash/ Boom')}</Show.Mobile>
                                     </Title>
                                 </Col>
                                 <MarketsList>

@@ -33,9 +33,6 @@ const ButtonWrapper = styled.div`
     }
 `
 export const WhatTrade = ({ header, sub_header }) => {
-    // const handleScrollToElement = () => {
-    //     learn_more_section.current.scrollIntoView()
-    // }
     return (
         <ContentWrapper>
             <Container direction="column">
@@ -64,6 +61,5 @@ export const WhatTrade = ({ header, sub_header }) => {
 }
 WhatTrade.propTypes = {
     header: PropTypes.string,
-    learn_more_section: PropTypes.object,
     sub_header: PropTypes.object,
 }

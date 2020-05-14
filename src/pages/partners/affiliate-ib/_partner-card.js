@@ -6,7 +6,7 @@ export const Card = styled.section`
     margin-top: 1.6rem;
     width: 38.4rem;
     min-width: 38.4rem;
-    height: ${(props) => (props.height ? props.height : '46rem')};
+    height: ${(props) => (props.height ? props.height : '49rem')};
     background-color: var(--color-white);
     border-radius: 0.4rem;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);

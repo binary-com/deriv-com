@@ -93,12 +93,18 @@ const LottieWrapper = styled.div`
         right: unset;
         transform: translateX(-50%);
     }
+    @media ${device.mobileM} {
+        max-width: 280px;
+        top: 34px;
+        left: 50%;
+        right: unset;
+        transform: translateX(-50%);
+    }
 `
 
 const LinkWrapper = styled.div`
-    position: absolute;
-    top: 444px;
     display: flex;
+    margin-top: 3.2rem;
 
     @media (max-width: 1420px) {
         top: 480px;
@@ -114,7 +120,7 @@ const LinkWrapper = styled.div`
         top: unset;
         justify-content: start;
     }
-    @media (max-width: 359px) {
+    @media (max-width: 350px) {
         flex-wrap: wrap;
     }
 `
@@ -133,6 +139,9 @@ const GoToLiveDemo = styled(Button)`
     @media ${device.mobileL} {
         max-width: 128px;
         padding: 10px 11px;
+    }
+    @media (max-width: 350px) {
+        margin-top: 2rem;
     }
 `
 const DemoButton = styled(LinkButton)`
@@ -153,8 +162,6 @@ const StyledContent = styled(Header)`
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
-    position: absolute;
-    top: 120px;
 
     @media (max-width: 1420px) {
         width: 77%;
@@ -179,7 +186,7 @@ const InformationWrapper = styled(Flex)`
         top: 280px;
         max-width: 328px;
     }
-    @media ${device.mobileS} {
+    @media ${device.mobileM} {
         top: 230px;
         max-width: 328px;
     }
@@ -256,6 +263,10 @@ const DHero = ({
             max-width: 250px;
             min-height: 244px;
         }
+        @media ${device.mobileM} {
+            max-width: 205px;
+            min-height: 0;
+        }
     `
     return (
         <Wrapper>
@@ -268,19 +279,20 @@ const DHero = ({
                 <HeroContent>
                     <StyledContent as="h2">{content}</StyledContent>
                 </HeroContent>
+                <LinkWrapper>
+                    {join_us_for_free ? (
+                        <DemoButton secondary="true" to="/signup/">
+                            {localize('Create free demo account')}
+                        </DemoButton>
+                    ) : null}
+                    {go_to_live_demo ? (
+                        <GoToLiveDemo tertiary onClick={handleRedirect}>
+                            {localize('Go to live demo')}
+                        </GoToLiveDemo>
+                    ) : null}
+                </LinkWrapper>
             </InformationWrapper>
-            <LinkWrapper>
-                {join_us_for_free ? (
-                    <DemoButton secondary="true" to="/signup/">
-                        {localize('Create free demo account')}
-                    </DemoButton>
-                ) : null}
-                {go_to_live_demo ? (
-                    <GoToLiveDemo tertiary onClick={handleRedirect}>
-                        {localize('Go to live demo')}
-                    </GoToLiveDemo>
-                ) : null}
-            </LinkWrapper>
+
             <LottieWrapper>
                 <QueryImage
                     data={data[is_mobile ? image_name + '_mobile' : image_name]}

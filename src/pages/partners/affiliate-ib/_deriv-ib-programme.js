@@ -7,7 +7,7 @@ import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import Partner from 'common/partner'
+import { affiliate_signup_url } from 'common/utility'
 import device from 'themes/device'
 import Chevron from 'images/svg/chevron-bottom-bold.svg'
 
@@ -55,7 +55,7 @@ const ButtonWrapper = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 1.6rem 0 3.2rem 3.2rem;
+    padding: 1.6rem 3.2rem 3.2rem;
 
     button:last-child {
         margin-left: 1.6rem;
@@ -208,9 +208,15 @@ const DMT5Synthetic = ({ data }) => {
                         </Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <Button secondary onClick={Partner.redirectToSignup}>
+                            <LinkButton
+                                secondary
+                                to={affiliate_signup_url}
+                                external
+                                target="_blank"
+                                is_affiliate_link
+                            >
                                 {localize('Become an affiliate')}
-                            </Button>
+                            </LinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -285,9 +291,15 @@ const DMT5Standard = ({ data }) => {
                         <Header as="h4">{localize('How it’s calculated')}</Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <Button secondary onClick={Partner.redirectToSignup}>
+                            <LinkButton
+                                secondary
+                                to={affiliate_signup_url}
+                                external
+                                target="_blank"
+                                is_affiliate_link
+                            >
                                 {localize('Become an affiliate')}
-                            </Button>
+                            </LinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -363,9 +375,15 @@ const DMT5Advanced = ({ data }) => {
                         <Header as="h4">{localize('How it’s calculated')}</Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <Button secondary onClick={Partner.redirectToSignup}>
+                            <LinkButton
+                                secondary
+                                to={affiliate_signup_url}
+                                external
+                                target="_blank"
+                                is_affiliate_link
+                            >
                                 {localize('Become an affiliate')}
-                            </Button>
+                            </LinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -427,9 +445,7 @@ const ib_dmt5_advanced = {
     ],
     calculation: (
         <Text>
-            {localize(
-                'For forex assets, your commission is represented in the base currency. For example, a round trade of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission.',
-            )}
+            <Localize translate_text="For forex assets, your commission is represented in the base currency. For example, a round trade of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission." />
         </Text>
     ),
 }
@@ -475,17 +491,13 @@ const ib_dmt5_synthetic = {
     calculation: (
         <>
             <Text>
-                {localize(
-                    'For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula: ',
-                )}
+                <Localize translate_text="For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula:" />
             </Text>
             <Text weight="bold" m="2.5rem 0">
-                {localize('USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5')}
+                <Localize translate_text="USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5" />
             </Text>
             <StyledText size="var(--text-size-s)" lh="1.5">
-                {localize(
-                    'If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate.',
-                )}
+                <Localize translate_text="If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate." />
             </StyledText>
         </>
     ),

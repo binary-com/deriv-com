@@ -22,9 +22,8 @@ import {
 } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
-import Partner from 'common/partner'
 import device from 'themes/device'
-import { binary_url } from 'common/utility'
+import { binary_url, affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoSignup from 'images/svg/logo_deriv.svg'
@@ -190,6 +189,10 @@ const SignupButton = styled(Button)`
     margin-left: 1.6rem;
 `
 
+const LinkSignupButton = styled(LinkButton)`
+    margin-left: 1.6rem;
+`
+
 const HamburgerMenu = styled(Hamburger)`
     cursor: pointer;
     display: none;
@@ -220,6 +223,17 @@ const LogoLinkMobile = styled(LocalizedLink)`
 `
 
 const MobileLogin = styled(Button)`
+    display: none;
+    font-size: 14px;
+    @media ${device.tabletL} {
+        display: block;
+        margin-left: auto;
+    }
+    @media ${device.mobileL} {
+        font-size: var(--text-size-xxs);
+    }
+`
+const LinkMobileLogin = styled(LinkButton)`
     display: none;
     font-size: 14px;
     @media ${device.tabletL} {
@@ -648,16 +662,25 @@ export const NavPartners = ({ no_login_signup }) => {
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
-                                <Button onClick={Partner.redirectToLogin} primary>
+                                <LinkButton
+                                    to={affiliate_signin_url}
+                                    external
+                                    is_affiliate_link
+                                    target="_blank"
+                                    primary
+                                >
                                     <span>{localize('Affiliate & IB log in')}</span>
-                                </Button>
-                                <SignupButton
-                                    onClick={Partner.redirectToSignup}
+                                </LinkButton>
+                                <LinkSignupButton
+                                    to={affiliate_signup_url}
+                                    external
+                                    is_affiliate_link
+                                    target="_blank"
                                     ref={button_ref}
                                     secondary="true"
                                 >
                                     <span>{localize('Affiliate & IB sign up')}</span>
-                                </SignupButton>
+                                </LinkSignupButton>
                             </StyledNavRight>
                         ) : null}
 
@@ -670,9 +693,15 @@ export const NavPartners = ({ no_login_signup }) => {
                             <LogoOnly width="115px" />
                         </LogoLinkMobile>
                         {!no_login_signup && (
-                            <MobileLogin OnClick={Partner.redirectToLogin} primary>
+                            <LinkMobileLogin
+                                to={affiliate_signin_url}
+                                external
+                                is_affiliate_link
+                                target="_blank"
+                                primary
+                            >
                                 <span>{localize('Affiliate & IB Log in')}</span>
-                            </MobileLogin>
+                            </LinkMobileLogin>
                         )}
                         <OffCanvasMenuPartner
                             is_canvas_menu_open={is_canvas_menu_open}

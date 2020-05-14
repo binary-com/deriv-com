@@ -282,7 +282,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                                 </ExternalLink>
                             </div>
                         </SocialWrapper> */}
-                        <div>{(!isProduction() || no_language) && <LanguageSwitcher />}</div>
+                        <div>{!isProduction() && !no_language && <LanguageSwitcher />}</div>
                         {/* <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>

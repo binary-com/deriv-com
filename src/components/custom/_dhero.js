@@ -123,9 +123,8 @@ const GoToLiveDemo = styled(Button)`
     color: var(--color-white);
     border-color: var(--color-black-5);
     margin-left: 1.6rem;
-    height: 40px;
-    max-width: 139px;
-    width: 100%;
+    padding: 1.1rem 1.6rem;
+    width: auto;
 
     @media ${device.laptopM} {
         font-size: 14px;
@@ -134,14 +133,11 @@ const GoToLiveDemo = styled(Button)`
     @media ${device.mobileL} {
         max-width: 128px;
         padding: 10px 11px;
-        height: 42px;
     }
 `
 const DemoButton = styled(LinkButton)`
-    padding: 1.3rem 0;
-    height: 40px;
-    min-height: 40px;
-    width: 202px;
+    padding: 1.4rem 1.6rem;
+    width: auto;
     font-size: 14px;
     margin-right: 2px;
     border: unset;
@@ -235,7 +231,7 @@ const DHero = ({
         position: absolute;
         top: 0;
         right: 0;
-        height: 112%;
+        height: 100%;
 
         @media ${device.laptopM} {
             width: 48%;

@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize } from 'components/localization'
-import { Button } from 'components/form'
-import Partner from 'common/partner'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { affiliate_signup_url } from 'common/utility'
 import TradingExperts from 'images/svg/trading-experts.svg'
 import SoftwareDeveloper from 'images/svg/software-developer.svg'
 import CommunityManagers from 'images/svg/community-managers.svg'
@@ -173,9 +173,15 @@ const WhoCanApply = () => {
                 </Flex>
             </StyledSection>
             <CenteredSection padding="4rem 0">
-                <Button secondary onClick={Partner.redirectToSignup}>
+                <LinkButton
+                    secondary
+                    to={affiliate_signup_url}
+                    external
+                    target="_blank"
+                    is_affiliate_link
+                >
                     {localize('Sign up')}
-                </Button>
+                </LinkButton>
             </CenteredSection>
         </SectionWrapper>
     )

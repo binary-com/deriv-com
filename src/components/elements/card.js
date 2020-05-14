@@ -126,7 +126,7 @@ const CardChildrenWrapper = styled.article`
 
 const IconContainer = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 
     ${Header} {
         display: flex;
@@ -159,6 +159,7 @@ Content.propTypes = {
 
 export const Card = ({
     children,
+    className,
     Icon,
     title,
     content,
@@ -172,7 +173,7 @@ export const Card = ({
     word_break_cover,
 }) => {
     return (
-        <CardWrapper width={width} min_height={min_height} padding={padding}>
+        <CardWrapper width={width} min_height={min_height} padding={padding} className={className}>
             {!children && (
                 <>
                     {is_inline_icon ? (
@@ -225,6 +226,7 @@ export const Card = ({
 
 Card.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    className: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     cover_background: PropTypes.string,
     cover_content: PropTypes.string,

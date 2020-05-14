@@ -13,6 +13,10 @@ const Section = styled(SectionContainer)`
     background-color: ${(props) => props.bgcolor || 'transparent'};
     padding: ${(props) => props.padding || 'transparent'};
 `
+
+const StyledCard = styled(Card)`
+    height: auto;
+`
 const StyledHeader = styled(Header)`
     @media ${device.laptop} {
         max-width: 100%;
@@ -157,7 +161,7 @@ const ResponsibleTrading = () => {
                                     'Online trading is exciting but it can be addictive. There are various limits that you can set on your account to limit your trading activity.',
                                 )}
                             </TradingText>
-                            <Card width="100%" padding="3.2rem">
+                            <StyledCard width="100%" padding="3.2rem">
                                 <Text size="var(--text-size-sm)" weight="bold">
                                     {localize('You can:')}
                                 </Text>
@@ -191,7 +195,7 @@ const ResponsibleTrading = () => {
                                         </Text>
                                     </StyledList>
                                 </StyledUl>
-                            </Card>
+                            </StyledCard>
                         </ListWrapper>
                         <CustomListWrapper>
                             <StyledHeader as="h5" size="var(--text-size-header-2)" mb="3.2rem">

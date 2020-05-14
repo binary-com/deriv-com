@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Card, CardWrapper } from './_partner-card.js'
 import { Table, TR, TC } from './_table.js'
-import Partner from 'common/partner'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
+import { affiliate_signup_url } from 'common/utility'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
@@ -32,7 +32,7 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-const ApplyNow = styled(Button)`
+const ApplyNow = styled(LinkButton)`
     display: block;
     width: 100%;
 `
@@ -132,7 +132,13 @@ const DerivAffiliateProgramme = () => {
                                 </Table>
                             </div>
                             <div>
-                                <ApplyNow secondary onClick={Partner.redirectToSignup}>
+                                <ApplyNow
+                                    secondary
+                                    to={affiliate_signup_url}
+                                    external
+                                    target="_blank"
+                                    is_affiliate_link
+                                >
                                     {localize('Sign up')}
                                 </ApplyNow>
                             </div>
@@ -161,7 +167,13 @@ const DerivAffiliateProgramme = () => {
                                 </Table>
                             </div>
                             <div>
-                                <ApplyNow secondary onClick={Partner.redirectToSignup}>
+                                <ApplyNow
+                                    secondary
+                                    to={affiliate_signup_url}
+                                    external
+                                    target="_blank"
+                                    is_affiliate_link
+                                >
                                     {localize('Sign up')}
                                 </ApplyNow>
                             </div>
@@ -186,7 +198,13 @@ const DerivAffiliateProgramme = () => {
                                 </CPAContent>
                             </div>
                             <div>
-                                <ApplyNow secondary onClick={Partner.redirectToSignup}>
+                                <ApplyNow
+                                    secondary
+                                    to={affiliate_signup_url}
+                                    external
+                                    target="_blank"
+                                    is_affiliate_link
+                                >
                                     {localize('Sign up')}
                                 </ApplyNow>
                             </div>

@@ -98,7 +98,6 @@ export const LinkButton = styled(LocalizedLink)`
     ${SharedButtonStyle}
     text-align: center;
     text-decoration: none;
-    display: inline-block;
 `
 
 const Button = styled.button`

@@ -137,7 +137,7 @@ const GoToLiveDemo = styled(Button)`
         margin-left: 0;
     }
     @media ${device.mobileL} {
-        max-width: 128px;
+        max-width: 100%;
         padding: 10px 11px;
     }
     @media (max-width: 350px) {

@@ -42,7 +42,7 @@ const Footer = () => (
                 </Text>
                 <Text>
                     <Localize
-                        translate_text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds
+                        translate_text="Outside the EU, financial products are offered by Binary (SVG) LLC, Hinds
                         Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant
                         Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial
                         Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola,

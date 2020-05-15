@@ -132,7 +132,7 @@ const StyledTR = styled(TR)`
 `
 
 const SyntheticTable = styled(Table)`
-    grid-template-columns: 54% 46%;
+    grid-template-columns: 55% 47%;
 `
 
 const DMT5Synthetic = ({ data }) => {

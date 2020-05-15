@@ -17,8 +17,8 @@ export const Card = styled.section`
     justify-content: space-between;
 
     @media ${device.mobileL} {
-        width: 36.4rem;
-        min-width: 36.4rem;
+        width: 300px;
+        min-width: 300px;
     }
 `
 export const CardWrapper = styled(Flex)`

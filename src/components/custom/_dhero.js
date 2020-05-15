@@ -22,7 +22,7 @@ const Wrapper = styled.div`
         padding: 8rem 12rem 8rem 4rem;
     }
     @media ${device.tabletL} {
-        max-height: 304px;
+        min-height: 304px;
         flex-direction: column;
     }
     @media ${device.tablet} {
@@ -160,14 +160,17 @@ const DemoButton = styled(LinkButton)`
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
+
+    @media (max-width: 1322px) {
+        font-size: 4.2rem;
+    }
 `
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
 
-    @media (max-width: 1420px) {
-        width: 77%;
-        max-width: 385px;
+    @media (max-width: 1320px) {
+        max-width: 450px;
     }
     @media ${device.laptop} {
         max-width: 390px;

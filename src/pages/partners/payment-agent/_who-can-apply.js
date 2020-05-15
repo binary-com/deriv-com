@@ -16,6 +16,7 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
+import device from 'themes/device'
 // SVG
 import TradingExperts from 'images/svg/trading-experts.svg'
 import Affiliates from 'images/svg/affiliates.svg'
@@ -40,6 +41,11 @@ const LineVertical = styled(LineVerticalSVG)`
     height: 100%;
     margin-top: 2rem;
     margin-right: 1.8rem;
+
+    @media ${device.tablet} {
+        margin-top: 5rem;
+        width: 3.5rem;
+    }
 `
 const ColLine = styled(Col)`
     flex-direction: row;

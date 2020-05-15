@@ -71,6 +71,9 @@ const SecondaryHeader = styled(StyledHeader)`
         margin-top: 3.2rem;
         margin-left: -4.6rem;
     }
+    @media ${device.mobileM} {
+        margin-left: 0;
+    }
 `
 const Flex = styled.div`
     display: flex;
@@ -83,6 +86,9 @@ const LineStyle = css`
 
     @media ${device.tablet} {
         margin-top: 13.5rem;
+    }
+    @media ${device.mobileM} {
+        display: none;
     }
 `
 const LineVertical = styled(LineVerticalSVG)`

@@ -93,6 +93,12 @@ const NewHeader = styled(Header)`
     margin: 2.4rem 0 0.8rem;
 `
 
+const ResponsiveHeader = styled(StyledHeader)`
+    @media ${device.mobileL} {
+        font-size: 5rem;
+    }
+`
+
 const ResponsibleTrading = () => {
     return (
         <Layout>
@@ -104,9 +110,9 @@ const ResponsibleTrading = () => {
             />
             <Section>
                 <Container direction="column">
-                    <StyledHeader as="h1" align="center" pb="1.6rem">
+                    <ResponsiveHeader as="h1" align="center" pb="1.6rem">
                         {localize('Secure and responsible trading')}
-                    </StyledHeader>
+                    </ResponsiveHeader>
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize(
                             'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',

@@ -29,16 +29,19 @@ const WaysWrapper = styled.div`
     display: flex;
     flex-direction: row;
 
-    @media (max-width: 740px) {
-        flex-direction: column;
-        height: auto;
-    }
     @media ${device.tabletL} {
         width: 100%;
 
         > div {
             margin: 0 auto;
             width: 100%;
+        }
+    }
+    @media (max-width: 740px) {
+        flex-direction: column;
+        height: auto;
+
+        > div {
             margin-top: 7rem;
         }
     }

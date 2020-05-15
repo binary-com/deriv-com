@@ -8,13 +8,19 @@ const StyledBackground = styled(BackgroundImage)`
 
     &::before,
     &::after {
-        filter: brightness(${props => (props.dark ? props.dark : '1')});
+        filter: brightness(${(props) => (props.dark ? props.dark : '1')});
     }
 `
 
-const Background = ({ children, data, style, ...props }) => {
+const Background = ({ children, data, style, dark, ...props }) => {
     return (
-        <StyledBackground Tag="div" style={style} fluid={data.childImageSharp.fluid} {...props}>
+        <StyledBackground
+            Tag="div"
+            style={style}
+            fluid={data.childImageSharp.fluid}
+            dark={dark}
+            {...props}
+        >
             {children}
         </StyledBackground>
     )
@@ -23,6 +29,7 @@ const Background = ({ children, data, style, ...props }) => {
 Background.propTypes = {
     brightness: PropTypes.string,
     children: PropTypes.node,
+    dark: PropTypes.string,
     data: PropTypes.object,
     img_name: PropTypes.string,
     style: PropTypes.object,

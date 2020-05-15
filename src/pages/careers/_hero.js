@@ -51,7 +51,12 @@ const RedBanner = styled.span`
 const query = graphql`
     query {
         image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
-            ...backGroundBlur
+            childImageSharp {
+                fluid(maxWidth: 2048, srcSetBreakpoints: [600]) {
+                    ...GatsbyImageSharpFluid
+                    originalName
+                }
+            }
         }
     }
 `
@@ -69,6 +74,7 @@ const Hero = () => {
                 backgroundSize: `cover`,
                 backgroundColor: 'var(--color-black)',
             }}
+            dark="0.3"
         >
             <StyledContainer>
                 <StyledHeader as="h2">

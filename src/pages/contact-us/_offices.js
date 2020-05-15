@@ -351,16 +351,14 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <Text target="_blank" color="black-3">
                                     <Localize
-                                        translate_text="886, Edificio Australia, Calle Herib,<0 />Campos Cerveray Tregnaghi, Distriti de Stma, Trinidad, Asuncion, Paraguay"
+                                        translate_text="Edificio Australia, Oficina 1, Herib Campos<0/>Cervera 886, Asunción, Paraguay"
                                         components={[<br key={0} />]}
                                     />
                                 </Text>
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+5959925502654">
-                                    +595 992 550 2654
-                                </ClickToCall>
+                                <ClickToCall href="tel:+595992550264">+595 992 550 264</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>

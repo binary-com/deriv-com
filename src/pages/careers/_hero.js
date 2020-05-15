@@ -69,7 +69,6 @@ const Hero = () => {
                 backgroundSize: `cover`,
                 backgroundColor: 'var(--color-black)',
             }}
-            dark="0.3"
         >
             <StyledContainer>
                 <StyledHeader as="h2">

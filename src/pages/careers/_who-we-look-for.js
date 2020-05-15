@@ -83,7 +83,7 @@ const query = graphql`
     query {
         teamfocus: file(relativePath: { eq: "careers/team-focus.jpg" }) {
             childImageSharp {
-                fluid(maxWidth: 1920, srcSetBreakpoints: [600]) {
+                fluid(maxWidth: 650) {
                     ...GatsbyImageSharpFluid_withWebp
                     originalName
                 }
@@ -91,7 +91,7 @@ const query = graphql`
         }
         peopleeating: file(relativePath: { eq: "careers/people-eating.jpg" }) {
             childImageSharp {
-                fluid(maxWidth: 1920, srcSetBreakpoints: [600]) {
+                fluid(maxWidth: 650) {
                     ...GatsbyImageSharpFluid_withWebp
                     originalName
                 }

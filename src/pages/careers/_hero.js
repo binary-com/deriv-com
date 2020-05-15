@@ -52,7 +52,7 @@ const query = graphql`
     query {
         image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
             childImageSharp {
-                fluid(maxWidth: 2048, srcSetBreakpoints: [600]) {
+                fluid(maxWidth: 2048) {
                     ...GatsbyImageSharpFluid
                     originalName
                 }

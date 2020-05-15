@@ -285,16 +285,16 @@ const DHero = ({
                     <StyledContent as="h2">{content}</StyledContent>
                 </HeroContent>
                 <LinkWrapper>
-                    {join_us_for_free ? (
+                    {join_us_for_free && (
                         <DemoButton secondary="true" to="/signup/">
                             {localize('Create free demo account')}
                         </DemoButton>
-                    ) : null}
-                    {go_to_live_demo ? (
+                    )}
+                    {go_to_live_demo && (
                         <GoToLiveDemo tertiary onClick={handleRedirect}>
                             {localize('Go to live demo')}
                         </GoToLiveDemo>
-                    ) : null}
+                    )}
                 </LinkWrapper>
             </InformationWrapper>
 

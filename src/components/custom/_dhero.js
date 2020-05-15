@@ -120,7 +120,7 @@ const LinkWrapper = styled.div`
         top: unset;
         justify-content: start;
     }
-    @media (max-width: 350px) {
+    @media (max-width: 460px) {
         flex-wrap: wrap;
     }
 `
@@ -141,9 +141,6 @@ const GoToLiveDemo = styled(Button)`
         padding: 10px 11px;
         white-space: nowrap;
     }
-    @media (max-width: 350px) {
-        margin-top: 2rem;
-    }
 `
 const DemoButton = styled(LinkButton)`
     padding: 1.4rem 1.6rem;
@@ -156,6 +153,9 @@ const DemoButton = styled(LinkButton)`
         padding: 1.5rem 1.6rem;
         height: 42px;
         white-space: nowrap;
+    }
+    @media (max-width: 460px) {
+        margin-bottom: 2rem;
     }
 `
 const StyledContent = styled(Header)`

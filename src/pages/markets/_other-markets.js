@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Flex, SectionContainer } from 'components/containers'
+import { Flex, SectionContainer, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Box from 'components/containers/box'
@@ -10,7 +10,7 @@ import Commodities from 'components/svgs/_market-commodities.js'
 import Forex from 'components/svgs/_market-forex.js'
 import StockIndices from 'components/svgs/_market-stock.js'
 import SyntheticIndices from 'components/svgs/_market-synthetic.js'
-import Arrow from 'images/svg/arrow.svg'
+import Arrow from 'images/svg/arrow-right.svg'
 import device from 'themes/device'
 
 const markets_type = {
@@ -25,9 +25,9 @@ const markets_type = {
     },
     Synthetic_Indices: {
         icon: SyntheticIndices,
-        title: 'Synthetic Indices',
+        title: 'Synthetic indices',
         content: (
-            <Localize translate_text="Synthetic Indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
+            <Localize translate_text="Synthetic indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
         ),
         to: '/markets#synthetic',
         id: 'marketsyntheticothermarkets',
@@ -52,15 +52,10 @@ const markets_type = {
         id: 'marketcommoditiesothermarket',
     },
 }
-const Section = styled(SectionContainer)`
-    @media ${device.laptopM} {
-        padding: 8rem 0 8.8rem 0;
-    }
-`
 const LearnMore = styled(LocalizedLink)`
-    opacity: 0;
-    width: fit-content;
-    padding: 0.6rem 1.2rem;
+    opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
+    width: 142px;
+    height: 40px;
     border-radius: 23px;
     background-color: #f4f4f6;
     position: absolute;
@@ -78,7 +73,45 @@ const LearnMore = styled(LocalizedLink)`
     ${Text} {
         font-weight: bold;
         color: var(--color-red);
-        margin-right: 0.4rem;
+    }
+
+    @media ${device.tabletL} {
+        ${Text} {
+            font-size: var(--text-size-sm);
+            margin-right: 1rem;
+        }
+    }
+`
+const MobileCardWrapper = styled(Flex)`
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    min-height: 32.5rem;
+    position: relative;
+    width: 100%;
+    max-width: 35.25rem;
+    height: 100%;
+    padding: 3rem;
+    align-items: center;
+    flex-direction: column;
+
+    svg {
+        width: 48px;
+        height: 48px;
+    }
+    ${LearnMore} {
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+`
+const Section = styled(SectionContainer)`
+    padding: 8rem 0 12rem 12rem;
+
+    @media ${device.laptopM} {
+        padding: 8rem 0 8.8rem 0;
+    }
+    @media ${device.tabletL} {
+        padding: 5rem 0;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -88,24 +121,16 @@ const StyledFlex = styled(Flex)`
     background-color: var(--color-white);
     top: 0;
 
-    &:hover {
-        ${LearnMore} {
-            opacity: 1;
-        }
-    }
-    svg {
-        width: 64px;
-        height: 64px;
-    }
     ${LearnMore} {
         svg {
-            transform: scaleX(-1);
+            transform: rotate(0);
             width: 16px;
             height: 16px;
         }
     }
 `
 const Card = ({ name }) => {
+    const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[name].icon
 
     return (
@@ -117,82 +142,125 @@ const Card = ({ name }) => {
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"
             position="relative"
+            onMouseEnter={() => setButtonVisibility('true')}
+            onMouseLeave={() => setButtonVisibility('false')}
         >
             <div>
-                <Icon dynamic_id={markets_type[name].id} />
+                <Icon dynamic_id={markets_type[name].id} width="64px" height="64px" />
             </div>
 
             <Text weight="bold" mt="1.6rem">
                 {markets_type[name].title}
             </Text>
             <Text mt="0.8rem">{markets_type[name].content}</Text>
-            <LearnMore to={markets_type[name].to}>
-                <Text>{localize('Learn more')}</Text>
+            <LearnMore to={markets_type[name].to} visibility={button_visibility}>
+                <Text mr="1rem">{localize('Learn more')}</Text>
                 <Arrow />
             </LearnMore>
         </StyledFlex>
     )
 }
+const MobileCard = ({ name }) => {
+    const Icon = markets_type[name].icon
+    return (
+        <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
+            <Flex width="100%" jc="space-between" mb="3rem" ai="center">
+                <Text size="2rem" weight="bold">
+                    {localize(markets_type[name].title)}
+                </Text>
+                <Icon dynamic_id={markets_type[name].id + '_mobile'} />
+            </Flex>
+            <Text size="2rem">{markets_type[name].content}</Text>
+            <LearnMore to={markets_type[name].to} visibility="true">
+                <Text>{localize('Learn more')}</Text>
+                <Arrow />
+            </LearnMore>
+        </MobileCardWrapper>
+    )
+}
+const MarketsWrapper = styled(Flex)`
+    @media ${device.laptopM} {
+        flex-direction: column;
+        margin: auto;
+    }
+`
+const Wrapper = styled(Box)`
+    position: relative;
+    max-width: 103.8rem;
+    width: 100%;
+    height: 19.2rem;
+    background: rgba(133, 172, 176, 0.24);
+    border-radius: 16px;
+`
+const CardWrapper = styled(Flex)`
+    left: 2.4rem;
+    top: 4rem;
+    max-height: 29.6rem;
+`
+const StyledHeader = styled(Header)`
+    max-width: 25.8rem;
 
+    @media ${device.laptopM} {
+        text-align: center;
+        max-width: unset;
+    }
+    @media ${device.tabletL} {
+        max-width: 28.2rem;
+        margin: 0 auto;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+`
+const MobileCardContainer = styled(Flex)`
+    div:first-child {
+        margin-top: 0;
+    }
+`
 const OtherMarkets = ({ except }) => {
     const markets = ['forex', 'Synthetic_Indices', 'stock_indices', 'commodities']
-
-    const StyledFlex = styled(Flex)`
-        @media ${device.laptopM} {
-            flex-direction: column;
-            margin: auto;
-        }
-    `
-    const Wrapper = styled(Box)`
-        position: relative;
-        max-width: 103.8rem;
-        width: 100%;
-        height: 19.2rem;
-        background: rgba(133, 172, 176, 0.24);
-        border-radius: 16px;
-    `
-
-    const CardWrapper = styled(Flex)`
-        left: 2.4rem;
-        top: 4rem;
-        max-height: 29.6rem;
-    `
-    const StyledHeader = styled(Header)`
-        @media ${device.laptopM} {
-            text-align: center;
-            max-width: unset;
-        }
-    `
     return (
-        <Section padding="8rem 0 12rem 12rem">
-            <StyledFlex tablet_jc="center">
-                <StyledHeader as="h3" align="left" max_width="28.2rem">
+        <Section>
+            <Show.Desktop>
+                <MarketsWrapper tablet_jc="center">
+                    <StyledHeader as="h3" align="left">
+                        {localize('Other markets you might be interested in')}
+                    </StyledHeader>
+                    <Box position="relative" width="100%" max_width="103.8rem" height="32rem">
+                        <Wrapper>
+                            <CardWrapper
+                                max_width="93rem"
+                                jc="space-around"
+                                position="absolute"
+                                height="100%"
+                            >
+                                {markets.map((market) =>
+                                    market !== except ? <Card name={market} key={market} /> : null,
+                                )}
+                            </CardWrapper>
+                        </Wrapper>
+                    </Box>
+                </MarketsWrapper>
+            </Show.Desktop>
+            <Show.Mobile>
+                <StyledHeader as="h3" align="left">
                     {localize('Other markets you might be interested in')}
                 </StyledHeader>
-
-                <Box position="relative" width="100%" max_width="103.8rem" height="32rem">
-                    <Wrapper>
-                        <CardWrapper
-                            max_width="93rem"
-                            jc="space-around"
-                            position="absolute"
-                            height="100%"
-                        >
-                            {markets.map((market) =>
-                                market !== except ? <Card name={market} key={market} /> : null,
-                            )}
-                        </CardWrapper>
-                    </Wrapper>
-                </Box>
-            </StyledFlex>
+                <MobileCardContainer direction="column">
+                    {markets.map((market) =>
+                        market !== except ? <MobileCard name={market} key={market} /> : null,
+                    )}
+                </MobileCardContainer>
+            </Show.Mobile>
         </Section>
     )
 }
-
 OtherMarkets.propTypes = {
     except: PropTypes.string,
 }
 Card.propTypes = {
+    name: PropTypes.string,
+}
+MobileCard.propTypes = {
     name: PropTypes.string,
 }
 export default OtherMarkets

@@ -22,9 +22,12 @@ const Symbol = styled(Flex)`
     svg {
         width: 32px;
         height: 32px;
+        margin-right: 0.8rem;
     }
     ${Text} {
         font-weight: normal;
+        font-size: var(--text-size-xs);
+        line-height: 1.14;
     }
 `
 

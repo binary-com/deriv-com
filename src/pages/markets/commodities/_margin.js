@@ -1,61 +1,97 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Metals, Energy } from '../sub-markets/_submarkets.js'
+import AvailablePlatforms from '../_available-platforms.js'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
-import DMT5 from 'images/svg/dmt5-icon.svg'
+import { SectionContainer, Flex, CssGrid } from 'components/containers'
+import { localize } from 'components/localization'
+import device from 'themes/device'
 
 const Descriptions = styled.div`
     padding-bottom: 4rem;
     border-bottom: 1px solid var(--color-grey-21);
 `
 const Col = styled(Flex)`
-    ${(props) => props.border_left && 'border-left: 1px solid #e3e4e5;'}
+    max-width: 12.9rem;
+
+    @media ${device.tabletL} {
+        max-width: 10rem;
+    }
 `
 const Row = styled(Flex)`
-    border: 1px solid #e3e4e5;
-    ${(props) => props.romve_border_top && 'border-top: unset;'}
+    border: 1px solid var(--color-grey-22);
+    margin-top: 2.4rem;
+    border-radius: 8px;
+`
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+        text-align: left;
+    }
+`
+const MarketsList = styled(CssGrid)`
+    border-left: 1px solid var(--color-grey-22);
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    padding: 2.4rem;
+    grid-row-gap: 1.6rem;
+
+    @media ${device.tabletL} {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem;
+
+        svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 4px;
+        }
+        ${Text} {
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+    }
+`
+const Title = styled(Text)`
+    @media ${device.tabletL} {
+        text-align: center;
+        max-width: 6.4rem;
+        font-weight: 600;
+    }
 `
 const Margin = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
-                    <Text align="center">
+                    <StyledText align="center">
                         {localize(
                             'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
                         )}
-                    </Text>
-                    <Flex jc="flex-end" ai="center" mt="2rem" pr="8rem">
-                        <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <LocalizedLink to="/dmt5/">
-                            <DMT5 />
-                        </LocalizedLink>
-                    </Flex>
+                    </StyledText>
+                    <AvailablePlatforms dmt5 />
                 </Descriptions>
-                <Text weight="bold" mt="2.4rem">
+                <StyledText weight="bold" mt="2.4rem">
                     {localize('Instruments available for margin trading')}
-                </Text>
-                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
+                </StyledText>
+                <Row jc="flex-start" ai="center" mt="1.6rem">
                     <Col max_width="13.2rem">
-                        <Text weight="bold" max_width="9.7rem" align="center">
+                        <Title weight="bold" max_width="9.7rem" align="center">
                             {localize('Metals')}
-                        </Text>
+                        </Title>
                     </Col>
-                    <Col wrap="wrap" jc="flex-start" p="2.4rem 0 2.4rem 1.6rem" border_left>
+                    <MarketsList>
                         <Metals />
-                    </Col>
+                    </MarketsList>
                 </Row>
-                <Row jc="flex-start" ai="center" romve_border_top>
+                <Row jc="flex-start" ai="center">
                     <Col max_width="13.2rem">
-                        <Text weight="bold" max_width="9.7rem" align="center">
+                        <Title weight="bold" max_width="9.7rem" align="center">
                             {localize('Energy')}
-                        </Text>
+                        </Title>
                     </Col>
-                    <Col wrap="wrap" jc="flex-start" p="2.4rem 0 2.4rem 1.6rem" border_left>
+                    <MarketsList>
                         <Energy />
-                    </Col>
+                    </MarketsList>
                 </Row>
             </Flex>
         </SectionContainer>

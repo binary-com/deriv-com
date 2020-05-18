@@ -34,7 +34,7 @@ const Tr = styled.tr`
 
 const Td = styled.td`
     vertical-align: middle;
-    padding: 0 2rem;
+    padding: 0.8rem 2rem;
     position: relative;
 
     & .tooltip {

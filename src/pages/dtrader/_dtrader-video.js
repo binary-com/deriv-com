@@ -86,9 +86,8 @@ const GoToLiveDemo = styled(Button)`
     border: 2px solid var(--color-red);
     font-weight: bold;
     line-height: 1.43;
-    width: 100%;
+    width: fit-content;
     margin-top: 4rem;
-    max-width: 14.2rem;
 
     @media ${device.tabletL} {
         max-width: 100%;

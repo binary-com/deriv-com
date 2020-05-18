@@ -29,16 +29,19 @@ const WaysWrapper = styled.div`
     display: flex;
     flex-direction: row;
 
-    @media ${device.tabletS} {
-        flex-direction: column;
-        height: auto;
-    }
     @media ${device.tabletL} {
         width: 100%;
 
         > div {
             margin: 0 auto;
             width: 100%;
+        }
+    }
+    @media (max-width: 740px) {
+        flex-direction: column;
+        height: auto;
+
+        > div {
             margin-top: 7rem;
         }
     }
@@ -148,7 +151,7 @@ export const ContactWays = () => {
                     <StyledText align="center">
                         {localize('The quickest way to get answers to your questions.')}
                     </StyledText>
-                    <StyledLinkButton secondary="true" to="help-centre">
+                    <StyledLinkButton secondary="true" to="/help-centre">
                         {localize('Visit the Help Centre')}
                     </StyledLinkButton>
                 </Contact>
@@ -159,12 +162,12 @@ export const ContactWays = () => {
                     <StyledHeader as="h3" align="center">
                         {localize('Call Us')}
                     </StyledHeader>
-                    <StyledText>{localize('International help desk')}</StyledText>
+                    <StyledText align="center">{localize('International help desk')}</StyledText>
                     <StyledText secondary="true" weight="bold">
                         <ClickToCall href="tel:+441942316229">+44 1942 316229</ClickToCall>
                     </StyledText>
                     <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
-                    <StyledText mb="1.9rem">
+                    <StyledText mb="1.9rem" align="center">
                         {localize('Sat-Sun: 8:00 am - 5:00 pm (GMT+8)')}
                     </StyledText>
                 </CallContact>

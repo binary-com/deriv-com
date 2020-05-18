@@ -7,7 +7,7 @@ import { QueryImage, Text, Header, Divider } from 'components/elements'
 import Chevron from 'images/svg/chevron.svg'
 
 const ImageWrapper = styled.div`
-    height: 14.5rem;
+    height: 144px;
     width: 100%;
 `
 
@@ -54,9 +54,9 @@ const StyledDivider = styled(Divider)`
 `
 
 const Card = ({ img_data, to, display_team_name, tagline, position_count }) => (
-    <StyledCard height="46.3rem" to={to}>
+    <StyledCard height="463px" to={to}>
         <ImageWrapper>
-            <QueryImage data={img_data} width="100%" height="14.5rem" alt={display_team_name} />
+            <QueryImage data={img_data} width="100%" height="145px" alt={display_team_name} />
         </ImageWrapper>
         <StyledContent>
             <Text size="var(--text-size-xs)">{`${position_count} ${

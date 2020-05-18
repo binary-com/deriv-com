@@ -7,7 +7,7 @@ import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
-import Partner from 'common/partner'
+import { affiliate_signup_url } from 'common/utility'
 import device from 'themes/device'
 import Chevron from 'images/svg/chevron-bottom-bold.svg'
 
@@ -55,7 +55,7 @@ const ButtonWrapper = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 1.6rem 0 3.2rem 3.2rem;
+    padding: 1.6rem 3.2rem 3.2rem;
 
     button:last-child {
         margin-left: 1.6rem;
@@ -77,7 +77,7 @@ const StyledCard = styled(Card)`
 `
 
 const TitleTR = styled(TR)`
-    height: 5rem;
+    height: 6rem;
 `
 const DerivIBProgramme = () => {
     return (
@@ -131,6 +131,10 @@ const StyledTR = styled(TR)`
     display: ${(props) => (props.hidden ? 'hidden' : 'block')};
 `
 
+const SyntheticTable = styled(Table)`
+    grid-template-columns: 55% 47%;
+`
+
 const DMT5Synthetic = ({ data }) => {
     const [is_expand, setExpand] = React.useState(false)
     const [is_calculated, setCalculated] = React.useState(false)
@@ -145,15 +149,15 @@ const DMT5Synthetic = ({ data }) => {
     }
     return (
         <Card
-            height={is_expand && !is_calculated ? '76rem' : '42rem'}
-            padding="3.2rem 3.2rem 8.2rem"
+            height={is_expand && !is_calculated ? '76rem' : '49rem'}
+            padding="3.2rem 1.6rem 8.2rem"
         >
             <div>
                 {!is_calculated ? (
-                    <>
+                    <div>
                         <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
-                        <Table grid_col_number={data.assets.length} is_balance={true}>
+                        <SyntheticTable grid_col_number={data.assets.length} is_balance={true}>
                             {data.assets.map((asset, idx) => (
                                 <TC grid_area={`area${idx}`} key={idx}>
                                     {asset.map((item, idxa) => {
@@ -187,7 +191,7 @@ const DMT5Synthetic = ({ data }) => {
                                     })}
                                 </TC>
                             ))}
-                        </Table>
+                        </SyntheticTable>
                         {has_expansion && (
                             <StyledChevron onClick={toggleExpand} is_expand={is_expand} />
                         )}
@@ -196,7 +200,7 @@ const DMT5Synthetic = ({ data }) => {
                                 {localize("How it's calculated")}
                             </Button>
                         </HowItsCalculate>
-                    </>
+                    </div>
                 ) : (
                     <>
                         <Header as="h4" lh="1.5">
@@ -204,9 +208,15 @@ const DMT5Synthetic = ({ data }) => {
                         </Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <Button secondary onClick={Partner.redirectToSignup}>
+                            <LinkButton
+                                secondary
+                                to={affiliate_signup_url}
+                                external
+                                target="_blank"
+                                is_affiliate_link
+                            >
                                 {localize('Become an affiliate')}
-                            </Button>
+                            </LinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -226,7 +236,7 @@ const DMT5Standard = ({ data }) => {
         <Card padding="3.2rem 3.2rem 8.2rem">
             <div>
                 {!is_calculated ? (
-                    <>
+                    <div>
                         <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
@@ -275,15 +285,21 @@ const DMT5Standard = ({ data }) => {
                                 {localize("How it's calculated")}
                             </Button>
                         </HowItsCalculate>
-                    </>
+                    </div>
                 ) : (
                     <>
                         <Header as="h4">{localize('How it’s calculated')}</Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <Button secondary onClick={Partner.redirectToSignup}>
+                            <LinkButton
+                                secondary
+                                to={affiliate_signup_url}
+                                external
+                                target="_blank"
+                                is_affiliate_link
+                            >
                                 {localize('Become an affiliate')}
-                            </Button>
+                            </LinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -303,7 +319,7 @@ const DMT5Advanced = ({ data }) => {
         <StyledCard padding="3.2rem 3.2rem 8.2rem">
             <div>
                 {!is_calculated ? (
-                    <>
+                    <div>
                         <Header as="h4">{data.name}</Header>
                         <Text>{data.description}</Text>
                         <Table grid_col_number={data.assets.length}>
@@ -353,15 +369,21 @@ const DMT5Advanced = ({ data }) => {
                                 {localize("How it's calculated")}
                             </Button>
                         </HowItsCalculate>
-                    </>
+                    </div>
                 ) : (
                     <>
                         <Header as="h4">{localize('How it’s calculated')}</Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <Button secondary onClick={Partner.redirectToSignup}>
+                            <LinkButton
+                                secondary
+                                to={affiliate_signup_url}
+                                external
+                                target="_blank"
+                                is_affiliate_link
+                            >
                                 {localize('Become an affiliate')}
-                            </Button>
+                            </LinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -395,14 +417,10 @@ const ib_dmt5_standard = {
     calculation: (
         <>
             <Text>
-                {localize(
-                    'For forex and metal assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 10 in commission. A round trade of 1 lot of USD/CAD will pay out USD 10 in commission.',
-                )}
+                <Localize translate_text="For forex and metal assets, your commission is represented in the base currency. For example, a round trade (i.e. opening and closing a position) of 1 lot of EUR/USD will pay out EUR 10 in commission. A round trade of 1 lot of USD/CAD will pay out USD 10 in commission." />
             </Text>
             <Text mt="2rem">
-                {localize(
-                    'For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 30 in commission.',
-                )}
+                <Localize translate_text="For cryptocurrency assets, a round trade of 1 lot of BTC/USD with a spot price of USD 10,000 will pay out USD 30 in commission." />
             </Text>
         </>
     ),
@@ -427,9 +445,7 @@ const ib_dmt5_advanced = {
     ],
     calculation: (
         <Text>
-            {localize(
-                'For forex assets, your commission is represented in the base currency. For example, a round trade of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission.',
-            )}
+            <Localize translate_text="For forex assets, your commission is represented in the base currency. For example, a round trade of 1 lot of EUR/USD will pay out EUR 5 in commission. A round trade of 1 lot of USD/CAD will pay out USD 5 in commission." />
         </Text>
     ),
 }
@@ -475,17 +491,13 @@ const ib_dmt5_synthetic = {
     calculation: (
         <>
             <Text>
-                {localize(
-                    'For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula: ',
-                )}
+                <Localize translate_text="For example, a round trade of 1 lot of the Volatility 75 Index for a price of USD 125,000 would pay out USD 12.5 in commission based on the following formula:" />
             </Text>
             <Text weight="bold" m="2.5rem 0">
-                {localize('USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5')}
+                <Localize translate_text="USD 10 X 1 lot X USD 125,000 / 100,000 = USD 12.5" />
             </Text>
             <StyledText size="var(--text-size-s)" lh="1.5">
-                {localize(
-                    'If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate.',
-                )}
+                <Localize translate_text="If your account currency is in euro or pound sterling, your commission will be converted based on the latest exchange rate." />
             </StyledText>
         </>
     ),

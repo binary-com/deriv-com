@@ -266,7 +266,7 @@ const SignupNew = ({
             <SignupWithContainer>
                 <Line />
                 <StyledText color="grey-5" align="center" size="1.5rem">
-                    {localize('Or sign up with ')}
+                    {localize('Or sign up with')}
                 </StyledText>
                 <Line />
             </SignupWithContainer>
@@ -298,7 +298,7 @@ const SignupNew = ({
                 </SocialButton>
             </SocialWrapper>
             <LoginText>
-                {localize('Already have an account? ')}
+                {localize('Already have an account?')}
                 <StyledLinkText size="2rem" color="red" weight="bold" onClick={handleLogin}>
                     {localize('Log in')}
                 </StyledLinkText>

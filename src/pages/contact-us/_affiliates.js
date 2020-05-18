@@ -21,10 +21,10 @@ const Wrapper = styled.section`
         padding: 5rem 1rem;
 
         div {
-            margin-top: 5rem;
+            margin-top: 4rem;
         }
-        div:first-child {
-            margin-top: 0;
+        div:last-child {
+            margin-bottom: 4rem;
         }
     }
 `

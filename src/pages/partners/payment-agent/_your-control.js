@@ -16,6 +16,7 @@ const Card = styled(Flex)`
     background: var(--color-white);
     height: 13.6rem;
     width: auto;
+    justify-content: flex-start;
 `
 
 const CardText = styled(Text)`

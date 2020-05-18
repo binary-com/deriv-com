@@ -16,6 +16,7 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
+import device from 'themes/device'
 // SVG
 import TradingExperts from 'images/svg/trading-experts.svg'
 import Affiliates from 'images/svg/affiliates.svg'
@@ -37,9 +38,17 @@ const Li = styled.li`
 
 const LineVertical = styled(LineVerticalSVG)`
     ${LineStyle}
-    height: 38.7rem;
-    margin-top: 11.5rem;
+    height: 100%;
+    margin-top: 2rem;
     margin-right: 1.8rem;
+
+    @media ${device.tablet} {
+        margin-top: 5rem;
+        width: 3.5rem;
+    }
+`
+const ColLine = styled(Col)`
+    flex-direction: row;
 `
 
 const StyledSeparator = styled(Separator)`
@@ -136,73 +145,77 @@ const WhoCanApply = () => {
                 </StyledCol>
                 <StyledSeparator />
                 <Flex width="auto">
-                    <LineVertical />
-                    <Col>
-                        <SecondaryHeader size="3.6rem">{localize('How to apply')}</SecondaryHeader>
-                        <Wrapper>
-                            <Email />
-                            <Content max_width="36.4rem">
-                                <Header as="h4" lh="1.5">
-                                    {localize('Drop us an email')}
-                                </Header>
-                                <Text>{localize('Send us an email with the following:')}</Text>
-                                <StyledUl>
-                                    <Li>
-                                        <Text>
-                                            {localize(
-                                                'Your name, email address, and contact number',
-                                            )}
-                                        </Text>
-                                    </Li>
-                                    <Li>
-                                        <Text>
-                                            {localize('Your website address (if you have one)')}
-                                        </Text>
-                                    </Li>
-                                    <Li>
-                                        <Text>
-                                            {localize(
-                                                'Payment methods you will accept from clients',
-                                            )}
-                                        </Text>
-                                    </Li>
-                                    <Li>
-                                        <Text>
-                                            {localize(
-                                                'The commission you will charge clients on deposits and withdrawals',
-                                            )}
-                                        </Text>
-                                    </Li>
-                                </StyledUl>
-                            </Content>
-                        </Wrapper>
-                        <Wrapper>
-                            <Reply />
-                            <Content max_width="36.4rem">
-                                <Header as="h4" lh="1.5">
-                                    {localize('Wait for our reply')}
-                                </Header>
-                                <SecondaryText>
-                                    {localize(
-                                        'We’ll review your application and get in touch for further information and next steps.',
-                                    )}
-                                </SecondaryText>
-                            </Content>
-                        </Wrapper>
-                        <Wrapper>
-                            <Listed />
-                            <Content max_width="36.4rem">
-                                <Header as="h4" lh="1.5">
-                                    {localize('Get listed')}
-                                </Header>
-                                <SecondaryText>
-                                    {localize(
-                                        'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
-                                    )}
-                                </SecondaryText>
-                            </Content>
-                        </Wrapper>
-                    </Col>
+                    <ColLine>
+                        <LineVertical />
+                        <div>
+                            <SecondaryHeader size="3.6rem">
+                                {localize('How to apply')}
+                            </SecondaryHeader>
+                            <Wrapper>
+                                <Email />
+                                <Content max_width="36.4rem">
+                                    <Header as="h4" lh="1.5">
+                                        {localize('Drop us an email')}
+                                    </Header>
+                                    <Text>{localize('Send us an email with the following:')}</Text>
+                                    <StyledUl>
+                                        <Li>
+                                            <Text>
+                                                {localize(
+                                                    'Your name, email address, and contact number',
+                                                )}
+                                            </Text>
+                                        </Li>
+                                        <Li>
+                                            <Text>
+                                                {localize('Your website address (if you have one)')}
+                                            </Text>
+                                        </Li>
+                                        <Li>
+                                            <Text>
+                                                {localize(
+                                                    'Payment methods you will accept from clients',
+                                                )}
+                                            </Text>
+                                        </Li>
+                                        <Li>
+                                            <Text>
+                                                {localize(
+                                                    'The commission you will charge clients on deposits and withdrawals',
+                                                )}
+                                            </Text>
+                                        </Li>
+                                    </StyledUl>
+                                </Content>
+                            </Wrapper>
+                            <Wrapper>
+                                <Reply />
+                                <Content max_width="36.4rem">
+                                    <Header as="h4" lh="1.5">
+                                        {localize('Wait for our reply')}
+                                    </Header>
+                                    <SecondaryText>
+                                        {localize(
+                                            'We’ll review your application and get in touch for further information and next steps.',
+                                        )}
+                                    </SecondaryText>
+                                </Content>
+                            </Wrapper>
+                            <Wrapper>
+                                <Listed />
+                                <Content max_width="36.4rem">
+                                    <Header as="h4" lh="1.5">
+                                        {localize('Get listed')}
+                                    </Header>
+                                    <SecondaryText>
+                                        {localize(
+                                            'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
+                                        )}
+                                    </SecondaryText>
+                                </Content>
+                            </Wrapper>
+                        </div>
+                    </ColLine>
                 </Flex>
             </Section>
             <ButtonWrapper padding="7.4rem 0 0">

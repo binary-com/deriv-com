@@ -48,6 +48,12 @@ const ColumnContainer = styled(Flex)`
     }
 `
 
+const ResponsiveHeader = styled(StyledHeader)`
+    @media ${device.mobileL} {
+        font-size: 5rem;
+    }
+`
+
 const WhyChooseUs = () => {
     return (
         <Layout>
@@ -59,9 +65,9 @@ const WhyChooseUs = () => {
             />
             <Section>
                 <GridContainer>
-                    <StyledHeader as="h1" align="center" lh="7.2rem">
+                    <ResponsiveHeader as="h1" align="center" lh="7.2rem">
                         {localize('Why choose Deriv')}
-                    </StyledHeader>
+                    </ResponsiveHeader>
                     <StyledHeader as="h4" align="center" weight="normal" lh="3rem" pt="1.6rem">
                         {localize(
                             'Client trust is our highest priority, and that’s why millions of users choose us. Here are some of the things that make us a leading online trading service provider.',

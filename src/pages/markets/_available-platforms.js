@@ -31,7 +31,7 @@ const AvailablePlatforms = ({ dmt5, dtrader, dbot, smarttrader }) => {
                 <LocalizedLink to="/dmt5/">
                     <Flex background="var(--color-grey-4)" direction="row" ai="center" p="0.8rem">
                         <DMT5 />
-                        <Text>{localize('MetaTrader5 (DMT5)')}</Text>
+                        <Text ml="0.8rem">{localize('MetaTrader5 (DMT5)')}</Text>
                     </Flex>
                 </LocalizedLink>
             )}

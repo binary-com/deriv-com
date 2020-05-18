@@ -37,7 +37,6 @@ const ClientCard = styled.article`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 31.6rem;
     padding: 3.2rem 2.4rem;
-    height: 100%;
     margin: ${(props) => (props.m ? props.m : '')};
     position: relative;
     overflow: hidden;
@@ -97,7 +96,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
             {content.map((item, idx) => {
                 return (
                     <ClientCard key={idx} m="0 0 0 2rem">
-                        <Flex ai="center">
+                        <Flex ai="center" height="auto">
                             <Header as="h4">{item.header}</Header>
                             {item.icon}
                         </Flex>

@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Card, CardWrapper } from './_partner-card.js'
 import { Table, TR, TC } from './_table.js'
-import Partner from 'common/partner'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { localize, Localize } from 'components/localization'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
+import { affiliate_signup_url } from 'common/utility'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
@@ -32,7 +32,7 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-const ApplyNow = styled(Button)`
+const ApplyNow = styled(LinkButton)`
     display: block;
     width: 100%;
 `
@@ -61,28 +61,31 @@ const StyledHeaderCommission = styled(StyledHeader)`
 
 const RevenueShare = [
     {
-        title: localize('Net revenue'),
-        data: [localize('≤ USD 20,000 per month '), localize('> USD 20,000 per month ')],
+        title: <Localize translate_text="Net revenue" />,
+        data: [
+            <Localize key={0} translate_text="≤ USD 20,000 per month" />,
+            <Localize key={1} translate_text="> USD 20,000 per month" />,
+        ],
     },
     {
-        title: localize('Commission'),
+        title: <Localize translate_text="Commission" />,
         data: ['30%', '45%'],
     },
 ]
 const Turnover = [
     {
-        title: localize('Probability of return'),
+        title: <Localize translate_text="Probability of return" />,
         data: [
             '0-19.999%',
             '20-39.999%',
             '40-59.999%',
             '60-79.999%',
             '80-94.999%',
-            localize('95% and above'),
+            <Localize key={0} translate_text="95% and above" />,
         ],
     },
     {
-        title: localize('Commission'),
+        title: <Localize translate_text="Commission" />,
         data: ['1.5%', '1%', '0.75%', '0.5%', '0.4%', '0%'],
     },
 ]
@@ -129,7 +132,13 @@ const DerivAffiliateProgramme = () => {
                                 </Table>
                             </div>
                             <div>
-                                <ApplyNow secondary onClick={Partner.redirectToSignup}>
+                                <ApplyNow
+                                    secondary
+                                    to={affiliate_signup_url}
+                                    external
+                                    target="_blank"
+                                    is_affiliate_link
+                                >
                                     {localize('Sign up')}
                                 </ApplyNow>
                             </div>
@@ -158,7 +167,13 @@ const DerivAffiliateProgramme = () => {
                                 </Table>
                             </div>
                             <div>
-                                <ApplyNow secondary onClick={Partner.redirectToSignup}>
+                                <ApplyNow
+                                    secondary
+                                    to={affiliate_signup_url}
+                                    external
+                                    target="_blank"
+                                    is_affiliate_link
+                                >
                                     {localize('Sign up')}
                                 </ApplyNow>
                             </div>
@@ -183,7 +198,13 @@ const DerivAffiliateProgramme = () => {
                                 </CPAContent>
                             </div>
                             <div>
-                                <ApplyNow secondary onClick={Partner.redirectToSignup}>
+                                <ApplyNow
+                                    secondary
+                                    to={affiliate_signup_url}
+                                    external
+                                    target="_blank"
+                                    is_affiliate_link
+                                >
                                     {localize('Sign up')}
                                 </ApplyNow>
                             </div>

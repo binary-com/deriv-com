@@ -58,9 +58,9 @@ const Section = styled(SectionContainer)`
     }
 `
 const LearnMore = styled(LocalizedLink)`
-    opacity: ${(props) => (props.visibility === 'true' ? '1' : '0')};
-    width: 142px;
-    height: 40px;
+    opacity: 0;
+    width: fit-content;
+    padding: 0.6rem 1.2rem;
     border-radius: 23px;
     background-color: #f4f4f6;
     position: absolute;
@@ -78,14 +78,21 @@ const LearnMore = styled(LocalizedLink)`
     ${Text} {
         font-weight: bold;
         color: var(--color-red);
+        margin-right: 0.4rem;
     }
 `
 const StyledFlex = styled(Flex)`
+    height: fit-content;
     border-radius: 1.6rem;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
     top: 0;
 
+    &:hover {
+        ${LearnMore} {
+            opacity: 1;
+        }
+    }
     svg {
         width: 64px;
         height: 64px;
@@ -99,27 +106,27 @@ const StyledFlex = styled(Flex)`
     }
 `
 const Card = ({ name }) => {
-    const [button_visibility, setButtonVisibility] = React.useState('false')
     const Icon = markets_type[name].icon
 
     return (
         <StyledFlex
             direction="column"
-            height="29.6rem"
+            height="auto"
             max_width="28.2rem"
             width="100%"
             p="2.4rem 2.4rem 4rem"
             jc="flex-start"
             position="relative"
-            onMouseEnter={() => setButtonVisibility('true')}
-            onMouseLeave={() => setButtonVisibility('false')}
         >
-            <Icon dynamic_id={markets_type[name].id} />
+            <div>
+                <Icon dynamic_id={markets_type[name].id} />
+            </div>
+
             <Text weight="bold" mt="1.6rem">
                 {markets_type[name].title}
             </Text>
             <Text mt="0.8rem">{markets_type[name].content}</Text>
-            <LearnMore to={markets_type[name].to} visibility={button_visibility}>
+            <LearnMore to={markets_type[name].to}>
                 <Text>{localize('Learn more')}</Text>
                 <Arrow />
             </LearnMore>
@@ -157,7 +164,7 @@ const OtherMarkets = ({ except }) => {
         }
     `
     return (
-        <Section padding="8rem 0 8.8rem 12rem">
+        <Section padding="8rem 0 12rem 12rem">
             <StyledFlex tablet_jc="center">
                 <StyledHeader as="h3" align="left" max_width="28.2rem">
                     {localize('Other markets you might be interested in')}

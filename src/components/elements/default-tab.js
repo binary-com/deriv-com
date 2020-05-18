@@ -11,7 +11,7 @@ const TabContent = styled.div`
 
 const TabButton = styled.button`
     z-index: 2;
-    height: 50px;
+    height: auto;
     padding: 0 24px;
     display: flex;
     align-items: center;
@@ -97,7 +97,7 @@ const Tabs = ({ children, tab_break }) => {
                         aria-selected={selected_tab === index ? 'true' : 'false'}
                         onClick={() => selectTab(index)}
                     >
-                        <Text size="var(--text-size-m)" color="red-2" weight="bold">
+                        <Text align="center" size="var(--text-size-m)" color="red-2" weight="bold">
                             {label}
                         </Text>
                     </TabButton>

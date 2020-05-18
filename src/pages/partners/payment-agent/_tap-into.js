@@ -31,6 +31,11 @@ const WrapContainer = styled(Container)`
     }
 `
 
+const Wrapper = styled.div`
+    width: 100%;
+    max-width: 48.6rem;
+`
+
 const TapInto = () => {
     const data = useStaticQuery(query)
     return (
@@ -46,11 +51,13 @@ const TapInto = () => {
                         )}
                     </Text>
                 </Flex>
-                <QueryImage
-                    data={data['payment_agent']}
-                    alt={localize('Payment agent')}
-                    width="48.6rem"
-                />
+                <Wrapper>
+                    <QueryImage
+                        data={data['payment_agent']}
+                        alt={localize('Payment agent')}
+                        width="100%"
+                    />
+                </Wrapper>
             </WrapContainer>
         </SectionContainer>
     )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import DMT5Video from './_dmt5-video.js'
@@ -13,6 +13,9 @@ import { OtherPlatform } from 'components/custom/other-platforms.js'
 import { SEO, Show } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DMT5BG from 'images/svg/dmt5-bg.svg'
+import DMT5BGMobile from 'images/svg/dmt5-bg-mobile.svg'
+import { size } from 'themes/device'
+import { isBrowser } from 'common/utility'
 import DBanner from 'components/custom/_dbanner.js'
 
 const query = graphql`
@@ -58,7 +61,17 @@ const trading = [
 ]
 
 const DMT5 = () => {
+    const [is_mobile, setMobile] = useState(false)
+    const handleResizeWindow = () => {
+        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+    }
+
+    useEffect(() => {
+        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+        window.addEventListener('resize', handleResizeWindow)
+    })
     const data = useStaticQuery(query)
+
     return (
         <Layout>
             <SEO
@@ -69,16 +82,12 @@ const DMT5 = () => {
             />
             <DHero
                 title={localize('DMT5')}
-                content={
-                    <Localize
-                        translate_text="The all-in-one FX<0/>and CFD trading<0/>platform"
-                        components={[<br key={0} />]}
-                    />
-                }
+                content={<Localize translate_text="The all-in-one FX and CFD trading platform" />}
                 join_us_for_free
                 Logo={dmt5_logo}
                 image_name="dmt5"
-                background_svg={DMT5BG}
+                is_mobile={is_mobile}
+                background_svg={is_mobile ? DMT5BGMobile : DMT5BG}
                 background_alt={localize('DMT5')}
             />
             <Show.Desktop>

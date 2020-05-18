@@ -22,12 +22,15 @@ class LanguageSwitch extends Component {
     renderLanguageChoice = (lang) => {
         if (lang === 'ach' && isProduction()) return
         const { display_name, path, short_name } = language_config[lang]
-        const to = `/${path}`
+        const current_short_name = language_config[this.state.language].short_name
+        const is_selected = current_short_name === short_name
+        const to = `/${path}/`
         let text = this.props.short_name === 'true' ? short_name : display_name
 
         return {
             value: to,
             text: text,
+            is_selected,
         }
     }
     getCurrentLanguage() {
@@ -38,12 +41,12 @@ class LanguageSwitch extends Component {
     handleSelect = (e) => {
         const { id } = e.target
         const current_lang = localStorage.getItem('i18n') || 'en'
-        const path = id === '/en' ? '/' : id
+        const path = id === '/en/' ? '/' : id
 
         if (!(`/${current_lang}` === id)) {
-            if (path === '/ach') {
+            if (path === '/ach/') {
                 localStorage.setItem('i18n', 'ach')
-                window.location.href = '/ach'
+                window.location.href = '/ach/'
             } else {
                 /*
                 can be something like /es/about/

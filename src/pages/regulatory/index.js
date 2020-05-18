@@ -55,6 +55,12 @@ const MaxText = styled(Text)`
 //     }
 // `
 
+const ResponsiveHeader = styled(StyledHeader)`
+    @media ${device.mobileL} {
+        font-size: 5rem;
+    }
+`
+
 const Regulatory = () => (
     <Layout>
         <SEO
@@ -65,9 +71,9 @@ const Regulatory = () => (
         />
         <SectionContainer>
             <GridContainer>
-                <StyledHeader as="h1" align="center" lh="8rem">
+                <ResponsiveHeader as="h1" align="center" lh="8rem">
                     {localize('Regulatory information')}
-                </StyledHeader>
+                </ResponsiveHeader>
                 <StyledHeader
                     as="h4"
                     align="center"
@@ -219,11 +225,11 @@ const Regulatory = () => (
 
                         {/* <CssGridColumn>
                             <StyledHeader size="3.6rem" lh="4.5rem" as='h4'>
-                                {localize('Binary (SVG) Ltd')}
+                                {localize('Binary (SVG) LLC')}
                             </StyledHeader>
                             <Text lh="1.55" mt="0.8rem">
                                 {localize(
-                                    'Binary (SVG) Ltd, Hinds Buildings, Kingstown, St. Vincent and the Grenadines; company number 25299 BC 2019.',
+                                    'Binary (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines; company number 25299 BC 2019.',
                                 )}
                             </Text>
                         </CssGridColumn> */}

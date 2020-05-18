@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import Copy from './copyright'
-import { isProduction } from 'common/websocket/config'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
@@ -241,7 +240,7 @@ const mobile_accordion_header = {
     backgroundColor: 'var(--color-grey-8)',
     boxShadow: 'none',
 }
-const Footer = ({ has_banner_cookie }) => (
+const Footer = ({ has_banner_cookie, no_language }) => (
     <StyledFooter has_banner_cookie={has_banner_cookie}>
         <Container>
             <StyledGrid columns="repeat(12, 1fr)" columngap="2.4rem" rowgap="3.9rem">
@@ -282,7 +281,7 @@ const Footer = ({ has_banner_cookie }) => (
                                 </ExternalLink>
                             </div>
                         </SocialWrapper> */}
-                        <div>{!isProduction() && <LanguageSwitcher />}</div>
+                        <div>{!no_language && <LanguageSwitcher />}</div>
                         {/* <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
@@ -307,7 +306,12 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </div>
                         <div>
-                            <Link to={smarttrader_url} external="true" target="_blank">
+                            <Link
+                                to={smarttrader_url}
+                                is_binary_link
+                                external="true"
+                                target="_blank"
+                            >
                                 {localize('SmartTrader')}
                             </Link>
                         </div>
@@ -415,7 +419,12 @@ const Footer = ({ has_banner_cookie }) => (
                             <Link to="/dmt5">{localize('DMT5')}</Link>
                         </Item>
                         <Item>
-                            <Link to={smarttrader_url} external="true" target="_blank">
+                            <Link
+                                to={smarttrader_url}
+                                is_binary_link
+                                external="true"
+                                target="_blank"
+                            >
                                 {localize('SmartTrader')}
                             </Link>
                         </Item>
@@ -458,7 +467,7 @@ const Footer = ({ has_banner_cookie }) => (
                         </Item>
                     </AccordionItem>
                     <AccordionItem
-                        header="RESOURCES"
+                        header={localize('RESOURCES')}
                         arrow_thin
                         header_style={mobile_accordion_header}
                     >
@@ -470,7 +479,7 @@ const Footer = ({ has_banner_cookie }) => (
                         </Item>
                     </AccordionItem>
                     <AccordionItem
-                        header="ABOUT US"
+                        header={localize('ABOUT US')}
                         arrow_thin
                         header_style={mobile_accordion_header}
                     >
@@ -491,7 +500,7 @@ const Footer = ({ has_banner_cookie }) => (
                         </Item>
                     </AccordionItem>
                     <AccordionItem
-                        header="PARTNER WITH US"
+                        header={localize('PARTNER WITH US')}
                         arrow_thin
                         header_style={mobile_accordion_header}
                     >
@@ -525,7 +534,7 @@ const Footer = ({ has_banner_cookie }) => (
                     </StyledText>
                     <StyledText>
                         <Localize
-                            translate_text="Outside the EU, financial products are offered by Binary (SVG) Ltd, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
+                            translate_text="Outside the EU, financial products are offered by Binary (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
                             components={[
                                 <StaticAsset
                                     key={0}
@@ -576,6 +585,7 @@ const Footer = ({ has_banner_cookie }) => (
 
 Footer.propTypes = {
     has_banner_cookie: PropTypes.bool,
+    no_language: PropTypes.bool,
 }
 
 export default Footer

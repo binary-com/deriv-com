@@ -4,10 +4,15 @@ import Hero from '../affiliate-ib/_hero'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
+import device from 'themes/device'
 
 const MainHeader = styled(Header)`
     max-width: 80rem;
     margin-bottom: 1.6rem;
+
+    @media ${device.mobileM} {
+        font-size: 5rem;
+    }
 `
 
 const MiddleHeader = styled(Header)`

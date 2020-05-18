@@ -13,6 +13,9 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import dbot_logo from 'images/svg/dbot-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
 import DBotBG from 'images/svg/dbot-bg.svg'
+import DBotBGMobile from 'images/svg/dbot-bg-mobile.svg'
+import { size } from 'themes/device'
+import { isBrowser } from 'common/utility'
 import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
 
 const query = graphql`
@@ -35,55 +38,68 @@ const PlatformContainer = styled.div`
 `
 const trading = [
     {
-        title: localize('Start with a popular strategy'),
-        subtitle: localize(
-            "Martingale, D'Alembert, Oscar's Grind, Cutler's RSI, Bollinger Bands, and SMA Crossover — load and customise proven strategies or create your own from scratch.",
+        title: <Localize translate_text="Start with a popular strategy" />,
+        subtitle: (
+            <Localize translate_text="Martingale, D'Alembert, Oscar's Grind, Cutler's RSI, Bollinger Bands, and SMA Crossover — load and customise proven strategies or create your own from scratch." />
         ),
         image_name: 'dbot_strategy',
-        image_alt: localize('Strategy'),
+        image_alt: <Localize translate_text="Strategy" />,
     },
     {
-        title: localize('Build your strategy visually'),
-        subtitle: localize(
-            'Simply drag, drop, and configure pre-built blocks and indicators onto a canvas to build your bot. No coding needed.',
+        title: <Localize translate_text="Build your strategy visually" />,
+        subtitle: (
+            <Localize translate_text="Simply drag, drop, and configure pre-built blocks and indicators onto a canvas to build your bot. No coding needed." />
         ),
         image_name: 'dbot_build_strategy',
-        image_alt: localize('Create your Strategy '),
+        image_alt: <Localize translate_text="Create your Strategy" />,
     },
     {
-        title: localize('Maximise profits, limit losses'),
-        subtitle: localize(
-            'Use analysis tools, indicators, and smart logic such as take-profit and stop-loss to maximise your profits and limit losses.',
+        title: <Localize translate_text="Maximise profits, limit losses" />,
+        subtitle: (
+            <Localize translate_text="Use analysis tools, indicators, and smart logic such as take-profit and stop-loss to maximise your profits and limit losses." />
         ),
         image_name: 'dbot_maximise_profits',
-        image_alt: localize('Tools'),
+        image_alt: <Localize translate_text="Tools" />,
     },
     {
-        title: localize('Track your performance'),
-        subtitle: localize(
-            'See how your bot is performing as it executes each trade and receive notifications via Telegram.',
+        title: <Localize translate_text="Track your performance" />,
+        subtitle: (
+            <Localize translate_text="See how your bot is performing as it executes each trade and receive notifications via Telegram." />
         ),
         image_name: 'dbot_track_your_performance',
-        image_alt: localize('Performance Tracking'),
+        image_alt: <Localize translate_text="Performance Tracking" />,
     },
     {
-        title: localize('Get integrated help'),
-        subtitle: localize(
-            'Access tutorials, guides, and reference information as you build your bot.',
+        title: <Localize translate_text="Get integrated help" />,
+        subtitle: (
+            <Localize translate_text="Access tutorials, guides, and reference information as you build your bot." />
         ),
         image_name: 'dbot_get_integrated_help',
-        image_alt: localize('Tutorials'),
+        image_alt: <Localize translate_text="Tutorials" />,
     },
     {
-        title: localize('Save your strategies'),
-        subtitle: localize(
-            'Enjoy the convenience and security of storing your strategies on your Google Drive.',
+        title: <Localize translate_text="Save your strategies" />,
+        subtitle: (
+            <Localize translate_text="Enjoy the convenience and security of storing your strategies on your Google Drive." />
         ),
         image_name: 'dbot_save_your_strategies',
-        image_alt: localize('Save Strategies'),
+        image_alt: <Localize translate_text="Save Strategies" />,
     },
 ]
 class Dbot extends Component {
+    state = { is_mobile: false }
+
+    handleResizeWindow = () => {
+        this.setState({
+            is_mobile: isBrowser() ? window.screen.width <= size.mobileL : false,
+        })
+    }
+    componentDidMount() {
+        this.setState({
+            is_mobile: isBrowser() ? window.screen.width <= size.mobileL : false,
+        })
+        window.addEventListener('resize', this.handleResizeWindow)
+    }
     render() {
         return (
             <Layout>
@@ -100,8 +116,9 @@ class Dbot extends Component {
                     join_us_for_free
                     go_to_live_demo
                     Logo={dbot_logo}
-                    background_svg={DBotBG}
+                    background_svg={this.state.is_mobile ? DBotBGMobile : DBotBG}
                     image_name="dbot"
+                    is_mobile={this.state.is_mobile}
                     background_alt={localize('DBot Board')}
                 />
                 <DNumber items={items} justify="space-around" />

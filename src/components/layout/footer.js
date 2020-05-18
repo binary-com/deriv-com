@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import Copy from './copyright'
-import { isProduction } from 'common/websocket/config'
 import { localize, Localize, LanguageSwitcher } from 'components/localization'
 import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
@@ -282,7 +281,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                                 </ExternalLink>
                             </div>
                         </SocialWrapper> */}
-                        <div>{!isProduction() && !no_language && <LanguageSwitcher />}</div>
+                        <div>{!no_language && <LanguageSwitcher />}</div>
                         {/* <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>

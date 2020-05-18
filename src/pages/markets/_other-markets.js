@@ -105,7 +105,7 @@ const MobileCardWrapper = styled(Flex)`
     }
 `
 const Section = styled(SectionContainer)`
-    padding: 8rem 0 8.8rem 12rem;
+    padding: 8rem 0 12rem 12rem;
 
     @media ${device.laptopM} {
         padding: 8rem 0 8.8rem 0;
@@ -115,6 +115,7 @@ const Section = styled(SectionContainer)`
     }
 `
 const StyledFlex = styled(Flex)`
+    height: fit-content;
     border-radius: 1.6rem;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
@@ -135,7 +136,7 @@ const Card = ({ name }) => {
     return (
         <StyledFlex
             direction="column"
-            height="29.6rem"
+            height="auto"
             max_width="28.2rem"
             width="100%"
             p="2.4rem 2.4rem 4rem"
@@ -144,7 +145,10 @@ const Card = ({ name }) => {
             onMouseEnter={() => setButtonVisibility('true')}
             onMouseLeave={() => setButtonVisibility('false')}
         >
-            <Icon dynamic_id={markets_type[name].id} width="64px" height="64px" />
+            <div>
+                <Icon dynamic_id={markets_type[name].id} width="64px" height="64px" />
+            </div>
+
             <Text weight="bold" mt="1.6rem">
                 {markets_type[name].title}
             </Text>

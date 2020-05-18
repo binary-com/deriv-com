@@ -12,6 +12,7 @@ const HeroText = styled(Text)`
     max-width: 86.2rem;
     font-size: var(--text-size-sm);
 `
+
 const query = graphql`
     query {
         devops: file(relativePath: { eq: "careers/team-devops.png" }) {

@@ -300,7 +300,7 @@ const Leaders = () => {
                                 <Box margin={{ bottom: '0.8rem' }} width="100%" position="relative">
                                     <QueryImage data={data[leader.image]} alt={leader.name} />
                                     <DescriptionWrapper>
-                                        <Text lh="1.71" size="var(--text-size-xs)" color="white">
+                                        <Text lh="1.71" size="var(--text-size-xxs)" color="white">
                                             {leader.description}
                                         </Text>
                                     </DescriptionWrapper>
@@ -330,7 +330,7 @@ const Leaders = () => {
                                     <Text align="center" m="0 auto" size="2rem">
                                         {leader.position}
                                     </Text>
-                                    <Text m="16px 16px 32px 16px" size="2rem">
+                                    <Text m="16px 16px 32px 16px" size="1.6rem">
                                         {leader.description}
                                     </Text>
                                 </LeaderMobile>

@@ -132,6 +132,12 @@ const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 3rem;
     }
+    @media ${device.mobileL} {
+        font-size: 2rem;
+    }
+    @media ${device.mobileM} {
+        font-size: 1.8rem;
+    }
 `
 const TrailNavigation = styled.span`
     height: 4px;

@@ -63,7 +63,7 @@ const AvailablePlatforms = ({ dmt5, dtrader, dbot, smarttrader }) => {
                     <StyledFlex direction="row" ai="center">
                         <DMT5 />
                         <Show.Desktop>
-                            <Text>{localize('MetaTrader5 (DMT5)')}</Text>
+                            <Text ml="0.8rem">{localize('MetaTrader5 (DMT5)')}</Text>
                         </Show.Desktop>
                     </StyledFlex>
                 </LocalizedLink>

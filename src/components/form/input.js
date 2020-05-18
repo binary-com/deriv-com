@@ -73,6 +73,13 @@ const StyledInput = styled.input`
         }
     }
 
+    @media ${device.mobileM} {
+        & ~ label {
+            font-size: 1.5rem;
+            top: 1.75rem;
+        }
+    }
+
     &::placeholder {
         opacity: 0;
         transition: opacity 0.25s;
@@ -83,7 +90,12 @@ const StyledInput = styled.input`
 
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: var(--color- ${(props) => props.labelFocusColor || 'green'});
+
+            /* prettier-ignore */
+            color: var(--color-${(props) => props.labelFocusColor || 'green'});
+
+            /* prettier-ignore */
+            background-color: var(--color-${(props) => props.background || 'grey-1'});
         }
         &::placeholder {
             opacity: 0.5;
@@ -93,6 +105,9 @@ const StyledInput = styled.input`
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
             color: var(--color-green);
+
+            /* prettier-ignore */
+            background-color: var(--color-${(props) => props.background || 'grey-1'});
         }
     }
 `
@@ -113,9 +128,7 @@ const StyledLabel = styled.label`
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
-
-    /* prettier-ignore */
-    background-color: var(--color-${(props) => props.background || 'grey-1'});
+    background: none;
 `
 
 const Input = ({
@@ -136,13 +149,8 @@ const Input = ({
             error={error}
             className="input-wrapper"
         >
-            <StyledInput id={id} {...props} />
-            <StyledLabel
-                background={background}
-                tabletBackground={tabletBackground}
-                error={error}
-                htmlFor={id}
-            >
+            <StyledInput id={id} background={background} {...props} />
+            <StyledLabel tabletBackground={tabletBackground} error={error} htmlFor={id}>
                 {label}
             </StyledLabel>
         </InputWrapper>

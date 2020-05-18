@@ -56,6 +56,8 @@ const ListItem = styled.li`
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: var(--text-size-xs);
+    background-color: ${(props) =>
+        props.is_selected ? 'var(--color-grey-6)' : 'var(--color-white)'};
 
     &:hover {
         background-color: var(--color-grey-6);
@@ -218,6 +220,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                                         id={option.value}
                                         key={option.value}
                                         ref={(c) => nodes.set(option.value, c)}
+                                        is_selected={option.is_selected}
                                     >
                                         {option.text}
                                     </ListItem>

@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Partner from 'common/partner'
 import { SectionContainer } from 'components/containers'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Header, Text, LinkText } from 'components/elements'
-import { isBrowser } from 'common/utility'
+import { isBrowser, affiliate_signup_url } from 'common/utility'
 
 const ItemContainer = styled(SectionContainer)`
     padding: 4rem 0;
@@ -135,8 +134,10 @@ const AffiliateAccountManagement = () => (
             <Localize
                 translate_text="All you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
                 components={[
-                    <StyledLink
-                        href={Partner.signup_url}
+                    <LocalizedLinkText
+                        to={affiliate_signup_url}
+                        external
+                        is_affiliate_link
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -284,8 +285,10 @@ const IBAccountManagement = () => (
             <Localize
                 translate_text="If you’re interested in becoming an IB, all you need to do is head to the signup page and fill out the <0>application form</0>. We’ll review your application and get in touch if it’s successful."
                 components={[
-                    <StyledLink
-                        href={Partner.signup_url}
+                    <LocalizedLinkText
+                        to={affiliate_signup_url}
+                        external
+                        is_affiliate_link
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}

@@ -9,13 +9,13 @@ import MoreReason from './_more-reason.js'
 import Faq from './_faq'
 import CTA from './_partner-cta'
 import { Header } from 'components/elements'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { SectionContainer, Container, SEO } from 'components/containers'
 import DNumber from 'components/custom/_dnumbers.js'
 import { localize, Localize, WithIntl } from 'components/localization'
-import Partner from 'common/partner'
 import device from 'themes/device'
+import { affiliate_signup_url } from 'common/utility'
 
 const StyledHeader = styled(Header)`
     width: 100%;
@@ -71,9 +71,15 @@ const AffiliateIb = () => {
                 <StyledHeader as="h1" color="white" align="center" lh="1.25">
                     {localize('Partner with a trusted online trading provider')}
                 </StyledHeader>
-                <Button onClick={Partner.redirectToSignup} secondary>
+                <LinkButton
+                    to={affiliate_signup_url}
+                    external
+                    target="_blank"
+                    is_affiliate_link
+                    secondary
+                >
                     {localize('Sign up as our affiliate & IB')}
-                </Button>
+                </LinkButton>
             </Hero>
             <SectionContainer padding="8rem 0 4rem">
                 <Container direction="column">

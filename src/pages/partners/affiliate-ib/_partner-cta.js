@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import Partner from 'common/partner'
 import device from 'themes/device'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
-import { Button, LinkButton } from 'components/form'
+import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
+import { affiliate_signup_url } from 'common/utility'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-black-3);
@@ -52,9 +52,16 @@ const CTA = () => {
                             'Enjoy generous commissions and all the other benefits of being a Deriv partner',
                         )}
                     </Header>
-                    <Button mt="2rem" onClick={Partner.redirectToSignup} secondary>
+                    <LinkButton
+                        mt="2rem"
+                        to={affiliate_signup_url}
+                        external
+                        target="_blank"
+                        is_affiliate_link
+                        secondary
+                    >
                         {localize('Sign up')}
-                    </Button>
+                    </LinkButton>
                 </Flex>
             </Container>
         </StyledSection>

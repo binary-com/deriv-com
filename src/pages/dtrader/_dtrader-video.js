@@ -86,9 +86,8 @@ const GoToLiveDemo = styled(Button)`
     border: 2px solid var(--color-red);
     font-weight: bold;
     line-height: 1.43;
-    width: 100%;
+    width: fit-content;
     margin-top: 4rem;
-    max-width: 14.2rem;
 
     @media ${device.tabletL} {
         max-width: 100%;
@@ -198,7 +197,7 @@ class DtraderTabs extends React.Component {
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(0)}
                         >
-                            {localize('1. Select your asset')}
+                            {localize('1. Select an asset')}
                         </Step>
                     </Tab>
                     <Tab>
@@ -211,7 +210,7 @@ class DtraderTabs extends React.Component {
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(7)}
                         >
-                            {localize('2. Follow the chart')}
+                            {localize('2. Monitor the chart')}
                         </Step>
                     </Tab>
                     <Tab>
@@ -224,7 +223,7 @@ class DtraderTabs extends React.Component {
                             current_time={this.state.current_time}
                             onClick={() => this.clickHandler(13)}
                         >
-                            {localize('3. Purchase your option')}
+                            {localize('3. Place a trade')}
                         </Step>
                     </Tab>
                     <GoToLiveDemo secondary="true" onClick={this.handleRedirect}>

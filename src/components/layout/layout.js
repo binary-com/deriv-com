@@ -49,7 +49,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             break
         case 'careers':
             Navigation = <NavCareers />
-            FooterNav = <Footer has_banner_cookie={show_cookie_banner} />
+            FooterNav = <Footer has_banner_cookie={show_cookie_banner} no_language={true} />
             break
         default:
             Navigation = <Nav />

@@ -22,7 +22,7 @@ const Wrapper = styled.div`
         padding: 8rem 12rem 8rem 4rem;
     }
     @media ${device.tabletL} {
-        max-height: 304px;
+        min-height: 304px;
         flex-direction: column;
     }
     @media ${device.tablet} {
@@ -93,12 +93,18 @@ const LottieWrapper = styled.div`
         right: unset;
         transform: translateX(-50%);
     }
+    @media ${device.mobileM} {
+        max-width: 280px;
+        top: 34px;
+        left: 50%;
+        right: unset;
+        transform: translateX(-50%);
+    }
 `
 
 const LinkWrapper = styled.div`
-    position: absolute;
-    top: 444px;
     display: flex;
+    margin-top: 3.2rem;
 
     @media (max-width: 1420px) {
         top: 480px;
@@ -114,7 +120,7 @@ const LinkWrapper = styled.div`
         top: unset;
         justify-content: start;
     }
-    @media (max-width: 359px) {
+    @media (max-width: 460px) {
         flex-wrap: wrap;
     }
 `
@@ -123,25 +129,22 @@ const GoToLiveDemo = styled(Button)`
     color: var(--color-white);
     border-color: var(--color-black-5);
     margin-left: 1.6rem;
-    height: 40px;
-    max-width: 139px;
-    width: 100%;
+    padding: 1.1rem 1.6rem;
+    width: auto;
 
     @media ${device.laptopM} {
         font-size: 14px;
         margin-left: 0;
     }
     @media ${device.mobileL} {
-        max-width: 128px;
+        max-width: 100%;
         padding: 10px 11px;
-        height: 42px;
+        white-space: nowrap;
     }
 `
 const DemoButton = styled(LinkButton)`
-    padding: 1.3rem 0;
-    height: 40px;
-    min-height: 40px;
-    width: 202px;
+    padding: 1.4rem 1.6rem;
+    width: auto;
     font-size: 14px;
     margin-right: 2px;
     border: unset;
@@ -149,20 +152,25 @@ const DemoButton = styled(LinkButton)`
     @media ${device.mobileL} {
         padding: 1.5rem 1.6rem;
         height: 42px;
+        white-space: nowrap;
+    }
+    @media (max-width: 460px) {
+        margin-bottom: 2rem;
     }
 `
 const StyledContent = styled(Header)`
     font-size: 5.6rem;
+
+    @media (max-width: 1322px) {
+        font-size: 4.2rem;
+    }
 `
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
-    position: absolute;
-    top: 120px;
 
-    @media (max-width: 1420px) {
-        width: 77%;
-        max-width: 385px;
+    @media (max-width: 1320px) {
+        max-width: 450px;
     }
     @media ${device.laptop} {
         max-width: 390px;
@@ -183,7 +191,7 @@ const InformationWrapper = styled(Flex)`
         top: 280px;
         max-width: 328px;
     }
-    @media ${device.mobileS} {
+    @media ${device.mobileM} {
         top: 230px;
         max-width: 328px;
     }
@@ -260,6 +268,10 @@ const DHero = ({
             max-width: 250px;
             min-height: 244px;
         }
+        @media ${device.mobileM} {
+            max-width: 205px;
+            min-height: 0;
+        }
     `
     return (
         <Wrapper>
@@ -272,19 +284,20 @@ const DHero = ({
                 <HeroContent>
                     <StyledContent as="h2">{content}</StyledContent>
                 </HeroContent>
+                <LinkWrapper>
+                    {join_us_for_free && (
+                        <DemoButton secondary="true" to="/signup/">
+                            {localize('Create free demo account')}
+                        </DemoButton>
+                    )}
+                    {go_to_live_demo && (
+                        <GoToLiveDemo tertiary onClick={handleRedirect}>
+                            {localize('Go to live demo')}
+                        </GoToLiveDemo>
+                    )}
+                </LinkWrapper>
             </InformationWrapper>
-            <LinkWrapper>
-                {join_us_for_free ? (
-                    <DemoButton secondary="true" to="/signup/">
-                        {localize('Create free demo account')}
-                    </DemoButton>
-                ) : null}
-                {go_to_live_demo ? (
-                    <GoToLiveDemo tertiary onClick={handleRedirect}>
-                        {localize('Go to live demo')}
-                    </GoToLiveDemo>
-                ) : null}
-            </LinkWrapper>
+
             <LottieWrapper>
                 <QueryImage
                     data={data[is_mobile ? image_name + '_mobile' : image_name]}

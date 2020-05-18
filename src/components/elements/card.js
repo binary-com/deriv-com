@@ -58,6 +58,7 @@ const CardWrapper = styled.article`
     ${CardStyle}
     position: relative;
     overflow: hidden;
+    height: 100%;
     min-height: ${(props) => (props.min_height ? props.min_height : '0')};
     width: ${(props) => (props.width ? props.width : '38.4rem')};
     padding: ${(props) => (props.padding ? props.padding : '1.8rem 2rem 1.4rem 1.2rem')};
@@ -125,7 +126,7 @@ const CardChildrenWrapper = styled.article`
 
 const IconContainer = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 
     ${Header} {
         display: flex;
@@ -158,6 +159,7 @@ Content.propTypes = {
 
 export const Card = ({
     children,
+    className,
     Icon,
     title,
     content,
@@ -171,7 +173,7 @@ export const Card = ({
     word_break_cover,
 }) => {
     return (
-        <CardWrapper width={width} min_height={min_height} padding={padding}>
+        <CardWrapper width={width} min_height={min_height} padding={padding} className={className}>
             {!children && (
                 <>
                     {is_inline_icon ? (
@@ -224,6 +226,7 @@ export const Card = ({
 
 Card.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    className: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     cover_background: PropTypes.string,
     cover_content: PropTypes.string,
@@ -308,7 +311,17 @@ const FlexHover = styled(Flex)`
         }
     }
 `
-export const NavCard = ({ icon: Icon, title, content, to, style, external, target, className }) => {
+export const NavCard = ({
+    icon: Icon,
+    title,
+    content,
+    to,
+    style,
+    external,
+    target,
+    className,
+    is_binary_link,
+}) => {
     return (
         <LocalizedLink
             to={to}
@@ -322,6 +335,7 @@ export const NavCard = ({ icon: Icon, title, content, to, style, external, targe
             external={external}
             target={target}
             className={className}
+            is_binary_link={is_binary_link}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
                 <Icon />
@@ -346,6 +360,7 @@ NavCard.propTypes = {
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,
     icon: PropTypes.func,
+    is_binary_link: PropTypes.bool,
     style: PropTypes.object,
     target: PropTypes.string,
     title: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.object]),

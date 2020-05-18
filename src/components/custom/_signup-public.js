@@ -37,12 +37,13 @@ const Wrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
-    height: 33.3rem;
+    min-height: 35.3rem;
+    align-items: center;
     width: 100%;
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
 
-    @media (max-width: 800px) {
+    @media (max-width: 991px) {
         flex-direction: column;
         height: auto;
     }
@@ -56,7 +57,7 @@ const SignupFormWrapper = styled(Flex)`
         padding: 0 2rem;
     }
 
-    @media (max-width: 800px) {
+    @media ${device.mobileM} {
         width: 100%;
 
         & > div {
@@ -66,11 +67,13 @@ const SignupFormWrapper = styled(Flex)`
 `
 
 const BackgroundWrapper = styled(Flex)`
+    min-height: 35.3rem;
+    height: 100%;
     width: 50%;
     background-image: url(${BackgroundPattern});
     clip-path: polygon(14rem 0, 100% 0%, 100% 100%, 0% 100%);
 
-    @media (max-width: 800px) {
+    @media (max-width: 991px) {
         display: none;
     }
 `
@@ -93,10 +96,11 @@ const EmailButton = styled(Button)`
     height: 4rem;
 
     @media ${device.tabletL} {
-        width: 13rem;
-        font-size: 1.75rem;
+        width: auto;
+        font-size: 1.4rem;
         margin-left: 0;
         height: 5rem;
+        min-width: 15rem;
     }
 `
 const SocialWrapper = styled(Flex)`
@@ -129,7 +133,7 @@ const StyledHeader = styled(Header)`
         width: auto;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 991px) {
         margin-top: 2rem;
         ${(props) => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
     }
@@ -155,9 +159,9 @@ const ImageWrapper = styled(Flex)`
     }
 
     @media (max-width: 1350px) {
-        width: 30rem;
+        width: 25rem;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 1230px) {
         display: none;
     }
 `
@@ -182,7 +186,7 @@ const MobileBackground = styled.div`
     position: relative;
     padding-bottom: 4rem;
 
-    @media (min-width: 800px) {
+    @media (min-width: 991px) {
         display: none;
     }
 `
@@ -297,13 +301,19 @@ const SignupPublic = ({
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
                 <LinkFlex ai="center" onClick={redirectToDerivApp}>
-                    <StyledHeader size="2.8rem" max_width="28.2rem" align="center" color="grey-8">
+                    <StyledHeader
+                        size="2.8rem"
+                        max_width="28.2rem"
+                        align="center"
+                        color="grey-8"
+                        mr="1.2rem"
+                    >
                         {localize('Get a taste of the Deriv experience')}
                     </StyledHeader>
                     <ChevronRight />
                 </LinkFlex>
             </BackgroundWrapper>
-            <Show.Mobile>
+            <Show.Mobile style={{ width: '100%' }}>
                 <MobileBackground>
                     <MobilePlatform>
                         <QueryImage

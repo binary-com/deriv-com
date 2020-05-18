@@ -50,14 +50,12 @@ const CardWrapper = styled(Flex)`
 `
 const CardContainer = styled(Flex)`
     position: relative;
-    width: fit-content;
-    min-width: 25rem;
+    width: 25rem;
     height: 7.72rem;
     padding: 0;
-    margin: 0 -0.8rem;
+    margin: 0 -0.6rem;
     cursor: pointer;
     z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
-    padding-right: 5rem;
 
     ${Flex} {
         padding: 2.71rem 0 0 3.2rem;
@@ -88,7 +86,6 @@ const CardContainer = styled(Flex)`
     }
     ::before {
         content: ''; /* To generate the box */
-        width: 100%;
         position: absolute;
         top: 0;
         right: 0;

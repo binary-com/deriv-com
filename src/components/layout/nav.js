@@ -13,12 +13,17 @@ import { useOutsideClick } from 'components/hooks/outside-click'
 import { LocalizedLink, Localize, localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
-import { OffCanvasMenu, OffCanvasMenuPartner, moveOffCanvasMenu, Text } from 'components/elements'
+import {
+    OffCanvasMenu,
+    OffCanvasMenuPartner,
+    moveOffCanvasMenu,
+    Text,
+    LocalizedLinkText,
+} from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
-import Partner from 'common/partner'
 import device from 'themes/device'
-import { binary_url } from 'common/utility'
+import { binary_url, affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoSignup from 'images/svg/logo_deriv.svg'
@@ -184,6 +189,10 @@ const SignupButton = styled(Button)`
     margin-left: 1.6rem;
 `
 
+const LinkSignupButton = styled(LinkButton)`
+    margin-left: 1.6rem;
+`
+
 const HamburgerMenu = styled(Hamburger)`
     cursor: pointer;
     display: none;
@@ -224,6 +233,17 @@ const MobileLogin = styled(Button)`
         font-size: var(--text-size-xxs);
     }
 `
+const LinkMobileLogin = styled(LinkButton)`
+    display: none;
+    font-size: 14px;
+    @media ${device.tabletL} {
+        display: block;
+        margin-left: auto;
+    }
+    @media ${device.mobileL} {
+        font-size: var(--text-size-xxs);
+    }
+`
 const handleScroll = (show, hide) => {
     const show_height = 400
     window.scrollY > show_height ? show() : hide()
@@ -238,16 +258,12 @@ const Binary = styled(Text)`
     }
 `
 
-const BinaryLink = styled.a`
+const BinaryLink = styled(LocalizedLinkText)`
     display: inline-block;
     color: var(--color-white);
     font-size: var(--text-size-xxs);
     font-weight: bold;
     text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
 `
 
 export const Nav = () => {
@@ -391,7 +407,9 @@ export const Nav = () => {
                                 components={[
                                     <BinaryLink
                                         key={0}
-                                        href={binary_url}
+                                        external
+                                        to={binary_url}
+                                        is_binary_link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         color="white"
@@ -496,7 +514,9 @@ export const NavInterim = ({ interim_type }) => (
                         components={[
                             <BinaryLink
                                 key={0}
-                                href={binary_url}
+                                external
+                                to={binary_url}
+                                is_binary_link
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 color="white"
@@ -642,16 +662,25 @@ export const NavPartners = ({ no_login_signup }) => {
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
-                                <Button onClick={Partner.redirectToLogin} primary>
+                                <LinkButton
+                                    to={affiliate_signin_url}
+                                    external
+                                    is_affiliate_link
+                                    target="_blank"
+                                    primary
+                                >
                                     <span>{localize('Affiliate & IB log in')}</span>
-                                </Button>
-                                <SignupButton
-                                    onClick={Partner.redirectToSignup}
+                                </LinkButton>
+                                <LinkSignupButton
+                                    to={affiliate_signup_url}
+                                    external
+                                    is_affiliate_link
+                                    target="_blank"
                                     ref={button_ref}
                                     secondary="true"
                                 >
                                     <span>{localize('Affiliate & IB sign up')}</span>
-                                </SignupButton>
+                                </LinkSignupButton>
                             </StyledNavRight>
                         ) : null}
 
@@ -664,9 +693,15 @@ export const NavPartners = ({ no_login_signup }) => {
                             <LogoOnly width="115px" />
                         </LogoLinkMobile>
                         {!no_login_signup && (
-                            <MobileLogin OnClick={Partner.redirectToLogin} primary>
+                            <LinkMobileLogin
+                                to={affiliate_signin_url}
+                                external
+                                is_affiliate_link
+                                target="_blank"
+                                primary
+                            >
                                 <span>{localize('Affiliate & IB Log in')}</span>
-                            </MobileLogin>
+                            </LinkMobileLogin>
                         )}
                         <OffCanvasMenuPartner
                             is_canvas_menu_open={is_canvas_menu_open}

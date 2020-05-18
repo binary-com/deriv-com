@@ -22,15 +22,12 @@ const ButtonContainer = styled.div`
 `
 
 const InputGroup = styled.div`
-    margin-bottom: 3.4rem;
+    width: 40rem;
+    margin: 0 auto 3.4rem;
 `
 
 const StyledButton = styled(Button)`
-    margin: 0 0.4rem;
-`
-
-const StyledForm = styled(Form)`
-    width: 40rem;
+    margin: 0.8rem 0.4rem;
 `
 
 const resetValidation = (values) => {
@@ -102,7 +99,7 @@ const ResetPassword = () => (
                     resetForm,
                     status,
                 }) => (
-                    <StyledForm noValidate>
+                    <Form noValidate>
                         <InputGroup>
                             <Input
                                 id="email"
@@ -135,7 +132,7 @@ const ResetPassword = () => (
                                 {localize('Reset my password')}
                             </StyledButton>
                         </ButtonContainer>
-                    </StyledForm>
+                    </Form>
                 )}
             </Formik>
         </StyledContainer>

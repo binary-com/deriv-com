@@ -55,6 +55,12 @@ const MaxText = styled(Text)`
 //     }
 // `
 
+const ResponsiveHeader = styled(StyledHeader)`
+    @media ${device.mobileL} {
+        font-size: 5rem;
+    }
+`
+
 const Regulatory = () => (
     <Layout>
         <SEO
@@ -65,9 +71,9 @@ const Regulatory = () => (
         />
         <SectionContainer>
             <GridContainer>
-                <StyledHeader as="h1" align="center" lh="8rem">
+                <ResponsiveHeader as="h1" align="center" lh="8rem">
                     {localize('Regulatory information')}
-                </StyledHeader>
+                </ResponsiveHeader>
                 <StyledHeader
                     as="h4"
                     align="center"

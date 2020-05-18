@@ -95,7 +95,7 @@ const OurNumbers = () => (
                     <Show.Mobile>
                         <NumberHeader size="4.5rem">USD 7B+</NumberHeader>
                         <Text size="2rem" align="center">
-                            {localize('Total trade turnover ')}
+                            {localize('Total trade turnover')}
                         </Text>
                     </Show.Mobile>
                 </article>

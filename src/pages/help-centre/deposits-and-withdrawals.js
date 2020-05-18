@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
 import { deriv_app_url } from 'common/utility'
-import { Text, Header } from 'components/elements/typography'
+import { Text, Header, LocalizedLinkText } from 'components/elements/typography'
 import { Localize, localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
 
@@ -38,10 +37,6 @@ const StyledText = styled(Text)`
 const StyledHeader = styled(Header)`
     margin-bottom: 2.4rem;
 `
-const urlPaymentMethods =
-    getLanguage() === 'en' || getLanguage() == null
-        ? '/payment-methods/'
-        : `/${getLanguage()}/payment-methods/`
 
 const PaymentMethods = () => (
     <ArticleWrapper>
@@ -50,8 +45,8 @@ const PaymentMethods = () => (
             <Localize
                 translate_text="Our list of <0>supported payment methods</0> includes bank wire, credit and debit cards, e-wallets, and cryptocurrencies."
                 components={[
-                    <ExternalLink
-                        href={urlPaymentMethods}
+                    <LocalizedLinkText
+                        to="/payment-methods/"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}

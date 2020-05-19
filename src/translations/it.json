@@ -1059,7 +1059,7 @@
     "-75787346": "<0>Un tick</0> viene generato <0>ogni due secondi</0> per gli indici di volatilità <0>10, 25, 50, 75 e 100</0>.",
     "-434355947": "<0>Un tick</0> viene generato <0>ogni secondo</0> per gli indici di volatilità <0>10 (1s) e 100 (1s)</0>.",
     "-763273340": "Opzioni digitali",
-    "-797937042": "<0>Pari/dispari:</0> Prevedi se l'ultima cifra dell'ultimo tick è un numero pari o dispari.",
+    "-797937042": "<0>Pari/Dispari:</0> prevedi se l'ultima cifra dell'ultimo tick è un numero pari o dispari.",
     "-1048378719": "Reset Call/Reset Put",
     "-1738168261": "Prevedi se il mercato raggiungerà un livello superiore o inferiore rispetto al livello attuale oppure a quello in un dato momento (data di reset).",
     "-1282312809": "Tick alti/bassi",

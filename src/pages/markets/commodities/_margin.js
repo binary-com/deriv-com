@@ -37,7 +37,6 @@ const MarketsList = styled(CssGrid)`
     grid-row-gap: 1.6rem;
 
     @media ${device.tabletL} {
-        grid-template-columns: repeat(2, 1fr);
         padding: 0.75rem 2rem 2rem 2rem;
         display: flex;
         flex-wrap: wrap;

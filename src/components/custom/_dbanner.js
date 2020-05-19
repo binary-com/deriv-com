@@ -51,7 +51,7 @@ const ImageContainer = styled.div`
 
 const ImageWrapper = styled(Flex)`
     position: relative;
-    width: 41.1rem;
+    width: 39.8rem;
     z-index: 2;
     height: 100%;
 

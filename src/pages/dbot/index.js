@@ -16,7 +16,7 @@ import DBotBG from 'images/svg/dbot-bg.svg'
 import DBotBGMobile from 'images/svg/dbot-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import BackgroundPatternDBot from 'images/common/bg_banner_signup.png'
+import BackgroundPatternDBot from 'images/common/bg_banner_dbot.png'
 
 const query = graphql`
     query {

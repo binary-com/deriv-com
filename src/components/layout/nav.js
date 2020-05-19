@@ -178,6 +178,12 @@ const NavLink = styled.li`
 `
 const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
+
+    &:hover {
+        &::before {
+            width: 0;
+        }
+    }
 `
 const StyledButton = styled.a`
     ${SharedLinkStyle}

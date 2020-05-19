@@ -55,17 +55,18 @@ const StyledError = styled(CrossIcon)`
 `
 
 const StyledInput = styled.input`
-    background: none;
-    color: var(--color- ${(props) => props.inputColor || 'black'});
+    /* prettier-ignore */
+    background: var(--color-${(props) => props.inputBackground || 'none'});
+    color: var(--color-${(props) => props.inputColor || 'black'});
     font-size: 16px;
     padding: 1rem 1rem 1rem 0.8rem;
-    width: 95%;
+    width: 100%;
     display: block;
     border: none;
-    border-radius: 0;
+    border-radius: 4px;
 
     @media ${device.tabletL} {
-        height: 5rem;
+        height: 100%;
 
         & ~ label {
             font-size: 1.75rem;

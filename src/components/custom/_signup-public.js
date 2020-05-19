@@ -127,7 +127,7 @@ const SocialButton = styled(Button)`
 `
 
 const StyledHeader = styled(Header)`
-    width: ${(props) => props.width || '48.6rem'};
+    width: ${(props) => props.width || '38.4rem'};
 
     @media ${device.tablet} {
         width: auto;
@@ -255,8 +255,9 @@ const SignupPublic = ({
                                 background="white"
                                 tabletBackground="green-1"
                                 inputColor="var(grey-5)"
+                                inputBackground="grey-8"
                                 labelFocusColor="grey-7"
-                                label={localize('Email address')}
+                                label={localize('Email')}
                                 placeholder={'example@mail.com'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}

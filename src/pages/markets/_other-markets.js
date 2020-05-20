@@ -120,6 +120,7 @@ const StyledFlex = styled(Flex)`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
     top: 0;
+    min-height: 29.6rem;
 
     ${LearnMore} {
         svg {
@@ -195,7 +196,6 @@ const Wrapper = styled(Box)`
 const CardWrapper = styled(Flex)`
     left: 2.4rem;
     top: 4rem;
-    max-height: 29.6rem;
 `
 const StyledHeader = styled(Header)`
     max-width: 25.8rem;

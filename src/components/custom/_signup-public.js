@@ -257,6 +257,7 @@ const SignupPublic = ({
                                 inputColor="var(grey-5)"
                                 inputBackground="grey-8"
                                 labelFocusColor="grey-7"
+                                labelColor="black-3"
                                 label={localize('Email')}
                                 placeholder={'example@mail.com'}
                                 handleError={clearEmail}
@@ -265,7 +266,7 @@ const SignupPublic = ({
                                 autoFocus={autofocus}
                                 autoComplete="off"
                                 required
-                                border="1px solid var(--color-grey-7)"
+                                border="unset"
                                 focusBorder="var(--color-grey-7)"
                             />
                         </InputWrapper>
@@ -274,7 +275,7 @@ const SignupPublic = ({
                         </EmailButton>
                     </InputGroup>
                     <SocialWrapper jc="unset" ai="center">
-                        <StyledText>{localize('or sign in with')}</StyledText>
+                        <StyledText>{localize('Or sign in with')}</StyledText>
                         <SocialButton
                             onClick={handleSocialSignup}
                             provider="facebook"

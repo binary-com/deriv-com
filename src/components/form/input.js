@@ -120,7 +120,8 @@ const ErrorMessages = styled(Text)`
 `
 
 const StyledLabel = styled.label`
-    color: var(--color-grey);
+    /* prettier-ignore */
+    color: var(--color-${(props) => props.labelColor || 'grey'});
     font-size: var(--text-size-s);
     position: absolute;
     pointer-events: none;
@@ -136,6 +137,7 @@ const Input = ({
     label,
     border,
     focusBorder,
+    labelColor,
     id,
     error,
     background,
@@ -151,7 +153,12 @@ const Input = ({
             className="input-wrapper"
         >
             <StyledInput id={id} background={background} {...props} />
-            <StyledLabel tabletBackground={tabletBackground} error={error} htmlFor={id}>
+            <StyledLabel
+                tabletBackground={tabletBackground}
+                error={error}
+                htmlFor={id}
+                labelColor={labelColor}
+            >
                 {label}
             </StyledLabel>
         </InputWrapper>
@@ -171,6 +178,7 @@ Input.propTypes = {
     handleError: PropTypes.func,
     id: PropTypes.string,
     label: PropTypes.string,
+    labelColor: PropTypes.string,
     tabletBackground: PropTypes.string,
     width: PropTypes.string,
 }

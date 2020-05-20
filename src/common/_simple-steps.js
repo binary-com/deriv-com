@@ -23,34 +23,32 @@ const StyledSection = styled(SectionContainer)`
 const StyledFlex = styled(Flex)`
     margin: 4rem 0 0 0;
 
-    article:first-child {
-        margin-left: 0;
-    }
-
     @media ${device.tabletL} {
-        flex-direction: column;
-        align-items: center;
+        margin: 0;
 
-        article {
-            margin: 2rem auto;
-        }
         article:first-child {
-            margin-left: auto;
+            margin-top: 2rem;
         }
     }
 `
 const ClientCard = styled.article`
-    margin: 0 0 0 2rem;
     background-color: var(--color-white);
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 31.6rem;
     padding: 3.2rem 2.4rem;
-    height: 100%;
+    margin: ${(props) => (props.m ? props.m : '')};
     position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
 
-    ${Flex} {
-        padding-bottom: 0.8rem;
+    ${Header} {
+        padding-bottom: 1.6rem;
+
+        @media ${device.tabletL} {
+            font-size: 2rem;
+            padding-bottom: 1rem;
+        }
     }
 
     @media (max-width: 1185px) {
@@ -59,19 +57,8 @@ const ClientCard = styled.article`
     }
     @media ${device.tabletL} {
         width: 100%;
-        max-width: 39.5rem;
         margin-top: 0;
-        padding: 3rem;
-
-        ${Text} {
-            font-size: 2rem;
-        }
-        ${Header} {
-            font-size: 3rem;
-        }
-        ${Flex} {
-            padding-bottom: 2rem;
-        }
+        padding: 2rem;
     }
 `
 const BackgroundPattern = styled(Pattern)`
@@ -94,31 +81,22 @@ const LinkButtonWrapper = styled.div`
 
     ${LinkButton} {
         position: relative;
-        font-size: 1.4rem;
     }
+`
 
-    @media ${device.tabletL} {
-        margin-top: 1rem;
-    }
-`
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        font-size: 4rem;
-    }
-`
 const SimpleSteps = ({ header, content, sign_up }) => (
     <StyledSection>
         <BackgroundPattern />
         <Container direction="column">
-            <StyledHeader align="center" size="var(--text-size-header-1)" as="h2">
+            <Header align="center" size="var(--text-size-header-1)" as="h2">
                 {header}
-            </StyledHeader>
+            </Header>
         </Container>
         <StyledFlex wrap="wrap">
             {content.map((item, idx) => {
                 return (
-                    <ClientCard key={idx}>
-                        <Flex ai="center">
+                    <ClientCard key={idx} m="0 0 0 2rem">
+                        <Flex ai="center" height="auto">
                             <Header as="h4">{item.header}</Header>
                             {item.icon}
                         </Flex>
@@ -138,7 +116,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
 )
 SimpleSteps.propTypes = {
     content: PropTypes.array.isRequired,
-    header: PropTypes.object.isRequired,
+    header: PropTypes.string.isRequired,
     sign_up: PropTypes.bool,
 }
 export default SimpleSteps

@@ -269,7 +269,7 @@ export const NavMarket = () => (
             content={
                 <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
             }
-            title={<Localize translate_text="Synthetic indices" />}
+            title={<Localize translate_text="Synthetic Indices" />}
             to="/markets#synthetic"
             style={{ marginTop: '3.2rem' }}
         />

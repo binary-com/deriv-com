@@ -15,10 +15,9 @@ const Symbol = styled(Flex)`
     }
     ${Text} {
         font-weight: normal;
-        font-size: var(--text-size-xs);
-        line-height: 1.14;
     }
 `
+
 const StepIndices = () => {
     return (
         <>

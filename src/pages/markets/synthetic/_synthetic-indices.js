@@ -18,9 +18,9 @@ const StockIndices = ({ simple_step_content }) => {
     return (
         <div>
             <WhyTrade
-                header={<Localize translate_text="Why trade synthetic indices on Deriv" />}
+                header={<Localize translate_text="Why trade Synthetic Indices on Deriv" />}
                 text={
-                    <Localize translate_text="Our synthetic indices are based on a cryptographically secure random number generator audited for fairness by an independent third party. These indices are engineered to simulate real-world market movement and are unaffected by natural events and disruptions. Synthetic indices are available 24/7, have constant volatility, fixed generation intervals, and are free of market and liquidity risks." />
+                    <Localize translate_text="Our exclusive Synthetic Indices are engineered to simulate real-world market movements, unaffected by real-world events and disruptions. Unlike financial markets, Synthetic Indices are available 24/7, have constantly volatility, fixed generation intervals, and are free of market and liquidity risks." />
                 }
             >
                 <div
@@ -52,11 +52,11 @@ const StockIndices = ({ simple_step_content }) => {
                 Margin={Margin}
                 DigitalOptions={DigitalOptions}
                 Multipliers={Multipliers}
-                name="Synthetic indices"
+                name="Synthetic Indices"
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading synthetic indices on Deriv in 3 simple steps" />
+                    <Localize translate_text="Start trading Synthetic Indices on Deriv in 3 simple steps" />
                 }
                 content={simple_step_content}
                 sign_up

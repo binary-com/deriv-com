@@ -83,7 +83,6 @@ import PALLADIUMUSD from 'images/svg/symbols/palladium-usd.svg'
 import PLATINUMUSD from 'images/svg/symbols/platinum-usd.svg'
 import SILVERUSD from 'images/svg/symbols/silver-usd.svg'
 import OILUSD from 'images/svg/symbols/oil-usd.svg'
-import EURO50INDEX from 'images/svg/symbols/euro50index.svg'
 
 export {
     AUDCAD,
@@ -171,5 +170,4 @@ export {
     PLATINUMUSD,
     SILVERUSD,
     OILUSD,
-    EURO50INDEX,
 }

@@ -9,11 +9,12 @@ import {
     OTCGERMAN,
     OTCFRENCH,
     OTCDUTCH,
-    EURO50INDEX,
+    OTCHONGKONG,
 } from 'components/elements/symbols.js'
 
 const Symbol = styled(Flex)`
     width: fit-content;
+    margin: 1.6rem 2.4rem 0 0;
 
     svg {
         width: 32px;
@@ -22,8 +23,6 @@ const Symbol = styled(Flex)`
     }
     ${Text} {
         font-weight: normal;
-        font-size: var(--text-size-xs);
-        line-height: 1.14;
     }
 `
 
@@ -35,14 +34,14 @@ const Europe = () => {
                 <Text>{localize('Dutch Index')}</Text>
             </Symbol>
             <Symbol ai="center">
-                <EURO50INDEX />
+                <OTCHONGKONG />
                 <Text>{localize('Euro 50 Index')}</Text>
             </Symbol>
             <Symbol ai="center">
                 <OTCFRENCH />
                 <Text>{localize('French Index')}</Text>
             </Symbol>
-            <Symbol ai="center">
+            <Symbol ai="center" mr="0 !important">
                 <OTCGERMAN />
                 <Text>{localize('German Index')}</Text>
             </Symbol>

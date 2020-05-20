@@ -178,12 +178,6 @@ const NavLink = styled.li`
 `
 const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
-
-    &:hover {
-        &::before {
-            width: 0;
-        }
-    }
 `
 const StyledButton = styled.a`
     ${SharedLinkStyle}
@@ -542,9 +536,9 @@ export const NavInterim = ({ interim_type }) => (
 
 export const NavStatic = () => (
     <StaticWrapper>
-        <StyledLink to="/">
+        <LocalizedLink to="/">
             <LogoSignup />
-        </StyledLink>
+        </LocalizedLink>
     </StaticWrapper>
 )
 

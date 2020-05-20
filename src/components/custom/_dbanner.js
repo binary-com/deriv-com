@@ -24,13 +24,18 @@ const Wrapper = styled.div`
 `
 
 const BackgroundWrapper = styled(Flex)`
-    width: 25%;
+    width: 100%;
+    max-width: 412px;
     background-image: url(${(props) => props.background_pattern});
     clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
 
+    @media ${device.laptop} {
+        max-width: 320px;
+    }
+
     @media (max-width: 800px) {
+        max-width: unset;
         clip-path: polygon(0 0, 100% 0%, 305% 163%, 0% 60%);
-        width: 100%;
         height: 50%;
     }
 `
@@ -59,9 +64,6 @@ const ImageWrapper = styled(Flex)`
         width: 100%;
     }
 
-    @media (max-width: 1350px) {
-        width: 30rem;
-    }
     @media (max-width: 800px) {
         height: auto;
         width: 286px;

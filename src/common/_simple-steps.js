@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
-import { Container, SectionContainer, Flex } from 'components/containers'
+import { Container, SectionContainer, Flex, Show } from 'components/containers'
 import device from 'themes/device'
 import Pattern from 'images/svg/pattern.svg'
+import PatternMobile from 'images/svg/pattern-mobile.svg'
 
 const StyledSection = styled(SectionContainer)`
     position: relative;
@@ -17,7 +18,7 @@ const StyledSection = styled(SectionContainer)`
         }
     }
     @media ${device.tabletL} {
-        padding: 5rem 0;
+        padding: 0;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -87,6 +88,14 @@ const BackgroundPattern = styled(Pattern)`
     right: 0;
     bottom: 0;
 `
+const MobileBackgroundPattern = styled(PatternMobile)`
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+`
 const LinkButtonWrapper = styled.div`
     margin-top: 4.2rem;
     text-align: center;
@@ -104,11 +113,17 @@ const LinkButtonWrapper = styled.div`
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 4rem;
+        margin-top: 5rem;
     }
 `
 const SimpleSteps = ({ header, content, sign_up }) => (
     <StyledSection>
-        <BackgroundPattern />
+        <Show.Desktop>
+            <BackgroundPattern />
+        </Show.Desktop>
+        <Show.Mobile>
+            <MobileBackgroundPattern />
+        </Show.Mobile>
         <Container direction="column">
             <StyledHeader align="center" size="var(--text-size-header-1)" as="h2">
                 {header}

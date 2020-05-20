@@ -50,10 +50,6 @@ export const WhatTrade = ({ header, sub_header }) => {
                     <LinkButton to="/signup/" secondary="true">
                         {localize('Create free demo account')}
                     </LinkButton>
-
-                    {/* <Button tertiary onClick={handleScrollToElement}>
-                        {localize('Learn more about forex')}
-                    </Button> */}
                 </ButtonWrapper>
             </Container>
         </ContentWrapper>

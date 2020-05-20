@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
@@ -23,9 +23,7 @@ const PlatformsContainer = styled(Flex)`
         margin: 0 0.3rem;
 
         @media ${device.tabletL} {
-            margin: 0;
-            width: 32px;
-            height: 32px;
+            margin: 0 4px 0 0;
         }
     }
     a:last-child {
@@ -35,6 +33,14 @@ const PlatformsContainer = styled(Flex)`
     @media ${device.tabletL} {
         justify-content: flex-start;
         margin-top: 3rem;
+        flex-direction: column;
+    }
+`
+const PlatformsWrapper = styled(Flex)`
+    width: auto;
+
+    @media ${device.tabletL} {
+        margin-top: 1rem;
     }
 `
 const StyledText = styled(Text)`
@@ -50,54 +56,57 @@ const StyledFlex = styled(Flex)`
     padding: 0.8rem;
 
     @media ${device.tabletL} {
-        background: unset;
-        padding: 0;
+        padding: 1rem;
+
+        ${Text} {
+            font-size: 1.75rem;
+        }
     }
 `
 const AvailablePlatforms = ({ dmt5, dtrader, dbot, smarttrader }) => {
     return (
         <PlatformsContainer ai="center">
-            <StyledText>{localize('Available on')}</StyledText>
-            {dmt5 && (
-                <LocalizedLink to="/dmt5/">
-                    <StyledFlex direction="row" ai="center">
-                        <DMT5 />
-                        <Show.Desktop>
+            <div>
+                <StyledText>{localize('Available on')}</StyledText>
+            </div>
+            <PlatformsWrapper>
+                {dmt5 && (
+                    <LocalizedLink to="/dmt5/">
+                        <StyledFlex direction="row" ai="center">
+                            <DMT5 />
                             <Text ml="0.8rem">{localize('MetaTrader5 (DMT5)')}</Text>
-                        </Show.Desktop>
-                    </StyledFlex>
-                </LocalizedLink>
-            )}
-            {dtrader && (
-                <LocalizedLink to="/dtrader/">
-                    <StyledFlex direction="row" ai="center">
-                        <DTrader />
-                        <Show.Desktop>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {dtrader && (
+                    <LocalizedLink to="/dtrader/">
+                        <StyledFlex direction="row" ai="center">
+                            <DTrader />
                             <Text>{localize('DTrader')}</Text>
-                        </Show.Desktop>
-                    </StyledFlex>
-                </LocalizedLink>
-            )}
-            {dbot && (
-                <LocalizedLink to="/dbot/">
-                    <StyledFlex direction="row" ai="center">
-                        <DBot />
-                        <Show.Desktop>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {dbot && (
+                    <LocalizedLink to="/dbot/">
+                        <StyledFlex direction="row" ai="center">
+                            <DBot />
                             <Text>{localize('DBot')}</Text>
-                        </Show.Desktop>
-                    </StyledFlex>
-                </LocalizedLink>
-            )}
-            {smarttrader && (
-                <a href="https://smarttrader.deriv.app/" target="_blank" rel="noopener noreferrer">
-                    <StyledFlex direction="row" ai="center">
-                        <SmartTrader />
-                        <Show.Desktop>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {smarttrader && (
+                    <a
+                        href="https://smarttrader.deriv.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <StyledFlex direction="row" ai="center">
+                            <SmartTrader />
                             <Text>{localize('SmartTrader')}</Text>
-                        </Show.Desktop>
-                    </StyledFlex>
-                </a>
-            )}
+                        </StyledFlex>
+                    </a>
+                )}
+            </PlatformsWrapper>
         </PlatformsContainer>
     )
 }

@@ -157,10 +157,10 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 svg={CallSpread}
-                                title={<Localize translate_text="Call Spread/Put Spread" />}
+                                title={<Localize translate_text="Spread Up/Spread Down" />}
                                 content={
                                     <Localize
-                                        translate_text="<0>Call Spread:</0> Predict whether the exit spot will be higher or equal to the upper barrier."
+                                        translate_text="<0>Spread Up:</0> Predict whether the exit spot will be higher or equal to the upper barrier."
                                         components={[<strong key={0} />]}
                                     />
                                 }
@@ -171,7 +171,7 @@ const DigitalOptions = () => {
                                 svg={PutSpread}
                                 content={
                                     <Localize
-                                        translate_text="<0>Put Spread:</0> Predict whether the exit spot will be lower or equal to the upper barrier."
+                                        translate_text="<0>Spread Down:</0> Predict whether the exit spot will be lower or equal to the upper barrier."
                                         components={[<strong key={0} />]}
                                     />
                                 }

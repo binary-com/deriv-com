@@ -299,7 +299,13 @@ const SignupNew = ({
             </SocialWrapper>
             <LoginText>
                 {localize('Already have an account?')}
-                <StyledLinkText size="2rem" color="red" weight="bold" onClick={handleLogin}>
+                <StyledLinkText
+                    ml="0.4rem"
+                    size="2rem"
+                    color="red"
+                    weight="bold"
+                    onClick={handleLogin}
+                >
                     {localize('Log in')}
                 </StyledLinkText>
             </LoginText>

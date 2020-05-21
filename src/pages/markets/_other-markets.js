@@ -87,6 +87,7 @@ const StyledFlex = styled(Flex)`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
     top: 0;
+    min-height: 29.6rem;
 
     &:hover {
         ${LearnMore} {

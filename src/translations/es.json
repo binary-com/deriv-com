@@ -1070,7 +1070,7 @@
     "-1386887449": "Retroactivos",
     "-1064775608": "<0>Alto-Bajo:</0> Cuando compra un contrato \"Alto-Bajo\", su ganancia o pérdida será igual al valor del multiplicador por la diferencia entre alto y bajo a lo largo de la duración del contrato.",
     "-1262587128": "Índices de reajuste diario",
-    "-1291380141": "<0>Se generan</0>dos ticks<0>por segundo</0> para <0> índices HF (de alta frecuencia </0>.",
+    "-1291380141": "<0>Dos ticks</0> son generados <0>cada segundo</0> en los <0>índices HF (alta frecuencia)</0>.",
     "-1771870004": "Índices de volatilidad",
     "-1923803439": "Crash/Boom",
     "-1815841680": "Crash/ Boom",

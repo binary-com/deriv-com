@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
 import device from 'themes/device'
-import { LinkButton, Button } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import { LinkButton, Button } from 'components/form'
+import { useLazyVideo } from 'components/hooks/lazy-video'
 import { localize } from 'components/localization'
 import CheckMarkIcon from 'images/svg/checklist.svg'
 
@@ -169,6 +170,8 @@ CheckMarkBullet.propTypes = {
 }
 
 export const Hero = () => {
+    useLazyVideo()
+
     return (
         <HeroWrapper>
             <Container>
@@ -217,6 +220,7 @@ export const Hero = () => {
             </Container>
             <Show.Desktop>
                 <StyledVideo
+                    className="lazy"
                     title={localize('deriv.app platform video')}
                     width="100%"
                     height="100%"
@@ -225,7 +229,7 @@ export const Hero = () => {
                     playsInline
                     loop
                 >
-                    <source src={PlatformVideoMp4} type="video/mp4" />
+                    <source data-src={PlatformVideoMp4} type="video/mp4" />
                 </StyledVideo>
             </Show.Desktop>
         </HeroWrapper>

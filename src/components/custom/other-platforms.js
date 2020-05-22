@@ -117,7 +117,13 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
 )
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink to={smarttrader_url} is_binary_link external="true" target="_blank">
+    <StyledLink
+        to={smarttrader_url}
+        is_binary_link
+        external="true"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
         <Card
             cover_background="var(--color-blue-3)"
             cover_content={localize('Discover SmartTrader now')}
@@ -232,6 +238,7 @@ export const NavPlatform = () => (
             style={{ marginTop: '3.2rem' }}
             external="true"
             target="_blank"
+            otherLinkProps={{ rel: 'noopener noreferrer' }}
         />
     </Flex>
 )

@@ -6,7 +6,6 @@ import MacBook from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
 import { isBrowser, deriv_app_url } from 'common/utility'
 import { Button } from 'components/form'
-import { useLazyVideo } from 'components/hooks/lazy-video'
 
 const Container = styled.section`
     width: 100%;
@@ -184,8 +183,6 @@ class DtraderTabs extends React.Component {
         })
     }
     render() {
-        useLazyVideo()
-
         return (
             <Container>
                 <TabsWrapper>
@@ -237,15 +234,14 @@ class DtraderTabs extends React.Component {
                     <MacbookFrame />
 
                     <Video
-                        className="lazy"
                         ref={this.my_ref}
                         controls={this.state.is_ios}
                         preload="metadata"
                         muted
                         playsinline
                     >
-                        <source data-src="/Dtrader_GIF.mp4" type="video/mp4" />
-                        <source data-src="/Dtrader_GIF.webm" type="video/webm" />
+                        <source src="/Dtrader_GIF.mp4" type="video/mp4" />
+                        <source src="/Dtrader_GIF.webm" type="video/webm" />
                     </Video>
                 </VideoWrapper>
             </Container>

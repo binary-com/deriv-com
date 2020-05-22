@@ -11,7 +11,7 @@ const query = graphql`
         dtrader_trade: file(relativePath: { eq: "dtrader_trade_home.png" }) {
             childImageSharp {
                 fluid(maxWidth: 794) {
-                    ...GatsbyImageSharpFluid_noBase64
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                     originalName
                 }
             }
@@ -19,7 +19,7 @@ const query = graphql`
         dmt5_trade: file(relativePath: { eq: "dmt5_trade_home.png" }) {
             childImageSharp {
                 fluid(maxWidth: 794) {
-                    ...GatsbyImageSharpFluid_noBase64
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                     originalName
                 }
             }
@@ -27,7 +27,7 @@ const query = graphql`
         dbot_trade: file(relativePath: { eq: "dbot_trade_home.png" }) {
             childImageSharp {
                 fluid(maxWidth: 794) {
-                    ...GatsbyImageSharpFluid_noBase64
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
                     originalName
                 }
             }

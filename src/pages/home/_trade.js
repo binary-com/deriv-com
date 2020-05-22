@@ -9,13 +9,28 @@ import { Header, QueryImage } from 'components/elements'
 const query = graphql`
     query {
         dtrader_trade: file(relativePath: { eq: "dtrader_trade_home.png" }) {
-            ...fadeIn
+            childImageSharp {
+                fluid(maxWidth: 794) {
+                    ...GatsbyImageSharpFluid_noBase64
+                    originalName
+                }
+            }
         }
         dmt5_trade: file(relativePath: { eq: "dmt5_trade_home.png" }) {
-            ...fadeIn
+            childImageSharp {
+                fluid(maxWidth: 794) {
+                    ...GatsbyImageSharpFluid_noBase64
+                    originalName
+                }
+            }
         }
         dbot_trade: file(relativePath: { eq: "dbot_trade_home.png" }) {
-            ...fadeIn
+            childImageSharp {
+                fluid(maxWidth: 794) {
+                    ...GatsbyImageSharpFluid_noBase64
+                    originalName
+                }
+            }
         }
     }
 `

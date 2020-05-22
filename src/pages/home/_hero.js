@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
+// import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
 import device from 'themes/device'
 import { LinkButton, Button } from 'components/form'
-import { Container, Show, Flex } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import CheckMarkIcon from 'images/svg/checklist.svg'
@@ -102,23 +102,23 @@ const ButtonWrapper = styled(Flex)`
     }
 `
 
-const StyledVideo = styled.video`
-    position: absolute;
-    opacity: 0.5;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+// const StyledVideo = styled.video`
+//     position: absolute;
+//     opacity: 0.5;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 100%;
+//     height: 100%;
 
-    /* for edge */
-    @supports (object-fit: fill) {
-        object-fit: fill;
-        top: 0%;
-        left: unset;
-        transform: unset;
-    }
-`
+//     /* for edge */
+//     @supports (object-fit: fill) {
+//         object-fit: fill;
+//         top: 0%;
+//         left: unset;
+//         transform: unset;
+//     }
+// `
 const HeroButton = styled(LinkButton)`
     height: 4.8rem;
     display: flex;
@@ -215,7 +215,7 @@ export const Hero = () => {
                     </StyledArticle>
                 </HeroGrid>
             </Container>
-            <Show.Desktop>
+            {/* <Show.Desktop>
                 <StyledVideo
                     title={localize('deriv.app platform video')}
                     width="100%"
@@ -227,7 +227,7 @@ export const Hero = () => {
                 >
                     <source src={PlatformVideoMp4} type="video/mp4" />
                 </StyledVideo>
-            </Show.Desktop>
+            </Show.Desktop> */}
         </HeroWrapper>
     )
 }

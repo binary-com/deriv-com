@@ -252,7 +252,7 @@ const EmployeeTestimonialCarousel = () => {
     return (
         <>
             <Helmet>
-                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
+                <link rel="preload" as="stylesheet" type="text/css" href="/css/swiper.css" />
             </Helmet>
             <StyledSection padding="12rem 0">
                 <StyledHeader align="center" as="h2">

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
+import styled, { keyframes } from 'styled-components'
+import PlatformVideoMp4 from './Devices_3MB.webm'
 import device from 'themes/device'
-import { LinkButton, Button } from 'components/form'
+// import { LinkButton, Button } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
@@ -16,7 +16,7 @@ const CheckMark = styled(CheckMarkIcon)`
 
 const HeroWrapper = styled.section`
     width: 100%;
-    padding-top: 27rem;
+    padding-top: 11rem;
     min-height: calc(100vh - 7rem);
     background: var(--color-black);
     position: relative;
@@ -38,100 +38,36 @@ const HeroWrapper = styled.section`
     }
 `
 
-const HeroHeader = styled(Header)`
-    @media ${device.tabletL} {
-        text-align: left;
-        font-size: 3.25rem;
-    }
-    @media ${device.desktopL} {
-        font-size: 6.72rem;
-    }
-`
-
-const HeroSubHeader = styled(Header)`
-    @media ${device.desktopL} {
-        font-size: 3.36rem;
-    }
-`
-
-const StyledArticle = styled.article`
-    position: relative;
-    z-index: 2;
-    margin-left: 18%;
-
-    @media ${device.tabletL} {
-        margin: 0 2rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-`
-
-const HeroGrid = styled.section`
-    width: 100%;
-    max-width: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    @media ${device.tabletL} {
-        justify-content: flex-start;
-        margin-top: 13.37rem;
-        margin-bottom: 4rem;
-    }
-`
-
-const ButtonWrapper = styled(Flex)`
-    margin-top: 9.6rem;
-    height: 40px;
-
-    ${Button} {
-        font-size: 1.6rem;
-    }
-    @media ${device.laptop} {
-        text-align: center;
-    }
-    @media ${device.tabletL} {
-        text-align: left;
-    }
-`
-
 const StyledVideo = styled.video`
     position: absolute;
-    opacity: 0.5;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
 
-    /* for edge */
+    /* for edge 
     @supports (object-fit: fill) {
         object-fit: fill;
         top: 0%;
         left: unset;
         transform: unset;
     }
+    */
 `
-const HeroButton = styled(LinkButton)`
-    height: 4.8rem;
-    display: flex;
-    align-items: center;
+// const HeroButton = styled(LinkButton)`
+//     height: 4.8rem;
+//     display: flex;
+//     align-items: center;
 
-    @media ${device.tabletL} {
-        width: 27rem;
-        margin: 0 auto;
-        display: flex;
-        font-size: 1.75rem;
-        justify-content: center;
-    }
-`
+//     @media ${device.tabletL} {
+//         width: 27rem;
+//         margin: 0 auto;
+//         display: flex;
+//         font-size: 1.75rem;
+//         justify-content: center;
+//     }
+// `
 
 const CheckBoxText = styled(Text)`
     @media ${device.desktopL} {
@@ -167,53 +103,44 @@ CheckMarkList.propTypes = {
 CheckMarkBullet.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
-
+const FadeIn = keyframes`
+    0% {
+        opacity: 0;
+        margin-left: -75px;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 0;
+    }
+`
+const StyledHeader = styled(Header)`
+    animation-name: ${FadeIn};
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-delay: ${(props) => props.ad};
+`
 export const Hero = () => {
     return (
         <HeroWrapper>
             <Container>
-                <HeroGrid>
-                    <StyledArticle>
-                        <div>
-                            <HeroHeader
-                                as="h1"
-                                color="white"
-                                mb="2.4rem"
-                                size="var(--text-size-xl)"
-                                lh="1.25"
-                            >
-                                {localize('Simple. Flexible. Reliable.')}
-                            </HeroHeader>
-                            <HeroSubHeader
-                                as="h2"
-                                color="white"
-                                size="var(--text-size-m)"
-                                weight="500"
-                                mb="1.4rem"
-                            >
-                                {localize('Trade forex, commodities, stock and synthetic indices')}
-                            </HeroSubHeader>
-                            <CheckMarkList>
-                                <CheckMarkBullet>
-                                    {localize('Built upon 20+ years of experience')}
-                                </CheckMarkBullet>
-                                <CheckMarkBullet>
-                                    {localize('100+ tradable assets')}
-                                </CheckMarkBullet>
-                                <CheckMarkBullet>
-                                    {localize('24x7 trading, sharp prices, tight spreads')}
-                                </CheckMarkBullet>
-                            </CheckMarkList>
-                        </div>
-                        <div>
-                            <ButtonWrapper jc="unset">
-                                <HeroButton type="submit" secondary="true" to="/signup/">
-                                    {localize('Create free demo account')}
-                                </HeroButton>
-                            </ButtonWrapper>
-                        </div>
-                    </StyledArticle>
-                </HeroGrid>
+                <StyledHeader as="h1" lh="1.25" color="white" ad="0.2s">
+                    SIMPLE.
+                </StyledHeader>
+            </Container>
+            <Container>
+                <StyledHeader as="h1" lh="1.25" color="white" ad="0.3s">
+                    FLEXIBLE.
+                </StyledHeader>
+            </Container>
+            <Container>
+                <StyledHeader as="h1" lh="1.25" color="white" ad="0.4s">
+                    RELIABLE.
+                </StyledHeader>
+            </Container>
+            <Container jc="flex-start">
+                <Header as="h4" max_width="40.8rem" color="white">
+                    Trade forex, commodities, stock and synthetic indices
+                </Header>
             </Container>
             <Show.Desktop>
                 <StyledVideo

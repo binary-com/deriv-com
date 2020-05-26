@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     background-color: var(--color-black);
 
     @media ${device.tabletS} {
-        height: 25rem;
+        height: 23rem;
     }
     @media ${device.mobileL} {
         flex-direction: column;
@@ -51,7 +51,7 @@ const ImageWrapper = styled(Flex)`
     }
 
     @media ${device.tabletS} {
-        width: 30rem;
+        width: 28rem;
     }
     @media ${device.mobileL} {
         height: auto;
@@ -71,7 +71,7 @@ const TextWrapper = styled.div`
         left: 41%;
     }
     @media ${device.tablet} {
-        top: 4rem;
+        top: 3rem;
         left: 54%;
         max-width: 250px;
     }
@@ -117,7 +117,7 @@ const DBanner = ({ title, data, background_pattern }) => {
             width: 320px;
         }
         @media ${device.tabletS} {
-            width: 250px;
+            width: 230px;
         }
         @media ${device.mobileL} {
             width: unset;

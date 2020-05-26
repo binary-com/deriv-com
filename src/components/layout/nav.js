@@ -26,7 +26,6 @@ import device from 'themes/device'
 import { binary_url, affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
-import LogoSignup from 'images/svg/logo_deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
 import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
@@ -536,9 +535,28 @@ export const NavInterim = ({ interim_type }) => (
 
 export const NavStatic = () => (
     <StaticWrapper>
-        <LocalizedLink to="/">
-            <LogoSignup />
+        <LogoLink to="/" aria-label={localize('Home')}>
+            <ResponsiveLogo />
+        </LogoLink>
+        <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+            <BinaryLogo width="24" height="24" />
         </LocalizedLink>
+        <Binary size="var(--text-size-xxs)" color="white">
+            <Localize
+                translate_text="A <0>Binary.com</0> brand"
+                components={[
+                    <BinaryLink
+                        key={0}
+                        external
+                        to={binary_url}
+                        is_binary_link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color="white"
+                    />,
+                ]}
+            />
+        </Binary>
     </StaticWrapper>
 )
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import DMT5Video from './_dmt5-video.js'
-import BackgroundPatternDMT5 from 'images/common/bg_banner_dmt5.png'
+// import BackgroundPatternDMT5 from 'images/common/bg_banner_dmt5.png'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
@@ -17,6 +17,8 @@ import DMT5BGMobile from 'images/svg/dmt5-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import DBanner from 'components/custom/_dbanner.js'
+import DMT5BannerBGMobile from 'images/svg/dmt5-banner-bg-mobile.svg'
+import DMT5BannerBG from 'images/svg/dmt5-banner-bg.svg'
 
 const query = graphql`
     query {
@@ -102,7 +104,7 @@ const DMT5 = () => {
                 <OtherPlatform exclude="dmt5" />
             </PlatformContainer>
             <DBanner
-                background_pattern={BackgroundPatternDMT5}
+                background_pattern={is_mobile ? DMT5BannerBGMobile : DMT5BannerBG}
                 title={<Localize translate_text="Get into the DMT5 experience" />}
                 data={data}
             />

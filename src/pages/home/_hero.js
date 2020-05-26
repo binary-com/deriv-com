@@ -119,27 +119,39 @@ const StyledHeader = styled(Header)`
     animation-fill-mode: both;
     animation-delay: ${(props) => props.ad};
 `
+
 export const Hero = () => {
+    const the_text = localize('Trade forex, commodities, stock and synthetic indices')
+    const [type_writer, setTypeWriter] = React.useState('')
+    const type_writer_animation = (i = 0) => {
+        if (i < the_text.length) {
+            setTypeWriter(the_text.substring(0, i + 1))
+            setTimeout(() => type_writer_animation(i + 1), 13)
+        }
+    }
+    React.useEffect(() => {
+        type_writer_animation()
+    }, [])
     return (
         <HeroWrapper>
             <Container>
                 <StyledHeader as="h1" lh="1.25" color="white" ad="0.2s">
-                    SIMPLE.
+                    {localize('SIMPLE.')}
                 </StyledHeader>
             </Container>
             <Container>
                 <StyledHeader as="h1" lh="1.25" color="white" ad="0.3s">
-                    FLEXIBLE.
+                    {localize('FLEXIBLE.')}
                 </StyledHeader>
             </Container>
             <Container>
                 <StyledHeader as="h1" lh="1.25" color="white" ad="0.4s">
-                    RELIABLE.
+                    {localize('RELIABLE.')}
                 </StyledHeader>
             </Container>
             <Container jc="flex-start">
-                <Header as="h4" max_width="40.8rem" color="white">
-                    Trade forex, commodities, stock and synthetic indices
+                <Header as="h4" color="white" max_width="365px">
+                    {type_writer}
                 </Header>
             </Container>
             <Show.Desktop>

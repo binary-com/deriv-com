@@ -16,7 +16,9 @@ import DBotBG from 'images/svg/dbot-bg.svg'
 import DBotBGMobile from 'images/svg/dbot-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import BackgroundPatternDBot from 'images/common/bg_banner_dbot.png'
+// import BackgroundPatternDBot from 'images/common/bg_banner_dbot.png'
+import DbotBannerBGMobile from 'images/svg/dbot-banner-bg-mobile.svg'
+import DbotBannerBG from 'images/svg/dbot-banner-bg.svg'
 
 const query = graphql`
     query {
@@ -136,7 +138,9 @@ class Dbot extends Component {
                         <DBanner
                             title={<Localize translate_text="Get into the DBot experience" />}
                             data={data}
-                            background_pattern={BackgroundPatternDBot}
+                            background_pattern={
+                                this.state.is_mobile ? DbotBannerBGMobile : DbotBannerBG
+                            }
                         />
                     )}
                 />

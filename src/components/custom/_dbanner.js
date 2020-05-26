@@ -17,6 +17,9 @@ const Wrapper = styled.div`
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     background-color: var(--color-black);
 
+    @media ${device.tabletS} {
+        height: 25rem;
+    }
     @media ${device.mobileL} {
         flex-direction: column;
         height: 414px;
@@ -47,6 +50,9 @@ const ImageWrapper = styled(Flex)`
         width: 100%;
     }
 
+    @media ${device.tabletS} {
+        width: 30rem;
+    }
     @media ${device.mobileL} {
         height: auto;
         width: 286px;
@@ -63,6 +69,11 @@ const TextWrapper = styled.div`
 
     @media ${device.laptopM} {
         left: 41%;
+    }
+    @media ${device.tablet} {
+        top: 4rem;
+        left: 54%;
+        max-width: 250px;
     }
     @media ${device.mobileL} {
         top: 250px;
@@ -84,6 +95,9 @@ const StyledHeader = styled(Header)`
     @media ${device.laptopM} {
         font-size: 4rem;
     }
+    @media ${device.tabletS} {
+        font-size: 25px;
+    }
     @media ${device.mobileL} {
         font-size: 24px;
     }
@@ -96,10 +110,17 @@ const DBanner = ({ title, data, background_pattern }) => {
         left: 0;
         height: 100%;
 
-        @media ${device.tabletL} {
+        @media ${device.laptopM} {
             height: unset;
         }
+        @media ${device.tabletL} {
+            width: 320px;
+        }
+        @media ${device.tabletS} {
+            width: 250px;
+        }
         @media ${device.mobileL} {
+            width: unset;
             clip-path: polygon(0 0, 100% 0%, 305% 163%, 0% 60%);
         }
     `

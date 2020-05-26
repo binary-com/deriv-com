@@ -311,6 +311,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                                 is_binary_link
                                 external="true"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {localize('SmartTrader')}
                             </Link>
@@ -424,6 +425,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                                 is_binary_link
                                 external="true"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {localize('SmartTrader')}
                             </Link>

@@ -43,10 +43,15 @@ const SEO = ({ description, meta, title, no_index }) => {
         }
 
         for (page in pages) {
+            const formattedLangName = pages[page].split('/')[1].replace('_', '-')
+            const pathHasNoLang = pages[page] === '/' + currentPage
             const link = {}
             link.rel = 'alternate'
-            link.href = 'https://deriv.com' + pages[page]
-            link.hreflang = pages[page].split('/')[1]
+            link.href =
+                'https://deriv.com' + pathHasNoLang
+                    ? pages[page]
+                    : '/' + formattedLangName + '/' + currentPage
+            link.hreflang = formattedLangName
             links.push(link)
         }
     }

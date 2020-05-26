@@ -17,26 +17,9 @@ const Wrapper = styled.div`
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     background-color: var(--color-black);
 
-    @media (max-width: 800px) {
+    @media ${device.mobileL} {
         flex-direction: column;
         height: 414px;
-    }
-`
-
-const BackgroundWrapper = styled(Flex)`
-    width: 100%;
-    max-width: 412px;
-    background-image: url(${(props) => props.background_pattern});
-    clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
-
-    @media ${device.laptop} {
-        max-width: 320px;
-    }
-
-    @media (max-width: 800px) {
-        max-width: unset;
-        clip-path: polygon(0 0, 100% 0%, 305% 163%, 0% 60%);
-        height: 50%;
     }
 `
 
@@ -45,7 +28,7 @@ const ImageContainer = styled.div`
     left: 5%;
     height: 100%;
 
-    @media (max-width: 800px) {
+    @media ${device.mobileL} {
         left: 0;
         height: unset;
         width: 100%;
@@ -64,7 +47,7 @@ const ImageWrapper = styled(Flex)`
         width: 100%;
     }
 
-    @media (max-width: 800px) {
+    @media ${device.mobileL} {
         height: auto;
         width: 286px;
         text-align: center;
@@ -73,44 +56,61 @@ const ImageWrapper = styled(Flex)`
 `
 
 const TextWrapper = styled.div`
+    position: absolute;
+    top: 9.5rem;
+    left: 36%;
     margin: auto;
 
-    @media (max-width: 800px) {
-        margin-top: 35px;
-        margin-bottom: 40px;
+    @media ${device.laptopM} {
+        left: 41%;
+    }
+    @media ${device.mobileL} {
+        top: 250px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 329px;
     }
 `
 const DemoButton = styled.div`
     text-align: center;
     height: auto;
 
-    @media (max-width: 800px) {
+    @media ${device.mobileL} {
         margin: unset;
     }
 `
 const StyledHeader = styled(Header)`
     @media ${device.laptopM} {
         font-size: 4rem;
-        max-width: 60rem;
     }
-    @media (max-width: 800px) {
+    @media ${device.mobileL} {
         font-size: 24px;
-        max-width: 329px;
     }
 `
 const DBanner = ({ title, data, background_pattern }) => {
+    const BannerBackgroundSVG = styled(background_pattern)`
+        clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+
+        @media ${device.tabletL} {
+            height: unset;
+        }
+        @media ${device.mobileL} {
+            clip-path: polygon(0 0, 100% 0%, 305% 163%, 0% 60%);
+        }
+    `
     return (
         <Wrapper>
+            <BannerBackgroundSVG />
             <ImageContainer>
                 <ImageWrapper ai="center">
                     <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
                 </ImageWrapper>
             </ImageContainer>
-            <BackgroundWrapper
-                background_pattern={background_pattern}
-                direction="column"
-                ai="center"
-            ></BackgroundWrapper>
             <TextWrapper>
                 <StyledHeader align="center" color="white" size="5.6rem" mb="3.2rem">
                     {title}

@@ -16,7 +16,9 @@ import dtrader_logo from 'images/svg/dtrader-icon.svg'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DTraderBGMobile from 'images/svg/dtrader-bg-mobile.svg'
 import DTraderBG from 'images/svg/dtrader-bg.svg'
-import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
+import DTraderBannerBGMobile from 'images/svg/dtrader-banner-bg-mobile.svg'
+import DTraderBannerBG from 'images/svg/dtrader-banner-bg.svg'
+// import BackgroundPatternTrader from 'images/common/bg_banner_trader.png'
 
 const query = graphql`
     query {
@@ -111,7 +113,7 @@ const Dtrader = () => {
                 <OtherPlatform exclude="dtrader" />
             </PlatformContainer>
             <DBanner
-                background_pattern={BackgroundPatternTrader}
+                background_pattern={is_mobile ? DTraderBannerBGMobile : DTraderBannerBG}
                 title={<Localize translate_text="Get into the DTrader experience" />}
                 data={data}
             />

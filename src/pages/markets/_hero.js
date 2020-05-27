@@ -5,6 +5,7 @@ import Globe2 from './globe.webm'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { Container } from 'components/containers'
+import { useLazyVideo } from 'components/hooks/lazy-video'
 
 const BackgroundWrapper = styled.div`
     position: relative;
@@ -31,11 +32,13 @@ const Video = styled.video`
     height: 100%;
 `
 export const Hero = () => {
+    useLazyVideo()
+
     return (
         <BackgroundWrapper>
-            <Video width="100%" height="100%" autoPlay muted playsInline loop>
-                <source src={Globe} type="video/mp4" />
-                <source src={Globe2} type="video/webm" />
+            <Video className="lazy" width="100%" height="100%" autoPlay muted playsInline loop>
+                <source data-src={Globe} type="video/mp4" />
+                <source data-src={Globe2} type="video/webm" />
             </Video>
             <StyledContainer direction="column">
                 <Header as="h1" color="white" lh="1.15" align="center">

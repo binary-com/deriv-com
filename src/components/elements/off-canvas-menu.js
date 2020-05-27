@@ -128,6 +128,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                 is_binary_link
                                 external="true"
                                 target="_blank"
+                                otherLinkProps={{ rel: 'noopener noreferrer' }}
                             />
                         </Flex>
                     </AccordionItem>

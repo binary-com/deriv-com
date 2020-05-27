@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import PlatformVideoMp4 from './Devices_3MB.webm'
+import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 // import { LinkButton, Button } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
@@ -119,51 +120,58 @@ const StyledHeader = styled(Header)`
     animation-fill-mode: both;
     animation-delay: ${(props) => props.ad};
 `
-
+const contents = [
+    'Tight spreads',
+    'Sharp prices',
+    '24x7 trading',
+    '100+ tradeable assets',
+    '20+ years of experience',
+]
+const TypeWriter = styled(Header)`
+    min-height: 7.2rem;
+`
 export const Hero = () => {
-    const the_text = localize('Trade forex, commodities, stock and synthetic indices')
+    const subtitle = localize('Trade forex, commodities, stock and synthetic indices')
     const [type_writer, setTypeWriter] = React.useState('')
+
     const type_writer_animation = (i = 0) => {
-        if (i < the_text.length) {
-            setTypeWriter(the_text.substring(0, i + 1))
+        if (i < subtitle.length) {
+            setTypeWriter(subtitle.substring(0, i + 1))
             setTimeout(() => type_writer_animation(i + 1), 13)
         }
     }
+
     React.useEffect(() => {
-        type_writer_animation()
+        setTimeout(() => type_writer_animation(), 1200)
     }, [])
+
     return (
         <HeroWrapper>
             <Container>
-                <StyledHeader as="h1" lh="1.25" color="white" ad="0.2s">
+                <StyledHeader as="h1" lh="1.25" color="white" ad="1.2s">
                     {localize('SIMPLE.')}
                 </StyledHeader>
             </Container>
             <Container>
-                <StyledHeader as="h1" lh="1.25" color="white" ad="0.3s">
+                <StyledHeader as="h1" lh="1.25" color="white" ad="1.3s">
                     {localize('FLEXIBLE.')}
                 </StyledHeader>
             </Container>
             <Container>
-                <StyledHeader as="h1" lh="1.25" color="white" ad="0.4s">
+                <StyledHeader as="h1" lh="1.25" color="white" ad="1.4s">
                     {localize('RELIABLE.')}
                 </StyledHeader>
             </Container>
             <Container jc="flex-start">
-                <Header as="h4" color="white" max_width="365px">
+                <TypeWriter as="h4" color="white" max_width="365px">
                     {type_writer}
-                </Header>
+                </TypeWriter>
+            </Container>
+            <Container>
+                <VerticalCarousel contents={contents} />
             </Container>
             <Show.Desktop>
-                <StyledVideo
-                    title={localize('deriv.app platform video')}
-                    width="100%"
-                    height="100%"
-                    autoPlay
-                    muted
-                    playsInline
-                    loop
-                >
+                <StyledVideo width="100%" height="100%" autoPlay muted playsInline loop>
                     <source src={PlatformVideoMp4} type="video/mp4" />
                 </StyledVideo>
             </Show.Desktop>

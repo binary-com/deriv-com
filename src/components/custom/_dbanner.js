@@ -71,7 +71,7 @@ const TextWrapper = styled.div`
         left: 41%;
     }
     @media ${device.tablet} {
-        top: 3rem;
+        top: 4rem;
         left: 54%;
         max-width: 250px;
     }

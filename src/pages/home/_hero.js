@@ -148,17 +148,17 @@ export const Hero = () => {
     return (
         <HeroWrapper>
             <Container>
-                <StyledHeader as="h1" lh="1.25" color="white" ad="1.2s">
+                <StyledHeader as="h1" lh="1.25" color="white" ad="0.5s">
                     {localize('SIMPLE.')}
                 </StyledHeader>
             </Container>
             <Container>
-                <StyledHeader as="h1" lh="1.25" color="white" ad="1.3s">
+                <StyledHeader as="h1" lh="1.25" color="white" ad="0.6s">
                     {localize('FLEXIBLE.')}
                 </StyledHeader>
             </Container>
             <Container>
-                <StyledHeader as="h1" lh="1.25" color="white" ad="1.4s">
+                <StyledHeader as="h1" lh="1.25" color="white" ad="0.7s">
                     {localize('RELIABLE.')}
                 </StyledHeader>
             </Container>

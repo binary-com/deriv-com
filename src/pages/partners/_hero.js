@@ -1,40 +1,72 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import PartnerVideo from './partner-video.mp4'
+import { localize } from 'components/localization'
 import { Container } from 'components/containers'
-import { BackgroundImage } from 'components/elements'
+import { Header } from 'components/elements'
+import { useLazyVideo } from 'components/hooks/lazy-video'
 
-const StyeldContainer = styled(Container)`
-    height: 100%;
+const StyledHero = styled.div`
+    width: 100%;
+    height: 80rem;
+    position: relative;
+    background: var(--color-black);
 `
 
-const query = graphql`
-    query {
-        image: file(relativePath: { eq: "partners-banner.png" }) {
-            ...backGroundBlur
-        }
+const StyledVideo = styled.video`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.4);
+
+    /* for edge */
+    @supports (object-fit: fill) {
+        object-fit: fill;
+        top: 0%;
+        left: unset;
+        transform: unset;
     }
 `
 
-const Hero = ({ children }) => {
-    const hero_img = useStaticQuery(query)
+const Content = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+`
+
+const Hero = () => {
+    useLazyVideo()
+
     return (
-        <BackgroundImage
-            data={hero_img.image}
-            style={{
-                height: '80rem',
-                width: '100%',
-            }}
-        >
-            <StyeldContainer direction="column" justify="center" align="center">
-                {children}
-            </StyeldContainer>
-        </BackgroundImage>
+        <StyledHero>
+            <StyledVideo
+                className="lazy"
+                title={localize('deriv.app platform video')}
+                width="100%"
+                height="100%"
+                autoPlay
+                muted
+                playsInline
+                loop
+            >
+                <source data-src={PartnerVideo} type="video/mp4" />
+            </StyledVideo>
+            <Content direction="column">
+                <Container direction="column" height="100%">
+                    <Header as="h1" color="white" align="center">
+                        {localize('Deriv partnership programmes')}
+                    </Header>
+                    <Header color="white" align="center" size="var(--text-size-header-1)">
+                        {localize('Partner with a trusted online trading provider.')}
+                    </Header>
+                </Container>
+            </Content>
+        </StyledHero>
     )
 }
 
-Hero.propTypes = {
-    children: PropTypes.node,
-}
 export default Hero

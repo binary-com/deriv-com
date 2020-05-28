@@ -7,7 +7,7 @@ import { StyledCard } from '../_layout-components/_team-card'
 import { cyberjaya, malta, dubai, labuan, asuncion } from '../_model/_locations/_locations'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl } from 'components/localization'
+import { WithIntl, localize } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
 import MalaysiaFlagIcon from 'images/svg/flag_malaysia.svg'
 import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
@@ -39,15 +39,17 @@ const BackDrop = styled.section`
 
 const Hero = () => (
     <BackDrop>
-        <Header as="h1" font_size="var(--text-size-xl)" align="center" color="white">
-            Our locations
-        </Header>
-        <Text size="var(--text-size-sm)" color="white">
-            From IT to marketing to data analytics, we offer opportunities for people of almost
-            every skill set across our locations around the globe. As we expand, our culture of
-            collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and rewarding
-            career experience.
-        </Text>
+        <Container fd="column">
+            <Header as="h1" size="var(--text-size-xl)" align="center" color="white">
+                Our locations
+            </Header>
+            <Text size="var(--text-size-sm)" color="white">
+                From IT to marketing to data analytics, we offer opportunities for people of almost
+                every skill set across our locations around the globe. As we expand, our culture of
+                collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and
+                rewarding career experience.
+            </Text>
+        </Container>
     </BackDrop>
 )
 
@@ -65,9 +67,9 @@ const CountryCardWrapper = styled(StyledCard)`
 const CountryCard = ({ open_positions, country_name, city_name, link, img_data, Icon }) => {
     return (
         <CountryCardWrapper to={link}>
-            <QueryImage data={img_data} width="100%" />
+            <QueryImage data={img_data} alt={city_name + localize('Office')} width="100%" />
             <div style={{ padding: '32px' }}>
-                <Header as="h5" font_size="var(--text-size-sm)">
+                <Header as="h5" size="var(--text-size-sm)">
                     {city_name}
                 </Header>
                 <Flex jc="unset" ai="center" mt="8px" mb="8px">
@@ -123,7 +125,7 @@ const Locations = () => {
             <Hero />
             <Container direction="column">
                 <SectionContainer>
-                    <Header as="h2" align="center" font_size={'var(--text-size-header-1)'}>
+                    <Header as="h2" align="center" size={'var(--text-size-header-1)'}>
                         Explore our locations
                     </Header>
                     <CssGrid

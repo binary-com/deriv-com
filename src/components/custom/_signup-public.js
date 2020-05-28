@@ -1,12 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Input, Button } from 'components/form'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
+// SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
 import Arrow from 'images/svg/chervon-right.svg'
@@ -14,6 +16,13 @@ import BackgroundPattern from 'images/common/bg_banner_signup.png'
 import Chevron from 'images/svg/carousel-chevron.svg'
 import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
 
+const query = graphql`
+    query {
+        deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
 
@@ -23,16 +32,18 @@ const ChevronRight = styled(Chevron)`
         }
     }
 `
+
 const Wrapper = styled.div`
     position: relative;
     display: flex;
     flex-direction: row;
-    height: 33.3rem;
+    min-height: 35.3rem;
+    align-items: center;
     width: 100%;
     overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
 
-    @media (max-width: 800px) {
+    @media (max-width: 991px) {
         flex-direction: column;
         height: auto;
     }
@@ -46,23 +57,33 @@ const SignupFormWrapper = styled(Flex)`
         padding: 0 2rem;
     }
 
-    @media (max-width: 800px) {
+    @media ${device.mobileM} {
         width: 100%;
+
+        & > div {
+            width: 100%;
+        }
     }
 `
 
 const BackgroundWrapper = styled(Flex)`
+    min-height: 35.3rem;
+    height: 100%;
     width: 50%;
     background-image: url(${BackgroundPattern});
     clip-path: polygon(14rem 0, 100% 0%, 100% 100%, 0% 100%);
 
-    @media (max-width: 800px) {
+    @media (max-width: 991px) {
         display: none;
     }
 `
 
 const InputWrapper = styled.div`
     width: 28rem;
+
+    @media ${device.tabletL} {
+        margin-right: 1rem;
+    }
 `
 const InputGroup = styled.div`
     display: flex;
@@ -75,10 +96,11 @@ const EmailButton = styled(Button)`
     height: 4rem;
 
     @media ${device.tabletL} {
-        width: 13rem;
-        font-size: 1.75rem;
+        width: auto;
+        font-size: 1.4rem;
         margin-left: 0;
         height: 5rem;
+        min-width: 15rem;
     }
 `
 const SocialWrapper = styled(Flex)`
@@ -96,35 +118,29 @@ const SocialButton = styled(Button)`
     background-color: var(--color-white);
     border: solid 1px var(--color-grey-7);
     height: 4rem;
-    margin-right: 1.2rem;
+    margin: 0 0.8rem;
 
     @media ${device.tabletL} {
-        height: 6rem;
-        margin-right: ${props => (props.margin_right ? props.margin_right : '0')};
         justify-content: center;
         align-items: center;
-
-        svg {
-            margin-right: 1rem;
-        }
     }
 `
 
 const StyledHeader = styled(Header)`
-    width: ${props => props.width || '48.6rem'};
+    width: ${(props) => props.width || '41.4rem'};
 
     @media ${device.tablet} {
         width: auto;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 991px) {
         margin-top: 2rem;
-        ${props => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
+        ${(props) => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
     }
 `
 const StyledText = styled(Text)`
     width: auto;
-    margin-right: 4rem;
+    margin-right: 2rem;
 
     @media ${device.tabletL} {
         width: max-content-fit;
@@ -143,13 +159,13 @@ const ImageWrapper = styled(Flex)`
     }
 
     @media (max-width: 1350px) {
-        width: 30rem;
+        width: 25rem;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 1230px) {
         display: none;
     }
 `
-const redirectToDerivApp = e => {
+const redirectToDerivApp = (e) => {
     e.preventDefault()
     window.open(deriv_app_url, '_blank')
 }
@@ -170,7 +186,7 @@ const MobileBackground = styled.div`
     position: relative;
     padding-bottom: 4rem;
 
-    @media (min-width: 800px) {
+    @media (min-width: 991px) {
         display: none;
     }
 `
@@ -192,8 +208,9 @@ const DerivExperience = styled.div`
 const MobileRedBanner = styled.div`
     position: absolute;
     width: 100%;
-    bottom: 0;
+    bottom: -2px;
     max-height: 100%;
+    overflow: hidden;
 `
 const MobilePlatform = styled.div`
     width: 100%;
@@ -210,20 +227,21 @@ const SignupPublic = ({
     handleSocialSignup,
     is_submitting,
 }) => {
+    const data = useStaticQuery(query)
     return (
         <Wrapper>
             <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
                 <ImageWrapper ai="center">
-                    <Image img_name="deriv-platform-banner.png" width="100%" />
+                    <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
                 </ImageWrapper>
             </div>
             <SignupFormWrapper>
                 <div>
-                    <StyledHeader font_size="3.2rem">
+                    <StyledHeader size="3.2rem">
                         {localize('Join over 1 million traders worldwide')}
                     </StyledHeader>
                     <br />
-                    <StyledHeader as="h4" weight="500" font_size="2.6rem">
+                    <StyledHeader as="h4" weight="normal" size="1.6rem">
                         {localize('Sign up for your demo account now.')}
                     </StyledHeader>
                     <InputGroup>
@@ -237,7 +255,9 @@ const SignupPublic = ({
                                 background="white"
                                 tabletBackground="green-1"
                                 inputColor="var(grey-5)"
+                                inputBackground="grey-8"
                                 labelFocusColor="grey-7"
+                                labelColor="black-3"
                                 label={localize('Email')}
                                 placeholder={'example@mail.com'}
                                 handleError={clearEmail}
@@ -246,7 +266,7 @@ const SignupPublic = ({
                                 autoFocus={autofocus}
                                 autoComplete="off"
                                 required
-                                border="1px solid var(--color-grey-7)"
+                                border="unset"
                                 focusBorder="var(--color-grey-7)"
                             />
                         </InputWrapper>
@@ -255,22 +275,7 @@ const SignupPublic = ({
                         </EmailButton>
                     </InputGroup>
                     <SocialWrapper jc="unset" ai="center">
-                        <StyledText>{localize('or sign in with')}</StyledText>
-                        <SocialButton
-                            onClick={handleSocialSignup}
-                            provider="google"
-                            id="google"
-                            type="button"
-                            social
-                            margin_right="1rem"
-                        >
-                            <span>
-                                <Google />
-                            </span>
-                            <Show.Mobile>
-                                <Text>Google</Text>
-                            </Show.Mobile>
-                        </SocialButton>
+                        <StyledText>{localize('Or sign in with')}</StyledText>
                         <SocialButton
                             onClick={handleSocialSignup}
                             provider="facebook"
@@ -281,31 +286,49 @@ const SignupPublic = ({
                             <span>
                                 <Facebook />
                             </span>
-                            <Show.Mobile>
-                                <Text>Facebook</Text>
-                            </Show.Mobile>
+                        </SocialButton>
+                        <SocialButton
+                            onClick={handleSocialSignup}
+                            provider="google"
+                            id="google"
+                            type="button"
+                            social
+                        >
+                            <span>
+                                <Google />
+                            </span>
                         </SocialButton>
                     </SocialWrapper>
                 </div>
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
                 <LinkFlex ai="center" onClick={redirectToDerivApp}>
-                    <StyledHeader font_size="2.8rem" width="28.2rem" align="center" color="grey-8">
+                    <StyledHeader
+                        size="2.8rem"
+                        max_width="28.2rem"
+                        align="center"
+                        color="grey-8"
+                        mr="1.2rem"
+                    >
                         {localize('Get a taste of the Deriv experience')}
                     </StyledHeader>
                     <ChevronRight />
                 </LinkFlex>
             </BackgroundWrapper>
-            <Show.Mobile>
+            <Show.Mobile style={{ width: '100%' }}>
                 <MobileBackground>
                     <MobilePlatform>
-                        <Image img_name="deriv-platform-banner.png" width="100%" />
+                        <QueryImage
+                            data={data['deriv_platform']}
+                            alt="deriv platform"
+                            width="100%"
+                        />
                     </MobilePlatform>
                     <MobileRedBanner>
                         <RedBanner width="100%" />
                     </MobileRedBanner>
                     <DerivExperience onClick={redirectToDerivApp}>
-                        <Header font_size="3rem">
+                        <Header size="3rem">
                             {localize('Get a taste of the Deriv experience')}
                         </Header>
                         <Arrow />

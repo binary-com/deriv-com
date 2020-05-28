@@ -1,9 +1,17 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { localize } from 'components/localization'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 
+const query = graphql`
+    query {
+        payment_agent: file(relativePath: { eq: "payment-agent.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const WrapContainer = styled(Container)`
     flex-wrap: wrap;
 
@@ -23,12 +31,18 @@ const WrapContainer = styled(Container)`
     }
 `
 
+const Wrapper = styled.div`
+    width: 100%;
+    max-width: 48.6rem;
+`
+
 const TapInto = () => {
+    const data = useStaticQuery(query)
     return (
         <SectionContainer>
             <WrapContainer justify="flex-end">
-                <Flex direction="column" mr="2.4rem" mw="58.8rem">
-                    <Header as="h3" font_size="var(--text-size-header-1)" margin="0 0 1.6rem">
+                <Flex direction="column" mr="2.4rem" max_width="58.8rem">
+                    <Header as="h3" size="var(--text-size-header-1)" mb="1.6rem">
                         {localize('Tap into an established and growing market')}
                     </Header>
                     <Text size="var(--text-size-m)">
@@ -37,7 +51,13 @@ const TapInto = () => {
                         )}
                     </Text>
                 </Flex>
-                <Image img_name="payment-agent.png" width="48.6rem" />
+                <Wrapper>
+                    <QueryImage
+                        data={data['payment_agent']}
+                        alt={localize('Payment agent')}
+                        width="100%"
+                    />
+                </Wrapper>
             </WrapContainer>
         </SectionContainer>
     )

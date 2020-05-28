@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformVideoMp4 from './Deriv_platform_tour.mp4'
 import device from 'themes/device'
-import { LinkButton, Button } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import { LinkButton, Button } from 'components/form'
+import { useLazyVideo } from 'components/hooks/lazy-video'
 import { localize } from 'components/localization'
 import CheckMarkIcon from 'images/svg/checklist.svg'
 
@@ -39,10 +40,6 @@ const HeroWrapper = styled.section`
 `
 
 const HeroHeader = styled(Header)`
-    margin-top: ${props => (props.secondary ? '1.6rem' : '')};
-    margin-bottom: 3.2rem;
-    font-size: 4.8rem;
-
     @media ${device.tabletL} {
         text-align: left;
         font-size: 3.25rem;
@@ -53,8 +50,6 @@ const HeroHeader = styled(Header)`
 `
 
 const HeroSubHeader = styled(Header)`
-    margin-bottom: 1.4rem;
-
     @media ${device.desktopL} {
         font-size: 3.36rem;
     }
@@ -94,7 +89,7 @@ const HeroGrid = styled.section`
 `
 
 const ButtonWrapper = styled(Flex)`
-    margin-top: 6rem;
+    margin-top: 9.6rem;
     height: 40px;
 
     ${Button} {
@@ -140,11 +135,6 @@ const HeroButton = styled(LinkButton)`
 `
 
 const CheckBoxText = styled(Text)`
-    margin-left: 16px;
-    font-size: 1.8rem;
-    font-weight: 500;
-    line-height: 2;
-
     @media ${device.desktopL} {
         font-size: 2.52rem;
     }
@@ -156,7 +146,7 @@ const CheckMarkBullet = ({ children }) => (
     <li>
         <Flex jc="unset" ai="center">
             <CheckMark />
-            <CheckBoxText secondary="true" color="white">
+            <CheckBoxText ml="1rem" size="2.4rem" lh="1.5" color="white">
                 {children}
             </CheckBoxText>
         </Flex>
@@ -180,21 +170,29 @@ CheckMarkBullet.propTypes = {
 }
 
 export const Hero = () => {
+    useLazyVideo()
+
     return (
         <HeroWrapper>
             <Container>
                 <HeroGrid>
                     <StyledArticle>
                         <div>
-                            <HeroHeader as="h1" color="white" lh="1.15">
+                            <HeroHeader
+                                as="h1"
+                                color="white"
+                                mb="2.4rem"
+                                size="var(--text-size-xl)"
+                                lh="1.25"
+                            >
                                 {localize('Simple. Flexible. Reliable.')}
                             </HeroHeader>
                             <HeroSubHeader
                                 as="h2"
                                 color="white"
-                                lh="1.5"
-                                font_size="var(--text-size-m)"
+                                size="var(--text-size-m)"
                                 weight="500"
+                                mb="1.4rem"
                             >
                                 {localize('Trade forex, commodities, stock and synthetic indices')}
                             </HeroSubHeader>
@@ -213,7 +211,7 @@ export const Hero = () => {
                         <div>
                             <ButtonWrapper jc="unset">
                                 <HeroButton type="submit" secondary="true" to="/signup/">
-                                    {localize('Create demo account')}
+                                    {localize('Create free demo account')}
                                 </HeroButton>
                             </ButtonWrapper>
                         </div>
@@ -222,6 +220,7 @@ export const Hero = () => {
             </Container>
             <Show.Desktop>
                 <StyledVideo
+                    className="lazy"
                     title={localize('deriv.app platform video')}
                     width="100%"
                     height="100%"
@@ -230,7 +229,7 @@ export const Hero = () => {
                     playsInline
                     loop
                 >
-                    <source src={PlatformVideoMp4} type="video/mp4" />
+                    <source data-src={PlatformVideoMp4} type="video/mp4" />
                 </StyledVideo>
             </Show.Desktop>
         </HeroWrapper>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <path id="silverusdprefix__a" d="M5.559 0h2.882c.19 0 .363.107.447.276l1.25 2.5c.124.247.024.548-.223.671-.07.035-.146.053-.224.053H4.309c-.276 0-.5-.224-.5-.5 0-.078.018-.154.053-.224l1.25-2.5C5.196.107 5.37 0 5.559 0z"/>
+        <path id="silverusdprefix__c" d="M2.059 4h2.882c.19 0 .363.107.447.276l1.25 2.5c.124.247.024.548-.223.671-.07.035-.146.053-.224.053H.809c-.276 0-.5-.224-.5-.5 0-.078.018-.154.053-.224l1.25-2.5C1.696 4.107 1.87 4 2.059 4z"/>
+        <path id="silverusdprefix__d" d="M9.059 4h2.882c.19 0 .363.107.447.276l1.25 2.5c.124.247.024.548-.223.671-.07.035-.146.053-.224.053H7.809c-.276 0-.5-.224-.5-.5 0-.078.018-.154.053-.224l1.25-2.5C8.696 4.107 8.87 4 9.059 4z"/>
+        <linearGradient id="silverusdprefix__b" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#E1E1E1"/>
+            <stop offset="100%" stop-color="silver"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(1 4)">
+        <use fill="silver" xlink:href="#silverusdprefix__a"/>
+        <path fill="url(#silverusdprefix__b)" stroke="#000" stroke-linejoin="square" stroke-opacity=".08" stroke-width=".5" d="M8.308.262L5.311.51 4.64 3.207l5.083-.63L8.308.261z"/>
+        <use fill="silver" xlink:href="#silverusdprefix__c"/>
+        <path fill="url(#silverusdprefix__b)" stroke="#000" stroke-linejoin="square" stroke-opacity=".08" stroke-width=".5" d="M4.808 4.262l-2.997.249-.671 2.696 5.083-.63-1.415-2.315z"/>
+        <g>
+            <use fill="silver" xlink:href="#silverusdprefix__d"/>
+            <path fill="url(#silverusdprefix__b)" stroke="#000" stroke-linejoin="square" stroke-opacity=".08" stroke-width=".5" d="M11.808 4.262l-2.997.249-.671 2.696 5.083-.63-1.415-2.315z"/>
+        </g>
+    </g>
+</svg>

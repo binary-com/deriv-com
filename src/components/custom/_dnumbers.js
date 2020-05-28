@@ -14,11 +14,13 @@ const NumberWrapper = styled.div`
     ${Text} {
         padding-top: 0.8rem;
     }
+    @media ${device.tabletL} {
+        margin: 1.2rem 0;
+    }
 `
 const StyledContainer = styled(Container)`
     display: flex;
     width: 100%;
-    justify-content: ${props => props.justify || 'space-between'};
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -28,7 +30,7 @@ const StyledContainer = styled(Container)`
 const DNumbers = ({ items, justify }) => {
     return (
         <SectionContainer padding="4rem">
-            <StyledContainer justify={justify}>
+            <StyledContainer justify={justify || 'space-between'}>
                 {items.map((item, index) => (
                     <NumberWrapper key={index}>
                         <Header as="h2" align="center">

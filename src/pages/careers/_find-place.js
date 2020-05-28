@@ -12,64 +12,75 @@ const StyledHeader = styled(Header)`
     margin-bottom: 6.4rem;
 `
 
+export const fadeInFixed = graphql`
+    fragment fadeInFixed on File {
+        childImageSharp {
+            fixed(width: 282, height: 144) {
+                ...GatsbyImageSharpFixed_noBase64
+                originalName
+            }
+        }
+    }
+`
+
 const query = graphql`
     query {
         devops: file(relativePath: { eq: "careers/team-devops.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         compliance: file(relativePath: { eq: "careers/team-compliance.jpg" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         marketing: file(relativePath: { eq: "careers/team-marketing.jpg" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         qualityassurance: file(relativePath: { eq: "careers/team-quality-assurance.jpg" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         accountsandpayments: file(relativePath: { eq: "careers/team-accounts-payments.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         backend: file(relativePath: { eq: "careers/team-back-end.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         businessintelligence: file(relativePath: { eq: "careers/team-business-intelligence.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         content: file(relativePath: { eq: "careers/team-content.jpg" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         cryptodevelopment: file(relativePath: { eq: "careers/team-crypto-development.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         customersupport: file(relativePath: { eq: "careers/team-customer-support.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         disasterrecovery: file(relativePath: { eq: "careers/team-disaster-recovery.jpg" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         frontend: file(relativePath: { eq: "careers/team-front-end.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         hrrecruitment: file(relativePath: { eq: "careers/team-hr-recruitment.jpg" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         internalaudit: file(relativePath: { eq: "careers/team-internal-audit.jpg" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         itadmin: file(relativePath: { eq: "careers/team-it-admin.jpg" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         productdesign: file(relativePath: { eq: "careers/team-product-design.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         projectmanagement: file(relativePath: { eq: "careers/team-project-management.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         quants: file(relativePath: { eq: "careers/team-quants.png" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
         security: file(relativePath: { eq: "careers/team-security.jpg" }) {
-            ...fadeIn
+            ...fadeInFixed
         }
     }
 `
@@ -83,13 +94,13 @@ const FindPlace = () => {
             <Container direction="column">
                 <StyledHeader as="h3">Find your place at Deriv</StyledHeader>
                 <CssGrid
-                    columns="repeat(4, 28.2rem)"
+                    columns="repeat(4, 282px)"
                     column_gap="2.4rem"
-                    laptop_columns="repeat(2, 28.2rem)"
+                    laptop_columns="repeat(2, 282px)"
                     laptop_row_gap="2.4rem"
-                    tablet_columns="28.2rem"
+                    tablet_columns="282px"
                     tablet_row_gap="2.4rem"
-                    mobile_columns="28.2rem"
+                    mobile_columns="282px"
                     mobile_row_gap="2.4rem"
                 >
                     {top_teams.map((team, idx) => (

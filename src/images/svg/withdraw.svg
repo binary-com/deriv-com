@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="withdraw-icon">
+    <title id="withdraw-icon">Withdraw icon</title>
+    <g fill="none" fill-rule="evenodd">
+        <path d="M0 0H32V32H0z"/>
+        <rect width="32" height="20" fill="#85ACB0" fill-rule="nonzero" rx="2"/>
+        <rect width="10" height="10" x="11" y="5" fill="#FFF" fill-opacity=".56" fill-rule="nonzero" rx="3"/>
+        <path fill="#333" fill-rule="nonzero" d="M16 16c1.054 0 1.918.816 1.995 1.85L18 18v8l.8-.6c.884-.663 2.137-.484 2.8.4.63.84.5 2.013-.273 2.696l-.127.104-4 3c-.664.498-1.56.531-2.254.1l-.146-.1-4-3c-.884-.663-1.063-1.916-.4-2.8.63-.84 1.792-1.043 2.665-.493l.135.093.8.6v-8c0-1.105.895-2 2-2z"/>
+    </g>
+</svg>

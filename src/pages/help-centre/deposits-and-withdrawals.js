@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
 import { deriv_app_url } from 'common/utility'
-import { Text, Header } from 'components/elements/typography'
+import { Text, Header, LocalizedLinkText } from 'components/elements/typography'
 import { Localize, localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -15,6 +15,11 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+    margin-top: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
+    }
 `
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -29,22 +34,19 @@ const ExternalLink = styled.a`
 const StyledText = styled(Text)`
     margin-top: 1.7rem;
 `
-const urlPaymentMethods =
-    getLanguage() === 'en' || getLanguage() == null
-        ? '/payment-methods/'
-        : `/${getLanguage()}/payment-methods/`
+const StyledHeader = styled(Header)`
+    margin-bottom: 2.4rem;
+`
 
 const PaymentMethods = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What payment methods do you support?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What payment methods do you support?')}</StyledHeader>
         <Text>
             <Localize
                 translate_text="Our list of <0>supported payment methods</0> includes bank wire, credit and debit cards, e-wallets, and cryptocurrencies."
                 components={[
-                    <ExternalLink
-                        href={urlPaymentMethods}
+                    <LocalizedLinkText
+                        to="/payment-methods/"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -61,9 +63,9 @@ const PaymentMethods = () => (
 )
 const WithdrawalProcessingTime = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize('How long does it take to process deposits and withdrawals?')}
-        </Header>
+        </StyledHeader>
         <Text>
             {localize(
                 'Your deposits and withdrawals will be processed within one business day (Monday to Friday, 9:00 am–5:00 pm GMT+8) unless stated otherwise. Please note that your bank or money transfer service may require additional time to process your request.',
@@ -73,9 +75,9 @@ const WithdrawalProcessingTime = () => (
 )
 const MinimumDepositWithdrawal = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize('What is the minimum deposit or withdrawal amount?')}
-        </Header>
+        </StyledHeader>
         <Text>
             {localize(
                 'You can deposit or withdraw a minimum of USD/EUR/GBP/AUD 5 using e-wallets. Other payment methods will have different minimum amounts.',
@@ -88,9 +90,9 @@ const MinimumDepositWithdrawal = () => (
 )
 const ExpiredVerificationLink = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize('My withdrawal verification link expired. What should I do?')}
-        </Header>
+        </StyledHeader>
         <Text>
             {localize(
                 'This problem might be a result of clicking on the ‘Withdraw’ button multiple times. Try to withdraw once again, and then click on the latest verification link sent to your email. Please make sure that you use the link within one hour.',
@@ -100,9 +102,7 @@ const ExpiredVerificationLink = () => (
 )
 const LiftWithdrawalLimits = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How can I lift my withdrawal limits?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How can I lift my withdrawal limits?')}</StyledHeader>
         <Text>
             <Localize
                 translate_text="You can lift your withdrawal limits by verifying your identity and address. To see your current withdrawal limits, please go to <0>Settings > Security and safety ></0> <1>Account limits</1>."
@@ -121,9 +121,9 @@ const LiftWithdrawalLimits = () => (
 )
 const CreditCardDepositDeclined = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize('Why does my credit card deposit keep getting declined?')}
-        </Header>
+        </StyledHeader>
         <Text>
             {localize(
                 "This usually happens to clients who are depositing with us for the first time using their credit card. Please ask your bank to authorise transactions with 'Deriv'.",
@@ -133,9 +133,7 @@ const CreditCardDepositDeclined = () => (
 )
 const WithdrawDepositBonus = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('Can I withdraw my deposit bonus?')}
-        </Header>
+        <StyledHeader as="h4">{localize('Can I withdraw my deposit bonus?')}</StyledHeader>
         <Text>
             {localize(
                 'You may withdraw the free bonus amount once you have exceeded an account turnover of 25 times the bonus amount value.',
@@ -145,9 +143,9 @@ const WithdrawDepositBonus = () => (
 )
 const WithdrawMaestroMastercard = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize("Why can't I withdraw funds to my Maestro/Mastercard?")}
-        </Header>
+        </StyledHeader>
         <Text>
             {localize(
                 'Mastercard and Maestro card withdrawals are only available for UK clients. If you are not from the UK, please withdraw using an e-wallet or cryptocurrency instead.',
@@ -158,7 +156,7 @@ const WithdrawMaestroMastercard = () => (
 
 const DepositsAndWithdrawalArticle = () => {
     return (
-        <Article header="Deposits and withdrawals">
+        <Article header={localize('Deposits and withdrawals')}>
             <PaymentMethods
                 text={localize('What payment methods do you support?')}
                 label="payment-methods"

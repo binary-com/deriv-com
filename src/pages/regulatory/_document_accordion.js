@@ -11,8 +11,8 @@ import device from 'themes/device'
 const IconContainer = styled(Flex)`
     justify-content: flex-start;
     align-items: center;
-    min-width: ${props => props.minWidth || ''};
-    padding-bottom: ${props => props.paddingBottom || ''};
+    min-width: ${(props) => props.minWidth || ''};
+    padding-bottom: ${(props) => props.paddingBottom || ''};
     text-decoration: none;
 
     svg {
@@ -67,19 +67,14 @@ const RTS28 = ({ urls }) => (
         </IconContainer>
     </EdgeFlex>
 )
-RTS28.propTypes = {
-    urls: PropTypes.array,
-}
-
-const QuarterHeader = styled(Text)`
-    padding-bottom: 1.6rem;
-`
 
 const QuarterTable = ({ quarters }) => (
     <div style={{ padding: '0.8rem' }}>
         {quarters.map((quarter, idx) => (
             <div key={idx} style={{ paddingBottom: idx === quarters.length - 1 ? '' : '1.6rem' }}>
-                <QuarterHeader align="center">{quarter.name}</QuarterHeader>
+                <Text align="center" pb="1.6rem">
+                    {quarter.name}
+                </Text>
                 <Flex jc="flex-start" wrap="wrap">
                     <IconContainer
                         width="unset"
@@ -138,10 +133,6 @@ const QuarterTable = ({ quarters }) => (
         ))}
     </div>
 )
-QuarterTable.propTypes = {
-    quarters: PropTypes.array,
-    urls: PropTypes.array,
-}
 
 const DocumentAccordion = () => {
     return (
@@ -281,6 +272,15 @@ const DocumentAccordion = () => {
             </Accordion>
         </div>
     )
+}
+
+RTS28.propTypes = {
+    urls: PropTypes.array,
+}
+
+QuarterTable.propTypes = {
+    quarters: PropTypes.array,
+    urls: PropTypes.array,
 }
 
 export default DocumentAccordion

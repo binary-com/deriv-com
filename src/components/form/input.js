@@ -11,11 +11,10 @@ const RelativeWrapper = styled.div`
 `
 const InputWrapper = styled.div`
     width: 100%;
-    border: ${props => props.border || '1px solid var(--color-grey-2)'};
+    border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 4px;
 
     @media ${device.tabletL} {
-        width: 27rem;
         height: 5rem;
     }
 
@@ -27,10 +26,10 @@ const InputWrapper = styled.div`
         }
     }
     &:focus-within {
-        border-color: ${props => props.focusBorder || 'var(--color-green)'};
+        border-color: ${(props) => props.focusBorder || 'var(--color-green)'};
     }
 
-    ${props =>
+    ${(props) =>
         props.error &&
         css`
             border-color: var(--color-red-1) !important;
@@ -56,21 +55,29 @@ const StyledError = styled(CrossIcon)`
 `
 
 const StyledInput = styled.input`
-    background: none;
-    color: var(--color- ${props => props.inputColor || 'black'});
-    font-size: var(--text-size-s);
+    /* prettier-ignore */
+    background: var(--color-${(props) => props.inputBackground || 'none'});
+    color: var(--color-${(props) => props.inputColor || 'black'});
+    font-size: 16px;
     padding: 1rem 1rem 1rem 0.8rem;
-    width: 95%;
+    width: 100%;
     display: block;
     border: none;
-    border-radius: 0;
+    border-radius: 4px;
 
     @media ${device.tabletL} {
-        height: 5rem;
+        height: 100%;
 
         & ~ label {
             font-size: 1.75rem;
             top: 1.5rem;
+        }
+    }
+
+    @media ${device.mobileM} {
+        & ~ label {
+            font-size: 1.5rem;
+            top: 1.75rem;
         }
     }
 
@@ -84,7 +91,12 @@ const StyledInput = styled.input`
 
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: var(--color- ${props => props.labelFocusColor || 'green'});
+
+            /* prettier-ignore */
+            color: var(--color-${(props) => props.labelFocusColor || 'green'});
+
+            /* prettier-ignore */
+            background-color: var(--color-${(props) => props.background || 'grey-1'});
         }
         &::placeholder {
             opacity: 0.5;
@@ -94,6 +106,9 @@ const StyledInput = styled.input`
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
             color: var(--color-green);
+
+            /* prettier-ignore */
+            background-color: var(--color-${(props) => props.background || 'grey-1'});
         }
     }
 `
@@ -105,7 +120,8 @@ const ErrorMessages = styled(Text)`
 `
 
 const StyledLabel = styled.label`
-    color: var(--color-grey);
+    /* prettier-ignore */
+    color: var(--color-${(props) => props.labelColor || 'grey'});
     font-size: var(--text-size-s);
     position: absolute;
     pointer-events: none;
@@ -114,15 +130,14 @@ const StyledLabel = styled.label`
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
-
-    /* prettier-ignore */
-    background-color: var(--color-${props => props.background || 'grey-1'});
+    background: none;
 `
 
 const Input = ({
     label,
     border,
     focusBorder,
+    labelColor,
     id,
     error,
     background,
@@ -137,12 +152,12 @@ const Input = ({
             error={error}
             className="input-wrapper"
         >
-            <StyledInput id={id} {...props} />
+            <StyledInput id={id} background={background} {...props} />
             <StyledLabel
-                background={background}
                 tabletBackground={tabletBackground}
                 error={error}
                 htmlFor={id}
+                labelColor={labelColor}
             >
                 {label}
             </StyledLabel>
@@ -163,6 +178,7 @@ Input.propTypes = {
     handleError: PropTypes.func,
     id: PropTypes.string,
     label: PropTypes.string,
+    labelColor: PropTypes.string,
     tabletBackground: PropTypes.string,
     width: PropTypes.string,
 }

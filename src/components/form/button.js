@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { Paddings } from 'themes/function'
+import { Paddings, Margins } from 'themes/function'
 import { LocalizedLink } from 'components/localization'
 
 const SharedButtonStyle = css`
@@ -10,7 +10,7 @@ const SharedButtonStyle = css`
     transition: all 0.25s;
     font-weight: bold;
     height: fit-content;
-    ${props => {
+    ${(props) => {
         if (props.primary)
             return css`
                 border: 2px solid var(--color-red);
@@ -55,11 +55,11 @@ const SharedButtonStyle = css`
             `
         if (props.social)
             return css`
-                background: ${props => {
+                background: ${(props) => {
                     if (props.provider === 'google') return 'var(--color-white)'
                     if (props.provider === 'facebook') return 'var(--color-blue)'
                 }};
-                border: ${props =>
+                border: ${(props) =>
                     props.provider === 'google' ? '1px solid var(--color-grey-5);' : 'none'};
 
                 svg {
@@ -71,6 +71,17 @@ const SharedButtonStyle = css`
                     background: var(--color-grey-4);
                 }
             `
+        if (props.white)
+            return css`
+                border: 2px solid var(--color-white);
+                color: var(--color-white);
+                background: transparent;
+
+                &:hover {
+                    background-color: var(--color-white);
+                    color: var(--color-red);
+                }
+            `
     }}
 
     &:focus,
@@ -78,6 +89,9 @@ const SharedButtonStyle = css`
         outline: none;
         transform: scale(0.95);
     }
+
+    ${Paddings}
+    ${Margins}
 `
 
 export const LinkButton = styled(LocalizedLink)`
@@ -85,15 +99,15 @@ export const LinkButton = styled(LocalizedLink)`
     text-align: center;
     text-decoration: none;
 `
+
 const Button = styled.button`
     ${SharedButtonStyle}
-    ${Paddings}
 
     &:hover {
         cursor: pointer;
     }
 
-    ${props => {
+    ${(props) => {
         if (props.disabled)
             return css`
                 pointer-events: none;

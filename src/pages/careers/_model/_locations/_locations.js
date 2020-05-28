@@ -18,11 +18,12 @@ export const cyberjaya = {
         'Cyberjaya is a green township designed for sustainable living. It has an urban environment with almost half of its total development area reserved for public amenities and greenery. Cyberjaya is built upon a low carbon city framework, making it a model for sustainable future cities.',
     first_img: 'living_in_cyberjaya',
     grid_images: ['cyberjaya_grid_1', 'cyberjaya_grid_2', 'cyberjaya_grid_3', 'cyberjaya_grid_4'],
-    map: 'map_cyberjaya',
+    map: 'ChIJyTcAIli2zTERA4MWDMgk9i0',
     map_text:
         'Our office in Cyberjaya is located in iTech Tower, a 20-storey office building in the vibrant Shaftsbury Square. Easily accessible via major highways, it takes just 30 minutes to get to Cyberjaya from downtown Kuala Lumpur.',
     address: address_cyberjaya,
     google_map_link: 'https://g.page/r/CQODFgzIJPYtEAE',
+    has_iframe: true,
 }
 
 export const malta = {
@@ -36,12 +37,13 @@ export const malta = {
     first_p: `Life in Malta moves at a slower pace with a number of colourful festivities and religious holidays that you can look forward to every year. Malta has no shortage of museums, archaeological sites, and other places of interest if you’re looking for a culture fix.`,
     first_img: 'living_in_malta',
     grid_images: ['malta_grid_1', 'malta_grid_2', 'malta_grid_3', 'malta_grid_4'],
-    map: 'map_malta',
+    map: 'ChIJN3l6prJaDhMRHIoQuWdZDeI',
     map_text:
         'Our Malta office is located at W Business Centre in Triq Dun Karm, a strategically central location easily accessible from Malta International Airport and just a few minutes from other scenic cities like Valetta, Sliema, Swatar, and St Julians.',
 
     address: address_malta,
     google_map_link: 'https://g.page/r/CRyKELlnWQ3iEAE',
+    has_iframe: true,
 }
 
 export const dubai = {

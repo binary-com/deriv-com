@@ -1,23 +1,4 @@
 /*
-    <Localize translate_text='<0>Binary.com</0> has rebranded to <1>Deriv.com</1> and here’s what it means for partners' />
-    <Localize translate_text='As you are aware, we have rebranded <0>Binary.com to <1>Deriv.com</1>. It is part of our renewed commitment to making online trading effortless and accessible to everyone through simple, flexible, and reliable solutions.' />
-    localize('As part of our network of valued partners with clients of your own, you are probably curious and concerned about what this transformation means. We’ve put together this guide to help you understand the rebranding better and to support you in your communication with your clients.')
-    localize('What is the rebranding about?')
-    localize('The rebranding exercise sees us strengthen our position to provide clients with the flexibility, ease, and confidence to trade as they wish. It is part of our company’s growth process as we step into the third decade of delivering services of value to clients.')
-    localize('How will it affect my clients?')
-    localize('We understand that clients may be overwhelmed by the change. That’s why we’ve worked very hard to make sure that their transition to Deriv.com is as seamless as possible. As an affiliate, you play a key role in supporting them in this transition. Below are some concerns they may have, along with the answers to convey your assurance.')
-    localize('How does it transform our partnership?')
-    localize('As our valued partner, you will no doubt have concerns about the status of your partnership with Deriv.com. Don’t worry, we’ve made the transition as seamless as possible for you so you can continue to build your network and increase your earning potential.')
-    <Localize translate_text='How do I get started promoting <0>Deriv.com</0>?' />
-    localize('Rest assured that your partnership is pivotal in this rebranding process. In fact, we believe this is an opportunity for you to strengthen your own position within your network of clients. And you can certainly count on us to be responsive and supportive of you in this effort.')
-    localize('What do I do next?')
-    <Localize translate_text='We hope these answers have helped you to know more about <0>Deriv.com</0> and our motivation for the rebranding.' />
-    localize('To be clear, this rebranding has been inspired by you. We are thrilled to upgrade you to a new and improved trading experience on Deriv.com where you can trade what you want, when you want, and how you want.')
-    localize('Got more questions?')
-    localize('Email us at')
-    localize('Ready to get started?')
-    <Localize translate_text='Log in to your affiliate dashboard <0>here</0>.' />
-
     <Localize translate_text='Why is <0>Binary.com</0> rebranding?' />
     localize('After 20 years in the market, we feel that it’s time to renew our commitment to clients. The rebranding strengthens our resolve to serve clients with simple, flexible, and reliable online trading solutions.')
     <Localize translate_text='Is <0>Binary.com</0> being bought over by another company?' />

@@ -127,7 +127,7 @@ const SocialButton = styled(Button)`
 `
 
 const StyledHeader = styled(Header)`
-    width: ${(props) => props.width || '38.4rem'};
+    width: ${(props) => props.width || '41.4rem'};
 
     @media ${device.tablet} {
         width: auto;

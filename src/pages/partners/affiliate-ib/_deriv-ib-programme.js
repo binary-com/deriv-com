@@ -31,6 +31,7 @@ const BackButton = styled(Button)`
     border: 2px solid var(--color-grey-5);
     color: var(--color-black);
     height: 40px;
+    padding: 0 1.6rem;
 `
 
 const StyledText = styled(Text)`
@@ -138,6 +139,12 @@ const SyntheticTable = styled(Table)`
 `
 const StyledLinkButton = styled(LinkButton)`
     height: 40px;
+
+    @media ${device.mobileL} {
+        padding: 1.5rem 1.6rem;
+        height: 40px;
+        white-space: nowrap;
+    }
 `
 const DMT5Synthetic = ({ data }) => {
     const [is_expand, setExpand] = React.useState(false)
@@ -386,7 +393,7 @@ const DMT5Advanced = ({ data }) => {
                                 target="_blank"
                                 is_affiliate_link
                             >
-                                {localize('Become an affiliate')}
+                                {localize('Become an affiliateee')}
                             </StyledLinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}

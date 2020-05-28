@@ -17,7 +17,6 @@ const CheckMark = styled(CheckMarkIcon)`
 
 const HeroWrapper = styled.section`
     width: 100%;
-    padding-top: 27rem;
     min-height: calc(100vh - 7rem);
     background: var(--color-black);
     position: relative;
@@ -56,10 +55,14 @@ const HeroSubHeader = styled(Header)`
 `
 
 const StyledArticle = styled.article`
-    position: relative;
+    position: absolute;
+    top: 21.8rem;
     z-index: 2;
     margin-left: 18%;
 
+    @media ${device.laptopM} {
+        top: 10.8rem;
+    }
     @media ${device.tabletL} {
         margin: 0 2rem;
         height: 100%;
@@ -72,6 +75,7 @@ const StyledArticle = styled.article`
 const HeroGrid = styled.section`
     width: 100%;
     max-width: 100%;
+    max-height: 82.7rem;
     position: absolute;
     top: 0;
     right: 0;
@@ -104,8 +108,8 @@ const ButtonWrapper = styled(Flex)`
 `
 
 const StyledVideo = styled.video`
-    position: absolute;
     opacity: 0.5;
+    max-height: 82.7rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

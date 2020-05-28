@@ -43,7 +43,7 @@ const MarketsList = styled(CssGrid)`
     grid-row-gap: 1.6rem;
 
     @media ${device.tabletL} {
-        grid-template-columns: ${(props) => props.mobile_col_template};
+        grid-template-columns: repeat(1, 1fr);
 
         svg {
             width: 16px;
@@ -293,7 +293,7 @@ const DigitalOptions = () => {
                                 </Col>
                                 <MarketsList
                                     columns="repeat(3, 1fr)"
-                                    mobile_col_template="repeat(1, 1fr)"
+                                    mobile_col_template="repeat(2, 1fr)"
                                 >
                                     <Americas />
                                 </MarketsList>

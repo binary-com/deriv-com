@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Article } from './_article'
 import { Text, Header } from 'components/elements/typography'
 import { localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -13,12 +14,19 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+    margin-top: 1.6rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
+    }
 `
+const StyledHeader = styled(Header)`
+    margin-bottom: 2.4rem;
+`
+
 const WhatIsDMT5 = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is DTrader?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What is DTrader?')}</StyledHeader>
         <Text>
             {localize(
                 'DTrader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.',
@@ -28,9 +36,7 @@ const WhatIsDMT5 = () => (
 )
 const DTraderMarkets = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What markets can I trade on DTrader?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What markets can I trade on DTrader?')}</StyledHeader>
         <Text>
             {localize(
                 'You can trade forex, stock indices, commodities, and synthetic indices on DTrader.',
@@ -40,9 +46,7 @@ const DTraderMarkets = () => (
 )
 const DTraderContracts = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What contract types can I use on DTrader?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What contract types can I use on DTrader?')}</StyledHeader>
         <Text>
             {localize(
                 'We offer three contract types on DTrader: Ups & Downs, Highs & Lows, and Digits.',

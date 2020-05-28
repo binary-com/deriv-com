@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="2" height="88" viewBox="0 0 2 88" aria-labelledby="gradient-line" role="img">
     <title id='gradient-line'>Gradient Line</title>
     <defs>
-        <linearGradient id="prefix__a" x1="50%" x2="50%" y1="-7.9%" y2="100%">
+        <linearGradient id="gradientlineprefix__a" x1="50%" x2="50%" y1="-7.9%" y2="100%">
             <stop offset="0%" stop-color="#FFF"/>
             <stop offset="100%"/>
         </linearGradient>
     </defs>
-    <path fill="url(#prefix__a)" fill-rule="evenodd" d="M719 5007H721V5095H719z" transform="translate(-719 -5007)"/>
+    <path fill="url(#gradientlineprefix__a)" fill-rule="evenodd" d="M719 5007H721V5095H719z" transform="translate(-719 -5007)"/>
 </svg>

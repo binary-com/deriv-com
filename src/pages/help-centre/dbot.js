@@ -43,9 +43,13 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
+    margin-top: 1.6rem;
 
     @media ${device.laptopL} {
         margin-left: 2rem;
+    }
+    @media ${device.tabletL} {
+        margin-left: 0;
     }
 `
 const StyledText = styled(Text)`
@@ -60,6 +64,11 @@ const ImageWrapper = styled.div`
         margin-left: 0;
         padding: 2.4rem 0;
         width: auto;
+    }
+    @media ${device.mobileL} {
+        & > img {
+            width: 37rem !important;
+        }
     }
 `
 
@@ -82,9 +91,10 @@ const Thead = styled.thead`
     border: 1px solid var(--color-grey-7);
 `
 
-const Tbody = styled.tbody`
+const Td = styled.td`
     text-align: left;
-    width: 48.6rem;
+    width: 100%;
+    max-width: 48.6rem;
     display: inline-block;
     padding: 1.6rem;
 `
@@ -93,15 +103,16 @@ const Tr = styled.tr`
 `
 const StyledTable = styled.table`
     border-collapse: collapse;
-    width: 86%;
-    margin-bottom: ${props => (props.has_note ? '2.4rem' : 0)};
+    width: 100%;
+    margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
+`
+const StyledHeader = styled(Header)`
+    margin-bottom: 2.4rem;
 `
 
 const WhatIsDBot = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is DBot?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What is DBot?')}</StyledHeader>
         <Text>
             {localize(
                 "DBot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own trading bot using drag-and-drop 'blocks'.",
@@ -111,9 +122,7 @@ const WhatIsDBot = () => (
 )
 const FindBlocks = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How do I find the blocks I need?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How do I find the blocks I need?')}</StyledHeader>
         <Text>
             {localize("1. Click 'Get started' at the top left corner to open the blocks menu.")}
         </Text>
@@ -149,9 +158,9 @@ const FindBlocks = () => (
 )
 const RemoveBlocks = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize('How do I remove blocks from the workspace?')}
-        </Header>
+        </StyledHeader>
         <Text>
             {localize(
                 "Just click on the block you want to remove and press 'Delete' on your keyboard. You can also drag the block to the recycle bin icon at the lower right corner of the workspace.",
@@ -170,9 +179,7 @@ const RemoveBlocks = () => (
 )
 const CreateVariables = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How do I create variables?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How do I create variables?')}</StyledHeader>
         <Text>{localize("1. Click 'Get started' to open the blocks menu.")}</Text>
         <ImageWrapper>
             <img
@@ -225,15 +232,15 @@ const CreateVariables = () => (
 )
 const QuickStrategy = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize('What is a quick strategy and how do I use it?')}
-        </Header>
+        </StyledHeader>
         <Text>
             {localize(
                 "A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind.",
             )}
         </Text>
-        <Text margin="4rem 0 0">
+        <Text mt="4rem">
             <strong>{localize('Using a quick strategy')}</strong>
         </Text>
         <StyledText>{localize("1. Click 'Get started' on the toolbar at the top.")}</StyledText>
@@ -314,9 +321,7 @@ const QuickStrategy = () => (
 )
 const MartingaleStrategy = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is the Martingale strategy?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What is the Martingale strategy?')}</StyledHeader>
         <Text>
             {localize(
                 'The Martingale strategy is a classic trading technique that encourages traders to double contract size after a loss so that when they do win, they will regain what they have lost.',
@@ -326,9 +331,7 @@ const MartingaleStrategy = () => (
 )
 const AlembertStrategy = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is the D’Alembert strategy?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What is the D’Alembert strategy?')}</StyledHeader>
         <Text>
             {localize(
                 'Named after the popular 18th-century French roulette theorist, Jean le Rond d’Alembert, this strategy encourages traders to increase contract size after a loss and decrease it after a successful trade.',
@@ -338,9 +341,7 @@ const AlembertStrategy = () => (
 )
 const OskarStrategy = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize("What is the Oscar's Grind strategy?")}
-        </Header>
+        <StyledHeader as="h4">{localize("What is the Oscar's Grind strategy?")}</StyledHeader>
         <Text>
             {localize(
                 'This is a low-risk positive progression strategy that first appeared in 1965. By using this strategy, you will increase the size of your contract after each successful trade, and decrease the size of your contract after each unsuccessful trade.',
@@ -350,9 +351,7 @@ const OskarStrategy = () => (
 )
 const SaveStrategy = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How do I save my strategy?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How do I save my strategy?')}</StyledHeader>
         <Text>
             {localize(
                 "First, give your strategy a name. Click the 'Bot name' field on the toolbar at the top and enter a name.",
@@ -373,7 +372,13 @@ const SaveStrategy = () => (
             )}
         </Text>
         <ImageWrapper>
-            <img img_name="dbot-save.png" alt={localize('Save')} width="40.7rem" />
+            <img
+                src={SaveBotImage}
+                alt={localize('Save')}
+                width="40.7rem"
+                loading="lazy"
+                style={{ width: '40.7rem' }}
+            />
         </ImageWrapper>
         <Text>
             <Localize
@@ -381,7 +386,7 @@ const SaveStrategy = () => (
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text margin="2.4rem 0 0">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
         <ImageWrapper>
             <img
                 src={SaveBotImage}
@@ -391,18 +396,18 @@ const SaveStrategy = () => (
                 style={{ width: '40.7rem' }}
             />
         </ImageWrapper>
-        <Text margin="2.4rem 0 0">
+        <Text mt="2.4rem">
             {localize(
                 "2. The XML file will be saved in the 'Downloads' folder of your internet browser.",
             )}
         </Text>
-        <Text margin="4rem 0 0">
+        <Text mt="4rem">
             <Localize
                 translate_text="<0>Saving to Google Drive</0>"
                 components={[<strong key={0} />]}
             />
         </Text>
-        <Text margin="2.4rem 0 0">{localize("1. Click 'Connect'.")}</Text>
+        <Text mt="2.4rem">{localize("1. Click 'Connect'.")}</Text>
         <ImageWrapper>
             <img
                 src={GoogleDriveImage}
@@ -412,12 +417,12 @@ const SaveStrategy = () => (
                 width="12.1rem"
             />
         </ImageWrapper>
-        <Text margin="2.4rem 0 0">
+        <Text mt="2.4rem">
             {localize(
                 '2. Select your Google account and grant the necessary permission for DBot to access your Google Drive.',
             )}
         </Text>
-        <Text margin="2.4rem 0 0">{localize("3. Click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("3. Click 'Continue'.")}</Text>
         <ImageWrapper>
             <img
                 src={SaveBotDriveImage}
@@ -427,7 +432,7 @@ const SaveStrategy = () => (
                 style={{ width: '38.4rem' }}
             />
         </ImageWrapper>
-        <Text margin="2.4rem 0 0">
+        <Text mt="2.4rem">
             {localize(
                 "4. Choose the folder you want to save your strategy in and click  'Select'.",
             )}
@@ -436,9 +441,7 @@ const SaveStrategy = () => (
 )
 const ImportStrategy = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How do I import my strategies into DBot?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How do I import my strategies into DBot?')}</StyledHeader>
         <Text>
             {localize(
                 "Just drag the XML file from your computer onto the workspace. Your blocks will be loaded accordingly. Alternatively, you can click 'Import' on the toolbar at the top of the workspace and choose to load your strategy from your computer or from your Google Drive.",
@@ -453,10 +456,10 @@ const ImportStrategy = () => (
                 width="40.7rem"
             />
         </ImageWrapper>
-        <Text margin="4rem 0 0">
+        <Text mt="4rem">
             <strong>{localize('Importing from your computer')}</strong>
         </Text>
-        <Text margin="2.4rem 0 0">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
+        <Text mt="2.4rem">{localize("1. Select 'Local' and click 'Continue'.")}</Text>
         <ImageWrapper>
             <img
                 src={LoadBotImage}
@@ -471,12 +474,10 @@ const ImportStrategy = () => (
                 "2. Select your strategy and click 'Open'. Your blocks will be loaded accordingly.",
             )}
         </Text>
-        <Text margin="4rem 0 0">
+        <Text mt="4rem">
             <strong>{localize('Importing from your Google Drive')}</strong>
         </Text>
-        <Text margin="2.4rem 0 0">
-            {localize("1. Select 'Google Drive' and click 'Continue'.")}
-        </Text>
+        <Text mt="2.4rem">{localize("1. Select 'Google Drive' and click 'Continue'.")}</Text>
         <ImageWrapper>
             <img
                 src={LoadBotGDImage}
@@ -495,12 +496,10 @@ const ImportStrategy = () => (
 )
 const ResetWorkspace = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How do I reset the workspace?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How do I reset the workspace?')}</StyledHeader>
         <Text>
             {localize(
-                "Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost. ",
+                "Click 'Reset' on the toolbar at the top of the workspace. This will revert the workspace back to its original state and any unsaved changes will be lost.",
             )}
         </Text>
         <ImageWrapper>
@@ -516,9 +515,7 @@ const ResetWorkspace = () => (
 )
 const TransactionLog = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How do I clear my transaction log?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How do I clear my transaction log?')}</StyledHeader>
         <Text>
             {localize("1. In the panel on the right of the workspace, click 'Clear stat'.")}
         </Text>
@@ -545,9 +542,7 @@ const TransactionLog = () => (
 )
 const ControlLosses = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How do I control my losses with DBot?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How do I control my losses with DBot?')}</StyledHeader>
         <Text>
             {localize(
                 'There are many ways you can control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:',
@@ -560,59 +555,59 @@ const ControlLosses = () => (
                 alt={localize('Control loss')}
                 loading="lazy"
                 width="61.2rem"
-                style={{ width: '61.2rem' }}
+                style={{ width: '100%', maxWidth: '61.2rem' }}
             />
         </ImageWrapper>
-        <Text margin="0 0 2.4rem">{localize('1. Create the following variables:')}</Text>
+        <Text mb="2.4rem">{localize('1. Create the following variables:')}</Text>
         <StyledTable>
             <Thead>
                 <Tr>
                     <Th>
                         <Text weight="bold">{localize('currentPL')}</Text>
                     </Th>
-                    <Tbody>
+                    <Td>
                         <Text>
                             {localize(
                                 'This will store the cumulative profit or loss while the bot is running. Set the initial value to 0.',
                             )}
                         </Text>
-                    </Tbody>
+                    </Td>
                 </Tr>
                 <Tr>
                     <Th>
                         <Text weight="bold">{localize('currentStake')}</Text>
                     </Th>
-                    <Tbody>
+                    <Td>
                         <Text>
                             {localize(
-                                'This will store the stake amount used in the last purchased contract. You can assign any amount based on your strategy. ',
+                                'This will store the stake amount used in the last purchased contract. You can assign any amount based on your strategy.',
                             )}
                         </Text>
-                    </Tbody>
+                    </Td>
                 </Tr>
                 <Tr>
                     <Th>
                         <Text weight="bold">{localize('maximumLoss')}</Text>
                     </Th>
-                    <Tbody>
+                    <Td>
                         <Text>
                             {localize(
                                 'This is your loss limit. You can assign any amount based on your strategy. The value must be a positive number.',
                             )}
                         </Text>
-                    </Tbody>
+                    </Td>
                 </Tr>
                 <Tr>
                     <Th>
                         <Text weight="bold">{localize('tradeAgain')}</Text>
                     </Th>
-                    <Tbody>
+                    <Td>
                         <Text>
                             {localize(
                                 "This will be used to stop trading when your loss limit is reached. Set the initial value to 'true'.",
                             )}
                         </Text>
-                    </Tbody>
+                    </Td>
                 </Tr>
             </Thead>
         </StyledTable>
@@ -660,9 +655,9 @@ const ControlLosses = () => (
 
 const TradeStatus = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize('Where can I see the status of my trades in DBot?')}
-        </Header>
+        </StyledHeader>
         <Text>
             {localize(
                 "The panel on the right of the workspace gives you information about all your trades in DBot. The 'Summary' tab shows information such as your total stake, total payout, profit/loss, etc.",
@@ -697,9 +692,7 @@ const TradeStatus = () => (
 )
 const ViewChart = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How do I view the chart in DBot?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How do I view the chart in DBot?')}</StyledHeader>
         <Text>
             {localize(
                 "Click 'Chart' at the bottom left corner of the workspace to view the chart.",

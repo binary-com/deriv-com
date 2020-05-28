@@ -29,21 +29,27 @@ const GridCol = styled.article`
     align-items: center;
     height: 100%;
 
-    ${Text} {
-        margin-top: 0.8rem;
-        font-size: 1.6rem;
+    @media ${device.mobileL} {
+        grid-template-columns: 4rem 1fr;
 
-        @media ${device.tabletL} {
-            font-size: 2rem;
+        & > svg {
+            width: 40px;
+            height: 40px;
         }
     }
 `
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+    }
+`
+
 const Col = ({ Icon, content }) => (
     <GridCol>
         <Icon />
-        <Text color="black-3" lh="1.55">
+        <StyledText color="black-3" lh="1.55" mt="0.8rem">
             {content}
-        </Text>
+        </StyledText>
     </GridCol>
 )
 Col.propTypes = {

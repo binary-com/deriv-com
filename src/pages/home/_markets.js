@@ -5,13 +5,14 @@ import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 // Icons
-import ForexIcon from 'images/svg/market-forex.svg'
-import IndicesIcon from 'images/svg/market-indices.svg'
-import CommoditiesIcon from 'images/svg/market-commodities.svg'
-import SyntheticIndicesIcon from 'images/svg/market-synthetic-indices.svg'
+import ForexIcon from 'components/svgs/_market-forex.js'
+import StockIcon from 'components/svgs/_market-stock.js'
+import CommoditiesIcon from 'components/svgs/_market-commodities.js'
+import SyntheticIndicesIcon from 'components/svgs/_market-synthetic.js'
 // Images
 const StyledSection = styled(SectionContainer)`
     background-color: rgba(242, 243, 244, 0.3);
+    box-shadow: inset 0 1px 0 0 var(--color-grey-8);
 
     @media ${device.tabletL} {
         padding: 5rem 0;
@@ -28,14 +29,14 @@ const MarketWrapper = styled(Flex)`
 `
 const MarketCard = styled.article`
     display: flex;
-    margin-bottom: ${props => props.mb || ''};
-    margin-right: ${props => props.mr || ''};
+    margin-bottom: ${(props) => props.mb || ''};
+    margin-right: ${(props) => props.mr || ''};
 
     svg {
         margin-right: 2rem;
     }
     div {
-        max-width: 38.4rem;
+        max-width: 40rem;
 
         ${Text} {
             padding-top: 8px;
@@ -60,12 +61,12 @@ const MarketCard = styled.article`
 const Markets = () => (
     <StyledSection>
         <Container direction="column">
-            <Header align="center" font_size="var(--text-size-header-1)" as="h2">
+            <Header align="center" as="h2">
                 {localize('Markets')}
             </Header>
             <MarketWrapper wrap="wrap">
                 <MarketCard mr="2.4rem" mb="4rem">
-                    <ForexIcon />
+                    <ForexIcon dynamic_id={'home_page_market_forex'} />
                     <div>
                         <Header as="h4">{localize('Forex')}</Header>
                         <Text>
@@ -76,9 +77,9 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mb="4rem">
-                    <IndicesIcon />
+                    <StockIcon dynamic_id="home_page_market_stock" />
                     <div>
-                        <Header as="h4">{localize('Indices')}</Header>
+                        <Header as="h4">{localize('Stock indices')}</Header>
                         <Text>
                             {localize(
                                 'Predict broader market trends and diversify your risk with indices that measure the overall performance of a market.',
@@ -87,7 +88,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard mr="2.4rem">
-                    <CommoditiesIcon />
+                    <CommoditiesIcon dynamic_id="home_page_market_commodities" />
                     <div>
                         <Header as="h4">{localize('Commodities')}</Header>
                         <Text>
@@ -98,7 +99,7 @@ const Markets = () => (
                     </div>
                 </MarketCard>
                 <MarketCard>
-                    <SyntheticIndicesIcon />
+                    <SyntheticIndicesIcon dynamic_id="home_page_market_synthetic" />
                     <div>
                         <Header as="h4">{localize('Synthetic indices')}</Header>
                         <Text>

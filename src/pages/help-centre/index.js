@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import matchSorter from 'match-sorter'
 import styled from 'styled-components'
 import { navigate } from '@reach/router'
-import { Link } from 'gatsby'
 import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
@@ -11,16 +10,16 @@ import { convertToHash } from './_utility'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, LocalizedLink, WithIntl, Localize } from 'components/localization'
 import { getLocationHash, sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import SearchIcon from 'images/svg/search.svg'
 import CrossIcon from 'images/svg/cross.svg'
 
-const getAllArticles = articles =>
+const getAllArticles = (articles) =>
     articles
-        .map(category => category.articles)
+        .map((category) => category.articles)
         // flatten the array, gatsby build does not support .flat() yet
         .reduce((arr, article_arr) => arr.concat(article_arr), [])
 
@@ -38,13 +37,13 @@ const Backdrop = styled.div`
 `
 const StyledContainer = styled.div`
     @media ${device.tabletL} {
-        padding: 10rem 0 2rem 0;
+        padding: 2rem 0 2rem 0;
     }
 `
 const SearchSection = styled.section`
     ${Backdrop} {
-        max-height: ${props => (props.show ? '100rem' : '0')};
-        transition: ${props => (props.has_transition ? 'max-height 0.6s ease-in-out' : 'none')};
+        max-height: ${(props) => (props.show ? '100rem' : '0')};
+        transition: ${(props) => (props.has_transition ? 'max-height 0.6s ease-in-out' : 'none')};
         overflow: hidden;
     }
 `
@@ -107,9 +106,6 @@ const ResultWrapper = styled.div`
         margin-bottom: 3.6rem;
     }
 `
-const StyledHeader = styled(Header)`
-    margin-bottom: 4rem;
-`
 
 const ListWrapper = styled.div`
     margin-right: 2.4rem;
@@ -117,9 +113,6 @@ const ListWrapper = styled.div`
     width: 38.4rem;
     line-height: 1.5;
 
-    ${Header} {
-        margin-bottom: 1.6rem;
-    }
     @media ${device.laptopL} {
         max-width: auto;
         width: auto;
@@ -151,7 +144,7 @@ const ListNoBullets = styled.ul`
         padding-bottom: 1.6rem;
     }
 `
-const StyledLink = styled(Link)`
+const StyledLink = styled(LocalizedLink)`
     text-decoration: none;
     color: black;
     font-size: var(--text-size-s);
@@ -189,6 +182,12 @@ const ArticleDiv = styled.div`
     margin-bottom: 8rem;
 `
 
+const ResponsiveHeader = styled(Header)`
+    @media ${device.mobileM} {
+        font-size: 4rem;
+    }
+`
+
 class HelpCentre extends Component {
     constructor(props) {
         super(props)
@@ -201,15 +200,15 @@ class HelpCentre extends Component {
         }
     }
 
-    handleInputChange = e => {
+    handleInputChange = (e) => {
         e.preventDefault()
         const { name, value } = e.target
         this.setState({ [name]: `${sanitize(value)}` })
     }
 
-    handleSubmit = e => e.preventDefault()
+    handleSubmit = (e) => e.preventDefault()
 
-    handleSelectArticle = article => {
+    handleSelectArticle = (article) => {
         navigate(`#${article.label}`)
         this.setState({
             toggle_search: false,
@@ -219,14 +218,14 @@ class HelpCentre extends Component {
     }
 
     toggleSearch = () =>
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
             toggle_search: !prevState.toggle_search,
             search_has_transition: true,
         }))
 
     clearSearch = () => this.setState({ search: '' })
 
-    toggleArticle = category => {
+    toggleArticle = (category) => {
         if (this.state.all_categories[category]) {
             const all_categories = { ...this.state.all_categories }
             all_categories[category].is_expanded = !all_categories[category].is_expanded
@@ -236,7 +235,7 @@ class HelpCentre extends Component {
 
     componentDidMount = () => {
         const current_label = getLocationHash()
-        const deepClone = arr => {
+        const deepClone = (arr) => {
             const out = []
             for (let i = 0, len = arr.length; i < len; i++) {
                 const item = arr[i]
@@ -258,14 +257,14 @@ class HelpCentre extends Component {
         const all_articles = getAllArticles(articles)
 
         const duplicate_articles = deepClone(all_articles)
-        const translated_articles = duplicate_articles.map(article => {
-            article.title = localize(article.title.props.translate_text)
-            article.sub_category = localize(article.sub_category.props.translate_text)
+        const translated_articles = duplicate_articles.map((article) => {
+            article.title = article.title.props.translate_text
+            article.sub_category = article.sub_category.props.translate_text
             return article
         })
 
         const all_categories = {}
-        Object.keys(all_articles).forEach(article => {
+        Object.keys(all_articles).forEach((article) => {
             all_categories[all_articles[article].category] = { is_expanded: false }
         })
 
@@ -292,9 +291,9 @@ class HelpCentre extends Component {
         return (
             <Layout>
                 <SEO
-                    title={localize('Help')}
+                    title={localize('Help Centre | Frequently asked questions')}
                     description={localize(
-                        'Need help with our products and services? Read our FAQ or ask us a question.',
+                        'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
                     )}
                 />
 
@@ -302,7 +301,9 @@ class HelpCentre extends Component {
                     <Backdrop>
                         <Container align="left" justify="flex-start" direction="column">
                             <StyledContainer align="normal" direction="column">
-                                <StyledHeader as="h1">{localize('How can we help?')}</StyledHeader>
+                                <ResponsiveHeader mb="4rem" as="h1">
+                                    {localize('How can we help?')}
+                                </ResponsiveHeader>
                                 <SearchForm onSubmit={this.handleSubmit}>
                                     <SearchIconBig />
                                     <Search
@@ -343,8 +344,8 @@ class HelpCentre extends Component {
                                             return (
                                                 <ArticleDiv key={idx}>
                                                     <ListWrapper>
-                                                        <Header font_size="3.6rem">
-                                                            {localize(item.category)}
+                                                        <Header size="3.6rem" mb="1.6rem">
+                                                            {item.category}
                                                         </Header>
                                                         {item.articles.map((ar, idxb) => {
                                                             const category_is_expanded =

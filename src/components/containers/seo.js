@@ -24,16 +24,18 @@ const SEO = ({ description, meta, title, no_index }) => {
             }
         `,
     )
-
+    const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
 
     const links = []
+    let is_ach_page = false
     if (is_browser) {
         let page, l
         let currentPage = window.location.href.split('/')[3]
         if (window.location.href.split('/')[4])
             currentPage = currentPage + '/' + window.location.href.split('/')[4]
+        if (currentPage === 'ach') is_ach_page = true
         const pages = []
         pages.push('/' + currentPage)
         for (l in languages) {
@@ -43,7 +45,7 @@ const SEO = ({ description, meta, title, no_index }) => {
         for (page in pages) {
             const link = {}
             link.rel = 'alternate'
-            link.href = "https://deriv.com"+pages[page]
+            link.href = 'https://deriv.com' + pages[page]
             link.hreflang = pages[page].split('/')[1]
             links.push(link)
         }
@@ -68,10 +70,6 @@ const SEO = ({ description, meta, title, no_index }) => {
                     content: localize(
                         'digital options, forex, forex trading, online trading, financial trading, digitals trading, index trading, trading indices, forex trades, trading commodities, digital options strategy, binary broker, binary bet, digital options trading platform, binary strategy, finance, investment, trading',
                     ),
-                },
-                {
-                    name: 'viewport',
-                    content: 'width=device-width, initial-scale=1.0',
                 },
                 {
                     name: 'google',
@@ -137,7 +135,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                     name: 'referrer',
                     content: 'origin',
                 },
-                ...(no_index
+                ...(no_index || no_index_staging || is_ach_page
                     ? [
                           {
                               name: 'robots',
@@ -146,7 +144,20 @@ const SEO = ({ description, meta, title, no_index }) => {
                       ]
                     : []),
             ].concat(meta)}
-        ></Helmet>
+        >
+            {/* TODO: uncomment this once datadog async support is ready */}
+            {/* <script
+                src="https://www.datadoghq-browser-agent.com/datadog-rum-us.js"
+                type="text/javascript"
+            ></script>
+            <script>
+                {`window.location.hostname === 'deriv.com' && window.DD_RUM &&
+                    window.DD_RUM.init({
+                        clientToken: 'pubc42fda54523c5fb23c564e3d8bceae88',
+                        applicationId: 'f0aef779-d9ec-4517-807e-a84c683c4265',
+                    })`}
+            </script> */}
+        </Helmet>
     )
 }
 

@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import Hero from '../_hero'
+import Hero from '../affiliate-ib/_hero'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
+import device from 'themes/device'
 
 const MainHeader = styled(Header)`
     max-width: 80rem;
     margin-bottom: 1.6rem;
+
+    @media ${device.mobileM} {
+        font-size: 5rem;
+    }
 `
 
 const MiddleHeader = styled(Header)`
@@ -26,7 +31,7 @@ const PAHero = () => {
                     'Expand your client base, gain additional business exposure, and earn more revenue when you sign up as a payment agent on Deriv.',
                 )}
             </MiddleHeader>
-            <LinkButton secondary external to="mailto:paymentagents@deriv.com">
+            <LinkButton secondary external="true" to="mailto:paymentagents@deriv.com">
                 {localize('Send us an email to apply')}
             </LinkButton>
         </Hero>

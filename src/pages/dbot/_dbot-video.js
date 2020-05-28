@@ -1,11 +1,31 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { deriv_bot_app_url } from 'common/utility'
 import { localize } from 'components/localization'
-import { Header, Image } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device.js'
 import { Button } from 'components/form'
 
+const query = graphql`
+    query {
+        step_1: file(relativePath: { eq: "dbot-step1.png" }) {
+            ...fadeIn
+        }
+        step_2: file(relativePath: { eq: "dbot-step2.png" }) {
+            ...fadeIn
+        }
+        step_3: file(relativePath: { eq: "dbot-step3.png" }) {
+            ...fadeIn
+        }
+        step_4: file(relativePath: { eq: "dbot-step4.png" }) {
+            ...fadeIn
+        }
+        step_5: file(relativePath: { eq: "dbot-step5.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const Container = styled.section`
     width: 100%;
     display: flex;
@@ -30,6 +50,14 @@ const TabsWrapper = styled.div`
     div:first-child {
         margin-top: 0;
     }
+
+    @media ${device.tabletL} {
+        width: 80%;
+        margin: 2rem 0 0;
+    }
+    @media ${device.mobileL} {
+        width: 100%;
+    }
 `
 const VideoWrapper = styled.div`
     max-width: 79.2rem;
@@ -42,13 +70,13 @@ const StepCommon = css`
     @media ${device.tabletL} {
         text-align: left;
         border: none;
-        margin-top: ${props => (props.no_margin ? '0' : '2rem')};
+        margin-top: ${(props) => (props.no_margin ? '0' : '2rem')};
     }
 `
 const Step = styled(Header)`
     ${StepCommon}
-    ${props =>
-        props.current_step_image === props.image_name
+    ${(props) =>
+        props.current_step === props.image_name
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
 `
@@ -56,105 +84,101 @@ const GoToLiveDemo = styled(Button)`
     border: 2px solid var(--color-red);
     font-weight: bold;
     line-height: 1.43;
-    width: 100%;
+    width: fit-content;
     margin-top: 4rem;
-    max-width: 14.2rem;
 
     @media ${device.tabletL} {
         max-width: 100%;
+        margin: 4rem auto;
+        font-size: 1.75rem;
     }
 `
-
-class DtraderTabs extends React.Component {
-    my_ref = React.createRef()
-    interval_ref = undefined
-    state = {
-        current_step_image: 'dbot-step1.png',
+const handleRedirect = () => {
+    window.open(deriv_bot_app_url, '_blank')
+}
+const DtraderTabs = () => {
+    const data = useStaticQuery(query)
+    const [current_step, setStep] = React.useState('step_1')
+    const clickHandler = (incoming_step) => {
+        if (incoming_step == current_step) return
+        setStep(incoming_step)
     }
-    clickHandler = image_name => {
-        this.setState({ current_step_image: image_name })
-    }
-    handleRedirect = () => {
-        window.open(deriv_bot_app_url, '_blank')
-    }
-    render() {
-        return (
-            <Container>
-                <TabsWrapper>
-                    <Tab>
-                        <Step
-                            as="h4"
-                            lh="1.5"
-                            align="left"
-                            no_margin
-                            image_name="dbot-step1.png"
-                            current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step1.png')}
-                        >
-                            {localize('1. Select your asset')}
-                        </Step>
-                    </Tab>
-                    <Tab>
-                        <Step
-                            as="h4"
-                            lh="1.5"
-                            align="left"
-                            image_name="dbot-step2.png"
-                            current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step2.png')}
-                        >
-                            {localize('2. Set purchase conditions')}
-                        </Step>
-                    </Tab>
-                    <Tab>
-                        <Step
-                            as="h4"
-                            lh="1.5"
-                            align="left"
-                            image_name="dbot-step3.png"
-                            current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step3.png')}
-                        >
-                            {localize('3. Set restart conditions')}
-                        </Step>
-                    </Tab>
-                    <Tab>
-                        <Step
-                            as="h4"
-                            lh="1.5"
-                            align="left"
-                            image_name="dbot-step4.png"
-                            current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step4.png')}
-                        >
-                            {localize('4. Run bot')}
-                        </Step>
-                    </Tab>
-                    <Tab>
-                        <Step
-                            as="h4"
-                            lh="1.5"
-                            align="left"
-                            image_name="dbot-step5.png"
-                            current_step_image={this.state.current_step_image}
-                            onClick={() => this.clickHandler('dbot-step5.png')}
-                        >
-                            {localize('5. Check profit')}
-                        </Step>
-                    </Tab>
-                    <GoToLiveDemo secondary="true" onClick={this.handleRedirect}>
-                        {localize('Go to live demo')}
-                    </GoToLiveDemo>
-                </TabsWrapper>
-                <VideoWrapper>
-                    <Image
-                        img_name={this.state.current_step_image}
-                        alt="DMT5 platform"
-                        width="100%"
-                    />
-                </VideoWrapper>
-            </Container>
-        )
-    }
+    return (
+        <Container>
+            <TabsWrapper>
+                <Tab>
+                    <Step
+                        as="h4"
+                        lh="1.5"
+                        align="left"
+                        no_margin
+                        image_name="step_1"
+                        current_step={current_step}
+                        onClick={() => clickHandler('step_1')}
+                    >
+                        {localize('1. Select your asset')}
+                    </Step>
+                </Tab>
+                <Tab>
+                    <Step
+                        as="h4"
+                        lh="1.5"
+                        align="left"
+                        image_name="step_2"
+                        current_step={current_step}
+                        onClick={() => clickHandler('step_2')}
+                    >
+                        {localize('2. Set purchase conditions')}
+                    </Step>
+                </Tab>
+                <Tab>
+                    <Step
+                        as="h4"
+                        lh="1.5"
+                        align="left"
+                        image_name="step_3"
+                        current_step={current_step}
+                        onClick={() => clickHandler('step_3')}
+                    >
+                        {localize('3. Set restart conditions')}
+                    </Step>
+                </Tab>
+                <Tab>
+                    <Step
+                        as="h4"
+                        lh="1.5"
+                        align="left"
+                        image_name="step_4"
+                        current_step={current_step}
+                        onClick={() => clickHandler('step_4')}
+                    >
+                        {localize('4. Run bot')}
+                    </Step>
+                </Tab>
+                <Tab>
+                    <Step
+                        as="h4"
+                        lh="1.5"
+                        align="left"
+                        image_name="step_5"
+                        current_step={current_step}
+                        onClick={() => clickHandler('step_5')}
+                    >
+                        {localize('5. Check profit')}
+                    </Step>
+                </Tab>
+                <GoToLiveDemo secondary="true" onClick={handleRedirect}>
+                    {localize('Go to live demo')}
+                </GoToLiveDemo>
+            </TabsWrapper>
+            <VideoWrapper>
+                <QueryImage
+                    data={data[current_step]}
+                    alt={localize(`DBot - ${current_step}`)}
+                    width="100%"
+                />
+            </VideoWrapper>
+        </Container>
+    )
 }
 export default DtraderTabs

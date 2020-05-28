@@ -9,7 +9,8 @@ import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { toHashFormat } from 'common/utility'
+import { toHashFormat, map_api_key } from 'common/utility'
+import { localize } from 'components/localization'
 import MapPin from 'images/svg/map.svg'
 
 const Pin = styled(MapPin)`
@@ -130,13 +131,19 @@ const CardText = styled(Text)`
     margin-bottom: 4rem;
 `
 
+const Iframe = styled.iframe`
+    width: 100%;
+    height: 100%;
+    border: 0;
+`
+
 export const LocationLayout = ({ location, images }) => {
     const { display_name, name } = location
     if (!display_name) return null
 
     const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
     const mapped_positions = positions
-        ? positions.map(position => ({
+        ? positions.map((position) => ({
               text: position.title,
               to: `careers/jobs/job#${toHashFormat(position.id)}`,
           }))
@@ -152,11 +159,11 @@ export const LocationLayout = ({ location, images }) => {
             />
             <Container direction="column">
                 <FirstSection padding="12rem 0">
-                    <Header align="center" as="h2" font_size={'var(--text-size-header-1)'}>
+                    <Header align="center" as="h2" size={'var(--text-size-header-1)'}>
                         {`Living in ${display_name}`}
                     </Header>
                     <Flex tablet_direction="column">
-                        <Text secondary>{location.first_p}</Text>
+                        <Text size="var(--text-size-sm)">{location.first_p}</Text>
                         <ImageWrapper>
                             <QueryImage
                                 data={images[location.first_img]}
@@ -171,7 +178,7 @@ export const LocationLayout = ({ location, images }) => {
                 <Header
                     align="center"
                     as="h2"
-                    font_size={'var(--text-size-header-1)'}
+                    size={'var(--text-size-header-1)'}
                     style={{ marginBottom: '6.4rem' }}
                 >
                     Our office
@@ -180,19 +187,35 @@ export const LocationLayout = ({ location, images }) => {
                     <Flex direction="column" mr="0.8rem" ai="flex-end">
                         <Flex mb="0.8rem" jc="flex-end">
                             <First>
-                                <QueryImage data={images[location.grid_images[0]]} width="100%" />
+                                <QueryImage
+                                    data={images[location.grid_images[0]]}
+                                    alt={location.display_name + localize(' Worklife')}
+                                    width="100%"
+                                />
                             </First>
                             <Second>
-                                <QueryImage data={images[location.grid_images[1]]} width="100%" />
+                                <QueryImage
+                                    data={images[location.grid_images[1]]}
+                                    alt={location.display_name + localize(' Worklife 2')}
+                                    width="100%"
+                                />
                             </Second>
                         </Flex>
                         <Third>
-                            <QueryImage data={images[location.grid_images[2]]} width="100%" />
+                            <QueryImage
+                                data={images[location.grid_images[2]]}
+                                alt={location.display_name + localize(' Worklife 3')}
+                                width="100%"
+                            />
                         </Third>
                     </Flex>
                     <Flex ml="0.8rem" jc="unset">
                         <Fourth>
-                            <QueryImage data={images[location.grid_images[3]]} width="100%" />
+                            <QueryImage
+                                data={images[location.grid_images[3]]}
+                                alt={location.display_name + localize(' Worklife 4')}
+                                width="100%"
+                            />
                         </Fourth>
                     </Flex>
                 </Flex>
@@ -201,9 +224,19 @@ export const LocationLayout = ({ location, images }) => {
                 <LocationCard>
                     <Flex jc="unset" tablet_direction="column">
                         <ImageWrapper>
-                            <QueryImage data={images[location.map]} alt={'Map'} width="100%" />
+                            {location.has_iframe ? (
+                                <Iframe
+                                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
+                                />
+                            ) : (
+                                <QueryImage
+                                    data={images[location.map]}
+                                    alt={location.display_name + localize(' Map')}
+                                    width="100%"
+                                />
+                            )}
                         </ImageWrapper>
-                        <Flex p="3.2rem 6rem" direction="column" mw="44.4rem">
+                        <Flex p="3.2rem 6rem" direction="column" max_width="44.4rem">
                             <div style={{ maxWidth: '32.4rem' }}>
                                 <Header as="h3">Location</Header>
                                 <CardText>{location.map_text}</CardText>
@@ -229,7 +262,7 @@ export const LocationLayout = ({ location, images }) => {
             <Header
                 align="center"
                 as="h2"
-                font_size={'var(--text-size-header-1)'}
+                size={'var(--text-size-header-1)'}
                 style={{ marginBottom: '6.4rem' }}
             >
                 {`Open positions in ${display_name}`}

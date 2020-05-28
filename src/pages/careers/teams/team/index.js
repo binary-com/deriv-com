@@ -12,6 +12,7 @@ import { BackgroundImage, Text, Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { getLocationHash, toHashFormat } from 'common/utility'
+import device from 'themes/device'
 
 const StyledContainer = styled(Container)`
     flex-direction: column;
@@ -23,6 +24,11 @@ const StyledHeader = styled(Header)`
     font-size: var(--text-size-xl);
     margin-bottom: 1.6rem;
     color: var(--color-white);
+    word-break: break-word;
+
+    @media ${device.mobileL} {
+        max-width: 300px;
+    }
 `
 
 const Subheadline = styled(Text)`
@@ -136,13 +142,13 @@ const Team = () => {
                 team_description={team.description}
             />
             <TeamWrapper>
-                <Header as="h2" font_size="var(--text-size-l)" align="center">
+                <Header as="h2" size="var(--text-size-l)" align="center">
                     Open positions
                 </Header>
                 <LinkList
                     list_items={
                         team.positions &&
-                        team.positions.map(position => ({
+                        team.positions.map((position) => ({
                             text: position.title,
                             to: `careers/jobs/job#${toHashFormat(position.id)}`,
                             middle_text: locations[position.location],

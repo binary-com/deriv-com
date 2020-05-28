@@ -8,6 +8,7 @@ import { Text, Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { getLocationHash, isBrowser } from 'common/utility'
+import device from 'themes/device'
 // SVG
 import Location from 'images/svg/small-location.svg'
 import Chevron from 'images/svg/chevron-bottom.svg'
@@ -25,6 +26,10 @@ const StyledContainer = styled.div`
     margin: auto;
     justify-content: center;
     display: flex;
+
+    @media ${device.mobileL} {
+        width: 83%;
+    }
 `
 
 const BackText = styled.div`
@@ -76,6 +81,14 @@ const Li = styled.li`
     }
 `
 
+const StyledHeader = styled(Header)`
+    word-break: break-word;
+
+    @media ${device.mobileL} {
+        max-width: 300px;
+    }
+`
+
 const Job = () => {
     const position_name = getLocationHash()
     if (!position_name) return null
@@ -91,12 +104,12 @@ const Job = () => {
             <Banner>
                 <StyledContainer>
                     <Text color="white">{team_names[job.team]}</Text>
-                    <Header as="h2" color="white" margin="1.6rem 0 0.8rem">
+                    <StyledHeader as="h2" color="white" m="1.6rem 0 0.8rem">
                         {job.title}
-                    </Header>
+                    </StyledHeader>
                     <Flex height="auto" jc="flex-start" ai="center">
                         <Location />
-                        <Text color="white" margin="0 2.4rem 0 0.8rem">
+                        <Text color="white" m="0 2.4rem 0 0.8rem">
                             {locations[job.location]}
                         </Text>
                         <Text color="white">{job.type.join(', ')}</Text>

@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { getLanguage } from '../../common/utility'
 import { Article } from './_article'
 import { deriv_app_url } from 'common/utility'
-import { Text, Header } from 'components/elements/typography'
+import { Text, Header, LocalizedLinkText } from 'components/elements/typography'
 import { localize, Localize, WithIntl } from 'components/localization'
+import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
     max-width: 71.2rem;
@@ -15,15 +15,10 @@ const ArticleWrapper = styled.div`
     font-size: var(--text-size-s);
     line-height: 1.5;
     margin-left: 12.6rem;
-`
-const ExternalLink = styled.a`
-    text-decoration: none;
-    font-size: var(--text-size-s);
-    font-weight: bold;
-    color: var(--color-red);
+    margin-top: 1.6rem;
 
-    :hover {
-        text-decoration: underline;
+    @media ${device.tabletL} {
+        margin-left: 0;
     }
 `
 const StyledText = styled(Text)`
@@ -33,16 +28,13 @@ const StyledListItem = styled.li`
     text-indent: -1.4em;
     padding-left: 1.4em;
 `
-const urlResetPassword =
-    getLanguage() === 'en' || getLanguage() == null
-        ? '/reset-password/'
-        : `/${getLanguage()}/reset-password/`
+const StyledHeader = styled(Header)`
+    margin-bottom: 2.4rem;
+`
 
 const WhoCanOpenAnAccount = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize("Why can't I create an account?")}
-        </Header>
+        <StyledHeader as="h4">{localize("Why can't I create an account?")}</StyledHeader>
         <Text>
             {localize(
                 'In line with our Group practice, we set the following criteria for client signups:',
@@ -62,16 +54,16 @@ const WhoCanOpenAnAccount = () => (
 )
 const ChangingPersonalDetails = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How can I change my personal details?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How can I change my personal details?')}</StyledHeader>
         <Text>
             <Localize
-                translate_text="If you have not made a deposit or created a Deriv MT5 (DMT5) account, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
+                translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
                 components={[
                     <strong key={0} />,
-                    <ExternalLink
-                        href={`${deriv_app_url}/account/personal-details`}
+                    <LocalizedLinkText
+                        to={`${deriv_app_url}/account/personal-details`}
+                        external
+                        weight="bold"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}
@@ -81,16 +73,14 @@ const ChangingPersonalDetails = () => (
         </Text>
         <StyledText>
             {localize(
-                'If you have made a deposit or created a DMT5 account, you can submit a ticket requesting the desired changes. Please attach your proofs of identity and address.',
+                'If the account has been fully authenticated, you can submit a ticket requesting the desired changes. Please attach your proof of identity and address.',
             )}
         </StyledText>
     </ArticleWrapper>
 )
 const ChangeAccountCurrency = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize("How can I change my account's currency?")}
-        </Header>
+        <StyledHeader as="h4">{localize("How can I change my account's currency?")}</StyledHeader>
         <Text>
             {localize(
                 'Once you have made a deposit or created a DMT5 account, you can only change your currency by contacting Customer Support.',
@@ -100,17 +90,18 @@ const ChangeAccountCurrency = () => (
 )
 const RecoveringPassword = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize(
                 'I forgot my Google/Facebook account password. How can I log in to my Deriv account?',
             )}
-        </Header>
+        </StyledHeader>
         <Text>
             <Localize
                 translate_text="If you’ve forgotten your Google/Facebook account password, you can <0>reset your Deriv account password</0> to log in to Deriv."
                 components={[
-                    <ExternalLink
-                        href={urlResetPassword}
+                    <LocalizedLinkText
+                        to="/reset-password"
+                        weight="bold"
                         target="_blank"
                         rel="noopener noreferrer"
                         key={0}
@@ -122,9 +113,7 @@ const RecoveringPassword = () => (
 )
 const CloseAccount = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('How can I close my account?')}
-        </Header>
+        <StyledHeader as="h4">{localize('How can I close my account?')}</StyledHeader>
         <Text>
             {localize(
                 'Before closing your account, please close all your open positions and withdraw all the funds in your account. After that, you may contact us with your request.',
@@ -134,17 +123,19 @@ const CloseAccount = () => (
 )
 const UnsubscribeEmail = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
+        <StyledHeader as="h4">
             {localize('How do I unsubscribe from marketing emails?')}
-        </Header>
+        </StyledHeader>
         <Text>
             <Localize
                 translate_text="You can do this easily by going to <0>Settings > Profile ></0> <1>Personal details</1>. Uncheck the email preference box, and click the ‘Submit’ button to unsubscribe."
                 components={[
                     <strong key={0} />,
-                    <ExternalLink
-                        href={`${deriv_app_url}/account/personal-details`}
+                    <LocalizedLinkText
+                        to={`${deriv_app_url}/account/personal-details`}
                         target="_blank"
+                        external
+                        weight="bold"
                         rel="noopener noreferrer"
                         key={1}
                     />,
@@ -155,9 +146,7 @@ const UnsubscribeEmail = () => (
 )
 const DormantFee = () => (
     <ArticleWrapper>
-        <Header as="h4" margin=" 0 0 2.4rem 0" lh="1.5">
-            {localize('What is a dormant fee?')}
-        </Header>
+        <StyledHeader as="h4">{localize('What is a dormant fee?')}</StyledHeader>
         <Text>
             {localize(
                 'A dormant fee is an amount charged to any account that has not placed a buy or sell transaction over a continuous period of 12 months.',
@@ -173,7 +162,7 @@ const DormantFee = () => (
 
 const AccountArticle = () => {
     return (
-        <Article header="Account">
+        <Article header={localize('Account')}>
             <WhoCanOpenAnAccount
                 text={localize("Why can't I create an account?")}
                 label="who-can-open-an-account"
@@ -192,12 +181,15 @@ const AccountArticle = () => {
                 )}
                 label="recovering-your-password"
             />
-            <CloseAccount text="How can I close my account?" label="close-your-account" />
+            <CloseAccount
+                text={localize('How can I close my account?')}
+                label="close-your-account"
+            />
             <UnsubscribeEmail
-                text="How do I unsubscribe from marketing emails?"
+                text={localize('How do I unsubscribe from marketing emails?')}
                 label="unsubscribe-marketing-emails"
             />
-            <DormantFee text="What is a dormant fee?" label="what-is-dormant-fee" />
+            <DormantFee text={localize('What is a dormant fee?')} label="what-is-dormant-fee" />
         </Article>
     )
 }

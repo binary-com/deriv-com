@@ -1,10 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
-import { Header, Text, Image } from 'components/elements'
+import { Header, Text, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
 
+const query = graphql`
+    query {
+        mena: file(relativePath: { eq: "mena.png" }) {
+            ...fadeIn
+        }
+        wealth: file(relativePath: { eq: "wealth.png" }) {
+            ...fadeIn
+        }
+        winner: file(relativePath: { eq: "winner.png" }) {
+            ...fadeIn
+        }
+        global_brand: file(relativePath: { eq: "global-brand.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const AwardContainer = styled.section`
     width: 100%;
     padding: 8rem 22.8rem;
@@ -18,15 +35,6 @@ const AwardContainer = styled.section`
         padding: 8rem 6rem;
     }
 `
-
-const StyledHeader = styled(Header)`
-    font-size: 3.6rem;
-    margin-bottom: 1.6rem;
-`
-const StyledText = styled(Text)`
-    font-size: var(--text-size-m);
-    max-width: ${props => (props.maxW ? props.maxW : '')};
-`
 const ImageWrapper = styled.div`
     width: 100%;
     display: flex;
@@ -39,40 +47,46 @@ const ImageWrapper = styled.div`
         flex-wrap: wrap;
     }
 `
-
 const ImageItem = styled.div`
     margin-right: 1.6rem;
     margin-top: 2rem;
 `
 
 export const OurAwards = () => {
+    const data = useStaticQuery(query)
     return (
         <AwardContainer>
-            <StyledHeader align="center">{localize('Our awards')}</StyledHeader>
+            <Header align="center" mb="1.6rem" size="var(--text-size-header-1)">
+                {localize('Our awards')}
+            </Header>
             <Flex>
-                <StyledText align="center" weight="500" maxW="98.4rem">
+                <Text align="center" weight="500" max_width="98.4rem" size="var(--text-size-m)">
                     {localize(
-                        'The Binary Group has 20 years of experience in providing excellent trading services. We’re proud that our dedication has led to a number of prestigious awards over the years.',
+                        'The Deriv Group has 20 years of experience in providing excellent trading services. We’re proud that our dedication has led to a number of prestigious awards over the years.',
                     )}
-                </StyledText>
+                </Text>
             </Flex>
             <ImageWrapper>
                 <ImageItem>
-                    <Image img_name="mena.png" alt={localize('Mena FFXPO')} width="28.5rem" />
+                    <QueryImage data={data['mena']} alt={localize('Mena FFXPO')} width="28.5rem" />
                 </ImageItem>
                 <ImageItem>
-                    <Image
-                        img_name="wealth.png"
+                    <QueryImage
+                        data={data['wealth']}
                         alt={localize('Personal Wealth')}
                         width="28.5rem"
                     />
                 </ImageItem>
                 <ImageItem>
-                    <Image img_name="winner.png" alt={localize('Award Winner')} width="28.5rem" />
+                    <QueryImage
+                        data={data['winner']}
+                        alt={localize('Award Winner')}
+                        width="28.5rem"
+                    />
                 </ImageItem>
                 <ImageItem>
-                    <Image
-                        img_name="global-brand.png"
+                    <QueryImage
+                        data={data['global_brand']}
                         alt={localize('Global Brand')}
                         width="28.5rem"
                     />

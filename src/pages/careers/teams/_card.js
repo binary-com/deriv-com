@@ -7,7 +7,7 @@ import { QueryImage, Text, Header, Divider } from 'components/elements'
 import Chevron from 'images/svg/chevron.svg'
 
 const ImageWrapper = styled.div`
-    height: 14.5rem;
+    height: 144px;
     width: 100%;
 `
 
@@ -42,10 +42,10 @@ const StyledText = styled(Text)`
     position: relative;
     font-size: var(--text-size-s);
     max-width: fit-content;
-    opacity: ${props => (props.disabled ? '0.32' : '1')};
+    opacity: ${(props) => (props.disabled ? '0.32' : '1')};
 
     &:hover {
-        text-decoration: ${props => (props.disabled ? '' : 'underline')};
+        text-decoration: ${(props) => (props.disabled ? '' : 'underline')};
     }
 `
 
@@ -54,15 +54,15 @@ const StyledDivider = styled(Divider)`
 `
 
 const Card = ({ img_data, to, display_team_name, tagline, position_count }) => (
-    <StyledCard height="46.3rem" to={to}>
+    <StyledCard height="463px" to={to}>
         <ImageWrapper>
-            <QueryImage data={img_data} width="100%" height="14.5rem" alt={display_team_name} />
+            <QueryImage data={img_data} width="100%" height="145px" alt={display_team_name} />
         </ImageWrapper>
         <StyledContent>
             <Text size="var(--text-size-xs)">{`${position_count} ${
                 position_count === 1 ? 'position' : 'positions'
             }`}</Text>
-            <Header as="h4" font_size="var(--text-size-sm)" margin="1.6rem 0">
+            <Header as="h4" size="var(--text-size-sm)" m="1.6rem 0">
                 {display_team_name}
             </Header>
             <Text>{tagline}</Text>

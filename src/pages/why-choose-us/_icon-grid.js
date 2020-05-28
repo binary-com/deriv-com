@@ -26,7 +26,6 @@ const GridCol = styled(CssGridColumn)`
         }
     }
     ${Text} {
-        margin-top: 1.8rem;
         @media ${device.tabletL} {
             font-size: 2rem;
         }
@@ -64,7 +63,9 @@ const Col = ({ Icon, content, title }) => (
         <Icon />
         <Container>
             <StyledHeader as="h4">{title}</StyledHeader>
-            <Text lh="1.55">{content}</Text>
+            <Text lh="1.55" mt="1.8rem">
+                {content}
+            </Text>
         </Container>
     </GridCol>
 )
@@ -100,7 +101,7 @@ export const IconGrid = () => (
                 Icon={ProvenTrackRecord}
                 title={localize('Proven track record')}
                 content={localize(
-                    'Binary Group – the owners of the Deriv and Binary.com brands – has a history that dates back to 1999 when we laid the groundwork for the world’s first fixed-odds trading service. Since then, we have grown from strength to strength, garnering the trust of traders around the world.',
+                    'Deriv Group – the owners of the Deriv and Binary.com brands – has a history that dates back to 1999 when we laid the groundwork for the world’s first fixed-odds trading service. Since then, we have grown from strength to strength, garnering the trust of traders around the world.',
                 )}
             />
             <Col

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Text } from './typography'
+import device from 'themes/device'
 import { useStateWithCallback } from 'components/hooks/use-state-with-callback'
 import ChevronThick from 'images/svg/chevron-thick.svg'
 import Chevron from 'images/svg/chevron-bottom.svg'
@@ -11,13 +12,12 @@ import Minus from 'images/svg/minus.svg'
 const ThickArrow = styled(ChevronThick)`
     transform: rotate(-180deg);
     transition: transform 0.25s linear;
-    ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
+    ${(props) => (props.expanded === 'true' ? 'transform: inherit;' : '')}
 `
 
 const Arrow = styled(Chevron)`
-    transform: rotate(-180deg);
     transition: transform 0.25s linear;
-    ${props => (props.expanded === 'true' ? 'transform: inherit;' : '')}
+    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
 `
 
 const AccordionHeader = styled.div`
@@ -30,9 +30,19 @@ const AccordionHeader = styled.div`
 
     ${Text} {
         margin-right: auto;
+
+        @media ${device.tabletL} {
+            font-size: var(--text-size-sm);
+        }
     }
     &:hover {
         cursor: pointer;
+    }
+`
+const ResponsiveWrapper = styled.div`
+    @media ${device.tablet} {
+        margin-left: 1.6rem;
+        margin-right: 1.6rem;
     }
 `
 
@@ -63,7 +73,7 @@ Accordion.propTypes = {
 }
 
 const SingleAccordionContent = ({ is_default_open = false, nodes, children }) => {
-    const getHeight = active_idx => {
+    const getHeight = (active_idx) => {
         return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
     }
 
@@ -83,10 +93,10 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
         React.useEffect(() => setHeight(getHeight(child_idx)), [is_expanded])
 
         return (
-            <div
+            <ResponsiveWrapper
                 key={child_idx}
                 style={child.props.parent_style}
-                ref={div => {
+                ref={(div) => {
                     nodes[child_idx] = { ref: div }
                 }}
             >
@@ -115,12 +125,13 @@ const SingleAccordionContent = ({ is_default_open = false, nodes, children }) =>
                             overflow: 'hidden',
                             transition: `height ${TRANSITION_DURATION}ms ease`,
                             height,
+                            ...child.props.content_style,
                         }}
                     >
                         {child}
                     </div>
                 </AccordionWrapper>
-            </div>
+            </ResponsiveWrapper>
         )
     })
 
@@ -136,7 +147,7 @@ SingleAccordionContent.propTypes = {
 const AccordionContent = ({ children, nodes }) => {
     const [active_idx, setActiveIdx] = useState(-1)
 
-    const toggle = child_idx => {
+    const toggle = (child_idx) => {
         const is_closed = active_idx === child_idx || child_idx === -1
         if (is_closed) setActiveIdx(-1)
         else {
@@ -144,21 +155,24 @@ const AccordionContent = ({ children, nodes }) => {
         }
     }
 
-    const getHeight = child_idx => {
+    const getHeight = (child_idx) => {
         if (active_idx === child_idx) {
-            return nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+            return (
+                nodes[active_idx] &&
+                nodes[active_idx].ref.children[0].children[1].children[0].offsetHeight
+            )
         }
         return 0
     }
 
     const render_nodes = React.Children.map(children, (child, child_idx) => {
-        const max_height = getHeight(child_idx)
+        const height = getHeight(child_idx)
         const is_expanded = child_idx === active_idx
 
         return (
             <div
                 style={child.props.parent_style}
-                ref={div => {
+                ref={(div) => {
                     nodes[child_idx] = { ref: div }
                 }}
             >
@@ -185,8 +199,10 @@ const AccordionContent = ({ children, nodes }) => {
                     <div
                         style={{
                             overflow: 'hidden',
+                            /* prettier-ignore */
                             transition: `height ${TRANSITION_DURATION}ms ease`,
-                            height: max_height,
+                            height: height,
+                            ...child.props.content_style,
                         }}
                     >
                         {child}

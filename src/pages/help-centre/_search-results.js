@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
 import { convertToHash } from './_utility'
-import { Text, Header } from 'components/elements'
+import { Text, Header, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+
+export const Li = styled(Text).attrs({
+    as: 'li',
+})``
 
 export const Ul = styled.ul`
     list-style: unset;
@@ -17,7 +20,7 @@ export const Ul = styled.ul`
     > *:not(:last-child) {
         padding-bottom: 0.8rem;
     }
-    li {
+    ${Li} {
         @media ${device.tabletL} {
             font-size: var(--text-size-sm);
             font-weight: 300;
@@ -30,14 +33,7 @@ export const Ol = styled(Ul).attrs({
     list-style-type: decimal;
 `
 
-export const Li = styled(Text).attrs({
-    as: 'li',
-})``
-
 const ErrorHeader = styled(Header)`
-    font-size: var(--text-size-sm);
-    padding-bottom: 0.8rem;
-
     @media ${device.tabletL} {
         font-weight: normal;
     }
@@ -50,28 +46,24 @@ const SearchText = styled(Text)`
 const ListWrapper = styled.div`
     margin-right: 2.4rem;
     max-width: 100rem;
-    width: 100rem;
+    width: 100%;
 
     ${Header} {
         margin-bottom: 1.6rem;
-    }
-
-    @media ${device.tabletL} {
-        padding-top: 3.55rem;
     }
 `
 const ListNoBullets = styled.ul`
     margin-bottom: 4.2rem;
     list-style: none;
 
-    li {
+    ${Li} {
         max-width: 38.4rem;
     }
     > *:not(:last-child) {
         padding-bottom: 1.6rem;
     }
 `
-const StyledLink = styled(Link)`
+const StyledLink = styled(LocalizedLinkText)`
     text-decoration: none;
     color: black;
     font-size: var(--text-size-s);
@@ -91,7 +83,7 @@ export const SearchSuccess = ({ suggested_topics, max_length }) => (
             <ListWrapper key={idx}>
                 <ListNoBullets>
                     <StyledLink to={convertToHash(article.category, article.label)}>
-                        {article.title}
+                        {localize(article.title)}
                     </StyledLink>
                 </ListNoBullets>
             </ListWrapper>
@@ -106,7 +98,7 @@ SearchSuccess.propTypes = {
 
 export const SearchError = ({ search }) => (
     <>
-        <ErrorHeader as="h5" color="black">
+        <ErrorHeader as="h5" color="black" size="var(--text-size-sm)" mb="0.8rem">
             {localize("Sorry, we couldn’t find any results matching '{{search}}'.", { search })}
         </ErrorHeader>
         <SearchText color="green">{localize('Search tips:')}</SearchText>

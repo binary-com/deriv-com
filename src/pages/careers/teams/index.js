@@ -12,6 +12,7 @@ const HeroText = styled(Text)`
     max-width: 86.2rem;
     font-size: var(--text-size-sm);
 `
+
 const query = graphql`
     query {
         devops: file(relativePath: { eq: "careers/team-devops.png" }) {
@@ -83,7 +84,7 @@ const Teams = () => {
             <SEO title={'Teams'} />
             <SectionContainer background="black" padding="12rem 0">
                 <Container direction="column">
-                    <Header as="h2" color="white" align="center" margin="0 0 2.4rem">
+                    <Header as="h2" color="white" align="center" m="0 0 2.4rem">
                         Motivated by challenges
                     </Header>
                     <HeroText color="white" align="center">
@@ -96,7 +97,7 @@ const Teams = () => {
             </SectionContainer>
             <SectionContainer>
                 <Container direction="column" padding="12rem 0">
-                    <Header align="center" as="h3" margin="0 0 8rem">
+                    <Header align="center" as="h3" m="0 0 8rem">
                         Choose your team
                     </Header>
                     <CssGrid

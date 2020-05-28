@@ -19,7 +19,11 @@ const HeroWrapper = styled.section`
     width: 100%;
     padding-top: 11rem;
     min-height: calc(100vh - 7rem);
-    background: var(--color-black);
+    background: radial-gradient(
+        farthest-side at ${(props) => props.gradient}% -10%,
+        #474747 -0%,
+        #0e0e0e 115%
+    );
     position: relative;
     overflow: hidden;
 
@@ -133,20 +137,42 @@ const TypeWriter = styled(Header)`
 export const Hero = () => {
     const subtitle = localize('Trade forex, commodities, stock and synthetic indices')
     const [type_writer, setTypeWriter] = React.useState('')
+    const [gradient, setGradient] = React.useState(0)
+    let type_writer_timeout, gradient_timeout
 
-    const type_writer_animation = (i = 0) => {
+    const typeWriterAnimation = (i = 0) => {
         if (i < subtitle.length) {
             setTypeWriter(subtitle.substring(0, i + 1))
-            setTimeout(() => type_writer_animation(i + 1), 13)
+            type_writer_timeout = setTimeout(() => typeWriterAnimation(i + 1), 13)
         }
     }
 
+    const startGradient = (gradient = 0) => {
+        gradient_timeout = setTimeout(() => {
+            if (gradient < 100) {
+                setGradient(gradient + 1)
+                startGradient(gradient + 1)
+            } else {
+                setGradient(0)
+                startGradient()
+            }
+        }, 170)
+    }
+
     React.useEffect(() => {
-        setTimeout(() => type_writer_animation(), 1200)
+        let start_animations_timeout = setTimeout(() => {
+            typeWriterAnimation()
+            startGradient()
+        }, 1200)
+        return () => {
+            clearTimeout(start_animations_timeout)
+            clearTimeout(type_writer_timeout)
+            clearTimeout(gradient_timeout)
+        }
     }, [])
 
     return (
-        <HeroWrapper>
+        <HeroWrapper gradient={gradient}>
             <Container>
                 <StyledHeader as="h1" lh="1.25" color="white" ad="0.5s">
                     {localize('SIMPLE.')}

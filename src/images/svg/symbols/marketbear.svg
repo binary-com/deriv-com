@@ -1,14 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
-    <defs>
-        <circle id="bearprefix__a" cx="10" cy="10" r="10"/>
-        <circle id="bearprefix__c" cx="10" cy="10" r="10"/>
-    </defs>
-    <g fill="none" fill-rule="evenodd" transform="translate(6 6)">
-        <mask id="bearprefix__b" fill="#fff">
-            <use xlink:href="#bearprefix__a"/>
-        </mask>
-        <use fill="#D20000" xlink:href="#bearprefix__a"/>
-        <path fill="#FFF" d="M9.718 4.296c.71-.07 1.245-.127 1.601-.172.394.203.605.56.635 1.072 2.138 2.058 3.207 3.599 3.207 4.621 1.032.79 1.987 1.624 2.864 2.5.127.126.134.328.017.462-.597.687-1.21 1.03-1.836 1.03.03.17.034.322.01.456-.03.175-.417.402-.596.384-1.353-.13-2.464-.532-3.78-.998-3.8-.474-6.696.683-7.025 3.096-.22 1.608-.22 3.943 0 7.003C.932 16.254-.872 10.548-.598 6.63c.274-3.917 2.125-5.048 5.553-3.392 1.088.462 1.92.758 2.499.886.578.129 1.332.186 2.264.172z" mask="url(#bearprefix__b)"/>
-        <circle cx="10" cy="10" r="9.375" stroke="#D20000" stroke-width="1.25"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g fill="none" transform="translate(6 6)">
+        <circle cx="10" cy="10" r="10" fill="#FF444F"/>
+        <path fill="#FFF" d="M15.229 6.957L15.1 6.863 15.779 6.249 16.079 5.15 15.1 4 13.75 4.188 12.793 5.186 12.55 5.005 10 4.889 7.45 5.005 7.207 5.186 6.25 4.188 4.9 4 3.921 5.15 4.221 6.249 4.9 6.863 4.771 6.957 3.571 11.013 5.271 13.739 10 17 14.729 13.739 16.429 11.013z"/>
     </g>
 </svg>

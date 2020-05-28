@@ -7,7 +7,6 @@ import { AUDINDEX, EURINDEX, GBPINDEX, USDINDEX } from 'components/elements/symb
 
 const Symbol = styled(Flex)`
     width: fit-content;
-    margin: 0 2.4rem 1.6rem 0;
 
     svg {
         width: 32px;
@@ -16,7 +15,8 @@ const Symbol = styled(Flex)`
     }
     ${Text} {
         font-weight: normal;
-        width: 78px;
+        font-size: var(--text-size-xs);
+        line-height: 1.14;
     }
 `
 

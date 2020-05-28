@@ -321,6 +321,7 @@ export const NavCard = ({
     target,
     className,
     is_binary_link,
+    otherLinkProps,
 }) => {
     return (
         <LocalizedLink
@@ -336,6 +337,7 @@ export const NavCard = ({
             target={target}
             className={className}
             is_binary_link={is_binary_link}
+            {...otherLinkProps}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
                 <Icon />
@@ -361,6 +363,7 @@ NavCard.propTypes = {
     external: PropTypes.string,
     icon: PropTypes.func,
     is_binary_link: PropTypes.bool,
+    otherLinkProps: PropTypes.object,
     style: PropTypes.object,
     target: PropTypes.string,
     title: PropTypes.string,

@@ -398,6 +398,7 @@ export const Nav = () => {
                             to={binary_url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            ariaLabel="Binary.com logo"
                         >
                             <BinaryLogo width="24" height="24" />
                         </LocalizedLink>

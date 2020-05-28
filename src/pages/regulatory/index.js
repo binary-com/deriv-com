@@ -161,6 +161,7 @@ const Regulatory = () => (
             <GridContainer>
                 <Box padding="0 0 8rem">
                     <CssGrid
+                        height="auto"
                         columns="15.4rem 1fr"
                         column_gap="1.6rem"
                         row_gap="4rem"

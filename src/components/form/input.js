@@ -55,17 +55,18 @@ const StyledError = styled(CrossIcon)`
 `
 
 const StyledInput = styled.input`
-    background: none;
-    color: var(--color- ${(props) => props.inputColor || 'black'});
+    /* prettier-ignore */
+    background: var(--color-${(props) => props.inputBackground || 'none'});
+    color: var(--color-${(props) => props.inputColor || 'black'});
     font-size: 16px;
     padding: 1rem 1rem 1rem 0.8rem;
-    width: 95%;
+    width: 100%;
     display: block;
     border: none;
-    border-radius: 0;
+    border-radius: 4px;
 
     @media ${device.tabletL} {
-        height: 5rem;
+        height: 100%;
 
         & ~ label {
             font-size: 1.75rem;
@@ -119,7 +120,8 @@ const ErrorMessages = styled(Text)`
 `
 
 const StyledLabel = styled.label`
-    color: var(--color-grey);
+    /* prettier-ignore */
+    color: var(--color-${(props) => props.labelColor || 'grey'});
     font-size: var(--text-size-s);
     position: absolute;
     pointer-events: none;
@@ -135,6 +137,7 @@ const Input = ({
     label,
     border,
     focusBorder,
+    labelColor,
     id,
     error,
     background,
@@ -150,7 +153,12 @@ const Input = ({
             className="input-wrapper"
         >
             <StyledInput id={id} background={background} {...props} />
-            <StyledLabel tabletBackground={tabletBackground} error={error} htmlFor={id}>
+            <StyledLabel
+                tabletBackground={tabletBackground}
+                error={error}
+                htmlFor={id}
+                labelColor={labelColor}
+            >
                 {label}
             </StyledLabel>
         </InputWrapper>
@@ -170,6 +178,7 @@ Input.propTypes = {
     handleError: PropTypes.func,
     id: PropTypes.string,
     label: PropTypes.string,
+    labelColor: PropTypes.string,
     tabletBackground: PropTypes.string,
     width: PropTypes.string,
 }

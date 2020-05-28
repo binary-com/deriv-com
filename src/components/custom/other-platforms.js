@@ -62,7 +62,7 @@ const StyledFlexGridContainer = styled(FlexGridContainer)`
 `
 
 export const TraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink to="/dtrader">
+    <StyledLink ariaLabel={localize('DTrader')} to="/dtrader">
         <Card
             cover_background="var(--color-red)"
             cover_content={localize('Discover DTrader now')}
@@ -79,7 +79,7 @@ export const TraderCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const BotCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink to="/dbot">
+    <StyledLink ariaLabel={localize('DBot')} to="/dbot">
         <Card
             cover_background="var(--color-orange)"
             cover_content={localize('Discover DBot now')}
@@ -96,7 +96,7 @@ export const BotCard = ({ is_selected, word_break_cover }) => (
 )
 
 export const DMT5Card = ({ is_selected, word_break_cover }) => (
-    <StyledLink to="/dmt5">
+    <StyledLink ariaLabel={localize('DMT5')} to="/dmt5">
         <Card
             cover_background="var(--color-green)"
             cover_content={localize('Discover DMT5 now')}
@@ -117,7 +117,13 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
 )
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
-    <StyledLink to={smarttrader_url} is_binary_link external="true" target="_blank">
+    <StyledLink
+        to={smarttrader_url}
+        is_binary_link
+        external="true"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
         <Card
             cover_background="var(--color-blue-3)"
             cover_content={localize('Discover SmartTrader now')}
@@ -232,6 +238,7 @@ export const NavPlatform = () => (
             style={{ marginTop: '3.2rem' }}
             external="true"
             target="_blank"
+            otherLinkProps={{ rel: 'noopener noreferrer' }}
         />
     </Flex>
 )
@@ -269,7 +276,7 @@ export const NavMarket = () => (
             content={
                 <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
             }
-            title={<Localize translate_text="Synthetic indices" />}
+            title={<Localize translate_text="Synthetic Indices" />}
             to="/markets#synthetic"
             style={{ marginTop: '3.2rem' }}
         />

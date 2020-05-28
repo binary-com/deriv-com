@@ -4,9 +4,8 @@ import { MajorPairs, MinorPairs, SmartFX } from '../sub-markets/_submarkets.js'
 import AvailableOptions from '../_available-options.js'
 import AvailablePlatforms from '../_available-platforms.js'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
 //SVG
 import RiseFall from 'images/svg/options/rise-fall.svg'
 import HigherLower from 'images/svg/options/higher-lower.svg'
@@ -21,16 +20,11 @@ const Descriptions = styled.div`
     border-bottom: 1px solid var(--color-grey-21);
 `
 const Col = styled(Flex)`
-    max-width: 13.2rem;
-
-    @media ${device.tabletL} {
-        max-width: 7rem;
-    }
+    ${(props) => props.border_left && 'border-left: 1px solid #e3e4e5;'}
 `
 const Row = styled(Flex)`
-    border: 1px solid var(--color-grey-22);
-    margin-top: 2.4rem;
-    border-radius: 8px;
+    border: ${(props) => (props.remove_border ? '' : '1px solid #e3e4e5')};
+    ${(props) => props.romve_border_top && 'border-top: unset;'}
 `
 const Options = styled(Descriptions)`
     margin-top: 2.4rem;
@@ -40,10 +34,6 @@ const Options = styled(Descriptions)`
         border: unset;
         justify-content: space-between;
 
-        @media ${device.tabletL} {
-            flex-direction: column;
-        }
-
         ${Col} {
             max-width: 38.4rem;
         }
@@ -52,56 +42,22 @@ const Options = styled(Descriptions)`
         margin-top: 0;
     }
 `
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-        text-align: left;
-    }
-`
-const MarketsList = styled(CssGrid)`
-    border-left: 1px solid var(--color-grey-22);
-    grid-template-columns: repeat(5, 1fr);
-    width: 100%;
-    padding: 2.4rem;
-    grid-row-gap: 1.6rem;
 
-    @media ${device.tabletL} {
-        grid-template-columns: ${(props) =>
-            props.mobile_col_template ? props.mobile_col_template : 'repeat(3, 1fr)'};
-
-        svg {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
-        }
-        ${Text} {
-            font-size: 1.5rem;
-            line-height: 1.5;
-        }
-    }
-`
-const Title = styled(Text)`
-    @media ${device.tabletL} {
-        text-align: center;
-        max-width: 4rem;
-        font-weight: 600;
-    }
-`
 const DigitalOptions = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
-                    <StyledText align="center">
+                    <Text align="center">
                         {localize(
-                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and Call/Put spreads on forex.',
+                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and call/put spreads on forex.',
                         )}
-                    </StyledText>
+                    </Text>
                     <AvailablePlatforms dtrader smarttrader dbot />
                 </Descriptions>
-                <StyledText weight="bold" mt="2.4rem">
+                <Text weight="bold" mt="2.4rem">
                     {localize('Option trades available on forex')}
-                </StyledText>
+                </Text>
                 <Options>
                     <Row>
                         <Col>
@@ -182,7 +138,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 svg={TNT}
-                                title={<Localize translate_text="Touch/No Touch" />}
+                                title={<Localize translate_text="Touch/No Touch:" />}
                                 content={localize(
                                     'Predict whether the market will touch or not touch a target at any time during the contract period.',
                                 )}
@@ -193,34 +149,34 @@ const DigitalOptions = () => {
                 <Text weight="bold" mt="2.4rem">
                     {localize('Instruments available for options trading')}
                 </Text>
-                <Row jc="flex-start" ai="center" mt="1.6rem">
-                    <Col>
-                        <Title weight="bold">{localize('Major pairs')}</Title>
+                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
+                    <Col max_width="13.2rem">
+                        <Text weight="bold">{localize('Major pairs')}</Text>
                     </Col>
-                    <MarketsList>
+                    <Col wrap="wrap" jc="flex-start" p="2.4rem 0 0.8rem 1.6rem" border_left>
                         <MajorPairs />
-                    </MarketsList>
-                </Row>
-                <Row jc="flex-start" ai="center">
-                    <Col>
-                        <Title weight="bold">{localize('Minor pairs')}</Title>
                     </Col>
-                    <MarketsList>
+                </Row>
+                <Row jc="flex-start" ai="center" romve_border_top>
+                    <Col max_width="13.2rem">
+                        <Text weight="bold">{localize('Minor pairs')}</Text>
+                    </Col>
+                    <Col wrap="wrap" jc="flex-start" p="2.4rem 0 0.8rem 1.6rem" border_left>
                         <MinorPairs />
-                    </MarketsList>
-                </Row>
-                <Row jc="flex-start" ai="center">
-                    <Col>
-                        <Show.Desktop>
-                            <Title weight="bold">{localize('SmartFX')}</Title>
-                        </Show.Desktop>
-                        <Show.Mobile>
-                            <Title weight="bold">{localize('Smart FX')}</Title>
-                        </Show.Mobile>
                     </Col>
-                    <MarketsList mobile_col_template="repeat(2, 1fr)">
+                </Row>
+                <Row
+                    jc="flex-start"
+                    ai="center"
+                    romve_border_top
+                    background="rgba(242, 243, 244, 0.3)"
+                >
+                    <Col max_width="13.2rem">
+                        <Text weight="bold">{localize('SmartFX')}</Text>
+                    </Col>
+                    <Col wrap="wrap" jc="flex-start" p="2.4rem 0 0.8rem 1.6rem" border_left>
                         <SmartFX />
-                    </MarketsList>
+                    </Col>
                 </Row>
             </Flex>
         </SectionContainer>

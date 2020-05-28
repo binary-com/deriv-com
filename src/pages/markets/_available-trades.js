@@ -21,11 +21,8 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledContainer = styled(Container)`
-    margin-top: 2.8rem;
-
     @media ${device.tabletL} {
         width: 100%;
-        margin-top: 0;
     }
 `
 const CardWrapper = styled(Flex)`
@@ -165,7 +162,12 @@ class AvailableTrades extends React.Component {
                 <StyledHeader size="var(--text-size-header-1)" align="center">
                     {name + ' ' + localize('trades available on Deriv')}
                 </StyledHeader>
-                <StyledContainer direction="column">
+                <StyledContainer
+                    direction="column"
+                    style={{
+                        marginTop: '2.8rem',
+                    }}
+                >
                     <CardWrapper position="relative">
                         {Margin && (
                             <Card

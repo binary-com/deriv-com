@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { Metals, Energy } from '../sub-markets/_submarkets.js'
 import AvailableOptions from '../_available-options.js'
-import AvailablePlatforms from '../_available-platforms.js'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
+import { SectionContainer, Flex } from 'components/containers'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 //SVG
+import Dtrader from 'images/svg/dtrader-icon.svg'
+import DBot from 'images/svg/dbot-icon.svg'
+import SmartTrader from 'images/svg/smarttrader.svg'
 import RiseFall from 'images/svg/options/rise-fall.svg'
 import HigherLower from 'images/svg/options/higher-lower.svg'
 import EbEo from 'images/svg/options/eb-eo.svg'
@@ -19,16 +20,11 @@ const Descriptions = styled.div`
     border-bottom: 1px solid var(--color-grey-21);
 `
 const Col = styled(Flex)`
-    max-width: 12.9rem;
-
-    @media ${device.tabletL} {
-        max-width: 10rem;
-    }
+    ${(props) => props.border_left && 'border-left: 1px solid #e3e4e5;'}
 `
 const Row = styled(Flex)`
-    border: 1px solid var(--color-grey-22);
-    margin-top: 2.4rem;
-    border-radius: 8px;
+    border: ${(props) => (props.remove_border ? '' : '1px solid #e3e4e5')};
+    ${(props) => props.romve_border_top && 'border-top: unset;'}
 `
 const Options = styled(Descriptions)`
     margin-top: 2.4rem;
@@ -38,10 +34,6 @@ const Options = styled(Descriptions)`
         border: unset;
         justify-content: space-between;
 
-        @media ${device.tabletL} {
-            flex-direction: column;
-        }
-
         ${Col} {
             max-width: 38.4rem;
         }
@@ -50,56 +42,37 @@ const Options = styled(Descriptions)`
         margin-top: 0;
     }
 `
-const StyledText = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-        text-align: left;
-    }
-`
-const MarketsList = styled(CssGrid)`
-    border-left: 1px solid var(--color-grey-22);
-    grid-template-columns: repeat(4, 1fr);
-    width: 100%;
-    padding: 2.4rem;
-    grid-row-gap: 1.6rem;
 
-    @media ${device.tabletL} {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 2rem;
-
-        svg {
-            width: 24px;
-            height: 24px;
-            margin-right: 4px;
-        }
-        ${Text} {
-            font-size: 1.5rem;
-            line-height: 1.5;
-        }
-    }
-`
-const Title = styled(Text)`
-    @media ${device.tabletL} {
-        text-align: center;
-        max-width: 6.4rem;
-        font-weight: 600;
-    }
-`
 const DigitalOptions = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
-                    <StyledText align="center">
+                    <Text align="center">
                         {localize(
                             'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on commodities.',
                         )}
-                    </StyledText>
-                    <AvailablePlatforms dtrader dbot smarttrader />
+                    </Text>
+                    <Flex jc="flex-end" ai="center" mt="2rem">
+                        <Text mr="0.8rem">{localize('Available on')}</Text>
+                        <LocalizedLink to="/dtrader/">
+                            <Dtrader style={{ marginRight: '0.8rem' }} />
+                        </LocalizedLink>
+                        <LocalizedLink to="/dbot/">
+                            <DBot style={{ marginRight: '0.8rem' }} />
+                        </LocalizedLink>
+                        <a
+                            href="https://smarttrader.deriv.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <SmartTrader width="32px" height="32px" />
+                        </a>
+                    </Flex>
                 </Descriptions>
-                <StyledText weight="bold" mt="2.4rem">
+                <Text weight="bold" mt="2.4rem">
                     {localize('Option trades available on commodities')}
-                </StyledText>
+                </Text>
                 <Options>
                     <Row>
                         <Col>
@@ -155,7 +128,7 @@ const DigitalOptions = () => {
                         <Col>
                             <AvailableOptions
                                 svg={TNT}
-                                title={<Localize translate_text="Touch/No Touch" />}
+                                title={<Localize translate_text="Touch/No Touch:" />}
                                 content={
                                     <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />
                                 }
@@ -166,25 +139,25 @@ const DigitalOptions = () => {
                 <Text weight="bold" mt="2.4rem">
                     {localize('Instruments available for options trading')}
                 </Text>
-                <Row jc="flex-start" ai="center" mt="1.6rem">
+                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
                     <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="9.7rem" align="center">
+                        <Text weight="bold" max_width="9.7rem" align="center">
                             {localize('Metals')}
-                        </Title>
+                        </Text>
                     </Col>
-                    <MarketsList>
+                    <Col wrap="wrap" jc="flex-start" p="2.4rem 0 2.4rem 1.6rem" border_left>
                         <Metals />
-                    </MarketsList>
-                </Row>
-                <Row jc="flex-start" ai="center">
-                    <Col max_width="13.2rem">
-                        <Title weight="bold" max_width="9.7rem" align="center">
-                            {localize('Energy')}
-                        </Title>
                     </Col>
-                    <MarketsList>
+                </Row>
+                <Row jc="flex-start" ai="center" romve_border_top>
+                    <Col max_width="13.2rem">
+                        <Text weight="bold" max_width="9.7rem" align="center">
+                            {localize('Energy')}
+                        </Text>
+                    </Col>
+                    <Col wrap="wrap" jc="flex-start" p="2.4rem 0 2.4rem 1.6rem" border_left>
                         <Energy />
-                    </MarketsList>
+                    </Col>
                 </Row>
             </Flex>
         </SectionContainer>

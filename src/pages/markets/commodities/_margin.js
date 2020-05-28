@@ -37,13 +37,9 @@ const MarketsList = styled(CssGrid)`
     grid-row-gap: 1.6rem;
 
     @media ${device.tabletL} {
-        padding: 0.75rem 2rem 2rem 2rem;
-        display: flex;
-        flex-wrap: wrap;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem;
 
-        > div {
-            margin-top: 1.25rem;
-        }
         svg {
             width: 24px;
             height: 24px;
@@ -52,7 +48,6 @@ const MarketsList = styled(CssGrid)`
         ${Text} {
             font-size: 1.5rem;
             line-height: 1.5;
-            margin-right: 1rem;
         }
     }
 `

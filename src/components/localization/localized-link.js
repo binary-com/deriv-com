@@ -56,7 +56,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
     const is_index = to === `/`
-    const { target, rel, className, style, is_binary_link, is_affiliate_link } = props
+    const { target, rel, className, style, is_binary_link, is_affiliate_link, ariaLabel } = props
 
     // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
@@ -84,6 +84,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                 style={style}
                 href={lang_to}
                 ref={ref}
+                aria-label={ariaLabel}
             >
                 {props.children}
             </a>
@@ -126,6 +127,7 @@ LocalizedLink.displayName = 'LocalizedLink'
 
 LocalizedLink.propTypes = {
     anchor: PropTypes.bool,
+    ariaLabel: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
     external: PropTypes.string,

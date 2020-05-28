@@ -113,7 +113,6 @@ const LinkButtonWrapper = styled.div`
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 4rem;
-        margin-top: 5rem;
     }
 `
 const SimpleSteps = ({ header, content, sign_up }) => (

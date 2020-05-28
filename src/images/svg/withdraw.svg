@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="wthdraw-icon">
-<title id="withdraw-icon">Withdraw icon</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="withdraw-icon">
+    <title id="withdraw-icon">Withdraw icon</title>
     <g fill="none" fill-rule="evenodd">
         <path d="M0 0H32V32H0z"/>
         <rect width="32" height="20" fill="#85ACB0" fill-rule="nonzero" rx="2"/>

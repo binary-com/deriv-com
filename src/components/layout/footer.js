@@ -311,6 +311,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                                 is_binary_link
                                 external="true"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {localize('SmartTrader')}
                             </Link>
@@ -324,7 +325,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                             <Link to="/markets#forex">{localize('Forex')}</Link>
                         </div>
                         <div>
-                            <Link to="/markets#synthetic">{localize('Synthetic indices')}</Link>
+                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
                         </div>
                         <div>
                             <Link to="/markets#stock">{localize('Stock indices')}</Link>
@@ -424,6 +425,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                                 is_binary_link
                                 external="true"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {localize('SmartTrader')}
                             </Link>
@@ -438,7 +440,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                             <Link to="/markets#forex">{localize('Forex')}</Link>
                         </Item>
                         <Item>
-                            <Link to="/markets#synthetic">{localize('Synthetic indices')}</Link>
+                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
                         </Item>
                         <Item>
                             <Link to="/markets#stock">{localize('Stock indices')}</Link>

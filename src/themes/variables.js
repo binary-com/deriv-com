@@ -24,7 +24,7 @@ const Variables = css`
         --color-grey-6: #e6e9e9;
         --color-grey-7: #d6dadb;
         --color-grey-8: #f2f3f4;
-        --color-grey-9: c8d6d738;
+        --color-grey-9: #c8d6d738;
         --color-grey-10: #c8d6d738;
         --color-grey-11: #efefef;
         --color-grey-12: #585252;
@@ -39,6 +39,7 @@ const Variables = css`
         --color-grey-21: #e5e5e5;
         --color-grey-22: #eaeced;
         --color-grey-23: #fbfbfb;
+        --color-grey-24: #eff2f5;
         --color-green: #85acb0;
         --color-blue: #4c76be;
         --color-blue-2: #365899;

@@ -528,7 +528,7 @@ export const NavInterim = ({ interim_type }) => (
             </Flex>
             <Flex jc="flex-end">
                 <LinkButton secondary to="/">
-                    {localize('Explore Deriv')}
+                    {localize('Explore Deriv.com')}
                 </LinkButton>
             </Flex>
         </Container>

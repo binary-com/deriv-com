@@ -10,7 +10,7 @@ import {
     NavMarket,
 } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { LocalizedLink, Localize, localize, LanguageSwitcher } from 'components/localization'
+import { LocalizedLink, Localize, localize } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import {
@@ -558,7 +558,7 @@ export const NavInterim = ({ interim_type }) => (
                 </StyledBinary>
             </Flex>
             <Auto jc="flex-end" ai="center">
-                <LanguageSwitcher short_name="true" />
+                {/* <LanguageSwitcher short_name="true" /> */}
                 <LeftButton secondary to="/">
                     {localize('Explore Deriv.com')}
                 </LeftButton>

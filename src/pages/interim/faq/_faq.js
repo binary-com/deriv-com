@@ -65,7 +65,7 @@ const FAQ = () => {
         border: 'none',
     }
     return (
-        <SectionContainer background="var(--color-grey-8)">
+        <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">
                 <FAQWrapper jc="space-between">
                     <Question>
@@ -114,7 +114,6 @@ const FAQ = () => {
                                         ]}
                                     />
                                 }
-                                parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
                                 plus
@@ -202,7 +201,6 @@ const FAQ = () => {
                                         ]}
                                     />
                                 }
-                                parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
                                 plus
@@ -286,7 +284,6 @@ const FAQ = () => {
                                         ]}
                                     />
                                 }
-                                parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
                                 plus

@@ -19,16 +19,9 @@ import {
     MarketingSupport,
 } from './_faq-data'
 import { Container, SectionContainer, Flex } from 'components/containers'
-import {
-    Header,
-    Text,
-    Accordion,
-    AccordionItem,
-    Divider,
-    LocalizedLinkText,
-} from 'components/elements'
+import { Header, Text, Accordion, AccordionItem, Divider } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { binary_url } from 'common/utility'
+import device from 'themes/device'
 
 const Question = styled.div`
     max-width: 38.4rem;
@@ -38,6 +31,23 @@ const Question = styled.div`
 const Answer = styled.div`
     width: 100%;
     max-width: 69rem;
+`
+
+const FAQWrapper = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        ${Question} {
+            margin-right: 0;
+            margin-bottom: 3.2rem;
+            max-width: 100%;
+        }
+        ${Answer} {
+            max-width: 100%;
+        }
+    }
 `
 
 const FAQ = () => {
@@ -53,9 +63,9 @@ const FAQ = () => {
         border: 'none',
     }
     return (
-        <SectionContainer background="var(--color-grey-8)">
+        <SectionContainer background="var(--color-grey-25)">
             <Container direction="column">
-                <Flex jc="space-between">
+                <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" mb="0.8rem" lh="1.25">
                             {localize('What is the rebranding about?')}
@@ -69,21 +79,7 @@ const FAQ = () => {
                     <Answer>
                         <Accordion has_single_state>
                             <AccordionItem
-                                header={
-                                    <Localize
-                                        translate_text="Why is <0>Binary.com</0> rebranding?"
-                                        components={[
-                                            <LocalizedLinkText
-                                                key={0}
-                                                external
-                                                weight="bold"
-                                                to={binary_url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
-                                }
+                                header={<Localize translate_text="Why is Binary.com rebranding?" />}
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -93,19 +89,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize
-                                        translate_text="Is <0>Binary.com</0> being bought over by another company?"
-                                        components={[
-                                            <LocalizedLinkText
-                                                key={0}
-                                                external
-                                                weight="bold"
-                                                to={binary_url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
+                                    <Localize translate_text="Is Binary.com being bought over by another company?" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -116,19 +100,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize
-                                        translate_text="What will happen to <0>Binary.com</0>?"
-                                        components={[
-                                            <LocalizedLinkText
-                                                key={0}
-                                                external
-                                                weight="bold"
-                                                to={binary_url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
+                                    <Localize translate_text="What will happen to Binary.com?" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -139,7 +111,6 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={localize('What changes are being introduced?')}
-                                parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
                                 plus
@@ -148,32 +119,24 @@ const FAQ = () => {
                             </AccordionItem>
                         </Accordion>
                     </Answer>
-                </Flex>
+                </FAQWrapper>
                 <Divider width="100%" height="1px" m="8rem 0" />
             </Container>
             <Container direction="column">
-                <Flex jc="space-between">
+                <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" mb="0.8rem" lh="1.25">
                             {localize('How will it affect my clients?')}
                         </Header>
                         <Text>
-                            <Localize
-                                translate_text="We understand that clients may be overwhelmed by the change. That’s why we’ve worked very hard to make sure that their transition to <0>Deriv.com</0> is as seamless as possible. As an affiliate, you play a key role in supporting them in this transition. Below are some concerns they may have, along with the answers to convey your assurance."
-                                components={[<LocalizedLinkText key={0} to="/" />]}
-                            />
+                            <Localize translate_text="We understand that clients may be overwhelmed by the change. That’s why we’ve worked very hard to make sure that their transition to Deriv.com is as seamless as possible. As an affiliate, you play a key role in supporting them in this transition. Below are some concerns they may have, along with the answers to convey your assurance." />
                         </Text>
                     </Question>
                     <Answer>
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={
-                                    <Localize
-                                        translate_text="Why should I switch to <0>Deriv.com</0>?"
-                                        components={[
-                                            <LocalizedLinkText key={0} weight="bold" to="/" />,
-                                        ]}
-                                    />
+                                    <Localize translate_text="Why should I switch to Deriv.com?" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -183,14 +146,7 @@ const FAQ = () => {
                                 <WhySwitch />
                             </AccordionItem>
                             <AccordionItem
-                                header={
-                                    <Localize
-                                        translate_text="What’s new on <0>Deriv.com</0>?"
-                                        components={[
-                                            <LocalizedLinkText key={0} weight="bold" to="/" />,
-                                        ]}
-                                    />
-                                }
+                                header={<Localize translate_text="What’s new on Deriv.com?" />}
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -200,19 +156,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize
-                                        translate_text="Can I still trade on <0>Binary.com</0>?"
-                                        components={[
-                                            <LocalizedLinkText
-                                                key={0}
-                                                external
-                                                weight="bold"
-                                                to={binary_url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
+                                    <Localize translate_text="Can I still trade on Binary.com?" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -223,14 +167,8 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize
-                                        translate_text="How do I get started on <0>Deriv.com</0>?"
-                                        components={[
-                                            <LocalizedLinkText key={0} weight="bold" to="/" />,
-                                        ]}
-                                    />
+                                    <Localize translate_text="How do I get started on Deriv.com?" />
                                 }
-                                parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
                                 plus
@@ -239,11 +177,11 @@ const FAQ = () => {
                             </AccordionItem>
                         </Accordion>
                     </Answer>
-                </Flex>
+                </FAQWrapper>
                 <Divider width="100%" height="1px" m="8rem 0" />
             </Container>
             <Container direction="column">
-                <Flex jc="space-between">
+                <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" mb="0.8rem" lh="1.25">
                             {localize('How does it transform our partnership?')}
@@ -267,20 +205,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize
-                                        translate_text="How can I differentiate <1>Deriv.com</1> commission from that of <0>Binary.com</0>?"
-                                        components={[
-                                            <LocalizedLinkText
-                                                key={0}
-                                                external
-                                                weight="bold"
-                                                to={binary_url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            />,
-                                            <LocalizedLinkText key={0} weight="bold" to="/" />,
-                                        ]}
-                                    />
+                                    <Localize translate_text="How can I differentiate Deriv.com commission from that of Binary.com?" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -302,12 +227,7 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize
-                                        translate_text="Does <0>Deriv.com</0> support API developers?"
-                                        components={[
-                                            <LocalizedLinkText key={0} weight="bold" to="/" />,
-                                        ]}
-                                    />
+                                    <Localize translate_text="Does Deriv.com support API developers?" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -318,14 +238,8 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={
-                                    <Localize
-                                        translate_text="Does <0>Deriv.com</0> have a payment agent programme?"
-                                        components={[
-                                            <LocalizedLinkText key={0} weight="bold" to="/" />,
-                                        ]}
-                                    />
+                                    <Localize translate_text="Does Deriv.com have a payment agent programme?" />
                                 }
-                                parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
                                 plus
@@ -334,17 +248,14 @@ const FAQ = () => {
                             </AccordionItem>
                         </Accordion>
                     </Answer>
-                </Flex>
+                </FAQWrapper>
                 <Divider width="100%" height="1px" m="8rem 0" />
             </Container>
             <Container direction="column">
-                <Flex jc="space-between">
+                <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" mb="0.8rem" lh="1.25">
-                            <Localize
-                                translate_text="How do I get started promoting <0>Deriv.com</0>?"
-                                components={[<LocalizedLinkText key={0} weight="bold" to="/" />]}
-                            />
+                            <Localize translate_text="How do I get started promoting Deriv.com?" />
                         </Header>
                         <Text>
                             {localize(
@@ -356,12 +267,7 @@ const FAQ = () => {
                         <Accordion has_single_state>
                             <AccordionItem
                                 header={
-                                    <Localize
-                                        translate_text="Can I start promoting <0>Deriv.com</0> immediately?"
-                                        components={[
-                                            <LocalizedLinkText key={0} weight="bold" to="/" />,
-                                        ]}
-                                    />
+                                    <Localize translate_text="Can I start promoting Deriv.com immediately?" />
                                 }
                                 parent_style={parent_style}
                                 style={item_style}
@@ -371,14 +277,7 @@ const FAQ = () => {
                                 <StartPromoting />
                             </AccordionItem>
                             <AccordionItem
-                                header={
-                                    <Localize
-                                        translate_text="How do I promote <0>Deriv.com</0>?"
-                                        components={[
-                                            <LocalizedLinkText key={0} weight="bold" to="/" />,
-                                        ]}
-                                    />
-                                }
+                                header={<Localize translate_text="How do I promote Deriv.com?" />}
                                 parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
@@ -388,7 +287,6 @@ const FAQ = () => {
                             </AccordionItem>
                             <AccordionItem
                                 header={localize('What marketing support do you provide?')}
-                                parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
                                 plus
@@ -397,7 +295,7 @@ const FAQ = () => {
                             </AccordionItem>
                         </Accordion>
                     </Answer>
-                </Flex>
+                </FAQWrapper>
             </Container>
         </SectionContainer>
     )

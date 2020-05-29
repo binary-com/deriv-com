@@ -48,7 +48,7 @@ const LoveTrading = () => {
                         </Text>
                         <Text color="white" size="var(--text-size-m)">
                             <Localize
-                                translate_text="live on <0>3 June 2020</0>"
+                                translate_text="live on <0>5 June 2020</0>"
                                 components={[<strong key={0} />]}
                             />
                         </Text>

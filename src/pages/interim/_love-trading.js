@@ -3,12 +3,14 @@ import { Container, Flex, Box } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
-import Platform from 'images/common/interim-bg.png'
+import Platform from 'images/common/check-interim-bg.png'
 
 const Section = styled(Box)`
     width: 100%;
     background-image: url(${Platform});
-    background-size: cover;
+    background-size: 64% 100%;
+    background-position-x: right;
+    background-repeat: no-repeat;
     position: relative;
 
     @media (max-width: 1240px) {

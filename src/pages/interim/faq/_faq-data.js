@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { localize, Localize } from 'components/localization'
-import { Text, LocalizedLinkText } from 'components/elements'
-import { binary_url } from 'common/utility'
+import { Text } from 'components/elements'
 
 const StyledUl = styled.ul`
     list-style-type: disc;
@@ -44,10 +43,7 @@ const WhatChanges = () => (
 const IsBeingBought = () => (
     <MaxWidth>
         <Text>
-            <Localize
-                translate_text="No, <0>Deriv.com</0> is built, owned, and managed by the same team that brought you <1>Binary.com</1>. We like to think of <0>Deriv.com</0> as the next step in the evolution of our company. We have taken lessons from 20 years of experience to produce a diverse range of products that give clients the flexibility and ease to trade according to their preference with confidence."
-                components={[<LocalizedLinkText key={0} to="/" />]}
-            />
+            <Localize translate_text="No, Deriv.com is built, owned, and managed by the same team that brought you Binary.com. We like to think of Deriv.com as the next step in the evolution of our company. We have taken lessons from 20 years of experience to produce a diverse range of products that give clients the flexibility and ease to trade according to their preference with confidence." />
         </Text>
     </MaxWidth>
 )
@@ -55,19 +51,7 @@ const IsBeingBought = () => (
 const NewProducts = () => (
     <MaxWidth>
         <Text mb="2rem">
-            <Localize
-                translate_text="<0>Deriv.com</0> gives you multiple trading options in an environment that is simple, flexible, and reliable. Three core products — DTrader, DBot, and DMT5 — are offered alongside SmartTrader, the popular trading platform from <1>Binary.com</1>."
-                components={[
-                    <LocalizedLinkText key={0} to="/" />,
-                    <LocalizedLinkText
-                        key={1}
-                        external
-                        to={binary_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    />,
-                ]}
-            />
+            <Localize translate_text="Deriv.com gives you multiple trading options in an environment that is simple, flexible, and reliable. Three core products — DTrader, DBot, and DMT5 — are offered alongside SmartTrader, the popular trading platform from Binary.com." />
         </Text>
         <Text>
             {localize(
@@ -109,19 +93,7 @@ const WhatToExpect = () => (
 const IsDerivRegulated = () => (
     <MaxWidth>
         <Text>
-            <Localize
-                translate_text="Yes. <0>Deriv.com</0> and <1>Binary.com</1> are owned by the same group, which is licensed and regulated in many jurisdictions around the world."
-                components={[
-                    <LocalizedLinkText key={0} to="/" />,
-                    <LocalizedLinkText
-                        key={1}
-                        external
-                        to={binary_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    />,
-                ]}
-            />
+            <Localize translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is licensed and regulated in many jurisdictions around the world." />
         </Text>
     </MaxWidth>
 )
@@ -129,19 +101,7 @@ const IsDerivRegulated = () => (
 const AreCloseDown = () => (
     <MaxWidth>
         <Text>
-            <Localize
-                translate_text="The <0>Binary.com</0> website will still be around for a while. In due time, we will phase out <0>Binary.com</0>. However, your accounts, funds, and everything you have on <0>Binary.com</0> will be available and accessible by you on <1>Deriv.com</1>."
-                components={[
-                    <LocalizedLinkText
-                        key={0}
-                        external
-                        to={binary_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    />,
-                    <LocalizedLinkText key={1} to="/" />,
-                ]}
-            />
+            <Localize translate_text="The Binary.com website will still be around for a while. In due time, we will phase out Binary.com. However, your accounts, funds, and everything you have on Binary.com will be available and accessible by you on Deriv.com." />
         </Text>
     </MaxWidth>
 )
@@ -149,10 +109,7 @@ const AreCloseDown = () => (
 const WhySwitch = () => (
     <MaxWidth>
         <Text>
-            <Localize
-                translate_text="We’ve planned this rebranding process carefully and over many months with you, our clients, in mind. Based on the experience of serving you for the past 20 years, we’ve taken all your valuable feedback to deliver an improved experience to support your online trading journey. To guide you in this transition, we’ve prepared educational resources that will help you easily navigate around the new trading space. The demo account on <0>Deriv.com</0> is also available for you to explore and build confidence for the new environment."
-                components={[<LocalizedLinkText key={0} to="/" />]}
-            />
+            <Localize translate_text="We’ve planned this rebranding process carefully and over many months with you, our clients, in mind. Based on the experience of serving you for the past 20 years, we’ve taken all your valuable feedback to deliver an improved experience to support your online trading journey. To guide you in this transition, we’ve prepared educational resources that will help you easily navigate around the new trading space. The demo account on Deriv.com is also available for you to explore and build confidence for the new environment." />
         </Text>
     </MaxWidth>
 )
@@ -160,19 +117,7 @@ const WhySwitch = () => (
 const CanStillTrade = () => (
     <MaxWidth>
         <Text>
-            <Localize
-                translate_text="Your funds will be reflected in both your <0>Binary.com</0> and <1>Deriv.com</1> accounts because they are essentially the same account. But we recommend that you try out <1>Deriv.com</1> now because we will gradually be phasing out <0>Binary.com</0>. We assure you that your favourite features are available on <1>Deriv.com</1>; plus, your account details, funds, and custom settings on <0>Binary.com</0> will be available on <1>Deriv.com</1> once you log in with your <0>Binary.com</0> credentials."
-                components={[
-                    <LocalizedLinkText
-                        key={0}
-                        external
-                        to={binary_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    />,
-                    <LocalizedLinkText key={1} to="/" />,
-                ]}
-            />
+            <Localize translate_text="Your funds will be reflected in both your Binary.com and Deriv.com accounts because they are essentially the same account. But we recommend that you try out Deriv.com now because we will gradually be phasing out Binary.com. We assure you that your favourite features are available on Deriv.com; plus, your account details, funds, and custom settings on Binary.com will be available on Deriv.com once you log in with your Binary.com credentials." />
         </Text>
     </MaxWidth>
 )
@@ -180,19 +125,7 @@ const CanStillTrade = () => (
 const HowToGetStarted = () => (
     <MaxWidth>
         <Text>
-            <Localize
-                translate_text="It’s simple. Just go to <0>Deriv.com</0> and enter your existing <1>Binary.com</1> credentials. You’ll immediately be able to explore the new look, feel, and added functionality of <0>Deriv.com</0>."
-                components={[
-                    <LocalizedLinkText key={0} to="/" />,
-                    <LocalizedLinkText
-                        key={1}
-                        external
-                        to={binary_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    />,
-                ]}
-            />
+            <Localize translate_text="It’s simple. Just go to Deriv.com and enter your existing Binary.com credentials. You’ll immediately be able to explore the new look, feel, and added functionality of Deriv.com." />
         </Text>
     </MaxWidth>
 )

@@ -56,19 +56,7 @@ const Hero = () => {
             </Section>
             <Container p="8rem 0" fd="column">
                 <Header as="h4" weight="normal" align="center" mb="4rem">
-                    <Localize
-                        translate_text="You may have heard about the exciting improvements we’ve made recently to <0>Binary.com</0>. Yes, we’ve rebranded to <1>Deriv.com</1> as part of our renewed commitment to enhance your online trading experience."
-                        components={[
-                            <LocalizedLinkText
-                                key={0}
-                                external
-                                to={binary_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            />,
-                            <LocalizedLinkText key={1} to="/" />,
-                        ]}
-                    />
+                    <Localize translate_text="You may have heard about the exciting improvements we’ve made recently to Binary.com. Yes, we’ve rebranded to Deriv.com as part of our renewed commitment to enhance your online trading experience." />
                 </Header>
                 <Header as="h4" weight="normal" align="center">
                     {localize(

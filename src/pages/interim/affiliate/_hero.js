@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Section, ResponsiveHeader, ImgWrapper, ResponsiveFlex } from '../_hero'
 import { Container } from 'components/containers'
-import { Header, LocalizedLinkText, QueryImage } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { binary_url } from 'common/utility'
 
 const RightWrapper = styled(ImgWrapper)`
     max-width: 69rem;
@@ -27,26 +26,7 @@ const Hero = () => {
                 <Container fw="wrap">
                     <ResponsiveFlex fd="column" max_width="48.6rem" ai="center">
                         <ResponsiveHeader as="h2" mb="1.2rem" align="left" lh="1.25">
-                            <Localize
-                                translate_text="<0>Binary.com</0> has rebranded to <1>Deriv.com</1> and here’s what it means for partners"
-                                components={[
-                                    <LocalizedLinkText
-                                        key={0}
-                                        external
-                                        color="white"
-                                        weight="bold"
-                                        to={binary_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    />,
-                                    <LocalizedLinkText
-                                        key={1}
-                                        weight="bold"
-                                        to="/"
-                                        color="white"
-                                    />,
-                                ]}
-                            />
+                            <Localize translate_text="Binary.com has rebranded to Deriv.com and here’s what it means for partners" />
                         </ResponsiveHeader>
                     </ResponsiveFlex>
                     <RightWrapper>
@@ -56,19 +36,7 @@ const Hero = () => {
             </Section>
             <Container p="8rem 0" fd="column">
                 <Header as="h4" weight="normal" align="center" mb="4rem">
-                    <Localize
-                        translate_text="As you are aware, we have rebranded <0>Binary.com</0> to <1>Deriv.com</1>. It is part of our renewed commitment to making online trading effortless and accessible to everyone through simple, flexible, and reliable solutions."
-                        components={[
-                            <LocalizedLinkText
-                                key={0}
-                                external
-                                to={binary_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            />,
-                            <LocalizedLinkText key={1} to="/" />,
-                        ]}
-                    />
+                    <Localize translate_text="As you are aware, we have rebranded Binary.com to Deriv.com. It is part of our renewed commitment to making online trading effortless and accessible to everyone through simple, flexible, and reliable solutions." />
                 </Header>
                 <Header as="h4" weight="normal" align="center">
                     {localize(

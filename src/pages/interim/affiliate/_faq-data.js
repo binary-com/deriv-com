@@ -25,18 +25,22 @@ const Img = styled.img`
     max-width: 32rem;
 `
 
+const MaxWidth = styled.div`
+    max-width: 64rem;
+`
+
 const WhyRebrand = () => (
-    <>
+    <MaxWidth>
         <Text>
             {localize(
                 'After 20 years in the market, we feel that it’s time to renew our commitment to clients. The rebranding strengthens our resolve to serve clients with simple, flexible, and reliable online trading solutions.',
             )}
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const IsBeingBought = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="No, <0>Deriv.com</0> is built, owned, and managed by the same team that brought you <1>Binary.com</1>. Backed by 20 years of experience, we’ve never felt stronger or more confident of our abilities to serve you."
@@ -52,11 +56,11 @@ const IsBeingBought = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const WhatWillHappen = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="The <0>Binary.com</0> website will be phased out gradually as we turn our focus fully on <1>Deriv.com</1>. We encourage everyone to move over to <1>Deriv.com</1> now to enjoy the new experience. Client accounts, funds, and everything stored on <0>Binary.com</0> will be available and accessible by clients on <1>Deriv.com</1>."
@@ -72,11 +76,11 @@ const WhatWillHappen = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const WhatChanges = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="The rebranding involves a new name, logo, corporate colours, and website. In addition, <0>Deriv.com</0> offers clients a diverse range of instruments to trade with on 4 advanced platforms, namely DTrader, DBot, DMT5, and SmartTrader, the popular trading platform from <1>Binary.com</1>. New features will be made available in phases."
@@ -92,21 +96,21 @@ const WhatChanges = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const WhySwitch = () => (
-    <>
+    <MaxWidth>
         <Text>
             {localize(
                 'The rebranding exercise was inspired by you, our clients. After 20 years of service to you, we feel that we understand you better. The rebranding is an opportunity for us to implement an improved online trading solution to meet all your needs.',
             )}
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const WhatsNew = () => (
-    <>
+    <MaxWidth>
         <Text mb="0.8rem">
             <Localize
                 translate_text="<0>Deriv.com</0> gives you multiple trading options in an environment that is simple, flexible, and reliable. Three core products — DTrader, DBot, and DMT5 — are offered alongside SmartTrader, the popular trading platform from <1>Binary.com</1>. Over time, you can look forward to new features such as:"
@@ -141,11 +145,11 @@ const WhatsNew = () => (
                 </Text>
             </li>
         </StyledUl>
-    </>
+    </MaxWidth>
 )
 
 const CanTrade = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="Your funds will be reflected in both your <0>Binary.com</0> and <1>Deriv.com</1> accounts because they are essentially the same account. But we recommend that you try out <1>Deriv.com</1> now because we will gradually be phasing out <0>Binary.com</0>. We assure you that your favourite features are available on <1>Deriv.com</1>; plus, your account details, funds, and custom settings on Binary.com will be available on <1>Deriv.com</1> once you log in with your <0>Binary.com</0> credentials."
@@ -161,11 +165,11 @@ const CanTrade = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const HowStarted = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="It’s simple. Just go to <1>Deriv.com</1> and enter your existing <0>Binary.com</0> credentials. You’ll immediately be able to explore the new look, feel, and added functionality of <1>Deriv.com</1>. A number of educational resources are available to help you easily navigate around the new trading space. To help build your confidence for the new environment, explore <1>Deriv.com</1> using the demo account."
@@ -181,11 +185,11 @@ const HowStarted = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const WhatHappenAffiliate = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="Your <0>Binary.com</0> affiliate account will be valid for <1>Deriv.com</1> as well. You will be able to earn commissions from your clients when they trade on either <0>Binary.com</0> or <1>Deriv.com</1>."
@@ -201,11 +205,11 @@ const WhatHappenAffiliate = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const DifferentiateCommission = () => (
-    <>
+    <MaxWidth>
         <Text mb="2.4rem">{localize('We have separated the reports for your convenience.')}</Text>
         <Img src={AffiliateReport} />
         <Text mt="0.8rem">
@@ -214,11 +218,11 @@ const DifferentiateCommission = () => (
                 components={[<strong key={0} />]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const AffectIB = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="You will continue to earn daily commissions on the trading activities of your clients whether they trade on the <0>Binary.com</0> MetaTrader 5 (MT5) or the <1>Deriv.com</1> MetaTrader5 (DMT5) platforms."
@@ -234,11 +238,11 @@ const AffectIB = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const SupportAPI = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="Yes. If you have developed your own trading application using <0>Binary.com</0> APIs, you can still continue using them. You will also be able to collect commissions on any trade made on <1>Deriv.com</1> using your app, and these will be reflected in your <1>Deriv.com</1> account."
@@ -254,11 +258,11 @@ const SupportAPI = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const HavePaymentAgent = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="Yes. If you are a registered <0>Binary.com</0> payment agent, your services will be available to clients trading on <1>Deriv.com</1>."
@@ -274,11 +278,11 @@ const HavePaymentAgent = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const StartPromoting = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="Definitely. While <0>Binary.com</0> will still be around for a while, it will be phased out gradually. Encourage your clients to move to <1>Deriv.com</1> and earn commissions from their trading activities on our new and improved platforms."
@@ -294,11 +298,11 @@ const StartPromoting = () => (
                 ]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const HowToPromote = () => (
-    <>
+    <MaxWidth>
         <Text mb="2.4rem">
             <Localize
                 translate_text="To promote <0>Deriv.com</0>, you will need a <0>Deriv.com</0> affiliate link."
@@ -333,18 +337,18 @@ const HowToPromote = () => (
                 components={[<strong key={0} />, <LocalizedLinkText key={1} to="/" />]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 const MarketingSupport = () => (
-    <>
+    <MaxWidth>
         <Text>
             <Localize
                 translate_text="We’re eager to get you started on integrating the <0>Deriv.com</0> brand into all your marketing efforts. We’ve made it easier for you to start doing so using the ready-to-use banners and logo that you can access on your affiliate dashboard. No matter what your preferred channels for marketing may be, you will find that the <0>Deriv.com</0> banners and logo are formatted to your specific needs. Start using them across all your channels and get the word out on the new <0>Deriv.com</0> brand."
                 components={[<LocalizedLinkText key={0} to="/" />]}
             />
         </Text>
-    </>
+    </MaxWidth>
 )
 
 export {

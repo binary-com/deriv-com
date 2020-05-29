@@ -5,6 +5,7 @@ import { Text } from 'components/elements'
 import AffiliateReport from 'images/common/affiliate-report.png'
 import AffiliateLogin from 'images/common/affiliate-login.png'
 import AffiliateMarketing from 'images/common/affiliate-marketing.png'
+import device from 'themes/device'
 
 const StyledUl = styled.ul`
     list-style-type: disc;
@@ -22,6 +23,10 @@ const StyledUl = styled.ul`
 
 const Img = styled.img`
     max-width: 32rem;
+
+    @media ${device.mobileM} {
+        max-width: 28rem;
+    }
 `
 
 const MaxWidth = styled.div`

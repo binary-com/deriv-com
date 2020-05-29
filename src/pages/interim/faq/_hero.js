@@ -5,6 +5,7 @@ import { Section, ResponsiveHeader, ImgWrapper, ResponsiveFlex } from '../_hero'
 import { Container } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
 
 const RightWrapper = styled(ImgWrapper)`
     max-width: 69rem;
@@ -18,12 +19,18 @@ const query = graphql`
     }
 `
 
+const Wrap = styled(Container)`
+    @media ${device.tablet} {
+        flex-wrap: wrap;
+    }
+`
+
 const Hero = () => {
     const data = useStaticQuery(query)
     return (
         <>
             <Section bg="var(--color-black)" p="8rem 0">
-                <Container fw="wrap">
+                <Wrap>
                     <ResponsiveFlex fd="column" max_width="48.6rem" ai="center">
                         <ResponsiveHeader as="h2" mb="1.2rem" align="left" lh="1.25">
                             <Localize translate_text="Binary.com has rebranded to Deriv.com and here is everything you need to know" />
@@ -32,7 +39,7 @@ const Hero = () => {
                     <RightWrapper>
                         <QueryImage width="100%" data={data['deriv']} alt={`Deriv platforms`} />
                     </RightWrapper>
-                </Container>
+                </Wrap>
             </Section>
             <Container p="8rem 0" fd="column">
                 <Header as="h4" weight="normal" align="center" mb="4rem">

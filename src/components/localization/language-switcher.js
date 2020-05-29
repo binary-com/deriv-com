@@ -8,6 +8,8 @@ import { isProduction } from 'common/websocket/config'
 
 const languages = Object.keys(language_config)
 
+const disabled_lang = ['ach', 'pl', 'fr']
+
 class LanguageSwitch extends Component {
     constructor(props) {
         super(props)
@@ -20,7 +22,7 @@ class LanguageSwitch extends Component {
     }
     displayName = () => {}
     renderLanguageChoice = (lang) => {
-        if (lang === 'ach' && isProduction()) return
+        if (disabled_lang.includes(lang) && isProduction()) return
         const { display_name, path, short_name } = language_config[lang]
         const current_short_name = language_config[this.state.language].short_name
         const is_selected = current_short_name === short_name

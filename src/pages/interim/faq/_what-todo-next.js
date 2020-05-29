@@ -13,13 +13,13 @@ const WhatTodoNext = () => {
                 <Text mb="2rem" align="center">
                     <Localize
                         translate_text="We hope these answers have helped you to know more about <0>Deriv.com</0> and our motivation for the rebranding."
-                        components={[<LocalizedLinkText key={0} weight="bold" to="/" />]}
+                        components={[<LocalizedLinkText key={0} to="/" />]}
                     />
                 </Text>
                 <Text align="center">
                     <Localize
                         translate_text="To be clear, this rebranding has been inspired by you. We are thrilled to upgrade you to a new and improved trading experience on <0>Deriv.com</0> where you can trade what you want, when you want, and how you want."
-                        components={[<LocalizedLinkText key={0} weight="bold" to="/" />]}
+                        components={[<LocalizedLinkText key={0} to="/" />]}
                     />
                 </Text>
             </Container>

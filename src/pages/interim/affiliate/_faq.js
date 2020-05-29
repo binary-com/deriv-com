@@ -46,7 +46,7 @@ const FAQ = () => {
     }
     const item_style = {
         padding: '2.4rem',
-        background: 'var(--color-grey-4)',
+        background: 'var(--color-grey-24)',
     }
     const header_style = {
         padding: '1.6rem 2.4rem',
@@ -170,7 +170,9 @@ const FAQ = () => {
                                 header={
                                     <Localize
                                         translate_text="Why should I switch to <0>Deriv.com</0>?"
-                                        components={[<LocalizedLinkText key={0} to="/" />]}
+                                        components={[
+                                            <LocalizedLinkText key={0} weight="bold" to="/" />,
+                                        ]}
                                     />
                                 }
                                 parent_style={parent_style}

@@ -41,6 +41,7 @@ const FAQ = () => {
     const item_style = {
         padding: '2.4rem',
         background: 'var(--color-grey-4)',
+        maxWidth: '64.2rem',
     }
     const header_style = {
         padding: '1.6rem 2.4rem',

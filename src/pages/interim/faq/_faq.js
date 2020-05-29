@@ -58,7 +58,7 @@ const FAQ = () => {
     }
     const item_style = {
         padding: '2.4rem',
-        background: 'var(--color-grey-4)',
+        background: 'var(--color-grey-24)',
     }
     const header_style = {
         padding: '1.6rem 2.4rem',

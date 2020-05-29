@@ -20,7 +20,6 @@ class LanguageSwitch extends Component {
     componentWillReceiveProps(nextProps) {
         this.setState({ language: nextProps.i18n.language })
     }
-    displayName = () => {}
     renderLanguageChoice = (lang) => {
         if (disabled_lang.includes(lang) && isProduction()) return
         const { display_name, path, short_name } = language_config[lang]
@@ -73,6 +72,7 @@ class LanguageSwitch extends Component {
                 onChange={this.handleSelect}
                 option_list={languages.map(this.renderLanguageChoice)}
                 default_option={this.getCurrentLanguage()}
+                has_short_name={!!this.props.short_name}
             />
         )
     }

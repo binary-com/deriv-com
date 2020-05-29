@@ -28,6 +28,22 @@ const DropdownContainer = styled.ul`
         width: 136px;
         top: 12px;
     }
+
+    ${(props) =>
+        props.has_short_name &&
+        css`
+            width: auto;
+            min-width: 6.5rem;
+
+            @media ${device.tabletL} {
+                top: inherit;
+                width: auto;
+                min-width: 8rem;
+            }
+            @media ${device.mobileL} {
+                min-width: 7rem;
+            }
+        `}
 `
 
 const DropdownSelected = styled.li`
@@ -41,6 +57,11 @@ const DropdownSelected = styled.li`
     font-size: var(--text-size-xs);
     display: flex;
     align-items: center;
+    ${(props) =>
+        props.has_short_name &&
+        css`
+            color: var(--color-white);
+        `}
 `
 
 const ListContainer = styled.li`
@@ -102,9 +123,13 @@ const Arrow = styled(Chevron)`
     top: 25%;
     transition: transform 0.2s linear;
     ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+
+    & path {
+        fill: var(--color-white);
+    }
 `
 
-const Dropdown = ({ default_option, onChange, option_list }) => {
+const Dropdown = ({ default_option, onChange, option_list, has_short_name }) => {
     const [is_open, setOpen] = useState(false)
     const [selected_option, setSelectedOption] = useState('')
     const nodes = new Map()
@@ -195,7 +220,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
     }
 
     return (
-        <DropdownContainer active={is_open} ref={dropdown_ref}>
+        <DropdownContainer active={is_open} ref={dropdown_ref} has_short_name={has_short_name}>
             <Helmet>
                 <link
                     rel="stylesheet"
@@ -210,6 +235,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                 tabIndex="0"
                 onClick={toggleListVisibility}
                 onKeyDown={toggleListVisibility}
+                has_short_name={has_short_name}
             >
                 {selected_option}
                 <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
@@ -240,6 +266,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
 
 Dropdown.propTypes = {
     default_option: PropTypes.string,
+    has_short_name: PropTypes.bool,
     onChange: PropTypes.func,
     option_list: PropTypes.array,
 }

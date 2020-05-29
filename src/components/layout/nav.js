@@ -10,7 +10,7 @@ import {
     NavMarket,
 } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { LocalizedLink, Localize, localize } from 'components/localization'
+import { LocalizedLink, Localize, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import {
@@ -505,17 +505,42 @@ const Auto = styled(Flex)`
     }
 `
 
+const LeftButton = styled(LinkButton)`
+    margin-left: 0.8rem;
+
+    @media ${device.mobileL} {
+        padding: 1rem;
+    }
+    @media ${device.mobileM} {
+        font-size: 1.2rem;
+    }
+`
+
+const StyledLogo = styled(LogoLink)`
+    @media (max-width: 340px) {
+        & svg {
+            width: 11rem;
+        }
+    }
+`
+
+const StyledBinary = styled(Binary)`
+    @media (max-width: 340px) {
+        width: 7rem;
+    }
+`
+
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <Container jc="space-between" p="2.4rem 0">
             <Flex ai="center" jc="flex-start">
-                <LogoLink to={`/interim/${interim_type}`} aria-label={localize('Home')}>
+                <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                     <Logo />
-                </LogoLink>
+                </StyledLogo>
                 <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
                     <ResponsiveBinary width="24" height="24" />
                 </LocalizedLink>
-                <Binary size="var(--text-size-xxs)" color="white">
+                <StyledBinary size="var(--text-size-xxs)" color="white">
                     <Localize
                         translate_text="A <0>Binary.com</0> brand"
                         components={[
@@ -530,12 +555,13 @@ export const NavInterim = ({ interim_type }) => (
                             />,
                         ]}
                     />
-                </Binary>
+                </StyledBinary>
             </Flex>
-            <Auto jc="flex-end">
-                <LinkButton secondary to="/">
+            <Auto jc="flex-end" ai="center">
+                <LanguageSwitcher short_name="true" />
+                <LeftButton secondary to="/">
                     {localize('Explore Deriv.com')}
-                </LinkButton>
+                </LeftButton>
             </Auto>
         </Container>
     </InterimNav>

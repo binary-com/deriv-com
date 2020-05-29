@@ -499,6 +499,12 @@ const ResponsiveBinary = styled(BinaryLogo)`
     }
 `
 
+const Auto = styled(Flex)`
+    @media ${device.mobileM} {
+        width: auto;
+    }
+`
+
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <Container jc="space-between" p="2.4rem 0">
@@ -526,11 +532,11 @@ export const NavInterim = ({ interim_type }) => (
                     />
                 </Binary>
             </Flex>
-            <Flex jc="flex-end">
+            <Auto jc="flex-end">
                 <LinkButton secondary to="/">
                     {localize('Explore Deriv.com')}
                 </LinkButton>
-            </Flex>
+            </Auto>
         </Container>
     </InterimNav>
 )

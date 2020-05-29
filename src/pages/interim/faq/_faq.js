@@ -23,6 +23,7 @@ import {
 } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { binary_url } from 'common/utility'
+import device from 'themes/device'
 
 const Question = styled.div`
     max-width: 38.4rem;
@@ -32,6 +33,23 @@ const Question = styled.div`
 const Answer = styled.div`
     width: 100%;
     max-width: 69rem;
+`
+
+const FAQWrapper = styled(Flex)`
+    @media ${device.tablet} {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        ${Question} {
+            margin-right: 0;
+            margin-bottom: 3.2rem;
+            max-width: 100%;
+        }
+        ${Answer} {
+            max-width: 100%;
+        }
+    }
 `
 
 const FAQ = () => {
@@ -49,7 +67,7 @@ const FAQ = () => {
     return (
         <SectionContainer background="var(--color-grey-8)">
             <Container direction="column">
-                <Flex jc="space-between">
+                <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" mb="0.8rem" lh="1.25">
                             {localize('What is the rebranding about?')}
@@ -105,11 +123,11 @@ const FAQ = () => {
                             </AccordionItem>
                         </Accordion>
                     </Answer>
-                </Flex>
+                </FAQWrapper>
                 <Divider width="100%" height="1px" m="8rem 0" />
             </Container>
             <Container direction="column">
-                <Flex jc="space-between">
+                <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" mb="0.8rem" lh="1.25">
                             <Localize
@@ -193,11 +211,11 @@ const FAQ = () => {
                             </AccordionItem>
                         </Accordion>
                     </Answer>
-                </Flex>
+                </FAQWrapper>
                 <Divider width="100%" height="1px" m="8rem 0" />
             </Container>
             <Container direction="column">
-                <Flex jc="space-between">
+                <FAQWrapper jc="space-between">
                     <Question>
                         <Header as="h3" mb="0.8rem" lh="1.25">
                             {localize('What does it mean to me?')}
@@ -277,7 +295,7 @@ const FAQ = () => {
                             </AccordionItem>
                         </Accordion>
                     </Answer>
-                </Flex>
+                </FAQWrapper>
             </Container>
         </SectionContainer>
     )

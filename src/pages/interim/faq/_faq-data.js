@@ -72,7 +72,7 @@ const WhatToExpect = () => (
             <li>
                 <Text>
                     {localize(
-                        'Multiplier options that potentially offer traders higher profits while limiting risks',
+                        'Multipliers that potentially offer traders higher profits while limiting risks',
                     )}
                 </Text>
             </li>

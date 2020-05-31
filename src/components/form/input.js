@@ -122,11 +122,11 @@ const ErrorMessages = styled(Text)`
 const StyledLabel = styled.label`
     /* prettier-ignore */
     color: var(--color-${(props) => props.labelColor || 'grey'});
-    font-size: var(--text-size-s);
+    font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1rem;
+    top: 1.4rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;

@@ -35,7 +35,6 @@ const StyledCheckbox = styled.div`
         if (props.secondary && props.checked) return '2px solid var(--color-red)'
         return '2px solid var(--color-grey-5)'
     }};
-    border-radius: 3px;
     margin-right: 0.8rem;
 
     ${Icon} {

@@ -50,11 +50,11 @@ const NoteBox = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 7.7rem;
     padding: 0.8rem 0.8rem;
     margin-top: 1.6rem;
-    border-radius: 0.6rem;
-    background-color: var(--color-grey-8);
-    border: solid 1px var(--color-grey-17);
+    border-radius: 0.4rem;
+    background-color: rgba(242, 243, 244, 0.56);
 
     @media ${device.tabletS} {
         padding: 1rem 1rem;
@@ -63,7 +63,7 @@ const NoteBox = styled.div`
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
-    margin: 2.5rem 0;
+    margin: 2.5rem 0 0.6rem;
 
     @media ${device.mobileL} {
         margin: 4rem 0;
@@ -73,7 +73,7 @@ const EmailButton = styled(Button)`
     width: 100%;
     font-size: 1.4rem;
     margin-bottom: 0.4rem;
-    margin-top: 2.4rem;
+    margin-top: 3.2rem;
 
     @media ${device.mobileL} {
         font-size: 1.75rem;
@@ -84,7 +84,7 @@ const SignupWithContainer = styled.div`
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-    margin-top: 2.6rem;
+    margin-top: 2.4rem;
 
     @media ${device.tabletL} {
         margin-top: 4rem;
@@ -113,7 +113,7 @@ const SocialButton = styled(Button)`
 
 const SocialWrapper = styled.div`
     width: 100%;
-    margin-top: 1.6rem;
+    margin-top: 2.4rem;
     display: flex;
     justify-content: space-between;
 
@@ -130,7 +130,7 @@ const SocialWrapper = styled.div`
 const LoginText = styled(Text)`
     text-align: center;
     align-self: center;
-    margin-top: 2.4rem;
+    margin-top: 1.6rem;
 
     @media ${device.tabletL} {
         margin-bottom: 0;
@@ -169,6 +169,7 @@ const StyledLinkText = styled(LinkText)`
 `
 const StyledBinaryLogo = styled(BinaryLogo)`
     margin-right: 0.8rem;
+    margin-top: 1rem;
 `
 const SignupNew = ({
     email_error_msg,
@@ -210,13 +211,7 @@ const SignupNew = ({
             <NoteBox>
                 <StyledBinaryLogo />
                 <div>
-                    <StyledText
-                        mb="0.4rem"
-                        notedBox
-                        color="grey-16"
-                        lh="1.14"
-                        tabletFontSize="2rem"
-                    >
+                    <StyledText mb="0.4rem" notedBox color="grey-16" tabletFontSize="2rem">
                         <Localize
                             translate_text="Got a <0>Binary.com</0> account?"
                             components={[<strong key={0} />]}
@@ -226,7 +221,7 @@ const SignupNew = ({
                         notedBox
                         fontSize="var(--text-size-xxs)"
                         color="grey-16"
-                        lh="1.14"
+                        lh="1.8"
                         tabletFontSize="2rem"
                     >
                         <Localize
@@ -241,6 +236,8 @@ const SignupNew = ({
                     id="email"
                     name="email"
                     type="text"
+                    border="solid 1px var(--color-grey-7)"
+                    labelColor="grey-5"
                     background="white"
                     error={email_error_msg}
                     value={email}

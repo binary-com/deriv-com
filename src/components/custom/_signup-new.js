@@ -6,10 +6,11 @@ import { Input, Button } from 'components/form'
 import { Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import Login from 'common/login'
+// import Login from 'common/login'
 import device from 'themes/device.js'
 // SVG
 import Facebook from 'images/svg/facebook-blue.svg'
+import BinaryLogo from 'images/svg/binary-logo.svg'
 import Google from 'images/svg/google.svg'
 
 const SignupContent = styled.div`
@@ -37,17 +38,19 @@ const Line = styled.div`
     background-color: var(--color-grey-7);
 `
 const StyledText = styled(Text)`
-    font-size: var(--text-size-xs);
+    font-size: ${(props) => props.fontSize || 'var(--text-size-xs)'};
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
     }
     @media ${device.tabletS} {
-        font-size: ${(props) => props.size};
+        font-size: ${(props) => props.tabletFontSize};
     }
 `
 const NoteBox = styled.div`
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    padding: 1.6rem 1.6rem;
+    padding: 0.8rem 0.8rem;
     margin-top: 1.6rem;
     border-radius: 0.6rem;
     background-color: var(--color-grey-8);
@@ -91,9 +94,10 @@ const SignupWithContainer = styled.div`
 const SocialButton = styled(Button)`
     box-shadow: none;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
-    border: solid 1px var(--color-grey-7);
-    width: 19.4rem;
-    height: 4.8rem;
+    border: solid 1px var(--color-grey-21);
+    width: 19.5rem;
+    height: 3.8rem;
+    padding: 0.8rem 0;
 
     &:hover {
         background: ${(props) => {
@@ -140,8 +144,8 @@ const Span = styled.span`
     margin-right: 1.4rem;
     margin-left: 0.7rem;
     font-weight: 500;
-    font-size: 1.3rem;
-    color: var(--color-grey-13);
+    font-size: 1.2rem;
+    color: var(--color-grey-16);
     vertical-align: super;
 
     @media ${device.tabletL} {
@@ -163,7 +167,9 @@ const StyledLinkText = styled(LinkText)`
         font-size: ${(props) => props.size};
     }
 `
-
+const StyledBinaryLogo = styled(BinaryLogo)`
+    margin-right: 0.8rem;
+`
 const SignupNew = ({
     email_error_msg,
     email,
@@ -202,20 +208,33 @@ const SignupNew = ({
             </Show.Mobile>
 
             <NoteBox>
-                <StyledText notedBox color="grey-16" lh="1.14" align="center" size="2rem">
-                    <Localize
-                        translate_text="Got a Binary.com account? Simply <0>log in</0> to Deriv.com with your Binary.com credentials"
-                        components={[
-                            <StyledLinkText
-                                weight="bold"
-                                color="red"
-                                size="2rem"
-                                onClick={() => Login.redirectToLogin()}
-                                key={0}
-                            />,
-                        ]}
-                    />
-                </StyledText>
+                <StyledBinaryLogo />
+                <div>
+                    <StyledText
+                        mb="0.4rem"
+                        notedBox
+                        color="grey-16"
+                        lh="1.14"
+                        tabletFontSize="2rem"
+                    >
+                        <Localize
+                            translate_text="Got a <0>Binary.com</0> account?"
+                            components={[<strong key={0} />]}
+                        />
+                    </StyledText>
+                    <StyledText
+                        notedBox
+                        fontSize="var(--text-size-xxs)"
+                        color="grey-16"
+                        lh="1.14"
+                        tabletFontSize="2rem"
+                    >
+                        <Localize
+                            translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password"
+                            components={[<strong key={0} />]}
+                        />
+                    </StyledText>
+                </div>
             </NoteBox>
             <InputGroup>
                 <Input
@@ -261,11 +280,11 @@ const SignupNew = ({
                 secondary="true"
                 disabled={is_submitting || !checkBoxState}
             >
-                {localize('Create free demo account')}
+                {localize('Create demo account')}
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-5" align="center" size="1.5rem">
+                <StyledText color="grey-5" align="center" tabletFontSize="1.5rem">
                     {localize('Or sign up with')}
                 </StyledText>
                 <Line />

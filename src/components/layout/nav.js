@@ -10,7 +10,7 @@ import {
     NavMarket,
 } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { LocalizedLink, Localize, localize } from 'components/localization'
+import { LocalizedLink, Localize, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import {
@@ -131,6 +131,7 @@ const NavCenter = styled.ul`
 `
 const NavRight = styled.div`
     display: inline-flex;
+    align-items: center;
     text-align: right;
     overflow: hidden;
     padding: 0;
@@ -463,6 +464,7 @@ export const Nav = () => {
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
+                        <LanguageSwitcher short_name="true" />
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
@@ -558,7 +560,7 @@ export const NavInterim = ({ interim_type }) => (
                 </StyledBinary>
             </Flex>
             <Auto jc="flex-end" ai="center">
-                {/* <LanguageSwitcher short_name="true" /> */}
+                <LanguageSwitcher short_name="true" />
                 <LeftButton secondary to="/">
                     {localize('Explore Deriv.com')}
                 </LeftButton>
@@ -695,6 +697,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
+                                <LanguageSwitcher short_name="true" />
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external

@@ -1,6 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Section, Responsive, AbsoluteWrapper, MarLeft, White } from '../_love-trading'
+import {
+    Section,
+    Responsive,
+    AbsoluteWrapper,
+    MarLeft,
+    White,
+    MobileWrapper,
+} from '../_love-trading'
 import { Flex } from 'components/containers'
 import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -13,12 +21,25 @@ const query = graphql`
     }
 `
 
+const Height = styled(Section)`
+    min-height: 306px;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 1390px) {
+        min-height: auto;
+    }
+`
+
 const LoveTrading = () => {
     const data = useStaticQuery(query)
     return (
         <>
-            <Section p="3.2rem 0">
-                <Responsive jc="space-between" position="relative">
+            <Height p="3.2rem 0">
+                <AbsoluteWrapper>
+                    <QueryImage data={data['deriv']} width="54rem" />
+                </AbsoluteWrapper>
+                <Responsive jc="space-between" position="relative" height="100%">
                     <Flex fd="column" ai="center" max_width="28.2rem">
                         <Header as="h3" mb="2.4rem" align="center">
                             {localize('Got more questions?')}
@@ -35,9 +56,9 @@ const LoveTrading = () => {
                             </LocalizedLinkText>
                         </Text>
                     </Flex>
-                    <AbsoluteWrapper>
-                        <QueryImage data={data['deriv']} width="100%" height="29.6rem" />
-                    </AbsoluteWrapper>
+                    <MobileWrapper>
+                        <QueryImage data={data['deriv']} width="30rem" />
+                    </MobileWrapper>
 
                     <MarLeft width="auto" fd="column" ai="flex-start">
                         <White as="h3" mb="0.8rem" align="left">
@@ -54,7 +75,7 @@ const LoveTrading = () => {
                         </Text>
                     </MarLeft>
                 </Responsive>
-            </Section>
+            </Height>
         </>
     )
 }

@@ -9,6 +9,10 @@ import device from 'themes/device'
 
 const Container = styled.div`
     position: relative;
+
+    @media ${device.mobileL} {
+        position: static;
+    }
 `
 
 const Display = styled.div`
@@ -26,6 +30,9 @@ const Display = styled.div`
 `
 
 const Arrow = styled(Chevron)`
+    ${(props) => (props.expanded === 'true' ? 'transform: rotate(-180deg);' : '')}
+    transition: transform 0.25s;
+
     & path {
         fill: var(--color-white);
     }
@@ -44,6 +51,11 @@ const Absolute = styled.div`
     transition: all 0.35s ease-in-out;
     cursor: default;
     border-radius: 4px;
+
+    @media ${device.mobileL} {
+        top: 10rem;
+        left: 0;
+    }
 `
 
 const FadeInDown = keyframes`
@@ -76,6 +88,10 @@ const ItemContainer = styled.div`
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
     animation-duration: 0.3s;
+    @media ${device.mobileL} {
+        width: 100vw;
+        border-radius: 0;
+    }
 
     &::after {
         content: '';
@@ -87,6 +103,10 @@ const ItemContainer = styled.div`
         left: 50%;
         margin-top: 2.4rem;
         margin-bottom: 2.4rem;
+
+        @media ${device.mobileL} {
+            height: 26.4rem;
+        }
     }
 `
 
@@ -169,11 +189,16 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <QueryImage width="24px" height="24px" data={data['en']} alt="english" />
+                    <QueryImage
+                        width="24px"
+                        height="24px"
+                        data={data[default_option.toLowerCase()]}
+                        alt={default_option}
+                    />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option}
                     </ResponsiveText>
-                    <Arrow />
+                    <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
                 </Display>
 
                 <Absolute>

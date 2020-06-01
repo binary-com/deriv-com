@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import MarketsAccordion from '../_markets_accordion.js'
 import { ContinuousIndices, DailyResetIndices } from '../sub-markets/_submarkets.js'
 import AvailableOptions from '../_available-options.js'
+import AvailablePlatforms from '../_available-platforms.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
 //SVG
-import Dtrader from 'images/svg/dtrader-icon.svg'
-import DBot from 'images/svg/dbot-icon.svg'
-import SmartTrader from 'images/svg/smarttrader.svg'
 import RiseFall from 'images/svg/options/rise-fall.svg'
 import HigherLower from 'images/svg/options/higher-lower.svg'
 import EbEo from 'images/svg/options/eb-eo.svg'
@@ -31,12 +31,20 @@ const Descriptions = styled.div`
     border-bottom: 1px solid var(--color-grey-21);
 `
 const Col = styled(Flex)`
-    ${(props) => props.border_left && 'border-left: 1px solid #e3e4e5;'}
+    max-width: 13.2rem;
+
+    @media ${device.tabletL} {
+        max-width: 10rem;
+    }
 `
-const Row = styled(Flex)`
-    border: ${(props) => (props.remove_border ? '' : '1px solid #e3e4e5')};
-    ${(props) => props.romve_border_top && 'border-top: unset;'}
+const MarketsWrapper = styled(Flex)`
+    flex-direction: column;
+
+    > div {
+        margin-top: 2.4rem;
+    }
 `
+const Row = styled(Flex)``
 const Options = styled(Descriptions)`
     margin-top: 2.4rem;
 
@@ -44,6 +52,10 @@ const Options = styled(Descriptions)`
         margin-top: 4rem;
         border: unset;
         justify-content: space-between;
+
+        @media ${device.tabletL} {
+            flex-direction: column;
+        }
 
         ${Col} {
             max-width: 38.4rem;
@@ -53,37 +65,98 @@ const Options = styled(Descriptions)`
         margin-top: 0;
     }
 `
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+        text-align: left;
+    }
+`
+const MarketsList = styled(CssGrid)`
+    border-left: 1px solid var(--color-grey-22);
+    border-right: 1px solid var(--color-grey-22);
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 2.4rem 1.6rem;
+    grid-row-gap: 1.6rem;
 
+    @media ${device.tabletL} {
+        grid-template-columns: repeat(1, 1fr);
+
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+        ${Text} {
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+    }
+`
+const Title = styled(Text)`
+    @media ${device.tabletL} {
+        text-align: center;
+        max-width: 8rem;
+        font-weight: 600;
+    }
+`
+const DetailsContainer = styled(Flex)`
+    flex-direction: column;
+
+    ${Text} {
+        font-size: 1.4rem;
+        margin-top: 1.6rem;
+
+        @media ${device.tabletL} {
+            margin-top: 1rem;
+        }
+    }
+`
+const ContinuousIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s) and 100 (1s)</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+const DailyResetIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'These indices replicate markets with bullish and bearish trends with constant volatility. The Bull Market and Bear Market indices start at 00:00 GMT each day, replicating bullish and bearish markets respectively.',
+            )}
+        </Text>
+    </DetailsContainer>
+)
 const DigitalOptions = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
-                    <Text align="center">
+                    <StyledText align="center">
                         {localize(
-                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options, lookbacks, and call/put spreads on Synthetic Indices.',
+                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options, lookbacks, and Call/Put spreads on synthetic indices.',
                         )}
-                    </Text>
-                    <Flex jc="flex-end" ai="center" mt="2rem">
-                        <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <LocalizedLink to="/dtrader/">
-                            <Dtrader style={{ marginRight: '0.8rem' }} />
-                        </LocalizedLink>
-                        <LocalizedLink to="/dbot/">
-                            <DBot style={{ marginRight: '0.8rem' }} />
-                        </LocalizedLink>
-                        <a
-                            href="https://smarttrader.deriv.app/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <SmartTrader width="32px" height="32px" />
-                        </a>
-                    </Flex>
+                    </StyledText>
+                    <AvailablePlatforms dtrader dbot smarttrader />
                 </Descriptions>
-                <Text weight="bold" mt="2.4rem">
-                    {localize('Option trades available on Synthetic Indices')}
-                </Text>
+                <StyledText weight="bold" mt="2.4rem">
+                    {localize('Option trades available on synthetic indices')}
+                </StyledText>
                 <Options>
                     <Row>
                         <Col>
@@ -169,6 +242,7 @@ const DigitalOptions = () => {
                                         components={[<strong key={0} />]}
                                     />
                                 }
+                                mobile_pt="2.4rem"
                             />
                         </Col>
                     </Row>
@@ -189,13 +263,14 @@ const DigitalOptions = () => {
                                 content={
                                     <Localize translate_text="Predict the highest or lowest tick among the next five ticks." />
                                 }
+                                mobile_pt="2.4rem"
                             />
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={<Localize translate_text="Touch/No Touch:" />}
+                                title={<Localize translate_text="Touch/No Touch" />}
                                 svg={TNT}
                                 content={
                                     <Localize translate_text="Predict whether the market will touch or not touch a target at any time during the contract period." />
@@ -209,6 +284,7 @@ const DigitalOptions = () => {
                                 content={
                                     <Localize translate_text="Predict whether the market will end higher or lower than the average price." />
                                 }
+                                mobile_pt="2.4rem"
                             />
                         </Col>
                     </Row>
@@ -257,17 +333,18 @@ const DigitalOptions = () => {
                                         components={[<strong key={0} />]}
                                     />
                                 }
+                                mobile_pt="2.4rem"
                             />
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <AvailableOptions
-                                title={<Localize translate_text="Call Spread/Put Spread" />}
+                                title={<Localize translate_text="Spread Up/Spread Down" />}
                                 svg={CallSpread}
                                 content={
                                     <Localize
-                                        translate_text="<0>Call Spread:</0> Predict whether the exit spot will be higher or equal to the upper barrier."
+                                        translate_text="<0>Spread Up:</0> Predict whether the exit spot will be higher or equal to the upper barrier."
                                         components={[<strong key={0} />]}
                                     />
                                 }
@@ -278,7 +355,7 @@ const DigitalOptions = () => {
                                 svg={PutSpread}
                                 content={
                                     <Localize
-                                        translate_text="<0>Put Spread:</0> Predict whether the exit spot will be lower or equal to the upper barrier."
+                                        translate_text="<0>Spread Down:</0> Predict whether the exit spot will be lower or equal to the upper barrier."
                                         components={[<strong key={0} />]}
                                     />
                                 }
@@ -289,28 +366,38 @@ const DigitalOptions = () => {
                 <Text weight="bold" mt="2.4rem">
                     {localize('Instruments available for options trading')}
                 </Text>
-                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
-                    <Col max_width="13.2rem">
-                        <Text weight="bold" align="center">
-                            {localize('Continuous indices')}
-                        </Text>
-                    </Col>
-                    <Col wrap="wrap" jc="flex-start" p="2rem 0 2.4rem 1.6rem" border_left>
-                        <CssGrid columns="1fr 1fr 1fr" row_gap="1.6rem">
-                            <ContinuousIndices />
-                        </CssGrid>
-                    </Col>
-                </Row>
-                <Row jc="flex-start" ai="center" romve_border_top>
-                    <Col max_width="13.2rem">
-                        <Text weight="bold" align="center">
-                            {localize('Daily reset indices')}
-                        </Text>
-                    </Col>
-                    <Col wrap="wrap" jc="flex-start" p="3.2rem 0 3.2rem 1.6rem" border_left>
-                        <DailyResetIndices />
-                    </Col>
-                </Row>
+                <MarketsWrapper>
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col>
+                                    <Title weight="bold" align="center">
+                                        {localize('Continuous indices')}
+                                    </Title>
+                                </Col>
+                                <MarketsList>
+                                    <ContinuousIndices />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={ContinuousIndicesDetails}
+                    />
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col>
+                                    <Title weight="bold" align="center">
+                                        {localize('Daily reset indices')}
+                                    </Title>
+                                </Col>
+                                <MarketsList>
+                                    <DailyResetIndices />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={DailyResetIndicesDetails}
+                    />
+                </MarketsWrapper>
             </Flex>
         </SectionContainer>
     )

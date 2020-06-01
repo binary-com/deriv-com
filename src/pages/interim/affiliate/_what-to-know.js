@@ -5,7 +5,6 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
 const Span = styled(Text).attrs({ as: 'span' })`
-    font-weight: bold;
     font-size: var(--text-size-m);
 `
 

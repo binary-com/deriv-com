@@ -76,13 +76,12 @@ const FadeOutUp = keyframes`
 `
 const ItemContainer = styled.div`
     background-color: var(--color-white);
-    padding: 2.4rem;
+    padding: 1.6rem 0.8rem;
     position: relative;
-    width: 29.8rem;
+    width: auto;
     display: ${(props) => (props.is_open ? 'grid' : 'none')};
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 4.8rem;
-    grid-row-gap: 1.6rem;
+    grid-column-gap: 2.4rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
@@ -115,11 +114,11 @@ const Item = styled.div`
     align-items: center;
     pointer-events: ${(props) => (props.disabled ? 'none' : 'all')};
     cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+    padding: 0.8rem 1.6rem;
+    transition: background 0.25s;
 
     &:hover {
-        ${Text} {
-            color: var(--color-red);
-        }
+        background: rgba(245, 247, 250, 0.64);
     }
 `
 
@@ -185,6 +184,8 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
         closeList()
     }
 
+    const default_abbreviation = default_option.toLowerCase().substring(0, 2)
+
     return (
         <>
             <Container ref={dropdown_ref}>
@@ -192,7 +193,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                     <QueryImage
                         width="24px"
                         height="24px"
-                        data={data[default_option.toLowerCase()]}
+                        data={data[default_abbreviation]}
                         alt={default_option}
                     />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">

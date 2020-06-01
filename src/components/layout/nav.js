@@ -237,9 +237,9 @@ const LogoLinkMobile = styled(LocalizedLink)`
 const MobileLogin = styled(Button)`
     display: none;
     font-size: 14px;
+    margin-left: 1.6rem;
     @media ${device.tabletL} {
         display: block;
-        margin-left: auto;
     }
     @media ${device.mobileL} {
         font-size: var(--text-size-xxs);
@@ -273,6 +273,16 @@ const BinaryLink = styled(LocalizedLinkText)`
     font-size: var(--text-size-xxs);
     font-weight: bold;
     text-decoration: none;
+`
+
+const MobileRight = styled.div`
+    margin-left: auto;
+    display: none;
+    align-items: center;
+
+    @media ${device.tabletL} {
+        display: flex;
+    }
 `
 
 export const Nav = () => {
@@ -499,9 +509,13 @@ export const Nav = () => {
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
                         <LogoOnly width="115px" />
                     </LogoLinkMobile>
-                    <MobileLogin onClick={handleLogin} primary>
-                        <span>{localize('Log in')}</span>
-                    </MobileLogin>
+                    <MobileRight>
+                        <LanguageSwitcher short_name="true" />
+                        <MobileLogin onClick={handleLogin} primary>
+                            <span>{localize('Log in')}</span>
+                        </MobileLogin>
+                    </MobileRight>
+
                     <OffCanvasMenu
                         is_canvas_menu_open={is_canvas_menu_open}
                         closeOffCanvasMenu={closeOffCanvasMenu}

@@ -5,7 +5,6 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 
 const Span = styled(Text).attrs({ as: 'span' })`
-    font-weight: bold;
     font-size: var(--text-size-m);
 `
 
@@ -23,11 +22,8 @@ const WhatToKnow = () => {
                 </Text>
                 <Text align="center" size="var(--text-size-m)">
                     <Localize
-                        translate_text="The new affiliate login URL will change to <0>login.deriv.com</0> and you will automatically be redirected to this address on <1>5 June 2020 (Friday)</1>."
-                        components={[
-                            <Span color="red" weight="bold" key={0} />,
-                            <Span key={1} weight="bold" />,
-                        ]}
+                        translate_text="The new affiliate login URL will change to <0>login.deriv.com</0> and you will automatically be redirected to this address on <1>3 June 2020 (Wednesday)</1>."
+                        components={[<Span color="red" key={0} />, <Span key={1} weight="bold" />]}
                     />
                 </Text>
             </Container>

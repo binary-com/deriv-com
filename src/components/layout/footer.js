@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import Copy from './copyright'
-import { localize, Localize, LanguageSwitcher } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
@@ -240,7 +240,7 @@ const mobile_accordion_header = {
     backgroundColor: 'var(--color-grey-8)',
     boxShadow: 'none',
 }
-const Footer = ({ has_banner_cookie, no_language }) => (
+const Footer = ({ has_banner_cookie }) => (
     <StyledFooter has_banner_cookie={has_banner_cookie}>
         <Container>
             <StyledGrid columns="repeat(12, 1fr)" columngap="2.4rem" rowgap="3.9rem">
@@ -281,7 +281,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                                 </ExternalLink>
                             </div>
                         </SocialWrapper> */}
-                        <div>{!no_language && <LanguageSwitcher />}</div>
+                        {/* <div>{!no_language && <LanguageSwitcher />}</div> */}
                         {/* <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
@@ -587,7 +587,6 @@ const Footer = ({ has_banner_cookie, no_language }) => (
 
 Footer.propTypes = {
     has_banner_cookie: PropTypes.bool,
-    no_language: PropTypes.bool,
 }
 
 export default Footer

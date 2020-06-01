@@ -4,6 +4,7 @@ import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import Platform from 'images/common/check-interim-bg.png'
+import PlatformMobile from 'images/common/interim-mobile-bg.png'
 
 const Section = styled(Box)`
     width: 100%;
@@ -13,8 +14,11 @@ const Section = styled(Box)`
     background-repeat: no-repeat;
     position: relative;
 
-    @media (max-width: 1240px) {
-        display: none;
+    @media ${device.tablet} {
+        background-image: url(${PlatformMobile});
+        background-size: 100% 63%;
+        background-position-y: bottom;
+        background-repeat: no-repeat;
     }
 `
 
@@ -25,10 +29,54 @@ const Responsive = styled(Container)`
 `
 
 const AbsoluteWrapper = styled(Box)`
-    margin-bottom: -3.2rem;
     width: 54rem;
-    @media (max-width: 1370px) {
+    position: absolute;
+    left: 31%;
+    bottom: 0;
+
+    @media (max-width: 1565px) {
+        left: 30%;
+
+        .gatsby-image-wrapper {
+            width: 50rem;
+        }
+    }
+    @media (max-width: 1390px) {
+        .gatsby-image-wrapper {
+            width: 44rem;
+        }
+    }
+    @media (max-width: 1300px) {
+        .gatsby-image-wrapper {
+            width: 35rem;
+        }
+    }
+    @media (max-width: 1146px) {
+        .gatsby-image-wrapper {
+            width: 30rem;
+        }
+    }
+    @media ${device.tabletL} {
+        .gatsby-image-wrapper {
+            width: 40rem;
+        }
+    }
+    @media (max-width: 872px) {
+        .gatsby-image-wrapper {
+            width: 32rem;
+        }
+    }
+    @media ${device.tablet} {
         display: none;
+    }
+`
+
+const MobileWrapper = styled.div`
+    display: none;
+
+    @media ${device.tablet} {
+        display: block;
+        margin: 3.2rem 0;
     }
 `
 
@@ -45,4 +93,4 @@ const White = styled(Header)`
     width: 38.4rem;
 `
 
-export { Section, Responsive, AbsoluteWrapper, MarLeft, FitButton, White }
+export { Section, Responsive, AbsoluteWrapper, MarLeft, FitButton, White, MobileWrapper }

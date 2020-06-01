@@ -139,6 +139,7 @@ const NavRight = styled.div`
     display: inline-flex;
     align-items: center;
     text-align: right;
+    opacity: ${(props) => (props.mounted ? '1' : '0')};
     padding: 0;
     justify-content: center;
     transition: ${(props) => {
@@ -485,24 +486,22 @@ export const Nav = () => {
                             </StyledButton>
                         </NavLink>
                     </NavCenter>
-                    {mounted && (
-                        <NavRight
-                            move={show_button}
-                            button_ref={button_ref}
-                            mounted={mounted}
-                            has_scrolled={has_scrolled}
-                        >
-                            <LanguageSwitcher short_name="true" />
-                            <Button onClick={handleLogin} primary>
-                                <span>{localize('Log in')}</span>
-                            </Button>
-                            <LocalizedLink to="/signup/">
-                                <SignupButton ref={button_ref} secondary="true">
-                                    <span>{localize('Create free demo account')}</span>
-                                </SignupButton>
-                            </LocalizedLink>
-                        </NavRight>
-                    )}
+                    <NavRight
+                        move={show_button}
+                        button_ref={button_ref}
+                        mounted={mounted}
+                        has_scrolled={has_scrolled}
+                    >
+                        <LanguageSwitcher short_name="true" />
+                        <Button onClick={handleLogin} primary>
+                            <span>{localize('Log in')}</span>
+                        </Button>
+                        <LocalizedLink to="/signup/">
+                            <SignupButton ref={button_ref} secondary="true">
+                                <span>{localize('Create free demo account')}</span>
+                            </SignupButton>
+                        </LocalizedLink>
+                    </NavRight>
 
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
@@ -734,7 +733,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
-                        {!no_login_signup && mounted ? (
+                        {!no_login_signup ? (
                             <StyledNavRight
                                 move={show_button}
                                 button_ref={button_ref}

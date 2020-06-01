@@ -165,7 +165,7 @@ const NavRight = styled.div`
                     const calculation = props.button_ref.current.offsetWidth + 2
                     return `${calculation}px`
                 }
-                return '350px'
+                return '300px'
             }
         }}
     );
@@ -202,6 +202,7 @@ const SignupButton = styled(Button)`
 `
 
 const LinkSignupButton = styled(LinkButton)`
+    opacity: 0;
     margin-left: 1.6rem;
 `
 
@@ -484,23 +485,25 @@ export const Nav = () => {
                             </StyledButton>
                         </NavLink>
                     </NavCenter>
+                    {mounted && (
+                        <NavRight
+                            move={show_button}
+                            button_ref={button_ref}
+                            mounted={mounted}
+                            has_scrolled={has_scrolled}
+                        >
+                            <LanguageSwitcher short_name="true" />
+                            <Button onClick={handleLogin} primary>
+                                <span>{localize('Log in')}</span>
+                            </Button>
+                            <LocalizedLink to="/signup/">
+                                <SignupButton ref={button_ref} secondary="true">
+                                    <span>{localize('Create free demo account')}</span>
+                                </SignupButton>
+                            </LocalizedLink>
+                        </NavRight>
+                    )}
 
-                    <NavRight
-                        move={show_button}
-                        button_ref={button_ref}
-                        mounted={mounted}
-                        has_scrolled={has_scrolled}
-                    >
-                        <LanguageSwitcher short_name="true" />
-                        <Button onClick={handleLogin} primary>
-                            <span>{localize('Log in')}</span>
-                        </Button>
-                        <LocalizedLink to="/signup/">
-                            <SignupButton ref={button_ref} secondary="true">
-                                <span>{localize('Create free demo account')}</span>
-                            </SignupButton>
-                        </LocalizedLink>
-                    </NavRight>
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                     ) : (
@@ -731,7 +734,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 </StyledLink>
                             </NavLink>
                         </StyledNavCenter>
-                        {!no_login_signup ? (
+                        {!no_login_signup && mounted ? (
                             <StyledNavRight
                                 move={show_button}
                                 button_ref={button_ref}

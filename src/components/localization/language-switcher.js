@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 import { withTranslation } from 'react-i18next'
 import { navigate } from 'gatsby'
 import language_config from '../../../i18n-config'
-import { Dropdown } from 'components/elements'
+import Dropdown from './language-dropdown'
 import { isProduction } from 'common/websocket/config'
 
 const languages = Object.keys(language_config)
+
+const disabled_lang = ['ach', 'pl', 'fr']
 
 class LanguageSwitch extends Component {
     constructor(props) {
@@ -18,24 +20,24 @@ class LanguageSwitch extends Component {
     componentWillReceiveProps(nextProps) {
         this.setState({ language: nextProps.i18n.language })
     }
-    displayName = () => {}
     renderLanguageChoice = (lang) => {
-        if (lang === 'ach' && isProduction()) return
+        if (disabled_lang.includes(lang) && isProduction()) return
         const { display_name, path, short_name } = language_config[lang]
         const current_short_name = language_config[this.state.language].short_name
         const is_selected = current_short_name === short_name
         const to = `/${path}/`
-        let text = this.props.short_name === 'true' ? short_name : display_name
+        let text = display_name
 
         return {
             value: to,
             text: text,
             is_selected,
+            path,
         }
     }
     getCurrentLanguage() {
-        const { display_name, short_name } = language_config[this.state.language]
-        return this.props.short_name === 'true' ? short_name : display_name
+        const { short_name, path } = language_config[this.state.language]
+        return { short_name, path }
     }
 
     handleSelect = (e) => {
@@ -71,6 +73,8 @@ class LanguageSwitch extends Component {
                 onChange={this.handleSelect}
                 option_list={languages.map(this.renderLanguageChoice)}
                 default_option={this.getCurrentLanguage()}
+                has_short_name={!!this.props.short_name}
+                is_high_nav={!!this.props.is_high_nav}
             />
         )
     }
@@ -82,5 +86,6 @@ LanguageSwitch.propTypes = {
     i18n: PropTypes.shape({
         language: PropTypes.string,
     }),
+    is_high_nav: PropTypes.bool,
     short_name: PropTypes.string,
 }

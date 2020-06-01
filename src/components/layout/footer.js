@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import Copy from './copyright'
-import { localize, Localize, LanguageSwitcher } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
@@ -240,7 +240,7 @@ const mobile_accordion_header = {
     backgroundColor: 'var(--color-grey-8)',
     boxShadow: 'none',
 }
-const Footer = ({ has_banner_cookie, no_language }) => (
+const Footer = ({ has_banner_cookie }) => (
     <StyledFooter has_banner_cookie={has_banner_cookie}>
         <Container>
             <StyledGrid columns="repeat(12, 1fr)" columngap="2.4rem" rowgap="3.9rem">
@@ -281,7 +281,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                                 </ExternalLink>
                             </div>
                         </SocialWrapper> */}
-                        <div>{!no_language && <LanguageSwitcher />}</div>
+                        {/* <div>{!no_language && <LanguageSwitcher />}</div> */}
                         {/* <div>
                             <Show.Mobile>
                                 <MobileLanguageSwitcher>
@@ -325,7 +325,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                             <Link to="/markets#forex">{localize('Forex')}</Link>
                         </div>
                         <div>
-                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
+                            <Link to="/markets#synthetic">{localize('Synthetic indices')}</Link>
                         </div>
                         <div>
                             <Link to="/markets#stock">{localize('Stock indices')}</Link>
@@ -440,7 +440,7 @@ const Footer = ({ has_banner_cookie, no_language }) => (
                             <Link to="/markets#forex">{localize('Forex')}</Link>
                         </Item>
                         <Item>
-                            <Link to="/markets#synthetic">{localize('Synthetic Indices')}</Link>
+                            <Link to="/markets#synthetic">{localize('Synthetic indices')}</Link>
                         </Item>
                         <Item>
                             <Link to="/markets#stock">{localize('Stock indices')}</Link>
@@ -521,6 +521,13 @@ const Footer = ({ has_banner_cookie, no_language }) => (
         <Disclaimer>
             <StyledContainer direction="column">
                 <Row>
+                    <Show.Eu>
+                        <StyledText mb="1rem">
+                            {localize(
+                                'Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com.',
+                            )}
+                        </StyledText>
+                    </Show.Eu>
                     <StyledText>
                         <Localize
                             translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
@@ -587,7 +594,6 @@ const Footer = ({ has_banner_cookie, no_language }) => (
 
 Footer.propTypes = {
     has_banner_cookie: PropTypes.bool,
-    no_language: PropTypes.bool,
 }
 
 export default Footer

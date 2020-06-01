@@ -7,7 +7,7 @@ import CopyrightIc from 'images/svg/copyright.svg'
 const Copyright = () => {
     return (
         <Box bg="var(--color-black)">
-            <Container jc="flex-start" p="1.6rem 0" ai="center">
+            <Container jc="flex-start" p="1.5rem 0" ai="center">
                 <CopyrightIc width="1.6rem" />
                 <Text color="white" ml="0.4rem">
                     {localize('2020 Deriv | All rights reserved')}

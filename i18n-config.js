@@ -13,11 +13,29 @@ module.exports = {
         short_name: 'PT',
         affiliate_lang: 9,
     },
+    es: {
+        path: 'es',
+        display_name: 'Español',
+        short_name: 'ES',
+        affiliate_lang: 8,
+    },
+    ru: {
+        path: 'ru',
+        display_name: 'Русский',
+        short_name: 'RU',
+        affiliate_lang: 1,
+    },
     fr: {
         path: 'fr',
         display_name: 'Français',
         short_name: 'FR',
         affiliate_lang: 2,
+    },
+    vi: {
+        path: 'vi',
+        display_name: 'Tiếng Việt',
+        short_name: 'VI',
+        affiliate_lang: 6,
     },
     id: {
         path: 'id',
@@ -31,12 +49,11 @@ module.exports = {
         short_name: '简体',
         affiliate_lang: 10,
     },
-
-    ru: {
-        path: 'ru',
-        display_name: 'Русский',
-        short_name: 'RU',
-        affiliate_lang: 1,
+    it: {
+        path: 'it',
+        display_name: 'Italiano',
+        short_name: 'IT',
+        affiliate_lang: 3,
     },
     zh_tw: {
         path: 'zh-tw',
@@ -44,44 +61,25 @@ module.exports = {
         short_name: '繁體',
         affiliate_lang: 11,
     },
-    es: {
-        path: 'es',
-        display_name: 'Español',
-        short_name: 'ES',
-        affiliate_lang: 8,
-    },
-    it: {
-        path: 'it',
-        display_name: 'Italiano',
-        short_name: 'IT',
-        affiliate_lang: 3,
-    },
-    vi: {
-        path: 'vi',
-        display_name: 'Tiếng Việt',
-        short_name: 'VI',
-        affiliate_lang: 6,
-    },
     pl: {
         path: 'pl',
         display_name: 'Polish',
         short_name: 'PL',
         affiliate_lang: 5,
     },
-    // TODO: uncomment when supported
-    // de: {
-    //     path: 'de',
-    //     display_name: 'Deutsch',
-    // },
-
-    // TODO: uncomment when supported
-    // th: {
-    //     path: 'th',
-    //     display_name: 'Thai',
-    // },
     ach: {
         path: 'ach',
         display_name: 'Crowdin',
         short_name: 'CR',
     },
+    // TODO: uncomment when supported
+    // de: {
+    //     path: 'de',
+    //     display_name: 'Deutsch',
+    // },
+    // TODO: uncomment when supported
+    // th: {
+    //     path: 'th',
+    //     display_name: 'Thai',
+    // },
 }

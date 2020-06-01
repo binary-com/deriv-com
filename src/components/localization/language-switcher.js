@@ -74,6 +74,7 @@ class LanguageSwitch extends Component {
                 option_list={languages.map(this.renderLanguageChoice)}
                 default_option={this.getCurrentLanguage()}
                 has_short_name={!!this.props.short_name}
+                is_high_nav={!!this.props.is_high_nav}
             />
         )
     }
@@ -85,5 +86,6 @@ LanguageSwitch.propTypes = {
     i18n: PropTypes.shape({
         language: PropTypes.string,
     }),
+    is_high_nav: PropTypes.bool,
     short_name: PropTypes.string,
 }

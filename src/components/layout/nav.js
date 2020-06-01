@@ -91,7 +91,6 @@ const Wrapper = styled(Container)`
     padding: 1.2rem 0;
     justify-content: space-between;
     height: 7.2rem;
-    overflow: hidden;
     @media ${device.laptopL} {
         width: 90%;
     }
@@ -129,11 +128,18 @@ const NavCenter = styled.ul`
         display: none;
     }
 `
+// const HiddenDiv = styled.div`
+//     position: absolute;
+//     height: 100%;
+//     width: 440px;
+//     right: -220px;
+//     background: var(--color-black);
+//     z-index: 999;
+// `
 const NavRight = styled.div`
     display: inline-flex;
     align-items: center;
     text-align: right;
-    overflow: hidden;
     padding: 0;
     justify-content: center;
     transition: ${(props) => {
@@ -149,9 +155,14 @@ const NavRight = styled.div`
     transform: translateX(
         ${(props) => {
             if (props.move) {
+                if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 1
+                }
+
                 return 0
             } else {
                 if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 0
                     const calculation = props.button_ref.current.offsetWidth + 2
                     return `${calculation}px`
                 }
@@ -188,6 +199,7 @@ const StyledButton = styled.a`
 
 const SignupButton = styled(Button)`
     margin-left: 1.6rem;
+    opacity: 0;
 `
 
 const LinkSignupButton = styled(LinkButton)`
@@ -254,9 +266,6 @@ const Binary = styled(Text)`
     width: 8rem;
     margin-left: 0.5rem;
     line-height: 1;
-    @media (max-width: 345px) {
-        width: 6rem;
-    }
 `
 
 const BinaryLink = styled(LocalizedLinkText)`
@@ -320,6 +329,14 @@ export const Nav = () => {
         setIsResourcesOpen(!is_resources_open)
         setHasResourcesAnimation(true)
     }
+
+    // const language_ref = useRef(null)
+    // const [is_language_open, setLanguageOpen] = useState(false)
+    // const closeLanguage = () => setLanguageOpen(false)
+    // const toggleLanguageClick = () => {
+    //     setLanguageOpen(!is_language_open)
+    // }
+    // useOutsideClick(language_ref, closeLanguage, language_ref)
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -458,6 +475,7 @@ export const Nav = () => {
                             </StyledButton>
                         </NavLink>
                     </NavCenter>
+
                     <NavRight
                         move={show_button}
                         button_ref={button_ref}
@@ -513,9 +531,6 @@ const LeftButton = styled(LinkButton)`
     @media ${device.mobileL} {
         padding: 1rem;
     }
-    @media ${device.mobileM} {
-        font-size: 1.2rem;
-    }
 `
 
 const StyledLogo = styled(LogoLink)`
@@ -523,12 +538,6 @@ const StyledLogo = styled(LogoLink)`
         & svg {
             width: 11rem;
         }
-    }
-`
-
-const StyledBinary = styled(Binary)`
-    @media (max-width: 340px) {
-        width: 7rem;
     }
 `
 
@@ -542,7 +551,7 @@ export const NavInterim = ({ interim_type }) => (
                 <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
                     <ResponsiveBinary width="24" height="24" />
                 </LocalizedLink>
-                <StyledBinary size="var(--text-size-xxs)" color="white">
+                <Binary size="var(--text-size-xxs)" color="white">
                     <Localize
                         translate_text="A <0>Binary.com</0> brand"
                         components={[
@@ -557,7 +566,7 @@ export const NavInterim = ({ interim_type }) => (
                             />,
                         ]}
                     />
-                </StyledBinary>
+                </Binary>
             </Flex>
             <Auto jc="flex-end" ai="center">
                 <LanguageSwitcher short_name="true" />

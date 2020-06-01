@@ -22,17 +22,15 @@ const Display = styled.div`
     }
     @media ${device.mobileM} {
         margin: 0 0.2rem;
-
-        .gatsby-image-wrapper {
-            width: 18px;
-            height: 18px;
-        }
     }
 `
 
 const Arrow = styled(Chevron)`
     & path {
         fill: var(--color-white);
+    }
+    @media ${device.mobileL} {
+        display: none;
     }
 `
 
@@ -105,6 +103,12 @@ const Item = styled.div`
     }
 `
 
+const ResponsiveText = styled(Text)`
+    @media ${device.mobileL} {
+        display: none;
+    }
+`
+
 const query = graphql`
     query {
         en: file(relativePath: { eq: "flags/en.png" }) {
@@ -166,9 +170,9 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
                     <QueryImage width="24px" height="24px" data={data['en']} alt="english" />
-                    <Text color="white" ml="0.8rem" weight="bold" mr="0.4rem">
+                    <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
                         {default_option}
-                    </Text>
+                    </ResponsiveText>
                     <Arrow />
                 </Display>
 

@@ -1,62 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Cookies from 'js-cookie'
+import { LocationContext } from '../layout/location-context'
 import { size } from 'themes/device'
-import { isEuCountry } from 'common/country-base'
-import { BinarySocketBase } from 'common/websocket/socket_base'
-
-const handleEu = (setVisible, to) => (is_eu_country) => {
-    switch (to) {
-        case 'eu':
-            setVisible(is_eu_country)
-            break
-        case 'non-eu':
-            setVisible(!is_eu_country)
-            break
-        default:
-            break
-    }
-}
-
-const Location = ({ children, to }) => {
-    const [visible, setVisible] = useState(false)
-    useEffect(() => {
-        if (!to) return
-
-        const clients_country = Cookies.get('clients_country')
-        const showEu = handleEu(setVisible, to)
-
-        if (clients_country) {
-            showEu(isEuCountry(clients_country))
-            return
-        }
-
-        const binary_socket = BinarySocketBase.init()
-
-        binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify({ website_status: 1 }))
-        }
-        binary_socket.onmessage = (msg) => {
-            const response = JSON.parse(msg.data)
-            if (response.error) {
-                showEu(true)
-            } else {
-                showEu(isEuCountry(response.website_status.clients_country))
-                Cookies.set('clients_country', response.website_status.clients_country, {
-                    expires: 7,
-                })
-            }
-
-            binary_socket.close()
-        }
-    }, [])
-    return visible ? <>{children}</> : null
-}
-
-export const Eu = (props) => <Location {...props} to="eu" />
-
-export const NonEu = (props) => <Location {...props} to="non-eu" />
 
 const MaxWidth = styled.div`
     @media (max-width: ${(props) => props.max_width}px) {
@@ -81,16 +27,24 @@ export const Mobile = ({ children, ...props }) => (
     </MinWidth>
 )
 
-export default {
-    Eu,
-    NonEu,
-    Mobile,
-    Desktop,
+export const EU = ({ children }) => {
+    const { is_eu } = React.useContext(LocationContext)
+
+    if (is_eu) return <>{children}</>
+    else return null
 }
 
-Location.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    to: PropTypes.oneOf(['eu', 'non-eu']),
+export const NonEU = ({ children }) => {
+    const { is_eu } = React.useContext(LocationContext)
+
+    if (!is_eu && typeof is_eu === 'boolean') return <>{children}</>
+    else return null
+}
+
+export default {
+    EU,
+    Mobile,
+    Desktop,
 }
 
 Desktop.propTypes = {

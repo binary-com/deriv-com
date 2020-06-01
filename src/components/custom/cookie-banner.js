@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
-import { Container } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
     animation-duration: 0.3s;
 `
 
-const CookieBanner = ({ onAccept, is_open }) => {
+const CookieBanner = ({ onAccept, onDecline, is_open }) => {
     return (
         <Wrapper is_open={is_open}>
             <Container direction="column">
@@ -59,9 +59,14 @@ const CookieBanner = ({ onAccept, is_open }) => {
                         ]}
                     />
                 </Text>
-                <Button secondary onClick={onAccept}>
-                    {localize('Accept')}
-                </Button>
+                <Flex>
+                    <Button primary onClick={onDecline}>
+                        {localize("Don't Accept")}
+                    </Button>
+                    <Button primary onClick={onAccept}>
+                        {localize('Accept')}
+                    </Button>
+                </Flex>
             </Container>
         </Wrapper>
     )
@@ -70,6 +75,7 @@ const CookieBanner = ({ onAccept, is_open }) => {
 CookieBanner.propTypes = {
     is_open: PropTypes.bool,
     onAccept: PropTypes.func,
+    onDecline: PropTypes.func,
 }
 
 export default CookieBanner

@@ -36,8 +36,8 @@ class LanguageSwitch extends Component {
         }
     }
     getCurrentLanguage() {
-        const { short_name } = language_config[this.state.language]
-        return short_name
+        const { short_name, path } = language_config[this.state.language]
+        return { short_name, path }
     }
 
     handleSelect = (e) => {

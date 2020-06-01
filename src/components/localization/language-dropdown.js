@@ -184,7 +184,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
         closeList()
     }
 
-    const default_abbreviation = default_option.toLowerCase().substring(0, 2)
+    const default_abbreviation = default_option.path.substring(0, 2)
 
     return (
         <>
@@ -197,7 +197,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                         alt={default_option}
                     />
                     <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
-                        {default_option}
+                        {default_option.short_name}
                     </ResponsiveText>
                     <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
                 </Display>
@@ -206,7 +206,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             const abbreviation = option.path.substring(0, 2)
-                            const current_option = default_option.toLowerCase() === option.path
+                            const current_option = default_option.path === option.path
                             return (
                                 <Item
                                     disabled={current_option}

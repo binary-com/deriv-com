@@ -393,7 +393,7 @@ const DMT5Advanced = ({ data }) => {
                                 target="_blank"
                                 is_affiliate_link
                             >
-                                {localize('Become an affiliateee')}
+                                {localize('Become an affiliate')}
                             </StyledLinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}

@@ -82,6 +82,7 @@ const MobileWrapper = styled.div`
 
 const MarLeft = styled(Flex)`
     margin-left: 0;
+    max-width: 38.4rem;
 `
 
 const FitButton = styled(LinkButton)`

@@ -521,6 +521,13 @@ const Footer = ({ has_banner_cookie }) => (
         <Disclaimer>
             <StyledContainer direction="column">
                 <Row>
+                    <Show.Eu>
+                        <StyledText mb="1rem">
+                            {localize(
+                                'Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com.',
+                            )}
+                        </StyledText>
+                    </Show.Eu>
                     <StyledText>
                         <Localize
                             translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."

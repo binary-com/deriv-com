@@ -69,7 +69,7 @@ class Signup extends Component {
         const message = typeof param === 'object' ? param.target.value : param
 
         this.setState({
-            email_error_msg: validateEmail(message),
+            email_error_msg: validateEmail(message.replace(/\s/g, '')),
         })
     }
 
@@ -111,8 +111,8 @@ class Signup extends Component {
     handleEmailSignup = (e) => {
         e.preventDefault()
         this.setState({ is_submitting: true })
-        const { email, email_error_msg } = this.state
-
+        let { email, email_error_msg } = this.state
+        email = email.replace(/\s/g, '')
         this.handleValidation(email)
         const has_error_email = validateEmail(email)
 

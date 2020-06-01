@@ -53,7 +53,7 @@ const Absolute = styled.div`
     border-radius: 4px;
 
     @media ${device.mobileL} {
-        top: 10rem;
+        top: 8rem;
         left: 0;
     }
 `

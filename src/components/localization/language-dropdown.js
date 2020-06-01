@@ -44,7 +44,7 @@ const Arrow = styled(Chevron)`
 const Absolute = styled.div`
     position: absolute;
     z-index: -1;
-    top: 5.5rem;
+    top: 4.8rem;
     left: -22rem;
     height: auto;
     background-color: var(--color-white);

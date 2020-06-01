@@ -492,7 +492,7 @@ export const Nav = () => {
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        <LanguageSwitcher short_name="true" />
+                        <LanguageSwitcher short_name="true" is_high_nav />
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
@@ -512,7 +512,7 @@ export const Nav = () => {
                         <LogoOnly width="115px" />
                     </LogoLinkMobile>
                     <MobileRight>
-                        <LanguageSwitcher short_name="true" />
+                        <LanguageSwitcher short_name="true" is_high_nav />
                         <MobileLogin onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </MobileLogin>
@@ -740,7 +740,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
-                                <LanguageSwitcher short_name="true" />
+                                <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external

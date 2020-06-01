@@ -44,7 +44,7 @@ const Arrow = styled(Chevron)`
 const Absolute = styled.div`
     position: absolute;
     z-index: -1;
-    top: 4.8rem;
+    top: ${(props) => (props.is_high_nav ? '4.8rem' : '5.5rem')};
     left: -22rem;
     height: auto;
     background-color: var(--color-white);
@@ -53,7 +53,7 @@ const Absolute = styled.div`
     border-radius: 4px;
 
     @media ${device.mobileL} {
-        top: 8rem;
+        top: ${(props) => (props.is_high_nav ? '7rem' : '8rem')};
         left: 0;
     }
 `
@@ -166,7 +166,7 @@ const query = graphql`
     }
 `
 
-const Dropdown = ({ default_option, onChange, option_list }) => {
+const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
     const [is_open, setOpen] = React.useState(false)
     const dropdown_ref = React.useRef(null)
 
@@ -202,7 +202,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
                     <Arrow expanded={`${is_open ? 'true' : 'false'}`} />
                 </Display>
 
-                <Absolute>
+                <Absolute is_high_nav={is_high_nav}>
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
                             const abbreviation = option.path.substring(0, 2)
@@ -235,6 +235,7 @@ const Dropdown = ({ default_option, onChange, option_list }) => {
 
 Dropdown.propTypes = {
     default_option: PropTypes.string,
+    is_high_nav: PropTypes.bool,
     onChange: PropTypes.func,
     option_list: PropTypes.array,
 }

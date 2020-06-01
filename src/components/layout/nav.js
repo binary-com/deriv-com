@@ -139,6 +139,7 @@ const NavRight = styled.div`
     display: inline-flex;
     align-items: center;
     text-align: right;
+    opacity: ${(props) => (props.mounted ? '1' : '0')};
     padding: 0;
     justify-content: center;
     transition: ${(props) => {
@@ -165,7 +166,7 @@ const NavRight = styled.div`
                     const calculation = props.button_ref.current.offsetWidth + 2
                     return `${calculation}px`
                 }
-                return '350px'
+                return '300px'
             }
         }}
     );
@@ -202,6 +203,7 @@ const SignupButton = styled(Button)`
 `
 
 const LinkSignupButton = styled(LinkButton)`
+    opacity: 0;
     margin-left: 1.6rem;
 `
 
@@ -484,14 +486,13 @@ export const Nav = () => {
                             </StyledButton>
                         </NavLink>
                     </NavCenter>
-
                     <NavRight
                         move={show_button}
                         button_ref={button_ref}
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
-                        <LanguageSwitcher short_name="true" />
+                        <LanguageSwitcher short_name="true" is_high_nav />
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
@@ -501,6 +502,7 @@ export const Nav = () => {
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
+
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                     ) : (
@@ -510,7 +512,7 @@ export const Nav = () => {
                         <LogoOnly width="115px" />
                     </LogoLinkMobile>
                     <MobileRight>
-                        <LanguageSwitcher short_name="true" />
+                        <LanguageSwitcher short_name="true" is_high_nav />
                         <MobileLogin onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </MobileLogin>
@@ -738,7 +740,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
-                                <LanguageSwitcher short_name="true" />
+                                <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external

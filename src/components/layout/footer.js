@@ -216,15 +216,6 @@ const Item = styled.div`
         font-size: var(--text-size-sm);
     }
 `
-// TODO: uncomment this when language-switcher is ready
-// const MobileLanguageSwitcher = styled.div`
-//     margin-top: 0.8rem;
-
-//     > ul {
-//         top: 0;
-//         width: 80px;
-//     }
-// `
 const mobile_accordion_header = {
     border: 'none',
     padding: '0 2rem',
@@ -275,14 +266,6 @@ const Footer = () => {
                                 </ExternalLink>
                             </div>
                         </SocialWrapper> */}
-                            {/* <div>{!no_language && <LanguageSwitcher />}</div> */}
-                            {/* <div>
-                            <Show.Mobile>
-                                <MobileLanguageSwitcher>
-                                    {<LanguageSwitcher short_name="true" />}
-                                </MobileLanguageSwitcher>
-                            </Show.Mobile>
-                        </div> */}
                         </SocialMedia>
                     </InfoSection>
                     <Items>

@@ -10,7 +10,7 @@ import {
     NavMarket,
 } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { LocalizedLink, Localize, localize } from 'components/localization'
+import { LocalizedLink, Localize, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import {
@@ -90,7 +90,6 @@ const Wrapper = styled(Container)`
     padding: 1.2rem 0;
     justify-content: space-between;
     height: 7.2rem;
-    overflow: hidden;
     @media ${device.laptopL} {
         width: 90%;
     }
@@ -128,10 +127,19 @@ const NavCenter = styled.ul`
         display: none;
     }
 `
+// const HiddenDiv = styled.div`
+//     position: absolute;
+//     height: 100%;
+//     width: 440px;
+//     right: -220px;
+//     background: var(--color-black);
+//     z-index: 999;
+// `
 const NavRight = styled.div`
     display: inline-flex;
+    align-items: center;
     text-align: right;
-    overflow: hidden;
+    opacity: ${(props) => (props.mounted ? '1' : '0')};
     padding: 0;
     justify-content: center;
     transition: ${(props) => {
@@ -147,13 +155,18 @@ const NavRight = styled.div`
     transform: translateX(
         ${(props) => {
             if (props.move) {
+                if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 1
+                }
+
                 return 0
             } else {
                 if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 0
                     const calculation = props.button_ref.current.offsetWidth + 2
                     return `${calculation}px`
                 }
-                return '350px'
+                return '300px'
             }
         }}
     );
@@ -186,9 +199,11 @@ const StyledButton = styled.a`
 
 const SignupButton = styled(Button)`
     margin-left: 1.6rem;
+    opacity: 0;
 `
 
 const LinkSignupButton = styled(LinkButton)`
+    opacity: 0;
     margin-left: 1.6rem;
 `
 
@@ -224,9 +239,9 @@ const LogoLinkMobile = styled(LocalizedLink)`
 const MobileLogin = styled(Button)`
     display: none;
     font-size: 14px;
+    margin-left: 1.6rem;
     @media ${device.tabletL} {
         display: block;
-        margin-left: auto;
     }
     @media ${device.mobileL} {
         font-size: var(--text-size-xxs);
@@ -252,9 +267,6 @@ const Binary = styled(Text)`
     width: 8rem;
     margin-left: 0.5rem;
     line-height: 1;
-    @media (max-width: 345px) {
-        width: 6rem;
-    }
 `
 
 const BinaryLink = styled(LocalizedLinkText)`
@@ -263,6 +275,16 @@ const BinaryLink = styled(LocalizedLinkText)`
     font-size: var(--text-size-xxs);
     font-weight: bold;
     text-decoration: none;
+`
+
+const MobileRight = styled.div`
+    margin-left: auto;
+    display: none;
+    align-items: center;
+
+    @media ${device.tabletL} {
+        display: flex;
+    }
 `
 
 export const Nav = () => {
@@ -318,6 +340,14 @@ export const Nav = () => {
         setIsResourcesOpen(!is_resources_open)
         setHasResourcesAnimation(true)
     }
+
+    // const language_ref = useRef(null)
+    // const [is_language_open, setLanguageOpen] = useState(false)
+    // const closeLanguage = () => setLanguageOpen(false)
+    // const toggleLanguageClick = () => {
+    //     setLanguageOpen(!is_language_open)
+    // }
+    // useOutsideClick(language_ref, closeLanguage, language_ref)
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -462,6 +492,7 @@ export const Nav = () => {
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
+                        <LanguageSwitcher short_name="true" is_high_nav />
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
@@ -471,6 +502,7 @@ export const Nav = () => {
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
+
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                     ) : (
@@ -479,9 +511,13 @@ export const Nav = () => {
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
                         <LogoOnly width="115px" />
                     </LogoLinkMobile>
-                    <MobileLogin onClick={handleLogin} primary>
-                        <span>{localize('Log in')}</span>
-                    </MobileLogin>
+                    <MobileRight>
+                        <LanguageSwitcher short_name="true" is_high_nav />
+                        <MobileLogin onClick={handleLogin} primary>
+                            <span>{localize('Log in')}</span>
+                        </MobileLogin>
+                    </MobileRight>
+
                     <OffCanvasMenu
                         is_canvas_menu_open={is_canvas_menu_open}
                         closeOffCanvasMenu={closeOffCanvasMenu}
@@ -498,13 +534,35 @@ const ResponsiveBinary = styled(BinaryLogo)`
     }
 `
 
+const Auto = styled(Flex)`
+    @media ${device.mobileM} {
+        width: auto;
+    }
+`
+
+const LeftButton = styled(LinkButton)`
+    margin-left: 0.8rem;
+
+    @media ${device.mobileL} {
+        padding: 1rem;
+    }
+`
+
+const StyledLogo = styled(LogoLink)`
+    @media (max-width: 340px) {
+        & svg {
+            width: 11rem;
+        }
+    }
+`
+
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <Container jc="space-between" p="2.4rem 0">
             <Flex ai="center" jc="flex-start">
-                <LogoLink to={`/interim/${interim_type}`} aria-label={localize('Home')}>
+                <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                     <Logo />
-                </LogoLink>
+                </StyledLogo>
                 <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
                     <ResponsiveBinary width="24" height="24" />
                 </LocalizedLink>
@@ -525,11 +583,12 @@ export const NavInterim = ({ interim_type }) => (
                     />
                 </Binary>
             </Flex>
-            <Flex jc="flex-end">
-                <LinkButton secondary to="/">
-                    {localize('Explore Deriv')}
-                </LinkButton>
-            </Flex>
+            <Auto jc="flex-end" ai="center">
+                <LanguageSwitcher short_name="true" />
+                <LeftButton secondary to="/">
+                    {localize('Explore Deriv.com')}
+                </LeftButton>
+            </Auto>
         </Container>
     </InterimNav>
 )
@@ -681,6 +740,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
+                                <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external

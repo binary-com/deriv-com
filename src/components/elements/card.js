@@ -359,14 +359,14 @@ export const NavCard = ({
 
 NavCard.propTypes = {
     className: PropTypes.string,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.node]),
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,
     icon: PropTypes.func,
     is_binary_link: PropTypes.bool,
     otherLinkProps: PropTypes.object,
     style: PropTypes.object,
     target: PropTypes.string,
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    title: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     to: PropTypes.string,
 }
 

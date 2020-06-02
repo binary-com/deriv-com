@@ -7,7 +7,6 @@ import { BOOM500, BOOM1000, CRASH500, CRASH1000 } from 'components/elements/symb
 
 const Symbol = styled(Flex)`
     width: fit-content;
-    margin: 1.6rem 2.4rem 0 0;
 
     svg {
         width: 32px;
@@ -16,9 +15,10 @@ const Symbol = styled(Flex)`
     }
     ${Text} {
         font-weight: normal;
+        font-size: var(--text-size-xs);
+        line-height: 1.14;
     }
 `
-
 const CrashBoom = () => {
     return (
         <>

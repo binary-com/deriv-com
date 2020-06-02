@@ -42,8 +42,9 @@ const StyledText = styled(Text)`
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
     }
-    @media ${device.tabletS} {
+    @media ${device.MobileL} {
         font-size: ${(props) => props.tabletFontSize};
+        line-height: 16px;
     }
 `
 const NoteBox = styled.div`
@@ -51,13 +52,14 @@ const NoteBox = styled.div`
     flex-direction: row;
     width: 100%;
     height: 7.7rem;
-    padding: 0.8rem 0.8rem;
+    padding: 8px 8px;
     margin-top: 1.6rem;
     border-radius: 0.4rem;
     background-color: rgba(242, 243, 244, 0.56);
 
-    @media ${device.tabletS} {
-        padding: 1rem 1rem;
+    @media ${device.mobileL} {
+        height: 64px;
+        padding: 8px 16px;
     }
 `
 const InputGroup = styled.div`
@@ -66,7 +68,7 @@ const InputGroup = styled.div`
     margin: 2.5rem 0 0.6rem;
 
     @media ${device.mobileL} {
-        margin: 4rem 0;
+        margin: 25px 0 16px 0;
     }
 `
 const EmailButton = styled(Button)`
@@ -149,8 +151,8 @@ const Span = styled.span`
     vertical-align: super;
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
         margin-left: 2.7rem;
+        font-size: 14px;
     }
 `
 const CheckboxSpan = styled.span`
@@ -170,6 +172,11 @@ const StyledLinkText = styled(LinkText)`
 const StyledBinaryLogo = styled(BinaryLogo)`
     margin-right: 0.8rem;
     margin-top: 1rem;
+
+    @media ${device.mobileL} {
+        margin-top: 8px;
+        min-width: 32px;
+    }
 `
 const SignupNew = ({
     email_error_msg,
@@ -211,7 +218,7 @@ const SignupNew = ({
             <NoteBox>
                 <StyledBinaryLogo />
                 <div>
-                    <StyledText mb="0.4rem" notedBox color="grey-16" tabletFontSize="2rem">
+                    <StyledText mb="0.4rem" notedBox color="grey-16" tabletFontSize="16px">
                         <Localize
                             translate_text="Got a <0>Binary.com</0> account?"
                             components={[<strong key={0} />]}
@@ -222,7 +229,7 @@ const SignupNew = ({
                         fontSize="var(--text-size-xxs)"
                         color="grey-16"
                         lh="1.8"
-                        tabletFontSize="2rem"
+                        tabletFontSize="12px"
                     >
                         <Localize
                             translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password"

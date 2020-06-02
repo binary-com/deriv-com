@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import { LocaleContext } from '../localization'
 import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
@@ -9,6 +10,7 @@ import { LocationProvider } from './location-context'
 import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
+import { isBrowser } from 'common/utility'
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};
@@ -17,14 +19,13 @@ const Main = styled.main`
     position: relative;
 `
 
-const is_browser = typeof window !== 'undefined'
-const has_dataLayer = is_browser && window.dataLayer
+const has_dataLayer = isBrowser() && window.dataLayer
 const cookie_expires = 7
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
-    const [has_window_loaded, setWindowLoaded] = React.useState(false)
+    const { has_window_loaded } = React.useContext(LocaleContext)
 
     const is_static = type === 'static'
 
@@ -49,14 +50,6 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                 binary_socket.close()
             }
         }
-
-        const windowLoaded = () => setWindowLoaded(true)
-
-        if (is_browser) {
-            window.addEventListener('load', windowLoaded)
-        }
-
-        return () => window.removeEventListener('load', windowLoaded)
     }, [])
 
     React.useEffect(() => {
@@ -68,6 +61,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         if (is_eu_country && !tracking_status) setShowCookieBanner(true)
 
         const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
+
         if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
     }, [clients_country, has_window_loaded])
 

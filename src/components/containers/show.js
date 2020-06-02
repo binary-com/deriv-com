@@ -37,7 +37,7 @@ export const Eu = ({ children }) => {
 export const NonEU = ({ children }) => {
     const { is_eu } = React.useContext(LocationContext)
 
-    if (!is_eu && typeof is_eu === 'boolean') return <>{children}</>
+    if (is_eu === false) return <>{children}</>
     else return null
 }
 

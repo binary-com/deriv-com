@@ -23,6 +23,7 @@ const Wrapper = styled.div`
     @media ${device.mobileL} {
         flex-direction: column;
         height: 414px;
+        padding: 40px 16px;
     }
 `
 
@@ -35,8 +36,7 @@ const ImageContainer = styled.div`
         left: 0;
         height: unset;
         width: 100%;
-        top: 12%;
-        margin-bottom: 2rem;
+        top: 40px;
     }
 `
 
@@ -76,7 +76,7 @@ const TextWrapper = styled.div`
         max-width: 250px;
     }
     @media ${device.mobileL} {
-        top: 250px;
+        top: 228px;
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
@@ -101,6 +101,13 @@ const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 24px;
     }
+`
+
+const StyledLinkButton = styled(LinkButton)`
+    height: 40px;
+    display: inline-block;
+    font-size: 14px;
+    padding: 1.4rem 1.6rem;
 `
 const DBanner = ({ title, data, background_pattern }) => {
     const BannerBackgroundSVG = styled(background_pattern)`
@@ -133,13 +140,13 @@ const DBanner = ({ title, data, background_pattern }) => {
                 </ImageWrapper>
             </ImageContainer>
             <TextWrapper>
-                <StyledHeader align="center" color="white" size="5.6rem" mb="3.2rem">
+                <StyledHeader align="center" color="white" size="5.6rem" mb="32px">
                     {title}
                 </StyledHeader>
                 <DemoButton>
-                    <LinkButton type="submit" secondary="true" to="/signup/">
+                    <StyledLinkButton type="submit" secondary="true" to="/signup/">
                         {localize('Create free demo account')}
-                    </LinkButton>
+                    </StyledLinkButton>
                 </DemoButton>
             </TextWrapper>
         </Wrapper>

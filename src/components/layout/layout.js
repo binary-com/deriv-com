@@ -17,7 +17,7 @@ const Main = styled.main`
     position: relative;
 `
 
-const has_datalayer = typeof window !== 'undefined' && window.datalayer
+const has_dataLayer = typeof window !== 'undefined' && window.dataLayer
 const cookie_expires = 7
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
@@ -56,8 +56,8 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 
         if (is_eu_country && !tracking_status) setShowCookieBanner(true)
 
-        const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_datalayer
-        if (allow_tracking) window.datalayer.push({ event: 'allow_tracking' })
+        const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
+        if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
     }, [clients_country])
 
     const onAccept = () => {
@@ -65,7 +65,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             expires: cookie_expires,
         })
 
-        if (has_datalayer) window.datalayer.push({ event: 'allow_tracking' })
+        if (has_dataLayer) window.dataLayer.push({ event: 'allow_tracking' })
 
         setShowCookieBanner(false)
     }

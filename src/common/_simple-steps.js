@@ -116,7 +116,7 @@ const SimpleSteps = ({ header, content, sign_up }) => (
 )
 SimpleSteps.propTypes = {
     content: PropTypes.array.isRequired,
-    header: PropTypes.string.isRequired,
+    header: PropTypes.object.isRequired,
     sign_up: PropTypes.bool,
 }
 export default SimpleSteps

@@ -27,7 +27,7 @@ export const Mobile = ({ children, ...props }) => (
     </MinWidth>
 )
 
-export const EU = ({ children }) => {
+export const Eu = ({ children }) => {
     const { is_eu } = React.useContext(LocationContext)
 
     if (is_eu) return <>{children}</>
@@ -42,7 +42,7 @@ export const NonEU = ({ children }) => {
 }
 
 export default {
-    EU,
+    Eu,
     Mobile,
     Desktop,
 }

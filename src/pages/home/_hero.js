@@ -25,7 +25,6 @@ const HeroWrapper = styled.section`
     @media ${device.laptop} {
         background-position: -10rem 100%;
         padding-top: 7rem;
-        padding-bottom: 7rem;
     }
     @media ${device.tabletL} {
         background: unset;

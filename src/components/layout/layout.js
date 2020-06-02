@@ -17,12 +17,15 @@ const Main = styled.main`
     position: relative;
 `
 
-const has_dataLayer = typeof window !== 'undefined' && window.dataLayer
+const is_browser = typeof window !== 'undefined'
+const has_dataLayer = is_browser && window.dataLayer
 const cookie_expires = 7
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
+    const [has_window_loaded, setWindowLoaded] = React.useState(false)
+
     const is_static = type === 'static'
 
     React.useEffect(() => {
@@ -46,10 +49,18 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                 binary_socket.close()
             }
         }
+
+        const windowLoaded = () => setWindowLoaded(true)
+
+        if (is_browser) {
+            window.addEventListener('load', windowLoaded)
+        }
+
+        return () => window.removeEventListener('load', windowLoaded)
     }, [])
 
     React.useEffect(() => {
-        if (!clients_country) return
+        if (!clients_country || !has_window_loaded) return
 
         const is_eu_country = isEuCountry(clients_country)
         const tracking_status = Cookies.get('tracking_status')
@@ -58,7 +69,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 
         const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
         if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
-    }, [clients_country])
+    }, [clients_country, has_window_loaded])
 
     const onAccept = () => {
         Cookies.set('tracking_status', 'accepted', {

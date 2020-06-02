@@ -44,10 +44,4 @@ export const onInitialClientRender = () => {
     }
 }
 
-export const onClientEntry = () => {
-    window.onload = () => {
-        window.dataLayer.push({ event: 'after_load' })
-    }
-}
-
 export const wrapPageElement = WrapPagesWithLocaleContext

@@ -205,6 +205,7 @@ const Dropdown = ({ default_option, onChange, option_list, is_high_nav }) => {
                 <Absolute is_high_nav={is_high_nav}>
                     <ItemContainer is_open={is_open}>
                         {option_list.map((option, idx) => {
+                            if (!option) return null
                             const abbreviation = option.path.substring(0, 2)
                             const current_option = default_option.path === option.path
                             return (

@@ -30,7 +30,10 @@ const StyledHeader = styled(Header)`
 const BackButton = styled(Button)`
     border: 2px solid var(--color-grey-5);
     color: var(--color-black);
+    height: 40px;
+    padding: 0 1.6rem;
 `
+
 const StyledText = styled(Text)`
     font-size: 1.4rem;
     line-height: 1.15;
@@ -134,7 +137,15 @@ const StyledTR = styled(TR)`
 const SyntheticTable = styled(Table)`
     grid-template-columns: 55% 47%;
 `
+const StyledLinkButton = styled(LinkButton)`
+    height: 40px;
 
+    @media ${device.mobileL} {
+        padding: 1.5rem 1.6rem;
+        height: 40px;
+        white-space: nowrap;
+    }
+`
 const DMT5Synthetic = ({ data }) => {
     const [is_expand, setExpand] = React.useState(false)
     const [is_calculated, setCalculated] = React.useState(false)
@@ -208,7 +219,7 @@ const DMT5Synthetic = ({ data }) => {
                         </Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <LinkButton
+                            <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
                                 external
@@ -216,7 +227,7 @@ const DMT5Synthetic = ({ data }) => {
                                 is_affiliate_link
                             >
                                 {localize('Become an affiliate')}
-                            </LinkButton>
+                            </StyledLinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -291,7 +302,7 @@ const DMT5Standard = ({ data }) => {
                         <Header as="h4">{localize('How it’s calculated')}</Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <LinkButton
+                            <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
                                 external
@@ -299,7 +310,7 @@ const DMT5Standard = ({ data }) => {
                                 is_affiliate_link
                             >
                                 {localize('Become an affiliate')}
-                            </LinkButton>
+                            </StyledLinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>
@@ -375,7 +386,7 @@ const DMT5Advanced = ({ data }) => {
                         <Header as="h4">{localize('How it’s calculated')}</Header>
                         {data.calculation}
                         <ButtonWrapper>
-                            <LinkButton
+                            <StyledLinkButton
                                 secondary
                                 to={affiliate_signup_url}
                                 external
@@ -383,7 +394,7 @@ const DMT5Advanced = ({ data }) => {
                                 is_affiliate_link
                             >
                                 {localize('Become an affiliate')}
-                            </LinkButton>
+                            </StyledLinkButton>
                             <BackButton tertiary onClick={toggleCalculated}>
                                 {localize('Back')}
                             </BackButton>

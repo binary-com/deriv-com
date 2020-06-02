@@ -41,7 +41,7 @@ const Forex = ({ simple_step_content }) => {
                     icon={<Deposit />}
                 ></div>
                 <div
-                    text={<Localize translate_text="Friendly support, 7 days a week" />}
+                    text={<Localize translate_text="Smart and friendly support, 7 days a week" />}
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
@@ -58,10 +58,6 @@ const Forex = ({ simple_step_content }) => {
                 content={simple_step_content}
                 sign_up
             />
-            {/* TODO: active when design was ready */}
-            {/* <div ref={learn_more_section}>
-                <LearnMore data={learn_more_data} header={localize('Learn more about forex')} />
-            </div> */}
             <OtherMarkets except="forex" />
         </>
     )

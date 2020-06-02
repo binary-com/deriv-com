@@ -5,6 +5,8 @@ import Globe2 from './globe.webm'
 import { localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { Container } from 'components/containers'
+import { useLazyVideo } from 'components/hooks/lazy-video'
+import device from 'themes/device'
 
 const BackgroundWrapper = styled.div`
     position: relative;
@@ -12,14 +14,36 @@ const BackgroundWrapper = styled.div`
     background: var(--color-black-6);
     width: 100%;
     overflow: hidden;
+
+    @media ${device.tabletL} {
+        height: unset;
+    }
 `
 const StyledContainer = styled(Container)`
     padding-top: 20.7rem;
 
     h4,
     h1 {
-        max-width: 79.8rem;
+        max-width: 76.1rem;
         z-index: 10;
+    }
+    h1 {
+        line-height: 1.25;
+    }
+    h4 {
+        line-height: 1.5;
+    }
+    @media ${device.tabletL} {
+        padding: 12.5rem 0;
+
+        h1 {
+            font-size: var(--text-size-xl);
+            text-align: left;
+        }
+        h4 {
+            font-size: 3rem;
+            text-align: left;
+        }
     }
 `
 const Video = styled.video`
@@ -29,13 +53,19 @@ const Video = styled.video`
     transform: translate(-50%, -50%) scale(2);
     width: 100%;
     height: 100%;
+
+    @media ${device.tabletL} {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
 `
 export const Hero = () => {
+    useLazyVideo()
+
     return (
         <BackgroundWrapper>
-            <Video width="100%" height="100%" autoPlay muted playsInline loop>
-                <source src={Globe} type="video/mp4" />
-                <source src={Globe2} type="video/webm" />
+            <Video className="lazy" width="100%" height="100%" autoPlay muted playsInline loop>
+                <source data-src={Globe} type="video/mp4" />
+                <source data-src={Globe2} type="video/webm" />
             </Video>
             <StyledContainer direction="column">
                 <Header as="h1" color="white" lh="1.15" align="center">

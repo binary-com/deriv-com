@@ -13,7 +13,7 @@ const CssGrid = styled(Box)`
     grid-column-gap: ${(props) => props.column_gap || ''};
     grid-row-gap: ${(props) => props.row_gap || ''};
     align-items: ${(props) => props.align || 'start'};
-    justify-items: ${(props) => props.justify || 'auto'};
+    justify-items: ${(props) => props.justify || 'unset'};
     background-color: ${(props) => props.bgcolor || 'none'};
     @media ${device.laptopL} {
         grid-template-columns: ${(props) =>

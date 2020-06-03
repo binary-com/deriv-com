@@ -172,8 +172,8 @@ ClientSlide.propTypes = {
     img_alt: PropTypes.string,
     img_path: PropTypes.string,
     name: PropTypes.string,
-    quote: PropTypes.string,
-    title: PropTypes.string,
+    quote: PropTypes.node,
+    title: PropTypes.node,
 }
 
 const roberto = {

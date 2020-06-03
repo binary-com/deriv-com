@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
-import { Container } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
+import device from 'themes/device'
 
 const FadeInDown = keyframes`
     from {
@@ -40,15 +41,22 @@ const Wrapper = styled.div`
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
     animation-duration: 0.3s;
+
+    @media ${device.tabletS} {
+        height: 26rem;
+    }
 `
 
-const CookieBanner = ({ onAccept, is_open }) => {
+const CookieBanner = ({ onAccept, onDecline, is_open }) => {
     return (
         <Wrapper is_open={is_open}>
             <Container direction="column">
+                <Text color="white">
+                    <Localize translate_text="Cookies help us to give you a better experience and personalised content on our site." />
+                </Text>
                 <Text color="white" mb="2.4rem">
                     <Localize
-                        translate_text="Our website uses cookies to give you the best user experience. For more information, <0>view our policy</0>."
+                        translate_text="If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>."
                         components={[
                             <LocalizedLinkText
                                 key={0}
@@ -59,9 +67,14 @@ const CookieBanner = ({ onAccept, is_open }) => {
                         ]}
                     />
                 </Text>
-                <Button secondary onClick={onAccept}>
-                    {localize('Accept')}
-                </Button>
+                <Flex>
+                    <Button white onClick={onDecline} mr="1rem">
+                        {localize("Don't accept")}
+                    </Button>
+                    <Button white onClick={onAccept} ml="1rem">
+                        {localize('Accept')}
+                    </Button>
+                </Flex>
             </Container>
         </Wrapper>
     )
@@ -70,6 +83,7 @@ const CookieBanner = ({ onAccept, is_open }) => {
 CookieBanner.propTypes = {
     is_open: PropTypes.bool,
     onAccept: PropTypes.func,
+    onDecline: PropTypes.func,
 }
 
 export default CookieBanner

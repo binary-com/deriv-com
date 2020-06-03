@@ -5,6 +5,7 @@ import { Container, Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
+import device from 'themes/device'
 
 const FadeInDown = keyframes`
     from {
@@ -40,6 +41,10 @@ const Wrapper = styled.div`
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
     animation-duration: 0.3s;
+
+    @media ${device.tabletS} {
+        height: 26rem;
+    }
 `
 
 const CookieBanner = ({ onAccept, onDecline, is_open }) => {
@@ -64,7 +69,7 @@ const CookieBanner = ({ onAccept, onDecline, is_open }) => {
                 </Text>
                 <Flex>
                     <Button white onClick={onDecline} mr="1rem">
-                        {localize("Don't Accept")}
+                        {localize("Don't accept")}
                     </Button>
                     <Button white onClick={onAccept} ml="1rem">
                         {localize('Accept')}

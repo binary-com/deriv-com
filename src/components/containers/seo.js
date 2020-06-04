@@ -31,29 +31,27 @@ const SEO = ({ description, meta, title, no_index }) => {
     const links = []
     let is_ach_page = false
     if (is_browser) {
-        let page, l
-        let currentPage = window.location.href.split('/')[3]
-        if (window.location.href.split('/')[4])
-            currentPage = currentPage + '/' + window.location.href.split('/')[4]
-        if (currentPage === 'ach') is_ach_page = true
-        const pages = []
-        pages.push('/' + currentPage)
-        for (l in languages) {
-            pages.push('/' + languages[l] + '/' + currentPage)
+        const { pathname, origin } = window.location
+        const path_array = pathname.split('/')
+        const current_lang = path_array[1]
+        const check_lang = current_lang.replace('-', '_')
+        let current_page = pathname
+        if (languages.includes(check_lang)) {
+            path_array.splice(1, 1)
+            current_page = path_array.join('/')
         }
 
-        for (page in pages) {
-            const formattedLangName = pages[page].split('/')[1].replace('_', '-')
-            const pathHasNoLang = pages[page] === '/' + currentPage
-            const link = {}
-            link.rel = 'alternate'
-            link.href =
-                'https://deriv.com' + pathHasNoLang
-                    ? pages[page]
-                    : '/' + formattedLangName + '/' + currentPage
-            link.hreflang = formattedLangName
-            links.push(link)
-        }
+        languages.forEach((lang) => {
+            if (lang !== 'ach') {
+                const link = {}
+                const is_default = lang === 'en'
+                const href_lang = is_default ? '' : `/${lang}`
+                link.rel = 'alternate'
+                link.href = `${origin}${href_lang}${current_page}`
+                link.hreflang = lang
+                links.push(link)
+            }
+        })
     }
 
     return (

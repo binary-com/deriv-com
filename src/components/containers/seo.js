@@ -30,30 +30,19 @@ const SEO = ({ description, meta, title, no_index }) => {
 
     const links = []
     let is_ach_page = false
+    let current_page = ''
     if (is_browser) {
-        const { pathname, origin } = window.location
+        const { pathname } = window.location
         const path_array = pathname.split('/')
         const current_lang = path_array[1]
         const check_lang = current_lang.replace('-', '_')
-        let current_page = pathname
+        current_page = pathname
 
         if (languages.includes(check_lang)) {
             path_array.splice(1, 1)
             current_page = path_array.join('/')
         }
         if (current_lang === 'ach') is_ach_page = true
-
-        languages.forEach((lang) => {
-            if (!is_ach_page) {
-                const link = {}
-                const is_default = lang === 'en'
-                const href_lang = is_default ? '' : `/${lang}`
-                link.rel = 'alternate'
-                link.href = `${origin}${href_lang}${current_page}`
-                link.hreflang = lang
-                links.push(link)
-            }
-        })
     }
 
     return (
@@ -64,7 +53,6 @@ const SEO = ({ description, meta, title, no_index }) => {
             title={title}
             titleTemplate={`%s | ${queries.site.siteMetadata.title}`}
             defer={false}
-            link={links}
             meta={[
                 {
                     name: 'description',
@@ -162,6 +150,19 @@ const SEO = ({ description, meta, title, no_index }) => {
                         applicationId: 'f0aef779-d9ec-4517-807e-a84c683c4265',
                     })`}
             </script> */}
+            {languages.map((locale) => {
+                if (!is_ach_page) {
+                    const origin = is_browser && window.location.origin
+                    const link = {}
+                    const is_default = lang === 'en'
+                    const href_lang = is_default ? '' : `/${lang}`
+                    const href = `${origin}${href_lang}${current_page}`
+                    link.hreflang = lang
+                    links.push(link)
+
+                    return <link rel="alternate" href={href} hrefLang={locale} key={locale} />
+                }
+            })}
         </Helmet>
     )
 }

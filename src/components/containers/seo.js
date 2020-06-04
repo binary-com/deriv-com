@@ -151,7 +151,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                     })`}
             </script> */}
             {languages.map((locale) => {
-                if (!is_ach_page) {
+                if (!(locale === 'ach')) {
                     const origin = is_browser && window.location.origin
                     const link = {}
                     const is_default = lang === 'en'

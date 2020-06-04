@@ -160,7 +160,12 @@ const SEO = ({ description, meta, title, no_index }) => {
                     const href = `${origin}${href_lang}${current_page}`
 
                     return (
-                        <link rel="alternate" href={href} hrefLang={replaced_local} key={locale} />
+                        <link
+                            rel="alternate"
+                            href={href}
+                            hrefLang={replaced_local}
+                            key={replaced_local}
+                        />
                     )
                 }
             })}

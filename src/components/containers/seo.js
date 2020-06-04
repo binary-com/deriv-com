@@ -152,6 +152,7 @@ const SEO = ({ description, meta, title, no_index }) => {
             </script> */}
             {languages.map((locale) => {
                 if (!(locale === 'ach')) {
+                    const replaced_local = locale.replace('_', '-')
                     const origin = is_browser && window.location.origin
                     const link = {}
                     const is_default = lang === 'en'
@@ -160,7 +161,9 @@ const SEO = ({ description, meta, title, no_index }) => {
                     link.hreflang = lang
                     links.push(link)
 
-                    return <link rel="alternate" href={href} hrefLang={locale} key={locale} />
+                    return (
+                        <link rel="alternate" href={href} hrefLang={replaced_local} key={locale} />
+                    )
                 }
             })}
         </Helmet>

@@ -97,15 +97,11 @@ const ItemContainer = styled.div`
         position: absolute;
         width: 1px;
         background: var(--color-grey-8);
-        height: 85%;
+        height: 80%;
         top: 0;
         left: 50%;
         margin-top: 2.4rem;
         margin-bottom: 2.4rem;
-
-        @media ${device.mobileL} {
-            height: 26.4rem;
-        }
     }
 `
 

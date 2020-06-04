@@ -97,7 +97,7 @@ const ItemContainer = styled.div`
         position: absolute;
         width: 1px;
         background: var(--color-grey-8);
-        height: 22.4rem;
+        height: 85%;
         top: 0;
         left: 50%;
         margin-top: 2.4rem;

@@ -25,8 +25,7 @@ const domain_config = {
     },
 }
 
-const isProduction = () =>
-    isBrowser() && domain_config.production.hostname === window.location.hostname
+const isProduction = () => isBrowser() && true // domain_config.production.hostname === window.location.hostname
 
 const isStaging = () => isBrowser() && domain_config.staging.hostname === window.location.hostname
 

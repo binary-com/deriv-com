@@ -28,7 +28,6 @@ const SEO = ({ description, meta, title, no_index }) => {
     const metaDescription = description || queries.site.siteMetadata.description
     const { locale: lang } = React.useContext(LocaleContext)
 
-    const links = []
     let is_ach_page = false
     let current_page = ''
     if (is_browser) {
@@ -155,12 +154,11 @@ const SEO = ({ description, meta, title, no_index }) => {
                 if (!(locale === 'ach') && is_browser) {
                     const replaced_local = locale.replace('_', '-')
                     const origin = is_browser && window.location.origin
-                    const link = {}
+
                     const is_default = locale === 'en' || locale === 'x-default'
                     const href_lang = is_default ? '' : `/${locale}`
                     const href = `${origin}${href_lang}${current_page}`
-                    link.hreflang = locale
-                    links.push(link)
+
                     return (
                         <link rel="alternate" href={href} hrefLang={replaced_local} key={locale} />
                     )

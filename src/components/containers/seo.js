@@ -44,6 +44,7 @@ const SEO = ({ description, meta, title, no_index }) => {
         }
         if (current_lang === 'ach') is_ach_page = true
     }
+    languages.push('x-default')
 
     return (
         <Helmet
@@ -151,16 +152,15 @@ const SEO = ({ description, meta, title, no_index }) => {
                     })`}
             </script> */}
             {languages.map((locale) => {
-                if (!(locale === 'ach')) {
+                if (!(locale === 'ach') && is_browser) {
                     const replaced_local = locale.replace('_', '-')
                     const origin = is_browser && window.location.origin
                     const link = {}
-                    const is_default = lang === 'en'
-                    const href_lang = is_default ? '' : `/${lang}`
+                    const is_default = locale === 'en' || locale === 'x-default'
+                    const href_lang = is_default ? '' : `/${locale}`
                     const href = `${origin}${href_lang}${current_page}`
-                    link.hreflang = lang
+                    link.hreflang = locale
                     links.push(link)
-
                     return (
                         <link rel="alternate" href={href} hrefLang={replaced_local} key={locale} />
                     )

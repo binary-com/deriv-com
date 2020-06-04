@@ -36,13 +36,15 @@ const SEO = ({ description, meta, title, no_index }) => {
         const current_lang = path_array[1]
         const check_lang = current_lang.replace('-', '_')
         let current_page = pathname
+
         if (languages.includes(check_lang)) {
             path_array.splice(1, 1)
             current_page = path_array.join('/')
         }
+        if (current_lang === 'ach') is_ach_page = true
 
         languages.forEach((lang) => {
-            if (lang !== 'ach') {
+            if (!is_ach_page) {
                 const link = {}
                 const is_default = lang === 'en'
                 const href_lang = is_default ? '' : `/${lang}`

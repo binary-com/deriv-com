@@ -9,6 +9,7 @@ import TradingImage from 'images/common/practice.png'
 const is_browser = typeof window !== 'undefined'
 
 const languages = Object.keys(language_config)
+languages.push('x-default')
 const SEO = ({ description, meta, title, no_index }) => {
     let queries = []
     queries = useStaticQuery(
@@ -43,7 +44,6 @@ const SEO = ({ description, meta, title, no_index }) => {
         }
         if (current_lang === 'ach') is_ach_page = true
     }
-    languages.push('x-default')
 
     return (
         <Helmet
@@ -156,7 +156,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                     const origin = is_browser && window.location.origin
 
                     const is_default = locale === 'en' || locale === 'x-default'
-                    const href_lang = is_default ? '' : `/${locale}`
+                    const href_lang = is_default ? '' : `/${replaced_local}`
                     const href = `${origin}${href_lang}${current_page}`
 
                     return (

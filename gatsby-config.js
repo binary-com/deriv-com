@@ -107,7 +107,7 @@ module.exports = {
                                 const replaced_locale = locale.replace('_', '-')
 
                                 const is_default = locale === 'en' || locale === 'x-default'
-                                const href_locale = is_default ? '' : `/${locale}`
+                                const href_locale = is_default ? '' : `/${replaced_locale}`
                                 const href = `${site.siteMetadata.siteUrl}${href_locale}${current_page}`
 
                                 return { lang: replaced_locale, url: href }

@@ -9,7 +9,7 @@ import TradingImage from 'images/common/practice.png'
 const non_localized_links = ['/careers', '/careers/']
 
 const languages = Object.keys(language_config)
-
+languages.push('x-default')
 const SEO = ({ description, meta, title, no_index }) => {
     let queries = []
     queries = useStaticQuery(

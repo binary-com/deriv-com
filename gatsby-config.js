@@ -7,7 +7,7 @@ module.exports = {
         description:
             'Deriv.com gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
         author: 'Deriv.com',
-        siteUrl: 'https://www.deriv.com',
+        siteUrl: 'https://deriv.com',
     },
     plugins: [
         {

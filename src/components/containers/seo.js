@@ -6,7 +6,6 @@ import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/practice.png'
 
-const is_browser = typeof window !== 'undefined'
 const non_localized_links = ['/careers', '/careers/']
 
 const languages = Object.keys(language_config)
@@ -21,6 +20,7 @@ const SEO = ({ description, meta, title, no_index }) => {
                         title
                         description
                         author
+                        siteUrl
                     }
                 }
             }
@@ -28,12 +28,12 @@ const SEO = ({ description, meta, title, no_index }) => {
     )
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
-    const { locale: lang } = React.useContext(LocaleContext)
+    const site_url = queries.site.siteMetadata.siteUrl
+    const { locale: lang, pathname } = React.useContext(LocaleContext)
 
     let is_ach_page = false
     let current_page = ''
-    if (is_browser) {
-        const { pathname } = window.location
+    if (pathname) {
         const path_array = pathname.split('/')
         const current_lang = path_array[1]
         const check_lang = current_lang.replace('-', '_')
@@ -155,18 +155,17 @@ const SEO = ({ description, meta, title, no_index }) => {
             </script> */}
             {!is_non_localized &&
                 languages.map((locale) => {
-                    if (!(locale === 'ach') && is_browser) {
+                    if (!(locale === 'ach')) {
                         const replaced_local = locale.replace('_', '-')
-                        const origin = is_browser && window.location.origin
-
                         const is_default = locale === 'en' || locale === 'x-default'
                         const href_lang = is_default ? '' : `/${replaced_local}`
-                        const href = `${origin}${href_lang}${current_page}`
+                        const href = `${site_url}${href_lang}${current_page}`
 
                         return (
                             <link
                                 rel="alternate"
-                                hrefLang={replaced_local}
+                                // eslint-disable-next-line react/no-unknown-property
+                                hreflang={replaced_local}
                                 href={href}
                                 key={replaced_local}
                             />

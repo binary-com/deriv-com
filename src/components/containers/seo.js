@@ -31,7 +31,6 @@ const SEO = ({ description, meta, title, no_index }) => {
 
     let is_ach_page = false
     let current_page = ''
-    const links = []
     if (is_browser) {
         const { pathname } = window.location
         const path_array = pathname.split('/')
@@ -45,17 +44,6 @@ const SEO = ({ description, meta, title, no_index }) => {
         }
         if (current_lang === 'ach') is_ach_page = true
     }
-    languages.forEach((locale) => {
-        if (!(locale === 'ach') && is_browser) {
-            const replaced_local = locale.replace('_', '-')
-            const origin = is_browser && window.location.origin
-
-            const is_default = locale === 'en' || locale === 'x-default'
-            const href_lang = is_default ? '' : `/${replaced_local}`
-            const href = `${origin}${href_lang}${current_page}`
-            links.push({ rel: 'alternate', hrefLang: replaced_local, href })
-        }
-    })
 
     return (
         <Helmet
@@ -65,7 +53,6 @@ const SEO = ({ description, meta, title, no_index }) => {
             title={title}
             titleTemplate={`%s | ${queries.site.siteMetadata.title}`}
             defer={false}
-            links={links}
             meta={[
                 {
                     name: 'description',
@@ -163,6 +150,25 @@ const SEO = ({ description, meta, title, no_index }) => {
                         applicationId: 'f0aef779-d9ec-4517-807e-a84c683c4265',
                     })`}
             </script> */}
+            {languages.map((locale) => {
+                if (!(locale === 'ach') && is_browser) {
+                    const replaced_local = locale.replace('_', '-')
+                    const origin = is_browser && window.location.origin
+
+                    const is_default = locale === 'en' || locale === 'x-default'
+                    const href_lang = is_default ? '' : `/${replaced_local}`
+                    const href = `${origin}${href_lang}${current_page}`
+
+                    return (
+                        <link
+                            rel="alternate"
+                            hrefLang={replaced_local}
+                            href={href}
+                            key={replaced_local}
+                        />
+                    )
+                }
+            })}
         </Helmet>
     )
 }

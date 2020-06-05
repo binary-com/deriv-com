@@ -5,7 +5,7 @@ import { isBrowser } from 'common/utility'
 
 export const LocaleContext = React.createContext()
 
-export const LocaleContextWrapper = ({ children, pageContext: { locale } }) => {
+export const LocaleContextWrapper = ({ children, pageContext: { locale, pathname } }) => {
     const [has_window_loaded, setWindowLoaded] = React.useState(false)
 
     React.useEffect(() => {
@@ -15,7 +15,7 @@ export const LocaleContextWrapper = ({ children, pageContext: { locale } }) => {
     }, [])
 
     return (
-        <LocaleContext.Provider value={{ locale, has_window_loaded }}>
+        <LocaleContext.Provider value={{ locale, pathname, has_window_loaded }}>
             <GlobalStyle />
             {children}
         </LocaleContext.Provider>
@@ -26,6 +26,7 @@ LocaleContextWrapper.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
     pageContext: PropTypes.shape({
         locale: PropTypes.string,
+        pathname: PropTypes.string,
     }),
 }
 

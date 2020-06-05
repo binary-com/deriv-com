@@ -37,6 +37,7 @@ exports.onCreatePage = ({ page, actions }) => {
                 ...page.context,
                 locale: lang,
                 localeResources: translations_cache[lang],
+                pathname: localized_path,
             },
         })
     })

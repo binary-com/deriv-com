@@ -17,7 +17,7 @@ const CheckMark = styled(CheckMarkIcon)`
 
 const HeroWrapper = styled.section`
     width: 100%;
-    min-height: calc(100vh - 7rem);
+    min-height: auto;
     background: var(--color-black);
     position: relative;
     overflow: hidden;

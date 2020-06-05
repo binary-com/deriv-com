@@ -7,6 +7,7 @@ import language_config from '../../../i18n-config'
 import TradingImage from 'images/common/practice.png'
 
 const is_browser = typeof window !== 'undefined'
+const non_localized_links = ['/careers', '/careers/']
 
 const languages = Object.keys(language_config)
 
@@ -44,6 +45,8 @@ const SEO = ({ description, meta, title, no_index }) => {
         }
         if (current_lang === 'ach') is_ach_page = true
     }
+
+    const is_non_localized = non_localized_links.includes(current_page)
 
     return (
         <Helmet
@@ -150,25 +153,26 @@ const SEO = ({ description, meta, title, no_index }) => {
                         applicationId: 'f0aef779-d9ec-4517-807e-a84c683c4265',
                     })`}
             </script> */}
-            {languages.map((locale) => {
-                if (!(locale === 'ach') && is_browser) {
-                    const replaced_local = locale.replace('_', '-')
-                    const origin = is_browser && window.location.origin
+            {!is_non_localized &&
+                languages.map((locale) => {
+                    if (!(locale === 'ach') && is_browser) {
+                        const replaced_local = locale.replace('_', '-')
+                        const origin = is_browser && window.location.origin
 
-                    const is_default = locale === 'en' || locale === 'x-default'
-                    const href_lang = is_default ? '' : `/${replaced_local}`
-                    const href = `${origin}${href_lang}${current_page}`
+                        const is_default = locale === 'en' || locale === 'x-default'
+                        const href_lang = is_default ? '' : `/${replaced_local}`
+                        const href = `${origin}${href_lang}${current_page}`
 
-                    return (
-                        <link
-                            rel="alternate"
-                            hrefLang={replaced_local}
-                            href={href}
-                            key={replaced_local}
-                        />
-                    )
-                }
-            })}
+                        return (
+                            <link
+                                rel="alternate"
+                                hrefLang={replaced_local}
+                                href={href}
+                                key={replaced_local}
+                            />
+                        )
+                    }
+                })}
         </Helmet>
     )
 }

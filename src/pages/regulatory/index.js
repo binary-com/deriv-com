@@ -96,6 +96,16 @@ const Regulatory = () => (
         <SectionContainer padding="8rem 0 0">
             <GridContainer>
                 <StyledHeader size="3.6rem" align="center" lh="4.5rem">
+                    {localize('Deriv Limited')}
+                </StyledHeader>
+                <Box padding="4rem 0">
+                    <Text lh="1.55" mt="2rem" max_width="79.2rem">
+                        {localize(
+                            'Deriv Ltd, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the following subsidiaries.',
+                        )}
+                    </Text>
+                </Box>
+                <StyledHeader size="3.6rem" align="center" lh="4.5rem">
                     {localize('Binary Investments (Europe) Ltd')}
                 </StyledHeader>
                 <Box>

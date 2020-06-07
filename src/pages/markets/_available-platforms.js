@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
@@ -11,7 +11,9 @@ import DBot from 'images/svg/dbot-icon.svg'
 import SmartTrader from 'images/svg/smarttrader.svg'
 
 const PlatformsContainer = styled(Flex)`
-    margin-top: 1.6rem;
+    max-width: 37rem;
+    width: 100%;
+    justify-content: space-around;
 
     a {
         text-decoration: none;
@@ -33,16 +35,19 @@ const PlatformsContainer = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        justify-content: flex-start;
-        margin-top: 3rem;
+        max-width: 50rem;
     }
 `
 const StyledText = styled(Text)`
     margin-right: 1.6rem;
+    width: 102px;
 
     @media ${device.tabletL} {
         font-size: 1.75rem;
         margin-right: 1rem;
+    }
+    @media ${device.tablet} {
+        margin-bottom: ${(props) => (props.tablet_direction === 'column' ? '1.6rem' : 'unset')};
     }
 `
 const StyledFlex = styled(Flex)`
@@ -54,51 +59,64 @@ const StyledFlex = styled(Flex)`
         padding: 0;
     }
 `
-const AvailablePlatforms = ({ dmt5, dtrader, dbot, smarttrader }) => {
+const AvailablePlatforms = ({
+    dmt5,
+    dtrader,
+    dbot,
+    smarttrader,
+    flex_direction,
+    tablet_direction,
+    tablet_jc,
+}) => {
     return (
-        <PlatformsContainer ai="center">
-            <StyledText>{localize('Available on')}</StyledText>
-            {dmt5 && (
-                <LocalizedLink to="/dmt5/">
-                    <StyledFlex direction="row" ai="center">
-                        <DMT5 />
-                        <Show.Desktop>
+        <Flex
+            fd={flex_direction}
+            mobileL={{ mt: '16px' }}
+            mt="2.4rem"
+            tablet_direction={tablet_direction}
+            ai="center"
+            tablet_jc={tablet_jc}
+        >
+            <StyledText tablet_direction={tablet_direction}>{localize('Available on')}</StyledText>
+            <PlatformsContainer ai="center">
+                {dmt5 && (
+                    <LocalizedLink to="/dmt5/">
+                        <StyledFlex direction="row" ai="center">
+                            <DMT5 />
                             <Text ml="0.8rem">{localize('MetaTrader5 (DMT5)')}</Text>
-                        </Show.Desktop>
-                    </StyledFlex>
-                </LocalizedLink>
-            )}
-            {dtrader && (
-                <LocalizedLink to="/dtrader/">
-                    <StyledFlex direction="row" ai="center">
-                        <DTrader />
-                        <Show.Desktop>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {dtrader && (
+                    <LocalizedLink to="/dtrader/">
+                        <StyledFlex direction="row" ai="center">
+                            <DTrader />
                             <Text>{localize('DTrader')}</Text>
-                        </Show.Desktop>
-                    </StyledFlex>
-                </LocalizedLink>
-            )}
-            {dbot && (
-                <LocalizedLink to="/dbot/">
-                    <StyledFlex direction="row" ai="center">
-                        <DBot />
-                        <Show.Desktop>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {dbot && (
+                    <LocalizedLink to="/dbot/">
+                        <StyledFlex direction="row" ai="center">
+                            <DBot />
                             <Text>{localize('DBot')}</Text>
-                        </Show.Desktop>
-                    </StyledFlex>
-                </LocalizedLink>
-            )}
-            {smarttrader && (
-                <a href="https://smarttrader.deriv.app/" target="_blank" rel="noopener noreferrer">
-                    <StyledFlex direction="row" ai="center">
-                        <SmartTrader />
-                        <Show.Desktop>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {smarttrader && (
+                    <a
+                        href="https://smarttrader.deriv.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <StyledFlex direction="row" ai="center">
+                            <SmartTrader />
                             <Text>{localize('SmartTrader')}</Text>
-                        </Show.Desktop>
-                    </StyledFlex>
-                </a>
-            )}
-        </PlatformsContainer>
+                        </StyledFlex>
+                    </a>
+                )}
+            </PlatformsContainer>
+        </Flex>
     )
 }
 
@@ -106,6 +124,9 @@ AvailablePlatforms.propTypes = {
     dbot: PropTypes.bool,
     dmt5: PropTypes.bool,
     dtrader: PropTypes.bool,
+    flex_direction: PropTypes.string,
     smarttrader: PropTypes.bool,
+    tablet_direction: PropTypes.string,
+    tablet_jc: PropTypes.string,
 }
 export default AvailablePlatforms

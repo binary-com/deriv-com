@@ -67,7 +67,7 @@ const Margin = () => {
                             'Margin trading allows you to purchase larger units of an asset at a fraction of the cost while amplifying your potential profit, but similarly increasing your potential loss.',
                         )}
                     </StyledText>
-                    <AvailablePlatforms dmt5 />
+                    <AvailablePlatforms dmt5 tablet_jc="flex-start" />
                 </Descriptions>
                 <StyledText weight="bold" mt="2.4rem">
                     {localize('Instruments available for margin trading')}

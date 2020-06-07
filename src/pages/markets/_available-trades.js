@@ -113,6 +113,9 @@ const CardContainer = styled(Flex)`
         width: 15.5rem;
         height: 6rem;
     }
+    @media ${device.mobileL} {
+        min-width: 12rem;
+    }
 `
 const ContentWrapper = styled.div`
     width: 100%;

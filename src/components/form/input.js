@@ -99,7 +99,9 @@ const StyledInput = styled.input`
             background-color: var(--color-${(props) => props.background || 'grey-1'});
         }
         &::placeholder {
-            opacity: 0.5;
+            opacity: 1;
+            color: var(--color-black-3);
+            font-size: 14px;
         }
     }
     &:valid {

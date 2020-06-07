@@ -83,7 +83,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
                             <DMT5 />
-                            <Text ml="0.8rem">{localize('MetaTrader5 (DMT5)')}</Text>
+                            <Text ml="0.4rem">{localize('MetaTrader5 (DMT5)')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -91,7 +91,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
                             <DTrader />
-                            <Text>{localize('DTrader')}</Text>
+                            <Text ml="0.4rem">{localize('DTrader')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -99,7 +99,7 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dbot/">
                         <StyledFlex direction="row" ai="center">
                             <DBot />
-                            <Text>{localize('DBot')}</Text>
+                            <Text ml="0.4rem">{localize('DBot')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -111,7 +111,7 @@ const AvailablePlatforms = ({
                     >
                         <StyledFlex direction="row" ai="center">
                             <SmartTrader />
-                            <Text>{localize('SmartTrader')}</Text>
+                            <Text ml="0.4rem">{localize('SmartTrader')}</Text>
                         </StyledFlex>
                     </a>
                 )}

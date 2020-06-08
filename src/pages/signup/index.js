@@ -53,6 +53,10 @@ const StyledDiv = styled.div`
 
 const StyledGraph = styled(Graph)`
     overflow: initial;
+
+    @media ${device.laptop} {
+        width: auto;
+    }
 `
 
 const NewSignup = () => {

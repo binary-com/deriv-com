@@ -102,7 +102,11 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
             cover_content={localize('Discover DMT5 now')}
             title={localize('DMT5')}
             Icon={StyledDmt5}
-            content={[localize('The platform of choice for professionals worldwide.')]}
+            content={[
+                localize(
+                    'Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals.',
+                ),
+            ]}
             is_inline_icon
             min_height="12.4rem"
             is_selected={is_selected}

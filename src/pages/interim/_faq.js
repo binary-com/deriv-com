@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NeedSignUp, BinaryRemoved, DerivSecure, OtherChanges } from './_faq-data'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/dot-pattern.svg'
@@ -43,9 +43,12 @@ const Faq = () => {
     }
     return (
         <RelativeContainer>
-            <Header size="3.6rem" mb="4rem" align="center">
-                {localize('Frequently asked questions')}
-            </Header>
+            <Container>
+                <Header size="3.6rem" mb="4rem" align="center">
+                    {localize('Frequently asked questions')}
+                </Header>
+            </Container>
+
             <AccordionWrapper>
                 <Accordion has_single_state>
                     <AccordionItem

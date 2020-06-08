@@ -1,65 +1,133 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ContinuousIndices, DailyResetIndices } from '../sub-markets/_submarkets.js'
+import MarketsAccordion from '../_markets_accordion.js'
+import AvailablePlatforms from '../_available-platforms.js'
+import { ContinuousIndices } from '../sub-markets/_submarkets.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
-import Dtrader from 'images/svg/dtrader-icon.svg'
-
+import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
 const Descriptions = styled.div`
     padding-bottom: 4rem;
     border-bottom: 1px solid var(--color-grey-21);
 `
 const Col = styled(Flex)`
-    ${(props) => props.border_left && 'border-left: 1px solid #e3e4e5;'}
+    max-width: 13.2rem;
+
+    @media ${device.tabletL} {
+        max-width: 10rem;
+    }
 `
-const Row = styled(Flex)`
-    border: ${(props) => (props.remove_border ? '' : '1px solid #e3e4e5')};
-    ${(props) => props.romve_border_top && 'border-top: unset;'}
+const MarketsWrapper = styled(Flex)`
+    flex-direction: column;
+
+    > div {
+        margin-top: 2.4rem;
+    }
+`
+const Row = styled(Flex)``
+const StyledText = styled(Text)`
+    @media ${device.tabletL} {
+        font-size: 2rem;
+        text-align: left;
+    }
+`
+const MarketsList = styled(CssGrid)`
+    border-left: 1px solid var(--color-grey-22);
+    border-right: 1px solid var(--color-grey-22);
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding: 2.4rem 1.6rem;
+    grid-row-gap: 1.6rem;
+
+    @media ${device.tabletL} {
+        grid-template-columns: ${(props) =>
+            props.mobile_col_template ? props.mobile_col_template : 'repeat(1, 1fr)'};
+
+        svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+        }
+        ${Text} {
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+    }
+`
+const Title = styled(Text)`
+    @media ${device.tabletL} {
+        text-align: center;
+        max-width: 8rem;
+        font-weight: 600;
+    }
 `
 
+const DetailsContainer = styled(Flex)`
+    flex-direction: column;
+
+    ${Text} {
+        font-size: 1.4rem;
+        margin-top: 1.6rem;
+
+        @media ${device.tabletL} {
+            margin-top: 1rem;
+        }
+    }
+`
+const ContinuousIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'These indices correspond to simulated markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+            )}
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>One tick</0> is generated <0>every two seconds</0> for volatility indices <0>10, 25, 50, 75, and 100</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s) and 100 (1s)</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
 const Multipliers = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
             <Flex max_width="79.2rem" m="0 auto" direction="column">
                 <Descriptions>
-                    <Text align="center">
+                    <StyledText align="center">
                         {localize(
                             'Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.',
                         )}
-                    </Text>
-                    <Flex jc="flex-end" ai="center" mt="2rem" pr="8rem">
-                        <Text mr="0.8rem">{localize('Available on')}</Text>
-                        <LocalizedLink to="/dtrader/">
-                            <Dtrader />
-                        </LocalizedLink>
-                    </Flex>
+                    </StyledText>
+                    <AvailablePlatforms dtrader />
                 </Descriptions>
-                <Text weight="bold" mt="2.4rem">
-                    {localize('Instruments available for multipliers')}
-                </Text>
-                <Row jc="flex-start" ai="center" mt="1.6rem" background="rgba(242, 243, 244, 0.3)">
-                    <Col max_width="13.2rem">
-                        <Text weight="bold" align="center">
-                            {localize('Continuous indices')}
-                        </Text>
-                    </Col>
-                    <Col wrap="wrap" jc="flex-start" p="2rem 0 2.4rem 1.6rem" border_left>
-                        <CssGrid columns="1fr 1fr 1fr" row_gap="1.6rem">
-                            <ContinuousIndices />
-                        </CssGrid>
-                    </Col>
-                </Row>
-                <Row jc="flex-start" ai="center" romve_border_top>
-                    <Col max_width="13.2rem">
-                        <Text weight="bold" align="center">
-                            {localize('Daily reset indices')}
-                        </Text>
-                    </Col>
-                    <Col wrap="wrap" jc="flex-start" p="3.2rem 0 3.2rem 1.6rem" border_left>
-                        <DailyResetIndices />
-                    </Col>
-                </Row>
+                <StyledText weight="bold" mt="2.4rem">
+                    {localize('Instruments available for multipliers trading')}
+                </StyledText>
+                <MarketsWrapper>
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col>
+                                    <Title weight="bold" align="center">
+                                        {localize('Continuous indices')}
+                                    </Title>
+                                </Col>
+                                <MarketsList>
+                                    <ContinuousIndices />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={ContinuousIndicesDetails}
+                    />
+                </MarketsWrapper>
             </Flex>
         </SectionContainer>
     )

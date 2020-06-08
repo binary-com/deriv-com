@@ -2,12 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import { LocaleContext } from '../localization'
 import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
+import { LocationProvider } from './location-context'
 import CookieBanner from 'components/custom/cookie-banner'
-import { Show } from 'components/containers'
 import { isEuCountry } from 'common/country-base'
+import { BinarySocketBase } from 'common/websocket/socket_base'
+import { isBrowser } from 'common/utility'
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};
@@ -16,22 +19,69 @@ const Main = styled.main`
     position: relative;
 `
 
+const has_dataLayer = isBrowser() && window.dataLayer
+const cookie_expires = 7
+
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
+    const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
+    const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
+    const { has_window_loaded } = React.useContext(LocaleContext)
+
     const is_static = type === 'static'
 
-    // Handle cookie banners
-    const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     React.useEffect(() => {
-        const clients_country = Cookies.get('clients_country')
-        if (isEuCountry(clients_country)) {
-            const has_cookie = Cookies.get('has_cookie_accepted')
-            setShowCookieBanner(!has_cookie)
+        if (!clients_country) {
+            const binary_socket = BinarySocketBase.init()
+
+            binary_socket.onopen = () => {
+                binary_socket.send(JSON.stringify({ website_status: 1 }))
+            }
+
+            binary_socket.onmessage = (msg) => {
+                const response = JSON.parse(msg.data)
+
+                if (!response.error) {
+                    setClientCountry(response.website_status.clients_country)
+                    Cookies.set('clients_country', response.website_status.clients_country, {
+                        expires: cookie_expires,
+                    })
+                }
+
+                binary_socket.close()
+            }
         }
     }, [])
+
+    React.useEffect(() => {
+        if (!clients_country || !has_window_loaded) return
+
+        const is_eu_country = isEuCountry(clients_country)
+        const tracking_status = Cookies.get('tracking_status')
+
+        if (is_eu_country && !tracking_status) setShowCookieBanner(true)
+
+        const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
+
+        if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
+    }, [clients_country, has_window_loaded])
+
     const onAccept = () => {
-        Cookies.set('has_cookie_accepted', 1)
+        Cookies.set('tracking_status', 'accepted', {
+            expires: cookie_expires,
+        })
+
+        if (has_dataLayer) window.dataLayer.push({ event: 'allow_tracking' })
+
         setShowCookieBanner(false)
     }
+
+    const onDecline = () => {
+        Cookies.set('tracking_status', 'declined', {
+            expires: cookie_expires,
+        })
+        setShowCookieBanner(false)
+    }
+
     // Handle navigation types
     let Navigation = <></>
     let FooterNav = <></>
@@ -45,30 +95,37 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             break
         case 'partners':
             Navigation = <NavPartners no_login_signup={no_login_signup} />
-            FooterNav = <Footer has_banner_cookie={show_cookie_banner} />
+            FooterNav = <Footer />
             break
         case 'careers':
             Navigation = <NavCareers />
-            FooterNav = <Footer has_banner_cookie={show_cookie_banner} no_language={true} />
+            FooterNav = <Footer no_language={true} />
             break
         default:
             Navigation = <Nav />
-            FooterNav = <Footer has_banner_cookie={show_cookie_banner} />
+            FooterNav = <Footer />
             break
     }
+
     return (
-        <>
+        <LocationProvider
+            is_eu_country={clients_country ? isEuCountry(clients_country) : undefined}
+            show_cookie_banner={show_cookie_banner}
+        >
             {Navigation}
             <Main padding_top={padding_top} is_static={is_static}>
                 {children}
             </Main>
-            <Show.Eu>
-                {show_cookie_banner && (
-                    <CookieBanner onAccept={onAccept} is_open={show_cookie_banner} />
-                )}
-            </Show.Eu>
+
+            {show_cookie_banner && (
+                <CookieBanner
+                    onAccept={onAccept}
+                    onDecline={onDecline}
+                    is_open={show_cookie_banner}
+                />
+            )}
             {FooterNav}
-        </>
+        </LocationProvider>
     )
 }
 

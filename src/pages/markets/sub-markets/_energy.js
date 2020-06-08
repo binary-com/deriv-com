@@ -7,7 +7,6 @@ import { OILUSD } from 'components/elements/symbols.js'
 
 const Symbol = styled(Flex)`
     width: fit-content;
-    margin-right: 2.4rem;
 
     svg {
         width: 32px;
@@ -16,6 +15,8 @@ const Symbol = styled(Flex)`
     }
     ${Text} {
         font-weight: normal;
+        font-size: var(--text-size-xs);
+        line-height: 1.14;
     }
 `
 

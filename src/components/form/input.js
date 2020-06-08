@@ -74,11 +74,11 @@ const StyledInput = styled.input`
         }
     }
 
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         & ~ label {
             font-size: 1.5rem;
             top: 1.75rem;
-        }
+        }       
     }
 
     &::placeholder {
@@ -97,6 +97,10 @@ const StyledInput = styled.input`
 
             /* prettier-ignore */
             background-color: var(--color-${(props) => props.background || 'grey-1'});
+
+            @media ${device.mobileL} {
+                transform: translate(-0.6rem, -20px) scale(0.7);
+            }
         }
         &::placeholder {
             opacity: 1;

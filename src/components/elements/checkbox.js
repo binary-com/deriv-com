@@ -12,9 +12,10 @@ const Icon = styled.svg`
     fill: none;
     stroke: ${(props) => {
         if (props.secondary) return 'var(--color-white)'
-        return 'var(--color-black)'
+        return 'var(--color-white)'
     }};
     stroke-width: 4px;
+    background-color: var(--color-red);
 `
 
 const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`

@@ -280,7 +280,7 @@ const SignupNew = ({
                 />
             </InputGroup>
             <label>
-                <Checkbox onChange={handleChange} checked={checkBoxState} />
+                <Checkbox secondary onChange={handleChange} checked={checkBoxState} />
                 <CheckboxSpan>
                     <Localize
                         fontSize="var(--text-size-xs)"

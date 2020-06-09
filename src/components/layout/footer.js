@@ -10,10 +10,9 @@ import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv-footer.svg'
-/* TODO: [social-media] uncomment when social media accounts are ready for Deriv */
-// import Twitter from 'images/svg/footer-twitter.svg'
-// import Instagram from 'images/svg/footer-instagram.svg'
-// import Facebook from 'images/svg/footer-facebook.svg'
+import Twitter from 'images/svg/footer-twitter.svg'
+import Instagram from 'images/svg/footer-instagram.svg'
+import Facebook from 'images/svg/footer-facebook.svg'
 import Warning from 'images/svg/warning.svg'
 
 const DerivLogo = styled(Logo)`
@@ -173,27 +172,27 @@ const StaticAsset = styled.a`
         font-size: var(--text-size-sm);
     }
 `
-/* TODO: [social-media] uncomment when social media accounts are ready for Deriv */
-// const ExternalLink = styled.a`
-//     text-decoration: none;
-// `
 
-// const SocialWrapper = styled(Flex)`
-//     svg {
-//         width: 4.2rem;
-//         margin-right: 1rem;
-//     }
-//     ${Text} {
-//         margin-top: 0;
-//         letter-spacing: 2px;
-//         color: var(--color-black-6);
-//         margin-bottom: 0.8rem;
+const ExternalLink = styled.a`
+    text-decoration: none;
+`
 
-//         @media ${device.tabletL} {
-//             margin-bottom: 1rem;
-//         }
-//     }
-// `
+const SocialWrapper = styled(Flex)`
+    svg {
+        width: 4.2rem;
+        margin-right: 1rem;
+    }
+    ${Text} {
+        margin-top: 0;
+        letter-spacing: 2px;
+        color: var(--color-black-6);
+        margin-bottom: 0.8rem;
+
+        @media ${device.tabletL} {
+            margin-bottom: 1rem;
+        }
+    }
+`
 const SocialMedia = styled(Flex)`
     @media ${device.tabletL} {
         margin-top: 2rem;
@@ -237,35 +236,34 @@ const Footer = () => {
                             )}
                         </Text>
                         <SocialMedia mt="3.1rem" jc="flex-start" direction="column">
-                            {/* TODO: [social-media] uncomment when social media accounts are ready for Deriv */}
-                            {/* <SocialWrapper mt="0.8rem" jc="space-between" direction="column">
-                            <div>
-                                <Text>{localize('CONNECT WITH US')}</Text>
-                            </div>
-                            <div>
-                                <ExternalLink
-                                    href="https://www.facebook.com/derivdotcom/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Facebook />
-                                </ExternalLink>
-                                <ExternalLink
-                                    href="https://www.instagram.com/derivdotcom/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Instagram />
-                                </ExternalLink>
-                                <ExternalLink
-                                    href="https://twitter.com/derivdotcom"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Twitter />
-                                </ExternalLink>
-                            </div>
-                        </SocialWrapper> */}
+                            <SocialWrapper mt="0.8rem" jc="space-between" direction="column">
+                                <div>
+                                    <Text>{localize('CONNECT WITH US')}</Text>
+                                </div>
+                                <div>
+                                    <ExternalLink
+                                        href="https://www.facebook.com/derivdotcom/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Facebook />
+                                    </ExternalLink>
+                                    <ExternalLink
+                                        href="https://www.instagram.com/derivdotcom/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Instagram />
+                                    </ExternalLink>
+                                    <ExternalLink
+                                        href="https://twitter.com/derivdotcom"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Twitter />
+                                    </ExternalLink>
+                                </div>
+                            </SocialWrapper>
                         </SocialMedia>
                     </InfoSection>
                     <Items>

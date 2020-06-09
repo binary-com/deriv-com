@@ -249,7 +249,7 @@ const Footer = () => {
                                         <Facebook />
                                     </ExternalLink>
                                     <ExternalLink
-                                        href="https://www.instagram.com/derivdotcom/"
+                                        href="https://www.instagram.com/deriv_official/"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >

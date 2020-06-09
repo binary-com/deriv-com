@@ -146,6 +146,7 @@ const Copyright = styled(Flex)`
 
     p {
         font-size: var(--text-size-xs);
+        line-height: 1.14;
     }
 
     @media ${device.tabletL} {
@@ -155,6 +156,7 @@ const Copyright = styled(Flex)`
 
         p {
             font-size: 1.75rem;
+            line-height: 1.5;
         }
     }
 `
@@ -541,9 +543,7 @@ const Footer = () => {
                     </Disclaimer>
                     <Copyright>
                         <CopyrightIc width="16px" />
-                        <Text ml="0.4rem" lh="1.14">
-                            {localize('2020 Deriv | All rights reserved')}
-                        </Text>
+                        <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
                     <SocialWrapper>
                         <ExternalLink

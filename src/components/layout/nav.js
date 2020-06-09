@@ -1,5 +1,6 @@
 // TODO: (discussion) make nav pure component, and move usage of nav to custom
 import React, { useState, useEffect, useRef } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
@@ -19,6 +20,8 @@ import {
     moveOffCanvasMenu,
     Text,
     LocalizedLinkText,
+    QueryImage,
+    Divider,
 } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -33,16 +36,18 @@ import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import BinaryLogo from 'images/svg/binary.svg'
 
+const query = graphql`
+    query {
+        deriv: file(relativePath: { eq: "logo.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
-`
-
-const ResponsiveLogo = styled(Logo)`
-    @media (max-width: 1104px) {
-        width: 160px;
-    }
 `
 
 const InterimNav = styled.nav`
@@ -55,22 +60,26 @@ const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 
     @media (max-width: 1150px) {
-        & svg {
+        & svg,
+        .gatsby-image-wrapper {
             width: 20rem;
         }
     }
     @media (max-width: 1104px) {
-        & svg {
+        & svg,
+        .gatsby-image-wrapper {
             width: 15rem;
         }
     }
     @media ${device.tabletS} {
-        & svg {
+        & svg,
+        .gatsby-image-wrapper {
             width: 15rem;
         }
     }
     @media ${device.mobileL} {
-        & svg {
+        & svg,
+        .gatsby-image-wrapper {
             width: 13rem;
         }
     }
@@ -288,6 +297,7 @@ const MobileRight = styled.div`
 `
 
 export const Nav = () => {
+    const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
@@ -420,8 +430,14 @@ export const Nav = () => {
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
-                            <ResponsiveLogo />
+                            <QueryImage
+                                data={data['deriv']}
+                                alt={localize('Deriv')}
+                                width="16.4rem"
+                                height="2.7rem"
+                            />
                         </LogoLink>
+                        <Divider color="white" width="1px" height="2.7rem" m="0 1.6rem" />
                         <LocalizedLink
                             external
                             to={binary_url}
@@ -593,32 +609,49 @@ export const NavInterim = ({ interim_type }) => (
     </InterimNav>
 )
 
-export const NavStatic = () => (
-    <StaticWrapper>
-        <LogoLink to="/" aria-label={localize('Home')}>
-            <ResponsiveLogo />
-        </LogoLink>
-        <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
-            <BinaryLogo width="24" height="24" />
-        </LocalizedLink>
-        <Binary size="var(--text-size-xxs)" color="white">
-            <Localize
-                translate_text="A <0>Binary.com</0> brand"
-                components={[
-                    <BinaryLink
-                        key={0}
-                        external
-                        to={binary_url}
-                        is_binary_link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        color="white"
-                    />,
-                ]}
-            />
-        </Binary>
-    </StaticWrapper>
-)
+const StaticLogo = styled(LogoLink)`
+    @media ${device.mobileL} {
+        & .gatsby-image-wrapper {
+            width: 15rem;
+        }
+    }
+`
+
+export const NavStatic = () => {
+    const data = useStaticQuery(query)
+    return (
+        <StaticWrapper>
+            <StaticLogo to="/" aria-label={localize('Home')}>
+                <QueryImage
+                    data={data['deriv']}
+                    alt={localize('Deriv')}
+                    width="16.4rem"
+                    height="2.7rem"
+                />
+            </StaticLogo>
+            <Divider color="white" width="1px" height="2.7rem" m="0 1.6rem" />
+            <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+                <BinaryLogo width="24" height="24" />
+            </LocalizedLink>
+            <Binary size="var(--text-size-xxs)" color="white">
+                <Localize
+                    translate_text="A <0>Binary.com</0> brand"
+                    components={[
+                        <BinaryLink
+                            key={0}
+                            external
+                            to={binary_url}
+                            is_binary_link
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            color="white"
+                        />,
+                    ]}
+                />
+            </Binary>
+        </StaticWrapper>
+    )
+}
 
 const DerivHomeWrapper = styled.div`
     background-color: var(--color-black);

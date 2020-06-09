@@ -219,7 +219,7 @@ class AvailableTrades extends React.Component {
                         {Multipliers && (
                             <Card
                                 name="Multipliers"
-                                display_name={<Localize translate_text="Multiplier" />}
+                                display_name={<Localize translate_text="Multipliers" />}
                                 onTabChange={() => this.handleTabChange('Multipliers')}
                                 active_tab={this.state.active_tab}
                             />

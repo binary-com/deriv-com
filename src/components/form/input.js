@@ -30,6 +30,11 @@ const InputWrapper = styled.div`
     }
 
     ${(props) =>
+        !props.error &&
+        css`
+            border-color: var(--color-grey-7);
+        `}
+    ${(props) =>
         props.error &&
         css`
             border-color: var(--color-red-1) !important;
@@ -111,7 +116,7 @@ const StyledInput = styled.input`
     &:valid {
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: var(--color-green);
+            color: var(--color-black-3);
 
             /* prettier-ignore */
             background-color: var(--color-${(props) => props.background || 'grey-1'});

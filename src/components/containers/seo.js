@@ -30,14 +30,15 @@ const SEO = ({ description, meta, title, no_index }) => {
     const metaDescription = description || queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
+    const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
 
     let is_ach_page = false
     let current_page = ''
-    if (pathname) {
-        const path_array = pathname.split('/')
+    if (locale_pathname) {
+        const path_array = locale_pathname.split('/')
         const current_lang = path_array[1]
         const check_lang = current_lang.replace('-', '_')
-        current_page = pathname
+        current_page = locale_pathname
 
         if (languages.includes(check_lang)) {
             path_array.splice(1, 1)

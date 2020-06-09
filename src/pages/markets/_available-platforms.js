@@ -33,7 +33,7 @@ const PlatformsContainer = styled(Flex)`
         margin-right: 0;
     }
 
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         max-width: 50rem;
         width: 100%;
     }
@@ -48,6 +48,9 @@ const StyledText = styled(Text)`
     }
     @media ${device.tablet} {
         margin-bottom: ${(props) => (props.tablet_direction === 'column' ? '1.6rem' : 'unset')};
+    }
+    @media ${device.mobileL} {
+        width: 121px;
     }
 `
 const StyledFlex = styled(Flex)`

@@ -50,6 +50,12 @@ const NavWrapper = styled.div`
     z-index: 100;
 `
 
+const ResponsiveLogo = styled(Logo)`
+    @media (max-width: 1104px) {
+        width: 160px;
+    }
+`
+
 const InterimNav = styled.nav`
     width: 100%;
     position: fixed;
@@ -609,49 +615,32 @@ export const NavInterim = ({ interim_type }) => (
     </InterimNav>
 )
 
-const StaticLogo = styled(LogoLink)`
-    @media ${device.mobileL} {
-        & .gatsby-image-wrapper {
-            width: 15rem;
-        }
-    }
-`
-
-export const NavStatic = () => {
-    const data = useStaticQuery(query)
-    return (
-        <StaticWrapper>
-            <StaticLogo to="/" aria-label={localize('Home')}>
-                <QueryImage
-                    data={data['deriv']}
-                    alt={localize('Deriv')}
-                    width="16.4rem"
-                    height="2.7rem"
-                />
-            </StaticLogo>
-            <Divider color="white" width="1px" height="2.7rem" m="0 1.6rem" />
-            <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
-                <BinaryLogo width="24" height="24" />
-            </LocalizedLink>
-            <Binary size="var(--text-size-xxs)" color="white">
-                <Localize
-                    translate_text="A <0>Binary.com</0> brand"
-                    components={[
-                        <BinaryLink
-                            key={0}
-                            external
-                            to={binary_url}
-                            is_binary_link
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            color="white"
-                        />,
-                    ]}
-                />
-            </Binary>
-        </StaticWrapper>
-    )
-}
+export const NavStatic = () => (
+    <StaticWrapper>
+        <LogoLink to="/" aria-label={localize('Home')}>
+            <ResponsiveLogo />
+        </LogoLink>
+        <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+            <BinaryLogo width="24" height="24" />
+        </LocalizedLink>
+        <Binary size="var(--text-size-xxs)" color="white">
+            <Localize
+                translate_text="A <0>Binary.com</0> brand"
+                components={[
+                    <BinaryLink
+                        key={0}
+                        external
+                        to={binary_url}
+                        is_binary_link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color="white"
+                    />,
+                ]}
+            />
+        </Binary>
+    </StaticWrapper>
+)
 
 const DerivHomeWrapper = styled.div`
     background-color: var(--color-black);

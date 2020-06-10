@@ -32,10 +32,8 @@ const PlatformsContainer = styled(Flex)`
     a:last-child {
         margin-right: 0;
     }
-
     @media ${device.tablet} {
-        max-width: 50rem;
-        width: 100%;
+        width: ${(props) => props.width};
     }
 `
 const StyledText = styled(Text)`
@@ -69,7 +67,6 @@ const AvailablePlatforms = ({
     smarttrader,
     flex_direction,
     tablet_direction,
-    tablet_jc,
 }) => {
     return (
         <Flex
@@ -78,10 +75,12 @@ const AvailablePlatforms = ({
             mt="2.4rem"
             tablet_direction={tablet_direction}
             ai="center"
-            tablet_jc={tablet_jc}
         >
             <StyledText tablet_direction={tablet_direction}>{localize('Available on')}</StyledText>
-            <PlatformsContainer ai="center" tablet_jc={tablet_jc}>
+            <PlatformsContainer
+                width={tablet_direction === 'column' ? '100%' : 'unset'}
+                ai="center"
+            >
                 {dmt5 && (
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">

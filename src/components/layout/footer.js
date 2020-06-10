@@ -60,8 +60,8 @@ const DerivLogoWrapper = styled.div`
 const LinksWrapper = styled.div`
     grid-area: links;
     padding: 1rem 0;
-    border-bottom: 1px solid #e9eaec;
-    border-top: 2px solid #e9eaec;
+    border-bottom: 1px solid var(--color-grey-26);
+    border-top: 2px solid var(--color-grey-26);
 
     @media ${device.tabletL} {
         padding: 0;
@@ -93,7 +93,7 @@ const DisclaimerParagraph = styled(Text)`
 
     @media ${device.tabletL} {
         width: 90%;
-        margin: 2rem auto 0 auto;
+        margin: 2rem auto 0;
         font-size: var(--text-size-sm);
     }
 `
@@ -112,12 +112,12 @@ const StaticAsset = styled.a`
 `
 const RiskWarning = styled.div`
     background-color: var(--color-grey-26);
-    border-left: 4px solid #f8a2a8;
+    border-left: 4px solid var(--color-grey-27);
     padding: 1.6rem;
     margin-top: 2rem;
 
     @media ${device.tabletL} {
-        border-top: 2px solid #f8a2a8;
+        border-top: 2px solid var(--color-grey-27);
         border-left: none;
         width: 90%;
         margin: 4rem auto 0;
@@ -561,7 +561,7 @@ const Footer = () => {
                             <Twitter />
                         </ExternalLink>
                         <ExternalLink
-                            href="https://www.instagram.com/derivdotcom/"
+                            href="https://www.instagram.com/deriv_official/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >

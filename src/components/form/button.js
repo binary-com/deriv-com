@@ -73,12 +73,12 @@ const SharedButtonStyle = css`
             `
         if (props.white)
             return css`
-                border: 2px solid var(--color-black-5);
+                border: 2px solid var(--color-white);
                 color: var(--color-white);
                 background: transparent;
 
                 &:hover {
-                    background-color: var(--color-white);
+                    background: var(--color-white);
                     color: var(--color-red);
                 }
             `

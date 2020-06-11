@@ -59,7 +59,7 @@ const DerivLogoWrapper = styled.div`
 `
 const LinksWrapper = styled.div`
     grid-area: links;
-    padding: 1rem 0;
+    padding: 0.8rem 0 2.4rem 0;
     border-bottom: 1px solid var(--color-grey-26);
     border-top: 2px solid var(--color-grey-26);
 
@@ -89,7 +89,7 @@ const Disclaimer = styled.div`
 `
 const DisclaimerParagraph = styled(Text)`
     font-size: var(--text-size-xs);
-    margin-top: ${(props) => (props.no_margin == 'true' ? '0' : '2rem')};
+    margin-top: ${(props) => (props.no_margin == 'true' ? '0' : '2.4rem')};
 
     @media ${device.tabletL} {
         width: 90%;
@@ -111,7 +111,7 @@ const StaticAsset = styled.a`
     }
 `
 const RiskWarning = styled.div`
-    background-color: var(--color-grey-26);
+    background-color: var(--color-grey-28);
     border-left: 4px solid var(--color-grey-27);
     padding: 1.6rem;
     margin-top: 2rem;
@@ -448,7 +448,7 @@ const Footer = () => {
                                         </Item>
                                     </AccordionItem>
                                     <AccordionItem
-                                        header={localize('PARTNER WITH US')}
+                                        header={localize('PARTNER')}
                                         arrow_thin
                                         header_style={mobile_accordion_header}
                                     >
@@ -497,7 +497,7 @@ const Footer = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Outside the EU, financial products are offered by Binary (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
+                                translate_text="Outside the EU, financial products are offered by Deriv (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Deriv (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -508,7 +508,7 @@ const Footer = () => {
                                     <StaticAsset
                                         key={1}
                                         target="_blank"
-                                        href="/BVI_license.pdf"
+                                        href="/DBVI_license.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                     <StaticAsset
@@ -522,7 +522,7 @@ const Footer = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             {localize(
-                                "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
+                                "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
                             )}
                         </DisclaimerParagraph>
                         <RiskWarning>

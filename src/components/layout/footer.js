@@ -171,6 +171,7 @@ const SocialWrapper = styled.div`
     @media ${device.tabletL} {
         display: flex;
         justify-content: center;
+        margin: 3rem 0 1rem;
 
         a:first-child {
             svg {
@@ -497,7 +498,7 @@ const Footer = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Outside the EU, financial products are offered by Deriv (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Deriv (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
+                                translate_text="Outside the EU, financial products are offered by Deriv (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
                                 components={[
                                     <StaticAsset
                                         key={0}
@@ -508,7 +509,7 @@ const Footer = () => {
                                     <StaticAsset
                                         key={1}
                                         target="_blank"
-                                        href="/DBVI_license.pdf"
+                                        href="/DBVI_License.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                     <StaticAsset
@@ -526,19 +527,41 @@ const Footer = () => {
                             )}
                         </DisclaimerParagraph>
                         <RiskWarning>
-                            <DisclaimerParagraph no_margin="true">
-                                <Localize
-                                    translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
-                                    components={[
-                                        <BoldLink
-                                            key={0}
-                                            target="_blank"
-                                            to="/responsible-trading/"
-                                        />,
-                                        <strong key={1} />,
-                                    ]}
-                                />
-                            </DisclaimerParagraph>
+                            <Show.Desktop>
+                                <DisclaimerParagraph no_margin="true">
+                                    <Localize
+                                        translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                        components={[
+                                            <BoldLink
+                                                key={0}
+                                                target="_blank"
+                                                to="/responsible-trading/"
+                                            />,
+                                            <strong key={1} />,
+                                        ]}
+                                    />
+                                </DisclaimerParagraph>
+                            </Show.Desktop>
+                            <Show.Mobile>
+                                <DisclaimerParagraph
+                                    no_margin="true"
+                                    style={{ marginBottom: '1rem' }}
+                                >
+                                    <strong>{localize('RISK WARNING')}</strong>
+                                </DisclaimerParagraph>
+                                <DisclaimerParagraph no_margin="true">
+                                    <Localize
+                                        translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                        components={[
+                                            <BoldLink
+                                                key={0}
+                                                target="_blank"
+                                                to="/responsible-trading/"
+                                            />,
+                                        ]}
+                                    />
+                                </DisclaimerParagraph>
+                            </Show.Mobile>
                         </RiskWarning>
                     </Disclaimer>
                     <Copyright>

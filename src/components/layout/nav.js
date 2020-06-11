@@ -120,8 +120,14 @@ const NavCenter = styled.ul`
     display: flex;
     justify-content: space-between;
 
+    @media (max-width: 1204px) {
+        font-size: 14px;
+    }
+    @media (max-width: 1175px) {
+        font-size: 12px;
+    }
     @media (max-width: 1104px) {
-        font-size: var(--text-size-xs);
+        font-size: 10px;
     }
     @media ${device.tabletL} {
         display: none;
@@ -178,7 +184,7 @@ const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
     text-align: left;
-    margin-right: 2.4rem;
+    margin-right: 1rem;
 
     &:last-child {
         margin-right: 0;

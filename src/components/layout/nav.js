@@ -39,12 +39,6 @@ const NavWrapper = styled.div`
     z-index: 100;
 `
 
-const ResponsiveLogo = styled(Logo)`
-    @media (max-width: 1104px) {
-        width: 160px;
-    }
-`
-
 const InterimNav = styled.nav`
     width: 100%;
     position: fixed;
@@ -54,24 +48,29 @@ const InterimNav = styled.nav`
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 
+    @media (max-width: 1200px) {
+        & svg {
+            width: 16rem;
+        }
+    }
     @media (max-width: 1150px) {
         & svg {
-            width: 20rem;
+            width: 13rem;
         }
     }
     @media (max-width: 1104px) {
         & svg {
-            width: 15rem;
+            width: 9rem;
         }
     }
     @media ${device.tabletS} {
         & svg {
-            width: 15rem;
+            width: 10rem;
         }
     }
     @media ${device.mobileL} {
         & svg {
-            width: 13rem;
+            width: 12rem;
         }
     }
 `
@@ -124,10 +123,10 @@ const NavCenter = styled.ul`
         font-size: 14px;
     }
     @media (max-width: 1175px) {
-        font-size: 12px;
+        font-size: 14px;
     }
     @media (max-width: 1104px) {
-        font-size: 10px;
+        font-size: 12px;
     }
     @media ${device.tabletL} {
         display: none;
@@ -184,7 +183,7 @@ const NavLink = styled.li`
     list-style-type: none;
     display: inline-block;
     text-align: left;
-    margin-right: 1rem;
+    margin-right: 2.4rem;
 
     &:last-child {
         margin-right: 0;
@@ -426,7 +425,7 @@ export const Nav = () => {
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
-                            <ResponsiveLogo />
+                            <Logo />
                         </LogoLink>
                         <LocalizedLink
                             external
@@ -602,7 +601,7 @@ export const NavInterim = ({ interim_type }) => (
 export const NavStatic = () => (
     <StaticWrapper>
         <LogoLink to="/" aria-label={localize('Home')}>
-            <ResponsiveLogo />
+            <Logo />
         </LogoLink>
         <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
             <BinaryLogo width="24" height="24" />

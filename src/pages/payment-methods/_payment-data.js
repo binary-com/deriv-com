@@ -13,7 +13,7 @@ import Skrill from 'images/svg/payment-skrill.svg'
 import Neteller from 'images/svg/payment-neteller.svg'
 import Webmoney from 'images/svg/payment-webmoney.svg'
 import Qiwi from 'images/svg/payment-qiwi.svg'
-import PaysafeCard from 'images/svg/payment-paysafe-card.svg'
+import PaysafeCard from 'images/svg/payment-paysafe.svg'
 import Jeton from 'images/svg/payment-jeton.svg'
 import Sticpay from 'images/svg/payment-sticpay.svg'
 import Airtm from 'images/svg/payment-airtm.svg'
@@ -24,6 +24,9 @@ import Tether from 'images/svg/payment-tether.svg'
 import Help2Pay from 'images/svg/payment-help-pay.svg'
 import DragonPhoenix from 'images/svg/payment-dragon-phoenix.svg'
 import ZingPay from 'images/svg/payment-zing-pay.svg'
+import DragonPay from 'images/svg/payment-dragon-pay.svg'
+import NganLuong from 'images/svg/payment-ngan-luong.svg'
+import Diners from 'images/svg/payment-diners.svg'
 
 const icon_css = css`
     width: 72px;
@@ -97,6 +100,15 @@ const DragonPhoenixIc = styled(DragonPhoenix)`
 const ZingPayIc = styled(ZingPay)`
     ${icon_css}
 `
+const DragonPayIc = styled(DragonPay)`
+    ${icon_css}
+`
+const NganLuongIc = styled(NganLuong)`
+    ${icon_css}
+`
+const DinersIc = styled(Diners)`
+    ${icon_css}
+`
 
 const payment_data = [
     {
@@ -138,6 +150,7 @@ const payment_data = [
                     <Localize translate_text="Help2Pay is a payment facility that allows online bank transfers for clients across Southeast Asia." />
                 ),
                 name: 'Help2Pay',
+                reference: 'help2pay-payment-method.pdf',
             },
             {
                 method: <DragonPhoenixIc />,
@@ -150,6 +163,7 @@ const payment_data = [
                     <Localize translate_text="DragonPhoenix is a payment facility that allows online bank transfers for clients across Southeast Asia." />
                 ),
                 name: 'DragonPhoenix',
+                reference: 'dragonpheonix-payment-method.pdf',
             },
             {
                 method: <ZingPayIc />,
@@ -163,6 +177,32 @@ const payment_data = [
                 ),
                 name: 'ZingPay',
                 reference: 'zingpay-payment-method.pdf',
+            },
+            {
+                method: <DragonPayIc />,
+                currencies: 'USD',
+                min_max_deposit: '50 - 4,500',
+                min_max_withdrawal: '50 - 2,500',
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 - 3 working days" />,
+                description: (
+                    <Localize translate_text="An alternative payment method for clients in the Philippines that’s secure and convenient. Used by hundreds of merchants." />
+                ),
+                name: 'DragonPay',
+                reference: 'dragonpay-payment-method.pdf',
+            },
+            {
+                method: <NganLuongIc />,
+                currencies: 'USD',
+                min_max_deposit: '10 - 4,000',
+                min_max_withdrawal: '10 - 4,000',
+                deposit_time: <Localize translate_text="1 working day" />,
+                withdrawal_time: <Localize translate_text="1 - 3 working days" />,
+                description: (
+                    <Localize translate_text="A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants." />
+                ),
+                name: 'NganLuong',
+                reference: 'nganluong-payment-method.pdf',
             },
         ],
     },
@@ -210,6 +250,18 @@ const payment_data = [
                 ),
                 name: 'maestro',
                 reference: 'maestrocard-payment-method.pdf',
+            },
+            {
+                method: <DinersIc />,
+                currencies: 'USD GBP EUR AUD',
+                min_max_deposit: '10 - 10,000',
+                min_max_withdrawal: '5 - 10,000',
+                deposit_time: <Localize translate_text="Instant" />,
+                withdrawal_time: <Localize translate_text="1 working day" />,
+                description: (
+                    <Localize translate_text="Deposit and withdraw using your Diners credit or debit card. Charges and interest rates apply." />
+                ),
+                name: 'diners',
             },
         ],
     },

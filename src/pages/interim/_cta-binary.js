@@ -11,7 +11,7 @@ import BinaryBlue from 'images/svg/binary.svg'
 const BinaryLink = styled(LocalizedLinkText)`
     &:hover {
         text-decoration: underline;
-        color: var(--color-white);
+        color: ${(props) => (props.is_white ? 'var(--color-white)' : 'var(--color-red)')};
     }
 `
 
@@ -25,6 +25,7 @@ const CtaBinary = ({ is_white }) => {
                     translate_text="No sign up needed. Log in with your <0>Binary.com</0> credentials."
                     components={[
                         <BinaryLink
+                            is_white={is_white}
                             key={0}
                             external
                             to={binary_url}

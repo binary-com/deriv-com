@@ -60,7 +60,7 @@ const LogoLink = styled(LocalizedLink)`
     }
     @media (max-width: 1104px) {
         & svg {
-            width: 9rem;
+            width: 11rem;
         }
     }
     @media ${device.tabletS} {
@@ -274,12 +274,32 @@ const Binary = styled(Text)`
     line-height: 1;
 `
 
+const MyBinary = styled(Binary)`
+    width: 8rem;
+    margin-left: 0.5rem;
+    line-height: 1;
+    @media (max-width: 1104px) {
+        width: 6rem;
+        font-size: 8px;
+    }
+`
 const BinaryLink = styled(LocalizedLinkText)`
     display: inline-block;
     color: var(--color-white);
     font-size: var(--text-size-xxs);
     font-weight: bold;
     text-decoration: none;
+`
+const MyBinaryLink = styled(BinaryLink)`
+    display: inline-block;
+    color: var(--color-white);
+    font-size: var(--text-size-xxs);
+    font-weight: bold;
+    text-decoration: none;
+
+    @media (max-width: 1104px) {
+        font-size: 8px;
+    }
 `
 
 const MobileRight = styled.div`
@@ -436,11 +456,11 @@ export const Nav = () => {
                         >
                             <BinaryLogo width="24" height="24" />
                         </LocalizedLink>
-                        <Binary size="var(--text-size-xxs)" color="white">
+                        <MyBinary size="var(--text-size-xxs)" color="white">
                             <Localize
                                 translate_text="A <0>Binary.com</0> brand"
                                 components={[
-                                    <BinaryLink
+                                    <MyBinaryLink
                                         key={0}
                                         external
                                         to={binary_url}
@@ -451,7 +471,7 @@ export const Nav = () => {
                                     />,
                                 ]}
                             />
-                        </Binary>
+                        </MyBinary>
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>

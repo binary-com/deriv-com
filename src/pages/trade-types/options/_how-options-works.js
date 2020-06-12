@@ -1,12 +1,37 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { SmallContainer, Grid } from '../components/_style'
+import SideTab from '../components/_side-tab'
 import { SectionContainer, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { Header, Text, QueryImage } from 'components/elements'
+import { localize, Localize } from 'components/localization'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import GetQuote from 'images/svg/trade-types/get-quote.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
+
+const query = graphql`
+    query {
+        option_market: file(relativePath: { eq: "trade-types/options-market.png" }) {
+            ...fadeIn
+        }
+        option_trade_type: file(relativePath: { eq: "trade-types/options-trade-type.png" }) {
+            ...fadeIn
+        }
+        option_duration: file(relativePath: { eq: "trade-types/options-duration.png" }) {
+            ...fadeIn
+        }
+        option_stake: file(relativePath: { eq: "trade-types/options-stake.png" }) {
+            ...fadeIn
+        }
+        option_quote: file(relativePath: { eq: "trade-types/options-quote.png" }) {
+            ...fadeIn
+        }
+        option_purchase: file(relativePath: { eq: "trade-types/options-purchase.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const OptionGrid = styled(Grid)`
     grid-gap: 2.4rem;
@@ -20,9 +45,10 @@ const Card = styled(Flex)`
 `
 
 const HowOptionsWorks = () => {
+    const data = useStaticQuery(query)
     return (
         <SectionContainer>
-            <SmallContainer direction="column">
+            <SmallContainer direction="column" ai="flex-start">
                 <Header as="h3" mb="3.2rem">
                     {localize('How options contracts work')}
                 </Header>
@@ -67,6 +93,81 @@ const HowOptionsWorks = () => {
                         </Text>
                     </Card>
                 </OptionGrid>
+                <Header as="h3" mt="4rem">
+                    {localize('How to buy your first options contract on DTrader')}
+                </Header>
+                <Text mb="2.4rem" mt="3.2rem" weight="bold">
+                    {localize('Define your position')}
+                </Text>
+                <SideTab>
+                    <SideTab.Panel
+                        label={<Localize translate_text="1. Market" />}
+                        description={
+                            <Localize translate_text="Choose from the four markets offered on Deriv – forex, stock indices, commodities, synthetic indices." />
+                        }
+                    >
+                        <QueryImage data={data['option_market']} alt="Trade types option market" />
+                    </SideTab.Panel>
+                    <SideTab.Panel
+                        label={<Localize translate_text="2. Trade type" />}
+                        description={
+                            <Localize translate_text="Select your desired trade type – Up and Down, High and Lows, Digits, etc." />
+                        }
+                    >
+                        <QueryImage
+                            data={data['option_trade_type']}
+                            alt="Trade types option trade type open"
+                        />
+                    </SideTab.Panel>
+                    <SideTab.Panel
+                        label={<Localize translate_text="3. Duration" />}
+                        description={
+                            <Localize translate_text="Set the duration of your trade. Depending on whether you have a short-term or long-term view of the markets, you can set your preferred duration, starting from 1 to 10 ticks or 15 seconds to 365 days." />
+                        }
+                    >
+                        <QueryImage
+                            data={data['option_duration']}
+                            alt="Trade types option duration"
+                        />
+                    </SideTab.Panel>
+                    <SideTab.Panel
+                        label={<Localize translate_text="4. Stake" />}
+                        description={
+                            <Localize translate_text="Enter your stake amount to receive a payout quote instantly. Alternatively, you can set your preferred payout to receive a price quote for a corresponding stake amount." />
+                        }
+                    >
+                        <QueryImage data={data['option_stake']} alt="Trade types option stake" />
+                    </SideTab.Panel>
+                </SideTab>
+                <Text mb="2.4rem" mt="3.2rem" weight="bold">
+                    {localize('Get quote')}
+                </Text>
+                <SideTab is_reverse>
+                    <SideTab.Panel
+                        label={<Localize translate_text="5. Get quote" />}
+                        description={
+                            <Localize translate_text="Based on the parameters you have defined, our patented pricing technology will calculate your potential payout or the required stake for each variation of the trade type that you have selected." />
+                        }
+                    >
+                        <QueryImage data={data['option_quote']} alt="Trade types option quote" />
+                    </SideTab.Panel>
+                </SideTab>
+                <Text mb="2.4rem" mt="3.2rem" weight="bold">
+                    {localize('Purchase your contract')}
+                </Text>
+                <SideTab>
+                    <SideTab.Panel
+                        label={<Localize translate_text="6. Purchase your contract" />}
+                        description={
+                            <Localize translate_text="Purchase your order immediately if you are satisfied with the quote that you received.  Otherwise, continue to customise the parameters and place your order when you are comfortable with the quote." />
+                        }
+                    >
+                        <QueryImage
+                            data={data['option_purchase']}
+                            alt="Trade types option purchase"
+                        />
+                    </SideTab.Panel>
+                </SideTab>
             </SmallContainer>
         </SectionContainer>
     )

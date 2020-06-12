@@ -152,7 +152,7 @@ const DigitalOptions = () => {
                             'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options, lookbacks, and Call/Put spreads on synthetic indices.',
                         )}
                     </StyledText>
-                    <AvailablePlatforms dtrader dbot smarttrader />
+                    <AvailablePlatforms dtrader dbot smarttrader tablet_direction="column" />
                 </Descriptions>
                 <StyledText weight="bold" mt="2.4rem">
                     {localize('Option trades available on synthetic indices')}

@@ -117,7 +117,8 @@ const NavCenter = styled.ul`
     text-align: center;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    line-height: 1.2;
 
     @media (max-width: 1204px) {
         font-size: 14px;
@@ -181,8 +182,9 @@ const NavRight = styled.div`
 `
 const NavLink = styled.li`
     list-style-type: none;
-    display: inline-block;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    text-align: center;
     margin-right: 2.4rem;
 
     &:last-child {

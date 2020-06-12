@@ -163,7 +163,7 @@ const payment_data = [
                     <Localize translate_text="DragonPhoenix is a payment facility that allows online bank transfers for clients across Southeast Asia." />
                 ),
                 name: 'DragonPhoenix',
-                reference: 'dragonphoenix-payment-method',
+                reference: 'dragonphoenix-payment-method.pdf',
             },
             {
                 method: <ZingPayIc />,

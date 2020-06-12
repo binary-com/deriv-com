@@ -34,7 +34,7 @@ const OptionGridSecondary = styled(OptionGrid)`
 
 const WhatAreOptions = () => {
     return (
-        <SectionContainer background="white" padding="0 0 8rem">
+        <SectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h2" mb="4rem">
                     {localize('Options to trade on Deriv')}

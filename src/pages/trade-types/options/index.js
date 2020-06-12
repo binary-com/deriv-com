@@ -2,6 +2,7 @@ import React from 'react'
 import { SmallContainer, Hero } from '../components/_style'
 import WhatAreTheOptions from './_what-are-options'
 import HowOptionsWorks from './_how-options-works'
+import OptionsToTrade from './_options-to-trade'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -25,6 +26,7 @@ const Options = () => {
             </Hero>
             <WhatAreTheOptions />
             <HowOptionsWorks />
+            <OptionsToTrade />
         </Layout>
     )
 }

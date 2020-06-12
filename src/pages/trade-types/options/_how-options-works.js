@@ -49,7 +49,7 @@ const HowOptionsWorks = () => {
     return (
         <SectionContainer>
             <SmallContainer direction="column" ai="flex-start">
-                <Header as="h3" mb="3.2rem">
+                <Header as="h2" mb="3.2rem">
                     {localize('How options contracts work')}
                 </Header>
                 <OptionGrid>
@@ -96,9 +96,9 @@ const HowOptionsWorks = () => {
                 <Header as="h3" mt="4rem">
                     {localize('How to buy your first options contract on DTrader')}
                 </Header>
-                <Text mb="2.4rem" mt="3.2rem" weight="bold">
+                <Header as="h4" mb="2.4rem" mt="3.2rem">
                     {localize('Define your position')}
-                </Text>
+                </Header>
                 <SideTab>
                     <SideTab.Panel
                         label={<Localize translate_text="1. Market" />}
@@ -139,9 +139,9 @@ const HowOptionsWorks = () => {
                         <QueryImage data={data['option_stake']} alt="Trade types option stake" />
                     </SideTab.Panel>
                 </SideTab>
-                <Text mb="2.4rem" mt="3.2rem" weight="bold">
+                <Header as="h4" mb="2.4rem" mt="3.2rem">
                     {localize('Get quote')}
-                </Text>
+                </Header>
                 <SideTab is_reverse>
                     <SideTab.Panel
                         label={<Localize translate_text="5. Get quote" />}
@@ -152,9 +152,9 @@ const HowOptionsWorks = () => {
                         <QueryImage data={data['option_quote']} alt="Trade types option quote" />
                     </SideTab.Panel>
                 </SideTab>
-                <Text mb="2.4rem" mt="3.2rem" weight="bold">
+                <Header as="h4" mb="2.4rem" mt="3.2rem">
                     {localize('Purchase your contract')}
-                </Text>
+                </Header>
                 <SideTab>
                     <SideTab.Panel
                         label={<Localize translate_text="6. Purchase your contract" />}

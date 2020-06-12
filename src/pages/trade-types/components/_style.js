@@ -52,9 +52,9 @@ const Grid = styled.div`
 const Notes = styled(Flex)`
     padding: 1.6rem 4rem 1.6rem 6.4rem;
     border-radius: 60px;
+    width: auto;
     position: relative;
     background: var(--color-grey-25);
-    max-width: 66rem;
     justify-content: flex-start;
 
     &::before {
@@ -69,7 +69,7 @@ const Notes = styled(Flex)`
         color: var(--color-white);
         position: absolute;
         left: 24px;
-        top: 35%;
+        top: ${(props) => props.top || '35%'};
         text-align: center;
         font-size: var(--text-size-xs);
     }

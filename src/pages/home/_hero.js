@@ -1,113 +1,35 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
-import PlatformVideoMp4 from './Devices_3MB.webm'
+import PlatformVideoMp4 from './Devices.mp4'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
-// import { LinkButton, Button } from 'components/form'
-import { Container, Show, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { LinkButton } from 'components/form'
+import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
+import { Header } from 'components/elements'
 import { localize } from 'components/localization'
-import CheckMarkIcon from 'images/svg/checklist.svg'
-
-const CheckMark = styled(CheckMarkIcon)`
-    width: 18px;
-    height: 18px;
-`
 
 const HeroWrapper = styled.section`
     width: 100%;
-    padding-top: 11rem;
-    min-height: calc(100vh - 7rem);
-    background: radial-gradient(
-        farthest-side at ${(props) => props.gradient}% -10%,
-        #474747 -0%,
-        #0e0e0e 115%
-    );
+    padding: 8rem 0;
+    background-color: var(--color-black-7);
     position: relative;
-    overflow: hidden;
+`
 
-    @media ${device.laptop} {
-        background-position: -10rem 100%;
-        padding-top: 7rem;
-        padding-bottom: 7rem;
-    }
+const HeroButton = styled(LinkButton)`
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    max-width: 20.5rem;
+
     @media ${device.tabletL} {
-        background: unset;
-        background-position: -20rem 100%;
-        background-color: var(--color-black);
-        min-height: 73rem;
-    }
-    @media ${device.tablet} {
-        background-position: -40rem 100%;
-    }
-`
-
-const StyledVideo = styled.video`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-
-    /* for edge 
-    @supports (object-fit: fill) {
-        object-fit: fill;
-        top: 0%;
-        left: unset;
-        transform: unset;
-    }
-    */
-`
-// const HeroButton = styled(LinkButton)`
-//     height: 4.8rem;
-//     display: flex;
-//     align-items: center;
-
-//     @media ${device.tabletL} {
-//         width: 27rem;
-//         margin: 0 auto;
-//         display: flex;
-//         font-size: 1.75rem;
-//         justify-content: center;
-//     }
-// `
-
-const CheckBoxText = styled(Text)`
-    @media ${device.desktopL} {
-        font-size: 2.52rem;
-    }
-    @media ${device.tabletL} {
-        font-size: 2rem;
+        margin: 0 auto;
+        display: flex;
+        font-size: 1.75rem;
+        justify-content: center;
+        max-width: 25.5rem;
+        height: 5rem;
     }
 `
-const CheckMarkBullet = ({ children }) => (
-    <li>
-        <Flex jc="unset" ai="center">
-            <CheckMark />
-            <CheckBoxText ml="1rem" size="2.4rem" lh="1.5" color="white">
-                {children}
-            </CheckBoxText>
-        </Flex>
-    </li>
-)
-CheckMarkBullet.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-}
-
-const UList = styled.ul`
-    list-style-type: none;
-`
-
-const CheckMarkList = ({ children }) => <UList>{children}</UList>
-CheckMarkList.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-}
-
-CheckMarkBullet.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-}
 const FadeIn = keyframes`
     0% {
         opacity: 0;
@@ -123,22 +45,64 @@ const StyledHeader = styled(Header)`
     animation-duration: 0.5s;
     animation-fill-mode: both;
     animation-delay: ${(props) => props.ad};
+    font-size: 8rem;
+    line-height: 1.25;
+
+    @media ${device.tabletL} {
+        font-size: 4rem;
+    }
 `
 const contents = [
     'Tight spreads',
     'Sharp prices',
     '24x7 trading',
     '100+ tradeable assets',
-    '20+ years of experience',
+    '20+ of experience',
 ]
 const TypeWriter = styled(Header)`
     min-height: 7.2rem;
+
+    @media ${device.tabletL} {
+        font-size: 2.25rem;
+    }
+`
+const HeroContainer = styled(CssGrid)`
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 2.4rem;
+    grid-template-areas:
+        'details details details details details video video video video video video video'
+        'button button button button button button button button button button button button';
+
+    @media ${device.tabletL} {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+            'details'
+            'video'
+            'button';
+    }
+`
+
+const Details = styled(Box)`
+    grid-area: details;
+`
+const ButtonWrapper = styled(Box)`
+    grid-area: button;
+
+    @media ${device.tabletL} {
+        margin-top: 3rem;
+    }
+`
+const StyledVideo = styled.video`
+    grid-area: video;
+
+    @media ${device.tabletL} {
+        min-height: 25rem;
+    }
 `
 export const Hero = () => {
     const subtitle = localize('Trade forex, commodities, stock and synthetic indices')
     const [type_writer, setTypeWriter] = React.useState('')
-    const [gradient, setGradient] = React.useState(0)
-    let type_writer_timeout, gradient_timeout
+    let type_writer_timeout
 
     const typeWriterAnimation = (i = 0) => {
         if (i < subtitle.length) {
@@ -147,60 +111,56 @@ export const Hero = () => {
         }
     }
 
-    const startGradient = (gradient = 0) => {
-        gradient_timeout = setTimeout(() => {
-            if (gradient < 100) {
-                setGradient(gradient + 1)
-                startGradient(gradient + 1)
-            } else {
-                setGradient(0)
-                startGradient()
-            }
-        }, 170)
-    }
-
     React.useEffect(() => {
         let start_animations_timeout = setTimeout(() => {
             typeWriterAnimation()
-            startGradient()
         }, 1200)
         return () => {
             clearTimeout(start_animations_timeout)
             clearTimeout(type_writer_timeout)
-            clearTimeout(gradient_timeout)
         }
     }, [])
 
     return (
-        <HeroWrapper gradient={gradient}>
+        <HeroWrapper>
             <Container>
-                <StyledHeader as="h1" lh="1.25" color="white" ad="0.5s">
-                    {localize('SIMPLE.')}
-                </StyledHeader>
+                <HeroContainer>
+                    <Details>
+                        <Show.Desktop>
+                            <Flex mb="1.6rem" direction="column">
+                                <StyledHeader color="white" ad="0.5s">
+                                    {localize('SIMPLE.')}
+                                </StyledHeader>
+                                <StyledHeader color="white" ad="0.6s">
+                                    {localize('FLEXIBLE.')}
+                                </StyledHeader>
+                                <StyledHeader color="white" ad="0.7s">
+                                    {localize('RELIABLE.')}
+                                </StyledHeader>
+                            </Flex>
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            <Flex>
+                                <StyledHeader color="white" ad="0.5s" mb="2rem">
+                                    {localize('SIMPLE. FLEXIBLE. RELIABLE.')}
+                                </StyledHeader>
+                            </Flex>
+                        </Show.Mobile>
+                        <TypeWriter as="h4" color="white" max_width="365px" weight="normal">
+                            {type_writer}
+                        </TypeWriter>
+                        <VerticalCarousel contents={contents} />
+                    </Details>
+                    <StyledVideo width="100%" height="100%" autoPlay muted playsInline loop>
+                        <source src={PlatformVideoMp4} type="video/mp4" />
+                    </StyledVideo>
+                    <ButtonWrapper>
+                        <HeroButton secondary="true" to="/signup/">
+                            {localize('Create free demo account')}
+                        </HeroButton>
+                    </ButtonWrapper>
+                </HeroContainer>
             </Container>
-            <Container>
-                <StyledHeader as="h1" lh="1.25" color="white" ad="0.6s">
-                    {localize('FLEXIBLE.')}
-                </StyledHeader>
-            </Container>
-            <Container>
-                <StyledHeader as="h1" lh="1.25" color="white" ad="0.7s">
-                    {localize('RELIABLE.')}
-                </StyledHeader>
-            </Container>
-            <Container jc="flex-start">
-                <TypeWriter as="h4" color="white" max_width="365px">
-                    {type_writer}
-                </TypeWriter>
-            </Container>
-            <Container>
-                <VerticalCarousel contents={contents} />
-            </Container>
-            <Show.Desktop>
-                <StyledVideo width="100%" height="100%" autoPlay muted playsInline loop>
-                    <source src={PlatformVideoMp4} type="video/mp4" />
-                </StyledVideo>
-            </Show.Desktop>
         </HeroWrapper>
     )
 }

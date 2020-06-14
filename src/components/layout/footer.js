@@ -48,6 +48,7 @@ const StyledGrid = styled(CssGrid)`
 `
 const DerivLogoWrapper = styled.div`
     grid-area: logo;
+    background: var(--color-grey-25);
     padding: 4rem 0 2rem 0;
 
     svg {
@@ -59,6 +60,7 @@ const DerivLogoWrapper = styled.div`
 `
 const LinksWrapper = styled.div`
     grid-area: links;
+    background: var(--color-grey-25);
     padding: 0.8rem 0 2.4rem 0;
     border-bottom: 1px solid var(--color-grey-26);
     border-top: 2px solid var(--color-grey-26);
@@ -86,6 +88,7 @@ const LinkWrapper = styled.div`
 `
 const Disclaimer = styled.div`
     grid-area: disclaimer;
+    background: var(--color-grey-25);
 `
 const DisclaimerParagraph = styled(Text)`
     font-size: var(--text-size-xs);
@@ -141,6 +144,7 @@ const BoldLink = styled(StyledLink)`
 `
 const Copyright = styled(Flex)`
     grid-area: copyright;
+    background: var(--color-grey-25);
     justify-content: flex-start;
     align-items: center;
 
@@ -162,6 +166,7 @@ const Copyright = styled(Flex)`
 `
 const SocialWrapper = styled.div`
     grid-area: social;
+    background: var(--color-grey-25);
     margin: 1.6rem 0;
 
     svg {
@@ -189,6 +194,9 @@ const MobileAccordion = styled.section`
     p {
         font-size: 2rem !important;
     }
+    div {
+        background: var(--color-grey-25);
+    }
 `
 const Item = styled.div`
     padding: 0 0 3rem 4rem;
@@ -199,13 +207,17 @@ const Item = styled.div`
     }
 `
 const mobile_accordion_header = {
-    border: 'none',
-    padding: '0 2rem',
+    borderTop: '1px solid var(--color-grey-26)',
+    borderBottom: 'none',
+    padding: '0',
+    margin: '0 2rem',
     backgroundColor: 'var(--color-grey-25)',
     boxShadow: 'none',
 }
+const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 
 const Footer = () => {
+    mobile_accordion_header_about.borderTop = 'none'
     const { show_cookie_banner } = React.useContext(LocationContext)
 
     return (
@@ -350,7 +362,7 @@ const Footer = () => {
                                     <AccordionItem
                                         header={localize('ABOUT')}
                                         arrow_thin
-                                        header_style={mobile_accordion_header}
+                                        header_style={mobile_accordion_header_about}
                                     >
                                         <Item>
                                             <Link to="/about/#story">{localize('Our story')}</Link>

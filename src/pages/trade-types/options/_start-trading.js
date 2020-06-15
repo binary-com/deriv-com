@@ -15,7 +15,7 @@ const WhatAreOptions = () => {
     return (
         <PatternContainer background="white" padding="4rem 0">
             <SmallContainer direction="column" ai="flex-start">
-                <Header as="32" mb="4rem">
+                <Header as="h3" mb="4rem">
                     {localize('Start trading options on Deriv')}
                 </Header>
             </SmallContainer>

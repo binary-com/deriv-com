@@ -1,6 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-import { SmallContainer, Notes } from '../components/_style'
+import { SmallContainer, Notes, OptionGrid, OptionGridSecondary } from '../components/_style'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
@@ -19,18 +18,6 @@ import OuOd from 'images/svg/options/ou-od.svg'
 import HighClose from 'images/svg/options/high-close.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import HighLow from 'images/svg/options/high-low.svg'
-
-const OptionGrid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 2.3rem;
-    grid-row-gap: 1.6rem;
-    margin-bottom: 2.4rem;
-`
-
-const OptionGridSecondary = styled(OptionGrid)`
-    grid-row-gap: 2.4rem;
-`
 
 const WhatAreOptions = () => {
     return (

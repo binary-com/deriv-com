@@ -74,4 +74,17 @@ const Notes = styled(Flex)`
         font-size: var(--text-size-xs);
     }
 `
-export { SmallContainer, Hero, Ul, Grid, Notes }
+
+const OptionGrid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2.3rem;
+    grid-row-gap: 1.6rem;
+    margin-bottom: 2.4rem;
+`
+
+const OptionGridSecondary = styled(OptionGrid)`
+    grid-row-gap: 2.4rem;
+`
+
+export { SmallContainer, Hero, Ul, Grid, Notes, OptionGrid, OptionGridSecondary }

@@ -49,32 +49,6 @@ const Grid = styled.div`
     grid-gap: 4rem;
 `
 
-const Notes = styled(Flex)`
-    padding: 1.6rem 4rem 1.6rem 6.4rem;
-    border-radius: 60px;
-    width: auto;
-    position: relative;
-    background: var(--color-grey-25);
-    justify-content: flex-start;
-
-    &::before {
-        content: 'i';
-        width: 24px;
-        height: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        background: var(--color-black);
-        color: var(--color-white);
-        position: absolute;
-        left: 24px;
-        top: ${(props) => props.top || '35%'};
-        text-align: center;
-        font-size: var(--text-size-xs);
-    }
-`
-
 const OptionGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -87,4 +61,4 @@ const OptionGridSecondary = styled(OptionGrid)`
     grid-row-gap: 2.4rem;
 `
 
-export { SmallContainer, Hero, Ul, Grid, Notes, OptionGrid, OptionGridSecondary }
+export { SmallContainer, Hero, Ul, Grid, OptionGrid, OptionGridSecondary }

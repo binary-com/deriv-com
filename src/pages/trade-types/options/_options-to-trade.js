@@ -1,8 +1,9 @@
 import React from 'react'
-import { SmallContainer, Notes, OptionGrid, OptionGridSecondary } from '../components/_style'
+import { SmallContainer, OptionGrid, OptionGridSecondary } from '../components/_style'
+import Notes from '../components/_notes'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import RiseFall from 'images/svg/options/rise-fall.svg'
 import HigherLower from 'images/svg/options/higher-lower.svg'
 import EbEo from 'images/svg/options/eb-eo.svg'
@@ -42,22 +43,20 @@ const WhatAreOptions = () => {
                 </Header>
                 <DigitsGrid />
                 <SingleOptionsGrid />
-                <Notes mt="2.4rem" mb="4rem">
-                    <Text>
-                        {localize(
-                            'High Ticks/Low Ticks, Asians, Reset Call/Reset Put, Digits, and Only Ups/Only Downs are available exclusively on synthetic indices.',
-                        )}
-                    </Text>
-                </Notes>
-                <Header as="h4" mb="1.6rem">
+                <Notes
+                    text={
+                        <Localize translate_text="High Ticks/Low Ticks, Asians, Reset Call/Reset Put, Digits, and Only Ups/Only Downs are available exclusively on synthetic indices." />
+                    }
+                />
+                <Header as="h4" mt="4rem" mb="1.6rem">
                     {localize('Lookbacks')}
                 </Header>
                 <LookbacksGrid />
-                <Notes mt="2.4rem">
-                    <Text>
-                        {localize('Lookback options are available only on synthetic indices.')}
-                    </Text>
-                </Notes>
+                <Notes
+                    text={
+                        <Localize translate_text="Lookback options are available only on synthetic indices." />
+                    }
+                />
             </SmallContainer>
         </SectionContainer>
     )

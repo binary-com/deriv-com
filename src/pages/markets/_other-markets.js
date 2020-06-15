@@ -151,7 +151,7 @@ const Card = ({ name }) => {
             </div>
 
             <Text weight="bold" mt="1.6rem">
-                {markets_type[name].title}
+                {localize(markets_type[name].title)}
             </Text>
             <Text mt="0.8rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility={button_visibility}>

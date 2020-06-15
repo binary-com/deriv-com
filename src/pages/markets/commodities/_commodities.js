@@ -6,7 +6,7 @@ import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import SimpleSteps from 'common/_simple-steps'
-import { Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import NoCommission from 'images/svg/no-commission.svg'
@@ -14,8 +14,9 @@ import MetalAndOil from 'images/svg/precious-metals-and-oils.svg'
 import VariableSpreads from 'images/svg/variable-spreads.svg'
 
 const Commodities = ({ simple_step_content }) => {
-    simple_step_content[1].text =
-        'Open a real account, make a deposit, and start trading commodities and other markets.'
+    simple_step_content[1].text = localize(
+        'Open a real account, make a deposit, and start trading commodities and other markets.',
+    )
     return (
         <>
             <WhyTrade

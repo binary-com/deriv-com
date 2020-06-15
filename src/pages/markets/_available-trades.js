@@ -196,7 +196,7 @@ class AvailableTrades extends React.Component {
         return (
             <StyledSection>
                 <StyledHeader size="var(--text-size-header-1)" align="center">
-                    {name + ' ' + localize('trades available on Deriv')}
+                    {localize(name) + ' ' + localize(`trades available on Deriv`)}
                 </StyledHeader>
                 <StyledContainer direction="column">
                     <CardWrapper position="relative">

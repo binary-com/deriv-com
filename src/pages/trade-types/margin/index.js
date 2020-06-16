@@ -3,6 +3,7 @@ import { SmallContainer, Hero } from '../components/_style'
 import Timeline from '../components/_timeline'
 import WhyTradeMargin from './_Why-trade-margin'
 import MarginContracts from './_margin-contracts'
+import MArginPolicies from './_margin-policies'
 import MarginRelationship from './_margin-relationship'
 import WhatIsMargin from './_what_is_margin'
 import { SEO } from 'components/containers'
@@ -30,6 +31,7 @@ const Margin = () => {
             <MarginRelationship />
             <WhyTradeMargin />
             <MarginContracts />
+            <MArginPolicies />
             <Timeline>
                 <Timeline.Item title="Practise">
                     {localize(

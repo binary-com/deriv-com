@@ -71,10 +71,10 @@ const LogoLink = styled(LocalizedLink)`
             width: 13rem;
         }
     }
-    @media (max-width: 1104px) {
+    @media (max-width: 1105px) {
         & svg,
         .gatsby-image-wrapper {
-            width: 11rem;
+            width: 10rem;
         }
     }
     @media ${device.tabletS} {
@@ -136,14 +136,14 @@ const NavCenter = styled.ul`
     justify-content: center;
     line-height: 1.2;
 
-    @media (max-width: 1204px) {
+    @media (max-width: 1210px) {
         font-size: 14px;
     }
     @media (max-width: 1175px) {
-        font-size: 14px;
-    }
-    @media (max-width: 1104px) {
         font-size: 12px;
+    }
+    @media (max-width: 1105px) {
+        font-size: 11px;
     }
     @media ${device.tabletL} {
         display: none;
@@ -296,9 +296,9 @@ const MyBinary = styled(Binary)`
     width: 8rem;
     margin-left: 0.5rem;
     line-height: 1;
-    @media (max-width: 1104px) {
-        width: 6rem;
-        font-size: 8px;
+    @media (max-width: 1105px) {
+        width: 5rem;
+        font-size: 7px;
     }
 `
 const BinaryLink = styled(LocalizedLinkText)`
@@ -315,8 +315,8 @@ const MyBinaryLink = styled(BinaryLink)`
     font-weight: bold;
     text-decoration: none;
 
-    @media (max-width: 1104px) {
-        font-size: 8px;
+    @media (max-width: 1105px) {
+        font-size: 7px;
     }
 `
 
@@ -468,7 +468,7 @@ export const Nav = () => {
                                 data={data['deriv']}
                                 alt={localize('Deriv')}
                                 width="16.4rem"
-                                height="2.7rem"
+                                height="auto"
                             />
                         </LogoLink>
                         <Divider color="white" width="1px" height="2.7rem" m="0 1.6rem" />

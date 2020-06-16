@@ -12,6 +12,10 @@ const Wrapper = styled.div`
     width: 100%;
     opacity: 0;
     transition: opacity 0.25s;
+
+    @media (max-width: 680px) {
+        opacity: 1;
+    }
 `
 
 const Item = styled.div`

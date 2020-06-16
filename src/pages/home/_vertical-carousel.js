@@ -20,6 +20,7 @@ const VerticalCarouselContainer = styled(Box)`
     transform: translateY(${(props) => props.transform}px);
     transition-duration: 0.5s;
     transition-property: transform;
+    transition-timing-function: linear;
     visibility: ${(props) => props.visibility};
 `
 const StyledHeader = styled(Header)`
@@ -29,7 +30,8 @@ const StyledHeader = styled(Header)`
     transition-property: opacity, font-size;
     line-height: 1.5;
     height: 36px;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
 `
 
 const VerticalCarousel = ({ contents }) => {

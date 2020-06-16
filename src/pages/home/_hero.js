@@ -1,12 +1,20 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled, { keyframes } from 'styled-components'
-import PlatformVideoMp4 from './Devices.mp4'
 import VerticalCarousel from './_vertical-carousel.js'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
+
+const query = graphql`
+    query {
+        background: file(relativePath: { eq: "platform_devices.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -61,13 +69,10 @@ const contents = [
 ]
 const TypeWriter = styled(Header)`
     min-height: 7.2rem;
-
-    @media ${device.tabletL} {
-        font-size: 2.25rem;
-    }
 `
 const HeroContainer = styled(CssGrid)`
     grid-template-columns: repeat(12, 1fr);
+    width: 100%;
     grid-column-gap: 2.4rem;
     grid-template-areas:
         'details details details details details video video video video video video video'
@@ -92,15 +97,18 @@ const ButtonWrapper = styled(Box)`
         margin-top: 3rem;
     }
 `
-const StyledVideo = styled.video`
+const ImageWrapper = styled(Box)`
     grid-area: video;
+    margin-top: 4rem;
 
     @media ${device.tabletL} {
         min-height: 25rem;
+        margin-top: 0;
     }
 `
 export const Hero = () => {
-    const subtitle = localize('Trade forex, commodities, stock and synthetic indices')
+    const data = useStaticQuery(query)
+    const subtitle = localize('Trade forex, commodities, synthetic and stock indices')
     const [type_writer, setTypeWriter] = React.useState('')
     let type_writer_timeout
 
@@ -151,9 +159,9 @@ export const Hero = () => {
                         </TypeWriter>
                         <VerticalCarousel contents={contents} />
                     </Details>
-                    <StyledVideo width="100%" height="100%" autoPlay muted playsInline loop>
-                        <source src={PlatformVideoMp4} type="video/mp4" />
-                    </StyledVideo>
+                    <ImageWrapper>
+                        <QueryImage data={data.background} alt="platform devices" width="100%" />
+                    </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">
                             {localize('Create free demo account')}

@@ -5,6 +5,7 @@ import MarginContracts from './_margin-contracts'
 import MArginPolicies from './_margin-policies'
 import StartTradingMargin from './_start-trading-margin'
 import MarginRelationship from './_margin-relationship'
+import AvailableMarkets from './_available-markets'
 import WhatIsMargin from './_what_is_margin'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
@@ -33,6 +34,7 @@ const Margin = () => {
             <MarginContracts />
             <MArginPolicies />
             <StartTradingMargin />
+            <AvailableMarkets />
         </Layout>
     )
 }

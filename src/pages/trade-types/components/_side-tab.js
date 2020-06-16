@@ -1,13 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Flex } from 'components/containers'
+import { Flex, Show } from 'components/containers'
 import { Text } from 'components/elements'
+import device, { size } from 'themes/device'
 
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
 `
+// const Mobile = styled(Show.Mobile)`
+
+// `
 
 const TabButton = styled.div`
     position: relative;
@@ -45,11 +49,31 @@ const TabList = styled.div`
             : css`
                   margin-right: 2.4rem;
               `}
+    @media ${device.tabletS} {
+        max-width: 100%;
+        margin: 0;
+    }
 `
 
 const Content = styled.div`
     flex: 1;
     width: 100%;
+`
+
+const Desktop = styled(Show.Desktop)`
+    flex: 1;
+    width: 100%;
+`
+
+const Mobile = styled(Show.Mobile)`
+    @media ${device.tabletS} {
+        margin-top: 1.6rem;
+        margin-bottom: 2.3rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 `
 
 const TabPanel = ({ children }) => (
@@ -71,24 +95,35 @@ const Tabs = ({ children, is_reverse }) => {
     return (
         <Flex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
             <TabList role="tablist" is_reverse={is_reverse}>
-                {React.Children.map(children, ({ props: { label, description } }, index) => (
-                    <TabButton
-                        role="tab"
-                        selected={selected_tab === index}
-                        aria-selected={selected_tab === index ? 'true' : 'false'}
-                        onClick={() => selectTab(index)}
-                    >
-                        <Text weight="bold">{label}</Text>
-                        <Text mt="0.8rem">{description}</Text>
-                    </TabButton>
-                ))}
+                {React.Children.map(children, (child, index) => {
+                    const {
+                        props: { label, description },
+                    } = child
+                    return (
+                        <>
+                            <TabButton
+                                role="tab"
+                                selected={selected_tab === index}
+                                aria-selected={selected_tab === index ? 'true' : 'false'}
+                                onClick={() => selectTab(index)}
+                            >
+                                <Text weight="bold">{label}</Text>
+                                <Text mt="0.8rem">{description}</Text>
+                            </TabButton>
+                            <Mobile min_width={size.tabletS}>
+                                <Content>{selected_tab === index ? child : undefined}</Content>
+                            </Mobile>
+                        </>
+                    )
+                })}
             </TabList>
-
-            <Content>
-                {React.Children.map(children, (el, index) =>
-                    selected_tab === index ? el : undefined,
-                )}
-            </Content>
+            <Desktop max_width={size.tabletS}>
+                <Content>
+                    {React.Children.map(children, (el, index) => {
+                        return selected_tab === index ? el : undefined
+                    })}
+                </Content>
+            </Desktop>
         </Flex>
     )
 }

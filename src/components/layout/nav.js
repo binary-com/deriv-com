@@ -696,6 +696,11 @@ const StyledNavCenter = styled(NavCenter)`
 const StyledNavRight = styled(NavRight)`
     margin-left: auto;
 `
+const MobileSwitcher = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+`
 
 const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
@@ -706,6 +711,20 @@ const StyledNavWrapper = styled(Wrapper)`
 
     ${LogoLinkMobile} {
         margin: 0 2.4rem;
+    }
+`
+
+const Mobile = styled(Show.Mobile)`
+    width: 100%;
+`
+
+const ResLogo = styled(LogoOnly)`
+    width: 115px;
+    @media ${device.mobileM} {
+        width: 98px;
+    }
+    @media (max-width: 336px) {
+        width: 82px;
     }
 `
 
@@ -811,27 +830,44 @@ export const NavPartners = ({ no_login_signup }) => {
                                     <span>{localize('Affiliate & IB sign up')}</span>
                                 </LinkSignupButton>
                             </StyledNavRight>
-                        ) : null}
+                        ) : (
+                            <NavRight
+                                move={show_button}
+                                button_ref={button_ref}
+                                mounted={mounted}
+                                has_scrolled={has_scrolled}
+                            >
+                                <LanguageSwitcher short_name="true" is_high_nav />
+                            </NavRight>
+                        )}
 
                         {is_canvas_menu_open ? (
                             <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                         ) : (
                             <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
                         )}
-                        <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                            <LogoOnly width="115px" />
-                        </LogoLinkMobile>
-                        {!no_login_signup && (
-                            <LinkMobileLogin
-                                to={affiliate_signin_url}
-                                external
-                                is_affiliate_link
-                                target="_blank"
-                                primary
-                            >
-                                <span>{localize('Affiliate & IB Log in')}</span>
-                            </LinkMobileLogin>
-                        )}
+
+                        <Mobile>
+                            <Flex ai="center">
+                                <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                                    <ResLogo />
+                                </LogoLinkMobile>
+                                <MobileSwitcher>
+                                    <LanguageSwitcher short_name="true" is_high_nav />
+                                </MobileSwitcher>
+                                {!no_login_signup && (
+                                    <LinkMobileLogin
+                                        to={affiliate_signin_url}
+                                        external
+                                        is_affiliate_link
+                                        target="_blank"
+                                        primary
+                                    >
+                                        <span>{localize('Affiliate & IB Log in')}</span>
+                                    </LinkMobileLogin>
+                                )}
+                            </Flex>
+                        </Mobile>
                         <OffCanvasMenuPartner
                             is_canvas_menu_open={is_canvas_menu_open}
                             closeOffCanvasMenu={closeOffCanvasMenu}

@@ -48,7 +48,7 @@ const OvalWrapper = styled.div`
     width: 24px;
     height: 24px;
     line-height: 2.75rem;
-    background-color: red;
+    background-color: var(--color-red);
     border-radius: 50%;
     text-align: center;
     margin-right: 8px;
@@ -57,13 +57,13 @@ const OvalWrapper = styled.div`
     left: -13px;
 `
 const OvalNumber = styled.span`
-    color: var(--text-colored-background);
+    color: white;
     font-size: 16px;
     font-weight: bold;
 `
 const FlexWrapper = styled.div`
     display: flex;
-    border-left: ${(props) => (props.isBorder ? 'red solid 1px' : 'unset')};
+    border-left: ${(props) => (props.isBorder ? 'var(--color-red) dashed 1px' : 'unset')};
     position: relative;
     padding-bottom: 4rem;
 `

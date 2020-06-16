@@ -152,7 +152,7 @@ const SignupFlat = ({
                     </InputGroup>
                     <SocialWrapper>
                         <StyledText color={dark ? 'white' : 'black'}>
-                            {localize('or sign in with')}
+                            {localize('or sign up with')}
                         </StyledText>
                         <SocialButton
                             dark={dark}

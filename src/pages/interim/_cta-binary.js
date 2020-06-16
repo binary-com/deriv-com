@@ -1,11 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { binary_url } from 'common/utility'
 import BinaryWhite from 'images/svg/interim/binary-white.svg'
 import BinaryBlue from 'images/svg/binary.svg'
+
+const BinaryLink = styled(LocalizedLinkText)`
+    &:hover {
+        text-decoration: underline;
+        color: ${(props) => (props.is_white ? 'var(--color-white)' : 'var(--color-red)')};
+    }
+`
 
 const CtaBinary = ({ is_white }) => {
     const color = is_white ? 'white' : 'black'
@@ -16,7 +24,8 @@ const CtaBinary = ({ is_white }) => {
                 <Localize
                     translate_text="No sign up needed. Log in with your <0>Binary.com</0> credentials."
                     components={[
-                        <LocalizedLinkText
+                        <BinaryLink
+                            is_white={is_white}
                             key={0}
                             external
                             to={binary_url}

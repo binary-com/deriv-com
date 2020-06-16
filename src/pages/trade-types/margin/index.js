@@ -1,12 +1,15 @@
 import React from 'react'
 import { SmallContainer, Hero } from '../components/_style'
 import StartTrading from '../components/_start-trading'
+import WhyTradeMargin from './_Why-trade-margin'
+import MarginRelationship from './_margin-relationship'
+import WhatIsMargin from './_what_is_margin'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 
-const Options = () => {
+const Margin = () => {
     return (
         <Layout>
             <SEO
@@ -22,25 +25,30 @@ const Options = () => {
                     </Header>
                 </SmallContainer>
             </Hero>
-            <StartTrading>
-                <StartTrading.Item title="Practise">
-                    {localize(
-                        'Open a demo MetaTrader 5 account on Deriv and practise with an unlimited amount of virtual funds.',
-                    )}
-                </StartTrading.Item>
-                <StartTrading.Item title="Trade">
-                    {localize(
-                        'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
-                    )}
-                </StartTrading.Item>
-                <StartTrading.Item title="Withdraw">
-                    {localize(
-                        'Conveniently withdraw your funds through any of our supported withdrawal methods.',
-                    )}
-                </StartTrading.Item>
-            </StartTrading>
+            <WhatIsMargin />
+            <MarginRelationship />
+            <WhyTradeMargin />
+            <SmallContainer>
+                <StartTrading>
+                    <StartTrading.Item title="Practise">
+                        {localize(
+                            'Open a demo MetaTrader 5 account on Deriv and practise with an unlimited amount of virtual funds.',
+                        )}
+                    </StartTrading.Item>
+                    <StartTrading.Item title="Trade">
+                        {localize(
+                            'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
+                        )}
+                    </StartTrading.Item>
+                    <StartTrading.Item title="Withdraw">
+                        {localize(
+                            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+                        )}
+                    </StartTrading.Item>
+                </StartTrading>
+            </SmallContainer>
         </Layout>
     )
 }
 
-export default WithIntl()(Options)
+export default WithIntl()(Margin)

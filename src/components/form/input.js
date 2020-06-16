@@ -22,7 +22,7 @@ const InputWrapper = styled.div`
         border-color: var(--color-grey-5);
 
         & > label {
-            color: var(--color-black-3);
+            color: var(--color- ${(props) => props.labelHoverColor || 'black-3'});
         }
     }
     &:focus-within {
@@ -148,6 +148,7 @@ const Input = ({
     label,
     border,
     focusBorder,
+    labelHoverColor,
     labelColor,
     id,
     error,
@@ -160,6 +161,7 @@ const Input = ({
         <InputWrapper
             border={border}
             focusBorder={focusBorder}
+            labelHoverColor={labelHoverColor}
             error={error}
             className="input-wrapper"
         >
@@ -190,6 +192,7 @@ Input.propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,
     labelColor: PropTypes.string,
+    labelHoverColor: PropTypes.string,
     tabletBackground: PropTypes.string,
     width: PropTypes.string,
 }

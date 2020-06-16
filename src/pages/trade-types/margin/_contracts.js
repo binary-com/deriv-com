@@ -28,7 +28,7 @@ const ImageWrapper = styled.div`
     width: 100%;
     margin-bottom: 3.2rem;
 `
-const MarginContracts = () => {
+const Contracts = () => {
     const data = useStaticQuery(query)
 
     return (
@@ -90,4 +90,4 @@ const MarginContracts = () => {
     )
 }
 
-export default MarginContracts
+export default Contracts

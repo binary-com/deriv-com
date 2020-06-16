@@ -19,7 +19,7 @@ const ImageWrapper = styled.div`
     width: 100%;
     margin-bottom: 3.2rem;
 `
-const MarginRelationship = () => {
+const RelationshipWithLeverge = () => {
     const data = useStaticQuery(query)
 
     return (
@@ -56,4 +56,4 @@ const MarginRelationship = () => {
     )
 }
 
-export default MarginRelationship
+export default RelationshipWithLeverge

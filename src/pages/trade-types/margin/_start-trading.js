@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
 
-const StartTradingMargin = () => {
+const StartTrading = () => {
     return (
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
@@ -41,4 +41,4 @@ const StartTradingMargin = () => {
     )
 }
 
-export default StartTradingMargin
+export default StartTrading

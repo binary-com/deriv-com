@@ -13,7 +13,7 @@ const Ul = styled.ul`
 const Li = styled.li`
     font-size: var(--text-size-s);
 `
-const MArginPolicies = () => {
+const Policies = () => {
     return (
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
@@ -100,4 +100,4 @@ const MArginPolicies = () => {
     )
 }
 
-export default MArginPolicies
+export default Policies

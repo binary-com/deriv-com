@@ -1,10 +1,10 @@
 import React from 'react'
 import { SmallContainer, Hero } from '../components/_style'
 import WhyTradeMargin from './_why-trade-margin'
-import MarginContracts from './_margin-contracts'
-import MArginPolicies from './_margin-policies'
-import StartTradingMargin from './_start-trading-margin'
-import MarginRelationship from './_margin-relationship'
+import Contracts from './_contracts'
+import Policies from './_policies'
+import StartTrading from './_start-trading'
+import RelationshipWithLeverge from './_relationship-with-leverge'
 import AvailableMarkets from './_available-markets'
 import WhatIsMargin from './_what_is_margin'
 import { SEO } from 'components/containers'
@@ -29,11 +29,11 @@ const Margin = () => {
                 </SmallContainer>
             </Hero>
             <WhatIsMargin />
-            <MarginRelationship />
+            <RelationshipWithLeverge />
             <WhyTradeMargin />
-            <MarginContracts />
-            <MArginPolicies />
-            <StartTradingMargin />
+            <Contracts />
+            <Policies />
+            <StartTrading />
             <AvailableMarkets />
         </Layout>
     )

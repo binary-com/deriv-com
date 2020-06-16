@@ -27,7 +27,7 @@ const WhatIsMargin = () => {
                     <Header as="h2" mb="1.2rem">
                         {localize('What is margin?')}
                     </Header>
-                    <Text mb="4rem">
+                    <Text mb="3.2rem">
                         {localize(
                             'Margin is a deposit required to open a leveraged position – that is a position larger than your capital investment. So margin trading allows you to purchase larger units of an asset at a fraction of the cost in order to increase your market exposure even if you are trading with limited capital.',
                         )}
@@ -38,7 +38,7 @@ const WhatIsMargin = () => {
                             alt="Trade types margin market"
                         />
                     </ImageWrapper>
-                    <Text mb="4rem">
+                    <Text>
                         {localize(
                             'This means that with the same capital, you will be able to buy more of an asset. The result is a more substantial profit when you win a trade and of course, a more significant loss when you lose. ',
                         )}

@@ -1,12 +1,16 @@
 import React from 'react'
 import { SmallContainer, Hero } from '../components/_style'
 import Timeline from '../components/_timeline'
+import WhyTradeMargin from './_Why-trade-margin'
+import MarginContracts from './_margin-contracts'
+import MarginRelationship from './_margin-relationship'
+import WhatIsMargin from './_what_is_margin'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 
-const Options = () => {
+const Margin = () => {
     return (
         <Layout>
             <SEO
@@ -22,6 +26,10 @@ const Options = () => {
                     </Header>
                 </SmallContainer>
             </Hero>
+            <WhatIsMargin />
+            <MarginRelationship />
+            <WhyTradeMargin />
+            <MarginContracts />
             <Timeline>
                 <Timeline.Item title="Practise">
                     {localize(
@@ -43,4 +51,4 @@ const Options = () => {
     )
 }
 
-export default WithIntl()(Options)
+export default WithIntl()(Margin)

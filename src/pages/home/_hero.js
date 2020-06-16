@@ -154,7 +154,7 @@ export const Hero = () => {
                                 </StyledHeader>
                             </Flex>
                         </Show.Mobile>
-                        <TypeWriter as="h4" color="white" max_width="365px" weight="normal">
+                        <TypeWriter as="h4" color="white" max_width="430px" weight="normal">
                             {type_writer}
                         </TypeWriter>
                         <VerticalCarousel contents={contents} />

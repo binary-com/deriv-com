@@ -1,4 +1,5 @@
 import React from 'react'
+import { PropTypes } from 'prop-types'
 import styled from 'styled-components'
 import {
     StyledSection,
@@ -10,13 +11,13 @@ import {
     Separator,
     StyledHeader,
     SecondaryHeader,
-    LineStyle,
+    //LineStyle,
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
-import device from 'themes/device'
+//import device from 'themes/device'
 // SVG
 import TradingExperts from 'images/svg/trading-experts.svg'
 import Affiliates from 'images/svg/affiliates.svg'
@@ -24,7 +25,74 @@ import CommunityManagers from 'images/svg/community-managers.svg'
 import Email from 'images/svg/pa-email.svg'
 import Reply from 'images/svg/pa-reply.svg'
 import Listed from 'images/svg/pa-listed.svg'
-import LineVerticalSVG from 'images/svg/line-vertical-pa.svg'
+//import LineVerticalSVG from 'images/svg/line-vertical-pa.svg'
+
+const ContentWrapper = styled.div`
+    margin-top: 4rem;
+    margin-left: 20px;
+`
+const OvalWrapper = styled.div`
+    width: 24px;
+    height: 24px;
+    line-height: 2.75rem;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 8px;
+    position: absolute;
+    padding-left: 1px;
+    left: -13px;
+`
+const OvalNumber = styled.span`
+    color: var(--text-colored-background);
+    font-size: 16px;
+    font-weight: bold;
+`
+const FlexWrapper = styled.div`
+    margin-top: 4rem;
+    display: flex;
+    border-left: ${(props) => (props.isBorder ? 'red solid 1px' : 'unset')};
+    position: relative;
+`
+const Oval = ({ children }) => {
+    return (
+        <OvalWrapper>
+            <OvalNumber>{children}</OvalNumber>
+        </OvalWrapper>
+    )
+}
+
+Oval.propTypes = {
+    children: PropTypes.number,
+}
+
+const Timeline = ({ children, ...props }) => {
+    return (
+        <div {...props}>
+            {children.map((child, idx) => (
+                <FlexWrapper key={idx} isBorder={children.length !== idx + 1}>
+                    <Oval>{idx + 1}</Oval>
+                    <ContentWrapper>
+                        <div>{child}</div>
+                    </ContentWrapper>
+                </FlexWrapper>
+            ))}
+        </div>
+    )
+}
+
+const Item = ({ children, ...props }) => <div {...props}>{children}</div>
+Timeline.Item = Item
+
+Timeline.propTypes = {
+    children: {},
+    props: PropTypes.any,
+}
+
+Item.propTypes = {
+    children: {},
+    props: PropTypes.any,
+}
 
 const StyledUl = styled.ul`
     list-style-type: disc;
@@ -36,17 +104,17 @@ const Li = styled.li`
     margin-top: 0.8rem;
 `
 
-const LineVertical = styled(LineVerticalSVG)`
-    ${LineStyle}
-    height: 100%;
-    margin-top: 2rem;
-    margin-right: 1.8rem;
+// const LineVertical = styled(LineVerticalSVG)`
+//     ${LineStyle}
+//     height: 100%;
+//     margin-top: 2rem;
+//     margin-right: 1.8rem;
 
-    @media ${device.tablet} {
-        margin-top: 5rem;
-        width: 3.5rem;
-    }
-`
+//     @media ${device.tablet} {
+//         margin-top: 5rem;
+//         width: 3.5rem;
+//     }
+// `
 const ColLine = styled(Col)`
     flex-direction: row;
 `
@@ -146,74 +214,85 @@ const WhoCanApply = () => {
                 <StyledSeparator />
                 <Flex width="auto">
                     <ColLine>
-                        <LineVertical />
                         <div>
                             <SecondaryHeader size="3.6rem">
                                 {localize('How to apply')}
                             </SecondaryHeader>
-                            <Wrapper>
-                                <Email />
-                                <Content max_width="36.4rem">
-                                    <Header as="h4" lh="1.5">
-                                        {localize('Drop us an email')}
-                                    </Header>
-                                    <Text>{localize('Send us an email with the following:')}</Text>
-                                    <StyledUl>
-                                        <Li>
+                            <Timeline>
+                                <Timeline.Item>
+                                    <Wrapper>
+                                        <Email />
+                                        <Content max_width="36.4rem">
+                                            <Header as="h4" lh="1.5">
+                                                {localize('Drop us an email')}
+                                            </Header>
                                             <Text>
+                                                {localize('Send us an email with the following:')}
+                                            </Text>
+                                            <StyledUl>
+                                                <Li>
+                                                    <Text>
+                                                        {localize(
+                                                            'Your name, email address, and contact number',
+                                                        )}
+                                                    </Text>
+                                                </Li>
+                                                <Li>
+                                                    <Text>
+                                                        {localize(
+                                                            'Your website address (if you have one)',
+                                                        )}
+                                                    </Text>
+                                                </Li>
+                                                <Li>
+                                                    <Text>
+                                                        {localize(
+                                                            'Payment methods you will accept from clients',
+                                                        )}
+                                                    </Text>
+                                                </Li>
+                                                <Li>
+                                                    <Text>
+                                                        {localize(
+                                                            'The commission you will charge clients on deposits and withdrawals',
+                                                        )}
+                                                    </Text>
+                                                </Li>
+                                            </StyledUl>
+                                        </Content>
+                                    </Wrapper>
+                                </Timeline.Item>
+                                <Timeline.Item>
+                                    <Wrapper>
+                                        <Reply />
+                                        <Content max_width="36.4rem">
+                                            <Header as="h4" lh="1.5">
+                                                {localize('Wait for our reply')}
+                                            </Header>
+                                            <SecondaryText>
                                                 {localize(
-                                                    'Your name, email address, and contact number',
+                                                    'We’ll review your application and get in touch for further information and next steps.',
                                                 )}
-                                            </Text>
-                                        </Li>
-                                        <Li>
-                                            <Text>
-                                                {localize('Your website address (if you have one)')}
-                                            </Text>
-                                        </Li>
-                                        <Li>
-                                            <Text>
+                                            </SecondaryText>
+                                        </Content>
+                                    </Wrapper>
+                                </Timeline.Item>
+                                <Timeline.Item>
+                                    <Wrapper>
+                                        <Listed />
+                                        <Content max_width="36.4rem">
+                                            <Header as="h4" lh="1.5">
+                                                {localize('Get listed')}
+                                            </Header>
+                                            <SecondaryText>
                                                 {localize(
-                                                    'Payment methods you will accept from clients',
+                                                    'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
                                                 )}
-                                            </Text>
-                                        </Li>
-                                        <Li>
-                                            <Text>
-                                                {localize(
-                                                    'The commission you will charge clients on deposits and withdrawals',
-                                                )}
-                                            </Text>
-                                        </Li>
-                                    </StyledUl>
-                                </Content>
-                            </Wrapper>
-                            <Wrapper>
-                                <Reply />
-                                <Content max_width="36.4rem">
-                                    <Header as="h4" lh="1.5">
-                                        {localize('Wait for our reply')}
-                                    </Header>
-                                    <SecondaryText>
-                                        {localize(
-                                            'We’ll review your application and get in touch for further information and next steps.',
-                                        )}
-                                    </SecondaryText>
-                                </Content>
-                            </Wrapper>
-                            <Wrapper>
-                                <Listed />
-                                <Content max_width="36.4rem">
-                                    <Header as="h4" lh="1.5">
-                                        {localize('Get listed')}
-                                    </Header>
-                                    <SecondaryText>
-                                        {localize(
-                                            'After final approval from our compliance team, we’ll publish your details on our payment agent list.',
-                                        )}
-                                    </SecondaryText>
-                                </Content>
-                            </Wrapper>
+                                            </SecondaryText>
+                                        </Content>
+                                    </Wrapper>
+                                </Timeline.Item>
+                            </Timeline>
                         </div>
                     </ColLine>
                 </Flex>

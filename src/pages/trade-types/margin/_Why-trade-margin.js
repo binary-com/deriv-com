@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { SmallContainer } from '../components/_style'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer, CssGrid } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
@@ -12,7 +12,8 @@ import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 
 const Item = styled.div`
     margin-right: 4rem;
-    width: 23.7rem;
+    min-width: 23.7rem;
+    max-width: 23.7rem;
 `
 const WhyTradeMargin = () => {
     return (
@@ -22,7 +23,7 @@ const WhyTradeMargin = () => {
                     <Header as="h2" mb="1.2rem">
                         {localize('Why trade on margin with Deriv')}
                     </Header>
-                    <Flex direction="row" jc="space-between" wrap="wrap">
+                    <CssGrid columns="repeat(3, 1fr)" columngap="1rem">
                         <Item>
                             <HighLeverge />
                             <Text weight="bold" mb="1.2rem">
@@ -74,7 +75,10 @@ const WhyTradeMargin = () => {
                                 {localize('Open an account and start trading in minutes.')}
                             </Text>
                         </Item>
-                    </Flex>
+                    </CssGrid>
+                    <Text align="left" width="100%" weight="bold">
+                        {localize("Don't have a Deriv.com account yet?")}
+                    </Text>
                 </SmallContainer>
             </SectionContainer>
         </>

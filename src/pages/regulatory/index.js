@@ -260,7 +260,7 @@ const Regulatory = () => (
                                             color="red"
                                             weight="bold"
                                             target="_blank"
-                                            href="/BVI_license.pdf"
+                                            href="/DBVI_license.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

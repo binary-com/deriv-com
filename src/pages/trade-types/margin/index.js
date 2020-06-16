@@ -1,6 +1,6 @@
 import React from 'react'
 import { SmallContainer, Hero } from '../components/_style'
-import StartTrading from '../components/_start-trading'
+import Timeline from '../components/_timeline'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
@@ -22,23 +22,23 @@ const Options = () => {
                     </Header>
                 </SmallContainer>
             </Hero>
-            <StartTrading>
-                <StartTrading.Item title="Practise">
+            <Timeline>
+                <Timeline.Item title="Practise">
                     {localize(
                         'Open a demo MetaTrader 5 account on Deriv and practise with an unlimited amount of virtual funds.',
                     )}
-                </StartTrading.Item>
-                <StartTrading.Item title="Trade">
+                </Timeline.Item>
+                <Timeline.Item title="Trade">
                     {localize(
                         'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
                     )}
-                </StartTrading.Item>
-                <StartTrading.Item title="Withdraw">
+                </Timeline.Item>
+                <Timeline.Item title="Withdraw">
                     {localize(
                         'Conveniently withdraw your funds through any of our supported withdrawal methods.',
                     )}
-                </StartTrading.Item>
-            </StartTrading>
+                </Timeline.Item>
+            </Timeline>
         </Layout>
     )
 }

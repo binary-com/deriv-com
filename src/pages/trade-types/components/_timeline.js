@@ -12,6 +12,7 @@ const StyledItem = styled.div`
 
     &:last-child {
         border-left: unset;
+        height: auto;
     }
 `
 const Container = styled.div`
@@ -22,7 +23,7 @@ const Oval = styled(Checklist)`
     position: absolute;
     left: -12px;
 `
-const StartTrading = ({ children, ...props }) => {
+const Timeline = ({ children, ...props }) => {
     return (
         <div {...props}>
             {children.map((child, idx) => (
@@ -41,13 +42,13 @@ const StartTrading = ({ children, ...props }) => {
 }
 const Item = ({ children, ...props }) => <div {...props}>{children}</div>
 
-StartTrading.Item = Item
+Timeline.Item = Item
 
 Item.propTypes = {
     children: PropTypes.node,
 }
-StartTrading.propTypes = {
+Timeline.propTypes = {
     children: PropTypes.node,
 }
 
-export default StartTrading
+export default Timeline

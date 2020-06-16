@@ -2,6 +2,7 @@ import React from 'react'
 import { SmallContainer, Hero } from '../components/_style'
 import StartTrading from '../components/_start-trading'
 import WhyTradeMargin from './_Why-trade-margin'
+import MarginContracts from './_margin-contracts'
 import MarginRelationship from './_margin-relationship'
 import WhatIsMargin from './_what_is_margin'
 import { SEO } from 'components/containers'
@@ -28,6 +29,7 @@ const Margin = () => {
             <WhatIsMargin />
             <MarginRelationship />
             <WhyTradeMargin />
+            <MarginContracts />
             <SmallContainer>
                 <StartTrading>
                     <StartTrading.Item title="Practise">

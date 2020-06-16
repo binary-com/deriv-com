@@ -7,7 +7,7 @@ module.exports = {
         description:
             'Deriv.com gives everyone an easy way to participate in the financial markets. Trade with as little as $1 USD on major currencies, stocks, indices, and commodities.',
         author: 'Deriv.com',
-        siteUrl: 'https://www.deriv.com',
+        siteUrl: 'https://deriv.com',
     },
     plugins: [
         {
@@ -77,21 +77,48 @@ module.exports = {
                     allSitePage.edges.map((edge) => {
                         const path = edge.node.path
                         let priority = 0.7
+                        const languages = Object.keys(language_config)
                         if (path === '/') {
                             priority = 1.0
                         } else if (path.match(/dbot|dtrader|dmt5|about/)) {
                             priority = 1.0
                         } else {
-                            Object.keys(language_config).forEach((lang) => {
+                            languages.forEach((lang) => {
                                 if (path === `/${lang}/`) {
                                     priority = 1.0
                                 }
                             })
                         }
+
+                        const path_array = path.split('/')
+                        const current_lang = path_array[1]
+                        const check_lang = current_lang.replace('-', '_')
+                        let current_page = path
+
+                        if (languages.includes(check_lang)) {
+                            path_array.splice(1, 1)
+                            current_page = path_array.join('/')
+                        }
+
+                        languages.push('x-default')
+                        languages.splice(languages.indexOf('ach'), 1)
+                        const links = languages.map((locale) => {
+                            if (locale !== 'ach' && locale) {
+                                const replaced_locale = locale.replace('_', '-')
+
+                                const is_default = locale === 'en' || locale === 'x-default'
+                                const href_locale = is_default ? '' : `/${replaced_locale}`
+                                const href = `${site.siteMetadata.siteUrl}${href_locale}${current_page}`
+
+                                return { lang: replaced_locale, url: href }
+                            }
+                        })
+
                         return {
                             url: site.siteMetadata.siteUrl + edge.node.path,
                             changefreq: `monthly`,
                             priority,
+                            links,
                         }
                     }),
             },
@@ -159,7 +186,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
-                policy: [{ userAgent: '*', allow: '/' }],
+                policy: [{ userAgent: '*', allow: '/', disallow: ['/404/'] }],
             },
         },
         {

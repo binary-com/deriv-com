@@ -8,11 +8,11 @@ const StyledItem = styled.div`
     display: flex;
     border-left: var(--color-red) dashed 1px;
     position: relative;
-    height: 11rem;
+    padding-bottom: 4rem;
 
     &:last-child {
         border-left: unset;
-        height: auto;
+        padding-bottom: 0;
     }
 `
 const Container = styled.div`

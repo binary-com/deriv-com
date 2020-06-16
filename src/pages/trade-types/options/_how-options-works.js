@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { SmallContainer, Grid } from '../components/_style'
+import { SmallContainer, Grid, HowItWorksItem } from '../components/_style'
 import SideTab from '../components/_side-tab'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
@@ -35,13 +35,6 @@ const query = graphql`
 
 const OptionGrid = styled(Grid)`
     grid-gap: 2.4rem;
-    height: 240px;
-`
-
-const Card = styled(Flex)`
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    background: var(--color-white);
-    justify-content: flex-start;
 `
 
 const HowOptionsWorks = () => {
@@ -53,7 +46,7 @@ const HowOptionsWorks = () => {
                     {localize('How options contracts work')}
                 </Header>
                 <OptionGrid>
-                    <Card fd="column" p="2.4rem">
+                    <HowItWorksItem>
                         <div>
                             <DefinePosition />
                         </div>
@@ -65,8 +58,8 @@ const HowOptionsWorks = () => {
                                 'Select the market, trade type, duration, and type in the amount you want to stake.',
                             )}
                         </Text>
-                    </Card>
-                    <Card fd="column" p="2.4rem">
+                    </HowItWorksItem>
+                    <HowItWorksItem>
                         <div>
                             <GetQuote />
                         </div>
@@ -78,8 +71,8 @@ const HowOptionsWorks = () => {
                                 'Receive payout quote or stake amount based on the position you have defined.',
                             )}
                         </Text>
-                    </Card>
-                    <Card fd="column" p="2.4rem">
+                    </HowItWorksItem>
+                    <HowItWorksItem>
                         <div>
                             <PurchaseContract />
                         </div>
@@ -91,7 +84,7 @@ const HowOptionsWorks = () => {
                                 'Purchase the contract if you are satisfied with the quote or re-define your position.',
                             )}
                         </Text>
-                    </Card>
+                    </HowItWorksItem>
                 </OptionGrid>
                 <Header as="h3" mt="4rem">
                     {localize('How to buy your first options contract on DTrader')}

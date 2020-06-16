@@ -1,6 +1,6 @@
 import React from 'react'
 import { SmallContainer, Hero } from '../components/_style'
-import WhyTradeMargin from './_Why-trade-margin'
+import WhyTradeMargin from './_why-trade-margin'
 import MarginContracts from './_margin-contracts'
 import MArginPolicies from './_margin-policies'
 import StartTradingMargin from './_start-trading-margin'

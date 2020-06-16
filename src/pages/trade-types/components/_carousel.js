@@ -62,7 +62,7 @@ const Background = styled.div`
     background: var(--color-green-2);
     border-radius: 16px;
     max-height: 15.4rem;
-    margin-bottom: 15.4rem;
+    margin-bottom: 23rem;
 `
 
 const Item = ({ children, ...props }) => <div {...props}>{children}</div>
@@ -71,7 +71,7 @@ Item.propTypes = {
     children: PropTypes.node,
 }
 
-const Carousel = ({ children }) => {
+const Carousel = ({ children, ...props }) => {
     const [swiper, updateSwiper] = React.useState(null)
     const [is_beginning, setBeginning] = React.useState(true)
     const [is_end, setEnd] = React.useState(false)
@@ -116,7 +116,7 @@ const Carousel = ({ children }) => {
             <Helmet>
                 <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
             </Helmet>
-            <Background>
+            <Background {...props}>
                 <SliderWrapper>
                     <Next>
                         <Button onClick={goNext}>

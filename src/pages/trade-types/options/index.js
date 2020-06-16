@@ -3,6 +3,7 @@ import { SmallContainer, Hero } from '../components/_style'
 import WhatAreTheOptions from './_what-are-options'
 import HowOptionsWorks from './_how-options-works'
 import OptionsToTrade from './_options-to-trade'
+import StartTrading from './_start-trading'
 import MarketsAvailable from './_markets-available'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
@@ -28,6 +29,7 @@ const Options = () => {
             <WhatAreTheOptions />
             <HowOptionsWorks />
             <OptionsToTrade />
+            <StartTrading />
             <MarketsAvailable />
         </Layout>
     )

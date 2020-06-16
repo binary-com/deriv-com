@@ -266,6 +266,7 @@ const SignupNew = ({
                     type="text"
                     border="solid 1px var(--color-grey-7)"
                     labelColor="grey-5"
+                    labelHoverColor="grey-5"
                     background="white"
                     error={email_error_msg}
                     value={email}

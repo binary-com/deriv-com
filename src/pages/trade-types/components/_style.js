@@ -47,6 +47,14 @@ const Grid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 4rem;
+
+    @media ${device.tablet} {
+        grid-gap: 3rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    @media ${device.mobileL} {
+        grid-template-columns: 1fr;
+    }
 `
 
 const OptionGrid = styled.div`
@@ -55,6 +63,10 @@ const OptionGrid = styled.div`
     grid-column-gap: 2.3rem;
     grid-row-gap: 1.6rem;
     margin-bottom: 2.4rem;
+
+    @media ${device.mobileL} {
+        grid-template-columns: 1fr;
+    }
 `
 
 const OptionGridSecondary = styled(OptionGrid)`
@@ -63,13 +75,64 @@ const OptionGridSecondary = styled(OptionGrid)`
 
 const Card = styled.article`
     position: relative;
-    overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     background-color: var(--color-white);
     height: 29.6rem;
     padding: 2.4rem;
     max-width: 28.2rem;
+
+    @media (max-width: 680px) {
+        max-width: 282px;
+        height: 20.4rem;
+    }
+
+    &:hover .learn-more {
+        opacity: 1;
+    }
 `
 
-export { SmallContainer, Hero, Ul, Grid, Card, OptionGrid, OptionGridSecondary }
+const WhyTradeItem = styled(Flex)`
+    flex-direction: column;
+    justify-content: start;
+    max-width: 23.7rem;
+
+    @media ${device.mobileL} {
+        max-width: 100%;
+    }
+`
+
+const HowItWorksItem = styled(Flex)`
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    background: var(--color-white);
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 2.4rem;
+    min-height: 24rem;
+
+    @media ${device.mobileL} {
+        justify-content: center;
+    }
+`
+
+const MarketsItem = styled(Flex)`
+    align-items: center;
+    height: unset;
+    padding: 4px 0;
+    margin-bottom: 2.8rem;
+    position: relative;
+    z-index: 2;
+`
+
+export {
+    SmallContainer,
+    Hero,
+    Ul,
+    Grid,
+    WhyTradeItem,
+    HowItWorksItem,
+    Card,
+    OptionGrid,
+    OptionGridSecondary,
+    MarketsItem,
+}

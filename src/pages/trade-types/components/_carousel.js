@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
+import { SmallContainer } from './_style'
+import { Show } from 'components/containers'
+import device from 'themes/device'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
 const SliderWrapper = styled.div`
@@ -65,6 +68,32 @@ const Background = styled.div`
     margin-bottom: 23rem;
 `
 
+const Wrapper = styled(SmallContainer)`
+    @media (max-width: 680px) {
+        display: none;
+    }
+`
+
+const MobileBackground = styled.div`
+    position: relative;
+    padding-top: 1.6rem;
+    padding-bottom: 0.8rem;
+`
+
+const GreenBG = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: var(--color-green-2);
+    border-radius: 16px;
+    width: 30%;
+
+    @media ${device.mobileL} {
+        width: 184px;
+    }
+`
+
 const Item = ({ children, ...props }) => <div {...props}>{children}</div>
 
 Item.propTypes = {
@@ -116,25 +145,33 @@ const Carousel = ({ children, ...props }) => {
             <Helmet>
                 <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
             </Helmet>
-            <Background {...props}>
-                <SliderWrapper>
-                    <Next>
-                        <Button onClick={goNext}>
-                            <ChevronRight is_disabled={is_end} />
-                        </Button>
-                    </Next>
-                    <Prev>
-                        <Button onClick={goPrev}>
-                            <ChevronLeft is_disabled={is_beginning} />
-                        </Button>
-                    </Prev>
-                    <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-                        <Swiper {...params} getSwiper={updateSwiper}>
-                            {children}
-                        </Swiper>
-                    </div>
-                </SliderWrapper>
-            </Background>
+            <Wrapper>
+                <Background {...props}>
+                    <SliderWrapper>
+                        <Next>
+                            <Button onClick={goNext}>
+                                <ChevronRight is_disabled={is_end} />
+                            </Button>
+                        </Next>
+                        <Prev>
+                            <Button onClick={goPrev}>
+                                <ChevronLeft is_disabled={is_beginning} />
+                            </Button>
+                        </Prev>
+                        <div style={{ maxWidth: '60rem', margin: '0 auto' }}>
+                            <Swiper {...params} getSwiper={updateSwiper}>
+                                {children}
+                            </Swiper>
+                        </div>
+                    </SliderWrapper>
+                </Background>
+            </Wrapper>
+            <Show.Mobile min_width={680}>
+                <MobileBackground>
+                    <SmallContainer fd="column">{children}</SmallContainer>
+                    <GreenBG />
+                </MobileBackground>
+            </Show.Mobile>
         </>
     )
 }

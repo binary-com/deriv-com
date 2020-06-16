@@ -1,6 +1,6 @@
 import React from 'react'
-import { SmallContainer, Grid, Ul } from '../components/_style'
-import { Flex, SectionContainer } from 'components/containers'
+import { SmallContainer, Grid, Ul, WhyTradeItem } from '../components/_style'
+import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
@@ -56,7 +56,7 @@ const WhatAreOptions = () => {
                         {localize('Why trade options on Deriv')}
                     </Header>
                     <Grid>
-                        <Flex direction="column" jc="flex-start" max_width="237px">
+                        <WhyTradeItem>
                             <div>
                                 <FixedPayout />
                             </div>
@@ -68,8 +68,8 @@ const WhatAreOptions = () => {
                                     'Know your potential profit or loss even before purchasing a contract.',
                                 )}
                             </Text>
-                        </Flex>
-                        <Flex direction="column" jc="flex-start" max_width="237px">
+                        </WhyTradeItem>
+                        <WhyTradeItem>
                             <div>
                                 <SyntheticIndices />
                             </div>
@@ -81,8 +81,8 @@ const WhatAreOptions = () => {
                                     'Trade on all popular markets plus our proprietary synthetic indices that are available 24/7.',
                                 )}
                             </Text>
-                        </Flex>
-                        <Flex direction="column" jc="flex-start" max_width="237px">
+                        </WhyTradeItem>
+                        <WhyTradeItem>
                             <div>
                                 <InstantAccess />
                             </div>
@@ -90,8 +90,8 @@ const WhatAreOptions = () => {
                                 {localize('Instant access')}
                             </Text>
                             <Text>{localize('Open an account and start trading in minutes.')}</Text>
-                        </Flex>
-                        <Flex direction="column" jc="flex-start" max_width="237px">
+                        </WhyTradeItem>
+                        <WhyTradeItem>
                             <div>
                                 <UserFriendly />
                             </div>
@@ -103,8 +103,8 @@ const WhatAreOptions = () => {
                                     'Trade on secure, intuitive, and easy to use platforms with powerful chart technology.',
                                 )}
                             </Text>
-                        </Flex>
-                        <Flex direction="column" jc="flex-start" max_width="237px">
+                        </WhyTradeItem>
+                        <WhyTradeItem>
                             <div>
                                 <FlexibleTrade />
                             </div>
@@ -116,7 +116,7 @@ const WhatAreOptions = () => {
                                     'Deposit as little as 5 USD to start trading and customise your trades to suit your strategy.',
                                 )}
                             </Text>
-                        </Flex>
+                        </WhyTradeItem>
                     </Grid>
                     <Text mt="4rem" mb="1.6rem" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}

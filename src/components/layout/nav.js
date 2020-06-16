@@ -696,11 +696,6 @@ const StyledNavCenter = styled(NavCenter)`
 const StyledNavRight = styled(NavRight)`
     margin-left: auto;
 `
-const MobileSwitcher = styled.div`
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-`
 
 const StyledNavWrapper = styled(Wrapper)`
     justify-content: flex-start;
@@ -852,9 +847,9 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LogoLinkMobile to="/" aria-label={localize('Home')}>
                                     <ResLogo />
                                 </LogoLinkMobile>
-                                <MobileSwitcher>
+                                <Flex ml="auto" ai="center" width="auto">
                                     <LanguageSwitcher short_name="true" is_high_nav />
-                                </MobileSwitcher>
+                                </Flex>
                                 {!no_login_signup && (
                                     <LinkMobileLogin
                                         to={affiliate_signin_url}

@@ -9,17 +9,19 @@ import HighLeverge from 'images/svg/trade-types/high-leverage.svg'
 import MaximizePotentialProfit from 'images/svg/trade-types/maximize-potential-profit.svg'
 import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
+import { LinkButton } from 'components/form'
 
 const Item = styled.div`
     margin-right: 4rem;
     min-width: 23.7rem;
     max-width: 23.7rem;
 `
+
 const WhyTradeMargin = () => {
     return (
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
-                <SmallContainer direction="column">
+                <SmallContainer direction="column" ai="flex-start">
                     <Header as="h2" mb="1.2rem">
                         {localize('Why trade on margin with Deriv')}
                     </Header>
@@ -79,6 +81,11 @@ const WhyTradeMargin = () => {
                     <Text align="left" width="100%" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
+                    {/* <ButtonWrapper> */}
+                    <LinkButton mt="1.6rem" to="/signup/" secondary="true">
+                        {localize('Create free demo account')}
+                    </LinkButton>
+                    {/* </ButtonWrapper> */}
                 </SmallContainer>
             </SectionContainer>
         </>

@@ -8,7 +8,9 @@ import { localize } from 'components/localization'
 
 const query = graphql`
     query {
-        margin_piechart: file(relativePath: { eq: "trade-types/margin-piechart.png" }) {
+        margin_relationship_piechart: file(
+            relativePath: { eq: "trade-types/margin-relationship-piechart.png" }
+        ) {
             ...fadeIn
         }
     }
@@ -39,7 +41,7 @@ const MarginRelationship = () => {
                     </Text>
                     <ImageWrapper>
                         <QueryImage
-                            data={data['margin_piechart']}
+                            data={data['margin_relationship_piechart']}
                             alt="Trade types margin market"
                         />
                     </ImageWrapper>

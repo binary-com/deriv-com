@@ -27,8 +27,21 @@ import Reply from 'images/svg/pa-reply.svg'
 import Listed from 'images/svg/pa-listed.svg'
 //import LineVerticalSVG from 'images/svg/line-vertical-pa.svg'
 
+const HowToApply = styled.div`
+    margin-top: 4 rem;
+`
+const Test = styled.div`
+    margin-top: 0 px;
+    display: flex;
+    padding-bottom: 4 rem;
+
+    svg {
+        margin-right: 1.6rem;
+    }
+`
+
 const ContentWrapper = styled.div`
-    margin-top: 4rem;
+    margin-top: 0 rem;
     margin-left: 20px;
 `
 const OvalWrapper = styled.div`
@@ -49,10 +62,10 @@ const OvalNumber = styled.span`
     font-weight: bold;
 `
 const FlexWrapper = styled.div`
-    margin-top: 4rem;
     display: flex;
     border-left: ${(props) => (props.isBorder ? 'red solid 1px' : 'unset')};
     position: relative;
+    padding-bottom: 4rem;
 `
 const Oval = ({ children }) => {
     return (
@@ -214,15 +227,15 @@ const WhoCanApply = () => {
                 <StyledSeparator />
                 <Flex width="auto">
                     <ColLine>
-                        <div>
-                            <SecondaryHeader size="3.6rem">
+                        <HowToApply>
+                            <SecondaryHeader mb="4rem" size="3.6rem">
                                 {localize('How to apply')}
                             </SecondaryHeader>
                             <Timeline>
                                 <Timeline.Item>
-                                    <Wrapper>
+                                    <Test>
                                         <Email />
-                                        <Content max_width="36.4rem">
+                                        <Content margin-top="0 px" max_width="36.4rem">
                                             <Header as="h4" lh="1.5">
                                                 {localize('Drop us an email')}
                                             </Header>
@@ -260,10 +273,10 @@ const WhoCanApply = () => {
                                                 </Li>
                                             </StyledUl>
                                         </Content>
-                                    </Wrapper>
+                                    </Test>
                                 </Timeline.Item>
                                 <Timeline.Item>
-                                    <Wrapper>
+                                    <Test>
                                         <Reply />
                                         <Content max_width="36.4rem">
                                             <Header as="h4" lh="1.5">
@@ -275,10 +288,10 @@ const WhoCanApply = () => {
                                                 )}
                                             </SecondaryText>
                                         </Content>
-                                    </Wrapper>
+                                    </Test>
                                 </Timeline.Item>
                                 <Timeline.Item>
-                                    <Wrapper>
+                                    <Test>
                                         <Listed />
                                         <Content max_width="36.4rem">
                                             <Header as="h4" lh="1.5">
@@ -290,10 +303,10 @@ const WhoCanApply = () => {
                                                 )}
                                             </SecondaryText>
                                         </Content>
-                                    </Wrapper>
+                                    </Test>
                                 </Timeline.Item>
                             </Timeline>
-                        </div>
+                        </HowToApply>
                     </ColLine>
                 </Flex>
             </Section>

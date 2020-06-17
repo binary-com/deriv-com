@@ -30,7 +30,7 @@ const Checkmark = styled.span`
 
 const ContentWrapper = styled.div`
     margin-top: 0 rem;
-    margin-left: 20px;
+    margin-left: 2rem;
 `
 const OvalWrapper = styled.div`
     width: 24px;

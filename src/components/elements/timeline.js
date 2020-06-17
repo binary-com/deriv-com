@@ -82,7 +82,7 @@ const Item = ({ children, ...props }) => <div {...props}>{children}</div>
 Timeline.Item = Item
 
 Timeline.propTypes = {
-    children: {},
+    children: PropTypes.node,
     props: PropTypes.any,
 }
 

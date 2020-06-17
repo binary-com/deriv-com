@@ -85,7 +85,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else if (is_affiliate_sign_in_link) {
             lang_to = `${affiliate_signin_url}?lang=${affiliate_lang}`
         } else {
-            lang_to = binary_url
+            lang_to = to
         }
         return (
             <a

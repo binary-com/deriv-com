@@ -39,7 +39,7 @@ const OvalWrapper = styled.div`
     background-color: var(--color-red);
     border-radius: 50%;
     text-align: center;
-    margin-right: 8px;
+    margin-right: 0.8rem;
     position: absolute;
     padding-left: 1px;
     left: -13px;

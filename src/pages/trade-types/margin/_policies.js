@@ -1,18 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
-import { SmallContainer } from '../components/_style'
+import { SmallContainer, Ul } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 
-const Ul = styled.ul`
-    list-style: disc;
-    font-size: var(--text-size-s);
-`
-
-const Li = styled.li`
-    font-size: var(--text-size-s);
-`
 const Policies = () => {
     return (
         <>
@@ -31,28 +22,28 @@ const Policies = () => {
                             'These measures are enforced when the margin level, that is, the ratio of equity to margin, falls below the stop-out level (usually 50%). When this happens, we will initiate a forced liquidation process to close your positions in the following sequence:',
                         )}
                     </Text>
-                    <Ul jc="center" ai="center">
-                        <Li>
+                    <Ul>
+                        <li>
                             <Text mb="0.8rem">
                                 {localize(
                                     'Firstly, we will delete the order with the largest margin reserved.',
                                 )}
                             </Text>
-                        </Li>
-                        <Li>
+                        </li>
+                        <li>
                             <Text mb="0.8rem">
                                 {localize(
                                     'If your margin level is still below the stop-out level, the position with the second-largest margin reserved will be deleted but orders without margin requirements will not be affected.',
                                 )}
                             </Text>
-                        </Li>
-                        <Li>
+                        </li>
+                        <li>
                             <Text mb="0.8rem">
                                 {localize(
                                     'If your margin level is still below the stop-out level, we will close the position with the largest loss.',
                                 )}
                             </Text>
-                        </Li>
+                        </li>
                     </Ul>
                     <Text mb="2.6rem">
                         {localize(

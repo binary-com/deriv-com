@@ -1,8 +1,8 @@
 import React from 'react'
 import { SmallContainer, Hero } from '../components/_style'
-import WhatAreTheOptions from './_what-are-options'
-import HowOptionsWorks from './_how-options-works'
-import OptionsToTrade from './_options-to-trade'
+import WhatAreMultiplier from './_what-are-multipliers'
+import HowMultiplierWorks from './_how-multiplier-works'
+import ThingsInMind from './_things-in-mind'
 import StartTrading from './_start-trading'
 import MarketsAvailable from './_markets-available'
 import { SEO } from 'components/containers'
@@ -16,7 +16,7 @@ const Multipliers = () => {
             <SEO
                 title={localize('Trade types | Multipliers')}
                 description={localize(
-                    'Options are products that allow for payouts from predicting market movements, without needing to buy the underlying asset.',
+                    'Multipliers allow you to profit from correctly predicting whether the market will go up or down.',
                 )}
             />
             <Hero jc="cneter" ai="center">
@@ -26,9 +26,9 @@ const Multipliers = () => {
                     </Header>
                 </SmallContainer>
             </Hero>
-            <WhatAreTheOptions />
-            <HowOptionsWorks />
-            <OptionsToTrade />
+            <WhatAreMultiplier />
+            <HowMultiplierWorks />
+            <ThingsInMind />
             <StartTrading />
             <MarketsAvailable />
         </Layout>

@@ -23,12 +23,12 @@ const StartTrading = () => {
         <PatternContainer background="white" padding="4rem 0">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h3" mb="4rem">
-                    {localize('Start trading options on Deriv')}
+                    {localize('Start trading multipliers on Deriv')}
                 </Header>
                 <FixTimeline>
                     <FixTimeline.Item title="Practise">
                         {localize(
-                            'Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms – DTrader, SmartTrader, and DBot.',
+                            'Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms.',
                         )}
                     </FixTimeline.Item>
                     <FixTimeline.Item title="Trade">

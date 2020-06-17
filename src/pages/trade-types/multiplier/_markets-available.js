@@ -8,9 +8,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
-import Commodities from 'images/svg/trade-types/commodities.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
-import StockIndices from 'images/svg/trade-types/stock-indices.svg'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -85,50 +83,6 @@ const MarketsAvailable = () => {
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets#synthetic"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <Commodities />
-
-                                    <Text weight="bold" mt="1.6rem">
-                                        {localize('Commodities')}
-                                    </Text>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        "Speculate on the price movements of the world's major commodities – silver, gold, oil, and energy.",
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets#commodities"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <StockIndices />
-
-                                    <Text weight="bold" mt="1.6rem">
-                                        {localize('Stock indices')}
-                                    </Text>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        'Trade digital options on stock indices and profit from the price movements in our competitively priced asset baskets.',
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets#stock"
                                 />
                             </Card>
                         </MarketsItem>

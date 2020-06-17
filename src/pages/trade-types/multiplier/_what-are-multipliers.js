@@ -5,11 +5,11 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 // Icon
-import FixedPayout from 'images/svg/trade-types/fixed-payout.svg'
-import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
-import InstantAccess from 'images/svg/trade-types/instant-access.svg'
-import UserFriendly from 'images/svg/trade-types/user-friendly-platforms.svg'
-import FlexibleTrade from 'images/svg/trade-types/flexible-trade-types.svg'
+import MinimalRisk from 'images/svg/trade-types/minimal-risk.svg'
+import FullControl from 'images/svg/trade-types/full-control.svg'
+import ResponsivePlatform from 'images/svg/trade-types/responsive-platform.svg'
+import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
+import Seven from 'images/svg/trade-types/seven.svg'
 
 const WhatAreOptions = () => {
     return (
@@ -17,24 +17,29 @@ const WhatAreOptions = () => {
             <SectionContainer background="white" padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h2" mb="1.2rem">
-                        {localize('What are options?')}
+                        {localize('What are multipliers?')}
                     </Header>
+                    <Text mb="1.2rem">
+                        {localize(
+                            'Multipliers allow you to profit from correctly predicting whether the market will go up or down. You select either ‘Up’ or ‘Down’ to open a position and win by closing the trade when the market price is higher or lower than your entry spot.',
+                        )}
+                    </Text>
                     <Text mb="4rem">
                         {localize(
-                            'Options are products that allow for payouts from predicting market movements, without needing to buy the underlying asset. You only need to open a position that predicts how the asset will move over a period of time. This makes it possible for people to participate in the financial markets with minimal capital investment.',
+                            'These unique products combine features of digital options and CFD margin trading. When trading multipliers, your risk is limited to your stake amount, but your profit increases as long as the market continues to move in the direction that you have predicted.',
                         )}
                     </Text>
                     <Header as="h3" mb="0.8rem">
-                        {localize('Options available on Deriv')}
+                        {localize('Multipliers available on Deriv')}
                     </Header>
                     <Text align="left" mb="0.8rem">
-                        {localize('You can trade the following options on Deriv:')}
+                        {localize('You can trade the following multiplier products on Deriv:')}
                     </Text>
                     <Ul>
                         <li>
                             <Text>
                                 <Localize
-                                    translate_text="<0>Digital options</0> that allow you to predict the outcome from two possible results and earn a fixed payout if your prediction is correct."
+                                    translate_text="<0>Up multiplier</0> allows you to earn a profit by closing your position when the market price is higher than the entry spot."
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
@@ -42,78 +47,85 @@ const WhatAreOptions = () => {
                         <li>
                             <Text>
                                 <Localize
-                                    translate_text="<0>Lookbacks</0> that allow you to earn a payout depending on the optimum high or low achieved by the market during the duration of a contract."
+                                    translate_text="<0>Down multiplier</0> allows you to earn a profit by closing your position when the market price is lower than the entry spot."
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                         </li>
                     </Ul>
+                    <Text align="left" mt="0.8rem">
+                        {localize(
+                            'In both scenarios, your profit is calculated as the percentage change in market price times stake amount and your multiplier value.',
+                        )}
+                    </Text>
                 </SmallContainer>
             </SectionContainer>
             <SectionContainer background="grey-23" padding="4rem 0">
                 <SmallContainer direction="column" jc="flex-start" ai="flex-start">
                     <Header as="h3" mb="4rem">
-                        {localize('Why trade options on Deriv')}
+                        {localize('Why trade multipliers on Deriv')}
                     </Header>
                     <Grid>
                         <WhyTradeItem>
                             <div>
-                                <FixedPayout />
+                                <MinimalRisk />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Fixed, predictable payout')}
+                                {localize('Better risk management')}
                             </Text>
                             <Text>
                                 {localize(
-                                    'Know your potential profit or loss even before purchasing a contract.',
+                                    'Customise your contracts to suit your style and risk appetite using innovative features like stop loss, take profit, and deal cancellation.',
                                 )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <SyntheticIndices />
+                                <FullControl />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('All favourite markets and more')}
+                                {localize('Increased market exposure')}
                             </Text>
                             <Text>
                                 {localize(
-                                    'Trade on all popular markets plus our proprietary synthetic indices that are available 24/7.',
+                                    'Get more market exposure while limiting risk to your stake amount.',
                                 )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <InstantAccess />
+                                <ResponsivePlatform />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Instant access')}
-                            </Text>
-                            <Text>{localize('Open an account and start trading in minutes.')}</Text>
-                        </WhyTradeItem>
-                        <WhyTradeItem>
-                            <div>
-                                <UserFriendly />
-                            </div>
-                            <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('User-friendly platforms with powerful chart widgets')}
+                                {localize('Secure, responsive platform')}
                             </Text>
                             <Text>
                                 {localize(
-                                    'Trade on secure, intuitive, and easy to use platforms with powerful chart technology.',
+                                    'Enjoy trading on secure, intuitive platforms built for new and expert traders.',
                                 )}
                             </Text>
                         </WhyTradeItem>
                         <WhyTradeItem>
                             <div>
-                                <FlexibleTrade />
+                                <FriendlySupport />
                             </div>
                             <Text mt="1.6rem" mb="0.8rem" weight="bold">
-                                {localize('Flexible trade types with minimal capital requirements')}
+                                {localize('Expert and friendly support')}
+                            </Text>
+                            <Text>
+                                {localize('Get expert, friendly support when you need it.')}
+                            </Text>
+                        </WhyTradeItem>
+                        <WhyTradeItem>
+                            <div>
+                                <Seven />
+                            </div>
+                            <Text mt="1.6rem" mb="0.8rem" weight="bold">
+                                {localize('Trade 24/7, 365 days a year')}
                             </Text>
                             <Text>
                                 {localize(
-                                    'Deposit as little as 5 USD to start trading and customise your trades to suit your strategy.',
+                                    'Offered on forex and synthetic indices, you can trade multipliers 24/7, all-year-round.',
                                 )}
                             </Text>
                         </WhyTradeItem>

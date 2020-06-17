@@ -1,7 +1,6 @@
 import React from 'react'
-import styled from 'styled-components'
-import { SmallContainer } from '../components/_style'
-import { SectionContainer, CssGrid } from 'components/containers'
+import { SmallContainer, Grid, WhyTradeItem } from '../components/_style'
+import { SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
@@ -11,12 +10,6 @@ import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { LinkButton } from 'components/form'
 
-const Item = styled.div`
-    margin-right: 4rem;
-    min-width: 23.7rem;
-    max-width: 23.7rem;
-`
-
 const WhyTradeMargin = () => {
     return (
         <>
@@ -25,8 +18,8 @@ const WhyTradeMargin = () => {
                     <Header as="h3" mb="4rem">
                         {localize('Why trade on margin with Deriv')}
                     </Header>
-                    <CssGrid columns="repeat(3, 1fr)" columngap="1rem">
-                        <Item>
+                    <Grid>
+                        <WhyTradeItem>
                             <HighLeverge />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('High leverage, low spreads')}
@@ -36,8 +29,8 @@ const WhyTradeMargin = () => {
                                     'Take advantage of high leverage and low spreads on Deriv MT5 (DMT5).',
                                 )}
                             </Text>
-                        </Item>
-                        <Item>
+                        </WhyTradeItem>
+                        <WhyTradeItem>
                             <SyntheticIndices />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('All favourite markets available')}
@@ -47,8 +40,8 @@ const WhyTradeMargin = () => {
                                     'Trade on all popular markets plus our proprietary synthetic indices that are available 24/7.',
                                 )}
                             </Text>
-                        </Item>
-                        <Item>
+                        </WhyTradeItem>
+                        <WhyTradeItem>
                             <MaximizePotentialProfit />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Go long and short')}
@@ -58,8 +51,8 @@ const WhyTradeMargin = () => {
                                     'Open long and short positions, depending on your preferred trading strategy.',
                                 )}
                             </Text>
-                        </Item>
-                        <Item>
+                        </WhyTradeItem>
+                        <WhyTradeItem>
                             <FriendlySupport />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Expert and friendly support')}
@@ -67,8 +60,8 @@ const WhyTradeMargin = () => {
                             <Text mb="4rem">
                                 {localize('Get expert, friendly support when you need it.')}
                             </Text>
-                        </Item>
-                        <Item>
+                        </WhyTradeItem>
+                        <WhyTradeItem>
                             <InstantAccess />
                             <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Instant access')}
@@ -76,8 +69,8 @@ const WhyTradeMargin = () => {
                             <Text mb="4rem">
                                 {localize('Open an account and start trading in minutes.')}
                             </Text>
-                        </Item>
-                    </CssGrid>
+                        </WhyTradeItem>
+                    </Grid>
                     <Text align="left" width="100%" weight="bold">
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { SmallContainer } from '../components/_style'
+import { SmallContainer, Ul } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -15,14 +15,6 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
-const Ul = styled.ul`
-    list-style: disc;
-    font-size: var(--text-size-s);
-`
-
-const Li = styled.li`
-    font-size: var(--text-size-s);
 `
 const ImageWrapper = styled.div`
     width: 100%;
@@ -58,8 +50,8 @@ const Contracts = () => {
                             'When trading on Deriv, you can calculate the margin allowed for a contract by using one of the formulas below:',
                         )}
                     </Text>
-                    <Ul jc="center" ai="center">
-                        <Li>
+                    <Ul>
+                        <li>
                             <Text mb="2.4rem">
                                 <Localize
                                     translate_text="<0>The leverage formula:</0> This formula calculates margin as <0>Volume in lots x lot size x asset price / leverage = margin.</0> The leverage formula is used in determining the margin for forex currency pairs and commodity pairs."
@@ -72,8 +64,8 @@ const Contracts = () => {
                                     alt="Trade types margin numbers"
                                 />
                             </ImageWrapper>
-                        </Li>
-                        <Li>
+                        </li>
+                        <li>
                             <Text mt="2.4rem" mb="2.4rem">
                                 <Localize
                                     translate_text="<0>The margin rate formula:</0> This formula calculates margin as <0>Volume in lots x lot size x asset price x margin rate = margin.</0> The margin rate formula is used in determining the margin for cryptocurrency contracts."
@@ -86,7 +78,7 @@ const Contracts = () => {
                                     alt="Trade types margin rate numbers"
                                 />
                             </ImageWrapper>
-                        </Li>
+                        </li>
                     </Ul>
                 </SmallContainer>
             </SectionContainer>

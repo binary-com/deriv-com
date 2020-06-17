@@ -104,6 +104,9 @@ const Carousel = ({ children, ...props }) => {
     const [swiper, updateSwiper] = React.useState(null)
     const [is_beginning, setBeginning] = React.useState(true)
     const [is_end, setEnd] = React.useState(false)
+    const slides_per_view = 2
+    const children_count = React.Children.toArray(children).length // React.children.count has a bug in it
+    const show_arrow = children_count > slides_per_view
 
     React.useEffect(() => {
         if (swiper) {
@@ -135,7 +138,7 @@ const Carousel = ({ children, ...props }) => {
     }
     const params = {
         lazy: true,
-        slidesPerView: 2,
+        slidesPerView: slides_per_view,
         spaceBetween: 24,
         loop: false,
         height: '100%',
@@ -148,16 +151,20 @@ const Carousel = ({ children, ...props }) => {
             <Wrapper>
                 <Background {...props}>
                     <SliderWrapper>
-                        <Next>
-                            <Button onClick={goNext}>
-                                <ChevronRight is_disabled={is_end} />
-                            </Button>
-                        </Next>
-                        <Prev>
-                            <Button onClick={goPrev}>
-                                <ChevronLeft is_disabled={is_beginning} />
-                            </Button>
-                        </Prev>
+                        {show_arrow && (
+                            <>
+                                <Next>
+                                    <Button onClick={goNext}>
+                                        <ChevronRight is_disabled={is_end} />
+                                    </Button>
+                                </Next>
+                                <Prev>
+                                    <Button onClick={goPrev}>
+                                        <ChevronLeft is_disabled={is_beginning} />
+                                    </Button>
+                                </Prev>
+                            </>
+                        )}
                         <div style={{ maxWidth: '60rem', margin: '0 auto' }}>
                             <Swiper {...params} getSwiper={updateSwiper}>
                                 {children}

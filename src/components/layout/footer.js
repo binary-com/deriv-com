@@ -301,7 +301,7 @@ const Footer = () => {
                                         <Link to="/trade-types/margin">{localize('Margin')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
-                                        <Link to="/trade-types/option">{localize('Options')}</Link>
+                                        <Link to="/trade-types/options">{localize('Options')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/trade-types/multiplier">

@@ -47,7 +47,7 @@ const OvalWrapper = styled.div`
 
 const FlexWrapper = styled.div`
     display: flex;
-    border-left: ${(props) => (props.isBorder ? 'var(--color-red) dashed 1px' : 'unset')};
+    border-left: ${(props) => (props.is_border ? 'var(--color-red) dashed 1px' : 'unset')};
     position: relative;
     padding-bottom: 4rem;
 `

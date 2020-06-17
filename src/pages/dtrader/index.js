@@ -78,9 +78,9 @@ const Dtrader = () => {
     return (
         <Layout>
             <SEO
-                title={localize('DTrader | Online Trading Platform')}
+                title={localize('DTrader | Online Trading Platform | Deriv.com')}
                 description={localize(
-                    'DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices. ',
+                    'DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices.',
                 )}
             />
             <DHero

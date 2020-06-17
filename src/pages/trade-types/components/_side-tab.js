@@ -29,7 +29,7 @@ const TabButton = styled.div`
         height: 100%;
         left: 0;
         top: 0;
-        background: ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-grey-26)')};
+        background: ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-grey-29)')};
         transition: background 0.25s;
     }
     &:last-child {

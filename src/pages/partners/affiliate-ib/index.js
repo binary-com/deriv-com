@@ -64,8 +64,10 @@ const AffiliateIb = () => {
     return (
         <Layout type="partners" padding_top="10rem">
             <SEO
-                title={localize('Partners')}
-                description={localize('Partner with a trusted online trading provider')}
+                title={localize('Affiliate and IB programme | Deriv')}
+                description={localize(
+                    'Join Deriv’s affiliate and IB programmes and get a chance to be a partner with a trusted online trading provider.',
+                )}
             />
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25">

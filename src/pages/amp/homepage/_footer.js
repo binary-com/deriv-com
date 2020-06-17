@@ -50,7 +50,7 @@ const Footer = () => (
                             />,
                             <LinkText
                                 key={1}
-                                href="/BVI_license.pdf"
+                                href="/DBVI_license.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 weight="bold"

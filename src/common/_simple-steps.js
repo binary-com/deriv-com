@@ -33,10 +33,13 @@ const StyledFlex = styled(Flex)`
         align-items: center;
 
         article {
-            margin: 2rem auto;
+            margin: 16px auto 0;
         }
         article:first-child {
             margin-left: auto;
+        }
+        article:last-child {
+            margin-bottom: 32px;
         }
     }
 `

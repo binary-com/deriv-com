@@ -20,15 +20,15 @@ const Item = styled.div`
 const WhyTradeMargin = () => {
     return (
         <>
-            <SectionContainer background="white" padding="8rem 0 4rem">
+            <SectionContainer background="rgba(242, 243, 244, 0.3)" padding="4rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" mb="1.2rem">
+                    <Header as="h3" mb="4rem">
                         {localize('Why trade on margin with Deriv')}
                     </Header>
                     <CssGrid columns="repeat(3, 1fr)" columngap="1rem">
                         <Item>
                             <HighLeverge />
-                            <Text weight="bold" mb="1.2rem">
+                            <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('High leverage, low spreads')}
                             </Text>
                             <Text mb="4rem">
@@ -39,7 +39,7 @@ const WhyTradeMargin = () => {
                         </Item>
                         <Item>
                             <SyntheticIndices />
-                            <Text weight="bold" mb="1.2rem">
+                            <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('All favourite markets available')}
                             </Text>
                             <Text mb="4rem">
@@ -50,7 +50,7 @@ const WhyTradeMargin = () => {
                         </Item>
                         <Item>
                             <MaximizePotentialProfit />
-                            <Text weight="bold" mb="1.2rem">
+                            <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Go long and short')}
                             </Text>
                             <Text mb="4rem">
@@ -61,7 +61,7 @@ const WhyTradeMargin = () => {
                         </Item>
                         <Item>
                             <FriendlySupport />
-                            <Text weight="bold" mb="1.2rem">
+                            <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Expert and friendly support')}
                             </Text>
                             <Text mb="4rem">
@@ -70,7 +70,7 @@ const WhyTradeMargin = () => {
                         </Item>
                         <Item>
                             <InstantAccess />
-                            <Text weight="bold" mb="1.2rem">
+                            <Text weight="bold" mb="0.8rem" mt="1.6rem">
                                 {localize('Instant access')}
                             </Text>
                             <Text mb="4rem">
@@ -82,7 +82,7 @@ const WhyTradeMargin = () => {
                         {localize("Don't have a Deriv.com account yet?")}
                     </Text>
                     <LinkButton mt="1.6rem" to="/signup/" secondary="true">
-                        {localize('Create a demo DMT5 account')}
+                        {localize('Create free demo account')}
                     </LinkButton>
                 </SmallContainer>
             </SectionContainer>

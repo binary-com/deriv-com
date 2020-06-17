@@ -63,7 +63,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         className,
         style,
         is_binary_link,
-        is_affiliate_sign_up_link,
+        is_affiliate_link,
         is_affiliate_sign_in_link,
         ariaLabel,
     } = props
@@ -80,7 +80,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         let lang_to = ''
         if (is_binary_link) {
             lang_to = `${binary_url}/${locale}/${to}.html`
-        } else if (is_affiliate_sign_up_link) {
+        } else if (is_affiliate_link) {
             lang_to = `${affiliate_signup_url}?lang=${affiliate_lang}`
         } else if (is_affiliate_sign_in_link) {
             lang_to = `${affiliate_signin_url}?lang=${affiliate_lang}`
@@ -145,8 +145,8 @@ LocalizedLink.propTypes = {
     external: PropTypes.string,
     external_link: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
+    is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
-    is_affiliate_sign_up_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
     props: PropTypes.object,
     rel: PropTypes.string,

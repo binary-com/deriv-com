@@ -803,7 +803,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkSignupButton
                                     to={affiliate_signup_url}
                                     external
-                                    is_affiliate_sign_up_link
+                                    is_affiliate_link
                                     target="_blank"
                                     ref={button_ref}
                                     secondary="true"

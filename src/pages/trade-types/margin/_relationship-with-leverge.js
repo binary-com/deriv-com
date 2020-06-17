@@ -17,24 +17,23 @@ const query = graphql`
 `
 const ImageWrapper = styled.div`
     width: 100%;
-    margin-bottom: 3.2rem;
 `
-const MarginRelationship = () => {
+const RelationshipWithLeverge = () => {
     const data = useStaticQuery(query)
 
     return (
         <>
-            <SectionContainer background="white" padding="8rem 0 4rem">
+            <SectionContainer background="white" padding="0 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" mb="1.2rem">
+                    <Header as="h3" mb="0.8rem">
                         {localize('The relationship between margin and leverage')}
                     </Header>
-                    <Text mb="4rem">
+                    <Text mb="0.8rem">
                         {localize(
                             'These terms, often used interchangeably in online trading, differ somewhat in meaning. Just like margin, leverage allows you to control a trading position that is larger than your capital.',
                         )}
                     </Text>
-                    <Text mb="4rem">
+                    <Text mb="3.2rem">
                         {localize(
                             'However, while leverage is expressed in ratios such as 50:1, 100:1, 400:1, margin is expressed as a percentage of the amount required to open a position, for instance, 2%, 1%, and 0.25%.',
                         )}
@@ -45,7 +44,7 @@ const MarginRelationship = () => {
                             alt="Trade types margin market"
                         />
                     </ImageWrapper>
-                    <Text mb="4rem">
+                    <Text mt="3.2rem">
                         {localize(
                             'Based on the margin allowed by your broker, which in this case is Deriv, you will be able to ascertain the maximum leverage that you can utilise in your trading.',
                         )}
@@ -56,4 +55,4 @@ const MarginRelationship = () => {
     )
 }
 
-export default MarginRelationship
+export default RelationshipWithLeverge

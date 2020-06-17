@@ -6,12 +6,12 @@ import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
 
-const StartTradingMargin = () => {
+const StartTrading = () => {
     return (
         <>
             <SectionContainer background="white" padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h2" mb="1.2rem">
+                    <Header as="h3" mb="4rem">
                         {localize('Start trading on margin with Deriv')}
                     </Header>
 
@@ -32,7 +32,7 @@ const StartTradingMargin = () => {
                             )}
                         </Timeline.Item>
                     </Timeline>
-                    <LinkButton mt="1.6rem" to="/signup/" secondary="true">
+                    <LinkButton mt="4rem" to="/signup/" secondary="true">
                         {localize('Create free demo account')}
                     </LinkButton>
                 </SmallContainer>
@@ -41,4 +41,4 @@ const StartTradingMargin = () => {
     )
 }
 
-export default StartTradingMargin
+export default StartTrading

@@ -98,6 +98,16 @@ const HowToApply = styled(Col)`
     flex-direction: column;
 
     @media (max-width: 1024px) {
+        margin-left: 12rem;
+    }
+`
+const WhoCanApplyWrapper = styled(Col)`
+    width: 100%;
+    max-width: 42.8rem;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1024px) {
         margin-left: 4rem;
     }
 `
@@ -115,42 +125,44 @@ const WhoCanApply = () => {
     return (
         <SectionWrapper padding="8rem 0 4rem">
             <StyledSection>
-                <Col>
-                    <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
-                    <Wrapper>
-                        <TradingExperts />
-                        <Content max_width="36.4rem">
-                            <Header as="h4">{localize('Trading experts')}</Header>
-                            <Text>
-                                {localize(
-                                    'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
-                                )}
-                            </Text>
-                        </Content>
-                    </Wrapper>
-                    <Wrapper>
-                        <SoftwareDeveloper />
-                        <Content max_width="36.4rem">
-                            <Header as="h4">{localize('Software developers')}</Header>
-                            <Text>
-                                {localize(
-                                    'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
-                                )}
-                            </Text>
-                        </Content>
-                    </Wrapper>
-                    <Wrapper>
-                        <CommunityManagers />
-                        <Content max_width="36.4rem">
-                            <Header as="h4">{localize('Community managers')}</Header>
-                            <Text>
-                                {localize(
-                                    'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
-                                )}
-                            </Text>
-                        </Content>
-                    </Wrapper>
-                </Col>
+                <Flex>
+                    <WhoCanApplyWrapper>
+                        <StyledHeader size="3.6rem">{localize('Who can apply')}</StyledHeader>
+                        <Wrapper>
+                            <TradingExperts />
+                            <Content max_width="36.4rem">
+                                <Header as="h4">{localize('Trading experts')}</Header>
+                                <Text>
+                                    {localize(
+                                        'Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media.',
+                                    )}
+                                </Text>
+                            </Content>
+                        </Wrapper>
+                        <Wrapper>
+                            <SoftwareDeveloper />
+                            <Content max_width="36.4rem">
+                                <Header as="h4">{localize('Software developers')}</Header>
+                                <Text>
+                                    {localize(
+                                        'Develop web, desktop, and mobile applications. Also has extensive experience working with APIs.',
+                                    )}
+                                </Text>
+                            </Content>
+                        </Wrapper>
+                        <Wrapper>
+                            <CommunityManagers />
+                            <Content max_width="36.4rem">
+                                <Header as="h4">{localize('Community managers')}</Header>
+                                <Text>
+                                    {localize(
+                                        'Manage an active online community that’s passionate about online trading, investing, or personal finance.',
+                                    )}
+                                </Text>
+                            </Content>
+                        </Wrapper>
+                    </WhoCanApplyWrapper>
+                </Flex>
                 <Separator />
                 <Flex>
                     <HowToApply>

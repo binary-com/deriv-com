@@ -28,6 +28,7 @@ const eu_countries = [
     'ie',
     'im',
     'gb',
+    'mt',
 ]
 
-export const isEuCountry = clients_country => eu_countries.includes(clients_country)
+export const isEuCountry = (clients_country) => eu_countries.includes(clients_country)

@@ -32,7 +32,7 @@ const HowToApply = styled.div`
     }
 `
 const HowToApplyContent = styled.div`
-    margin-top: 0 px;
+    margin-top: 0;
     display: flex;
     padding-bottom: 4rem;
 

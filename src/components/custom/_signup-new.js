@@ -6,8 +6,6 @@ import { Input, Button } from 'components/form'
 import { Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import Login from 'common/login'
-// import Login from 'common/login'
 import device from 'themes/device.js'
 // SVG
 import Facebook from 'images/svg/facebook-blue.svg'
@@ -39,12 +37,11 @@ const Line = styled.div`
     background-color: var(--color-grey-7);
 `
 const StyledText = styled(Text)`
-    font-size: ${(props) => props.fontSize || 'var(--text-size-xs)'};
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
     }
-    @media ${device.MobileL} {
-        font-size: ${(props) => props.tabletFontSize};
+    @media ${device.mobileL} {
+        font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
 const NoteBox = styled.div`
@@ -58,8 +55,8 @@ const NoteBox = styled.div`
     background-color: rgba(242, 243, 244, 0.56);
 
     @media ${device.mobileL} {
-        height: 60px;
-        padding: 8px;
+        height: 80px;
+        padding: 13px 16px;
     }
 `
 const InputGroup = styled.div`
@@ -215,49 +212,35 @@ const SignupNew = ({
                 </Text>
             </Show.Mobile>
 
-            <Show.Desktop>
-                <NoteBox>
-                    <StyledBinaryLogo />
-                    <div>
-                        <StyledText mb="0.4rem" notedBox color="grey-16" tabletFontSize="16px">
-                            <Localize
-                                translate_text="Got a <0>Binary.com</0> account?"
-                                components={[<strong key={0} />]}
-                            />
-                        </StyledText>
-                        <StyledText
-                            notedBox
-                            fontSize="var(--text-size-xxs)"
-                            color="grey-16"
-                            lh="18px"
-                            tabletFontSize="12px"
-                        >
-                            <Localize
-                                translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password"
-                                components={[<strong key={0} />]}
-                            />
-                        </StyledText>
-                    </div>
-                </NoteBox>
-            </Show.Desktop>
-            <Show.Mobile>
-                <NoteBox>
-                    <StyledText notedBox fontSize="14px" color="black-3" align="center" lh="22px">
+            <NoteBox>
+                <StyledBinaryLogo />
+                <div>
+                    <StyledText
+                        mb="0.4rem"
+                        notedBox
+                        color="grey-16"
+                        size="var(--text-size-xs)"
+                        tabletFontSize="12px"
+                    >
                         <Localize
-                            translate_text="Got a Binary.com account? Simply <0>log in</0> to Deriv.com with your Binary.com credentials"
-                            components={[
-                                <StyledLinkText
-                                    weight="bold"
-                                    color="red"
-                                    size="2rem"
-                                    onClick={() => Login.redirectToLogin()}
-                                    key={0}
-                                />,
-                            ]}
+                            translate_text="Got a <0>Binary.com</0> account?"
+                            components={[<strong key={0} />]}
                         />
                     </StyledText>
-                </NoteBox>
-            </Show.Mobile>
+                    <StyledText
+                        notedBox
+                        size="var(--text-size-xxs)"
+                        tabletFontSize="12px"
+                        color="grey-16"
+                        lh="18px"
+                    >
+                        <Localize
+                            translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
+                            components={[<strong key={0} />]}
+                        />
+                    </StyledText>
+                </div>
+            </NoteBox>
 
             <InputGroup>
                 <Input
@@ -271,7 +254,7 @@ const SignupNew = ({
                     error={email_error_msg}
                     value={email}
                     label={localize('Email')}
-                    placeholder={'test@deriv.com'}
+                    placeholder={'Email'}
                     handleError={clearEmail}
                     onChange={handleInputChange}
                     onBlur={handleValidation}

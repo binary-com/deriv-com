@@ -109,7 +109,7 @@ const StyledInput = styled.input`
         }
         &::placeholder {
             opacity: 1;
-            color: var(--color-black-3);
+            color: var(--color-grey-5);
             font-size: 14px;
         }
     }

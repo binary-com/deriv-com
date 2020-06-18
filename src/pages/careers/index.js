@@ -9,11 +9,16 @@ import OurHiringProcess from './_our-hiring-process'
 import { RoleBanner } from './_layout-components/_banner'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 
 const Careers = () => (
     <Layout type="careers" padding_top="10rem">
-        <SEO title={'Careers'} />
+        <SEO
+            title={localize('Careers | Join and grow with us | Deriv')}
+            description={localize(
+                'Looking for a great place to work? Deriv is looking for smart, talented, and dedicated people who are up for a challenging and rewarding career.',
+            )}
+        />
         <Hero />
         <WhoWeLookFor />
         <LifeAtDerivCarousel />

@@ -17,7 +17,7 @@ const TermsAndConditions = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Terms and conditions | Legal policies')}
+                title={localize('Terms and conditions | Legal policies | Deriv')}
                 description={localize(
                     'Read our terms and conditions to know Deriv manages data feeds, security, privacy, and more.',
                 )}

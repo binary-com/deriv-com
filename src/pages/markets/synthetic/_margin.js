@@ -2,7 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import AvailablePlatforms from '../_available-platforms.js'
 import MarketsAccordion from '../_markets_accordion.js'
-import { VolatilityIndices, CrashBoom, StepIndices } from '../sub-markets/_submarkets.js'
+import {
+    VolatilityIndices,
+    CrashBoom,
+    StepIndices,
+    RangeBreak,
+} from '../sub-markets/_submarkets.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -119,6 +124,17 @@ const StepIndicesDetails = () => (
         </Text>
     </DetailsContainer>
 )
+
+const RangeBreakIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
+            {localize(
+                'These indices fluctuate between two price points (borders), occasionally breaking through the borders to create a new range on average once every 100 or 200 times that they hit the borders.',
+            )}
+        </Text>
+    </DetailsContainer>
+)
+
 const Margin = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
@@ -180,6 +196,21 @@ const Margin = () => {
                             </Row>
                         )}
                         renderDetails={StepIndicesDetails}
+                    />
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col max_width="13.2rem">
+                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                        {localize('Range break indices')}
+                                    </Title>
+                                </Col>
+                                <MarketsList>
+                                    <RangeBreak />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={RangeBreakIndicesDetails}
                     />
                 </MarketsWrapper>
             </Flex>

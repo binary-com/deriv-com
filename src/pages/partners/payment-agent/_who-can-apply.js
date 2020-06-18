@@ -32,9 +32,9 @@ const HowToApply = styled.div`
     }
 `
 const HowToApplyContent = styled.div`
-    margin-top: 0 px;
+    margin-top: 0;
     display: flex;
-    padding-bottom: 4 rem;
+    padding-bottom: 4rem;
 
     svg {
         margin-right: 1.6rem;

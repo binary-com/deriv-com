@@ -29,8 +29,8 @@ const Checkmark = styled.span`
 `
 
 const ContentWrapper = styled.div`
-    margin-top: 0 rem;
-    margin-left: 20px;
+    margin-top: 0rem;
+    margin-left: 2rem;
 `
 const OvalWrapper = styled.div`
     width: 24px;
@@ -39,7 +39,7 @@ const OvalWrapper = styled.div`
     background-color: var(--color-red);
     border-radius: 50%;
     text-align: center;
-    margin-right: 8px;
+    margin-right: 0.8rem;
     position: absolute;
     padding-left: 1px;
     left: -13px;
@@ -47,7 +47,7 @@ const OvalWrapper = styled.div`
 
 const FlexWrapper = styled.div`
     display: flex;
-    border-left: ${(props) => (props.isBorder ? 'var(--color-red) dashed 1px' : 'unset')};
+    border-left: ${(props) => (props.is_border ? 'var(--color-red) dashed 1px' : 'unset')};
     position: relative;
     padding-bottom: 4rem;
 `
@@ -67,7 +67,7 @@ const Timeline = ({ children, ...props }) => {
     return (
         <div {...props}>
             {children.map((child, idx) => (
-                <FlexWrapper key={idx} isBorder={children.length !== idx + 1}>
+                <FlexWrapper key={idx} is_border={children.length !== idx + 1}>
                     <Oval></Oval>
                     <ContentWrapper>
                         <div>{child}</div>
@@ -82,7 +82,7 @@ const Item = ({ children, ...props }) => <div {...props}>{children}</div>
 Timeline.Item = Item
 
 Timeline.propTypes = {
-    children: {},
+    children: PropTypes.node,
     props: PropTypes.any,
 }
 

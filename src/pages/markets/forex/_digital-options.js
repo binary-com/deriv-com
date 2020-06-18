@@ -92,7 +92,7 @@ const DigitalOptions = () => {
                 <Descriptions>
                     <StyledText align="center">
                         {localize(
-                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and Call/Put spreads on forex.',
+                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on forex.',
                         )}
                     </StyledText>
                     <AvailablePlatforms dtrader smarttrader dbot tablet_direction="column" />

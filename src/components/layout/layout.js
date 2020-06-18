@@ -116,7 +116,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             <Main padding_top={padding_top} is_static={is_static}>
                 {children}
             </Main>
-            {/* NOTE: Please don't remove EU specific content */}
+            {/* NOTE: EU specific content */}
             {show_cookie_banner && (
                 <CookieBanner
                     onAccept={onAccept}

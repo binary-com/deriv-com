@@ -64,7 +64,7 @@ const ResponsiveHeader = styled(StyledHeader)`
 const Regulatory = () => (
     <Layout>
         <SEO
-            title={localize('License and regulation information')}
+            title={localize('License and regulation information | Deriv')}
             description={localize(
                 'Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.',
             )}
@@ -95,10 +95,20 @@ const Regulatory = () => (
         <Divider />
         <SectionContainer padding="8rem 0 0">
             <GridContainer>
-                <StyledHeader size="3.6rem" align="center" lh="4.5rem">
+                <StyledHeader size="3.2rem" align="center" padding="0" lh="4rem">
+                    {localize('Deriv Limited')}
+                </StyledHeader>
+                <Box padding="1rem 0 4rem">
+                    <Text lh="1.55" max_width="79.2rem">
+                        {localize(
+                            'Deriv Ltd, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the following subsidiaries.',
+                        )}
+                    </Text>
+                </Box>
+                <StyledHeader size="3.2rem" align="center" padding="0" lh="4rem">
                     {localize('Binary Investments (Europe) Ltd')}
                 </StyledHeader>
-                <Box>
+                <Box padding="1rem 0 4rem">
                     <Text lh="1.55" max_width="79.2rem">
                         <Localize
                             translate_text="Binary Investments (Europe) Ltd, with a registered office at W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
@@ -172,7 +182,7 @@ const Regulatory = () => (
                             <Labuan />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
+                            <StyledHeader size="3.2rem" lh="4rem" as="h4">
                                 {localize('Binary (FX) Ltd')}
                             </StyledHeader>
                             <MaxText lh="1.55" mt="0.8rem">
@@ -200,7 +210,7 @@ const Regulatory = () => (
                             <Vanuatu />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
+                            <StyledHeader size="3.2rem" lh="4rem" as="h4">
                                 {localize('Binary (V) Ltd')}
                             </StyledHeader>
                             <MaxText lh="1.55" mt="0.8rem">
@@ -238,7 +248,7 @@ const Regulatory = () => (
                             <FSC />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader size="3.6rem" lh="4.5rem" as="h4">
+                            <StyledHeader size="3.2rem" lh="4rem" as="h4">
                                 {localize('Binary (BVI) Ltd')}
                             </StyledHeader>
                             <MaxText lh="1.55" mt="0.8rem">
@@ -250,7 +260,7 @@ const Regulatory = () => (
                                             color="red"
                                             weight="bold"
                                             target="_blank"
-                                            href="/BVI_license.pdf"
+                                            href="/DBVI_license.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

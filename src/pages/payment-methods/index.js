@@ -100,9 +100,9 @@ const PaymentMethods = () => {
                 <link rel="stylesheet" type="text/css" href="/css/perfect-scrollbar.css" />
             </Helmet>
             <SEO
-                title={localize('Payment methods')}
+                title={localize('Payment Methods | Deposits and withdrawals | Deriv')}
                 description={localize(
-                    'All your deposits and withdrawals are processed within 1 working day. However, there may be additional processing time required by your bank or money transfer service.',
+                    'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!',
                 )}
             />
             <SectionContainer>

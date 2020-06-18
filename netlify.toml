@@ -6,3 +6,5 @@
 # branch-deploy (other than previews)
 [context.branch-deploy.environment]
   GATSBY_ENV = "development"
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"

@@ -1,5 +1,6 @@
 // TODO: (discussion) make nav pure component, and move usage of nav to custom
 import React, { useState, useEffect, useRef } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import PlatformsDropdown from '../custom/platforms-dropdown'
@@ -10,7 +11,7 @@ import {
     NavMarket,
 } from 'components/custom/other-platforms.js'
 import { useOutsideClick } from 'components/hooks/outside-click'
-import { LocalizedLink, Localize, localize } from 'components/localization'
+import { LocalizedLink, Localize, localize, LanguageSwitcher } from 'components/localization'
 import { Button, LinkButton } from 'components/form'
 import { Container, Show, Flex } from 'components/containers'
 import {
@@ -19,6 +20,8 @@ import {
     moveOffCanvasMenu,
     Text,
     LocalizedLinkText,
+    QueryImage,
+    Divider,
 } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -26,7 +29,6 @@ import device from 'themes/device'
 import { binary_url, affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
-import LogoSignup from 'images/svg/logo_deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
 import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
@@ -34,16 +36,18 @@ import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import BinaryLogo from 'images/svg/binary.svg'
 
+const query = graphql`
+    query {
+        deriv: file(relativePath: { eq: "logo.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
-`
-
-const ResponsiveLogo = styled(Logo)`
-    @media (max-width: 1104px) {
-        width: 160px;
-    }
 `
 
 const InterimNav = styled.nav`
@@ -55,24 +59,34 @@ const InterimNav = styled.nav`
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 
-    @media (max-width: 1150px) {
-        & svg {
-            width: 20rem;
+    @media (max-width: 1200px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 16rem;
         }
     }
-    @media (max-width: 1104px) {
-        & svg {
-            width: 15rem;
+    @media (max-width: 1150px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 13rem;
+        }
+    }
+    @media (max-width: 1105px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 10rem;
         }
     }
     @media ${device.tabletS} {
-        & svg {
-            width: 15rem;
+        & svg,
+        .gatsby-image-wrapper {
+            width: 10rem;
         }
     }
     @media ${device.mobileL} {
-        & svg {
-            width: 13rem;
+        & svg,
+        .gatsby-image-wrapper {
+            width: 12rem;
         }
     }
 `
@@ -91,7 +105,6 @@ const Wrapper = styled(Container)`
     padding: 1.2rem 0;
     justify-content: space-between;
     height: 7.2rem;
-    overflow: hidden;
     @media ${device.laptopL} {
         width: 90%;
     }
@@ -120,19 +133,35 @@ const NavCenter = styled.ul`
     text-align: center;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    line-height: 1.2;
 
-    @media (max-width: 1104px) {
-        font-size: var(--text-size-xs);
+    @media (max-width: 1210px) {
+        font-size: 14px;
+    }
+    @media (max-width: 1175px) {
+        font-size: 12px;
+    }
+    @media (max-width: 1105px) {
+        font-size: 11px;
     }
     @media ${device.tabletL} {
         display: none;
     }
 `
+// const HiddenDiv = styled.div`
+//     position: absolute;
+//     height: 100%;
+//     width: 440px;
+//     right: -220px;
+//     background: var(--color-black);
+//     z-index: 999;
+// `
 const NavRight = styled.div`
     display: inline-flex;
+    align-items: center;
     text-align: right;
-    overflow: hidden;
+    opacity: ${(props) => (props.mounted ? '1' : '0')};
     padding: 0;
     justify-content: center;
     transition: ${(props) => {
@@ -148,13 +177,18 @@ const NavRight = styled.div`
     transform: translateX(
         ${(props) => {
             if (props.move) {
+                if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 1
+                }
+
                 return 0
             } else {
                 if (props.button_ref.current && props.mounted) {
+                    props.button_ref.current.style.opacity = 0
                     const calculation = props.button_ref.current.offsetWidth + 2
                     return `${calculation}px`
                 }
-                return '350px'
+                return '300px'
             }
         }}
     );
@@ -164,8 +198,9 @@ const NavRight = styled.div`
 `
 const NavLink = styled.li`
     list-style-type: none;
-    display: inline-block;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    text-align: center;
     margin-right: 2.4rem;
 
     &:last-child {
@@ -187,9 +222,11 @@ const StyledButton = styled.a`
 
 const SignupButton = styled(Button)`
     margin-left: 1.6rem;
+    opacity: 0;
 `
 
 const LinkSignupButton = styled(LinkButton)`
+    opacity: 0;
     margin-left: 1.6rem;
 `
 
@@ -225,9 +262,9 @@ const LogoLinkMobile = styled(LocalizedLink)`
 const MobileLogin = styled(Button)`
     display: none;
     font-size: 14px;
+    margin-left: 1.6rem;
     @media ${device.tabletL} {
         display: block;
-        margin-left: auto;
     }
     @media ${device.mobileL} {
         font-size: var(--text-size-xxs);
@@ -253,11 +290,17 @@ const Binary = styled(Text)`
     width: 8rem;
     margin-left: 0.5rem;
     line-height: 1;
-    @media (max-width: 345px) {
-        width: 6rem;
-    }
 `
 
+const MyBinary = styled(Binary)`
+    width: 8rem;
+    margin-left: 0.5rem;
+    line-height: 1;
+    @media (max-width: 1105px) {
+        width: 5rem;
+        font-size: 7px;
+    }
+`
 const BinaryLink = styled(LocalizedLinkText)`
     display: inline-block;
     color: var(--color-white);
@@ -265,8 +308,30 @@ const BinaryLink = styled(LocalizedLinkText)`
     font-weight: bold;
     text-decoration: none;
 `
+const MyBinaryLink = styled(BinaryLink)`
+    display: inline-block;
+    color: var(--color-white);
+    font-size: var(--text-size-xxs);
+    font-weight: bold;
+    text-decoration: none;
+
+    @media (max-width: 1105px) {
+        font-size: 7px;
+    }
+`
+
+const MobileRight = styled.div`
+    margin-left: auto;
+    display: none;
+    align-items: center;
+
+    @media ${device.tabletL} {
+        display: flex;
+    }
+`
 
 export const Nav = () => {
+    const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
     const [mounted, setMounted] = useState(false)
@@ -319,6 +384,14 @@ export const Nav = () => {
         setIsResourcesOpen(!is_resources_open)
         setHasResourcesAnimation(true)
     }
+
+    // const language_ref = useRef(null)
+    // const [is_language_open, setLanguageOpen] = useState(false)
+    // const closeLanguage = () => setLanguageOpen(false)
+    // const toggleLanguageClick = () => {
+    //     setLanguageOpen(!is_language_open)
+    // }
+    // useOutsideClick(language_ref, closeLanguage, language_ref)
 
     const buttonHandleScroll = () => {
         setHasScrolled(true)
@@ -391,8 +464,14 @@ export const Nav = () => {
                 <Wrapper>
                     <NavLeft>
                         <LogoLink to="/" aria-label={localize('Home')}>
-                            <ResponsiveLogo />
+                            <QueryImage
+                                data={data['deriv']}
+                                alt={localize('Deriv')}
+                                width="16.4rem"
+                                height="auto"
+                            />
                         </LogoLink>
+                        <Divider color="white" width="1px" height="2.7rem" m="0 1.6rem" />
                         <LocalizedLink
                             external
                             to={binary_url}
@@ -402,11 +481,11 @@ export const Nav = () => {
                         >
                             <BinaryLogo width="24" height="24" />
                         </LocalizedLink>
-                        <Binary size="var(--text-size-xxs)" color="white">
+                        <MyBinary size="var(--text-size-xxs)" color="white">
                             <Localize
                                 translate_text="A <0>Binary.com</0> brand"
                                 components={[
-                                    <BinaryLink
+                                    <MyBinaryLink
                                         key={0}
                                         external
                                         to={binary_url}
@@ -417,7 +496,7 @@ export const Nav = () => {
                                     />,
                                 ]}
                             />
-                        </Binary>
+                        </MyBinary>
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>
@@ -463,6 +542,7 @@ export const Nav = () => {
                         mounted={mounted}
                         has_scrolled={has_scrolled}
                     >
+                        <LanguageSwitcher short_name="true" is_high_nav />
                         <Button onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </Button>
@@ -472,6 +552,7 @@ export const Nav = () => {
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
+
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                     ) : (
@@ -480,9 +561,13 @@ export const Nav = () => {
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
                         <LogoOnly width="115px" />
                     </LogoLinkMobile>
-                    <MobileLogin onClick={handleLogin} primary>
-                        <span>{localize('Log in')}</span>
-                    </MobileLogin>
+                    <MobileRight>
+                        <LanguageSwitcher short_name="true" is_high_nav />
+                        <MobileLogin onClick={handleLogin} primary>
+                            <span>{localize('Log in')}</span>
+                        </MobileLogin>
+                    </MobileRight>
+
                     <OffCanvasMenu
                         is_canvas_menu_open={is_canvas_menu_open}
                         closeOffCanvasMenu={closeOffCanvasMenu}
@@ -499,13 +584,35 @@ const ResponsiveBinary = styled(BinaryLogo)`
     }
 `
 
+const Auto = styled(Flex)`
+    @media ${device.mobileM} {
+        width: auto;
+    }
+`
+
+const LeftButton = styled(LinkButton)`
+    margin-left: 0.8rem;
+
+    @media ${device.mobileL} {
+        padding: 1rem;
+    }
+`
+
+const StyledLogo = styled(LogoLink)`
+    @media (max-width: 340px) {
+        & svg {
+            width: 11rem;
+        }
+    }
+`
+
 export const NavInterim = ({ interim_type }) => (
     <InterimNav>
         <Container jc="space-between" p="2.4rem 0">
             <Flex ai="center" jc="flex-start">
-                <LogoLink to={`/interim/${interim_type}`} aria-label={localize('Home')}>
+                <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                     <Logo />
-                </LogoLink>
+                </StyledLogo>
                 <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
                     <ResponsiveBinary width="24" height="24" />
                 </LocalizedLink>
@@ -526,20 +633,40 @@ export const NavInterim = ({ interim_type }) => (
                     />
                 </Binary>
             </Flex>
-            <Flex jc="flex-end">
-                <LinkButton secondary to="/">
-                    {localize('Explore Deriv')}
-                </LinkButton>
-            </Flex>
+            <Auto jc="flex-end" ai="center">
+                <LanguageSwitcher short_name="true" />
+                <LeftButton secondary to="/">
+                    {localize('Explore Deriv.com')}
+                </LeftButton>
+            </Auto>
         </Container>
     </InterimNav>
 )
 
 export const NavStatic = () => (
     <StaticWrapper>
-        <StyledLink to="/">
-            <LogoSignup />
-        </StyledLink>
+        <LogoLink to="/" aria-label={localize('Home')}>
+            <Logo />
+        </LogoLink>
+        <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+            <BinaryLogo width="24" height="24" />
+        </LocalizedLink>
+        <Binary size="var(--text-size-xxs)" color="white">
+            <Localize
+                translate_text="A <0>Binary.com</0> brand"
+                components={[
+                    <BinaryLink
+                        key={0}
+                        external
+                        to={binary_url}
+                        is_binary_link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color="white"
+                    />,
+                ]}
+            />
+        </Binary>
     </StaticWrapper>
 )
 
@@ -561,8 +688,11 @@ const HomeContainer = styled(Container)`
 const StyledNavCenter = styled(NavCenter)`
     margin-left: 13.3rem;
 
-    @media (max-width: 1150px) {
+    @media (max-width: 1300px) {
         margin-left: 7.3rem;
+    }
+    @media (max-width: 1080px) {
+        margin-left: 2.4rem;
     }
 `
 
@@ -579,6 +709,41 @@ const StyledNavWrapper = styled(Wrapper)`
 
     ${LogoLinkMobile} {
         margin: 0 2.4rem;
+    }
+`
+
+const Mobile = styled(Show.Mobile)`
+    width: 100%;
+`
+
+const ResLogo = styled(LogoOnly)`
+    width: 115px;
+    @media ${device.mobileM} {
+        width: 98px;
+    }
+    @media (max-width: 336px) {
+        width: 82px;
+    }
+`
+
+const NavLogoLink = styled(LogoLink)`
+    @media (max-width: 1300px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 25rem;
+        }
+    }
+    @media (max-width: 1150px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 23rem;
+        }
+    }
+    @media (max-width: 1105px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 23rem;
+        }
     }
 `
 
@@ -632,9 +797,9 @@ export const NavPartners = ({ no_login_signup }) => {
                 <StyledNav>
                     <StyledNavWrapper no_login_signup>
                         <NavLeft>
-                            <LogoLink to="/partners/" aria-label={localize('Partners')}>
+                            <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
                                 <LogoPartner />
-                            </LogoLink>
+                            </NavLogoLink>
                         </NavLeft>
                         <StyledNavCenter>
                             <NavLink>
@@ -663,6 +828,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 mounted={mounted}
                                 has_scrolled={has_scrolled}
                             >
+                                <LanguageSwitcher short_name="true" is_high_nav />
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external
@@ -683,27 +849,44 @@ export const NavPartners = ({ no_login_signup }) => {
                                     <span>{localize('Affiliate & IB sign up')}</span>
                                 </LinkSignupButton>
                             </StyledNavRight>
-                        ) : null}
+                        ) : (
+                            <NavRight
+                                move={show_button}
+                                button_ref={button_ref}
+                                mounted={mounted}
+                                has_scrolled={has_scrolled}
+                            >
+                                <LanguageSwitcher short_name="true" is_high_nav />
+                            </NavRight>
+                        )}
 
                         {is_canvas_menu_open ? (
                             <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                         ) : (
                             <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
                         )}
-                        <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                            <LogoOnly width="115px" />
-                        </LogoLinkMobile>
-                        {!no_login_signup && (
-                            <LinkMobileLogin
-                                to={affiliate_signin_url}
-                                external
-                                is_affiliate_link
-                                target="_blank"
-                                primary
-                            >
-                                <span>{localize('Affiliate & IB Log in')}</span>
-                            </LinkMobileLogin>
-                        )}
+
+                        <Mobile>
+                            <Flex ai="center">
+                                <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                                    <ResLogo />
+                                </LogoLinkMobile>
+                                <Flex ml="auto" ai="center" width="auto">
+                                    <LanguageSwitcher short_name="true" is_high_nav />
+                                </Flex>
+                                {!no_login_signup && (
+                                    <LinkMobileLogin
+                                        to={affiliate_signin_url}
+                                        external
+                                        is_affiliate_link
+                                        target="_blank"
+                                        primary
+                                    >
+                                        <span>{localize('Affiliate & IB Log in')}</span>
+                                    </LinkMobileLogin>
+                                )}
+                            </Flex>
+                        </Mobile>
                         <OffCanvasMenuPartner
                             is_canvas_menu_open={is_canvas_menu_open}
                             closeOffCanvasMenu={closeOffCanvasMenu}

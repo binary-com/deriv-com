@@ -1,6 +1,14 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Section, Responsive, AbsoluteWrapper, MarLeft, FitButton, White } from '../_love-trading'
+import {
+    Section,
+    Responsive,
+    AbsoluteWrapper,
+    MarLeft,
+    FitButton,
+    White,
+    MobileWrapper,
+} from '../_love-trading'
 import CtaBinary from '../_cta-binary'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
@@ -20,6 +28,9 @@ const LoveTrading = () => {
     return (
         <>
             <Section p="3.2rem 0">
+                <AbsoluteWrapper>
+                    <QueryImage data={data['deriv']} width="54rem" />
+                </AbsoluteWrapper>
                 <Responsive jc="space-between" position="relative">
                     <Flex fd="column" ai="center" max_width="28.2rem">
                         <Header as="h3" mb="4rem" align="center">
@@ -30,9 +41,10 @@ const LoveTrading = () => {
                         </FitButton>
                         <CtaBinary />
                     </Flex>
-                    <AbsoluteWrapper>
-                        <QueryImage data={data['deriv']} width="100%" height="29.6rem" />
-                    </AbsoluteWrapper>
+
+                    <MobileWrapper>
+                        <QueryImage data={data['deriv']} width="30rem" />
+                    </MobileWrapper>
 
                     <MarLeft width="auto" fd="column" ai="center">
                         <White as="h3" mb="3rem" align="center">

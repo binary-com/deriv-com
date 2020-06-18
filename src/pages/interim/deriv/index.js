@@ -12,10 +12,10 @@ const Interim = () => {
     return (
         <Layout type="interim" interim_type="deriv">
             <SEO title={localize('Interim | Deriv')} no_index />
-            <Hero interim_type="deriv" />
+            <Hero />
             <Everything />
             <FAQ />
-            <LoveTrading interim_type="deriv" />
+            <LoveTrading />
         </Layout>
     )
 }

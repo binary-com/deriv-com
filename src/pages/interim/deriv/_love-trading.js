@@ -37,7 +37,7 @@ const LoveTrading = () => {
                             {localize('Be among the first to try Deriv.com')}
                         </Header>
                         <FitButton secondary to="/">
-                            {localize('Visit Deriv.com now')}
+                            {localize('Explore Deriv.com')}
                         </FitButton>
                         <CtaBinary />
                     </Flex>

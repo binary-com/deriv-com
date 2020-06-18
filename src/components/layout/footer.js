@@ -495,6 +495,7 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
+                        {/* NOTE: Please don't remove EU specific content */}
                         <Show.Eu>
                             <DisclaimerParagraph>
                                 <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Text } from 'components/elements'
+import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
@@ -10,6 +10,7 @@ import StockIcon from 'components/svgs/_market-stock.js'
 import CommoditiesIcon from 'components/svgs/_market-commodities.js'
 import SyntheticIndicesIcon from 'components/svgs/_market-synthetic.js'
 // Images
+
 const StyledSection = styled(SectionContainer)`
     background-color: rgba(242, 243, 244, 0.3);
     box-shadow: inset 0 1px 0 0 var(--color-grey-8);
@@ -68,7 +69,12 @@ const Markets = () => (
                 <MarketCard mr="2.4rem" mb="4rem">
                     <ForexIcon dynamic_id={'home_page_market_forex'} />
                     <div>
-                        <Header as="h4">{localize('Forex')}</Header>
+                        <Header as="h4">
+                            <LocalizedLinkText weight="bold" to="/markets#forex">
+                                {localize('Forex')}
+                            </LocalizedLinkText>
+                        </Header>
+
                         <Text>
                             {localize(
                                 'Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.',
@@ -79,7 +85,12 @@ const Markets = () => (
                 <MarketCard mb="4rem">
                     <StockIcon dynamic_id="home_page_market_stock" />
                     <div>
-                        <Header as="h4">{localize('Stock indices')}</Header>
+                        <Header as="h4">
+                            <LocalizedLinkText weight="bold" to="/markets#stock">
+                                {localize('Stock indices')}
+                            </LocalizedLinkText>
+                        </Header>
+
                         <Text>
                             {localize(
                                 'Predict broader market trends and diversify your risk with indices that measure the overall performance of a market.',
@@ -90,7 +101,12 @@ const Markets = () => (
                 <MarketCard mr="2.4rem">
                     <CommoditiesIcon dynamic_id="home_page_market_commodities" />
                     <div>
-                        <Header as="h4">{localize('Commodities')}</Header>
+                        <Header as="h4">
+                            <LocalizedLinkText weight="bold" to="/markets#commodities">
+                                {localize('Commodities')}
+                            </LocalizedLinkText>
+                        </Header>
+
                         <Text>
                             {localize(
                                 'Trade natural resources that are central to the world’s economy and profit from the opportunities created by volatile markets.',
@@ -101,7 +117,12 @@ const Markets = () => (
                 <MarketCard>
                     <SyntheticIndicesIcon dynamic_id="home_page_market_synthetic" />
                     <div>
-                        <Header as="h4">{localize('Synthetic indices')}</Header>
+                        <Header as="h4">
+                            <LocalizedLinkText weight="bold" to="/markets#synthetic">
+                                {localize('Synthetic indices')}
+                            </LocalizedLinkText>
+                        </Header>
+
                         <Text>
                             {localize(
                                 'Enjoy synthetic markets that emulate the excitement of real-world markets without unpredictable real-world disruptions.',

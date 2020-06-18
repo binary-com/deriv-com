@@ -121,7 +121,12 @@ const Locations = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={'Locations'} />
+            <SEO
+                title={localize('Explore our office locations | Deriv')}
+                description={localize(
+                    'Discover career opportunities at Deriv across our office locations around the globe.',
+                )}
+            />
             <Hero />
             <Container direction="column">
                 <SectionContainer>

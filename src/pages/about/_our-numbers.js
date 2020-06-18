@@ -51,7 +51,7 @@ const OurNumbers = () => (
                 </Header>
                 <StyledHeader as="h6" size="3rem" align="center" weight="400">
                     {localize(
-                        'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
+                        'Deriv.com is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world. ',
                     )}
                 </StyledHeader>
             </Show.Mobile>
@@ -61,7 +61,7 @@ const OurNumbers = () => (
                 </Header>
                 <StyledHeader as="h4" align="center" weight="500" lh="3.6rem">
                     {localize(
-                        'Deriv is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world.',
+                        'Deriv.com is the next step in the evolution of Binary.com. With Binary.com, we have a proven record of delivering market-leading products that are trusted around the world. ',
                     )}
                 </StyledHeader>
             </Show.Desktop>

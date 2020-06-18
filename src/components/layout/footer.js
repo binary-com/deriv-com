@@ -497,7 +497,7 @@ const Footer = () => {
                     <Disclaimer>
                         <Show.Eu>
                             <DisclaimerParagraph>
-                                <Localize translation_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
+                                <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
                             </DisclaimerParagraph>
                         </Show.Eu>
                         <DisclaimerParagraph>

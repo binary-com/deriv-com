@@ -64,7 +64,7 @@ const ResponsiveHeader = styled(StyledHeader)`
 const Regulatory = () => (
     <Layout>
         <SEO
-            title={localize('License and regulation information')}
+            title={localize('License and regulation information | Deriv')}
             description={localize(
                 'Deriv operates under the jurisdiction of Binary.com which holds multiple licences to comply with regulatory requirements around the world.',
             )}
@@ -260,7 +260,7 @@ const Regulatory = () => (
                                             color="red"
                                             weight="bold"
                                             target="_blank"
-                                            href="/BVI_license.pdf"
+                                            href="/DBVI_license.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

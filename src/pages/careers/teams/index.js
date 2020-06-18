@@ -5,7 +5,7 @@ import { getAlphabeticTeams, team_names } from '../_controller/_teams'
 import Card from './_card'
 import { SEO, Container, SectionContainer, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { Header, Text } from 'components/elements'
 
 const HeroText = styled(Text)`
@@ -81,7 +81,12 @@ const Teams = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={'Teams'} />
+            <SEO
+                title={localize('Choose your team - Careers | Deriv')}
+                description={localize(
+                    'Join our team for a challenging and rewarding career. Browse job opportunities in front-end development, IT security, marketing, and more.',
+                )}
+            />
             <SectionContainer background="black" padding="12rem 0">
                 <Container direction="column">
                     <Header as="h2" color="white" align="center" m="0 0 2.4rem">

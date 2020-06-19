@@ -97,8 +97,16 @@ const HowToApply = styled(Col)`
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 1024px) {
+    @media ${device.laptop} {
         margin-left: 12rem;
+    }
+
+    @media ${device.tablet} {
+        margin-left: 7rem;
+    }
+
+    @media ${device.mobileM} {
+        margin-left: 1rem;
     }
 `
 const WhoCanApplyWrapper = styled(Col)`
@@ -106,10 +114,6 @@ const WhoCanApplyWrapper = styled(Col)`
     max-width: 42.8rem;
     display: flex;
     flex-direction: column;
-
-    @media (max-width: 1024px) {
-        margin-left: 4rem;
-    }
 `
 
 const HowToApplyContent = styled.div`

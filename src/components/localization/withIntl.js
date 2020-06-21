@@ -23,7 +23,8 @@ export const WithIntl = () => (WrappedComponent) => {
                 addResources(pageContext, current_language)
                 i18next.changeLanguage(current_language)
                 if (isBrowser) {
-                    initializeWebsocket(current_language)
+                    const normalize_lang = current_language && current_language.replace('_', '-')
+                    initializeWebsocket(normalize_lang)
                 }
             }
         }

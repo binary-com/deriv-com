@@ -287,7 +287,7 @@ const SignupNew = ({
                 checkBoxState={checkBoxState}
                 type="submit"
                 secondary="true"
-                disabled={is_submitting || !checkBoxState}
+                disabled={is_submitting || !checkBoxState || email_error_msg}
             >
                 {localize('Create demo account')}
             </EmailButton>

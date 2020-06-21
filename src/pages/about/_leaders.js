@@ -1,97 +1,62 @@
 import React from 'react'
 import styled from 'styled-components'
-import Swiper from 'react-id-swiper'
-import { Helmet } from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
-import device from 'themes/device'
-import { SectionContainer, Container, CssGrid, Flex, Box, Show } from 'components/containers'
-import { Header, Text, QueryImage } from 'components/elements'
+import { SectionContainer, Container, CssGrid, Box, Flex } from 'components/containers'
+import { QueryImage, Text } from 'components/elements'
 import { Localize } from 'components/localization'
+import device from 'themes/device.js'
 
 const query = graphql`
     query {
-        rakshit_choudhary: file(relativePath: { eq: "leaders/rakshit-choudhary.png" }) {
+        anton: file(relativePath: { eq: "leaders/anton.png" }) {
             ...fadeIn
         }
-        tom_molesworth: file(relativePath: { eq: "leaders/tom-molesworth.png" }) {
+        arun: file(relativePath: { eq: "leaders/arun.png" }) {
             ...fadeIn
         }
-        anton_andreev: file(relativePath: { eq: "leaders/anton-andreev.png" }) {
+        ashkan: file(relativePath: { eq: "leaders/ashkan.png" }) {
             ...fadeIn
         }
-        joanna_frendo: file(relativePath: { eq: "leaders/joanna-frendo.png" }) {
+        denis: file(relativePath: { eq: "leaders/denis.png" }) {
             ...fadeIn
         }
-        shyamala_siva: file(relativePath: { eq: "leaders/shyamala-siva.png" }) {
+        derek: file(relativePath: { eq: "leaders/derek.png" }) {
             ...fadeIn
         }
-        raunak_kathuria: file(relativePath: { eq: "leaders/raunak-kathuria.png" }) {
+        gary: file(relativePath: { eq: "leaders/gary.png" }) {
             ...fadeIn
         }
-        munsei_loke: file(relativePath: { eq: "leaders/munsei-loke.png" }) {
+        jennice: file(relativePath: { eq: "leaders/jennice.png" }) {
             ...fadeIn
         }
-        denis_makagonov: file(relativePath: { eq: "leaders/denis-makagonov.png" }) {
+        jeya: file(relativePath: { eq: "leaders/jeya.png" }) {
             ...fadeIn
         }
-        waqas_awan: file(relativePath: { eq: "leaders/waqas-awan.png" }) {
+        joanna: file(relativePath: { eq: "leaders/joanna.png" }) {
             ...fadeIn
         }
-        derek_swift: file(relativePath: { eq: "leaders/derek-swift.png" }) {
+        jy: file(relativePath: { eq: "leaders/jy.png" }) {
             ...fadeIn
         }
-        jeyavarthini_vairakanan: file(relativePath: { eq: "leaders/jeyavarthini-vairakanan.png" }) {
+        louise: file(relativePath: { eq: "leaders/louise.png" }) {
             ...fadeIn
         }
-        arun_venkataraman: file(relativePath: { eq: "leaders/arun-venkataraman.png" }) {
+        munsei: file(relativePath: { eq: "leaders/munsei.png" }) {
             ...fadeIn
         }
-        ashkan_nemati: file(relativePath: { eq: "leaders/ashkan-nemati.png" }) {
+        rakshit: file(relativePath: { eq: "leaders/rakshit.png" }) {
             ...fadeIn
         }
-        rakshit_choudhary_mobile: file(
-            relativePath: { eq: "leaders/rakshit-choudhary-mobile.png" }
-        ) {
+        raunak: file(relativePath: { eq: "leaders/raunak.png" }) {
             ...fadeIn
         }
-        tom_molesworth_mobile: file(relativePath: { eq: "leaders/tom-molesworth-mobile.png" }) {
+        shyamala: file(relativePath: { eq: "leaders/shyamala.png" }) {
             ...fadeIn
         }
-        anton_andreev_mobile: file(relativePath: { eq: "leaders/anton-andreev-mobile.png" }) {
+        tom: file(relativePath: { eq: "leaders/tom.png" }) {
             ...fadeIn
         }
-        joanna_frendo_mobile: file(relativePath: { eq: "leaders/joanna-frendo-mobile.png" }) {
-            ...fadeIn
-        }
-        shyamala_siva_mobile: file(relativePath: { eq: "leaders/shyamala-siva-mobile.png" }) {
-            ...fadeIn
-        }
-        raunak_kathuria_mobile: file(relativePath: { eq: "leaders/raunak-kathuria-mobile.png" }) {
-            ...fadeIn
-        }
-        munsei_loke_mobile: file(relativePath: { eq: "leaders/munsei-loke-mobile.png" }) {
-            ...fadeIn
-        }
-        denis_makagonov_mobile: file(relativePath: { eq: "leaders/denis-makagonov-mobile.png" }) {
-            ...fadeIn
-        }
-        waqas_awan_mobile: file(relativePath: { eq: "leaders/waqas-awan-mobile.png" }) {
-            ...fadeIn
-        }
-        derek_swift_mobile: file(relativePath: { eq: "leaders/derek-swift-mobile.png" }) {
-            ...fadeIn
-        }
-        jeyavarthini_vairakanan_mobile: file(
-            relativePath: { eq: "leaders/jeyavarthini-vairakanan-mobile.png" }
-        ) {
-            ...fadeIn
-        }
-        arun_venkataraman_mobile: file(
-            relativePath: { eq: "leaders/arun-venkataraman-mobile.png" }
-        ) {
-            ...fadeIn
-        }
-        ashkan_nemati_mobile: file(relativePath: { eq: "leaders/ashkan-nemati-mobile.png" }) {
+        waqas: file(relativePath: { eq: "leaders/waqas.png" }) {
             ...fadeIn
         }
     }
@@ -99,247 +64,184 @@ const query = graphql`
 
 const leaders_data = [
     {
-        name: 'Rakshit Choudhary',
-        position: <Localize translate_text="Chief Operations Officer" />,
-        description: (
-            <Localize translate_text="Rakshit joined us in 2010, jointly architecting the system behind our trading platform with our Chief Executive Officer. Today, he oversees the design and implementation of our business operations. Rakshit holds a master’s degree in quantitative and computational finance from Georgia Institute of Technology in Atlanta and a bachelor’s degree in mechanical engineering from Delhi College of Engineering in India." />
-        ),
-        image: 'rakshit_choudhary',
-    },
-    {
-        name: 'Tom Molesworth',
-        position: (
-            <Localize
-                translate_text="Chief Technology Officer <0 />/Chief Architect"
-                components={[<br key={0} />]}
-            />
-        ),
-        description: (
-            <Localize translate_text="Tom is responsible for our technology strategy and is actively involved in engineering leadership. With over 20 years of experience in software development, he has made extensive contributions to the design and maintenance of large-scale platforms in the IT industry." />
-        ),
-        image: 'tom_molesworth',
-    },
-    {
-        name: 'Anton Andreev',
+        name: <Localize translate_text="Anton Andreev" />,
         position: <Localize translate_text="Head of Project Management" />,
-        description: (
-            <Localize translate_text="Anton is responsible for overseeing the end-to-end development of our products. He has more than 17 years of experience in the online trading and retail banking industry with several international brokers. Anton holds a master’s degree in economics and another in applied informatics." />
-        ),
-        image: 'anton_andreev',
+        image_name: 'anton',
     },
     {
-        name: 'Joanna Frendo',
-        position: <Localize translate_text="Head of Compliance" />,
-        description: (
-            <Localize translate_text="Joanna oversees the whole process of benchmarking the group’s performance against the regulations in every jurisdiction we serve. Her credentials include a diploma in financial services operations and compliance, a professional postgraduate diploma in financial crime compliance, and a fellow membership with the International Compliance Association." />
-        ),
-        image: 'joanna_frendo',
-    },
-    {
-        name: 'Shyamala Siva',
-        position: <Localize translate_text="Head of Human Resources" />,
-        description: (
-            <Localize translate_text="Shyamala has been with the group for over 15 years, ensuring smooth workplace and workforce operations. She is a Certified Public Accountant and holds a master’s degree in corporate governance from HELP University in Malaysia." />
-        ),
-        image: 'shyamala_siva',
-    },
-    {
-        name: 'Raunak Kathuria',
-        position: <Localize translate_text="Back-end Manager" />,
-        description: (
-            <Localize translate_text="Raunak has more than 10 years of experience in front-end and back-end engineering. He has worked for multinational companies like Amdocs, Aon Hewitt, and Oracle Financial Services, where he developed skills for a wide range of platforms and programming languages. Raunak holds a bachelor’s degree in computer science engineering." />
-        ),
-        image: 'raunak_kathuria',
-    },
-    {
-        name: 'Mun Sei Loke',
-        position: <Localize translate_text="Quality Assurance Manager" />,
-        description: (
-            <Localize translate_text="With more than 11 years of experience in Quality Assurance (QA), Mun Sei is well versed in all stages of software development life cycle, as well as in all forms of QA testing. She holds a bachelor’s degree in computer science." />
-        ),
-        image: 'munsei_loke',
-    },
-    {
-        name: 'Denis Makagonov',
-        position: <Localize translate_text="Business Intelligence Manager" />,
-        description: (
-            <Localize translate_text="Denis has more than 10 years of data management experience. Denis previously worked with Forex Club (Libertex), one of the world’s leading forex retail brokers in Russia, and CIS as an enterprise data architect. Denis holds an engineering degree in computer systems information processing and management from Karaganda State Technical University in Kazakhstan." />
-        ),
-        image: 'denis_makagonov',
-    },
-    {
-        name: 'Waqas Awan',
-        position: <Localize translate_text="Head of Product Design" />,
-        description: (
-            <Localize translate_text="Waqas heads our Product Design department. He has more than 20 years of experience as a product specialist, leading multi-disciplinary teams to ship compelling products and services in domains including healthcare, human resources, and FinTech. Waqas holds a PhD in bioinformatics from the University of Cambridge." />
-        ),
-        image: 'waqas_awan',
-    },
-    {
-        name: 'Derek Swift',
-        position: <Localize translate_text="Compliance and Payments Manager" />,
-        description: (
-            <Localize translate_text="Derek has been with us since 2006. His role is pivotal to the onboarding of our new payment systems and bank accounts. He holds a master’s degree in risk management from Birmingham City University." />
-        ),
-        image: 'derek_swift',
-    },
-    {
-        name: 'Jeyavarthini Vairakanan',
-        position: <Localize translate_text="Customer Support Manager" />,
-        description: (
-            <Localize translate_text="Jeyavarthini drives our customer support strategy and assists her team to establish a sustainable relationship with our clients. Before joining us in 2017, Jeyavarthini worked for Intel in Malaysia. She holds an honours degree in Information Technology with a speciality in Information System Security (ISS) from Asia Pacific University associated with Staffordshire University, UK." />
-        ),
-        image: 'jeyavarthini_vairakanan',
-    },
-    {
-        name: 'Arun Venkataraman',
+        name: <Localize translate_text="Arun Venkataraman" />,
         position: <Localize translate_text="DevOps Manager" />,
-        description: (
-            <Localize translate_text="Arun coordinates our product development teams with our operations teams. He has over 12 years of experience in the information industry and has a comprehensive perspective into his field. Arun holds a master’s degree in bioinformatics from Bharathiar University in India." />
-        ),
-        image: 'arun_venkataraman',
+        image_name: 'arun',
     },
     {
-        name: 'Ashkan Nemati',
+        name: <Localize translate_text="Ashkan Nemati" />,
         position: <Localize translate_text="Head of Front-end" />,
-        description: (
-            <Localize translate_text="Ashkan directs our front-end resources across the globe. He has over a decade of experience working with marketers, engineers, and designers in the entertainment and trading industries. Ashkan and his team focus on building a user-centric trading experience, which can help our users make better trading decisions. He holds an MBA from Management and Science University." />
-        ),
-        image: 'ashkan_nemati',
+        image_name: 'ashkan',
+    },
+    {
+        name: <Localize translate_text="Denis Makagonov" />,
+        position: <Localize translate_text="Business Intelligence Manager" />,
+        image_name: 'denis',
+    },
+    {
+        name: <Localize translate_text="Derek Swift" />,
+        position: <Localize translate_text="Compliance and Payments Manager" />,
+        image_name: 'derek',
+    },
+    {
+        name: <Localize translate_text="Gary Ross" />,
+        position: <Localize translate_text="Chief Risk Officer" />,
+        image_name: 'gary',
+    },
+    {
+        name: <Localize translate_text="Jennice Lourdsamy" />,
+        position: <Localize translate_text="Head of Accounts" />,
+        image_name: 'jennice',
+    },
+    {
+        name: <Localize translate_text="Jeyavarthini Vairakanan" />,
+        position: <Localize translate_text="Customer Support Manager" />,
+        image_name: 'jeya',
+    },
+    {
+        name: <Localize translate_text="Joanna Frendo" />,
+        position: <Localize translate_text="Head of Compliance" />,
+        image_name: 'joanna',
+    },
+    {
+        name: <Localize translate_text="Jean-Yves Sireau" />,
+        position: <Localize translate_text="Founder and Chief Executive Officer" />,
+        image_name: 'jy',
+        ceo: true,
+    },
+    {
+        name: <Localize translate_text="Louise Wolf" />,
+        position: <Localize translate_text="Financial Controller" />,
+        image_name: 'louise',
+    },
+    {
+        name: <Localize translate_text="Mun Sei Loke" />,
+        position: <Localize translate_text="Quality Assurance Manager" />,
+        image_name: 'munsei',
+    },
+    {
+        name: <Localize translate_text="Rakshit Choudhary" />,
+        position: <Localize translate_text="Chief Operations Officer" />,
+        image_name: 'rakshit',
+    },
+    {
+        name: <Localize translate_text="Raunak Kathuria" />,
+        position: <Localize translate_text="Back-end Manager" />,
+        image_name: 'raunak',
+    },
+    {
+        name: <Localize translate_text="Shyamala Siva" />,
+        position: <Localize translate_text="Head of Human Resources" />,
+        image_name: 'shyamala',
+    },
+    {
+        name: <Localize translate_text="Tom Molesworth" />,
+        position: <Localize translate_text="CTO / Chief Architect" />,
+        image_name: 'tom',
+    },
+    {
+        name: <Localize translate_text="Waqas Awan" />,
+        position: <Localize translate_text="Head of Product Design" />,
+        image_name: 'waqas',
     },
 ]
-const StyledSection = styled(SectionContainer)`
-    @media ${device.tabletL} {
-        padding: 5rem 0 0 0;
-    }
-`
-const DescriptionWrapper = styled.div`
-    background: var(--color-black);
-    opacity: 0;
-    height: 0;
+
+const StyledGrid = styled(CssGrid)`
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.25s, height 0.25s;
-    padding: 1.6rem;
-    border-radius: 6px;
-`
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 2.4rem;
+    grid-row-gap: 2.4rem;
+    grid-template-areas:
+        'jy jy jy jy jy jy rakshit rakshit rakshit tom tom tom'
+        'jy jy jy jy jy jy joanna joanna joanna shyamala shyamala shyamala'
+        'gary gary gary ashkan ashkan ashkan waqas waqas waqas louise louise louise'
+        'denis denis denis raunak raunak raunak munsei munsei munsei anton anton anton'
+        'derek derek derek jennice jennice jennice jeya jeya jeya arun arun arun';
 
-const LeaderWrapper = styled(Flex)`
-    cursor: pointer;
-    height: auto;
-
-    &:hover {
-        ${DescriptionWrapper} {
-            opacity: 0.85;
-            height: 100%;
-        }
+    @media ${device.tabletL} {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        grid-row-gap: 3rem;
+        grid-template-areas:
+            'jy' 'rakshit' 'tom' 'joanna' 'shyamala' 'gary'
+            'ashkan' 'waqas' 'louise' 'denis' 'raunak' 'munsei'
+            'anton' 'derek' 'jennice' 'jeya' 'arun';
     }
 `
-
-const StyledHeader = styled(Header)`
-    font-size: 2.3rem;
-`
-
-const SliderWrapper = styled.div`
+const LeaderWrapper = styled(Box)`
+    grid-area: ${(props) => props.grid_name};
     width: 100%;
     position: relative;
 
-    @media ${device.laptopS} {
-        display: none;
+    @media ${device.tabletL} {
+        max-width: 400px;
+        margin: 0 auto;
     }
 `
-const SwiperWrapper = styled.div`
-    .swiper-container {
-        min-height: 572px;
-    }
-`
-const LeaderMobile = styled.div`
+const LeaderInformation = styled(Flex)`
     width: 100%;
-    max-width: 304px;
-    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    position: absolute;
+    background-image: linear-gradient(to top, #0e0e0e 16%, rgba(0, 0, 0, 0) 100%, #d5d9da 119%);
+    bottom: 0;
+    height: 31.2%;
+    max-height: 14rem;
+    flex-direction: column;
+    padding: ${(props) => (props.is_ceo ? '3.2rem' : '2.4rem')};
 
-    &.swiper-slide {
-        height: 532px;
-    }
-    > p {
-        max-width: 273px;
+    @media ${device.tabletL} {
+        max-height: 11.25rem;
+        padding: 2.62rem 2rem 2rem;
     }
 `
-const params = {
-    slidesPerView: 'auto',
-    centeredSlides: true,
-    spaceBetween: 8,
-    loop: false,
-    lazy: true,
-}
+const LeaderName = styled(Text)`
+    color: var(--color-white);
+    font-weight: bold;
+    font-size: ${(props) => (props.is_ceo ? 'var(--text-size-l)' : 'var(--text-size-s)')};
+    line-height: ${(props) => (props.is_ceo ? '1.25' : '1.5')};
+
+    @media ${device.tabletL} {
+        font-size: 2.5rem;
+        line-height: 1.6;
+    }
+`
+const LeaderPosition = styled(Text)`
+    color: var(--color-white);
+    font-size: ${(props) => (props.is_ceo ? 'var(--text-size-m)' : 'var(--text-size-xs)')};
+
+    @media ${device.tabletL} {
+        font-size: 2rem;
+    }
+`
 const Leaders = () => {
     const data = useStaticQuery(query)
 
     return (
-        <StyledSection>
-            <Helmet>
-                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
-            </Helmet>
+        <SectionContainer>
             <Container>
-                <Show.Desktop>
-                    <CssGrid
-                        columns="repeat(4, 26.9rem)"
-                        column_gap="3.4rem"
-                        row_gap="10.4rem"
-                        laptop_columns="repeat(3, 1fr)"
-                        tablet_columns="repeat(2, 1fr)"
-                        mobile_columns="1fr"
-                        mobile_row_gap="6rem"
-                        margin="1rem 0 0"
-                    >
-                        {leaders_data.map((leader, index) => (
-                            <LeaderWrapper key={index} direction="column" ai="center">
-                                <Box margin={{ bottom: '0.8rem' }} width="100%" position="relative">
-                                    <QueryImage data={data[leader.image]} alt={leader.name} />
-                                    <DescriptionWrapper>
-                                        <Text lh="1.71" size="var(--text-size-xxs)" color="white">
-                                            {leader.description}
-                                        </Text>
-                                    </DescriptionWrapper>
-                                </Box>
-                                <StyledHeader as="h4" align="center" lh="3.6rem">
-                                    {leader.name}
-                                </StyledHeader>
-                                <Text align="center">{leader.position}</Text>
-                            </LeaderWrapper>
-                        ))}
-                    </CssGrid>
-                </Show.Desktop>
+                <StyledGrid>
+                    {leaders_data.map((leader) => (
+                        <LeaderWrapper key={leader.image_name} grid_name={leader.image_name}>
+                            <QueryImage
+                                data={data[leader.image_name]}
+                                alt={leader.name}
+                                width="100%"
+                            />
+                            <LeaderInformation is_ceo={leader.ceo}>
+                                <LeaderName is_ceo={leader.ceo}>{leader.name}</LeaderName>
+                                <LeaderPosition is_ceo={leader.ceo}>
+                                    {leader.position}
+                                </LeaderPosition>
+                            </LeaderInformation>
+                        </LeaderWrapper>
+                    ))}
+                </StyledGrid>
             </Container>
-            <Container style={{ width: '100%', overflow: 'hidden' }}>
-                <SliderWrapper>
-                    <SwiperWrapper>
-                        <Swiper {...params}>
-                            {leaders_data.map((leader) => (
-                                <LeaderMobile key={leader.name}>
-                                    <QueryImage
-                                        data={data[leader.image + '_mobile']}
-                                        alt={leader.name}
-                                    />
-                                    <Header size="24px" align="center" m="16px 0 0 0">
-                                        {leader.name}
-                                    </Header>
-                                    <Text align="center" m="0 auto" size="2rem">
-                                        {leader.position}
-                                    </Text>
-                                    <Text m="16px 16px 32px 16px" size="1.6rem">
-                                        {leader.description}
-                                    </Text>
-                                </LeaderMobile>
-                            ))}
-                        </Swiper>
-                    </SwiperWrapper>
-                </SliderWrapper>
-            </Container>
-        </StyledSection>
+        </SectionContainer>
     )
 }
 

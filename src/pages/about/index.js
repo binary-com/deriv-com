@@ -14,10 +14,10 @@ import device, { size } from 'themes/device'
 
 const query = graphql`
     query {
-        jean_yves_mobile: file(relativePath: { eq: "leaders/jean-yves-mobile.png" }) {
+        jean_yves_mobile: file(relativePath: { eq: "leaders/jy.png" }) {
             ...fadeIn
         }
-        jean_yves: file(relativePath: { eq: "leaders/jean-yves.png" }) {
+        jean_yves: file(relativePath: { eq: "leaders/jy.png" }) {
             ...fadeIn
         }
     }

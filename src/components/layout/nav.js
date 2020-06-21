@@ -50,12 +50,6 @@ const NavWrapper = styled.div`
     z-index: 100;
 `
 
-const ResponsiveLogo = styled(Logo)`
-    @media (max-width: 1104px) {
-        width: 160px;
-    }
-`
-
 const InterimNav = styled.nav`
     width: 100%;
     position: fixed;
@@ -65,28 +59,34 @@ const InterimNav = styled.nav`
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 
+    @media (max-width: 1200px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 16rem;
+        }
+    }
     @media (max-width: 1150px) {
         & svg,
         .gatsby-image-wrapper {
-            width: 20rem;
+            width: 13rem;
         }
     }
-    @media (max-width: 1104px) {
+    @media (max-width: 1105px) {
         & svg,
         .gatsby-image-wrapper {
-            width: 15rem;
+            width: 10rem;
         }
     }
     @media ${device.tabletS} {
         & svg,
         .gatsby-image-wrapper {
-            width: 15rem;
+            width: 10rem;
         }
     }
     @media ${device.mobileL} {
         & svg,
         .gatsby-image-wrapper {
-            width: 13rem;
+            width: 12rem;
         }
     }
 `
@@ -133,10 +133,17 @@ const NavCenter = styled.ul`
     text-align: center;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    line-height: 1.2;
 
-    @media (max-width: 1104px) {
-        font-size: var(--text-size-xs);
+    @media (max-width: 1210px) {
+        font-size: 14px;
+    }
+    @media (max-width: 1175px) {
+        font-size: 12px;
+    }
+    @media (max-width: 1105px) {
+        font-size: 11px;
     }
     @media ${device.tabletL} {
         display: none;
@@ -191,8 +198,9 @@ const NavRight = styled.div`
 `
 const NavLink = styled.li`
     list-style-type: none;
-    display: inline-block;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    text-align: center;
     margin-right: 2.4rem;
 
     &:last-child {
@@ -284,12 +292,32 @@ const Binary = styled(Text)`
     line-height: 1;
 `
 
+const MyBinary = styled(Binary)`
+    width: 8rem;
+    margin-left: 0.5rem;
+    line-height: 1;
+    @media (max-width: 1105px) {
+        width: 5rem;
+        font-size: 7px;
+    }
+`
 const BinaryLink = styled(LocalizedLinkText)`
     display: inline-block;
     color: var(--color-white);
     font-size: var(--text-size-xxs);
     font-weight: bold;
     text-decoration: none;
+`
+const MyBinaryLink = styled(BinaryLink)`
+    display: inline-block;
+    color: var(--color-white);
+    font-size: var(--text-size-xxs);
+    font-weight: bold;
+    text-decoration: none;
+
+    @media (max-width: 1105px) {
+        font-size: 7px;
+    }
 `
 
 const MobileRight = styled.div`
@@ -440,7 +468,7 @@ export const Nav = () => {
                                 data={data['deriv']}
                                 alt={localize('Deriv')}
                                 width="16.4rem"
-                                height="2.7rem"
+                                height="auto"
                             />
                         </LogoLink>
                         <Divider color="white" width="1px" height="2.7rem" m="0 1.6rem" />
@@ -453,11 +481,11 @@ export const Nav = () => {
                         >
                             <BinaryLogo width="24" height="24" />
                         </LocalizedLink>
-                        <Binary size="var(--text-size-xxs)" color="white">
+                        <MyBinary size="var(--text-size-xxs)" color="white">
                             <Localize
                                 translate_text="A <0>Binary.com</0> brand"
                                 components={[
-                                    <BinaryLink
+                                    <MyBinaryLink
                                         key={0}
                                         external
                                         to={binary_url}
@@ -468,7 +496,7 @@ export const Nav = () => {
                                     />,
                                 ]}
                             />
-                        </Binary>
+                        </MyBinary>
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>
@@ -618,7 +646,7 @@ export const NavInterim = ({ interim_type }) => (
 export const NavStatic = () => (
     <StaticWrapper>
         <LogoLink to="/" aria-label={localize('Home')}>
-            <ResponsiveLogo />
+            <Logo />
         </LogoLink>
         <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
             <BinaryLogo width="24" height="24" />
@@ -660,8 +688,11 @@ const HomeContainer = styled(Container)`
 const StyledNavCenter = styled(NavCenter)`
     margin-left: 13.3rem;
 
-    @media (max-width: 1150px) {
+    @media (max-width: 1300px) {
         margin-left: 7.3rem;
+    }
+    @media (max-width: 1080px) {
+        margin-left: 2.4rem;
     }
 `
 
@@ -678,6 +709,41 @@ const StyledNavWrapper = styled(Wrapper)`
 
     ${LogoLinkMobile} {
         margin: 0 2.4rem;
+    }
+`
+
+const Mobile = styled(Show.Mobile)`
+    width: 100%;
+`
+
+const ResLogo = styled(LogoOnly)`
+    width: 115px;
+    @media ${device.mobileM} {
+        width: 98px;
+    }
+    @media (max-width: 336px) {
+        width: 82px;
+    }
+`
+
+const NavLogoLink = styled(LogoLink)`
+    @media (max-width: 1300px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 25rem;
+        }
+    }
+    @media (max-width: 1150px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 23rem;
+        }
+    }
+    @media (max-width: 1105px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 23rem;
+        }
     }
 `
 
@@ -731,9 +797,9 @@ export const NavPartners = ({ no_login_signup }) => {
                 <StyledNav>
                     <StyledNavWrapper no_login_signup>
                         <NavLeft>
-                            <LogoLink to="/partners/" aria-label={localize('Partners')}>
+                            <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
                                 <LogoPartner />
-                            </LogoLink>
+                            </NavLogoLink>
                         </NavLeft>
                         <StyledNavCenter>
                             <NavLink>
@@ -783,27 +849,44 @@ export const NavPartners = ({ no_login_signup }) => {
                                     <span>{localize('Affiliate & IB sign up')}</span>
                                 </LinkSignupButton>
                             </StyledNavRight>
-                        ) : null}
+                        ) : (
+                            <NavRight
+                                move={show_button}
+                                button_ref={button_ref}
+                                mounted={mounted}
+                                has_scrolled={has_scrolled}
+                            >
+                                <LanguageSwitcher short_name="true" is_high_nav />
+                            </NavRight>
+                        )}
 
                         {is_canvas_menu_open ? (
                             <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                         ) : (
                             <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
                         )}
-                        <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                            <LogoOnly width="115px" />
-                        </LogoLinkMobile>
-                        {!no_login_signup && (
-                            <LinkMobileLogin
-                                to={affiliate_signin_url}
-                                external
-                                is_affiliate_link
-                                target="_blank"
-                                primary
-                            >
-                                <span>{localize('Affiliate & IB Log in')}</span>
-                            </LinkMobileLogin>
-                        )}
+
+                        <Mobile>
+                            <Flex ai="center">
+                                <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                                    <ResLogo />
+                                </LogoLinkMobile>
+                                <Flex ml="auto" ai="center" width="auto">
+                                    <LanguageSwitcher short_name="true" is_high_nav />
+                                </Flex>
+                                {!no_login_signup && (
+                                    <LinkMobileLogin
+                                        to={affiliate_signin_url}
+                                        external
+                                        is_affiliate_link
+                                        target="_blank"
+                                        primary
+                                    >
+                                        <span>{localize('Affiliate & IB Log in')}</span>
+                                    </LinkMobileLogin>
+                                )}
+                            </Flex>
+                        </Mobile>
                         <OffCanvasMenuPartner
                             is_canvas_menu_open={is_canvas_menu_open}
                             closeOffCanvasMenu={closeOffCanvasMenu}

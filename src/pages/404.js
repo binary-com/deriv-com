@@ -43,7 +43,7 @@ const PageNotFound = () => {
     return (
         <Layout>
             <SEO
-                title={localize('404 - Page not found')}
+                title={localize('404 - Page not found | Deriv')}
                 description={localize('The page you are looking for does not exist.')}
             />
             <PageNotFoundContainer>

@@ -1,9 +1,10 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Show from 'components/containers/show'
-import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
-import Map from 'images/svg/world-map.svg'
+// import Map from 'images/svg/world-map.svg'
+import { Flex } from 'components/containers'
 import SmallMap from 'images/svg/world-map-small.svg'
 import device from 'themes/device'
 import Labuan from 'images/svg/labuan-pin-location.svg'
@@ -11,36 +12,34 @@ import Cyberjaya from 'images/svg/cyberjaya-pin-location.svg'
 import Dubai from 'images/svg/dubai-pin-location.svg'
 import Paraguay from 'images/svg/paraguay-pin-location.svg'
 import Malta from 'images/svg/malta-pin-location.svg'
+import { Header, Text, QueryImage } from 'components/elements'
 
+const query = graphql`
+    query {
+        world_map: file(relativePath: { eq: "world-map.png" }) {
+            ...fadeIn
+        }
+    }
+`
 const OfficeContainer = styled.section`
     width: 100%;
-    padding: 8rem 22.2rem;
-    margin: auto;
+    height: 87.9rem;
     background-color: var(--color-white);
-
-    @media ${device.laptopLC} {
-        padding: 8rem 2rem;
-    }
-    @media ${device.laptopLC} {
-        padding: 5rem 2rem;
-    }
+    margin: 0 auto;
+    padding: 8rem 0;
 `
 const MapWrapper = styled.div`
     position: relative;
-    margin: 0 auto;
-    width: fit-content;
-
-    @media ${device.desktop} {
-        max-width: 1440px;
-    }
-`
-const StyledMap = styled(Map)`
-    height: 100%;
     width: 100%;
-
-    @media ${device.laptopLC} {
-        width: 996px;
-    }
+    height: 63.9rem;
+    max-width: 1440px;
+    margin: 0 auto;
+`
+const MapImageWrapper = styled.div`
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
 `
 const StyledSmallMap = styled(SmallMap)`
     transform: translate(0, 0);
@@ -99,39 +98,12 @@ const ParaguayWrapper = styled(Paraguay)`
 const MaltaWrapper = styled(Malta)`
     ${PinpointWrapper}
 `
-const NumberWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    text-align: center;
-    align-items: center;
-    margin-top: 2.4rem;
-
-    @media ${device.laptopLC} {
-        padding: 0 15rem;
-    }
-    @media ${device.tablet} {
-        flex-direction: column;
-        padding: 0 5rem;
-    }
-`
-const Number = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-
-    @media ${device.tablet} {
-        :not(:last-child) {
-            margin-bottom: 4rem;
-        }
-    }
-`
 const MapLink = styled(LocalizedLink)`
     cursor: pointer;
 `
 export const OurOffices = () => {
+    const data = useStaticQuery(query)
+
     return (
         <OfficeContainer>
             <Show.Mobile>
@@ -178,90 +150,71 @@ export const OurOffices = () => {
                 </Show.Mobile>
 
                 <Show.Desktop>
-                    <StyledMap />
+                    <MapImageWrapper>
+                        <QueryImage data={data['world_map']} alt="World Map" width="100%" />
+                    </MapImageWrapper>
                     <MapLink to="/contact-us/#paraguay" anchor>
-                        <Pinpoint top="66" left="25">
+                        <Pinpoint top="69" left="34">
                             <Oval />
                             <ParaguayWrapper />
                         </Pinpoint>
                     </MapLink>
                     <MapLink to="/contact-us/#malta" anchor>
-                        <Pinpoint top="21.6" left="49.6">
+                        <Pinpoint top="21.6" left="55">
                             <Oval />
                             <MaltaWrapper />
                         </Pinpoint>
                     </MapLink>
                     <MapLink to="/contact-us/#dubai" anchor>
-                        <Pinpoint top="30.6" left="63.7">
+                        <Pinpoint top="30.6" left="69">
                             <Oval />
                             <DubaiWrapper />
                         </Pinpoint>
                     </MapLink>
                     <MapLink to="/contact-us/#cyberjaya" anchor>
-                        <Pinpoint top="46" left="63.6">
+                        <Pinpoint top="49" left="73">
                             <Oval top="83" left="88" />
                             <CyberjayaWrapper />
                         </Pinpoint>
                     </MapLink>
                     <MapLink to="/contact-us/#labuan" anchor>
-                        <Pinpoint top="44.6" left="85">
+                        <Pinpoint top="48" left="90">
                             <Oval left="8" />
                             <LabuanWrapper />
                         </Pinpoint>
                     </MapLink>
                 </Show.Desktop>
-            </MapWrapper>
-
-            <NumberWrapper>
-                <Number>
-                    <Show.Mobile>
-                        <Header align="center" size="6rem">
-                            250+
+                <Flex
+                    fd="column"
+                    position="absolute"
+                    width="12.4rem"
+                    padding="0 0 0 12.7rem"
+                    left="12.7rem"
+                >
+                    <Flex fd="column" height="unset">
+                        <Header color="red-4" as="h2" align="center">
+                            {localize('300+')}
                         </Header>
-                        <Text size="2rem" align="center">
+                        <Text align="center" mb="8rem">
                             {localize('Team members')}
                         </Text>
-                    </Show.Mobile>
-                    <Show.Desktop>
-                        <Header align="center" as="h2">
-                            250+
+                    </Flex>
+                    <Flex fd="column" height="unset">
+                        <Header color="red-4" as="h2" align="center">
+                            {localize('40+')}
                         </Header>
-                        <Text align="center">{localize('Team members')}</Text>
-                    </Show.Desktop>
-                </Number>
-                <Number>
-                    <Show.Mobile>
-                        <Header align="center" size="6rem">
-                            40+
-                        </Header>
-                        <Text size="2rem" align="center">
-                            {localize('Nationalites')}
+                        <Text align="center" mb="8rem">
+                            {localize('Nationalities')}
                         </Text>
-                    </Show.Mobile>
-                    <Show.Desktop>
-                        <Header align="center" as="h2">
-                            40+
-                        </Header>
-                        <Text align="center">{localize('Nationalites')}</Text>
-                    </Show.Desktop>
-                </Number>
-                <Number>
-                    <Show.Mobile>
-                        <Header align="center" size="6rem">
-                            5
-                        </Header>
-                        <Text size="2rem" align="center">
-                            {localize('Corporate offices')}
-                        </Text>
-                    </Show.Mobile>
-                    <Show.Desktop>
-                        <Header align="center" as="h2">
-                            5
+                    </Flex>
+                    <Flex fd="column" height="unset">
+                        <Header color="red-4" as="h2" align="center">
+                            {localize('5')}
                         </Header>
                         <Text align="center">{localize('Corporate offices')}</Text>
-                    </Show.Desktop>
-                </Number>
-            </NumberWrapper>
+                    </Flex>
+                </Flex>
+            </MapWrapper>
         </OfficeContainer>
     )
 }

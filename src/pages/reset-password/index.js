@@ -71,7 +71,7 @@ const resetSubmission = (values, actions) => {
 const ResetPassword = () => (
     <Layout type="static">
         <SEO
-            title={localize('Reset password')}
+            title={localize('Reset password | Deriv')}
             description={localize(
                 'Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions.',
             )}

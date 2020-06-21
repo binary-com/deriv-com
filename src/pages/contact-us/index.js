@@ -43,10 +43,10 @@ const ContactUs = () => {
     return (
         <Layout>
             <SEO
+                title={localize('Contact Us | Online Trading | Deriv.com')}
                 description={localize(
                     'Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!',
                 )}
-                title={localize('Contact Us | Online Trading')}
             />
             <HeroWrapper>
                 <Header as="h1">{localize('Contact us')}</Header>

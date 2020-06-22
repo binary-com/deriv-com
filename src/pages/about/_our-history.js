@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+// import Carousel from './_carousel'
 import Stories from './_story_constant'
 import Show from 'components/containers/show'
 // import { Container } from 'components/containers'
@@ -239,6 +240,21 @@ export const OurHistory = (props) => {
                     {localize('Our history')}
                 </Header>
             </Show.Desktop>
+            {/* <Carousel>
+                <Carousel.Item>
+                    <Header>{localize('1999')}</Header>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <Header>{localize('2000')}</Header>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <Header>{localize('2001')}</Header>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <Header>{localize('2002')}</Header>
+                </Carousel.Item>
+            </Carousel> */}
+
             <SVGContainer>
                 <StyledLine />
             </SVGContainer>

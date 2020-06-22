@@ -137,20 +137,20 @@ export const Hero = () => {
                         <Show.Desktop>
                             <Flex mb="1.6rem" direction="column">
                                 <StyledHeader color="white" ad="0.5s">
-                                    <Localize translate_text="SIMPLE." />
+                                    <Localize translate_text="Simple" />
                                 </StyledHeader>
                                 <StyledHeader color="white" ad="0.6s">
-                                    <Localize translate_text="FLEXIBLE." />
+                                    <Localize translate_text="Flexible" />
                                 </StyledHeader>
                                 <StyledHeader color="white" ad="0.7s">
-                                    <Localize translate_text="RELIABLE." />
+                                    <Localize translate_text="Reliable" />
                                 </StyledHeader>
                             </Flex>
                         </Show.Desktop>
                         <Show.Mobile>
                             <Flex>
                                 <StyledHeader color="white" ad="0.5s" mb="2rem">
-                                    <Localize translate_text="SIMPLE. FLEXIBLE. RELIABLE." />
+                                    <Localize translate_text="Simple Flexible Reliable" />
                                 </StyledHeader>
                             </Flex>
                         </Show.Mobile>

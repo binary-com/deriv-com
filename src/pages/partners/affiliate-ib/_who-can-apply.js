@@ -217,7 +217,7 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <CenteredSection padding="4rem 0">
+            <CenteredSection padding="2rem 0">
                 <LinkButton
                     secondary
                     to={affiliate_signup_url}

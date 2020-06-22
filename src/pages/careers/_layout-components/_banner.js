@@ -25,6 +25,8 @@ const Section = styled.section`
 const JobMailSection = styled.section`
     background-color: var(--color-black-3);
     padding: 3.2rem 0;
+    margin-top: 6rem;
+    margin-bottom: 7rem;
 
     ${Text} {
         max-width: 55.9rem;
@@ -32,7 +34,7 @@ const JobMailSection = styled.section`
 `
 
 export const Banner = ({ header, p1, p2, p3 }) => (
-    <JobMailSection>
+    <Section>
         <Flex direction="column" ai="center" justify-content="center">
             <Header align="center" as="h3" color="white">
                 {header}
@@ -50,11 +52,11 @@ export const Banner = ({ header, p1, p2, p3 }) => (
                 </MailLink>
             </Text>
         </Flex>
-    </JobMailSection>
+    </Section>
 )
 
 export const JobMailBanner = () => (
-    <Section>
+    <JobMailSection>
         <Flex direction="row" ai="center">
             <Email />
             <Text align="center" color="white" style={{ marginLeft: '2.4rem' }}>
@@ -64,7 +66,7 @@ export const JobMailBanner = () => (
                 </MailLink>
             </Text>
         </Flex>
-    </Section>
+    </JobMailSection>
 )
 
 export const RoleBanner = () => (

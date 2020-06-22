@@ -50,7 +50,7 @@ class LanguageSwitch extends Component {
             const current_hash = window.location.hash
             const destination_path = `${path}${
                 current_lang === 'en'
-                    ? current_path.replace(/\//g, '')
+                    ? current_path.replace(/\//u, '')
                     : current_path.replace(/\/.+?\//g, '')
             }${current_hash}`
 

@@ -6,7 +6,7 @@ import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 const query = graphql`
     query {
@@ -108,7 +108,7 @@ const ImageWrapper = styled(Box)`
 `
 export const Hero = () => {
     const data = useStaticQuery(query)
-    const subtitle = localize('Trade forex, commodities, synthetic and stock indices')
+    const subtitle = 'Trade forex, commodities, synthetic and stock indices'
     const [type_writer, setTypeWriter] = React.useState('')
     let type_writer_timeout
 
@@ -137,25 +137,25 @@ export const Hero = () => {
                         <Show.Desktop>
                             <Flex mb="1.6rem" direction="column">
                                 <StyledHeader color="white" ad="0.5s">
-                                    {localize('SIMPLE.')}
+                                    <Localize translate_text="SIMPLE." />
                                 </StyledHeader>
                                 <StyledHeader color="white" ad="0.6s">
-                                    {localize('FLEXIBLE.')}
+                                    <Localize translate_text="FLEXIBLE." />
                                 </StyledHeader>
                                 <StyledHeader color="white" ad="0.7s">
-                                    {localize('RELIABLE.')}
+                                    <Localize translate_text="RELIABLE." />
                                 </StyledHeader>
                             </Flex>
                         </Show.Desktop>
                         <Show.Mobile>
                             <Flex>
                                 <StyledHeader color="white" ad="0.5s" mb="2rem">
-                                    {localize('SIMPLE. FLEXIBLE. RELIABLE.')}
+                                    <Localize translate_text="SIMPLE. FLEXIBLE. RELIABLE." />
                                 </StyledHeader>
                             </Flex>
                         </Show.Mobile>
                         <TypeWriter as="h4" color="white" max_width="430px" weight="normal">
-                            {type_writer}
+                            <Localize translate_text={type_writer} />
                         </TypeWriter>
                         <VerticalCarousel contents={contents} />
                     </Details>
@@ -164,7 +164,7 @@ export const Hero = () => {
                     </ImageWrapper>
                     <ButtonWrapper>
                         <HeroButton secondary="true" to="/signup/">
-                            {localize('Create free demo account')}
+                            <Localize translate_text="Create free demo account" />
                         </HeroButton>
                     </ButtonWrapper>
                 </HeroContainer>

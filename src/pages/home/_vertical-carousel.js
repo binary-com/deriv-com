@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Header } from 'components/elements'
 import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
+import { Localize } from 'components/localization'
 
 const VerticalCarouselWrapper = styled(Flex)`
     position: relative;
@@ -35,6 +36,9 @@ const StyledHeader = styled(Header)`
 `
 
 const VerticalCarousel = ({ contents }) => {
+    // We have 5 items which height of each of them is 36px.
+    // In each step we should +36px to the last item (coordinate of the last item is -72px)
+    // This is list of item's coordinate [-72, -36, 0, 36, 72]
     const [active_header, setActiveHeader] = React.useState(contents.length - 1)
     const [transform, setTransform] = React.useState(-72)
     const [visibility, setVisibility] = React.useState('hidden')
@@ -45,6 +49,7 @@ const VerticalCarousel = ({ contents }) => {
             setTransform(transform + 36)
             setTimeout(() => startVerticalCarousel(active_header - 1, transform + 36), 3000)
         } else {
+            // here we should restart the carousel with the first item (which is the last item in the array)
             startVerticalCarousel(5, -108)
         }
     }
@@ -64,7 +69,7 @@ const VerticalCarousel = ({ contents }) => {
                         index={index}
                         key={content}
                     >
-                        {content}
+                        <Localize translate_text={content} />
                     </StyledHeader>
                 ))}
             </VerticalCarouselContainer>

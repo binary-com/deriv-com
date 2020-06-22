@@ -488,7 +488,7 @@ export const Nav = () => {
                                     <MyBinaryLink
                                         key={0}
                                         external
-                                        to={binary_url}
+                                        to={'home'}
                                         is_binary_link
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -623,7 +623,7 @@ export const NavInterim = ({ interim_type }) => (
                             <BinaryLink
                                 key={0}
                                 external
-                                to={binary_url}
+                                to={'home'}
                                 is_binary_link
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -658,7 +658,7 @@ export const NavStatic = () => (
                     <BinaryLink
                         key={0}
                         external
-                        to={binary_url}
+                        to={'home'}
                         is_binary_link
                         target="_blank"
                         rel="noopener noreferrer"
@@ -688,8 +688,11 @@ const HomeContainer = styled(Container)`
 const StyledNavCenter = styled(NavCenter)`
     margin-left: 13.3rem;
 
-    @media (max-width: 1150px) {
+    @media (max-width: 1300px) {
         margin-left: 7.3rem;
+    }
+    @media (max-width: 1080px) {
+        margin-left: 2.4rem;
     }
 `
 
@@ -720,6 +723,27 @@ const ResLogo = styled(LogoOnly)`
     }
     @media (max-width: 336px) {
         width: 82px;
+    }
+`
+
+const NavLogoLink = styled(LogoLink)`
+    @media (max-width: 1300px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 25rem;
+        }
+    }
+    @media (max-width: 1150px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 23rem;
+        }
+    }
+    @media (max-width: 1105px) {
+        & svg,
+        .gatsby-image-wrapper {
+            width: 23rem;
+        }
     }
 `
 
@@ -773,9 +797,9 @@ export const NavPartners = ({ no_login_signup }) => {
                 <StyledNav>
                     <StyledNavWrapper no_login_signup>
                         <NavLeft>
-                            <LogoLink to="/partners/" aria-label={localize('Partners')}>
+                            <NavLogoLink to="/partners/" aria-label={localize('Partners')}>
                                 <LogoPartner />
-                            </LogoLink>
+                            </NavLogoLink>
                         </NavLeft>
                         <StyledNavCenter>
                             <NavLink>
@@ -808,7 +832,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external
-                                    is_affiliate_link
+                                    is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
                                 >

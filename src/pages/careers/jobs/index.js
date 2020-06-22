@@ -14,7 +14,7 @@ import device from 'themes/device'
 import { isBrowser, debounce } from 'common/utility'
 import { SEO, Container, SectionContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import { Divider } from 'components/elements'
 
 const StyledDivider = styled(Divider)`
@@ -47,7 +47,7 @@ const initializeFilters = () => {
     const url_filters = url_params.get('filter')
 
     if (url_filters) {
-        let filter_arr = url_filters.split(',').filter(f => !!team_names[f] || !!locations[f])
+        let filter_arr = url_filters.split(',').filter((f) => !!team_names[f] || !!locations[f])
         return filter_arr
     }
 
@@ -99,7 +99,12 @@ const Jobs = () => {
 
     return (
         <Layout type="careers" padding_top="10rem">
-            <SEO title={'Jobs'} />
+            <SEO
+                title={localize('Job roles listing | Deriv')}
+                description={localize(
+                    'Find your role at Deriv by browsing our job listing. Filter by team and location to find the perfect job for you.',
+                )}
+            />
             <SectionContainer>
                 <SearchContainer align="flex-start">
                     <SearchFilters filters={filters} setFilters={setFilters} />

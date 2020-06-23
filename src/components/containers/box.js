@@ -37,6 +37,8 @@ const Box = styled.div`
     height: ${(props) => (props.height ? props.height : '')};
     max-width: ${(props) => (props.max_width ? props.max_width : '')};
     position: ${(props) => (props.position ? props.position : '')};
+    left: ${(props) => (props.left ? props.left : '')};
+    top: ${(props) => (props.top ? props.top : '')};
     background: ${(props) => (props.background || props.bg ? props.background || props.bg : '')};
     ${baseStyles}
     ${responsiveStyles}

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { navigate } from '@reach/router'
 import { OurStory } from './_our-story'
 import Leaders from './_leaders'
-import { Container, SEO, SectionContainer } from 'components/containers'
+import { Container, SEO, SectionContainer, Flex } from 'components/containers'
 import { getLocationHash, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -47,25 +46,58 @@ const Subtitle = styled(Text)`
         font-size: 2.25rem;
     }
 `
+const TabsContainer = styled(Flex)`
+    padding-top: 3.6rem;
 
-const useTabState = (tab) => {
-    const [active_tab, setActiveTab] = useState(tab)
-    const setTab = (tab) => {
-        if (tab === active_tab) return
-        setActiveTab(tab)
-        navigate(`#${tab}`)
+    @media ${device.tabletL} {
+        justify-content: center;
+        padding: 0;
     }
-    return [active_tab, setTab]
-}
+`
+const Item = styled.div`
+    padding: 1.2rem 2.4rem;
+    border-bottom: ${(props) =>
+        props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
+    cursor: pointer;
+    z-index: 10;
+
+    h4 {
+        color: var(--color-red);
+        opacity: ${(props) => (props.name === props.active_tab ? '1' : '0.32')};
+        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
+    }
+    @media ${device.tabletL} {
+        padding: 1.5rem 3rem;
+
+        ${Header} {
+            font-size: 3rem;
+            width: max-content;
+        }
+    }
+`
+const Separator = styled.div`
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--color-grey-21);
+`
 // Test notification netlify
 const About = () => {
     const [is_mobile, setMobile] = useState(false)
-    const [active_tab, setTab] = useTabState('story')
-    const is_story = active_tab === 'story'
-    const is_leadership = active_tab === 'leadership'
+    const [active_tab, setTab] = useState()
+    const handleTabChange = (tab_name) => {
+        setTab(tab_name)
+        isBrowser() && window.history.pushState(null, null, `#${tab_name}`)
+    }
     useEffect(() => {
-        const new_tab = getLocationHash() || 'story'
-        setTab(new_tab)
+        if (getLocationHash() === active_tab) return
+        if (getLocationHash().length === 0) {
+            setTab('story')
+            isBrowser() && window.history.pushState(null, null, '#story')
+        } else {
+            setTab(getLocationHash())
+        }
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     })
 
@@ -94,8 +126,21 @@ const About = () => {
                     </Subtitle>
                 </StyledContainer>
             </StyledSection>
-            {is_story && <OurStory is_mobile_menu={is_mobile} />}
-            {is_leadership && <Leaders />}
+            <TabsContainer>
+                <Item onClick={() => handleTabChange('story')} active_tab={active_tab} name="story">
+                    <Header as="h4">{localize('Our story')}</Header>
+                </Item>
+                <Item
+                    onClick={() => handleTabChange('leadership')}
+                    active_tab={active_tab}
+                    name="leadership"
+                >
+                    <Header as="h4">{localize('Our leadership')}</Header>
+                </Item>
+                <Separator />
+            </TabsContainer>
+            {active_tab === 'story' && <OurStory is_mobile_menu={is_mobile} />}
+            {active_tab === 'leadership' && <Leaders />}
         </Layout>
     )
 }

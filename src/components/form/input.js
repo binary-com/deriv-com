@@ -22,13 +22,18 @@ const InputWrapper = styled.div`
         border-color: var(--color-grey-5);
 
         & > label {
-            color: var(--color-black-3);
+            color: var(--color- ${(props) => props.labelHoverColor || 'black-3'});
         }
     }
     &:focus-within {
         border-color: ${(props) => props.focusBorder || 'var(--color-green)'};
     }
 
+    ${(props) =>
+        !props.error &&
+        css`
+            border-color: var(--color-grey-7);
+        `}
     ${(props) =>
         props.error &&
         css`
@@ -74,11 +79,11 @@ const StyledInput = styled.input`
         }
     }
 
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         & ~ label {
             font-size: 1.5rem;
             top: 1.75rem;
-        }
+        }       
     }
 
     &::placeholder {
@@ -97,15 +102,21 @@ const StyledInput = styled.input`
 
             /* prettier-ignore */
             background-color: var(--color-${(props) => props.background || 'grey-1'});
+
+            @media ${device.mobileL} {
+                transform: translate(-0.6rem, -20px) scale(0.7);
+            }
         }
         &::placeholder {
-            opacity: 0.5;
+            opacity: 1;
+            color: var(--color-grey-5);
+            font-size: 14px;
         }
     }
     &:valid {
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: var(--color-green);
+            color: var(--color-black-3);
 
             /* prettier-ignore */
             background-color: var(--color-${(props) => props.background || 'grey-1'});
@@ -122,11 +133,11 @@ const ErrorMessages = styled(Text)`
 const StyledLabel = styled.label`
     /* prettier-ignore */
     color: var(--color-${(props) => props.labelColor || 'grey'});
-    font-size: var(--text-size-s);
+    font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1rem;
+    top: 1.4rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
@@ -137,6 +148,7 @@ const Input = ({
     label,
     border,
     focusBorder,
+    labelHoverColor,
     labelColor,
     id,
     error,
@@ -149,6 +161,7 @@ const Input = ({
         <InputWrapper
             border={border}
             focusBorder={focusBorder}
+            labelHoverColor={labelHoverColor}
             error={error}
             className="input-wrapper"
         >
@@ -179,6 +192,7 @@ Input.propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,
     labelColor: PropTypes.string,
+    labelHoverColor: PropTypes.string,
     tabletBackground: PropTypes.string,
     width: PropTypes.string,
 }

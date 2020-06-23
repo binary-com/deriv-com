@@ -48,6 +48,7 @@ const Subtitle = styled(Text)`
 `
 const TabsContainer = styled(Flex)`
     padding-top: 3.6rem;
+    position: relative;
 
     @media ${device.tabletL} {
         justify-content: center;

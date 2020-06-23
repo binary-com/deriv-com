@@ -488,7 +488,7 @@ export const Nav = () => {
                                     <MyBinaryLink
                                         key={0}
                                         external
-                                        to={binary_url}
+                                        to={'home'}
                                         is_binary_link
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -623,7 +623,7 @@ export const NavInterim = ({ interim_type }) => (
                             <BinaryLink
                                 key={0}
                                 external
-                                to={binary_url}
+                                to={'home'}
                                 is_binary_link
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -658,7 +658,7 @@ export const NavStatic = () => (
                     <BinaryLink
                         key={0}
                         external
-                        to={binary_url}
+                        to={'home'}
                         is_binary_link
                         target="_blank"
                         rel="noopener noreferrer"
@@ -832,7 +832,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external
-                                    is_affiliate_link
+                                    is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
                                 >

@@ -29,7 +29,7 @@ const Checkmark = styled.span`
 `
 
 const ContentWrapper = styled.div`
-    margin-top: 0rem;
+    margin-top: 0;
     margin-left: 2rem;
 `
 const OvalWrapper = styled.div`

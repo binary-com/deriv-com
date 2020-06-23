@@ -199,7 +199,7 @@ const PaymentMethods = () => {
                             ))}
                         </Accordion>
                     </AccordionContainer>
-                    <Text mt="1.6rem" align="center">
+                    <Text mt="1.6rem" size="var(--text-size-xs)" align="center">
                         {localize(
                             'Disclaimer: Processing times and limits are indicative. They may differ from what is shown here, depending on the queue or for reasons outside of our control.',
                         )}

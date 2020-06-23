@@ -8,7 +8,6 @@ import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import { BinarySocketBase } from 'common/websocket/socket_base'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -59,41 +58,6 @@ const Notes = styled.div`
 `
 
 const PaymentMethods = () => {
-    const [payment_methods, setPaymentMethods] = React.useState(payment_data)
-
-    React.useEffect(() => {
-        const binary_socket = BinarySocketBase.init()
-
-        binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify({ website_status: 1 }))
-        }
-        binary_socket.onmessage = (msg) => {
-            const response = JSON.parse(msg.data)
-            const filtered_payment_data = payment_methods.map((payment) => {
-                if (payment.is_crypto) {
-                    payment.data = payment.data.map((data) => {
-                        const minimum_withdrawal = +response.website_status.crypto_config[
-                            data.currencies
-                        ].minimum_withdrawal
-
-                        const min_log_n = Math.floor(Math.log10(minimum_withdrawal))
-                        const min_division = min_log_n < 0 ? Math.pow(10, 1 - min_log_n) : 100
-
-                        const result_min_withdrawal =
-                            Math.round(minimum_withdrawal * min_division) / min_division
-
-                        data.min_max_withdrawal = result_min_withdrawal
-                        data.tooltip = minimum_withdrawal
-                        return data
-                    })
-                }
-                return payment
-            })
-
-            setPaymentMethods(filtered_payment_data)
-            binary_socket.close()
-        }
-    }, [])
     return (
         <Layout>
             <Helmet>
@@ -123,7 +87,7 @@ const PaymentMethods = () => {
                 <Container direction="column">
                     <AccordionContainer>
                         <Accordion has_single_state>
-                            {payment_methods.map((pd, idx) => (
+                            {payment_data.map((pd, idx) => (
                                 <AccordionItem
                                     key={idx}
                                     content_style={{
@@ -164,7 +128,7 @@ const PaymentMethods = () => {
                                                         ) : (
                                                             <React.Fragment>
                                                                 <BoldText>
-                                                                    {localize('Min - max')}
+                                                                    {localize('Min-max')}
                                                                 </BoldText>
                                                                 <BoldText>
                                                                     {localize('deposit')}
@@ -174,13 +138,18 @@ const PaymentMethods = () => {
                                                     </Th>
                                                     <Th>
                                                         {pd.is_crypto ? (
-                                                            <BoldText>
-                                                                {localize('Min withdrawal')}
-                                                            </BoldText>
+                                                            <>
+                                                                <BoldText>
+                                                                    {localize('Min withdrawal')}
+                                                                </BoldText>
+                                                                <BoldText>
+                                                                    {localize('(in USD)')}
+                                                                </BoldText>
+                                                            </>
                                                         ) : (
                                                             <React.Fragment>
                                                                 <BoldText>
-                                                                    {localize('Min - max')}
+                                                                    {localize('Min-max')}
                                                                 </BoldText>
                                                                 <BoldText>
                                                                     {localize('withdrawal')}

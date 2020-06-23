@@ -209,7 +209,7 @@ const payment_data = [
     {
         name: <Localize translate_text="Credit/debit cards" />,
         note: (
-            <Localize translate_text="Mastercard and Maestro withdrawals are only available for UK Clients." />
+            <Localize translate_text="Mastercard and Maestro withdrawals are only available for UK clients." />
         ),
         data: [
             {
@@ -342,12 +342,12 @@ const payment_data = [
             {
                 method: <QiwiIc />,
                 currencies: 'USD EUR',
-                min_max_deposit: '5 - 200 (USD)',
-                min_max_withdrawal: '5 - 200 (USD)',
+                min_max_deposit: ['5-200 (USD)', '5-150 (EUR)'],
+                min_max_withdrawal: ['5-180 (USD)', '5-150 (EUR)'],
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
-                    <Localize translate_text="Signing up with Qiwi is easier than tying your shoelaces. Top-up is easy too: via credit card, ATM, online banking, etc." />
+                    <Localize translate_text="A payment service provider that provides a simple way to transfer money, receive payments, and pay online." />
                 ),
                 url: 'https://qiwi.com/',
                 name: 'qiwi',
@@ -421,7 +421,7 @@ const payment_data = [
                 method: <BitcoinIc />,
                 currencies: 'BTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '',
+                min_max_withdrawal: '25',
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -434,7 +434,7 @@ const payment_data = [
                 method: <EthereumIc />,
                 currencies: 'ETH',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '',
+                min_max_withdrawal: '5',
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -446,7 +446,7 @@ const payment_data = [
                 method: <LitecoinIc />,
                 currencies: 'LTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '',
+                min_max_withdrawal: '5',
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -459,7 +459,7 @@ const payment_data = [
                 method: <TetherIc />,
                 currencies: 'UST',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '',
+                min_max_withdrawal: '25',
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (

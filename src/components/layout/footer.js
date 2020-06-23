@@ -495,6 +495,11 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
+                        <Show.Eu>
+                            <DisclaimerParagraph>
+                                <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
+                            </DisclaimerParagraph>
+                        </Show.Eu>
                         <DisclaimerParagraph>
                             <Localize
                                 translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
@@ -535,7 +540,7 @@ const Footer = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             {localize(
-                                "This website's services are not made available in certain countries including the USA, Canada, Hong Kong, and Japan, or to persons below 18.",
+                                "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
                             )}
                         </DisclaimerParagraph>
                         <RiskWarning>

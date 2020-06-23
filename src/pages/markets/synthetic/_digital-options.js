@@ -125,7 +125,7 @@ const ContinuousIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s) and 100 (1s)</0>."
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -134,9 +134,10 @@ const ContinuousIndicesDetails = () => (
 const DailyResetIndicesDetails = () => (
     <DetailsContainer>
         <Text>
-            {localize(
-                'These indices replicate markets with bullish and bearish trends with constant volatility. The Bull Market and Bear Market indices start at 00:00 GMT each day, replicating bullish and bearish markets respectively.',
-            )}
+            <Localize
+                translate_text="These indices replicate markets with <0>bullish and bearish trends</0> with constant volatility. The Bull Market and Bear Market indices start at 00:00 GMT each day, replicating bullish and bearish markets respectively."
+                components={[<strong key={0} />]}
+            />
         </Text>
     </DetailsContainer>
 )
@@ -280,7 +281,7 @@ const DigitalOptions = () => {
                                 title={<Localize translate_text="Asians" />}
                                 svg={Asians}
                                 content={
-                                    <Localize translate_text="Predict whether the exit spot (last tick) will be higher or lower than than the average of the ticks at the end of the contract period." />
+                                    <Localize translate_text="Predict whether the exit spot (last tick) will be higher or lower than the average of the ticks at the end of the contract period." />
                                 }
                                 mobile_pt="2.4rem"
                             />

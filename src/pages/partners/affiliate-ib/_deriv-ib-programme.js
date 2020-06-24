@@ -162,6 +162,7 @@ const DMT5Synthetic = ({ data }) => {
         <Card
             height={is_expand && !is_calculated ? '100rem' : '49rem'}
             padding="3.2rem 1.6rem 8.2rem"
+            width="43rem"
         >
             <div>
                 {!is_calculated ? (

@@ -7,7 +7,7 @@ import payment_data from './_payment-data'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { localize, WithIntl, Localize } from 'components/localization'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -190,7 +190,7 @@ const PaymentMethods = () => {
                                     </Scrollbar>
                                     {pd.note && (
                                         <Notes>
-                                            <Text weight="500" size="var(--text-size-xxs)">
+                                            <Text weight="500" size="var(--text-size-xs)">
                                                 {localize('Note:')} {pd.note}
                                             </Text>
                                         </Notes>
@@ -200,9 +200,10 @@ const PaymentMethods = () => {
                         </Accordion>
                     </AccordionContainer>
                     <Text mt="1.6rem" size="var(--text-size-xs)" align="left">
-                        {localize(
-                            'Disclaimer: We process all your deposits and withdrawals within 1 working day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control.',
-                        )}
+                        <Localize
+                            translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 working day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
+                            components={[<strong key={0} />]}
+                        />
                     </Text>
                 </Container>
             </SectionContainer>

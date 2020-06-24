@@ -7,8 +7,8 @@ import OurValues from './_our-values'
 
 export const OurStory = (props) => (
     <Fragment>
-        <OurHistory is_mobile_menu={props.is_mobile_menu} />
         <OurNumbers />
+        <OurHistory is_mobile_menu={props.is_mobile_menu} />
         <OurValues />
         <OurOffices />
     </Fragment>

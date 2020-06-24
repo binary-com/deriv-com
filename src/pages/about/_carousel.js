@@ -1,157 +1,92 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Swiper from 'react-id-swiper'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Helmet } from 'react-helmet'
-import { Container } from 'components/containers'
-import Chevron from 'images/svg/carousel-chevron.svg'
+import PropTypes from 'prop-types'
+import { Flex } from 'components/containers'
+import { Header } from 'components/elements'
+import { localize } from 'components/localization'
 
-const SliderWrapper = styled.div`
-    width: 100%;
-    position: relative;
-    margin-top: 4rem;
-
-    & .swiper-wrapper {
-        align-items: center;
+// const UpButton = styled.button`
+//     width: 200px;
+// `
+const DownButton = styled.button`
+    width: 200px;
+`
+const StyledHeader = styled(Header)`
+    cursor: pointer;
+`
+const Carousel = ({ slides }) => {
+    let [slide_index, setSlideIndex] = useState(0)
+    let [inner_slide_index, setInnerSlideIndex] = useState(0)
+    const downClick = () => {
+        slides[slide_index].inner_slides
+            ? ((inner_slide_index =
+                  inner_slide_index >= slides[slide_index].inner_slides.length - 1
+                      ? -2 // using this flag to control the end of the inner sileds and continuing with outer slides
+                      : inner_slide_index + 1),
+              setInnerSlideIndex(inner_slide_index))
+            : ((slide_index =
+                  slide_index + 1 >= slides.length - 1 ? slides.length - 1 : slide_index + 1),
+              setSlideIndex(slide_index))
     }
-`
-const StyledChevron = styled(Chevron)`
-    opacity: ${(props) => (props.is_disabled ? '0.32' : '1')};
-    height: 16px;
-    width: 16px;
-
-    g {
-        g {
-            fill: var(--color-red);
-        }
-    }
-`
-const ChevronRight = styled(StyledChevron)`
-    transform: rotate(180deg);
-`
-const ChevronLeft = StyledChevron
-
-const Next = styled.div`
-    z-index: 10;
-    position: absolute;
-    top: 50%;
-    right: 38px;
-    width: 31px;
-`
-const Prev = styled.div`
-    z-index: 10;
-    position: absolute;
-    top: 50%;
-    left: 38px;
-    width: 31px;
-`
-
-const Button = styled.button`
-    border: none;
-    background: transparent;
-
-    &:hover {
-        cursor: pointer;
-    }
-    &:focus {
-        outline: none;
-    }
-`
-
-const Background = styled.div`
-    width: 100%;
-    background: var(--color-green-2);
-    border-radius: 16px;
-    max-height: 15.4rem;
-    margin-bottom: 23rem;
-`
-
-const Wrapper = styled(Container)`
-    @media (max-width: 680px) {
-        display: none;
-    }
-`
-
-const Item = ({ children, ...props }) => <div {...props}>{children}</div>
-
-Item.propTypes = {
-    children: PropTypes.node,
-}
-
-const Carousel = ({ children, ...props }) => {
-    const [swiper, updateSwiper] = React.useState(null)
-    const [is_beginning, setBeginning] = React.useState(true)
-    const [is_end, setEnd] = React.useState(false)
-
-    React.useEffect(() => {
-        if (swiper) {
-            swiper.on('slideChange', () => {
-                setBeginning(swiper.isBeginning)
-                setEnd(swiper.isEnd)
-            })
-        }
-    }, [swiper])
-
-    React.useEffect(() => {
-        return () => {
-            if (swiper) {
-                swiper.off('slideChange')
-            }
-        }
-    }, [])
-
-    const goNext = () => {
-        if (swiper !== null) {
-            swiper.slideNext()
-        }
+    // const upClick = () => {
+    //     setSlideIndex(slide_index - 1 === -1 ? 0 : slide_index - 1)
+    // }
+    const yearClick = (index) => {
+        setSlideIndex(index)
     }
 
-    const goPrev = () => {
-        if (swiper !== null) {
-            swiper.slidePrev()
-        }
-    }
-    const params = {
-        lazy: true,
-        slidesPerView: 2,
-        spaceBetween: 24,
-        loop: false,
-        height: '100%',
-    }
     return (
         <>
-            <Helmet>
-                <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
-            </Helmet>
-            <Wrapper>
-                <Background {...props}>
-                    <SliderWrapper>
-                        <Next>
-                            <Button onClick={goNext}>
-                                <ChevronRight is_disabled={is_end} />
-                            </Button>
-                        </Next>
-                        <Prev>
-                            <Button onClick={goPrev}>
-                                <ChevronLeft is_disabled={is_beginning} />
-                            </Button>
-                        </Prev>
-                        <div style={{ maxWidth: '60rem', margin: '0 auto' }}>
-                            <Swiper {...params} getSwiper={updateSwiper}>
-                                {children}
-                            </Swiper>
-                        </div>
-                    </SliderWrapper>
-                </Background>
-            </Wrapper>
+            <Flex jc="flex-start" overflow="hidden" height="47.2rem" direction="column">
+                {slide_index - 1 < 0 ? undefined : (
+                    <StyledHeader
+                        onClick={() => yearClick(slide_index - 1)}
+                        as="h3"
+                        mb="4.8rem"
+                        color="grey-17"
+                        lh="1.13"
+                    >
+                        {slides[slide_index - 1].header}
+                    </StyledHeader>
+                )}
+                {slides[slide_index].inner_slides ? (
+                    inner_slide_index === -2 ? (
+                        (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
+                    ) : (
+                        <div>{slides[slide_index].inner_slides[inner_slide_index].body}</div>
+                    )
+                ) : (
+                    <div>{slides[slide_index].body}</div>
+                )}
+
+                {slide_index + 1 >= slides.length ? undefined : (
+                    <StyledHeader
+                        onClick={() => yearClick(slide_index + 1)}
+                        mb="4.8rem"
+                        as="h3"
+                        color="grey-17"
+                        lh="1.13"
+                    >
+                        {slides[slide_index + 1].header}
+                    </StyledHeader>
+                )}
+                {slide_index + 2 >= slides.length ? undefined : (
+                    <StyledHeader
+                        onClick={() => yearClick(slide_index + 2)}
+                        as="h3"
+                        color="grey-17"
+                        lh="1.13"
+                    >
+                        {slides[slide_index + 2].header}
+                    </StyledHeader>
+                )}
+            </Flex>
+            <DownButton onClick={downClick}>{localize('down')}</DownButton>
         </>
     )
 }
-
 Carousel.propTypes = {
-    children: PropTypes.node,
+    slides: PropTypes.array,
 }
-
-Carousel.Item = Item
 
 export default Carousel

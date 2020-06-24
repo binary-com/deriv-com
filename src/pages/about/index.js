@@ -11,6 +11,7 @@ import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
 import device, { size } from 'themes/device'
+import Signup, { Appearances } from 'components/custom/signup'
 
 const query = graphql`
     query {
@@ -306,6 +307,7 @@ const About = () => {
             </Background>
             {is_story && <OurStory is_mobile_menu={is_mobile} />}
             {is_leadership && <Leaders />}
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

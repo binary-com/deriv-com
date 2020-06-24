@@ -199,9 +199,9 @@ const PaymentMethods = () => {
                             ))}
                         </Accordion>
                     </AccordionContainer>
-                    <Text mt="1.6rem" size="var(--text-size-xs)" align="center">
+                    <Text mt="1.6rem" size="var(--text-size-xs)" align="left">
                         {localize(
-                            'Disclaimer: Processing times and limits are indicative. They may differ from what is shown here, depending on the queue or for reasons outside of our control.',
+                            'Disclaimer: We process all your deposits and withdrawals within 1 working day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control.',
                         )}
                     </Text>
                 </Container>

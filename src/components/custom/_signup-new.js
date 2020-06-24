@@ -6,10 +6,10 @@ import { Input, Button } from 'components/form'
 import { Show } from 'components/containers'
 import { Header, Text, LinkText, Checkbox } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import Login from 'common/login'
 import device from 'themes/device.js'
 // SVG
 import Facebook from 'images/svg/facebook-blue.svg'
+import BinaryLogo from 'images/svg/binary-logo.svg'
 import Google from 'images/svg/google.svg'
 
 const SignupContent = styled.div`
@@ -37,40 +37,42 @@ const Line = styled.div`
     background-color: var(--color-grey-7);
 `
 const StyledText = styled(Text)`
-    font-size: var(--text-size-xs);
     @media ${(props) => device.tabletL && props.notedBox} {
         width: 13rem;
     }
-    @media ${device.tabletS} {
-        font-size: ${(props) => props.size};
+    @media ${device.mobileL} {
+        font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
 const NoteBox = styled.div`
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    padding: 1.6rem 1.6rem;
+    height: 7.7rem;
+    padding: 8px 8px;
     margin-top: 1.6rem;
-    border-radius: 0.6rem;
-    background-color: var(--color-grey-8);
-    border: solid 1px var(--color-grey-17);
+    border-radius: 0.4rem;
+    background-color: rgba(242, 243, 244, 0.56);
 
-    @media ${device.tabletS} {
-        padding: 1rem 1rem;
+    @media ${device.mobileL} {
+        height: 80px;
+        padding: 13px 16px;
     }
 `
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
-    margin: 2.5rem 0;
+    margin: 2.5rem 0 0.6rem;
 
     @media ${device.mobileL} {
-        margin: 4rem 0;
+        margin: 25px 0 16px 0;
     }
 `
 const EmailButton = styled(Button)`
     width: 100%;
     font-size: 1.4rem;
     margin-bottom: 0.4rem;
-    margin-top: 2.4rem;
+    margin-top: 3.2rem;
 
     @media ${device.mobileL} {
         font-size: 1.75rem;
@@ -81,7 +83,7 @@ const SignupWithContainer = styled.div`
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-    margin-top: 2.6rem;
+    margin-top: 2.4rem;
 
     @media ${device.tabletL} {
         margin-top: 4rem;
@@ -91,9 +93,10 @@ const SignupWithContainer = styled.div`
 const SocialButton = styled(Button)`
     box-shadow: none;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
-    border: solid 1px var(--color-grey-7);
-    width: 19.4rem;
-    height: 4.8rem;
+    border: solid 1px var(--color-grey-21);
+    width: 19.5rem;
+    height: 3.8rem;
+    padding: 0.8rem 0;
 
     &:hover {
         background: ${(props) => {
@@ -109,7 +112,7 @@ const SocialButton = styled(Button)`
 
 const SocialWrapper = styled.div`
     width: 100%;
-    margin-top: 1.6rem;
+    margin-top: 2.4rem;
     display: flex;
     justify-content: space-between;
 
@@ -126,7 +129,7 @@ const SocialWrapper = styled.div`
 const LoginText = styled(Text)`
     text-align: center;
     align-self: center;
-    margin-top: 2.4rem;
+    margin-top: 1.6rem;
 
     @media ${device.tabletL} {
         margin-bottom: 0;
@@ -140,13 +143,13 @@ const Span = styled.span`
     margin-right: 1.4rem;
     margin-left: 0.7rem;
     font-weight: 500;
-    font-size: 1.3rem;
-    color: var(--color-grey-13);
+    font-size: 1.2rem;
+    color: var(--color-grey-16);
     vertical-align: super;
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
         margin-left: 2.7rem;
+        font-size: 14px;
     }
 `
 const CheckboxSpan = styled.span`
@@ -163,7 +166,15 @@ const StyledLinkText = styled(LinkText)`
         font-size: ${(props) => props.size};
     }
 `
+const StyledBinaryLogo = styled(BinaryLogo)`
+    margin-right: 0.8rem;
+    margin-top: 1rem;
 
+    @media ${device.mobileL} {
+        margin-top: 8px;
+        min-width: 32px;
+    }
+`
 const SignupNew = ({
     email_error_msg,
     email,
@@ -202,26 +213,43 @@ const SignupNew = ({
             </Show.Mobile>
 
             <NoteBox>
-                <StyledText notedBox color="grey-16" lh="1.14" align="center" size="2rem">
-                    <Localize
-                        translate_text="Got a Binary.com account? Simply <0>log in</0> to Deriv.com with your Binary.com credentials"
-                        components={[
-                            <StyledLinkText
-                                weight="bold"
-                                color="red"
-                                size="2rem"
-                                onClick={() => Login.redirectToLogin()}
-                                key={0}
-                            />,
-                        ]}
-                    />
-                </StyledText>
+                <StyledBinaryLogo />
+                <div>
+                    <StyledText
+                        mb="0.4rem"
+                        notedBox
+                        color="grey-16"
+                        size="var(--text-size-xs)"
+                        tabletFontSize="12px"
+                    >
+                        <Localize
+                            translate_text="Got a <0>Binary.com</0> account?"
+                            components={[<strong key={0} />]}
+                        />
+                    </StyledText>
+                    <StyledText
+                        notedBox
+                        size="var(--text-size-xxs)"
+                        tabletFontSize="12px"
+                        color="grey-16"
+                        lh="18px"
+                    >
+                        <Localize
+                            translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
+                            components={[<strong key={0} />]}
+                        />
+                    </StyledText>
+                </div>
             </NoteBox>
+
             <InputGroup>
                 <Input
                     id="email"
                     name="email"
                     type="text"
+                    border="solid 1px var(--color-grey-7)"
+                    labelColor="grey-5"
+                    labelHoverColor="grey-5"
                     background="white"
                     error={email_error_msg}
                     value={email}
@@ -236,7 +264,7 @@ const SignupNew = ({
                 />
             </InputGroup>
             <label>
-                <Checkbox onChange={handleChange} checked={checkBoxState} />
+                <Checkbox secondary onChange={handleChange} checked={checkBoxState} />
                 <CheckboxSpan>
                     <Localize
                         fontSize="var(--text-size-xs)"
@@ -259,13 +287,13 @@ const SignupNew = ({
                 checkBoxState={checkBoxState}
                 type="submit"
                 secondary="true"
-                disabled={is_submitting || !checkBoxState}
+                disabled={is_submitting || !checkBoxState || email_error_msg}
             >
-                {localize('Create free demo account')}
+                {localize('Create demo account')}
             </EmailButton>
             <SignupWithContainer>
                 <Line />
-                <StyledText color="grey-5" align="center" size="1.5rem">
+                <StyledText color="grey-5" align="center" tabletFontSize="1.5rem">
                     {localize('Or sign up with')}
                 </StyledText>
                 <Line />

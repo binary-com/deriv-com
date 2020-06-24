@@ -107,7 +107,7 @@ const FindPlace = () => {
                         <TeamCard
                             key={idx}
                             img_data={thumbnails[team.name.replace(/-+/g, '')]}
-                            to={`careers/teams/team#${team.name}/`}
+                            to={`/careers/teams/team#${team.name}/`}
                             display_team_name={team_names[team.name]}
                             tagline={team.card_description}
                         />

@@ -235,7 +235,7 @@ const DigitalOptions = () => {
                                 svg={HigherLower}
                                 content={
                                     <Localize
-                                        translate_text="<0>Higher/Lower:</0> Predict whether the market price will finish higher or lower than a price target (the barrier) at the end of the contract period."
+                                        translate_text="<0>Higher/Lower:</0> Predict whether the exit spot will be higher or lower than a price target (the barrier) at the end of the contract period."
                                         components={[<strong key={0} />]}
                                     />
                                 }

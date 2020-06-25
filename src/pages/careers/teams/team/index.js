@@ -11,7 +11,7 @@ import { SEO, Container } from 'components/containers'
 import { BackgroundImage, Text, Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
-import { getLocationHash, toHashFormat } from 'common/utility'
+import { getLocationHash, toHashFormat, isBrowser } from 'common/utility'
 import device from 'themes/device'
 
 const StyledContainer = styled(Container)`
@@ -130,7 +130,10 @@ const TeamWrapper = styled.section`
 const Team = () => {
     const team_name = getLocationHash()
     if (!team_name) {
-        navigate('/careers/teams/')
+        if (isBrowser()) {
+            navigate('/careers/teams/')
+        }
+
         return null
     }
     const team = getTeamByName(team_name)

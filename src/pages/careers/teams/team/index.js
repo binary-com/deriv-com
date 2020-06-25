@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, navigate } from 'gatsby'
 import { RoleBanner } from '../../_layout-components/_banner'
 import { LinkList } from '../../_layout-components/_link-list'
 import { NoOpenPositionsHeader } from '../../_layout-components/_no-open-positions'
@@ -129,7 +129,10 @@ const TeamWrapper = styled.section`
 `
 const Team = () => {
     const team_name = getLocationHash()
-    if (!team_name) return null
+    if (!team_name) {
+        navigate('/careers/teams/')
+        return null
+    }
     const team = getTeamByName(team_name)
 
     return (

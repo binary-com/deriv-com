@@ -245,7 +245,7 @@ const DMT5Standard = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <Card padding="3.2rem 3.2rem 8.2rem">
+        <Card padding="3.2rem 3.2rem 8.2rem" width="43rem">
             <div>
                 {!is_calculated ? (
                     <div>
@@ -328,7 +328,7 @@ const DMT5Advanced = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <StyledCard padding="3.2rem 3.2rem 8.2rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="43rem">
             <div>
                 {!is_calculated ? (
                     <div>

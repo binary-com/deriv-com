@@ -12,7 +12,7 @@ const Partner = () => {
     return (
         <Layout type="partners" padding_top="10rem" no_login_signup>
             <SEO
-                title={localize('Partnership Programme | Deriv')}
+                title={localize('Partnership Programme | Partners')}
                 description={localize(
                     'Explore Deriv’s partnership programme and get a chance to be a partner with a trusted pioneer. All our programmes are free of charge with no hidden fees.',
                 )}

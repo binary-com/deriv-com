@@ -12,7 +12,7 @@ const PaymentAgent = () => {
     return (
         <Layout type="partners" padding_top="10rem" no_login_signup>
             <SEO
-                title={localize('Payment agents | Partners | Deriv')}
+                title={localize('Payment agents | Partners')}
                 description={localize(
                     'Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!',
                 )}

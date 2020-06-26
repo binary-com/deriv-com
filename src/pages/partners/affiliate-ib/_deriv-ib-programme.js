@@ -445,7 +445,7 @@ const ib_dmt5_advanced = {
     assets: [
         [
             { title: <Localize translate_text="Asset" />, style: { minWidth: '13rem' } },
-            localize('Forex and metals'),
+            <Localize key={0} translate_text="Forex and metals" />,
         ],
         [
             {

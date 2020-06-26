@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   k8s: circleci/kubernetes@0.7.0
-  s3: circleci/aws-s3@1.0.13
 commands:
   git_checkout_from_cache:
     description: "Git checkout and save cache"
@@ -55,37 +54,32 @@ commands:
       - run:
           name: "Run build"
           command: npm run build
-  compress:
-    description: "Compress"
+  deploy_gh_pages:
+    description: "Deploy to static branches"
+    parameters:
+      target_branch:
+        type: string
     steps:
+      # - checkout
+      - attach_workspace:
+          at: public
       - run:
-          name: "Compress"
+          name: Tag build
+          command: echo "<< parameters.target_branch >> $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > public/version
+      - run:
+          name: Install and configure dependencies
           command: |
-            pushd public/
-            tar -cvf artifact.tar *
-            mv artifact.tar ${OLDPWD}/
+            mkdir "${HOME}/.npm-packages"
+            npm config set prefix "${HOME}/.npm-packages"
+            npm i -g gh-pages
+            git config user.email "ci-build@binary.com"
+            git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "01:67:4a:6d:26:9c:70:c4:1a:60:91:88:d9:dd:f0:83"
       - run:
-          name: "Tag commit id as artifact identifer"
-          command: echo "${CIRCLE_TAG}" > artifact-info.txt
-  upload_artifact:
-    description: "upload build artifact to s3 bucket"
-    steps:
-      - s3/copy:
-          from: artifact.tar
-          to: 's3://${CONTEXT_ARTIFACT_S3_BUCKET}/${CIRCLE_PROJECT_REPONAME}/'
-          aws-access-key-id: env_CONTEXT_ARTIFACT_S3_AWS_ACCESS_KEY_ID
-          aws-secret-access-key: env_CONTEXT_ARTIFACT_S3_AWS_SECRET_ACCESS_KEY
-          aws-region: env_CONTEXT_ARTIFACT_S3_AWS_REGION
-          arguments: '--metadata "{\"x-amz-artifact-id\": \"${CIRCLE_TAG}\" }"'
-  upload_checksum:
-    description: "upload artifact checksum to s3"
-    steps:
-      - s3/copy:
-          from: artifact-info.txt
-          to: 's3://${CONTEXT_ARTIFACT_S3_BUCKET}/${CIRCLE_PROJECT_REPONAME}/'
-          aws-access-key-id: env_CONTEXT_ARTIFACT_S3_AWS_ACCESS_KEY_ID
-          aws-secret-access-key: env_CONTEXT_ARTIFACT_S3_AWS_SECRET_ACCESS_KEY
-          aws-region: env_CONTEXT_ARTIFACT_S3_AWS_REGION
+          name: Deploy docs to gh-pages branch
+          command: /home/circleci/.npm-packages/bin/gh-pages -d public --branch << parameters.target_branch >> --message '[skip ci]'
   docker_build:
     description: "Build Docker image"
     parameters:
@@ -145,8 +139,10 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - docker_build
-      - docker_push
+      - deploy_gh_pages:
+          target_branch: "staging"
+      # - docker_build
+      # - docker_push
   build_production:
     docker:
       - image: circleci/node:lts-stretch
@@ -159,9 +155,6 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - compress
-      - upload_artifact  # uploading the built code to s3 to create a backup of key services separate from Kubernetes deployment
-      - upload_checksum  # uploading compressed artifact checksum to cross match artifact fingerprint
       - docker_build:
           docker_image_tag: latest
       - docker_push
@@ -182,23 +175,19 @@ workflows:
       - test:
           filters:
             branches:
-              only: /^dev/
+              only: /^master/
   build_deploy_staging:
     jobs:
       - build_staging:
           context: binary-frontend-artifact-upload
           filters:
             branches:
-              ignore: /.*/
-            tags:
-              only: /^staging.*/
+              only: /^master/
       - deploy_staging:
           context: binary-frontend-artifact-upload
           filters:
             branches:
-              ignore: /.*/
-            tags:
-              only: /^staging.*/
+              only: /^master/
           requires:
             - build_staging
   build_deploy_production:
@@ -209,13 +198,13 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^production.*/
+              only: /^production_a.*/
       - deploy_production:
           context: binary-frontend-artifact-upload
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^production.*/
+              only: /^production_a.*/
           requires:
             - build_production

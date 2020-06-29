@@ -14,7 +14,7 @@ commands:
           name: Fetch git tags
           command: |
             mkdir -p ~/.ssh
-            echo 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ== ' >> ~/.ssh/known_hosts
+            echo 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==' >> ~/.ssh/known_hosts
             # Fetch tags if git cache is present
             if [ -e /home/circleci/project/.git ]
             then
@@ -65,7 +65,7 @@ commands:
           at: public
       - run:
           name: Tag build
-          command: echo "<< parameters.target_branch >> $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > public/version
+          command: echo "<< parameters.target_branch >>-$(date -u +'%Y-%m-%dT%H:%M:%SZ')" > public/version
       - run:
           name: Install and configure dependencies
           command: |
@@ -127,7 +127,7 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-  build_staging:
+  build_deploy_staging:
     docker:
       - image: circleci/node:lts-stretch
         environment:
@@ -143,7 +143,8 @@ jobs:
           target_branch: "staging"
       # - docker_build
       # - docker_push
-  build_production:
+        # - k8s_deploy
+  build_deploy_production-a:
     docker:
       - image: circleci/node:lts-stretch
         environment:
@@ -155,20 +156,29 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - docker_build:
-          docker_image_tag: latest
-      - docker_push
-  deploy_staging:
+      # - docker_build:
+      #     docker_image_tag: latest
+      # - docker_push
+      - deploy_gh_pages:
+          target_branch: "production-a"
+      # - k8s_deploy:
+      #     k8s_svc_name: "production-deriv-com"
+
+  build_deploy_production-b:
     docker:
       - image: circleci/node:lts-stretch
+        environment:
+          - GATSBY_CPU_COUNT=2
+          - GATSBY_MAP_API_KEY=${GATSBY_MAP_API_KEY}
+          - GATSBY_ENV=production
     steps:
-      - k8s_deploy
-  deploy_production:
-    docker:
-      - image: circleci/node:lts-stretch
-    steps:
-      - k8s_deploy:
-          k8s_svc_name: "production-deriv-com"
+      - git_checkout_from_cache
+      - npm_install_from_cache
+      - npm_test
+      - build
+      - deploy_gh_pages:
+          target_branch: "production-b"
+
 workflows:
   build_and_push_dev:
     jobs:
@@ -178,33 +188,28 @@ workflows:
               only: /^master/
   build_deploy_staging:
     jobs:
-      - build_staging:
+      - build_deploy_staging:
           context: binary-frontend-artifact-upload
           filters:
             branches:
               only: /^master/
-      - deploy_staging:
-          context: binary-frontend-artifact-upload
-          filters:
-            branches:
-              only: /^master/
-          requires:
-            - build_staging
-  build_deploy_production:
+
+  build_deploy_production-a:
     jobs:
-      - build_production:
+      - build_deploy_production-a:
           context: binary-frontend-artifact-upload
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /^production_a.*/
-      - deploy_production:
+
+  build_deploy_production-b:
+    jobs:
+      - build_deploy_production-b:
           context: binary-frontend-artifact-upload
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^production_a.*/
-          requires:
-            - build_production
+              only: /^production_b.*/

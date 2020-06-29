@@ -101,7 +101,7 @@ Item.propTypes = {
 }
 
 const Carousel = ({ children, ...props }) => {
-    const [swiper, updateSwiper] = React.useState(null)
+    const ref = React.useRef(null)
     const [is_beginning, setBeginning] = React.useState(true)
     const [is_end, setEnd] = React.useState(false)
     const slides_per_view = 2
@@ -109,31 +109,31 @@ const Carousel = ({ children, ...props }) => {
     const show_arrow = children_count > slides_per_view
 
     React.useEffect(() => {
-        if (swiper) {
-            swiper.on('slideChange', () => {
-                setBeginning(swiper.isBeginning)
-                setEnd(swiper.isEnd)
+        if (ref.current !== null && ref.current.swiper !== null) {
+            ref.current.swiper.on('slideChange', () => {
+                setBeginning(ref.current.swiper.isBeginning)
+                setEnd(ref.current.swiper.isEnd)
             })
         }
-    }, [swiper])
+    }, [ref])
 
     React.useEffect(() => {
         return () => {
-            if (swiper) {
-                swiper.off('slideChange')
+            if (ref.current !== null && ref.current.swiper !== null) {
+                ref.current.swiper.off('slideChange')
             }
         }
     }, [])
 
     const goNext = () => {
-        if (swiper !== null) {
-            swiper.slideNext()
+        if (ref.current !== null && ref.current.swiper !== null) {
+            ref.current.swiper.slideNext()
         }
     }
 
     const goPrev = () => {
-        if (swiper !== null) {
-            swiper.slidePrev()
+        if (ref.current !== null && ref.current.swiper !== null) {
+            ref.current.swiper.slidePrev()
         }
     }
     const params = {
@@ -166,7 +166,7 @@ const Carousel = ({ children, ...props }) => {
                             </>
                         )}
                         <div style={{ maxWidth: '60rem', margin: '0 auto' }}>
-                            <Swiper {...params} getSwiper={updateSwiper}>
+                            <Swiper {...params} ref={ref}>
                                 {children}
                             </Swiper>
                         </div>

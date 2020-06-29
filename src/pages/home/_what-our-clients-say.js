@@ -286,18 +286,18 @@ const our_client_slides = [
 ]
 
 const WhatOurClientsSay = () => {
-    const [swiper, updateSwiper] = useState(null)
+    const [updateSwiper] = useState(null)
     const ref = React.useRef(null)
 
     const goNext = () => {
         if (ref.current !== null && ref.current.swiper !== null) {
-            swiper.slideNext()
+            ref.current.swiper.slideNext()
         }
     }
 
     const goPrev = () => {
         if (ref.current !== null && ref.current.swiper !== null) {
-            swiper.slidePrev()
+            ref.current.swiper.slidePrev()
         }
     }
 

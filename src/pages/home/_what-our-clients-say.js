@@ -199,15 +199,16 @@ const our_client_slides = [roberto, fabio]
 
 const WhatOurClientsSay = () => {
     const [swiper, updateSwiper] = useState(null)
+    const ref = React.useRef(null)
 
     const goNext = () => {
-        if (swiper !== null) {
+        if (ref.current !== null && ref.current.swiper !== null) {
             swiper.slideNext()
         }
     }
 
     const goPrev = () => {
-        if (swiper !== null) {
+        if (ref.current !== null && ref.current.swiper !== null) {
             swiper.slidePrev()
         }
     }
@@ -248,7 +249,7 @@ const WhatOurClientsSay = () => {
                         </Prev>
                     </ButtonWrapper>
                     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                        <Swiper {...params} getSwiper={updateSwiper}>
+                        <Swiper {...params} getSwiper={updateSwiper} ref={ref}>
                             {our_client_slides.map((trader) => (
                                 <div className="swiper-slide" key={trader.name}>
                                     <ClientSlide

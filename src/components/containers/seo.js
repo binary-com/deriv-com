@@ -55,7 +55,6 @@ const SEO = ({ description, meta, title, no_index }) => {
                 lang,
             }}
             title={title}
-            titleTemplate={`%s | ${queries.site.siteMetadata.title}`}
             defer={false}
             meta={[
                 {

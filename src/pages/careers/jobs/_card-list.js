@@ -92,7 +92,7 @@ const CardList = ({ position }) => {
                 </Ul>
             </Show.Desktop>
             <Flex>
-                <LinkButton flat="true" to={`careers/jobs/job#${toHashFormat(position.id)}`}>
+                <LinkButton flat="true" to={`/careers/jobs/job#${toHashFormat(position.id)}`}>
                     View more
                 </LinkButton>
             </Flex>

@@ -7,14 +7,6 @@ import Show from 'components/containers/show'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-
-const Slide = styled.div`
-    max-width: 38.4rem;
-    margin-bottom: 4.8rem;
-`
-const StyledeHeader = styled(Header)`
-    line-height: 1.25;
-`
 const slides = [
     {
         header: '1999',
@@ -33,6 +25,13 @@ const slides = [
                 </Text>
             </Slide>
         ),
+        // image: (
+        //     <QueryImage
+        //         data={data['circle_regentmarkets']}
+        //         alt={localize('circle_regentmarkets')}
+        //         width="26.3rem"
+        //     />
+        // ),
     },
     {
         header: '2000',
@@ -51,6 +50,7 @@ const slides = [
                 </Text>
             </Slide>
         ),
+        top: '285',
     },
     {
         header: '2001',
@@ -69,6 +69,7 @@ const slides = [
                 </Text>
             </Slide>
         ),
+        top: '274',
     },
     {
         header: '2004',
@@ -315,51 +316,22 @@ const slides = [
 ]
 // const query = graphql`
 //     query {
-//         regent_market_logo: file(relativePath: { eq: "regent-market-logo.png" }) {
-//             ...fadeIn
-//         }
-//         flag_malta: file(relativePath: { eq: "flag-malta.png" }) {
-//             ...fadeIn
-//         }
-//         bet_on_markets_logo: file(relativePath: { eq: "bet-on-markets-logo.png" }) {
-//             ...fadeIn
-//         }
-//         isle_of_man_flag: file(relativePath: { eq: "isle-of-man-flag.png" }) {
-//             ...fadeIn
-//         }
-//         awards: file(relativePath: { eq: "awards.png" }) {
-//             ...fadeIn
-//         }
-//         logo_binary: file(relativePath: { eq: "logo-binary.png" }) {
-//             ...fadeIn
-//         }
-//         eu_flag: file(relativePath: { eq: "eu-flag.png" }) {
-//             ...fadeIn
-//         }
-//         logo_developers: file(relativePath: { eq: "logo-developers.png" }) {
-//             ...fadeIn
-//         }
-//         laptop: file(relativePath: { eq: "laptop.png" }) {
-//             ...fadeIn
-//         }
-//         logo_mt5: file(relativePath: { eq: "logo-mt5.png" }) {
-//             ...fadeIn
-//         }
-//         flag_labuan: file(relativePath: { eq: "flag-labuan.png" }) {
-//             ...fadeIn
-//         }
-//         dubai_paraguay_flags: file(relativePath: { eq: "dubai-paraguay-flags.png" }) {
-//             ...fadeIn
-//         }
-//         deriv_laptop: file(relativePath: { eq: "deriv-laptop.png" }) {
+//         circle_regentmarkets: file(relativePath: { eq: "circle-regentmarkets.png" }) {
 //             ...fadeIn
 //         }
 //     }
 // `
+const Slide = styled.div`
+    max-width: 38.4rem;
+    margin-bottom: 4.8rem;
+`
+const StyledeHeader = styled(Header)`
+    line-height: 1.25;
+`
 const StorySection = styled.section`
     width: 100%;
     margin: auto;
-    background-color: var(--color-white);
+    background-color: var(--color-grey-8);
     padding: 8rem 0 0 0;
     position: relative;
 
@@ -375,20 +347,30 @@ const StorySection = styled.section`
 `
 
 export const OurHistory = () => {
+    // const data = useStaticQuery(query)
+
     return (
-        <StorySection>
-            <Show.Mobile>
-                <Header size="4.5rem" align="center" mb="2rem">
-                    {localize('Our history')}
-                </Header>
-            </Show.Mobile>
-            <Show.Desktop>
-                <Header size="3.6rem" align="center" mb="5rem">
-                    {localize('Our history')}
-                </Header>
-            </Show.Desktop>
-            <Carousel slides={slides} />
-        </StorySection>
+        <>
+            {/* <QueryImage
+                data={data['circle_regentmarkets']}
+                alt={localize('circleregentmarkets')}
+                width="26.3rem"
+            /> */}
+            <StorySection>
+                <Show.Mobile>
+                    <Header size="4.5rem" align="center" mb="2rem">
+                        {localize('Our history')}
+                    </Header>
+                </Show.Mobile>
+                <Show.Desktop>
+                    <Header size="3.6rem" align="center" mb="5rem">
+                        {localize('Our history')}
+                    </Header>
+                </Show.Desktop>
+
+                <Carousel slides={slides} />
+            </StorySection>
+        </>
     )
 }
 

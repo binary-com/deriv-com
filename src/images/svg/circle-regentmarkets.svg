@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="357" height="357" viewBox="0 0 357 357">
+    <defs>
+        <filter id="prefix__a" width="154.4%" height="154.4%" x="-27.2%" y="-26.4%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius="7.5" result="shadowSpreadOuter1"/>
+            <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="16"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.968627451 0 0 0 0 0.97254902 0 0 0 0 0.988235294 0 0 0 0.867679196 0"/>
+        </filter>
+        <circle id="prefix__b" cx="131.5" cy="131.5" r="131.5"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(47 45)">
+        <use fill="#000" filter="url(#prefix__a)" xlink:href="#prefix__b"/>
+        <use fill="#FFF" xlink:href="#prefix__b"/>
+        <text fill="#333" font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="16" font-weight="bold">
+            <tspan x="74.936" y="182">Regent Markets</tspan>
+        </text>
+        <g>
+            <path fill="#3B9F5A" d="M71 34.481L104.429 0 136 34.481 104.429 98z" transform="translate(27 59)"/>
+            <path fill="#CECED1" d="M115.187 64.482L151.33 25.839 181.845 60.47 150.492 125.014z" transform="translate(27 59) rotate(64 148.516 75.426)"/>
+            <path fill="#F8C14A" d="M26.315 63.346L61.749 26.158 92.264 60.789 60.911 125.333z" transform="translate(27 59) scale(-1 1) rotate(64 0 -19.138)"/>
+        </g>
+    </g>
+</svg>

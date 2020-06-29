@@ -2,17 +2,52 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
+import StartPoint from 'images/svg/start-point.svg'
 
 // const UpButton = styled.button`
 //     width: 200px;
 // `
-const DownButton = styled.button`
-    width: 200px;
-`
+// const DownButton = styled.button`
+//     width: 200px;
+// `
 const StyledHeader = styled(Header)`
     cursor: pointer;
+`
+const StyledText = styled(Text)`
+    cursor: pointer;
+`
+const Line = styled.div`
+    width: 0.2rem;
+    height: 45.2rem;
+    background-color: rgba(255, 68, 79, 0.48);
+`
+const Arrow = styled.i`
+    width: 12px;
+    height: 12px;
+    margin-top: 1.6rem;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    cursor: pointer;
+`
+const StyledStartPoint = styled(StartPoint)`
+    position: absolute;
+    top: ${(props) => (props.slide_index === 0 ? '0' : '21%')};
+    left: 24%;
+`
+const GreyCircle = styled.div`
+    position: absolute;
+    top: ${(props) => props.top + 'px' || '0'};
+    left: 39%;
+    height: 10px;
+    width: 10px;
+    background-color: var(--color-grey-21);
+    border-radius: 50%;
+    display: inline-block;
 `
 const Carousel = ({ slides }) => {
     let [slide_index, setSlideIndex] = useState(0)
@@ -36,8 +71,27 @@ const Carousel = ({ slides }) => {
     }
 
     return (
-        <>
-            <Flex jc="flex-start" overflow="hidden" height="47.2rem" direction="column">
+        <Flex jc="center" max-width="99.6rem">
+            {/* {slides[slide_index].image} */}
+            <Flex position="relative" direction="column" width="4.4rem" ai="center" mr="9.2rem">
+                <Line>
+                    <GreyCircle />
+                    <StyledStartPoint slide_index={slide_index} />
+                    {/* <GreyCircle top={slides[slide_index + 1].top} />
+                    <GreyCircle top={Number(slides[slide_index + 1].top) + 74} /> */}
+                </Line>
+                <Arrow onClick={downClick}></Arrow>
+                <StyledText onClick={downClick} mt="0.8rem" weight="bold">
+                    {localize('scroll')}
+                </StyledText>
+            </Flex>
+            <Flex
+                jc="flex-start"
+                overflow="hidden"
+                height="47.2rem"
+                direction="column"
+                width="unset"
+            >
                 {slide_index - 1 < 0 ? undefined : (
                     <StyledHeader
                         onClick={() => yearClick(slide_index - 1)}
@@ -49,6 +103,7 @@ const Carousel = ({ slides }) => {
                         {slides[slide_index - 1].header}
                     </StyledHeader>
                 )}
+
                 {slides[slide_index].inner_slides ? (
                     inner_slide_index === -2 ? (
                         (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
@@ -60,29 +115,32 @@ const Carousel = ({ slides }) => {
                 )}
 
                 {slide_index + 1 >= slides.length ? undefined : (
-                    <StyledHeader
-                        onClick={() => yearClick(slide_index + 1)}
-                        mb="4.8rem"
-                        as="h3"
-                        color="grey-17"
-                        lh="1.13"
-                    >
-                        {slides[slide_index + 1].header}
-                    </StyledHeader>
+                    <>
+                        <StyledHeader
+                            onClick={() => yearClick(slide_index + 1)}
+                            mb="4.8rem"
+                            as="h3"
+                            color="grey-17"
+                            lh="1.13"
+                        >
+                            {slides[slide_index + 1].header}
+                        </StyledHeader>
+                    </>
                 )}
                 {slide_index + 2 >= slides.length ? undefined : (
-                    <StyledHeader
-                        onClick={() => yearClick(slide_index + 2)}
-                        as="h3"
-                        color="grey-17"
-                        lh="1.13"
-                    >
-                        {slides[slide_index + 2].header}
-                    </StyledHeader>
+                    <>
+                        <StyledHeader
+                            onClick={() => yearClick(slide_index + 2)}
+                            as="h3"
+                            color="grey-17"
+                            lh="1.13"
+                        >
+                            {slides[slide_index + 2].header}
+                        </StyledHeader>
+                    </>
                 )}
             </Flex>
-            <DownButton onClick={downClick}>{localize('down')}</DownButton>
-        </>
+        </Flex>
     )
 }
 Carousel.propTypes = {

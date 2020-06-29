@@ -16,7 +16,7 @@ const Margin = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Trade types | Margin')}
+                title={localize('Trade types | Margin trading')}
                 description={localize(
                     'Options are products that allow for payouts from predicting market movements, without needing to buy the underlying asset.',
                 )}

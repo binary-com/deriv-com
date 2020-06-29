@@ -67,6 +67,12 @@ module.exports = {
         short_name: 'PL',
         affiliate_lang: 5,
     },
+    th: {
+        path: 'th',
+        display_name: 'Thai',
+        short_name: 'TH',
+        // TODO: add affiliate lang once its ready
+    },
     ach: {
         path: 'ach',
         display_name: 'Crowdin',
@@ -78,8 +84,4 @@ module.exports = {
     //     display_name: 'Deutsch',
     // },
     // TODO: uncomment when supported
-    // th: {
-    //     path: 'th',
-    //     display_name: 'Thai',
-    // },
 }

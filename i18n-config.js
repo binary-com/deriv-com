@@ -71,7 +71,7 @@ module.exports = {
         path: 'th',
         display_name: 'Thai',
         short_name: 'TH',
-        // TODO: add affiliate lang once its ready
+        affiliate_lang: 13,
     },
     ach: {
         path: 'ach',

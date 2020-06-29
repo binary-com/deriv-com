@@ -30,15 +30,9 @@ const Contracts = () => {
                     <Header as="h2" mb="1.2rem">
                         {localize('How margin contracts work')}
                     </Header>
-                    <Text mb="2rem">
-                        <Localize
-                            translate_text="When dealing with a traditional broker, one lot (100,000 units) of EUR/USD pair with a unit price of 1.10 USD will cost you <0>110,000 USD.</0>"
-                            components={[<strong key={0} />]}
-                        />
-                    </Text>
                     <Text mb="4rem">
                         <Localize
-                            translate_text="However, if your broker allows you a 1% margin, you will be able to open a position worth <0>110,000 USD</0> by paying only 1,100 USD. A leverage of 100:1 will also give you the same level of market exposure as trading on 1% margin. "
+                            translate_text="If we take an example, one lot (100,000 EUR) of EUR/USD pair with a unit price of 1.10 USD will cost you <0>110,000 USD</0>. However, a 1% margin will enable you to open a position worth 110,000 USD by paying only <0>1,100 USD</0>. A leverage of 100:1 will also give you the same level of market exposure as trading on 1% margin."
                             components={[<strong key={0} />]}
                         />
                     </Text>

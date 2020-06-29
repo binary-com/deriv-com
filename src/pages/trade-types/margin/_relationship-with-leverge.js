@@ -65,7 +65,7 @@ const RelationshipWithLeverge = () => {
                 <SmallContainer direction="column" ai="flex-start">
                     <Text mt="3.2rem">
                         {localize(
-                            'Based on the margin allowed by your broker, which in this case is Deriv, you will be able to ascertain the maximum leverage that you can utilise in your trading.',
+                            'Based on the margin allowed, you will be able to ascertain the maximum leverage that you can utilise in your trading.',
                         )}
                     </Text>
                 </SmallContainer>

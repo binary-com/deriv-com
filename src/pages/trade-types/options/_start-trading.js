@@ -5,7 +5,7 @@ import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import Pattern from 'images/common/trade-types/pattern-section.png'
 
 const PatternContainer = styled(SectionContainer)`
@@ -26,17 +26,17 @@ const StartTrading = () => {
                     {localize('Start trading options on Deriv')}
                 </Header>
                 <FixTimeline>
-                    <FixTimeline.Item title="Practise">
+                    <FixTimeline.Item title={<Localize translate_text="Practise" />}>
                         {localize(
                             'Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms – DTrader, SmartTrader, and DBot.',
                         )}
                     </FixTimeline.Item>
-                    <FixTimeline.Item title="Trade">
+                    <FixTimeline.Item title={<Localize translate_text="Trade" />}>
                         {localize(
                             'Open a real account, make a deposit, and start trading multiplier options for real.',
                         )}
                     </FixTimeline.Item>
-                    <FixTimeline.Item title="Withdraw">
+                    <FixTimeline.Item title={<Localize translate_text="Withdraw" />}>
                         {localize(
                             'Conveniently withdraw your funds through any of our supported withdrawal methods.',
                         )}

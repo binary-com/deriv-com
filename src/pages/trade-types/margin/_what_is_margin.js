@@ -30,11 +30,11 @@ const WhatIsMargin = () => {
             <SectionContainer background="white" padding="8rem 0 4rem">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h2" mb="1.2rem">
-                        {localize('What is margin?')}
+                        {localize('What is margin trading?')}
                     </Header>
                     <Text mb="3.2rem">
                         {localize(
-                            'Margin is a deposit required to open a leveraged position – that is a position larger than your capital investment. So margin trading allows you to purchase larger units of an asset at a fraction of the cost in order to increase your market exposure even if you are trading with limited capital.',
+                            'Firstly, margin is a deposit required to open a leveraged position – that is a position larger than your capital investment. So margin trading allows you to purchase larger units of an asset at a fraction of the cost in order to increase your market exposure even if you are trading with limited capital.',
                         )}
                     </Text>
                 </SmallContainer>
@@ -61,7 +61,7 @@ const WhatIsMargin = () => {
                 <SmallContainer direction="column" ai="flex-start">
                     <Text>
                         {localize(
-                            'This means that with the same capital, you will be able to buy more of an asset. The result is a more substantial profit when you win a trade and of course, a more significant loss when you lose. ',
+                            'This means that with the same capital, you will be able to buy more of an asset. The result is a more substantial profit when you win a trade and of course, a more significant loss when you lose.',
                         )}
                     </Text>
                 </SmallContainer>

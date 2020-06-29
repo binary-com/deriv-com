@@ -1,13 +1,40 @@
 import React from 'react'
+import styled from 'styled-components'
 import { SmallContainer, Ul } from '../components/_style'
-import { SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { SectionContainer, Flex } from 'components/containers'
+import { Header, Text, CardStyle } from 'components/elements'
+import { localize, Localize } from 'components/localization'
+import Info from 'images/svg/trade-types/info.svg'
+
+const Card = styled.article`
+    ${CardStyle}
+`
+
+const CardHeading = styled(Flex)`
+    padding: 3rem 2.4rem;
+    background: var(--color-grey-25);
+    align-items: center;
+`
+
+const CardBody = styled(Flex)`
+    flex-direction: column;
+    padding: 2.4rem;
+`
+const InfoWrapper = styled.div`
+    margin-right: 1.6rem;
+`
+
+const Note = styled.div`
+    background-color: var(--color-grey-25);
+    border-radius: 60px;
+    padding: 0.8rem 2.4rem;
+    width: fit-content;
+`
 
 const Policies = () => {
     return (
         <>
-            <SectionContainer background="white" padding="8.8rem 0 4rem">
+            <SectionContainer background="white" padding="4rem 0 0">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h2" mb="1.2rem">
                         {localize('Margin policies on Deriv')}
@@ -80,11 +107,80 @@ const Policies = () => {
                     <Text weight="bold" mb="0.8rem">
                         {localize('Margin requirements')}
                     </Text>
-                    <Text>
+                    <Text mb="4rem">
                         {localize(
-                            'Margin requirements may differ depending on factors like the asset you want to trade, the equity in your account, and your account type.',
+                            'Margin requirements may differ depending on factors like the asset you want to trade, the equity in your account, your account type and market conditions.',
                         )}
                     </Text>
+                    <Card>
+                        <CardHeading>
+                            <InfoWrapper>
+                                <Info />
+                            </InfoWrapper>
+                            <Header as="h4">
+                                {localize('Important notes on our swap rates (overnight funding)')}
+                            </Header>
+                        </CardHeading>
+                        <CardBody>
+                            <Text mb="1.6rem">
+                                {localize(
+                                    'If you keep any position open overnight, an interest adjustment (or swap rate) will be made to your trading account to compensate for the cost of keeping your position open. Instruments traded on our platforms are subjected to different swap rates and other conditions:',
+                                )}
+                            </Text>
+                            <Header as="h5" mb="0.8rem">
+                                {localize('Forex and commodities')}
+                            </Header>
+                            <Text mb="0.8rem">
+                                {localize(
+                                    'The swap rate is based on interbank lending rates, in addition to a 2% fee that is charged daily (every night) that your position is held. The swap rate also depends on the time and days that you hold your positions open:',
+                                )}
+                            </Text>
+                            <Ul>
+                                <li>
+                                    <Text>
+                                        {localize(
+                                            'If you keep a position open past 23:59:59 GMT, you will be subjected to the basic swap rate.',
+                                        )}
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text>
+                                        {localize(
+                                            'Since it takes two days for forex transactions to settle, positions that are still open on Wednesday at 23:59:59 GMT will be charged three times the swap rate to account for weekends.',
+                                        )}
+                                    </Text>
+                                </li>
+                                <li>
+                                    <Text>
+                                        {localize(
+                                            'Our swap rate may also be adjusted to take holidays into account.',
+                                        )}
+                                    </Text>
+                                </li>
+                            </Ul>
+                            <Header as="h5" mt="1.6rem" mb="0.8rem">
+                                {localize('Forex and commodities')}
+                            </Header>
+                            <Text>
+                                {localize(
+                                    'An interest adjustment will be made to your trading account as indication of the cost required to keep your position open.',
+                                )}
+                            </Text>
+                            <Text mb="0.8rem">
+                                <Localize
+                                    translate_text="The interest adjustment is calculated on an annual base for long and short positions according to the formula: <0>(volume in lot *specified swap size/100)/360</0>."
+                                    components={[<strong key={0} />]}
+                                />
+                            </Text>
+                            <Note>
+                                <Text size="var(--text-size-xs)">
+                                    {localize(
+                                        'Please take note that our swap rate also depends on the time and days you hold your positions open.',
+                                    )}
+                                </Text>
+                            </Note>
+                        </CardBody>
+                    </Card>
                 </SmallContainer>
             </SectionContainer>
         </>

@@ -2,7 +2,7 @@ import React from 'react'
 import Timeline from '../components/_timeline'
 import { SmallContainer } from '../components/_style'
 import { SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
 
@@ -16,24 +16,24 @@ const StartTrading = () => {
                     </Header>
 
                     <Timeline>
-                        <Timeline.Item title="Practise">
+                        <Timeline.Item title={<Localize translate_text="Practise" />}>
                             {localize(
                                 'Open a demo MetaTrader 5 account on Deriv and practise with an unlimited amount of virtual funds.',
                             )}
                         </Timeline.Item>
-                        <Timeline.Item title="Trade">
+                        <Timeline.Item title={<Localize translate_text="Trade" />}>
                             {localize(
                                 'Trade with a real Deriv MT5 (DMT5) account and get access to high leverage to trade positions larger than your existing capital.',
                             )}
                         </Timeline.Item>
-                        <Timeline.Item title="Withdraw">
+                        <Timeline.Item title={<Localize translate_text="Withdraw" />}>
                             {localize(
                                 'Conveniently withdraw your funds through any of our supported withdrawal methods.',
                             )}
                         </Timeline.Item>
                     </Timeline>
                     <LinkButton mt="4rem" to="/signup/" secondary="true">
-                        {localize('Create free demo account')}
+                        {localize('Create a demo DMT5 account')}
                     </LinkButton>
                 </SmallContainer>
             </SectionContainer>

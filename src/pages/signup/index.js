@@ -24,11 +24,11 @@ const Wrapper = styled.section`
     }
 `
 const Content = styled.div`
-    width: 40.5rem;
+    width: 43.8rem;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    margin-right: 5.6rem;
+    margin-right: 4.7rem;
     margin-top: 9.4rem;
 
     @media ${device.tablet} {
@@ -39,7 +39,7 @@ const Content = styled.div`
 const Line = styled.div`
     width: 100%;
     border-bottom: 1px solid var(--color-red);
-    margin-top: 2.4rem;
+    margin-top: 4rem;
 `
 
 const StyledDiv = styled.div`
@@ -53,6 +53,10 @@ const StyledDiv = styled.div`
 
 const StyledGraph = styled(Graph)`
     overflow: initial;
+
+    @media ${device.laptop} {
+        width: auto;
+    }
 `
 
 const NewSignup = () => {
@@ -73,7 +77,7 @@ const NewSignup = () => {
                 {!(submitState === 'success' || submitState === 'error') && (
                     <Content>
                         <StyledGraph />
-                        <Header mt="2.4rem" size="3.6rem">
+                        <Header mt="2.4rem" size="3.2rem">
                             {localize('Start trading with Deriv')}
                         </Header>
                         <br />

@@ -1,185 +1,107 @@
 import React, { useState, useEffect } from 'react'
-import styled, { css } from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import { navigate } from '@reach/router'
-import { Show } from '../../components/containers'
+import styled from 'styled-components'
 import { OurStory } from './_our-story'
 import Leaders from './_leaders'
-import { Container, Box, Flex, SEO } from 'components/containers'
+import { Container, SEO, SectionContainer, Flex } from 'components/containers'
 import { getLocationHash, isBrowser } from 'common/utility'
 import Layout from 'components/layout/layout'
-import { localize, Localize, WithIntl } from 'components/localization'
-import { Header, Text, QueryImage } from 'components/elements'
+import { localize, WithIntl } from 'components/localization'
+import { Header, Text } from 'components/elements'
+import Background from 'images/common/aboutus-bg.png'
+import BackgroundMobile from 'images/common/aboutus-bg-mobile.png'
 import device, { size } from 'themes/device'
-import Signup, { Appearances } from 'components/custom/signup'
 
-const query = graphql`
-    query {
-        jean_yves_mobile: file(relativePath: { eq: "leaders/jy.png" }) {
-            ...fadeIn
-        }
-        jean_yves: file(relativePath: { eq: "leaders/jy.png" }) {
-            ...fadeIn
-        }
-    }
-`
-const Background = styled.div`
-    background: var(--color-black);
-    width: 100%;
-    height: 100%;
-`
-
-const StyledContainer = styled(Container)`
-    padding: 12rem 19rem;
-    white-space: nowrap;
-
-    @media ${device.laptopL} {
-        padding: 12rem 4rem;
-    }
-    @media ${device.tabletL} {
-        padding: 5rem 2rem;
-        width: 100%;
-
-        > h1 {
-            font-size: 4.5rem;
-        }
-    }
-`
-const ContentWrapper = styled.div`
-    margin-top: ${(props) => props.margin_top || 'none'};
-    white-space: normal;
-    max-width: 79.8rem;
-
-    @media ${device.mobileL} {
-        max-width: 42.8rem;
-    }
-`
-
-const LeadershipWrapper = styled(Flex)`
-    @media ${device.tabletL} {
-        flex-direction: column;
-        margin-top: 1.6rem;
-
-        ${Box} {
-            width: 28.2rem;
-            margin-bottom: 4rem;
-        }
-        ${Header} {
-            text-align: left;
-        }
-        ${Text} {
-            text-align: left;
-        }
-    }
-`
-
-const LeadershipTitle = styled(Header)`
-    margin-bottom: 0.8rem;
+const StyledSection = styled(SectionContainer)`
+    padding: 20rem 0;
+    position: relative;
+    background: black;
+    background-image: url(${Background});
+    background-size: cover;
+    background-position: center;
 
     @media ${device.tabletL} {
-        font-size: 4rem;
-        margin-top: 1.6rem;
+        padding: 15.25rem 0 14.75rem;
+        background-image: url(${BackgroundMobile});
     }
 `
+const StyledContainer = styled(Container)``
 
-const LeadershipPosition = styled(Header)`
-    margin-bottom: 1.6rem;
+const Title = styled(Header)`
+    line-height: 1.25;
+    z-index: 1;
 
     @media ${device.tabletL} {
-        font-size: 2.4rem;
-        margin-bottom: 2rem;
+        font-size: var(--text-size-header-4);
+        line-height: 1.5;
     }
 `
+const Subtitle = styled(Text)`
+    max-width: 83.6rem;
+    text-align: center;
+    margin-top: 1.6rem;
+    color: var(--color-white);
+    z-index: 1;
 
-const NavigationWrapper = styled(Flex)`
-    margin: 1.6rem 0;
+    @media ${device.tabletL} {
+        font-size: 2.25rem;
+    }
 `
+const TabsContainer = styled(Flex)`
+    padding-top: 3.6rem;
+    position: relative;
 
-const Navigation = styled(Flex)`
+    @media ${device.tabletL} {
+        justify-content: center;
+        padding: 0;
+    }
+`
+const Item = styled.div`
+    padding: 1.2rem 2.4rem;
+    border-bottom: ${(props) =>
+        props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
-    margin: 0 2.4rem;
+    z-index: 10;
 
-    @media ${device.tablet} {
-        margin: ${(props) => (props.left ? '0 3rem 0 0' : '0 0 0 3rem')};
+    h4 {
+        color: var(--color-red);
+        opacity: ${(props) => (props.name === props.active_tab ? '1' : '0.32')};
+        font-weight: ${(props) => (props.name === props.active_tab ? 'bold' : 'normal')};
     }
-    @media ${device.mobileS} {
-        margin: ${(props) => (props.left ? '0 2rem 0 0' : '0 0 0 2rem')};
-    }
-`
-
-const Separator = styled.span`
-    width: 2px;
-    height: 3rem;
-    background: white;
-
     @media ${device.tabletL} {
-        height: 36px;
-    }
-`
+        padding: 1.5rem 3rem;
 
-const StyledHeader = styled(Header)`
-    transition: color 0.25s;
-    ${(props) =>
-        props.active
-            ? css`
-                  color: var(--color-white);
-              `
-            : css`
-                  color: rgba(255, 255, 255, 0.32);
-                  &:hover {
-                      color: rgba(255, 255, 255, 0.5);
-                  }
-              `}
-    @media ${device.tabletL} {
-        font-size: 3rem;
-    }
-    @media ${device.mobileL} {
-        font-size: 2rem;
-    }
-    @media ${device.mobileM} {
-        font-size: 1.8rem;
+        ${Header} {
+            font-size: 3rem;
+            width: max-content;
+        }
     }
 `
-const TrailNavigation = styled.span`
-    height: 4px;
-    width: 4.6rem;
-    background: ${(props) => (props.active ? 'var(--color-red)' : 'var(--color-black)')};
-    margin: 1rem 0;
-    transition: background 0.25s;
-
-    @media ${device.tabletL} {
-        margin: 4px 0;
-        width: 5.6rem;
-    }
+const Separator = styled.div`
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 2px;
+    background-color: var(--color-grey-21);
 `
-const StyledText = styled(Text)`
-    max-width: 48.6rem;
-    @media ${device.tabletL} {
-        font-size: var(--text-size-sm);
-    }
-`
-const useTabState = (tab) => {
-    const [active_tab, setActiveTab] = useState(tab)
-    const setTab = (tab) => {
-        if (tab === active_tab) return
-        setActiveTab(tab)
-        navigate(`#${tab}`)
-    }
-    return [active_tab, setTab]
-}
 // Test notification netlify
 const About = () => {
     const [is_mobile, setMobile] = useState(false)
-    const [active_tab, setTab] = useTabState('story')
-    const is_story = active_tab === 'story'
-    const is_leadership = active_tab === 'leadership'
+    const [active_tab, setTab] = useState()
+    const handleTabChange = (tab_name) => {
+        setTab(tab_name)
+        isBrowser() && window.history.pushState(null, null, `#${tab_name}`)
+    }
     useEffect(() => {
-        const new_tab = getLocationHash() || 'story'
-        setTab(new_tab)
+        if (getLocationHash() === active_tab) return
+        if (getLocationHash().length === 0) {
+            setTab('story')
+            isBrowser() && window.history.pushState(null, null, '#story')
+        } else {
+            setTab(getLocationHash())
+        }
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
     })
 
-    const data = useStaticQuery(query)
     return (
         <Layout>
             <SEO
@@ -188,126 +110,38 @@ const About = () => {
                     'Deriv.com - A Binary.com brand, is a pioneer and award-winning online trading platform in the trading market.',
                 )}
             />
-            <Background>
+            <StyledSection>
                 <StyledContainer direction="column">
-                    <Header as="h1" color="white" align="center">
+                    <Title as="h1" color="white" align="center">
                         {localize('About us')}
-                    </Header>
-                    <NavigationWrapper direction="row">
-                        <Navigation
-                            left
-                            width="auto"
-                            direction="column"
-                            onClick={() => setTab('story')}
-                        >
-                            <StyledHeader
-                                as="h2"
-                                size="var(--text-size-m)"
-                                weight="normal"
-                                active={is_story}
-                            >
-                                {localize('Our story')}
-                            </StyledHeader>
-                            <TrailNavigation active={is_story} />
-                        </Navigation>
-                        <Separator />
-                        <Navigation
-                            width="auto"
-                            direction="column"
-                            onClick={() => setTab('leadership')}
-                        >
-                            <StyledHeader
-                                as="h2"
-                                size="var(--text-size-m)"
-                                weight="normal"
-                                active={is_leadership}
-                            >
-                                {localize('Our leadership')}
-                            </StyledHeader>
-                            <TrailNavigation active={is_leadership} />
-                        </Navigation>
-                    </NavigationWrapper>
-
-                    {is_story && (
-                        <ContentWrapper margin_top="9.1rem">
-                            <Show.Desktop>
-                                <Text mb="1.5rem" size="var(--text-size-s)" secondary color="white">
-                                    {localize(
-                                        'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
-                                    )}
-                                </Text>
-
-                                <Text secondary color="white">
-                                    {localize(
-                                        'Our evolution is powered by over 20 years of customer focus and innovation.',
-                                    )}
-                                </Text>
-                            </Show.Desktop>
-
-                            <Show.Mobile>
-                                <Text mb="1.5rem" size="2rem" secondary color="white">
-                                    {localize(
-                                        'The story of Deriv starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
-                                    )}
-                                </Text>
-
-                                <Text size="2rem" secondary color="white">
-                                    {localize(
-                                        'Our evolution is powered by over 20 years of customer focus and innovation.',
-                                    )}
-                                </Text>
-                            </Show.Mobile>
-                        </ContentWrapper>
-                    )}
-                    {is_leadership && (
-                        <ContentWrapper>
-                            <LeadershipWrapper mt="4rem" ai="center">
-                                <Show.Desktop>
-                                    <Box max_width="28.2rem" mr="2.4rem">
-                                        <QueryImage
-                                            data={data['jean_yves']}
-                                            alt={localize('Jean Yves')}
-                                            width="28.2rem"
-                                        />
-                                    </Box>
-                                </Show.Desktop>
-                                <Show.Mobile style={{ width: '100%' }}>
-                                    <QueryImage
-                                        data={data['jean_yves_mobile']}
-                                        alt={localize('Jean Yves')}
-                                        width="100%"
-                                    />
-                                </Show.Mobile>
-                                <div>
-                                    <LeadershipTitle
-                                        as="h3"
-                                        size="var(--text-size-header-1)"
-                                        color="white"
-                                    >
-                                        <Localize translate_text="Jean-Yves Sireau" />
-                                    </LeadershipTitle>
-                                    <LeadershipPosition
-                                        as="h4"
-                                        weight="normal"
-                                        color="white"
-                                        lh="3.6rem"
-                                    >
-                                        {localize('Founder and Chief Executive Officer')}
-                                    </LeadershipPosition>
-                                    <StyledText color="white">
-                                        {localize(
-                                            'Jean-Yves has been an entrepreneur since the age of 20. From 1997 to 1999, he developed the algorithms that would become one of the world’s first trading platforms. He was granted a patent for his binary options trading system in 2007, and granted two more patents in 2011 for systems and methods that enable financial market speculation.',
-                                        )}
-                                    </StyledText>
-                                </div>
-                            </LeadershipWrapper>
-                        </ContentWrapper>
-                    )}
+                    </Title>
+                    <Subtitle>
+                        {localize(
+                            'The story of Deriv.com starts in 1999. Regent Markets Group, the founding company, was established with a mission to make online trading accessible to the masses. The Group has since rebranded and evolved, but its founding mission remains unchanged.',
+                        )}
+                    </Subtitle>
+                    <Subtitle>
+                        {localize(
+                            'Our evolution is powered by over 20 years of customer focus and innovation.',
+                        )}
+                    </Subtitle>
                 </StyledContainer>
-            </Background>
-            {is_story && <OurStory is_mobile_menu={is_mobile} />}
-            {is_leadership && <Leaders />}
-            <Signup appearance={Appearances.public} />
+            </StyledSection>
+            <TabsContainer>
+                <Item onClick={() => handleTabChange('story')} active_tab={active_tab} name="story">
+                    <Header as="h4">{localize('Our story')}</Header>
+                </Item>
+                <Item
+                    onClick={() => handleTabChange('leadership')}
+                    active_tab={active_tab}
+                    name="leadership"
+                >
+                    <Header as="h4">{localize('Our leadership')}</Header>
+                </Item>
+                <Separator />
+            </TabsContainer>
+            {active_tab === 'story' && <OurStory is_mobile_menu={is_mobile} />}
+            {active_tab === 'leadership' && <Leaders />}
         </Layout>
     )
 }

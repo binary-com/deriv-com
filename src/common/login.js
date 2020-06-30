@@ -14,7 +14,7 @@ const Login = (() => {
 
     const loginUrl = () => {
         const server_url = localStorage.getItem('config.server_url')
-        const language = localStorage.getItem('i18n')
+        const language = localStorage.getItem('i18n').replace('-', '_')
         const signup_device = LocalStore.get('signup_device') || (isMobile() ? 'mobile' : 'desktop')
         const date_first_contact = LocalStore.get('date_first_contact')
         const marketing_queries = `&signup_device=${signup_device}${
@@ -32,13 +32,12 @@ const Login = (() => {
             ? `&affiliate_token=${affiliate_tracking}`
             : ''
         const deriv_app_app_id = 16929
-
         return server_url && /qa/.test(server_url)
             ? `https://${server_url}/oauth2/authorize?app_id=${getAppId()}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_source_link}${utm_medium_link}${utm_campaign_link}`
             : `https://oauth.deriv.app/oauth2/authorize?app_id=${deriv_app_app_id}&l=${language}${marketing_queries}&brand=${brand_name.toLowerCase()}${affiliate_token_link}${utm_source_link}${utm_medium_link}${utm_campaign_link}`
     }
 
-    const initOneAll = provider => {
+    const initOneAll = (provider) => {
         const social_login_url = `${loginUrl()}&social_signup=${provider}`
         window.location.href = social_login_url
     }

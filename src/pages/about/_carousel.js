@@ -72,7 +72,12 @@ const Carousel = ({ slides }) => {
 
     return (
         <Flex jc="center" max-width="99.6rem">
-            {/* {slides[slide_index].image} */}
+            {slides[slide_index].inner_slides
+                ? inner_slide_index === -2
+                    ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
+                    : slides[slide_index].inner_slides[inner_slide_index].image
+                : slides[slide_index].image}
+
             <Flex position="relative" direction="column" width="4.4rem" ai="center" mr="9.2rem">
                 <Line>
                     <GreyCircle />

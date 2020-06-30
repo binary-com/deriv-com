@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import TradingLimits from './_trading-limits'
 import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 // import { LinkButton } from 'components/form'
@@ -50,6 +51,7 @@ const ResponsibleTrading = () => {
                         </Flex>
                     </Container>
                 </Hero>
+                <TradingLimits></TradingLimits>
             </Section>
         </Layout>
     )

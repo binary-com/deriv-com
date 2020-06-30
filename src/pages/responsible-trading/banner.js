@@ -18,7 +18,7 @@ const Section = styled.section`
     }
 `
 
-export const Banner = ({ header, p1, button_text }) => (
+const Banner = ({ header, p1, button_text }) => (
     <Section>
         <Flex direction="column" ai="center">
             <Header align="center" as="h3" color="white">

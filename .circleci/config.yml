@@ -60,7 +60,6 @@ commands:
       target_branch:
         type: string
     steps:
-      # - checkout
       - attach_workspace:
           at: public
       - run:
@@ -127,6 +126,7 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
+
   build_deploy_staging:
     docker:
       - image: circleci/node:lts-stretch
@@ -141,9 +141,10 @@ jobs:
       - build
       - deploy_gh_pages:
           target_branch: "staging"
-      # - docker_build
-      # - docker_push
-        # - k8s_deploy
+      - docker_build
+      - docker_push
+      - k8s_deploy
+
   build_deploy_production-a:
     docker:
       - image: circleci/node:lts-stretch
@@ -156,13 +157,13 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      # - docker_build:
-      #     docker_image_tag: latest
-      # - docker_push
+      - docker_build:
+          docker_image_tag: latest
+      - docker_push
       - deploy_gh_pages:
           target_branch: "production-a"
-      # - k8s_deploy:
-      #     k8s_svc_name: "production-deriv-com"
+      - k8s_deploy:
+          k8s_svc_name: "production-deriv-com"
 
   build_deploy_production-b:
     docker:
@@ -186,6 +187,7 @@ workflows:
           filters:
             branches:
               only: /^master/
+
   build_deploy_staging:
     jobs:
       - build_deploy_staging:

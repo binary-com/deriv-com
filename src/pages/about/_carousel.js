@@ -104,15 +104,11 @@ const Carousel = ({ slides }) => {
                     </StyledHeader>
                 )}
 
-                {slides[slide_index].inner_slides ? (
-                    inner_slide_index === -2 ? (
-                        (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
-                    ) : (
-                        <div>{slides[slide_index].inner_slides[inner_slide_index].body}</div>
-                    )
-                ) : (
-                    <div>{slides[slide_index].body}</div>
-                )}
+                {slides[slide_index].inner_slides
+                    ? inner_slide_index === -2
+                        ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
+                        : slides[slide_index].inner_slides[inner_slide_index].body
+                    : slides[slide_index].body}
 
                 {slide_index + 1 >= slides.length ? undefined : (
                     <>

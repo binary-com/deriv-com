@@ -159,11 +159,11 @@ const Policies = () => {
                                 </li>
                             </Ul>
                             <Header as="h5" mt="1.6rem" mb="0.8rem">
-                                {localize('Forex and commodities')}
+                                {localize('Synthetic indices')}
                             </Header>
                             <Text>
                                 {localize(
-                                    'An interest adjustment will be made to your trading account as indication of the cost required to keep your position open.',
+                                    'An interest adjustment will be made to your trading account to compensate for the cost of keeping your position open.',
                                 )}
                             </Text>
                             <Text mb="0.8rem">
@@ -175,7 +175,7 @@ const Policies = () => {
                             <Note>
                                 <Text size="var(--text-size-xs)">
                                     {localize(
-                                        'Please take note that our swap rate also depends on the time and days you hold your positions open.',
+                                        'Please note that our swap rate also depends on the time and days you hold your positions open.',
                                     )}
                                 </Text>
                             </Note>

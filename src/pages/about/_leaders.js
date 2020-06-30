@@ -151,6 +151,11 @@ const leaders_data = [
     },
 ]
 
+const StyledSection = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding: 5rem 0;
+    }
+`
 const StyledGrid = styled(CssGrid)`
     width: 100%;
     grid-template-columns: repeat(12, 1fr);
@@ -221,7 +226,7 @@ const Leaders = () => {
     const data = useStaticQuery(query)
 
     return (
-        <SectionContainer>
+        <StyledSection>
             <Container>
                 <StyledGrid>
                     {leaders_data.map((leader) => (
@@ -241,7 +246,7 @@ const Leaders = () => {
                     ))}
                 </StyledGrid>
             </Container>
-        </SectionContainer>
+        </StyledSection>
     )
 }
 

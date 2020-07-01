@@ -33,7 +33,7 @@ const StartTrading = () => {
                     </FixTimeline.Item>
                     <FixTimeline.Item title={<Localize translate_text="Trade" />}>
                         {localize(
-                            'Open a real account, make a deposit, and start trading multiplier for real.',
+                            'Open a real account, make a deposit, and start trading multipliers for real.',
                         )}
                     </FixTimeline.Item>
                     <FixTimeline.Item title={<Localize translate_text="Withdraw" />}>

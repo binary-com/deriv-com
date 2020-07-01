@@ -26,7 +26,7 @@ const WhatAreOptions = () => {
                     </Text>
                     <Text mb="4rem">
                         {localize(
-                            'These unique products combine features of digital options and CFD margin trading. When trading multipliers, your risk is limited to your stake amount, but your profit increases as long as the market continues to move in the direction that you have predicted.',
+                            'This unique product combines the features of digital options and CFD margin trading. When trading multipliers, your risk is limited to your stake amount, but your profit increases as long as the market continues to move in the direction that you have predicted.',
                         )}
                     </Text>
                     <Header as="h3" mb="0.8rem">

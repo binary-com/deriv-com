@@ -161,14 +161,14 @@ const Policies = () => {
                             <Header as="h5" mt="1.6rem" mb="0.8rem">
                                 {localize('Synthetic indices')}
                             </Header>
-                            <Text>
+                            <Text mb="0.8rem">
                                 {localize(
-                                    'An interest adjustment will be made to your trading account to compensate for the cost of keeping your position open.',
+                                    'An interest adjustment will be made to your trading account to compensate for the cost of keeping your position open overnight.',
                                 )}
                             </Text>
                             <Text mb="0.8rem">
                                 <Localize
-                                    translate_text="The interest adjustment is calculated on an annual base for long and short positions according to the formula: <0>(volume in lot *specified swap size/100)/360</0>."
+                                    translate_text="The interest adjustment is calculated on an annual basis for long and short positions according to the formula: <0>(volume in lot *specified swap size/100)/360</0>."
                                     components={[<strong key={0} />]}
                                 />
                             </Text>

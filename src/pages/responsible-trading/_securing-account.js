@@ -31,7 +31,7 @@ const ResponsiveBox = styled(Box)`
 
 const SecureAccount = () => {
     return (
-        <Box p="8rem 0" bg="rgba(245, 247, 250, 0.32)">
+        <Box pt="8rem" pb="15rem" bg="rgba(245, 247, 250, 0.32)">
             <Container fd="column" ai="center">
                 <Header as="h3" align="center" mb="2rem">
                     {localize('Securing your account')}

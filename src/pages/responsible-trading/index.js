@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import TradingLimits from './_trading-limits'
 import SecureAccount from './_securing-account'
+import TradingResponsibly from './_trading-responsibly'
 import { RoleBanner } from './_banner'
 import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -63,6 +64,7 @@ const ResponsibleTrading = () => {
                     </Container>
                 </Hero>
                 <SecureAccount />
+                <TradingResponsibly />
                 <Container>
                     <TradingLimits />
                 </Container>

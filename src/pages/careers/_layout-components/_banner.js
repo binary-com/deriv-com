@@ -62,7 +62,7 @@ export const JobMailBanner = () => (
             <Text align="center" color="white" style={{ marginLeft: '2.4rem' }}>
                 {localize('To apply, send your CV to ')}
                 <MailLink to="mailto:recruitment@deriv.hr" external>
-                    {localize('recruitment@deriv.hr')}
+                    recruitment@deriv.hr
                 </MailLink>
             </Text>
         </Flex>

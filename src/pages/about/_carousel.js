@@ -6,12 +6,6 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import StartPoint from 'images/svg/start-point.svg'
 
-// const UpButton = styled.button`
-//     width: 200px;
-// `
-// const DownButton = styled.button`
-//     width: 200px;
-// `
 const StyledHeader = styled(Header)`
     cursor: pointer;
 `
@@ -49,6 +43,14 @@ const GreyCircle = styled.div`
     border-radius: 50%;
     display: inline-block;
 `
+
+const ImageWrapper = styled.div`
+    margin-right: 9rem;
+    width: 38.6rem;
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+`
 const Carousel = ({ slides }) => {
     let [slide_index, setSlideIndex] = useState(0)
     let [inner_slide_index, setInnerSlideIndex] = useState(0)
@@ -63,20 +65,19 @@ const Carousel = ({ slides }) => {
                   slide_index + 1 >= slides.length - 1 ? slides.length - 1 : slide_index + 1),
               setSlideIndex(slide_index))
     }
-    // const upClick = () => {
-    //     setSlideIndex(slide_index - 1 === -1 ? 0 : slide_index - 1)
-    // }
     const yearClick = (index) => {
         setSlideIndex(index)
     }
 
     return (
         <Flex jc="center" max-width="99.6rem">
-            {slides[slide_index].inner_slides
-                ? inner_slide_index === -2
-                    ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
-                    : slides[slide_index].inner_slides[inner_slide_index].image
-                : slides[slide_index].image}
+            <ImageWrapper>
+                {slides[slide_index].inner_slides
+                    ? inner_slide_index === -2
+                        ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
+                        : slides[slide_index].inner_slides[inner_slide_index].image
+                    : slides[slide_index].image}
+            </ImageWrapper>
 
             <Flex position="relative" direction="column" width="4.4rem" ai="center" mr="9.2rem">
                 <Line>

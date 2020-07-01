@@ -49,12 +49,24 @@ const Oval = styled.div`
     height: 1rem;
     background-color: var(--color-red);
     box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
+    animation: pulse 2s infinite;
     border-radius: 50%;
     position: absolute;
     visibility: visible;
     top: ${(props) => (props.top ? props.top + '%' : '87%')};
     left: ${(props) => (props.left ? props.left + '%' : '11%')};
 
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
+        }
+        50% {
+            box-shadow: 0 0 0 1rem rgba(255, 68, 79, 0.3);
+        }
+        100% {
+            box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
+        }
+    }
     @media ${device.tablet} {
         width: 0.5rem;
         height: 0.5rem;

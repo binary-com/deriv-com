@@ -69,8 +69,8 @@ const StyledeHeader = styled(Header)`
 const StorySection = styled.section`
     width: 100%;
     margin: auto;
-    background-color: var(--color-grey-8);
-    padding: 8rem 0 0 0;
+    background-color: var(--color-white);
+    padding: 8rem 0 8rem;
     position: relative;
 
     @media ${device.tablet} {
@@ -108,7 +108,7 @@ export const OurHistory = () => {
                 <QueryImage
                     data={data['regent_market']}
                     alt={localize('Regent Market')}
-                    width="28.5rem"
+                    width="26.3rem"
                 />
             ),
         },

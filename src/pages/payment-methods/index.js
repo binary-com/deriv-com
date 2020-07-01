@@ -102,7 +102,7 @@ const PaymentMethods = () => {
                                         padding: '2.2rem 4.8rem',
                                         position: 'relative',
                                         background: 'var(--color-white)',
-                                        paddingBottom: pd.note ? '7rem' : '2.2rem',
+                                        paddingBottom: pd.note ? '5rem' : '2.2rem',
                                     }}
                                     parent_style={{
                                         marginBottom: '2.4rem',

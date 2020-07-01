@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Swiper from 'react-id-swiper'
@@ -224,7 +224,7 @@ const mustafijur = {
 }
 
 const vipul = {
-    name: 'Vipul',
+    name: 'Vipul Kumar',
     location: <Localize translate_text="India" />,
     img_path: VipulImage,
     quote: (
@@ -286,7 +286,6 @@ const our_client_slides = [
 ]
 
 const WhatOurClientsSay = () => {
-    const [updateSwiper] = useState(null)
     const ref = React.useRef(null)
 
     const goNext = () => {
@@ -337,7 +336,7 @@ const WhatOurClientsSay = () => {
                         </Prev>
                     </ButtonWrapper>
                     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                        <Swiper {...params} getSwiper={updateSwiper} ref={ref}>
+                        <Swiper {...params} ref={ref}>
                             {our_client_slides.map((trader) => (
                                 <div className="swiper-slide" key={trader.name}>
                                     <ClientSlide

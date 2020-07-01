@@ -74,6 +74,10 @@ const Mobile = styled(Show.Mobile)`
             margin-bottom: 0;
         }
     }
+    @media ${device.mobileL} {
+        margin-top: 0.8rem;
+        margin-bottom: 0;
+    }
 `
 
 const TabPanel = ({ children }) => (

@@ -45,7 +45,7 @@ const Ul = styled.ul`
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 4rem;
 
     @media ${device.tablet} {
@@ -96,6 +96,7 @@ const WhyTradeItem = styled(Flex)`
     flex-direction: column;
     justify-content: start;
     max-width: 23.7rem;
+    height: auto;
 
     @media ${device.mobileL} {
         max-width: 100%;
@@ -109,9 +110,11 @@ const HowItWorksItem = styled(Flex)`
     flex-direction: column;
     padding: 2.4rem;
     min-height: 24rem;
+    height: auto;
 
     @media ${device.mobileL} {
-        justify-content: center;
+        justify-content: flex-start;
+        min-height: auto;
     }
 `
 

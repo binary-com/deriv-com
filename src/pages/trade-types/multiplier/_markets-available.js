@@ -39,7 +39,7 @@ const MarketsAvailable = () => {
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <Header as="h3" mb="2.4rem">
-                        {localize('Markets available for options trading')}
+                        {localize('Markets available for multipliers trading')}
                     </Header>
                 </SmallContainer>
                 <Carousel>

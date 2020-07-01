@@ -3,9 +3,10 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { SmallContainer, Grid, HowItWorksItem } from '../components/_style'
 import SideTab from '../components/_side-tab'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import GetQuote from 'images/svg/trade-types/get-quote.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
@@ -37,6 +38,24 @@ const OptionGrid = styled(Grid)`
     grid-gap: 2.4rem;
 `
 
+const OptionItems = styled(Flex)`
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+
+    @media ${device.mobileL} {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+
+        & > div > svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+`
+
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
@@ -47,12 +66,14 @@ const HowOptionsWorks = () => {
                 </Header>
                 <OptionGrid>
                     <HowItWorksItem>
-                        <div>
-                            <DefinePosition />
-                        </div>
-                        <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                            {localize('Define your position')}
-                        </Text>
+                        <OptionItems>
+                            <div>
+                                <DefinePosition />
+                            </div>
+                            <Text weight="bold" mt="1.6rem">
+                                {localize('Define your position')}
+                            </Text>
+                        </OptionItems>
                         <Text>
                             {localize(
                                 'Select the market, trade type, duration, and type in the amount you want to stake.',
@@ -60,12 +81,14 @@ const HowOptionsWorks = () => {
                         </Text>
                     </HowItWorksItem>
                     <HowItWorksItem>
-                        <div>
-                            <GetQuote />
-                        </div>
-                        <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                            {localize('Get quote')}
-                        </Text>
+                        <OptionItems>
+                            <div>
+                                <GetQuote />
+                            </div>
+                            <Text weight="bold" mt="1.6rem">
+                                {localize('Get quote')}
+                            </Text>
+                        </OptionItems>
                         <Text>
                             {localize(
                                 'Receive payout quote or stake amount based on the position you have defined.',
@@ -73,12 +96,14 @@ const HowOptionsWorks = () => {
                         </Text>
                     </HowItWorksItem>
                     <HowItWorksItem>
-                        <div>
-                            <PurchaseContract />
-                        </div>
-                        <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                            {localize('Purchase your contract')}
-                        </Text>
+                        <OptionItems>
+                            <div>
+                                <PurchaseContract />
+                            </div>
+                            <Text weight="bold" mt="1.6rem">
+                                {localize('Purchase your contract')}
+                            </Text>
+                        </OptionItems>
                         <Text>
                             {localize(
                                 'Purchase the contract if you are satisfied with the quote or re-define your position.',

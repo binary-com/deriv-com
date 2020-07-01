@@ -1,9 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 import { SmallContainer, OptionGrid, OptionGridSecondary } from '../components/_style'
 import Notes from '../components/_notes'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
+// SVG
 import RiseFall from 'images/svg/options/rise-fall.svg'
 import HigherLower from 'images/svg/options/higher-lower.svg'
 import EbEo from 'images/svg/options/eb-eo.svg'
@@ -19,6 +22,14 @@ import OuOd from 'images/svg/options/ou-od.svg'
 import HighClose from 'images/svg/options/high-close.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import HighLow from 'images/svg/options/high-low.svg'
+
+const MiddleText = styled(Text)`
+    margin-bottom: 0.8rem;
+
+    @media ${device.tabletL} {
+        margin-bottom: 1.6rem;
+    }
+`
 
 const WhatAreOptions = () => {
     return (
@@ -65,56 +76,56 @@ const WhatAreOptions = () => {
 const UpDownGrid = () => {
     return (
         <OptionGrid>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <RiseFall />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Rise/Fall')}
                 </Text>
-                <Text mb="0.8rem">
+                <MiddleText>
                     {localize(
                         'Predict whether the exit spot will be strictly higher or lower than the entry spot at the end of the contract period.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Higher’, you win the payout if the exit spot is strictly higher than the entry spot.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Lower’, you win the payout if the exit spot is strictly lower than the entry spot.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         'If you select ‘Allow equals’, you win the payout if the exit spot is higher than or equal to the entry spot for ‘Higher’. Similarly, you win the payout if the exit spot is lower than or equal to the entry spot for ‘Lower’.',
                     )}
                 </Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <HigherLower />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Higher/Lower')}
                 </Text>
-                <Text mb="0.8rem">
+                <MiddleText>
                     {localize(
                         'Predict whether the exit spot will be higher or lower than a price target (the barrier) at the end of the contract period.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Higher’, you win the payout if the exit spot is strictly higher than the barrier.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Lower’, you win the payout if the exit spot is strictly lower than the barrier.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         "If the exit spot is equal to the barrier, you don't win the payout.",
@@ -128,7 +139,7 @@ const UpDownGrid = () => {
 const InOutGrid = () => {
     return (
         <OptionGrid>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <EbEo />
                 </div>
@@ -136,44 +147,44 @@ const InOutGrid = () => {
                     {localize('Ends Between/Ends Outside')}
                 </Text>
 
-                <Text mb="0.8rem">
+                <MiddleText>
                     {localize(
                         'Predict whether the exit spot will be inside or outside two price targets at the end of the contract period.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Ends Between’, you win the payout if the exit spot is strictly higher than the low barrier and lower than the high barrier.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Ends Outside’, you win the payout if the exit spot is either strictly higher than the high barrier, or strictly lower than the low barrier.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         "If the exit spot is equal to either the low barrier or the high barrier, you don't win the payout.",
                     )}
                 </Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <SbGo />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Stays Between/Goes Outside')}
                 </Text>
-                <Text mb="0.8rem">
+                <MiddleText>
                     {localize(
                         'Predict whether the market will stay inside or go outside two price targets at any time during the contract period.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Stays Between’, you win the payout if the market stays between (does not touch). either the high barrier or the low barrier at any time during the contract period.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         'If you select ‘Goes Outside’, you win the payout if the market touches either the high barrier or the low barrier at any time during the contract period.',
@@ -187,46 +198,46 @@ const InOutGrid = () => {
 const DigitsGrid = () => {
     return (
         <OptionGrid>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <MatchDiffers />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Matches/Differs')}
                 </Text>
-                <Text mb="0.8rem">
+                <MiddleText>
                     {localize(
                         'Predict what number will be the last digit of the last tick of a contract.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Matches’, you will win the payout if the last digit of the last tick is the same as your prediction.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         'If you select ‘Differs’, you will win the payout if the last digit of the last tick is not the same as your prediction.',
                     )}
                 </Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <EvenOdd />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Even/Odd')}
                 </Text>
-                <Text mb="0.8rem">
+                <MiddleText>
                     {localize(
                         'Predict whether the last digit of the last tick of a contract will be an even number or an odd number.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Even’, you will win the payout if the last digit of the last tick is an even number (i.e. 2, 4, 6, 8, or 0).',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         'If you select ‘Odd’, you will win the payout if the last digit of the last tick is an odd number',
@@ -234,23 +245,23 @@ const DigitsGrid = () => {
                 </Text>
                 <Text>{localize('(i.e. 1, 3, 5, 7, or 9).')}</Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <OverUnder />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
                     {localize('Over/Under')}
                 </Text>
-                <Text mb="0.8rem">
+                <MiddleText>
                     {localize(
                         'Predict whether the last digit of the last tick of a contract will be higher or lower than a specific number.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Over’, you will win the payout if the last digit of the last tick is greater than your prediction.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         'If you select ‘Under’, you will win the payout if the last digit of the last tick is less than your prediction.',
@@ -264,125 +275,125 @@ const DigitsGrid = () => {
 const SingleOptionsGrid = () => {
     return (
         <OptionGridSecondary>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" mb="1.6rem">
                     {localize('Reset Call/Reset Put')}
                 </Header>
                 <div>
                     <RcRp />
                 </div>
-                <Text mb="0.8rem" mt="1.6rem">
+                <MiddleText mt="1.6rem">
                     {localize(
                         'Predict whether the exit spot will be higher or lower than either the entry spot or the spot at reset time.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Reset-Call’, you win the payout if the exit spot is strictly higher than either the entry spot or the spot at reset time.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Reset-Put’, you win the payout if the exit spot is strictly lower than either the entry spot or the spot at reset time.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         "If the exit spot is equal to the barrier or the new barrier (if a reset occurs), you don't win the payout.",
                     )}
                 </Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" mb="1.6rem">
                     {localize('High/Low Ticks')}
                 </Header>
                 <div>
                     <HighLowTicks />
                 </div>
-                <Text mb="0.8rem" mt="1.6rem">
+                <MiddleText mt="1.6rem">
                     {localize(
                         'Predict which will be the highest or the lowest tick in a series of five ticks.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘High Tick’, you win the payout if the selected tick is the highest among the next five ticks.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         'If you select ‘Low Tick’, you win the payout if the selected tick is the lowest among the next five ticks.',
                     )}
                 </Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" mb="1.6rem">
                     {localize('Touch/No Touch')}
                 </Header>
                 <div>
                     <TnT />
                 </div>
-                <Text mb="0.8rem" mt="1.6rem">
+                <MiddleText mt="1.6rem">
                     {localize(
                         'Predict whether the market will touch or not touch a target at any time during the contract period.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Touches’, you win the payout if the market touches the barrier at any time during the contract period.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         'If you select ‘Does Not Touch’, you win the payout if the market never touches the barrier at any time during the contract period.',
                     )}
                 </Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" mb="1.6rem">
                     {localize('Asians')}
                 </Header>
                 <div>
                     <Asians />
                 </div>
-                <Text mb="0.8rem" mt="1.6rem">
+                <MiddleText mt="1.6rem">
                     {localize(
                         'Predict whether the exit spot (last tick) will be higher or lower than than the average of the ticks at the end of the contract period.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Asian Rise’, you will win the payout if the last tick is higher than the average of the ticks.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Asian Fall’, you will win the payout if the last tick is lower than the average of the ticks.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         "If the last tick is equal to the average of the ticks, you don't win the payout.",
                     )}
                 </Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" mb="1.6rem">
                     {localize('Only Ups/Only Downs')}
                 </Header>
                 <div>
                     <OuOd />
                 </div>
-                <Text mb="0.8rem" mt="1.6rem">
+                <MiddleText mt="1.6rem">
                     {localize(
                         'Predict whether consecutive ticks will rise or fall successively after the entry spot.',
                     )}
-                </Text>
-                <Text mb="0.8rem">
+                </MiddleText>
+                <MiddleText>
                     {localize(
                         'If you select ‘Only Ups’, you win the payout if consecutive ticks rise successively after the entry spot. No payout if any tick falls or is equal to any of the previous ticks.',
                     )}
-                </Text>
+                </MiddleText>
                 <Text>
                     {localize(
                         'If you select ‘Only Downs’, you win the payout if consecutive ticks fall successively after the entry spot. No payout if any tick rises or is equal to any of the previous ticks.',
@@ -396,7 +407,7 @@ const SingleOptionsGrid = () => {
 const LookbacksGrid = () => {
     return (
         <OptionGrid>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <HighClose />
                 </div>
@@ -409,7 +420,7 @@ const LookbacksGrid = () => {
                     )}
                 </Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <CloseLow />
                 </div>
@@ -422,7 +433,7 @@ const LookbacksGrid = () => {
                     )}
                 </Text>
             </Flex>
-            <Flex fd="column" jc="flex-start">
+            <Flex fd="column" jc="flex-start" height="auto">
                 <div>
                     <HighLow />
                 </div>

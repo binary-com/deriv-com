@@ -58,7 +58,7 @@ const Carousel = ({ slides }) => {
         slides[slide_index].inner_slides
             ? ((inner_slide_index =
                   inner_slide_index >= slides[slide_index].inner_slides.length - 1
-                      ? -2 // using this flag to control the end of the inner sileds and continuing with outer slides
+                      ? -1 // using this flag to control the end of the inner sileds and continuing with outer slides
                       : inner_slide_index + 1),
               setInnerSlideIndex(inner_slide_index))
             : ((slide_index =
@@ -68,12 +68,18 @@ const Carousel = ({ slides }) => {
     const yearClick = (index) => {
         setSlideIndex(index)
     }
+    const handleScroll = (e, index) => {
+        if (e.wheelDelta > 0) {
+            index - 1 < 0 ? 0 : yearClick(index - 1)
+        }
+        if (e.wheelDelta <= 0) downClick()
+    }
 
     return (
-        <Flex jc="center" max-width="99.6rem">
+        <Flex jc="center" max-width="99.6rem" onWheel={() => handleScroll(event, slide_index)}>
             <ImageWrapper>
                 {slides[slide_index].inner_slides
-                    ? inner_slide_index === -2
+                    ? inner_slide_index === -1
                         ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
                         : slides[slide_index].inner_slides[inner_slide_index].image
                     : slides[slide_index].image}
@@ -92,6 +98,7 @@ const Carousel = ({ slides }) => {
                 </StyledText>
             </Flex>
             <Flex
+                onWheel={() => handleScroll(event, slide_index)}
                 jc="flex-start"
                 overflow="hidden"
                 height="47.2rem"

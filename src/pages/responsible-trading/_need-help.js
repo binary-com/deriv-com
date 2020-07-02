@@ -5,7 +5,7 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Localize, localize } from 'components/localization'
 import GamStop from 'images/svg/gamstop.svg'
-import BeGambleAware from 'images/common/begambleaware.png'
+//import BeGambleAware from 'images/common/begambleaware.png'
 import Underage from 'images/svg/underage.svg'
 import Filtering from 'images/svg/filtering-controls.svg'
 
@@ -25,7 +25,7 @@ const help_content = [
         text: (
             <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
         ),
-        icon: <BeGambleAware />,
+        icon: <GamStop />,
     },
     {
         header: <Localize translate_text="Underage gambling" />,
@@ -80,6 +80,7 @@ const ClientCard = styled.article`
     width: 47rem;
     padding: 3.2rem 2.4rem;
     height: 100%;
+    min-height: 24rem;
     position: relative;
 
     ${Flex} {
@@ -113,28 +114,31 @@ const StyledHeader = styled(Header)`
         font-size: 4rem;
     }
 `
-const NeedHelp = () => (
-    <StyledSection>
-        <Container direction="column">
-            <StyledHeader align="center" size="var(--text-size-header-1)" as="h2">
-                {localize('Need help?')}
-            </StyledHeader>
-        </Container>
-        <StyledFlex wrap="wrap">
-            {help_content.map((item, idx) => {
-                return (
-                    <ClientCard key={idx}>
-                        <Flex ai="center">
-                            <Header as="h4">{item.header}</Header>
-                            {item.icon}
-                        </Flex>
-                        <Text>{item.text}</Text>
-                        <Text pt="1rem">{item.text2}</Text>
-                    </ClientCard>
-                )
-            })}
-        </StyledFlex>
-    </StyledSection>
-)
+
+const NeedHelp = () => {
+    return (
+        <StyledSection>
+            <Container direction="column">
+                <StyledHeader align="center" size="var(--text-size-header-1)" as="h2">
+                    {localize('Need help?')}
+                </StyledHeader>
+            </Container>
+            <StyledFlex wrap="wrap">
+                {help_content.map((item, idx) => {
+                    return (
+                        <ClientCard key={idx}>
+                            <Flex ai="center">
+                                <Header as="h4">{item.header}</Header>
+                                {item.icon}
+                            </Flex>
+                            <Text>{item.text}</Text>
+                            <Text pt="1rem">{item.text2}</Text>
+                        </ClientCard>
+                    )
+                })}
+            </StyledFlex>
+        </StyledSection>
+    )
+}
 
 export default NeedHelp

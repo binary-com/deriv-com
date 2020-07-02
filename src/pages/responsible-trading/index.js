@@ -5,7 +5,7 @@ import SecureAccount from './_securing-account'
 import TradingResponsibly from './_trading-responsibly'
 import NeedHelp from './_need-help'
 import { RoleBanner } from './_banner'
-import { SEO, SectionContainer, Container, Flex } from 'components/containers'
+import { SEO, SectionContainer, Container, Flex, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
@@ -69,7 +69,9 @@ const ResponsibleTrading = () => {
                 <Container>
                     <TradingLimits />
                 </Container>
-                <NeedHelp />
+                <Show.Eu>
+                    <NeedHelp />
+                </Show.Eu>
                 <RoleBanner />
             </Section>
         </Layout>

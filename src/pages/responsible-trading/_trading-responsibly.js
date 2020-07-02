@@ -4,9 +4,10 @@ import DontBorrow from 'images/svg/dont-borrow.svg'
 import FreeDemo from 'images/svg/free-demo.svg'
 import SetLimitLosses from 'images/svg/set-limit-chart.svg'
 import BadJudgement from 'images/svg/bad-judgement.svg'
-import { SectionContainer, Flex } from 'components/containers'
-import { Header, Text, Divider } from 'components/elements'
-import { localize } from 'components/localization'
+import Info from 'images/svg/info.svg'
+import { SectionContainer, Flex, Show } from 'components/containers'
+import { Header, Text, Divider, LocalizedLinkText } from 'components/elements'
+import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
 const Card = styled.section`
@@ -57,6 +58,17 @@ const ContentWrapper = styled(Flex)`
         flex-direction: column;
     }
 `
+const StyledFlex = styled(Flex)`
+    width: 60.4rem;
+    height: 6.6rem;
+    border-radius: 6rem;
+    box-shadow: inset 0 -1px 0 0 #f2f3f4;
+    background-color: var(--pale-grey-64);
+    margin: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`
 
 const TradingResponsibly = () => {
     return (
@@ -103,6 +115,19 @@ const TradingResponsibly = () => {
                             </StyledText>
                         </FlexContent>
                     </ContentWrapper>
+                    <Show.Eu>
+                        <StyledFlex>
+                            <Info />
+                            <Text size="1.4rem" ml="1.6rem">
+                                <Localize
+                                    translate_text="For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on commodities, forex, and cryptocurrencies."
+                                    components={[
+                                        <LocalizedLinkText key={0} to="/contact-us/" color="red" />,
+                                    ]}
+                                />
+                            </Text>
+                        </StyledFlex>
+                    </Show.Eu>
                 </Card>
             </CardWrapper>
         </SectionContainer>

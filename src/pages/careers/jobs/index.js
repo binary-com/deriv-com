@@ -91,10 +91,12 @@ const Jobs = () => {
     )
 
     React.useEffect(() => {
-        debouncedUpdateQueryParams(filters, search)
+        if (search || filters.length) {
+            debouncedUpdateQueryParams(filters, search)
 
-        const filtered = filterPositions(filters, search)
-        setFilteredPositions(filtered)
+            const filtered = filterPositions(filters, search)
+            setFilteredPositions(filtered)
+        }
     }, [search, filters])
 
     return (

@@ -42,6 +42,7 @@ const FlexContent = styled(Flex)`
 const StyledDivider = styled(Divider)`
     width: 2px;
     height: 100px;
+    background-color: var(--color-grey-29);
     margin-left: 3rem;
     margin-right: 3rem;
 

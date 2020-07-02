@@ -76,7 +76,7 @@ const Carousel = ({ slides }) => {
     }
 
     return (
-        <Flex jc="center" max-width="99.6rem" onWheel={() => handleScroll(event, slide_index)}>
+        <Flex jc="center" max-width="99.6rem">
             <ImageWrapper>
                 {slides[slide_index].inner_slides
                     ? inner_slide_index === -1
@@ -118,7 +118,7 @@ const Carousel = ({ slides }) => {
                 )}
 
                 {slides[slide_index].inner_slides
-                    ? inner_slide_index === -2
+                    ? inner_slide_index === -1
                         ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
                         : slides[slide_index].inner_slides[inner_slide_index].body
                     : slides[slide_index].body}

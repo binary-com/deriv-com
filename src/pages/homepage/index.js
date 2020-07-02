@@ -45,6 +45,7 @@ const Home = () => {
                 description={localize(
                     'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
                 )}
+                no_index
             />
             <Hero />
             <Show.Mobile>

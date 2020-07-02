@@ -4,9 +4,15 @@ import Swiper from 'react-id-swiper'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 import { SmallContainer } from './_style'
-import { Show } from 'components/containers'
+import { Show, Flex } from 'components/containers'
 import device from 'themes/device'
 import Chevron from 'images/svg/carousel-chevron.svg'
+
+const NoArrowWrapper = styled(Flex)`
+    & > *:first-child {
+        margin-right: 2.4rem;
+    }
+`
 
 const SliderWrapper = styled.div`
     width: 100%;
@@ -115,7 +121,7 @@ const Carousel = ({ children, ...props }) => {
                 setEnd(ref.current.swiper.isEnd)
             })
         }
-    }, [ref])
+    }, [ref.current])
 
     React.useEffect(() => {
         return () => {
@@ -142,6 +148,7 @@ const Carousel = ({ children, ...props }) => {
         spaceBetween: 24,
         loop: false,
         height: '100%',
+        noSwiping: !show_arrow,
     }
     return (
         <>
@@ -166,9 +173,13 @@ const Carousel = ({ children, ...props }) => {
                             </>
                         )}
                         <div style={{ maxWidth: '60rem', margin: '0 auto' }}>
-                            <Swiper {...params} ref={ref}>
-                                {children}
-                            </Swiper>
+                            {show_arrow ? (
+                                <Swiper {...params} ref={ref}>
+                                    {children}
+                                </Swiper>
+                            ) : (
+                                <NoArrowWrapper>{children}</NoArrowWrapper>
+                            )}
                         </div>
                     </SliderWrapper>
                 </Background>

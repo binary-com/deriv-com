@@ -1,17 +1,39 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer, Ul } from '../components/_style'
-import { SectionContainer } from 'components/containers'
+import { SectionContainer, Show } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import { size } from 'themes/device'
+
+const container_style = css`
+    flex: 1;
+    width: 100%;
+`
+
+const Desktop = styled(Show.Desktop)`
+    ${container_style}
+`
+
+const Mobile = styled(Show.Mobile)`
+    ${container_style}
+`
 
 const query = graphql`
     query {
         margin_numbers: file(relativePath: { eq: "trade-types/margin-numbers.png" }) {
             ...fadeIn
         }
+        margin_mobile_numbers: file(relativePath: { eq: "trade-types/margin-mobile-numbers.png" }) {
+            ...fadeIn
+        }
         margin_rate_numbers: file(relativePath: { eq: "trade-types/margin-rate-numbers.png" }) {
+            ...fadeIn
+        }
+        margin_mobile_rate_numbers: file(
+            relativePath: { eq: "trade-types/margin-mobile-rate-numbers.png" }
+        ) {
             ...fadeIn
         }
     }
@@ -52,13 +74,27 @@ const Contracts = () => {
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={data['margin_numbers']}
-                                    alt="Trade types margin numbers"
-                                />
-                            </ImageWrapper>
                         </li>
+                    </Ul>
+                    <Desktop max_width={size.tabletS}>
+                        <ImageWrapper>
+                            <QueryImage
+                                data={data['margin_numbers']}
+                                alt="Trade types margin numbers"
+                            />
+                        </ImageWrapper>
+                    </Desktop>
+                </SmallContainer>
+                <Mobile min_width={size.tabletS}>
+                    <ImageWrapper>
+                        <QueryImage
+                            data={data['margin_mobile_numbers']}
+                            alt="Trade types margin numbers"
+                        />
+                    </ImageWrapper>
+                </Mobile>
+                <SmallContainer direction="column" ai="flex-start">
+                    <Ul>
                         <li>
                             <Text mt="2.4rem" mb="2.4rem">
                                 <Localize
@@ -66,15 +102,25 @@ const Contracts = () => {
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
-                            <ImageWrapper>
-                                <QueryImage
-                                    data={data['margin_rate_numbers']}
-                                    alt="Trade types margin rate numbers"
-                                />
-                            </ImageWrapper>
                         </li>
                     </Ul>
+                    <Desktop max_width={size.tabletS}>
+                        <ImageWrapper>
+                            <QueryImage
+                                data={data['margin_rate_numbers']}
+                                alt="Trade types margin rate numbers"
+                            />
+                        </ImageWrapper>
+                    </Desktop>
                 </SmallContainer>
+                <Mobile min_width={size.tabletS}>
+                    <ImageWrapper>
+                        <QueryImage
+                            data={data['margin_mobile_rate_numbers']}
+                            alt="Trade types margin numbers"
+                        />
+                    </ImageWrapper>
+                </Mobile>
             </SectionContainer>
         </>
     )

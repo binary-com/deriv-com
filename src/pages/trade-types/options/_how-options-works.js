@@ -76,7 +76,7 @@ const HowOptionsWorks = () => {
                         </OptionItems>
                         <Text>
                             {localize(
-                                'Select the market, trade type, duration, and type in the amount you want to stake.',
+                                'Select the market, trade type, duration, and specify your stake amount.',
                             )}
                         </Text>
                     </HowItWorksItem>

@@ -4,7 +4,14 @@ import EUgrid from './_eu-grid'
 // import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
 import { Header, Text, LinkText, Divider } from 'components/elements'
-import { SEO, SectionContainer, GridContainer, CssGrid, CssGridColumn } from 'components/containers'
+import {
+    SEO,
+    SectionContainer,
+    GridContainer,
+    CssGrid,
+    CssGridColumn,
+    SmallContainer,
+} from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
 import EU from 'images/svg/europe-map.svg'
@@ -74,18 +81,12 @@ const Regulatory = () => (
                 <ResponsiveHeader as="h1" align="center" lh="8rem">
                     {localize('Regulatory information')}
                 </ResponsiveHeader>
-                <StyledHeader
-                    as="h4"
-                    align="center"
-                    weight="normal"
-                    lh="3.6rem"
-                    padding="1.6rem 0 0"
-                >
+                <StyledHeader as="h5" align="center" weight="normal" padding="1.6rem 0 2rem">
                     {localize(
-                        'The services offered on Deriv and Binary.com are provided by the Deriv Group. The group has several subsidiary companies that are licensed to operate Deriv and Binary.com in their registered jurisdictions.',
+                        'The services offered on Deriv.com and Binary.com are provided by the Deriv Group. The group has several subsidiary companies that are licensed to operate Deriv.com and Binary.com in their registered jurisdictions.',
                     )}
                 </StyledHeader>
-                <StyledHeader as="h4" align="center" weight="normal" lh="3.6rem" pt="2rem">
+                <StyledHeader as="h5" align="center" weight="normal">
                     {localize(
                         'Since 1999, the group has served traders around the world with integrity and reliability. We always hold ourselves to the highest ethical standards and regulatory requirements.',
                     )}
@@ -94,27 +95,17 @@ const Regulatory = () => (
         </SectionContainer>
         <Divider />
         <SectionContainer padding="8rem 0 0">
-            <GridContainer>
-                <StyledHeader size="3.2rem" align="center" padding="0" lh="4rem">
-                    {localize('Deriv Limited')}
+            <SmallContainer fd="column">
+                <StyledHeader as="h3" align="center" mb="4rem" lh="4rem">
+                    {localize('Deriv Investments (Europe) Limited')}
                 </StyledHeader>
-                <Box padding="1rem 0 4rem">
-                    <Text lh="1.55" max_width="79.2rem">
-                        {localize(
-                            'Deriv Ltd, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the following subsidiaries.',
-                        )}
-                    </Text>
-                </Box>
-                <StyledHeader size="3.2rem" align="center" padding="0" lh="4rem">
-                    {localize('Binary Investments (Europe) Ltd')}
-                </StyledHeader>
-                <Box padding="1rem 0 4rem">
-                    <Text lh="1.55" max_width="79.2rem">
+                <Box>
+                    <Text>
                         <Localize
-                            translate_text="Binary Investments (Europe) Ltd, with a registered office at W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
+                            translate_text="Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                             components={[
                                 <LinkText
-                                    color="red"
+                                    color="black"
                                     key={0}
                                     weight="bold"
                                     target="_blank"
@@ -124,13 +115,13 @@ const Regulatory = () => (
                             ]}
                         />
                     </Text>
-                    <Text lh="1.55" mt="2rem" max_width="79.2rem">
+                    <Text mt="2rem">
                         {localize(
-                            'European Union residents who wish to trade investment products will have their accounts opened with Binary Investments (Europe) Ltd.',
+                            'Clients in the European Union who wish to trade investment products will have their accounts opened under Deriv Investments (Europe) Ltd.',
                         )}
                     </Text>
                 </Box>
-            </GridContainer>
+            </SmallContainer>
         </SectionContainer>
         <SectionContainer padding="2.4rem 0 0">
             <GridContainer>
@@ -151,15 +142,15 @@ const Regulatory = () => (
             </GridContainer>
         </SectionContainer>
         <SectionContainer padding="2.4rem 0 0">
-            <GridContainer>
+            <SmallContainer fd="column">
                 <Box padding="0 0 4rem">
                     <Text lh="1.55" max_width="79.2rem">
                         {localize(
-                            'EU passporting rights: Binary Investments (Europe) Ltd is entitled to provide its services to EU member states through EU passporting rights. Refer to the map above for the list of EU countries that have access to Deriv and Binary.com.',
+                            'Deriv Investments (Europe) Limited is entitled to provide services in another EU Member State through EU passporting rights. Above is a list of EU countries that have access to Deriv.com via EU passporting rights.',
                         )}
                     </Text>
                 </Box>
-            </GridContainer>
+            </SmallContainer>
         </SectionContainer>
         <SectionContainer padding="0 0 4rem 0">
             {/* will be added once the proper documents are ready */}

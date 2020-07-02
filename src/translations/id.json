@@ -1206,7 +1206,7 @@
     "-151151292": "Asian",
     "-632683307": "Predict whether the exit spot (last tick) will be higher or lower than the average of the ticks at the end of the contract period.",
     "-1237186896": "Only Up/Only Down",
-    "-1316646998": "Predict whether consecutive ticks will rise or fall successively after the entry spot.",
+    "-1316646998": "Menganalisa apakah tik akan bergerak naik atau turun secara berturut-turut setelah spot masuk.",
     "-1386887449": "Lookbacks",
     "-1064775608": "<0>High-Low:</0> Saat Anda membeli kontrak 'High-Low', keuntungan atau kerugian Anda akan sama dengan multiplier dikali dengan selisih antara tinggi (high) dan low (rendah) selama durasi kontrak.",
     "-1262587128": "Indeks reset harian ",

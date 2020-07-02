@@ -45,6 +45,7 @@ export default {
     Eu,
     Mobile,
     Desktop,
+    NonEU,
 }
 
 Desktop.propTypes = {

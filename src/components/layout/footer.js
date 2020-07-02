@@ -1,19 +1,24 @@
-// TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
 import styled from 'styled-components'
-import { Container, CssGrid, Show, Flex } from '../containers'
-import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
+import { Container, CssGrid, Flex, Show } from '../containers'
+import { Accordion, AccordionItem, StyledLink, Text } from '../elements'
 import { LocationContext } from './location-context'
-import { localize, Localize } from 'components/localization'
-import { smarttrader_url } from 'common/utility'
+// TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
+import { smarttrader_url } from 'common/utility'
+import { localize, Localize } from 'components/localization'
 // Icons
-import Logo from 'images/svg/deriv-footer.svg'
 import CopyrightIc from 'images/svg/copyright.svg'
+import Logo from 'images/svg/deriv-footer.svg'
 import Twitter from 'images/svg/footer-twitter.svg'
 import Instagram from 'images/svg/footer-instagram.svg'
 import Facebook from 'images/svg/footer-facebook.svg'
 import Linkedin from 'images/svg/footer-linkedin.svg'
+//EU icons
+import CoatArms from 'images/svg/coat-arms.svg'
+import Gamstop from 'images/svg/gamstop.svg'
+import MgaLogo from 'images/svg/mga-logo.svg'
+import Over18 from 'images/svg/over-18.svg'
 
 const StyledFooter = styled.footer`
     background-color: var(--color-grey-25);
@@ -47,13 +52,12 @@ const StyledGrid = styled(CssGrid)`
     }
 `
 const DerivLogoWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
     grid-area: logo;
     background: var(--color-grey-25);
     padding: 4rem 0 2rem 0;
 
-    svg {
-        width: 182px;
-    }
     @media ${device.tabletL} {
         margin-left: 2rem;
     }
@@ -206,6 +210,18 @@ const Item = styled.div`
         font-size: var(--text-size-sm);
     }
 `
+const StyledGamstop = styled(Gamstop)`
+    margin-right: 2.4rem;
+`
+const StyledCoatArms = styled(CoatArms)`
+    margin-right: 2.4rem;
+`
+const StyledMgaLogo = styled(MgaLogo)`
+    margin-right: 2.4rem;
+`
+const StyledLogo = styled(Logo)`
+    width: 18.2rem;
+`
 const mobile_accordion_header = {
     borderTop: '1px solid var(--color-grey-26)',
     borderBottom: 'none',
@@ -215,7 +231,40 @@ const mobile_accordion_header = {
     boxShadow: 'none',
 }
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
-
+const SocialWrapperComponent = () => {
+    return (
+        <SocialWrapper>
+            <ExternalLink
+                href="https://www.facebook.com/derivdotcom/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Facebook />
+            </ExternalLink>
+            <ExternalLink
+                href="https://twitter.com/derivdotcom"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Twitter />
+            </ExternalLink>
+            <ExternalLink
+                href="https://www.instagram.com/deriv_official/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Instagram />
+            </ExternalLink>
+            <ExternalLink
+                href="https://www.linkedin.com/company/derivdotcom/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Linkedin />
+            </ExternalLink>
+        </SocialWrapper>
+    )
+}
 const Footer = () => {
     mobile_accordion_header_about.borderTop = 'none'
     const { show_cookie_banner } = React.useContext(LocationContext)
@@ -225,7 +274,10 @@ const Footer = () => {
             <Container>
                 <StyledGrid>
                     <DerivLogoWrapper>
-                        <Logo />
+                        <StyledLogo />
+                        <Show.Eu>
+                            <SocialWrapperComponent />
+                        </Show.Eu>
                     </DerivLogoWrapper>
                     <LinksWrapper>
                         <Show.Desktop>
@@ -495,68 +547,143 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
-                        <Show.Eu>
+                        <Show.NonEU>
                             <DisclaimerParagraph>
-                                <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
+                                <Localize
+                                    translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
+                                    components={[
+                                        <StaticAsset
+                                            key={0}
+                                            target="_blank"
+                                            href="/WS-Binary-Investments-Europe-Limited.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
                             </DisclaimerParagraph>
-                        </Show.Eu>
-                        <DisclaimerParagraph>
-                            <Localize
-                                translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
-                                components={[
-                                    <StaticAsset
-                                        key={0}
-                                        target="_blank"
-                                        href="/WS-Binary-Investments-Europe-Limited.pdf"
-                                        rel="noopener noreferrer"
-                                    />,
-                                ]}
-                            />
-                        </DisclaimerParagraph>
-                        <DisclaimerParagraph>
-                            <Localize
-                                translate_text="Outside the EU, financial products are offered by Deriv (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
-                                components={[
-                                    <StaticAsset
-                                        key={0}
-                                        target="_blank"
-                                        href="/Vanuatu-Financial-Services-Commission.pdf"
-                                        rel="noopener noreferrer"
-                                    />,
-                                    <StaticAsset
-                                        key={1}
-                                        target="_blank"
-                                        href="/DBVI_License.pdf"
-                                        rel="noopener noreferrer"
-                                    />,
-                                    <StaticAsset
-                                        key={2}
-                                        target="_blank"
-                                        href="/Labuan-license.pdf"
-                                        rel="noopener noreferrer"
-                                    />,
-                                ]}
-                            />
-                        </DisclaimerParagraph>
-                        <DisclaimerParagraph>
-                            {localize(
-                                "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
-                            )}
-                        </DisclaimerParagraph>
+                            <DisclaimerParagraph>
+                                <Localize
+                                    translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>) and by the Gambling Commission in the UK (<1>view licence</1>)."
+                                    components={[
+                                        <StaticAsset
+                                            key={0}
+                                            target="_blank"
+                                            href="/Isle-of-Man-Gambling.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StaticAsset
+                                            key={1}
+                                            target="_blank"
+                                            href="/.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </DisclaimerParagraph>
+                            <DisclaimerParagraph>
+                                <Localize
+                                    translate_text="In the rest of the EU, synthetic indices are offered by Deriv (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>view licence</0>), by the Gambling Commission in the UK for for clients residing in the UK (<1>view licence</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (<2>view licence</2>)."
+                                    components={[
+                                        <StaticAsset
+                                            key={0}
+                                            target="_blank"
+                                            href="/Malta-Gaming-Authority.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StaticAsset
+                                            key={1}
+                                            target="_blank"
+                                            href="/.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StaticAsset
+                                            key={2}
+                                            target="_blank"
+                                            href="/.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </DisclaimerParagraph>
+                            <DisclaimerParagraph>
+                                <Localize translate_text="This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18." />
+                            </DisclaimerParagraph>
+                        </Show.NonEU>
+                        {/* <Show.NonEU>
+                            <DisclaimerParagraph>
+                                <Localize
+                                    translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
+                                    components={[
+                                        <StaticAsset
+                                            key={0}
+                                            target="_blank"
+                                            href="/WS-Binary-Investments-Europe-Limited.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </DisclaimerParagraph>
+                            <DisclaimerParagraph>
+                                <Localize
+                                    translate_text="Outside the EU, financial products are offered by Deriv (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
+                                    components={[
+                                        <StaticAsset
+                                            key={0}
+                                            target="_blank"
+                                            href="/Vanuatu-Financial-Services-Commission.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StaticAsset
+                                            key={1}
+                                            target="_blank"
+                                            href="/DBVI_License.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StaticAsset
+                                            key={2}
+                                            target="_blank"
+                                            href="/Labuan-license.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </DisclaimerParagraph>
+                            <DisclaimerParagraph>
+                                {localize(
+                                    "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
+                                )}
+                            </DisclaimerParagraph>
+                        </Show.NonEU> */}
+
                         <RiskWarning>
                             <Show.Desktop>
                                 <DisclaimerParagraph no_margin="true">
-                                    <Localize
-                                        translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
-                                        components={[
-                                            <BoldLink
-                                                key={0}
-                                                target="_blank"
-                                                to="/responsible-trading/"
-                                            />,
-                                            <strong key={1} />,
-                                        ]}
-                                    />
+                                    <Show.NonEU>
+                                        <Localize
+                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                                <strong key={1} />,
+                                            ]}
+                                        />
+                                    </Show.NonEU>
+                                    <Show.Eu>
+                                        <Localize
+                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 72% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                                <strong key={1} />,
+                                            ]}
+                                        />
+                                    </Show.Eu>
                                 </DisclaimerParagraph>
                             </Show.Desktop>
                             <Show.Mobile>
@@ -567,16 +694,30 @@ const Footer = () => {
                                     <strong>{localize('RISK WARNING')}</strong>
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph no_margin="true">
-                                    <Localize
-                                        translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
-                                        components={[
-                                            <BoldLink
-                                                key={0}
-                                                target="_blank"
-                                                to="/responsible-trading/"
-                                            />,
-                                        ]}
-                                    />
+                                    <Show.NonEU>
+                                        <Localize
+                                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                            ]}
+                                        />
+                                    </Show.NonEU>
+                                    <Show.NonEU>
+                                        <Localize
+                                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 72% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                            ]}
+                                        />
+                                    </Show.NonEU>
                                 </DisclaimerParagraph>
                             </Show.Mobile>
                         </RiskWarning>
@@ -585,36 +726,17 @@ const Footer = () => {
                         <CopyrightIc width="16px" />
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
-                    <SocialWrapper>
-                        <ExternalLink
-                            href="https://www.facebook.com/derivdotcom/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Facebook />
-                        </ExternalLink>
-                        <ExternalLink
-                            href="https://twitter.com/derivdotcom"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Twitter />
-                        </ExternalLink>
-                        <ExternalLink
-                            href="https://www.instagram.com/deriv_official/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Instagram />
-                        </ExternalLink>
-                        <ExternalLink
-                            href="https://www.linkedin.com/company/derivdotcom/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Linkedin />
-                        </ExternalLink>
-                    </SocialWrapper>
+                    <Show.NonEU>
+                        <SocialWrapperComponent />
+                    </Show.NonEU>
+                    <Show.Eu>
+                        <Flex mt="2.6rem">
+                            <StyledGamstop />
+                            <StyledCoatArms />
+                            <StyledMgaLogo />
+                            <Over18 />
+                        </Flex>
+                    </Show.Eu>
                 </StyledGrid>
             </Container>
         </StyledFooter>

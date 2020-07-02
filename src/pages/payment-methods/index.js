@@ -7,8 +7,7 @@ import payment_data from './_payment-data'
 import Layout from 'components/layout/layout'
 import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
 import { SEO, SectionContainer, Container } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
-import { BinarySocketBase } from 'common/websocket/socket_base'
+import { localize, WithIntl, Localize } from 'components/localization'
 
 const AccordionContainer = styled.div`
     width: 100%;
@@ -27,7 +26,7 @@ const Th = styled.th`
 
 const StyledTable = styled.table`
     border-collapse: collapse;
-    width: 100%;
+    width: 110.4rem;
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
 
@@ -56,44 +55,10 @@ const Notes = styled.div`
     padding: 1.6rem;
     background: var(--color-grey-8);
     left: 0;
+    bottom: 0;
 `
 
 const PaymentMethods = () => {
-    const [payment_methods, setPaymentMethods] = React.useState(payment_data)
-
-    React.useEffect(() => {
-        const binary_socket = BinarySocketBase.init()
-
-        binary_socket.onopen = () => {
-            binary_socket.send(JSON.stringify({ website_status: 1 }))
-        }
-        binary_socket.onmessage = (msg) => {
-            const response = JSON.parse(msg.data)
-            const filtered_payment_data = payment_methods.map((payment) => {
-                if (payment.is_crypto) {
-                    payment.data = payment.data.map((data) => {
-                        const minimum_withdrawal = +response.website_status.crypto_config[
-                            data.currencies
-                        ].minimum_withdrawal
-
-                        const min_log_n = Math.floor(Math.log10(minimum_withdrawal))
-                        const min_division = min_log_n < 0 ? Math.pow(10, 1 - min_log_n) : 100
-
-                        const result_min_withdrawal =
-                            Math.round(minimum_withdrawal * min_division) / min_division
-
-                        data.min_max_withdrawal = result_min_withdrawal
-                        data.tooltip = minimum_withdrawal
-                        return data
-                    })
-                }
-                return payment
-            })
-
-            setPaymentMethods(filtered_payment_data)
-            binary_socket.close()
-        }
-    }, [])
     return (
         <Layout>
             <Helmet>
@@ -110,10 +75,11 @@ const PaymentMethods = () => {
                     <Header as="h1" align="center" mb="1.6rem">
                         {localize('Payment methods')}
                     </Header>
-                    <Text max_width="99.6rem" align="center" size="var(--text-size-m)">
-                        {localize(
-                            'All your deposits and withdrawals are processed within 1 working day. However, there may be additional processing time required by your bank or money transfer service.',
-                        )}
+                    <Text align="center" size="var(--text-size-m)">
+                        {localize('We support a variety of deposit and withdrawal options.')}
+                    </Text>
+                    <Text align="center" size="var(--text-size-m)">
+                        {localize('Learn more about our payment methods and how to use them.')}
                     </Text>
                 </Container>
             </SectionContainer>
@@ -122,7 +88,7 @@ const PaymentMethods = () => {
                 <Container direction="column">
                     <AccordionContainer>
                         <Accordion has_single_state>
-                            {payment_methods.map((pd, idx) => (
+                            {payment_data.map((pd, idx) => (
                                 <AccordionItem
                                     key={idx}
                                     content_style={{
@@ -163,7 +129,7 @@ const PaymentMethods = () => {
                                                         ) : (
                                                             <React.Fragment>
                                                                 <BoldText>
-                                                                    {localize('Min - max')}
+                                                                    {localize('Min-max')}
                                                                 </BoldText>
                                                                 <BoldText>
                                                                     {localize('deposit')}
@@ -173,13 +139,18 @@ const PaymentMethods = () => {
                                                     </Th>
                                                     <Th>
                                                         {pd.is_crypto ? (
-                                                            <BoldText>
-                                                                {localize('Min withdrawal')}
-                                                            </BoldText>
+                                                            <>
+                                                                <BoldText>
+                                                                    {localize('Min withdrawal')}
+                                                                </BoldText>
+                                                                <BoldText>
+                                                                    {localize('(in USD)')}
+                                                                </BoldText>
+                                                            </>
                                                         ) : (
                                                             <React.Fragment>
                                                                 <BoldText>
-                                                                    {localize('Min - max')}
+                                                                    {localize('Min-max')}
                                                                 </BoldText>
                                                                 <BoldText>
                                                                     {localize('withdrawal')}
@@ -220,7 +191,7 @@ const PaymentMethods = () => {
                                     </Scrollbar>
                                     {pd.note && (
                                         <Notes>
-                                            <Text weight="500" size="var(--text-size-xxs)">
+                                            <Text weight="500" size="var(--text-size-xs)">
                                                 {localize('Note:')} {pd.note}
                                             </Text>
                                         </Notes>
@@ -229,6 +200,12 @@ const PaymentMethods = () => {
                             ))}
                         </Accordion>
                     </AccordionContainer>
+                    <Text mt="1.6rem" size="var(--text-size-xs)" align="left">
+                        <Localize
+                            translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 working day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
+                            components={[<strong key={0} />]}
+                        />
+                    </Text>
                 </Container>
             </SectionContainer>
         </Layout>

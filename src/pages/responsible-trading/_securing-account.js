@@ -14,7 +14,7 @@ const Ul = styled(Flex).attrs({ as: 'ul' })`
     flex-wrap: wrap;
 `
 const Li = styled(Flex).attrs({ as: 'li' })`
-    max-width: 48.6rem;
+    max-width: 38.4rem;
     display: flex;
     margin: 2rem 1.2rem;
 
@@ -23,6 +23,9 @@ const Li = styled(Flex).attrs({ as: 'li' })`
     }
 `
 const ResponsiveBox = styled(Box)`
+    ${Text} {
+        max-width: 28.8rem;
+    }
     @media ${device.mobileL} {
         margin-left: 0;
         margin-top: 1.6rem;

@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Text } from 'components/elements'
+import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Localize, localize } from 'components/localization'
 import GamStop from 'images/svg/gamstop.svg'
-//import BeGambleAware from 'images/common/begambleaware.png'
+import BeGambleAware from 'images/svg/begambleaware.svg'
 import Underage from 'images/svg/underage.svg'
 import Filtering from 'images/svg/filtering-controls.svg'
 
@@ -19,13 +19,27 @@ const help_content = [
             <Localize translate_text="GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain." />
         ),
         icon: <GamStop />,
+        link: (
+            <Text pt="2rem">
+                <LocalizedLinkText mt="1rem" to="https://www.gamstop.co.uk/" color="red">
+                    {localize('Click here to find out more')}
+                </LocalizedLinkText>
+            </Text>
+        ),
     },
     {
         header: <Localize translate_text="BeGambleAware" />,
         text: (
-            <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
+            <Text mt="2.5rem">
+                <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
+            </Text>
         ),
-        icon: <GamStop />,
+        icon: <BeGambleAware />,
+        link: (
+            <LocalizedLinkText mt="1rem" to="https://www.begambleaware.org/" color="red">
+                {localize('Click here to find out more')}
+            </LocalizedLinkText>
+        ),
     },
     {
         header: <Localize translate_text="Underage gambling" />,
@@ -80,7 +94,7 @@ const ClientCard = styled.article`
     width: 47rem;
     padding: 3.2rem 2.4rem;
     height: 100%;
-    min-height: 24rem;
+    min-height: 26.5rem;
     position: relative;
 
     ${Flex} {
@@ -131,8 +145,9 @@ const NeedHelp = () => {
                                 <Header as="h4">{item.header}</Header>
                                 {item.icon}
                             </Flex>
-                            <Text>{item.text}</Text>
-                            <Text pt="1rem">{item.text2}</Text>
+                            <Text pb="1rem">{item.text}</Text>
+                            <Text>{item.text2}</Text>
+                            <Text>{item.link}</Text>
                         </ClientCard>
                     )
                 })}

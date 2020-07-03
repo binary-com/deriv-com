@@ -88,7 +88,7 @@ commands:
           include_project_field: false
           failure_message: "Release failed for *Deriv* with version *$(cat _site/version)*"
           success_message: "Release succeeded for *Deriv* with version *$(cat _site/version)*"
-          webhook: ${SLACK_WEBHOOK} 
+          webhook: ${SLACK_WEBHOOK}
 
   docker_build:
     description: "Build Docker image"
@@ -156,7 +156,7 @@ jobs:
       - docker_push
       - k8s_deploy
 
-  build_deploy_production-a:
+  build_deploy_production:
     docker:
       - image: circleci/node:lts-stretch
         environment:
@@ -172,24 +172,9 @@ jobs:
           docker_image_tag: latest
       - docker_push
       - deploy_gh_pages:
-          target_branch: "production-a"
+          target_branch: "production"
       - k8s_deploy:
           k8s_svc_name: "production-deriv-com"
-
-  build_deploy_production-b:
-    docker:
-      - image: circleci/node:lts-stretch
-        environment:
-          - GATSBY_CPU_COUNT=2
-          - GATSBY_MAP_API_KEY=${GATSBY_MAP_API_KEY}
-          - GATSBY_ENV=production
-    steps:
-      - git_checkout_from_cache
-      - npm_install_from_cache
-      - npm_test
-      - build
-      - deploy_gh_pages:
-          target_branch: "production-b"
 
 workflows:
   build_and_push_dev:
@@ -207,22 +192,12 @@ workflows:
             branches:
               only: /^master/
 
-  build_deploy_production-a:
+  build_deploy_production:
     jobs:
-      - build_deploy_production-a:
+      - build_deploy_production:
           context: binary-frontend-artifact-upload
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^production_a.*/
-
-  build_deploy_production-b:
-    jobs:
-      - build_deploy_production-b:
-          context: binary-frontend-artifact-upload
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^production_b.*/
+              only: /^production.*/

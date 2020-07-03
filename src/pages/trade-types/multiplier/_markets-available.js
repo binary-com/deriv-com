@@ -55,7 +55,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Take part in the world’s largest financial market. Trade digital options on major, minor, and smart forex pairs.',
+                                        'Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake.',
                                     )}
                                 </Text>
                                 <LearnMore
@@ -77,7 +77,7 @@ const MarketsAvailable = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Trade digital options, lookbacks, and Spread Up/Spread down 24/7 on our synthetic indices that are free from real-world disruptions.',
+                                        'Trade multipliers on synthetic indices that are available 24/7 and increase your profit potential multiples times while limiting your risk.',
                                     )}
                                 </Text>
                                 <LearnMore

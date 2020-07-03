@@ -110,6 +110,7 @@ const HowItWorksItem = styled(Flex)`
     flex-direction: column;
     padding: 2.4rem;
     min-height: 24rem;
+    border-radius: 4px;
     height: auto;
 
     @media ${device.mobileL} {

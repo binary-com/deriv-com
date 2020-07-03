@@ -16,7 +16,7 @@ const StyledNote = styled(Flex)`
 
 const Notes = ({ text }) => {
     return (
-        <StyledNote ai="center" jc="flex-start">
+        <StyledNote ai="flex-start" jc="flex-start">
             <div>
                 <Info />
             </div>

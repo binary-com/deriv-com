@@ -51,6 +51,9 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                 binary_socket.close()
             }
         }
+        if (isBrowser()) {
+            window.scrollTo(0, 0)
+        }
     }, [])
 
     React.useEffect(() => {

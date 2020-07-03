@@ -6,7 +6,7 @@ import { Show } from '../../components/containers'
 import { OurStory } from './_our-story'
 import Leaders from './_leaders'
 import { Container, Box, Flex, SEO } from 'components/containers'
-import { getLocationHash, isBrowser } from 'common/utility'
+import { getLocationHash, isBrowser, scrollTop } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -176,7 +176,8 @@ const About = () => {
         const new_tab = getLocationHash() || 'story'
         setTab(new_tab)
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-    })
+        scrollTop()
+    }, [getLocationHash()])
 
     const data = useStaticQuery(query)
     return (

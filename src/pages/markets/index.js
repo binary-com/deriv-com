@@ -6,7 +6,7 @@ import SyntheticIndices from './synthetic/_synthetic-indices.js'
 import StockIndices from './stock/_stock-indices.js'
 import { Hero } from './_hero'
 import Signup, { Appearances } from 'components/custom/signup'
-import { getLocationHash, isBrowser } from 'common/utility'
+import { getLocationHash, isBrowser, scrollTop } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { SEO, Flex, Box } from 'components/containers'
@@ -155,7 +155,8 @@ const Markets = () => {
         } else {
             setTab(getLocationHash())
         }
-    })
+        scrollTop()
+    }, [getLocationHash()])
     const handleTabChange = (tab_name) => {
         setTab(tab_name)
         isBrowser() && window.history.pushState(null, null, `#${tab_name}`)

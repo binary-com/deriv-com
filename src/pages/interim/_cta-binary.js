@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
-import { binary_url } from 'common/utility'
 import BinaryWhite from 'images/svg/interim/binary-white.svg'
 import BinaryBlue from 'images/svg/binary.svg'
 
@@ -28,7 +27,8 @@ const CtaBinary = ({ is_white }) => {
                             is_white={is_white}
                             key={0}
                             external
-                            to={binary_url}
+                            to="home"
+                            is_binary_link
                             target="_blank"
                             rel="noopener noreferrer"
                             color={color}

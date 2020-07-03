@@ -66,9 +66,7 @@ const ResponsibleTrading = () => {
                 </Hero>
                 <SecureAccount />
                 <TradingResponsibly />
-                <Container>
-                    <TradingLimits />
-                </Container>
+                <TradingLimits />
                 <Show.Eu>
                     <NeedHelp />
                 </Show.Eu>

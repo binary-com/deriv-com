@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import EUgrid from './_eu-grid'
 // import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
@@ -20,6 +20,21 @@ import Vanuatu from 'images/svg/footer-vanuatu.svg'
 import FSC from 'images/svg/fsc.svg'
 import Labuan from 'images/svg/footer-labuan.svg'
 import device from 'themes/device.js'
+
+const svg_style = css`
+    width: 16rem;
+    height: 8rem;
+`
+
+const IcVanuatu = styled(Vanuatu)`
+    ${svg_style}
+`
+const IcFSC = styled(FSC)`
+    ${svg_style}
+`
+const IcLabuan = styled(Labuan)`
+    ${svg_style}
+`
 
 const StyledHeader = styled(Header)`
     max-width: ${(props) => props.maxwidth || '100%'};
@@ -51,9 +66,6 @@ const Europe = styled(EU)`
     width: 100%;
     height: 100%;
     margin: 0;
-`
-const MaxText = styled(Text)`
-    max-width: 62.2rem;
 `
 // will be added once the proper documents are ready
 // const AccordionWrapper = styled(Flex)`
@@ -159,24 +171,75 @@ const Regulatory = () => (
             </AccordionWrapper> */}
         </SectionContainer>
         <SectionContainer padding="0">
-            <GridContainer>
+            <SmallContainer>
                 <Box padding="0 0 8rem">
                     <CssGrid
                         height="auto"
                         columns="15.4rem 1fr"
-                        column_gap="1.6rem"
+                        column_gap="3.2rem"
                         row_gap="4rem"
                         tablet_columns="1fr 5fr"
                         mobile_columns="1fr"
                     >
-                        <CssGridColumn align="center">
-                            <Labuan />
+                        <CssGridColumn align="flex-start">
+                            <IcVanuatu />
                         </CssGridColumn>
                         <CssGridColumn>
-                            <StyledHeader size="3.2rem" lh="4rem" as="h4">
+                            <StyledHeader lh="4rem" as="h4">
+                                {localize('Deriv (V) Ltd')}
+                            </StyledHeader>
+                            <Text mt="0.8rem" mb="1.6rem">
+                                <Localize
+                                    translate_text="Deriv (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu, is licensed and regulated by the Vanuatu Financial Services Commission — <0>view licence</0>."
+                                    components={[
+                                        <LinkText
+                                            key={0}
+                                            color="red"
+                                            weight="bold"
+                                            target="_blank"
+                                            href="/Vanuatu-Financial-Services-Commission.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </Text>
+                            <Text>
+                                {localize(
+                                    'Clients from the rest of the world (except for restricted countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 accounts opened under Deriv (V) Ltd.',
+                                )}
+                            </Text>
+                        </CssGridColumn>
+                        <CssGridColumn align="flex-start">
+                            <IcFSC />
+                        </CssGridColumn>
+                        <CssGridColumn>
+                            <StyledHeader lh="4rem" as="h4">
+                                {localize('Binary (BVI) Ltd')}
+                            </StyledHeader>
+                            <Text lh="1.55" mt="0.8rem">
+                                <Localize
+                                    translate_text="Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands. Licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
+                                    components={[
+                                        <LinkText
+                                            key={0}
+                                            color="red"
+                                            weight="bold"
+                                            target="_blank"
+                                            href="/DBVI_license.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </Text>
+                        </CssGridColumn>
+                        <CssGridColumn align="flex-start">
+                            <IcLabuan />
+                        </CssGridColumn>
+                        <CssGridColumn>
+                            <StyledHeader lh="4rem" as="h4">
                                 {localize('Binary (FX) Ltd')}
                             </StyledHeader>
-                            <MaxText lh="1.55" mt="0.8rem">
+                            <Text lh="1.55" mt="0.8rem">
                                 <Localize
                                     translate_text="Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia. Licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business <0>licence no. MB/18/0024</0>."
                                     components={[
@@ -190,35 +253,12 @@ const Regulatory = () => (
                                         />,
                                     ]}
                                 />
-                            </MaxText>
-                            <MaxText lh="1.55" mt="2rem">
+                            </Text>
+                            <Text lh="1.55" mt="2rem">
                                 {localize(
                                     'Clients who wish to trade FX and CFDs with straight-through processing will have their account opened with Binary (FX) Ltd.',
                                 )}
-                            </MaxText>
-                        </CssGridColumn>
-                        <CssGridColumn align="center">
-                            <Vanuatu />
-                        </CssGridColumn>
-                        <CssGridColumn>
-                            <StyledHeader size="3.2rem" lh="4rem" as="h4">
-                                {localize('Binary (V) Ltd')}
-                            </StyledHeader>
-                            <MaxText lh="1.55" mt="0.8rem">
-                                <Localize
-                                    translate_text="Binary (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu. Licensed and regulated by the Vanuatu Financial Services Commission - <0>view licence</0>."
-                                    components={[
-                                        <LinkText
-                                            key={0}
-                                            color="red"
-                                            weight="bold"
-                                            target="_blank"
-                                            href="/Vanuatu-Financial-Services-Commission.pdf"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </MaxText>
+                            </Text>
                         </CssGridColumn>
                         {/* Will be added later */}
                         {/* <CssGridColumn align="center">
@@ -235,32 +275,9 @@ const Regulatory = () => (
                                 )}
                             </Text>
                         </CssGridColumn> */}
-                        <CssGridColumn align="center">
-                            <FSC />
-                        </CssGridColumn>
-                        <CssGridColumn>
-                            <StyledHeader size="3.2rem" lh="4rem" as="h4">
-                                {localize('Binary (BVI) Ltd')}
-                            </StyledHeader>
-                            <MaxText lh="1.55" mt="0.8rem">
-                                <Localize
-                                    translate_text="Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands. Licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
-                                    components={[
-                                        <LinkText
-                                            key={0}
-                                            color="red"
-                                            weight="bold"
-                                            target="_blank"
-                                            href="/DBVI_license.pdf"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </MaxText>
-                        </CssGridColumn>
                     </CssGrid>
                 </Box>
-            </GridContainer>
+            </SmallContainer>
         </SectionContainer>
     </Layout>
 )

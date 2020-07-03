@@ -26,7 +26,7 @@ const Th = styled.th`
 
 const StyledTable = styled.table`
     border-collapse: collapse;
-    width: 100%;
+    width: 110.4rem;
     margin-bottom: ${(props) => (props.has_note ? '2.4rem' : 0)};
 `
 
@@ -55,6 +55,7 @@ const Notes = styled.div`
     padding: 1.6rem;
     background: var(--color-grey-8);
     left: 0;
+    bottom: 0;
 `
 
 const PaymentMethods = () => {

@@ -143,7 +143,7 @@ const payment_data = [
                 method: <Help2PayIc />,
                 currencies: 'USD',
                 min_max_deposit: '10-10,000',
-                min_max_withdrawal: 'Not applicable',
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (
@@ -156,7 +156,7 @@ const payment_data = [
                 method: <DragonPhoenixIc />,
                 currencies: 'USD',
                 min_max_deposit: '10-10,000',
-                min_max_withdrawal: 'Not applicable',
+                min_max_withdrawal: <Localize translate_text="Not applicable" />,
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="Not applicable" />,
                 description: (

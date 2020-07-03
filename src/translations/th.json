@@ -1208,7 +1208,7 @@
     "-1048378719": "Reset Call/Reset Put",
     "-1282312809": "สูง/ต่ำ",
     "-151151292": "Asians",
-    "-632683307": "Predict whether the exit spot (last tick) will be higher or lower than the average of the ticks at the end of the contract period.",
+    "-632683307": "คาดการณ์ราคาว่าจุดออกของค่า tick จะสูงกว่าหรือต่ำกว่าราคาค่าเฉลี่ยของ tick เมื่อสิ้นสุดระยะเวลาของสัญญา",
     "-1237186896": "Only Ups/Only Downs",
     "-1316646998": "Predict whether consecutive ticks will rise or fall successively after the entry spot.",
     "-1386887449": "Lookbacks",

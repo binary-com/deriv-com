@@ -168,7 +168,7 @@ const Policies = () => {
                             </Text>
                             <Text mb="0.8rem">
                                 <Localize
-                                    translate_text="The interest adjustment is calculated on an annual basis for long and short positions according to the formula: <0>(volume in lot *specified swap size/100)/360</0>."
+                                    translate_text="The interest adjustment is calculated on an annual basis for long and short positions according to the formula: <0>(volume in lot * specified swap size/100)/360</0>."
                                     components={[<strong key={0} />]}
                                 />
                             </Text>

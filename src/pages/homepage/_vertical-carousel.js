@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { Header } from 'components/elements'
 import { Flex, Box } from 'components/containers'
 import device from 'themes/device'
-import { Localize } from 'components/localization'
 
 const VerticalCarouselWrapper = styled(Flex)`
     position: relative;
@@ -67,9 +66,9 @@ const VerticalCarousel = ({ contents }) => {
                         color="white"
                         active_header={active_header}
                         index={index}
-                        key={content}
+                        key={index}
                     >
-                        <Localize translate_text={content} />
+                        {content}
                     </StyledHeader>
                 ))}
             </VerticalCarouselContainer>

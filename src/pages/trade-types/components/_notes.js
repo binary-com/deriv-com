@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
+import device from 'themes/device'
 import Info from 'images/svg/trade-types/info.svg'
 
 const StyledNote = styled(Flex)`
@@ -12,11 +13,15 @@ const StyledNote = styled(Flex)`
     width: auto;
     position: relative;
     background: var(--color-grey-25);
+
+    @media ${device.tabletS} {
+        align-items: flex-start;
+    }
 `
 
 const Notes = ({ text }) => {
     return (
-        <StyledNote ai="flex-start" jc="flex-start">
+        <StyledNote ai="center" jc="flex-start">
             <div>
                 <Info />
             </div>

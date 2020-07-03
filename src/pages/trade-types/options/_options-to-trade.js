@@ -235,16 +235,14 @@ const DigitsGrid = () => {
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        'If you select ‘Even’, you will win the payout if the last digit of the last tick is an even number',
+                        'If you select ‘Even’, you will win the payout if the last digit of the last tick is an even number (i.e. 2, 4, 6, 8, or 0).',
                     )}
                 </MiddleText>
-                <Text>{localize('(i.e. 2, 4, 6, 8, or 0).')}</Text>
                 <Text>
                     {localize(
-                        'If you select ‘Odd’, you will win the payout if the last digit of the last tick is an odd number',
+                        'If you select ‘Odd’, you will win the payout if the last digit of the last tick is an odd number (i.e. 1, 3, 5, 7, or 9).',
                     )}
                 </Text>
-                <Text>{localize('(i.e. 1, 3, 5, 7, or 9).')}</Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>

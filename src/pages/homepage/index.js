@@ -1,10 +1,10 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
-import { Hero } from './home/_hero'
-import { Trade } from './home/_trade'
-import TradeTheWayYouLike from './home/_trade-the-way-you-like'
-import Markets from './home/_markets'
-import WhatOurClientsSay from './home/_what-our-clients-say'
+import { Trade } from '../home/_trade'
+import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
+import Markets from '../home/_markets'
+import WhatOurClientsSay from '../home/_what-our-clients-say'
+import { Hero } from './_hero'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -39,12 +39,13 @@ const simple_step_content = [
 ]
 const Home = () => {
     return (
-        <Layout>
+        <Layout type="new-home">
             <SEO
                 title={localize('Online trading platform | Forex, commodities and indices | Deriv')}
                 description={localize(
                     'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
                 )}
+                no_index
             />
             <Hero />
             <Show.Mobile>

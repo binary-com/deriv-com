@@ -124,6 +124,15 @@ commands:
           command: |
             echo $CA_CRT | base64 --decode > ca.crt
             kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG}
+
+    notify_slack:
+      description: "Notify slack"
+      steps:
+        - slack/status:
+            include_project_field: false
+            failure_message: "Release failed for liveapi.binary.com with version *$(cat lib/version)*"
+            success_message: "Release succeeded for liveapi.binary.com with version *$(cat lib/version)*"
+            webhook: ${SLACK_WEBHOOK}
 jobs:
   test:
     docker:
@@ -155,6 +164,7 @@ jobs:
       - docker_build
       - docker_push
       - k8s_deploy
+      - notify_slack
 
   build_deploy_production:
     docker:
@@ -175,6 +185,7 @@ jobs:
       - docker_push
       - k8s_deploy:
           k8s_svc_name: "production-deriv-com"
+      - notify_slack
 
 workflows:
   build_and_push_dev:

@@ -168,11 +168,11 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
+      - deploy_gh_pages:
+          target_branch: "production"
       - docker_build:
           docker_image_tag: latest
       - docker_push
-      - deploy_gh_pages:
-          target_branch: "production"
       - k8s_deploy:
           k8s_svc_name: "production-deriv-com"
 

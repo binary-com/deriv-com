@@ -298,14 +298,16 @@ const Footer = () => {
                                         <Title>{localize('TRADE TYPES')}</Title>
                                     </LinkWrapper>
                                     <LinkWrapper first_child="true">
-                                        <Link to="/trade-types/margin">{localize('Margin')}</Link>
+                                        <Link to="/trade-types/margin">
+                                            {localize('Margin trading')}
+                                        </Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/trade-types/options">{localize('Options')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/trade-types/multiplier">
-                                            {localize('Multiplier')}
+                                            {localize('Multipliers')}
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>
@@ -446,7 +448,7 @@ const Footer = () => {
                                     >
                                         <Item>
                                             <Link to="/trade-types/margin">
-                                                {localize('Margin')}
+                                                {localize('Margin trading')}
                                             </Link>
                                         </Item>
                                         <Item>
@@ -456,7 +458,7 @@ const Footer = () => {
                                         </Item>
                                         <Item>
                                             <Link to="/trade-types/multiplier">
-                                                {localize('Multiplier')}
+                                                {localize('Multipliers')}
                                             </Link>
                                         </Item>
                                     </AccordionItem>

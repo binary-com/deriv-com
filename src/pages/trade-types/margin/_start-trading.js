@@ -32,7 +32,7 @@ const StartTrading = () => {
                             )}
                         </Timeline.Item>
                     </Timeline>
-                    <LinkButton mt="4rem" to="/signup/" secondary="true">
+                    <LinkButton mt="4rem" to="/dmt5/" secondary="true">
                         {localize('Create a demo DMT5 account')}
                     </LinkButton>
                 </SmallContainer>

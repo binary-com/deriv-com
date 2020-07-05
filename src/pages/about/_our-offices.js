@@ -46,7 +46,7 @@ const OvalWrapper = styled.div`
 
     > div:first-child {
         opacity: 0;
-        transition: visibility 0s, opacity 0.5s linear;
+        transition: visibility 0s, opacity 0.2s linear;
     }
     &:hover {
         > div {
@@ -148,7 +148,7 @@ export const OurOffices = () => {
                     </MapImageWrapper>
 
                     <MapLink to="/contact-us/#paraguay" anchor>
-                        <OvalWrapper top="69" left="34">
+                        <OvalWrapper top="68" left="32">
                             <SpeechBubble>
                                 <Flex ai="center">
                                     <Text color="red">{localize('Paraguay')}</Text>
@@ -160,10 +160,10 @@ export const OurOffices = () => {
                         </OvalWrapper>
                     </MapLink>
                     <MapLink to="/contact-us/#malta" anchor>
-                        <OvalWrapper top="21.6" left="55">
+                        <OvalWrapper top="22" left="53">
                             <SpeechBubble>
                                 <Flex ai="center">
-                                    <Text color="red">{localize('malta')}</Text>
+                                    <Text color="red">{localize('Malta')}</Text>
                                     <Arrow />
                                 </Flex>
                                 <SpeechBubbleArrow />
@@ -172,10 +172,10 @@ export const OurOffices = () => {
                         </OvalWrapper>
                     </MapLink>
                     <MapLink to="/contact-us/#dubai" anchor>
-                        <OvalWrapper top="30.6" left="69">
+                        <OvalWrapper top="32" left="67">
                             <SpeechBubble>
                                 <Flex ai="center">
-                                    <Text color="red">{localize('dubai')}</Text>
+                                    <Text color="red">{localize('Dubai')}</Text>
                                     <Arrow />
                                 </Flex>
                                 <SpeechBubbleArrow />
@@ -184,10 +184,10 @@ export const OurOffices = () => {
                         </OvalWrapper>
                     </MapLink>
                     <MapLink to="/contact-us/#cyberjaya" anchor>
-                        <OvalWrapper top="49" left="73">
+                        <OvalWrapper top="51" left="82.5">
                             <SpeechBubble>
                                 <Flex ai="center">
-                                    <Text color="red">{localize('cyberjaya')}</Text>
+                                    <Text color="red">{localize('Cyberjaya')}</Text>
                                     <Arrow />
                                 </Flex>
                                 <SpeechBubbleArrow />
@@ -197,10 +197,10 @@ export const OurOffices = () => {
                     </MapLink>
 
                     <MapLink to="/contact-us/#labuan" anchor>
-                        <OvalWrapper top="48" left="90">
+                        <OvalWrapper top="48" left="87">
                             <SpeechBubble>
                                 <Flex ai="center">
-                                    <Text color="red">{localize('labuan')}</Text>
+                                    <Text color="red">{localize('Labuan')}</Text>
                                     <Arrow />
                                 </Flex>
                                 <SpeechBubbleArrow />

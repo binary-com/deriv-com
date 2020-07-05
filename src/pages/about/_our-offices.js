@@ -6,12 +6,6 @@ import { localize, LocalizedLink } from 'components/localization'
 // import Map from 'images/svg/world-map.svg'
 import { Flex } from 'components/containers'
 import SmallMap from 'images/svg/world-map-small.svg'
-import device from 'themes/device'
-import Labuan from 'images/svg/labuan-pin-location.svg'
-import Cyberjaya from 'images/svg/cyberjaya-pin-location.svg'
-import Dubai from 'images/svg/dubai-pin-location.svg'
-import Paraguay from 'images/svg/paraguay-pin-location.svg'
-import Malta from 'images/svg/malta-pin-location.svg'
 import { Header, Text, QueryImage } from 'components/elements'
 
 const query = graphql`
@@ -44,6 +38,23 @@ const MapImageWrapper = styled.div`
 const StyledSmallMap = styled(SmallMap)`
     transform: translate(0, 0);
 `
+
+const OvalWrapper = styled.div`
+    position: absolute;
+    top: ${(props) => props.top + '%'};
+    left: ${(props) => props.left + '%'};
+
+    > div:first-child {
+        opacity: 0;
+        transition: visibility 0s, opacity 0.5s linear;
+    }
+    &:hover {
+        > div {
+            opacity: 1;
+        }
+    }
+`
+
 const Oval = styled.div`
     width: 1rem;
     height: 1rem;
@@ -52,9 +63,8 @@ const Oval = styled.div`
     animation: pulse 2s infinite;
     border-radius: 50%;
     position: absolute;
-    visibility: visible;
-    top: ${(props) => (props.top ? props.top + '%' : '87%')};
-    left: ${(props) => (props.left ? props.left + '%' : '11%')};
+    left: 46px;
+    top: 49px;
 
     @keyframes pulse {
         0% {
@@ -67,52 +77,50 @@ const Oval = styled.div`
             box-shadow: 0 0 0 0.5rem rgba(255, 68, 79, 0.3);
         }
     }
-    @media ${device.tablet} {
-        width: 0.5rem;
-        height: 0.5rem;
-        box-shadow: 0 0 0 0.3rem rgba(255, 68, 79, 0.3);
-        top: ${(props) => props.top || '87%'};
-        left: ${(props) => (props.left ? props.left - 50 + '%' : '11%')};
-    }
 `
-const Pinpoint = styled.div`
+
+const SpeechBubble = styled.div`
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    background-color: var(--color-white);
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    width: 110px;
+    text-align: center;
+`
+const SpeechBubbleArrow = styled.div`
+    border-style: solid;
     position: absolute;
-    top: ${(props) => props.top + '%'};
-    left: ${(props) => props.left + '%'};
+    border-color: var(--color-white) transparent transparent transparent;
+    border-width: 8px;
+    bottom: -8px;
+    top: 39px;
+    left: 44px;
+    z-index: 1;
 
-    > svg {
-        opacity: 0;
-        transition: visibility 0s, opacity 0.5s linear;
-    }
-    &:hover {
-        > svg {
-            opacity: 1;
-        }
+    ::after {
+        border-color: #f8f8f8 transparent transparent transparent;
+        border-style: solid;
+        border-width: 7px;
+        bottom: 1px;
+        content: '';
+        position: absolute;
+        left: -7px;
     }
 `
 
-const PinpointWrapper = styled(Labuan)`
-    position: relative;
-    left: ${(props) => props.left || '-4%'};
-`
-const CyberjayaWrapper = styled(Cyberjaya)`
-    ${PinpointWrapper}
-`
-const LabuanWrapper = styled(Labuan)`
-    ${PinpointWrapper}
-`
-const DubaiWrapper = styled(Dubai)`
-    ${PinpointWrapper}
-`
-const ParaguayWrapper = styled(Paraguay)`
-    ${PinpointWrapper}
-`
-const MaltaWrapper = styled(Malta)`
-    ${PinpointWrapper}
+const Arrow = styled.div`
+    width: 8px;
+    height: 8px;
+    box-shadow: -2px 2px 0 red;
+    transform: rotate(-135deg);
+    margin-left: 8px;
 `
 const MapLink = styled(LocalizedLink)`
     cursor: pointer;
 `
+
 export const OurOffices = () => {
     const data = useStaticQuery(query)
 
@@ -132,68 +140,73 @@ export const OurOffices = () => {
             <MapWrapper>
                 <Show.Mobile>
                     <StyledSmallMap />
-                    <MapLink to="/contact-us/#paraguay" anchor>
-                        <Pinpoint top="72" left="26">
-                            <Oval />
-                        </Pinpoint>
-                    </MapLink>
-
-                    <MapLink to="/contact-us/#malta" anchor>
-                        <Pinpoint top="29.6" left="51">
-                            <Oval />
-                        </Pinpoint>
-                    </MapLink>
-                    <MapLink to="/contact-us/#dubai" anchor>
-                        <Pinpoint top="37.6" left="64.7">
-                            <Oval />
-                        </Pinpoint>
-                    </MapLink>
-
-                    <MapLink to="/contact-us/#cyberjaya" anchor>
-                        <Pinpoint top="55" left="81.6">
-                            <Oval top="83" left="88" />
-                        </Pinpoint>
-                    </MapLink>
-                    <MapLink to="/contact-us/#labuan" anchor>
-                        <Pinpoint top="53.6" left="87">
-                            <Oval left="8" />
-                        </Pinpoint>
-                    </MapLink>
                 </Show.Mobile>
 
                 <Show.Desktop>
                     <MapImageWrapper>
                         <QueryImage data={data['world_map']} alt="World Map" width="100%" />
                     </MapImageWrapper>
+
                     <MapLink to="/contact-us/#paraguay" anchor>
-                        <Pinpoint top="69" left="34">
+                        <OvalWrapper top="69" left="34">
+                            <SpeechBubble>
+                                <Flex ai="center">
+                                    <Text color="red">{localize('Paraguay')}</Text>
+                                    <Arrow />
+                                </Flex>
+                                <SpeechBubbleArrow />
+                            </SpeechBubble>
                             <Oval />
-                            <ParaguayWrapper />
-                        </Pinpoint>
+                        </OvalWrapper>
                     </MapLink>
                     <MapLink to="/contact-us/#malta" anchor>
-                        <Pinpoint top="21.6" left="55">
+                        <OvalWrapper top="21.6" left="55">
+                            <SpeechBubble>
+                                <Flex ai="center">
+                                    <Text color="red">{localize('malta')}</Text>
+                                    <Arrow />
+                                </Flex>
+                                <SpeechBubbleArrow />
+                            </SpeechBubble>
                             <Oval />
-                            <MaltaWrapper />
-                        </Pinpoint>
+                        </OvalWrapper>
                     </MapLink>
                     <MapLink to="/contact-us/#dubai" anchor>
-                        <Pinpoint top="30.6" left="69">
+                        <OvalWrapper top="30.6" left="69">
+                            <SpeechBubble>
+                                <Flex ai="center">
+                                    <Text color="red">{localize('dubai')}</Text>
+                                    <Arrow />
+                                </Flex>
+                                <SpeechBubbleArrow />
+                            </SpeechBubble>
                             <Oval />
-                            <DubaiWrapper />
-                        </Pinpoint>
+                        </OvalWrapper>
                     </MapLink>
                     <MapLink to="/contact-us/#cyberjaya" anchor>
-                        <Pinpoint top="49" left="73">
-                            <Oval top="83" left="88" />
-                            <CyberjayaWrapper />
-                        </Pinpoint>
+                        <OvalWrapper top="49" left="73">
+                            <SpeechBubble>
+                                <Flex ai="center">
+                                    <Text color="red">{localize('cyberjaya')}</Text>
+                                    <Arrow />
+                                </Flex>
+                                <SpeechBubbleArrow />
+                            </SpeechBubble>
+                            <Oval />
+                        </OvalWrapper>
                     </MapLink>
+
                     <MapLink to="/contact-us/#labuan" anchor>
-                        <Pinpoint top="48" left="90">
-                            <Oval left="8" />
-                            <LabuanWrapper />
-                        </Pinpoint>
+                        <OvalWrapper top="48" left="90">
+                            <SpeechBubble>
+                                <Flex ai="center">
+                                    <Text color="red">{localize('labuan')}</Text>
+                                    <Arrow />
+                                </Flex>
+                                <SpeechBubbleArrow />
+                            </SpeechBubble>
+                            <Oval />
+                        </OvalWrapper>
                     </MapLink>
                 </Show.Desktop>
                 <Flex

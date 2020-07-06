@@ -16,11 +16,6 @@ const ContentWrapper = styled(Flex)`
     padding-top: 4rem;
     padding-bottom: 8rem;
 
-    @media ${device.mobileS} {
-        flex-direction: column;
-        padding: 0;
-    }
-
     @media ${device.tablet} {
         flex-direction: column;
         padding-left: 8rem;

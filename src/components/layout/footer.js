@@ -5,7 +5,6 @@ import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import { LocationContext } from './location-context'
 import { localize, Localize } from 'components/localization'
-import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv-footer.svg'
@@ -274,8 +273,8 @@ const Footer = () => {
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
-                                            to={smarttrader_url}
-                                            is_binary_link
+                                            to="trading"
+                                            is_smarttrader_link
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -405,8 +404,8 @@ const Footer = () => {
                                         </Item>
                                         <Item>
                                             <Link
-                                                to={smarttrader_url}
-                                                is_binary_link
+                                                to="trading"
+                                                is_smarttrader_link
                                                 external="true"
                                                 target="_blank"
                                                 rel="noopener noreferrer"

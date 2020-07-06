@@ -57,12 +57,11 @@ const Europe = styled(EU)`
     height: 100%;
     margin: 0;
 `
-// will be added once the proper documents are ready
-// const AccordionWrapper = styled(Flex)`
-//     @media ${device.tabletL} {
-//         padding: 0 4rem;
-//     }
-// `
+const ResponsiveGrid = styled(CssGridColumn)`
+    @media ${device.tabletL} {
+        justify-self: center;
+    }
+`
 
 const ResponsiveHeader = styled(StyledHeader)`
     @media ${device.mobileL} {
@@ -172,9 +171,9 @@ const Regulatory = () => (
                     mobile_columns="1fr"
                 >
                     {/* FOR EU */}
-                    <CssGridColumn align="flex-start">
+                    <ResponsiveGrid align="flex-start">
                         <MGA />
-                    </CssGridColumn>
+                    </ResponsiveGrid>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
                             {localize('Deriv (Europe) Limited')}
@@ -206,9 +205,9 @@ const Regulatory = () => (
                             )}
                         </Text>
                     </CssGridColumn>
-                    <CssGridColumn align="flex-start">
+                    <ResponsiveGrid align="flex-start">
                         <IOM />
-                    </CssGridColumn>
+                    </ResponsiveGrid>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
                             {localize('Deriv (MX) Ltd')}
@@ -240,9 +239,9 @@ const Regulatory = () => (
                             )}
                         </Text>
                     </CssGridColumn>
-                    <CssGridColumn align="flex-start">
+                    <ResponsiveGrid align="flex-start">
                         <SVG />
-                    </CssGridColumn>
+                    </ResponsiveGrid>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
                             {localize('Deriv (SVG) LLC')}
@@ -259,9 +258,9 @@ const Regulatory = () => (
                         </Text>
                     </CssGridColumn>
                     {/* End FOR EU */}
-                    <CssGridColumn align="flex-start">
+                    <ResponsiveGrid align="flex-start">
                         <Vanuatu />
-                    </CssGridColumn>
+                    </ResponsiveGrid>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
                             {localize('Deriv (V) Ltd')}
@@ -286,9 +285,9 @@ const Regulatory = () => (
                             )}
                         </Text>
                     </CssGridColumn>
-                    <CssGridColumn align="flex-start">
+                    <ResponsiveGrid align="flex-start">
                         <FSC />
-                    </CssGridColumn>
+                    </ResponsiveGrid>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
                             {localize('Deriv (BVI) Ltd')}
@@ -313,9 +312,9 @@ const Regulatory = () => (
                             )}
                         </Text>
                     </CssGridColumn>
-                    <CssGridColumn align="flex-start">
+                    <ResponsiveGrid align="flex-start">
                         <Labuan />
-                    </CssGridColumn>
+                    </ResponsiveGrid>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
                             {localize('Deriv (FX) Ltd')}
@@ -340,9 +339,9 @@ const Regulatory = () => (
                             )}
                         </Text>
                     </CssGridColumn>
-                    <CssGridColumn align="center">
+                    <ResponsiveGrid align="flex-start">
                         <Deriv />
-                    </CssGridColumn>
+                    </ResponsiveGrid>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
                             {localize('Deriv Limited')}
@@ -367,9 +366,9 @@ const Regulatory = () => (
                     tablet_columns="1fr 5fr"
                     mobile_columns="1fr"
                 >
-                    <CssGridColumn align="flex-start">
+                    <ResponsiveGrid align="flex-start">
                         <TFC />
-                    </CssGridColumn>
+                    </ResponsiveGrid>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
                             {localize('The Financial Commission')}

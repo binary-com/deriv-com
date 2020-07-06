@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import EUgrid from './_eu-grid'
 // import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
-import { Header, Text, LinkText, Divider } from 'components/elements'
+import { Header, Text, LinkText, Divider, Ul, Li } from 'components/elements'
 import {
     SEO,
     SectionContainer,
@@ -16,9 +16,11 @@ import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
 import EU from 'images/svg/europe-map.svg'
 // import SVG from 'images/svg/svg.svg'
-import Vanuatu from 'images/svg/footer-vanuatu.svg'
-import FSC from 'images/svg/fsc.svg'
-import Labuan from 'images/svg/footer-labuan.svg'
+import Vanuatu from 'images/svg/regulatory/vanuatu.svg'
+import FSC from 'images/svg/regulatory/bvi.svg'
+import Labuan from 'images/svg/regulatory/labuan.svg'
+import Deriv from 'images/svg/regulatory/deriv.svg'
+import TFC from 'images/svg/regulatory/tfc.svg'
 import device from 'themes/device.js'
 
 const svg_style = css`
@@ -170,113 +172,191 @@ const Regulatory = () => (
                 <DocumentAccordion />
             </AccordionWrapper> */}
         </SectionContainer>
-        <SectionContainer padding="0">
+        <SectionContainer padding="0 0 4rem">
             <SmallContainer>
-                <Box padding="0 0 8rem">
-                    <CssGrid
-                        height="auto"
-                        columns="15.4rem 1fr"
-                        column_gap="3.2rem"
-                        row_gap="4rem"
-                        tablet_columns="1fr 5fr"
-                        mobile_columns="1fr"
-                    >
-                        <CssGridColumn align="flex-start">
-                            <IcVanuatu />
-                        </CssGridColumn>
-                        <CssGridColumn>
-                            <StyledHeader lh="4rem" as="h4">
-                                {localize('Deriv (V) Ltd')}
-                            </StyledHeader>
-                            <Text mt="0.8rem" mb="1.6rem">
-                                <Localize
-                                    translate_text="Deriv (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu, is licensed and regulated by the Vanuatu Financial Services Commission — <0>view licence</0>."
-                                    components={[
-                                        <LinkText
-                                            key={0}
-                                            color="red"
-                                            weight="bold"
-                                            target="_blank"
-                                            href="/Vanuatu-Financial-Services-Commission.pdf"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </Text>
-                            <Text>
-                                {localize(
-                                    'Clients from the rest of the world (except for restricted countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 accounts opened under Deriv (V) Ltd.',
-                                )}
-                            </Text>
-                        </CssGridColumn>
-                        <CssGridColumn align="flex-start">
-                            <IcFSC />
-                        </CssGridColumn>
-                        <CssGridColumn>
-                            <StyledHeader lh="4rem" as="h4">
-                                {localize('Binary (BVI) Ltd')}
-                            </StyledHeader>
-                            <Text lh="1.55" mt="0.8rem">
-                                <Localize
-                                    translate_text="Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands. Licensed and regulated by the British Virgin Islands Financial Services Commission - <0>view licence</0>."
-                                    components={[
-                                        <LinkText
-                                            key={0}
-                                            color="red"
-                                            weight="bold"
-                                            target="_blank"
-                                            href="/DBVI_license.pdf"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </Text>
-                        </CssGridColumn>
-                        <CssGridColumn align="flex-start">
-                            <IcLabuan />
-                        </CssGridColumn>
-                        <CssGridColumn>
-                            <StyledHeader lh="4rem" as="h4">
-                                {localize('Binary (FX) Ltd')}
-                            </StyledHeader>
-                            <Text lh="1.55" mt="0.8rem">
-                                <Localize
-                                    translate_text="Binary (FX) Ltd., Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia. Licensed and regulated by the Labuan Financial Services Authority to carry on a money-broking business <0>licence no. MB/18/0024</0>."
-                                    components={[
-                                        <LinkText
-                                            key={0}
-                                            color="red"
-                                            weight="bold"
-                                            target="_blank"
-                                            href="/Labuan-license.pdf"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </Text>
-                            <Text lh="1.55" mt="2rem">
-                                {localize(
-                                    'Clients who wish to trade FX and CFDs with straight-through processing will have their account opened with Binary (FX) Ltd.',
-                                )}
-                            </Text>
-                        </CssGridColumn>
-                        {/* Will be added later */}
-                        {/* <CssGridColumn align="center">
-                            <SVG />
-                        </CssGridColumn> */}
-
-                        {/* <CssGridColumn>
-                            <StyledHeader size="3.6rem" lh="4.5rem" as='h4'>
-                                {localize('Binary (SVG) LLC')}
-                            </StyledHeader>
-                            <Text lh="1.55" mt="0.8rem">
-                                {localize(
-                                    'Binary (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines; company number 25299 BC 2019.',
-                                )}
-                            </Text>
-                        </CssGridColumn> */}
-                    </CssGrid>
-                </Box>
+                <CssGrid
+                    height="auto"
+                    columns="15.4rem 1fr"
+                    column_gap="3.2rem"
+                    row_gap="4rem"
+                    tablet_columns="1fr 5fr"
+                    mobile_columns="1fr"
+                >
+                    <CssGridColumn align="flex-start">
+                        <IcVanuatu />
+                    </CssGridColumn>
+                    <CssGridColumn>
+                        <StyledHeader lh="4rem" as="h4">
+                            {localize('Deriv (V) Ltd')}
+                        </StyledHeader>
+                        <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                            <Localize
+                                translate_text="Deriv (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu, is licensed and regulated by the Vanuatu Financial Services Commission — <0>view licence</0>."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="/Vanuatu-Financial-Services-Commission.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </Text>
+                        <Text max_width="58.8rem">
+                            {localize(
+                                'Clients from the rest of the world (except for restricted countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 accounts opened under Deriv (V) Ltd.',
+                            )}
+                        </Text>
+                    </CssGridColumn>
+                    <CssGridColumn align="flex-start">
+                        <IcFSC />
+                    </CssGridColumn>
+                    <CssGridColumn>
+                        <StyledHeader lh="4rem" as="h4">
+                            {localize('Deriv (BVI) Ltd')}
+                        </StyledHeader>
+                        <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                            <Localize
+                                translate_text="Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, is licensed and regulated by the British Virgin Islands Financial Services Commission — <0>view licence</0>."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="/DBVI_license.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </Text>
+                        <Text max_width="58.8rem">
+                            {localize(
+                                'Clients from the rest of the world (except for restricted countries such as the USA, Canada, Hong Kong) will have their FX and CFD Metatrader 5 accounts opened under Deriv (BVI) Ltd.',
+                            )}
+                        </Text>
+                    </CssGridColumn>
+                    <CssGridColumn align="flex-start">
+                        <IcLabuan />
+                    </CssGridColumn>
+                    <CssGridColumn>
+                        <StyledHeader lh="4rem" as="h4">
+                            {localize('Deriv (FX) Ltd')}
+                        </StyledHeader>
+                        <Text mt="0.8rem" max_width="58.8rem">
+                            <Localize
+                                translate_text="Deriv (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia, is licensed and regulated by the Labuan Financial Services Authority to conduct a money-broking business (<0>licence no. MB/18/0024</0>)."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="/Labuan-license.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </Text>
+                        <Text mt="2rem" max_width="58.8rem">
+                            {localize(
+                                'Clients from the rest of the world (except for restricted countries such as the USA, Canada, and territories such as the European Union) who wish to trade CFDs on forex and cryptocurrencies will have their MetaTrader 5 accounts opened under Deriv (FX) Ltd.',
+                            )}
+                        </Text>
+                    </CssGridColumn>
+                    <CssGridColumn align="center">
+                        <Deriv />
+                    </CssGridColumn>
+                    <CssGridColumn>
+                        <StyledHeader lh="4rem" as="h4">
+                            {localize('Deriv Limited')}
+                        </StyledHeader>
+                        <Text mt="0.8rem">
+                            {localize(
+                                'Deriv Limited, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the above subsidiaries.',
+                            )}
+                        </Text>
+                    </CssGridColumn>
+                </CssGrid>
+            </SmallContainer>
+        </SectionContainer>
+        <Divider />
+        <SectionContainer padding="4rem 0 8rem">
+            <SmallContainer>
+                <CssGrid
+                    height="auto"
+                    columns="15.4rem 1fr"
+                    column_gap="3.2rem"
+                    row_gap="4rem"
+                    tablet_columns="1fr 5fr"
+                    mobile_columns="1fr"
+                >
+                    <CssGridColumn align="flex-start">
+                        <TFC />
+                    </CssGridColumn>
+                    <CssGridColumn>
+                        <StyledHeader lh="4rem" as="h4">
+                            {localize('The Financial Commission')}
+                        </StyledHeader>
+                        <Text mt="0.8rem" max_width="58.8rem">
+                            <Localize
+                                translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry. (<1>view membership</1>)"
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        color="red"
+                                        weight="normal"
+                                        target="_blank"
+                                        href="/Labuan-license.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                    <LinkText
+                                        key={1}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="/Labuan-license.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </Text>
+                        <Text mt="2rem" mb="0.8rem" max_width="58.8rem">
+                            {localize('The Financial Commission offers:')}
+                        </Text>
+                        <Ul>
+                            <Li>
+                                <Text>
+                                    {localize(
+                                        'Compensation up to 20,000 EUR on a case-to-case basis',
+                                    )}
+                                </Text>
+                            </Li>
+                            <Li>
+                                <Text>{localize('Unbiased assessment of disputes')}</Text>
+                            </Li>
+                            <Li>
+                                <Text>
+                                    {localize(
+                                        'Fast and effective dispute resolution, free of charge',
+                                    )}
+                                </Text>
+                            </Li>
+                        </Ul>
+                        <Text mt="1.6rem">
+                            <Localize
+                                translate_text="To learn about our complaint handling procedures, <0>click here</0>."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="/Labuan-license.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </Text>
+                    </CssGridColumn>
+                </CssGrid>
             </SmallContainer>
         </SectionContainer>
     </Layout>

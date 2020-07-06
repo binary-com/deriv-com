@@ -1,7 +1,7 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import EUgrid from './_eu-grid'
-// import DocumentAccordion from './_document_accordion'
+import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
 import { Header, Text, LinkText, Divider, Ul, Li } from 'components/elements'
 import {
@@ -21,22 +21,10 @@ import FSC from 'images/svg/regulatory/bvi.svg'
 import Labuan from 'images/svg/regulatory/labuan.svg'
 import Deriv from 'images/svg/regulatory/deriv.svg'
 import TFC from 'images/svg/regulatory/tfc.svg'
+import MGA from 'images/svg/regulatory/mga.svg'
+import IOM from 'images/svg/regulatory/iom.svg'
+import SVG from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device.js'
-
-const svg_style = css`
-    width: 16rem;
-    height: 8rem;
-`
-
-const IcVanuatu = styled(Vanuatu)`
-    ${svg_style}
-`
-const IcFSC = styled(FSC)`
-    ${svg_style}
-`
-const IcLabuan = styled(Labuan)`
-    ${svg_style}
-`
 
 const StyledHeader = styled(Header)`
     max-width: ${(props) => props.maxwidth || '100%'};
@@ -123,7 +111,7 @@ const Regulatory = () => (
                                     key={0}
                                     weight="bold"
                                     target="_blank"
-                                    href="/WS-Binary-Investments-Europe-Limited.pdf"
+                                    href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
                                     rel="noopener noreferrer"
                                 />,
                             ]}
@@ -167,10 +155,11 @@ const Regulatory = () => (
             </SmallContainer>
         </SectionContainer>
         <SectionContainer padding="0 0 4rem 0">
-            {/* will be added once the proper documents are ready */}
-            {/* <AccordionWrapper>
+            {/* FOR EU */}
+            <SmallContainer fd="column">
                 <DocumentAccordion />
-            </AccordionWrapper> */}
+            </SmallContainer>
+            {/* End FOR EU */}
         </SectionContainer>
         <SectionContainer padding="0 0 4rem">
             <SmallContainer>
@@ -182,8 +171,96 @@ const Regulatory = () => (
                     tablet_columns="1fr 5fr"
                     mobile_columns="1fr"
                 >
+                    {/* FOR EU */}
                     <CssGridColumn align="flex-start">
-                        <IcVanuatu />
+                        <MGA />
+                    </CssGridColumn>
+                    <CssGridColumn>
+                        <StyledHeader lh="4rem" as="h4">
+                            {localize('Deriv (Europe) Limited')}
+                        </StyledHeader>
+                        <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                            <Localize
+                                translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated (for synthetic indices) by the Malta Gaming Authority (licence no. MGA/B2C/102/2000 — <0>view licence</0>) and maintains an Irish licence for clients in the UK by the UK Gambling Commission — <1>view licence</1>."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="/regulatory/Deriv_(Europe)_Ltd.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                    <LinkText
+                                        key={1}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </Text>
+                        <Text max_width="58.8rem">
+                            {localize(
+                                'Clients in the European Union who wish to trade gambling products will have their accounts opened under Deriv (Europe) Limited.',
+                            )}
+                        </Text>
+                    </CssGridColumn>
+                    <CssGridColumn align="flex-start">
+                        <IOM />
+                    </CssGridColumn>
+                    <CssGridColumn>
+                        <StyledHeader lh="4rem" as="h4">
+                            {localize('Deriv (MX) Ltd')}
+                        </StyledHeader>
+                        <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                            <Localize
+                                translate_text="Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, Isle of Man, IM2 4RW, is licensed and regulated by the Gambling Supervision Commission in the Isle of Man (online gambling licence granted on the 31 August 2017 — <0>view licence</0>) and by the UK Gambling Commission for clients in the UK — <1>view licence</1>."
+                                components={[
+                                    <LinkText
+                                        key={0}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="/regulatory/Deriv_(V)_Ltd.pdf"
+                                        rel="noopener noreferrer"
+                                    />,
+                                    <LinkText
+                                        key={0}
+                                        weight="bold"
+                                        target="_blank"
+                                        href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                        rel="noopener noreferrer"
+                                    />,
+                                ]}
+                            />
+                        </Text>
+                        <Text max_width="58.8rem">
+                            {localize(
+                                'Clients in the Isle of Man and the UK who wish to trade gambling products will have their accounts opened under Deriv (MX) Limited.',
+                            )}
+                        </Text>
+                    </CssGridColumn>
+                    <CssGridColumn align="flex-start">
+                        <SVG />
+                    </CssGridColumn>
+                    <CssGridColumn>
+                        <StyledHeader lh="4rem" as="h4">
+                            {localize('Deriv (SVG) LLC')}
+                        </StyledHeader>
+                        <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
+                            {localize(
+                                'Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company number 273 LLC 2020).',
+                            )}
+                        </Text>
+                        <Text max_width="58.8rem">
+                            {localize(
+                                'Clients from the rest of the world (except for certain countries such as the USA, Canada, and Hong Kong) will have their accounts opened under Deriv (SVG) LLC.',
+                            )}
+                        </Text>
+                    </CssGridColumn>
+                    {/* End FOR EU */}
+                    <CssGridColumn align="flex-start">
+                        <Vanuatu />
                     </CssGridColumn>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
@@ -197,7 +274,7 @@ const Regulatory = () => (
                                         key={0}
                                         weight="bold"
                                         target="_blank"
-                                        href="/Vanuatu-Financial-Services-Commission.pdf"
+                                        href="/regulatory/Deriv_(V)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -210,7 +287,7 @@ const Regulatory = () => (
                         </Text>
                     </CssGridColumn>
                     <CssGridColumn align="flex-start">
-                        <IcFSC />
+                        <FSC />
                     </CssGridColumn>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
@@ -224,7 +301,7 @@ const Regulatory = () => (
                                         key={0}
                                         weight="bold"
                                         target="_blank"
-                                        href="/DBVI_license.pdf"
+                                        href="/regulatory/Deriv_(BVI)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -237,7 +314,7 @@ const Regulatory = () => (
                         </Text>
                     </CssGridColumn>
                     <CssGridColumn align="flex-start">
-                        <IcLabuan />
+                        <Labuan />
                     </CssGridColumn>
                     <CssGridColumn>
                         <StyledHeader lh="4rem" as="h4">
@@ -251,7 +328,7 @@ const Regulatory = () => (
                                         key={0}
                                         weight="bold"
                                         target="_blank"
-                                        href="/Labuan-license.pdf"
+                                        href="/regulatory/Deriv_(FX)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}

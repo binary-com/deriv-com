@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, CssGrid, Flex, Show } from '../containers'
-import { Accordion, AccordionItem, StyledLink, Text } from '../elements'
+import { Accordion, AccordionItem, StyledLink, Text, LocalizedLinkText } from '../elements'
 import { LocationContext } from './location-context'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
@@ -221,6 +221,12 @@ const StyledMgaLogo = styled(MgaLogo)`
 `
 const StyledLogo = styled(Logo)`
     width: 18.2rem;
+`
+const BinaryLink = styled(LocalizedLinkText)`
+    &:hover {
+        text-decoration: underline;
+        color: var(--color-black);
+    }
 `
 const mobile_accordion_header = {
     borderTop: '1px solid var(--color-grey-26)',
@@ -547,10 +553,10 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
-                        <Show.NonEU>
+                        <Show.Eu>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
+                                    translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -563,26 +569,25 @@ const Footer = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (<0>view licence</0>) and by the Gambling Commission in the UK (<1>view licence</1>)."
+                                    translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (licence <0>reference no: 39172</0>)."
                                     components={[
-                                        <StaticAsset
+                                        <BinaryLink
                                             key={0}
+                                            external
+                                            to={
+                                                'https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172'
+                                            }
                                             target="_blank"
-                                            href="/Isle-of-Man-Gambling.pdf"
                                             rel="noopener noreferrer"
-                                        />,
-                                        <StaticAsset
-                                            key={1}
-                                            target="_blank"
-                                            href="/.pdf"
-                                            rel="noopener noreferrer"
+                                            size="var(--text-size-xs)"
+                                            weight="bold"
                                         />,
                                     ]}
                                 />
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text="In the rest of the EU, synthetic indices are offered by Deriv (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>view licence</0>), by the Gambling Commission in the UK for for clients residing in the UK (<1>view licence</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (<2>view licence</2>)."
+                                    translate_text=" In the rest of the EU, synthetic indices are offered by Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0> issued on 01 August 2018), by the Gambling Commission in the UK for for clients residing in the UK (licence <1>reference no: 39495</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017)."
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -590,17 +595,16 @@ const Footer = () => {
                                             href="/Malta-Gaming-Authority.pdf"
                                             rel="noopener noreferrer"
                                         />,
-                                        <StaticAsset
+                                        <BinaryLink
                                             key={1}
+                                            external
+                                            to={
+                                                'https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495'
+                                            }
                                             target="_blank"
-                                            href="/.pdf"
                                             rel="noopener noreferrer"
-                                        />,
-                                        <StaticAsset
-                                            key={2}
-                                            target="_blank"
-                                            href="/.pdf"
-                                            rel="noopener noreferrer"
+                                            size="var(--text-size-xs)"
+                                            weight="bold"
                                         />,
                                     ]}
                                 />
@@ -608,8 +612,8 @@ const Footer = () => {
                             <DisclaimerParagraph>
                                 <Localize translate_text="This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18." />
                             </DisclaimerParagraph>
-                        </Show.NonEU>
-                        {/* <Show.NonEU>
+                        </Show.Eu>
+                        <Show.NonEU>
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
@@ -653,7 +657,7 @@ const Footer = () => {
                                     "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
                                 )}
                             </DisclaimerParagraph>
-                        </Show.NonEU> */}
+                        </Show.NonEU>
 
                         <RiskWarning>
                             <Show.Desktop>

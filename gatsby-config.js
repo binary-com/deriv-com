@@ -209,5 +209,13 @@ module.exports = {
                 offset: -300,
             },
         },
+        {
+            resolve: `gatsby-plugin-nprogress`,
+            options: {
+                color: `#ff444f`,
+                showSpinner: true,
+                minimum: 0.4,
+            },
+        },
     ],
 }

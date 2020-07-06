@@ -6,17 +6,16 @@ import SetLimitLosses from 'images/svg/set-limit-chart.svg'
 import BadJudgement from 'images/svg/bad-judgement.svg'
 import Info from 'images/svg/info.svg'
 import { SectionContainer, Flex, Show } from 'components/containers'
-import { Header, Text, Divider, LocalizedLinkText } from 'components/elements'
+import { Header, Text, Divider, LocalizedLinkText, CardStyle } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
-const Card = styled.section`
+const Card = styled(Flex)`
+    ${CardStyle}
     width: ${(props) => (props.width ? props.width : 'auto')};
     min-width: 38.4rem;
     height: ${(props) => (props.height ? props.height : 'auto')};
-    background-color: var(--color-white);
     border-radius: 0.4rem;
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     padding: ${(props) => (props.padding ? props.padding : '3.2rem')};
     position: relative;
     display: flex;
@@ -24,10 +23,7 @@ const Card = styled.section`
     justify-content: space-between;
     margin-top: -17rem;
 `
-const CardWrapper = styled(Flex)`
-    justify-content: center;
-    flex-wrap: wrap;
-`
+
 const FlexContent = styled(Flex)`
     justify-content: start;
     align-items: center;
@@ -54,11 +50,11 @@ const StyledDivider = styled(Divider)`
 const StyledText = styled(Text)`
     padding-top: 1rem;
 `
-const ContentWrapper = styled(Flex)`
-    @media ${device.tabletS} {
-        flex-direction: column;
-    }
-`
+// const ContentWrapper = styled(Flex)`
+//     @media ${device.tabletS} {
+//         flex-direction: column;
+//     }
+// `
 const StyledFlex = styled(Flex)`
     width: 60.4rem;
     height: 6.6rem;
@@ -74,12 +70,12 @@ const StyledFlex = styled(Flex)`
 const TradingResponsibly = () => {
     return (
         <SectionContainer>
-            <CardWrapper>
+            <Flex jc="center" wrap>
                 <Card>
                     <Header align="center" as="h3">
                         {localize('Trading Responsibly')}
                     </Header>
-                    <ContentWrapper jc="center" ai="center" mt="2.4rem">
+                    <Flex tabletS={{ direction: 'column' }} jc="center" ai="center" mt="2.4rem">
                         <FlexContent>
                             <DontBorrow />
                             <StyledText>
@@ -115,7 +111,7 @@ const TradingResponsibly = () => {
                                 )}
                             </StyledText>
                         </FlexContent>
-                    </ContentWrapper>
+                    </Flex>
                     <Show.Eu>
                         <StyledFlex>
                             <Info />
@@ -130,7 +126,7 @@ const TradingResponsibly = () => {
                         </StyledFlex>
                     </Show.Eu>
                 </Card>
-            </CardWrapper>
+            </Flex>
         </SectionContainer>
     )
 }

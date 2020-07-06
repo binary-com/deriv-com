@@ -58,7 +58,7 @@ const TradingLimits = () => {
             <Flex height="auto">
                 <ContentWrapper>
                     <StyledContainer direction="column">
-                        <Header size="3.6rem" align="left" pb="1rem">
+                        <Header size="3.6rem" pb="1rem">
                             {localize('Trading limits and self-exclusion')}
                         </Header>
                         <Text>
@@ -99,7 +99,7 @@ const TradingLimits = () => {
             <Flex bg="var(--color-grey-25)">
                 <ContentWrapperRight>
                     <StyledContainer direction="column">
-                        <Header size="3.6rem" align="left" pb="1rem">
+                        <Header size="3.6rem" pb="1rem">
                             {localize('How trading limits and self-exclusion work')}
                         </Header>
                         <Text>

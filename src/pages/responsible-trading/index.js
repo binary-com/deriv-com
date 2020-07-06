@@ -22,19 +22,7 @@ const Hero = styled(Flex)`
 const Section = styled(SectionContainer)`
     padding: 0;
 `
-const HeroHeader = styled(Header)`
-    font-size: var(--text-size-xxl);
-    text-align: center;
-    color: var(--color-white);
-    line-height: 1.25;
-    margin-bottom: 1.6rem;
-`
-const HeroText = styled(Text)`
-    text-align: center;
-    max-width: 79.2rem;
-    margin: 0 auto;
-    color: var(--color-white);
-`
+
 const ResponsibleTrading = () => {
     const HeroBackground = isEuCountry ? EuBackground : NoneEuBackground
     return (
@@ -49,8 +37,16 @@ const ResponsibleTrading = () => {
                 <Hero background_image={HeroBackground}>
                     <Container>
                         <Flex direction="column">
-                            <HeroHeader>{localize('Secure and responsible trading')}</HeroHeader>
-                            <HeroText>
+                            <Header
+                                size="var(--text-size-xxl)"
+                                color="white"
+                                align="center"
+                                lh="1.25"
+                                mb="1.6rem"
+                            >
+                                {localize('Secure and responsible trading')}
+                            </Header>
+                            <Text align="center" max_width="79.2rem" m="0 auto" color="white">
                                 {localize(
                                     isEuCountry
                                         ? localize(
@@ -60,7 +56,7 @@ const ResponsibleTrading = () => {
                                               'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',
                                           ),
                                 )}
-                            </HeroText>
+                            </Text>
                         </Flex>
                     </Container>
                 </Hero>

@@ -97,14 +97,6 @@ const ClientCard = styled.article`
     min-height: 26.5rem;
     position: relative;
 
-    ${Flex} {
-        padding-bottom: 0.8rem;
-    }
-
-    @media (max-width: 1185px) {
-        margin: 2rem;
-        order: ${(props) => (props.order ? props.order : '')};
-    }
     @media ${device.tabletL} {
         width: 100%;
         max-width: 55rem;
@@ -141,7 +133,7 @@ const NeedHelp = () => {
                 {help_content.map((item, idx) => {
                     return (
                         <ClientCard key={idx}>
-                            <Flex ai="center">
+                            <Flex pb="0.8rem" ai="center">
                                 <Header as="h4">{item.header}</Header>
                                 {item.icon}
                             </Flex>

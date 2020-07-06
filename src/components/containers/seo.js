@@ -52,7 +52,7 @@ const SEO = ({ description, meta, title, no_index, has_organization_schema }) =>
     if (has_organization_schema) {
         organization_schema = {
             '@context': 'https://schema.org',
-            '@type': 'Organisation',
+            '@type': 'Organization',
             name: 'Deriv',
             alternateName: 'Binary.com',
             url: 'http://www.deriv.com',

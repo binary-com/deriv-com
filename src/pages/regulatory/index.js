@@ -382,14 +382,14 @@ const Regulatory = () => (
                                         color="red"
                                         weight="normal"
                                         target="_blank"
-                                        href="/Labuan-license.pdf"
+                                        href="https://financialcommission.org/"
                                         rel="noopener noreferrer"
                                     />,
                                     <LinkText
                                         key={1}
                                         weight="bold"
                                         target="_blank"
-                                        href="/Labuan-license.pdf"
+                                        href="/regulatory/Deriv_Ltd_membership.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -425,7 +425,7 @@ const Regulatory = () => (
                                         key={0}
                                         weight="bold"
                                         target="_blank"
-                                        href="/Labuan-license.pdf"
+                                        href="https://deriv.app"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}

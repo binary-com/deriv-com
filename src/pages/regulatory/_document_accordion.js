@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
-import PDFIcon from 'images/svg/pdf-icon.svg'
+import PDFIcon from 'images/svg/pdf-icon-black.svg'
+import ExcelIcon from 'images/svg/excel.svg'
 
 const FlexText = styled(LinkText)`
     display: flex;
@@ -39,7 +40,7 @@ const RTS28 = () => (
                 rel="noopener noreferrer"
                 href="/BIEL-RTS28-for-2017.pdf"
             >
-                <PDFIcon />
+                <ExcelIcon />
                 <span>{localize('RTS 27 Execution data 2019')}</span>
             </FlexText>
         </EdgeFlex>
@@ -59,7 +60,7 @@ const RTS28 = () => (
                 rel="noopener noreferrer"
                 href="/BIEL-RTS28-for-2017.pdf"
             >
-                <PDFIcon />
+                <ExcelIcon />
                 <span>{localize('RTS 27 Execution data 2018')}</span>
             </FlexText>
         </EdgeFlex>

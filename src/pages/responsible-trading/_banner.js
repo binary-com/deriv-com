@@ -29,7 +29,7 @@ const Banner = ({ header, p1, button_text }) => (
 
 export const RoleBanner = () => (
     <Banner
-        header={localize('New to trading?')}
+        header={<Localize translate_text='New to trading?' />}
         p1={localize(
             'Use our demo account and learn how to trade by using risk-free virtual funds.',
         )}

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Button } from 'components/form'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 const Section = styled.section`
     background-color: var(--color-black-3);
@@ -29,11 +29,11 @@ const Banner = ({ header, p1, button_text }) => (
 
 export const RoleBanner = () => (
     <Banner
-        header={<Localize translate_text='New to trading?' />}
-        p1={localize(
-            'Use our demo account and learn how to trade by using risk-free virtual funds.',
-        )}
-        button_text={localize('Create free demo account')}
+        header={<Localize translate_text="New to trading?" />}
+        p1={
+            <Localize translate_text="Use our demo account and learn how to trade by using risk-free virtual funds." />
+        }
+        button_text={<Localize translate_text="Create free demo account" />}
     />
 )
 

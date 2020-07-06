@@ -13,7 +13,7 @@ const Checkmark = styled.span`
         position: absolute;
         width: 2px;
         height: 9px;
-        background-color: ${(props) => (props.color ? props.color : var(--color-white))};
+        background-color: ${(props) => (props.color ? props.color : 'var(--color-white)')};
         left: 11px;
         top: 6px;
     }
@@ -22,7 +22,7 @@ const Checkmark = styled.span`
         position: absolute;
         width: 4px;
         height: 2px;
-        background-color: ${(props) => (props.color ? props.color : 'white')};
+        background-color: ${(props) => (props.color ? props.color : 'var(--color-white)')};
         left: 8px;
         top: 13px;
     }

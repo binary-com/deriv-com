@@ -50,11 +50,11 @@ const StyledDivider = styled(Divider)`
 const StyledText = styled(Text)`
     padding-top: 1rem;
 `
-// const ContentWrapper = styled(Flex)`
-//     @media ${device.tabletS} {
-//         flex-direction: column;
-//     }
-// `
+const ContentWrapper = styled(Flex)`
+    @media ${device.tabletS} {
+        flex-direction: column;
+    }
+`
 const StyledFlex = styled(Flex)`
     width: 60.4rem;
     height: 6.6rem;
@@ -75,7 +75,7 @@ const TradingResponsibly = () => {
                     <Header align="center" as="h3">
                         {localize('Trading Responsibly')}
                     </Header>
-                    <Flex tabletS={{ direction: 'column' }} jc="center" ai="center" mt="2.4rem">
+                    <ContentWrapper jc="center" ai="center" mt="2.4rem">
                         <FlexContent>
                             <DontBorrow />
                             <StyledText>
@@ -111,7 +111,7 @@ const TradingResponsibly = () => {
                                 )}
                             </StyledText>
                         </FlexContent>
-                    </Flex>
+                    </ContentWrapper>
                     <Show.Eu>
                         <StyledFlex>
                             <Info />

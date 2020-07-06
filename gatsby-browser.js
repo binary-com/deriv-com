@@ -50,7 +50,11 @@ export const onClientEntry = () => {
     NProgress.start()
 }
 
-export const onRouteUpdateDelayed = () => {
+export const onPreRouteUpdate = () => {
+    NProgress.start()
+}
+
+export const onRouteDelayed = () => {
     NProgress.start()
 }
 

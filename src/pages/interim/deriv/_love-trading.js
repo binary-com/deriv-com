@@ -13,7 +13,6 @@ import CtaBinary from '../_cta-binary'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { localize } from 'components/localization'
-import { smarttrader_url } from 'common/utility'
 
 const query = graphql`
     query {
@@ -53,8 +52,8 @@ const LoveTrading = () => {
                         <FitButton
                             external
                             white
-                            to={smarttrader_url}
-                            is_binary_link
+                            to="trading"
+                            is_smarttrader_link
                             target="_blank"
                             rel="noopener noreferrer"
                         >

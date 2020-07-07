@@ -156,11 +156,9 @@ const Regulatory = () => (
         </SectionContainer>
         <Show.Eu>
             <SectionContainer padding="0 0 4rem 0">
-                {/* FOR EU */}
                 <SmallContainer fd="column">
                     <DocumentAccordion />
                 </SmallContainer>
-                {/* End FOR EU */}
             </SectionContainer>
         </Show.Eu>
         <SectionContainer padding="0 0 4rem">

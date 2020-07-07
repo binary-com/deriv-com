@@ -94,6 +94,7 @@ const DocumentAccordion = () => {
     const parent_style = {
         marginBottom: '2.4rem',
     }
+
     return (
         <Accordion has_single_state>
             <AccordionItem
@@ -164,21 +165,6 @@ const DocumentAccordion = () => {
                     </FlexText>
                 </EdgeFlex>
             </AccordionItem>
-            {/* TODO: add when RTS documents are ready */}
-            {/* <AccordionItem
-                header="RTS"
-                content_style={content_style}
-                header_style={header_style}
-                style={item_style}
-                parent_style={parent_style}
-            >
-                <Text>
-                    {localize(
-                        'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains and losses of these products and to help you compare them with other products.',
-                    )}
-                </Text>
-                <RTS28 />
-            </AccordionItem> */}
         </Accordion>
     )
 }

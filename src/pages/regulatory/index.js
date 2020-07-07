@@ -16,16 +16,21 @@ import {
 import { localize, WithIntl, Localize } from 'components/localization'
 // Icons
 import EU from 'images/svg/europe-map.svg'
-// import SVG from 'images/svg/svg.svg'
-import Vanuatu from 'images/svg/regulatory/vanuatu.svg'
-import FSC from 'images/svg/regulatory/bvi.svg'
-import Labuan from 'images/svg/regulatory/labuan.svg'
-import Deriv from 'images/svg/regulatory/deriv.svg'
-import TFC from 'images/svg/regulatory/tfc.svg'
-import MGA from 'images/svg/regulatory/mga.svg'
-import IOM from 'images/svg/regulatory/iom.svg'
+import Vanuatu from 'images/common/regulatory/vanuatu.png'
+import FSC from 'images/common/regulatory/bvi.png'
+import Labuan from 'images/common/regulatory/labuan.png'
+import Deriv from 'images/common/regulatory/deriv.png'
+import TFC from 'images/common/regulatory/tfc.png'
+import MGA from 'images/common/regulatory/mga.png'
+import IOM from 'images/common/regulatory/iom.png'
 import SVG from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device.js'
+
+const Img = styled.img`
+    display: flex;
+    width: 16rem;
+    height: 8rem;
+`
 
 const StyledHeader = styled(Header)`
     max-width: ${(props) => props.maxwidth || '100%'};
@@ -196,7 +201,7 @@ const Regulatory = () => (
                                     {localize('Deriv (Europe) Limited')}
                                 </StyledHeader>
                             </Mobile>
-                            <MGA />
+                            <Img src={MGA} alt="MGA" />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -238,7 +243,7 @@ const Regulatory = () => (
                                     {localize('Deriv (MX) Ltd')}
                                 </StyledHeader>
                             </Mobile>
-                            <IOM />
+                            <Img src={IOM} alt="IOM" />
                         </ResponsiveGrid>
                         <CssGridColumn>
                             <Desktop>
@@ -305,7 +310,7 @@ const Regulatory = () => (
                                 {localize('Deriv (V) Ltd')}
                             </StyledHeader>
                         </Mobile>
-                        <Vanuatu />
+                        <Img src={Vanuatu} alt="Vanuatu" />
                     </ResponsiveGrid>
                     <CssGridColumn>
                         <Desktop>
@@ -339,7 +344,7 @@ const Regulatory = () => (
                                 {localize('Deriv (BVI) Ltd')}
                             </StyledHeader>
                         </Mobile>
-                        <FSC />
+                        <Img src={FSC} alt="FSC" />
                     </ResponsiveGrid>
                     <CssGridColumn>
                         <Desktop>
@@ -373,7 +378,7 @@ const Regulatory = () => (
                                 {localize('Deriv (FX) Ltd')}
                             </StyledHeader>
                         </Mobile>
-                        <Labuan />
+                        <Img src={Labuan} alt="Labuan" />
                     </ResponsiveGrid>
                     <CssGridColumn>
                         <Desktop>
@@ -407,7 +412,7 @@ const Regulatory = () => (
                                 {localize('Deriv Limited')}
                             </StyledHeader>
                         </Mobile>
-                        <Deriv />
+                        <Img src={Deriv} alt="Deriv" />
                     </ResponsiveGrid>
                     <CssGridColumn>
                         <Desktop>
@@ -441,7 +446,7 @@ const Regulatory = () => (
                                 {localize('The Financial Commission')}
                             </StyledHeader>
                         </Mobile>
-                        <TFC />
+                        <Img src={TFC} alt="TFC" />
                     </ResponsiveGrid>
                     <CssGridColumn>
                         <Desktop>

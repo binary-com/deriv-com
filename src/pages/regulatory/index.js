@@ -35,6 +35,10 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
+
+const Eu = styled(Show.Eu)`
+    display: flex;
+`
 const Box = styled.div`
     display: flex;
     flex-direction: column;
@@ -154,13 +158,13 @@ const Regulatory = () => (
                 </Box>
             </SmallContainer>
         </SectionContainer>
-        <Show.Eu>
-            <SectionContainer padding="0 0 4rem 0">
+        <SectionContainer padding="0 0 4rem 0">
+            <Eu>
                 <SmallContainer fd="column">
                     <DocumentAccordion />
                 </SmallContainer>
-            </SectionContainer>
-        </Show.Eu>
+            </Eu>
+        </SectionContainer>
         <SectionContainer padding="0 0 4rem">
             <SmallContainer>
                 <CssGrid

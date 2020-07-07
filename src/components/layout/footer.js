@@ -501,7 +501,7 @@ const Footer = () => {
                         </Show.Eu>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
+                                translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
                                 components={[
                                     <StaticAsset
                                         key={0}

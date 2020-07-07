@@ -553,7 +553,7 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
-                        <Show.NonEU>
+                        <Show.Eu>
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
@@ -587,7 +587,7 @@ const Footer = () => {
                             </DisclaimerParagraph>
                             <DisclaimerParagraph>
                                 <Localize
-                                    translate_text=" In the rest of the EU, synthetic indices are offered by Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0> issued on 01 August 2018), by the Gambling Commission in the UK for for clients residing in the UK (licence <1>reference no: 39495</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017)."
+                                    translate_text="In the rest of the EU, synthetic indices are offered by Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0> issued on 01 August 2018), by the Gambling Commission in the UK for for clients residing in the UK (licence <1>reference no: 39495</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017)."
                                     components={[
                                         <StaticAsset
                                             key={0}
@@ -612,8 +612,8 @@ const Footer = () => {
                             <DisclaimerParagraph>
                                 <Localize translate_text="This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18." />
                             </DisclaimerParagraph>
-                        </Show.NonEU>
-                        {/* <Show.NonEU>
+                        </Show.Eu>
+                        <Show.NonEU>
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
@@ -657,7 +657,7 @@ const Footer = () => {
                                     "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
                                 )}
                             </DisclaimerParagraph>
-                        </Show.NonEU> */}
+                        </Show.NonEU>
 
                         <RiskWarning>
                             <Show.Desktop>

@@ -50,6 +50,7 @@ const Forex = ({ simple_step_content }) => {
                 DigitalOptions={DigitalOptions}
                 Multipliers={Multipliers}
                 name="Forex"
+                display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
             <SimpleSteps
                 header={

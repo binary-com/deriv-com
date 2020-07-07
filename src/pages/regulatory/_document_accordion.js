@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 import PDFIcon from 'images/svg/pdf-icon-black.svg'
 // import ExcelIcon from 'images/svg/excel.svg'
 
@@ -19,6 +20,9 @@ const EdgeFlex = styled(Flex)`
     /* Edge does not support space-evenly */
     @supports (-ms-ime-align: auto) {
         justify-content: space-around;
+    }
+    @media ${device.tabletS} {
+        flex-direction: column;
     }
 `
 // TODO: add when RTS documents are ready
@@ -133,37 +137,42 @@ const DocumentAccordion = () => {
                         'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains, and losses of these products and to help you compare them with other products.',
                     )}
                 </Text>
-                <EdgeFlex mt="1.8rem" jc="space-evenly" fw="wrap">
-                    <FlexText
-                        color="red"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="/regulatory/kid_deriv_commodities.pdf"
-                    >
-                        <PDFIcon />
-                        <span>{localize('Commodities')}</span>
-                    </FlexText>
-                    <FlexText
-                        color="red"
-                        width="unset"
-                        as="a"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="/regulatory/kid_deriv_forex.pdf"
-                    >
-                        <PDFIcon />
-                        <span>{localize('Forex')}</span>
-                    </FlexText>
-                    <FlexText
-                        color="red"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="/regulatory/kid_deriv_crypto.pdf"
-                    >
-                        <PDFIcon />
-                        <span>{localize('Cryptocurrency')}</span>
-                    </FlexText>
-                </EdgeFlex>
+                <Flex ai="center" jc="center">
+                    <EdgeFlex mt="1.8rem" jc="space-evenly" fw="wrap" width="auto">
+                        <FlexText
+                            color="red"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="/regulatory/kid_deriv_commodities.pdf"
+                            m="1.6rem 2.4rem"
+                        >
+                            <PDFIcon />
+                            <span>{localize('Commodities')}</span>
+                        </FlexText>
+                        <FlexText
+                            color="red"
+                            width="unset"
+                            as="a"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="/regulatory/kid_deriv_forex.pdf"
+                            m="1.6rem 2.4rem"
+                        >
+                            <PDFIcon />
+                            <span>{localize('Forex')}</span>
+                        </FlexText>
+                        <FlexText
+                            color="red"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="/regulatory/kid_deriv_crypto.pdf"
+                            m="1.6rem 2.4rem"
+                        >
+                            <PDFIcon />
+                            <span>{localize('Cryptocurrency')}</span>
+                        </FlexText>
+                    </EdgeFlex>
+                </Flex>
             </AccordionItem>
         </Accordion>
     )

@@ -33,6 +33,7 @@ const StyledHeader = styled(Header)`
 
     @media ${device.tabletS} {
         text-align: center;
+        margin-bottom: 1.6rem;
     }
 `
 
@@ -65,6 +66,10 @@ const Europe = styled(EU)`
 const ResponsiveGrid = styled(CssGridColumn)`
     @media ${device.tabletL} {
         justify-self: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `
 
@@ -177,12 +182,20 @@ const Regulatory = () => (
                 >
                     <Show.Eu>
                         <ResponsiveGrid align="flex-start">
+                            <Show.Mobile>
+                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                    {localize('Deriv (Europe) Limited')}
+                                </StyledHeader>
+                            </Show.Mobile>
                             <MGA />
                         </ResponsiveGrid>
                         <CssGridColumn>
-                            <StyledHeader lh="4rem" as="h4">
-                                {localize('Deriv (Europe) Limited')}
-                            </StyledHeader>
+                            <Show.Desktop>
+                                <StyledHeader lh="4rem" as="h4">
+                                    {localize('Deriv (Europe) Limited')}
+                                </StyledHeader>
+                            </Show.Desktop>
+
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
                                     translate_text="Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, is licensed and regulated (for synthetic indices) by the Malta Gaming Authority (licence no. MGA/B2C/102/2000 — <0>view licence</0>) and maintains an Irish licence for clients in the UK by the UK Gambling Commission — <1>view licence</1>."
@@ -211,12 +224,19 @@ const Regulatory = () => (
                             </Text>
                         </CssGridColumn>
                         <ResponsiveGrid align="flex-start">
+                            <Show.Mobile>
+                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                    {localize('Deriv (MX) Ltd')}
+                                </StyledHeader>
+                            </Show.Mobile>
                             <IOM />
                         </ResponsiveGrid>
                         <CssGridColumn>
-                            <StyledHeader lh="4rem" as="h4">
-                                {localize('Deriv (MX) Ltd')}
-                            </StyledHeader>
+                            <Show.Desktop>
+                                <StyledHeader lh="4rem" as="h4">
+                                    {localize('Deriv (MX) Ltd')}
+                                </StyledHeader>
+                            </Show.Desktop>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 <Localize
                                     translate_text="Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, Isle of Man, IM2 4RW, is licensed and regulated by the Gambling Supervision Commission in the Isle of Man (online gambling licence granted on the 31 August 2017 — <0>view licence</0>) and by the UK Gambling Commission for clients in the UK — <1>view licence</1>."
@@ -245,12 +265,19 @@ const Regulatory = () => (
                             </Text>
                         </CssGridColumn>
                         <ResponsiveGrid align="flex-start">
+                            <Show.Mobile>
+                                <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                    {localize('Deriv (SVG) LLC')}
+                                </StyledHeader>
+                            </Show.Mobile>
                             <SVG />
                         </ResponsiveGrid>
                         <CssGridColumn>
-                            <StyledHeader lh="4rem" as="h4">
-                                {localize('Deriv (SVG) LLC')}
-                            </StyledHeader>
+                            <Show.Desktop>
+                                <StyledHeader lh="4rem" as="h4">
+                                    {localize('Deriv (SVG) LLC')}
+                                </StyledHeader>
+                            </Show.Desktop>
                             <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                                 {localize(
                                     'Deriv (SVG) LLC, Hinds Buildings, Kingstown, St. Vincent and the Grenadines (company number 273 LLC 2020).',
@@ -264,12 +291,19 @@ const Regulatory = () => (
                         </CssGridColumn>
                     </Show.Eu>
                     <ResponsiveGrid align="flex-start">
+                        <Show.Mobile>
+                            <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                {localize('Deriv (V) Ltd')}
+                            </StyledHeader>
+                        </Show.Mobile>
                         <Vanuatu />
                     </ResponsiveGrid>
                     <CssGridColumn>
-                        <StyledHeader lh="4rem" as="h4">
-                            {localize('Deriv (V) Ltd')}
-                        </StyledHeader>
+                        <Show.Desktop>
+                            <StyledHeader lh="4rem" as="h4">
+                                {localize('Deriv (V) Ltd')}
+                            </StyledHeader>
+                        </Show.Desktop>
                         <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                             <Localize
                                 translate_text="Deriv (V) Ltd, Govant Building, Port Vila, PO Box 1276, Vanuatu, Republic of Vanuatu, is licensed and regulated by the Vanuatu Financial Services Commission — <0>view licence</0>."
@@ -291,12 +325,19 @@ const Regulatory = () => (
                         </Text>
                     </CssGridColumn>
                     <ResponsiveGrid align="flex-start">
+                        <Show.Mobile>
+                            <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                {localize('Deriv (BVI) Ltd')}
+                            </StyledHeader>
+                        </Show.Mobile>
                         <FSC />
                     </ResponsiveGrid>
                     <CssGridColumn>
-                        <StyledHeader lh="4rem" as="h4">
-                            {localize('Deriv (BVI) Ltd')}
-                        </StyledHeader>
+                        <Show.Desktop>
+                            <StyledHeader lh="4rem" as="h4">
+                                {localize('Deriv (BVI) Ltd')}
+                            </StyledHeader>
+                        </Show.Desktop>
                         <Text mt="0.8rem" mb="1.6rem" max_width="58.8rem">
                             <Localize
                                 translate_text="Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, is licensed and regulated by the British Virgin Islands Financial Services Commission — <0>view licence</0>."
@@ -318,12 +359,19 @@ const Regulatory = () => (
                         </Text>
                     </CssGridColumn>
                     <ResponsiveGrid align="flex-start">
+                        <Show.Mobile>
+                            <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                {localize('Deriv (FX) Ltd')}
+                            </StyledHeader>
+                        </Show.Mobile>
                         <Labuan />
                     </ResponsiveGrid>
                     <CssGridColumn>
-                        <StyledHeader lh="4rem" as="h4">
-                            {localize('Deriv (FX) Ltd')}
-                        </StyledHeader>
+                        <Show.Desktop>
+                            <StyledHeader lh="4rem" as="h4">
+                                {localize('Deriv (FX) Ltd')}
+                            </StyledHeader>
+                        </Show.Desktop>
                         <Text mt="0.8rem" max_width="58.8rem">
                             <Localize
                                 translate_text="Deriv (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Federal Territory of Labuan, Malaysia, is licensed and regulated by the Labuan Financial Services Authority to conduct a money-broking business (<0>licence no. MB/18/0024</0>)."
@@ -345,12 +393,19 @@ const Regulatory = () => (
                         </Text>
                     </CssGridColumn>
                     <ResponsiveGrid align="flex-start">
+                        <Show.Mobile>
+                            <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                {localize('Deriv Limited')}
+                            </StyledHeader>
+                        </Show.Mobile>
                         <Deriv />
                     </ResponsiveGrid>
                     <CssGridColumn>
-                        <StyledHeader lh="4rem" as="h4">
-                            {localize('Deriv Limited')}
-                        </StyledHeader>
+                        <Show.Desktop>
+                            <StyledHeader lh="4rem" as="h4">
+                                {localize('Deriv Limited')}
+                            </StyledHeader>
+                        </Show.Desktop>
                         <Text mt="0.8rem">
                             {localize(
                                 'Deriv Limited, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the above subsidiaries.',
@@ -372,12 +427,19 @@ const Regulatory = () => (
                     mobile_columns="1fr"
                 >
                     <ResponsiveGrid align="flex-start">
+                        <Show.Mobile>
+                            <StyledHeader lh="4rem" as="h4" mb="1.6rem">
+                                {localize('The Financial Commission')}
+                            </StyledHeader>
+                        </Show.Mobile>
                         <TFC />
                     </ResponsiveGrid>
                     <CssGridColumn>
-                        <StyledHeader lh="4rem" as="h4">
-                            {localize('The Financial Commission')}
-                        </StyledHeader>
+                        <Show.Desktop>
+                            <StyledHeader lh="4rem" as="h4">
+                                {localize('The Financial Commission')}
+                            </StyledHeader>
+                        </Show.Desktop>
                         <Text mt="0.8rem" max_width="58.8rem">
                             <Localize
                                 translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry. (<1>view membership</1>)"

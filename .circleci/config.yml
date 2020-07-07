@@ -55,7 +55,7 @@ commands:
       - run:
           name: "Run build"
           command: npm run build
-  deploy_gh_pages:
+  deploy:
     description: "Deploy to static branches"
     parameters:
       target_branch:
@@ -139,7 +139,7 @@ jobs:
       - npm_test
       - build
 
-  build_deploy_staging:
+  release_staging:
     docker:
       - image: circleci/node:lts-stretch
         environment:
@@ -151,14 +151,14 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - deploy_gh_pages:
+      - deploy:
           target_branch: "staging"
       - docker_build
       - docker_push
       - k8s_deploy
       - notify_slack
 
-  build_deploy_production:
+  release_production:
     docker:
       - image: circleci/node:lts-stretch
         environment:
@@ -170,7 +170,7 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - deploy_gh_pages:
+      - deploy:
           target_branch: "production"
       - docker_build:
           docker_image_tag: latest
@@ -187,17 +187,17 @@ workflows:
             branches:
               only: /^master/
 
-  build_deploy_staging:
+  release_staging:
     jobs:
-      - build_deploy_staging:
+      - release_staging:
           context: binary-frontend-artifact-upload
           filters:
             branches:
               only: /^master/
 
-  build_deploy_production:
+  release_production:
     jobs:
-      - build_deploy_production:
+      - release_production:
           context: binary-frontend-artifact-upload
           filters:
             branches:

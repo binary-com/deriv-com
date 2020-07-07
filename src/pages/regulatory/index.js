@@ -420,7 +420,8 @@ const Regulatory = () => (
                                 </Text>
                             </Li>
                         </Ul>
-                        <Text mt="1.6rem">
+                        {/* TODO: add this when complaints group policy on deriv.app is ready */}
+                        {/* <Text mt="1.6rem">
                             <Localize
                                 translate_text="To learn about our complaint handling procedures, <0>click here</0>."
                                 components={[
@@ -433,7 +434,7 @@ const Regulatory = () => (
                                     />,
                                 ]}
                             />
-                        </Text>
+                        </Text> */}
                     </CssGridColumn>
                 </CssGrid>
             </SmallContainer>

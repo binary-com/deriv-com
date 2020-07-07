@@ -225,7 +225,7 @@ const Regulatory = () => (
                                             key={0}
                                             weight="bold"
                                             target="_blank"
-                                            href="/regulatory/Deriv_(V)_Ltd.pdf"
+                                            href="/regulatory/Deriv_(MX)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <LinkText

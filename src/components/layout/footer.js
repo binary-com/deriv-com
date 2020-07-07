@@ -553,7 +553,7 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
-                        <Show.Eu>
+                        <Show.NonEU>
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
@@ -561,7 +561,7 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/WS-Binary-Investments-Europe-Limited.pdf"
+                                            href="/Deriv-Investments-Europe-Limited.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -612,8 +612,8 @@ const Footer = () => {
                             <DisclaimerParagraph>
                                 <Localize translate_text="This website's services are not made available in certain countries, including the USA, Canada, and Hong Kong, or to persons below 18." />
                             </DisclaimerParagraph>
-                        </Show.Eu>
-                        <Show.NonEU>
+                        </Show.NonEU>
+                        {/* <Show.NonEU>
                             <DisclaimerParagraph>
                                 <Localize
                                     translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
@@ -657,7 +657,7 @@ const Footer = () => {
                                     "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",
                                 )}
                             </DisclaimerParagraph>
-                        </Show.NonEU>
+                        </Show.NonEU> */}
 
                         <RiskWarning>
                             <Show.Desktop>

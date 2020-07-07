@@ -18,6 +18,7 @@ import SideTab from './side-tab'
 import Tabs from './default-tab'
 import { Text, LinkText, LocalizedLinkText, Header } from './typography'
 import Timeline from './timeline'
+import { Ul, Li } from './lists'
 
 export {
     Accordion,
@@ -46,4 +47,6 @@ export {
     LocalizedLinkText,
     Header,
     Timeline,
+    Ul,
+    Li,
 }

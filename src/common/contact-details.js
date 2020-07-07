@@ -6,7 +6,7 @@ const address_cyberjaya = localize(
 const address_dubai = localize('1902, Jumeirah Business Center 1, JLT Cluster G, Dubai, UAE.')
 
 const address_asuncion = localize(
-    '886, Edificio Australia, Calle Herib, Campos Cerveray Tregnaghi, Distriti de Stma, Trinidad, Asuncion, Paraguay.',
+    'Edificio Australia, Oficina 1, Herib Campos Cervera 886, Asunción, Paraguay',
 )
 
 const address_labuan = localize(

@@ -141,7 +141,7 @@ const Regulatory = () => (
                     </Text>
                     <Text mt="2rem">
                         {localize(
-                            'Clients in the European Union who wish to trade investment products will have their accounts opened under Deriv Investments (Europe) Ltd.',
+                            'Clients in the European Union who wish to trade investment products will have their accounts opened under Deriv Investments (Europe) Limited.',
                         )}
                     </Text>
                 </Box>

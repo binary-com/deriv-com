@@ -12,6 +12,20 @@ import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { isBrowser } from 'common/utility'
+import LiveChatIC from 'images/svg/livechat.svg'
+import LiveChatHover from 'images/svg/livechat-hover.svg'
+
+const LiveChat = styled.div`
+    position: fixed;
+    bottom: 1.6rem;
+    right: 1.6rem;
+    background-color: var(--color-white);
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05);
+    padding: 1.6rem;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+`
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};
@@ -26,6 +40,8 @@ const cookie_expires = 7
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
+    const [is_livechat_hover, setLivechatHover] = React.useState(false)
+    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const { has_window_loaded } = React.useContext(LocaleContext)
 
     const is_static = type === 'static'
@@ -53,6 +69,11 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         }
         if (isBrowser()) {
             window.scrollTo(0, 0)
+            if (window.__lc) {
+                // console.log(window.__lc)
+                // console.log(window.LC_API)
+                setLiveChatInteractive(true)
+            }
         }
     }, [])
 
@@ -121,7 +142,6 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             <Main padding_top={padding_top} is_static={is_static}>
                 {children}
             </Main>
-
             {show_cookie_banner && (
                 <CookieBanner
                     onAccept={onAccept}
@@ -129,6 +149,24 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                     is_open={show_cookie_banner}
                 />
             )}
+            {is_livechat_interactive && (
+                <LiveChat
+                    onClick={() => {
+                        if (window.LC_API.chat_window_hidden()) {
+                            window.LC_API.open_chat_window()
+                        } else {
+                            window.LC_API.hide_chat_window()
+                        }
+
+                        return false
+                    }}
+                    onMouseEnter={() => setLivechatHover(true)}
+                    onMouseLeave={() => setLivechatHover(false)}
+                >
+                    {is_livechat_hover ? <LiveChatHover /> : <LiveChatIC />}
+                </LiveChat>
+            )}
+
             {FooterNav}
         </LocationProvider>
     )

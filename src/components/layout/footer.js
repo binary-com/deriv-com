@@ -25,6 +25,7 @@ const StyledFooter = styled.footer`
     width: 100%;
     margin: 0 auto;
     margin-bottom: ${(props) => (props.has_banner_cookie ? '18.4rem' : '0')};
+    padding-bottom: 1.6rem;
 
     ${Container} {
         @media ${device.tabletL} {
@@ -96,7 +97,7 @@ const Disclaimer = styled.div`
 `
 const DisclaimerParagraph = styled(Text)`
     font-size: var(--text-size-xs);
-    margin-top: ${(props) => (props.no_margin == 'true' ? '0' : '2.4rem')};
+    margin-top: ${(props) => (props.no_margin == 'true' ? '0' : '2rem')};
 
     @media ${device.tabletL} {
         width: 90%;
@@ -555,6 +556,7 @@ const Footer = () => {
                     <Disclaimer>
                         <Show.Eu>
                             <DisclaimerParagraph>
+                                <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
                                 <Localize
                                     translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                                     components={[
@@ -734,7 +736,7 @@ const Footer = () => {
                         <SocialWrapperComponent />
                     </Show.NonEU>
                     <Show.Eu>
-                        <Flex mt="2.6rem">
+                        <Flex mt="1rem" ai="center">
                             <StyledGamstop />
                             <StyledCoatArms />
                             <StyledMgaLogo />

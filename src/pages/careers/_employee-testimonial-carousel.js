@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
@@ -220,17 +220,17 @@ const mahdi = {
 const employee_testimonials = [kelcent, negar, mahdi]
 
 const EmployeeTestimonialCarousel = () => {
-    const [swiper, updateSwiper] = useState(null)
+    const ref = React.useRef(null)
 
     const goNext = () => {
-        if (swiper !== null) {
-            swiper.slideNext()
+        if (ref.current !== null && ref.current.swiper !== null) {
+            ref.current.swiper.slideNext()
         }
     }
 
     const goPrev = () => {
-        if (swiper !== null) {
-            swiper.slidePrev()
+        if (ref.current !== null && ref.current.swiper !== null) {
+            ref.current.swiper.slidePrev()
         }
     }
 
@@ -272,7 +272,7 @@ const EmployeeTestimonialCarousel = () => {
                 </ButtonWrapper>
                 <SliderWrapper>
                     <SwiperWrapper>
-                        <Swiper {...params} getSwiper={updateSwiper}>
+                        <Swiper {...params} ref={ref}>
                             {employee_testimonials.map((employee_slide) => (
                                 <div className="swiper-slide" key={employee_slide.name}>
                                     <EmployeeSlide

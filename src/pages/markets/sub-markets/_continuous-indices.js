@@ -10,6 +10,9 @@ import {
     INDEX75,
     INDEX100,
     INDEX10S1,
+    INDEX25S1,
+    INDEX50S1,
+    INDEX75S1,
     INDEX100S1,
 } from 'components/elements/symbols.js'
 
@@ -35,6 +38,22 @@ const ContinuousIndices = () => {
                 <Text>{localize('Volatility 10 (1s) Index')}</Text>
             </Symbol>
             <Symbol ai="center">
+                <INDEX25S1 />
+                <Text>{localize('Volatility 25 (1s) Index')}</Text>
+            </Symbol>
+            <Symbol ai="center">
+                <INDEX50S1 />
+                <Text>{localize('Volatility 50 (1s) Index')}</Text>
+            </Symbol>
+            <Symbol ai="center">
+                <INDEX75S1 />
+                <Text>{localize('Volatility 75 (1s) Index')}</Text>
+            </Symbol>
+            <Symbol ai="center">
+                <INDEX100S1 />
+                <Text>{localize('Volatility 100 (1s) Index')}</Text>
+            </Symbol>
+            <Symbol ai="center">
                 <INDEX10 />
                 <Text>{localize('Volatility 10 Index')}</Text>
             </Symbol>
@@ -49,10 +68,6 @@ const ContinuousIndices = () => {
             <Symbol ai="center">
                 <INDEX75 />
                 <Text>{localize('Volatility 75 Index')}</Text>
-            </Symbol>
-            <Symbol ai="center">
-                <INDEX100S1 />
-                <Text>{localize('Volatility 100 (1s) Index')}</Text>
             </Symbol>
             <Symbol ai="center">
                 <INDEX100 />

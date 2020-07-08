@@ -330,7 +330,7 @@ const MobileRight = styled.div`
     }
 `
 
-export const Nav = () => {
+export const Nav = ({ base }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -463,7 +463,7 @@ export const Nav = () => {
 
                 <Wrapper>
                     <NavLeft>
-                        <LogoLink to="/" aria-label={localize('Home')}>
+                        <LogoLink to={base || '/'} aria-label={localize('Home')}>
                             <QueryImage
                                 data={data['deriv']}
                                 alt={localize('Deriv')}
@@ -488,7 +488,7 @@ export const Nav = () => {
                                     <MyBinaryLink
                                         key={0}
                                         external
-                                        to={binary_url}
+                                        to={'home'}
                                         is_binary_link
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -578,6 +578,10 @@ export const Nav = () => {
     )
 }
 
+Nav.propTypes = {
+    base: PropTypes.string,
+}
+
 const ResponsiveBinary = styled(BinaryLogo)`
     @media ${device.mobileL} {
         width: 20px;
@@ -623,7 +627,7 @@ export const NavInterim = ({ interim_type }) => (
                             <BinaryLink
                                 key={0}
                                 external
-                                to={binary_url}
+                                to={'home'}
                                 is_binary_link
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -658,7 +662,7 @@ export const NavStatic = () => (
                     <BinaryLink
                         key={0}
                         external
-                        to={binary_url}
+                        to={'home'}
                         is_binary_link
                         target="_blank"
                         rel="noopener noreferrer"
@@ -832,7 +836,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external
-                                    is_affiliate_link
+                                    is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
                                 >

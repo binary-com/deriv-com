@@ -7,6 +7,7 @@ import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
 import { LocationProvider } from './location-context'
+import { LocalStore } from 'common/storage'
 import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
@@ -53,7 +54,8 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     }, [])
 
     React.useEffect(() => {
-        if (!clients_country || !has_window_loaded) return
+        if (!clients_country) return
+        if (!has_window_loaded && !LocalStore.get('window_loaded')) return
 
         const is_eu_country = isEuCountry(clients_country)
         const tracking_status = Cookies.get('tracking_status')
@@ -100,6 +102,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         case 'careers':
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} />
+            break
+        case 'new-home':
+            Navigation = <Nav base="/homepage/" />
+            FooterNav = <Footer />
             break
         default:
             Navigation = <Nav />

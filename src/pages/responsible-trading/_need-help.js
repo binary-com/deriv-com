@@ -20,7 +20,7 @@ const help_content = [
         ),
         icon: <GamStop />,
         link: (
-            <Text pt="2rem">
+            <Text pt="4.5rem">
                 <LocalizedLinkText mt="1rem" to="https://www.gamstop.co.uk/" color="red">
                     {localize('Click here to find out more')}
                 </LocalizedLinkText>
@@ -91,7 +91,7 @@ const ClientCard = styled.article`
     background-color: var(--color-white);
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-    width: 47rem;
+    width: 49rem;
     padding: 3.2rem 2.4rem;
     height: 100%;
     min-height: 26.5rem;

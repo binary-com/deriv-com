@@ -748,12 +748,24 @@ const Footer = () => {
                         </Show.Mobile>
                     </Show.Eu>
                     <Show.Eu>
-                        <EuLogoWrapper mt="1rem" ai="center">
-                            <StyledGamstop />
-                            <StyledCoatArms />
-                            <StyledMgaLogo />
-                            <Over18 />
-                        </EuLogoWrapper>
+                        <Show.Desktop>
+                            <EuLogoWrapper mt="1rem" ai="center">
+                                <StyledGamstop />
+                                <StyledCoatArms />
+                                <StyledMgaLogo />
+                                <Over18 />
+                            </EuLogoWrapper>
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            <EuLogoWrapper mt="1rem" ai="center">
+                                <StyledCoatArms />
+                                <Flex fd="column" width="auto">
+                                    <StyledMgaLogo />
+                                    <StyledGamstop />
+                                </Flex>
+                                <Over18 />
+                            </EuLogoWrapper>
+                        </Show.Mobile>
                     </Show.Eu>
                 </StyledGrid>
             </Container>

@@ -38,7 +38,7 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const cookie_expires = 7
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
-    const LC_API = window.LC_API || {}
+    let LC_API = {}
     const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
@@ -70,6 +70,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         }
         if (isBrowser()) {
             window.scrollTo(0, 0)
+            LC_API = window.LC_API || {}
         }
     }, [])
 

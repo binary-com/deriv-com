@@ -40,7 +40,8 @@ const StyledGrid = styled(CssGrid)`
         'logo logo'
         'links links'
         'disclaimer disclaimer'
-        'copyright social';
+        'copyright social'
+        'copyright eulogowrapper';
 
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
@@ -49,6 +50,7 @@ const StyledGrid = styled(CssGrid)`
             'links'
             'social'
             'disclaimer'
+            'eulogowrapper'
             'copyright';
     }
 `
@@ -162,12 +164,16 @@ const Copyright = styled(Flex)`
         width: 90%;
         margin: 0 auto;
         padding: 2rem 0;
+        justify-content: center;
 
         p {
             font-size: 1.75rem;
             line-height: 1.5;
         }
     }
+`
+const EuLogoWrapper = styled(Flex)`
+    grid-area: eulogowrapper;
 `
 const SocialWrapper = styled.div`
     grid-area: social;
@@ -283,7 +289,9 @@ const Footer = () => {
                     <DerivLogoWrapper>
                         <StyledLogo />
                         <Show.Eu>
-                            <SocialWrapperComponent />
+                            <Show.Desktop>
+                                <SocialWrapperComponent />
+                            </Show.Desktop>
                         </Show.Eu>
                     </DerivLogoWrapper>
                     <LinksWrapper>
@@ -660,7 +668,6 @@ const Footer = () => {
                                 )}
                             </DisclaimerParagraph>
                         </Show.NonEU>
-
                         <RiskWarning>
                             <Show.Desktop>
                                 <DisclaimerParagraph no_margin="true">
@@ -700,7 +707,7 @@ const Footer = () => {
                                     <strong>{localize('RISK WARNING')}</strong>
                                 </DisclaimerParagraph>
                                 <DisclaimerParagraph no_margin="true">
-                                    <Show.NonEU>
+                                    <Show.Eu>
                                         <Localize
                                             translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                                             components={[
@@ -711,7 +718,7 @@ const Footer = () => {
                                                 />,
                                             ]}
                                         />
-                                    </Show.NonEU>
+                                    </Show.Eu>
                                     <Show.NonEU>
                                         <Localize
                                             translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 72% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
@@ -736,12 +743,17 @@ const Footer = () => {
                         <SocialWrapperComponent />
                     </Show.NonEU>
                     <Show.Eu>
-                        <Flex mt="1rem" ai="center">
+                        <Show.Mobile>
+                            <SocialWrapperComponent />
+                        </Show.Mobile>
+                    </Show.Eu>
+                    <Show.Eu>
+                        <EuLogoWrapper mt="1rem" ai="center">
                             <StyledGamstop />
                             <StyledCoatArms />
                             <StyledMgaLogo />
                             <Over18 />
-                        </Flex>
+                        </EuLogoWrapper>
                     </Show.Eu>
                 </StyledGrid>
             </Container>

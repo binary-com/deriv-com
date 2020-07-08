@@ -38,7 +38,7 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const cookie_expires = 7
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
-    let LC_API = {}
+    let LC_API = (isBrowser() && window.LC_API) || {}
     const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
@@ -70,7 +70,6 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         }
         if (isBrowser()) {
             window.scrollTo(0, 0)
-            LC_API = window.LC_API || {}
         }
     }, [])
 
@@ -152,10 +151,14 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                     is_open={show_cookie_banner}
                 />
             )}
-            {is_livechat_interactive && (
+            {is_livechat_interactive && LC_API && (
                 <LiveChat
                     onClick={() => {
-                        if (LC_API.chat_window_hidden()) {
+                        const is_chat_hidden =
+                            typeof LC_API.chat_window_hidden() === 'undefined'
+                                ? true
+                                : LC_API.chat_window_hidden()
+                        if (is_chat_hidden) {
                             LC_API.open_chat_window()
                         } else {
                             LC_API.hide_chat_window()

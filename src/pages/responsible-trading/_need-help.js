@@ -123,7 +123,7 @@ const StyledHeader = styled(Header)`
 
 const NeedHelp = () => {
     return (
-        <StyledSection>
+        <StyledSection background="white">
             <Container direction="column">
                 <StyledHeader align="center" size="var(--text-size-header-1)" as="h2">
                     {localize('Need help?')}

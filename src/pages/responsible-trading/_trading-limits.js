@@ -78,17 +78,17 @@ const TradingLimits = () => {
                                 </TimelineTick.Item>
                                 <TimelineTick.Item>
                                     {localize(
+                                        'Limit the losses you may incur within a specified period.',
+                                    )}
+                                </TimelineTick.Item>
+                                <TimelineTick.Item>
+                                    {localize(
                                         'Limit the amount of time you may trade in a session.',
                                     )}
                                 </TimelineTick.Item>
                                 <TimelineTick.Item>
                                     {localize(
                                         'Exclude yourself from trading on our website for a definite or indefinite period.',
-                                    )}
-                                </TimelineTick.Item>
-                                <TimelineTick.Item>
-                                    {localize(
-                                        'Limit the amount of money you may trade within a specified period.',
                                     )}
                                 </TimelineTick.Item>
                             </TimelineTick>
@@ -131,14 +131,16 @@ const TradingLimits = () => {
                                 </TimelineTick.Item>
                             </TimelineTick>
                         </Text>
-                        <Text align="center" mt="2rem">
-                            <Localize
-                                translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
-                                components={[
-                                    <LocalizedLinkText key={0} to="/contact-us/" color="red" />,
-                                ]}
-                            />
-                        </Text>
+                        <div>
+                            <Text align="center" mt="2rem">
+                                <Localize
+                                    translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
+                                    components={[
+                                        <LocalizedLinkText key={0} to="/contact-us/" color="red" />,
+                                    ]}
+                                />
+                            </Text>
+                        </div>
                     </StyledContainer>
                 </ContentWrapperRight>
             </Flex>

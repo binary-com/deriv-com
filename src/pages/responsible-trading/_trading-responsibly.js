@@ -10,6 +10,10 @@ import { Header, Text, Divider, LocalizedLinkText, CardStyle } from 'components/
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
+const IcInfo = styled(Info)`
+    margin-left: 1rem;
+`
+
 const Card = styled(Flex)`
     ${CardStyle}
     width: ${(props) => (props.width ? props.width : 'auto')};
@@ -56,12 +60,14 @@ const ContentWrapper = styled(Flex)`
     }
 `
 const StyledFlex = styled(Flex)`
-    width: 60.4rem;
+    width: 58rem;
     height: 6.6rem;
     border-radius: 6rem;
     box-shadow: inset 0 -1px 0 0 #f2f3f4;
-    background-color: var(--pale-grey-64);
-    margin: auto;
+    background-color: var(--color-grey-25);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -73,7 +79,7 @@ const TradingResponsibly = () => {
             <Flex jc="center" wrap>
                 <Card>
                     <Header align="center" as="h3">
-                        {localize('Trading Responsibly')}
+                        {localize('Trading responsibly')}
                     </Header>
                     <ContentWrapper jc="center" ai="center" mt="2.4rem">
                         <FlexContent>
@@ -114,7 +120,7 @@ const TradingResponsibly = () => {
                     </ContentWrapper>
                     <Show.Eu>
                         <StyledFlex>
-                            <Info />
+                            <IcInfo />
                             <Text size="1.4rem" ml="1.6rem">
                                 <Localize
                                     translate_text="For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on commodities, forex, and cryptocurrencies."

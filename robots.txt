@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /404/
+Disallow: /ach/
+Disallow: /zh_cn/
+Disallow: /zh_tw/
+Disallow: /amp/
+Disallow: *derivtnc*
+Disallow: *deriv_tnc*
+Sitemap: https://deriv.com/sitemap.xml
+Host: https://deriv.com

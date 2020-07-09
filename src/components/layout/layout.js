@@ -39,7 +39,6 @@ const cookie_expires = 7
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const LC_API = (isBrowser() && window.LC_API) || {}
-    const LiveChatWidget = (isBrowser() && window.LiveChatWidget) || {}
     const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
@@ -155,12 +154,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             {is_livechat_interactive && LC_API && (
                 <LiveChat
                     onClick={() => {
-                        const is_minimized = LiveChatWidget.get('state').visibility === 'minimized'
-                        if (is_minimized) {
-                            LC_API.open_chat_window()
-                        } else {
-                            LC_API.hide_chat_window()
-                        }
+                        LC_API.open_chat_window()
                     }}
                     onMouseEnter={() => setLivechatHover(true)}
                     onMouseLeave={() => setLivechatHover(false)}

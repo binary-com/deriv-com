@@ -565,6 +565,8 @@ const Footer = () => {
                         <Show.Eu>
                             <DisclaimerParagraph>
                                 <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
+                            </DisclaimerParagraph>
+                            <DisclaimerParagraph>
                                 <Localize
                                     translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, licensed and regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                                     components={[
@@ -686,7 +688,7 @@ const Footer = () => {
                                     </Show.NonEU>
                                     <Show.Eu>
                                         <Localize
-                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 72% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. <2>72% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money</2>. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                                             components={[
                                                 <BoldLink
                                                     key={0}
@@ -694,6 +696,7 @@ const Footer = () => {
                                                     to="/responsible-trading/"
                                                 />,
                                                 <strong key={1} />,
+                                                <i key={2} />,
                                             ]}
                                         />
                                     </Show.Eu>

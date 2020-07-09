@@ -70,12 +70,9 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         }
         if (isBrowser()) {
             window.scrollTo(0, 0)
-        }
-    }, [])
-
-    React.useEffect(() => {
-        LC_API.on_after_load = () => {
-            setLiveChatInteractive(true)
+            window.LiveChatWidget.on('ready', () => {
+                setLiveChatInteractive(true)
+            })
         }
     }, [])
 
@@ -151,7 +148,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                     is_open={show_cookie_banner}
                 />
             )}
-            {is_livechat_interactive && LC_API && (
+            {is_livechat_interactive && (
                 <LiveChat
                     onClick={() => {
                         LC_API.open_chat_window()

@@ -163,8 +163,6 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                         } else {
                             LC_API.hide_chat_window()
                         }
-
-                        return false
                     }}
                     onMouseEnter={() => setLivechatHover(true)}
                     onMouseLeave={() => setLivechatHover(false)}

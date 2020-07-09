@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, CssGrid, Show, Flex } from '../containers'
-import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
+import { Text, StyledLink, Accordion, AccordionItem, LocalizedLinkText } from '../elements'
 import { LocationContext } from './location-context'
 import { localize, Localize } from 'components/localization'
 import { smarttrader_url } from 'common/utility'
@@ -212,6 +212,20 @@ const Item = styled.div`
     background-color: var(--color-grey-25);
 
     a {
+        font-size: var(--text-size-sm);
+    }
+`
+const BinaryLinkText = styled(LocalizedLinkText)`
+    font-weight: bold;
+    color: var(--color-black-3);
+    font-size: var(--text-size-xs);
+    text-decoration: none;
+
+    :hover {
+        text-decoration: underline;
+        color: var(--color-black-3);
+    }
+    @media ${device.tabletL} {
         font-size: var(--text-size-sm);
     }
 `
@@ -544,47 +558,97 @@ const Footer = () => {
                     <Disclaimer>
                         <Show.Eu>
                             <DisclaimerParagraph>
-                                <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
+                                <Localize
+                                    translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on <0>Binary.com.<0>"
+                                    components={[
+                                        <BinaryLinkText
+                                            key={0}
+                                            external
+                                            to={'home'}
+                                            is_binary_link
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
                             </DisclaimerParagraph>
                         </Show.Eu>
+
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
+                                translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
                                 components={[
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
-                                        href="/WS-Binary-Investments-Europe-Limited.pdf"
+                                        href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
                             />
                         </DisclaimerParagraph>
-                        <DisclaimerParagraph>
-                            <Localize
-                                translate_text="Outside the EU, financial products are offered by Deriv (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
-                                components={[
-                                    <StaticAsset
-                                        key={0}
-                                        target="_blank"
-                                        href="/Vanuatu-Financial-Services-Commission.pdf"
-                                        rel="noopener noreferrer"
-                                    />,
-                                    <StaticAsset
-                                        key={1}
-                                        target="_blank"
-                                        href="/DBVI_License.pdf"
-                                        rel="noopener noreferrer"
-                                    />,
-                                    <StaticAsset
-                                        key={2}
-                                        target="_blank"
-                                        href="/Labuan-license.pdf"
-                                        rel="noopener noreferrer"
-                                    />,
-                                ]}
-                            />
-                        </DisclaimerParagraph>
+                        <Show.NonEU>
+                            <DisclaimerParagraph>
+                                <Localize
+                                    translate_text="Outside the EU, financial products are offered by Deriv (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Deriv (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>licence no. SIBA/L/18/1114</1>); and Deriv (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>licence no. MB/18/0024</2>)."
+                                    components={[
+                                        <StaticAsset
+                                            key={0}
+                                            target="_blank"
+                                            href="/regulatory/Deriv_(V)_Ltd.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StaticAsset
+                                            key={1}
+                                            target="_blank"
+                                            href="/regulatory/Deriv_(BVI)_Ltd.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StaticAsset
+                                            key={2}
+                                            target="_blank"
+                                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </DisclaimerParagraph>
+                        </Show.NonEU>
+
+                        <Show.Eu>
+                            <DisclaimerParagraph>
+                                <Localize
+                                    translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (licence <0>reference no: 39172</0>)."
+                                    components={[
+                                        <StaticAsset
+                                            key={0}
+                                            target="_blank"
+                                            href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </DisclaimerParagraph>
+                            <DisclaimerParagraph>
+                                <Localize
+                                    translate_text="In the rest of the EU, synthetic indices are offered by Deriv (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta, licensed and regulated by the Malta Gaming Authority (<0>licence no. MGA/B2C/102/2000</0> issued on 01 August 2018), by the Gambling Commission in the UK for for clients residing in the UK (licence <1>reference no: 39495</1>), and by the Revenue Commissioners in Ireland for clients residing in Ireland (Remote Bookmaker's Licence no. 1010285 issued on 1 July 2017)."
+                                    components={[
+                                        <StaticAsset
+                                            key={0}
+                                            target="_blank"
+                                            href="/regulatory/Deriv_(Europe)_Ltd.pdf"
+                                            rel="noopener noreferrer"
+                                        />,
+                                        <StaticAsset
+                                            key={1}
+                                            target="_blank"
+                                            href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
+                            </DisclaimerParagraph>
+                        </Show.Eu>
                         <DisclaimerParagraph>
                             {localize(
                                 "This website's services are not made available in certain countries including the USA, Canada, and Hong Kong, or to persons below 18.",

@@ -60,8 +60,8 @@ const ContentWrapper = styled(Flex)`
     }
 `
 const StyledFlex = styled(Flex)`
-    width: 58rem;
-    height: 6.6rem;
+    max-width: 58rem;
+    max-height: 6.6rem;
     border-radius: 6rem;
     box-shadow: inset 0 -1px 0 0 #f2f3f4;
     background-color: var(--color-grey-25);

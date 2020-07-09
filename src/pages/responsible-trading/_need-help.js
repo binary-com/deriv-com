@@ -20,17 +20,15 @@ const help_content = [
         ),
         icon: <GamStop />,
         link: (
-            <Text pt="4.5rem">
-                <LocalizedLinkText mt="1rem" to="https://www.gamstop.co.uk/" color="red">
-                    {localize('Click here to find out more')}
-                </LocalizedLinkText>
-            </Text>
+            <LocalizedLinkText mt="1rem" to="https://www.gamstop.co.uk/" color="red">
+                {localize('Click here to find out more')}
+            </LocalizedLinkText>
         ),
     },
     {
         header: <Localize translate_text="BeGambleAware" />,
         text: (
-            <Text mt="2.5rem">
+            <Text>
                 <Localize translate_text="Deriv.com supports BeGambleAware, the leading charity in Britain committed to minimising gambling-related harm. BeGambleAware offers a helpline for those seeking advice about their gambling. It also has resources to help assess potential gambling problems, and an online gambling calculator to see how much you can really spend." />
             </Text>
         ),
@@ -92,7 +90,7 @@ const ClientCard = styled.article`
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 49rem;
-    padding: 3.2rem 2.4rem;
+    padding: 2rem 2.4rem;
     height: 100%;
     min-height: 26.5rem;
     position: relative;
@@ -111,6 +109,13 @@ const ClientCard = styled.article`
         }
         ${Flex} {
             padding-bottom: 2rem;
+            align-items: center;
+        }
+    }
+
+    @media ${device.mobileL} {
+        ${Header} {
+            font-size: 1.9rem;
         }
     }
 `
@@ -120,26 +125,41 @@ const StyledHeader = styled(Header)`
         font-size: 4rem;
     }
 `
+const LinkText = styled(Text)`
+    @media ${device.tabletL} {
+        display: flex;
+        justify-content: center;
+    }
+`
 
 const NeedHelp = () => {
     return (
         <StyledSection background="white">
             <Container direction="column">
-                <StyledHeader align="center" size="var(--text-size-header-1)" as="h2">
-                    {localize('Need help?')}
+                <StyledHeader mb="2rem" align="center" size="var(--text-size-header-1)" as="h2">
+                    {localize('Need more help?')}
                 </StyledHeader>
             </Container>
             <StyledFlex wrap="wrap">
                 {help_content.map((item, idx) => {
                     return (
                         <ClientCard key={idx}>
-                            <Flex pb="0.8rem" ai="center">
-                                <Header as="h4">{item.header}</Header>
+                            <Flex
+                                pb="0.8rem"
+                                mt={idx == 1 ? '2.5rem' : ''}
+                                ai={idx == 1 ? 'flex-start' : 'flex-end'}
+                            >
+                                <Header size="2.4rem">{item.header}</Header>
                                 {item.icon}
                             </Flex>
                             <Text pb="1rem">{item.text}</Text>
                             <Text>{item.text2}</Text>
-                            <Text>{item.link}</Text>
+                            <LinkText
+                                tabletL={{ ml: 'auto', mr: 'auto' }}
+                                pt={idx == 0 ? '4.5rem' : ''}
+                            >
+                                {item.link}
+                            </LinkText>
                         </ClientCard>
                     )
                 })}

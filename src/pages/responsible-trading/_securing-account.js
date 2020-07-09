@@ -20,6 +20,8 @@ const Li = styled(Flex).attrs({ as: 'li' })`
 
     @media ${device.mobileL} {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 `
 const ResponsiveBox = styled(Box)`

@@ -10,7 +10,7 @@ const non_localized_links = ['/careers', '/careers/']
 
 const languages = Object.keys(language_config)
 languages.push('x-default')
-const SEO = ({ description, meta, title, no_index }) => {
+const SEO = ({ description, meta, title, no_index, has_organization_schema }) => {
     let queries = []
     queries = useStaticQuery(
         graphql`
@@ -34,6 +34,8 @@ const SEO = ({ description, meta, title, no_index }) => {
 
     let is_ach_page = false
     let current_page = ''
+    let organization_schema = {}
+
     if (locale_pathname) {
         const path_array = locale_pathname.split('/')
         const current_lang = path_array[1]
@@ -45,6 +47,25 @@ const SEO = ({ description, meta, title, no_index }) => {
             current_page = path_array.join('/')
         }
         if (current_lang === 'ach') is_ach_page = true
+    }
+
+    if (has_organization_schema) {
+        organization_schema = {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Deriv',
+            alternateName: 'Binary.com',
+            url: 'http://www.deriv.com',
+            logo: 'https://deriv.com/static/1b57a116945933314eefeec0030c8e9d/2a4de/logo.png',
+            sameAs: [
+                'https://www.facebook.com/derivdotcom',
+                'https://www.twitter.com/derivdotcom',
+                'https://www.instagram.com/deriv_official',
+                'https://youtube.com/c/Derivdotcom',
+                'https://www.linkedin.com/company/derivdotcom/',
+                'http://www.deriv.com',
+            ],
+        }
     }
 
     const is_non_localized = non_localized_links.includes(current_page)
@@ -153,6 +174,10 @@ const SEO = ({ description, meta, title, no_index }) => {
                         applicationId: 'f0aef779-d9ec-4517-807e-a84c683c4265',
                     })`}
             </script> */}
+            {has_organization_schema && (
+                <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>
+            )}
+
             {!is_non_localized &&
                 languages.map((locale) => {
                     if (!(locale === 'ach')) {
@@ -182,6 +207,7 @@ SEO.defaultProps = {
 
 SEO.propTypes = {
     description: PropTypes.string,
+    has_organization_schema: PropTypes.bool,
     meta: PropTypes.arrayOf(PropTypes.object),
     no_index: PropTypes.bool,
     title: PropTypes.string.isRequired,

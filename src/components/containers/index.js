@@ -1,4 +1,5 @@
 import Container from './container'
+import SmallContainer from './small-container'
 import Flex from './flex'
 import FlexGridContainer from './flex-grid-container'
 import SectionContainer from './section-container'
@@ -10,6 +11,7 @@ import Box from './box'
 
 export {
     Container,
+    SmallContainer,
     Flex,
     FlexGridContainer,
     GridContainer,

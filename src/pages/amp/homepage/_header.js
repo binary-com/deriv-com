@@ -5,7 +5,6 @@ import { Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import Deriv from 'images/svg/logo-deriv.svg'
 import BinaryLogo from 'images/svg/binary.svg'
-import { binary_url } from 'common/utility'
 
 const HeaderWrapper = styled.header`
     position: fixed;
@@ -67,7 +66,8 @@ const Header = () => (
                     </LocalizedLink>
                     <LocalizedLink
                         external
-                        to={binary_url}
+                        to="home"
+                        is_binary_link
                         target="_blank"
                         rel="noopener noreferrer"
                     >

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { localize, Localize } from 'components/localization'
 import { Text, LocalizedLinkText } from 'components/elements'
-import { binary_url } from 'common/utility'
 
 const TextPrimary = styled(Text)`
     margin-top: 1.6rem;
@@ -17,7 +16,8 @@ const NeedSignUp = () => (
                     <LocalizedLinkText
                         key={0}
                         external
-                        to={binary_url}
+                        to="home"
+                        is_binary_link
                         target="_blank"
                         rel="noopener noreferrer"
                         weight="bold"
@@ -37,7 +37,8 @@ const BinaryRemoved = () => (
                     <LocalizedLinkText
                         key={0}
                         external
-                        to={binary_url}
+                        to="home"
+                        is_binary_link
                         target="_blank"
                         rel="noopener noreferrer"
                         weight="bold"
@@ -58,7 +59,8 @@ const DerivSecure = () => (
                     <LocalizedLinkText
                         key={0}
                         external
-                        to={binary_url}
+                        to="home"
+                        is_binary_link
                         target="_blank"
                         rel="noopener noreferrer"
                         weight="bold"
@@ -79,7 +81,8 @@ const OtherChanges = () => (
                     <LocalizedLinkText
                         key={0}
                         external
-                        to={binary_url}
+                        to="home"
+                        is_binary_link
                         target="_blank"
                         rel="noopener noreferrer"
                         weight="bold"

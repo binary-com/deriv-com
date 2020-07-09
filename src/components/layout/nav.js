@@ -26,7 +26,7 @@ import {
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import { binary_url, affiliate_signin_url, affiliate_signup_url } from 'common/utility'
+import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -474,7 +474,8 @@ export const Nav = ({ base }) => {
                         <Divider color="white" width="1px" height="2.7rem" m="0 1.6rem" />
                         <LocalizedLink
                             external
-                            to={binary_url}
+                            to="home"
+                            is_binary_link
                             target="_blank"
                             rel="noopener noreferrer"
                             ariaLabel="Binary.com logo"
@@ -617,7 +618,13 @@ export const NavInterim = ({ interim_type }) => (
                 <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                     <Logo />
                 </StyledLogo>
-                <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+                <LocalizedLink
+                    external
+                    to="home"
+                    is_binary_link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <ResponsiveBinary width="24" height="24" />
                 </LocalizedLink>
                 <Binary size="var(--text-size-xxs)" color="white">
@@ -652,7 +659,7 @@ export const NavStatic = () => (
         <LogoLink to="/" aria-label={localize('Home')}>
             <Logo />
         </LogoLink>
-        <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+        <LocalizedLink external to="home" is_binary_link target="_blank" rel="noopener noreferrer">
             <BinaryLogo width="24" height="24" />
         </LocalizedLink>
         <Binary size="var(--text-size-xxs)" color="white">

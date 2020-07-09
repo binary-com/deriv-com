@@ -26,6 +26,13 @@ const isEmptyObject = (obj) => {
     return is_empty
 }
 
+const scrollTop = () => {
+    if (isBrowser()) {
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+    }
+}
+
 const cloneObject = (obj) =>
     !isEmptyObject(obj) ? extend(true, Array.isArray(obj) ? [] : {}, obj) : obj
 
@@ -105,6 +112,7 @@ export {
     map_api_key,
     PromiseClass,
     sanitize,
+    scrollTop,
     sentenceCase,
     smarttrader_url,
     toISOFormat,

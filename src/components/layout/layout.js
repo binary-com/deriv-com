@@ -25,6 +25,7 @@ const LiveChat = styled.div`
     display: flex;
     cursor: pointer;
     border-radius: 50%;
+    z-index: 9999;
 `
 
 const Main = styled.main`

@@ -155,7 +155,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                 <LiveChat
                     onClick={() => {
                         const is_chat_hidden =
-                            typeof LC_API.chat_window_hidden() === 'undefined'
+                            typeof LC_API.chat_window_hidden === 'undefined'
                                 ? true
                                 : LC_API.chat_window_hidden()
                         if (is_chat_hidden) {

@@ -151,7 +151,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             )}
             {is_livechat_interactive && (
                 <LiveChat
-                    id="deriv-livechat"
+                    id="gtm-deriv-livechat"
                     onClick={() => {
                         LC_API.open_chat_window()
                     }}

@@ -36,7 +36,7 @@ const OvalWrapper = styled.div`
     width: 24px;
     height: 24px;
     line-height: 2.75rem;
-    background-color: var(--color-red);
+    background-color: ${(props) => (props.color ? props.color : 'var(--color-red)')};
     border-radius: 50%;
     text-align: center;
     margin-right: 0.8rem;
@@ -83,10 +83,10 @@ export const TimelineTick = ({ pb, color, children, ...props }) => {
         <div {...props}>
             {children.map((child, idx) => (
                 <FlexWrapper key={idx} is_border={false} pb={pb}>
-                    <Checkmark color={color}></Checkmark>
-                    <ContentWrapper>
-                        <div>{child}</div>
-                    </ContentWrapper>
+                    <OvalWrapper color="transparent">
+                        <Checkmark color={color}></Checkmark>
+                    </OvalWrapper>
+                    <ContentWrapper>{child}</ContentWrapper>
                 </FlexWrapper>
             ))}
         </div>

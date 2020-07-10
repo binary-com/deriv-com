@@ -11,7 +11,7 @@ import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
 const IcInfo = styled(Info)`
-    margin-left: 1rem;
+    margin-left: 1.5rem;
 `
 
 const Card = styled(Flex)`
@@ -71,6 +71,17 @@ const StyledFlex = styled(Flex)`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    @media ${device.mobileM} {
+        max-height: 8rem;
+        border-radius: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    @media ${device.mobileS} {
+        max-height: 9rem;
+        border-radius: 1rem;
+    }
 `
 
 const TradingResponsibly = () => {
@@ -121,7 +132,7 @@ const TradingResponsibly = () => {
                     <Show.Eu>
                         <StyledFlex>
                             <IcInfo />
-                            <Text size="1.4rem" ml="1.6rem">
+                            <Text size="1.4rem" ml="1.6rem" mr="1.5rem">
                                 <Localize
                                     translate_text="For more details on our products and the risks involved in online trading, read our <0>key information documents (KIDs)</0> on commodities, forex, and cryptocurrencies."
                                     components={[

@@ -56,18 +56,6 @@ const help_content = [
     },
 ]
 
-const StyledSection = styled(SectionContainer)`
-    position: relative;
-
-    ${Container} {
-        ${Header} {
-            z-index: 1;
-        }
-    }
-    @media ${device.tabletL} {
-        padding: 0;
-    }
-`
 const StyledFlex = styled(Flex)`
     margin: auto;
     max-width: 110rem;
@@ -134,7 +122,7 @@ const LinkText = styled(Text)`
 
 const NeedHelp = () => {
     return (
-        <StyledSection background="white">
+        <SectionContainer>
             <Container direction="column">
                 <StyledHeader mb="2rem" align="center" size="var(--text-size-header-1)" as="h2">
                     {localize('Need more help?')}
@@ -164,7 +152,7 @@ const NeedHelp = () => {
                     )
                 })}
             </StyledFlex>
-        </StyledSection>
+        </SectionContainer>
     )
 }
 

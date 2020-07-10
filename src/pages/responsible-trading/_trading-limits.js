@@ -51,6 +51,11 @@ const StyledContainer = styled(Container)`
         padding-right: 0;
     }
 `
+const ContactText = styled(Text)`
+    @media ${device.tablet} {
+        text-align: center;
+    }
+`
 
 const TradingLimits = () => {
     return (
@@ -132,14 +137,14 @@ const TradingLimits = () => {
                             </TimelineTick>
                         </Text>
                         <div>
-                            <Text align="center" mt="2rem">
+                            <ContactText mt="2rem">
                                 <Localize
                                     translate_text="You may <0>contact us</0> to set or adjust your self-exclusion or trading limits."
                                     components={[
                                         <LocalizedLinkText key={0} to="/contact-us/" color="red" />,
                                     ]}
                                 />
-                            </Text>
+                            </ContactText>
                         </div>
                     </StyledContainer>
                 </ContentWrapperRight>

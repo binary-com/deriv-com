@@ -169,10 +169,6 @@ const AddressTextShared = css`
 const StyledLinkText = styled(LinkText)`
     ${AddressTextShared}
 `
-const ClickToCall = styled.a`
-    text-decoration: none;
-    color: inherit;
-`
 
 const Iframe = styled.iframe`
     width: 100%;
@@ -220,7 +216,6 @@ export const Offices = () => {
 
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+35621316105">+356 2131 6105</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>
@@ -249,7 +244,6 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+60383228178">+60 3 8322 8178</ClickToCall>
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -290,7 +284,6 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+6087504126">+60 8750 4126</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>
@@ -314,7 +307,6 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+97143990404">+971 4 399 0404</ClickToCall>
                             </StyledText>
                         </Content>
                         <ImageWrapper>
@@ -358,7 +350,6 @@ export const Offices = () => {
                             </AddressContainer>
                             <StyledText>
                                 <PhoneIcon />
-                                <ClickToCall href="tel:+595992550264">+595 992 550 264</ClickToCall>
                             </StyledText>
                         </Content>
                     </Office>

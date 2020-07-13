@@ -32,7 +32,7 @@ const FlexContent = styled(Flex)`
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    max-width: 16.8rem;
+    max-width: 18rem;
 
     @media ${device.tabletS} {
         max-width: 38rem;
@@ -83,15 +83,21 @@ const StyledFlex = styled(Flex)`
         border-radius: 1rem;
     }
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        text-align: center;
+        font-size: var(--text-size-m);
+    }
+`
 
 const TradingResponsibly = () => {
     return (
         <SectionContainer>
             <Flex jc="center" wrap>
                 <Card>
-                    <Header align="center" as="h3">
+                    <StyledHeader align="center" size="var(--text-size-xl)">
                         {localize('Trading responsibly')}
-                    </Header>
+                    </StyledHeader>
                     <ContentWrapper jc="center" ai="center" mt="2.4rem">
                         <FlexContent>
                             <DontBorrow />

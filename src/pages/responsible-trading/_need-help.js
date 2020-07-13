@@ -110,7 +110,7 @@ const ClientCard = styled.article`
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        font-size: 4rem;
+        font-size: var(--text-size-m);
     }
 `
 const LinkText = styled(Text)`
@@ -124,7 +124,7 @@ const NeedHelp = () => {
     return (
         <SectionContainer>
             <Container direction="column">
-                <StyledHeader mb="2rem" align="center" size="var(--text-size-header-1)" as="h2">
+                <StyledHeader mb="2rem" align="center" size="var(--text-size-l)" as="h2">
                     {localize('Need more help?')}
                 </StyledHeader>
             </Container>

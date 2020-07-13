@@ -41,9 +41,10 @@ const ContentWrapperRight = styled(ContentWrapper)`
 const StyledContainer = styled(Container)`
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding-left: 3.5rem;
     padding-right: 3.5rem;
+    max-width: 52rem !important;
 
     @media ${device.mobileL} {
         width: 90%;
@@ -56,6 +57,15 @@ const ContactText = styled(Text)`
         text-align: center;
     }
 `
+const StyledHeader = styled(Header)`
+    font-size: 3.6rem;
+    padding-bottom: 1rem;
+
+    @media ${device.tablet} {
+        text-align: center;
+        font-size: var(--text-size-m);
+    }
+`
 
 const TradingLimits = () => {
     return (
@@ -63,9 +73,7 @@ const TradingLimits = () => {
             <Flex height="auto">
                 <ContentWrapper>
                     <StyledContainer direction="column">
-                        <Header size="3.6rem" pb="1rem">
-                            {localize('Trading limits and self-exclusion')}
-                        </Header>
+                        <StyledHeader>{localize('Trading limits and self-exclusion')}</StyledHeader>
                         <Text>
                             {localize(
                                 'Online trading is exciting, but it can be addictive. Deriv.com provides you with the opportunity to either self-exclude or set limits on your trading activities on this website.',
@@ -74,7 +82,7 @@ const TradingLimits = () => {
                         <Header size="2rem" pt="3rem" pb="1rem">
                             {localize('You can:')}
                         </Header>
-                        <Text>
+                        <Text ml="0.8rem">
                             <TimelineTick color="var(--color-red)" pb="1rem">
                                 <TimelineTick.Item>
                                     {localize(
@@ -104,10 +112,10 @@ const TradingLimits = () => {
             <Flex bg="var(--color-grey-25)">
                 <ContentWrapperRight>
                     <StyledContainer direction="column">
-                        <Header size="3.6rem" pb="1rem">
+                        <StyledHeader>
                             {localize('How trading limits and self-exclusion work')}
-                        </Header>
-                        <Text>
+                        </StyledHeader>
+                        <Text ml="0.8rem">
                             <TimelineTick color="var(--color-red)" pb="1rem">
                                 <TimelineTick.Item>
                                     {localize(

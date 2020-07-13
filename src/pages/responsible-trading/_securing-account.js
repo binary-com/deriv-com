@@ -33,14 +33,19 @@ const ResponsiveBox = styled(Box)`
         margin-top: 1.6rem;
     }
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        font-size: var(--text-size-m);
+    }
+`
 
 const SecureAccount = () => {
     return (
         <Box pt="8rem" pb="15rem" bg="rgba(245, 247, 250, 0.32)">
             <Container fd="column" ai="center">
-                <Header as="h3" align="center" mb="2rem">
+                <StyledHeader size="var(--text-size-xl)" align="center" mb="2rem">
                     {localize('Securing your account')}
-                </Header>
+                </StyledHeader>
                 <Ul jc="center" ai="center">
                     <Li>
                         <div>

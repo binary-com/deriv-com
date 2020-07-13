@@ -47,15 +47,16 @@ const ResponsibleTrading = () => {
                                 {localize('Secure and responsible trading')}
                             </Header>
                             <Text align="center" max_width="79.2rem" m="0 auto" color="white">
-                                {localize(
-                                    isEuCountry
-                                        ? localize(
-                                              'Trading online can be exciting, but it’s important to keep in mind that there are risks involved including addiction and financial losses. To avoid the danger of addiction, it is important that you engage in a careful self-analysis to check if you are at risk, and follow some basic principles and guidelines.',
-                                          )
-                                        : localize(
-                                              'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',
-                                          ),
-                                )}
+                                <Show.Eu>
+                                    {localize(
+                                        'Trading online can be exciting, but it’s important to keep in mind that there are risks involved including addiction and financial losses. To avoid the danger of addiction, it is important that you engage in a careful self-analysis to check if you are at risk, and follow some basic principles and guidelines.',
+                                    )}
+                                </Show.Eu>
+                                <Show.NonEU>
+                                    {localize(
+                                        'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',
+                                    )}
+                                </Show.NonEU>
                             </Text>
                         </Flex>
                     </Container>

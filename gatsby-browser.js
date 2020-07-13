@@ -54,10 +54,6 @@ export const onPreRouteUpdate = () => {
     NProgress.start()
 }
 
-export const onRouteDelayed = () => {
-    NProgress.start()
-}
-
 export const onRouteUpdate = () => {
     NProgress.done()
 }

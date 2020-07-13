@@ -748,26 +748,29 @@ const Footer = () => {
                                 </DisclaimerParagraph>
                             </Show.Desktop>
                             <Show.Mobile>
-                                <DisclaimerParagraph
-                                    no_margin="true"
-                                    style={{ marginBottom: '1rem' }}
-                                >
-                                    <strong>{localize('RISK WARNING')}</strong>
-                                </DisclaimerParagraph>
-                                <DisclaimerParagraph no_margin="true">
-                                    <Show.Eu>
+                                <Show.Eu>
+                                    <DisclaimerParagraph no_margin="true">
                                         <Localize
-                                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                                             components={[
                                                 <BoldLink
                                                     key={0}
                                                     target="_blank"
                                                     to="/responsible-trading/"
                                                 />,
+                                                <strong key={1} />,
                                             ]}
                                         />
-                                    </Show.Eu>
-                                    <Show.NonEU>
+                                    </DisclaimerParagraph>
+                                </Show.Eu>
+                                <Show.NonEU>
+                                    <DisclaimerParagraph
+                                        no_margin="true"
+                                        style={{ marginBottom: '1rem' }}
+                                    >
+                                        <strong>{localize('RISK WARNING')}</strong>
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph no_margin="true">
                                         <Localize
                                             translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
                                             components={[
@@ -778,8 +781,8 @@ const Footer = () => {
                                                 />,
                                             ]}
                                         />
-                                    </Show.NonEU>
-                                </DisclaimerParagraph>
+                                    </DisclaimerParagraph>
+                                </Show.NonEU>
                             </Show.Mobile>
                         </RiskWarning>
                     </Disclaimer>

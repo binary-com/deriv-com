@@ -1,6 +1,5 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
-import SimpleSteps from '../common/_simple-steps'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
@@ -10,6 +9,7 @@ import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
 import Signup, { Appearances } from 'components/custom/signup'
+import SimpleSteps from 'components/custom/_simple-steps'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
@@ -45,6 +45,7 @@ const Home = () => {
                 description={localize(
                     'Deriv - An online trading platform that offers a wide selection of derivatives to trade on 24/7.',
                 )}
+                has_organization_schema
             />
             <Hero />
             <Show.Mobile>

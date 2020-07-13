@@ -51,6 +51,9 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                 binary_socket.close()
             }
         }
+        if (isBrowser()) {
+            window.scrollTo(0, 0)
+        }
     }, [])
 
     React.useEffect(() => {
@@ -102,6 +105,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         case 'careers':
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} />
+            break
+        case 'new-home':
+            Navigation = <Nav base="/homepage/" />
+            FooterNav = <Footer />
             break
         default:
             Navigation = <Nav />

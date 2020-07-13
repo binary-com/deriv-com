@@ -3,60 +3,6 @@ import { cyberjaya, dubai, asuncion, malta } from '../_locations/_locations'
 
 export const hr_recruitment_positions = [
     {
-        title: 'Human Resources Manager',
-        id: '07c4f5e4-df0e-4cef-8700-e0a752e7e223',
-        keywords: ['Human Resources Manager'],
-        location: cyberjaya.name,
-        type: [job_types.full_time],
-        team: 'hr-recruitment',
-        description: [
-            'You will be the mastermind in charge of developing creative HR strategies to nurture outstanding performance, connection, teamwork, and trust. You will provide wise counsel on how to achieve the best organisation design and talent density. You will use your leadership and visioning skills, as well as your deep knowledge of the HR field to assess and coach our employees and to build the best workforce for our evolving company by leading recruitment planning. You will establish a productive and nurturing workflow by conducting performance assessments, embodying and cultivating company culture,  recommending and implementing appropriate solutions to conflicts, and in short, being a dynamic and influential leader.\n',
-        ],
-        responsibilities: [
-            'Cultivate and reinforce a company culture that inspires the employees to do the right things as well as to do things right. ',
-
-            'Co-create a company structure that will take our business to the next level by expertly handling organisation charts and reporting lines.',
-
-            'Boost understanding and harmony between the management and the employees across all our offices.',
-
-            'Define the overall recruitment planning process that suits our rapidly growing company and partner closely with the heads of departments to forge a remarkable pool of accomplished manpower.\nIdentify opportunities for enhancing performance by expertly analysing employees’ behaviour and interaction at the workplace.',
-
-            'Create and manage an employee onboarding plan that will promote the assimilation of new employees. ',
-
-            'Design and lead face-to-face or online training programmes at all company levels to maximise efficiency.',
-
-            'Administer and coordinate a performance appraisal system to inspire high achievement and diagnose performance problems.',
-
-            'Identify potential team leads, manage internal promotions, and provide post-promotion coaching to assist intelligently constructed teams to achieve extraordinary results.',
-
-            'Devise competitive compensation plans and benefits programmes by analysing salary reports and other relevant data within the labour market.',
-
-            'Formulate professional development plans by documenting staff members’ goals and their required skills to support continuous improvement and career development.',
-
-            'Foster employee satisfaction by acting as their advocate, acknowledging their professional achievements with tangible and intangible motivations, counselling them on their personal problems, and addressing their job-related concerns.',
-
-            'Organise team building and company events, and stage them by collaborating with HR Operations.',
-
-            'Maximise employee performance and business outcome by creating a roadmap to support our long-term goals, using meticulous HR analytics and action planning. ',
-        ],
-        qualifications: [
-            'A university degree in a related field',
-            'Minimum 5 years of progressive senior HR experience',
-            'Complete familiarity with organisational behaviour',
-
-            'Demonstrable experience in analytical and data management and exceptional skill in translating data into action planning',
-
-            'Well-developed coaching, communication, and leadership skills',
-
-            'Strongly capable of showing empathy and handling sensitive situations with tact and finesse',
-
-            'Excellent knowledge of HR systems and databases',
-            'Highly adept at making quick, informed decisions ',
-            'Exceptional English communication skills (both oral and written)',
-            'Experience in working for an international company\n',
-        ],
-    },
-    {
         title: 'HR Operations Executive',
         id: 'f94ab35d-9e57-4a4e-862d-a114087a3795',
         keywords: ['HR Operations Executive'],

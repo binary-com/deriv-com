@@ -96,10 +96,43 @@ export const asuncion = {
     address: address_asuncion,
 }
 
+//TODO: Add details for Melaka and Ipoh locations
+export const melaka = {
+    name: 'melaka',
+    // link:
+    display_name: 'Melaka',
+    country: 'Malaysia',
+    // thumbnail:
+    // header_p:
+    // first_p:
+    // first_img:
+    // grid_images:[],
+    // map:
+    // map_text:
+    // address:
+}
+
+export const ipoh = {
+    name: 'ipoh',
+    // link:
+    display_name: 'Ipoh',
+    country: 'Malaysia',
+    // thumbnail:
+    // header_p:
+    // first_p:
+    // first_img:
+    // grid_images:[],
+    // map:
+    // map_text:
+    // address:
+}
+
 export const locations = {
     cyberjaya: `${cyberjaya.display_name}, ${cyberjaya.country}`,
     malta: `${malta.display_name}`,
     dubai: `${dubai.display_name}, ${dubai.country}`,
     labuan: `${labuan.display_name}, ${labuan.country}`,
     asuncion: `${asuncion.display_name}, ${asuncion.country}`,
+    melaka: `${melaka.display_name}, ${melaka.country}`,
+    ipoh: `${ipoh.display_name}, ${ipoh.country}`,
 }

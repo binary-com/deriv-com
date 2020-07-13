@@ -5,7 +5,6 @@ import { Accordion, AccordionItem, StyledLink, Text, LocalizedLinkText } from '.
 import { LocationContext } from './location-context'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
-import { smarttrader_url } from 'common/utility'
 import { localize, Localize } from 'components/localization'
 // Icons
 import CopyrightIc from 'images/svg/copyright.svg'
@@ -92,6 +91,15 @@ const Link = styled(StyledLink)`
 `
 const LinkWrapper = styled.div`
     margin-top: ${(props) => (props.first_child == 'true' ? '0.8rem' : '1.6rem')};
+
+    @media ${device.laptopM} {
+        ${Title} {
+            font-size: var(--text-size-xs);
+        }
+        ${Link} {
+            font-size: var(--text-size-xs);
+        }
+    }
 `
 const Disclaimer = styled.div`
     grid-area: disclaimer;
@@ -341,8 +349,8 @@ const Footer = () => {
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
-                                            to={smarttrader_url}
-                                            is_binary_link
+                                            to="trading"
+                                            is_smarttrader_link
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -351,7 +359,24 @@ const Footer = () => {
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>
-                                {/* TODO: add TRADE TYPES */}
+                                <LinksCol>
+                                    <LinkWrapper>
+                                        <Title>{localize('TRADE TYPES')}</Title>
+                                    </LinkWrapper>
+                                    <LinkWrapper first_child="true">
+                                        <Link to="/trade-types/margin">
+                                            {localize('Margin trading')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link to="/trade-types/options">{localize('Options')}</Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link to="/trade-types/multiplier">
+                                            {localize('Multipliers')}
+                                        </Link>
+                                    </LinkWrapper>
+                                </LinksCol>
                                 <LinksCol>
                                     <LinkWrapper>
                                         <Title>{localize('MARKETS')}</Title>
@@ -472,13 +497,34 @@ const Footer = () => {
                                         </Item>
                                         <Item>
                                             <Link
-                                                to={smarttrader_url}
-                                                is_binary_link
+                                                to="trading"
+                                                is_smarttrader_link
                                                 external="true"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
                                                 {localize('SmartTrader')}
+                                            </Link>
+                                        </Item>
+                                    </AccordionItem>
+                                    <AccordionItem
+                                        header={localize('TRADE TYPES')}
+                                        arrow_thin
+                                        header_style={mobile_accordion_header}
+                                    >
+                                        <Item>
+                                            <Link to="/trade-types/margin">
+                                                {localize('Margin trading')}
+                                            </Link>
+                                        </Item>
+                                        <Item>
+                                            <Link to="/trade-types/options">
+                                                {localize('Options')}
+                                            </Link>
+                                        </Item>
+                                        <Item>
+                                            <Link to="/trade-types/multiplier">
+                                                {localize('Multipliers')}
                                             </Link>
                                         </Item>
                                     </AccordionItem>
@@ -573,7 +619,7 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/Deriv-Investments-Europe-Limited.pdf"
+                                            href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -604,7 +650,7 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/Malta-Gaming-Authority.pdf"
+                                            href="/regulatory/Deriv_(Europe)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <BinaryLink
@@ -633,7 +679,7 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/WS-Binary-Investments-Europe-Limited.pdf"
+                                            href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -646,19 +692,19 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/Vanuatu-Financial-Services-Commission.pdf"
+                                            href="/regulatory/Deriv_(V)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAsset
                                             key={1}
                                             target="_blank"
-                                            href="/DBVI_License.pdf"
+                                            href="/regulatory/Deriv_(BVI)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAsset
                                             key={2}
                                             target="_blank"
-                                            href="/Labuan-license.pdf"
+                                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

@@ -13,8 +13,6 @@ import HigherLower from 'images/svg/options/higher-lower.svg'
 import EbEo from 'images/svg/options/eb-eo.svg'
 import SbGo from 'images/svg/options/sb-go.svg'
 import TNT from 'images/svg/options/tnt.svg'
-import CallSpread from 'images/svg/options/call-spread.svg'
-import PutSpread from 'images/svg/options/put-spread.svg'
 
 const Descriptions = styled.div`
     padding-bottom: 4rem;
@@ -94,7 +92,7 @@ const DigitalOptions = () => {
                 <Descriptions>
                     <StyledText align="center">
                         {localize(
-                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options and Call/Put spreads on forex.',
+                            'Options trading allows for payouts from predicting market movements, without needing to buy an underlying asset. Trade digital options on forex.',
                         )}
                     </StyledText>
                     <AvailablePlatforms dtrader smarttrader dbot tablet_direction="column" />
@@ -110,7 +108,7 @@ const DigitalOptions = () => {
                                 svg={RiseFall}
                                 content={
                                     <Localize
-                                        translate_text="<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot."
+                                        translate_text="<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot at the end of the contract period."
                                         components={[<strong key={0} />]}
                                     />
                                 }
@@ -121,7 +119,7 @@ const DigitalOptions = () => {
                                 svg={HigherLower}
                                 content={
                                     <Localize
-                                        translate_text="<0>Higher/Lower:</0> Predict whether the market price will finish higher or lower than a price target (the barrier)."
+                                        translate_text="<0>Higher/Lower:</0> Predict whether the exit spot will be higher or lower than a price target (the barrier) at the end of the contract period."
                                         components={[<strong key={0} />]}
                                     />
                                 }
@@ -135,7 +133,7 @@ const DigitalOptions = () => {
                                 title={<Localize translate_text="In/Out" />}
                                 content={
                                     <Localize
-                                        translate_text="<0>Ends Between/Ends Outside:</0> Predict whether the market will stop inside or outside two price targets at the end of the period."
+                                        translate_text="<0>Ends Between/Ends Outside:</0> Predict whether the exit spot will be inside or outside two price targets at the end of the contract period."
                                         components={[<strong key={0} />]}
                                     />
                                 }
@@ -147,31 +145,6 @@ const DigitalOptions = () => {
                                 content={
                                     <Localize
                                         translate_text="<0>Stays Between/Goes Outside:</0> Predict whether the market will stay inside or go outside two price targets at any time during the contract period."
-                                        components={[<strong key={0} />]}
-                                    />
-                                }
-                            />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <AvailableOptions
-                                svg={CallSpread}
-                                title={<Localize translate_text="Spread Up/Spread Down" />}
-                                content={
-                                    <Localize
-                                        translate_text="<0>Spread Up:</0> Predict whether the exit spot will be higher or equal to the upper barrier."
-                                        components={[<strong key={0} />]}
-                                    />
-                                }
-                            />
-                        </Col>
-                        <Col>
-                            <AvailableOptions
-                                svg={PutSpread}
-                                content={
-                                    <Localize
-                                        translate_text="<0>Spread Down:</0> Predict whether the exit spot will be lower or equal to the upper barrier."
                                         components={[<strong key={0} />]}
                                     />
                                 }

@@ -35,6 +35,10 @@ const Content = styled.div`
     max-width: 38.4rem;
     padding-right: 3rem;
 
+    @media ${device.tablet} {
+        padding-right: 0;
+    }
+
     :nth-child(even) {
         padding: 0 2.4rem;
     }

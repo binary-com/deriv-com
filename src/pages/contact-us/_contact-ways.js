@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, LinkText } from '../../components/elements/typography'
+import { Text } from '../../components/elements/typography'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import EmailUsIcon from 'images/svg/email-us.svg'
 import NeedUsIcon from 'images/svg/need-us.svg'
 import device from 'themes/device'
 
@@ -114,23 +113,6 @@ export const ContactWays = () => {
                         {localize('Visit the Help Centre')}
                     </StyledLinkButton>
                 </Contact>
-                <Contact>
-                    <Logo>
-                        <EmailUsIcon />
-                    </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Email Us')}
-                    </StyledHeader>
-                    <LinkText
-                        weight="bold"
-                        size="var(--text-size-sm)"
-                        color="red"
-                        href="mailto:support@deriv.com"
-                    >
-                        {localize('support@deriv.com')}
-                    </LinkText>
-                </Contact>
-
                 {/*
                 // TODO: This section will be added shortly when the back-end gets ready.
                 <Splitter></Splitter>

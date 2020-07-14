@@ -5,7 +5,6 @@ import { Container, CssGrid, Show, Flex } from '../containers'
 import { Text, StyledLink, Accordion, AccordionItem } from '../elements'
 import { LocationContext } from './location-context'
 import { localize, Localize } from 'components/localization'
-import { smarttrader_url } from 'common/utility'
 import device from 'themes/device'
 // Icons
 import Logo from 'images/svg/deriv-footer.svg'
@@ -283,8 +282,8 @@ const Footer = () => {
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
-                                            to={smarttrader_url}
-                                            is_binary_link
+                                            to="trading"
+                                            is_smarttrader_link
                                             external="true"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -431,8 +430,8 @@ const Footer = () => {
                                         </Item>
                                         <Item>
                                             <Link
-                                                to={smarttrader_url}
-                                                is_binary_link
+                                                to="trading"
+                                                is_smarttrader_link
                                                 external="true"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -549,12 +548,12 @@ const Footer = () => {
                         </Show.Eu>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
+                                translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
                                 components={[
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
-                                        href="/WS-Binary-Investments-Europe-Limited.pdf"
+                                        href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -562,24 +561,24 @@ const Footer = () => {
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
                             <Localize
-                                translate_text="Outside the EU, financial products are offered by Deriv (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
+                                translate_text="Outside the EU, financial products are offered by Deriv (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Deriv (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Deriv (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Deriv (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
                                 components={[
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
-                                        href="/Vanuatu-Financial-Services-Commission.pdf"
+                                        href="/regulatory/Deriv_(V)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                     <StaticAsset
                                         key={1}
                                         target="_blank"
-                                        href="/DBVI_License.pdf"
+                                        href="/regulatory/Deriv_(BVI)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                     <StaticAsset
                                         key={2}
                                         target="_blank"
-                                        href="/Labuan-license.pdf"
+                                        href="/regulatory/Deriv_(FX)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}

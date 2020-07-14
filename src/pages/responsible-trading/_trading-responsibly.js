@@ -112,7 +112,7 @@ const TradingResponsibly = () => {
                             <FreeDemo />
                             <StyledText>
                                 {localize(
-                                    'Use our free demo account and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products.',
+                                    'Use our free demo account, and trade with unlimited virtual funds. It’s the easiest way to learn how to use our products.',
                                 )}
                             </StyledText>
                         </FlexContent>
@@ -121,7 +121,7 @@ const TradingResponsibly = () => {
                             <SetLimitLosses />
                             <StyledText>
                                 {localize(
-                                    'Set a limit for your losses and stick to it. Put aside some of your winnings to avoid losing all your money.',
+                                    'Set a limit for your losses, and stick to it. Put aside some of your winnings to avoid losing all your money.',
                                 )}
                             </StyledText>
                         </FlexContent>
@@ -130,7 +130,7 @@ const TradingResponsibly = () => {
                             <BadJudgement />
                             <StyledText>
                                 {localize(
-                                    'Trade wisely and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement.',
+                                    'Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol.',
                                 )}
                             </StyledText>
                         </FlexContent>

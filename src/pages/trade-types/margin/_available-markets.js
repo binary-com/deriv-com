@@ -123,7 +123,7 @@ const AvailableMarkets = () => {
                                 </MobileCardHeader>
                                 <Text>
                                     {localize(
-                                        'Go long or short on our OTC German index and utilise leverage to increase your potential profit. ',
+                                        'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
                                     )}
                                 </Text>
                                 <LearnMore

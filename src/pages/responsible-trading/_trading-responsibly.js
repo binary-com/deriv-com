@@ -32,7 +32,7 @@ const FlexContent = styled(Flex)`
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    max-width: 18rem;
+    max-width: 18.3rem;
 
     @media ${device.tabletS} {
         max-width: 38rem;
@@ -129,9 +129,12 @@ const TradingResponsibly = () => {
                         <FlexContent>
                             <BadJudgement />
                             <StyledText>
-                                {localize(
-                                    'Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol.',
-                                )}
+                                <Show.Eu>
+                                    <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol." />
+                                </Show.Eu>
+                                <Show.NonEU>
+                                    <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement." />
+                                </Show.NonEU>
                             </StyledText>
                         </FlexContent>
                     </ContentWrapper>

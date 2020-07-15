@@ -13,7 +13,9 @@ const help_content = [
     {
         header: <Localize translate_text="GAMSTOP" />,
         text: (
-            <Localize translate_text="If you are considering self-exclusion, you may wish to register with GAMSTOP." />
+            <Text width="99%">
+                <Localize translate_text="If you are considering self-exclusion, you may wish to register with GAMSTOP." />
+            </Text>
         ),
         text2: (
             <Localize translate_text="GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain." />

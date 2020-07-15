@@ -31,11 +31,11 @@ module.exports = {
         short_name: 'FR',
         affiliate_lang: 2,
     },
-    vi: {
-        path: 'vi',
-        display_name: 'Tiếng Việt',
-        short_name: 'VI',
-        affiliate_lang: 6,
+    th: {
+        path: 'th',
+        display_name: 'Thai',
+        short_name: 'TH',
+        affiliate_lang: 13,
     },
     id: {
         path: 'id',
@@ -43,11 +43,11 @@ module.exports = {
         short_name: 'ID',
         affiliate_lang: 4,
     },
-    zh_cn: {
-        path: 'zh-cn',
-        display_name: '简体中文',
-        short_name: '简体',
-        affiliate_lang: 10,
+    vi: {
+        path: 'vi',
+        display_name: 'Tiếng Việt',
+        short_name: 'VI',
+        affiliate_lang: 6,
     },
     it: {
         path: 'it',
@@ -55,17 +55,23 @@ module.exports = {
         short_name: 'IT',
         affiliate_lang: 3,
     },
-    zh_tw: {
-        path: 'zh-tw',
-        display_name: '繁體中文',
-        short_name: '繁體',
-        affiliate_lang: 11,
+    zh_cn: {
+        path: 'zh-cn',
+        display_name: '简体中文',
+        short_name: '简体',
+        affiliate_lang: 10,
     },
     pl: {
         path: 'pl',
         display_name: 'Polish',
         short_name: 'PL',
         affiliate_lang: 5,
+    },
+    zh_tw: {
+        path: 'zh-tw',
+        display_name: '繁體中文',
+        short_name: '繁體',
+        affiliate_lang: 11,
     },
     ach: {
         path: 'ach',
@@ -78,8 +84,4 @@ module.exports = {
     //     display_name: 'Deutsch',
     // },
     // TODO: uncomment when supported
-    // th: {
-    //     path: 'th',
-    //     display_name: 'Thai',
-    // },
 }

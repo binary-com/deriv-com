@@ -330,7 +330,7 @@ const MobileRight = styled.div`
     }
 `
 
-export const Nav = () => {
+export const Nav = ({ base }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -463,7 +463,7 @@ export const Nav = () => {
 
                 <Wrapper>
                     <NavLeft>
-                        <LogoLink to="/" aria-label={localize('Home')}>
+                        <LogoLink to={base || '/'} aria-label={localize('Home')}>
                             <QueryImage
                                 data={data['deriv']}
                                 alt={localize('Deriv')}
@@ -577,6 +577,10 @@ export const Nav = () => {
             </StyledNav>
         </NavWrapper>
     )
+}
+
+Nav.propTypes = {
+    base: PropTypes.string,
 }
 
 const ResponsiveBinary = styled(BinaryLogo)`

@@ -43,7 +43,11 @@ const Hero = () => {
                         </Desktop>
                     </ResponsiveFlex>
                     <ImgWrapper>
-                        <QueryImage width="100%" data={data['dbot']} alt={`DBOT platforms`} />
+                        <QueryImage
+                            width="100%"
+                            data={data['dbot']}
+                            alt={localize('DBOT platforms')}
+                        />
                     </ImgWrapper>
                     <Mobile mt="4rem" fd="column" ai="center">
                         <FitButton secondary to="/">

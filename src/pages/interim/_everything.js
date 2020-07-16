@@ -124,7 +124,7 @@ const Everything = () => {
                             <Header as="h4">{localize('Support when you need it')}</Header>
                             <Text>
                                 {localize(
-                                    'Get access to friendly customer support 7 days a week, an enriched Help Centre, plus other helpful content.',
+                                    'Get access to friendly customer support 7 days a week, an enriched Help centre, plus other helpful content.',
                                 )}
                             </Text>
                         </ResponsiveBox>

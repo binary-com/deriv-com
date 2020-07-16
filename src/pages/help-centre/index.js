@@ -291,7 +291,7 @@ class HelpCentre extends Component {
         return (
             <Layout>
                 <SEO
-                    title={localize('Help Centre | Frequently asked questions | Deriv')}
+                    title={localize('Help centre | Frequently asked questions | Deriv')}
                     description={localize(
                         'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
                     )}

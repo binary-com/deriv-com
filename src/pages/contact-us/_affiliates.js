@@ -13,7 +13,7 @@ const Wrapper = styled.section`
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
@@ -33,6 +33,11 @@ const Content = styled.div`
     flex-direction: column;
     align-items: center;
     max-width: 38.4rem;
+    padding-right: 3rem;
+
+    @media ${device.tablet} {
+        padding-right: 0;
+    }
 
     :nth-child(even) {
         padding: 0 2.4rem;
@@ -71,15 +76,6 @@ const StyledLinkText = styled(LinkText)`
 export const Affiliates = () => {
     return (
         <Wrapper>
-            <Content>
-                <StyledHeader as="h3" align="center">
-                    {localize('Public relations')}
-                </StyledHeader>
-                <StyledText>{localize('For media enquiries')}</StyledText>
-                <StyledLinkText weight="bold" color="red" href="mailto:pr@deriv.com">
-                    {localize('pr@deriv.com')}
-                </StyledLinkText>
-            </Content>
             <Content>
                 <StyledHeader as="h3" align="center">
                     {localize('Affiliates')}

@@ -422,7 +422,7 @@ const Regulatory = () => (
                         </Desktop>
                         <Text mt="0.8rem">
                             {localize(
-                                'Deriv Limited, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands, is the holding company for the above subsidiaries.',
+                                'Deriv Limited, 47 Esplanade, St Helier, Jersey JE1 0BD, Channel Islands (registration no. 108101), is the holding company for the above subsidiaries.',
                             )}
                         </Text>
                     </CssGridColumn>
@@ -498,7 +498,7 @@ const Regulatory = () => (
                                 </Text>
                             </Li>
                         </Ul>
-                        {/* TODO: add this when complaints group policy on deriv.app is ready */}
+                        {/* TODO: add this when complaints group policy on app.deriv.com is ready */}
                         {/* <Text mt="1.6rem">
                             <Localize
                                 translate_text="To learn about our complaint handling procedures, <0>click here</0>."
@@ -507,7 +507,7 @@ const Regulatory = () => (
                                         key={0}
                                         weight="bold"
                                         target="_blank"
-                                        href="https://deriv.app"
+                                        href="https://app.deriv.com"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}

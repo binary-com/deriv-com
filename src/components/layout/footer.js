@@ -371,7 +371,7 @@ const Footer = () => {
                                         <Title>{localize('RESOURCES')}</Title>
                                     </LinkWrapper>
                                     <LinkWrapper first_child="true">
-                                        <Link to="/help-centre">{localize('Help Centre')}</Link>
+                                        <Link to="/help-centre">{localize('Help centre')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/payment-methods">
@@ -528,7 +528,7 @@ const Footer = () => {
                                         header_style={mobile_accordion_header}
                                     >
                                         <Item>
-                                            <Link to="/help-centre">{localize('Help Centre')}</Link>
+                                            <Link to="/help-centre">{localize('Help centre')}</Link>
                                         </Item>
                                         <Item>
                                             <Link to="/payment-methods">
@@ -541,11 +541,13 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
-                        <Show.Eu>
-                            <DisclaimerParagraph>
-                                <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
-                            </DisclaimerParagraph>
-                        </Show.Eu>
+                        <div>
+                            <Show.Eu>
+                                <DisclaimerParagraph>
+                                    <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
+                                </DisclaimerParagraph>
+                            </Show.Eu>
+                        </div>
                         <DisclaimerParagraph>
                             <Localize
                                 translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."

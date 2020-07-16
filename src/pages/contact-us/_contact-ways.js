@@ -120,13 +120,13 @@ export const ContactWays = () => {
                         <NeedUsIcon />
                     </Logo>
                     <StyledHeader as="h3" align="center" lh="1.25">
-                        {localize('Visit the Help Centre')}
+                        {localize('Visit the Help centre')}
                     </StyledHeader>
                     <StyledText align="center" mb="4.2rem">
                         {localize('The quickest way to get answers to your questions.')}
                     </StyledText>
                     <StyledLinkButton secondary="true" to="/help-centre">
-                        {localize('Visit the Help Centre')}
+                        {localize('Visit the Help centre')}
                     </StyledLinkButton>
                 </Contact>
                 <Contact>

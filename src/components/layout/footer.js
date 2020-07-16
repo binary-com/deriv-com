@@ -84,6 +84,15 @@ const Link = styled(StyledLink)`
 `
 const LinkWrapper = styled.div`
     margin-top: ${(props) => (props.first_child == 'true' ? '0.8rem' : '1.6rem')};
+
+    @media ${device.laptopM} {
+        ${Title} {
+            font-size: var(--text-size-xs);
+        }
+        ${Link} {
+            font-size: var(--text-size-xs);
+        }
+    }
 `
 const Disclaimer = styled.div`
     grid-area: disclaimer;
@@ -283,7 +292,24 @@ const Footer = () => {
                                         </Link>
                                     </LinkWrapper>
                                 </LinksCol>
-                                {/* TODO: add TRADE TYPES */}
+                                <LinksCol>
+                                    <LinkWrapper>
+                                        <Title>{localize('TRADE TYPES')}</Title>
+                                    </LinkWrapper>
+                                    <LinkWrapper first_child="true">
+                                        <Link to="/trade-types/margin">
+                                            {localize('Margin trading')}
+                                        </Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link to="/trade-types/options">{localize('Options')}</Link>
+                                    </LinkWrapper>
+                                    <LinkWrapper>
+                                        <Link to="/trade-types/multiplier">
+                                            {localize('Multipliers')}
+                                        </Link>
+                                    </LinkWrapper>
+                                </LinksCol>
                                 <LinksCol>
                                     <LinkWrapper>
                                         <Title>{localize('MARKETS')}</Title>
@@ -415,6 +441,27 @@ const Footer = () => {
                                         </Item>
                                     </AccordionItem>
                                     <AccordionItem
+                                        header={localize('TRADE TYPES')}
+                                        arrow_thin
+                                        header_style={mobile_accordion_header}
+                                    >
+                                        <Item>
+                                            <Link to="/trade-types/margin">
+                                                {localize('Margin trading')}
+                                            </Link>
+                                        </Item>
+                                        <Item>
+                                            <Link to="/trade-types/options">
+                                                {localize('Options')}
+                                            </Link>
+                                        </Item>
+                                        <Item>
+                                            <Link to="/trade-types/multiplier">
+                                                {localize('Multipliers')}
+                                            </Link>
+                                        </Item>
+                                    </AccordionItem>
+                                    <AccordionItem
                                         header={localize('MARKETS')}
                                         arrow_thin
                                         header_style={mobile_accordion_header}
@@ -494,11 +541,13 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
-                        <Show.Eu>
-                            <DisclaimerParagraph>
-                                <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
-                            </DisclaimerParagraph>
-                        </Show.Eu>
+                        <div>
+                            <Show.Eu>
+                                <DisclaimerParagraph>
+                                    <Localize translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on Binary.com." />
+                                </DisclaimerParagraph>
+                            </Show.Eu>
+                        </div>
                         <DisclaimerParagraph>
                             <Localize
                                 translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."

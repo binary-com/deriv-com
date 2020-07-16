@@ -31,6 +31,10 @@ const ResponsiveBox = styled(Box)`
     @media ${device.mobileL} {
         margin-left: 0;
         margin-top: 1.6rem;
+
+        ${Text} {
+            max-width: none;
+        }
     }
 `
 const StyledHeader = styled(Header)`

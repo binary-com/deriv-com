@@ -67,18 +67,34 @@ const StyledHeader = styled(Header)`
     }
 `
 
+const StyledHeaderTrading = styled(StyledHeader)`
+    padding-right: 7rem;
+    @media ${device.tablet} {
+        padding-right: 0;
+    }
+`
+const StyledText = styled(Text)`
+    padding-right: 1rem;
+    @media ${device.tablet} {
+        padding-left: 1rem;
+        text-align: center;
+    }
+`
+
 const TradingLimits = () => {
     return (
         <Flex tablet_direction="column">
             <Flex height="auto">
                 <ContentWrapper>
                     <StyledContainer direction="column">
-                        <StyledHeader>{localize('Trading limits and self-exclusion')}</StyledHeader>
-                        <Text>
+                        <StyledHeaderTrading>
+                            {localize('Trading limits and self-exclusion')}
+                        </StyledHeaderTrading>
+                        <StyledText>
                             {localize(
                                 'Online trading is exciting, but it can be addictive. Deriv.com provides you with the opportunity to either self-exclude or set limits on your trading activities on this website.',
                             )}
-                        </Text>
+                        </StyledText>
                         <Header size="2rem" pt="3rem" pb="1rem">
                             {localize('You can:')}
                         </Header>

@@ -52,7 +52,7 @@ export const other_positions = [
 
     {
         title: 'Head of Office',
-        id: '15875000-c55b-43d9-b69d-1654822faa3b',
+        id: 'b061db99-013a-41e4-b66c-bfa6b4e1c4af',
         keywords: ['Head of Office'],
         location: ipoh.name,
         type: [job_types.full_time],

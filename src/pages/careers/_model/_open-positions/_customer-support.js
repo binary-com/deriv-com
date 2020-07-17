@@ -50,7 +50,7 @@ export const customer_support_positions = [
 
             'Communicate solutions to customer issues in a clear, concise, friendly, and timely manner.',
 
-            'Respond to customer enquiries and complaints by phone, email, social media, and live chat.',
+            'Respond to customer enquiries and complaints by phone, email, social media, and live chat daily.',
 
             'Process applications and customer documentation according to relevant policies and regulations.',
 
@@ -88,7 +88,7 @@ export const customer_support_positions = [
 
             'Communicate solutions to customer issues in a clear, concise, friendly, and timely manner.',
 
-            'Respond to customer enquiries and complaints by phone, email, social media, and live chat.',
+            'Respond to customer enquiries and complaints by phone, email, social media, and live chat daily.',
 
             'Process applications and customer documentation according to relevant policies and regulations.',
 

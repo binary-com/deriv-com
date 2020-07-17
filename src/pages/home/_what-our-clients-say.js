@@ -307,7 +307,7 @@ const WhatOurClientsSay = () => {
         loop: true,
         height: '100%',
         autoplay: {
-            delay: 3000,
+            delay: 6000,
             disableOnInteraction: false,
         },
     }

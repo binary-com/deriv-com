@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import device from 'themes/device'
-import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
+import { GridContainer, CssGrid, CssGridColumn, Show } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 // Icons
@@ -108,20 +108,24 @@ const Col = ({
             </Cta>
         )}
         {url3 && link_title3 && (
-            <Cta>
-                <PDF />
-                <a href={url3} target="_blank" rel="noopener noreferrer">
-                    {link_title3}
-                </a>
-            </Cta>
+            <Show.Eu>
+                <Cta>
+                    <PDF />
+                    <a href={url3} target="_blank" rel="noopener noreferrer">
+                        {link_title3}
+                    </a>
+                </Cta>
+            </Show.Eu>
         )}
         {url4 && link_title4 && (
-            <Cta>
-                <PDF />
-                <a href={url4} target="_blank" rel="noopener noreferrer">
-                    {link_title4}
-                </a>
-            </Cta>
+            <Show.Eu>
+                <Cta>
+                    <PDF />
+                    <a href={url4} target="_blank" rel="noopener noreferrer">
+                        {link_title4}
+                    </a>
+                </Cta>
+            </Show.Eu>
         )}
     </GridCol>
 )

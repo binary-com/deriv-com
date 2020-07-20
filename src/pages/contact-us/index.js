@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ContactWays } from './_contact-ways'
+import ContactWays from './_contact-ways'
 import { Offices } from './_offices'
 import { Affiliates } from './_affiliates'
 import device from 'themes/device'
@@ -11,8 +11,9 @@ import { SEO, Show } from 'components/containers'
 
 const HeroWrapper = styled.section`
     width: 100%;
-    background-color: var(--color-white);
+    background-color: var(--color-grey-25);
     padding: 8rem;
+    height: 40.8rem;
 
     * {
         text-align: center;

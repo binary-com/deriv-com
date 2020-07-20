@@ -21,10 +21,10 @@ const StyledLinkButton = styled(LinkButton)`
 `
 const help_content = [
     {
-        header: <Localize translate_text="Find your answer" />,
+        header: <Localize translate_text="Visit the Help centre" />,
         text: (
             <Text mb="1.6rem">
-                <Localize translate_text="The quickest way to get answers about your account, deposits and withdrawals, and more." />
+                <Localize translate_text="The quickest way to get answers to your questions." />
             </Text>
         ),
         icon: <Help />,

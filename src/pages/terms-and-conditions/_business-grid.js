@@ -111,7 +111,7 @@ const IconGrid = () => (
                 content={localize(
                     'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
                 )}
-                url="/business-partners-general-term.pdf"
+                url="/business-partners-general-terms.pdf"
                 link_title={localize('General terms of use')}
             />
             <Col
@@ -132,7 +132,7 @@ const IconGrid = () => (
                 Icon={API}
                 title={localize('API users')}
                 content={localize('Additional terms for our API users')}
-                url="/business-partners-api-user.pdf"
+                url="/business-partners-api-users.pdf"
                 link_title={localize('API users')}
             />
         </CssGrid>

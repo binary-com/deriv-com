@@ -157,14 +157,14 @@ const IconGrid = () => (
                 Icon={General}
                 title={localize('General terms of use')}
                 content={localize('What you’re agreeing to when you sign up to use Deriv')}
-                url="/general-term.pdf"
+                url="/general-terms.pdf"
                 link_title={localize('General terms of use')}
             />
             <Col
                 Icon={Trading}
                 title={localize('Trading terms')}
                 content={localize('Rules for making trades on any Deriv trading platform')}
-                url="/trading-term.pdf"
+                url="/trading-terms.pdf"
                 link_title={localize('Trading terms')}
             />
             <Col

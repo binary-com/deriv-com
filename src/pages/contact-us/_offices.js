@@ -8,7 +8,6 @@ import device, { size } from 'themes/device'
 import { map_api_key } from 'common/utility'
 // SVG
 import MapSVG from 'images/svg/map.svg'
-import PhoneSVG from 'images/svg/phone.svg'
 
 const query = graphql`
     query {
@@ -113,9 +112,7 @@ const MapIconWrapper = styled.div`
 const MapIcon = styled(MapSVG)`
     margin-right: 0.8rem;
 `
-const PhoneIcon = styled(PhoneSVG)`
-    margin-right: 0.8rem;
-`
+
 const ImageWrapper = styled.div`
     height: 21rem;
     width: 100%;
@@ -126,15 +123,7 @@ const ImageWrapper = styled.div`
         height: 17.75rem;
     }
 `
-const StyledText = styled(Text)`
-    margin-top: 1.6rem;
-    color: ${(props) => props.color || 'var(--color-black-3)'};
-    text-indent: ${(props) => props.textIndent || '0'};
 
-    @media ${device.laptop} {
-        font-size: var(--text-size-sm);
-    }
-`
 const Splitter = styled.div`
     background-color: var(--color-grey-8);
     height: 0.1rem;
@@ -168,10 +157,6 @@ const AddressTextShared = css`
 `
 const StyledLinkText = styled(LinkText)`
     ${AddressTextShared}
-`
-const ClickToCall = styled.a`
-    text-decoration: none;
-    color: inherit;
 `
 
 const Iframe = styled.iframe`
@@ -217,11 +202,6 @@ export const Offices = () => {
                                     />
                                 </StyledLinkText>
                             </AddressContainer>
-
-                            <StyledText>
-                                <PhoneIcon />
-                                <ClickToCall href="tel:+35621316105">+356 2131 6105</ClickToCall>
-                            </StyledText>
                         </Content>
                     </Office>
                     <Splitter></Splitter>
@@ -247,10 +227,6 @@ export const Offices = () => {
                                     />
                                 </StyledLinkText>
                             </AddressContainer>
-                            <StyledText>
-                                <PhoneIcon />
-                                <ClickToCall href="tel:+60383228178">+60 3 8322 8178</ClickToCall>
-                            </StyledText>
                         </Content>
                         <ImageWrapper>
                             <MapContainer>
@@ -288,10 +264,6 @@ export const Offices = () => {
                                     />
                                 </Text>
                             </AddressContainer>
-                            <StyledText>
-                                <PhoneIcon />
-                                <ClickToCall href="tel:+6087504126">+60 8750 4126</ClickToCall>
-                            </StyledText>
                         </Content>
                     </Office>
                     <Splitter></Splitter>
@@ -312,10 +284,6 @@ export const Offices = () => {
                                     />
                                 </Text>
                             </AddressContainer>
-                            <StyledText>
-                                <PhoneIcon />
-                                <ClickToCall href="tel:+97143990404">+971 4 399 0404</ClickToCall>
-                            </StyledText>
                         </Content>
                         <ImageWrapper>
                             <MapContainer>
@@ -356,10 +324,6 @@ export const Offices = () => {
                                     />
                                 </Text>
                             </AddressContainer>
-                            <StyledText>
-                                <PhoneIcon />
-                                <ClickToCall href="tel:+595992550264">+595 992 550 264</ClickToCall>
-                            </StyledText>
                         </Content>
                     </Office>
                 </OfficeWrapper>

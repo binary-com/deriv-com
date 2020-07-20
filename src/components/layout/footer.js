@@ -438,7 +438,7 @@ const Footer = () => {
                                         <Title>{localize('RESOURCES')}</Title>
                                     </LinkWrapper>
                                     <LinkWrapper first_child="true">
-                                        <Link to="/help-centre">{localize('Help Centre')}</Link>
+                                        <Link to="/help-centre">{localize('Help centre')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/payment-methods">
@@ -595,7 +595,7 @@ const Footer = () => {
                                         header_style={mobile_accordion_header}
                                     >
                                         <Item>
-                                            <Link to="/help-centre">{localize('Help Centre')}</Link>
+                                            <Link to="/help-centre">{localize('Help centre')}</Link>
                                         </Item>
                                         <Item>
                                             <Link to="/payment-methods">

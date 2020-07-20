@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, LinkText } from '../../components/elements/typography'
+import { Text } from '../../components/elements/typography'
 import { Header } from 'components/elements'
 import { localize } from 'components/localization'
-import { LinkButton } from 'components/form'
-import EmailUsIcon from 'images/svg/email-us.svg'
+import { LinkButton, Button } from 'components/form'
 import NeedUsIcon from 'images/svg/need-us.svg'
+import CallUsIcon from 'images/svg/call-us.svg'
 import device from 'themes/device'
+import { isBrowser } from 'common/utility'
 
 const Wrapper = styled.section`
     width: 100%;
@@ -53,10 +54,14 @@ const Contact = styled.div`
     flex-direction: column;
     align-items: center;
     width: 28.2rem;
+
+    &:first-child {
+        margin-right: 2.4rem;
+    }
 `
 
 const StyledHeader = styled(Header)`
-    margin-bottom: 1.6rem;
+    margin-bottom: ${(props) => props.mb || '1.6rem'};
 
     @media ${device.tabletL} {
         margin-bottom: 1rem;
@@ -64,7 +69,7 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledText = styled(Text)`
-    margin-bottom: ${(props) => props.marginBttom || '0.8rem'};
+    margin-bottom: ${(props) => props.mb || '0.8rem'};
     font-size: var(--text-size-sm);
 
     @media ${device.tabletL} {
@@ -73,7 +78,7 @@ const StyledText = styled(Text)`
 `
 
 const Logo = styled.div`
-    margin-bottom: 2.4rem;
+    margin-bottom: ${(props) => props.mb || '2.4rem'};
 
     @media ${device.tabletL} {
         text-align: center;
@@ -89,7 +94,6 @@ const Logo = styled.div`
 const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
     height: 4rem;
-    margin-top: 3.2rem;
 
     @media ${device.tabletL} {
         font-size: 1.75rem;
@@ -97,6 +101,17 @@ const StyledLinkButton = styled(LinkButton)`
 `
 
 export const ContactWays = () => {
+    const LC_API = (isBrowser() && window.LC_API) || {}
+    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
+
+    React.useEffect(() => {
+        if (isBrowser()) {
+            window.scrollTo(0, 0)
+            window.LiveChatWidget.on('ready', () => {
+                setLiveChatInteractive(true)
+            })
+        }
+    }, [])
     return (
         <Wrapper>
             <WaysWrapper>
@@ -104,33 +119,38 @@ export const ContactWays = () => {
                     <Logo>
                         <NeedUsIcon />
                     </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Visit our Help Centre')}
+                    <StyledHeader as="h3" align="center" lh="1.25">
+                        {localize('Visit the Help centre')}
                     </StyledHeader>
-                    <StyledText align="center">
+                    <StyledText align="center" mb="4.2rem">
                         {localize('The quickest way to get answers to your questions.')}
                     </StyledText>
                     <StyledLinkButton secondary="true" to="/help-centre">
-                        {localize('Visit the Help Centre')}
+                        {localize('Visit the Help centre')}
                     </StyledLinkButton>
                 </Contact>
                 <Contact>
-                    <Logo>
-                        <EmailUsIcon />
+                    <Logo mb="4.4rem">
+                        <CallUsIcon />
                     </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Email Us')}
+                    <StyledHeader as="h3" align="center" mb="3.6rem" lh="1.25">
+                        {localize('Chat with us')}
                     </StyledHeader>
-                    <LinkText
-                        weight="bold"
-                        size="var(--text-size-sm)"
-                        color="red"
-                        href="mailto:support@deriv.com"
-                    >
-                        {localize('support@deriv.com')}
-                    </LinkText>
+                    <StyledText align="center" mb="4.2rem">
+                        {localize('Get answers you can’t find in the Help centre.')}
+                    </StyledText>
+                    {is_livechat_interactive && (
+                        <Button
+                            secondary="true"
+                            to="/help-centre"
+                            onClick={() => {
+                                LC_API.open_chat_window()
+                            }}
+                        >
+                            {localize('Chat with us')}
+                        </Button>
+                    )}
                 </Contact>
-
                 {/*
                 // TODO: This section will be added shortly when the back-end gets ready.
                 <Splitter></Splitter>

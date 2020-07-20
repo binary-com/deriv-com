@@ -6,7 +6,8 @@ import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import { LinkButton, Button } from 'components/form'
 import device from 'themes/device'
-import PhoneSVG from 'images/svg/livechat-hover.svg'
+import Chat from 'images/svg/call.svg'
+import Help from 'images/svg/help-centre.svg'
 import { isBrowser } from 'common/utility'
 
 const StyledLinkButton = styled(LinkButton)`
@@ -26,7 +27,7 @@ const help_content = [
                 <Localize translate_text="The quickest way to get answers about your account, deposits and withdrawals, and more." />
             </Text>
         ),
-        icon: <PhoneSVG />,
+        icon: <Help />,
         button: (
             <StyledLinkButton secondary="true" to="/help-centre">
                 {localize('Visit the Help Centre')}
@@ -40,7 +41,7 @@ const help_content = [
                 <Localize translate_text="Get answers you can’t find in the Help centre." />
             </Text>
         ),
-        icon: <PhoneSVG />,
+        icon: <Chat />,
     },
 ]
 

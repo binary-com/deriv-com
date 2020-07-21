@@ -83,8 +83,8 @@ export const Affiliates = () => {
                 <StyledText>
                     {localize('For enquiries about our affiliate and IB programmes')}
                 </StyledText>
-                <StyledLinkText weight="bold" color="red" href="mailto:affiliates@deriv.com">
-                    {localize('affiliates@deriv.com')}
+                <StyledLinkText weight="bold" color="red" href="mailto:partners@deriv.com">
+                    {localize('partners@deriv.com')}
                 </StyledLinkText>
             </Content>
             <Content>

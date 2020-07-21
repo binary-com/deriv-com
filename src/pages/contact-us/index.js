@@ -52,19 +52,9 @@ const ContactUs = () => {
             />
             <HeroWrapper>
                 <Header as="h1">{localize('Contact us')}</Header>
-                {/* <Show.Desktop> */}
                 <StyledText align="center" size="var(--text-size-sm)">
                     {localize("Got questions? Here's how to get answers")}
                 </StyledText>
-                {/* </Show.Desktop> */}
-                {/* <Show.Mobile>
-                    <StyledText align="center" size="var(--text-size-sm)">
-                        {localize('Got questions, bug reports, feedback, or feature requests?')}
-                    </StyledText>
-                    <StyledText align="center" size="var(--text-size-sm)">
-                        {localize('Here are some ways to get in touch with us.')}
-                    </StyledText>
-                </Show.Mobile> */}
             </HeroWrapper>
             <ContactWays />
             <Offices />

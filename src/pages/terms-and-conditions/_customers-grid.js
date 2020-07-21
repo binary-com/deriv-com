@@ -53,7 +53,7 @@ const StyledHeader = styled(Header)`
     }
 `
 const Cta = styled.div`
-    margin-top: 2rem;
+    margin: 2rem 1rem 0 0;
     display: grid;
     grid-template-columns: 3.2rem 1fr;
     grid-column-gap: 0.8rem;

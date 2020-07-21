@@ -80,6 +80,11 @@ const StyledText = styled(Text)`
         text-align: center;
     }
 `
+const StyledSubHeader = styled(Header)`
+    @media ${device.tablet} {
+        margin-left: 1.5rem;
+    }
+`
 
 const TradingLimits = () => {
     return (
@@ -95,9 +100,9 @@ const TradingLimits = () => {
                                 'Online trading is exciting, but it can be addictive. Deriv.com provides you with the opportunity to either self-exclude or set limits on your trading activities on this website.',
                             )}
                         </StyledText>
-                        <Header size="2rem" pt="3rem" pb="1rem">
+                        <StyledSubHeader size="2rem" pt="3rem" pb="1rem">
                             {localize('You can:')}
-                        </Header>
+                        </StyledSubHeader>
                         <Text ml="0.8rem">
                             <TimelineTick color="var(--color-red)" pb="1rem">
                                 <TimelineTick.Item>

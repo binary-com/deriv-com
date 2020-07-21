@@ -17,7 +17,7 @@ const Banner = ({ header, p1, button_text }) => (
             <Header pb="0.8rem" align="center" as="h3" color="white">
                 {header}
             </Header>
-            <Text max_width="55.9rem" align="center" color="white" pb="3rem">
+            <Text max_width="62rem" align="center" color="white" pb="3rem" pr="3rem" pl="3rem">
                 {p1}
             </Text>
             <a href="/signup">

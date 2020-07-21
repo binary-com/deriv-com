@@ -69,9 +69,14 @@ const Cta = styled.div`
         :hover {
             text-decoration: underline;
         }
+
+        @media ${device.tabletS} {
+            margin-left: 1rem;
+        }
     }
     @media ${device.tabletS} {
-        display: inline-grid;
+        display: flex;
+        justify-content: center;
     }
 `
 const Col = ({
@@ -199,12 +204,12 @@ const IconGrid = () => (
                     'Additional terms and restrictions for Deriv clients in certain countries',
                 )}
                 url="/deriv-(fx)-ltd.pdf"
-                url2="/deriv-investments-(europe)-ltd.pdf"
-                url3="/deriv-(europe)-ltd.pdf"
+                url2="/deriv-investments-(europe)-limited.pdf"
+                url3="/deriv-(europe)-limited.pdf"
                 url4="/deriv-(mx)-ltd.pdf"
                 link_title={localize('Deriv (FX) Ltd')}
-                link_title2={localize('Deriv Investments (Europe) Ltd')}
-                link_title3={localize('Deriv (Europe) Ltd')}
+                link_title2={localize('Deriv Investments (Europe) Limited')}
+                link_title3={localize('Deriv (Europe) Limited')}
                 link_title4={localize('Deriv (MX) Ltd')}
             />
         </CssGrid>

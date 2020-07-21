@@ -7,7 +7,7 @@ import device from 'themes/device'
 import { Header, Text } from 'components/elements/typography'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SEO, Show } from 'components/containers'
+import { SEO } from 'components/containers'
 
 const HeroWrapper = styled.section`
     width: 100%;
@@ -52,19 +52,19 @@ const ContactUs = () => {
             />
             <HeroWrapper>
                 <Header as="h1">{localize('Contact us')}</Header>
-                <Show.Desktop>
-                    <StyledText align="center" size="var(--text-size-sm)">
-                        {localize("Got questions? Here's how to get answers")}
-                    </StyledText>
-                </Show.Desktop>
-                <Show.Mobile>
+                {/* <Show.Desktop> */}
+                <StyledText align="center" size="var(--text-size-sm)">
+                    {localize("Got questions? Here's how to get answers")}
+                </StyledText>
+                {/* </Show.Desktop> */}
+                {/* <Show.Mobile>
                     <StyledText align="center" size="var(--text-size-sm)">
                         {localize('Got questions, bug reports, feedback, or feature requests?')}
                     </StyledText>
                     <StyledText align="center" size="var(--text-size-sm)">
                         {localize('Here are some ways to get in touch with us.')}
                     </StyledText>
-                </Show.Mobile>
+                </Show.Mobile> */}
             </HeroWrapper>
             <ContactWays />
             <Offices />

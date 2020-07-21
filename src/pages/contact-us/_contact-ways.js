@@ -19,7 +19,7 @@ const StyledLinkButton = styled(LinkButton)`
         font-size: 1.75rem;
     }
 `
-const help_content = [
+const contactways = [
     {
         header: <Localize translate_text="Visit the Help centre" />,
         text: (
@@ -113,7 +113,7 @@ const ContactWays = () => {
     return (
         <SectionContainer mt="-18rem">
             <StyledFlex wrap="wrap">
-                {help_content.map((item, idx) => {
+                {contactways.map((item, idx) => {
                     return (
                         <ClientCard key={idx}>
                             <Flex pb="0.8rem" ai="center">

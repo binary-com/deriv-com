@@ -16,7 +16,7 @@ import device from 'themes/device'
 const markets_type = {
     forex: {
         icon: Forex,
-        title: 'Forex',
+        title: <Localize translate_text="Forex" />,
         content: (
             <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
         ),
@@ -25,7 +25,7 @@ const markets_type = {
     },
     Synthetic_Indices: {
         icon: SyntheticIndices,
-        title: 'Synthetic indices',
+        title: <Localize translate_text="Synthetic indices" />,
         content: (
             <Localize translate_text="Synthetic indices are our proprietary indices that simulate real-world market movements while being free of market and liquidity risks." />
         ),
@@ -34,7 +34,7 @@ const markets_type = {
     },
     stock_indices: {
         icon: StockIndices,
-        title: 'Stock indices',
+        title: <Localize translate_text="Stock indices" />,
         content: (
             <Localize translate_text="Stock indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
         ),
@@ -44,7 +44,7 @@ const markets_type = {
 
     commodities: {
         icon: Commodities,
-        title: 'Commodities',
+        title: <Localize translate_text="Commodities" />,
         content: (
             <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
         ),

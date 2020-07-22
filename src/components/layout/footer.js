@@ -1,24 +1,30 @@
-// TODO: (discussion) make footer pure component, and move usage of footer to custom
 import React from 'react'
 import styled from 'styled-components'
-import { Container, CssGrid, Show, Flex } from '../containers'
-import { Text, StyledLink, Accordion, AccordionItem, LocalizedLinkText } from '../elements'
+import { Container, CssGrid, Flex, Show } from '../containers'
+import { Accordion, AccordionItem, StyledLink, Text, LocalizedLinkText } from '../elements'
 import { LocationContext } from './location-context'
-import { localize, Localize } from 'components/localization'
+// TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
+import { localize, Localize } from 'components/localization'
 // Icons
-import Logo from 'images/svg/deriv-footer.svg'
 import CopyrightIc from 'images/svg/copyright.svg'
+import Logo from 'images/svg/deriv-footer.svg'
 import Twitter from 'images/svg/footer-twitter.svg'
 import Instagram from 'images/svg/footer-instagram.svg'
 import Facebook from 'images/svg/footer-facebook.svg'
 import Linkedin from 'images/svg/footer-linkedin.svg'
+//EU icons
+import CoatArms from 'images/svg/coat-arms.svg'
+import Gamstop from 'images/svg/gamstop.svg'
+import MgaLogo from 'images/svg/mga-logo.svg'
+import Over18 from 'images/svg/over-18.svg'
 
 const StyledFooter = styled.footer`
     background-color: var(--color-grey-25);
     width: 100%;
     margin: 0 auto;
     margin-bottom: ${(props) => (props.has_banner_cookie ? '18.4rem' : '0')};
+    padding-bottom: 1.6rem;
 
     ${Container} {
         @media ${device.tabletL} {
@@ -33,7 +39,8 @@ const StyledGrid = styled(CssGrid)`
         'logo logo'
         'links links'
         'disclaimer disclaimer'
-        'copyright social';
+        'copyright social'
+        'copyright eulogowrapper';
 
     @media ${device.tabletL} {
         grid-template-columns: 1fr;
@@ -42,17 +49,17 @@ const StyledGrid = styled(CssGrid)`
             'links'
             'social'
             'disclaimer'
+            'eulogowrapper'
             'copyright';
     }
 `
 const DerivLogoWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
     grid-area: logo;
     background: var(--color-grey-25);
     padding: 4rem 0 2rem 0;
 
-    svg {
-        width: 182px;
-    }
     @media ${device.tabletL} {
         margin-left: 2rem;
     }
@@ -100,7 +107,7 @@ const Disclaimer = styled.div`
 `
 const DisclaimerParagraph = styled(Text)`
     font-size: var(--text-size-xs);
-    margin-top: ${(props) => (props.no_margin == 'true' ? '0' : '2.4rem')};
+    margin-top: ${(props) => (props.no_margin == 'true' ? '0' : '2rem')};
 
     @media ${device.tabletL} {
         width: 90%;
@@ -165,12 +172,16 @@ const Copyright = styled(Flex)`
         width: 90%;
         margin: 0 auto;
         padding: 2rem 0;
+        justify-content: center;
 
         p {
             font-size: 1.75rem;
             line-height: 1.5;
         }
     }
+`
+const EuLogoWrapper = styled(Flex)`
+    grid-area: eulogowrapper;
 `
 const SocialWrapper = styled.div`
     grid-area: social;
@@ -228,6 +239,20 @@ const BinaryLinkText = styled(LocalizedLinkText)`
         font-size: var(--text-size-sm);
     }
 `
+
+const StyledGamstop = styled(Gamstop)`
+    margin-right: 2.4rem;
+`
+const StyledCoatArms = styled(CoatArms)`
+    margin-right: 2.4rem;
+`
+const StyledMgaLogo = styled(MgaLogo)`
+    margin-right: 2.4rem;
+`
+const StyledLogo = styled(Logo)`
+    width: 18.2rem;
+`
+
 const mobile_accordion_header = {
     borderTop: '1px solid var(--color-grey-26)',
     borderBottom: 'none',
@@ -237,7 +262,40 @@ const mobile_accordion_header = {
     boxShadow: 'none',
 }
 const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
-
+const SocialWrapperComponent = () => {
+    return (
+        <SocialWrapper>
+            <ExternalLink
+                href="https://www.facebook.com/derivdotcom/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Facebook />
+            </ExternalLink>
+            <ExternalLink
+                href="https://twitter.com/derivdotcom"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Twitter />
+            </ExternalLink>
+            <ExternalLink
+                href="https://www.instagram.com/deriv_official/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Instagram />
+            </ExternalLink>
+            <ExternalLink
+                href="https://www.linkedin.com/company/derivdotcom/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Linkedin />
+            </ExternalLink>
+        </SocialWrapper>
+    )
+}
 const Footer = () => {
     mobile_accordion_header_about.borderTop = 'none'
     const { show_cookie_banner } = React.useContext(LocationContext)
@@ -247,7 +305,12 @@ const Footer = () => {
             <Container>
                 <StyledGrid>
                     <DerivLogoWrapper>
-                        <Logo />
+                        <StyledLogo />
+                        <Show.Eu>
+                            <Show.Desktop>
+                                <SocialWrapperComponent />
+                            </Show.Desktop>
+                        </Show.Eu>
                     </DerivLogoWrapper>
                     <LinksWrapper>
                         <Show.Desktop>
@@ -385,7 +448,7 @@ const Footer = () => {
                                         <Title>{localize('RESOURCES')}</Title>
                                     </LinkWrapper>
                                     <LinkWrapper first_child="true">
-                                        <Link to="/help-centre">{localize('Help Centre')}</Link>
+                                        <Link to="/help-centre">{localize('Help centre')}</Link>
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link to="/payment-methods">
@@ -542,7 +605,7 @@ const Footer = () => {
                                         header_style={mobile_accordion_header}
                                     >
                                         <Item>
-                                            <Link to="/help-centre">{localize('Help Centre')}</Link>
+                                            <Link to="/help-centre">{localize('Help centre')}</Link>
                                         </Item>
                                         <Item>
                                             <Link to="/payment-methods">
@@ -572,7 +635,6 @@ const Footer = () => {
                                 />
                             </DisclaimerParagraph>
                         </Show.Eu>
-
                         <DisclaimerParagraph>
                             <Localize
                                 translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
@@ -613,7 +675,6 @@ const Footer = () => {
                                 />
                             </DisclaimerParagraph>
                         </Show.NonEU>
-
                         <Show.Eu>
                             <DisclaimerParagraph>
                                 <Localize
@@ -656,38 +717,70 @@ const Footer = () => {
                         <RiskWarning>
                             <Show.Desktop>
                                 <DisclaimerParagraph no_margin="true">
-                                    <Localize
-                                        translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
-                                        components={[
-                                            <BoldLink
-                                                key={0}
-                                                target="_blank"
-                                                to="/responsible-trading/"
-                                            />,
-                                            <strong key={1} />,
-                                        ]}
-                                    />
+                                    <Show.NonEU>
+                                        <Localize
+                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                                <strong key={1} />,
+                                            ]}
+                                        />
+                                    </Show.NonEU>
+                                    <Show.Eu>
+                                        <Localize
+                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                                <strong key={1} />,
+                                            ]}
+                                        />
+                                    </Show.Eu>
                                 </DisclaimerParagraph>
                             </Show.Desktop>
                             <Show.Mobile>
-                                <DisclaimerParagraph
-                                    no_margin="true"
-                                    style={{ marginBottom: '1rem' }}
-                                >
-                                    <strong>{localize('RISK WARNING')}</strong>
-                                </DisclaimerParagraph>
-                                <DisclaimerParagraph no_margin="true">
-                                    <Localize
-                                        translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading options may not be suitable for everyone. Trading CFDs carries a high level of risk since leverage can work both to your advantage and disadvantage. As a result, the products offered on this website may not be suitable for all investors because of the risk of losing all of your invested capital. You should never invest money that you cannot afford to lose, and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
-                                        components={[
-                                            <BoldLink
-                                                key={0}
-                                                target="_blank"
-                                                to="/responsible-trading/"
-                                            />,
-                                        ]}
-                                    />
-                                </DisclaimerParagraph>
+                                <Show.Eu>
+                                    <DisclaimerParagraph no_margin="true">
+                                        <Localize
+                                            translate_text="<1>RISK WARNING:</1> The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with Deriv Investments (Europe) Limited. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                                <strong key={1} />,
+                                            ]}
+                                        />
+                                    </DisclaimerParagraph>
+                                </Show.Eu>
+                                <Show.NonEU>
+                                    <DisclaimerParagraph
+                                        no_margin="true"
+                                        style={{ marginBottom: '1rem' }}
+                                    >
+                                        <strong>{localize('RISK WARNING')}</strong>
+                                    </DisclaimerParagraph>
+                                    <DisclaimerParagraph no_margin="true">
+                                        <Localize
+                                            translate_text="The financial products offered via this website include digitals, contracts for difference (CFDs), and other complex derivatives and financial products. Trading financial products may not be suitable for everyone. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. 71% of retail investor accounts lose money when trading CFDs with this provider. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money. You should never invest money that you cannot afford to lose and never trade with borrowed money. Before trading in the complex financial products offered, please be sure to understand the risks involved and learn about <0>Secure and responsible trading.</0>"
+                                            components={[
+                                                <BoldLink
+                                                    key={0}
+                                                    target="_blank"
+                                                    to="/responsible-trading/"
+                                                />,
+                                            ]}
+                                        />
+                                    </DisclaimerParagraph>
+                                </Show.NonEU>
                             </Show.Mobile>
                         </RiskWarning>
                     </Disclaimer>
@@ -695,36 +788,34 @@ const Footer = () => {
                         <CopyrightIc width="16px" />
                         <Text ml="0.4rem">{localize('2020 Deriv | All rights reserved')}</Text>
                     </Copyright>
-                    <SocialWrapper>
-                        <ExternalLink
-                            href="https://www.facebook.com/derivdotcom/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Facebook />
-                        </ExternalLink>
-                        <ExternalLink
-                            href="https://twitter.com/derivdotcom"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Twitter />
-                        </ExternalLink>
-                        <ExternalLink
-                            href="https://www.instagram.com/deriv_official/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Instagram />
-                        </ExternalLink>
-                        <ExternalLink
-                            href="https://www.linkedin.com/company/derivdotcom/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <Linkedin />
-                        </ExternalLink>
-                    </SocialWrapper>
+                    <Show.NonEU>
+                        <SocialWrapperComponent />
+                    </Show.NonEU>
+                    <Show.Eu>
+                        <Show.Mobile>
+                            <SocialWrapperComponent />
+                        </Show.Mobile>
+                    </Show.Eu>
+                    <Show.Eu>
+                        <Show.Desktop>
+                            <EuLogoWrapper mt="1rem" ai="center">
+                                <StyledGamstop />
+                                <StyledCoatArms />
+                                <StyledMgaLogo />
+                                <Over18 />
+                            </EuLogoWrapper>
+                        </Show.Desktop>
+                        <Show.Mobile>
+                            <EuLogoWrapper mt="1rem" ai="center">
+                                <StyledCoatArms />
+                                <Flex fd="column" width="auto">
+                                    <StyledMgaLogo />
+                                    <StyledGamstop />
+                                </Flex>
+                                <Over18 />
+                            </EuLogoWrapper>
+                        </Show.Mobile>
+                    </Show.Eu>
                 </StyledGrid>
             </Container>
         </StyledFooter>

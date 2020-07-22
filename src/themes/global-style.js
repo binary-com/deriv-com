@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     ${Reset}
     ${Variables}
 
+    i { font-style: italic }
     * {
         font-family: 'IBM Plex Sans', sans-serif;
 

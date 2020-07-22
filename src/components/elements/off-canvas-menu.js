@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard } from 'components/elements'
-import { smarttrader_url } from 'common/utility'
 import { useOutsideClick } from 'components/hooks/outside-click'
 // SVG
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -124,8 +123,8 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
                                 }
                                 title={<Localize translate_text="SmartTrader" />}
-                                to={smarttrader_url}
-                                is_binary_link
+                                to="trading"
+                                is_smarttrader_link
                                 external="true"
                                 target="_blank"
                                 otherLinkProps={{ rel: 'noopener noreferrer' }}
@@ -205,7 +204,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         style={content_style}
                     >
                         <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                            {localize('Help Centre')}
+                            {localize('Help centre')}
                         </StyledLink>
                         {/* TODO: add this when blog is ready */}
                         {/* <StyledLink to="/blog/" onClick={handleArrowClick}>

@@ -13,7 +13,6 @@ import CtaBinary from '../_cta-binary'
 import { Container } from 'components/containers'
 import { Header, LocalizedLinkText, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { binary_url } from 'common/utility'
 
 const query = graphql`
     query {
@@ -51,7 +50,8 @@ const Hero = () => {
                                         external
                                         color="white"
                                         weight="bold"
-                                        to={binary_url}
+                                        to="home"
+                                        is_binary_link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     />,

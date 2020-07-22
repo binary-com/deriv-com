@@ -5,7 +5,7 @@ import { Margins, Paddings } from 'themes/function'
 
 const createElement = React.createElement
 
-const BaseElement = css`
+export const BaseElement = css`
     text-align: ${(props) => props.align || 'left'};
     padding: ${(props) => props.padding || ''};
 

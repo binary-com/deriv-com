@@ -6,7 +6,7 @@ import device from 'themes/device'
 import { LinkButton } from 'components/form'
 import { Container, CssGrid, Box, Flex, Show } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 
 const query = graphql`
     query {
@@ -65,7 +65,7 @@ const contents = [
     <Localize key={1} translate_text="Sharp prices" />,
     <Localize key={2} translate_text="24x7 trading" />,
     <Localize key={3} translate_text="100+ tradeable assets" />,
-    <Localize key={4} translate_text="20+ of experience" />,
+    <Localize key={4} translate_text="20+ years of experience" />,
 ]
 const TypeWriter = styled(Header)`
     min-height: 7.2rem;
@@ -108,15 +108,13 @@ const ImageWrapper = styled(Box)`
 `
 export const Hero = () => {
     const data = useStaticQuery(query)
-    const subtitle = (
-        <Localize translate_text="Trade forex, commodities, synthetic and stock indices" />
-    )
+    const typewriter_text = localize('Trade forex, commodities, synthetic and stock indices')
     const [type_writer, setTypeWriter] = React.useState('')
     let type_writer_timeout
 
     const typeWriterAnimation = (i = 0) => {
-        if (i < subtitle.length) {
-            setTypeWriter(subtitle.substring(0, i + 1))
+        if (i < typewriter_text.length) {
+            setTypeWriter(typewriter_text.substring(0, i + 1))
             type_writer_timeout = setTimeout(() => typeWriterAnimation(i + 1), 13)
         }
     }
@@ -157,7 +155,7 @@ export const Hero = () => {
                             </Flex>
                         </Show.Mobile>
                         <TypeWriter as="h4" color="white" max_width="430px" weight="normal">
-                            {type_writer}
+                            {localize(type_writer)}
                         </TypeWriter>
                         <VerticalCarousel contents={contents} />
                     </Details>

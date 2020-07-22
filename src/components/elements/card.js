@@ -321,6 +321,7 @@ export const NavCard = ({
     target,
     className,
     is_binary_link,
+    is_smarttrader_link,
     otherLinkProps,
 }) => {
     return (
@@ -337,6 +338,7 @@ export const NavCard = ({
             target={target}
             className={className}
             is_binary_link={is_binary_link}
+            is_smarttrader_link={is_smarttrader_link}
             {...otherLinkProps}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
@@ -363,6 +365,7 @@ NavCard.propTypes = {
     external: PropTypes.string,
     icon: PropTypes.func,
     is_binary_link: PropTypes.bool,
+    is_smarttrader_link: PropTypes.bool,
     otherLinkProps: PropTypes.object,
     style: PropTypes.object,
     target: PropTypes.string,

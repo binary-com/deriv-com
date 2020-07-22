@@ -12,6 +12,21 @@ import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { isBrowser } from 'common/utility'
+import LiveChatIC from 'images/svg/livechat.svg'
+import LiveChatHover from 'images/svg/livechat-hover.svg'
+
+const LiveChat = styled.div`
+    position: fixed;
+    bottom: 1.6rem;
+    right: 1.6rem;
+    background-color: var(--color-white);
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+    padding: 1.6rem;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 9999;
+`
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};
@@ -24,8 +39,11 @@ const has_dataLayer = isBrowser() && window.dataLayer
 const cookie_expires = 7
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
+    const LC_API = (isBrowser() && window.LC_API) || {}
     const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
+    const [is_livechat_hover, setLivechatHover] = React.useState(false)
+    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
     const { has_window_loaded } = React.useContext(LocaleContext)
 
     const is_static = type === 'static'
@@ -50,6 +68,12 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 
                 binary_socket.close()
             }
+        }
+        if (isBrowser()) {
+            window.scrollTo(0, 0)
+            window.LiveChatWidget.on('ready', () => {
+                setLiveChatInteractive(true)
+            })
         }
     }, [])
 
@@ -122,7 +146,6 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             <Main padding_top={padding_top} is_static={is_static}>
                 {children}
             </Main>
-
             {show_cookie_banner && (
                 <CookieBanner
                     onAccept={onAccept}
@@ -130,6 +153,19 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                     is_open={show_cookie_banner}
                 />
             )}
+            {is_livechat_interactive && (
+                <LiveChat
+                    id="gtm-deriv-livechat"
+                    onClick={() => {
+                        LC_API.open_chat_window()
+                    }}
+                    onMouseEnter={() => setLivechatHover(true)}
+                    onMouseLeave={() => setLivechatHover(false)}
+                >
+                    {is_livechat_hover ? <LiveChatHover /> : <LiveChatIC />}
+                </LiveChat>
+            )}
+
             {FooterNav}
         </LocationProvider>
     )

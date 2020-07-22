@@ -152,7 +152,6 @@ export const compliance_positions = [
             'Strong organisational skills and ability to work proactively',
             'High level of integrity, reliability, and work ethic',
         ],
-        preferences: ['Excellent command of written and spoken Portuguese or Indonesian'],
     },
     {
         title: 'Compliance Executive',

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="502" viewBox="0 0 500 502">
+    <defs>
+        <filter id="wgrgbm6qea" width="105.1%" height="105.1%" x="-2.6%" y="-1.7%" filterUnits="objectBoundingBox">
+            <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="3.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0549019608 0 0 0 0 0.0549019608 0 0 0 0 0.0549019608 0 0 0 0.1 0"/>
+        </filter>
+        <rect id="3b1zegnj8b" width="486" height="488" x="0" y="0" rx="8"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero" transform="translate(7 3)">
+            <use fill="#000" filter="url(#wgrgbm6qea)" xlink:href="#3b1zegnj8b"/>
+            <use fill="#FFF" xlink:href="#3b1zegnj8b"/>
+        </g>
+        <g fill="#333" fill-opacity=".32" font-family="IBMPlexSans, IBM Plex Sans" font-size="16">
+            <text transform="translate(7 3) translate(24 177)">
+                <tspan x="6.208" y="16">375M</tspan>
+            </text>
+            <text transform="translate(7 3) translate(24 177)">
+                <tspan x="6.208" y="64">300M</tspan>
+            </text>
+            <text transform="translate(7 3) translate(24 177)">
+                <tspan x="6.208" y="112">225M</tspan>
+            </text>
+            <text transform="translate(7 3) translate(24 177)">
+                <tspan x="6.208" y="160">150M</tspan>
+            </text>
+            <text transform="translate(7 3) translate(24 177)">
+                <tspan x="15.808" y="208">75M</tspan>
+            </text>
+        </g>
+        <g fill="#333" fill-opacity=".32" font-family="IBMPlexSans, IBM Plex Sans" font-size="16">
+            <text transform="translate(7 3) translate(100 440)">
+                <tspan x="312.8" y="16">2020</tspan>
+            </text>
+            <text transform="translate(7 3) translate(100 440)">
+                <tspan x="236.8" y="16">2015</tspan>
+            </text>
+            <text transform="translate(7 3) translate(100 440)">
+                <tspan x="160.8" y="16">2010</tspan>
+            </text>
+            <text transform="translate(7 3) translate(100 440)">
+                <tspan x="84.8" y="16">2005</tspan>
+            </text>
+            <text transform="translate(7 3) translate(100 440)">
+                <tspan x="8.8" y="16">2000</tspan>
+            </text>
+        </g>
+        <g fill="#FFBAAC" fill-opacity=".32" fill-rule="nonzero">
+            <path d="M397 241L397 242 0 242 0 241zM397 48L397 49 0 49 0 48zM397 0L397 1 0 1 0 0zM397 96L397 97 0 97 0 96zM397 144L397 145 0 145 0 144zM397 192L397 193 0 193 0 192z" transform="translate(7 3) translate(88 189)"/>
+        </g>
+        <g fill="#FFBAAC" fill-rule="nonzero">
+            <path d="M308 0h48c2.21 0 4 1.79 4 4v244h-56V4c0-2.21 1.79-4 4-4z" transform="translate(7 3) translate(100 182)"/>
+            <path fill-opacity=".4" d="M232 160h48c2.21 0 4 1.79 4 4v84h-56v-84c0-2.21 1.79-4 4-4zM156 240h48c2.21 0 4 1.79 4 4v4h-56v-4c0-2.21 1.79-4 4-4zM78 246h52c1.105 0 2 .895 2 2H76c0-1.105.895-2 2-2zM1 247h54c.552 0 1 .448 1 1H0c0-.552.448-1 1-1z" transform="translate(7 3) translate(100 182)"/>
+        </g>
+        <text font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="32" font-weight="bold" transform="translate(7 3)">
+            <tspan x="85.396" y="88.2" fill="#FF6444">377M+</tspan> <tspan x="188.404" y="88.2" fill="#333"> transactions</tspan>
+        </text>
+    </g>
+</svg>

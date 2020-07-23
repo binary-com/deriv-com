@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="502" viewBox="0 0 500 502">
+    <defs>
+        <linearGradient id="8x065gux1c" x1="50%" x2="50%" y1="155.281%" y2="-41.178%">
+            <stop offset="0%" stop-color="#FFF" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#FFBAAC"/>
+        </linearGradient>
+        <filter id="bfupf1qmwa" width="105.1%" height="105.1%" x="-2.6%" y="-1.7%" filterUnits="objectBoundingBox">
+            <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="3.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0549019608 0 0 0 0 0.0549019608 0 0 0 0 0.0549019608 0 0 0 0.1 0"/>
+        </filter>
+        <rect id="s7tfxd99yb" width="486" height="488" x="1" y="0" rx="8"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero" transform="translate(6 3)">
+            <use fill="#000" filter="url(#bfupf1qmwa)" xlink:href="#s7tfxd99yb"/>
+            <use fill="#FFF" xlink:href="#s7tfxd99yb"/>
+        </g>
+        <g>
+            <path fill="url(#8x065gux1c)" fill-rule="nonzero" d="M487 12.5l-45-.5-81 145-78.5 72.5-80 10-80 6L0 254v49c0 4.418 3.582 8 8 8h471c4.418 0 8-3.582 8-8V12.5z" opacity=".839" transform="translate(6 3) translate(0 177)"/>
+            <path fill="#FFBAAC" fill-rule="nonzero" d="M361.213 156.38L441.911 11 487 11.507 486.978 13.507 443.081 13.013 362.804 157.635 282.962 230.46 202.611 240.504 122.618 246.504 0.138 255.004 0 253.009 122.474 244.509 202.412 238.514 282.085 228.553z" transform="translate(6 3) translate(0 177)"/>
+            <g fill="#333" fill-opacity=".32" font-family="IBMPlexSans, IBM Plex Sans" font-size="16">
+                <text transform="translate(6 3) translate(0 177) translate(102 263)">
+                    <tspan x="320.8" y="16">2020</tspan>
+                </text>
+                <text transform="translate(6 3) translate(0 177) translate(102 263)">
+                    <tspan x="240.8" y="16">2015</tspan>
+                </text>
+                <text transform="translate(6 3) translate(0 177) translate(102 263)">
+                    <tspan x="160.8" y="16">2010</tspan>
+                </text>
+                <text transform="translate(6 3) translate(0 177) translate(102 263)">
+                    <tspan x="80.8" y="16">2005</tspan>
+                </text>
+                <text transform="translate(6 3) translate(0 177) translate(102 263)">
+                    <tspan x=".8" y="16">2000</tspan>
+                </text>
+            </g>
+            <g fill="#333" fill-opacity=".32" font-family="IBMPlexSans, IBM Plex Sans" font-size="16">
+                <text transform="translate(6 3) translate(0 177) translate(25)">
+                    <tspan x="18.656" y="208">35K</tspan>
+                </text>
+                <text transform="translate(6 3) translate(0 177) translate(25)">
+                    <tspan x="18.656" y="160">70K</tspan>
+                </text>
+                <text transform="translate(6 3) translate(0 177) translate(25)">
+                    <tspan x="9.056" y="112">105K</tspan>
+                </text>
+                <text transform="translate(6 3) translate(0 177) translate(25)">
+                    <tspan x="9.056" y="64">140K</tspan>
+                </text>
+                <text transform="translate(6 3) translate(0 177) translate(25)">
+                    <tspan x="9.056" y="16">175K</tspan>
+                </text>
+            </g>
+            <g fill="#FFBAAC" fill-opacity=".32" fill-rule="nonzero">
+                <path d="M398 241L398 242 0 242 0 241zM398 48L398 49 0 49 0 48zM398 0L398 1 0 1 0 0zM398 96L398 97 0 97 0 96zM398 144L398 145 0 145 0 144zM398 192L398 193 0 193 0 192z" transform="translate(6 3) translate(0 177) translate(89 12)"/>
+            </g>
+            <g transform="translate(6 3) translate(0 177) translate(434 4)">
+                <circle cx="8.5" cy="8.5" r="8.5" fill="#FFF" fill-rule="nonzero" opacity=".479"/>
+                <path fill="#FFBAAC" fill-rule="nonzero" d="M8.5 3C5.462 3 3 5.462 3 8.5S5.462 14 8.5 14 14 11.538 14 8.5 11.538 3 8.5 3zm0 2C10.433 5 12 6.567 12 8.5S10.433 12 8.5 12 5 10.433 5 8.5 6.567 5 8.5 5z"/>
+                <circle cx="8.5" cy="8.5" r="3.5" fill="#FFF"/>
+            </g>
+            <g transform="translate(6 3) translate(0 177) translate(353 149)">
+                <circle cx="8.5" cy="8.5" r="8.5" fill="#FFF" fill-rule="nonzero" opacity=".479"/>
+                <path fill="#FFBAAC" fill-rule="nonzero" d="M8.5 3C5.462 3 3 5.462 3 8.5S5.462 14 8.5 14 14 11.538 14 8.5 11.538 3 8.5 3zm0 2C10.433 5 12 6.567 12 8.5S10.433 12 8.5 12 5 10.433 5 8.5 6.567 5 8.5 5z"/>
+                <circle cx="8.5" cy="8.5" r="3.5" fill="#FFF"/>
+            </g>
+            <g transform="translate(6 3) translate(0 177) translate(274 221)">
+                <circle cx="8.5" cy="8.5" r="8.5" fill="#FFF" fill-rule="nonzero" opacity=".479"/>
+                <path fill="#FFBAAC" fill-rule="nonzero" d="M8.5 3C5.462 3 3 5.462 3 8.5S5.462 14 8.5 14 14 11.538 14 8.5 11.538 3 8.5 3zm0 2C10.433 5 12 6.567 12 8.5S10.433 12 8.5 12 5 10.433 5 8.5 6.567 5 8.5 5z"/>
+                <circle cx="8.5" cy="8.5" r="3.5" fill="#FFF"/>
+            </g>
+            <g transform="translate(6 3) translate(0 177) translate(194 231)">
+                <circle cx="8.5" cy="8.5" r="8.5" fill="#FFF" fill-rule="nonzero" opacity=".479"/>
+                <path fill="#FFBAAC" fill-rule="nonzero" d="M8.5 3C5.462 3 3 5.462 3 8.5S5.462 14 8.5 14 14 11.538 14 8.5 11.538 3 8.5 3zm0 2C10.433 5 12 6.567 12 8.5S10.433 12 8.5 12 5 10.433 5 8.5 6.567 5 8.5 5z"/>
+                <circle cx="8.5" cy="8.5" r="3.5" fill="#FFF"/>
+            </g>
+            <g transform="translate(6 3) translate(0 177) translate(114 237)">
+                <circle cx="8.5" cy="8.5" r="8.5" fill="#FFF" fill-rule="nonzero" opacity=".479"/>
+                <path fill="#FFBAAC" fill-rule="nonzero" d="M8.5 3C5.462 3 3 5.462 3 8.5S5.462 14 8.5 14 14 11.538 14 8.5 11.538 3 8.5 3zm0 2C10.433 5 12 6.567 12 8.5S10.433 12 8.5 12 5 10.433 5 8.5 6.567 5 8.5 5z"/>
+                <circle cx="8.5" cy="8.5" r="3.5" fill="#FFF"/>
+            </g>
+        </g>
+        <text font-family="IBMPlexSans-Bold, IBM Plex Sans" font-size="32" font-weight="bold" transform="translate(6 3)">
+            <tspan x="76.54" y="68.2" fill="#FF6444">175K+</tspan> <tspan x="175.612" y="68.2" fill="#333"> active trading </tspan> <tspan x="183.26" y="108.2" fill="#333">clients</tspan>
+        </text>
+    </g>
+</svg>

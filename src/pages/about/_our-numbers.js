@@ -6,6 +6,10 @@ import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import Experience from 'images/svg/experience.svg'
+import ActiveClients from 'images/svg/active-clients.svg'
+import Transactions from 'images/svg/transactions.svg'
+import Withdrawal from 'images/svg/withdrawal.svg'
+import Turnover from 'images/svg/turnover.svg'
 
 const OurNumbersWrapper = styled.section`
     width: 100%;
@@ -27,18 +31,16 @@ const StyledText = styled(Text)`
 const Card = styled(Flex)`
     max-width: 48.6rem;
     height: 48.8rem;
-    box-shadow: 0 4px 7px 0 rgba(14, 14, 14, 0.1);
-    padding: 4rem 0;
     justify-content: center;
     flex-wrap: wrap;
 `
-const Span = styled.span`
-    color: ${(props) => props.color};
-    margin-right: ${(props) => props.mr || 'unset'};
-    font-size: var(--text-size-l);
-    font-weight: bold;
-    width: auto;
-`
+// const Span = styled.span`
+//     color: ${(props) => props.color};
+//     margin-right: ${(props) => props.mr || 'unset'};
+//     font-size: var(--text-size-l);
+//     font-weight: bold;
+//     width: auto;
+// `
 
 const OurNumbersContainer = styled(Container)`
     flex-direction: row;
@@ -91,34 +93,38 @@ const OurNumbers = () => (
                 mobile_row_gap="10rem"
             >
                 <Card>
-                    <Span mr="8px" color="var(--color-orange-2)">
+                    <ActiveClients />
+                    {/* <Span mr="8px" color="var(--color-orange-2)">
                         {localize('175K+')}
                     </Span>
                     <Span>{localize('active trading')}</Span>
                     <Flex mt="1.2rem">
                         <Span>{localize('clients')}</Span>
-                    </Flex>
+                    </Flex> */}
                 </Card>
                 <Card>
-                    <Span mr="8px" color="var(--color-orange-2)">
+                    <Transactions />
+                    {/* <Span mr="8px" color="var(--color-orange-2)">
                         {localize('377M+')}
                     </Span>
-                    <Span>{localize('transactions')}</Span>
+                    <Span>{localize('transactions')}</Span> */}
                 </Card>
                 <Card>
-                    <Span mr="8px" color="var(--color-orange-2)">
+                    <Withdrawal />
+                    {/* <Span mr="8px" color="var(--color-orange-2)">
                         {localize('6M+ USD')}
                     </Span>
                     <Span>{localize('total withdrawal ')}</Span>
                     <Flex mt="1.2rem">
                         <Span>{localize('per month')}</Span>
-                    </Flex>
+                    </Flex> */}
                 </Card>
                 <Card>
-                    <Span mr="8px" color="var(--color-orange-2)">
+                    <Turnover />
+                    {/* <Span mr="8px" color="var(--color-orange-2)">
                         {localize('2B+ USD ')}
                     </Span>
-                    <Span>{localize('trade turnover')}</Span>
+                    <Span>{localize('trade turnover')}</Span> */}
                 </Card>
             </CssGrid>
         </OurNumbersContainer>

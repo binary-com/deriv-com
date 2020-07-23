@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { SectionContainer, Flex, Container } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
 import device from 'themes/device'
 //SVG
@@ -192,11 +192,11 @@ class AvailableTrades extends React.Component {
         this.setState({ active_tab: new_tab })
     }
     render() {
-        const { Margin, DigitalOptions, Multipliers, name } = this.props
+        const { Margin, DigitalOptions, Multipliers, display_title } = this.props
         return (
             <StyledSection>
                 <StyledHeader size="var(--text-size-header-1)" align="center">
-                    {name + ' ' + localize('trades available on Deriv')}
+                    {display_title}
                 </StyledHeader>
                 <StyledContainer direction="column">
                     <CardWrapper position="relative">
@@ -238,9 +238,9 @@ class AvailableTrades extends React.Component {
 
 AvailableTrades.propTypes = {
     DigitalOptions: PropTypes.func,
+    display_title: PropTypes.string,
     Margin: PropTypes.func,
     Multipliers: PropTypes.func,
-    name: PropTypes.string,
 }
 
 export default AvailableTrades

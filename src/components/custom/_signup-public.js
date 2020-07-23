@@ -1,20 +1,20 @@
+import { graphql, useStaticQuery } from 'gatsby'
+import PropTypes from 'prop-types'
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Input, Button } from 'components/form'
-import { Header, Text, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
-import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
-import device from 'themes/device.js'
+import { Flex, Show } from 'components/containers'
+import { Header, QueryImage, Text } from 'components/elements'
+import { Button, Input } from 'components/form'
+import { localize } from 'components/localization'
+import BackgroundPattern from 'images/common/bg_banner_signup.png'
+import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
+import Chevron from 'images/svg/carousel-chevron.svg'
+import Arrow from 'images/svg/chervon-right.svg'
 // SVG
 import Facebook from 'images/svg/facebook-blue.svg'
 import Google from 'images/svg/google.svg'
-import Arrow from 'images/svg/chervon-right.svg'
-import BackgroundPattern from 'images/common/bg_banner_signup.png'
-import Chevron from 'images/svg/carousel-chevron.svg'
-import RedBanner from 'images/svg/bg_banner_signup_mobile.svg'
+import device from 'themes/device.js'
 
 const query = graphql`
     query {
@@ -34,6 +34,8 @@ const ChevronRight = styled(Chevron)`
 `
 
 const Wrapper = styled.div`
+    background-color: ${(props) =>
+        props.theme === 'black' ? 'var(--color-black)' : 'var(--color-white)'};
     position: relative;
     display: flex;
     flex-direction: row;
@@ -48,11 +50,28 @@ const Wrapper = styled.div`
         height: auto;
     }
 `
+const StyledHeader = styled(Header)`
+    width: ${(props) => props.width || '41.4rem'};
 
+    @media ${device.tablet} {
+        width: auto;
+    }
+
+    @media (max-width: 991px) {
+        margin-top: 2rem;
+        ${(props) => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
+    }
+`
 const SignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
 
+    > div,
+    p,
+    ${StyledHeader} {
+        color: ${(props) =>
+            props.theme === 'black' ? 'var(--color-white)' : 'var(--color-black)'};
+    }
     @media ${device.tablet} {
         padding: 0 2rem;
     }
@@ -107,6 +126,10 @@ const SocialWrapper = styled(Flex)`
     width: 100%;
     margin-top: 1.8rem;
 
+    > ${Button} {
+        background-color: ${(props) =>
+            props.theme === 'black' ? 'var(--color-black)' : 'var(--color-white)'};
+    }
     @media ${device.tabletL} {
         button {
             width: 14.25rem;
@@ -126,18 +149,6 @@ const SocialButton = styled(Button)`
     }
 `
 
-const StyledHeader = styled(Header)`
-    width: ${(props) => props.width || '41.4rem'};
-
-    @media ${device.tablet} {
-        width: auto;
-    }
-
-    @media (max-width: 991px) {
-        margin-top: 2rem;
-        ${(props) => (props.as === 'h4' ? 'font-size: 2rem; margin-top: 0;' : '')}
-    }
-`
 const StyledText = styled(Text)`
     width: auto;
     margin-right: 2rem;
@@ -226,16 +237,17 @@ const SignupPublic = ({
     autofocus,
     handleSocialSignup,
     is_submitting,
+    theme,
 }) => {
     const data = useStaticQuery(query)
     return (
-        <Wrapper>
+        <Wrapper theme={theme}>
             <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
                 <ImageWrapper ai="center">
                     <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
                 </ImageWrapper>
             </div>
-            <SignupFormWrapper>
+            <SignupFormWrapper fd="column" theme={theme}>
                 <div>
                     <StyledHeader size="3.2rem">
                         {localize('Join over 1 million traders worldwide')}
@@ -244,6 +256,7 @@ const SignupPublic = ({
                     <StyledHeader as="h4" weight="normal" size="1.6rem">
                         {localize('Sign up for your demo account now.')}
                     </StyledHeader>
+
                     <InputGroup>
                         <InputWrapper>
                             <Input
@@ -274,7 +287,7 @@ const SignupPublic = ({
                             {localize('Sign up')}
                         </EmailButton>
                     </InputGroup>
-                    <SocialWrapper jc="unset" ai="center">
+                    <SocialWrapper theme={theme} jc="unset" ai="center">
                         <StyledText>{localize('or sign up with')}</StyledText>
                         <SocialButton
                             onClick={handleSocialSignup}
@@ -349,6 +362,7 @@ SignupPublic.propTypes = {
     handleSocialSignup: PropTypes.func,
     handleValidation: PropTypes.func,
     is_submitting: PropTypes.bool,
+    theme: PropTypes.string,
 }
 
 export default SignupPublic

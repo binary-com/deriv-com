@@ -169,6 +169,7 @@ class Signup extends Component {
             handleSocialSignup: this.handleSocialSignup,
             handleValidation: this.handleValidation,
             is_submitting: this.state.is_submitting,
+            theme: this.props.theme,
         }
         switch (param) {
             case Appearances.simple:
@@ -243,6 +244,7 @@ Signup.propTypes = {
     autofocus: PropTypes.bool,
     bgColor: PropTypes.string,
     onSubmit: PropTypes.func,
+    theme: PropTypes.string,
 }
 
 export default Signup

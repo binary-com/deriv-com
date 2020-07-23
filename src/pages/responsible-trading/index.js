@@ -12,6 +12,7 @@ import { localize, WithIntl } from 'components/localization'
 import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import { isEuCountry } from 'common/country-base'
+import device from 'themes/device'
 
 const Hero = styled(Flex)`
     padding: 12rem 0 8rem;
@@ -21,6 +22,15 @@ const Hero = styled(Flex)`
 `
 const Section = styled(SectionContainer)`
     padding: 0;
+`
+
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        font-size: var(--text-size-l);
+        max-width: 90%;
+        margin: auto;
+        margin-bottom: 1.6rem;
+    }
 `
 
 const ResponsibleTrading = () => {
@@ -37,7 +47,7 @@ const ResponsibleTrading = () => {
                 <Hero background_image={HeroBackground}>
                     <Container>
                         <Flex direction="column">
-                            <Header
+                            <StyledHeader
                                 size="var(--text-size-xxl)"
                                 color="white"
                                 align="center"
@@ -45,7 +55,7 @@ const ResponsibleTrading = () => {
                                 mb="1.6rem"
                             >
                                 {localize('Secure and responsible trading')}
-                            </Header>
+                            </StyledHeader>
                             <Text align="center" max_width="79.2rem" m="0 auto" color="white">
                                 <Show.Eu>
                                     {localize(

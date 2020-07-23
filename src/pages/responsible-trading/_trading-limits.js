@@ -47,7 +47,7 @@ const StyledContainer = styled(Container)`
     max-width: 52rem !important;
 
     @media ${device.mobileL} {
-        width: 90%;
+        width: 84%;
         padding-left: 0;
         padding-right: 0;
     }
@@ -64,19 +64,20 @@ const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         text-align: center;
         font-size: var(--text-size-m);
+        padding-right: 2rem;
+        padding-left: 2rem;
     }
 `
 
 const StyledHeaderTrading = styled(StyledHeader)`
     padding-right: 7rem;
     @media ${device.tablet} {
-        padding-right: 0;
+        padding-right: 5rem;
+        padding-left: 5rem;
     }
 `
 const StyledText = styled(Text)`
-    padding-right: 1rem;
     @media ${device.tablet} {
-        padding-left: 1rem;
         text-align: center;
     }
 `

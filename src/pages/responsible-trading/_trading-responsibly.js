@@ -4,15 +4,15 @@ import DontBorrow from 'images/svg/dont-borrow.svg'
 import FreeDemo from 'images/svg/free-demo.svg'
 import SetLimitLosses from 'images/svg/set-limit-chart.svg'
 import BadJudgement from 'images/svg/bad-judgement.svg'
-import Info from 'images/svg/info.svg'
+// import Info from 'images/svg/info.svg'
 import { SectionContainer, Flex, Show } from 'components/containers'
-import { Header, Text, Divider, LocalizedLinkText, CardStyle } from 'components/elements'
+import { Header, Text, Divider, CardStyle } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 
-const IcInfo = styled(Info)`
-    margin-left: 1.5rem;
-`
+// const IcInfo = styled(Info)`
+//     margin-left: 1.5rem;
+// `
 
 const Card = styled(Flex)`
     ${CardStyle}
@@ -53,36 +53,39 @@ const StyledDivider = styled(Divider)`
 `
 const StyledText = styled(Text)`
     padding-top: 1rem;
+    @media ${device.tabletS} {
+        max-width: 98%;
+    }
 `
 const ContentWrapper = styled(Flex)`
     @media ${device.tabletS} {
         flex-direction: column;
     }
 `
-const StyledFlex = styled(Flex)`
-    max-width: 58rem;
-    max-height: 6.6rem;
-    border-radius: 6rem;
-    box-shadow: inset 0 -1px 0 0 #f2f3f4;
-    background-color: var(--color-grey-25);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 4rem;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+// const StyledFlex = styled(Flex)`
+//     max-width: 58rem;
+//     max-height: 6.6rem;
+//     border-radius: 6rem;
+//     box-shadow: inset 0 -1px 0 0 #f2f3f4;
+//     background-color: var(--color-grey-25);
+//     margin-left: auto;
+//     margin-right: auto;
+//     margin-top: 4rem;
+//     flex-direction: row;
+//     justify-content: center;
+//     align-items: center;
 
-    @media ${device.mobileM} {
-        max-height: 8rem;
-        border-radius: 2rem;
-        margin-bottom: 1rem;
-    }
+//     @media ${device.mobileM} {
+//         max-height: 8rem;
+//         border-radius: 2rem;
+//         margin-bottom: 1rem;
+//     }
 
-    @media ${device.mobileS} {
-        max-height: 9rem;
-        border-radius: 1rem;
-    }
-`
+//     @media ${device.mobileS} {
+//         max-height: 9rem;
+//         border-radius: 1rem;
+//     }
+// `
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         text-align: center;
@@ -138,7 +141,8 @@ const TradingResponsibly = () => {
                             </StyledText>
                         </FlexContent>
                     </ContentWrapper>
-                    <Show.Eu>
+                    {/* TOD0: Display this section once KIDs documents are ready */}
+                    {/* <Show.Eu>
                         <StyledFlex>
                             <IcInfo />
                             <Text size="1.4rem" ml="1.6rem" mr="1.5rem">
@@ -150,7 +154,7 @@ const TradingResponsibly = () => {
                                 />
                             </Text>
                         </StyledFlex>
-                    </Show.Eu>
+                    </Show.Eu> */}
                 </Card>
             </Flex>
         </SectionContainer>

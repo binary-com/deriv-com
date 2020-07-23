@@ -27,13 +27,14 @@ const Li = styled(Flex).attrs({ as: 'li' })`
 const ResponsiveBox = styled(Box)`
     ${Text} {
         max-width: 28.8rem;
+        margin: auto;
     }
     @media ${device.mobileL} {
         margin-left: 0;
         margin-top: 1.6rem;
 
         ${Text} {
-            max-width: none;
+            max-width: 97%;
         }
     }
 `

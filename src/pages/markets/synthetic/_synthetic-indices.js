@@ -53,6 +53,9 @@ const StockIndices = ({ simple_step_content }) => {
                 DigitalOptions={DigitalOptions}
                 Multipliers={Multipliers}
                 name="Synthetic indices"
+                display_title={
+                    <Localize translate_text="Synthetic indices trades available on Deriv" />
+                }
             />
             <SimpleSteps
                 header={

@@ -49,7 +49,12 @@ const Commodities = ({ simple_step_content }) => {
                     icon={<FriendlySupport />}
                 />
             </WhyTrade>
-            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Commodity" />
+            <AvailableTrades
+                Margin={Margin}
+                DigitalOptions={DigitalOptions}
+                name="Commodity"
+                display_title={<Localize translate_text="Commodity trades available on Deriv" />}
+            />
             <SimpleSteps
                 header={
                     <Localize translate_text="Start trading commodities on Deriv in 3 simple steps" />

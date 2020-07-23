@@ -34,9 +34,7 @@ export const onInitialClientRender = () => {
         }
     }
     // Configure traffic source
-    TrafficSource.initUtmCookie()
-    TrafficSource.setData()
-    TrafficSource.setAffiliateData()
+    TrafficSource.init()
 
     if (!LocalStore.get('signup_device')) {
         LocalStore.set('signup_device', isMobile() ? 'mobile' : 'desktop')

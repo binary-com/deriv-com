@@ -46,6 +46,10 @@ const StyledContainer = styled(Container)`
     padding-right: 3.5rem;
     max-width: 52rem !important;
 
+    ${Text} {
+        max-width: 97%;
+    }
+
     @media ${device.mobileL} {
         width: 84%;
         padding-left: 0;
@@ -77,6 +81,7 @@ const StyledHeaderTrading = styled(StyledHeader)`
     }
 `
 const StyledText = styled(Text)`
+    max-width: 97%;
     @media ${device.tablet} {
         text-align: center;
     }

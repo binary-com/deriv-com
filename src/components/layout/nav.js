@@ -316,6 +316,7 @@ export const Nav = ({ base }) => {
     const [mounted, setMounted] = useState(false)
     const [has_scrolled, setHasScrolled] = useState(false)
 
+    // TODO: say BYEBYE to this
     // trade
     const trade_ref = useRef(null)
     const link_trade_ref = useRef(null)

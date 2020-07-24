@@ -153,6 +153,9 @@ const query = graphql`
         vi: file(relativePath: { eq: "flags/vi.png" }) {
             ...fadeIn
         }
+        th: file(relativePath: { eq: "flags/th.png" }) {
+            ...fadeIn
+        }
         zh: file(relativePath: { eq: "flags/zh.png" }) {
             ...fadeIn
         }

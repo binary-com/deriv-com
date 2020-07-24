@@ -127,6 +127,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             Navigation = <NavCareers />
             FooterNav = <Footer no_language={true} />
             break
+        case 'new-home':
+            Navigation = <Nav base="/homepage/" />
+            FooterNav = <Footer />
+            break
         default:
             Navigation = <Nav />
             FooterNav = <Footer />

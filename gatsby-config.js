@@ -72,6 +72,10 @@ module.exports = {
                     '/interim/**',
                     '/**/interim',
                     '/**/interim/**',
+                    '/homepage',
+                    '/homepage/**',
+                    '/**/homepage',
+                    '/**/homepage/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -196,6 +200,7 @@ module.exports = {
                             '/zh_cn/',
                             '/zh_tw/',
                             '/amp/',
+                            '/homepage/',
                             '*derivtnc*',
                             '*deriv_tnc*',
                         ],

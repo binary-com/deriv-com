@@ -21,7 +21,6 @@ import {
     Text,
     LocalizedLinkText,
     QueryImage,
-    Divider,
 } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
@@ -292,32 +291,12 @@ const Binary = styled(Text)`
     line-height: 1;
 `
 
-const MyBinary = styled(Binary)`
-    width: 8rem;
-    margin-left: 0.5rem;
-    line-height: 1;
-    @media (max-width: 1105px) {
-        width: 5rem;
-        font-size: 7px;
-    }
-`
 const BinaryLink = styled(LocalizedLinkText)`
     display: inline-block;
     color: var(--color-white);
     font-size: var(--text-size-xxs);
     font-weight: bold;
     text-decoration: none;
-`
-const MyBinaryLink = styled(BinaryLink)`
-    display: inline-block;
-    color: var(--color-white);
-    font-size: var(--text-size-xxs);
-    font-weight: bold;
-    text-decoration: none;
-
-    @media (max-width: 1105px) {
-        font-size: 7px;
-    }
 `
 
 const MobileRight = styled.div`
@@ -330,7 +309,7 @@ const MobileRight = styled.div`
     }
 `
 
-export const Nav = () => {
+export const Nav = ({ base }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -463,7 +442,7 @@ export const Nav = () => {
 
                 <Wrapper>
                     <NavLeft>
-                        <LogoLink to="/" aria-label={localize('Home')}>
+                        <LogoLink to={base || '/'} aria-label={localize('Home')}>
                             <QueryImage
                                 data={data['deriv']}
                                 alt={localize('Deriv')}
@@ -471,33 +450,6 @@ export const Nav = () => {
                                 height="auto"
                             />
                         </LogoLink>
-                        <Divider color="white" width="1px" height="2.7rem" m="0 1.6rem" />
-                        <LocalizedLink
-                            external
-                            to="home"
-                            is_binary_link
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            ariaLabel="Binary.com logo"
-                        >
-                            <BinaryLogo width="24" height="24" />
-                        </LocalizedLink>
-                        <MyBinary size="var(--text-size-xxs)" color="white">
-                            <Localize
-                                translate_text="A <0>Binary.com</0> brand"
-                                components={[
-                                    <MyBinaryLink
-                                        key={0}
-                                        external
-                                        to={'home'}
-                                        is_binary_link
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        color="white"
-                                    />,
-                                ]}
-                            />
-                        </MyBinary>
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>
@@ -577,6 +529,10 @@ export const Nav = () => {
             </StyledNav>
         </NavWrapper>
     )
+}
+
+Nav.propTypes = {
+    base: PropTypes.string,
 }
 
 const ResponsiveBinary = styled(BinaryLogo)`

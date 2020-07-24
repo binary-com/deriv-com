@@ -224,7 +224,7 @@ const DigitalOptions = () => {
                                 svg={RiseFall}
                                 content={
                                     <Localize
-                                        translate_text="<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot."
+                                        translate_text="<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot at the end of the contract period."
                                         components={[<strong key={0} />]}
                                     />
                                 }
@@ -235,7 +235,7 @@ const DigitalOptions = () => {
                                 svg={HigherLower}
                                 content={
                                     <Localize
-                                        translate_text="<0>Higher/Lower:</0> Predict whether the market price will finish higher or lower than a price target (the barrier)."
+                                        translate_text="<0>Higher/Lower:</0> Predict whether the exit spot will be higher or lower than a price target (the barrier) at the end of the contract period."
                                         components={[<strong key={0} />]}
                                     />
                                 }
@@ -249,7 +249,7 @@ const DigitalOptions = () => {
                                 svg={EbEo}
                                 content={
                                     <Localize
-                                        translate_text="<0>Ends Between/Ends Outside:</0> Predict whether the market will stop inside or outside two price targets at the end of the period."
+                                        translate_text="<0>Ends Between/Ends Outside:</0> Predict whether the exit spot will be inside or outside two price targets at the end of the contract period."
                                         components={[<strong key={0} />]}
                                     />
                                 }

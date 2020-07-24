@@ -31,7 +31,7 @@ export default function HTML(props) {
                         src="https://www.googletagmanager.com/ns.html?id=GTM-NF7884S"
                         height="0"
                         width="0"
-                        style="display:none;visibility:hidden"
+                        style={{ display: 'none', visibility: 'hidden' }}
                     ></iframe>
                 </noscript>
                 <noscript>
@@ -39,7 +39,7 @@ export default function HTML(props) {
                         src="https://www.googletagmanager.com/ns.html?id=GTM-TNX2ZKH"
                         height="0"
                         width="0"
-                        style="display:none;visibility:hidden"
+                        style={{ display: 'none', visibility: 'hidden' }}
                     ></iframe>
                 </noscript>
                 {props.preBodyComponents}

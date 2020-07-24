@@ -64,7 +64,7 @@ const TrafficSource = (() => {
         const makeSetCookie = (object) => (key) =>
             object[key] && cookie.set(key, object[key], { sameSite: 'none', secure: true })
 
-        if (params.utm_source || params.utm_medium || params.utm_campaign) {
+        if (params.utm_source || params.utm_medium || params.utm_campaign || params.t) {
             const setParamCookie = makeSetCookie(params)
             param_keys.forEach(setParamCookie)
         } else if (existing_utm_cookie) {

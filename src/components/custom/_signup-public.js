@@ -21,6 +21,9 @@ const query = graphql`
         deriv_platform: file(relativePath: { eq: "deriv-platform-banner.png" }) {
             ...fadeIn
         }
+        deriv_platform_white: file(relativePath: { eq: "deriv-platform-banner-white.png" }) {
+            ...fadeIn
+        }
     }
 `
 const ChevronRight = styled(Chevron)`
@@ -244,7 +247,12 @@ const SignupPublic = ({
         <Wrapper theme={theme}>
             <div style={{ position: 'absolute', left: '50%', height: '100%' }}>
                 <ImageWrapper ai="center">
-                    <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
+                    {/* <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" /> */}
+                    <QueryImage
+                        data={data[theme === 'black' ? 'deriv_platform_white' : 'deriv_platform']}
+                        alt="deriv platform"
+                        width="100%"
+                    />
                 </ImageWrapper>
             </div>
             <SignupFormWrapper fd="column" theme={theme}>

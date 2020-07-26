@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Show from 'components/containers/show'
-import { Container, Flex, CssGrid } from 'components/containers'
+import { Container, Flex, CssGrid, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -47,59 +47,61 @@ const OurValues = () => (
                     {localize('Our values')}
                 </Header>
             </Show.Desktop>
-            <CssGrid
-                columns="repeat(2, 1fr)"
-                column_gap="12.6rem"
-                row_gap="4rem"
-                tablet_columns="repeat(2, 1fr)"
-                mobile_columns="1fr"
-                mobile_row_gap="10rem"
-            >
-                <Card>
-                    <Integrity />
-                    <Header mt="2.4rem" mb="0.8rem" as="h4">
-                        {localize('Integrity')}
-                    </Header>
-                    <Text>
-                        {localize(
-                            'We believe that we should always do the right thing. This includes serving our customers with honesty and transparency, settling all contracts by the book, and communicating in plain language that can be easily understood.',
-                        )}
-                    </Text>
-                </Card>
-                <Card>
-                    <CustomerFocus />
-                    <Header mt="2.4rem" mb="0.8rem" as="h4">
-                        {localize('Customer focus')}
-                    </Header>
-                    <Text>
-                        {localize(
-                            'We always put our customers first and dedicate ourselves to building products and services that give them the best trading experience possible.',
-                        )}
-                    </Text>
-                </Card>
-                <Card>
-                    <Competence />
-                    <Header mt="2.4rem" mb="0.8rem" as="h4">
-                        {localize('Competence')}
-                    </Header>
-                    <Text>
-                        {localize(
-                            'We love to work with smart and talented people who are eager to roll up their sleeves and get things done.',
-                        )}
-                    </Text>
-                </Card>
-                <Card>
-                    <Teamwork />
-                    <Header mt="2.4rem" mb="0.8rem" as="h4">
-                        {localize('Teamwork')}
-                    </Header>
-                    <Text>
-                        {localize(
-                            'We value positive team players who can work together to overcome challenges and achieve common goals.',
-                        )}
-                    </Text>
-                </Card>
-            </CssGrid>
+            <Box>
+                <CssGrid
+                    columns="repeat(2, 1fr)"
+                    column_gap="12.6rem"
+                    row_gap="4rem"
+                    tablet_columns="repeat(2, 1fr)"
+                    mobile_columns="1fr"
+                    mobile_row_gap="10rem"
+                >
+                    <Card>
+                        <Integrity />
+                        <Header mt="2.4rem" mb="0.8rem" as="h4">
+                            {localize('Integrity')}
+                        </Header>
+                        <Text>
+                            {localize(
+                                'We believe that we should always do the right thing. This includes serving our customers with honesty and transparency, settling all contracts by the book, and communicating in plain language that can be easily understood.',
+                            )}
+                        </Text>
+                    </Card>
+                    <Card>
+                        <CustomerFocus />
+                        <Header mt="2.4rem" mb="0.8rem" as="h4">
+                            {localize('Customer focus')}
+                        </Header>
+                        <Text>
+                            {localize(
+                                'We always put our customers first and dedicate ourselves to building products and services that give them the best trading experience possible.',
+                            )}
+                        </Text>
+                    </Card>
+                    <Card>
+                        <Competence />
+                        <Header mt="2.4rem" mb="0.8rem" as="h4">
+                            {localize('Competence')}
+                        </Header>
+                        <Text>
+                            {localize(
+                                'We love to work with smart and talented people who are eager to roll up their sleeves and get things done.',
+                            )}
+                        </Text>
+                    </Card>
+                    <Card>
+                        <Teamwork />
+                        <Header mt="2.4rem" mb="0.8rem" as="h4">
+                            {localize('Teamwork')}
+                        </Header>
+                        <Text>
+                            {localize(
+                                'We value positive team players who can work together to overcome challenges and achieve common goals.',
+                            )}
+                        </Text>
+                    </Card>
+                </CssGrid>
+            </Box>
         </OurValuesContainer>
     </OurValuesWrapper>
 )

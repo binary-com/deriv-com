@@ -23,7 +23,7 @@ export default function HTML(props) {
                     })(window,document,'script','dataLayer', gtm_id)`,
                     }}
                 />
-                <script src={'https://www.googletagmanager.com/gtm.js?id=' + gtm_id}></script>
+                <script async src={'https://www.googletagmanager.com/gtm.js?id=' + gtm_id}></script>
                 {props.headComponents}
             </head>
             <body {...props.bodyAttributes}>

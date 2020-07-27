@@ -64,10 +64,13 @@ const StyledArticle = styled.article`
     }
     @media ${device.tabletL} {
         margin: 0 2rem;
-        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        align-items: flex-start;
+    }
+    @media ${device.mobileM} {
+        top: 5rem;
     }
 `
 

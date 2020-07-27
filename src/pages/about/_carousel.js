@@ -5,6 +5,8 @@ import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize } from 'components/localization'
 import StartPoint from 'images/svg/start-point.svg'
+import Show from 'components/containers/show'
+import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
     cursor: pointer;
@@ -14,7 +16,7 @@ const StyledText = styled(Text)`
 `
 const Line = styled.div`
     width: 0.2rem;
-    height: 45.2rem;
+    height: 49.4rem;
     background-color: rgba(255, 68, 79, 0.48);
 `
 const Arrow = styled.i`
@@ -50,6 +52,12 @@ const ImageWrapper = styled.div`
     display: flex;
     margin-top: 50px;
     justify-content: center;
+
+    @media ${device.tablet} {
+        width: 21.6rem;
+        margin-top: 35px;
+        margin-right: 0;
+    }
 `
 const Carousel = ({ slides }) => {
     let [slide_index, setSlideIndex] = useState(0)
@@ -76,80 +84,167 @@ const Carousel = ({ slides }) => {
     }
 
     return (
-        <Flex jc="center" max-width="99.6rem">
-            <ImageWrapper>
-                {slides[slide_index].inner_slides
-                    ? inner_slide_index === -1
-                        ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
-                        : slides[slide_index].inner_slides[inner_slide_index].image
-                    : slides[slide_index].image}
-            </ImageWrapper>
+        <>
+            <Show.Desktop>
+                <Flex jc="center" max-width="99.6rem">
+                    <ImageWrapper>
+                        {slides[slide_index].inner_slides
+                            ? inner_slide_index === -1
+                                ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
+                                : slides[slide_index].inner_slides[inner_slide_index].image
+                            : slides[slide_index].image}
+                    </ImageWrapper>
 
-            <Flex position="relative" direction="column" width="4.4rem" ai="center" mr="9.2rem">
-                <Line>
-                    <GreyCircle />
-                    <StyledStartPoint slide_index={slide_index} />
-                    {/* <GreyCircle top={slides[slide_index + 1].top} />
-                    <GreyCircle top={Number(slides[slide_index + 1].top) + 74} /> */}
-                </Line>
-                <Arrow onClick={downClick}></Arrow>
-                <StyledText onClick={downClick} mt="0.8rem" weight="bold">
-                    {localize('scroll')}
-                </StyledText>
-            </Flex>
-            <Flex
-                onWheel={() => handleScroll(event, slide_index)}
-                jc="flex-start"
-                overflow="hidden"
-                height="47.2rem"
-                direction="column"
-                width="unset"
-            >
-                {slide_index - 1 < 0 ? undefined : (
-                    <StyledHeader
-                        onClick={() => yearClick(slide_index - 1)}
-                        as="h3"
-                        mb="4.8rem"
-                        color="grey-17"
-                        lh="1.13"
+                    <Flex
+                        position="relative"
+                        direction="column"
+                        width="4.4rem"
+                        ai="center"
+                        mr="9.2rem"
                     >
-                        {slides[slide_index - 1].header}
-                    </StyledHeader>
-                )}
+                        <Line>
+                            <GreyCircle />
+                            <StyledStartPoint slide_index={slide_index} />
+                        </Line>
+                        <Arrow onClick={downClick}></Arrow>
+                        <StyledText onClick={downClick} mt="0.8rem" weight="bold">
+                            {localize('scroll')}
+                        </StyledText>
+                    </Flex>
+                    <Flex
+                        onWheel={() => handleScroll(event, slide_index)}
+                        jc="flex-start"
+                        overflow="hidden"
+                        height="49.8rem"
+                        direction="column"
+                        width="unset"
+                    >
+                        {slide_index - 1 < 0 ? undefined : (
+                            <StyledHeader
+                                onClick={() => yearClick(slide_index - 1)}
+                                as="h3"
+                                mb="4.8rem"
+                                color="grey-17"
+                                lh="1.13"
+                            >
+                                {slides[slide_index - 1].header}
+                            </StyledHeader>
+                        )}
 
-                {slides[slide_index].inner_slides
-                    ? inner_slide_index === -1
-                        ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
-                        : slides[slide_index].inner_slides[inner_slide_index].body
-                    : slides[slide_index].body}
+                        {slides[slide_index].inner_slides
+                            ? inner_slide_index === -1
+                                ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
+                                : slides[slide_index].inner_slides[inner_slide_index].body
+                            : slides[slide_index].body}
 
-                {slide_index + 1 >= slides.length ? undefined : (
-                    <>
-                        <StyledHeader
-                            onClick={() => yearClick(slide_index + 1)}
-                            mb="4.8rem"
-                            as="h3"
-                            color="grey-17"
-                            lh="1.13"
-                        >
-                            {slides[slide_index + 1].header}
-                        </StyledHeader>
-                    </>
-                )}
-                {slide_index + 2 >= slides.length ? undefined : (
-                    <>
-                        <StyledHeader
-                            onClick={() => yearClick(slide_index + 2)}
-                            as="h3"
-                            color="grey-17"
-                            lh="1.13"
-                        >
-                            {slides[slide_index + 2].header}
-                        </StyledHeader>
-                    </>
-                )}
-            </Flex>
-        </Flex>
+                        {slide_index + 1 >= slides.length ? undefined : (
+                            <>
+                                <StyledHeader
+                                    onClick={() => yearClick(slide_index + 1)}
+                                    mb="4.8rem"
+                                    as="h3"
+                                    color="grey-17"
+                                    lh="1.13"
+                                >
+                                    {slides[slide_index + 1].header}
+                                </StyledHeader>
+                            </>
+                        )}
+                        {slide_index + 2 >= slides.length ? undefined : (
+                            <>
+                                <StyledHeader
+                                    onClick={() => yearClick(slide_index + 2)}
+                                    as="h3"
+                                    color="grey-17"
+                                    lh="1.13"
+                                >
+                                    {slides[slide_index + 2].header}
+                                </StyledHeader>
+                            </>
+                        )}
+                    </Flex>
+                </Flex>
+            </Show.Desktop>
+            <Show.Mobile>
+                <Flex jc="center" max-width="99.6rem">
+                    <Flex
+                        position="relative"
+                        direction="column"
+                        width="4.4rem"
+                        ai="center"
+                        mr="9.2rem"
+                    >
+                        <Line>
+                            <GreyCircle />
+                            <StyledStartPoint slide_index={slide_index} />
+                        </Line>
+                        <Arrow onClick={downClick}></Arrow>
+                        <StyledText onClick={downClick} mt="0.8rem" weight="bold">
+                            {localize('scroll')}
+                        </StyledText>
+                    </Flex>
+                    <Flex
+                        onWheel={() => handleScroll(event, slide_index)}
+                        jc="flex-start"
+                        overflow="hidden"
+                        height="49.8rem"
+                        direction="column"
+                        width="unset"
+                    >
+                        {slide_index - 1 < 0 ? undefined : (
+                            <StyledHeader
+                                onClick={() => yearClick(slide_index - 1)}
+                                as="h3"
+                                mb="4.8rem"
+                                color="grey-17"
+                                lh="1.13"
+                            >
+                                {slides[slide_index - 1].header}
+                            </StyledHeader>
+                        )}
+
+                        {slides[slide_index].inner_slides
+                            ? inner_slide_index === -1
+                                ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
+                                : slides[slide_index].inner_slides[inner_slide_index].body
+                            : slides[slide_index].body}
+                        <ImageWrapper>
+                            {slides[slide_index].inner_slides
+                                ? inner_slide_index === -1
+                                    ? (setSlideIndex(slide_index + 1), setInnerSlideIndex(0))
+                                    : slides[slide_index].inner_slides[inner_slide_index].image
+                                : slides[slide_index].image}
+                        </ImageWrapper>
+
+                        {slide_index + 1 >= slides.length ? undefined : (
+                            <>
+                                <StyledHeader
+                                    onClick={() => yearClick(slide_index + 1)}
+                                    mb="4.8rem"
+                                    as="h3"
+                                    color="grey-17"
+                                    lh="1.13"
+                                >
+                                    {slides[slide_index + 1].header}
+                                </StyledHeader>
+                            </>
+                        )}
+                        {slide_index + 2 >= slides.length ? undefined : (
+                            <>
+                                <StyledHeader
+                                    onClick={() => yearClick(slide_index + 2)}
+                                    as="h3"
+                                    color="grey-17"
+                                    lh="1.13"
+                                >
+                                    {slides[slide_index + 2].header}
+                                </StyledHeader>
+                            </>
+                        )}
+                    </Flex>
+                </Flex>
+            </Show.Mobile>
+        </>
     )
 }
 Carousel.propTypes = {

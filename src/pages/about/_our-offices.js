@@ -13,6 +13,9 @@ const query = graphql`
         world_map: file(relativePath: { eq: "world-map.png" }) {
             ...fadeIn
         }
+        world_map_mobile: file(relativePath: { eq: "world-map-mobile.png" }) {
+            ...fadeIn
+        }
     }
 `
 const OfficeContainer = styled.section`

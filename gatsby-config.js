@@ -72,6 +72,10 @@ module.exports = {
                     '/interim/**',
                     '/**/interim',
                     '/**/interim/**',
+                    '/homepage',
+                    '/homepage/**',
+                    '/**/homepage',
+                    '/**/homepage/**',
                 ],
                 serialize: ({ site, allSitePage }) =>
                     allSitePage.edges.map((edge) => {
@@ -186,7 +190,22 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
-                policy: [{ userAgent: '*', allow: '/', disallow: ['/404/'] }],
+                policy: [
+                    {
+                        userAgent: '*',
+                        allow: '/',
+                        disallow: [
+                            '/404/',
+                            '/ach/',
+                            '/zh_cn/',
+                            '/zh_tw/',
+                            '/amp/',
+                            '/homepage/',
+                            '*derivtnc*',
+                            '*deriv_tnc*',
+                        ],
+                    },
+                ],
             },
         },
         {

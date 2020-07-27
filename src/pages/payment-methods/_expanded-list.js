@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import ReactTooltip from 'react-tooltip'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
@@ -75,23 +74,24 @@ const StyledText = styled(Text)`
     font-size: ${(props) => (props.is_expanded ? 'var(--text-size-s)' : '0')};
 `
 
+const Deposit = styled(Td)`
+    & > p {
+        max-width: 14rem;
+    }
+`
+
 const CenterIcon = styled.a`
     display: flex;
     justify-content: center;
 `
 
-const HoverText = styled(Text)`
-    width: fit-content;
-    cursor: pointer;
-`
-
 const Withdrawal = styled(Td)`
     & > p {
-        max-width: 12.1rem;
+        max-width: 14rem;
     }
 `
 
-const ExpandList = ({ data, is_crypto }) => {
+const ExpandList = ({ data }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
     const toggleExpand = () => {
@@ -116,29 +116,13 @@ const ExpandList = ({ data, is_crypto }) => {
                         {Array.isArray(data.min_max_withdrawal) ? (
                             data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
                         ) : (
-                            <>
-                                {is_crypto ? (
-                                    <HoverText data-tip={data.tooltip} data-for={data.name}>
-                                        {data.min_max_withdrawal}
-                                    </HoverText>
-                                ) : (
-                                    <Text>{data.min_max_withdrawal}</Text>
-                                )}
-                                {data.tooltip && (
-                                    <ReactTooltip
-                                        className="tooltip"
-                                        id={data.name}
-                                        effect="solid"
-                                        arrowColor="var(--color-grey-7)"
-                                    />
-                                )}
-                            </>
+                            <Text>{data.min_max_withdrawal}</Text>
                         )}
                     </>
                 </Td>
-                <Td>
+                <Deposit>
                     <Text>{data.deposit_time}</Text>
-                </Td>
+                </Deposit>
                 <Withdrawal>
                     <Text>{data.withdrawal_time}</Text>
                 </Withdrawal>

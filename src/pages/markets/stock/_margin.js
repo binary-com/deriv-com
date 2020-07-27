@@ -5,7 +5,7 @@ import MarketsAccordion from '../_markets_accordion.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid } from 'components/containers'
 import { localize } from 'components/localization'
-import { OTCDUTCH } from 'components/elements/symbols.js'
+import { OTCGERMAN } from 'components/elements/symbols.js'
 import device from 'themes/device'
 
 const Descriptions = styled.div`
@@ -93,7 +93,7 @@ const EuropeDetails = () => (
     <DetailsContainer>
         <Text>
             {localize(
-                'The Dutch Index follows the stock performance of the 25 most traded companies in the Netherlands.',
+                'The German Index follows the stock performance of the 30 major listed companies in Germany.',
             )}
         </Text>
     </DetailsContainer>
@@ -122,8 +122,8 @@ const Margin = () => {
                                 </Col>
                                 <MarketsList>
                                     <Symbol ai="center">
-                                        <OTCDUTCH />
-                                        <Text>{localize('Dutch Index')}</Text>
+                                        <OTCGERMAN />
+                                        <Text>{localize('German Index')}</Text>
                                     </Symbol>
                                 </MarketsList>
                             </Row>

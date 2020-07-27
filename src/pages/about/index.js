@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { OurStory } from './_our-story'
 import Leaders from './_leaders'
-import { Container, SEO, SectionContainer, Flex } from 'components/containers'
-import { getLocationHash, isBrowser } from 'common/utility'
+import { Container, Flex, SEO, SectionContainer } from 'components/containers'
+import { getLocationHash, isBrowser, scrollTop } from 'common/utility'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Header, Text } from 'components/elements'
@@ -100,7 +100,8 @@ const About = () => {
             setTab(getLocationHash())
         }
         setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-    })
+        scrollTop()
+    }, [getLocationHash()])
 
     return (
         <Layout>

@@ -6,7 +6,7 @@ import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
-import SimpleSteps from 'common/_simple-steps'
+import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
 //SVG
 import FriendlySupport from 'images/svg/friendly-support.svg'
@@ -50,6 +50,7 @@ const Forex = ({ simple_step_content }) => {
                 DigitalOptions={DigitalOptions}
                 Multipliers={Multipliers}
                 name="Forex"
+                display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
             <SimpleSteps
                 header={

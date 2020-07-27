@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
-import { Card, Header, NavCard, CardLink, LinkText } from 'components/elements'
+import { Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
-import { smarttrader_url, binary_url } from 'common/utility'
 import device from 'themes/device'
 // icons
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -118,8 +117,8 @@ export const DMT5Card = ({ is_selected, word_break_cover }) => (
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
     <StyledLink
-        to={smarttrader_url}
-        is_binary_link
+        to="trading"
+        is_smarttrader_link
         external="true"
         target="_blank"
         rel="noopener noreferrer"
@@ -133,14 +132,7 @@ export const SmarttraderCard = ({ is_selected, word_break_cover }) => (
                 <Localize
                     key={0}
                     translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[
-                        <LinkText
-                            key={0}
-                            href={binary_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        />,
-                    ]}
+                    components={[<LocalizedLinkText key={0} to="home" external is_binary_link />]}
                 />,
             ]}
             is_inline_icon
@@ -233,8 +225,8 @@ export const NavPlatform = () => (
                 <Localize translate_text="Trade the world’s markets on Binary.com’s classic platform." />
             }
             title={<Localize translate_text="SmartTrader" />}
-            to={smarttrader_url}
-            is_binary_link
+            to="trading"
+            is_smarttrader_link
             style={{ marginTop: '3.2rem' }}
             external="true"
             target="_blank"
@@ -295,7 +287,7 @@ export const NavCompany = () => (
 
 export const NavResources = () => (
     <Flex wrap="wrap" jc="flex-start" max_width="42rem">
-        <CardLink title={localize('Help Centre')} to="/help-centre/" />
+        <CardLink title={localize('Help centre')} to="/help-centre/" />
         <CardLink title={localize('Payment methods')} to="/payment-methods/" />
         {/* TODO: add this when blog is ready */}
         {/* <CardLink title={localize('Blog')} to="/blog/" /> */}

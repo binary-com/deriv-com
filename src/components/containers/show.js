@@ -16,13 +16,13 @@ const MinWidth = styled.div`
     }
 `
 
-export const Desktop = ({ children, ...props }) => (
-    <MaxWidth max_width={size.tabletL} {...props}>
+export const Desktop = ({ children, max_width, ...props }) => (
+    <MaxWidth max_width={max_width || size.tabletL} {...props}>
         {children}
     </MaxWidth>
 )
-export const Mobile = ({ children, ...props }) => (
-    <MinWidth min_width={size.tabletL} {...props}>
+export const Mobile = ({ children, min_width, ...props }) => (
+    <MinWidth min_width={min_width || size.tabletL} {...props}>
         {children}
     </MinWidth>
 )
@@ -43,14 +43,17 @@ export const NonEU = ({ children }) => {
 
 export default {
     Eu,
+    NonEU,
     Mobile,
     Desktop,
 }
 
 Desktop.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    max_width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 Mobile.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    min_width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }

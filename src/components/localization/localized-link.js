@@ -5,7 +5,12 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import styled, { css } from 'styled-components'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
-import { binary_url, affiliate_signin_url, affiliate_signup_url } from 'common/utility'
+import {
+    binary_url,
+    affiliate_signin_url,
+    affiliate_signup_url,
+    smarttrader_url,
+} from 'common/utility'
 
 const non_localized_links = ['/careers', '/careers/']
 
@@ -65,6 +70,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_binary_link,
         is_affiliate_link,
         is_affiliate_sign_in_link,
+        is_smarttrader_link,
         ariaLabel,
     } = props
 
@@ -79,11 +85,15 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     if (props.external || props.external === 'true') {
         let lang_to = ''
         if (is_binary_link) {
-            lang_to = `${binary_url}/${locale}/${to}.html`
+            const thai_excluded_locale = locale === 'th' ? 'en' : locale
+            lang_to = `${binary_url}/${thai_excluded_locale}/${to}.html`
         } else if (is_affiliate_link) {
             lang_to = `${affiliate_signup_url}?lang=${affiliate_lang}`
         } else if (is_affiliate_sign_in_link) {
             lang_to = `${affiliate_signin_url}?lang=${affiliate_lang}`
+        } else if (is_smarttrader_link) {
+            const thai_excluded_locale = locale === 'th' ? 'en' : locale
+            lang_to = `${smarttrader_url}/${thai_excluded_locale}/${to}.html`
         } else {
             lang_to = to
         }
@@ -148,6 +158,7 @@ LocalizedLink.propTypes = {
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
+    is_smarttrader_link: PropTypes.bool,
     props: PropTypes.object,
     rel: PropTypes.string,
     style: PropTypes.object,

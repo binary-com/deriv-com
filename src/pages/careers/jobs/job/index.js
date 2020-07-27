@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { EmailButton } from '../../_layout-components/_email-button'
+import { JobMailBanner } from '../../_layout-components/_banner'
 import { getJobPositionById, team_names } from '../../_controller/_teams'
 import { locations } from '../../_model/_locations/_locations'
 import { SEO, Flex } from 'components/containers'
@@ -166,11 +166,7 @@ const Job = () => {
                         </Ul>
                     </>
                 )}
-                <EmailButton
-                    style={{ marginTop: '4rem', marginBottom: '8rem', width: 'fit-content' }}
-                    secondary
-                    text={'Send us your CV'}
-                />
+                <JobMailBanner />
             </StyledContainer>
         </Layout>
     )

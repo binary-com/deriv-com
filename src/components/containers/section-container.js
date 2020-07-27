@@ -6,6 +6,7 @@ const SectionContainer = styled(Box).attrs({
 })`
     width: 100%;
     padding: ${(props) => props.padding || '8rem 0'};
+    position: ${(props) => props.position || 'static'};
 
     /* prettier-ignore */
     background-color: var(--color-${(props) => props.background || ''});

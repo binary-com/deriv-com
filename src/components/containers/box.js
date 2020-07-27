@@ -35,6 +35,7 @@ const responsiveStyles = generateResponsiveStyles(baseStyles)
 const Box = styled.div`
     width: ${(props) => (props.width ? props.width : '')};
     height: ${(props) => (props.height ? props.height : '')};
+    min-height: ${(props) => (props.min_height ? props.min_height : '')};
     max-width: ${(props) => (props.max_width ? props.max_width : '')};
     position: ${(props) => (props.position ? props.position : '')};
     left: ${(props) => (props.left ? props.left : '')};

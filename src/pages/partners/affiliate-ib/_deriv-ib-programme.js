@@ -112,7 +112,7 @@ const DerivIBProgramme = () => {
                         <StyledHeader as="h4" align="center" weight="500" mb="2.6rem">
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <LinkButton external="true" secondary to="mailto:affiliates@deriv.com">
+                        <LinkButton external="true" secondary to="mailto:partners@deriv.com">
                             {localize('Contact us')}
                         </LinkButton>
                     </StyledSection>
@@ -162,6 +162,7 @@ const DMT5Synthetic = ({ data }) => {
         <Card
             height={is_expand && !is_calculated ? '100rem' : '49rem'}
             padding="3.2rem 1.6rem 8.2rem"
+            width="43rem"
         >
             <div>
                 {!is_calculated ? (
@@ -244,7 +245,7 @@ const DMT5Standard = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <Card padding="3.2rem 3.2rem 8.2rem">
+        <Card padding="3.2rem 3.2rem 8.2rem" width="43rem">
             <div>
                 {!is_calculated ? (
                     <div>
@@ -327,7 +328,7 @@ const DMT5Advanced = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <StyledCard padding="3.2rem 3.2rem 8.2rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="43rem">
             <div>
                 {!is_calculated ? (
                     <div>
@@ -444,7 +445,7 @@ const ib_dmt5_advanced = {
     assets: [
         [
             { title: <Localize translate_text="Asset" />, style: { minWidth: '13rem' } },
-            localize('Forex and metals'),
+            <Localize key={0} translate_text="Forex and metals" />,
         ],
         [
             {

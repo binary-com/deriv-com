@@ -5,6 +5,7 @@ import ExoticPairs from './_exotic-pairs.js'
 import VolatilityIndices from './_volatility-indices.js'
 import DailyResetIndices from './_daily-reset-indices.js'
 import CrashBoom from './_crash-boom.js'
+import RangeBreak from './_range-break.js'
 import StepIndices from './_step-indices.js'
 import ContinuousIndices from './_continuous-indices.js'
 import Americas from './_americas.js'
@@ -28,4 +29,5 @@ export {
     Europe,
     Metals,
     Energy,
+    RangeBreak,
 }

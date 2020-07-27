@@ -6,7 +6,7 @@ import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import Multipliers from './_multipliers.js'
-import SimpleSteps from 'common/_simple-steps'
+import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
@@ -53,6 +53,9 @@ const StockIndices = ({ simple_step_content }) => {
                 DigitalOptions={DigitalOptions}
                 Multipliers={Multipliers}
                 name="Synthetic indices"
+                display_title={
+                    <Localize translate_text="Synthetic indices trades available on Deriv" />
+                }
             />
             <SimpleSteps
                 header={

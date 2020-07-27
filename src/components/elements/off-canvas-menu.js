@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Flex } from 'components/containers'
+import { Flex, Show } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard } from 'components/elements'
 import { useOutsideClick } from 'components/hooks/outside-click'
@@ -117,18 +117,20 @@ export const OffCanvasMenuWrapper = (props) => {
                             />
                         </Flex>
                         <Flex>
-                            <NavCard
-                                icon={Smarttrader}
-                                content={
-                                    <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                                }
-                                title={<Localize translate_text="SmartTrader" />}
-                                to="trading"
-                                is_smarttrader_link
-                                external="true"
-                                target="_blank"
-                                otherLinkProps={{ rel: 'noopener noreferrer' }}
-                            />
+                            <Show.NonEU>
+                                <NavCard
+                                    icon={Smarttrader}
+                                    content={
+                                        <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                    }
+                                    title={<Localize translate_text="SmartTrader" />}
+                                    to="trading"
+                                    is_smarttrader_link
+                                    external="true"
+                                    target="_blank"
+                                    otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                />
+                            </Show.NonEU>
                         </Flex>
                     </AccordionItem>
                     <AccordionItem

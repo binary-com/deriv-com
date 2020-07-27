@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
+import { SectionContainer, Flex, FlexGridContainer, Show } from 'components/containers'
 import { Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
@@ -219,19 +219,21 @@ export const NavPlatform = () => (
             to="/dbot"
             style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
         />
-        <NavCard
-            icon={Smarttrader}
-            content={
-                <Localize translate_text="Trade the world’s markets on Binary.com’s classic platform." />
-            }
-            title={<Localize translate_text="SmartTrader" />}
-            to="trading"
-            is_smarttrader_link
-            style={{ marginTop: '3.2rem' }}
-            external="true"
-            target="_blank"
-            otherLinkProps={{ rel: 'noopener noreferrer' }}
-        />
+        <Show.NonEU>
+            <NavCard
+                icon={Smarttrader}
+                content={
+                    <Localize translate_text="Trade the world’s markets on Binary.com’s classic platform." />
+                }
+                title={<Localize translate_text="SmartTrader" />}
+                to="trading"
+                is_smarttrader_link
+                style={{ marginTop: '3.2rem' }}
+                external="true"
+                target="_blank"
+                otherLinkProps={{ rel: 'noopener noreferrer' }}
+            />
+        </Show.NonEU>
     </Flex>
 )
 

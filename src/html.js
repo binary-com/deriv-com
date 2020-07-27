@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function HTML(props) {
+    var gtm_id = 'GTM-NF7884S'
     return (
         <html {...props.htmlAttributes}>
             <head>
@@ -14,7 +15,6 @@ export default function HTML(props) {
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
-                    var gtm_id = 'GTM-NF7884S';
                     if (window.location.hostname === 'deriv-com.binary.sx') gtm_id = 'GTM-TNX2ZKH'
                     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -23,6 +23,7 @@ export default function HTML(props) {
                     })(window,document,'script','dataLayer', gtm_id)`,
                     }}
                 />
+                <script src={'https://www.googletagmanager.com/gtm.js?id=' + gtm_id}></script>
                 {props.headComponents}
             </head>
             <body {...props.bodyAttributes}>

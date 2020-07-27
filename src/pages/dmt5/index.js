@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import DMT5Video from './_dmt5-video.js'
+import Numbers from './_numbers.js'
 import BackgroundPatternDMT5 from 'images/common/bg_banner_dmt5.png'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
-import DNumber from 'components/custom/_dnumbers.js'
+// import DNumber from 'components/custom/_dnumbers.js'
 import Layout from 'components/layout/layout'
 import dmt5_logo from 'images/svg/dmt5-icon.svg'
 import { OtherPlatform } from 'components/custom/other-platforms.js'
-import { SEO, Show } from 'components/containers'
+import { SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DMT5BG from 'images/svg/dmt5-bg.svg'
 import DMT5BGMobile from 'images/svg/dmt5-bg-mobile.svg'
@@ -25,11 +26,11 @@ const query = graphql`
         }
     }
 `
-const items = [
-    { title: '70+', subtitle: <Localize translate_text="tradable assets and growing" /> },
-    { title: '1:1,000', subtitle: <Localize translate_text="maximum leverage" /> },
-    { title: '30', subtitle: <Localize translate_text="maximum lot size" /> },
-]
+// const items = [
+//     { title: '70+', subtitle: <Localize translate_text="tradable assets and growing" /> },
+//     { title: '1:1,000', subtitle: <Localize translate_text="maximum leverage" /> },
+//     { title: '30', subtitle: <Localize translate_text="maximum lot size" /> },
+// ]
 const PlatformContainer = styled.div`
     padding: 8rem 0;
 `
@@ -90,9 +91,10 @@ const DMT5 = () => {
                 background_svg={is_mobile ? DMT5BGMobile : DMT5BG}
                 background_alt={localize('DMT5')}
             />
-            <Show.Desktop>
+            <Numbers />
+            {/* <Show.Desktop>
                 <DNumber items={items} justify="space-around" />
-            </Show.Desktop>
+            </Show.Desktop> */}
             <DHowItWorks
                 Video={DMT5Video}
                 title={<Localize translate_text="Get started with DMT5 in 3 easy steps" />}

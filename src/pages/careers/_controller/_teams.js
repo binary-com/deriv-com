@@ -17,6 +17,7 @@ import { product_design_positions } from '../_model/_open-positions/_product-des
 import { project_management_positions } from '../_model/_open-positions/_project-management'
 import { quants_positions } from '../_model/_open-positions/_quants'
 import { security_positions } from '../_model/_open-positions/_security'
+import { other_positions } from '../_model/_open-positions/_other'
 import { job_types } from '../_model/_job_types/_job_types'
 import { locations } from '../_model/_locations/_locations'
 import { toHashFormat } from 'common/utility'
@@ -49,8 +50,8 @@ class Team {
     }
 
     getAllPositions = () => this.positions
-    getAllPositionsByLocation = location =>
-        this.positions.filter(position => position.location === location)
+    getAllPositionsByLocation = (location) =>
+        this.positions.filter((position) => position.location === location)
 }
 
 export const team_names = {
@@ -276,9 +277,10 @@ export const all_positions = [
     ...quality_assurance_positions,
     ...quants_positions,
     ...security_positions,
+    ...other_positions,
 ]
 
-export const getTeamNames = () => all_teams.map(team => team.name)
+export const getTeamNames = () => all_teams.map((team) => team.name)
 
 export const getAlphabeticTeams = () => all_teams.sort((a, b) => a.name.localeCompare(b.name))
 
@@ -291,23 +293,23 @@ export const getDisplayTeams = () => {
     }
     const display_teams = []
 
-    all_teams.forEach(t => {
+    all_teams.forEach((t) => {
         if (display_team_names[t.name]) {
             display_teams.push(t)
         }
     })
     return display_teams
 }
-export const getTeamByName = team_name => all_teams.find(team => team.name === team_name)
+export const getTeamByName = (team_name) => all_teams.find((team) => team.name === team_name)
 
-export const getPositionByName = position_name =>
-    all_positions.find(position => toHashFormat(position.title) === position_name)
+export const getPositionByName = (position_name) =>
+    all_positions.find((position) => toHashFormat(position.title) === position_name)
 
-export const getJobPositionById = id =>
-    all_positions.find(position => toHashFormat(position.id) === id)
+export const getJobPositionById = (id) =>
+    all_positions.find((position) => toHashFormat(position.id) === id)
 
-export const getPositionsByLocation = location_name => {
-    return all_positions.filter(position => {
+export const getPositionsByLocation = (location_name) => {
+    return all_positions.filter((position) => {
         return position.location.includes(location_name)
     })
 }
@@ -319,18 +321,18 @@ export const getPositionsByQuery = (queries, filtered_positions) => {
     const location_filter_map = {}
     const team_filters_map = {}
 
-    queries.forEach(q => {
+    queries.forEach((q) => {
         if (locations[q]) location_filter_map[q] = q
         else team_filters_map[q] = q
     })
 
     const has_team_filters = Object.keys(team_filters_map).length
     const has_location_filters = Object.keys(location_filter_map).length
-    const filterLocation = p => !!location_filter_map[p.location]
-    const filterTeam = p => !!team_filters_map[p.team]
+    const filterLocation = (p) => !!location_filter_map[p.location]
+    const filterTeam = (p) => !!team_filters_map[p.team]
 
     if (has_team_filters && has_location_filters) {
-        return current_positions.filter(c => filterLocation(c) && filterTeam(c))
+        return current_positions.filter((c) => filterLocation(c) && filterTeam(c))
     }
     if (has_team_filters) return current_positions.filter(filterTeam)
     if (has_location_filters) return current_positions.filter(filterLocation)

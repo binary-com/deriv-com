@@ -48,7 +48,14 @@ const StockIndices = ({ simple_step_content }) => {
                     icon={<FriendlySupport />}
                 ></div>
             </WhyTrade>
-            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Stock indices" />
+            <AvailableTrades
+                Margin={Margin}
+                DigitalOptions={DigitalOptions}
+                name="Stock indices"
+                display_title={
+                    <Localize translate_text="Stock indices trades available on Deriv" />
+                }
+            />
             <SimpleSteps
                 header={
                     <Localize translate_text="Start trading stock indices on Deriv in 3 simple steps" />

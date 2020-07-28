@@ -11,7 +11,8 @@ import { LocalStore } from 'common/storage'
 import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import { isBrowser } from 'common/utility'
+import { isProduction } from 'common/websocket/config'
+import { deriv_cookie_domain, isBrowser } from 'common/utility'
 import LiveChatIC from 'images/svg/livechat.svg'
 import LiveChatHover from 'images/svg/livechat-hover.svg'
 
@@ -37,6 +38,10 @@ const Main = styled.main`
 
 const has_dataLayer = isBrowser() && window.dataLayer
 const cookie_expires = 7
+Cookies.defaults = {
+    path: '/',
+    domain: isProduction() ? deriv_cookie_domain : isBrowser() && `${window.location.hostname}`,
+}
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const LC_API = (isBrowser() && window.LC_API) || {}

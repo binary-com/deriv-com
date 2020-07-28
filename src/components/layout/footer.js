@@ -280,17 +280,19 @@ const Footer = () => {
                                     <LinkWrapper>
                                         <Link to="/dmt5">{localize('DMT5')}</Link>
                                     </LinkWrapper>
-                                    <LinkWrapper>
-                                        <Link
-                                            to="trading"
-                                            is_smarttrader_link
-                                            external="true"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            {localize('SmartTrader')}
-                                        </Link>
-                                    </LinkWrapper>
+                                    <Show.Eu>
+                                        <LinkWrapper>
+                                            <Link
+                                                to="trading"
+                                                is_smarttrader_link
+                                                external="true"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {localize('SmartTrader')}
+                                            </Link>
+                                        </LinkWrapper>
+                                    </Show.Eu>
                                 </LinksCol>
                                 <LinksCol>
                                     <LinkWrapper>
@@ -429,15 +431,17 @@ const Footer = () => {
                                             <Link to="/dmt5">{localize('DMT5')}</Link>
                                         </Item>
                                         <Item>
-                                            <Link
-                                                to="trading"
-                                                is_smarttrader_link
-                                                external="true"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                {localize('SmartTrader')}
-                                            </Link>
+                                            <Show.Eu>
+                                                <Link
+                                                    to="trading"
+                                                    is_smarttrader_link
+                                                    external="true"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    {localize('SmartTrader')}
+                                                </Link>
+                                            </Show.Eu>
                                         </Item>
                                     </AccordionItem>
                                     <AccordionItem

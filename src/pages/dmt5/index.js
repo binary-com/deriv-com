@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import DMT5Video from './_dmt5-video.js'
 import Numbers from './_numbers.js'
 import WhatIsTrader from './_what-is-trader.js'
+import WhyTrader from './_why-trader.js'
 import BackgroundPatternDMT5 from 'images/common/bg_banner_dmt5.png'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
 import DTrading from 'components/custom/_dtrading.js'
@@ -94,6 +95,7 @@ const DMT5 = () => {
             />
             <Numbers />
             <WhatIsTrader />
+            <WhyTrader />
             {/* <Show.Desktop>
                 <DNumber items={items} justify="space-around" />
             </Show.Desktop> */}

@@ -207,5 +207,12 @@ module.exports = {
                 offset: -300,
             },
         },
+        {
+            resolve: 'gatsby-plugin-google-tagmanager',
+            options: {
+                id: 'GTM-NF7884S',
+                includeInDevelopment: false,
+            },
+        },
     ],
 }

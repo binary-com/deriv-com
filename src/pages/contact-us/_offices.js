@@ -23,6 +23,7 @@ const query = graphql`
     }
 `
 const Wrapper = styled.section`
+    border-top: 2px solid var(--color-grey-2);
     width: 100%;
     height: 100%;
     background-color: var(--color-white);
@@ -124,7 +125,7 @@ const ImageWrapper = styled.div`
     }
 `
 
-const Splitter = styled.div`
+export const Splitter = styled.div`
     background-color: var(--color-grey-8);
     height: 0.1rem;
     width: 98rem;
@@ -169,7 +170,7 @@ export const Offices = () => {
     const data = useStaticQuery(query)
     return (
         <Wrapper>
-            <StyledHeader as="h3" align="center">
+            <StyledHeader as="h2" align="center">
                 {localize('Our offices')}
             </StyledHeader>
             <OfficesWrapper>

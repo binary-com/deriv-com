@@ -11,7 +11,6 @@ import { Flex, SectionContainer } from 'components/containers'
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
-    background-color: var(--color-white);
     padding: 8rem 12rem;
     align-items: center;
     justify-content: center;
@@ -25,6 +24,7 @@ const Card = styled(Flex)`
     border-radius: 8px;
     border: solid 1px var(--color-grey-21);
     margin-right: 2.4rem;
+    justify-content: flex-start;
 `
 
 const WhyTrader = () => {

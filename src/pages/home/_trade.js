@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import TradeTypes from './_trade-types.js'
 import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms.js'
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
@@ -123,7 +122,6 @@ export const Trade = () => {
                         </CssGrid>
                     </div>
                 </Flex>
-                <TradeTypes />
             </Container>
         </StyledSection>
     )

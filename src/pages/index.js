@@ -2,6 +2,8 @@ import React from 'react'
 // import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
+import TradeTypes from './home/_trade-types'
+import EmployeeTestimonialCarousel from './home/_trade-types-mobile'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
 import Markets from './home/_markets'
 import WhatOurClientsSay from './home/_what-our-clients-say'
@@ -53,7 +55,11 @@ const Home = () => {
             </Show.Mobile>
             <Show.Desktop>
                 <Trade />
+                <TradeTypes />
             </Show.Desktop>
+            <Show.Mobile>
+                <EmployeeTestimonialCarousel />
+            </Show.Mobile>
             <Markets />
             <SimpleSteps
                 content={simple_step_content}

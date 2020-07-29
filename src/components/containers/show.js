@@ -30,14 +30,14 @@ export const Mobile = ({ children, min_width, ...props }) => (
 export const Eu = ({ children }) => {
     const { is_eu_country } = React.useContext(LocationContext)
 
-    if (is_eu_country) return <>{children}</>
+    if (is_eu_country) return <div>{children}</div>
     else return null
 }
 
 export const NonEU = ({ children }) => {
     const { is_eu_country } = React.useContext(LocationContext)
 
-    if (is_eu_country === false) return <>{children}</>
+    if (is_eu_country === false) return <div>{children}</div>
     else return null
 }
 

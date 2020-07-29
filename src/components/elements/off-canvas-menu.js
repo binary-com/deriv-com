@@ -204,7 +204,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         style={content_style}
                     >
                         <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                            {localize('Help Centre')}
+                            {localize('Help centre')}
                         </StyledLink>
                         {/* TODO: add this when blog is ready */}
                         {/* <StyledLink to="/blog/" onClick={handleArrowClick}>

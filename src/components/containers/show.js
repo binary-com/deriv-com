@@ -42,8 +42,8 @@ export const NonEU = ({ children }) => {
 }
 
 export default {
-    NonEU,
     Eu,
+    NonEU,
     Mobile,
     Desktop,
 }

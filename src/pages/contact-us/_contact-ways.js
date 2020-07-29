@@ -1,90 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, LinkText } from '../../components/elements/typography'
+import { Text } from '../../components/elements/typography'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
-import { LinkButton } from 'components/form'
-import EmailUsIcon from 'images/svg/email-us.svg'
-import NeedUsIcon from 'images/svg/need-us.svg'
+import { SectionContainer, Flex } from 'components/containers'
+import { localize, Localize } from 'components/localization'
+import { LinkButton, Button } from 'components/form'
 import device from 'themes/device'
-
-const Wrapper = styled.section`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: var(--color-grey-8);
-    padding: 8rem 0;
-
-    @media ${device.tabletS} {
-        height: auto;
-    }
-    @media ${device.tabletL} {
-        padding: 5rem 2rem;
-    }
-`
-const WaysWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-
-    @media ${device.tabletL} {
-        width: 100%;
-
-        > div {
-            margin: 0 auto;
-            width: 100%;
-        }
-    }
-    @media (max-width: 740px) {
-        flex-direction: column;
-        height: auto;
-
-        > div {
-            margin-top: 7rem;
-        }
-    }
-
-    div:first-child {
-        margin-top: 0;
-    }
-`
-const Contact = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 28.2rem;
-`
-
-const StyledHeader = styled(Header)`
-    margin-bottom: 1.6rem;
-
-    @media ${device.tabletL} {
-        margin-bottom: 1rem;
-    }
-`
-
-const StyledText = styled(Text)`
-    margin-bottom: ${(props) => props.marginBttom || '0.8rem'};
-    font-size: var(--text-size-sm);
-
-    @media ${device.tabletL} {
-        font-size: ${(props) => (props.secondary ? '3rem' : '2rem')};
-    }
-`
-
-const Logo = styled.div`
-    margin-bottom: 2.4rem;
-
-    @media ${device.tabletL} {
-        text-align: center;
-        margin-bottom: 2rem;
-
-        svg {
-            width: 6rem;
-            height: 6rem;
-        }
-    }
-`
+import Chat from 'images/svg/call.svg'
+import Help from 'images/svg/help-centre.svg'
+import { isBrowser } from 'common/utility'
 
 const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
@@ -95,59 +19,132 @@ const StyledLinkButton = styled(LinkButton)`
         font-size: 1.75rem;
     }
 `
+const contactways = [
+    {
+        header: <Localize translate_text="Visit the Help centre" />,
+        text: (
+            <Text mb="1.6rem">
+                <Localize translate_text="The quickest way to get answers to your questions." />
+            </Text>
+        ),
+        icon: <Help />,
+        button: (
+            <StyledLinkButton secondary="true" to="/help-centre">
+                {localize('Visit the Help Centre')}
+            </StyledLinkButton>
+        ),
+    },
+    {
+        header: <Localize translate_text="Chat with us" />,
+        text: (
+            <Text>
+                <Localize translate_text="Get answers you can’t find in the Help centre." />
+            </Text>
+        ),
+        icon: <Chat />,
+    },
+]
 
-export const ContactWays = () => {
+const StyledFlex = styled(Flex)`
+    margin: auto;
+    max-width: 110rem;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+        align-items: center;
+
+        article {
+            margin: 16px auto 0;
+        }
+        article:last-child {
+            margin-bottom: 32px;
+        }
+    }
+`
+const ClientCard = styled.article`
+    margin: 2rem;
+    background-color: var(--color-white);
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    width: 38.4rem;
+    padding: 3.2rem 2.4rem;
+    height: 100%;
+    min-height: 22rem;
+    position: relative;
+
+    @media ${device.tabletL} {
+        width: 100%;
+        max-width: 55rem;
+        margin-top: 0;
+        padding: 3rem;
+
+        ${Text} {
+            font-size: 2rem;
+        }
+        ${Header} {
+            font-size: 3rem;
+        }
+        ${Flex} {
+            padding-bottom: 2rem;
+            align-items: center;
+        }
+    }
+
+    @media ${device.mobileL} {
+        ${Header} {
+            font-size: 1.9rem;
+        }
+    }
+`
+
+const ContactWays = () => {
+    const LC_API = (isBrowser() && window.LC_API) || {}
+    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
+
+    React.useEffect(() => {
+        if (isBrowser()) {
+            window.scrollTo(0, 0)
+            window.LiveChatWidget.on('ready', () => {
+                setLiveChatInteractive(true)
+            })
+        }
+    }, [])
+
     return (
-        <Wrapper>
-            <WaysWrapper>
-                <Contact>
-                    <Logo>
-                        <NeedUsIcon />
-                    </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Visit our Help Centre')}
-                    </StyledHeader>
-                    <StyledText align="center">
-                        {localize('The quickest way to get answers to your questions.')}
-                    </StyledText>
-                    <StyledLinkButton secondary="true" to="/help-centre">
-                        {localize('Visit the Help Centre')}
-                    </StyledLinkButton>
-                </Contact>
-                <Contact>
-                    <Logo>
-                        <EmailUsIcon />
-                    </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Email Us')}
-                    </StyledHeader>
-                    <LinkText
-                        weight="bold"
-                        size="var(--text-size-sm)"
-                        color="red"
-                        href="mailto:support@deriv.com"
-                    >
-                        {localize('support@deriv.com')}
-                    </LinkText>
-                </Contact>
+        <SectionContainer mt="-18rem">
+            <StyledFlex wrap="wrap">
+                {contactways.map((item, idx) => {
+                    return (
+                        <ClientCard key={idx}>
+                            <Flex pb="0.8rem" ai="center">
+                                <Header size="2.4rem">{item.header}</Header>
+                                {item.icon}
+                            </Flex>
+                            <Text pb="1rem">{item.text}</Text>
+                            <Text>{item.text2}</Text>
+                            <div>{item.button}</div>
 
-                {/*
-                // TODO: This section will be added shortly when the back-end gets ready.
-                <Splitter></Splitter>
-                <Contact>
-                    <Logo>
-                        <ChatLiveIcon></ChatLiveIcon>
-                    </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Chat live')}
-                    </StyledHeader>
-                    <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
-                    <StyledText marginBttom="3.2rem">
-                        {localize('Sat-Sun: 8:00am - 5pm GMT')}
-                    </StyledText>
-                    <StyledButton to="/">{localize('Start a chat')}</StyledButton>
-                </Contact> */}
-            </WaysWrapper>
-        </Wrapper>
+                            {idx == 1 && (
+                                <>
+                                    {is_livechat_interactive && (
+                                        <Button
+                                            secondary="true"
+                                            to="/help-centre"
+                                            onClick={() => {
+                                                LC_API.open_chat_window()
+                                            }}
+                                        >
+                                            {localize('Chat with us')}
+                                        </Button>
+                                    )}
+                                </>
+                            )}
+                        </ClientCard>
+                    )
+                })}
+            </StyledFlex>
+        </SectionContainer>
     )
 }
+
+export default ContactWays

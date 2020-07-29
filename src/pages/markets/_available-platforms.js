@@ -107,7 +107,7 @@ const AvailablePlatforms = ({
                 )}
                 {smarttrader && (
                     <a
-                        href="https://smarttrader.deriv.app/"
+                        href="https://smarttrader.deriv.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

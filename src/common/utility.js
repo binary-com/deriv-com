@@ -85,9 +85,9 @@ function debounce(func, wait, immediate) {
     }
 }
 
-const deriv_app_url = 'https://deriv.app'
-const deriv_bot_app_url = 'https://deriv.app/bot'
-const smarttrader_url = 'https://smarttrader.deriv.app'
+const deriv_app_url = 'https://app.deriv.com'
+const deriv_bot_app_url = 'https://app.deriv.com/bot'
+const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
 const affiliate_signup_url = 'https://login.binary.com/signup.php'
 const affiliate_signin_url = 'https://login.binary.com/signin.php'

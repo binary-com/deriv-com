@@ -42,7 +42,7 @@ const CTA = () => {
                     <Text align="center" color="white" mt="0.8rem">
                         {localize('The Deriv affiliate management team is here to help.')}
                     </Text>
-                    <LightButton external="true" to="mailto:affiliates@deriv.com" tertiary>
+                    <LightButton external="true" to="mailto:partners@deriv.com" tertiary>
                         {localize('Contact us')}
                     </LightButton>
                 </Flex>

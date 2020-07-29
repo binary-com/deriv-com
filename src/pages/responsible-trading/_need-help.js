@@ -20,7 +20,7 @@ const help_content = [
         text2: (
             <Localize translate_text="GAMSTOP is a free service that enables you to self-exclude from all online gambling companies licensed in Great Britain." />
         ),
-        icon: <GamStop style={{ width: '75%' }} />,
+        icon: <GamStop style={{ width: '91%', height: '100%' }} />,
         link: (
             <LocalizedLinkText mt="1rem" to="https://www.gamstop.co.uk/" color="red">
                 {localize('Click here to find out more')}

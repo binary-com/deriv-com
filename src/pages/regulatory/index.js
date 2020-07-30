@@ -472,7 +472,7 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry. (<1>view membership</1>)"
+                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)."
                                     components={[
                                         <LinkText
                                             key={0}

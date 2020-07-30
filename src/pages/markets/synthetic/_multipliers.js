@@ -128,6 +128,11 @@ const Multipliers = () => {
                         renderDetails={ContinuousIndicesDetails}
                     />
                 </MarketsWrapper>
+                <Text mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
+                    {localize(
+                        'Return to player (RTP) % for a multiplier of 200 and a 1 hour duration is about 95% on average',
+                    )}
+                </Text>
             </Flex>
         </SectionContainer>
     )

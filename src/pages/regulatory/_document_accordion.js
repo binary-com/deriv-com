@@ -5,7 +5,6 @@ import { Flex } from 'components/containers'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 import PDFIcon from 'images/svg/pdf-icon-black.svg'
-// import ExcelIcon from 'images/svg/excel.svg'
 
 const FlexText = styled(LinkText)`
     display: flex;
@@ -25,62 +24,31 @@ const EdgeFlex = styled(Flex)`
         flex-direction: column;
     }
 `
-// TODO: add when RTS documents are ready
-// const RTS28 = () => (
-//     <>
-//         <EdgeFlex m="1.8rem auto" jc="space-between" wrap="wrap" max_width="55.6rem">
-//             <FlexText
-//                 color="red"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 href="/BIEL-RTS28-for-2017.pdf"
-//             >
-//                 <PDFIcon />
-//                 <span>{localize('RTS28 2019')}</span>
-//             </FlexText>
-//             <FlexText
-//                 color="red"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 href="/BIEL-RTS28-for-2017.pdf"
-//             >
-//                 <ExcelIcon />
-//                 <span>{localize('RTS 27 Execution data 2019')}</span>
-//             </FlexText>
-//         </EdgeFlex>
-//         <EdgeFlex m="1.8rem auto" jc="space-between" wrap="wrap" max_width="55.6rem">
-//             <FlexText
-//                 color="red"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 href="/BIEL-RTS28-for-2017.pdf"
-//             >
-//                 <PDFIcon />
-//                 <span>{localize('RTS28 2018')}</span>
-//             </FlexText>
-//             <FlexText
-//                 color="red"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 href="/BIEL-RTS28-for-2017.pdf"
-//             >
-//                 <ExcelIcon />
-//                 <span>{localize('RTS 27 Execution data 2018')}</span>
-//             </FlexText>
-//         </EdgeFlex>
-//         <EdgeFlex m="1.8rem auto" jc="space-between" wrap="wrap" max_width="55.6rem">
-//             <FlexText
-//                 color="red"
-//                 target="_blank"
-//                 rel="noopener noreferrer"
-//                 href="/BIEL-RTS28-for-2017.pdf"
-//             >
-//                 <PDFIcon />
-//                 <span>{localize('RTS 27 Execution data Q1 2020')}</span>
-//             </FlexText>
-//         </EdgeFlex>
-//     </>
-// )
+
+const RTS28 = () => (
+    <>
+        <EdgeFlex m="1.8rem auto" jc="space-between" wrap="wrap" max_width="55.6rem">
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS28-2018.pdf"
+            >
+                <PDFIcon />
+                <span>{localize('RTS28 2018')}</span>
+            </FlexText>
+            <FlexText
+                color="red"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/regulatory/RTS28-2019.pdf"
+            >
+                <PDFIcon />
+                <span>{localize('RTS28 2019')}</span>
+            </FlexText>
+        </EdgeFlex>
+    </>
+)
 
 const DocumentAccordion = () => {
     const content_style = {
@@ -117,7 +85,7 @@ const DocumentAccordion = () => {
                     <FlexText
                         target="_blank"
                         rel="noopener noreferrer"
-                        href="/regulatory/pillar_3_deriv.pdf"
+                        href="/regulatory/BIEL_Pillar_3.pdf"
                         color="red"
                     >
                         <PDFIcon />
@@ -173,6 +141,15 @@ const DocumentAccordion = () => {
                         </FlexText>
                     </EdgeFlex>
                 </Flex>
+            </AccordionItem>
+            <AccordionItem
+                header={localize('RTS')}
+                content_style={content_style}
+                header_style={header_style}
+                style={item_style}
+                parent_style={parent_style}
+            >
+                <RTS28 />
             </AccordionItem>
         </Accordion>
     )

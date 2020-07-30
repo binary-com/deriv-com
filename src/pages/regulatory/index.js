@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import EUgrid from './_eu-grid'
-// import DocumentAccordion from './_document_accordion'
+import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
 import { Header, Text, LinkText, Divider, Ul, Li } from 'components/elements'
 import {
@@ -176,14 +176,13 @@ const Regulatory = () => (
                 </Box>
             </SmallContainer>
         </SectionContainer>
-        {/* TODO: add when documents are ready */}
-        {/* <SectionContainer padding="0 0 4rem 0">
+        <SectionContainer padding="0 0 4rem 0">
             <Eu>
                 <SmallContainer fd="column">
                     <DocumentAccordion />
                 </SmallContainer>
             </Eu>
-        </SectionContainer> */}
+        </SectionContainer>
         <SectionContainer padding="0 0 4rem">
             <SmallContainer>
                 <CssGrid

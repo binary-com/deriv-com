@@ -280,7 +280,7 @@ const Footer = () => {
                                     <LinkWrapper>
                                         <Link to="/dmt5">{localize('DMT5')}</Link>
                                     </LinkWrapper>
-                                    <Show.Eu>
+                                    <Show.NonEU>
                                         <LinkWrapper>
                                             <Link
                                                 to="trading"
@@ -292,7 +292,7 @@ const Footer = () => {
                                                 {localize('SmartTrader')}
                                             </Link>
                                         </LinkWrapper>
-                                    </Show.Eu>
+                                    </Show.NonEU>
                                 </LinksCol>
                                 <LinksCol>
                                     <LinkWrapper>
@@ -431,7 +431,7 @@ const Footer = () => {
                                             <Link to="/dmt5">{localize('DMT5')}</Link>
                                         </Item>
                                         <Item>
-                                            <Show.Eu>
+                                            <Show.NonEU>
                                                 <Link
                                                     to="trading"
                                                     is_smarttrader_link
@@ -441,7 +441,7 @@ const Footer = () => {
                                                 >
                                                     {localize('SmartTrader')}
                                                 </Link>
-                                            </Show.Eu>
+                                            </Show.NonEU>
                                         </Item>
                                     </AccordionItem>
                                     <AccordionItem

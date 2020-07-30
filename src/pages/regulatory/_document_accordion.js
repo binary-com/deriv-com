@@ -27,12 +27,13 @@ const EdgeFlex = styled(Flex)`
 
 const RTS28 = () => (
     <>
-        <EdgeFlex m="1.8rem auto" jc="space-between" wrap="wrap" max_width="55.6rem">
+        <EdgeFlex m="1.8rem auto" jc="space-between" wrap="wrap" width="auto">
             <FlexText
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="/regulatory/RTS28-2018.pdf"
+                m="1.6rem 2.4rem"
             >
                 <PDFIcon />
                 <span>{localize('RTS28 2018')}</span>
@@ -42,6 +43,7 @@ const RTS28 = () => (
                 target="_blank"
                 rel="noopener noreferrer"
                 href="/regulatory/RTS28-2019.pdf"
+                m="1.6rem 2.4rem"
             >
                 <PDFIcon />
                 <span>{localize('RTS28 2019')}</span>
@@ -65,6 +67,7 @@ const DocumentAccordion = () => {
     }
     const parent_style = {
         marginBottom: '2.4rem',
+        width: '100%',
     }
 
     return (
@@ -149,7 +152,9 @@ const DocumentAccordion = () => {
                 style={item_style}
                 parent_style={parent_style}
             >
-                <RTS28 />
+                <Flex>
+                    <RTS28 />
+                </Flex>
             </AccordionItem>
         </Accordion>
     )

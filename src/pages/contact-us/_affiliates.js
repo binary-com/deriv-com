@@ -35,21 +35,22 @@ const Content = styled.div`
     max-width: 38.4rem;
     padding-right: 3rem;
 
-    @media ${device.tablet} {
-        padding-right: 0;
+    :nth-child(odd) {
+        padding: 0 7rem;
+        margin-right: 6rem;
     }
 
-    :nth-child(even) {
-        padding: 0 2.4rem;
+    @media ${device.tablet} {
+        padding-right: 0;
+
+        :nth-child(odd) {
+            margin-right: unset;
+        }
     }
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
         height: auto;
-
-        :nth-child(even) {
-            padding: 0 2.4rem;
-        }
     }
 `
 const StyledHeader = styled(Header)`
@@ -83,8 +84,8 @@ export const Affiliates = () => {
                 <StyledText>
                     {localize('For enquiries about our affiliate and IB programmes')}
                 </StyledText>
-                <StyledLinkText weight="bold" color="red" href="mailto:affiliates@deriv.com">
-                    {localize('affiliates@deriv.com')}
+                <StyledLinkText weight="bold" color="red" href="mailto:partners@deriv.com">
+                    {localize('partners@deriv.com')}
                 </StyledLinkText>
             </Content>
             <Content>

@@ -11,37 +11,9 @@ export default function HTML(props) {
                     name="viewport"
                     content="width=device-width, initial-scale=1, shrink-to-fit=no"
                 />
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                    var gtm_id = 'GTM-NF7884S'
-                    if (window.location.hostname === 'deriv-com.binary.sx') gtm_id = 'GTM-TNX2ZKH'
-                    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                    })(window,document,'script','dataLayer', gtm_id)`,
-                    }}
-                />
                 {props.headComponents}
             </head>
             <body {...props.bodyAttributes}>
-                <noscript>
-                    <iframe
-                        src="https://www.googletagmanager.com/ns.html?id=GTM-NF7884S"
-                        height="0"
-                        width="0"
-                        style={{ display: 'none', visibility: 'hidden' }}
-                    ></iframe>
-                </noscript>
-                <noscript>
-                    <iframe
-                        src="https://www.googletagmanager.com/ns.html?id=GTM-TNX2ZKH"
-                        height="0"
-                        width="0"
-                        style={{ display: 'none', visibility: 'hidden' }}
-                    ></iframe>
-                </noscript>
                 {props.preBodyComponents}
                 <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} />
                 {props.postBodyComponents}

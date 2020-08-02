@@ -7,8 +7,10 @@ import WhatIsTrader from './_what-is-trader.js'
 import WhyTrader from './_why-trader.js'
 import StartTrader from './_start-trader.js'
 import DownloadApp from './_download-app.js'
+import TradeControl from './_trade-control.js'
 import BackgroundPatternDMT5 from 'images/common/bg_banner_dmt5.png'
 import DHowItWorks from 'components/custom/_dhow-it-works.js'
+import SimpleSteps from 'components/custom/_simple-steps'
 import DTrading from 'components/custom/_dtrading.js'
 import DHero from 'components/custom/_dhero.js'
 // import DNumber from 'components/custom/_dnumbers.js'
@@ -22,6 +24,9 @@ import DMT5BGMobile from 'images/svg/dmt5-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 import DBanner from 'components/custom/_dbanner.js'
+import SyntheticIcon from 'images/svg/synthetic.svg'
+import FinancialIcon from 'images/svg/financial.svg'
+import FinancialStpIcon from 'images/svg/financial-stp.svg'
 
 const query = graphql`
     query {
@@ -30,6 +35,29 @@ const query = graphql`
         }
     }
 `
+const simple_step_content = [
+    {
+        header: <Localize translate_text="Synthetic" />,
+        text: (
+            <Localize translate_text="Trade CFDs on our exclusive, proprietary synthetic indices 24/7 which simulate real-world market movements." />
+        ),
+        icon: <SyntheticIcon />,
+    },
+    {
+        header: <Localize translate_text="Financial" />,
+        text: (
+            <Localize translate_text="Trade forex, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
+        ),
+        icon: <FinancialIcon />,
+    },
+    {
+        header: <Localize translate_text="Financial STP" />,
+        text: (
+            <Localize translate_text="Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes, straight to the market." />
+        ),
+        icon: <FinancialStpIcon />,
+    },
+]
 // const items = [
 //     { title: '70+', subtitle: <Localize translate_text="tradable assets and growing" /> },
 //     { title: '1:1,000', subtitle: <Localize translate_text="maximum leverage" /> },
@@ -100,6 +128,12 @@ const DMT5 = () => {
             <WhyTrader />
             <StartTrader />
             <DownloadApp />
+            <TradeControl />
+            <SimpleSteps
+                content={simple_step_content}
+                header={<Localize translate_text="Flexibility with multiple account types" />}
+                sign_up={true}
+            />
             {/* <Show.Desktop>
                 <DNumber items={items} justify="space-around" />
             </Show.Desktop> */}

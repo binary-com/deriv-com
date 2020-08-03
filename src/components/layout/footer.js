@@ -359,6 +359,7 @@ const Footer = () => {
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
+                                            need_eu_confirmation
                                             to="trading"
                                             is_smarttrader_link
                                             external="true"
@@ -507,6 +508,7 @@ const Footer = () => {
                                         </Item>
                                         <Item>
                                             <Link
+                                                need_eu_confirmation
                                                 to="trading"
                                                 is_smarttrader_link
                                                 external="true"

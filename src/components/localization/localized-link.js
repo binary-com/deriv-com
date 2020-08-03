@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import styled, { css } from 'styled-components'
+import { LocationContext } from '../layout/location-context.js'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
+import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import {
     binary_url,
     affiliate_signin_url,
@@ -61,6 +63,9 @@ const ExternalLink = styled.a`
 export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
+    const [show_modal, toggleModal, closeModal] = useModal()
+    const { is_eu_country } = React.useContext(LocationContext)
+
     const is_index = to === `/`
     const {
         target,
@@ -72,6 +77,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_affiliate_sign_in_link,
         is_smarttrader_link,
         ariaLabel,
+        need_eu_confirmation,
     } = props
 
     // If it's the default language or non localized link, don't do anything
@@ -81,7 +87,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     const { is_default, path, affiliate_lang } = language_config[locale]
     const is_non_localized = non_localized_links.includes(to)
     const path_to = is_default || is_non_localized ? to : `/${path}${is_index ? `` : `${to}`}/`
-
     if (props.external || props.external === 'true') {
         let lang_to = ''
         if (is_binary_link) {
@@ -97,20 +102,53 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else {
             lang_to = to
         }
-        return (
-            <a
-                target={target}
-                rel={rel}
-                className={className}
-                data-amp-replace="QUERY_PARAM"
-                style={style}
-                href={lang_to}
-                ref={ref}
-                aria-label={ariaLabel}
-            >
-                {props.children}
-            </a>
-        )
+        if (need_eu_confirmation && is_eu_country) {
+            return (
+                <React.Fragment>
+                    <a
+                        target={target}
+                        rel={rel}
+                        className={className}
+                        data-amp-replace="QUERY_PARAM"
+                        style={
+                            style
+                                ? Object.assign(style, { cursor: 'pointer' })
+                                : { cursor: 'pointer' }
+                        }
+                        ref={ref}
+                        aria-label={ariaLabel}
+                        onClick={() => toggleModal()}
+                    >
+                        {props.children}
+                    </a>
+                    <EURedirect
+                        toggle={toggleModal}
+                        is_open={show_modal}
+                        closeModal={closeModal}
+                        to={lang_to}
+                        target={target}
+                        rel={rel}
+                        ref={ref}
+                        aria_label={ariaLabel}
+                    />
+                </React.Fragment>
+            )
+        } else {
+            return (
+                <a
+                    target={target}
+                    rel={rel}
+                    className={className}
+                    data-amp-replace="QUERY_PARAM"
+                    style={style}
+                    href={lang_to}
+                    ref={ref}
+                    aria-label={ariaLabel}
+                >
+                    {props.children}
+                </a>
+            )
+        }
     }
     if (props.external_link)
         return (
@@ -159,6 +197,7 @@ LocalizedLink.propTypes = {
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
+    need_eu_confirmation: PropTypes.bool,
     props: PropTypes.object,
     rel: PropTypes.string,
     style: PropTypes.object,

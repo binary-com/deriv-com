@@ -393,9 +393,10 @@ const RelativeFlex = styled(Flex)`
     position: relative;
 `
 
-export const CardLink = ({ title, to, style, external }) => {
+export const CardLink = ({ title, to, style, external, target }) => {
     return (
         <LocalizedLink
+            target={target}
             to={to}
             style={{
                 textDecoration: 'none',
@@ -429,6 +430,7 @@ CardLink.propTypes = {
     external: PropTypes.bool,
     icon: PropTypes.object,
     style: PropTypes.object,
+    target: PropTypes.string,
     title: PropTypes.string,
     to: PropTypes.string,
 }

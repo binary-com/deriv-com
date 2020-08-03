@@ -6,6 +6,7 @@ import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { community_url } from 'common/utility'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -19,25 +20,45 @@ const StyledLinkButton = styled(LinkButton)`
     height: 4rem;
     width: fit-content;
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        text-align: center;
+    }
+`
+
+const StyledQueryImage = styled(QueryImage)`
+    @media ${device.tablet} {
+        width: 30rem;
+    }
+`
+const StyledFlex = styled(Flex)`
+    @media ${device.tablet} {
+        margin-left: unset;
+
+        ${Text} {
+            text-align: center;
+        }
+    }
+`
 
 export const Community = () => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer padding="4rem" background="var(--color-grey-25)">
             <Container>
-                <Flex max_width="92rem">
-                    <QueryImage data={data['community']} width="41rem" />
-                    <Flex ml="5rem" direction="column">
-                        <Header mt="1rem" as="h3">
+                <Flex tablet_direction="column" tablet_ai="center" max_width="92rem">
+                    <StyledQueryImage data={data['community']} width="41rem" />
+                    <StyledFlex tablet_ai="center" ml="5rem" direction="column">
+                        <StyledHeader mt="1rem" as="h3">
                             {localize('Have a question?')}
-                        </Header>
+                        </StyledHeader>
                         <Text size="var(--text-size-m)" pt="0.8rem" pb="3.4rem">
                             {localize('Our Deriv support community can help you find answers.')}
                         </Text>
-                        <StyledLinkButton secondary="true" to={community_url}>
+                        <StyledLinkButton secondary="true" to={community_url} target="_blank">
                             {localize('Ask the community')}
                         </StyledLinkButton>
-                    </Flex>
+                    </StyledFlex>
                 </Flex>
             </Container>
         </SectionContainer>

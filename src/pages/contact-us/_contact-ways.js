@@ -35,7 +35,7 @@ const contactways = [
         text: <Localize translate_text="Our Deriv support community can help you find answers." />,
         image: 'community',
         button: (
-            <StyledLinkButton secondary="true" to={community_url}>
+            <StyledLinkButton secondary="true" to={community_url} target="_blank">
                 {localize('Ask the community')}
             </StyledLinkButton>
         ),

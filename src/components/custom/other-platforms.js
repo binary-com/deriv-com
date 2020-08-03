@@ -14,6 +14,7 @@ import Forex from 'images/svg/market-forex.svg'
 import Commodities from 'images/svg/market-commodities.svg'
 import StockIndices from 'images/svg/market-stock-indices.svg'
 import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
+import { community_url } from 'common/utility'
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
@@ -289,7 +290,7 @@ export const NavResources = () => (
     <Flex wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink title={localize('Help centre')} to="/help-centre/" />
         <CardLink title={localize('Payment methods')} to="/payment-methods/" />
-        <CardLink title={localize('Community')} to="https://community.deriv.com/" />
+        <CardLink title={localize('Community')} to={community_url} />
         {/* TODO: add this when blog is ready */}
         {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
     </Flex>

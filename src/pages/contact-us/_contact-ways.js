@@ -7,9 +7,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
-// import Chat from 'images/svg/call.svg'
-// import Help from 'images/svg/help-centre.svg'
-//import { isBrowser } from 'common/utility'
+import { community_url } from 'common/utility'
 
 const query = graphql`
     query {
@@ -37,7 +35,7 @@ const contactways = [
         text: <Localize translate_text="Our Deriv support community can help you find answers." />,
         image: 'community',
         button: (
-            <StyledLinkButton secondary="true" to="https://community.deriv.com/">
+            <StyledLinkButton secondary="true" to={community_url}>
                 {localize('Ask the community')}
             </StyledLinkButton>
         ),

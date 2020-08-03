@@ -213,6 +213,9 @@ export const OffCanvasMenuWrapper = (props) => {
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
                             {localize('Payment methods')}
                         </StyledLink>
+                        <StyledLink to="https://community.deriv.com/" onClick={handleArrowClick}>
+                            {localize('Community')}
+                        </StyledLink>
                     </AccordionItem>
                     <AccordionItem
                         header={localize('Legal')}

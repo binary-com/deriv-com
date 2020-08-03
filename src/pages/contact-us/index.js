@@ -11,9 +11,7 @@ import { SEO } from 'components/containers'
 
 const HeroWrapper = styled.section`
     width: 100%;
-    background-color: var(--color-grey-25);
     padding: 8rem;
-    height: 40.8rem;
 
     * {
         text-align: center;

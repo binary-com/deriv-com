@@ -162,7 +162,7 @@ const IconGrid = () => (
                 Icon={General}
                 title={localize('General terms of use')}
                 content={localize('What you’re agreeing to when you sign up to use Deriv')}
-                url="/tnc/general-term.pdf"
+                url="/tnc/general-terms.pdf"
                 link_title={localize('General terms of use')}
             />
             <Col
@@ -204,9 +204,9 @@ const IconGrid = () => (
                     'Additional terms and restrictions for Deriv clients in certain countries',
                 )}
                 url="/tnc/deriv-(fx)-ltd.pdf"
-                url2="/tnc/deriv-investments-(europe)-ltd.pdf"
-                url3="/tnc/deriv-(europe)-ltd.pdf"
-                url4="/tnc/deriv-(mx)-ltd.pdf"
+                url2="/tnc/deriv-investments-(europe)-limited.pdf"
+                url3="/tnc/deriv-(europe)-limited.pdf"
+                url4="/tnc/deriv-(mx)-limited.pdf"
                 link_title={localize('Deriv (FX) Ltd')}
                 link_title2={localize('Deriv Investments (Europe) Limited')}
                 link_title3={localize('Deriv (Europe) Limited')}

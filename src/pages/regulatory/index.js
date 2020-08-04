@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import EUgrid from './_eu-grid'
-// import DocumentAccordion from './_document_accordion'
+import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
 import { Header, Text, LinkText, Divider } from 'components/elements'
 import {
@@ -192,14 +192,13 @@ const Regulatory = () => {
                     </Box>
                 </SmallContainer>
             </SectionContainer>
-            {/* TODO: add when documents are ready */}
-            {/* <SectionContainer padding="0 0 4rem 0">
-            <Eu>
-                <SmallContainer fd="column">
-                    <DocumentAccordion />
-                </SmallContainer>
-            </Eu>
-        </SectionContainer> */}
+            <SectionContainer padding="0 0 4rem 0">
+                <Eu>
+                    <SmallContainer fd="column">
+                        <DocumentAccordion />
+                    </SmallContainer>
+                </Eu>
+            </SectionContainer>
             <SectionContainer padding="0 0 4rem">
                 <SmallContainer>
                     <CssGrid
@@ -472,7 +471,7 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)."
+                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)"
                                     components={[
                                         <LinkText
                                             key={0}

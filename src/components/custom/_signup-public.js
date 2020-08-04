@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Input, Button } from 'components/form'
 import { Header, Text, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
@@ -170,12 +170,9 @@ const redirectToDerivApp = (e) => {
     window.open(deriv_app_url, '_blank')
 }
 
-const LinkFlex = styled(Flex)`
+const LinkFlex = styled(LocalizedLink)`
+    display: flex;
     margin-left: 16.5rem;
-
-    &:hover {
-        cursor: pointer;
-    }
 `
 const MobileBackground = styled.div`
     width: 100%;
@@ -302,7 +299,7 @@ const SignupPublic = ({
                 </div>
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
-                <LinkFlex ai="center" onClick={redirectToDerivApp}>
+                <LinkFlex ai="center" external to={deriv_app_url}>
                     <StyledHeader
                         size="2.8rem"
                         max_width="28.2rem"

@@ -5,7 +5,7 @@ import { Accordion, AccordionItem, StyledLink, Text, LocalizedLinkText } from '.
 import { LocationContext } from './location-context'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 // Icons
 import CopyrightIc from 'images/svg/copyright.svg'
 import Logo from 'images/svg/deriv-footer.svg'
@@ -115,7 +115,7 @@ const DisclaimerParagraph = styled(Text)`
         font-size: var(--text-size-sm);
     }
 `
-const StaticAsset = styled.a`
+const StaticAsset = styled(LocalizedLink)`
     font-weight: bold;
     color: var(--color-black-3);
     font-size: var(--text-size-xs);
@@ -204,9 +204,7 @@ const SocialWrapper = styled.div`
         }
     }
 `
-const ExternalLink = styled.a`
-    text-decoration: none;
-`
+
 const MobileAccordion = styled.section`
     background-color: var(--color-grey-25);
 
@@ -265,34 +263,38 @@ const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 const SocialWrapperComponent = () => {
     return (
         <SocialWrapper>
-            <ExternalLink
-                href="https://www.facebook.com/derivdotcom/"
+            <LocalizedLink
+                to="https://www.facebook.com/derivdotcom/"
                 target="_blank"
                 rel="noopener noreferrer"
+                external
             >
                 <Facebook />
-            </ExternalLink>
-            <ExternalLink
-                href="https://twitter.com/derivdotcom"
+            </LocalizedLink>
+            <LocalizedLink
+                to="https://twitter.com/derivdotcom"
                 target="_blank"
                 rel="noopener noreferrer"
+                external
             >
                 <Twitter />
-            </ExternalLink>
-            <ExternalLink
-                href="https://www.instagram.com/deriv_official/"
+            </LocalizedLink>
+            <LocalizedLink
+                to="https://www.instagram.com/deriv_official/"
                 target="_blank"
                 rel="noopener noreferrer"
+                external
             >
                 <Instagram />
-            </ExternalLink>
-            <ExternalLink
-                href="https://www.linkedin.com/company/derivdotcom/"
+            </LocalizedLink>
+            <LocalizedLink
+                to="https://www.linkedin.com/company/derivdotcom/"
                 target="_blank"
                 rel="noopener noreferrer"
+                external
             >
                 <Linkedin />
-            </ExternalLink>
+            </LocalizedLink>
         </SocialWrapper>
     )
 }
@@ -359,7 +361,6 @@ const Footer = () => {
                                     </LinkWrapper>
                                     <LinkWrapper>
                                         <Link
-                                            need_eu_confirmation
                                             to="trading"
                                             is_smarttrader_link
                                             external="true"
@@ -508,7 +509,6 @@ const Footer = () => {
                                         </Item>
                                         <Item>
                                             <Link
-                                                need_eu_confirmation
                                                 to="trading"
                                                 is_smarttrader_link
                                                 external="true"
@@ -644,7 +644,7 @@ const Footer = () => {
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
-                                        href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
+                                        to="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -658,19 +658,19 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(V)_Ltd.pdf"
+                                            to="/regulatory/Deriv_(V)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAsset
                                             key={1}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(BVI)_Ltd.pdf"
+                                            to="/regulatory/Deriv_(BVI)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAsset
                                             key={2}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
+                                            to="/regulatory/Deriv_(FX)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -683,9 +683,10 @@ const Footer = () => {
                                     translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (licence <0>reference no: 39172</0>)."
                                     components={[
                                         <StaticAsset
+                                            external
                                             key={0}
                                             target="_blank"
-                                            href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -698,13 +699,14 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            href="/regulatory/Deriv_(Europe)_Ltd.pdf"
+                                            to="/regulatory/Deriv_(Europe)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAsset
+                                            external
                                             key={1}
                                             target="_blank"
-                                            href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

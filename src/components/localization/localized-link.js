@@ -6,7 +6,6 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { LocationContext } from '../layout/location-context.js'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
-import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import {
     binary_url,
     affiliate_signin_url,
@@ -63,8 +62,7 @@ const ExternalLink = styled.a`
 export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
-    const [show_modal, toggleModal, closeModal] = useModal()
-    const { is_eu_country } = React.useContext(LocationContext)
+    const { is_eu_country, setModalPayload, toggleModal } = React.useContext(LocationContext)
 
     const is_index = to === `/`
     const {
@@ -77,7 +75,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_affiliate_sign_in_link,
         is_smarttrader_link,
         ariaLabel,
-        need_eu_confirmation,
     } = props
 
     // If it's the default language or non localized link, don't do anything
@@ -102,36 +99,29 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else {
             lang_to = to
         }
-        if (need_eu_confirmation && is_eu_country) {
+        if (is_eu_country) {
             return (
-                <React.Fragment>
-                    <a
-                        target={target}
-                        rel={rel}
-                        className={className}
-                        data-amp-replace="QUERY_PARAM"
-                        style={
-                            style
-                                ? Object.assign(style, { cursor: 'pointer' })
-                                : { cursor: 'pointer' }
-                        }
-                        ref={ref}
-                        aria-label={ariaLabel}
-                        onClick={() => toggleModal()}
-                    >
-                        {props.children}
-                    </a>
-                    <EURedirect
-                        toggle={toggleModal}
-                        is_open={show_modal}
-                        closeModal={closeModal}
-                        to={lang_to}
-                        target={target}
-                        rel={rel}
-                        ref={ref}
-                        aria_label={ariaLabel}
-                    />
-                </React.Fragment>
+                <a
+                    target={target}
+                    rel={rel}
+                    className={className}
+                    data-amp-replace="QUERY_PARAM"
+                    style={style ? style : { cursor: 'pointer' }}
+                    ref={ref}
+                    aria-label={ariaLabel}
+                    onClick={() => {
+                        setModalPayload({
+                            to: lang_to,
+                            target,
+                            rel,
+                            ref,
+                            aria_label: ariaLabel,
+                        })
+                        toggleModal()
+                    }}
+                >
+                    {props.children}
+                </a>
             )
         } else {
             return (
@@ -197,7 +187,6 @@ LocalizedLink.propTypes = {
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
-    need_eu_confirmation: PropTypes.bool,
     props: PropTypes.object,
     rel: PropTypes.string,
     style: PropTypes.object,

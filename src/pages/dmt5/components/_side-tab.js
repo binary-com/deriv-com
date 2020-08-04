@@ -8,10 +8,6 @@ import device, { size } from 'themes/device'
 const TabContent = styled.div`
     width: 100%;
 `
-// const Mobile = styled(Show.Mobile)`
-
-// `
-
 const TabButton = styled.div`
     position: relative;
     z-index: 2;

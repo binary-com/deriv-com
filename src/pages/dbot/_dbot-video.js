@@ -5,7 +5,7 @@ import { deriv_bot_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device.js'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
 
 const query = graphql`
     query {
@@ -80,7 +80,7 @@ const Step = styled(Header)`
             ? 'color: var(--color-black-3); border-left: 4px solid var(--color-red)'
             : 'opacity: 0.2; border-left: 4px solid rgb(0, 0, 0, 0)'};
 `
-const GoToLiveDemo = styled(Button)`
+const GoToLiveDemo = styled(LinkButton)`
     border: 2px solid var(--color-red);
     font-weight: bold;
     line-height: 1.43;
@@ -93,9 +93,13 @@ const GoToLiveDemo = styled(Button)`
         font-size: 1.75rem;
     }
 `
-const handleRedirect = () => {
-    window.open(deriv_bot_app_url, '_blank')
-}
+const GotoLiveWrapper = styled.div`
+    margin-top: 4rem;
+
+    @media ${device.tabletL} {
+        margin: 4rem auto;
+    }
+`
 const DtraderTabs = () => {
     const data = useStaticQuery(query)
     const [current_step, setStep] = React.useState('step_1')
@@ -167,9 +171,11 @@ const DtraderTabs = () => {
                         {localize('5. Check profit')}
                     </Step>
                 </Tab>
-                <GoToLiveDemo secondary="true" onClick={handleRedirect}>
-                    {localize('Go to live demo')}
-                </GoToLiveDemo>
+                <GotoLiveWrapper>
+                    <GoToLiveDemo secondary="true" to={deriv_bot_app_url} target="_blank" external>
+                        {localize('Go to live demo')}
+                    </GoToLiveDemo>
+                </GotoLiveWrapper>
             </TabsWrapper>
             <VideoWrapper>
                 <QueryImage

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Article } from './_article'
 import { deriv_app_url } from 'common/utility'
 import { Text, Header } from 'components/elements/typography'
-import { localize, Localize, WithIntl } from 'components/localization'
+import { localize, Localize, WithIntl, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 const ArticleWrapper = styled.div`
@@ -21,7 +21,7 @@ const ArticleWrapper = styled.div`
         margin-left: 0;
     }
 `
-const ExternalLink = styled.a`
+const ExternalLink = styled(LocalizedLink)`
     text-decoration: none;
     font-size: var(--text-size-s);
     font-weight: bold;
@@ -124,7 +124,8 @@ const TradingLimits = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        href={`${deriv_app_url}/account/account-limits`}
+                        external
+                        to={`${deriv_app_url}/account/account-limits`}
                         target="_blank"
                         rel="noopener noreferrer"
                         key={1}

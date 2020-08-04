@@ -172,6 +172,7 @@ const redirectToDerivApp = (e) => {
 
 const LinkFlex = styled(LocalizedLink)`
     display: flex;
+    align-items: center;
     margin-left: 16.5rem;
 `
 const MobileBackground = styled.div`
@@ -299,7 +300,7 @@ const SignupPublic = ({
                 </div>
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
-                <LinkFlex ai="center" external to={deriv_app_url}>
+                <LinkFlex ai="center" external to={deriv_app_url} target="_blank">
                     <StyledHeader
                         size="2.8rem"
                         max_width="28.2rem"

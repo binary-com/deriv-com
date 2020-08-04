@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { Text, LinkText } from 'components/elements/typography'
+import { Text, LocalizedLinkText } from 'components/elements/typography'
 import { Header, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device, { size } from 'themes/device'
@@ -156,7 +156,7 @@ const AddressTextShared = css`
         font-size: var(--text-size-sm);
     }
 `
-const StyledLinkText = styled(LinkText)`
+const StyledLinkText = styled(LocalizedLinkText)`
     ${AddressTextShared}
 `
 
@@ -194,8 +194,9 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <StyledLinkText
                                     target="_blank"
+                                    external
                                     color="black-3"
-                                    href="https://g.page/r/CRyKELlnWQ3iEAE"
+                                    to="https://g.page/r/CRyKELlnWQ3iEAE"
                                 >
                                     <Localize
                                         translate_text="Level 3, W Business Centre,<0/>Triq Dun Karm Birkirkara BKR 9033 Malta"
@@ -218,9 +219,10 @@ export const Offices = () => {
                                 </MapIconWrapper>
                                 <StyledLinkText
                                     target="_blank"
+                                    external
                                     color="black-3"
                                     size="var(--text-size-s)"
-                                    href="https://g.page/r/CQODFgzIJPYtEAE"
+                                    to="https://g.page/r/CQODFgzIJPYtEAE"
                                 >
                                     <Localize
                                         translate_text="C-13, iTech Tower, Jalan Impact, Cyber 6,<0 />63000 Cyberjaya, Selangor, Malaysia"

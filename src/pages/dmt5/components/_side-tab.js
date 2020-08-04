@@ -40,7 +40,7 @@ const TabButton = styled.div`
 `
 
 const TabList = styled.div`
-    max-width: 37rem;
+    max-width: 38rem;
     display: flex;
     flex-direction: column;
     ${(props) =>
@@ -109,7 +109,7 @@ const Tabs = ({ children, is_reverse }) => {
             <TabList role="tablist" is_reverse={is_reverse}>
                 {React.Children.map(children, (child, index) => {
                     const {
-                        props: { label, description },
+                        props: { label, description, item_width },
                     } = child
                     return (
                         <>
@@ -120,7 +120,11 @@ const Tabs = ({ children, is_reverse }) => {
                                 onClick={() => selectTab(index)}
                             >
                                 <Text weight="bold">{label}</Text>
-                                <Text size="var(--text-size-m)" mt="0.8rem">
+                                <Text
+                                    max_width={item_width || '36.4rem'}
+                                    size="var(--text-size-m)"
+                                    mt="0.8rem"
+                                >
                                     {description}
                                 </Text>
                             </TabButton>

@@ -36,7 +36,9 @@ const ImageWrapper = styled.div`
     width: 38.4rem;
     position: relative;
 `
-
+const StyledInfo = styled(MoreInfo)`
+    margin-top: 0.5rem;
+`
 const DownloadApp = () => {
     const data = useStaticQuery(query)
 
@@ -62,8 +64,8 @@ const DownloadApp = () => {
             </Flex>
 
             <Separator />
-            <Flex height="auto" ml="5.6rem" max_width="28rem" mt="10.8rem" mr="5.6rem">
-                <MoreInfo />
+            <Flex height="auto" ml="5.6rem" max_width="31rem" mt="10.8rem" mr="5.6rem">
+                <StyledInfo />
                 <Text width="100%" max_width="28rem" ml="1.6rem" size="var(--text-size-m)">
                     <Localize
                         translate_text="For mobile app sign-ups, set the broker code to <0>Deriv Limited</0>."

@@ -8,12 +8,12 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const Wrapper = styled.div`
+    padding: 0 0 0 12rem;
     position: relative;
     display: flex;
     flex-direction: row;
     height: 40rem;
     width: 100%;
-    overflow: hidden;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     background-color: var(--color-black);
 
@@ -22,24 +22,14 @@ const Wrapper = styled.div`
         height: 414px;
     }
 `
-
-// const ImageContainer = styled.div`
-//     position: absolute;
-//     left: 5%;
-//     height: 100%;
-
-//     @media (max-width: 800px) {
-//         left: 0;
-//         height: unset;
-//         width: 100%;
-//         top: 12%;
-//         margin-bottom: 2rem;
-//     }
-// `
-
-const ImageWrapper = styled(Flex)`
+const BannerWrapper = styled.div`
     position: relative;
+    width: 100%;
+`
+const ImageWrapper = styled(Flex)`
+    position: absolute;
     width: 50rem;
+    top: -2rem;
     right: 12rem;
     z-index: 1;
     height: 100%;
@@ -60,7 +50,7 @@ const ImageWrapper = styled(Flex)`
 `
 
 const TextWrapper = styled.div`
-    margin: auto;
+    margin-top: 8rem;
 
     @media (max-width: 800px) {
         margin-top: 35px;
@@ -85,6 +75,7 @@ const StyledHeader = styled(Header)`
         max-width: 329px;
     }
 `
+
 const DBanner = ({ title, data, background_pattern }) => {
     const BackgroundPattern = styled(background_pattern)`
         position: absolute;
@@ -92,24 +83,24 @@ const DBanner = ({ title, data, background_pattern }) => {
         right: 0;
     `
     return (
-        <Wrapper>
-            <TextWrapper>
-                <StyledHeader color="white" size="5.6rem" mb="3.2rem" max_width="64rem">
-                    {title}
-                </StyledHeader>
-                <DemoButton>
-                    <LinkButton type="submit" secondary="true" to="/signup/">
-                        {localize('Create free demo account')}
-                    </LinkButton>
-                </DemoButton>
-            </TextWrapper>
-            {/* <ImageContainer> */}
+        <BannerWrapper>
             <ImageWrapper ai="center">
                 <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
             </ImageWrapper>
-            {/* </ImageContainer> */}
-            <BackgroundPattern />
-        </Wrapper>
+            <Wrapper>
+                <TextWrapper>
+                    <StyledHeader color="white" size="5.6rem" mb="3.2rem" max_width="47rem">
+                        {title}
+                    </StyledHeader>
+                    <DemoButton>
+                        <LinkButton type="submit" secondary="true" to="/signup/">
+                            {localize('Create free demo account')}
+                        </LinkButton>
+                    </DemoButton>
+                </TextWrapper>
+                <BackgroundPattern />
+            </Wrapper>
+        </BannerWrapper>
     )
 }
 

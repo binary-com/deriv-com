@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from './components/_side-tab'
-import { localize, Localize } from 'components/localization'
-import { Header, Text, QueryImage } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
+import { Header, QueryImage, Text } from 'components/elements'
+import { localize, Localize } from 'components/localization'
 
 const query = graphql`
     query {
@@ -34,7 +34,7 @@ const query = graphql`
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
-    padding: 8rem 23rem;
+    padding: 8rem 12rem;
     align-items: center;
     justify-content: center;
 `
@@ -112,6 +112,7 @@ const StartTrader = () => {
                                     components={[<Span color="red" key={0} />]}
                                 />
                             }
+                            item_width="24rem"
                         >
                             <ImageWrapper>
                                 <QueryImage
@@ -138,6 +139,7 @@ const StartTrader = () => {
                             description={
                                 <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser" />
                             }
+                            item_width="36rem"
                         >
                             <ImageWrapper>
                                 <QueryImage
@@ -157,6 +159,7 @@ const StartTrader = () => {
                                     components={[<Span color="red" key={0} />]}
                                 />
                             }
+                            item_width="27rem"
                         >
                             <ImageWrapper>
                                 <QueryImage

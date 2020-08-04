@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 
 const query = graphql`
     query {
@@ -17,7 +17,7 @@ const query = graphql`
 `
 const Section = styled(SectionContainer)`
     display: flex;
-    padding: 0 12rem 0;
+    padding: 0 12rem 0 0;
     justify-content: center;
     margin-top: 8rem;
     align-items: flex-start;
@@ -30,16 +30,16 @@ const ImageWrapper = styled.div`
 `
 const ControlCard = styled(Flex)`
     background-color: var(--color-grey-25);
-    max-width: 70.8rem;
+    width: 50%;
     padding: 11.9rem 4rem 27.3rem 16rem;
     flex-direction: column;
 `
 const CalculatorCard = styled(Flex)`
-    max-width: 58.8rem;
     padding: 4rem 0;
     flex-direction: column;
     margin-left: 2.4rem;
     align-items: center;
+    width: 50%;
 `
 const Button = styled(Flex)`
     width: 64px;
@@ -73,7 +73,9 @@ const SmallCircle = styled.div`
     margin-right: 0.8rem;
     margin-top: 4rem;
 `
-
+const Span = styled.span`
+    color: red;
+`
 const TradeControl = () => {
     const data = useStaticQuery(query)
 
@@ -89,9 +91,10 @@ const TradeControl = () => {
                     {localize('Take control of your trades on DMT5s')}
                 </Header>
                 <Text>
-                    {localize(
-                        'Explore margin trading on DMT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour.',
-                    )}
+                    <Localize
+                        translate_text="Explore <0>margin trading</0> on DMT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
+                        components={[<Span key={0} />]}
+                    />
                 </Text>
                 <Text>
                     {localize(

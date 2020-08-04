@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const LocationContext = React.createContext(null)
+export const LocationContext = React.createContext(true) // undefined => true
 
 export const LocationProvider = ({
     is_eu_country,

@@ -10,7 +10,8 @@ import DownloadApp from './_download-app.js'
 import TradeControl from './_trade-control.js'
 import Flexibility from './_flexibility.js'
 import DHero from './_dhero.js'
-import BackgroundPatternDMT5 from 'images/common/bg_banner_dmt5.png'
+import DBanner from './_dbanner.js'
+import BackgroundPatternDMT5 from 'images/svg/bg_banner_dmt5.svg'
 // import DHowItWorks from 'components/custom/_dhow-it-works.js'
 // import DTrading from 'components/custom/_dtrading.js'
 // import DHero from 'components/custom/_dhero.js'
@@ -25,7 +26,6 @@ import DMT5BG2 from 'images/svg/dmt5-bg2.svg'
 import DMT5BGMobile from 'images/svg/dmt5-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
-import DBanner from 'components/custom/_dbanner.js'
 
 const query = graphql`
     query {
@@ -91,7 +91,7 @@ const DMT5 = () => {
                 )}
             />
             <DHero
-                title={localize('DMT5')}
+                title={localize('Deriv MetaTrader 5 (DMT5)')}
                 content={<Localize translate_text="The all-in-one FX and CFD trading platform" />}
                 join_us_for_free
                 Logo={dmt5_logo}

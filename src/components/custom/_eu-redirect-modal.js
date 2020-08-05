@@ -99,7 +99,7 @@ const EURedirect = ({ toggle, is_open, closeModal, to, target, rel, ref, aria_la
             <ModalWrapper>
                 <ModalCard>
                     <Action>
-                        <Text>
+                        <Text weight="bold">
                             <Localize translate_text="Redirect notice" />
                         </Text>
                         <CloseButton onClick={toggle} />

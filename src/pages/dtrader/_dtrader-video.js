@@ -231,7 +231,7 @@ class DtraderTabs extends React.Component {
                         </Step>
                     </Tab>
                     <GotoLiveWrapper>
-                        <GoToLiveDemo secondary="true" to={deriv_app_url} target="_blank" external>
+                        <GoToLiveDemo secondary="true" to={deriv_app_url} target="_blank">
                             {localize('Go to live demo')}
                         </GoToLiveDemo>
                     </GotoLiveWrapper>

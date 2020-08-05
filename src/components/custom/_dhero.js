@@ -291,7 +291,7 @@ const DHero = ({
                         </DemoButton>
                     )}
                     {go_to_live_demo && (
-                        <GoToLiveDemo tertiary external to={getRedirectLink()}>
+                        <GoToLiveDemo tertiary to={getRedirectLink()} target="_blank">
                             {localize('Go to live demo')}
                         </GoToLiveDemo>
                     )}

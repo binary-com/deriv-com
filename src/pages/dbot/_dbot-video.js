@@ -172,7 +172,7 @@ const DtraderTabs = () => {
                     </Step>
                 </Tab>
                 <GotoLiveWrapper>
-                    <GoToLiveDemo secondary="true" to={deriv_bot_app_url} target="_blank" external>
+                    <GoToLiveDemo secondary="true" to={deriv_bot_app_url} target="_blank">
                         {localize('Go to live demo')}
                     </GoToLiveDemo>
                 </GotoLiveWrapper>

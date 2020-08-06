@@ -4,7 +4,7 @@ import {
     address_asuncion,
     address_labuan,
     address_malta,
-} from 'common/contact-details'
+} from './_contact-details'
 
 export const cyberjaya = {
     name: 'cyberjaya',

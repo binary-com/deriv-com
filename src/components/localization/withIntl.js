@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { I18nextProvider } from 'react-i18next'
 import i18next from './config'
-import { initializeWebsocket } from 'common/initial-render-socket'
+import { initializeWebsocket } from 'common/websocket/initial-render-socket'
 import { isBrowser } from 'common/utility'
 
 // HOC that pre renders a page with the translated language (during build)

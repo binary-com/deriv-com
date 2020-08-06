@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Header, Text, Card } from 'components/elements'
 import { localize } from 'components/localization'
-import { Container, Flex, Show } from 'components/containers'
+import { Container, Flex } from 'components/containers'
 import MarginLogo from 'images/svg/margin_2.svg'
 import OptionsLogo from 'images/svg/options_2.svg'
 import MultipliersLogo from 'images/svg/multipliers_2.svg'
@@ -84,7 +84,6 @@ const TradeTypes = () => {
                     )}
                 </Text>
             </StyledCard>
-            <Show.Mobile>Hi Mobile</Show.Mobile>
         </StyledContainer>
     )
 }

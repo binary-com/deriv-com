@@ -53,11 +53,11 @@ const Home = () => {
             <Show.Mobile>
                 <TradeTheWayYouLike />
             </Show.Mobile>
-            <Show.Desktop>
+            <Show.Desktop max_width="425px">
                 <Trade />
                 <TradeTypes />
             </Show.Desktop>
-            <Show.Mobile>
+            <Show.Mobile min_width="425px">
                 <EmployeeTestimonialCarousel />
             </Show.Mobile>
             <Markets />

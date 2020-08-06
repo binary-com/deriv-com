@@ -19,17 +19,12 @@ const StyledSection = styled(SectionContainer)`
 `
 
 const EmployeeCard = styled.article`
-    width: 99.6rem;
-    min-height: 31.7rem;
+    width: 25rem;
     position: relative;
     overflow: hidden;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-    margin: 2rem;
-
-    @media ${device.tabletL} {
-        padding: 4rem;
-    }
+    padding: 2rem;
 `
 
 const SliderWrapper = styled.div`
@@ -45,7 +40,7 @@ const SwiperWrapper = styled.div`
         padding-bottom: 4rem;
     }
     .swiper-slide {
-        width: 99.6rem;
+        width: 25rem;
     }
     .swiper-pagination {
         bottom: 0;
@@ -59,14 +54,20 @@ const SwiperWrapper = styled.div`
     }
 `
 
-const EmployeeSlide = ({ icon, title, description }) => {
+const EmployeeSlide = ({ title, description }) => {
     return (
         <Flex ai="center" height="unset">
             <EmployeeCard>
-                <Flex tablet_direction="column">
-                    {icon}
-                    <Header>{title}</Header>
-                    <Text>{description}</Text>
+                <Flex ai="center" fd="column">
+                    <div>
+                        <OptionsLogo />
+                    </div>
+                    <Header mb="0.8rem" align="center" size="var(--text-size-m)">
+                        {title}
+                    </Header>
+                    <Text size="var(--text-size-sm)" align="center">
+                        {description}
+                    </Text>
                 </Flex>
             </EmployeeCard>
         </Flex>
@@ -110,12 +111,11 @@ const EmployeeTestimonialCarousel = () => {
         slidesPerView: 'auto',
         centeredSlides: true,
         spaceBetween: 12,
-        loop: true,
         lazy: true,
-        autoplay: {
-            delay: 15000,
-            disableOnInteraction: false,
-        },
+        // autoplay: {
+        //     delay: 15000,
+        //     disableOnInteraction: false,
+        // },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -128,6 +128,14 @@ const EmployeeTestimonialCarousel = () => {
                 <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
             </Helmet>
             <StyledSection padding="12rem 0">
+                <Header align="center" as="h2" mb="0.8rem">
+                    {localize('Trade types')}
+                </Header>
+                <Text size="var(--text-size-sm)" align="center" mb="2rem">
+                    {localize(
+                        'Trade what you like, the way you like it, and on your preferred market.',
+                    )}
+                </Text>
                 <SliderWrapper>
                     <SwiperWrapper>
                         <Swiper {...params} ref={ref}>

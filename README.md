@@ -144,11 +144,13 @@ There are 2 types of releases:
 
 Merging to master (squash and merge) will automatically release last commit to staging server https://staging.deriv.com
 
+⚠️ If you want to release crowdin change, please make a PR from crowdin to master branch
+
 2. Release to production:
 
 Releasing to production require a tag using the following format:
 
-`production_VYYYYMMDD_${Integer}`
+`production_VYYYYMMDD_${Integer}` --- Integer is the release version
 
 Example of release steps
 

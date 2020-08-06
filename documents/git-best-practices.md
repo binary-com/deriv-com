@@ -5,7 +5,7 @@ We have a precise rules over how our git commit messages can be formatted. This 
 Each commit message will consists of **type** and **subject**:
 
 ```sh
-<type>: <subject>
+<type>|<...other_types>: <subject>
 ```
 
 ### Type
@@ -13,8 +13,8 @@ Each commit message will consists of **type** and **subject**:
 Must be one of the following:
 
 -   **build**: Changes that affect the build system or external dependencies (example scopes: gatsby config, gatsby browser, gatsby node, or gatsby ssr)
--   **chores**: Add or Changes on external dependencies (npm)
--   **ci**: Changes to our CI configuration files and scripts (example scopes: Docker, K8s conf)
+-   **chores**: Add or Changes on packages or external dependencies
+-   **ci**: Changes to our CI configuration files and scripts (example scopes: Docker, nginx conf)
 -   **docs**: Documentation only changes
 -   **feat**: A new feature
 -   **fix**: A bug fix

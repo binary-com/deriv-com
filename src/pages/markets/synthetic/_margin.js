@@ -2,7 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import AvailablePlatforms from '../_available-platforms.js'
 import MarketsAccordion from '../_markets_accordion.js'
-import { VolatilityIndices, CrashBoom, StepIndices } from '../sub-markets/_submarkets.js'
+import {
+    VolatilityIndices,
+    CrashBoom,
+    StepIndices,
+    RangeBreak,
+} from '../sub-markets/_submarkets.js'
 import { Text } from 'components/elements'
 import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
@@ -89,13 +94,7 @@ const VolatilityIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s) and 100 (1s)</0>."
-                components={[<strong key={0} />]}
-            />
-        </Text>
-        <Text>
-            <Localize
-                translate_text="<0>Two ticks</0> are generated <0>every second</0> for <0>HF (High Frequency) indices</0>."
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -104,21 +103,34 @@ const VolatilityIndicesDetails = () => (
 const CrashBoomDetails = () => (
     <DetailsContainer>
         <Text>
-            {localize(
-                'With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a series of 1000 or 500 ticks.',
-            )}
+            <Localize
+                translate_text="With these indices, there is an average of one drop (crash) or one spike (boom) in prices that occur in a <0>series of 1000 or 500 ticks</0>."
+                components={[<strong key={0} />]}
+            />
         </Text>
     </DetailsContainer>
 )
 const StepIndicesDetails = () => (
     <DetailsContainer>
         <Text>
+            <Localize
+                translate_text="With these indices, there is an equal probability of up/down movement in a price series with a <0>fixed step size of 0.1</0>."
+                components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
+const RangeBreakIndicesDetails = () => (
+    <DetailsContainer>
+        <Text>
             {localize(
-                'With these indices, there is an equal probability of up/down movement in a price series with a fixed step size of 0.1.',
+                'These indices fluctuate between two price points (borders), occasionally breaking through the borders to create a new range on average once every 100 or 200 times that they hit the borders.',
             )}
         </Text>
     </DetailsContainer>
 )
+
 const Margin = () => {
     return (
         <SectionContainer padding="4rem 0 8rem 0">
@@ -180,6 +192,21 @@ const Margin = () => {
                             </Row>
                         )}
                         renderDetails={StepIndicesDetails}
+                    />
+                    <MarketsAccordion
+                        renderTitle={() => (
+                            <Row jc="flex-start" ai="center">
+                                <Col max_width="13.2rem">
+                                    <Title weight="bold" max_width="9.7rem" align="center">
+                                        {localize('Range break indices')}
+                                    </Title>
+                                </Col>
+                                <MarketsList>
+                                    <RangeBreak />
+                                </MarketsList>
+                            </Row>
+                        )}
+                        renderDetails={RangeBreakIndicesDetails}
                     />
                 </MarketsWrapper>
             </Flex>

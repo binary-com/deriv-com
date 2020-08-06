@@ -112,7 +112,7 @@ const DerivIBProgramme = () => {
                         <StyledHeader as="h4" align="center" weight="500" mb="2.6rem">
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <LinkButton external="true" secondary to="mailto:affiliates@deriv.com">
+                        <LinkButton external="true" secondary to="mailto:partners@deriv.com">
                             {localize('Contact us')}
                         </LinkButton>
                     </StyledSection>
@@ -160,8 +160,9 @@ const DMT5Synthetic = ({ data }) => {
     }
     return (
         <Card
-            height={is_expand && !is_calculated ? '76rem' : '49rem'}
+            height={is_expand && !is_calculated ? '100rem' : '49rem'}
             padding="3.2rem 1.6rem 8.2rem"
+            width="43rem"
         >
             <div>
                 {!is_calculated ? (
@@ -244,7 +245,7 @@ const DMT5Standard = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <Card padding="3.2rem 3.2rem 8.2rem">
+        <Card padding="3.2rem 3.2rem 8.2rem" width="43rem">
             <div>
                 {!is_calculated ? (
                     <div>
@@ -327,7 +328,7 @@ const DMT5Advanced = ({ data }) => {
         setCalculated(!is_calculated)
     }
     return (
-        <StyledCard padding="3.2rem 3.2rem 8.2rem">
+        <StyledCard padding="3.2rem 3.2rem 8.2rem" width="43rem">
             <div>
                 {!is_calculated ? (
                     <div>
@@ -444,7 +445,7 @@ const ib_dmt5_advanced = {
     assets: [
         [
             { title: <Localize translate_text="Asset" />, style: { minWidth: '13rem' } },
-            localize('Forex and metals'),
+            <Localize key={0} translate_text="Forex and metals" />,
         ],
         [
             {
@@ -468,35 +469,49 @@ const ib_dmt5_synthetic = {
     assets: [
         [
             <Localize key={0} translate_text="Asset" />,
-            <Localize key={1} translate_text="Crash 500 Index" />,
-            <Localize key={2} translate_text="Crash 1000 Index" />,
-            <Localize key={3} translate_text="Boom 500 Index" />,
-            <Localize key={4} translate_text="Boom 1000 Index" />,
-            <Localize key={5} translate_text="Volatility 10 Index" />,
-            <Localize key={6} translate_text="Volatility 25 Index" />,
-            <Localize key={7} translate_text="Volatility 50 Index" />,
-            <Localize key={8} translate_text="Volatility 75 Index" />,
-            <Localize key={9} translate_text="Volatility 100 Index" />,
-            <Localize key={10} translate_text="HF Volatility 10 Index" />,
-            <Localize key={11} translate_text="HF Volatility 50 Index" />,
-            <Localize key={12} translate_text="HF Volatility 100 Index" />,
-            <Localize key={13} translate_text="Step Index" />,
+            <Localize key={1} translate_text="Crash 1000 Index" />,
+            <Localize key={2} translate_text="Crash 500 Index" />,
+            <Localize key={3} translate_text="Boom 1000 Index" />,
+            <Localize key={4} translate_text="Boom 500 Index" />,
+            <Localize key={5} translate_text="Range Break 100 Index" />,
+            <Localize key={6} translate_text="Range Break 200 Index" />,
+            <Localize key={7} translate_text="Step Index" />,
+            <Localize key={8} translate_text="Volatility 10 Index" />,
+            <Localize key={9} translate_text="Volatility 10 (1s) Index" />,
+            <Localize key={10} translate_text="Volatility 25 Index" />,
+            <Localize key={11} translate_text="Volatility 25 (1s) Index" />,
+            <Localize key={12} translate_text="Volatility 50 Index" />,
+            <Localize key={13} translate_text="Volatility 50 (1s) Index" />,
+            <Localize key={14} translate_text="Volatility 75 Index" />,
+            <Localize key={15} translate_text="Volatility 75 (1s) Index" />,
+            <Localize key={16} translate_text="Volatility 100 Index" />,
+            <Localize key={17} translate_text="Volatility 100 (1s) Index" />,
+            <Localize key={18} translate_text="HF Volatility 10 Index" />,
+            <Localize key={19} translate_text="HF Volatility 50 Index" />,
+            <Localize key={20} translate_text="HF Volatility 100 Index" />,
         ],
         [
             <Localize key={0} translate_text="Commission per round trade (per USD 100k)" />,
-            '0.30',
+            '0.50',
+            '0.70',
+            '0.50',
+            '0.70',
+            '0.80',
+            '0.40',
             '0.20',
-            '0.30',
-            '0.20',
+            '1.50',
             '1.50',
             '3.50',
+            '3.50',
+            '7.50',
             '7.50',
             '10.00',
+            '10.00',
+            '15.00',
             '15.00',
             '1.50',
             '7.50',
             '15.00',
-            '0.20',
         ],
     ],
     calculation: (

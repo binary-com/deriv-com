@@ -21,12 +21,11 @@ import {
     Text,
     LocalizedLinkText,
     QueryImage,
-    Divider,
 } from 'components/elements'
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import { binary_url, affiliate_signin_url, affiliate_signup_url } from 'common/utility'
+import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -292,32 +291,12 @@ const Binary = styled(Text)`
     line-height: 1;
 `
 
-const MyBinary = styled(Binary)`
-    width: 8rem;
-    margin-left: 0.5rem;
-    line-height: 1;
-    @media (max-width: 1105px) {
-        width: 5rem;
-        font-size: 7px;
-    }
-`
 const BinaryLink = styled(LocalizedLinkText)`
     display: inline-block;
     color: var(--color-white);
     font-size: var(--text-size-xxs);
     font-weight: bold;
     text-decoration: none;
-`
-const MyBinaryLink = styled(BinaryLink)`
-    display: inline-block;
-    color: var(--color-white);
-    font-size: var(--text-size-xxs);
-    font-weight: bold;
-    text-decoration: none;
-
-    @media (max-width: 1105px) {
-        font-size: 7px;
-    }
 `
 
 const MobileRight = styled.div`
@@ -330,7 +309,7 @@ const MobileRight = styled.div`
     }
 `
 
-export const Nav = () => {
+export const Nav = ({ base }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
     const [show_button, showButton, hideButton] = moveButton()
@@ -463,7 +442,7 @@ export const Nav = () => {
 
                 <Wrapper>
                     <NavLeft>
-                        <LogoLink to="/" aria-label={localize('Home')}>
+                        <LogoLink to={base || '/'} aria-label={localize('Home')}>
                             <QueryImage
                                 data={data['deriv']}
                                 alt={localize('Deriv')}
@@ -471,32 +450,6 @@ export const Nav = () => {
                                 height="auto"
                             />
                         </LogoLink>
-                        <Divider color="white" width="1px" height="2.7rem" m="0 1.6rem" />
-                        <LocalizedLink
-                            external
-                            to={binary_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            ariaLabel="Binary.com logo"
-                        >
-                            <BinaryLogo width="24" height="24" />
-                        </LocalizedLink>
-                        <MyBinary size="var(--text-size-xxs)" color="white">
-                            <Localize
-                                translate_text="A <0>Binary.com</0> brand"
-                                components={[
-                                    <MyBinaryLink
-                                        key={0}
-                                        external
-                                        to={binary_url}
-                                        is_binary_link
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        color="white"
-                                    />,
-                                ]}
-                            />
-                        </MyBinary>
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>
@@ -578,6 +531,10 @@ export const Nav = () => {
     )
 }
 
+Nav.propTypes = {
+    base: PropTypes.string,
+}
+
 const ResponsiveBinary = styled(BinaryLogo)`
     @media ${device.mobileL} {
         width: 20px;
@@ -613,7 +570,13 @@ export const NavInterim = ({ interim_type }) => (
                 <StyledLogo to={`/interim/${interim_type}`} aria-label={localize('Home')}>
                     <Logo />
                 </StyledLogo>
-                <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+                <LocalizedLink
+                    external
+                    to="home"
+                    is_binary_link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <ResponsiveBinary width="24" height="24" />
                 </LocalizedLink>
                 <Binary size="var(--text-size-xxs)" color="white">
@@ -623,7 +586,7 @@ export const NavInterim = ({ interim_type }) => (
                             <BinaryLink
                                 key={0}
                                 external
-                                to={binary_url}
+                                to={'home'}
                                 is_binary_link
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -648,7 +611,7 @@ export const NavStatic = () => (
         <LogoLink to="/" aria-label={localize('Home')}>
             <Logo />
         </LogoLink>
-        <LocalizedLink external to={binary_url} target="_blank" rel="noopener noreferrer">
+        <LocalizedLink external to="home" is_binary_link target="_blank" rel="noopener noreferrer">
             <BinaryLogo width="24" height="24" />
         </LocalizedLink>
         <Binary size="var(--text-size-xxs)" color="white">
@@ -658,7 +621,7 @@ export const NavStatic = () => (
                     <BinaryLink
                         key={0}
                         external
-                        to={binary_url}
+                        to={'home'}
                         is_binary_link
                         target="_blank"
                         rel="noopener noreferrer"
@@ -832,7 +795,7 @@ export const NavPartners = ({ no_login_signup }) => {
                                 <LinkButton
                                     to={affiliate_signin_url}
                                     external
-                                    is_affiliate_link
+                                    is_affiliate_sign_in_link
                                     target="_blank"
                                     primary
                                 >

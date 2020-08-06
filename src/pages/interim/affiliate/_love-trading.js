@@ -50,9 +50,9 @@ const LoveTrading = () => {
                                 color="red"
                                 weight="bold"
                                 external
-                                to="mailto:affiliates@deriv.com"
+                                to="mailto:partners@deriv.com"
                             >
-                                affiliates@deriv.com
+                                partners@deriv.com
                             </LocalizedLinkText>
                         </Text>
                     </Flex>

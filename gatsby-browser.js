@@ -33,15 +33,17 @@ export const onInitialClientRender = () => {
             document.head.appendChild(jipt)
         }
     }
-
     // Configure traffic source
-    TrafficSource.initUtmCookie()
-    TrafficSource.setData()
-    TrafficSource.setAffiliateData()
+    TrafficSource.init()
 
     if (!LocalStore.get('signup_device')) {
         LocalStore.set('signup_device', isMobile() ? 'mobile' : 'desktop')
     }
+}
+
+export const onClientEntry = () => {
+    LocalStore.set('window_loaded', '')
+    window.onload = () => LocalStore.set('window_loaded', 'true')
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

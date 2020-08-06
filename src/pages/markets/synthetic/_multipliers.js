@@ -4,7 +4,7 @@ import MarketsAccordion from '../_markets_accordion.js'
 import AvailablePlatforms from '../_available-platforms.js'
 import { ContinuousIndices } from '../sub-markets/_submarkets.js'
 import { Text } from 'components/elements'
-import { SectionContainer, Flex, CssGrid } from 'components/containers'
+import { SectionContainer, Flex, CssGrid, Show } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 const Descriptions = styled.div`
@@ -90,7 +90,7 @@ const ContinuousIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s) and 100 (1s)</0>."
+                translate_text="<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), and 100 (1s)</0>."
                 components={[<strong key={0} />]}
             />
         </Text>
@@ -128,6 +128,13 @@ const Multipliers = () => {
                         renderDetails={ContinuousIndicesDetails}
                     />
                 </MarketsWrapper>
+                <Show.Eu>
+                    <Text mt="1.6rem" color="grey-5" size="var(--text-size-xs)">
+                        {localize(
+                            'Return to player (RTP) % for a multiplier of 200 and a 1 hour duration is about 95% on average',
+                        )}
+                    </Text>
+                </Show.Eu>
             </Flex>
         </SectionContainer>
     )

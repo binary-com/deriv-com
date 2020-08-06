@@ -5,6 +5,12 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import styled, { css } from 'styled-components'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
+import {
+    binary_url,
+    affiliate_signin_url,
+    affiliate_signup_url,
+    smarttrader_url,
+} from 'common/utility'
 
 const non_localized_links = ['/careers', '/careers/']
 
@@ -56,7 +62,17 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
     const is_index = to === `/`
-    const { target, rel, className, style, is_binary_link, is_affiliate_link, ariaLabel } = props
+    const {
+        target,
+        rel,
+        className,
+        style,
+        is_binary_link,
+        is_affiliate_link,
+        is_affiliate_sign_in_link,
+        is_smarttrader_link,
+        ariaLabel,
+    } = props
 
     // If it's the default language or non localized link, don't do anything
     // If it's another language, add the "path"
@@ -69,9 +85,15 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     if (props.external || props.external === 'true') {
         let lang_to = ''
         if (is_binary_link) {
-            lang_to = `${to}/${locale}/trading.html`
+            const thai_excluded_locale = locale === 'th' ? 'en' : locale
+            lang_to = `${binary_url}/${thai_excluded_locale}/${to}.html`
         } else if (is_affiliate_link) {
-            lang_to = `${to}?lang=${affiliate_lang}`
+            lang_to = `${affiliate_signup_url}?lang=${affiliate_lang}`
+        } else if (is_affiliate_sign_in_link) {
+            lang_to = `${affiliate_signin_url}?lang=${affiliate_lang}`
+        } else if (is_smarttrader_link) {
+            const thai_excluded_locale = locale === 'th' ? 'en' : locale
+            lang_to = `${smarttrader_url}/${thai_excluded_locale}/${to}.html`
         } else {
             lang_to = to
         }
@@ -134,7 +156,9 @@ LocalizedLink.propTypes = {
     external_link: PropTypes.bool,
     has_no_end_slash: PropTypes.bool,
     is_affiliate_link: PropTypes.bool,
+    is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
+    is_smarttrader_link: PropTypes.bool,
     props: PropTypes.object,
     rel: PropTypes.string,
     style: PropTypes.object,

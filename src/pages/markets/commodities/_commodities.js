@@ -5,7 +5,7 @@ import { WhyTrade } from '../_why-trade'
 import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
-import SimpleSteps from 'common/_simple-steps'
+import SimpleSteps from 'components/custom/_simple-steps'
 import { Localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
@@ -49,7 +49,12 @@ const Commodities = ({ simple_step_content }) => {
                     icon={<FriendlySupport />}
                 />
             </WhyTrade>
-            <AvailableTrades Margin={Margin} DigitalOptions={DigitalOptions} name="Commodity" />
+            <AvailableTrades
+                Margin={Margin}
+                DigitalOptions={DigitalOptions}
+                name="Commodity"
+                display_title={<Localize translate_text="Commodity trades available on Deriv" />}
+            />
             <SimpleSteps
                 header={
                     <Localize translate_text="Start trading commodities on Deriv in 3 simple steps" />

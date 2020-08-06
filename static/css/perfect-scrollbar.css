@@ -2,7 +2,7 @@
  * Container style
  */
 .ps {
-    overflow: hidden;
+    overflow: hidden !important;
     overflow-anchor: none;
     -ms-overflow-style: none;
     touch-action: auto;
@@ -31,8 +31,7 @@
     -webkit-transition: background-color 0.2s linear, opacity 0.2s linear;
     width: 15px;
     /* there must be 'right' or 'left' for ps__rail-y */
-    right: 0 !important;
-    left: auto !important;
+    right: 0;
     /* please don't change 'position' */
     position: absolute;
 }
@@ -106,13 +105,13 @@
 /* MS supports */
 @supports (-ms-overflow-style: none) {
     .ps {
-        overflow: auto;
+        overflow: auto !important;
     }
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .ps {
-        overflow: auto;
+        overflow: auto !important;
     }
 }
 .scrollbar-container {

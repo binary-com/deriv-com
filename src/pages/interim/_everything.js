@@ -4,7 +4,6 @@ import { Container, Flex, Box } from 'components/containers'
 import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { localize, Localize } from 'components/localization'
-import { binary_url } from 'common/utility'
 import device from 'themes/device'
 import Enhanced from 'images/svg/interim/enhanced.svg'
 import EasySignup from 'images/svg/interim/easy-sign-up.svg'
@@ -55,7 +54,8 @@ const Everything = () => {
                                             key={0}
                                             external
                                             weight="bold"
-                                            to={binary_url}
+                                            to="home"
+                                            is_binary_link
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         />,
@@ -124,7 +124,7 @@ const Everything = () => {
                             <Header as="h4">{localize('Support when you need it')}</Header>
                             <Text>
                                 {localize(
-                                    'Get access to friendly customer support 7 days a week, an enriched Help Centre, plus other helpful content.',
+                                    'Get access to friendly customer support 7 days a week, an enriched Help centre, plus other helpful content.',
                                 )}
                             </Text>
                         </ResponsiveBox>

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard } from 'components/elements'
-import { smarttrader_url } from 'common/utility'
 import { useOutsideClick } from 'components/hooks/outside-click'
 // SVG
 import DTrader from 'images/svg/dtrader-icon.svg'
@@ -15,6 +14,7 @@ import Forex from 'components/svgs/_market-forex.js'
 import Commodities from 'components/svgs/_market-commodities.js'
 import StockIndices from 'components/svgs/_market-stock.js'
 import SyntheticIndices from 'components/svgs/_market-synthetic.js'
+import { community_url } from 'common/utility'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -124,8 +124,8 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
                                 }
                                 title={<Localize translate_text="SmartTrader" />}
-                                to={smarttrader_url}
-                                is_binary_link
+                                to="trading"
+                                is_smarttrader_link
                                 external="true"
                                 target="_blank"
                                 otherLinkProps={{ rel: 'noopener noreferrer' }}
@@ -174,7 +174,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     'Enjoy synthetic markets that emulate real-world market movements.',
                                 )}
                                 title={localize('Synthetic indices')}
-                                to="markets#synthetic"
+                                to="/markets#synthetic"
                             />
                         </Flex>
                     </AccordionItem>
@@ -205,7 +205,7 @@ export const OffCanvasMenuWrapper = (props) => {
                         style={content_style}
                     >
                         <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                            {localize('Help Centre')}
+                            {localize('Help centre')}
                         </StyledLink>
                         {/* TODO: add this when blog is ready */}
                         {/* <StyledLink to="/blog/" onClick={handleArrowClick}>
@@ -213,6 +213,9 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink> */}
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
                             {localize('Payment methods')}
+                        </StyledLink>
+                        <StyledLink to={community_url} onClick={handleArrowClick} target="_blank">
+                            {localize('Community')}
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

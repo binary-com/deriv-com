@@ -12,22 +12,26 @@ const ImageWrapper = styled.div`
 `
 
 const QueryImage = ({ data, alt, width, height }) => {
-    const data_fluid = data.childImageSharp.fluid
-    const data_fixed = data.childImageSharp.fixed
-    return (
-        <ImageWrapper width={width} height={height}>
-            <Img
-                alt={alt}
-                {...(data_fluid ? { fluid: data_fluid } : { fixed: data_fixed })}
-                height="100%"
-            />
-        </ImageWrapper>
-    )
+    if (data) {
+        const data_fluid = data.childImageSharp.fluid
+        const data_fixed = data.childImageSharp.fixed
+        return (
+            <ImageWrapper width={width} height={height}>
+                <Img
+                    alt={alt}
+                    {...(data_fluid ? { fluid: data_fluid } : { fixed: data_fixed })}
+                    height="100%"
+                />
+            </ImageWrapper>
+        )
+    }
+
+    return null
 }
 
 QueryImage.propTypes = {
     alt: PropTypes.string,
-    data: PropTypes.object,
+    data: PropTypes.object.isRequired,
     height: PropTypes.string,
     width: PropTypes.string,
 }

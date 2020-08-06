@@ -13,7 +13,7 @@ const Wrapper = styled.section`
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
@@ -33,18 +33,24 @@ const Content = styled.div`
     flex-direction: column;
     align-items: center;
     max-width: 38.4rem;
+    padding-right: 3rem;
 
-    :nth-child(even) {
-        padding: 0 2.4rem;
+    :nth-child(odd) {
+        padding: 0 7rem;
+        margin-right: 6rem;
+    }
+
+    @media ${device.tablet} {
+        padding-right: 0;
+
+        :nth-child(odd) {
+            margin-right: unset;
+        }
     }
 
     @media ${device.tabletL} {
         flex-wrap: wrap;
         height: auto;
-
-        :nth-child(even) {
-            padding: 0 2.4rem;
-        }
     }
 `
 const StyledHeader = styled(Header)`
@@ -73,22 +79,13 @@ export const Affiliates = () => {
         <Wrapper>
             <Content>
                 <StyledHeader as="h3" align="center">
-                    {localize('Public relations')}
-                </StyledHeader>
-                <StyledText>{localize('For media enquiries')}</StyledText>
-                <StyledLinkText weight="bold" color="red" href="mailto:pr@deriv.com">
-                    {localize('pr@deriv.com')}
-                </StyledLinkText>
-            </Content>
-            <Content>
-                <StyledHeader as="h3" align="center">
                     {localize('Affiliates')}
                 </StyledHeader>
                 <StyledText>
                     {localize('For enquiries about our affiliate and IB programmes')}
                 </StyledText>
-                <StyledLinkText weight="bold" color="red" href="mailto:affiliates@deriv.com">
-                    {localize('affiliates@deriv.com')}
+                <StyledLinkText weight="bold" color="red" href="mailto:partners@deriv.com">
+                    {localize('partners@deriv.com')}
                 </StyledLinkText>
             </Content>
             <Content>

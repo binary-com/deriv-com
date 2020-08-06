@@ -53,6 +53,9 @@ import USDTRY from 'images/svg/symbols/usd-try.svg'
 import INDEX10 from 'images/svg/symbols/index10.svg'
 import INDEX25 from 'images/svg/symbols/index25.svg'
 import INDEX50 from 'images/svg/symbols/index50.svg'
+import INDEX75S1 from 'images/svg/symbols/index75s1.svg'
+import INDEX25S1 from 'images/svg/symbols/index25s1.svg'
+import INDEX50S1 from 'images/svg/symbols/index50s1.svg'
 import INDEX75 from 'images/svg/symbols/index75.svg'
 import INDEX100 from 'images/svg/symbols/index100.svg'
 import INDEX10S1 from 'images/svg/symbols/index10s1.svg'
@@ -84,6 +87,8 @@ import PLATINUMUSD from 'images/svg/symbols/platinum-usd.svg'
 import SILVERUSD from 'images/svg/symbols/silver-usd.svg'
 import OILUSD from 'images/svg/symbols/oil-usd.svg'
 import EURO50INDEX from 'images/svg/symbols/euro50index.svg'
+import RANGEBREAK100 from 'images/svg/symbols/rb-100.svg'
+import RANGEBREAK200 from 'images/svg/symbols/rb-200.svg'
 
 export {
     AUDCAD,
@@ -143,6 +148,9 @@ export {
     INDEX50,
     INDEX75,
     INDEX100,
+    INDEX25S1,
+    INDEX50S1,
+    INDEX75S1,
     INDEX10S1,
     INDEX100S1,
     HFVOL10,
@@ -172,4 +180,6 @@ export {
     SILVERUSD,
     OILUSD,
     EURO50INDEX,
+    RANGEBREAK100,
+    RANGEBREAK200,
 }

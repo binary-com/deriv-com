@@ -27,15 +27,18 @@ const StyledDivider = styled(Divider)`
 
 const pushToQueryParams = (filters, search) => {
     let current_query = ['?filter=']
-
     if (Array.isArray(filters)) {
-        filters.forEach((query, idx) => {
-            if (idx === 0) {
-                current_query.push(query)
-            } else {
-                current_query.push(`,${query}`)
-            }
-        })
+        if (filters.length) {
+            filters.forEach((query, idx) => {
+                if (idx === 0) {
+                    current_query.push(query)
+                } else {
+                    current_query.push(`,${query}`)
+                }
+            })
+        } else {
+            current_query.splice(1, current_query.length)
+        }
     }
     current_query.push(`&search=${search}`)
 

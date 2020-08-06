@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   k8s: circleci/kubernetes@0.7.0
-  s3: circleci/aws-s3@1.0.13
+  slack: circleci/slack@3.4.2
 commands:
   git_checkout_from_cache:
     description: "Git checkout and save cache"
@@ -15,7 +15,7 @@ commands:
           name: Fetch git tags
           command: |
             mkdir -p ~/.ssh
-            echo 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ== ' >> ~/.ssh/known_hosts
+            echo 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==' >> ~/.ssh/known_hosts
             # Fetch tags if git cache is present
             if [ -e /home/circleci/project/.git ]
             then
@@ -55,37 +55,41 @@ commands:
       - run:
           name: "Run build"
           command: npm run build
-  compress:
-    description: "Compress"
+  deploy:
+    description: "Deploy to static branches"
+    parameters:
+      target_branch:
+        type: string
     steps:
+      - attach_workspace:
+          at: public
       - run:
-          name: "Compress"
+          name: Tag build
+          command: echo "<< parameters.target_branch >>-$(date -u +'%Y-%m-%dT%H:%M:%SZ')" > public/version
+      - run:
+          name: Install and configure dependencies
           command: |
-            pushd public/
-            tar -cvf artifact.tar *
-            mv artifact.tar ${OLDPWD}/
+            mkdir "${HOME}/.npm-packages"
+            npm config set prefix "${HOME}/.npm-packages"
+            npm i -g gh-pages
+            git config user.email "ci-build@binary.com"
+            git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "01:67:4a:6d:26:9c:70:c4:1a:60:91:88:d9:dd:f0:83"
       - run:
-          name: "Tag commit id as artifact identifer"
-          command: echo "${CIRCLE_TAG}" > artifact-info.txt
-  upload_artifact:
-    description: "upload build artifact to s3 bucket"
+          name: Deploy docs to gh-pages branch
+          command: /home/circleci/.npm-packages/bin/gh-pages -d public --branch << parameters.target_branch >> --message '[skip ci]'
+
+  notify_slack:
+    description: "Notify slack"
     steps:
-      - s3/copy:
-          from: artifact.tar
-          to: 's3://${CONTEXT_ARTIFACT_S3_BUCKET}/${CIRCLE_PROJECT_REPONAME}/'
-          aws-access-key-id: env_CONTEXT_ARTIFACT_S3_AWS_ACCESS_KEY_ID
-          aws-secret-access-key: env_CONTEXT_ARTIFACT_S3_AWS_SECRET_ACCESS_KEY
-          aws-region: env_CONTEXT_ARTIFACT_S3_AWS_REGION
-          arguments: '--metadata "{\"x-amz-artifact-id\": \"${CIRCLE_TAG}\" }"'
-  upload_checksum:
-    description: "upload artifact checksum to s3"
-    steps:
-      - s3/copy:
-          from: artifact-info.txt
-          to: 's3://${CONTEXT_ARTIFACT_S3_BUCKET}/${CIRCLE_PROJECT_REPONAME}/'
-          aws-access-key-id: env_CONTEXT_ARTIFACT_S3_AWS_ACCESS_KEY_ID
-          aws-secret-access-key: env_CONTEXT_ARTIFACT_S3_AWS_SECRET_ACCESS_KEY
-          aws-region: env_CONTEXT_ARTIFACT_S3_AWS_REGION
+      - slack/status:
+          include_project_field: false
+          failure_message: "Release failed for *Deriv.com* with version *$(cat public/version)*"
+          success_message: "Release succeeded for *Deriv.com* with version *$(cat public/version)*"
+          webhook: ${SLACK_WEBHOOK}
+
   docker_build:
     description: "Build Docker image"
     parameters:
@@ -99,6 +103,22 @@ commands:
           name: Building docker image
           command: |
             docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG} -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_image_tag >> .
+
+
+  docker_build_staging:
+    description: "Build Docker image"
+    parameters:
+      docker_image_tag:
+        type: string
+        default: "latest-staging"
+    steps:
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Building docker image
+          command: |
+            docker build -t ${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1} -t ${DOCKHUB_ORGANISATION}/deriv-com:<< parameters.docker_image_tag >> .
+
   docker_push:
     description: "Push image to docker hub"
     steps:
@@ -107,6 +127,7 @@ commands:
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
             docker push ${DOCKHUB_ORGANISATION}/deriv-com
+
   k8s_deploy:
     description: "Deploy to k8s cluster"
     parameters:
@@ -120,6 +141,21 @@ commands:
           command: |
             echo $CA_CRT | base64 --decode > ca.crt
             kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_TAG}
+
+  k8s_deploy_staging:
+    description: "Deploy to k8s cluster"
+    parameters:
+      k8s_svc_name:
+        type: string
+        default: "staging-deriv-com"
+    steps:
+      - k8s/install-kubectl
+      - run:
+          name: Deploying to k8s cluster for service << parameters.k8s_svc_name >>
+          command: |
+            echo $CA_CRT | base64 --decode > ca.crt
+            kubectl --server=${KUBE_SERVER} --certificate-authority=ca.crt --token=$SERVICEACCOUNT_TOKEN set image deployment/<< parameters.k8s_svc_name >> << parameters.k8s_svc_name >>=${DOCKHUB_ORGANISATION}/deriv-com:${CIRCLE_SHA1}
+
 jobs:
   test:
     docker:
@@ -133,7 +169,8 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-  build_staging:
+
+  release_staging:
     docker:
       - image: circleci/node:lts-stretch
         environment:
@@ -145,9 +182,14 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - docker_build
+      - deploy:
+          target_branch: "staging"
+      - docker_build_staging
       - docker_push
-  build_production:
+      - k8s_deploy_staging
+      - notify_slack
+
+  release_production:
     docker:
       - image: circleci/node:lts-stretch
         environment:
@@ -159,63 +201,37 @@ jobs:
       - npm_install_from_cache
       - npm_test
       - build
-      - compress
-      - upload_artifact  # uploading the built code to s3 to create a backup of key services separate from Kubernetes deployment
-      - upload_checksum  # uploading compressed artifact checksum to cross match artifact fingerprint
+      - deploy:
+          target_branch: "production"
       - docker_build:
           docker_image_tag: latest
       - docker_push
-  deploy_staging:
-    docker:
-      - image: circleci/node:lts-stretch
-    steps:
-      - k8s_deploy
-  deploy_production:
-    docker:
-      - image: circleci/node:lts-stretch
-    steps:
       - k8s_deploy:
           k8s_svc_name: "production-deriv-com"
+      - notify_slack
+
 workflows:
   build_and_push_dev:
     jobs:
       - test:
           filters:
             branches:
-              only: /^dev/
-  build_deploy_staging:
+              only: /^master/
+
+  release_staging:
     jobs:
-      - build_staging:
+      - release_staging:
           context: binary-frontend-artifact-upload
           filters:
             branches:
-              ignore: /.*/
-            tags:
-              only: /^staging.*/
-      - deploy_staging:
-          context: binary-frontend-artifact-upload
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^staging.*/
-          requires:
-            - build_staging
-  build_deploy_production:
+              only: /^master/
+
+  release_production:
     jobs:
-      - build_production:
+      - release_production:
           context: binary-frontend-artifact-upload
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /^production.*/
-      - deploy_production:
-          context: binary-frontend-artifact-upload
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^production.*/
-          requires:
-            - build_production

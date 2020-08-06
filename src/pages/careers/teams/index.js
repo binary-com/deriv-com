@@ -89,7 +89,13 @@ const Teams = () => {
             />
             <SectionContainer background="black" padding="12rem 0">
                 <Container direction="column">
-                    <Header as="h2" color="white" align="center" m="0 0 2.4rem">
+                    <Header
+                        as="h1"
+                        size="var(--text-size-xl)"
+                        color="white"
+                        align="center"
+                        m="0 0 2.4rem"
+                    >
                         Motivated by challenges
                     </Header>
                     <HeroText color="white" align="center">
@@ -119,7 +125,7 @@ const Teams = () => {
                             <Card
                                 key={idx}
                                 img_data={thumbnails[team.name.replace(/-+/g, '')]}
-                                to={`careers/teams/team#${team.name}`}
+                                to={`/careers/teams/team#${team.name}`}
                                 display_team_name={team_names[team.name]}
                                 tagline={team.card_description}
                                 position_count={team.positions.length}

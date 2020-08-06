@@ -1,98 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, LinkText } from '../../components/elements/typography'
-import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { graphql, useStaticQuery } from 'gatsby'
+import { Text } from '../../components/elements/typography'
+import { Header, QueryImage } from 'components/elements'
+import { SectionContainer, Flex } from 'components/containers'
+import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import CallUsIcon from 'images/svg/call-us.svg'
-// import ChatLiveIcon from 'images/svg/chat-live.svg'
-import EmailUsIcon from 'images/svg/email-us.svg'
-import NeedUsIcon from 'images/svg/need-us.svg'
 import device from 'themes/device'
+import { community_url } from 'common/utility'
 
-const Wrapper = styled.section`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: var(--color-grey-8);
-    padding: 8rem 0;
-
-    @media ${device.tabletS} {
-        height: auto;
-    }
-    @media ${device.tabletL} {
-        padding: 5rem 2rem;
-    }
-`
-const WaysWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-
-    @media ${device.tabletL} {
-        width: 100%;
-
-        > div {
-            margin: 0 auto;
-            width: 100%;
+const query = graphql`
+    query {
+        community: file(relativePath: { eq: "community.png" }) {
+            ...fadeIn
         }
-    }
-    @media (max-width: 740px) {
-        flex-direction: column;
-        height: auto;
-
-        > div {
-            margin-top: 7rem;
-        }
-    }
-
-    div:first-child {
-        margin-top: 0;
-    }
-`
-const Contact = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 28.2rem;
-`
-
-const CallContact = styled(Contact)`
-    width: 38.4rem;
-    padding: 0 2.4rem;
-
-    @media ${device.tabletL} {
-        padding: 0;
-    }
-`
-
-const StyledHeader = styled(Header)`
-    margin-bottom: 1.6rem;
-
-    @media ${device.tabletL} {
-        margin-bottom: 1rem;
-    }
-`
-
-const StyledText = styled(Text)`
-    margin-bottom: ${(props) => props.marginBttom || '0.8rem'};
-    font-size: var(--text-size-sm);
-
-    @media ${device.tabletL} {
-        font-size: ${(props) => (props.secondary ? '3rem' : '2rem')};
-    }
-`
-
-const Logo = styled.div`
-    margin-bottom: 2.4rem;
-
-    @media ${device.tabletL} {
-        text-align: center;
-        margin-bottom: 2rem;
-
-        svg {
-            width: 6rem;
-            height: 6rem;
+        help: file(relativePath: { eq: "help.png" }) {
+            ...fadeIn
         }
     }
 `
@@ -106,105 +29,113 @@ const StyledLinkButton = styled(LinkButton)`
         font-size: 1.75rem;
     }
 `
-const ClickToCall = styled.a`
-    text-decoration: none;
-    color: inherit;
+const contactways = [
+    {
+        header: <Localize translate_text="Ask everyone" />,
+        text: <Localize translate_text="Our Deriv support community can help you find answers." />,
+        image: 'community',
+        button: (
+            <StyledLinkButton secondary="true" to={community_url} target="_blank">
+                {localize('Ask the community')}
+            </StyledLinkButton>
+        ),
+    },
+    {
+        header: <Localize translate_text="We’re here to help" />,
+        text: (
+            <Localize translate_text="See frequently asked questions on popular topics to get quick answers." />
+        ),
+        image: 'help',
+        button: (
+            <StyledLinkButton secondary="true" to="/help-centre">
+                {localize('Visit our Help centre')}
+            </StyledLinkButton>
+        ),
+    },
+]
+
+const StyledFlex = styled(Flex)`
+    margin: auto;
+    max-width: 110rem;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+        align-items: center;
+
+        article {
+            margin: 16px auto 0;
+        }
+        article:last-child {
+            margin-bottom: 32px;
+        }
+    }
 `
-// TODO: This section will be added shortly when the back-end gets ready.
-// const StyledButton = stßyled(LocalizedLink)`
-//     border-radius: 4px;
-//     width: 11.5rem;
-//     height: 4rem;
-//     padding: 1rem 1.6rem;
-//     font-size: 1.4rem;
-//     transition: all 0.25s;
-//     font-weight: bold;
-//     border: 2px solid var(--color-red);
-//     color: var(--color-white);
-//     background: var(--color-red);
-//     text-decoration: none;
-//     text-align: center;
+const ContactWrapper = styled.article`
+    margin: 2rem;
+    width: 38.4rem;
+    padding: 3.2rem 2.4rem;
+    height: 100%;
+    min-height: 22rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-//     &:hover {
-//         background-color: var(--color-red-3);
-//         border-color: var(--color-red-3);
-//     }
-//     &:focus,
-//     &:active {
-//         outline: none;
-//     }
-//     &:active {
-//         transform: scale(0.95);
-//     }
-// `
-export const ContactWays = () => {
+    ${Text} {
+        text-align: center;
+    }
+    ${Header} {
+        text-align: center;
+    }
+
+    @media ${device.tabletL} {
+        width: 100%;
+        max-width: 55rem;
+        margin-top: 0;
+        padding: 3rem;
+
+        ${Text} {
+            font-size: 2rem;
+        }
+        ${Header} {
+            font-size: 3rem;
+        }
+        ${Flex} {
+            padding-bottom: 2rem;
+            align-items: center;
+        }
+    }
+
+    @media ${device.mobileL} {
+        ${Header} {
+            font-size: 1.9rem;
+        }
+    }
+`
+
+const ContactWays = () => {
+    const data = useStaticQuery(query)
     return (
-        <Wrapper>
-            <WaysWrapper>
-                <Contact>
-                    <Logo>
-                        <NeedUsIcon />
-                    </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Visit our Help Centre')}
-                    </StyledHeader>
-                    <StyledText align="center">
-                        {localize('The quickest way to get answers to your questions.')}
-                    </StyledText>
-                    <StyledLinkButton secondary="true" to="/help-centre">
-                        {localize('Visit the Help Centre')}
-                    </StyledLinkButton>
-                </Contact>
-                <CallContact>
-                    <Logo>
-                        <CallUsIcon />
-                    </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Call Us')}
-                    </StyledHeader>
-                    <StyledText align="center">{localize('International help desk')}</StyledText>
-                    <StyledText secondary="true" weight="bold">
-                        <ClickToCall href="tel:+441942316229">+44 1942 316229</ClickToCall>
-                    </StyledText>
-                    <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
-                    <StyledText mb="1.9rem" align="center">
-                        {localize('Sat-Sun: 8:00 am - 5:00 pm (GMT+8)')}
-                    </StyledText>
-                </CallContact>
-                <Contact>
-                    <Logo>
-                        <EmailUsIcon />
-                    </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Email Us')}
-                    </StyledHeader>
-                    <LinkText
-                        weight="bold"
-                        size="var(--text-size-sm)"
-                        color="red"
-                        href="mailto:support@deriv.com"
-                    >
-                        {localize('support@deriv.com')}
-                    </LinkText>
-                </Contact>
-
-                {/*
-                // TODO: This section will be added shortly when the back-end gets ready.
-                <Splitter></Splitter>
-                <Contact>
-                    <Logo>
-                        <ChatLiveIcon></ChatLiveIcon>
-                    </Logo>
-                    <StyledHeader as="h3" align="center">
-                        {localize('Chat live')}
-                    </StyledHeader>
-                    <StyledText>{localize('Mon-Fri: 24 hours')}</StyledText>
-                    <StyledText marginBttom="3.2rem">
-                        {localize('Sat-Sun: 8:00am - 5pm GMT')}
-                    </StyledText>
-                    <StyledButton to="/">{localize('Start a chat')}</StyledButton>
-                </Contact> */}
-            </WaysWrapper>
-        </Wrapper>
+        <SectionContainer padding="unset" background="var(--color-grey-25)">
+            <StyledFlex wrap="wrap">
+                {contactways.map((item, idx) => {
+                    return (
+                        <ContactWrapper key={idx}>
+                            <QueryImage data={data[item.image]} alt={item.header} width="24rem" />
+                            <Header mt="2.4rem" size="2.4rem">
+                                {item.header}
+                            </Header>
+                            <Text mb="3.4rem" mt="0.8rem">
+                                {item.text}
+                            </Text>
+                            <div>{item.button}</div>
+                        </ContactWrapper>
+                    )
+                })}
+            </StyledFlex>
+        </SectionContainer>
     )
 }
+
+export default ContactWays

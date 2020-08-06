@@ -25,10 +25,7 @@ const Footer = () => (
             <Direction jc="flex-start" ai="flex-start">
                 <Text>
                     <Localize
-                        translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W
-                    Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated
-                    as a Category 3 Investment Services provider by the Malta Financial Services
-                    Authority (<0>view licence</0>)."
+                        translate_text="In the EU, financial products are offered by Binary Investments (Europe) Ltd, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>view licence</0>)."
                         components={[
                             <LinkText
                                 key={0}
@@ -42,14 +39,7 @@ const Footer = () => (
                 </Text>
                 <Text>
                     <Localize
-                        translate_text="Outside the EU, financial products are offered by Binary (SVG) LLC, Hinds
-                        Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant
-                        Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial
-                        Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola,
-                        British Virgin Islands, regulated by the British Virgin Islands Financial
-                        Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun
-                        Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services
-                        Authority to carry on a money-broking business (<2>view licence</2>)."
+                        translate_text="Outside the EU, financial products are offered by Binary (SVG) LLC, Hinds Building, Kingstown, St Vincent and the Grenadines; Binary (V) Ltd, Govant Building, Port Vila, P.O. Box 1276, Vanuatu, regulated by the Vanuatu Financial Services Commission (<0>view licence</0>); Binary (BVI) Ltd, Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands, regulated by the British Virgin Islands Financial Services Commission (<1>view licence</1>); and Binary (FX) Ltd, Lot No. F16, First Floor, Paragon Labuan, Jalan Tun Mustapha, 87000 Labuan, Malaysia, regulated by the Labuan Financial Services Authority to carry on a money-broking business (<2>view licence</2>)."
                         components={[
                             <LinkText
                                 key={0}

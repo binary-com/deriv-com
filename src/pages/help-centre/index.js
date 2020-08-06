@@ -6,6 +6,7 @@ import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
+import { Community } from './_community'
 import { convertToHash } from './_utility'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -291,7 +292,7 @@ class HelpCentre extends Component {
         return (
             <Layout>
                 <SEO
-                    title={localize('Help Centre | Frequently asked questions | Deriv')}
+                    title={localize('Help centre | Frequently asked questions | Deriv')}
                     description={localize(
                         'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
                     )}
@@ -429,6 +430,8 @@ class HelpCentre extends Component {
                         })}
                     </ArticleSection>
                 </Container>
+
+                <Community />
 
                 <DidntFindYourAnswerBanner />
             </Layout>

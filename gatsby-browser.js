@@ -3,6 +3,7 @@ import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import TrafficSource from './src/common/traffic-source'
 import isMobile from './src/common/os-detect'
+import { gtm_test_domain } from 'common/utility'
 import 'typeface-ibm-plex-sans'
 
 const is_browser = typeof window !== 'undefined'
@@ -47,7 +48,6 @@ export const onClientEntry = () => {
         LocalStore.set('window_loaded', 'true')
     }
 
-    const gtm_test_domain = 'deriv-com.binary.sx'
     if (window.location.hostname === gtm_test_domain) {
         const gtm = document.createElement('script')
         gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH'

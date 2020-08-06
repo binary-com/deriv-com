@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import { Accordion, AccordionItem, StyledLink, Text, LocalizedLinkText } from '../elements'
 import { LocationContext } from './location-context'
@@ -115,7 +115,7 @@ const DisclaimerParagraph = styled(Text)`
         font-size: var(--text-size-sm);
     }
 `
-const StaticAsset = styled(LocalizedLink)`
+const shared_css = css`
     font-weight: bold;
     color: var(--color-black-3);
     font-size: var(--text-size-xs);
@@ -127,6 +127,12 @@ const StaticAsset = styled(LocalizedLink)`
     @media ${device.tabletL} {
         font-size: var(--text-size-sm);
     }
+`
+const StaticAsset = styled.a`
+    ${shared_css}
+`
+const StaticAssetLink = styled(LocalizedLink)`
+    ${shared_css}
 `
 const RiskWarning = styled.div`
     background-color: var(--color-grey-28);
@@ -204,7 +210,9 @@ const SocialWrapper = styled.div`
         }
     }
 `
-
+const ExternalLink = styled.a`
+    text-decoration: none;
+`
 const MobileAccordion = styled.section`
     background-color: var(--color-grey-25);
 
@@ -263,38 +271,34 @@ const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 const SocialWrapperComponent = () => {
     return (
         <SocialWrapper>
-            <LocalizedLink
-                to="https://www.facebook.com/derivdotcom/"
+            <ExternalLink
+                href="https://www.facebook.com/derivdotcom/"
                 target="_blank"
                 rel="noopener noreferrer"
-                external
             >
                 <Facebook />
-            </LocalizedLink>
-            <LocalizedLink
-                to="https://twitter.com/derivdotcom"
+            </ExternalLink>
+            <ExternalLink
+                href="https://twitter.com/derivdotcom"
                 target="_blank"
                 rel="noopener noreferrer"
-                external
             >
                 <Twitter />
-            </LocalizedLink>
-            <LocalizedLink
-                to="https://www.instagram.com/deriv_official/"
+            </ExternalLink>
+            <ExternalLink
+                href="https://www.instagram.com/deriv_official/"
                 target="_blank"
                 rel="noopener noreferrer"
-                external
             >
                 <Instagram />
-            </LocalizedLink>
-            <LocalizedLink
-                to="https://www.linkedin.com/company/derivdotcom/"
+            </ExternalLink>
+            <ExternalLink
+                href="https://www.linkedin.com/company/derivdotcom/"
                 target="_blank"
                 rel="noopener noreferrer"
-                external
             >
                 <Linkedin />
-            </LocalizedLink>
+            </ExternalLink>
         </SocialWrapper>
     )
 }
@@ -644,7 +648,7 @@ const Footer = () => {
                                     <StaticAsset
                                         key={0}
                                         target="_blank"
-                                        to="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
+                                        href="/regulatory/Deriv_Investments_(Europe)_Ltd.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}
@@ -658,19 +662,19 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            to="/regulatory/Deriv_(V)_Ltd.pdf"
+                                            href="/regulatory/Deriv_(V)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAsset
                                             key={1}
                                             target="_blank"
-                                            to="/regulatory/Deriv_(BVI)_Ltd.pdf"
+                                            href="/regulatory/Deriv_(BVI)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                         <StaticAsset
                                             key={2}
                                             target="_blank"
-                                            to="/regulatory/Deriv_(FX)_Ltd.pdf"
+                                            href="/regulatory/Deriv_(FX)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -682,7 +686,7 @@ const Footer = () => {
                                 <Localize
                                     translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (licence <0>reference no: 39172</0>)."
                                     components={[
-                                        <StaticAsset
+                                        <StaticAssetLink
                                             external
                                             key={0}
                                             target="_blank"
@@ -699,10 +703,10 @@ const Footer = () => {
                                         <StaticAsset
                                             key={0}
                                             target="_blank"
-                                            to="/regulatory/Deriv_(Europe)_Ltd.pdf"
+                                            href="/regulatory/Deriv_(Europe)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
-                                        <StaticAsset
+                                        <StaticAssetLink
                                             external
                                             key={1}
                                             target="_blank"

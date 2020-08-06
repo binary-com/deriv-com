@@ -99,7 +99,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else {
             lang_to = to
         }
-        if (is_eu_country) {
+        if (is_eu_country && !is_smarttrader_link) {
             return (
                 <a
                     target={target}

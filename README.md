@@ -14,7 +14,7 @@
 ## Other Documents
 
 -   [General implementation](documents/implementation-guide.md) - Contain ways to do development in deriv.com
--   [Style guide](documents/style-guide.md) - Contain file structure and advice for developers
+-   [Developer guide](documents/developer-guide.md) - Contain advice for developers working on this project
 -   [Git best practice](documents/git-best-practices.md) - Contain git practices and commit guidelines
 -   [File structures](documents/file-structures.md)
 

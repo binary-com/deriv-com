@@ -162,14 +162,14 @@ const IconGrid = () => (
                 Icon={General}
                 title={localize('General terms of use')}
                 content={localize('What you’re agreeing to when you sign up to use Deriv')}
-                url="/general-terms.pdf"
+                url="/tnc/general-terms.pdf"
                 link_title={localize('General terms of use')}
             />
             <Col
                 Icon={Trading}
                 title={localize('Trading terms')}
                 content={localize('Rules for making trades on any Deriv trading platform')}
-                url="/trading-terms.pdf"
+                url="/tnc/trading-terms.pdf"
                 link_title={localize('Trading terms')}
             />
             <Col
@@ -178,14 +178,14 @@ const IconGrid = () => (
                 content={localize(
                     'Terms that govern keeping and transferring funds in Deriv and the bonuses you might get',
                 )}
-                url="/funds-and-transfers.pdf"
+                url="/tnc/funds-and-transfers.pdf"
                 link_title={localize('Funds & transfers')}
             />
             <Col
                 Icon={Security}
                 title={localize('Security & privacy')}
                 content={localize('How we use and protect the information you give us')}
-                url="/security-and-privacy.pdf"
+                url="/tnc/security-and-privacy.pdf"
                 link_title={localize('Security & privacy')}
             />
             <Col
@@ -194,7 +194,7 @@ const IconGrid = () => (
                 content={localize(
                     'A notice to help you understand the risks that might arise when you trade on Deriv',
                 )}
-                url="/risk-disclosure.pdf"
+                url="/tnc/risk-disclosure.pdf"
                 link_title={localize('Risk disclosure')}
             />
             <Col
@@ -203,10 +203,10 @@ const IconGrid = () => (
                 content={localize(
                     'Additional terms and restrictions for Deriv clients in certain countries',
                 )}
-                url="/deriv-(fx)-ltd.pdf"
-                url2="/deriv-investments-(europe)-limited.pdf"
-                url3="/deriv-(europe)-limited.pdf"
-                url4="/deriv-(mx)-ltd.pdf"
+                url="/tnc/deriv-(fx)-ltd.pdf"
+                url2="/tnc/deriv-investments-(europe)-limited.pdf"
+                url3="/tnc/deriv-(europe)-limited.pdf"
+                url4="/tnc/deriv-(mx)-limited.pdf"
                 link_title={localize('Deriv (FX) Ltd')}
                 link_title2={localize('Deriv Investments (Europe) Limited')}
                 link_title3={localize('Deriv (Europe) Limited')}

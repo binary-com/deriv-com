@@ -14,7 +14,7 @@ import Instagram from 'images/svg/footer-instagram.svg'
 import Facebook from 'images/svg/footer-facebook.svg'
 import Linkedin from 'images/svg/footer-linkedin.svg'
 //EU icons
-import CoatArms from 'images/svg/coat-arms.svg'
+// import CoatArms from 'images/svg/coat-arms.svg'
 import Gamstop from 'images/svg/gamstop.svg'
 import MgaLogo from 'images/svg/mga-logo.svg'
 import Over18 from 'images/svg/over-18.svg'
@@ -243,9 +243,9 @@ const BinaryLinkText = styled(LocalizedLinkText)`
 const StyledGamstop = styled(Gamstop)`
     margin-right: 2.4rem;
 `
-const StyledCoatArms = styled(CoatArms)`
-    margin-right: 2.4rem;
-`
+// const StyledCoatArms = styled(CoatArms)`
+//     margin-right: 2.4rem;
+// `
 const StyledMgaLogo = styled(MgaLogo)`
     margin-right: 2.4rem;
 `
@@ -800,14 +800,14 @@ const Footer = () => {
                         <Show.Desktop>
                             <EuLogoWrapper mt="1rem" ai="center">
                                 <StyledGamstop />
-                                <StyledCoatArms />
+                                {/* <StyledCoatArms /> */}
                                 <StyledMgaLogo />
                                 <Over18 />
                             </EuLogoWrapper>
                         </Show.Desktop>
                         <Show.Mobile>
                             <EuLogoWrapper mt="1rem" ai="center">
-                                <StyledCoatArms />
+                                {/* <StyledCoatArms /> */}
                                 <Flex fd="column" width="auto">
                                     <StyledMgaLogo />
                                     <StyledGamstop />

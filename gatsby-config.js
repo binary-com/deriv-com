@@ -10,6 +10,7 @@ module.exports = {
         siteUrl: 'https://deriv.com',
     },
     plugins: [
+        'gatsby-plugin-webpack-bundle-analyser-v2',
         {
             resolve: `gatsby-plugin-amp`,
             options: {

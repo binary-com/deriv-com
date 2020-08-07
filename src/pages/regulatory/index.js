@@ -501,6 +501,7 @@ const Regulatory = () => {
                                                     <TextLink
                                                         key={0}
                                                         color="red"
+                                                        className="gtm-deriv-livechat"
                                                         onClick={() => {
                                                             LC_API.open_chat_window()
                                                         }}

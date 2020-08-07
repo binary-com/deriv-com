@@ -206,7 +206,7 @@ const IconGrid = () => (
                 url="/tnc/deriv-(fx)-ltd.pdf"
                 url2="/tnc/deriv-investments-(europe)-limited.pdf"
                 url3="/tnc/deriv-(europe)-limited.pdf"
-                url4="/tnc/deriv-(mx)-limited.pdf"
+                url4="/tnc/deriv-(mx)-ltd.pdf"
                 link_title={localize('Deriv (FX) Ltd')}
                 link_title2={localize('Deriv Investments (Europe) Limited')}
                 link_title3={localize('Deriv (Europe) Limited')}

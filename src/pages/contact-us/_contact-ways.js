@@ -21,6 +21,7 @@ const StyledLinkButton = styled(LinkButton)`
 `
 const contactways = [
     {
+        name: 'help-center',
         header: <Localize translate_text="Visit the Help centre" />,
         text: (
             <Text mb="1.6rem">
@@ -35,6 +36,7 @@ const contactways = [
         ),
     },
     {
+        name: 'live-chat',
         header: <Localize translate_text="Chat with us" />,
         text: (
             <Text>
@@ -124,12 +126,13 @@ const ContactWays = () => {
                             <Text>{item.text2}</Text>
                             <div>{item.button}</div>
 
-                            {idx == 1 && (
+                            {item.name === 'live-chat' && (
                                 <>
                                     {is_livechat_interactive && (
                                         <Button
                                             secondary="true"
                                             to="/help-centre"
+                                            className="gtm-deriv-livechat"
                                             onClick={() => {
                                                 LC_API.open_chat_window()
                                             }}

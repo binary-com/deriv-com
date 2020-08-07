@@ -1,0 +1,27 @@
+import React from 'react'
+import { isBrowser } from 'common/utility'
+
+const ClientSideOnlyLazy = React.lazy(() => import('./_what-our-clients-say'))
+const WhatOurClientsSayCarousell = () => {
+    const [should_load, setShouldLoad] = React.useState(false)
+
+    React.useEffect(() => {
+        setTimeout(() => {
+            setShouldLoad(true)
+        }, 2000)
+    }, [])
+
+    if (!should_load) return null
+
+    return (
+        <>
+            {isBrowser() && (
+                <React.Suspense fallback={<div />}>
+                    <ClientSideOnlyLazy />
+                </React.Suspense>
+            )}
+        </>
+    )
+}
+
+export default WhatOurClientsSayCarousell

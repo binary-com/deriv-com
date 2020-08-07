@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import { LocaleContext } from '../localization'
 import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
 import { LocationProvider } from './location-context'
-import { LocalStore } from 'common/storage'
 import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
@@ -44,7 +42,6 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
-    const { has_window_loaded } = React.useContext(LocaleContext)
 
     const is_static = type === 'static'
 
@@ -71,25 +68,27 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         }
         if (isBrowser()) {
             window.scrollTo(0, 0)
-            window.LiveChatWidget.on('ready', () => {
-                setLiveChatInteractive(true)
-            })
         }
     }, [])
 
     React.useEffect(() => {
         if (!clients_country) return
-        if (!has_window_loaded && !LocalStore.get('window_loaded')) return
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            const is_eu_country = isEuCountry(clients_country)
+            const tracking_status = Cookies.get('tracking_status')
 
-        const is_eu_country = isEuCountry(clients_country)
-        const tracking_status = Cookies.get('tracking_status')
+            if (is_eu_country && !tracking_status) setShowCookieBanner(true)
 
-        if (is_eu_country && !tracking_status) setShowCookieBanner(true)
+            const allow_tracking =
+                (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
 
-        const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
+            if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
 
-        if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
-    }, [clients_country, has_window_loaded])
+            window.LiveChatWidget.on('ready', () => {
+                setLiveChatInteractive(true)
+            })
+        }
+    }, [clients_country])
 
     const onAccept = () => {
         Cookies.set('tracking_status', 'accepted', {

@@ -97,6 +97,7 @@ const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 const ExternalBoldLink = styled(LocalizedLink)`
     font-weight: bold;
+    color: ${(props) => (props.color ? `var(--color-${props.color})` : '')};
 `
 const Regulatory = () => {
     const LC_API = (isBrowser() && window.LC_API) || {}

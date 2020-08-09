@@ -20,6 +20,7 @@ const Descriptions = styled.div`
 `
 const Col = styled(Flex)`
     max-width: 13.2rem;
+    padding: 0 0.4rem;
 
     @media ${device.tabletL} {
         max-width: 7rem;

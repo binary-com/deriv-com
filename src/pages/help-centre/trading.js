@@ -124,7 +124,6 @@ const TradingLimits = () => (
                 components={[
                     <strong key={0} />,
                     <ExternalLink
-                        external
                         to={`${deriv_app_url}/account/account-limits`}
                         target="_blank"
                         rel="noopener noreferrer"

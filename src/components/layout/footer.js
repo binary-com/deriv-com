@@ -210,9 +210,7 @@ const SocialWrapper = styled.div`
         }
     }
 `
-const ExternalLink = styled.a`
-    text-decoration: none;
-`
+
 const MobileAccordion = styled.section`
     background-color: var(--color-grey-25);
 
@@ -271,34 +269,38 @@ const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 const SocialWrapperComponent = () => {
     return (
         <SocialWrapper>
-            <ExternalLink
-                href="https://www.facebook.com/derivdotcom/"
+            <LocalizedLink
+                external="true"
+                to="https://www.facebook.com/derivdotcom/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <Facebook />
-            </ExternalLink>
-            <ExternalLink
-                href="https://twitter.com/derivdotcom"
+            </LocalizedLink>
+            <LocalizedLink
+                external="true"
+                to="https://twitter.com/derivdotcom"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <Twitter />
-            </ExternalLink>
-            <ExternalLink
-                href="https://www.instagram.com/deriv_official/"
+            </LocalizedLink>
+            <LocalizedLink
+                external="true"
+                to="https://www.instagram.com/deriv_official/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <Instagram />
-            </ExternalLink>
-            <ExternalLink
-                href="https://www.linkedin.com/company/derivdotcom/"
+            </LocalizedLink>
+            <LocalizedLink
+                external="true"
+                to="https://www.linkedin.com/company/derivdotcom/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <Linkedin />
-            </ExternalLink>
+            </LocalizedLink>
         </SocialWrapper>
     )
 }

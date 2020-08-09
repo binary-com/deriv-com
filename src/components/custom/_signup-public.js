@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Input, Button } from 'components/form'
-import { Header, Text, QueryImage } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
+import { Header, Text, QueryImage, LinkText } from 'components/elements'
+import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
 import device from 'themes/device.js'
@@ -170,7 +170,7 @@ const redirectToDerivApp = (e) => {
     window.open(deriv_app_url, '_blank')
 }
 
-const LinkFlex = styled(LocalizedLink)`
+const LinkFlex = styled(LinkText)`
     display: flex;
     align-items: center;
     margin-left: 16.5rem;
@@ -300,7 +300,7 @@ const SignupPublic = ({
                 </div>
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
-                <LinkFlex ai="center" external to={deriv_app_url} target="_blank">
+                <LinkFlex ai="center" external href={deriv_app_url} target="_blank">
                     <StyledHeader
                         size="2.8rem"
                         max_width="28.2rem"

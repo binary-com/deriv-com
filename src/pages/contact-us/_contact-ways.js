@@ -1,14 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Text } from '../../components/elements/typography'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { LinkButton, Button } from 'components/form'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
-import Chat from 'images/svg/call.svg'
-import Help from 'images/svg/help-centre.svg'
-import { isBrowser } from 'common/utility'
+import { community_url } from 'common/utility'
+
+const query = graphql`
+    query {
+        community: file(relativePath: { eq: "community.png" }) {
+            ...fadeIn
+        }
+        help: file(relativePath: { eq: "help.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
@@ -21,29 +31,28 @@ const StyledLinkButton = styled(LinkButton)`
 `
 const contactways = [
     {
-        name: 'help-center',
-        header: <Localize translate_text="Visit the Help centre" />,
-        text: (
-            <Text mb="1.6rem">
-                <Localize translate_text="The quickest way to get answers to your questions." />
-            </Text>
-        ),
-        icon: <Help />,
+        name: 'community',
+        header: <Localize translate_text="Ask everyone" />,
+        text: <Localize translate_text="Our Deriv support community can help you find answers." />,
+        image: 'community',
         button: (
-            <StyledLinkButton secondary="true" to="/help-centre">
-                {localize('Visit the Help Centre')}
+            <StyledLinkButton secondary="true" to={community_url} target="_blank">
+                {localize('Ask the community')}
             </StyledLinkButton>
         ),
     },
     {
-        name: 'live-chat',
-        header: <Localize translate_text="Chat with us" />,
+        name: 'help',
+        header: <Localize translate_text="We’re here to help" />,
         text: (
-            <Text>
-                <Localize translate_text="Get answers you can’t find in the Help centre." />
-            </Text>
+            <Localize translate_text="See frequently asked questions on popular topics to get quick answers." />
         ),
-        icon: <Chat />,
+        image: 'help',
+        button: (
+            <StyledLinkButton secondary="true" to="/help-centre">
+                {localize('Visit our Help centre')}
+            </StyledLinkButton>
+        ),
     },
 ]
 
@@ -63,16 +72,24 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
-const ClientCard = styled.article`
+const ContactWrapper = styled.article`
     margin: 2rem;
-    background-color: var(--color-white);
-    border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 38.4rem;
     padding: 3.2rem 2.4rem;
     height: 100%;
     min-height: 22rem;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    ${Text} {
+        text-align: center;
+    }
+    ${Header} {
+        text-align: center;
+    }
 
     @media ${device.tabletL} {
         width: 100%;
@@ -100,49 +117,22 @@ const ClientCard = styled.article`
 `
 
 const ContactWays = () => {
-    const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
-
-    React.useEffect(() => {
-        if (isBrowser()) {
-            window.scrollTo(0, 0)
-            window.LiveChatWidget.on('ready', () => {
-                setLiveChatInteractive(true)
-            })
-        }
-    }, [])
-
+    const data = useStaticQuery(query)
     return (
-        <SectionContainer mt="-18rem">
+        <SectionContainer padding="unset" background="var(--color-grey-25)">
             <StyledFlex wrap="wrap">
                 {contactways.map((item, idx) => {
                     return (
-                        <ClientCard key={idx}>
-                            <Flex pb="0.8rem" ai="center">
-                                <Header size="2.4rem">{item.header}</Header>
-                                {item.icon}
-                            </Flex>
-                            <Text pb="1rem">{item.text}</Text>
-                            <Text>{item.text2}</Text>
+                        <ContactWrapper key={idx}>
+                            <QueryImage data={data[item.image]} alt={item.header} width="24rem" />
+                            <Header mt="2.4rem" size="2.4rem">
+                                {item.header}
+                            </Header>
+                            <Text mb="3.4rem" mt="0.8rem">
+                                {item.text}
+                            </Text>
                             <div>{item.button}</div>
-
-                            {item.name === 'live-chat' && (
-                                <>
-                                    {is_livechat_interactive && (
-                                        <Button
-                                            secondary="true"
-                                            to="/help-centre"
-                                            className="gtm-deriv-livechat"
-                                            onClick={() => {
-                                                LC_API.open_chat_window()
-                                            }}
-                                        >
-                                            {localize('Chat with us')}
-                                        </Button>
-                                    )}
-                                </>
-                            )}
-                        </ClientCard>
+                        </ContactWrapper>
                     )
                 })}
             </StyledFlex>

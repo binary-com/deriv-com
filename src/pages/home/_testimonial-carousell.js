@@ -1,7 +1,8 @@
 import React from 'react'
+import Loadable from '@loadable/component'
 import { isBrowser } from 'common/utility'
 
-const ClientSideOnlyLazy = React.lazy(() => import('./_what-our-clients-say'))
+const ClientSideOnlyLazy = Loadable(() => import('./_what-our-clients-say'))
 
 const WhatOurClientsSayCarousell = () => {
     const [should_load, setShouldLoad] = React.useState(false)

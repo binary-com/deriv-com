@@ -1,8 +1,7 @@
 import React from 'react'
+import Loadable from '@loadable/component'
 // import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
-import { Trade } from './home/_trade'
-import TradeTheWayYouLike from './home/_trade-the-way-you-like'
 import Markets from './home/_markets'
 import TestimonialCarousell from './home/_testimonial-carousell'
 import { SEO, Show } from 'components/containers'
@@ -13,6 +12,9 @@ import SimpleSteps from 'components/custom/_simple-steps'
 import PractiseIcon from 'images/svg/aim.svg'
 import TradeIcon from 'images/svg/trade.svg'
 import WithdrawIcon from 'images/svg/withdraw.svg'
+
+const Trade = Loadable(() => import('./home/_trade'))
+const TradeTheWayYouLike = Loadable(() => import('./home/_trade-the-way-you-like'))
 
 const simple_step_content = [
     {

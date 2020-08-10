@@ -4,6 +4,7 @@
     "version": "0.1.0",
     "author": "Deriv",
     "dependencies": {
+        "@loadable/component": "^5.13.1",
         "commander": "^5.1.0",
         "crc-32": "^1.2.0",
         "extend": "^3.0.2",

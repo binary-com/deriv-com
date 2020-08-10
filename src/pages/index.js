@@ -61,7 +61,7 @@ const Home = () => {
                 content={simple_step_content}
                 header={<Localize translate_text="3 simple steps" />}
             />
-            <TestimonialCarousell />
+            <TestimonialCarousel />
             <Signup appearance={Appearances.public} />
             {/* TODO: investigate performance and enable later */}
             {/* {!isProduction() && <Ticker />} */}

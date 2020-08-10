@@ -7,13 +7,11 @@ import { LinkButton } from 'components/form'
 import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
-const Wrapper = styled.div`
+const Wrapper = styled(Flex)`
     padding: 0 0 0 12rem;
     position: relative;
-    display: flex;
-    flex-direction: row;
     height: 40rem;
-    width: 100%;
+    justify-content: flex-start;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     background-color: var(--color-black);
 
@@ -22,10 +20,7 @@ const Wrapper = styled.div`
         height: 414px;
     }
 `
-const BannerWrapper = styled.div`
-    position: relative;
-    width: 100%;
-`
+
 const ImageWrapper = styled(Flex)`
     position: absolute;
     width: 50rem;
@@ -57,7 +52,7 @@ const TextWrapper = styled.div`
         margin-bottom: 40px;
     }
 `
-const DemoButton = styled.div`
+const DemoButtonWrapper = styled.div`
     text-align: left;
     height: auto;
 
@@ -83,7 +78,7 @@ const DBanner = ({ title, data, background_pattern }) => {
         right: 0;
     `
     return (
-        <BannerWrapper>
+        <Flex position="relative">
             <ImageWrapper ai="center">
                 <QueryImage data={data['deriv_platform']} alt="deriv platform" width="100%" />
             </ImageWrapper>
@@ -92,15 +87,15 @@ const DBanner = ({ title, data, background_pattern }) => {
                     <StyledHeader color="white" size="5.6rem" mb="3.2rem" max_width="47rem">
                         {title}
                     </StyledHeader>
-                    <DemoButton>
+                    <DemoButtonWrapper>
                         <LinkButton type="submit" secondary="true" to="/signup/">
                             {localize('Create free demo account')}
                         </LinkButton>
-                    </DemoButton>
+                    </DemoButtonWrapper>
                 </TextWrapper>
                 <BackgroundPattern />
             </Wrapper>
-        </BannerWrapper>
+        </Flex>
     )
 }
 

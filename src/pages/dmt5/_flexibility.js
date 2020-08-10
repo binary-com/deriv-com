@@ -4,6 +4,7 @@ import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { deriv_app_url } from 'common/utility'
 import { Localize, localize } from 'components/localization'
+import { LinkButton } from 'components/form'
 import SyntheticIcon from 'images/svg/synthetic.svg'
 import FinancialIcon from 'images/svg/financial.svg'
 import FinancialStpIcon from 'images/svg/financial-stp.svg'
@@ -56,25 +57,16 @@ const ClientCard = styled.article`
         margin-bottom: 24px;
     }
 `
-const ExternalLink = styled.a`
-    text-decoration: none;
-    font-size: var(--text-size-s);
-    font-weight: bold;
-    color: var(--color-red);
-    display: inline-block;
-    cursor: pointer;
-
-    :hover {
-        text-decoration: underline;
-    }
-`
-const StyledLink = styled.div`
-    width: 182px;
+const StyledLinkButton = styled(LinkButton)`
+    padding: 1.4rem 1.6rem;
+    font-size: 14px;
+    border: unset;
+    max-width: 182px;
+    width: 100%;
     height: 40px;
-    border-radius: 4px;
-    background-color: var(--color-red);
     margin: auto;
 `
+
 const Flexibility = () => {
     return (
         <Section>
@@ -94,16 +86,20 @@ const Flexibility = () => {
                     )
                 })}
             </Flex>
-            <StyledLink>
-                <ExternalLink
+            {/* <StyledLink> */}
+            <StyledLinkButton external secondary="true" to={`${deriv_app_url}/mt5/`}>
+                {localize('Go to DMT5 dashboard')}
+            </StyledLinkButton>
+
+            {/* <ExternalLink
                     href={`${deriv_app_url}/mt5/`}
                     target="_blank"
                     rel="noopener noreferrer"
-                ></ExternalLink>
-                <Text align="center" size="14px" weight="bold" color="white">
+                ></ExternalLink> */}
+            {/* <Text align="center" size="14px" weight="bold" color="white">
                     {localize('Go to DMT5 dashboard')}
-                </Text>
-            </StyledLink>
+                </Text> */}
+            {/* </StyledLink> */}
         </Section>
     )
 }

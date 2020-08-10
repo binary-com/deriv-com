@@ -6,14 +6,13 @@ import { deriv_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { Button, LinkButton } from 'components/form'
+import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
-const Wrapper = styled.div`
+const Wrapper = styled(Flex)`
     position: relative;
+    justify-content: flex-start;
     background-color: var(--color-black);
-    width: 100%;
-    display: flex;
     height: 602px;
     padding: 12rem 12rem 9rem 12rem;
 
@@ -23,10 +22,10 @@ const Wrapper = styled.div`
         flex-direction: column-reverse;
     }
 `
-const HeroContent = styled.div`
-    display: flex;
+const HeroContent = styled(Flex)`
     flex-direction: column;
     justify-content: flex-start;
+    height: unset;
 
     ${Header} {
         color: var(--color-white);
@@ -91,24 +90,7 @@ const LinkWrapper = styled.div`
     }
 `
 
-const GoToLiveDemo = styled(Button)`
-    color: var(--color-white);
-    border-color: var(--color-black-5);
-    margin-left: 1.6rem;
-    padding: 1.1rem 1.6rem;
-    width: auto;
-
-    @media ${device.laptopM} {
-        font-size: 14px;
-        margin-left: 0;
-    }
-    @media ${device.mobileL} {
-        max-width: 100%;
-        padding: 10px 11px;
-        white-space: nowrap;
-    }
-`
-const DemoButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)`
     padding: 1.4rem 1.6rem;
     width: auto;
     font-size: 14px;
@@ -177,9 +159,9 @@ const DHero = ({
     Logo,
 }) => {
     const data = useStaticQuery(query)
-    const handleRedirect = () => {
+    const redirectUrl = () => {
         const path = image_name === 'dbot' ? '/bot' : '/'
-        window.open(deriv_app_url + path, '_blank')
+        return deriv_app_url + path
     }
     const DLogo = styled(Logo)`
         margin-right: 1.6rem;
@@ -269,14 +251,14 @@ const DHero = ({
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (
-                        <DemoButton secondary="true" to="/signup/">
+                        <StyledLinkButton secondary="true" to="/signup/">
                             {localize('Create free demo account')}
-                        </DemoButton>
+                        </StyledLinkButton>
                     )}
                     {go_to_live_demo && (
-                        <GoToLiveDemo tertiary onClick={handleRedirect}>
+                        <StyledLinkButton external secondary="true" to={redirectUrl()}>
                             {localize('Go to live demo')}
-                        </GoToLiveDemo>
+                        </StyledLinkButton>
                     )}
                 </LinkWrapper>
             </InformationWrapper>

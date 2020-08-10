@@ -7,6 +7,7 @@ import SyntheticIndices from 'images/svg/trade-types/synthetic-indices.svg'
 import { localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import { Flex, SectionContainer } from 'components/containers'
+import device from 'themes/device'
 
 const Section = styled(SectionContainer)`
     display: flex;
@@ -15,6 +16,10 @@ const Section = styled(SectionContainer)`
     align-items: center;
     justify-content: center;
     box-shadow: inset 0 1px 0 0 #f2f3f4;
+
+    @media ${device.tablet} {
+        padding: 40px 16px;
+    }
 `
 const Card = styled(Flex)`
     flex-direction: column;
@@ -26,6 +31,11 @@ const Card = styled(Flex)`
     border: solid 1px var(--color-grey-21);
     margin-right: 2.4rem;
     justify-content: flex-start;
+
+    @media ${device.tablet} {
+        margin-bottom: 24px;
+        max-width: 100%;
+    }
 `
 
 const WhyTrader = () => {
@@ -34,7 +44,7 @@ const WhyTrader = () => {
             <Header align="center" mb="4rem" as="h2">
                 {localize('Why trade with DMT5')}
             </Header>
-            <Flex>
+            <Flex tablet_direction="column">
                 <Card>
                     <InstantAccess />
                     <Header mt="0.8rem" mb="0.8rem" as="h4">

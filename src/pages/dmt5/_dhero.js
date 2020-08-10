@@ -17,18 +17,10 @@ const Wrapper = styled.div`
     height: 602px;
     padding: 12rem 12rem 9rem 12rem;
 
-    @media ${device.laptopM} {
-        max-height: 429px;
-        padding: 8rem 12rem 8rem 4rem;
-    }
-    @media ${device.tabletL} {
-        min-height: 304px;
-        flex-direction: column;
-    }
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
+        padding: unset;
+        height: 634px;
         flex-direction: column-reverse;
-        max-height: 640px;
-        padding: 0 16px 40px 16px;
     }
 `
 const HeroContent = styled.div`
@@ -67,38 +59,12 @@ const LottieWrapper = styled.div`
     top: 2.3rem;
     right: 12rem;
 
-    @media ${device.laptopM} {
-        max-width: 500px;
-        top: 8rem;
-        right: 8rem;
-    }
-    @media ${device.laptop} {
-        max-width: 450px;
-        right: 10rem;
-    }
-    @media ${device.tabletL} {
-        max-width: 390px;
-        top: 5rem;
-        right: 2rem;
-    }
-    @media ${device.tabletS} {
-        max-width: 380px;
-        top: 5rem;
-        right: 2rem;
-    }
     @media ${device.mobileL} {
-        max-width: 328px;
-        top: 34px;
-        left: 50%;
-        right: unset;
-        transform: translateX(-50%);
-    }
-    @media ${device.mobileM} {
-        max-width: 280px;
-        top: 34px;
-        left: 50%;
-        right: unset;
-        transform: translateX(-50%);
+        max-width: 425px;
+        top: 0;
+        right: 0;
+        position: relative;
+        margin-bottom: 25px;
     }
 `
 
@@ -169,30 +135,8 @@ const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
 
-    @media (max-width: 1320px) {
-        max-width: 450px;
-    }
-    @media ${device.laptop} {
-        max-width: 390px;
-    }
-    @media ${device.laptopM} {
-        max-width: 410px;
-    }
-    @media ${device.tabletL} {
-        width: 46%;
-        max-width: 400px;
-        top: 60px;
-    }
-    @media ${device.tablet} {
-        width: 100%;
-        top: 350px;
-    }
     @media ${device.mobileL} {
         top: 280px;
-        max-width: 328px;
-    }
-    @media ${device.mobileM} {
-        top: 230px;
         max-width: 328px;
     }
 `
@@ -308,8 +252,13 @@ const DHero = ({
     `
     return (
         <Wrapper>
-            <BackgroundSVG />
-            <BackgroundSVG2 />
+            {!is_mobile && (
+                <>
+                    <BackgroundSVG />
+                    <BackgroundSVG2 />
+                </>
+            )}
+
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h1" weight={500}>
                     <DLogo />

@@ -1,32 +1,56 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from './components/_side-tab'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device, { size } from 'themes/device'
+import { isBrowser } from 'common/utility'
+// import MobileBackground from 'images/svg/dmt5-start-mobile-background.svg'
 
 const query = graphql`
     query {
         demo_step1: file(relativePath: { eq: "dmt5-demo-step1.png" }) {
             ...fadeIn
         }
+        demo_step1_mobile: file(relativePath: { eq: "dmt5-demo-step1-mobile.png" }) {
+            ...fadeIn
+        }
         demo_step2: file(relativePath: { eq: "dmt5-demo-step2.png" }) {
+            ...fadeIn
+        }
+        demo_step2_mobile: file(relativePath: { eq: "dmt5-demo-step2-mobile.png" }) {
             ...fadeIn
         }
         demo_step3: file(relativePath: { eq: "dmt5-demo-step3.png" }) {
             ...fadeIn
         }
+        demo_step3_mobile: file(relativePath: { eq: "dmt5-demo-step3-mobile.png" }) {
+            ...fadeIn
+        }
         real_step1: file(relativePath: { eq: "dmt5-real-step1.png" }) {
+            ...fadeIn
+        }
+        real_step1_mobile: file(relativePath: { eq: "dmt5-real-step1-mobile.png" }) {
             ...fadeIn
         }
         real_step2: file(relativePath: { eq: "dmt5-real-step2.png" }) {
             ...fadeIn
         }
+        real_step2_mobile: file(relativePath: { eq: "dmt5-real-step2-mobile.png" }) {
+            ...fadeIn
+        }
         real_step3: file(relativePath: { eq: "dmt5-real-step3.png" }) {
             ...fadeIn
         }
+        real_step3_mobile: file(relativePath: { eq: "dmt5-real-step3-mobile.png" }) {
+            ...fadeIn
+        }
         real_step4: file(relativePath: { eq: "dmt5-real-step4.png" }) {
+            ...fadeIn
+        }
+        real_step4_mobile: file(relativePath: { eq: "dmt5-real-step4-mobile.png" }) {
             ...fadeIn
         }
     }
@@ -37,9 +61,13 @@ const Section = styled(SectionContainer)`
     padding: 8rem 12rem;
     align-items: center;
     justify-content: center;
+
+    @media ${device.mobileL} {
+        padding: 40px 16px;
+    }
 `
 const ImageWrapper = styled.div`
-    width: 79.2rem;
+    width: ${(props) => (props.is_mobile ? '24.6rem' : '79.2rem')};
     height: 43.4rem;
     position: relative;
     margin: -3.2rem auto;
@@ -77,6 +105,15 @@ const Span = styled.span`
 `
 
 const StartTrader = () => {
+    const [is_mobile, setMobile] = useState(false)
+    const handleResizeWindow = () => {
+        setMobile(isBrowser() ? window.screen.width <= size.tabletL : false)
+    }
+    useEffect(() => {
+        setMobile(isBrowser() ? window.screen.width <= size.tabletL : false)
+        window.addEventListener('resize', handleResizeWindow)
+    })
+
     const data = useStaticQuery(query)
     const [tab, setTab] = useState('Demo')
 
@@ -114,9 +151,9 @@ const StartTrader = () => {
                             }
                             item_width="24rem"
                         >
-                            <ImageWrapper>
+                            <ImageWrapper is_mobile={is_mobile}>
                                 <QueryImage
-                                    data={data['demo_step1']}
+                                    data={data[is_mobile ? 'demo_step1_mobile' : 'demo_step1']}
                                     alt="Trade types option market"
                                 />
                             </ImageWrapper>
@@ -127,9 +164,9 @@ const StartTrader = () => {
                                 <Localize translate_text="Add a DMT5 demo account and choose what you want to trade" />
                             }
                         >
-                            <ImageWrapper>
+                            <ImageWrapper is_mobile={is_mobile}>
                                 <QueryImage
-                                    data={data['demo_step2']}
+                                    data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
                                     alt="Trade types option market"
                                 />
                             </ImageWrapper>
@@ -141,9 +178,9 @@ const StartTrader = () => {
                             }
                             item_width="36rem"
                         >
-                            <ImageWrapper>
+                            <ImageWrapper is_mobile={is_mobile}>
                                 <QueryImage
-                                    data={data['demo_step3']}
+                                    data={data[is_mobile ? 'demo_step3_mobile' : 'demo_step3']}
                                     alt="Trade types option market"
                                 />
                             </ImageWrapper>
@@ -161,9 +198,9 @@ const StartTrader = () => {
                             }
                             item_width="27rem"
                         >
-                            <ImageWrapper>
+                            <ImageWrapper is_mobile={is_mobile}>
                                 <QueryImage
-                                    data={data['real_step1']}
+                                    data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
                                     alt="Trade types option market"
                                 />
                             </ImageWrapper>
@@ -174,9 +211,9 @@ const StartTrader = () => {
                                 <Localize translate_text="Create a Deriv real money account" />
                             }
                         >
-                            <ImageWrapper>
+                            <ImageWrapper is_mobile={is_mobile}>
                                 <QueryImage
-                                    data={data['real_step2']}
+                                    data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
                                     alt="Trade types option market"
                                 />
                             </ImageWrapper>
@@ -187,9 +224,9 @@ const StartTrader = () => {
                                 <Localize translate_text="Create a DMT5 real money account based on your trade preference" />
                             }
                         >
-                            <ImageWrapper>
+                            <ImageWrapper is_mobile={is_mobile}>
                                 <QueryImage
-                                    data={data['real_step3']}
+                                    data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
                                     alt="Trade types option market"
                                 />
                             </ImageWrapper>
@@ -200,9 +237,9 @@ const StartTrader = () => {
                                 <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser" />
                             }
                         >
-                            <ImageWrapper>
+                            <ImageWrapper is_mobile={is_mobile}>
                                 <QueryImage
-                                    data={data['real_step4']}
+                                    data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
                                     alt="Trade types option market"
                                 />
                             </ImageWrapper>

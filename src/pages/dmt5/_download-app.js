@@ -9,6 +9,7 @@ import GooglePlay from 'images/svg/google-play.svg'
 import Linux from 'images/svg/linux.svg'
 import MoreInfo from 'images/svg/more-info.svg'
 import Windows from 'images/svg/windows.svg'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -24,6 +25,12 @@ const Section = styled(SectionContainer)`
     justify-content: center;
     align-items: flex-start;
     background-color: var(--color-grey-25);
+
+    @media ${device.tablet} {
+        padding: 40px 16px;
+        flex-direction: column;
+        height: auto;
+    }
 `
 const Separator = styled.div`
     width: 2px;

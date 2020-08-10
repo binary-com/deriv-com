@@ -16,7 +16,6 @@ import { SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DMT5BG from 'images/svg/dmt5-bg.svg'
 import DMT5BG2 from 'images/svg/dmt5-bg2.svg'
-import DMT5BGMobile from 'images/svg/dmt5-bg-mobile.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 
@@ -54,8 +53,8 @@ const DMT5 = () => {
                 Logo={dmt5_logo}
                 image_name="dmt5"
                 is_mobile={is_mobile}
-                background_svg={is_mobile ? DMT5BGMobile : DMT5BG}
-                background_svg2={is_mobile ? DMT5BGMobile : DMT5BG2}
+                background_svg={DMT5BG}
+                background_svg2={DMT5BG2}
                 background_alt={localize('DMT5')}
             />
             <Numbers />

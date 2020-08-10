@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Header, Text } from 'components/elements'
 import { SectionContainer } from 'components/containers'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 
 const Section = styled(SectionContainer)`
     display: flex;
@@ -11,6 +12,10 @@ const Section = styled(SectionContainer)`
     padding: 8rem 22.2rem;
     align-items: center;
     justify-content: center;
+
+    @media ${device.tablet} {
+        padding: 40px 16px;
+    }
 `
 
 const WhatIsTrader = () => {

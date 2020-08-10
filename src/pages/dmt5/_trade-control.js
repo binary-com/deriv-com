@@ -1,9 +1,10 @@
+import { graphql, useStaticQuery } from 'gatsby'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -22,17 +23,32 @@ const Section = styled(SectionContainer)`
     margin-top: 8rem;
     align-items: flex-start;
     box-shadow: inset 0 1px 0 0 var(--color-grey-8), inset 0 -1px 0 0 var(--color-grey-8);
+
+    @media ${device.tablet} {
+        flex-direction: column;
+        padding: unset;
+    }
 `
 const ImageWrapper = styled.div`
     margin: 2.4rem 3.4rem;
     width: 38.4rem;
     position: relative;
+
+    @media ${device.mobileL} {
+        width: 100%;
+        margin: 24px 16px;
+    }
 `
 const ControlCard = styled(Flex)`
     background-color: var(--color-grey-25);
     width: 50%;
     padding: 11.9rem 4rem 27.3rem 16rem;
     flex-direction: column;
+
+    @media ${device.tablet} {
+        width: 100%;
+        padding: 40px 16px;
+    }
 `
 const CalculatorCard = styled(Flex)`
     padding: 4rem 0;
@@ -40,6 +56,12 @@ const CalculatorCard = styled(Flex)`
     margin-left: 2.4rem;
     align-items: center;
     width: 50%;
+
+    @media ${device.tablet} {
+        width: 100%;
+        padding: 24px 16px;
+        margin-left: 0;
+    }
 `
 const Button = styled(Flex)`
     width: 64px;
@@ -76,6 +98,12 @@ const SmallCircle = styled.div`
 const Span = styled.span`
     color: red;
 `
+
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        text-align: center;
+    }
+`
 const TradeControl = () => {
     const data = useStaticQuery(query)
 
@@ -87,9 +115,9 @@ const TradeControl = () => {
     return (
         <Section>
             <ControlCard>
-                <Header as="h2" mb="1.2rem">
+                <StyledHeader as="h2" mb="1.2rem">
                     {localize('Take control of your trades on DMT5s')}
-                </Header>
+                </StyledHeader>
                 <Text>
                     <Localize
                         translate_text="Explore <0>margin trading</0> on DMT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."

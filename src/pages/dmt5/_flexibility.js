@@ -7,6 +7,7 @@ import { Localize, localize } from 'components/localization'
 import SyntheticIcon from 'images/svg/synthetic.svg'
 import FinancialIcon from 'images/svg/financial.svg'
 import FinancialStpIcon from 'images/svg/financial-stp.svg'
+import device from 'themes/device'
 
 const content = [
     {
@@ -36,6 +37,10 @@ const Section = styled(SectionContainer)`
     padding: 8rem 12rem;
     justify-content: center;
     flex-direction: column;
+
+    @media ${device.tablet} {
+        padding: 40px 16px;
+    }
 `
 const ClientCard = styled.article`
     margin: 0 0 0 2rem;
@@ -46,6 +51,10 @@ const ClientCard = styled.article`
     padding: 3.2rem 2.4rem;
     height: 100%;
     position: relative;
+
+    @media ${device.tablet} {
+        margin-bottom: 24px;
+    }
 `
 const ExternalLink = styled.a`
     text-decoration: none;
@@ -72,7 +81,7 @@ const Flexibility = () => {
             <Header align="center" as="h2" mb="4rem">
                 {localize('Flexibility with multiple account types')}
             </Header>
-            <Flex mb="5rem">
+            <Flex tablet_direction="column" mb="5rem">
                 {content.map((item, idx) => {
                     return (
                         <ClientCard key={idx}>

@@ -31,6 +31,7 @@ const StyledLinkButton = styled(LinkButton)`
 `
 const contactways = [
     {
+        name: 'community',
         header: <Localize translate_text="Ask everyone" />,
         text: <Localize translate_text="Our Deriv support community can help you find answers." />,
         image: 'community',
@@ -41,6 +42,7 @@ const contactways = [
         ),
     },
     {
+        name: 'help',
         header: <Localize translate_text="We’re here to help" />,
         text: (
             <Localize translate_text="See frequently asked questions on popular topics to get quick answers." />

@@ -87,7 +87,12 @@ const SignupDefault = ({
                     required
                 />
             </InputGroup>
-            <EmailButton type="submit" secondary="true" disabled={is_submitting}>
+            <EmailButton
+                id="gtm-signup-email"
+                type="submit"
+                secondary="true"
+                disabled={is_submitting}
+            >
                 {localize('Create free demo account')}
             </EmailButton>
             <Text color="grey" align="center">
@@ -97,7 +102,8 @@ const SignupDefault = ({
                 <SocialButton
                     onClick={handleSocialSignup}
                     provider="google"
-                    id="google"
+                    data-provider="google"
+                    id="gtm-signup-google"
                     type="button"
                     social
                 >
@@ -108,7 +114,8 @@ const SignupDefault = ({
                 <SocialButton
                     onClick={handleSocialSignup}
                     provider="facebook"
-                    id="facebook"
+                    data-provider="facebook"
+                    id="gtm-signup-facebook"
                     type="button"
                     social
                 >

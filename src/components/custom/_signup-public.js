@@ -270,7 +270,12 @@ const SignupPublic = ({
                                 focusBorder="var(--color-grey-7)"
                             />
                         </InputWrapper>
-                        <EmailButton type="submit" secondary="true" disabled={is_submitting}>
+                        <EmailButton
+                            id="gtm-signup-email"
+                            type="submit"
+                            secondary="true"
+                            disabled={is_submitting}
+                        >
                             {localize('Sign up')}
                         </EmailButton>
                     </InputGroup>
@@ -279,7 +284,8 @@ const SignupPublic = ({
                         <SocialButton
                             onClick={handleSocialSignup}
                             provider="facebook"
-                            id="facebook"
+                            data-provider="facebook"
+                            id="gtm-signup-facebook"
                             type="button"
                             social
                         >
@@ -290,7 +296,8 @@ const SignupPublic = ({
                         <SocialButton
                             onClick={handleSocialSignup}
                             provider="google"
-                            id="google"
+                            data-provider="google"
+                            id="gtm-signup-google"
                             type="button"
                             social
                         >

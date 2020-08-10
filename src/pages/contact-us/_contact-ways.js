@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Text } from '../../components/elements/typography'
 import { Header, QueryImage } from 'components/elements'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer, Container, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
@@ -56,21 +56,16 @@ const contactways = [
     },
 ]
 
-const StyledFlex = styled(Flex)`
-    margin: auto;
+const GridLayout = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2.4rem;
 
-    @media ${device.tabletL} {
-        flex-direction: column;
-        align-items: center;
-
-        article {
-            margin: 16px auto 0;
-        }
-        article:last-child {
-            margin-bottom: 32px;
-        }
+    @media ${device.tablet} {
+        grid-template-columns: 1fr;
     }
 `
+
 const ContactWrapper = styled.article`
     margin: 1.2rem;
     width: 48.6rem;
@@ -118,22 +113,28 @@ const ContactWays = () => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer padding="4rem 0" background="var(--color-grey-25)">
-            <StyledFlex wrap="wrap">
-                {contactways.map((item, idx) => {
-                    return (
-                        <ContactWrapper key={idx}>
-                            <QueryImage data={data[item.image]} alt={item.header} width="24rem" />
-                            <Header mt="2.4rem" as="h3">
-                                {item.header}
-                            </Header>
-                            <Header as="h4" weight="normal" mb="3.4rem" mt="0.8rem">
-                                {item.text}
-                            </Header>
-                            <div>{item.button}</div>
-                        </ContactWrapper>
-                    )
-                })}
-            </StyledFlex>
+            <Container>
+                <GridLayout>
+                    {contactways.map((item, idx) => {
+                        return (
+                            <ContactWrapper key={idx}>
+                                <QueryImage
+                                    data={data[item.image]}
+                                    alt={item.header}
+                                    width="28.2rem"
+                                />
+                                <Header mt="2.4rem" as="h3">
+                                    {item.header}
+                                </Header>
+                                <Header as="h4" weight="normal" mb="3.4rem" mt="0.8rem">
+                                    {item.text}
+                                </Header>
+                                <div>{item.button}</div>
+                            </ContactWrapper>
+                        )
+                    })}
+                </GridLayout>
+            </Container>
         </SectionContainer>
     )
 }

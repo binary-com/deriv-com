@@ -6,7 +6,9 @@ const WhatOurClientsSayCarousell = () => {
     const [should_load, setShouldLoad] = React.useState(false)
 
     React.useEffect(() => {
-        setShouldLoad(true)
+        setTimeout(() => {
+            setShouldLoad(true)
+        }, 2500)
     }, [])
 
     if (!should_load) return null

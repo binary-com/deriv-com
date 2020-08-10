@@ -58,7 +58,6 @@ const contactways = [
 
 const StyledFlex = styled(Flex)`
     margin: auto;
-    max-width: 110rem;
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -73,9 +72,8 @@ const StyledFlex = styled(Flex)`
     }
 `
 const ContactWrapper = styled.article`
-    margin: 2rem;
-    width: 38.4rem;
-    padding: 3.2rem 2.4rem;
+    margin: 1.2rem;
+    width: 48.6rem;
     height: 100%;
     min-height: 22rem;
     position: relative;
@@ -119,18 +117,18 @@ const ContactWrapper = styled.article`
 const ContactWays = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer padding="unset" background="var(--color-grey-25)">
+        <SectionContainer padding="4rem 0" background="var(--color-grey-25)">
             <StyledFlex wrap="wrap">
                 {contactways.map((item, idx) => {
                     return (
                         <ContactWrapper key={idx}>
                             <QueryImage data={data[item.image]} alt={item.header} width="24rem" />
-                            <Header mt="2.4rem" size="2.4rem">
+                            <Header mt="2.4rem" as="h3">
                                 {item.header}
                             </Header>
-                            <Text mb="3.4rem" mt="0.8rem">
+                            <Header as="h4" weight="normal" mb="3.4rem" mt="0.8rem">
                                 {item.text}
-                            </Text>
+                            </Header>
                             <div>{item.button}</div>
                         </ContactWrapper>
                     )

@@ -314,8 +314,13 @@ const WhatOurClientsSay = () => {
     return (
         <>
             <Helmet>
-                <link as="style" rel="preload" type="text/css" href="/css/swiper.css" />
-                <link rel="stylesheet" href="/css/swiper.css" />
+                <link
+                    as="style"
+                    rel="preload"
+                    type="text/css"
+                    href="/css/swiper.css"
+                    onLoad="this.rel='stylesheet'"
+                />
             </Helmet>
             <StyledSection>
                 <Container direction="column">

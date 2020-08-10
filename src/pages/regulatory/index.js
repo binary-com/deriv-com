@@ -471,7 +471,7 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)"
+                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)."
                                     components={[
                                         <LinkText
                                             key={0}
@@ -496,7 +496,7 @@ const Regulatory = () => {
                                     <Show.Eu>
                                         <Text mt="2rem" max_width="58.8rem">
                                             <Localize
-                                                translate_text="For fair resolution of any complaints, please speak to us using <0>chat</0>. To learn more, see our <1>complaint policy</1>."
+                                                translate_text="For fair resolution of any complaints, please speak to us using <0>chat</0>. To learn more, see our <1>complaints policy</1>."
                                                 components={[
                                                     <TextLink
                                                         key={0}

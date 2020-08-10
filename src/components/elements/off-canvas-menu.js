@@ -14,6 +14,7 @@ import Forex from 'components/svgs/_market-forex.js'
 import Commodities from 'components/svgs/_market-commodities.js'
 import StockIndices from 'components/svgs/_market-stock.js'
 import SyntheticIndices from 'components/svgs/_market-synthetic.js'
+import { community_url } from 'common/utility'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -212,6 +213,9 @@ export const OffCanvasMenuWrapper = (props) => {
                         </StyledLink> */}
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
                             {localize('Payment methods')}
+                        </StyledLink>
+                        <StyledLink to={community_url} onClick={handleArrowClick} target="_blank">
+                            {localize('Community')}
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

@@ -3,7 +3,7 @@ import React from 'react'
 import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import TradeTypes from './home/_trade-types'
-import EmployeeTestimonialCarousel from './home/_trade-types-mobile'
+import TradeTypesMobile from './home/_trade-types-mobile'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
 import Markets from './home/_markets'
 import WhatOurClientsSay from './home/_what-our-clients-say'
@@ -50,16 +50,21 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
+
             <Show.Mobile>
                 <TradeTheWayYouLike />
             </Show.Mobile>
-            <Show.Desktop max_width="425px">
+            <Show.Desktop>
                 <Trade />
+            </Show.Desktop>
+
+            <Show.Desktop max_width="599">
                 <TradeTypes />
             </Show.Desktop>
-            <Show.Mobile min_width="425px">
-                <EmployeeTestimonialCarousel />
+            <Show.Mobile min_width="600">
+                <TradeTypesMobile />
             </Show.Mobile>
+
             <Markets />
             <SimpleSteps
                 content={simple_step_content}

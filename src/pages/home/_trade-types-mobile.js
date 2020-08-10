@@ -7,18 +7,26 @@ import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { localize } from 'components/localization'
-import MarginLogo from 'images/svg/margin_2.svg'
-import OptionsLogo from 'images/svg/options_2.svg'
-import MultipliersLogo from 'images/svg/multipliers_2.svg'
+import { LinkButton } from 'components/form'
+import MarginLogo from 'images/svg/margin_tt.svg'
+import OptionsLogo from 'images/svg/options_tt.svg'
+import MultipliersLogo from 'images/svg/multipliers_tt.svg'
 
 const StyledSection = styled(SectionContainer)`
-    @media ${device.tabletL} {
-        height: unset;
-        padding: 5rem 0;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+const TradingButton = styled(LinkButton)`
+    height: 4.8rem;
+    display: flex;
+    align-items: center;
+    width: 21.6rem;
+    justify-content: center;
+    margin-top: 3.2rem;
 `
 
-const EmployeeCard = styled.article`
+const TradeTypeCard = styled.article`
     width: 25rem;
     position: relative;
     overflow: hidden;
@@ -54,27 +62,25 @@ const SwiperWrapper = styled.div`
     }
 `
 
-const EmployeeSlide = ({ title, description }) => {
+const TradeTypeSlide = ({ icon, title, description }) => {
     return (
         <Flex ai="center" height="unset">
-            <EmployeeCard>
+            <TradeTypeCard>
                 <Flex ai="center" fd="column">
-                    <div>
-                        <OptionsLogo />
-                    </div>
-                    <Header mb="0.8rem" align="center" size="var(--text-size-m)">
+                    {icon}
+                    <Header mt="1.6rem" mb="0.8rem" align="center" size="var(--text-size-m)">
                         {title}
                     </Header>
                     <Text size="var(--text-size-sm)" align="center">
                         {description}
                     </Text>
                 </Flex>
-            </EmployeeCard>
+            </TradeTypeCard>
         </Flex>
     )
 }
 
-EmployeeSlide.propTypes = {
+TradeTypeSlide.propTypes = {
     description: PropTypes.any,
     icon: PropTypes.any,
     title: PropTypes.any,
@@ -102,9 +108,9 @@ const multipliers = {
     ),
 }
 
-const employee_testimonials = [margin, options, multipliers]
+const trade_types = [margin, options, multipliers]
 
-const EmployeeTestimonialCarousel = () => {
+const TradeTypesMobile = () => {
     const ref = React.useRef(null)
 
     const params = {
@@ -127,7 +133,7 @@ const EmployeeTestimonialCarousel = () => {
             <Helmet>
                 <link rel="stylesheet" type="text/css" href="/css/swiper.css" />
             </Helmet>
-            <StyledSection padding="12rem 0">
+            <StyledSection padding="4rem 0">
                 <Header align="center" as="h2" mb="0.8rem">
                     {localize('Trade types')}
                 </Header>
@@ -139,21 +145,24 @@ const EmployeeTestimonialCarousel = () => {
                 <SliderWrapper>
                     <SwiperWrapper>
                         <Swiper {...params} ref={ref}>
-                            {employee_testimonials.map((employee_slide) => (
-                                <div className="swiper-slide" key={employee_slide.title}>
-                                    <EmployeeSlide
-                                        icon={employee_slide.icon}
-                                        title={employee_slide.title}
-                                        description={employee_slide.description}
+                            {trade_types.map((trade_slide) => (
+                                <div className="swiper-slide" key={trade_slide.title}>
+                                    <TradeTypeSlide
+                                        icon={trade_slide.icon}
+                                        title={trade_slide.title}
+                                        description={trade_slide.description}
                                     />
                                 </div>
                             ))}
                         </Swiper>
                     </SwiperWrapper>
                 </SliderWrapper>
+                <TradingButton type="submit" secondary="true" to="/signup/">
+                    {localize('Start trading')}
+                </TradingButton>
             </StyledSection>
         </>
     )
 }
 
-export default EmployeeTestimonialCarousel
+export default TradeTypesMobile

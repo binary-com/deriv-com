@@ -4,7 +4,7 @@ import { Hero } from './home/_hero'
 import { Trade } from './home/_trade'
 import TradeTheWayYouLike from './home/_trade-the-way-you-like'
 import Markets from './home/_markets'
-import WhatOurClientsSay from './home/_what-our-clients-say'
+import TestimonialCarousell from './home/_testimonial-carousell'
 import { SEO, Show } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl, Localize } from 'components/localization'
@@ -59,7 +59,7 @@ const Home = () => {
                 content={simple_step_content}
                 header={<Localize translate_text="3 simple steps" />}
             />
-            <WhatOurClientsSay />
+            <TestimonialCarousell />
             <Signup appearance={Appearances.public} />
             {/* TODO: investigate performance and enable later */}
             {/* {!isProduction() && <Ticker />} */}

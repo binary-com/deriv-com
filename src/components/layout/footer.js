@@ -821,7 +821,7 @@ const Footer = () => {
                                 <StyledCoatArms>
                                     <QueryImage
                                         data={image_query.iom}
-                                        alt={localize('Isle of Man Coat of Arms')}
+                                        alt={'IOM'}
                                         width="6.4rem"
                                         height="auto"
                                     />
@@ -835,7 +835,7 @@ const Footer = () => {
                                 <StyledCoatArms>
                                     <QueryImage
                                         data={image_query.iom}
-                                        alt={localize('Isle of Man Coat of Arms')}
+                                        alt={'IOM'}
                                         width="6.4rem"
                                         height="auto"
                                     />

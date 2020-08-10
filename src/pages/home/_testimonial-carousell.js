@@ -7,6 +7,7 @@ const WhatOurClientsSayCarousell = () => {
     const [should_load, setShouldLoad] = React.useState(false)
 
     React.useEffect(() => {
+        // TODO: remove this after replacing the swiper carousell
         setTimeout(() => {
             setShouldLoad(true)
         }, 1500)

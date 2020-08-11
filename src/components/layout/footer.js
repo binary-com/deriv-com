@@ -626,23 +626,25 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
-                        <Show.Eu>
-                            <DisclaimerParagraph>
-                                <Localize
-                                    translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on <0>Binary.com.<0>"
-                                    components={[
-                                        <BinaryLinkText
-                                            key={0}
-                                            external
-                                            to={'home'}
-                                            is_binary_link
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </DisclaimerParagraph>
-                        </Show.Eu>
+                        <div>
+                            <Show.Eu>
+                                <DisclaimerParagraph>
+                                    <Localize
+                                        translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on <0>Binary.com.<0>"
+                                        components={[
+                                            <BinaryLinkText
+                                                key={0}
+                                                external
+                                                to={'home'}
+                                                is_binary_link
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            />,
+                                        ]}
+                                    />
+                                </DisclaimerParagraph>
+                            </Show.Eu>
+                        </div>
                         <DisclaimerParagraph>
                             <Localize
                                 translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."

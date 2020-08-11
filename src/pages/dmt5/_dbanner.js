@@ -15,9 +15,12 @@ const Wrapper = styled(Flex)`
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     background-color: var(--color-black);
 
-    @media (max-width: 800px) {
-        flex-direction: column;
-        height: 414px;
+    @media ${device.laptopM} {
+        height: 38.4rem;
+        padding: 0 0 0 8rem;
+    }
+    @media ${device.tabletL} {
+        height: 34.4rem;
     }
 `
 
@@ -33,41 +36,31 @@ const ImageWrapper = styled(Flex)`
         width: 100%;
     }
 
-    @media (max-width: 1350px) {
-        width: 30rem;
+    @media ${device.laptopM} {
+        max-width: 43rem;
     }
-    @media (max-width: 800px) {
-        height: auto;
-        width: 286px;
-        text-align: center;
-        margin: 0 auto;
+    @media ${device.tabletL} {
+        max-width: 40rem;
     }
 `
 
 const TextWrapper = styled.div`
     margin-top: 8rem;
 
-    @media (max-width: 800px) {
-        margin-top: 35px;
-        margin-bottom: 40px;
+    @media ${device.laptopM} {
+        max-width: 37rem;
     }
 `
-const DemoButtonWrapper = styled.div`
-    text-align: left;
-    height: auto;
-
-    @media (max-width: 800px) {
-        margin: unset;
-    }
+const StyledLinkButton = styled(LinkButton)`
+    width: 20.2rem;
+    border: unset;
+    line-height: 1.5;
+    display: inline-block;
 `
 const StyledHeader = styled(Header)`
     @media ${device.laptopM} {
         font-size: 4rem;
         max-width: 60rem;
-    }
-    @media (max-width: 800px) {
-        font-size: 24px;
-        max-width: 329px;
     }
 `
 
@@ -76,6 +69,14 @@ const DBanner = ({ title, data, background_pattern }) => {
         position: absolute;
         top: 0;
         right: 0;
+
+        @media ${device.laptopM} {
+            width: 60rem;
+            height: initial;
+        }
+        @media ${device.tabletL} {
+            width: 54rem;
+        }
     `
     return (
         <Flex position="relative">
@@ -84,14 +85,12 @@ const DBanner = ({ title, data, background_pattern }) => {
             </ImageWrapper>
             <Wrapper>
                 <TextWrapper>
-                    <StyledHeader color="white" size="5.6rem" mb="3.2rem" max_width="47rem">
+                    <StyledHeader color="white" size="5.6rem" mb="4rem" max_width="47rem">
                         {title}
                     </StyledHeader>
-                    <DemoButtonWrapper>
-                        <LinkButton type="submit" secondary="true" to="/signup/">
-                            {localize('Create free demo account')}
-                        </LinkButton>
-                    </DemoButtonWrapper>
+                    <StyledLinkButton type="submit" secondary="true" to="/signup/">
+                        {localize('Create free demo account')}
+                    </StyledLinkButton>
                 </TextWrapper>
                 <BackgroundPattern />
             </Wrapper>

@@ -44,17 +44,38 @@ const Section = styled(SectionContainer)`
     }
 `
 const ClientCard = styled.article`
-    margin: 0 0 0 2rem;
+    margin-left: 2rem;
     background-color: var(--color-white);
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 38.4rem;
-    padding: 3.2rem 2.4rem;
+    padding: 3.2rem 2.4rem 4rem;
+    max-height: 19.2rem;
     height: 100%;
     position: relative;
 
+    :first-child {
+        margin: 0;
+    }
+    @media ${device.laptopM} {
+        min-height: 22rem;
+        height: 100%;
+    }
     @media ${device.tablet} {
-        margin-bottom: 24px;
+        margin: 0 0 24px 0;
+
+        :first-child {
+            margin: 0 0 24px 0;
+        }
+    }
+`
+const CardContainer = styled(Flex)`
+    margin-bottom: 4rem;
+
+    @media ${device.tablet} {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
     }
 `
 const StyledLinkButton = styled(LinkButton)`
@@ -73,19 +94,21 @@ const Flexibility = () => {
             <Header align="center" as="h2" mb="4rem">
                 {localize('Flexibility with multiple account types')}
             </Header>
-            <Flex tablet_direction="column" mb="5rem">
+            <CardContainer>
                 {content.map((item, idx) => {
                     return (
                         <ClientCard key={idx}>
-                            <Flex ai="center">
-                                <Header as="h4">{item.header}</Header>
+                            <Flex height="unset" ai="center">
+                                <Header mb="0.8rem" as="h4">
+                                    {item.header}
+                                </Header>
                                 {item.icon}
                             </Flex>
                             <Text>{item.text}</Text>
                         </ClientCard>
                     )
                 })}
-            </Flex>
+            </CardContainer>
             {/* <StyledLink> */}
             <StyledLinkButton external secondary="true" to={`${deriv_app_url}/mt5/`}>
                 {localize('Go to DMT5 dashboard')}

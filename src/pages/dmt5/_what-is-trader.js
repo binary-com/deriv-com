@@ -13,7 +13,7 @@ const Section = styled(SectionContainer)`
     align-items: center;
     justify-content: center;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         padding: 40px 16px;
     }
 `

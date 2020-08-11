@@ -61,13 +61,18 @@ const Section = styled(SectionContainer)`
     padding: 8rem 12rem;
     align-items: center;
     justify-content: center;
+    height: 80rem;
 
+    @media ${device.laptopM} {
+        padding: 8rem 6rem;
+    }
     @media ${device.mobileL} {
         padding: 40px 16px;
     }
 `
 const ImageWrapper = styled.div`
-    width: ${(props) => (props.is_mobile ? '24.6rem' : '79.2rem')};
+    max-width: ${(props) => (props.is_mobile ? '24.6rem' : '79.2rem')};
+    width: 100%;
     height: 43.4rem;
     position: relative;
     margin: -3.2rem auto;
@@ -77,8 +82,8 @@ const ImageWrapper = styled.div`
     }
 `
 const TabItem = styled.div`
-    padding: 2.4rem 3.6rem;
-    max-width: 29.9rem;
+    padding: 2.4rem 4rem;
+    max-width: 30.8rem;
     width: 100%;
     height: 8.4rem;
     border-radius: 4px;
@@ -107,10 +112,10 @@ const Span = styled.span`
 const StartTrader = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletL : false)
+        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tabletL : false)
+        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
     })
 
@@ -138,7 +143,7 @@ const StartTrader = () => {
                 </TabItem>
             </Flex>
 
-            <Flex mt="8rem">
+            <Flex max_width="1200px" mt="8rem">
                 {tab === 'Demo' ? (
                     <SideTab>
                         <SideTab.Panel

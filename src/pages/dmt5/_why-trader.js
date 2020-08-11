@@ -21,17 +21,32 @@ const Section = styled(SectionContainer)`
         padding: 40px 16px;
     }
 `
+const CardContainer = styled(Flex)`
+    @media ${device.laptopM} {
+        max-width: 58rem;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+`
 const Card = styled(Flex)`
     flex-direction: column;
+    min-width: 28.2rem;
     max-width: 28.2rem;
-    max-height: 28.8rem;
-    height: unset;
+    height: 29rem;
     padding: 2.4rem 2.4rem 4rem;
     border-radius: 8px;
     border: solid 1px var(--color-grey-21);
     margin-right: 2.4rem;
+    margin-bottom: 2rem;
     justify-content: flex-start;
 
+    :last-child {
+        margin-right: 0;
+    }
+
+    @media ${device.laptopM} {
+        margin-right: 0;
+    }
     @media ${device.tablet} {
         margin-bottom: 24px;
         max-width: 100%;
@@ -44,7 +59,7 @@ const WhyTrader = () => {
             <Header align="center" mb="4rem" as="h2">
                 {localize('Why trade with DMT5')}
             </Header>
-            <Flex tablet_direction="column">
+            <CardContainer>
                 <Card>
                     <InstantAccess />
                     <Header mt="0.8rem" mb="0.8rem" as="h4">
@@ -89,7 +104,7 @@ const WhyTrader = () => {
                         )}
                     </Text>
                 </Card>
-            </Flex>
+            </CardContainer>
         </Section>
     )
 }

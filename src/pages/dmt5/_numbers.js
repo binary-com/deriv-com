@@ -10,11 +10,14 @@ const NumberSection = styled(SectionContainer)`
     background-color: var(--color-grey-25);
     padding: 4rem 12rem;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
+    @media ${device.laptopM} {
+        padding: 4rem 4rem;
+    }
     @media ${device.tablet} {
         flex-direction: column;
-        padding: 24px 0 8px;
+        padding: 4rem 4rem;
         justify-content: center;
     }
 `
@@ -31,6 +34,7 @@ const Splitter = styled.div`
 `
 const StyledHeader = styled(Header)`
     width: auto;
+    line-height: 1.5rem;
 
     @media ${device.tablet} {
         margin-bottom: 8px;
@@ -44,6 +48,7 @@ const StyledText = styled(Text)`
 `
 const Number = styled(Flex)`
     align-items: center;
+    width: unset;
 
     @media ${device.tablet} {
         flex-direction: column;
@@ -54,21 +59,23 @@ const Number = styled(Flex)`
 const Numbers = () => {
     return (
         <NumberSection>
-            <Number>
-                <StyledHeader as="h2">{localize('330K+')}</StyledHeader>
-                <Splitter />
-                <StyledText>{localize('clients on DMT5')}</StyledText>
-            </Number>
-            <Number>
-                <StyledHeader as="h2">{localize('100+')}</StyledHeader>
-                <Splitter />
-                <StyledText>{localize('tradable assets')}</StyledText>
-            </Number>
-            <Number>
-                <StyledHeader as="h2">{localize('24/7')}</StyledHeader>
-                <Splitter />
-                <StyledText>{localize('trading')}</StyledText>
-            </Number>
+            <Flex tablet_direction="column" max_width="1200px" jc="space-between">
+                <Number>
+                    <StyledHeader as="h2">{localize('330K+')}</StyledHeader>
+                    <Splitter />
+                    <StyledText>{localize('clients on DMT5')}</StyledText>
+                </Number>
+                <Number>
+                    <StyledHeader as="h2">{localize('100+')}</StyledHeader>
+                    <Splitter />
+                    <StyledText>{localize('tradable assets')}</StyledText>
+                </Number>
+                <Number>
+                    <StyledHeader as="h2">{localize('24/7')}</StyledHeader>
+                    <Splitter />
+                    <StyledText>{localize('trading')}</StyledText>
+                </Number>
+            </Flex>
         </NumberSection>
     )
 }

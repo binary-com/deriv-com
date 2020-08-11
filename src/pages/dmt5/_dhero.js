@@ -13,12 +13,22 @@ const Wrapper = styled(Flex)`
     position: relative;
     justify-content: flex-start;
     background-color: var(--color-black);
-    height: 602px;
+    height: 60.2rem;
     padding: 12rem 12rem 9rem 12rem;
 
+    @media ${device.laptopM} {
+        height: 52.7rem;
+        padding: 8rem 12rem 9rem 8rem;
+    }
+    @media ${device.laptop} {
+        height: 56.8rem;
+    }
+    @media ${device.tabletL} {
+        height: 53rem;
+    }
     @media ${device.mobileL} {
         padding: unset;
-        height: 634px;
+        height: 63.4rem;
         flex-direction: column-reverse;
     }
 `
@@ -33,7 +43,6 @@ const HeroContent = styled(Flex)`
         margin-top: 1.5rem;
         line-height: 1.25;
     }
-
     @media ${device.laptopM} {
         ${Header} {
             font-size: 32px;
@@ -53,11 +62,18 @@ const StyledHeader = styled(Header)`
 
 const LottieWrapper = styled.div`
     width: 100%;
-    max-width: 580px;
+    max-width: 58rem;
     position: absolute;
     top: 2.3rem;
     right: 12rem;
 
+    @media ${device.laptopM} {
+        max-width: 51rem;
+    }
+    @media ${device.tabletL} {
+        max-width: 54rem;
+        right: 3rem;
+    }
     @media ${device.mobileL} {
         max-width: 425px;
         top: 0;
@@ -74,8 +90,9 @@ const LinkWrapper = styled.div`
     @media (max-width: 1420px) {
         top: 480px;
     }
-    @media ${device.laptopM} {
+    @media ${device.laptop} {
         top: 350px;
+        display: inline-block;
     }
     @media ${device.tabletL} {
         top: 236px;
@@ -92,8 +109,11 @@ const LinkWrapper = styled.div`
 
 const StyledLinkButton = styled(LinkButton)`
     padding: 1.4rem 1.6rem;
-    width: auto;
+    width: 100%;
+    max-width: 20.2rem;
     font-size: 14px;
+    max-height: 4rem;
+    height: 100%;
     margin-right: 2px;
     border: unset;
 
@@ -107,16 +127,20 @@ const StyledLinkButton = styled(LinkButton)`
     }
 `
 const StyledContent = styled(Header)`
-    font-size: 5.6rem;
-
     @media (max-width: 1322px) {
         font-size: 4.2rem;
     }
 `
 const InformationWrapper = styled(Flex)`
     width: 100%;
-    max-width: 562px;
+    max-width: 56.2rem;
 
+    @media (max-width: 1277px) {
+        max-width: 44rem;
+    }
+    @media ${device.tabletL} {
+        max-width: 40rem;
+    }
     @media ${device.mobileL} {
         top: 280px;
         max-width: 328px;
@@ -215,6 +239,7 @@ const DHero = ({
         @media ${device.tabletL} {
             width: 45%;
             max-width: 350px;
+            right: 120px;
         }
         @media ${device.tablet} {
             width: 70%;
@@ -247,7 +272,7 @@ const DHero = ({
                     {title}
                 </StyledHeader>
                 <HeroContent>
-                    <StyledContent as="h2">{content}</StyledContent>
+                    <StyledContent as="h1">{content}</StyledContent>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (

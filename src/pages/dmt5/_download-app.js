@@ -26,17 +26,20 @@ const Section = styled(SectionContainer)`
     align-items: flex-start;
     background-color: var(--color-grey-25);
 
+    @media ${device.laptopL} {
+        padding: 0 1rem 0;
+    }
     @media ${device.tablet} {
         padding: 40px 16px;
         flex-direction: column;
         height: auto;
+        align-items: center;
     }
 `
 const Separator = styled.div`
     width: 2px;
     height: 100%;
     background-color: rgba(133, 147, 164, 0.16);
-    margin-left: 9.8rem;
 `
 const ImageWrapper = styled.div`
     margin-top: 4rem;
@@ -51,7 +54,7 @@ const DownloadApp = () => {
 
     return (
         <Section>
-            <Flex jc="end" fd="column" width="100%" max_width="28.6rem" mt="4rem" height="auto">
+            <Flex jc="end" fd="column" width="100%" max_width="38.2rem" mt="4rem" height="auto">
                 <Header as="h4">{localize('Desktop')}</Header>
                 <Flex mt="0.8rem" jc="flex-start" height="auto">
                     <Box mr="0.8rem">

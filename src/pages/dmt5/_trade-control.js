@@ -41,10 +41,13 @@ const ImageWrapper = styled.div`
 `
 const ControlCard = styled(Flex)`
     background-color: var(--color-grey-25);
-    width: 50%;
+    width: 58%;
     padding: 11.9rem 4rem 27.3rem 16rem;
     flex-direction: column;
 
+    @media ${device.laptopM} {
+        padding: 11.9rem 4rem 10rem 3rem;
+    }
     @media ${device.tablet} {
         width: 100%;
         padding: 40px 16px;
@@ -116,7 +119,7 @@ const TradeControl = () => {
         <Section>
             <ControlCard>
                 <StyledHeader as="h2" mb="1.2rem">
-                    {localize('Take control of your trades on DMT5s')}
+                    {localize('Take control of your trades on DMT5')}
                 </StyledHeader>
                 <Text>
                     <Localize
@@ -124,7 +127,7 @@ const TradeControl = () => {
                         components={[<Span key={0} />]}
                     />
                 </Text>
-                <Text>
+                <Text mt="2.4rem">
                     {localize(
                         'With the calculators and numerous analytical tools available on the DMT5 platform, you’ll be able to manage your capital and trading positions better.',
                     )}

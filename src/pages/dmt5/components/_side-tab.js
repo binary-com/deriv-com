@@ -14,7 +14,7 @@ const TabButton = styled.div`
     display: flex;
     flex-direction: column;
     padding-left: 1.6rem;
-    margin-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
     cursor: pointer;
 
     ${Text} {

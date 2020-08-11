@@ -44,12 +44,9 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
-    LocalStore.set('window_loaded', '')
     NProgress.start()
-    window.onload = () => {
-        LocalStore.set('window_loaded', 'true')
-    }
 
+    // Add GTM script for test domain
     if (window.location.hostname === gtm_test_domain) {
         const gtm = document.createElement('script')
         gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TNX2ZKH'

@@ -134,6 +134,9 @@ const CookieStorage = function (cookie_name, cookie_domain) {
 
     this.initialized = false
     this.cookie_name = cookie_name
+    // 'test.domain' is used during dev as sample domain
+    // In order to test cookies, run 'gatsby develop -H 0.0.0.0'
+    // Note. You need to point sample domain to localhost (127.0.0.1)
     this.domain =
         cookie_domain || (isProduction() ? `.${hostname.split('.').slice(-2).join('.')}` : hostname)
     this.path = '/'

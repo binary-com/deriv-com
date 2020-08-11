@@ -2,13 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import { LocaleContext } from '../localization'
 import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
 import { LocationProvider } from './location-context'
 import LiveChat from './livechat'
-import { LocalStore } from 'common/storage'
 import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
 import { BinarySocketBase } from 'common/websocket/socket_base'
@@ -27,7 +25,6 @@ const cookie_expires = 7
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
-    const { has_window_loaded } = React.useContext(LocaleContext)
 
     const is_static = type === 'static'
 
@@ -59,17 +56,18 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 
     React.useEffect(() => {
         if (!clients_country) return
-        if (!has_window_loaded && !LocalStore.get('window_loaded')) return
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            const is_eu_country = isEuCountry(clients_country)
+            const tracking_status = Cookies.get('tracking_status')
 
-        const is_eu_country = isEuCountry(clients_country)
-        const tracking_status = Cookies.get('tracking_status')
+            if (is_eu_country && !tracking_status) setShowCookieBanner(true)
 
-        if (is_eu_country && !tracking_status) setShowCookieBanner(true)
+            const allow_tracking =
+                (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
 
-        const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
-
-        if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
-    }, [clients_country, has_window_loaded])
+            if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
+        }
+    }, [clients_country])
 
     const onAccept = () => {
         Cookies.set('tracking_status', 'accepted', {

@@ -1,17 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ContactWays } from './_contact-ways'
+import ContactWays from './_contact-ways'
 import { Offices } from './_offices'
 import { Affiliates } from './_affiliates'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements/typography'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SEO, Show } from 'components/containers'
+import { SEO } from 'components/containers'
 
 const HeroWrapper = styled.section`
     width: 100%;
-    background-color: var(--color-white);
     padding: 8rem;
 
     * {
@@ -51,21 +50,9 @@ const ContactUs = () => {
             />
             <HeroWrapper>
                 <Header as="h1">{localize('Contact us')}</Header>
-                <Show.Desktop>
-                    <StyledText align="center" size="var(--text-size-sm)">
-                        {localize(
-                            'Got questions, bug reports, feedback, or feature requests? Here are some ways to get in touch with us.',
-                        )}
-                    </StyledText>
-                </Show.Desktop>
-                <Show.Mobile>
-                    <StyledText align="center" size="var(--text-size-sm)">
-                        {localize('Got questions, bug reports, feedback, or feature requests?')}
-                    </StyledText>
-                    <StyledText align="center" size="var(--text-size-sm)">
-                        {localize('Here are some ways to get in touch with us.')}
-                    </StyledText>
-                </Show.Mobile>
+                <StyledText align="center" size="var(--text-size-sm)">
+                    {localize("Got questions? Here's how to get answers")}
+                </StyledText>
             </HeroWrapper>
             <ContactWays />
             <Offices />

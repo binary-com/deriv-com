@@ -314,13 +314,9 @@ const WhatOurClientsSay = () => {
     return (
         <>
             <Helmet>
-                <link
-                    as="style"
-                    rel="preload"
-                    type="text/css"
-                    href="/css/swiper.css"
-                    onLoad="this.rel='stylesheet'"
-                />
+                {/* browsers that support preload will preload --> other browsers (firefox, safari) will use normal link  */}
+                <link rel="preload" href="/css/swiper.css" as="style" />
+                <link rel="stylesheet" href="/css/swiper.css" />
             </Helmet>
             <StyledSection>
                 <Container direction="column">

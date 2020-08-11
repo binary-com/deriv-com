@@ -3,11 +3,16 @@ import styled from 'styled-components'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
+import device from 'themes/device'
 // SVG
 import Mail from 'images/svg/contact/mail.svg'
 
 const Wrapper = styled(SectionContainer)`
     border-top: 1px solid var(--color-grey-2);
+
+    @media ${device.mobileL} {
+        border-top: none;
+    }
 `
 
 const CardContainer = styled(Container)`
@@ -34,6 +39,17 @@ const Item = styled(Flex)`
     @media (max-width: 1280px) {
         & > * {
             text-align: center;
+        }
+    }
+    @media ${device.mobileL} {
+        ${Header} {
+            font-size: 24px;
+        }
+        ${Text} {
+            font-size: 16px;
+        }
+        ${LinkText} {
+            font-size: 20px;
         }
     }
 `

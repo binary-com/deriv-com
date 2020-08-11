@@ -93,7 +93,6 @@ const affiliate_signup_url = 'https://login.deriv.com/signup.php'
 const affiliate_signin_url = 'https://login.deriv.com/signin.php'
 const community_url = 'https://community.deriv.com/'
 const brand_name = 'Deriv'
-const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 const gtm_test_domain = 'deriv-com.binary.sx'
 
 export {
@@ -113,7 +112,6 @@ export {
     getLanguage,
     getLocationHash,
     gtm_test_domain,
-    map_api_key,
     PromiseClass,
     sanitize,
     scrollTop,

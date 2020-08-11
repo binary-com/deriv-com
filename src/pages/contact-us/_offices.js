@@ -54,10 +54,32 @@ const GridLayout = styled.div`
     }
 `
 
+const MapContainer = styled.div`
+    width: 100%;
+    max-width: 22.8rem;
+    height: 12rem;
+`
+
 const BorderBox = styled.div`
     display: flex;
     padding-top: 1.6rem;
     border-top: 1px solid var(--color-grey-2);
+
+    @media ${device.mobileL} {
+        flex-direction: column-reverse;
+        border-top: none;
+
+        ${MapContainer} {
+            height: 173px;
+            max-width: 100%;
+        }
+        ${Text} {
+            font-size: 16px;
+            margin-left: 0;
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+    }
 `
 
 const CountryText = styled(Text)`
@@ -67,23 +89,53 @@ const CountryText = styled(Text)`
 `
 
 const FullBorder = styled(BorderBox)`
-    padding: 2.4rem;
-    padding-left: 0;
-    border-right: 1px solid var(--color-grey-2);
+    padding: 2.4rem 0;
     border-bottom: 1px solid var(--color-grey-2);
 `
 
-const MapContainer = styled.div`
-    width: 100%;
-    max-width: 22.8rem;
-    height: 12rem;
+const ResHeader = styled(Header)`
+    margin-bottom: 4rem;
+    text-align: center;
+
+    @media ${device.tablet} {
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
 `
 
-// const Iframe = styled.iframe`
-//     width: 100%;
-//     height: 100%;
-//     border: 0;
-// `
+const OfficeHeader = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media ${device.mobileL} {
+        flex-direction: row;
+        margin-bottom: 8px;
+
+        ${Header} {
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 16px;
+            align-self: flex-end;
+            font-size: 20px;
+        }
+    }
+`
+
+const FullBox = styled(Flex)`
+    @media ${device.mobileL} {
+        flex-direction: column-reverse;
+    }
+
+    ${Box} {
+        margin-top: 0;
+        margin-left: 0;
+    }
+    ${CountryText} {
+        margin-top: 0;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+`
 
 export const Offices = () => {
     const data = useStaticQuery(query)
@@ -92,17 +144,18 @@ export const Offices = () => {
         <SectionContainer>
             <Container>
                 <Content>
-                    <Header as="h2" mb="4rem" align="center">
-                        {localize('Our offices')}
-                    </Header>
+                    <ResHeader as="h2">{localize('Our offices')}</ResHeader>
                     <GridLayout>
                         <Flex fd="column" max_width="48.6rem">
-                            <div>
-                                <Malta />
-                            </div>
-                            <Header as="h4" mt="0.8rem" mb="1.6rem">
-                                {localize('Malta')}
-                            </Header>
+                            <OfficeHeader>
+                                <div>
+                                    <Malta />
+                                </div>
+                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                    {localize('Malta')}
+                                </Header>
+                            </OfficeHeader>
+
                             <BorderBox>
                                 <MapContainer>
                                     <QueryImage
@@ -110,9 +163,6 @@ export const Offices = () => {
                                         data={data['map_malta']}
                                         height="100%"
                                     />
-                                    {/* <Iframe
-                                        src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJN3l6prJaDhMRHIoQuWdZDeI&key=${map_api_key}`}
-                                    /> */}
                                 </MapContainer>
                                 <Text mt="0.8rem" ml="1.6rem">
                                     Level 3, W Business Centre, Triq Dun Karm, Birkirkara, BKR 9033
@@ -120,12 +170,14 @@ export const Offices = () => {
                             </BorderBox>
                         </Flex>
                         <Flex fd="column" max_width="48.6rem">
-                            <div>
-                                <Dubai />
-                            </div>
-                            <Header as="h4" mt="0.8rem" mb="1.6rem">
-                                {localize('Dubai')}
-                            </Header>
+                            <OfficeHeader>
+                                <div>
+                                    <Dubai />
+                                </div>
+                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                    {localize('Dubai')}
+                                </Header>
+                            </OfficeHeader>
                             <BorderBox>
                                 <MapContainer>
                                     <QueryImage
@@ -141,15 +193,17 @@ export const Offices = () => {
                         </Flex>
                     </GridLayout>
                     <Flex fd="column" m="4rem 0">
-                        <div>
-                            <Malaysia />
-                        </div>
-                        <Header as="h4" mt="0.8rem" mb="1.6rem">
-                            {localize('Malaysia')}
-                        </Header>
+                        <OfficeHeader>
+                            <div>
+                                <Malaysia />
+                            </div>
+                            <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                {localize('Malaysia')}
+                            </Header>
+                        </OfficeHeader>
                         <FullBorder>
                             <GridLayout>
-                                <Flex>
+                                <FullBox>
                                     <MapContainer>
                                         <QueryImage
                                             alt="Map Cyberjaya"
@@ -167,8 +221,8 @@ export const Offices = () => {
                                             Cyberjaya, Selangor
                                         </Text>
                                     </Box>
-                                </Flex>
-                                <Flex>
+                                </FullBox>
+                                <FullBox>
                                     <MapContainer>
                                         <QueryImage
                                             alt="Map Labuan"
@@ -183,8 +237,8 @@ export const Offices = () => {
                                             87000, Labuan
                                         </Text>
                                     </Box>
-                                </Flex>
-                                <Flex>
+                                </FullBox>
+                                <FullBox>
                                     <MapContainer>
                                         <QueryImage
                                             alt="Map Ipoh"
@@ -199,8 +253,8 @@ export const Offices = () => {
                                             Ipoh, Perak
                                         </Text>
                                     </Box>
-                                </Flex>
-                                <Flex>
+                                </FullBox>
+                                <FullBox>
                                     <MapContainer>
                                         <QueryImage
                                             alt="Map Melaka"
@@ -215,17 +269,19 @@ export const Offices = () => {
                                             Melaka
                                         </Text>
                                     </Box>
-                                </Flex>
+                                </FullBox>
                             </GridLayout>
                         </FullBorder>
                     </Flex>
                     <Flex mt="4rem" fd="column" max_width="48.6rem">
-                        <div>
-                            <Paraguay />
-                        </div>
-                        <Header as="h4" mt="0.8rem" mb="1.6rem">
-                            {localize('Paraguay')}
-                        </Header>
+                        <OfficeHeader>
+                            <div>
+                                <Paraguay />
+                            </div>
+                            <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                {localize('Paraguay')}
+                            </Header>
+                        </OfficeHeader>
                         <BorderBox>
                             <MapContainer>
                                 <QueryImage

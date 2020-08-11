@@ -289,7 +289,7 @@ const Regulatory = () => {
                                 </Text>
                                 <Text max_width="58.8rem">
                                     {localize(
-                                        'Clients in the Isle of Man and the UK who wish to trade gambling products will have their accounts opened under Deriv (MX) Limited.',
+                                        'Clients in the Isle of Man and the UK who wish to trade gambling products will have their accounts opened under Deriv (MX) Ltd.',
                                     )}
                                 </Text>
                             </CssGridColumn>

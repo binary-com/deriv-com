@@ -124,16 +124,16 @@ const OfficeHeader = styled.div`
 const FullBox = styled(Flex)`
     @media ${device.mobileL} {
         flex-direction: column-reverse;
-    }
 
-    ${Box} {
-        margin-top: 0;
-        margin-left: 0;
-    }
-    ${CountryText} {
-        margin-top: 0;
-        margin-bottom: 8px;
-        font-size: 14px;
+        ${Box} {
+            margin-top: 0;
+            margin-left: 0;
+        }
+        ${CountryText} {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
     }
 `
 

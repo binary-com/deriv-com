@@ -2,11 +2,11 @@ import Cookies from 'js-cookie'
 import { getPropertyValue, isEmptyObject, isBrowser } from './utility'
 import { isProduction } from './websocket/config'
 
-const getObject = function(key) {
+const getObject = function (key) {
     return JSON.parse(this.getItem(key) || '{}')
 }
 
-const setObject = function(key, value) {
+const setObject = function (key, value) {
     if (value && value instanceof Object) {
         this.setItem(key, JSON.stringify(value))
     }
@@ -17,7 +17,7 @@ if (typeof Storage !== 'undefined') {
     Storage.prototype.setObject = setObject
 }
 
-const isStorageSupported = storage => {
+const isStorageSupported = (storage) => {
     if (typeof storage === 'undefined') {
         return false
     }
@@ -32,7 +32,7 @@ const isStorageSupported = storage => {
     }
 }
 
-const Store = function(storage) {
+const Store = function (storage) {
     this.storage = storage
     this.storage.getObject = getObject
     this.storage.setObject = setObject
@@ -68,7 +68,7 @@ Store.prototype = {
     },
 }
 
-const InScriptStore = function(object) {
+const InScriptStore = function (object) {
     this.store = typeof object !== 'undefined' ? object : {}
 }
 
@@ -93,7 +93,7 @@ InScriptStore.prototype = {
         this.set(key, JSON.stringify(value))
     },
     remove(...keys) {
-        keys.forEach(key => {
+        keys.forEach((key) => {
             delete this.store[key]
         })
     },
@@ -119,7 +119,7 @@ State.prototype = InScriptStore.prototype
  * @param {String} pathname
  *     e.g. getResponse('authorize.currency') == get(['response', 'authorize', 'authorize', 'currency'])
  */
-State.prototype.getResponse = function(pathname) {
+State.prototype.getResponse = function (pathname) {
     let path = pathname
     if (typeof path === 'string') {
         const keys = path.split('.')
@@ -129,19 +129,13 @@ State.prototype.getResponse = function(pathname) {
 }
 State.set('response', {})
 
-const CookieStorage = function(cookie_name, cookie_domain) {
+const CookieStorage = function (cookie_name, cookie_domain) {
     const hostname = window.location.hostname
 
     this.initialized = false
     this.cookie_name = cookie_name
     this.domain =
-        cookie_domain ||
-        (isProduction()
-            ? `.${hostname
-                  .split('.')
-                  .slice(-2)
-                  .join('.')}`
-            : hostname)
+        cookie_domain || (isProduction() ? `.${hostname.split('.').slice(-2).join('.')}` : hostname)
     this.path = '/'
     this.expires = new Date('Thu, 1 Jan 2037 12:00:00 GMT')
     this.value = {}

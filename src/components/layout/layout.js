@@ -38,7 +38,7 @@ const has_dataLayer = isBrowser() && window.dataLayer
 
 const cookie_domain = isProduction()
     ? deriv_cookie_domain
-    : isBrowser() && `${window.location.hostname}`
+    : isBrowser() && `.${window.location.hostname}`
 const CLIENTS_COUNTRY_KEY = 'clients_country'
 const TRACKING_STATUS_KEY = 'tracking_status'
 const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY, cookie_domain)

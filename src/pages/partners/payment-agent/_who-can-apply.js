@@ -189,7 +189,7 @@ const WhoCanApply = () => {
                 </Flex>
             </StyledSection>
             <ButtonWrapper padding="3.4rem 0 0">
-                <LinkButton secondary external="true" to="mailto:paymentagents@deriv.com">
+                <LinkButton secondary external="true" to="mailto:partners@deriv.com">
                     {localize('Send us an email to apply')}
                 </LinkButton>
             </ButtonWrapper>

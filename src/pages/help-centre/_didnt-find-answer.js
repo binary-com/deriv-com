@@ -41,6 +41,7 @@ const MiddleText = styled(Text)`
     @media ${device.mobileL} {
         margin: 1.6rem 0;
         text-align: center;
+        font-weight: bold;
     }
 `
 

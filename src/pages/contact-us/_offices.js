@@ -67,7 +67,6 @@ const BorderBox = styled.div`
 
     @media ${device.mobileL} {
         flex-direction: column-reverse;
-        border-top: none;
 
         ${MapContainer} {
             height: 173px;

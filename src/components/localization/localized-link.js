@@ -72,6 +72,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         style,
         is_binary_link,
         is_affiliate_link,
+        is_mail_link,
         is_affiliate_sign_in_link,
         is_smarttrader_link,
         ariaLabel,
@@ -101,6 +102,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         }
         if (
             is_eu_country &&
+            !is_mail_link &&
             !is_smarttrader_link &&
             !is_affiliate_link &&
             !is_affiliate_sign_in_link
@@ -191,6 +193,7 @@ LocalizedLink.propTypes = {
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
+    is_mail_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
     props: PropTypes.object,
     rel: PropTypes.string,

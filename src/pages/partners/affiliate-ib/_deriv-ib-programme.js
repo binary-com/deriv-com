@@ -112,7 +112,12 @@ const DerivIBProgramme = () => {
                         <StyledHeader as="h4" align="center" weight="500" mb="2.6rem">
                             {localize('Can’t decide which programme or commission plan suits you?')}
                         </StyledHeader>
-                        <LinkButton external="true" secondary to="mailto:partners@deriv.com">
+                        <LinkButton
+                            external="true"
+                            secondary
+                            to="mailto:partners@deriv.com"
+                            is_mail_link
+                        >
                             {localize('Contact us')}
                         </LinkButton>
                     </StyledSection>

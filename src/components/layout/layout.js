@@ -78,7 +78,6 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                     clients_country_cookie.set(
                         CLIENTS_COUNTRY_KEY,
                         response.website_status.clients_country,
-                        { sameSite: 'none', secure: true },
                     )
                 }
 
@@ -112,10 +111,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     }, [clients_country])
 
     const onAccept = () => {
-        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted', {
-            sameSite: 'none',
-            secure: true,
-        })
+        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
         if (has_dataLayer) window.dataLayer.push({ event: 'allow_tracking' })
 
@@ -123,10 +119,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     }
 
     const onDecline = () => {
-        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'declined', {
-            sameSite: 'none',
-            secure: true,
-        })
+        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'declined')
         setShowCookieBanner(false)
     }
 

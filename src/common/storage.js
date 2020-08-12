@@ -137,6 +137,8 @@ const CookieStorage = function (cookie_name, cookie_domain) {
         cookie_domain ||
         (String(hostname).includes('binary.sx') ? 'binary.sx' : deriv_cookie_domain)
     this.path = '/'
+    this.same_site = 'none'
+    this.is_secure = true
     this.expires = new Date('Thu, 1 Jan 2037 12:00:00 GMT')
     this.value = {}
 }
@@ -174,6 +176,8 @@ CookieStorage.prototype = {
             expires: new Date(this.expires),
             path: this.path,
             domain: this.domain,
+            secure: this.is_secure,
+            sameSite: this.same_site,
             ...options,
         })
     },

@@ -9,8 +9,7 @@ import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
 import { CookieStorage } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
-import { isProduction } from 'common/websocket/config'
-import { deriv_cookie_domain, isBrowser } from 'common/utility'
+import { isBrowser } from 'common/utility'
 import LiveChatIC from 'images/svg/livechat.svg'
 import LiveChatHover from 'images/svg/livechat-hover.svg'
 
@@ -36,13 +35,10 @@ const Main = styled.main`
 
 const has_dataLayer = isBrowser() && window.dataLayer
 
-const cookie_domain = isProduction()
-    ? deriv_cookie_domain
-    : isBrowser() && `.${window.location.hostname}`
 const CLIENTS_COUNTRY_KEY = 'clients_country'
 const TRACKING_STATUS_KEY = 'tracking_status'
-const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY, cookie_domain)
-const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY, cookie_domain)
+const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY)
+const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const LC_API = (isBrowser() && window.LC_API) || {}
@@ -82,7 +78,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                     clients_country_cookie.set(
                         CLIENTS_COUNTRY_KEY,
                         response.website_status.clients_country,
-                        { sameSite: 'none' },
+                        { sameSite: 'none', secure: true },
                     )
                 }
 
@@ -116,7 +112,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     }, [clients_country])
 
     const onAccept = () => {
-        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted', { sameSite: 'none' })
+        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted', {
+            sameSite: 'none',
+            secure: true,
+        })
 
         if (has_dataLayer) window.dataLayer.push({ event: 'allow_tracking' })
 
@@ -124,7 +123,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     }
 
     const onDecline = () => {
-        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'declined', { sameSite: 'none' })
+        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'declined', {
+            sameSite: 'none',
+            secure: true,
+        })
         setShowCookieBanner(false)
     }
 

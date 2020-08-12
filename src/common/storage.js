@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie'
-import { getPropertyValue, isEmptyObject, isBrowser } from './utility'
-import { isProduction } from './websocket/config'
+import { deriv_cookie_domain, getPropertyValue, isEmptyObject, isBrowser } from './utility'
 
 const getObject = function (key) {
     return JSON.parse(this.getItem(key) || '{}')
@@ -134,11 +133,8 @@ const CookieStorage = function (cookie_name, cookie_domain) {
 
     this.initialized = false
     this.cookie_name = cookie_name
-    // 'test.domain' is used during dev as sample domain
-    // In order to test cookies, run 'gatsby develop -H 0.0.0.0'
-    // Note. You need to point sample domain to localhost (127.0.0.1)
     this.domain =
-        cookie_domain || (isProduction() ? `.${hostname.split('.').slice(-2).join('.')}` : hostname)
+        cookie_domain || (hostname.includes('binary.sx') ? 'binary.sx' : deriv_cookie_domain)
     this.path = '/'
     this.expires = new Date('Thu, 1 Jan 2037 12:00:00 GMT')
     this.value = {}

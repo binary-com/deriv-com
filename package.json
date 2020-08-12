@@ -4,6 +4,7 @@
     "version": "0.1.0",
     "author": "Deriv",
     "dependencies": {
+        "axios": "^0.19.2",
         "commander": "^5.1.0",
         "crc-32": "^1.2.0",
         "extend": "^3.0.2",
@@ -36,7 +37,8 @@
         "react-perfect-scrollbar": "^1.5.8",
         "react-responsive": "^8.1.0",
         "swiper": "^5.4.5",
-        "typeface-ibm-plex-sans": "0.0.75"
+        "typeface-ibm-plex-sans": "0.0.75",
+        "xml2js": "^0.4.23"
     },
     "devDependencies": {
         "babel-eslint": "10.1.0",

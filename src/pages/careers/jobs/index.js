@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import styled from 'styled-components'
 import matchSorter from 'match-sorter'
 import { RoleBanner } from '../_layout-components/_banner'
@@ -87,11 +88,25 @@ const filterPositions = (filters, search) => {
 const Jobs = () => {
     if (!isBrowser()) return null
 
+    // const [career_data, setCareerData] = React.useState({})
+    // const [is_loading, setIsLoading] = React.useState(true)
+
     const [filters, setFilters] = React.useState(initializeFilters)
     const [search, setSearch] = React.useState(initializeSearch)
     const [filtered_positions, setFilteredPositions] = React.useState(() =>
         filterPositions(filters, search),
     )
+    const loadCareerData = async () => {
+        const response = await axios.get(
+            'https://recruit.zoho.com/recruit/private/json/JobOpenings/getRecords?authtoken=5018c547dbf6ecd1181c90942451fad1&scope=recruitapi',
+        )
+        // eslint-disable-next-line no-console
+        console.log(response)
+    }
+
+    React.useEffect(() => {
+        loadCareerData()
+    }, [])
 
     React.useEffect(() => {
         debouncedUpdateQueryParams(filters, search)

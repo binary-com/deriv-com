@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Text } from 'components/elements/typography'
+import { Text, LocalizedLinkText } from 'components/elements/typography'
 import { Header, QueryImage } from 'components/elements'
 import { SectionContainer, Container, Flex, Box } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // import { map_api_key } from 'common/utility'
 // SVG
@@ -78,6 +78,12 @@ const BorderBox = styled.div`
             margin-top: 8px;
             margin-bottom: 16px;
         }
+        ${LocalizedLinkText} {
+            font-size: 16px;
+            margin-left: 0;
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
     }
 `
 
@@ -127,11 +133,18 @@ const FullBox = styled(Flex)`
         ${Box} {
             margin-top: 0;
             margin-left: 0;
+            margin-bottom: 16px;
         }
         ${CountryText} {
             margin-top: 0;
             margin-bottom: 8px;
             font-size: 14px;
+        }
+        ${Text} {
+            margin-bottom: 0;
+        }
+        ${LocalizedLinkText} {
+            margin-bottom: 0;
         }
     }
 `
@@ -157,15 +170,29 @@ export const Offices = () => {
 
                             <BorderBox>
                                 <MapContainer>
-                                    <QueryImage
-                                        alt="Map Malta"
-                                        data={data['map_malta']}
-                                        height="100%"
-                                    />
+                                    <LocalizedLink
+                                        to="https://g.page/r/CRyKELlnWQ3iEAE"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Map Malta"
+                                            data={data['map_malta']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
                                 </MapContainer>
-                                <Text mt="0.8rem" ml="1.6rem">
+                                <LocalizedLinkText
+                                    to="https://g.page/r/CRyKELlnWQ3iEAE"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
                                     Level 3, W Business Centre, Triq Dun Karm, Birkirkara, BKR 9033
-                                </Text>
+                                </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
                         <Flex fd="column" max_width="48.6rem">
@@ -204,21 +231,30 @@ export const Offices = () => {
                             <GridLayout>
                                 <FullBox>
                                     <MapContainer>
-                                        <QueryImage
-                                            alt="Map Cyberjaya"
-                                            data={data['map_cyberjaya']}
-                                            height="100%"
-                                        />
-                                        {/* <Iframe
-                                            src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJyTcAIli2zTERA4MWDMgk9i0&key=${map_api_key}`}
-                                        /> */}
+                                        <LocalizedLink
+                                            to="https://g.page/r/CQODFgzIJPYtEAE"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <QueryImage
+                                                alt="Map Cyberjaya"
+                                                data={data['map_cyberjaya']}
+                                                height="100%"
+                                            />
+                                        </LocalizedLink>
                                     </MapContainer>
                                     <Box mt="0.8rem" ml="1.6rem">
                                         <CountryText>Cyberjaya</CountryText>
-                                        <Text>
+                                        <LocalizedLinkText
+                                            to="https://g.page/r/CQODFgzIJPYtEAE"
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
                                             C-13, iTech Tower, Jalan Impact, Cyber 6, 63000
                                             Cyberjaya, Selangor
-                                        </Text>
+                                        </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
                                 <FullBox>

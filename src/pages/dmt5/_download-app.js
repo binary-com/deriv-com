@@ -29,8 +29,8 @@ const Section = styled(SectionContainer)`
     @media ${device.laptopL} {
         padding: 0 1rem 0;
     }
-    @media ${device.tablet} {
-        padding: 40px 16px;
+    @media ${device.tabletL} {
+        padding: 40px 0 0;
         flex-direction: column;
         height: auto;
         align-items: center;
@@ -40,31 +40,57 @@ const Separator = styled.div`
     width: 2px;
     height: 100%;
     background-color: rgba(133, 147, 164, 0.16);
+
+    @media ${device.tabletL} {
+        width: 100%;
+        height: 1px;
+        margin-top: 40px;
+    }
 `
 const ImageWrapper = styled.div`
     margin-top: 4rem;
     width: 38.4rem;
     position: relative;
+
+    @media ${device.tabletL} {
+        margin-top: 24px;
+    }
 `
 const StyledInfo = styled(MoreInfo)`
     margin-top: 0.5rem;
 `
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        font-size: 20px;
+    }
+`
+
 const DownloadApp = () => {
     const data = useStaticQuery(query)
 
     return (
         <Section>
-            <Flex jc="end" fd="column" width="100%" max_width="38.2rem" mt="4rem" height="auto">
-                <Header as="h4">{localize('Desktop')}</Header>
+            <Flex
+                jc="flex-start"
+                tablet_jc="center"
+                fd="column"
+                width="100%"
+                max_width="38.2rem"
+                mt="4rem"
+                height="auto"
+                tabletL={{ mt: '0', pl: '10px', pr: '10px' }}
+            >
+                <StyledHeader as="h4">{localize('Desktop')}</StyledHeader>
                 <Flex mt="0.8rem" jc="flex-start" height="auto">
                     <Box mr="0.8rem">
                         <Windows />
                     </Box>
                     <Linux />
                 </Flex>
-                <Header mt="2.4rem" as="h4">
+
+                <StyledHeader mt="2.4rem" as="h4">
                     {localize('Mobile')}
-                </Header>
+                </StyledHeader>
                 <Flex mt="0.8rem" jc="flex-start">
                     <Box mr="0.8rem">
                         <AppStore />
@@ -74,9 +100,18 @@ const DownloadApp = () => {
             </Flex>
 
             <Separator />
-            <Flex height="auto" ml="5.6rem" max_width="31rem" mt="10.8rem" mr="5.6rem">
+
+            <Flex
+                height="auto"
+                ml="5.6rem"
+                max_width="31rem"
+                mt="10.8rem"
+                mr="5.6rem"
+                tabletL={{ max_width: '290px', mt: '40px' }}
+                laptopM={{ mr: '2px', ml: '2px' }}
+            >
                 <StyledInfo />
-                <Text width="100%" max_width="28rem" ml="1.6rem" size="var(--text-size-m)">
+                <Text width="100%" ml="1.6rem" size="var(--text-size-m)">
                     <Localize
                         translate_text="For mobile app sign-ups, set the broker code to <0>Deriv Limited</0>."
                         components={[<strong key={0} />]}

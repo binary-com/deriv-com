@@ -66,12 +66,13 @@ const Section = styled(SectionContainer)`
     @media ${device.laptopM} {
         padding: 8rem 6rem;
     }
-    @media ${device.mobileL} {
-        padding: 40px 16px;
+    @media ${device.tabletS} {
+        padding: 40px 0;
+        height: auto;
     }
 `
 const ImageWrapper = styled.div`
-    max-width: ${(props) => (props.is_mobile ? '24.6rem' : '79.2rem')};
+    max-width: 79.2rem;
     width: 100%;
     height: 43.4rem;
     position: relative;
@@ -79,6 +80,17 @@ const ImageWrapper = styled.div`
 
     div {
         width: 100%;
+    }
+    @media ${device.tabletS} {
+        max-width: 576px;
+        width: 100%;
+        margin: 0 0 24px;
+        height: unset;
+
+        div {
+            max-width: 576px;
+            width: 100%;
+        }
     }
 `
 const TabItem = styled.div`
@@ -104,18 +116,39 @@ const TabItem = styled.div`
                       font-weight: unset;
                   }
               `}
+
+    @media ${device.mobileL} {
+        padding: 24px 24px;
+
+        :last-child{
+            padding: 12px 24px;
+        }
+    }
 `
 const Span = styled.span`
     color: red;
 `
 
+const StyledHeader = styled(Header)`
+    @media ${device.mobileL} {
+        font-size: 32px;
+        margin-bottom: 24px;
+        padding: 0 16px;
+    }
+`
+const StyledText = styled(Text)`
+    @media ${device.mobileL} {
+        font-size: 16px;
+    }
+`
+
 const StartTrader = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
     }
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
+        setMobile(isBrowser() ? window.screen.width <= size.tabletS : false)
         window.addEventListener('resize', handleResizeWindow)
     })
 
@@ -127,23 +160,23 @@ const StartTrader = () => {
     }
     return (
         <Section>
-            <Header align="center" mb="4rem" as="h2">
+            <StyledHeader align="center" mb="4rem" as="h2">
                 {localize('How to get started with a DMT5 account')}
-            </Header>
-            <Flex>
+            </StyledHeader>
+            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
                 <TabItem active={tab === 'Demo'} onClick={() => onTabClick('Demo')}>
-                    <Text size="var(--text-size-m)" align="center">
+                    <StyledText size="var(--text-size-m)" align="center">
                         {localize('Demo account')}
-                    </Text>
+                    </StyledText>
                 </TabItem>
                 <TabItem active={tab === 'Real'} onClick={() => onTabClick('Real')}>
-                    <Text size="var(--text-size-m)" align="center">
+                    <StyledText size="var(--text-size-m)" align="center">
                         {localize('Real money account')}
-                    </Text>
+                    </StyledText>
                 </TabItem>
             </Flex>
 
-            <Flex max_width="1200px" mt="8rem">
+            <Flex max_width="1200px">
                 {tab === 'Demo' ? (
                     <SideTab>
                         <SideTab.Panel
@@ -156,7 +189,7 @@ const StartTrader = () => {
                             }
                             item_width="24rem"
                         >
-                            <ImageWrapper is_mobile={is_mobile}>
+                            <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step1_mobile' : 'demo_step1']}
                                     alt="Trade types option market"
@@ -169,7 +202,7 @@ const StartTrader = () => {
                                 <Localize translate_text="Add a DMT5 demo account and choose what you want to trade" />
                             }
                         >
-                            <ImageWrapper is_mobile={is_mobile}>
+                            <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
                                     alt="Trade types option market"
@@ -183,7 +216,7 @@ const StartTrader = () => {
                             }
                             item_width="36rem"
                         >
-                            <ImageWrapper is_mobile={is_mobile}>
+                            <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step3_mobile' : 'demo_step3']}
                                     alt="Trade types option market"
@@ -203,7 +236,7 @@ const StartTrader = () => {
                             }
                             item_width="27rem"
                         >
-                            <ImageWrapper is_mobile={is_mobile}>
+                            <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
                                     alt="Trade types option market"
@@ -216,7 +249,7 @@ const StartTrader = () => {
                                 <Localize translate_text="Create a Deriv real money account" />
                             }
                         >
-                            <ImageWrapper is_mobile={is_mobile}>
+                            <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
                                     alt="Trade types option market"
@@ -229,7 +262,7 @@ const StartTrader = () => {
                                 <Localize translate_text="Create a DMT5 real money account based on your trade preference" />
                             }
                         >
-                            <ImageWrapper is_mobile={is_mobile}>
+                            <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
                                     alt="Trade types option market"
@@ -242,7 +275,7 @@ const StartTrader = () => {
                                 <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser" />
                             }
                         >
-                            <ImageWrapper is_mobile={is_mobile}>
+                            <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
                                     alt="Trade types option market"

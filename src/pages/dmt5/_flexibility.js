@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { deriv_app_url } from 'common/utility'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { deriv_app_url } from 'common/utility'
-import { Localize, localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import SyntheticIcon from 'images/svg/synthetic.svg'
-import FinancialIcon from 'images/svg/financial.svg'
+import { Localize, localize } from 'components/localization'
 import FinancialStpIcon from 'images/svg/financial-stp.svg'
+import FinancialIcon from 'images/svg/financial.svg'
+import SyntheticIcon from 'images/svg/synthetic.svg'
 import device from 'themes/device'
 
 const content = [
@@ -63,19 +63,13 @@ const ClientCard = styled.article`
     }
     @media ${device.tablet} {
         margin: 0 0 24px 0;
+        max-height: 184px;
+        padding: 24px 24px 24px;
+        max-width: 328px;
 
         :first-child {
             margin: 0 0 24px 0;
         }
-    }
-`
-const CardContainer = styled(Flex)`
-    margin-bottom: 4rem;
-
-    @media ${device.tablet} {
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
     }
 `
 const StyledLinkButton = styled(LinkButton)`
@@ -87,42 +81,54 @@ const StyledLinkButton = styled(LinkButton)`
     height: 40px;
     margin: auto;
 `
+const StyledHeader = styled(Header)`
+    @media ${device.mobileL} {
+        font-size: ${(props) => props.mobile_font_size};
+        margin: ${(props) => props.mobile_margin};
+    }
+`
+const StyledText = styled(Text)`
+    @media ${device.mobileL} {
+        font-size: 16px;
+        line-height: 24px;
+    }
+`
 
 const Flexibility = () => {
     return (
         <Section>
-            <Header align="center" as="h2" mb="4rem">
+            <StyledHeader
+                mobile_font_size="32px"
+                mobile_margin="0 0 24px"
+                align="center"
+                as="h2"
+                mb="4rem"
+            >
                 {localize('Flexibility with multiple account types')}
-            </Header>
-            <CardContainer>
+            </StyledHeader>
+            <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {content.map((item, idx) => {
                     return (
                         <ClientCard key={idx}>
                             <Flex height="unset" ai="center">
-                                <Header mb="0.8rem" as="h4">
+                                <StyledHeader
+                                    mobile_margin="0 0 8px"
+                                    mobile_font_size="20px"
+                                    mb="0.8rem"
+                                    as="h4"
+                                >
                                     {item.header}
-                                </Header>
+                                </StyledHeader>
                                 {item.icon}
                             </Flex>
-                            <Text>{item.text}</Text>
+                            <StyledText>{item.text}</StyledText>
                         </ClientCard>
                     )
                 })}
-            </CardContainer>
-            {/* <StyledLink> */}
+            </Flex>
             <StyledLinkButton external secondary="true" to={`${deriv_app_url}/mt5/`}>
                 {localize('Go to DMT5 dashboard')}
             </StyledLinkButton>
-
-            {/* <ExternalLink
-                    href={`${deriv_app_url}/mt5/`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                ></ExternalLink> */}
-            {/* <Text align="center" size="14px" weight="bold" color="white">
-                    {localize('Go to DMT5 dashboard')}
-                </Text> */}
-            {/* </StyledLink> */}
         </Section>
     )
 }

@@ -51,58 +51,79 @@ const Card = styled(Flex)`
         margin-bottom: 24px;
         max-width: 100%;
     }
+    @media ${device.mobileL} {
+        padding: 24px;
+        height: 226px;
+    }
 `
-
+const StyledHeader = styled(Header)`
+    @media ${device.mobileL} {
+        font-size: 32px;
+        margin-bottom: 24px;
+    }
+`
+const StyledCardHeader = styled(Header)`
+    @media ${device.mobileL} {
+        font-size: 20px;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+`
+const StyledText = styled(Text)`
+    @media ${device.mobileL} {
+        font-size: 16px;
+    }
+`
 const WhyTrader = () => {
     return (
         <Section>
-            <Header align="center" mb="4rem" as="h2">
+            <StyledHeader align="center" mb="4rem" as="h2">
                 {localize('Why trade with DMT5')}
-            </Header>
+            </StyledHeader>
             <CardContainer>
                 <Card>
                     <InstantAccess />
-                    <Header mt="0.8rem" mb="0.8rem" as="h4">
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Quick demo account sign-up')}
-                    </Header>
-                    <Text>
+                    </StyledCardHeader>
+                    <StyledText>
                         {localize(
                             'Practise with a demo account preloaded with unlimited virtual funds.',
                         )}
-                    </Text>
+                    </StyledText>
                 </Card>
                 <Card>
                     <SyntheticIndices />
-                    <Header mt="0.8rem" mb="0.8rem" as="h4">
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Multiple assets on a single platform')}
-                    </Header>
-                    <Text>
+                    </StyledCardHeader>
+                    <StyledText>
                         {localize(
                             'Explore forex, synthetic indices, stocks, and commodities on an all-in-one platform.',
                         )}
-                    </Text>
+                    </StyledText>
                 </Card>
                 <Card>
                     <Seven />
-                    <Header mt="0.8rem" mb="0.8rem" as="h4">
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('24/7 trading')}
-                    </Header>
-                    <Text>
+                    </StyledCardHeader>
+                    <StyledText>
                         {localize(
                             'Trade round-the-clock, even on weekends, with our proprietary synthetic indices.',
                         )}
-                    </Text>
+                    </StyledText>
                 </Card>
                 <Card>
                     <MinimalRisk />
-                    <Header mt="0.8rem" mb="0.8rem" as="h4">
+                    <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Licensed and regulated')}
-                    </Header>
-                    <Text>
+                    </StyledCardHeader>
+                    <StyledText>
                         {localize(
                             'Trade with a regulated industry pioneer trusted by traders for more than 20 years.',
                         )}
-                    </Text>
+                    </StyledText>
                 </Card>
             </CardContainer>
         </Section>

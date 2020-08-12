@@ -20,6 +20,13 @@ const NumberSection = styled(SectionContainer)`
         padding: 4rem 4rem;
         justify-content: center;
     }
+    @media ${device.mobileL} {
+        padding: 24px 124px;
+
+        * {
+            width: 140px;
+        }
+    }
 `
 const Splitter = styled.div`
     height: 6rem;
@@ -34,16 +41,22 @@ const Splitter = styled.div`
 `
 const StyledHeader = styled(Header)`
     width: auto;
-    line-height: 1.5rem;
+    line-height: 1.5;
 
     @media ${device.tablet} {
         margin-bottom: 8px;
         font-size: 32px;
     }
+    @media ${device.mobileL} {
+        text-align: center;
+    }
 `
 const StyledText = styled(Text)`
     @media ${device.tablet} {
         font-size: 16px;
+    }
+    @media ${device.mobileL} {
+        text-align: center;
     }
 `
 const Number = styled(Flex)`

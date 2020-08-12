@@ -25,7 +25,10 @@ export const generateResponsiveStyles = (stylesGenerator) => (props) => {
     }, [])
 }
 
-const baseStyles = ({ m, mt, ml, mr, mb, p, pt, pl, pr, pb }) => css`
+const baseStyles = ({ m, mt, ml, mr, mb, p, pt, pl, pr, pb, max_width, width, height }) => css`
+    max-width: ${max_width};
+    width: ${width};
+    height: ${height};
     ${Margins({ m, mt, ml, mr, mb })}
     ${Paddings({ p, pt, pl, pr, pb })}
 `

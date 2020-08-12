@@ -36,34 +36,8 @@ const ImageWrapper = styled.div`
 
     @media ${device.mobileL} {
         width: 100%;
+        max-width: 232px;
         margin: 24px 16px;
-    }
-`
-const ControlCard = styled(Flex)`
-    background-color: var(--color-grey-25);
-    width: 58%;
-    padding: 11.9rem 4rem 27.3rem 16rem;
-    flex-direction: column;
-
-    @media ${device.laptopM} {
-        padding: 11.9rem 4rem 10rem 3rem;
-    }
-    @media ${device.tablet} {
-        width: 100%;
-        padding: 40px 16px;
-    }
-`
-const CalculatorCard = styled(Flex)`
-    padding: 4rem 0;
-    flex-direction: column;
-    margin-left: 2.4rem;
-    align-items: center;
-    width: 50%;
-
-    @media ${device.tablet} {
-        width: 100%;
-        padding: 24px 16px;
-        margin-left: 0;
     }
 `
 const Button = styled(Flex)`
@@ -106,6 +80,16 @@ const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         text-align: center;
     }
+    @media ${device.mobileL} {
+        font-size: ${(props) => props.mobile_font_size};
+    }
+`
+
+const StyledText = styled(Text)`
+    @media ${device.mobileL} {
+        font-size: 16px;
+        max-width: 328px;
+    }
 `
 const TradeControl = () => {
     const data = useStaticQuery(query)
@@ -117,28 +101,42 @@ const TradeControl = () => {
 
     return (
         <Section>
-            <ControlCard>
-                <StyledHeader as="h2" mb="1.2rem">
+            <Flex
+                bg="var(--color-grey-25)"
+                width="58%"
+                p="11.9rem 4rem 27.3rem 16rem"
+                fd="column"
+                laptopM={{ p: '11.9rem 4rem 10rem 3rem' }}
+                tablet={{ p: '40px 16px 24px', width: '100%' }}
+            >
+                <StyledHeader mobile_font_size="32px" as="h2" mb="1.2rem">
                     {localize('Take control of your trades on DMT5')}
                 </StyledHeader>
-                <Text>
+                <StyledText>
                     <Localize
                         translate_text="Explore <0>margin trading</0> on DMT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
                         components={[<Span key={0} />]}
                     />
-                </Text>
-                <Text mt="2.4rem">
+                </StyledText>
+                <StyledText mt="2.4rem">
                     {localize(
                         'With the calculators and numerous analytical tools available on the DMT5 platform, you’ll be able to manage your capital and trading positions better.',
                     )}
-                </Text>
-            </ControlCard>
-            <CalculatorCard>
-                <Header align="center" as="h4" mb="0.8rem">
+                </StyledText>
+            </Flex>
+            <Flex
+                p="4rem 0"
+                fd="column"
+                ml="2.4rem"
+                ai="center"
+                width="50%"
+                tablet={{ width: '100%', padding: '24px 16px 40px', ml: '0' }}
+            >
+                <StyledHeader mobile_font_size="16px" align="center" as="h4" mb="0.8rem">
                     {isLeft && localize('Margin calculator')}
                     {!isLeft && localize('Swap calculator')}
-                </Header>
-                <Text align="center" max_width="50.8rem">
+                </StyledHeader>
+                <StyledText align="center" max_width="50.8rem">
                     {isLeft &&
                         localize(
                             'Calculate the margin you need to open and hold your positions with our margin calculator.',
@@ -147,8 +145,8 @@ const TradeControl = () => {
                         localize(
                             'Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract.',
                         )}
-                </Text>
-                <Flex ai="center">
+                </StyledText>
+                <Flex ai="center" mobileL={{ width: '360px' }}>
                     <Button isLeft={!isLeft} onClick={() => buttonClick(true)}>
                         <ArrowLeft />
                     </Button>
@@ -172,7 +170,7 @@ const TradeControl = () => {
                     <SmallCircle isLeft={!isLeft} />
                     <SmallCircle isLeft={isLeft} />
                 </Flex>
-            </CalculatorCard>
+            </Flex>
         </Section>
     )
 }

@@ -33,6 +33,10 @@ const TabButton = styled.div`
     &:last-child {
         margin-bottom: 0;
     }
+
+    @media ${device.tabletS} {
+        margin-left: 16px;
+    }
 `
 
 const TabList = styled.div`
@@ -47,8 +51,12 @@ const TabList = styled.div`
             : css`
                   margin-right: 2.4rem;
               `}
+    @media ${device.tabletL} {
+        max-width: 30rem;
+    }
     @media ${device.tabletS} {
-        max-width: 100%;
+        max-width: 576px;
+        width: 100%;
         margin: 0;
     }
 `
@@ -64,7 +72,6 @@ const Desktop = styled(Show.Desktop)`
 
 const Mobile = styled(Show.Mobile)`
     @media ${device.tabletS} {
-        margin-top: 1.6rem;
         margin-bottom: 2.3rem;
 
         &:last-child {
@@ -72,7 +79,6 @@ const Mobile = styled(Show.Mobile)`
         }
     }
     @media ${device.mobileL} {
-        margin-top: 0.8rem;
         margin-bottom: 0;
     }
 `

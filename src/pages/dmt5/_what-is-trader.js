@@ -18,17 +18,28 @@ const Section = styled(SectionContainer)`
     }
 `
 
+const StyledHeader = styled(Header)`
+    @media ${device.tablet} {
+        font-size: 32px;
+    }
+`
+const StyledText = styled(Text)`
+    @media ${device.tablet} {
+        font-size: 16px;
+    }
+`
+
 const WhatIsTrader = () => {
     return (
         <Section>
-            <Header align="center" mb="1.2rem" as="h2">
+            <StyledHeader align="center" mb="1.2rem" as="h2">
                 {localize('What is Deriv MetaTrader 5 (DMT5)')}
-            </Header>
-            <Text max_width="79.2rem" align="center">
+            </StyledHeader>
+            <StyledText max_width="79.2rem" align="center">
                 {localize(
                     'MetaTrader 5 (MT5), developed by MetaQuotes Software, gives you access to multiple asset classes — forex, stocks, and commodities — on a single platform. Deriv brings the MT5 experience to a superior level for both new and experienced traders on our platform, with exclusive access to innovative trade types.',
                 )}
-            </Text>
+            </StyledText>
         </Section>
     )
 }

@@ -89,10 +89,10 @@ export const Affiliates = () => {
                     <LinkText
                         color="red"
                         size="var(--text-size-m)"
-                        to="mailto:affiliates@deriv.com"
+                        to="mailto:partners@deriv.com"
                         external
                     >
-                        affiliates@deriv.com
+                        partners@deriv.com
                     </LinkText>
                 </Item>
                 <Item>

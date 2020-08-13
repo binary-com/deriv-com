@@ -13,7 +13,7 @@ import {
     SmallContainer,
     Show,
 } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl, Localize, LocalizedLink } from 'components/localization'
 import { isBrowser, deriv_app_url } from 'common/utility'
 // Icons
 import EU from 'images/svg/europe-map.svg'
@@ -95,6 +95,10 @@ const ResponsiveHeader = styled(StyledHeader)`
 
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
+const ExternalBoldLink = styled(LocalizedLink)`
+    font-weight: bold;
+    color: ${(props) => (props.color ? `var(--color-${props.color})` : '')};
+`
 const Regulatory = () => {
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
@@ -236,11 +240,12 @@ const Regulatory = () => {
                                                 href="/regulatory/Deriv_(Europe)_Ltd.pdf"
                                                 rel="noopener noreferrer"
                                             />,
-                                            <LinkText
+                                            <ExternalBoldLink
+                                                external
                                                 key={1}
                                                 weight="bold"
                                                 target="_blank"
-                                                href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                                to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
                                                 rel="noopener noreferrer"
                                             />,
                                         ]}
@@ -277,11 +282,12 @@ const Regulatory = () => {
                                                 href="/regulatory/Deriv_(MX)_Ltd.pdf"
                                                 rel="noopener noreferrer"
                                             />,
-                                            <LinkText
+                                            <ExternalBoldLink
+                                                external
                                                 key={0}
                                                 weight="bold"
                                                 target="_blank"
-                                                href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                                to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
                                                 rel="noopener noreferrer"
                                             />,
                                         ]}
@@ -473,12 +479,13 @@ const Regulatory = () => {
                                 <Localize
                                     translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)."
                                     components={[
-                                        <LinkText
+                                        <ExternalBoldLink
+                                            external
                                             key={0}
                                             color="red"
                                             weight="normal"
                                             target="_blank"
-                                            href="https://financialcommission.org/"
+                                            to="https://financialcommission.org/"
                                             rel="noopener noreferrer"
                                         />,
                                         <LinkText

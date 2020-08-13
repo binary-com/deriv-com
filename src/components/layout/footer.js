@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, CssGrid, Flex, Show } from '../containers'
 import {
@@ -13,7 +13,7 @@ import {
 import { LocationContext } from './location-context'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 import device from 'themes/device'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 // Icons
 import CopyrightIc from 'images/svg/copyright.svg'
 import Logo from 'images/svg/deriv-footer.svg'
@@ -122,7 +122,7 @@ const DisclaimerParagraph = styled(Text)`
         font-size: var(--text-size-sm);
     }
 `
-const StaticAsset = styled.a`
+const shared_css = css`
     font-weight: bold;
     color: var(--color-black-3);
     font-size: var(--text-size-xs);
@@ -134,6 +134,12 @@ const StaticAsset = styled.a`
     @media ${device.tabletL} {
         font-size: var(--text-size-sm);
     }
+`
+const StaticAsset = styled.a`
+    ${shared_css}
+`
+const StaticAssetLink = styled(LocalizedLink)`
+    ${shared_css}
 `
 const RiskWarning = styled.div`
     background-color: var(--color-grey-28);
@@ -211,9 +217,7 @@ const SocialWrapper = styled.div`
         }
     }
 `
-const ExternalLink = styled.a`
-    text-decoration: none;
-`
+
 const MobileAccordion = styled.section`
     background-color: var(--color-grey-25);
 
@@ -272,34 +276,38 @@ const mobile_accordion_header_about = Object.assign({}, mobile_accordion_header)
 const SocialWrapperComponent = () => {
     return (
         <SocialWrapper>
-            <ExternalLink
-                href="https://www.facebook.com/derivdotcom/"
+            <LocalizedLink
+                external="true"
+                to="https://www.facebook.com/derivdotcom/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <Facebook />
-            </ExternalLink>
-            <ExternalLink
-                href="https://twitter.com/derivdotcom"
+            </LocalizedLink>
+            <LocalizedLink
+                external="true"
+                to="https://twitter.com/derivdotcom"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <Twitter />
-            </ExternalLink>
-            <ExternalLink
-                href="https://www.instagram.com/deriv_official/"
+            </LocalizedLink>
+            <LocalizedLink
+                external="true"
+                to="https://www.instagram.com/deriv_official/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <Instagram />
-            </ExternalLink>
-            <ExternalLink
-                href="https://www.linkedin.com/company/derivdotcom/"
+            </LocalizedLink>
+            <LocalizedLink
+                external="true"
+                to="https://www.linkedin.com/company/derivdotcom/"
                 target="_blank"
                 rel="noopener noreferrer"
             >
                 <Linkedin />
-            </ExternalLink>
+            </LocalizedLink>
         </SocialWrapper>
     )
 }
@@ -636,23 +644,25 @@ const Footer = () => {
                         </Show.Mobile>
                     </LinksWrapper>
                     <Disclaimer>
-                        <Show.Eu>
-                            <DisclaimerParagraph>
-                                <Localize
-                                    translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on <0>Binary.com.<0>"
-                                    components={[
-                                        <BinaryLinkText
-                                            key={0}
-                                            external
-                                            to={'home'}
-                                            is_binary_link
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        />,
-                                    ]}
-                                />
-                            </DisclaimerParagraph>
-                        </Show.Eu>
+                        <div>
+                            <Show.Eu>
+                                <DisclaimerParagraph>
+                                    <Localize
+                                        translate_text="Products offered on Deriv.com are not available to clients residing in the EU and are accessible on <0>Binary.com.<0>"
+                                        components={[
+                                            <BinaryLinkText
+                                                key={0}
+                                                external
+                                                to={'home'}
+                                                is_binary_link
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            />,
+                                        ]}
+                                    />
+                                </DisclaimerParagraph>
+                            </Show.Eu>
+                        </div>
                         <DisclaimerParagraph>
                             <Localize
                                 translate_text="In the EU, financial products are offered by Deriv Investments (Europe) Limited, W Business Centre, Level 3, Triq Dun Karm, Birkirkara, BKR 9033, Malta, regulated as a Category 3 Investment Services provider by the Malta Financial Services Authority (<0>licence no. IS/70156</0>)."
@@ -698,10 +708,11 @@ const Footer = () => {
                                 <Localize
                                     translate_text="In the Isle of Man and the UK, synthetic indices are offered by Deriv (MX) Ltd, First Floor, Millennium House, Victoria Road, Douglas, IM2 4RW, Isle of Man, licensed and regulated respectively by the Gambling Supervision Commission in the Isle of Man (current licence issued on 31 August 2017) and by the Gambling Commission in the UK (licence <0>reference no: 39172</0>)."
                                     components={[
-                                        <StaticAsset
+                                        <StaticAssetLink
+                                            external
                                             key={0}
                                             target="_blank"
-                                            href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}
@@ -717,10 +728,11 @@ const Footer = () => {
                                             href="/regulatory/Deriv_(Europe)_Ltd.pdf"
                                             rel="noopener noreferrer"
                                         />,
-                                        <StaticAsset
+                                        <StaticAssetLink
+                                            external
                                             key={1}
                                             target="_blank"
-                                            href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                            to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

@@ -1,11 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const LocationContext = React.createContext(null)
+export const LocationContext = React.createContext(true) // undefined => true
 
-export const LocationProvider = ({ is_eu_country, show_cookie_banner, children }) => {
+export const LocationProvider = ({
+    is_eu_country,
+    show_cookie_banner,
+    children,
+    setModalPayload,
+    toggleModal,
+}) => {
     return (
-        <LocationContext.Provider value={{ is_eu_country, show_cookie_banner }}>
+        <LocationContext.Provider
+            value={{ is_eu_country, show_cookie_banner, setModalPayload, toggleModal }}
+        >
             {children}
         </LocationContext.Provider>
     )
@@ -14,5 +22,7 @@ export const LocationProvider = ({ is_eu_country, show_cookie_banner, children }
 LocationProvider.propTypes = {
     children: PropTypes.node.isRequired,
     is_eu_country: PropTypes.bool,
+    setModalPayload: PropTypes.object,
     show_cookie_banner: PropTypes.bool,
+    toggleModal: PropTypes.func,
 }

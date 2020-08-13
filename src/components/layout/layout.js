@@ -161,6 +161,8 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             show_cookie_banner={show_cookie_banner}
             toggleModal={toggleModal}
             setModalPayload={setModalPayload}
+            is_livechat_interactive={is_livechat_interactive}
+            LC_API={LC_API}
         >
             {Navigation}
             <Main padding_top={padding_top} is_static={is_static}>

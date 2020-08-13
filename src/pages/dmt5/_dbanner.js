@@ -22,6 +22,14 @@ const Wrapper = styled(Flex)`
     @media ${device.tabletL} {
         height: 34.4rem;
     }
+    @media ${device.tablet} {
+        height: 28.2rem;
+        padding: 0 0 0 4rem;
+    }
+    @media ${device.tabletS} {
+        height: unset;
+        padding: 0 16px 40px 16px;
+    }
 `
 
 const ImageWrapper = styled(Flex)`
@@ -42,6 +50,16 @@ const ImageWrapper = styled(Flex)`
     @media ${device.tabletL} {
         max-width: 40rem;
     }
+    @media ${device.tablet} {
+        max-width: 30rem;
+    }
+    @media ${device.tabletS} {
+        max-width: 250px;
+        right: 0;
+        height: unset;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
 `
 
 const TextWrapper = styled.div`
@@ -50,17 +68,34 @@ const TextWrapper = styled.div`
     @media ${device.laptopM} {
         max-width: 37rem;
     }
+    @media ${device.tablet} {
+        max-width: 256px;
+        margin-top: 1rem;
+    }
+    @media ${device.tabletS} {
+        margin: 234px auto 0 auto;
+        max-width: 328px;
+        text-align: center;
+    }
 `
 const StyledLinkButton = styled(LinkButton)`
     width: 20.2rem;
     border: unset;
     line-height: 1.5;
     display: inline-block;
+
+    @media ${device.tabletS} {
+        margin: 0 auto;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.laptopM} {
         font-size: 4rem;
         max-width: 60rem;
+    }
+    @media ${device.tabletS} {
+        font-size: 40px;
+        text-align: center;
     }
 `
 
@@ -76,6 +111,16 @@ const DBanner = ({ title, data, background_pattern }) => {
         }
         @media ${device.tabletL} {
             width: 54rem;
+        }
+        @media ${device.tablet} {
+            width: 44rem;
+        }
+        @media ${device.tabletS} {
+            width: 400px;
+        }
+        @media ${device.mobileL} {
+            width: unset;
+            max-width: unset;
         }
     `
     return (

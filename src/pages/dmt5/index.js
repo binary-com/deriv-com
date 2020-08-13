@@ -10,6 +10,7 @@ import Flexibility from './_flexibility.js'
 import DHero from './_dhero.js'
 import DBanner from './_dbanner.js'
 import BackgroundPatternDMT5 from 'images/svg/bg_banner_dmt5.svg'
+import BackgroundPatternDMT5_mobile from 'images/svg/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'
 import dmt5_logo from 'images/svg/dmt5-icon.svg'
 import { SEO } from 'components/containers'
@@ -65,7 +66,9 @@ const DMT5 = () => {
             <TradeControl />
             <Flexibility />
             <DBanner
-                background_pattern={BackgroundPatternDMT5}
+                background_pattern={
+                    is_mobile ? BackgroundPatternDMT5_mobile : BackgroundPatternDMT5
+                }
                 title={<Localize translate_text="Get into the DMT5 experience" />}
                 data={data}
             />

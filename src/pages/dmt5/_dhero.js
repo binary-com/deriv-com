@@ -16,6 +16,9 @@ const Wrapper = styled(Flex)`
     height: 60.2rem;
     padding: 12rem 12rem 9rem 12rem;
 
+    @media (max-width: 1254px) {
+        padding: 8rem 12rem 9rem 4rem;
+    }
     @media ${device.laptopM} {
         height: 52.7rem;
         padding: 8rem 12rem 9rem 8rem;
@@ -26,10 +29,13 @@ const Wrapper = styled(Flex)`
     @media ${device.tabletL} {
         height: 53rem;
     }
-    @media ${device.mobileL} {
-        padding: unset;
-        height: 63.4rem;
+    @media ${device.tablet} {
+        padding: 0 0 40px;
+        height: 95.4rem;
         flex-direction: column-reverse;
+    }
+    @media ${device.mobileL} {
+        height: 79.4rem;
     }
 `
 const HeroContent = styled(Flex)`
@@ -58,6 +64,9 @@ const StyledHeader = styled(Header)`
     @media ${device.laptopM} {
         font-size: 24px;
     }
+    @media ${device.tablet} {
+        font-size: 20px;
+    }
 `
 
 const LottieWrapper = styled.div`
@@ -78,7 +87,6 @@ const LottieWrapper = styled.div`
         max-width: 425px;
         top: 0;
         right: 0;
-        position: relative;
         margin-bottom: 25px;
     }
 `
@@ -101,9 +109,7 @@ const LinkWrapper = styled.div`
         position: unset;
         top: unset;
         justify-content: start;
-    }
-    @media (max-width: 460px) {
-        flex-wrap: wrap;
+        margin-top: 40px;
     }
 `
 
@@ -117,33 +123,29 @@ const StyledLinkButton = styled(LinkButton)`
     margin-right: 2px;
     border: unset;
 
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         padding: 1.5rem 1.6rem;
         height: 42px;
         white-space: nowrap;
-    }
-    @media (max-width: 460px) {
-        margin-bottom: 2rem;
-    }
-`
-const StyledContent = styled(Header)`
-    @media (max-width: 1322px) {
-        font-size: 4.2rem;
+        display: inline-block;
+        max-width: 202px;
+        max-height: 40px;
     }
 `
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 56.2rem;
 
-    @media (max-width: 1277px) {
+    @media (max-width: 1376px) {
         max-width: 44rem;
     }
     @media ${device.tabletL} {
         max-width: 40rem;
     }
-    @media ${device.mobileL} {
+    @media ${device.tablet} {
         top: 280px;
         max-width: 328px;
+        padding: 0 16px;
     }
 `
 
@@ -272,7 +274,7 @@ const DHero = ({
                     {title}
                 </StyledHeader>
                 <HeroContent>
-                    <StyledContent as="h1">{content}</StyledContent>
+                    <Header as="h1">{content}</Header>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free && (

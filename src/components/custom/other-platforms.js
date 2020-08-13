@@ -2,7 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
-import { Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
+import {
+    Text,
+    Card,
+    Header,
+    NavCard,
+    CardLink,
+    LocalizedLinkText,
+    Divider,
+} from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
 // icons
@@ -10,10 +18,23 @@ import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
 import DBot from 'images/svg/dbot-icon.svg'
 import Smarttrader from 'images/svg/smarttrader.svg'
-import Forex from 'images/svg/market-forex.svg'
-import Commodities from 'images/svg/market-commodities.svg'
-import StockIndices from 'images/svg/market-stock-indices.svg'
-import SyntheticIndices from 'images/svg/market-synthetic-indices.svg'
+import Margin from 'images/svg/margin-trading-nav.svg'
+import Options from 'images/svg/options-nav.svg'
+import Multipliers from 'images/svg/multipliers-nav.svg'
+import Forex from 'images/svg/forex-nav.svg'
+import Commodities from 'images/svg/commodities-nav.svg'
+import StockIndices from 'images/svg/stock-indices-nav.svg'
+import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
+
+const MarginDivider = styled(Divider)`
+    margin: 0 2.4rem;
+`
+
+const StyledText = styled(Text)`
+    font-size: var(--text-size-xxs);
+    color: var(--color-grey-5);
+    margin-bottom: 1.6rem;
+`
 
 const HeaderWrapper = styled.div`
     margin-bottom: 4rem;
@@ -184,84 +205,94 @@ OtherPlatform.propTypes = {
     subHeader: PropTypes.string,
 }
 
-const DMT5NavCard = styled(NavCard)`
-    @media (max-width: 1250px) {
-        margin-top: 3.2rem;
-    }
-`
-
 export const NavPlatform = () => (
-    <Flex wrap="wrap" jc="flex-start">
-        <NavCard
-            icon={DTrader}
-            content={
-                <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
-            }
-            title={<Localize translate_text="DTrader" />}
-            style={{ marginRight: '5.6rem' }}
-            to="/dtrader"
-        />
+    <Flex>
+        <Flex direction="column" wrap="wrap" jc="flex-start">
+            <StyledText>{localize('Trading platforms')}</StyledText>
+            <NavCard
+                icon={DTrader}
+                content={
+                    <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
+                }
+                title={<Localize translate_text="DTrader" />}
+                to="/dtrader"
+            />
 
-        <DMT5NavCard
-            icon={DMT5}
-            content={
-                <Localize translate_text="Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals worldwide." />
-            }
-            title={<Localize translate_text="DMT5" />}
-            to="/dmt5"
-        />
-        <NavCard
-            icon={DBot}
-            content={
-                <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-            }
-            title={<Localize translate_text="DBot" />}
-            to="/dbot"
-            style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
-        />
-        <NavCard
-            icon={Smarttrader}
-            content={
-                <Localize translate_text="Trade the world’s markets on Binary.com’s classic platform." />
-            }
-            title={<Localize translate_text="SmartTrader" />}
-            to="trading"
-            is_smarttrader_link
-            style={{ marginTop: '3.2rem' }}
-            external="true"
-            target="_blank"
-            otherLinkProps={{ rel: 'noopener noreferrer' }}
-        />
+            <NavCard
+                icon={DMT5}
+                content={
+                    <Localize translate_text="Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals worldwide." />
+                }
+                title={<Localize translate_text="DMT5" />}
+                to="/dmt5"
+                style={{ marginTop: '1.6rem' }}
+            />
+            <NavCard
+                icon={DBot}
+                content={
+                    <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                }
+                title={<Localize translate_text="DBot" />}
+                to="/dbot"
+                style={{ marginTop: '1.6rem' }}
+            />
+            <NavCard
+                icon={Smarttrader}
+                content={
+                    <Localize translate_text="Trade the world’s markets on Binary.com’s classic platform." />
+                }
+                title={<Localize translate_text="SmartTrader" />}
+                to="trading"
+                is_smarttrader_link
+                style={{ marginTop: '1.6rem' }}
+                external="true"
+                target="_blank"
+                otherLinkProps={{ rel: 'noopener noreferrer' }}
+            />
+        </Flex>
+        <MarginDivider width="2px" height="100%" color="grey-8" />
+        <Flex direction="column" wrap="wrap" jc="flex-start">
+            <StyledText>{localize('Trade types')}</StyledText>
+            <NavCard
+                icon={Margin}
+                content={
+                    <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
+                }
+                title={<Localize translate_text="Margin trading" />}
+                to="/dtrader"
+            />
+
+            <NavCard
+                icon={Options}
+                content={
+                    <Localize translate_text="Earn fixed payouts by predicting an assets price movement." />
+                }
+                title={<Localize translate_text="Options" />}
+                to="/dmt5"
+                style={{ marginTop: '1.6rem' }}
+            />
+            <NavCard
+                icon={Multipliers}
+                content={
+                    <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
+                }
+                title={<Localize translate_text="Multipliers" />}
+                to="/dbot"
+                style={{ marginTop: '1.6rem' }}
+            />
+        </Flex>
     </Flex>
 )
 
 export const NavMarket = () => (
-    <Flex wrap="wrap" jc="flex-start">
+    <Flex direction="column" wrap="wrap" jc="flex-start">
         <NavCard
             icon={Forex}
             content={
                 <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
             }
             title={<Localize translate_text="Forex" />}
-            style={{ marginRight: '5.6rem' }}
             to="/markets#forex"
-        />
-        <NavCard
-            icon={StockIndices}
-            content={
-                <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
-            }
-            title={<Localize translate_text="Stock indices" />}
-            to="/markets#stock"
-        />
-        <NavCard
-            icon={Commodities}
-            content={
-                <Localize translate_text="Trade natural resources that are central to the world's economy." />
-            }
-            title={<Localize translate_text="Commodities" />}
-            to="/markets#commodities"
-            style={{ marginTop: '3.2rem', marginRight: '5.6rem' }}
         />
         <NavCard
             icon={SyntheticIndices}
@@ -270,14 +301,32 @@ export const NavMarket = () => (
             }
             title={<Localize translate_text="Synthetic indices" />}
             to="/markets#synthetic"
-            style={{ marginTop: '3.2rem' }}
+            style={{ marginTop: '1.6rem' }}
+        />
+        <NavCard
+            icon={StockIndices}
+            content={
+                <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
+            }
+            title={<Localize translate_text="Stock indices" />}
+            to="/markets#stock"
+            style={{ marginTop: '1.6rem' }}
+        />
+        <NavCard
+            icon={Commodities}
+            content={
+                <Localize translate_text="Trade natural resources that are central to the world's economy." />
+            }
+            title={<Localize translate_text="Commodities" />}
+            to="/markets#commodities"
+            style={{ marginTop: '1.6rem' }}
         />
     </Flex>
 )
 
 export const NavCompany = () => (
-    <Flex wrap="wrap" jc="flex-start" max_width="42rem">
-        <CardLink title={localize('Our story')} to="/about/#story" />
+    <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
+        <CardLink icon={Commodities} title={localize('Our story')} to="/about/#story" />
         <CardLink title={localize('Contact us')} to="/contact-us/" />
         <CardLink title={localize('Our leadership')} to="/about/#leadership" />
         <CardLink title={localize('Careers')} to="/careers/" />
@@ -286,7 +335,7 @@ export const NavCompany = () => (
 )
 
 export const NavResources = () => (
-    <Flex wrap="wrap" jc="flex-start" max_width="42rem">
+    <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink title={localize('Help centre')} to="/help-centre/" />
         <CardLink title={localize('Payment methods')} to="/payment-methods/" />
         {/* TODO: add this when blog is ready */}

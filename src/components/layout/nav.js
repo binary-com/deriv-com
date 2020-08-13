@@ -365,14 +365,6 @@ export const Nav = ({ base }) => {
         setHasResourcesAnimation(true)
     }
 
-    // const language_ref = useRef(null)
-    // const [is_language_open, setLanguageOpen] = useState(false)
-    // const closeLanguage = () => setLanguageOpen(false)
-    // const toggleLanguageClick = () => {
-    //     setLanguageOpen(!is_language_open)
-    // }
-    // useOutsideClick(language_ref, closeLanguage, language_ref)
-
     const buttonHandleScroll = () => {
         setHasScrolled(true)
         handleScroll(showButton, hideButton)
@@ -401,6 +393,7 @@ export const Nav = ({ base }) => {
                 <Show.Desktop>
                     <PlatformsDropdown
                         forward_ref={trade_ref}
+                        link_ref={link_trade_ref}
                         is_open={is_trade_open}
                         has_animation={has_trade_animation}
                         Content={NavPlatform}
@@ -411,6 +404,7 @@ export const Nav = ({ base }) => {
                     />
                     <PlatformsDropdown
                         forward_ref={market_ref}
+                        link_ref={link_market_ref}
                         is_open={is_market_open}
                         has_animation={has_market_animation}
                         Content={NavMarket}
@@ -421,6 +415,7 @@ export const Nav = ({ base }) => {
                     />
                     <PlatformsDropdown
                         forward_ref={company_ref}
+                        link_ref={link_company_ref}
                         is_open={is_company_open}
                         has_animation={has_company_animation}
                         Content={NavCompany}
@@ -431,6 +426,7 @@ export const Nav = ({ base }) => {
                     />
                     <PlatformsDropdown
                         forward_ref={resources_ref}
+                        link_ref={link_resources_ref}
                         is_open={is_resources_open}
                         has_animation={has_resources_animation}
                         Content={NavResources}

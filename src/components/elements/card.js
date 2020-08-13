@@ -390,10 +390,16 @@ const HoverFlex = styled(Flex)`
 `
 
 const RelativeFlex = styled(Flex)`
+    & > svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 1.6rem;
+    }
+
     position: relative;
 `
 
-export const CardLink = ({ title, to, style, external }) => {
+export const CardLink = ({ icon: Icon, title, to, style, external }) => {
     return (
         <LocalizedLink
             to={to}
@@ -408,6 +414,7 @@ export const CardLink = ({ title, to, style, external }) => {
         >
             <HoverFlex jc="flex-start" direction="row" tablet_direction="row">
                 <RelativeFlex jc="flex-start" width="auto">
+                    {Icon && <Icon />}
                     <ResponsiveHeader
                         color="black-3"
                         size="var(--text-size-xs)"
@@ -427,7 +434,7 @@ export const CardLink = ({ title, to, style, external }) => {
 CardLink.propTypes = {
     content: PropTypes.string,
     external: PropTypes.bool,
-    icon: PropTypes.object,
+    icon: PropTypes.func,
     style: PropTypes.object,
     title: PropTypes.string,
     to: PropTypes.string,

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Cookies from 'js-cookie'
 import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
@@ -9,6 +8,7 @@ import { LocationProvider } from './location-context'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
+import { CookieStorage } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { isBrowser } from 'common/utility'
 import LiveChatIC from 'images/svg/livechat.svg'
@@ -35,11 +35,17 @@ const Main = styled.main`
 `
 
 const has_dataLayer = isBrowser() && window.dataLayer
-const cookie_expires = 7
+
+const CLIENTS_COUNTRY_KEY = 'clients_country'
+const TRACKING_STATUS_KEY = 'tracking_status'
+const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY)
+const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const LC_API = (isBrowser() && window.LC_API) || {}
-    const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
+    const [clients_country, setClientCountry] = React.useState(
+        clients_country_cookie.get(CLIENTS_COUNTRY_KEY),
+    )
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -72,9 +78,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 
                 if (!response.error) {
                     setClientCountry(response.website_status.clients_country)
-                    Cookies.set('clients_country', response.website_status.clients_country, {
-                        expires: cookie_expires,
-                    })
+                    clients_country_cookie.set(
+                        CLIENTS_COUNTRY_KEY,
+                        response.website_status.clients_country,
+                    )
                 }
 
                 binary_socket.close()
@@ -96,8 +103,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         if (!clients_country) return
         if (document.readyState === 'complete' || document.readyState === 'interactive') {
             const is_eu_country = isEuCountry(clients_country)
-            const tracking_status = Cookies.get('tracking_status')
-
+            const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
             if (is_eu_country && !tracking_status) setShowCookieBanner(true)
 
             const allow_tracking =
@@ -108,9 +114,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     }, [clients_country])
 
     const onAccept = () => {
-        Cookies.set('tracking_status', 'accepted', {
-            expires: cookie_expires,
-        })
+        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
         if (has_dataLayer) window.dataLayer.push({ event: 'allow_tracking' })
 
@@ -118,9 +122,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     }
 
     const onDecline = () => {
-        Cookies.set('tracking_status', 'declined', {
-            expires: cookie_expires,
-        })
+        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'declined')
         setShowCookieBanner(false)
     }
 

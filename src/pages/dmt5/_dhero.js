@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { deriv_app_url } from 'common/utility'
@@ -34,8 +34,14 @@ const Wrapper = styled(Flex)`
         height: 95.4rem;
         flex-direction: column-reverse;
     }
+    @media ${device.tabletS} {
+        height: 89.4rem;
+    }
     @media ${device.mobileL} {
-        height: 79.4rem;
+        height: 81rem;
+    }
+    @media ${device.mobileM} {
+        height: 75.4rem;
     }
 `
 const HeroContent = styled(Flex)`
@@ -192,11 +198,7 @@ const DHero = ({
     const DLogo = styled(Logo)`
         margin-right: 1.6rem;
     `
-    const BackgroundSVG = styled(background_svg)`
-        position: absolute;
-        top: 170px;
-        right: 0;
-
+    const HeroBackground = css`
         @media ${device.laptopM} {
             width: 48%;
             max-width: 492px;
@@ -225,40 +227,23 @@ const DHero = ({
             min-height: 0;
         }
     `
+    const BackgroundSVG = styled(background_svg)`
+        ${HeroBackground}
+        position: absolute;
+        top: 170px;
+        right: 0;
+    `
     const BackgroundSVG2 = styled(background_svg2)`
+        ${HeroBackground}
         position: absolute;
         top: 0;
         right: 214px;
 
-        @media ${device.laptopM} {
-            width: 48%;
-            max-width: 492px;
-            height: initial;
-        }
-        @media ${device.laptop} {
-            width: 50%;
-        }
         @media ${device.tabletL} {
-            width: 45%;
-            max-width: 350px;
             right: 120px;
         }
-        @media ${device.tablet} {
-            width: 70%;
-        }
-        @media ${device.tabletS} {
-            width: 80%;
-            max-width: 337px;
-        }
-        @media ${device.mobileL} {
-            max-width: 250px;
-            min-height: 244px;
-        }
-        @media ${device.mobileM} {
-            max-width: 205px;
-            min-height: 0;
-        }
     `
+
     return (
         <Wrapper>
             {!is_mobile && (

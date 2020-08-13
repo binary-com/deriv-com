@@ -8,7 +8,7 @@ import { localize } from 'components/localization'
 import device from 'themes/device.js'
 
 const Wrapper = styled(Flex)`
-    padding: 0 0 0 12rem;
+    padding-left: 12rem;
     position: relative;
     height: 40rem;
     justify-content: flex-start;
@@ -16,15 +16,15 @@ const Wrapper = styled(Flex)`
     background-color: var(--color-black);
 
     @media ${device.laptopM} {
-        height: 38.4rem;
-        padding: 0 0 0 8rem;
+        height: 384px;
+        padding-left: 80px;
     }
     @media ${device.tabletL} {
-        height: 34.4rem;
+        height: 277px;
     }
     @media ${device.tablet} {
-        height: 28.2rem;
-        padding: 0 0 0 4rem;
+        height: 226px;
+        padding-left: 40px;
     }
     @media ${device.tabletS} {
         height: unset;
@@ -45,13 +45,13 @@ const ImageWrapper = styled(Flex)`
     }
 
     @media ${device.laptopM} {
-        max-width: 43rem;
+        max-width: 430px;
     }
     @media ${device.tabletL} {
-        max-width: 40rem;
+        max-width: 300px;
     }
     @media ${device.tablet} {
-        max-width: 30rem;
+        max-width: 260px;
     }
     @media ${device.tabletS} {
         max-width: 250px;
@@ -70,10 +70,10 @@ const TextWrapper = styled.div`
     }
     @media ${device.tablet} {
         max-width: 256px;
-        margin-top: 1rem;
+        margin-top: 10px;
     }
     @media ${device.tabletS} {
-        margin: 234px auto 0 auto;
+        margin: 234px auto 0;
         max-width: 328px;
         text-align: center;
     }

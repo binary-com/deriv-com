@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
 const query = graphql`
@@ -72,10 +72,6 @@ const SmallCircle = styled.div`
     margin-right: 0.8rem;
     margin-top: 4rem;
 `
-const Span = styled.span`
-    color: red;
-`
-
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {
         text-align: center;
@@ -89,6 +85,14 @@ const StyledText = styled(Text)`
     @media ${device.mobileL} {
         font-size: 16px;
         max-width: 328px;
+    }
+`
+const StyledLocalizedLink = styled(LocalizedLink)`
+    text-decoration: none;
+    color: var(--color-red);
+
+    &:hover {
+        text-decoration: underline;
     }
 `
 const TradeControl = () => {
@@ -115,7 +119,7 @@ const TradeControl = () => {
                 <StyledText>
                     <Localize
                         translate_text="Explore <0>margin trading</0> on DMT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
-                        components={[<Span key={0} />]}
+                        components={[<StyledLocalizedLink to="/trade-types/margin/" key={0} />]}
                     />
                 </StyledText>
                 <StyledText mt="2.4rem">

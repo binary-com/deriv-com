@@ -4,7 +4,8 @@ import { graphql, useStaticQuery } from 'gatsby'
 import SideTab from './components/_side-tab'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize, Localize, LocalizedLink } from 'components/localization'
+import Login from 'common/login'
 import device, { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
 // import MobileBackground from 'images/svg/dmt5-start-mobile-background.svg'
@@ -125,10 +126,6 @@ const TabItem = styled.div`
         }
     }
 `
-const Span = styled.span`
-    color: red;
-`
-
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 32px;
@@ -141,7 +138,14 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
+const StyledLocalizedLink = styled(LocalizedLink)`
+    text-decoration: none;
+    color: var(--color-red);
 
+    &:hover {
+        text-decoration: underline;
+    }
+`
 const StartTrader = () => {
     const [is_mobile, setMobile] = useState(false)
     const handleResizeWindow = () => {
@@ -157,6 +161,9 @@ const StartTrader = () => {
 
     const onTabClick = (tab) => {
         setTab(tab)
+    }
+    const handleLogin = () => {
+        return Login.loginUrl()
     }
     return (
         <Section>
@@ -184,7 +191,7 @@ const StartTrader = () => {
                             description={
                                 <Localize
                                     translate_text="Sign up for a free <0>Deriv demo account</0>"
-                                    components={[<Span color="red" key={0} />]}
+                                    components={[<StyledLocalizedLink to="/signup/" key={0} />]}
                                 />
                             }
                             item_width="24rem"
@@ -231,7 +238,9 @@ const StartTrader = () => {
                             description={
                                 <Localize
                                     translate_text="Create or <0>sign in</0> to your Deriv account"
-                                    components={[<Span color="red" key={0} />]}
+                                    components={[
+                                        <StyledLocalizedLink external key={0} to={handleLogin()} />,
+                                    ]}
                                 />
                             }
                             item_width="27rem"

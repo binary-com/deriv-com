@@ -85,22 +85,53 @@ const filterPositions = (filters, search) => {
     return search_positions
 }
 
+// const position_map = {
+//     "JOBOPENINGID": 'id',
+//     "Posting title": 'title',
+//     "Work Experience": 'work_experience',
+// }
+
+const mapDataPosition = (data) => {
+    // map response into the following format:
+    /*
+    {
+        id
+        title
+        description
+        location
+        qualifications
+        responsibilities
+        team
+        type
+    }
+     */
+    return data.map((item) => {
+        const rows = item.FL
+        const result = {}
+        rows.forEach((keys) => {
+            result[keys['val']] = keys['content']
+        })
+
+        return result
+    })
+}
+
 const Jobs = () => {
     if (!isBrowser()) return null
 
     // const [career_data, setCareerData] = React.useState({})
-    // const [is_loading, setIsLoading] = React.useState(true)
+    const [is_loading, setIsLoading] = React.useState(true)
 
     const [filters, setFilters] = React.useState(initializeFilters)
     const [search, setSearch] = React.useState(initializeSearch)
-    const [filtered_positions, setFilteredPositions] = React.useState(() =>
-        filterPositions(filters, search),
-    )
+    const [filtered_positions, setFilteredPositions] = React.useState([])
     const loadCareerData = async () => {
         const response = await API.get('/recruit/getJobOpenings')
         // eslint-disable-next-line no-console
-        console.log(response.data.data.row)
-        // console.log(filtered_positions)
+        const mappedResponse = mapDataPosition(response.data.data.row)
+        // console.log(mappedResponse)
+        setFilteredPositions(mappedResponse)
+        setIsLoading(false)
     }
 
     React.useEffect(() => {
@@ -129,7 +160,8 @@ const Jobs = () => {
                     <Flex direction="column">
                         <SearchForm search={search} setSearch={setSearch} />
                         <Badges filters={filters} setFilters={setFilters} />
-                        {!!filtered_positions.length && (
+
+                        {!is_loading && !!filtered_positions.length && (
                             <Pagination page_limit={4}>
                                 {filtered_positions.map((position, idx) => (
                                     <CardList key={idx} position={position} />

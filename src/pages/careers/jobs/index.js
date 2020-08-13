@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios'
 import styled from 'styled-components'
 import matchSorter from 'match-sorter'
 import { RoleBanner } from '../_layout-components/_banner'
@@ -13,6 +12,7 @@ import NoResultsFound from './_no-results'
 import Badges from './_badges'
 import device from 'themes/device'
 import { isBrowser, debounce } from 'common/utility'
+import API from 'common/api'
 import { SEO, Container, SectionContainer, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
@@ -97,11 +97,10 @@ const Jobs = () => {
         filterPositions(filters, search),
     )
     const loadCareerData = async () => {
-        const response = await axios.get(
-            'https://recruit.zoho.com/recruit/private/json/JobOpenings/getRecords?authtoken=5018c547dbf6ecd1181c90942451fad1&scope=recruitapi',
-        )
+        const response = await API.get('/recruit/getJobOpenings')
         // eslint-disable-next-line no-console
-        console.log(response)
+        console.log(response.data.data.row)
+        // console.log(filtered_positions)
     }
 
     React.useEffect(() => {

@@ -61,7 +61,8 @@ const TrafficSource = (() => {
     const setData = () => {
         const params = queryString.parseUrl(window.location.href).query
         const param_keys = ['utm_source', 'utm_medium', 'utm_campaign']
-        const makeSetCookie = (object) => (key) => object[key] && cookie.set(key, object[key])
+        const makeSetCookie = (object) => (key) =>
+            object[key] && cookie.set(key, object[key], { sameSite: 'none', secure: true })
 
         if (params.utm_source || params.utm_medium || params.utm_campaign || params.t) {
             const setParamCookie = makeSetCookie(params)
@@ -84,7 +85,10 @@ const TrafficSource = (() => {
             referrer = doc_ref
         }
         if (referrer) {
-            cookie.set('referrer', new URL(window.location.href).hostname)
+            cookie.set('referrer', new URL(window.location.href).hostname, {
+                sameSite: 'none',
+                secure: true,
+            })
         }
     }
 

@@ -28,7 +28,7 @@ const content = [
     {
         header: <Localize translate_text="Financial STP" />,
         text: (
-            <Localize translate_text="Trade major, minor, and exotic currency pairs with tight spreads and higher trade volumes, straight to the market." />
+            <Localize translate_text="Trade major, minor, and exotic currency pairs, and cryptocurrencies with tight spreads and higher trade volumes, straight to the market." />
         ),
         icon: <FinancialStpIcon />,
     },

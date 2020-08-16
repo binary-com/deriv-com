@@ -53,7 +53,7 @@ const Card = styled(Flex)`
     }
     @media ${device.mobileL} {
         padding: 24px;
-        height: 226px;
+        height: 250px;
     }
 `
 const StyledHeader = styled(Header)`

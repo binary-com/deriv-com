@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Cookies from 'js-cookie'
-import { LocaleContext } from '../localization'
 import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
 import { LocationProvider } from './location-context'
-import { LocalStore } from 'common/storage'
+import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
+import { CookieStorage } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { isBrowser } from 'common/utility'
 import LiveChatIC from 'images/svg/livechat.svg'
@@ -36,17 +35,35 @@ const Main = styled.main`
 `
 
 const has_dataLayer = isBrowser() && window.dataLayer
-const cookie_expires = 7
+
+const CLIENTS_COUNTRY_KEY = 'clients_country'
+const TRACKING_STATUS_KEY = 'tracking_status'
+const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY)
+const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
     const LC_API = (isBrowser() && window.LC_API) || {}
-    const [clients_country, setClientCountry] = React.useState(Cookies.get('clients_country'))
+    const [clients_country, setClientCountry] = React.useState(
+        clients_country_cookie.get(CLIENTS_COUNTRY_KEY),
+    )
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
+    const [show_modal, toggleModal, closeModal] = useModal()
+    const [modal_payload, setModalPayload] = useState({})
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
-    const { has_window_loaded } = React.useContext(LocaleContext)
 
     const is_static = type === 'static'
+
+    const loadLiveChatScript = (callback) => {
+        const livechat_script = document.createElement('script')
+        livechat_script.innerHTML = `
+            window.__lc = window.__lc || {};
+            window.__lc.license = 12049137;
+            ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can’t use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+        `
+        document.body.appendChild(livechat_script)
+        if (callback) callback()
+    }
 
     React.useEffect(() => {
         if (!clients_country) {
@@ -61,9 +78,10 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
 
                 if (!response.error) {
                     setClientCountry(response.website_status.clients_country)
-                    Cookies.set('clients_country', response.website_status.clients_country, {
-                        expires: cookie_expires,
-                    })
+                    clients_country_cookie.set(
+                        CLIENTS_COUNTRY_KEY,
+                        response.website_status.clients_country,
+                    )
                 }
 
                 binary_socket.close()
@@ -71,30 +89,32 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         }
         if (isBrowser()) {
             window.scrollTo(0, 0)
-            window.LiveChatWidget.on('ready', () => {
-                setLiveChatInteractive(true)
-            })
+            setTimeout(() => {
+                loadLiveChatScript(() => {
+                    window.LiveChatWidget.on('ready', () => {
+                        setLiveChatInteractive(true)
+                    })
+                })
+            }, 2000)
         }
     }, [])
 
     React.useEffect(() => {
         if (!clients_country) return
-        if (!has_window_loaded && !LocalStore.get('window_loaded')) return
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            const is_eu_country = isEuCountry(clients_country)
+            const tracking_status = tracking_status_cookie.get(TRACKING_STATUS_KEY)
+            if (is_eu_country && !tracking_status) setShowCookieBanner(true)
 
-        const is_eu_country = isEuCountry(clients_country)
-        const tracking_status = Cookies.get('tracking_status')
+            const allow_tracking =
+                (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
 
-        if (is_eu_country && !tracking_status) setShowCookieBanner(true)
-
-        const allow_tracking = (!is_eu_country || tracking_status === 'accepted') && has_dataLayer
-
-        if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
-    }, [clients_country, has_window_loaded])
+            if (allow_tracking) window.dataLayer.push({ event: 'allow_tracking' })
+        }
+    }, [clients_country])
 
     const onAccept = () => {
-        Cookies.set('tracking_status', 'accepted', {
-            expires: cookie_expires,
-        })
+        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'accepted')
 
         if (has_dataLayer) window.dataLayer.push({ event: 'allow_tracking' })
 
@@ -102,9 +122,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     }
 
     const onDecline = () => {
-        Cookies.set('tracking_status', 'declined', {
-            expires: cookie_expires,
-        })
+        tracking_status_cookie.set(TRACKING_STATUS_KEY, 'declined')
         setShowCookieBanner(false)
     }
 
@@ -141,6 +159,8 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         <LocationProvider
             is_eu_country={clients_country ? isEuCountry(clients_country) : undefined}
             show_cookie_banner={show_cookie_banner}
+            toggleModal={toggleModal}
+            setModalPayload={setModalPayload}
         >
             {Navigation}
             <Main padding_top={padding_top} is_static={is_static}>
@@ -155,7 +175,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             )}
             {is_livechat_interactive && (
                 <LiveChat
-                    id="gtm-deriv-livechat"
+                    className="gtm-deriv-livechat"
                     onClick={() => {
                         LC_API.open_chat_window()
                     }}
@@ -167,6 +187,16 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             )}
 
             {FooterNav}
+            <EURedirect
+                toggle={toggleModal}
+                is_open={show_modal}
+                closeModal={closeModal}
+                to={modal_payload.to}
+                target={modal_payload.target}
+                rel={modal_payload.rel}
+                ref={modal_payload.ref}
+                aria_label={modal_payload.aria_label}
+            />
         </LocationProvider>
     )
 }

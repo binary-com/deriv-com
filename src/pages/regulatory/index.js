@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import EUgrid from './_eu-grid'
-// import DocumentAccordion from './_document_accordion'
+import DocumentAccordion from './_document_accordion'
 import Layout from 'components/layout/layout'
 import { Header, Text, LinkText, Divider } from 'components/elements'
 import {
@@ -13,7 +13,7 @@ import {
     SmallContainer,
     Show,
 } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
+import { localize, WithIntl, Localize, LocalizedLink } from 'components/localization'
 import { isBrowser, deriv_app_url } from 'common/utility'
 // Icons
 import EU from 'images/svg/europe-map.svg'
@@ -95,6 +95,10 @@ const ResponsiveHeader = styled(StyledHeader)`
 
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
+const ExternalBoldLink = styled(LocalizedLink)`
+    font-weight: bold;
+    color: ${(props) => (props.color ? `var(--color-${props.color})` : '')};
+`
 const Regulatory = () => {
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
@@ -192,14 +196,13 @@ const Regulatory = () => {
                     </Box>
                 </SmallContainer>
             </SectionContainer>
-            {/* TODO: add when documents are ready */}
-            {/* <SectionContainer padding="0 0 4rem 0">
-            <Eu>
-                <SmallContainer fd="column">
-                    <DocumentAccordion />
-                </SmallContainer>
-            </Eu>
-        </SectionContainer> */}
+            <SectionContainer padding="0 0 4rem 0">
+                <Eu>
+                    <SmallContainer fd="column">
+                        <DocumentAccordion />
+                    </SmallContainer>
+                </Eu>
+            </SectionContainer>
             <SectionContainer padding="0 0 4rem">
                 <SmallContainer>
                     <CssGrid
@@ -237,11 +240,12 @@ const Regulatory = () => {
                                                 href="/regulatory/Deriv_(Europe)_Ltd.pdf"
                                                 rel="noopener noreferrer"
                                             />,
-                                            <LinkText
+                                            <ExternalBoldLink
+                                                external
                                                 key={1}
                                                 weight="bold"
                                                 target="_blank"
-                                                href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                                to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
                                                 rel="noopener noreferrer"
                                             />,
                                         ]}
@@ -278,11 +282,12 @@ const Regulatory = () => {
                                                 href="/regulatory/Deriv_(MX)_Ltd.pdf"
                                                 rel="noopener noreferrer"
                                             />,
-                                            <LinkText
+                                            <ExternalBoldLink
+                                                external
                                                 key={0}
                                                 weight="bold"
                                                 target="_blank"
-                                                href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                                to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
                                                 rel="noopener noreferrer"
                                             />,
                                         ]}
@@ -474,12 +479,13 @@ const Regulatory = () => {
                                 <Localize
                                     translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)."
                                     components={[
-                                        <LinkText
+                                        <ExternalBoldLink
+                                            external
                                             key={0}
                                             color="red"
                                             weight="normal"
                                             target="_blank"
-                                            href="https://financialcommission.org/"
+                                            to="https://financialcommission.org/"
                                             rel="noopener noreferrer"
                                         />,
                                         <LinkText
@@ -502,6 +508,7 @@ const Regulatory = () => {
                                                     <TextLink
                                                         key={0}
                                                         color="red"
+                                                        className="gtm-deriv-livechat"
                                                         onClick={() => {
                                                             LC_API.open_chat_window()
                                                         }}

@@ -345,7 +345,7 @@ const DigitalOptions = () => {
                         renderTitle={() => (
                             <Row jc="flex-start" ai="center">
                                 <Col>
-                                    <Title weight="bold" align="center">
+                                    <Title weight="bold" align="center" p="0 0.4rem">
                                         {localize('Continuous indices')}
                                     </Title>
                                 </Col>

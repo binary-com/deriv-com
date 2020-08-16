@@ -26,7 +26,7 @@ const query = graphql`
         asuncion_grid_4: file(relativePath: { eq: "careers/asuncion_grid_4.png" }) {
             ...fadeIn
         }
-        map_asuncion: file(relativePath: { eq: "careers/map_asuncion.png" }) {
+        map_asuncion: file(relativePath: { eq: "maps/map-paraguay.png" }) {
             ...fadeIn
         }
     }

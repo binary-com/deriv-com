@@ -51,7 +51,7 @@ const Button = styled(Flex)`
 `
 const Arrow = styled.div`
     border: solid red;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 2px 0;
     display: inline-block;
     padding: 3px;
     margin: auto;

@@ -1,148 +1,141 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from '../../components/elements/typography'
-import { Header } from 'components/elements'
-import { SectionContainer, Flex } from 'components/containers'
+import { graphql, useStaticQuery } from 'gatsby'
+import { Header, QueryImage } from 'components/elements'
+import { SectionContainer, Container, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
-import { LinkButton, Button } from 'components/form'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
-import Chat from 'images/svg/call.svg'
-import Help from 'images/svg/help-centre.svg'
-import { isBrowser } from 'common/utility'
+import { community_url } from 'common/utility'
+
+const query = graphql`
+    query {
+        community: file(relativePath: { eq: "community.png" }) {
+            ...fadeIn
+        }
+        help: file(relativePath: { eq: "help.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
-    height: 4rem;
-    margin-top: 3.2rem;
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
+        font-size: 14px;
+        padding: 12px 16px;
     }
 `
 const contactways = [
     {
-        header: <Localize translate_text="Visit the Help centre" />,
-        text: (
-            <Text mb="1.6rem">
-                <Localize translate_text="The quickest way to get answers to your questions." />
-            </Text>
-        ),
-        icon: <Help />,
+        name: 'community',
+        header: <Localize translate_text="Ask everyone" />,
+        text: <Localize translate_text="Our Deriv support community can help you find answers." />,
+        image: 'community',
         button: (
-            <StyledLinkButton secondary="true" to="/help-centre">
-                {localize('Visit the Help Centre')}
+            <StyledLinkButton secondary="true" to={community_url} target="_blank">
+                {localize('Ask the community')}
             </StyledLinkButton>
         ),
     },
     {
-        header: <Localize translate_text="Chat with us" />,
+        name: 'help',
+        header: <Localize translate_text="We’re here to help" />,
         text: (
-            <Text>
-                <Localize translate_text="Get answers you can’t find in the Help centre." />
-            </Text>
+            <Localize translate_text="See frequently asked questions on popular topics to get quick answers." />
         ),
-        icon: <Chat />,
+        image: 'help',
+        button: (
+            <StyledLinkButton secondary="true" to="/help-centre">
+                {localize('Visit our Help centre')}
+            </StyledLinkButton>
+        ),
     },
 ]
 
-const StyledFlex = styled(Flex)`
-    margin: auto;
-    max-width: 110rem;
+const GridLayout = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2.4rem;
 
-    @media ${device.tabletL} {
-        flex-direction: column;
-        align-items: center;
-
-        article {
-            margin: 16px auto 0;
-        }
-        article:last-child {
-            margin-bottom: 32px;
-        }
+    @media ${device.tablet} {
+        grid-template-columns: 1fr;
+        grid-gap: 40px;
     }
 `
-const ClientCard = styled.article`
-    margin: 2rem;
-    background-color: var(--color-white);
-    border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
-    width: 38.4rem;
-    padding: 3.2rem 2.4rem;
+
+const ImgWrapper = styled.div`
+    width: 28.2rem;
+
+    @media ${device.mobileL} {
+        width: 100%;
+    }
+`
+
+const ContactWrapper = styled.article`
+    width: 48.6rem;
     height: 100%;
     min-height: 22rem;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     @media ${device.tabletL} {
         width: 100%;
         max-width: 55rem;
         margin-top: 0;
-        padding: 3rem;
 
-        ${Text} {
-            font-size: 2rem;
+        h3 {
+            font-size: 24px;
         }
-        ${Header} {
-            font-size: 3rem;
+        h4 {
+            font-size: 20px;
         }
         ${Flex} {
             padding-bottom: 2rem;
             align-items: center;
         }
     }
-
-    @media ${device.mobileL} {
-        ${Header} {
-            font-size: 1.9rem;
-        }
-    }
 `
 
 const ContactWays = () => {
-    const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
-
-    React.useEffect(() => {
-        if (isBrowser()) {
-            window.scrollTo(0, 0)
-            window.LiveChatWidget.on('ready', () => {
-                setLiveChatInteractive(true)
-            })
-        }
-    }, [])
-
+    const data = useStaticQuery(query)
     return (
-        <SectionContainer mt="-18rem">
-            <StyledFlex wrap="wrap">
-                {contactways.map((item, idx) => {
-                    return (
-                        <ClientCard key={idx}>
-                            <Flex pb="0.8rem" ai="center">
-                                <Header size="2.4rem">{item.header}</Header>
-                                {item.icon}
-                            </Flex>
-                            <Text pb="1rem">{item.text}</Text>
-                            <Text>{item.text2}</Text>
-                            <div>{item.button}</div>
+        <SectionContainer padding="4rem 0" background="var(--color-grey-25)">
+            <Container>
+                <GridLayout>
+                    {contactways.map((item, idx) => {
+                        return (
+                            <ContactWrapper key={idx}>
+                                <ImgWrapper>
+                                    <QueryImage
+                                        data={data[item.image]}
+                                        alt={item.header}
+                                        width="100%"
+                                    />
+                                </ImgWrapper>
 
-                            {idx == 1 && (
-                                <>
-                                    {is_livechat_interactive && (
-                                        <Button
-                                            secondary="true"
-                                            to="/help-centre"
-                                            onClick={() => {
-                                                LC_API.open_chat_window()
-                                            }}
-                                        >
-                                            {localize('Chat with us')}
-                                        </Button>
-                                    )}
-                                </>
-                            )}
-                        </ClientCard>
-                    )
-                })}
-            </StyledFlex>
+                                <Header mt="2.4rem" as="h3" align="center">
+                                    {item.header}
+                                </Header>
+                                <Header
+                                    as="h4"
+                                    weight="normal"
+                                    mb="2.4rem"
+                                    mt="0.8rem"
+                                    align="center"
+                                >
+                                    {item.text}
+                                </Header>
+                                {item.button}
+                            </ContactWrapper>
+                        )
+                    })}
+                </GridLayout>
+            </Container>
         </SectionContainer>
     )
 }

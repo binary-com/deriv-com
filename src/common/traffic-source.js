@@ -1,10 +1,18 @@
 import queryString from 'query-string'
+import Cookies from 'js-cookie'
 import { CookieStorage, LocalStore } from './storage'
 
 const TrafficSource = (() => {
-    let cookie
+    let cookie, existing_utm_cookie
+
+    const init = () => {
+        TrafficSource.initUtmCookie()
+        TrafficSource.setData()
+        TrafficSource.setAffiliateData()
+    }
 
     const initUtmCookie = () => {
+        existing_utm_cookie = Cookies.get('utm_data')
         cookie = new CookieStorage('utm_data')
         cookie.remove()
         // expiration date is used when writing cookie
@@ -41,7 +49,7 @@ const TrafficSource = (() => {
 
     const getData = () => {
         const data = cookie.value
-        Object.keys(data).map(key => {
+        Object.keys(data).map((key) => {
             data[key] = (data[key] || '').replace(/[^a-zA-Z0-9\s-._]/gi, '').substring(0, 100)
         })
         return data
@@ -53,14 +61,15 @@ const TrafficSource = (() => {
     const setData = () => {
         const params = queryString.parseUrl(window.location.href).query
         const param_keys = ['utm_source', 'utm_medium', 'utm_campaign']
+        const makeSetCookie = (object) => (key) => object[key] && cookie.set(key, object[key])
 
-        if (params.utm_source) {
-            // url params can be stored only if utm_source is available
-            param_keys.forEach(key => {
-                if (params[key]) {
-                    cookie.set(key, params[key], { sameSite: 'none', secure: true })
-                }
-            })
+        if (params.utm_source || params.utm_medium || params.utm_campaign || params.t) {
+            const setParamCookie = makeSetCookie(params)
+            param_keys.forEach(setParamCookie)
+        } else if (existing_utm_cookie) {
+            const parsed_cookie_values = JSON.parse(existing_utm_cookie)
+            const setOldCookie = makeSetCookie(parsed_cookie_values)
+            Object.keys(parsed_cookie_values).forEach(setOldCookie)
         }
 
         // Store gclid
@@ -75,10 +84,7 @@ const TrafficSource = (() => {
             referrer = doc_ref
         }
         if (referrer) {
-            cookie.set('referrer', new URL(window.location.href).hostname, {
-                sameSite: 'none',
-                secure: true,
-            })
+            cookie.set('referrer', new URL(window.location.href).hostname)
         }
     }
 
@@ -88,6 +94,7 @@ const TrafficSource = (() => {
         setData,
         getSource,
         initUtmCookie,
+        init,
     }
 })()
 

@@ -181,13 +181,6 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-google-tagmanager',
-            options: {
-                id: 'GTM-NF7884S',
-                includeInDevelopment: false,
-            },
-        },
-        {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
                 policy: [
@@ -212,6 +205,21 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -300,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-nprogress`,
+            options: {
+                color: `#85ACB0`,
+                showSpinner: false,
+                minimum: 0.4,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-google-tagmanager',
+            options: {
+                id: 'GTM-NF7884S',
+                includeInDevelopment: false,
             },
         },
     ],

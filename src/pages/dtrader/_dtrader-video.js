@@ -5,7 +5,7 @@ import { Header } from 'components/elements'
 import MacBook from 'images/svg/macbook.svg'
 import device from 'themes/device.js'
 import { isBrowser, deriv_app_url } from 'common/utility'
-import { Button } from 'components/form'
+import { LinkButton } from 'components/form'
 
 const Container = styled.section`
     width: 100%;
@@ -82,20 +82,24 @@ const Video = styled.video`
     height: 77%;
     left: 11.5%;
 `
-const GoToLiveDemo = styled(Button)`
+const GoToLiveDemo = styled(LinkButton)`
     border: 2px solid var(--color-red);
     font-weight: bold;
     line-height: 1.43;
     width: fit-content;
-    margin-top: 4rem;
 
     @media ${device.tabletL} {
         max-width: 100%;
-        margin: 4rem auto;
         font-size: 1.75rem;
     }
 `
+const GotoLiveWrapper = styled.div`
+    margin-top: 4rem;
 
+    @media ${device.tabletL} {
+        margin: 4rem auto;
+    }
+`
 class DtraderTabs extends React.Component {
     my_ref = React.createRef()
     interval_ref = undefined
@@ -226,9 +230,11 @@ class DtraderTabs extends React.Component {
                             {localize('3. Place a trade')}
                         </Step>
                     </Tab>
-                    <GoToLiveDemo secondary="true" onClick={this.handleRedirect}>
-                        {localize('Go to live demo')}
-                    </GoToLiveDemo>
+                    <GotoLiveWrapper>
+                        <GoToLiveDemo secondary="true" to={deriv_app_url} target="_blank">
+                            {localize('Go to live demo')}
+                        </GoToLiveDemo>
+                    </GotoLiveWrapper>
                 </TabsWrapper>
                 <VideoWrapper>
                     <MacbookFrame />

@@ -6,7 +6,7 @@ import { deriv_app_url } from 'common/utility'
 import { localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import { Button, LinkButton } from 'components/form'
+import { LinkButton } from 'components/form'
 import device from 'themes/device.js'
 
 const Wrapper = styled.div`
@@ -125,7 +125,7 @@ const LinkWrapper = styled.div`
     }
 `
 
-const GoToLiveDemo = styled(Button)`
+const GoToLiveDemo = styled(LinkButton)`
     color: var(--color-white);
     border-color: var(--color-black-5);
     margin-left: 1.6rem;
@@ -232,9 +232,9 @@ const DHero = ({
     Logo,
 }) => {
     const data = useStaticQuery(query)
-    const handleRedirect = () => {
+    const getRedirectLink = () => {
         const path = image_name === 'dbot' ? '/bot' : '/'
-        window.open(deriv_app_url + path, '_blank')
+        return deriv_app_url + path
     }
     const DLogo = styled(Logo)`
         margin-right: 1.6rem;
@@ -291,7 +291,7 @@ const DHero = ({
                         </DemoButton>
                     )}
                     {go_to_live_demo && (
-                        <GoToLiveDemo tertiary onClick={handleRedirect}>
+                        <GoToLiveDemo tertiary to={getRedirectLink()} target="_blank">
                             {localize('Go to live demo')}
                         </GoToLiveDemo>
                     )}

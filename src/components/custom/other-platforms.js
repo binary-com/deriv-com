@@ -25,15 +25,25 @@ import Forex from 'images/svg/forex-nav.svg'
 import Commodities from 'images/svg/commodities-nav.svg'
 import StockIndices from 'images/svg/stock-indices-nav.svg'
 import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
+import Story from 'images/svg/story.svg'
+import Leadership from 'images/svg/leadership.svg'
+import Partner from 'images/svg/partner.svg'
+import WhyChoose from 'images/svg/choose.svg'
+import Contact from 'images/svg/contact.svg'
+import Career from 'images/svg/careers.svg'
+import Help from 'images/svg/helpcenter.svg'
+import Community from 'images/svg/community.svg'
+import Payment from 'images/svg/paymentmethods.svg'
 
 const MarginDivider = styled(Divider)`
-    margin: 0 2.4rem;
+    margin: 0 0.8rem;
 `
 
 const StyledText = styled(Text)`
     font-size: var(--text-size-xxs);
     color: var(--color-grey-5);
     margin-bottom: 1.6rem;
+    margin-left: 1.6rem;
 `
 
 const HeaderWrapper = styled.div`
@@ -225,7 +235,6 @@ export const NavPlatform = () => (
                 }
                 title={<Localize translate_text="DMT5" />}
                 to="/dmt5"
-                style={{ marginTop: '1.6rem' }}
             />
             <NavCard
                 icon={DBot}
@@ -234,7 +243,6 @@ export const NavPlatform = () => (
                 }
                 title={<Localize translate_text="DBot" />}
                 to="/dbot"
-                style={{ marginTop: '1.6rem' }}
             />
             <NavCard
                 icon={Smarttrader}
@@ -244,7 +252,6 @@ export const NavPlatform = () => (
                 title={<Localize translate_text="SmartTrader" />}
                 to="trading"
                 is_smarttrader_link
-                style={{ marginTop: '1.6rem' }}
                 external="true"
                 target="_blank"
                 otherLinkProps={{ rel: 'noopener noreferrer' }}
@@ -259,7 +266,7 @@ export const NavPlatform = () => (
                     <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
                 }
                 title={<Localize translate_text="Margin trading" />}
-                to="/dtrader"
+                to="/trade-types/margin"
             />
 
             <NavCard
@@ -268,8 +275,7 @@ export const NavPlatform = () => (
                     <Localize translate_text="Earn fixed payouts by predicting an assets price movement." />
                 }
                 title={<Localize translate_text="Options" />}
-                to="/dmt5"
-                style={{ marginTop: '1.6rem' }}
+                to="/trade-types/options"
             />
             <NavCard
                 icon={Multipliers}
@@ -277,8 +283,7 @@ export const NavPlatform = () => (
                     <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
                 }
                 title={<Localize translate_text="Multipliers" />}
-                to="/dbot"
-                style={{ marginTop: '1.6rem' }}
+                to="/trade-types/multiplier"
             />
         </Flex>
     </Flex>
@@ -301,7 +306,6 @@ export const NavMarket = () => (
             }
             title={<Localize translate_text="Synthetic indices" />}
             to="/markets#synthetic"
-            style={{ marginTop: '1.6rem' }}
         />
         <NavCard
             icon={StockIndices}
@@ -310,7 +314,6 @@ export const NavMarket = () => (
             }
             title={<Localize translate_text="Stock indices" />}
             to="/markets#stock"
-            style={{ marginTop: '1.6rem' }}
         />
         <NavCard
             icon={Commodities}
@@ -319,25 +322,31 @@ export const NavMarket = () => (
             }
             title={<Localize translate_text="Commodities" />}
             to="/markets#commodities"
-            style={{ marginTop: '1.6rem' }}
         />
     </Flex>
 )
 
 export const NavCompany = () => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
-        <CardLink icon={Commodities} title={localize('Our story')} to="/about/#story" />
-        <CardLink title={localize('Contact us')} to="/contact-us/" />
-        <CardLink title={localize('Our leadership')} to="/about/#leadership" />
-        <CardLink title={localize('Careers')} to="/careers/" />
-        <CardLink title={localize('Why choose us?')} to="/why-choose-us/" />
+        <CardLink icon={Story} title={localize('Our story')} to="/about/#story" />
+        <CardLink icon={Leadership} title={localize('Our leadership')} to="/about/#leadership" />
+        <CardLink icon={Partner} title={localize('Partnership programmes')} to="/partners/" />
+        <CardLink icon={WhyChoose} title={localize('Why choose us?')} to="/why-choose-us/" />
+        <CardLink icon={Contact} title={localize('Contact us')} to="/contact-us/" />
+        <CardLink icon={Career} title={localize('Careers')} to="/careers/" />
     </Flex>
 )
 
 export const NavResources = () => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
-        <CardLink title={localize('Help centre')} to="/help-centre/" />
-        <CardLink title={localize('Payment methods')} to="/payment-methods/" />
+        <CardLink icon={Help} title={localize('Help centre')} to="/help-centre/" />
+        <CardLink
+            icon={Community}
+            title={localize('Community')}
+            to="https://community.deriv.com/"
+            target="_blank"
+        />
+        <CardLink icon={Payment} title={localize('Payment methods')} to="/payment-methods/" />
         {/* TODO: add this when blog is ready */}
         {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
     </Flex>

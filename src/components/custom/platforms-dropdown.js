@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { Container, Show } from 'components/containers'
-// import { Divider } from 'components/elements'
-import device from 'themes/device'
 
 const FadeInDown = keyframes`
     from {
@@ -30,7 +28,7 @@ const NavDropdown = styled.div`
     width: auto;
     left: ${(props) => (props.offset ? props.offset + 'px !important' : 'none')};
     position: absolute;
-    padding: 4rem 0;
+    padding: 2.2rem 0.8rem;
     z-index: -1;
     height: auto;
     transform: translateY(-18rem);
@@ -42,14 +40,22 @@ const NavDropdown = styled.div`
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
     animation-duration: ${(props) => (props.has_animation ? '0.3s' : '0')};
+    overflow: visible;
+
+    ::after {
+        content: ' ';
+        position: absolute;
+        top: -9px;
+        border-top: none;
+        border-right: 15px solid transparent;
+        border-left: 15px solid transparent;
+        border-bottom: 15px solid white;
+    }
 `
 const StyledContainer = styled(Container)`
     justify-content: flex-start;
     align-items: flex-start;
-    width: 100%;
-    @media ${device.laptopL} {
-        width: 90%;
-    }
+    width: 100% !important;
 
     .active {
         border: 0.2rem solid var(--color-green);
@@ -63,7 +69,6 @@ const PlatformsDropdown = ({ is_open, has_animation, Content, forward_ref, link_
         if (link_ref.current) {
             const left_offsets = link_ref.current.offsetLeft
             setLeft(left_offsets)
-            console.log(left_offsets) //eslint-disable-line
         }
     }, [forward_ref])
 

@@ -292,6 +292,8 @@ const ResponsiveText = styled(Text)`
 `
 
 const FlexHover = styled(Flex)`
+    padding: 0.8rem 1.6rem;
+
     & > svg {
         width: 24px;
         height: 24px;
@@ -303,6 +305,8 @@ const FlexHover = styled(Flex)`
         }
     }
     &:hover {
+        background-color: #f5f7fa;
+
         ${RightDiagonal} {
             opacity: 1;
         }
@@ -380,9 +384,8 @@ const LinkRightDiagonal = styled(RightDiagonal)`
 
 const HoverFlex = styled(Flex)`
     &:hover {
-        ${ResponsiveHeader} {
-            color: var(--color-red);
-        }
+        background-color: #f5f7fa;
+
         ${LinkRightDiagonal} {
             opacity: 1;
         }
@@ -406,20 +409,18 @@ export const CardLink = ({ icon: Icon, title, to, style, external }) => {
             style={{
                 textDecoration: 'none',
                 width: '100%',
-                maxWidth: '20rem',
                 position: 'relative',
                 ...style,
             }}
             external={external}
         >
-            <HoverFlex jc="flex-start" direction="row" tablet_direction="row">
-                <RelativeFlex jc="flex-start" width="auto">
+            <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
+                <RelativeFlex ai="center" jc="flex-start" width="auto">
                     {Icon && <Icon />}
                     <ResponsiveHeader
                         color="black-3"
                         size="var(--text-size-xs)"
                         lh="1.14"
-                        mb="1.6rem"
                         weight="normal"
                     >
                         {title}

@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Text } from '../../components/elements/typography'
 import { Header, QueryImage } from 'components/elements'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer, Container, Flex } from 'components/containers'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
@@ -22,11 +21,10 @@ const query = graphql`
 
 const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
-    height: 4rem;
-    margin-top: 3.2rem;
 
     @media ${device.tabletL} {
-        font-size: 1.75rem;
+        font-size: 14px;
+        padding: 12px 16px;
     }
 `
 const contactways = [
@@ -56,26 +54,27 @@ const contactways = [
     },
 ]
 
-const StyledFlex = styled(Flex)`
-    margin: auto;
-    max-width: 110rem;
+const GridLayout = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2.4rem;
 
-    @media ${device.tabletL} {
-        flex-direction: column;
-        align-items: center;
-
-        article {
-            margin: 16px auto 0;
-        }
-        article:last-child {
-            margin-bottom: 32px;
-        }
+    @media ${device.tablet} {
+        grid-template-columns: 1fr;
+        grid-gap: 40px;
     }
 `
+
+const ImgWrapper = styled.div`
+    width: 28.2rem;
+
+    @media ${device.mobileL} {
+        width: 100%;
+    }
+`
+
 const ContactWrapper = styled.article`
-    margin: 2rem;
-    width: 38.4rem;
-    padding: 3.2rem 2.4rem;
+    width: 48.6rem;
     height: 100%;
     min-height: 22rem;
     position: relative;
@@ -84,34 +83,20 @@ const ContactWrapper = styled.article`
     justify-content: center;
     align-items: center;
 
-    ${Text} {
-        text-align: center;
-    }
-    ${Header} {
-        text-align: center;
-    }
-
     @media ${device.tabletL} {
         width: 100%;
         max-width: 55rem;
         margin-top: 0;
-        padding: 3rem;
 
-        ${Text} {
-            font-size: 2rem;
+        h3 {
+            font-size: 24px;
         }
-        ${Header} {
-            font-size: 3rem;
+        h4 {
+            font-size: 20px;
         }
         ${Flex} {
             padding-bottom: 2rem;
             align-items: center;
-        }
-    }
-
-    @media ${device.mobileL} {
-        ${Header} {
-            font-size: 1.9rem;
         }
     }
 `
@@ -119,23 +104,38 @@ const ContactWrapper = styled.article`
 const ContactWays = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer padding="unset" background="var(--color-grey-25)">
-            <StyledFlex wrap="wrap">
-                {contactways.map((item, idx) => {
-                    return (
-                        <ContactWrapper key={idx}>
-                            <QueryImage data={data[item.image]} alt={item.header} width="24rem" />
-                            <Header mt="2.4rem" size="2.4rem">
-                                {item.header}
-                            </Header>
-                            <Text mb="3.4rem" mt="0.8rem">
-                                {item.text}
-                            </Text>
-                            <div>{item.button}</div>
-                        </ContactWrapper>
-                    )
-                })}
-            </StyledFlex>
+        <SectionContainer padding="4rem 0" background="var(--color-grey-25)">
+            <Container>
+                <GridLayout>
+                    {contactways.map((item, idx) => {
+                        return (
+                            <ContactWrapper key={idx}>
+                                <ImgWrapper>
+                                    <QueryImage
+                                        data={data[item.image]}
+                                        alt={item.header}
+                                        width="100%"
+                                    />
+                                </ImgWrapper>
+
+                                <Header mt="2.4rem" as="h3" align="center">
+                                    {item.header}
+                                </Header>
+                                <Header
+                                    as="h4"
+                                    weight="normal"
+                                    mb="2.4rem"
+                                    mt="0.8rem"
+                                    align="center"
+                                >
+                                    {item.text}
+                                </Header>
+                                {item.button}
+                            </ContactWrapper>
+                        )
+                    })}
+                </GridLayout>
+            </Container>
         </SectionContainer>
     )
 }

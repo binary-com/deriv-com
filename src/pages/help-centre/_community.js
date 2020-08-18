@@ -17,8 +17,12 @@ const query = graphql`
 `
 const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
-    height: 4rem;
     width: fit-content;
+
+    @media ${device.tablet} {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
 `
 const StyledHeader = styled(Header)`
     @media ${device.tablet} {

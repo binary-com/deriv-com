@@ -12,6 +12,7 @@ import Malta from 'images/svg/contact/malta.svg'
 import Dubai from 'images/svg/contact/dubai.svg'
 import Paraguay from 'images/svg/contact/paraguay.svg'
 import Malaysia from 'images/svg/contact/malaysia.svg'
+import Cyprus from 'images/svg/contact/cyprus.svg'
 
 const query = graphql`
     query {
@@ -36,6 +37,9 @@ const query = graphql`
         map_cyberjaya: file(relativePath: { eq: "maps/map-cyberjaya.png" }) {
             ...fadeIn
         }
+        map_cyprus: file(relativePath: { eq: "maps/map-cyprus.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -48,6 +52,7 @@ const GridLayout = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 2.4rem;
     width: 100%;
+    margin-top: ${(props) => props.mt || 0};
 
     @media ${device.tablet} {
         grid-template-columns: 1fr;
@@ -95,7 +100,6 @@ const CountryText = styled(Text)`
 
 const FullBorder = styled(BorderBox)`
     padding: 2.4rem 0;
-    border-bottom: 1px solid var(--color-grey-2);
 `
 
 const ResHeader = styled(Header)`
@@ -308,28 +312,53 @@ export const Offices = () => {
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <Flex mt="4rem" fd="column" max_width="48.6rem">
-                        <OfficeHeader>
-                            <div>
-                                <Paraguay />
-                            </div>
-                            <Header as="h4" mt="0.8rem" mb="1.6rem">
-                                {localize('Paraguay')}
-                            </Header>
-                        </OfficeHeader>
-                        <BorderBox>
-                            <MapContainer>
-                                <QueryImage
-                                    alt="Map Paraguay"
-                                    data={data['map_paraguay']}
-                                    height="100%"
-                                />
-                            </MapContainer>
-                            <Text mt="0.8rem" ml="1.6rem">
-                                Edificio Australia, Oficina 1, Herib Campos Cervera 886, Asunción
-                            </Text>
-                        </BorderBox>
-                    </Flex>
+                    <GridLayout mt="4rem">
+                        <Flex fd="column" max_width="48.6rem">
+                            <OfficeHeader>
+                                <div>
+                                    <Paraguay />
+                                </div>
+                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                    {localize('Paraguay')}
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <QueryImage
+                                        alt="Map Paraguay"
+                                        data={data['map_paraguay']}
+                                        height="100%"
+                                    />
+                                </MapContainer>
+                                <Text mt="0.8rem" ml="1.6rem">
+                                    Edificio Australia, Oficina 1, Herib Campos Cervera 886,
+                                    Asunción
+                                </Text>
+                            </BorderBox>
+                        </Flex>
+                        <Flex fd="column" max_width="48.6rem">
+                            <OfficeHeader>
+                                <div>
+                                    <Cyprus />
+                                </div>
+                                <Header as="h4" mt="0.8rem" mb="1.6rem">
+                                    {localize('Cyprus')}
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <QueryImage
+                                        alt="Map Cyprus"
+                                        data={data['map_cyprus']}
+                                        height="100%"
+                                    />
+                                </MapContainer>
+                                <Text mt="0.8rem" ml="1.6rem">
+                                    42 Agias Filaxeos, 5th floor, Limassol 3025
+                                </Text>
+                            </BorderBox>
+                        </Flex>
+                    </GridLayout>
                 </Content>
             </Container>
         </SectionContainer>

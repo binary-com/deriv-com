@@ -4,6 +4,7 @@ import {
     address_asuncion,
     address_labuan,
     address_malta,
+    address_ipoh,
 } from 'common/contact-details'
 
 export const cyberjaya = {
@@ -114,17 +115,18 @@ export const melaka = {
 
 export const ipoh = {
     name: 'ipoh',
-    // link:
+    link: '/careers/locations/ipoh',
     display_name: 'Ipoh',
     country: 'Malaysia',
-    // thumbnail:
-    // header_p:
-    // first_p:
-    // first_img:
-    // grid_images:[],
-    // map:
-    // map_text:
-    // address:
+    thumbnail: 'thumbnail_ipoh',
+    header_p: `The third-largest city in Malaysia, Ipoh in the state of Perak is about 180 km to the north of Kuala Lumpur. Ipoh developed into a bustling town in the 1880s when tin was discovered there. About a century later, the city went into decline, but it has experienced more than a come-back in the 21st century since its British colonial architecture, unique cuisine, bohemian hotels, and Buddist temples in nearby caves have contributed to making Ipoh a hit among tourists.`,
+    first_p: `Ipoh matches KL in urban amenities but charges you less for them, and with its negligible traffic, you’ll spend far less time in getting to the entertainment hubs, sports facilities, and health and education centres that this city contains. The rich historical architecture of Ipoh’s famous old town, cave temples, treasured museums, beautiful street murals, hip cafes, thrilling water park, and gorgeous nature are only some of the charms that make Ipoh a lovely place where you can live and work.`,
+    first_img: 'living_in_ipoh',
+    grid_images: ['ipoh_grid_1', 'ipoh_grid_2', 'ipoh_grid_3', 'ipoh_grid_4'],
+    map: 'map_ipoh',
+    map_text:
+        'In Ipoh, we are at Jalan Sultan Idris Shah, a lively street, with cheerful shophouses popular with tourists, and in a neighbourhood with 3 parks, where you can walk, jog, and bike to your heart’s content.',
+    address: address_ipoh,
 }
 
 export const locations = {

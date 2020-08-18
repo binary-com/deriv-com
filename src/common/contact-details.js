@@ -15,5 +15,13 @@ const address_labuan = localize(
 const address_malta = localize(
     'Level 3, W Business Centre, Triq Dun Karm Birkirkara BKR9033 Malta.',
 )
+const address_ipoh = localize('E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah, Ipoh 30000, Perak')
 
-export { address_cyberjaya, address_dubai, address_asuncion, address_labuan, address_malta }
+export {
+    address_cyberjaya,
+    address_dubai,
+    address_asuncion,
+    address_labuan,
+    address_malta,
+    address_ipoh,
+}

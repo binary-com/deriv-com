@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { getPositionsByLocation } from '../_controller/_teams'
 import { StyledCard } from '../_layout-components/_team-card'
-import { cyberjaya, malta, dubai, labuan, asuncion } from '../_model/_locations/_locations'
+import { cyberjaya, malta, dubai, labuan, asuncion, ipoh } from '../_model/_locations/_locations'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
@@ -113,6 +113,9 @@ const query = graphql`
         thumbnail_asuncion: file(relativePath: { eq: "careers/thumbnail_asuncion.png" }) {
             ...fadeIn
         }
+        thumbnail_ipoh: file(relativePath: { eq: "careers/thumbnail_ipoh.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -181,6 +184,14 @@ const Locations = () => {
                             city_name={malta.display_name}
                             link={malta.link}
                             open_positions={getPositionsByLocation(malta.name).length}
+                        />
+                        <CountryCard
+                            Icon={ParaguayFlagIcon}
+                            img_data={images[ipoh.thumbnail]}
+                            country_name={ipoh.country}
+                            city_name={ipoh.display_name}
+                            open_positions={getPositionsByLocation(ipoh.name).length}
+                            link={ipoh.link}
                         />
                     </CssGrid>
                 </SectionContainer>

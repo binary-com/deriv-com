@@ -275,7 +275,8 @@ const RightDiagonal = styled(Diagonal)`
     opacity: 0;
     transition: opacity 0.2s;
     position: absolute;
-    right: 0;
+    right: 16px;
+    top: 16px;
 `
 
 const ResponsiveHeader = styled(Header)`
@@ -355,9 +356,11 @@ export const NavCard = ({
                         {content}
                     </ResponsiveText>
                 </NavContent>
-                <Show.Desktop>
-                    <RightDiagonal />
-                </Show.Desktop>
+                {external && (
+                    <Show.Desktop>
+                        <RightDiagonal />
+                    </Show.Desktop>
+                )}
             </FlexHover>
         </LocalizedLink>
     )
@@ -379,7 +382,10 @@ NavCard.propTypes = {
 
 const LinkRightDiagonal = styled(RightDiagonal)`
     opacity: 0;
-    right: -25px;
+    right: -4rem;
+    top: 0;
+    width: 16px;
+    height: 16px;
 `
 
 const HoverFlex = styled(Flex)`
@@ -394,8 +400,8 @@ const HoverFlex = styled(Flex)`
 
 const RelativeFlex = styled(Flex)`
     & > svg {
-        width: 24px;
         height: 24px;
+        width: 24px;
         margin-right: 1.6rem;
     }
 
@@ -425,7 +431,11 @@ export const CardLink = ({ icon: Icon, title, to, style, external }) => {
                     >
                         {title}
                     </ResponsiveHeader>
-                    <LinkRightDiagonal />
+                    {external && (
+                        <div>
+                            <LinkRightDiagonal />
+                        </div>
+                    )}
                 </RelativeFlex>
             </HoverFlex>
         </LocalizedLink>

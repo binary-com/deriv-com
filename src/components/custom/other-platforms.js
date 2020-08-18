@@ -345,6 +345,7 @@ export const NavResources = () => (
             title={localize('Community')}
             to="https://community.deriv.com/"
             target="_blank"
+            external
         />
         <CardLink icon={Payment} title={localize('Payment methods')} to="/payment-methods/" />
         {/* TODO: add this when blog is ready */}

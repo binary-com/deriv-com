@@ -25,6 +25,9 @@ import Contact from 'components/svgs/contact'
 import Career from 'components/svgs/careers'
 import Help from 'components/svgs/help-centre'
 import Payment from 'components/svgs/payment-methods'
+import Regulatory from 'components/svgs/regulatory'
+import Terms from 'components/svgs/terms'
+import SecureTrading from 'components/svgs/secure-trading'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -302,13 +305,22 @@ export const OffCanvasMenuWrapper = (props) => {
                         style={content_style}
                     >
                         <StyledLink to="/regulatory/" onClick={handleArrowClick}>
-                            {localize('Regulatory information')}
+                            <div>
+                                <Regulatory dynamic_id="regulatory-mobile" />
+                            </div>
+                            <span>{localize('Regulatory information')}</span>
                         </StyledLink>
                         <StyledLink to="/terms-and-conditions/" onClick={handleArrowClick}>
-                            {localize('Terms and conditions')}
+                            <div>
+                                <Terms dynamic_id="terms-mobile" />
+                            </div>
+                            <span>{localize('Terms and conditions')}</span>
                         </StyledLink>
                         <StyledLink to="/responsible-trading/" onClick={handleArrowClick}>
-                            {localize('Secure and responsible trading')}
+                            <div>
+                                <SecureTrading dynamic_id="secure-trading-mobile" />
+                            </div>
+                            <span>{localize('Secure and responsible trading')}</span>
                         </StyledLink>
                     </AccordionItem>
                 </Accordion>

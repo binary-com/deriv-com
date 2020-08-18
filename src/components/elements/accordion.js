@@ -32,16 +32,13 @@ const AccordionHeader = styled.div`
         margin-right: auto;
 
         @media ${device.tabletL} {
-            font-size: var(--text-size-sm);
-        }
-        @media ${device.mobileM} {
-            font-size: var(--text-size-s);
+            font-size: 16px;
         }
     }
     svg {
         @media ${device.mobileL} {
-            width: 1.6rem;
-            height: 1.6rem;
+            width: 16px;
+            height: 16px;
         }
     }
     &:hover {
@@ -50,8 +47,8 @@ const AccordionHeader = styled.div`
 `
 const ResponsiveWrapper = styled.div`
     @media ${device.tablet} {
-        margin-left: 1.6rem;
-        margin-right: 1.6rem;
+        margin-left: 16px;
+        margin-right: 16px;
     }
 `
 

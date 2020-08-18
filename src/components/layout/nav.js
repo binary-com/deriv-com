@@ -267,7 +267,7 @@ const MobileLogin = styled(Button)`
         display: block;
     }
     @media ${device.mobileL} {
-        font-size: var(--text-size-xxs);
+        font-size: 12px;
     }
 `
 const LinkMobileLogin = styled(LinkButton)`

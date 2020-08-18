@@ -264,17 +264,13 @@ const NavContent = styled.div`
     max-width: 21.3rem;
     display: flex;
     flex-direction: column;
-
-    ${Text} {
-        font-size: var(--text-size-xxs);
-        color: var(--color-grey-5);
-        transition: color 0.25s;
-    }
 `
 const RightDiagonal = styled(Diagonal)`
     opacity: 0;
     transition: opacity 0.2s;
     position: absolute;
+    width: 16px;
+    height: 16px;
     right: 16px;
     top: 16px;
 `
@@ -287,13 +283,18 @@ const ResponsiveHeader = styled(Header)`
 `
 const ResponsiveText = styled(Text)`
     transition: color 0.2s;
+    font-size: var(--text-size-xxs);
+
     @media ${device.tabletS} {
-        font-size: 10.5px;
+        font-size: 14px;
     }
 `
 
 const FlexHover = styled(Flex)`
     padding: 0.8rem 1.6rem;
+    @media ${device.mobileL} {
+        padding: 0;
+    }
 
     & > svg {
         width: 24px;
@@ -352,9 +353,7 @@ export const NavCard = ({
                     <ResponsiveHeader size="var(--text-size-xs)" lh="1.14" mb="0.8rem">
                         {title}
                     </ResponsiveHeader>
-                    <ResponsiveText size="var(--text-size-xxs)" color="grey-5">
-                        {content}
-                    </ResponsiveText>
+                    <ResponsiveText color="grey-5">{content}</ResponsiveText>
                 </NavContent>
                 {external && (
                     <Show.Desktop>
@@ -422,7 +421,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external }) => {
         >
             <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
                 <RelativeFlex ai="center" jc="flex-start" width="auto">
-                    {Icon && <Icon />}
+                    {Icon && <img src={Icon} alt={title} />}
                     <ResponsiveHeader
                         color="black-3"
                         size="var(--text-size-xs)"

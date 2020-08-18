@@ -6,6 +6,7 @@ import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import AppStore from 'images/svg/app-store.svg'
 import GooglePlay from 'images/svg/google-play.svg'
+import GooglePlayMobile from 'images/svg/google-play-mobile.svg'
 import Linux from 'images/svg/linux.svg'
 import MoreInfo from 'images/svg/more-info.svg'
 import Windows from 'images/svg/windows.svg'
@@ -99,13 +100,14 @@ const DownloadApp = () => {
                         <GooglePlay />
                     </Flex>
                 </Show.Desktop>
+
                 <Show.Mobile>
                     <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
                     <Flex mt="0.8rem" jc="flex-start">
                         <Box mr="0.8rem">
                             <AppStore />
                         </Box>
-                        <GooglePlay />
+                        <GooglePlayMobile />
                     </Flex>
                     <StyledHeader mt="2.4rem" as="h4">
                         {localize('Desktop')}

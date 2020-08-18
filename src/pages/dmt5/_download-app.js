@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, SectionContainer, Box } from 'components/containers'
+import { Flex, SectionContainer, Box, Show } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import AppStore from 'images/svg/app-store.svg'
@@ -80,23 +80,43 @@ const DownloadApp = () => {
                 height="auto"
                 tabletL={{ mt: '0', pl: '10px', pr: '10px' }}
             >
-                <StyledHeader as="h4">{localize('Desktop')}</StyledHeader>
-                <Flex mt="0.8rem" jc="flex-start" height="auto">
-                    <Box mr="0.8rem">
-                        <Windows />
-                    </Box>
-                    <Linux />
-                </Flex>
+                <Show.Desktop>
+                    <StyledHeader as="h4">{localize('Desktop')}</StyledHeader>
+                    <Flex mt="0.8rem" jc="flex-start" height="auto">
+                        <Box mr="0.8rem">
+                            <Windows />
+                        </Box>
+                        <Linux />
+                    </Flex>
 
-                <StyledHeader mt="2.4rem" as="h4">
-                    {localize('Mobile')}
-                </StyledHeader>
-                <Flex mt="0.8rem" jc="flex-start">
-                    <Box mr="0.8rem">
-                        <AppStore />
-                    </Box>
-                    <GooglePlay />
-                </Flex>
+                    <StyledHeader mt="2.4rem" as="h4">
+                        {localize('Mobile')}
+                    </StyledHeader>
+                    <Flex mt="0.8rem" jc="flex-start">
+                        <Box mr="0.8rem">
+                            <AppStore />
+                        </Box>
+                        <GooglePlay />
+                    </Flex>
+                </Show.Desktop>
+                <Show.Mobile>
+                    <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
+                    <Flex mt="0.8rem" jc="flex-start">
+                        <Box mr="0.8rem">
+                            <AppStore />
+                        </Box>
+                        <GooglePlay />
+                    </Flex>
+                    <StyledHeader mt="2.4rem" as="h4">
+                        {localize('Desktop')}
+                    </StyledHeader>
+                    <Flex mt="0.8rem" jc="flex-start" height="auto">
+                        <Box mr="0.8rem">
+                            <Windows />
+                        </Box>
+                        <Linux />
+                    </Flex>
+                </Show.Mobile>
             </Flex>
 
             <Separator />

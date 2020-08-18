@@ -127,9 +127,16 @@ const TradingLimits = () => {
                                     )}
                                 </TimelineTick.Item>
                                 <TimelineTick.Item>
-                                    {localize(
-                                        'Exclude yourself from trading on our website for a definite or indefinite period.',
-                                    )}
+                                    <LocalizedLinkText
+                                        to="/accounts/self-exclusions"
+                                        is_deriv_app_link
+                                        external
+                                        target="_blank"
+                                    >
+                                        {localize(
+                                            'Exclude yourself from trading on our website for a definite or indefinite period.',
+                                        )}
+                                    </LocalizedLinkText>
                                 </TimelineTick.Item>
                             </TimelineTick>
                         </Text>

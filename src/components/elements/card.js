@@ -421,7 +421,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external }) => {
         >
             <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
                 <RelativeFlex ai="center" jc="flex-start" width="auto">
-                    {Icon && <img src={Icon} alt={title} />}
+                    {Icon && Icon}
                     <ResponsiveHeader
                         color="black-3"
                         size="var(--text-size-xs)"

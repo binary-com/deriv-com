@@ -17,15 +17,14 @@ import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
 import MarginTrading from 'images/svg/margin-trading-nav.svg'
 import Options from 'images/svg/options-nav.svg'
 import Multipliers from 'images/svg/multipliers-nav.svg'
-import Story from 'images/image-icon/story.svg'
-import Leadership from 'images/image-icon/leadership.svg'
-import Partner from 'images/image-icon/partner.svg'
-// import WhyChoose from 'images/image-icon/choose.svg'
-// import Contact from 'images/image-icon/contact.svg'
-// import Career from 'images/image-icon/careers.svg'
-// import Help from 'images/image-icon/help-center.svg'
-// import Community from 'images/image-icon/community.svg'
-// import Payment from 'images/image-icon/payment-methods.svg'
+import Story from 'components/svgs/story'
+import Leadership from 'components/svgs/leadership'
+import Partner from 'components/svgs/partner'
+import Choose from 'components/svgs/choose'
+import Contact from 'components/svgs/contact'
+import Career from 'components/svgs/careers'
+import Help from 'components/svgs/help-centre'
+import Payment from 'components/svgs/payment-methods'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -239,25 +238,40 @@ export const OffCanvasMenuWrapper = (props) => {
                         style={content_style}
                     >
                         <StyledLink to="/about/#story" onClick={handleArrowClick}>
-                            <img src={Story} alt="Story" />
+                            <div>
+                                <Story dynamic_id="story-mobile" />
+                            </div>
                             <span>{localize('Our story')}</span>
                         </StyledLink>
                         <StyledLink to="/about/#leadership" onClick={handleArrowClick}>
-                            <img src={Leadership} alt="Leadership" />
+                            <div>
+                                <Leadership dynamic_id="leadership-mobile" />
+                            </div>
                             <span>{localize('Our leadership')}</span>
                         </StyledLink>
                         <StyledLink to="/partners/" onClick={handleArrowClick}>
-                            <img src={Partner} alt="Partnership programmes" />
+                            <div>
+                                <Partner dynamic_id="partner-mobile" />
+                            </div>
                             <span>{localize('Partnership programmes')}</span>
                         </StyledLink>
                         <StyledLink to="/why-choose-us/" onClick={handleArrowClick}>
-                            {localize('Why choose us?')}
+                            <div>
+                                <Choose dynamic_id="choose-mobile" />
+                            </div>
+                            <span>{localize('Why choose us?')}</span>
                         </StyledLink>
                         <StyledLink to="/contact-us/" onClick={handleArrowClick}>
-                            {localize('Contact us')}
+                            <div>
+                                <Contact dynamic_id="contact-mobile" />
+                            </div>
+                            <span>{localize('Contact us')}</span>
                         </StyledLink>
                         <StyledLink to="/careers/" onClick={handleArrowClick}>
-                            {localize('Careers')}
+                            <div>
+                                <Career dynamic_id="career-mobile" />
+                            </div>
+                            <span>{localize('Careers')}</span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
@@ -266,14 +280,20 @@ export const OffCanvasMenuWrapper = (props) => {
                         style={content_style}
                     >
                         <StyledLink to="/help-centre/" onClick={handleArrowClick}>
-                            {localize('Help centre')}
+                            <div>
+                                <Help dynamic_id="help-mobile" />
+                            </div>
+                            <span>{localize('Help centre')}</span>
                         </StyledLink>
                         {/* TODO: add this when blog is ready */}
                         {/* <StyledLink to="/blog/" onClick={handleArrowClick}>
                             {localize('Blog')}
                         </StyledLink> */}
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
-                            {localize('Payment methods')}
+                            <div>
+                                <Payment dynamic_id="payment-mobile" />
+                            </div>
+                            <span>{localize('Payment methods')}</span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

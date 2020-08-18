@@ -25,15 +25,15 @@ import Forex from 'images/svg/forex-nav.svg'
 import Commodities from 'images/svg/commodities-nav.svg'
 import StockIndices from 'images/svg/stock-indices-nav.svg'
 import SyntheticIndices from 'images/svg/synthetic-indices-nav.svg'
-import Story from 'images/image-icon/story.svg'
-import Leadership from 'images/image-icon/leadership.svg'
-import Partner from 'images/image-icon/partner.svg'
-import WhyChoose from 'images/image-icon/choose.svg'
-import Contact from 'images/image-icon/contact.svg'
-import Career from 'images/image-icon/careers.svg'
-import Help from 'images/image-icon/help-center.svg'
-import Community from 'images/image-icon/community.svg'
-import Payment from 'images/image-icon/payment-methods.svg'
+import Story from 'components/svgs/story'
+import Leadership from 'components/svgs/leadership'
+import Partner from 'components/svgs/partner'
+import Choose from 'components/svgs/choose'
+import Contact from 'components/svgs/contact'
+import Career from 'components/svgs/careers'
+import Help from 'components/svgs/help-centre'
+import Community from 'components/svgs/community'
+import Payment from 'components/svgs/payment-methods'
 
 const MarginDivider = styled(Divider)`
     margin: 0 0.8rem;
@@ -328,26 +328,58 @@ export const NavMarket = () => (
 
 export const NavCompany = () => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
-        <CardLink icon={Story} title={localize('Our story')} to="/about/#story" />
-        <CardLink icon={Leadership} title={localize('Our leadership')} to="/about/#leadership" />
-        <CardLink icon={Partner} title={localize('Partnership programmes')} to="/partners/" />
-        <CardLink icon={WhyChoose} title={localize('Why choose us?')} to="/why-choose-us/" />
-        <CardLink icon={Contact} title={localize('Contact us')} to="/contact-us/" />
-        <CardLink icon={Career} title={localize('Careers')} to="/careers/" />
+        <CardLink
+            icon={() => <Story dynamic_id="story-desktop" />}
+            title={localize('Our story')}
+            to="/about/#story"
+        />
+        <CardLink
+            icon={() => <Leadership dynamic_id="leadership-desktop" />}
+            title={localize('Our leadership')}
+            to="/about/#leadership"
+        />
+        <CardLink
+            icon={() => <Partner dynamic_id="partner-desktop" />}
+            title={localize('Partnership programmes')}
+            to="/partners/"
+        />
+        <CardLink
+            icon={() => <Choose dynamic_id="choose-desktop" />}
+            title={localize('Why choose us?')}
+            to="/why-choose-us/"
+        />
+        <CardLink
+            icon={() => <Contact dynamic_id="contact-desktop" />}
+            title={localize('Contact us')}
+            to="/contact-us/"
+        />
+        <CardLink
+            icon={() => <Career dynamic_id="career-desktop" />}
+            title={localize('Careers')}
+            to="/careers/"
+        />
     </Flex>
 )
 
 export const NavResources = () => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
-        <CardLink icon={Help} title={localize('Help centre')} to="/help-centre/" />
         <CardLink
-            icon={Community}
+            icon={() => <Help dynamic_id="help-desktop" />}
+            title={localize('Help centre')}
+            to="/help-centre/"
+        />
+        <CardLink
+            icon={() => <Community dynamic_id="community-desktop" />}
             title={localize('Community')}
             to="https://community.deriv.com/"
             target="_blank"
             external
         />
-        <CardLink icon={Payment} title={localize('Payment methods')} to="/payment-methods/" />
+        <CardLink
+            icon={() => <Payment dynamic_id="payment-desktop" />}
+            title={localize('Payment methods')}
+            to="/payment-methods/"
+        />
         {/* TODO: add this when blog is ready */}
         {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
     </Flex>

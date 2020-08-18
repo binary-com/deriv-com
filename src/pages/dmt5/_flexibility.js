@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { deriv_app_url } from 'common/utility'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
@@ -10,27 +10,43 @@ import FinancialIcon from 'images/svg/financial.svg'
 import SyntheticIcon from 'images/svg/synthetic.svg'
 import device from 'themes/device'
 
+const BaseIconStyle = css`
+    @media ${device.mobileL} {
+        width: 32px;
+        height: 32px;
+    }
+`
+const StyledFinancialStpIcon = styled(FinancialStpIcon)`
+    ${BaseIconStyle}
+`
+const StyledFinancialIcon = styled(FinancialIcon)`
+    ${BaseIconStyle}
+`
+const StyledSyntheticIcon = styled(SyntheticIcon)`
+    ${BaseIconStyle}
+`
+
 const content = [
     {
         header: <Localize translate_text="Synthetic" />,
         text: (
             <Localize translate_text="Trade CFDs on our exclusive, proprietary synthetic indices 24/7 which simulate real-world market movements." />
         ),
-        icon: <SyntheticIcon />,
+        icon: <StyledSyntheticIcon />,
     },
     {
         header: <Localize translate_text="Financial" />,
         text: (
             <Localize translate_text="Trade forex, commodities, cryptocurrencies, major (standard and micro-lots), and minor currency pairs on high leverage." />
         ),
-        icon: <FinancialIcon />,
+        icon: <StyledFinancialIcon />,
     },
     {
         header: <Localize translate_text="Financial STP" />,
         text: (
             <Localize translate_text="Trade major, minor, and exotic currency pairs, and cryptocurrencies with tight spreads and higher trade volumes, straight to the market." />
         ),
-        icon: <FinancialStpIcon />,
+        icon: <StyledFinancialStpIcon />,
     },
 ]
 const Section = styled(SectionContainer)`
@@ -63,7 +79,7 @@ const ClientCard = styled.article`
     }
     @media ${device.tablet} {
         margin: 0 0 24px 0;
-        max-height: 184px;
+        max-height: unset;
         padding: 24px 24px 24px;
         max-width: 328px;
 
@@ -110,9 +126,9 @@ const Flexibility = () => {
                 {content.map((item, idx) => {
                     return (
                         <ClientCard key={idx}>
-                            <Flex height="unset" ai="center">
+                            <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
                                 <StyledHeader
-                                    mobile_margin="0 0 8px"
+                                    mobile_margin="unset"
                                     mobile_font_size="20px"
                                     mb="0.8rem"
                                     as="h4"

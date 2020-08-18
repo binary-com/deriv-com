@@ -62,7 +62,6 @@ const Section = styled(SectionContainer)`
     padding: 8rem 12rem;
     align-items: center;
     justify-content: center;
-    height: 80rem;
 
     @media ${device.laptopM} {
         padding: 8rem 6rem;
@@ -199,7 +198,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step1_mobile' : 'demo_step1']}
-                                    alt="Trade types option market"
+                                    alt="demo_step1"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -212,7 +211,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step2_mobile' : 'demo_step2']}
-                                    alt="Trade types option market"
+                                    alt="demo_step2"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -226,7 +225,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'demo_step3_mobile' : 'demo_step3']}
-                                    alt="Trade types option market"
+                                    alt="demo_step3"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -248,7 +247,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step1_mobile' : 'real_step1']}
-                                    alt="Trade types option market"
+                                    alt="real_step1"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -261,7 +260,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step2_mobile' : 'real_step2']}
-                                    alt="Trade types option market"
+                                    alt="real_step2"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -274,7 +273,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step3_mobile' : 'real_step3']}
-                                    alt="Trade types option market"
+                                    alt="real_step3"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>
@@ -287,7 +286,7 @@ const StartTrader = () => {
                             <ImageWrapper>
                                 <QueryImage
                                     data={data[is_mobile ? 'real_step4_mobile' : 'real_step4']}
-                                    alt="Trade types option market"
+                                    alt="real_step4"
                                 />
                             </ImageWrapper>
                         </SideTab.Panel>

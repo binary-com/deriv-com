@@ -53,7 +53,7 @@ const Card = styled(Flex)`
     }
     @media ${device.mobileL} {
         padding: 24px;
-        height: 250px;
+        height: auto;
     }
 `
 const StyledHeader = styled(Header)`
@@ -67,6 +67,7 @@ const StyledCardHeader = styled(Header)`
         font-size: 20px;
         margin-bottom: 8px;
         margin-top: 8px;
+        line-height: 1.2;
     }
 `
 const StyledText = styled(Text)`

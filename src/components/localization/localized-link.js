@@ -100,7 +100,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             const thai_excluded_locale = locale === 'th' ? 'en' : locale
             lang_to = `${smarttrader_url}/${thai_excluded_locale}/${to}.html`
         } else if (is_deriv_app_link) {
-            lang_to = `${deriv_app_url}/${to}`
+            lang_to = `${deriv_app_url}${to}`
         } else {
             lang_to = to
         }

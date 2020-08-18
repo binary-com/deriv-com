@@ -277,7 +277,7 @@ const RightDiagonal = styled(Diagonal)`
 
 const ResponsiveHeader = styled(Header)`
     transition: color 0.2s;
-    @media ${device.tabletS} {
+    @media ${device.tabletL} {
         font-size: 16px;
     }
 `
@@ -285,7 +285,7 @@ const ResponsiveText = styled(Text)`
     transition: color 0.2s;
     font-size: var(--text-size-xxs);
 
-    @media ${device.tabletS} {
+    @media ${device.tabletL} {
         font-size: 14px;
     }
 `

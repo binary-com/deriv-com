@@ -41,7 +41,7 @@ const MarginDivider = styled(Divider)`
 `
 
 const StyledText = styled(Text)`
-    font-size: var(--text-size-xxs);
+    font-size: var(--text-size-xs);
     color: var(--color-grey-5);
     margin-bottom: 0.8rem;
     margin-left: 1.6rem;

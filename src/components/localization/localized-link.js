@@ -40,20 +40,12 @@ export const SharedLinkStyle = css`
     }
     &.active {
         text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
-
-        &::before {
-            width: 1.6rem;
-        }
     }
 
     ${(props) =>
         props.active &&
         css`
             text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
-
-            &::before {
-                width: 1.6rem;
-            }
         `}
 `
 const ExternalLink = styled.a`

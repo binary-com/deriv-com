@@ -6,21 +6,21 @@ import { Container, Show } from 'components/containers'
 const FadeInDown = keyframes`
     from {
         opacity:0;
-        transform: translateY(-18rem);
+        transform: translateY(7.2rem) rotateY(-15deg);
     }
     to {
         opacity:1;
-        transform: translateY(7.2rem);
+        transform: translateY(7.2rem) rotateY(0);
     }
 `
 const FadeOutUp = keyframes`
     from {
         opacity:1;
-        transform: translateY(7.2rem);
+        transform: translateY(7.2rem) rotateY(0);
     }
     to {
         opacity:0;
-        transform: translateY(-18rem);
+        transform: translateY(7.2rem) rotateY(-15deg);
     }
 `
 const NavDropdown = styled.div`
@@ -31,12 +31,12 @@ const NavDropdown = styled.div`
     padding: 2.2rem 0.8rem;
     z-index: -1;
     height: auto;
-    transform: translateY(-18rem);
+    transform: translateY(7.2rem);
     background-color: #ffffff;
     opacity: 0;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     border-radius: 0.4rem;
-    transition: all 0.35s ease-in-out;
+    transition: opacity 0.3s, transform 0.3s;
     animation-name: ${(props) => (props.is_open ? FadeInDown : FadeOutUp)};
     animation-fill-mode: both;
     animation-duration: ${(props) => (props.has_animation ? '0.3s' : '0')};

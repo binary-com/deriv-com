@@ -292,7 +292,7 @@ const ResponsiveHeader = styled(Header)`
 `
 const ResponsiveText = styled(Text)`
     transition: color 0.2s;
-    font-size: var(--text-size-xxs);
+    font-size: var(--text-size-xs);
 
     @media ${device.tabletL} {
         font-size: 14px;
@@ -360,7 +360,7 @@ export const NavCard = ({
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
                 <Icon />
                 <NavContent>
-                    <ResponsiveHeader size="var(--text-size-xs)" lh="1.14" mb="0.8rem">
+                    <ResponsiveHeader size="var(--text-size-s)" lh="1.14" mb="0.8rem">
                         {title}
                     </ResponsiveHeader>
                     <ResponsiveText color="grey-5">{content}</ResponsiveText>

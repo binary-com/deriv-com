@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // SVG
@@ -273,6 +273,15 @@ const RightDiagonal = styled(Diagonal)`
     height: 16px;
     right: 16px;
     top: 16px;
+
+    @media ${device.tabletL} {
+        opacity: 1;
+        width: 16px;
+        height: 16px;
+        right: 0;
+        margin-right: 0;
+        top: 0;
+    }
 `
 
 const ResponsiveHeader = styled(Header)`
@@ -357,9 +366,9 @@ export const NavCard = ({
                     <ResponsiveText color="grey-5">{content}</ResponsiveText>
                 </NavContent>
                 {external && (
-                    <Show.Desktop>
+                    <div>
                         <RightDiagonal />
-                    </Show.Desktop>
+                    </div>
                 )}
             </FlexHover>
         </LocalizedLink>
@@ -380,12 +389,15 @@ NavCard.propTypes = {
     to: PropTypes.string,
 }
 
-const LinkRightDiagonal = styled(RightDiagonal)`
+const LinkRightDiagonal = styled.div`
     opacity: 0;
-    right: -4rem;
-    top: 0;
-    width: 16px;
-    height: 16px;
+    justify-self: flex-end;
+    align-self: center;
+
+    & > svg {
+        width: 16px;
+        height: 16px;
+    }
 `
 
 const HoverFlex = styled(Flex)`
@@ -422,7 +434,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target }) => 
             external={external}
         >
             <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
-                <RelativeFlex ai="center" jc="flex-start" width="auto">
+                <RelativeFlex ai="center" jc="flex-start">
                     {Icon && <Icon />}
                     <ResponsiveHeader
                         color="black-3"
@@ -433,9 +445,9 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target }) => 
                         {title}
                     </ResponsiveHeader>
                     {external && (
-                        <div>
-                            <LinkRightDiagonal />
-                        </div>
+                        <LinkRightDiagonal>
+                            <Diagonal />
+                        </LinkRightDiagonal>
                     )}
                 </RelativeFlex>
             </HoverFlex>

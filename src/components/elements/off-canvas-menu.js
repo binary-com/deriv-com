@@ -30,6 +30,7 @@ import Regulatory from 'components/svgs/regulatory'
 import Terms from 'components/svgs/terms'
 import SecureTrading from 'components/svgs/secure-trading'
 import Community from 'components/svgs/community'
+import Diagonal from 'images/svg/pink-right-diagonal.svg'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -47,6 +48,18 @@ const OffCanvasMenu = styled.section`
 const OffCanvasMenuSecondary = styled(OffCanvasMenu)`
     top: 10rem;
 `
+
+const Span = styled.span`
+    width: 100%;
+`
+
+const SpanSvg = styled.span`
+    & > svg {
+        width: 16px;
+        height: 16px;
+    }
+`
+
 const StyledLink = styled((props) => <LocalizedLink {...props} />)`
     color: var(--color-black-3);
     margin-top: 18px;
@@ -55,7 +68,7 @@ const StyledLink = styled((props) => <LocalizedLink {...props} />)`
     display: flex;
     align-items: center;
 
-    & svg {
+    & > div > svg {
         width: 24px;
         height: 24px;
         margin-right: 8px;
@@ -276,7 +289,10 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <Career dynamic_id="career-mobile" />
                             </div>
-                            <span>{localize('Careers')}</span>
+                            <Span>{localize('Careers')}</Span>
+                            <SpanSvg>
+                                <Diagonal />
+                            </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
@@ -304,7 +320,10 @@ export const OffCanvasMenuWrapper = (props) => {
                             <div>
                                 <Community dynamic_id="community-mobile" />
                             </div>
-                            <span>{localize('Community')}</span>
+                            <Span>{localize('Community')}</Span>
+                            <SpanSvg>
+                                <Diagonal />
+                            </SpanSvg>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

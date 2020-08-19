@@ -358,6 +358,7 @@ export const NavCompany = () => (
             icon={() => <Career dynamic_id="career-desktop" />}
             title={localize('Careers')}
             to="/careers/"
+            external
         />
     </Flex>
 )

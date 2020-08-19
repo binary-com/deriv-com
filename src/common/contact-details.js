@@ -17,6 +17,10 @@ const address_malta = localize(
 )
 const address_ipoh = localize('E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah, Ipoh 30000, Perak')
 
+const address_melaka = localize('69, Jalan KLJ 6, Taman Kota Laksamana Jaya, Melaka 75200, Melaka')
+
+const address_cyprus = localize('42 Agias Eilaxeos, 5th floor, Limassol 3025')
+
 export {
     address_cyberjaya,
     address_dubai,
@@ -24,4 +28,6 @@ export {
     address_labuan,
     address_malta,
     address_ipoh,
+    address_melaka,
+    address_cyprus,
 }

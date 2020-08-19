@@ -4,7 +4,16 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { getPositionsByLocation } from '../_controller/_teams'
 import { StyledCard } from '../_layout-components/_team-card'
-import { cyberjaya, malta, dubai, labuan, asuncion, ipoh } from '../_model/_locations/_locations'
+import {
+    cyberjaya,
+    malta,
+    dubai,
+    labuan,
+    asuncion,
+    ipoh,
+    melaka,
+    cyprus,
+} from '../_model/_locations/_locations'
 import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
@@ -116,6 +125,12 @@ const query = graphql`
         thumbnail_ipoh: file(relativePath: { eq: "careers/thumbnail_ipoh.png" }) {
             ...fadeIn
         }
+        thumbnail_melaka: file(relativePath: { eq: "careers/thumbnail_melaka.png" }) {
+            ...fadeIn
+        }
+        thumbnail_cyprus: file(relativePath: { eq: "careers/thumbnail_cyprus.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -186,12 +201,28 @@ const Locations = () => {
                             open_positions={getPositionsByLocation(malta.name).length}
                         />
                         <CountryCard
-                            Icon={ParaguayFlagIcon}
+                            Icon={MalaysiaFlagIcon}
                             img_data={images[ipoh.thumbnail]}
                             country_name={ipoh.country}
                             city_name={ipoh.display_name}
                             open_positions={getPositionsByLocation(ipoh.name).length}
                             link={ipoh.link}
+                        />
+                        <CountryCard
+                            Icon={MalaysiaFlagIcon}
+                            img_data={images[melaka.thumbnail]}
+                            country_name={melaka.country}
+                            city_name={melaka.display_name}
+                            open_positions={getPositionsByLocation(melaka.name).length}
+                            link={melaka.link}
+                        />
+                        <CountryCard
+                            Icon={MalaysiaFlagIcon}
+                            img_data={images[cyprus.thumbnail]}
+                            country_name={cyprus.country}
+                            city_name={'Limassol'}
+                            open_positions={getPositionsByLocation(cyprus.name).length}
+                            link={cyprus.link}
                         />
                     </CssGrid>
                 </SectionContainer>

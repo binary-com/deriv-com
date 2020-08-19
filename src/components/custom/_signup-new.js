@@ -288,6 +288,7 @@ const SignupNew = ({
                 type="submit"
                 secondary="true"
                 disabled={is_submitting || !checkBoxState || email_error_msg}
+                id="gtm-signup-email"
             >
                 {localize('Create demo account')}
             </EmailButton>
@@ -303,7 +304,8 @@ const SignupNew = ({
                 <SocialButton
                     onClick={handleSocialSignup}
                     provider="google"
-                    id="google"
+                    data-provider="google"
+                    id="gtm-signup-google"
                     type="button"
                     social
                 >
@@ -315,7 +317,8 @@ const SignupNew = ({
                 <SocialButton
                     onClick={handleSocialSignup}
                     provider="facebook"
-                    id="facebook"
+                    data-provider="facebook"
+                    id="gtm-signup-facebook"
                     type="button"
                     social
                 >

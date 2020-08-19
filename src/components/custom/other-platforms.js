@@ -13,6 +13,7 @@ import {
 } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import device from 'themes/device'
+import { community_url } from 'common/utility'
 // icons
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
@@ -371,7 +372,7 @@ export const NavResources = () => (
         <CardLink
             icon={() => <Community dynamic_id="community-desktop" />}
             title={localize('Community')}
-            to="https://community.deriv.com/"
+            to={community_url}
             target="_blank"
             external
         />

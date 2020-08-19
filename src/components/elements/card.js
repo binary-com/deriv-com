@@ -292,6 +292,7 @@ const ResponsiveText = styled(Text)`
 
 const FlexHover = styled(Flex)`
     padding: 0.8rem 1.6rem;
+    cursor: pointer;
     @media ${device.mobileL} {
         padding: 0;
     }
@@ -407,9 +408,10 @@ const RelativeFlex = styled(Flex)`
     position: relative;
 `
 
-export const CardLink = ({ icon: Icon, title, to, style, external }) => {
+export const CardLink = ({ icon: Icon, title, to, style, external, target }) => {
     return (
         <LocalizedLink
+            target={target}
             to={to}
             style={{
                 textDecoration: 'none',
@@ -446,6 +448,7 @@ CardLink.propTypes = {
     external: PropTypes.bool,
     icon: PropTypes.func,
     style: PropTypes.object,
+    target: PropTypes.string,
     title: PropTypes.string,
     to: PropTypes.string,
 }

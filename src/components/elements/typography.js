@@ -53,6 +53,7 @@ export const LinkText = styled(Text).attrs({ as: 'a' })`
 export const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
     ${BaseElement}
     font-weight: ${(props) => props.weight || 'normal'};
+    font-size: ${(props) => props.size || 'var(--text-size-s)'};
     text-decoration: none;
     cursor: pointer;
 

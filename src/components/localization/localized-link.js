@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import styled, { css } from 'styled-components'
+import { LocationContext } from '../layout/location-context.js'
 import language_config from '../../../i18n-config'
 import { LocaleContext } from './locale-context'
 import {
@@ -61,6 +62,8 @@ const ExternalLink = styled.a`
 export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     // Use the globally available context to choose the right path
     const { locale } = React.useContext(LocaleContext)
+    const { is_eu_country, setModalPayload, toggleModal } = React.useContext(LocationContext)
+
     const is_index = to === `/`
     const {
         target,
@@ -69,6 +72,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         style,
         is_binary_link,
         is_affiliate_link,
+        is_mail_link,
         is_affiliate_sign_in_link,
         is_smarttrader_link,
         ariaLabel,
@@ -81,7 +85,6 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     const { is_default, path, affiliate_lang } = language_config[locale]
     const is_non_localized = non_localized_links.includes(to)
     const path_to = is_default || is_non_localized ? to : `/${path}${is_index ? `` : `${to}`}/`
-
     if (props.external || props.external === 'true') {
         let lang_to = ''
         if (is_binary_link) {
@@ -97,20 +100,52 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else {
             lang_to = to
         }
-        return (
-            <a
-                target={target}
-                rel={rel}
-                className={className}
-                data-amp-replace="QUERY_PARAM"
-                style={style}
-                href={lang_to}
-                ref={ref}
-                aria-label={ariaLabel}
-            >
-                {props.children}
-            </a>
-        )
+        if (
+            is_eu_country &&
+            !is_mail_link &&
+            !is_smarttrader_link &&
+            !is_affiliate_link &&
+            !is_affiliate_sign_in_link
+        ) {
+            return (
+                <a
+                    target={target}
+                    rel={rel}
+                    className={className}
+                    data-amp-replace="QUERY_PARAM"
+                    style={style ? style : { cursor: 'pointer' }}
+                    ref={ref}
+                    aria-label={ariaLabel}
+                    onClick={() => {
+                        setModalPayload({
+                            to: lang_to,
+                            target,
+                            rel,
+                            ref,
+                            aria_label: ariaLabel,
+                        })
+                        toggleModal()
+                    }}
+                >
+                    {props.children}
+                </a>
+            )
+        } else {
+            return (
+                <a
+                    target={target}
+                    rel={rel}
+                    className={className}
+                    data-amp-replace="QUERY_PARAM"
+                    style={style}
+                    href={lang_to}
+                    ref={ref}
+                    aria-label={ariaLabel}
+                >
+                    {props.children}
+                </a>
+            )
+        }
     }
     if (props.external_link)
         return (
@@ -158,6 +193,7 @@ LocalizedLink.propTypes = {
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
+    is_mail_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
     props: PropTypes.object,
     rel: PropTypes.string,

@@ -5,6 +5,7 @@ import { Flex } from 'components/containers'
 import { LocalizedLink, localize, Localize } from 'components/localization'
 import { Accordion, AccordionItem, NavCard, Text, Divider } from 'components/elements'
 import { useOutsideClick } from 'components/hooks/outside-click'
+import { community_url } from 'common/utility'
 // SVG
 import DTrader from 'images/svg/dtrader-icon.svg'
 import DMT5 from 'images/svg/dmt5-icon.svg'
@@ -297,6 +298,9 @@ export const OffCanvasMenuWrapper = (props) => {
                                 <Payment dynamic_id="payment-mobile" />
                             </div>
                             <span>{localize('Payment methods')}</span>
+                        </StyledLink>
+                        <StyledLink to={community_url} onClick={handleArrowClick} target="_blank">
+                            {localize('Community')}
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

@@ -29,7 +29,7 @@ const Terms = ({ dynamic_id }) => (
         <g fill="none" fillRule="evenodd" transform="translate(3 3)">
             <path d="M0 0H18V18H0z" />
             <path
-                fill={`url(#${dynamic_id})1`}
+                fill={`url(#${dynamic_id}1)`}
                 fillRule="nonzero"
                 d="M9.02 0c.505 0 .986.203 1.337.56l.093.101 1.348 1.589h1.685c.358.006.699.14.962.376l.107.108L16.79 5.25h.085v.096l.028.031c.193.22.312.492.34.778l.007.143v10.296c0 .774-.636 1.4-1.423 1.406H6.682c-.789 0-1.432-.628-1.432-1.406v-.844H2.167c-.745 0-1.356-.577-1.412-1.31l-.005-.11V1.447c-.01-.38.135-.748.4-1.02.235-.243.55-.391.883-.421L2.159 0H9.02zm4.457 3H6.682C6.303 3 6 3.296 6 3.656v12.938c0 .36.303.656.682.656h9.142c.376-.003.676-.298.676-.656V6.296c0-.104-.024-.205-.072-.296h-1.436c-.727 0-1.345-.489-1.404-1.128l-.005-.102-.069-1.766L13.477 3zM9 .75H2.159c-.178 0-.348.072-.472.2-.103.106-.167.243-.183.395l-.004.093V14.33c0 .342.255.623.584.665l.083.005H5.25V3.656c0-.733.57-1.332 1.294-1.4l.138-.006H9V.75zm5.286 2.813l.047 1.192c0 .236.237.455.567.49l.092.005h.794l-1.5-1.687zM9.751 1.02L9.75 2.25h1.065l-.937-1.103c-.04-.046-.081-.088-.127-.127z"
             />
@@ -38,7 +38,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="8.625"
                 y="7.875"
-                fill={`url(#${dynamic_id})2`}
+                fill={`url(#${dynamic_id}2`}
                 fillRule="nonzero"
                 rx=".375"
             />
@@ -47,7 +47,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="8.625"
                 y="9.375"
-                fill={`url(#${dynamic_id})3`}
+                fill={`url(#${dynamic_id}3)`}
                 fillRule="nonzero"
                 rx=".375"
             />
@@ -56,7 +56,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="8.625"
                 y="10.875"
-                fill={`url(#${dynamic_id})2`}
+                fill={`url(#${dynamic_id}2)`}
                 fillRule="nonzero"
                 rx=".375"
             />
@@ -65,7 +65,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="8.625"
                 y="12.375"
-                fill={`url(#${dynamic_id})3`}
+                fill={`url(#${dynamic_id}3)`}
                 fillRule="nonzero"
                 rx=".375"
             />
@@ -74,7 +74,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="8.625"
                 y="13.875"
-                fill={`url(#${dynamic_id})4`}
+                fill={`url(#${dynamic_id}4)`}
                 fillRule="nonzero"
                 rx=".375"
             />
@@ -83,7 +83,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="3.375"
                 y="5.625"
-                fill={`url(#${dynamic_id})5`}
+                fill={`url(#${dynamic_id}5)`}
                 fillRule="nonzero"
                 rx=".375"
             />
@@ -92,7 +92,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="3.375"
                 y="7.125"
-                fill={`url(#${dynamic_id})5`}
+                fill={`url(#${dynamic_id}5)`}
                 fillRule="nonzero"
                 rx=".375"
             />
@@ -101,7 +101,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="3.375"
                 y="8.625"
-                fill={`url(#${dynamic_id})5`}
+                fill={`url(#${dynamic_id}5)`}
                 fillRule="nonzero"
                 rx=".375"
             />
@@ -110,7 +110,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="3.375"
                 y="10.125"
-                fill={`url(#${dynamic_id})5`}
+                fill={`url(#${dynamic_id}5)`}
                 fillRule="nonzero"
                 rx=".375"
             />
@@ -119,7 +119,7 @@ const Terms = ({ dynamic_id }) => (
                 height="1"
                 x="3.375"
                 y="11.625"
-                fill={`url(#${dynamic_id})5`}
+                fill={`url(#${dynamic_id}5)`}
                 fillRule="nonzero"
                 rx=".375"
             />

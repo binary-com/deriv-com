@@ -298,8 +298,8 @@ const FlexHover = styled(Flex)`
     }
 
     & > svg {
-        width: 24px;
-        height: 24px;
+        width: 32px;
+        height: 32px;
         margin-right: 1.6rem;
 
         @media ${device.mobileL} {
@@ -423,7 +423,7 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target }) => 
         >
             <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
                 <RelativeFlex ai="center" jc="flex-start" width="auto">
-                    {Icon && Icon}
+                    {Icon && <Icon />}
                     <ResponsiveHeader
                         color="black-3"
                         size="var(--text-size-xs)"

@@ -29,6 +29,7 @@ import Payment from 'components/svgs/payment-methods'
 import Regulatory from 'components/svgs/regulatory'
 import Terms from 'components/svgs/terms'
 import SecureTrading from 'components/svgs/secure-trading'
+import Community from 'components/svgs/community'
 
 const OffCanvasMenu = styled.section`
     position: fixed;
@@ -135,7 +136,7 @@ export const OffCanvasMenuWrapper = (props) => {
                             <NavCard
                                 icon={DMT5}
                                 content={
-                                    <Localize translate_text="The platform of choice for professionals worldwide." />
+                                    <Localize translate_text="Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals." />
                                 }
                                 title={<Localize translate_text="DMT5" />}
                                 to="/dmt5"
@@ -300,7 +301,10 @@ export const OffCanvasMenuWrapper = (props) => {
                             <span>{localize('Payment methods')}</span>
                         </StyledLink>
                         <StyledLink to={community_url} onClick={handleArrowClick} target="_blank">
-                            {localize('Community')}
+                            <div>
+                                <Community dynamic_id="community-mobile" />
+                            </div>
+                            <span>{localize('Community')}</span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

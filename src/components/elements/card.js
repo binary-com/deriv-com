@@ -307,7 +307,7 @@ const FlexHover = styled(Flex)`
         }
     }
     &:hover {
-        background-color: #f5f7fa;
+        background-color: var(--color-grey-30);
 
         ${RightDiagonal} {
             opacity: 1;
@@ -389,7 +389,7 @@ const LinkRightDiagonal = styled(RightDiagonal)`
 
 const HoverFlex = styled(Flex)`
     &:hover {
-        background-color: #f5f7fa;
+        background-color: var(--color-grey-30);
 
         ${LinkRightDiagonal} {
             opacity: 1;

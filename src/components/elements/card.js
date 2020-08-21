@@ -419,7 +419,7 @@ const HoverFlex = styled(Flex)`
 `
 
 const RelativeFlex = styled(Flex)`
-    & > svg {
+    & > div > svg {
         height: 24px;
         width: 24px;
         margin-right: 1.6rem;
@@ -444,7 +444,11 @@ export const CardLink = ({ icon: Icon, title, to, style, external, target, onCli
         >
             <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
                 <RelativeFlex ai="center" jc="flex-start">
-                    {Icon && <Icon />}
+                    {Icon && (
+                        <div>
+                            <Icon />
+                        </div>
+                    )}
                     <ResponsiveHeader
                         color="black-3"
                         size="var(--text-size-xs)"

@@ -68,6 +68,15 @@ const WhatAreOptions = () => {
                         <Localize translate_text="Lookback options are available only on synthetic indices." />
                     }
                 />
+                <Header as="h4" mt="4rem" mb="1.6rem">
+                    {localize('Spreads')}
+                </Header>
+                <SpreadGrid />
+                <Notes
+                    text={
+                        <Localize translate_text="Spread Up/Spread Down options are available on forex and synthetic indices." />
+                    }
+                />
             </SmallContainer>
         </SectionContainer>
     )
@@ -444,6 +453,65 @@ const LookbacksGrid = () => {
                         'When you purchase a ‘High-Low’ contract, your win or loss will be equal to the multiplier times the difference between the high and the low over the duration of the contract.',
                     )}
                 </Text>
+            </Flex>
+        </OptionGrid>
+    )
+}
+
+const SpreadGrid = () => {
+    return (
+        <OptionGrid>
+            <Flex fd="column" jc="flex-start" height="auto">
+                <div>
+                    <HighClose />
+                </div>
+                <Text weight="bold" mt="1.6rem" mb="0.8rem">
+                    {localize('Spread Up')}
+                </Text>
+                <MiddleText>
+                    {localize(
+                        'Predict whether the exit spot will be higher than or equal to the upper barrier.',
+                    )}
+                </MiddleText>
+                <MiddleText>
+                    {localize(
+                        'Win maximum payout if the exit spot is higher than or equal to the upper barrier.',
+                    )}
+                </MiddleText>
+                <MiddleText>
+                    {localize(
+                        'Win up to maximum payout if the exit spot is between the lower and the upper barrier, in proportion to the difference between the exit spot and the lower barrier.',
+                    )}
+                </MiddleText>
+                <MiddleText>
+                    {localize('No payout if the exit spot is below or equal to the lower barrier.')}
+                </MiddleText>
+            </Flex>
+            <Flex fd="column" jc="flex-start" height="auto">
+                <div>
+                    <CloseLow />
+                </div>
+                <Text weight="bold" mt="1.6rem" mb="0.8rem">
+                    {localize('Spread Down')}
+                </Text>
+                <MiddleText>
+                    {localize(
+                        'Predict whether the exit spot will be lower than or equal to the lower barrier.',
+                    )}
+                </MiddleText>
+                <MiddleText>
+                    {localize(
+                        'Win maximum payout if the exit spot is lower than or equal to the lower barrier.',
+                    )}
+                </MiddleText>
+                <MiddleText>
+                    {localize(
+                        'Win up to maximum payout if the exit spot is between the lower and the upper barrier, in proportion to the difference between the upper barrier and exit spot.',
+                    )}
+                </MiddleText>
+                <MiddleText>
+                    {localize('No payout if the exit spot is above or equal to the upper barrier.')}
+                </MiddleText>
             </Flex>
         </OptionGrid>
     )

@@ -22,6 +22,7 @@ import MalaysiaFlagIcon from 'images/svg/flag_malaysia.svg'
 import ParaguayFlagIcon from 'images/svg/flag_paraguay.svg'
 import UAEFlagIcon from 'images/svg/flag_uae.svg'
 import MaltaFlagIcon from 'images/svg/flag_malta.svg'
+import CyprusFlagIcon from 'images/svg/flag_cyprus.svg'
 import Chevron from 'images/svg/carousel-chevron.svg'
 
 const ChevronRight = styled(Chevron)`
@@ -217,7 +218,7 @@ const Locations = () => {
                             link={melaka.link}
                         />
                         <CountryCard
-                            Icon={MalaysiaFlagIcon}
+                            Icon={CyprusFlagIcon}
                             img_data={images[cyprus.thumbnail]}
                             country_name={cyprus.country}
                             city_name={'Limassol'}

@@ -5,6 +5,7 @@ import { getPositionsByLocation } from '../_controller/_teams'
 import { LinkList } from '../_layout-components/_link-list'
 import { RoleBanner } from '../_layout-components/_banner'
 import Container from '../_layout-components/_container'
+import { NoOpenPositionsHeader } from '../_layout-components/_no-open-positions'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
@@ -233,6 +234,7 @@ export const LocationLayout = ({ location, images }) => {
                                     data={images[location.map]}
                                     alt={location.display_name + localize(' Map')}
                                     width="100%"
+                                    height="100%"
                                 />
                             )}
                         </ImageWrapper>
@@ -267,9 +269,16 @@ export const LocationLayout = ({ location, images }) => {
             >
                 {`Open positions in ${display_name}`}
             </Header>
-            <div style={{ marginBottom: '12rem' }}>
-                <LinkList list_items={mapped_positions} />
-            </div>
+            {mapped_positions.length ? (
+                <div style={{ marginBottom: '12rem' }}>
+                    <LinkList list_items={mapped_positions} />
+                </div>
+            ) : (
+                <NoOpenPositionsHeader mb="8rem">
+                    {`Sorry, there are currently no open positions for ${location.display_name}`}
+                </NoOpenPositionsHeader>
+            )}
+
             <RoleBanner />
         </>
     )

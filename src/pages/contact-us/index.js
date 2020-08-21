@@ -4,25 +4,16 @@ import ContactWays from './_contact-ways'
 import { Offices } from './_offices'
 import { Affiliates } from './_affiliates'
 import device from 'themes/device'
-import { Header, Text } from 'components/elements/typography'
+import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
+import { SEO, SectionContainer, Container } from 'components/containers'
 
-const HeroWrapper = styled.section`
-    width: 100%;
-    padding: 8rem;
-
-    * {
-        text-align: center;
-    }
-
-    @media ${device.tabletL} {
-        padding: 5rem 2rem;
-
-        h1 {
-            font-size: 4.5rem;
-            margin-bottom: 2rem;
+const HeroWrapper = styled(Container)`
+    @media ${device.tablet} {
+        ${Header} {
+            font-size: 40px;
+            margin-bottom: 16px;
         }
     }
 `
@@ -48,12 +39,16 @@ const ContactUs = () => {
                 )}
                 has_organization_schema
             />
-            <HeroWrapper>
-                <Header as="h1">{localize('Contact us')}</Header>
-                <StyledText align="center" size="var(--text-size-sm)">
-                    {localize("Got questions? Here's how to get answers")}
-                </StyledText>
-            </HeroWrapper>
+            <SectionContainer tablet={{ p: '40px 0' }}>
+                <HeroWrapper fd="column">
+                    <Header align="center" as="h1">
+                        {localize('Contact us')}
+                    </Header>
+                    <StyledText align="center" size="var(--text-size-sm)">
+                        {localize("Got questions? Here's how to get answers")}
+                    </StyledText>
+                </HeroWrapper>
+            </SectionContainer>
             <ContactWays />
             <Offices />
             <Affiliates />

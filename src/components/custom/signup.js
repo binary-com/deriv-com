@@ -150,7 +150,9 @@ class Signup extends Component {
 
     handleSocialSignup = (e) => {
         e.preventDefault()
-        Login.initOneAll(e.currentTarget.id)
+
+        const data_provider = e.currentTarget.getAttribute('data-provider')
+        Login.initOneAll(data_provider)
     }
 
     handleLogin = (e) => {

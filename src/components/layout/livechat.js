@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import styled from 'styled-components'
 import { isBrowser } from 'common/utility'
@@ -18,10 +19,8 @@ const StyledLiveChat = styled.div`
     z-index: 9999;
 `
 
-const LiveChat = () => {
-    const LC_API = (isBrowser() && window.LC_API) || {}
+const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) => {
     const [is_livechat_hover, setLivechatHover] = React.useState(false)
-    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
 
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
@@ -116,6 +115,12 @@ const LiveChat = () => {
             )}
         </>
     )
+}
+
+LiveChat.propTypes = {
+    is_livechat_interactive: PropTypes.bool,
+    LC_API: PropTypes.object,
+    setLiveChatInteractive: PropTypes.func,
 }
 
 export default LiveChat

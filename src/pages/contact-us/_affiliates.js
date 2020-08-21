@@ -1,102 +1,115 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LinkText } from 'components/elements/typography'
-import { Header, Text } from 'components/elements'
+import { SectionContainer, Container, Flex } from 'components/containers'
+import { Header, Text, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+// SVG
+import Mail from 'images/svg/contact/mail.svg'
 
-const Wrapper = styled.section`
-    width: 100%;
-    border-top: 2px solid var(--color-grey-2);
-    background-color: var(--color-white);
-    padding: 5.6rem 12.8rem;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: center;
+const Wrapper = styled(SectionContainer)`
+    border-top: 1px solid var(--color-grey-2);
 
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
-        height: auto;
-        padding: 5rem 1rem;
-
-        div {
-            margin-top: 4rem;
-        }
-        div:last-child {
-            margin-bottom: 4rem;
-        }
+    @media ${device.mobileL} {
+        border-top: none;
     }
 `
-const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+const CardContainer = styled(Container)`
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    background: var(--color-white);
+    position: relative;
+    padding: 4rem 9.5rem;
+    justify-content: space-between;
+
+    @media (max-width: 1280px) {
+        flex-direction: column;
+        height: 406px;
+        padding: 4rem 2.4rem;
+    }
+`
+
+const Item = styled(Flex)`
     max-width: 38.4rem;
-    padding-right: 3rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
 
-    :nth-child(odd) {
-        padding: 0 7rem;
-        margin-right: 6rem;
-    }
-
-    @media ${device.tablet} {
-        padding-right: 0;
-
-        :nth-child(odd) {
-            margin-right: unset;
+    @media (max-width: 1280px) {
+        & > * {
+            text-align: center;
         }
     }
-
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
-        height: auto;
+    @media ${device.mobileL} {
+        ${Header} {
+            font-size: 24px;
+        }
+        ${Text} {
+            font-size: 16px;
+        }
+        ${LinkText} {
+            font-size: 20px;
+        }
     }
 `
-const StyledHeader = styled(Header)`
-    margin-bottom: 0.8rem;
 
-    @media ${device.tabletL} {
-        font-size: 4rem;
+const AbsoluteMail = styled(Mail)`
+    position: absolute;
+    top: calc(50% - 32px);
+    left: calc(50% - 32px);
+    z-index: 2;
+`
+
+const AbsoluteDivider = styled.div`
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    z-index: 1;
+    background: var(--color-grey-2);
+
+    @media (max-width: 1280px) {
+        width: 100%;
+        height: 1px;
+        left: 0;
+        top: 50%;
     }
 `
-const StyledText = styled(Text)`
-    text-align: center;
 
-    @media ${device.tabletL} {
-        font-size: var(--text-size-sm);
-    }
-`
-const StyledLinkText = styled(LinkText)`
-    font-size: var(--text-size-sm);
-
-    @media ${device.tabletL} {
-        font-size: 2.5rem;
-    }
-`
 export const Affiliates = () => {
     return (
-        <Wrapper>
-            <Content>
-                <StyledHeader as="h3" align="center">
-                    {localize('Affiliates')}
-                </StyledHeader>
-                <StyledText>
-                    {localize('For enquiries about our affiliate and IB programmes')}
-                </StyledText>
-                <StyledLinkText weight="bold" color="red" href="mailto:partners@deriv.com">
-                    {localize('partners@deriv.com')}
-                </StyledLinkText>
-            </Content>
-            <Content>
-                <StyledHeader as="h3" align="center">
-                    {localize('Business development')}
-                </StyledHeader>
-                <StyledText>{localize('For collaboration opportunities')}</StyledText>
-                <StyledLinkText weight="bold" color="red" href="mailto:marketing@deriv.com">
-                    {localize('marketing@deriv.com')}
-                </StyledLinkText>
-            </Content>
+        <Wrapper padding="4rem 0">
+            <CardContainer>
+                <Item>
+                    <Header as="h3">{localize('Affiliates')}</Header>
+                    <Text m="0.8rem 0">
+                        {localize('For enquiries about our affiliate and IB programmes')}
+                    </Text>
+                    <LinkText
+                        color="red"
+                        size="var(--text-size-m)"
+                        to="mailto:partners@deriv.com"
+                        external
+                    >
+                        partners@deriv.com
+                    </LinkText>
+                </Item>
+                <Item>
+                    <Header as="h3">{localize('Business development')}</Header>
+                    <Text m="0.8rem 0">{localize('For collaboration opportunities')}</Text>
+                    <LinkText
+                        color="red"
+                        size="var(--text-size-m)"
+                        to="mailto:marketing@deriv.com"
+                        external
+                    >
+                        marketing@deriv.com
+                    </LinkText>
+                </Item>
+                <AbsoluteMail />
+                <AbsoluteDivider />
+            </CardContainer>
         </Wrapper>
     )
 }

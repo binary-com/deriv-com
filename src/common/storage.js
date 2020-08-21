@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie'
-import { getPropertyValue, isEmptyObject, isBrowser } from './utility'
-import { isProduction } from './websocket/config'
+import { deriv_cookie_domain, getPropertyValue, isEmptyObject, isBrowser } from './utility'
 
 const getObject = function (key) {
     return JSON.parse(this.getItem(key) || '{}')
@@ -130,13 +129,16 @@ State.prototype.getResponse = function (pathname) {
 State.set('response', {})
 
 const CookieStorage = function (cookie_name, cookie_domain) {
-    const hostname = window.location.hostname
+    const hostname = isBrowser() && window.location.hostname
 
     this.initialized = false
     this.cookie_name = cookie_name
     this.domain =
-        cookie_domain || (isProduction() ? `.${hostname.split('.').slice(-2).join('.')}` : hostname)
+        cookie_domain ||
+        (String(hostname).includes('binary.sx') ? 'binary.sx' : deriv_cookie_domain)
     this.path = '/'
+    this.same_site = 'none'
+    this.is_secure = true
     this.expires = new Date('Thu, 1 Jan 2037 12:00:00 GMT')
     this.value = {}
 }
@@ -174,6 +176,8 @@ CookieStorage.prototype = {
             expires: new Date(this.expires),
             path: this.path,
             domain: this.domain,
+            secure: this.is_secure,
+            sameSite: this.same_site,
             ...options,
         })
     },

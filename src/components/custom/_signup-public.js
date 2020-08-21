@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Input, Button } from 'components/form'
-import { Header, Text, QueryImage } from 'components/elements'
+import { Header, Text, QueryImage, LinkText } from 'components/elements'
 import { localize } from 'components/localization'
 import { Flex, Show } from 'components/containers'
 import { deriv_app_url } from 'common/utility'
@@ -170,12 +170,10 @@ const redirectToDerivApp = (e) => {
     window.open(deriv_app_url, '_blank')
 }
 
-const LinkFlex = styled(Flex)`
+const LinkFlex = styled(LinkText)`
+    display: flex;
+    align-items: center;
     margin-left: 16.5rem;
-
-    &:hover {
-        cursor: pointer;
-    }
 `
 const MobileBackground = styled.div`
     width: 100%;
@@ -270,7 +268,12 @@ const SignupPublic = ({
                                 focusBorder="var(--color-grey-7)"
                             />
                         </InputWrapper>
-                        <EmailButton type="submit" secondary="true" disabled={is_submitting}>
+                        <EmailButton
+                            id="gtm-signup-email"
+                            type="submit"
+                            secondary="true"
+                            disabled={is_submitting}
+                        >
                             {localize('Sign up')}
                         </EmailButton>
                     </InputGroup>
@@ -279,7 +282,8 @@ const SignupPublic = ({
                         <SocialButton
                             onClick={handleSocialSignup}
                             provider="facebook"
-                            id="facebook"
+                            data-provider="facebook"
+                            id="gtm-signup-facebook"
                             type="button"
                             social
                         >
@@ -290,7 +294,8 @@ const SignupPublic = ({
                         <SocialButton
                             onClick={handleSocialSignup}
                             provider="google"
-                            id="google"
+                            data-provider="google"
+                            id="gtm-signup-google"
                             type="button"
                             social
                         >
@@ -302,7 +307,7 @@ const SignupPublic = ({
                 </div>
             </SignupFormWrapper>
             <BackgroundWrapper direction="column" ai="center">
-                <LinkFlex ai="center" onClick={redirectToDerivApp}>
+                <LinkFlex ai="center" external href={deriv_app_url} target="_blank">
                     <StyledHeader
                         size="2.8rem"
                         max_width="28.2rem"

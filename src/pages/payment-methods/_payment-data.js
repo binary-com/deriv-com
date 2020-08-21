@@ -220,7 +220,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your Visa credit or debit card. Charges and interest rates apply." />
+                    <Localize translate_text="Deposit and withdraw using your Visa credit or debit card." />
                 ),
                 name: 'visa',
                 reference: 'visa-payment-method.pdf',
@@ -233,7 +233,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text="1 working day" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your Mastercard credit or debit card. Charges and interest rates apply." />
+                    <Localize translate_text="Deposit and withdraw using your Mastercard credit or debit card." />
                 ),
                 name: 'mastercard',
                 reference: 'mastercard-payment-method.pdf',
@@ -259,7 +259,7 @@ const payment_data = [
                 deposit_time: <Localize translate_text="Instant" />,
                 withdrawal_time: <Localize translate_text=" 2-3 working days" />,
                 description: (
-                    <Localize translate_text="Deposit and withdraw using your Diners Club credit or debit card. Charges and interest rates apply." />
+                    <Localize translate_text="Deposit and withdraw using your Diners Club credit or debit card." />
                 ),
                 name: 'diners',
                 reference: 'diners-club-payment-method.pdf',

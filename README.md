@@ -74,25 +74,6 @@
     - This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs
     - To cleanup all branches run `npm run deploy-dev`
 
-## 📦 GH-pages deployment
-
-1. **Basic name.github.io/deriv-com/**
-
-    ```sh
-    npm run deploy-dev
-    ```
-
-    ⚠️ This will remove your branch deployments
-
-2. **To a specific branch:**
-
-    ```sh
-    branch_name=fix_all_the_bugs npm run deploy-branch
-    ```
-
-    - This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs
-    - To cleanup all branches run `npm run deploy-dev`
-
 ## Release
 
 `git tag ${RELEASE_TARGET}_vYYYYMMDD_${INTEGER} -m 'some message'`

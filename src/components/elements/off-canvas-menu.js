@@ -200,7 +200,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
                                 }
                                 title={<Localize translate_text="Multipliers" />}
-                                to="/trade-types/multipliers"
+                                to="/trade-types/multiplier"
                             />
                         </Flex>
                     </AccordionItem>
@@ -221,12 +221,12 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex mb="3.2rem">
                             <NavCard
-                                icon={() => <Commodities dynamic_id="mobile_commodities" />}
+                                icon={() => <SyntheticIndices dynamic_id="mobile_synthetic" />}
                                 content={localize(
-                                    "Trade natural resources that are central to the world's economy.",
+                                    'Enjoy synthetic markets that emulate real-world market movements.',
                                 )}
-                                title={localize('Commodities')}
-                                to="/markets#commodities"
+                                title={localize('Synthetic indices')}
+                                to="/markets#synthetic"
                             />
                         </Flex>
                         <Flex mb="3.2rem">
@@ -241,12 +241,12 @@ export const OffCanvasMenuWrapper = (props) => {
                         </Flex>
                         <Flex>
                             <NavCard
-                                icon={() => <SyntheticIndices dynamic_id="mobile_synthetic" />}
+                                icon={() => <Commodities dynamic_id="mobile_commodities" />}
                                 content={localize(
-                                    'Enjoy synthetic markets that emulate real-world market movements.',
+                                    "Trade natural resources that are central to the world's economy.",
                                 )}
-                                title={localize('Synthetic indices')}
-                                to="/markets#synthetic"
+                                title={localize('Commodities')}
+                                to="/markets#commodities"
                             />
                         </Flex>
                     </AccordionItem>

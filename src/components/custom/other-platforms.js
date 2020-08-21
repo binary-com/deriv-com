@@ -216,7 +216,7 @@ OtherPlatform.propTypes = {
     subHeader: PropTypes.string,
 }
 
-export const NavPlatform = () => (
+export const NavPlatform = ({ onClick }) => (
     <Flex>
         <Flex direction="column" wrap="wrap" jc="flex-start">
             <StyledText>{localize('Trading platforms')}</StyledText>
@@ -226,16 +226,8 @@ export const NavPlatform = () => (
                     <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
                 }
                 title={<Localize translate_text="DTrader" />}
+                onClick={onClick}
                 to="/dtrader"
-            />
-
-            <NavCard
-                icon={DMT5}
-                content={
-                    <Localize translate_text="Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals worldwide." />
-                }
-                title={<Localize translate_text="DMT5" />}
-                to="/dmt5"
             />
             <NavCard
                 icon={DBot}
@@ -243,7 +235,17 @@ export const NavPlatform = () => (
                     <Localize translate_text="Automated trading at your fingertips. No coding needed." />
                 }
                 title={<Localize translate_text="DBot" />}
+                onClick={onClick}
                 to="/dbot"
+            />
+            <NavCard
+                icon={DMT5}
+                content={
+                    <Localize translate_text="Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals." />
+                }
+                title={<Localize translate_text="DMT5" />}
+                onClick={onClick}
+                to="/dmt5"
             />
             <NavCard
                 icon={Smarttrader}
@@ -255,6 +257,7 @@ export const NavPlatform = () => (
                 is_smarttrader_link
                 external="true"
                 target="_blank"
+                onClick={onClick}
                 otherLinkProps={{ rel: 'noopener noreferrer' }}
             />
         </Flex>
@@ -267,6 +270,7 @@ export const NavPlatform = () => (
                     <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
                 }
                 title={<Localize translate_text="Margin trading" />}
+                onClick={onClick}
                 to="/trade-types/margin"
             />
 
@@ -276,6 +280,7 @@ export const NavPlatform = () => (
                     <Localize translate_text="Earn fixed payouts by predicting an assets price movement." />
                 }
                 title={<Localize translate_text="Options" />}
+                onClick={onClick}
                 to="/trade-types/options"
             />
             <NavCard
@@ -284,13 +289,18 @@ export const NavPlatform = () => (
                     <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
                 }
                 title={<Localize translate_text="Multipliers" />}
+                onClick={onClick}
                 to="/trade-types/multiplier"
             />
         </Flex>
     </Flex>
 )
 
-export const NavMarket = () => (
+NavPlatform.propTypes = {
+    onClick: PropTypes.func,
+}
+
+export const NavMarket = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start">
         <NavCard
             icon={Forex}
@@ -298,6 +308,7 @@ export const NavMarket = () => (
                 <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
             }
             title={<Localize translate_text="Forex" />}
+            onClick={onClick}
             to="/markets#forex"
         />
         <NavCard
@@ -306,6 +317,7 @@ export const NavMarket = () => (
                 <Localize translate_text="Enjoy synthetic markets that emulate real-world market movements." />
             }
             title={<Localize translate_text="Synthetic indices" />}
+            onClick={onClick}
             to="/markets#synthetic"
         />
         <NavCard
@@ -314,6 +326,7 @@ export const NavMarket = () => (
                 <Localize translate_text="Predict broader market trends and diversify your risk with stock indices." />
             }
             title={<Localize translate_text="Stock indices" />}
+            onClick={onClick}
             to="/markets#stock"
         />
         <NavCard
@@ -322,57 +335,74 @@ export const NavMarket = () => (
                 <Localize translate_text="Trade natural resources that are central to the world's economy." />
             }
             title={<Localize translate_text="Commodities" />}
+            onClick={onClick}
             to="/markets#commodities"
         />
     </Flex>
 )
 
-export const NavCompany = () => (
+NavMarket.propTypes = {
+    onClick: PropTypes.func,
+}
+
+export const NavCompany = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
             icon={() => <Story dynamic_id="story-desktop" />}
             title={localize('Our story')}
+            onClick={onClick}
             to="/about/#story"
         />
         <CardLink
             icon={() => <Leadership dynamic_id="leadership-desktop" />}
             title={localize('Our leadership')}
+            onClick={onClick}
             to="/about/#leadership"
         />
         <CardLink
             icon={() => <Partner dynamic_id="partner-desktop" />}
             title={localize('Partnership programmes')}
+            onClick={onClick}
             to="/partners/"
         />
         <CardLink
             icon={() => <Choose dynamic_id="choose-desktop" />}
             title={localize('Why choose us?')}
+            onClick={onClick}
             to="/why-choose-us/"
         />
         <CardLink
             icon={() => <Contact dynamic_id="contact-desktop" />}
             title={localize('Contact us')}
+            onClick={onClick}
             to="/contact-us/"
         />
         <CardLink
             icon={() => <Career dynamic_id="career-desktop" />}
             title={localize('Careers')}
+            onClick={onClick}
             to="/careers/"
             external
         />
     </Flex>
 )
 
-export const NavResources = () => (
+NavCompany.propTypes = {
+    onClick: PropTypes.func,
+}
+
+export const NavResources = ({ onClick }) => (
     <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
         <CardLink
             icon={() => <Help dynamic_id="help-desktop" />}
             title={localize('Help centre')}
+            onClick={onClick}
             to="/help-centre/"
         />
         <CardLink
             icon={() => <Community dynamic_id="community-desktop" />}
             title={localize('Community')}
+            onClick={onClick}
             to={community_url}
             target="_blank"
             external
@@ -380,9 +410,14 @@ export const NavResources = () => (
         <CardLink
             icon={() => <Payment dynamic_id="payment-desktop" />}
             title={localize('Payment methods')}
+            onClick={onClick}
             to="/payment-methods/"
         />
         {/* TODO: add this when blog is ready */}
         {/* <CardLink title={localize('Blog')} to="/blog/" /> */}
     </Flex>
 )
+
+NavResources.propTypes = {
+    onClick: PropTypes.func,
+}

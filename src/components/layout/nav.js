@@ -326,8 +326,8 @@ export const Nav = ({ base }) => {
     const closeTrade = () => setIsTradeOpen(false)
     useOutsideClick(trade_ref, closeTrade, link_trade_ref)
     const handleTradeClick = () => {
-        setIsTradeOpen(!is_trade_open)
         setHasTradeAnimation(true)
+        setIsTradeOpen(!is_trade_open)
     }
 
     // market
@@ -338,8 +338,8 @@ export const Nav = ({ base }) => {
     const closeMarket = () => setIsMarketOpen(false)
     useOutsideClick(market_ref, closeMarket, link_market_ref)
     const handleMarketClick = () => {
-        setIsMarketOpen(!is_market_open)
         setHasMarketAnimation(true)
+        setIsMarketOpen(!is_market_open)
     }
 
     // company
@@ -350,8 +350,8 @@ export const Nav = ({ base }) => {
     const closeCompany = () => setIsCompanyOpen(false)
     useOutsideClick(company_ref, closeCompany, link_company_ref)
     const handleCompanyClick = () => {
-        setIsCompanyOpen(!is_company_open)
         setHasCompanyAnimation(true)
+        setIsCompanyOpen(!is_company_open)
     }
 
     // resources
@@ -362,8 +362,8 @@ export const Nav = ({ base }) => {
     const closeResources = () => setIsResourcesOpen(false)
     useOutsideClick(resources_ref, closeResources, link_resources_ref)
     const handleResourcesClick = () => {
-        setIsResourcesOpen(!is_resources_open)
         setHasResourcesAnimation(true)
+        setIsResourcesOpen(!is_resources_open)
     }
 
     const buttonHandleScroll = () => {
@@ -397,7 +397,7 @@ export const Nav = ({ base }) => {
                         link_ref={link_trade_ref}
                         is_open={is_trade_open}
                         has_animation={has_trade_animation}
-                        Content={NavPlatform}
+                        Content={() => <NavPlatform onClick={handleTradeClick} />}
                         title={localize('Trading platforms')}
                         description={localize(
                             'Be in full control of your trading with our new and improved platforms.',
@@ -408,7 +408,7 @@ export const Nav = ({ base }) => {
                         link_ref={link_market_ref}
                         is_open={is_market_open}
                         has_animation={has_market_animation}
-                        Content={NavMarket}
+                        Content={() => <NavMarket onClick={handleMarketClick} />}
                         title={localize('Markets')}
                         description={localize(
                             'Enjoy our wide range of assets on financial and synthetic markets.',
@@ -419,7 +419,7 @@ export const Nav = ({ base }) => {
                         link_ref={link_company_ref}
                         is_open={is_company_open}
                         has_animation={has_company_animation}
-                        Content={NavCompany}
+                        Content={() => <NavCompany onClick={handleCompanyClick} />}
                         title={localize('About us')}
                         description={localize(
                             "Get to know our leadership team, learn about our history, and see why we're different.",
@@ -430,7 +430,7 @@ export const Nav = ({ base }) => {
                         link_ref={link_resources_ref}
                         is_open={is_resources_open}
                         has_animation={has_resources_animation}
-                        Content={NavResources}
+                        Content={() => <NavResources onClick={handleResourcesClick} />}
                         title={localize('Resources')}
                         description={localize(
                             'Help yourself to various resources that can help you get the best out of your trading experience.',

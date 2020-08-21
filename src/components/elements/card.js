@@ -331,6 +331,7 @@ export const NavCard = ({
     icon: Icon,
     title,
     content,
+    onClick,
     to,
     style,
     external,
@@ -342,6 +343,7 @@ export const NavCard = ({
 }) => {
     return (
         <LocalizedLink
+            onClick={onClick}
             to={to}
             style={{
                 textDecoration: 'none',
@@ -382,6 +384,7 @@ NavCard.propTypes = {
     icon: PropTypes.func,
     is_binary_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
+    onClick: PropTypes.func,
     otherLinkProps: PropTypes.object,
     style: PropTypes.object,
     target: PropTypes.string,
@@ -420,10 +423,11 @@ const RelativeFlex = styled(Flex)`
     position: relative;
 `
 
-export const CardLink = ({ icon: Icon, title, to, style, external, target }) => {
+export const CardLink = ({ icon: Icon, title, to, style, external, target, onClick }) => {
     return (
         <LocalizedLink
             target={target}
+            onClick={onClick}
             to={to}
             style={{
                 textDecoration: 'none',
@@ -459,6 +463,7 @@ CardLink.propTypes = {
     content: PropTypes.string,
     external: PropTypes.bool,
     icon: PropTypes.func,
+    onClick: PropTypes.func,
     style: PropTypes.object,
     target: PropTypes.string,
     title: PropTypes.string,

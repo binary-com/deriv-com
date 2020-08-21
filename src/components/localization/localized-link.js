@@ -68,6 +68,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_affiliate_sign_in_link,
         is_smarttrader_link,
         ariaLabel,
+        onClick,
     } = props
 
     // If it's the default language or non localized link, don't do anything
@@ -117,6 +118,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                             aria_label: ariaLabel,
                         })
                         toggleModal()
+                        onClick()
                     }}
                 >
                     {props.children}
@@ -133,6 +135,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                     href={lang_to}
                     ref={ref}
                     aria-label={ariaLabel}
+                    onClick={onClick}
                 >
                     {props.children}
                 </a>
@@ -141,7 +144,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
     }
     if (props.external_link)
         return (
-            <ExternalLink href={to} ref={ref}>
+            <ExternalLink href={to} ref={ref} onClick={onClick}>
                 {props.children}
             </ExternalLink>
         )
@@ -166,6 +169,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
             style={style}
             to={internal_to}
             ref={ref}
+            onClick={onClick}
         >
             {props.children}
         </GatsbyLink>
@@ -187,6 +191,7 @@ LocalizedLink.propTypes = {
     is_binary_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
+    onClick: PropTypes.func,
     props: PropTypes.object,
     rel: PropTypes.string,
     style: PropTypes.object,

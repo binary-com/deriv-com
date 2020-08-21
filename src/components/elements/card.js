@@ -261,7 +261,6 @@ CardChildren.propTypes = {
 
 const NavContent = styled.div`
     width: 100%;
-    max-width: 21.3rem;
     display: flex;
     flex-direction: column;
 `
@@ -306,16 +305,6 @@ const FlexHover = styled(Flex)`
         padding: 0;
     }
 
-    & > svg {
-        width: 32px;
-        height: 32px;
-        margin-right: 1.6rem;
-
-        @media ${device.mobileL} {
-            width: 30px;
-            height: 30px;
-        }
-    }
     &:hover {
         background-color: var(--color-grey-30);
 
@@ -324,6 +313,19 @@ const FlexHover = styled(Flex)`
         }
         ${Text} {
             color: var(--color-black-3);
+        }
+    }
+`
+
+const SvgWrapper = styled.div`
+    & > svg {
+        width: 33px;
+        height: 33px;
+        margin-right: 1.6rem;
+
+        @media ${device.mobileL} {
+            width: 24px;
+            height: 24px;
         }
     }
 `
@@ -348,7 +350,7 @@ export const NavCard = ({
             style={{
                 textDecoration: 'none',
                 width: '100%',
-                maxWidth: '27.7rem',
+                maxWidth: '33.6rem',
                 position: 'relative',
                 ...style,
             }}
@@ -360,7 +362,10 @@ export const NavCard = ({
             {...otherLinkProps}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
-                <Icon />
+                <SvgWrapper>
+                    <Icon />
+                </SvgWrapper>
+
                 <NavContent>
                     <ResponsiveHeader size="var(--text-size-s)" lh="1.14" mb="0.8rem">
                         {title}

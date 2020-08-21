@@ -46,6 +46,7 @@ const NavDropdown = styled.div`
         content: ' ';
         position: absolute;
         top: -9px;
+        left: ${(props) => (props.offset_arrow ? props.offset_arrow + 'px !important' : 'none')};
         border-top: none;
         border-right: 15px solid transparent;
         border-left: 15px solid transparent;
@@ -64,10 +65,13 @@ const StyledContainer = styled(Container)`
 
 const PlatformsDropdown = ({ is_open, has_animation, Content, forward_ref, link_ref }) => {
     const [left, setLeft] = React.useState(0)
+    const [left_arrow, setLeftArrow] = React.useState(0)
 
     React.useEffect(() => {
         if (link_ref.current) {
             const left_offsets = link_ref.current.offsetLeft
+            const left_arrow_offsets = link_ref.current.offsetWidth / 2 - 15
+            setLeftArrow(left_arrow_offsets)
             setLeft(left_offsets)
         }
     }, [forward_ref])
@@ -78,6 +82,7 @@ const PlatformsDropdown = ({ is_open, has_animation, Content, forward_ref, link_
                 is_open={is_open}
                 has_animation={has_animation}
                 offset={left}
+                offset_arrow={left_arrow}
                 ref={forward_ref}
             >
                 <StyledContainer>

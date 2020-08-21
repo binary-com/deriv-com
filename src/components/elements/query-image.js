@@ -5,6 +5,9 @@ import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
 const ImageWrapper = styled.div`
+    width: ${(props) => (props.width ? props.width : '100%')};
+    height: ${(props) => props.height};
+
     & .gatsby-image-wrapper {
         width: ${(props) => (props.width ? props.width : '100%')};
         height: ${(props) => props.height};

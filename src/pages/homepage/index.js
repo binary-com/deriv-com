@@ -1,6 +1,6 @@
 import React from 'react'
 // import Ticker from './home/_ticker'
-import { Trade } from '../home/_trade'
+import Trade from '../home/_trade'
 import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
 import Markets from '../home/_markets'
 import WhatOurClientsSay from '../home/_what-our-clients-say'

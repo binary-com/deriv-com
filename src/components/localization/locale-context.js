@@ -1,21 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import GlobalStyle from 'themes/global-style'
-import { isBrowser } from 'common/utility'
 
 export const LocaleContext = React.createContext()
 
 export const LocaleContextWrapper = ({ children, pageContext: { locale, pathname } }) => {
-    const [has_window_loaded, setWindowLoaded] = React.useState(false)
-
-    React.useEffect(() => {
-        if (isBrowser()) {
-            window.addEventListener('load', () => setWindowLoaded(true))
-        }
-    }, [])
-
     return (
-        <LocaleContext.Provider value={{ locale, pathname, has_window_loaded }}>
+        <LocaleContext.Provider value={{ locale, pathname }}>
             <GlobalStyle />
             {children}
         </LocaleContext.Provider>

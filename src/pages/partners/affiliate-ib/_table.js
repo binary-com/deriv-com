@@ -37,7 +37,7 @@ const TC = styled.div`
     flex-direction: column;
 `
 const TR = styled.div`
-    padding: 0.8rem 0;
+    padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
 `

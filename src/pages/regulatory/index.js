@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import EUgrid from './_eu-grid'
 import DocumentAccordion from './_document_accordion'
+import FinancialCommission from './_financial_commission'
 import Layout from 'components/layout/layout'
 import { Header, Text, LinkText, Divider } from 'components/elements'
 import {
@@ -13,8 +14,7 @@ import {
     SmallContainer,
     Show,
 } from 'components/containers'
-import { localize, WithIntl, Localize } from 'components/localization'
-import { isBrowser, deriv_app_url } from 'common/utility'
+import { localize, WithIntl, Localize, LocalizedLink } from 'components/localization'
 // Icons
 import EU from 'images/svg/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.png'
@@ -93,21 +93,11 @@ const ResponsiveHeader = styled(StyledHeader)`
     }
 `
 
-const TextLink = styled(LinkText).attrs({ as: 'span' })``
-
+const ExternalBoldLink = styled(LocalizedLink)`
+    font-weight: bold;
+    color: ${(props) => (props.color ? `var(--color-${props.color})` : '')};
+`
 const Regulatory = () => {
-    const LC_API = (isBrowser() && window.LC_API) || {}
-    const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
-
-    React.useEffect(() => {
-        if (isBrowser()) {
-            window.scrollTo(0, 0)
-            window.LiveChatWidget.on('ready', () => {
-                setLiveChatInteractive(true)
-            })
-        }
-    }, [])
-
     return (
         <Layout>
             <SEO
@@ -236,11 +226,12 @@ const Regulatory = () => {
                                                 href="/regulatory/Deriv_(Europe)_Ltd.pdf"
                                                 rel="noopener noreferrer"
                                             />,
-                                            <LinkText
+                                            <ExternalBoldLink
+                                                external
                                                 key={1}
                                                 weight="bold"
                                                 target="_blank"
-                                                href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
+                                                to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39495"
                                                 rel="noopener noreferrer"
                                             />,
                                         ]}
@@ -277,11 +268,12 @@ const Regulatory = () => {
                                                 href="/regulatory/Deriv_(MX)_Ltd.pdf"
                                                 rel="noopener noreferrer"
                                             />,
-                                            <LinkText
+                                            <ExternalBoldLink
+                                                external
                                                 key={0}
                                                 weight="bold"
                                                 target="_blank"
-                                                href="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
+                                                to="https://secure.gamblingcommission.gov.uk/PublicRegister/Search/Detail/39172"
                                                 rel="noopener noreferrer"
                                             />,
                                         ]}
@@ -471,14 +463,15 @@ const Regulatory = () => {
                             </Desktop>
                             <Text mt="0.8rem" max_width="58.8rem">
                                 <Localize
-                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)"
+                                    translate_text="We are registered with <0>The Financial Commission</0>, an international independent organisation dedicated to resolving disputes within the financial services industry (<1>view membership</1>)."
                                     components={[
-                                        <LinkText
+                                        <ExternalBoldLink
+                                            external
                                             key={0}
                                             color="red"
                                             weight="normal"
                                             target="_blank"
-                                            href="https://financialcommission.org/"
+                                            to="https://financialcommission.org/"
                                             rel="noopener noreferrer"
                                         />,
                                         <LinkText
@@ -491,50 +484,7 @@ const Regulatory = () => {
                                     ]}
                                 />
                             </Text>
-                            {is_livechat_interactive && (
-                                <div>
-                                    <Show.Eu>
-                                        <Text mt="2rem" max_width="58.8rem">
-                                            <Localize
-                                                translate_text="For fair resolution of any complaints, please speak to us using <0>chat</0>. To learn more, see our <1>complaint policy</1>."
-                                                components={[
-                                                    <TextLink
-                                                        key={0}
-                                                        color="red"
-                                                        className="gtm-deriv-livechat"
-                                                        onClick={() => {
-                                                            LC_API.open_chat_window()
-                                                        }}
-                                                    />,
-                                                    <LinkText
-                                                        key={0}
-                                                        color="red"
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        href={`${deriv_app_url}/complaints-policy`}
-                                                    />,
-                                                ]}
-                                            />
-                                        </Text>
-                                    </Show.Eu>
-                                    <Show.NonEU>
-                                        <Text mt="2rem" max_width="58.8rem">
-                                            <Localize
-                                                translate_text="For fair resolution of any complaints, please speak to us using <0>chat</0>."
-                                                components={[
-                                                    <TextLink
-                                                        key={0}
-                                                        color="red"
-                                                        onClick={() => {
-                                                            LC_API.open_chat_window()
-                                                        }}
-                                                    />,
-                                                ]}
-                                            />
-                                        </Text>
-                                    </Show.NonEU>
-                                </div>
-                            )}
+                            <FinancialCommission />
                         </CssGridColumn>
                     </CssGrid>
                 </SmallContainer>

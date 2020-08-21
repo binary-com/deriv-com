@@ -60,7 +60,7 @@ const StyledSection = styled(SectionContainer)`
     background-image: linear-gradient(to bottom, var(--color-grey-11), rgba(238, 238, 238, 0));
 `
 
-export const Trade = () => {
+const Trade = () => {
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
     const data = useStaticQuery(query)
@@ -126,3 +126,5 @@ export const Trade = () => {
         </StyledSection>
     )
 }
+
+export default Trade

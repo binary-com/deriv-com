@@ -5,25 +5,26 @@
     "author": "Deriv",
     "dependencies": {
         "commander": "^6.0.0",
+        "@loadable/component": "^5.13.1",
         "crc-32": "^1.2.0",
         "extend": "^3.0.2",
         "formik": "^2.1.5",
-        "gatsby": "^2.24.31",
-        "gatsby-background-image": "^1.1.1",
-        "gatsby-image": "^2.4.14",
+        "gatsby": "^2.24.47",
+        "gatsby-background-image": "^1.1.2",
+        "gatsby-image": "^2.4.16",
         "gatsby-plugin-amp": "^0.2.2",
         "gatsby-plugin-anchor-links": "^1.1.1",
         "gatsby-plugin-google-tagmanager": "^2.3.11",
-        "gatsby-plugin-manifest": "^2.4.22",
+        "gatsby-plugin-manifest": "^2.4.23",
         "gatsby-plugin-react-helmet": "^3.3.10",
-        "gatsby-plugin-nprogress": "^2.3.9",
+        "gatsby-plugin-nprogress": "^2.3.10",
         "gatsby-plugin-remove-serviceworker": "^1.0.0",
         "gatsby-plugin-robots-txt": "^1.5.1",
-        "gatsby-plugin-sharp": "^2.6.25",
+        "gatsby-plugin-sharp": "^2.6.27",
         "gatsby-plugin-sitemap": "^2.4.11",
         "gatsby-source-filesystem": "^2.3.24",
-        "gatsby-transformer-sharp": "^2.5.12",
-        "i18next": "^19.6.3",
+        "gatsby-transformer-sharp": "^2.5.13",
+        "i18next": "^19.7.0",
         "js-cookie": "^2.2.1",
         "match-sorter": "^4.2.0",
         "nprogress": "^0.2.0",
@@ -35,16 +36,16 @@
         "react-id-swiper": "^4.0.0",
         "react-perfect-scrollbar": "^1.5.8",
         "react-responsive": "^8.1.0",
-        "swiper": "^6.1.1",
+        "swiper": "^6.1.2",
         "typeface-ibm-plex-sans": "0.0.75"
     },
     "devDependencies": {
         "babel-eslint": "10.1.0",
         "babel-plugin-styled-components": "^1.11.1",
-        "eslint": "^7.6.0",
+        "eslint": "^7.7.0",
         "eslint-loader": "^4.0.2",
         "eslint-plugin-import": "^2.22.0",
-        "eslint-plugin-react": "^7.20.5",
+        "eslint-plugin-react": "^7.20.6",
         "gatsby-plugin-eslint": "^2.0.8",
         "gatsby-plugin-force-trailing-slashes": "^1.0.4",
         "gatsby-plugin-react-svg": "^3.0.0",
@@ -70,7 +71,6 @@
     ],
     "license": "Apache License 2.0",
     "scripts": {
-        "preinstall": "npx npm-force-resolutions",
         "build": "gatsby clean && gatsby build",
         "build:inc": "export GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true && gatsby build",
         "develop": "gatsby develop -o",
@@ -104,9 +104,5 @@
         "hooks": {
             "pre-commit": "lint-staged"
         }
-    },
-    "@comment": "Remove dot-prop when gatsby release new version",
-    "resolutions": {
-        "dot-prop": ">=5.2.0"
     }
 }

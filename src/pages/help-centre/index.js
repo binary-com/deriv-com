@@ -6,6 +6,7 @@ import { articles } from './_help-articles'
 import { SearchSuccess, SearchError } from './_search-results'
 // TODO: active this line after having mail service
 import { DidntFindYourAnswerBanner } from './_didnt-find-answer'
+import { Community } from './_community'
 import { convertToHash } from './_utility'
 import { SEO, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -429,6 +430,8 @@ class HelpCentre extends Component {
                         })}
                     </ArticleSection>
                 </Container>
+
+                <Community />
 
                 <DidntFindYourAnswerBanner />
             </Layout>

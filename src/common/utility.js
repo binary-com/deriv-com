@@ -89,8 +89,10 @@ const deriv_app_url = 'https://app.deriv.com'
 const deriv_bot_app_url = 'https://app.deriv.com/bot'
 const smarttrader_url = 'https://smarttrader.deriv.com'
 const binary_url = 'https://binary.com'
+const deriv_cookie_domain = 'deriv.com'
 const affiliate_signup_url = 'https://login.deriv.com/signup.php'
 const affiliate_signin_url = 'https://login.deriv.com/signin.php'
+const community_url = 'https://community.deriv.com/'
 const brand_name = 'Deriv'
 const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
 const gtm_test_domain = 'deriv-com.binary.sx'
@@ -99,6 +101,8 @@ export {
     affiliate_signin_url,
     affiliate_signup_url,
     binary_url,
+    deriv_cookie_domain,
+    community_url,
     deriv_app_url,
     deriv_bot_app_url,
     debounce,

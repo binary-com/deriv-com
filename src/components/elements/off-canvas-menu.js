@@ -132,6 +132,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
                                 }
                                 title={<Localize translate_text="DTrader" />}
+                                onClick={handleArrowClick}
                                 to="/dtrader"
                             />
                         </Flex>
@@ -142,6 +143,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="Automated trading at your fingertips. No coding needed." />
                                 }
                                 title={<Localize translate_text="DBot" />}
+                                onClick={handleArrowClick}
                                 to="/dbot"
                             />
                         </Flex>
@@ -152,6 +154,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="Trade on the Deriv MetaTrader 5 (DMT5) platform, the choice of professionals." />
                                 }
                                 title={<Localize translate_text="DMT5" />}
+                                onClick={handleArrowClick}
                                 to="/dmt5"
                             />
                         </Flex>
@@ -162,6 +165,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
                                 }
                                 title={<Localize translate_text="SmartTrader" />}
+                                onClick={handleArrowClick}
                                 to="trading"
                                 is_smarttrader_link
                                 external="true"
@@ -180,6 +184,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
                                 }
                                 title={<Localize translate_text="Margin trading" />}
+                                onClick={handleArrowClick}
                                 to="/trade-types/margin/"
                             />
                         </Flex>
@@ -190,6 +195,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="Earn fixed payouts by predicting an assets price movement." />
                                 }
                                 title={<Localize translate_text="Options" />}
+                                onClick={handleArrowClick}
                                 to="/trade-types/options"
                             />
                         </Flex>
@@ -200,6 +206,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     <Localize translate_text="Combine the upside of margin trading with the simplicity of options." />
                                 }
                                 title={<Localize translate_text="Multipliers" />}
+                                onClick={handleArrowClick}
                                 to="/trade-types/multiplier"
                             />
                         </Flex>
@@ -216,6 +223,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     'Trade the world’s largest financial market with popular forex pairs.',
                                 )}
                                 title={localize('Forex')}
+                                onClick={handleArrowClick}
                                 to="/markets#forex"
                             />
                         </Flex>
@@ -226,6 +234,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     'Enjoy synthetic markets that emulate real-world market movements.',
                                 )}
                                 title={localize('Synthetic indices')}
+                                onClick={handleArrowClick}
                                 to="/markets#synthetic"
                             />
                         </Flex>
@@ -236,6 +245,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     'Predict broader market trends and diversify your risk with stock indices.',
                                 )}
                                 title={localize('Stock Indices')}
+                                onClick={handleArrowClick}
                                 to="/markets#stock"
                             />
                         </Flex>
@@ -246,6 +256,7 @@ export const OffCanvasMenuWrapper = (props) => {
                                     "Trade natural resources that are central to the world's economy.",
                                 )}
                                 title={localize('Commodities')}
+                                onClick={handleArrowClick}
                                 to="/markets#commodities"
                             />
                         </Flex>

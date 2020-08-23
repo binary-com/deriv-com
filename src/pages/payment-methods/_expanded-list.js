@@ -76,7 +76,7 @@ const StyledText = styled(Text)`
 
 const Deposit = styled(Td)`
     & > p {
-        max-width: 14rem;
+        max-width: 12rem;
     }
 `
 

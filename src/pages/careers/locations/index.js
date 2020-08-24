@@ -162,20 +162,12 @@ const Locations = () => {
                         style={{ marginTop: '8rem', justifyContent: 'center' }}
                     >
                         <CountryCard
-                            Icon={ParaguayFlagIcon}
-                            img_data={images[asuncion.thumbnail]}
-                            country_name={asuncion.country}
-                            city_name={asuncion.display_name}
-                            open_positions={getPositionsByLocation(asuncion.name).length}
-                            link={asuncion.link}
-                        />
-                        <CountryCard
-                            Icon={MalaysiaFlagIcon}
-                            img_data={images[cyberjaya.thumbnail]}
-                            country_name={cyberjaya.country}
-                            city_name={cyberjaya.display_name}
-                            link={cyberjaya.link}
-                            open_positions={getPositionsByLocation(cyberjaya.name).length}
+                            Icon={MaltaFlagIcon}
+                            img_data={images[malta.thumbnail]}
+                            country_name={malta.country}
+                            city_name={malta.display_name}
+                            link={malta.link}
+                            open_positions={getPositionsByLocation(malta.name).length}
                         />
                         <CountryCard
                             Icon={UAEFlagIcon}
@@ -187,19 +179,19 @@ const Locations = () => {
                         />
                         <CountryCard
                             Icon={MalaysiaFlagIcon}
+                            img_data={images[cyberjaya.thumbnail]}
+                            country_name={cyberjaya.country}
+                            city_name={cyberjaya.display_name}
+                            link={cyberjaya.link}
+                            open_positions={getPositionsByLocation(cyberjaya.name).length}
+                        />
+                        <CountryCard
+                            Icon={MalaysiaFlagIcon}
                             img_data={images[labuan.thumbnail]}
                             country_name={labuan.country}
                             city_name={labuan.display_name}
                             link={labuan.link}
                             open_positions={getPositionsByLocation(labuan.name).length}
-                        />
-                        <CountryCard
-                            Icon={MaltaFlagIcon}
-                            img_data={images[malta.thumbnail]}
-                            country_name={malta.country}
-                            city_name={malta.display_name}
-                            link={malta.link}
-                            open_positions={getPositionsByLocation(malta.name).length}
                         />
                         <CountryCard
                             Icon={MalaysiaFlagIcon}
@@ -216,6 +208,14 @@ const Locations = () => {
                             city_name={melaka.display_name}
                             open_positions={getPositionsByLocation(melaka.name).length}
                             link={melaka.link}
+                        />
+                        <CountryCard
+                            Icon={ParaguayFlagIcon}
+                            img_data={images[asuncion.thumbnail]}
+                            country_name={asuncion.country}
+                            city_name={asuncion.display_name}
+                            open_positions={getPositionsByLocation(asuncion.name).length}
+                            link={asuncion.link}
                         />
                         <CountryCard
                             Icon={CyprusFlagIcon}

@@ -20,8 +20,9 @@ export const onInitialClientRender = () => {
     // Enable translation
     // Check if not production and match ach or ach/
     if (is_browser) {
-        const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
         checkDomain()
+        const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
+
         if (match_ach) {
             // TODO: remove this line when production ready for translation
             if (!isProduction()) LocalStore.set('i18n', 'ach')

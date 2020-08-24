@@ -275,7 +275,7 @@ export const LocationLayout = ({ location, images }) => {
                 </div>
             ) : (
                 <NoOpenPositionsHeader mb="8rem">
-                    {`Sorry, there are currently no open positions for ${location.display_name}`}
+                    {`Sorry, there are currently no open positions in ${location.display_name}`}
                 </NoOpenPositionsHeader>
             )}
 

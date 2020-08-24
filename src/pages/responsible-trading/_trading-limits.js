@@ -148,8 +148,8 @@ const TradingLimits = () => {
                             {localize('How trading limits and self-exclusion work')}
                         </StyledHeader>
                         <Text ml="0.8rem" max_width="44rem">
-                            <TimelineTick color="var(--color-red)" pb="1rem">
-                                <Show.NonEU>
+                            <Show.NonEU>
+                                <TimelineTick color="var(--color-red)" pb="1rem">
                                     <TimelineTick.Item>
                                         {localize(
                                             'You have full control over your trading limits. You can set, remove, increase, or decrease limits on your stake amount, losses incurred, and duration of trading sessions at any time.',
@@ -165,9 +165,11 @@ const TradingLimits = () => {
                                             'When you’ve set your self-exclusion period, we will refund your account balance.',
                                         )}
                                     </TimelineTick.Item>
-                                </Show.NonEU>
+                                </TimelineTick>
+                            </Show.NonEU>
 
-                                <Show.Eu>
+                            <Show.Eu>
+                                <TimelineTick color="var(--color-red)" pb="1rem">
                                     <TimelineTick.Item>
                                         {localize(
                                             'Daily limits may be removed or increased after 24 hours of receiving the notice. Confirmation is required to amend the limits.',
@@ -193,8 +195,8 @@ const TradingLimits = () => {
                                             'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
                                         )}
                                     </TimelineTick.Item>
-                                </Show.Eu>
-                            </TimelineTick>
+                                </TimelineTick>
+                            </Show.Eu>
                         </Text>
                         <div>
                             <Show.NonEU>

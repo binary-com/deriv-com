@@ -34,6 +34,7 @@ import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
 import BinaryLogo from 'images/svg/binary.svg'
+import LogoCombinedShape from 'images/svg/logo-combined-shape.svg'
 
 const query = graphql`
     query {
@@ -57,25 +58,9 @@ const InterimNav = styled.nav`
 `
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
+    max-width: 16rem;
+    width: 100%;
 
-    @media (max-width: 1200px) {
-        & svg,
-        .gatsby-image-wrapper {
-            width: 16rem;
-        }
-    }
-    @media (max-width: 1150px) {
-        & svg,
-        .gatsby-image-wrapper {
-            width: 13rem;
-        }
-    }
-    @media (max-width: 1105px) {
-        & svg,
-        .gatsby-image-wrapper {
-            width: 10rem;
-        }
-    }
     @media ${device.tabletS} {
         & svg,
         .gatsby-image-wrapper {
@@ -89,7 +74,13 @@ const LogoLink = styled(LocalizedLink)`
         }
     }
 `
-
+const Line = styled.div`
+    width: 1px;
+    height: 28px;
+    margin-right: 8px;
+    margin-left: 8px;
+    background-color: var(--color-white);
+`
 const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
@@ -115,6 +106,9 @@ const NavLeft = styled.div`
     text-align: left;
     display: flex;
     align-items: center;
+    max-width: 30rem;
+    width: 100%;
+
     @media ${device.tabletL} {
         display: none;
     }
@@ -446,10 +440,13 @@ export const Nav = ({ base }) => {
                             <QueryImage
                                 data={data['deriv']}
                                 alt={localize('Deriv')}
-                                width="16.4rem"
+                                max_width="16.4rem"
+                                width="100%"
                                 height="auto"
                             />
                         </LogoLink>
+                        <Line />
+                        <LogoCombinedShape />
                     </NavLeft>
                     <NavCenter>
                         <NavLink onClick={handleTradeClick}>

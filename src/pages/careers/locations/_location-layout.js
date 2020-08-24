@@ -223,7 +223,7 @@ export const LocationLayout = ({ location, images }) => {
             </SectionContainer>
             <SectionContainer padding="12rem 0">
                 <LocationCard>
-                    <Flex jc="unset" tablet_direction="column">
+                    <Flex min_height="42.2rem" jc="unset" tablet_direction="column">
                         <ImageWrapper>
                             {location.has_iframe ? (
                                 <Iframe

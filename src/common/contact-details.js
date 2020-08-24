@@ -19,7 +19,7 @@ const address_ipoh = localize('E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah, Ipoh
 
 const address_melaka = localize('69, Jalan KLJ 6, Taman Kota Laksamana Jaya, Melaka 75200, Melaka')
 
-const address_cyprus = localize('42 Agias Eilaxeos, 5th floor, Limassol 3025')
+const address_cyprus = localize('42 Agias Filaxeos, 5th floor, Limassol 3025')
 
 export {
     address_cyberjaya,

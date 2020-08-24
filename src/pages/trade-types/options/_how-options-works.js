@@ -164,7 +164,7 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="5. Get quote" />}
                         description={
-                            <Localize translate_text="Based on the parameters you have defined, our patented pricing technology will calculate your potential payout or the required stake for each variation of the trade type that you have selected." />
+                            <Localize translate_text="Based on the position you’ve defined, you’ll instantly receive a payout quote or a quote of the stake required to open your position." />
                         }
                     >
                         <QueryImage data={data['option_quote']} alt="Trade types option quote" />
@@ -177,7 +177,7 @@ const HowOptionsWorks = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="6. Purchase your contract" />}
                         description={
-                            <Localize translate_text="Purchase your order immediately if you are satisfied with the quote that you received.  Otherwise, continue to customise the parameters and place your order when you are comfortable with the quote." />
+                            <Localize translate_text="Place your order immediately if you are satisfied with the quote that you’ve received.  Otherwise, continue to customise the parameters and purchase your contract when you are comfortable with the quote." />
                         }
                     >
                         <QueryImage

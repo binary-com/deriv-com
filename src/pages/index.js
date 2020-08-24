@@ -2,6 +2,8 @@ import React from 'react'
 import Loadable from '@loadable/component'
 // import Ticker from './home/_ticker'
 import { Hero } from './home/_hero'
+import TradeTypes from './home/_trade-types'
+import TradeTypesMobile from './home/_trade-types-mobile'
 import Markets from './home/_markets'
 import TestimonialCarousel from './home/_testimonial-carousel'
 import { SEO, Show } from 'components/containers'
@@ -50,12 +52,21 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
+
             <Show.Mobile>
                 <TradeTheWayYouLike />
             </Show.Mobile>
             <Show.Desktop>
                 <Trade />
             </Show.Desktop>
+
+            <Show.Desktop max_width="599">
+                <TradeTypes />
+            </Show.Desktop>
+            <Show.Mobile min_width="600">
+                <TradeTypesMobile />
+            </Show.Mobile>
+
             <Markets />
             <SimpleSteps
                 content={simple_step_content}

@@ -35,67 +35,74 @@ const LiveChat = ({ LC_API, is_livechat_interactive, setLiveChatInteractive }) =
 
     React.useEffect(() => {
         if (isBrowser()) {
-            loadLiveChatScript(() => {
-                window.LiveChatWidget.on('ready', () => {
-                    setLiveChatInteractive(true)
+            // The purpose is to load the script after everything is load but not async or defer. Therefore, it will be ignored in the rendering timeline
+            setTimeout(() => {
+                loadLiveChatScript(() => {
+                    window.LiveChatWidget.on('ready', () => {
+                        setLiveChatInteractive(true)
 
-                    window.LiveChatWidget.on('visibility_changed', ({ visibility }) => {
-                        const domain = window.location.hostname.includes('deriv.com')
-                            ? 'deriv.com'
-                            : 'binary.sx'
-                        const client_information = Cookies.get('client_information', {
-                            domain,
-                        })
-                        // only visible to CS
-                        let session_variables = {
-                            loginid: '',
-                            landing_company_shortcode: '',
-                            currency: '',
-                            residence: '',
-                        }
+                        window.LiveChatWidget.on('visibility_changed', ({ visibility }) => {
+                            const domain = window.location.hostname.includes('deriv.com')
+                                ? 'deriv.com'
+                                : 'binary.sx'
+                            const client_information = Cookies.get('client_information', {
+                                domain,
+                            })
+                            // only visible to CS
+                            let session_variables = {
+                                loginid: '',
+                                landing_company_shortcode: '',
+                                currency: '',
+                                residence: '',
+                            }
 
-                        if (client_information) {
-                            const {
-                                loginid,
-                                email,
-                                landing_company_shortcode,
-                                currency,
-                                residence,
-                                first_name,
-                                last_name,
-                            } = JSON.parse(client_information)
+                            if (client_information) {
+                                const {
+                                    loginid,
+                                    email,
+                                    landing_company_shortcode,
+                                    currency,
+                                    residence,
+                                    first_name,
+                                    last_name,
+                                } = JSON.parse(client_information)
 
-                            if (visibility === 'maximized' && client_information) {
-                                session_variables = {
-                                    ...(loginid && { loginid }),
-                                    ...(landing_company_shortcode && {
-                                        landing_company_shortcode,
-                                    }),
-                                    ...(currency && { currency }),
-                                    ...(residence && { residence }),
+                                if (visibility === 'maximized' && client_information) {
+                                    session_variables = {
+                                        ...(loginid && { loginid }),
+                                        ...(landing_company_shortcode && {
+                                            landing_company_shortcode,
+                                        }),
+                                        ...(currency && { currency }),
+                                        ...(residence && { residence }),
+                                    }
+
+                                    window.LiveChatWidget.call(
+                                        'set_session_variables',
+                                        session_variables,
+                                    )
+                                    if (email)
+                                        window.LiveChatWidget.call('set_customer_email', email)
+                                    if (first_name && last_name)
+                                        window.LiveChatWidget.call(
+                                            'set_customer_name',
+                                            `${first_name} ${last_name}`,
+                                        )
                                 }
+                            }
 
+                            if (visibility === 'maximized' && !client_information) {
+                                window.LiveChatWidget.call('set_customer_email', ' ')
+                                window.LiveChatWidget.call('set_customer_name', ' ')
                                 window.LiveChatWidget.call(
                                     'set_session_variables',
                                     session_variables,
                                 )
-                                if (email) window.LiveChatWidget.call('set_customer_email', email)
-                                if (first_name && last_name)
-                                    window.LiveChatWidget.call(
-                                        'set_customer_name',
-                                        `${first_name} ${last_name}`,
-                                    )
                             }
-                        }
-
-                        if (visibility === 'maximized' && !client_information) {
-                            window.LiveChatWidget.call('set_customer_email', ' ')
-                            window.LiveChatWidget.call('set_customer_name', ' ')
-                            window.LiveChatWidget.call('set_session_variables', session_variables)
-                        }
+                        })
                     })
                 })
-            })
+            }, 2000)
         }
     }, [])
 

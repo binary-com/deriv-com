@@ -25,7 +25,7 @@ import {
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
+import { affiliate_signin_url, affiliate_signup_url, zoho_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -867,9 +867,10 @@ export const NavPartners = ({ no_login_signup }) => {
 }
 
 const CareerRight = styled.div`
-    width: 100%;
     display: flex;
+    justify-self: flex-end;
     justify-content: flex-end;
+    align-content: center;
 `
 
 export const NavCareers = () => {
@@ -901,8 +902,6 @@ export const NavCareers = () => {
                             <LogoLink to="/careers" aria-label={localize('Careers')}>
                                 <LogoCareers />
                             </LogoLink>
-                        </NavLeft>
-                        <CareerRight>
                             <StyledLink
                                 activeClassName="active"
                                 to="/careers/teams/"
@@ -919,14 +918,17 @@ export const NavCareers = () => {
                             >
                                 Locations
                             </StyledLink>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/careers/jobs/"
-                                aria-label={localize('All jobs')}
-                                partiallyActive={true}
+                        </NavLeft>
+                        <CareerRight>
+                            <LinkButton
+                                external
+                                secondary
+                                to={zoho_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                All jobs
-                            </StyledLink>
+                                Explore jobs
+                            </LinkButton>
                         </CareerRight>
                     </Wrapper>
                 </StyledNav>

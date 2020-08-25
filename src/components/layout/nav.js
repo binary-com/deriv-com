@@ -502,7 +502,6 @@ export const Nav = ({ base }) => {
                             </SignupButton>
                         </LocalizedLink>
                     </NavRight>
-
                     {is_canvas_menu_open ? (
                         <CloseMenu onClick={closeOffCanvasMenu} width="16px" />
                     ) : (
@@ -511,13 +510,20 @@ export const Nav = ({ base }) => {
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
                         <LogoOnly width="115px" />
                     </LogoLinkMobile>
+                    {/* <Flex max_width="30rem" ai="center">
+                      
+                        <Flex ai="center">
+                            <Line />
+                            <LogoCombinedShape />
+                        </Flex>
+                    </Flex> */}
+
                     <MobileRight>
                         <LanguageSwitcher short_name="true" is_high_nav />
                         <MobileLogin onClick={handleLogin} primary>
                             <span>{localize('Log in')}</span>
                         </MobileLogin>
                     </MobileRight>
-
                     <OffCanvasMenu
                         is_canvas_menu_open={is_canvas_menu_open}
                         closeOffCanvasMenu={closeOffCanvasMenu}

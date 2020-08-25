@@ -16,11 +16,11 @@ const checkDomain = () => {
         ),
     )
 }
+
 export const onInitialClientRender = () => {
     // Enable translation
     // Check if not production and match ach or ach/
     if (is_browser) {
-        checkDomain()
         const match_ach = window.location.pathname.match(/^(\/ach\/)|\/ach$/)
 
         if (match_ach) {
@@ -79,6 +79,7 @@ export const onPreRouteUpdate = () => {
 
 export const onRouteUpdate = () => {
     NProgress.done()
+    checkDomain()
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

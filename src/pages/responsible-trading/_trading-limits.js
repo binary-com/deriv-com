@@ -122,22 +122,24 @@ const TradingLimits = () => {
                                 </TimelineTick.Item>
                             </TimelineTick>
                         </Text>
-                        <Text mt="1.4rem">
-                            <Localize
-                                translate_text="If you wish to self-exclude or set limits on your trading activities, <0>go to account settings</0>."
-                                components={[
-                                    <LocalizedLinkText
-                                        to="/account/self-exclusion"
-                                        is_deriv_app_link
-                                        external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        color="red"
-                                        key={0}
-                                    />,
-                                ]}
-                            />
-                        </Text>
+                        <div>
+                            <Text mt="1.4rem">
+                                <Localize
+                                    translate_text="If you wish to self-exclude or set limits on your trading activities, <0>go to account settings</0>."
+                                    components={[
+                                        <LocalizedLinkText
+                                            to="/account/self-exclusion"
+                                            is_deriv_app_link
+                                            external
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            color="red"
+                                            key={0}
+                                        />,
+                                    ]}
+                                />
+                            </Text>
+                        </div>
                     </StyledContainer>
                 </ContentWrapper>
             </Flex>

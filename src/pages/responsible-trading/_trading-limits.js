@@ -147,57 +147,61 @@ const TradingLimits = () => {
                         <StyledHeader max_width="38.4rem">
                             {localize('How trading limits and self-exclusion work')}
                         </StyledHeader>
-                        <Text ml="0.8rem" max_width="44rem">
+                        <div>
                             <Show.NonEU>
-                                <TimelineTick color="var(--color-red)" pb="1rem">
-                                    <TimelineTick.Item>
-                                        {localize(
-                                            'You have full control over your trading limits. You can set, remove, increase, or decrease limits on your stake amount, losses incurred, and duration of trading sessions at any time.',
-                                        )}
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        {localize(
-                                            'If you wish to bar yourself from trading on our site, set self-exclusion limits. There’s a minimum period of 6 months for self-exclusion after which you may extend it to a total of 5 years or resume trading immediately after expiration.',
-                                        )}
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        {localize(
-                                            'When you’ve set your self-exclusion period, we will refund your account balance.',
-                                        )}
-                                    </TimelineTick.Item>
-                                </TimelineTick>
+                                <Text ml="0.8rem" max_width="44rem">
+                                    <TimelineTick color="var(--color-red)" pb="1rem">
+                                        <TimelineTick.Item>
+                                            {localize(
+                                                'You have full control over your trading limits. You can set, remove, increase, or decrease limits on your stake amount, losses incurred, and duration of trading sessions at any time.',
+                                            )}
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            {localize(
+                                                'If you wish to bar yourself from trading on our site, set self-exclusion limits. There’s a minimum period of 6 months for self-exclusion after which you may extend it to a total of 5 years or resume trading immediately after expiration.',
+                                            )}
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            {localize(
+                                                'When you’ve set your self-exclusion period, we will refund your account balance.',
+                                            )}
+                                        </TimelineTick.Item>
+                                    </TimelineTick>
+                                </Text>
                             </Show.NonEU>
 
                             <Show.Eu>
-                                <TimelineTick color="var(--color-red)" pb="1rem">
-                                    <TimelineTick.Item>
-                                        {localize(
-                                            'Daily limits may be removed or increased after 24 hours of receiving the notice. Confirmation is required to amend the limits.',
-                                        )}
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        {localize(
-                                            'There’s a minimum period of 6 months for self-exclusion. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
-                                        )}
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        {localize(
-                                            'When you’ve set your self-exclusion period, we will refund your account balance to you.',
-                                        )}
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        {localize(
-                                            'At the end of the self-exclusion period, the self-exclusion will remain in place until you take action.',
-                                        )}
-                                    </TimelineTick.Item>
-                                    <TimelineTick.Item>
-                                        {localize(
-                                            'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
-                                        )}
-                                    </TimelineTick.Item>
-                                </TimelineTick>
+                                <Text ml="0.8rem" max_width="44rem">
+                                    <TimelineTick color="var(--color-red)" pb="1rem">
+                                        <TimelineTick.Item>
+                                            {localize(
+                                                'Daily limits may be removed or increased after 24 hours of receiving the notice. Confirmation is required to amend the limits.',
+                                            )}
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            {localize(
+                                                'There’s a minimum period of 6 months for self-exclusion. You have the option to extend it to a total of 5 years immediately without any cooling-off period.',
+                                            )}
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            {localize(
+                                                'When you’ve set your self-exclusion period, we will refund your account balance to you.',
+                                            )}
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            {localize(
+                                                'At the end of the self-exclusion period, the self-exclusion will remain in place until you take action.',
+                                            )}
+                                        </TimelineTick.Item>
+                                        <TimelineTick.Item>
+                                            {localize(
+                                                'If you do not wish to renew the self-exclusion and you make a request to trade again, there will be a cooling-off period of 1 day before you are allowed access to our site. Please note that email is insufficient and your request must be made by phone.',
+                                            )}
+                                        </TimelineTick.Item>
+                                    </TimelineTick>
+                                </Text>
                             </Show.Eu>
-                        </Text>
+                        </div>
                         <div>
                             <Show.NonEU>
                                 <Text mt="1.4rem">

@@ -180,11 +180,11 @@ const NavRight = styled.div`
                 if (props.button_ref.current && props.mounted) {
                     props.button_ref.current.style.opacity = 1
                 }
-
                 return 0
             } else {
                 if (props.button_ref.current && props.mounted) {
                     props.button_ref.current.style.opacity = 0
+
                     const calculation = props.button_ref.current.offsetWidth + 2
                     return `${calculation}px`
                 }
@@ -192,6 +192,11 @@ const NavRight = styled.div`
             }
         }}
     );
+
+    > a {
+        pointer-events: ${(props) => (props.move ? 'visible' : 'none')};
+        cursor: ${(props) => (props.move ? 'pointer' : 'default')};
+    }
     @media ${device.tabletL} {
         display: none;
     }

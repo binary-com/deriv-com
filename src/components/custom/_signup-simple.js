@@ -76,7 +76,12 @@ const SignupSimple = ({
                             required
                         />
                     </InputWrapper>
-                    <EmailButton type="submit" secondary="true" disabled={is_submitting}>
+                    <EmailButton
+                        id="gtm-signup-email"
+                        type="submit"
+                        secondary="true"
+                        disabled={is_submitting}
+                    >
                         {localize('Sign up')}
                     </EmailButton>
                 </InputGroup>

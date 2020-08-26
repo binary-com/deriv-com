@@ -78,3 +78,5 @@ export const NavCareers = () => {
         </>
     )
 }
+
+export default { NavCareers }

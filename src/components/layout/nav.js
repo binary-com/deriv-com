@@ -25,7 +25,7 @@ import {
 import { SharedLinkStyle } from 'components/localization/localized-link'
 import Login from 'common/login'
 import device from 'themes/device'
-import { affiliate_signin_url, affiliate_signup_url, zoho_url } from 'common/utility'
+import { affiliate_signin_url, affiliate_signup_url } from 'common/utility'
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
@@ -42,7 +42,7 @@ const query = graphql`
     }
 `
 
-const NavWrapper = styled.div`
+export const NavWrapper = styled.div`
     width: 100%;
     position: fixed;
     z-index: 100;
@@ -54,7 +54,7 @@ const InterimNav = styled.nav`
     z-index: 100;
     background: var(--color-black);
 `
-const LogoLink = styled(LocalizedLink)`
+export const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
 
     @media (max-width: 1200px) {
@@ -89,7 +89,7 @@ const LogoLink = styled(LocalizedLink)`
     }
 `
 
-const StyledNav = styled.nav`
+export const StyledNav = styled.nav`
     background-color: var(--color-black);
     height: 7.2rem;
     width: 100%;
@@ -98,7 +98,7 @@ const StyledNav = styled.nav`
         height: auto;
     }
 `
-const Wrapper = styled(Container)`
+export const Wrapper = styled(Container)`
     font-size: var(--text-size-s);
     padding: 1.2rem 0;
     justify-content: space-between;
@@ -110,7 +110,7 @@ const Wrapper = styled(Container)`
         font-size: var(--text-size-xxs);
     }
 `
-const NavLeft = styled.div`
+export const NavLeft = styled.div`
     text-align: left;
     display: flex;
     align-items: center;
@@ -214,7 +214,7 @@ const NavLink = styled.li`
         if (props.margin) return 'margin: 0 4rem;'
     }}
 `
-const StyledLink = styled(LocalizedLink)`
+export const StyledLink = styled(LocalizedLink)`
     ${SharedLinkStyle}
 `
 const StyledButton = styled.a`
@@ -859,70 +859,6 @@ export const NavPartners = ({ no_login_signup }) => {
                             closeOffCanvasMenu={closeOffCanvasMenu}
                         />
                     </StyledNavWrapper>
-                </StyledNav>
-            </NavWrapper>
-        </>
-    )
-}
-
-const CareerRight = styled.div`
-    display: flex;
-    justify-self: flex-end;
-    justify-content: flex-end;
-    align-content: center;
-    align-items: center;
-`
-
-const CareerLogo = styled(LogoLink)`
-    margin-right: 3.2rem;
-`
-
-export const NavCareers = () => {
-    const data = useStaticQuery(query)
-    return (
-        <>
-            <NavWrapper>
-                <StyledNav>
-                    <Wrapper>
-                        <NavLeft>
-                            <CareerLogo to={'/'} aria-label={localize('Home')}>
-                                <QueryImage
-                                    data={data['deriv']}
-                                    alt={localize('Deriv')}
-                                    width="16.4rem"
-                                    height="auto"
-                                />
-                            </CareerLogo>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/careers"
-                                aria-label={localize('Careers home')}
-                                partiallyActive={true}
-                            >
-                                HOME
-                            </StyledLink>
-                            <StyledLink
-                                activeClassName="active"
-                                to="/careers/locations/"
-                                aria-label={localize('Locations')}
-                                partiallyActive={true}
-                            >
-                                LOCATIONS
-                            </StyledLink>
-                        </NavLeft>
-                        <CareerRight>
-                            <LinkButton
-                                external
-                                secondary
-                                to={zoho_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                ml="2.4rem"
-                            >
-                                Explore jobs
-                            </LinkButton>
-                        </CareerRight>
-                    </Wrapper>
                 </StyledNav>
             </NavWrapper>
         </>

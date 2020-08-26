@@ -26,7 +26,7 @@ const query = graphql`
         ipoh_grid_4: file(relativePath: { eq: "careers/ipoh_grid_4.png" }) {
             ...fadeIn
         }
-        map_ipoh: file(relativePath: { eq: "maps/map-ipoh.png" }) {
+        map_ipoh: file(relativePath: { eq: "careers/maps/map-ipoh.png" }) {
             ...fadeIn
         }
     }

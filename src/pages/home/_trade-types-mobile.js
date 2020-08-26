@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import MarginLogo from 'images/svg/margin_tt.svg'
 import OptionsLogo from 'images/svg/options_tt.svg'
@@ -88,23 +88,23 @@ TradeTypeSlide.propTypes = {
 
 const margin = {
     icon: <MarginLogo />,
-    title: localize('Margin Trading'),
-    description: localize(
-        'Trade with leverage and low spreads for better returns on successful trades.',
+    title: <Localize translate_text="Margin Trading" />,
+    description: (
+        <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
     ),
 }
 const options = {
     icon: <OptionsLogo />,
-    title: localize('Options'),
-    description: localize(
-        'Earn fixed payouts by predicting an assets price movement within a fixed time.',
+    title: <Localize translate_text="Options" />,
+    description: (
+        <Localize translate_text="Earn fixed payouts by predicting an assets price movement within a fixed time." />
     ),
 }
 const multipliers = {
     icon: <MultipliersLogo />,
-    title: localize('Multipliers'),
-    description: localize(
-        'Get the best of both - the upside of margin trading with the simplicity of options.',
+    title: <Localize translate_text="Multipliers" />,
+    description: (
+        <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
     ),
 }
 

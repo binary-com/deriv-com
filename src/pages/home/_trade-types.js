@@ -46,7 +46,7 @@ const TradeTypes = () => {
             <Show.Desktop max_width="851">
                 <Container m="0 auto 8rem !important" height="35rem" width="90% !important">
                     <Flex direction="column" max_width="28.2rem">
-                        <Header size="3.2rem">{localize('Trade Types')}</Header>
+                        <Header size="3.2rem">{localize('Trade types')}</Header>
                         <Text size="2.4rem" mt="1.6rem" mb="5rem">
                             {localize(
                                 'Trade what you like, the way you like it, and on your preferred market.',

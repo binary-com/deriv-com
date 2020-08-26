@@ -3,13 +3,14 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { SmallContainer, Grid, HowItWorksItem } from '../components/_style'
 import SideTab from '../components/_side-tab'
-import { SectionContainer, Flex } from 'components/containers'
+import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import GetQuote from 'images/svg/trade-types/get-quote.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
+import Pattern from 'images/common/trade-types/pattern-section.png'
 
 const query = graphql`
     query {
@@ -55,62 +56,71 @@ const OptionItems = styled(Flex)`
         }
     }
 `
+const StyledContainer = styled(Container)`
+    width: 100% !important;
+    @media ${device.mobileL} {
+        background: url(${Pattern});
+        background-size: cover;
+    }
+`
 
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     return (
         <SectionContainer>
             <SmallContainer direction="column" ai="flex-start">
-                <Header as="h2" mb="3.2rem">
-                    {localize('How options contracts work')}
-                </Header>
-                <OptionGrid>
-                    <HowItWorksItem>
-                        <OptionItems>
-                            <div>
-                                <DefinePosition />
-                            </div>
-                            <Text weight="bold" mt="1.6rem">
-                                {localize('Define your position')}
+                <StyledContainer direction="column">
+                    <Header as="h2" mb="3.2rem">
+                        {localize('How options contracts work')}
+                    </Header>
+                    <OptionGrid>
+                        <HowItWorksItem>
+                            <OptionItems>
+                                <div>
+                                    <DefinePosition />
+                                </div>
+                                <Text weight="bold" mt="1.6rem">
+                                    {localize('Define your position')}
+                                </Text>
+                            </OptionItems>
+                            <Text>
+                                {localize(
+                                    'Select the market, trade type, duration, and specify your stake amount.',
+                                )}
                             </Text>
-                        </OptionItems>
-                        <Text>
-                            {localize(
-                                'Select the market, trade type, duration, and specify your stake amount.',
-                            )}
-                        </Text>
-                    </HowItWorksItem>
-                    <HowItWorksItem>
-                        <OptionItems>
-                            <div>
-                                <GetQuote />
-                            </div>
-                            <Text weight="bold" mt="1.6rem">
-                                {localize('Get quote')}
+                        </HowItWorksItem>
+                        <HowItWorksItem>
+                            <OptionItems>
+                                <div>
+                                    <GetQuote />
+                                </div>
+                                <Text weight="bold" mt="1.6rem">
+                                    {localize('Get quote')}
+                                </Text>
+                            </OptionItems>
+                            <Text>
+                                {localize(
+                                    'Receive payout quote or stake amount based on the position you have defined.',
+                                )}
                             </Text>
-                        </OptionItems>
-                        <Text>
-                            {localize(
-                                'Receive payout quote or stake amount based on the position you have defined.',
-                            )}
-                        </Text>
-                    </HowItWorksItem>
-                    <HowItWorksItem>
-                        <OptionItems>
-                            <div>
-                                <PurchaseContract />
-                            </div>
-                            <Text weight="bold" mt="1.6rem">
-                                {localize('Purchase your contract')}
+                        </HowItWorksItem>
+                        <HowItWorksItem>
+                            <OptionItems>
+                                <div>
+                                    <PurchaseContract />
+                                </div>
+                                <Text weight="bold" mt="1.6rem">
+                                    {localize('Purchase your contract')}
+                                </Text>
+                            </OptionItems>
+                            <Text>
+                                {localize(
+                                    'Purchase the contract if you are satisfied with the quote or re-define your position.',
+                                )}
                             </Text>
-                        </OptionItems>
-                        <Text>
-                            {localize(
-                                'Purchase the contract if you are satisfied with the quote or re-define your position.',
-                            )}
-                        </Text>
-                    </HowItWorksItem>
-                </OptionGrid>
+                        </HowItWorksItem>
+                    </OptionGrid>
+                </StyledContainer>
                 <Header as="h3" mt="4rem">
                     {localize('How to buy your first options contract on DTrader')}
                 </Header>

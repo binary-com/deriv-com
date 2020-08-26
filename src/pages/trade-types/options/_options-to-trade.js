@@ -71,7 +71,7 @@ const WhatAreOptions = () => {
                     }
                 />
                 <Header as="h4" mt="4rem" mb="1.6rem">
-                    {localize('Spreads')}
+                    {localize('Call/Put Spreads')}
                 </Header>
                 <SpreadGrid />
                 <Notes

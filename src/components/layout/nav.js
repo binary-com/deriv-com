@@ -29,7 +29,6 @@ import { affiliate_signin_url, affiliate_signup_url, zoho_url } from 'common/uti
 // Icons
 import Logo from 'images/svg/logo-deriv.svg'
 import LogoPartner from 'images/svg/logo-partners.svg'
-import LogoCareers from 'images/svg/logo-careers.svg'
 import Hamburger from 'images/svg/hamburger_menu.svg'
 import Close from 'images/svg/close-long.svg'
 import LogoOnly from 'images/svg/logo-deriv-only.svg'
@@ -874,53 +873,44 @@ const CareerRight = styled.div`
     align-items: center;
 `
 
+const CareerLogo = styled(LogoLink)`
+    margin-right: 3.2rem;
+`
+
 export const NavCareers = () => {
+    const data = useStaticQuery(query)
     return (
         <>
             <NavWrapper>
-                <DerivHomeWrapper>
-                    <HomeContainer justify="flex-start">
-                        <HomeLink to="/">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Deriv website')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/about">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('About us')}
-                            </Text>
-                        </HomeLink>
-                        <HomeLink to="/contact-us">
-                            <Text color="grey-19" size="var(--text-size-xxs)">
-                                {localize('Contact us')}
-                            </Text>
-                        </HomeLink>
-                    </HomeContainer>
-                </DerivHomeWrapper>
                 <StyledNav>
                     <Wrapper>
                         <NavLeft>
-                            <LogoLink to="/careers" aria-label={localize('Careers')}>
-                                <LogoCareers />
-                            </LogoLink>
-                            {/* <StyledLink
+                            <CareerLogo to={'/'} aria-label={localize('Home')}>
+                                <QueryImage
+                                    data={data['deriv']}
+                                    alt={localize('Deriv')}
+                                    width="16.4rem"
+                                    height="auto"
+                                />
+                            </CareerLogo>
+                            <StyledLink
                                 activeClassName="active"
-                                to="/careers/teams/"
-                                aria-label={localize('Teams')}
+                                to="/careers"
+                                aria-label={localize('Careers home')}
                                 partiallyActive={true}
                             >
-                                Teams
-                            </StyledLink> */}
-                        </NavLeft>
-                        <CareerRight>
+                                HOME
+                            </StyledLink>
                             <StyledLink
                                 activeClassName="active"
                                 to="/careers/locations/"
                                 aria-label={localize('Locations')}
                                 partiallyActive={true}
                             >
-                                Locations
+                                LOCATIONS
                             </StyledLink>
+                        </NavLeft>
+                        <CareerRight>
                             <LinkButton
                                 external
                                 secondary

@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Container from './_layout-components/_container'
 import { Header, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
+import { zoho_url } from 'common/utility'
 import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
@@ -85,7 +86,13 @@ const Hero = () => {
                     about our success — it’s about yours.
                 </Subheadline>
                 <JoinHeader as="h3">Join and grow with us.</JoinHeader>
-                <LinkButton secondary="true" to="/careers/jobs">
+                <LinkButton
+                    secondary="true"
+                    to={zoho_url}
+                    external
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     View open positions
                 </LinkButton>
             </StyledContainer>

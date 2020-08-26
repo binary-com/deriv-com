@@ -36,7 +36,7 @@ const Dubai = () => {
     const images = useStaticQuery(query)
 
     return (
-        <Layout type="careers" padding_top="10rem">
+        <Layout type="careers">
             <SEO
                 title={localize('Dubai | Our office – UAE | Deriv')}
                 description={localize(

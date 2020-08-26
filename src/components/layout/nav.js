@@ -871,6 +871,7 @@ const CareerRight = styled.div`
     justify-self: flex-end;
     justify-content: flex-end;
     align-content: center;
+    align-items: center;
 `
 
 export const NavCareers = () => {
@@ -910,6 +911,8 @@ export const NavCareers = () => {
                             >
                                 Teams
                             </StyledLink> */}
+                        </NavLeft>
+                        <CareerRight>
                             <StyledLink
                                 activeClassName="active"
                                 to="/careers/locations/"
@@ -918,14 +921,13 @@ export const NavCareers = () => {
                             >
                                 Locations
                             </StyledLink>
-                        </NavLeft>
-                        <CareerRight>
                             <LinkButton
                                 external
                                 secondary
                                 to={zoho_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                ml="2.4rem"
                             >
                                 Explore jobs
                             </LinkButton>

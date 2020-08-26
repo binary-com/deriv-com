@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { getPositionsByLocation } from '../_controller/_teams'
-import { LinkList } from '../_layout-components/_link-list'
+// import { getPositionsByLocation } from '../_controller/_teams'
+// import { LinkList } from '../_layout-components/_link-list'
 import { RoleBanner } from '../_layout-components/_banner'
 import Container from '../_layout-components/_container'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { toHashFormat, map_api_key } from 'common/utility'
+import { map_api_key } from 'common/utility'
 import { localize } from 'components/localization'
 import MapPin from 'images/svg/map.svg'
 
@@ -138,16 +138,16 @@ const Iframe = styled.iframe`
 `
 
 export const LocationLayout = ({ location, images }) => {
-    const { display_name, name } = location
+    const { display_name } = location
     if (!display_name) return null
 
-    const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
-    const mapped_positions = positions
-        ? positions.map((position) => ({
-              text: position.title,
-              to: `/careers/jobs/job#${toHashFormat(position.id)}`,
-          }))
-        : []
+    // const positions = getPositionsByLocation(name).sort((a, b) => a.title.localeCompare(b.title))
+    // const mapped_positions = positions
+    //     ? positions.map((position) => ({
+    //           text: position.title,
+    //           to: `/careers/jobs/job#${toHashFormat(position.id)}`,
+    //       }))
+    //     : []
 
     return (
         <>
@@ -233,6 +233,7 @@ export const LocationLayout = ({ location, images }) => {
                                     data={images[location.map]}
                                     alt={location.display_name + localize(' Map')}
                                     width="100%"
+                                    height="100%"
                                 />
                             )}
                         </ImageWrapper>
@@ -259,7 +260,7 @@ export const LocationLayout = ({ location, images }) => {
                     </Flex>
                 </LocationCard>
             </SectionContainer>
-            <Header
+            {/* <Header
                 align="center"
                 as="h2"
                 size={'var(--text-size-header-1)'}
@@ -269,7 +270,7 @@ export const LocationLayout = ({ location, images }) => {
             </Header>
             <div style={{ marginBottom: '12rem' }}>
                 <LinkList list_items={mapped_positions} />
-            </div>
+            </div> */}
             <RoleBanner />
         </>
     )

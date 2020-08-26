@@ -902,14 +902,14 @@ export const NavCareers = () => {
                             <LogoLink to="/careers" aria-label={localize('Careers')}>
                                 <LogoCareers />
                             </LogoLink>
-                            <StyledLink
+                            {/* <StyledLink
                                 activeClassName="active"
                                 to="/careers/teams/"
                                 aria-label={localize('Teams')}
                                 partiallyActive={true}
                             >
                                 Teams
-                            </StyledLink>
+                            </StyledLink> */}
                             <StyledLink
                                 activeClassName="active"
                                 to="/careers/locations/"

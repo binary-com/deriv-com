@@ -250,7 +250,7 @@ export const NavPlatform = ({ onClick }) => (
             <NavCard
                 icon={Smarttrader}
                 content={
-                    <Localize translate_text="Trade the world’s markets on Binary.com’s classic platform." />
+                    <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
                 }
                 title={<Localize translate_text="SmartTrader" />}
                 to="trading"

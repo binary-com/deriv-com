@@ -9,7 +9,7 @@ const TabContent = styled.div`
     width: 100%;
 `
 
-const TabButton = styled.button`
+const TabButton = styled.div`
     z-index: 2;
     height: auto;
     padding: 0 24px;
@@ -47,11 +47,17 @@ const TabList = styled.div`
     justify-content: center;
     position: relative;
     @media (max-width: ${(props) => props.breakPoint}) {
-        flex-direction: column;
+        overflow: auto;
+        justify-content: flex-start;
 
         & > div,
         & > div > button {
             width: 100%;
+        }
+        & p {
+            white-space: nowrap;
+            padding: 12px 0;
+            font-size: 24px;
         }
     }
 `

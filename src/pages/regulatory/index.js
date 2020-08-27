@@ -97,6 +97,10 @@ const ExternalBoldLink = styled(LocalizedLink)`
     font-weight: bold;
     color: ${(props) => (props.color ? `var(--color-${props.color})` : '')};
 `
+
+const Content = styled.div`
+    display: contents;
+`
 const Regulatory = () => {
     return (
         <Layout>
@@ -199,7 +203,7 @@ const Regulatory = () => {
                         tablet_columns="1fr 5fr"
                         mobile_columns="1fr"
                     >
-                        <div>
+                        <Content>
                             <Eu>
                                 <ResponsiveGrid align="flex-start">
                                     <Mobile>
@@ -282,7 +286,7 @@ const Regulatory = () => {
                                     </Text>
                                     <Text max_width="58.8rem">
                                         {localize(
-                                            'Clients in the Isle of Man and the UK who wish to trade gambling products will have their accounts opened under Deriv (MX) Limited.',
+                                            'Clients in the Isle of Man and the UK who wish to trade gambling products will have their accounts opened under Deriv (MX) Ltd.',
                                         )}
                                     </Text>
                                 </CssGridColumn>
@@ -312,7 +316,7 @@ const Regulatory = () => {
                                     </Text>
                                 </CssGridColumn>
                             </Eu>
-                        </div>
+                        </Content>
                         <ResponsiveGrid align="flex-start">
                             <Mobile>
                                 <StyledHeader lh="4rem" as="h4" mb="1.6rem">

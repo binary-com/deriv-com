@@ -38,7 +38,7 @@ const StyledHeader = styled(Header)`
 const Subheadline = styled(Text)`
     font-size: var(--text-size-sm);
     color: var(--color-white);
-    max-width: 78.2rem;
+    max-width: 58.8rem;
     margin-bottom: 8rem;
 `
 

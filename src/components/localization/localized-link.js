@@ -11,6 +11,7 @@ import {
     affiliate_signin_url,
     affiliate_signup_url,
     smarttrader_url,
+    deriv_app_url,
 } from 'common/utility'
 
 const non_localized_links = ['/careers', '/careers/']
@@ -67,6 +68,7 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         is_mail_link,
         is_affiliate_sign_in_link,
         is_smarttrader_link,
+        is_deriv_app_link,
         ariaLabel,
         onClick,
     } = props
@@ -90,6 +92,8 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
         } else if (is_smarttrader_link) {
             const thai_excluded_locale = locale === 'th' ? 'en' : locale
             lang_to = `${smarttrader_url}/${thai_excluded_locale}/${to}.html`
+        } else if (is_deriv_app_link) {
+            lang_to = `${deriv_app_url}${to}`
         } else {
             lang_to = to
         }
@@ -189,6 +193,7 @@ LocalizedLink.propTypes = {
     is_affiliate_link: PropTypes.bool,
     is_affiliate_sign_in_link: PropTypes.bool,
     is_binary_link: PropTypes.bool,
+    is_deriv_app_link: PropTypes.bool,
     is_mail_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
     onClick: PropTypes.func,

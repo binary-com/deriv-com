@@ -132,7 +132,6 @@ const StyledLinkButton = styled(LinkButton)`
         height: 42px;
         white-space: nowrap;
         display: inline-block;
-        max-width: 202px;
         max-height: 40px;
     }
 `

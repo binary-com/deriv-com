@@ -137,7 +137,7 @@ const TradeTypesMobile = () => {
                 <Header align="center" as="h2" mb="0.8rem">
                     {localize('Trade types')}
                 </Header>
-                <Text size="var(--text-size-sm)" align="center" mb="2rem">
+                <Text padding="0 2rem" size="var(--text-size-sm)" align="center" mb="2rem">
                     {localize(
                         'Trade what you like, the way you like it, and on your preferred market.',
                     )}

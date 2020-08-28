@@ -95,8 +95,7 @@ const ImageWrapper = styled.div`
 `
 const TabItem = styled.div`
     padding: 2.4rem 4rem;
-    max-width: 30.8rem;
-    width: 100%;
+    width: fit-content;
     height: 8.4rem;
     border-radius: 4px;
     border: solid 1px rgba(51, 51, 51, 0.1);

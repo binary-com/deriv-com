@@ -302,7 +302,11 @@ const MobileRight = styled.div`
         display: flex;
     }
 `
-
+const LogoDescription = styled(Flex)`
+    @media ${device.mobileL} {
+        display: none;
+    }
+`
 export const Nav = ({ base }) => {
     const data = useStaticQuery(query)
     const button_ref = useRef(null)
@@ -507,17 +511,16 @@ export const Nav = ({ base }) => {
                     ) : (
                         <HamburgerMenu onClick={openOffCanvasMenu} width="16px" />
                     )}
-                    <LogoLinkMobile to="/" aria-label={localize('Home')}>
-                        <LogoOnly width="115px" />
-                    </LogoLinkMobile>
-                    {/* <Flex max_width="30rem" ai="center">
-                      
-                        <Flex ai="center">
-                            <Line />
-                            <LogoCombinedShape />
-                        </Flex>
-                    </Flex> */}
 
+                    <LogoLinkMobile to="/" aria-label={localize('Home')}>
+                        <Flex>
+                            <LogoOnly width="115px" />
+                            <LogoDescription fd="row" ai="center">
+                                <Line />
+                                <LogoCombinedShape />
+                            </LogoDescription>
+                        </Flex>
+                    </LogoLinkMobile>
                     <MobileRight>
                         <LanguageSwitcher short_name="true" is_high_nav />
                         <MobileLogin onClick={handleLogin} primary>

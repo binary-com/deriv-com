@@ -91,11 +91,14 @@ const Withdrawal = styled(Td)`
     }
 `
 
-const ExpandList = ({ data }) => {
+const ExpandList = ({ data, config, is_crypto }) => {
     const [is_expanded, setIsExpanded] = React.useState(false)
 
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
+    }
+    function getCryptoConfig(currencies) {
+        return config === null ? null : config[currencies].minimum_withdrawal
     }
     return (
         <>
@@ -115,6 +118,8 @@ const ExpandList = ({ data }) => {
                     <>
                         {Array.isArray(data.min_max_withdrawal) ? (
                             data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
+                        ) : is_crypto ? (
+                            <Text>{getCryptoConfig(data.currencies)}</Text>
                         ) : (
                             <Text>{data.min_max_withdrawal}</Text>
                         )}
@@ -160,6 +165,7 @@ const ExpandList = ({ data }) => {
 }
 
 ExpandList.propTypes = {
+    config: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     data: PropTypes.object,
     is_crypto: PropTypes.bool,
 }

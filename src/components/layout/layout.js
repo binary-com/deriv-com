@@ -34,6 +34,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = useState({})
+    const [crypto_config, setCryptoConfig] = useState(null)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
 
@@ -56,6 +57,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                         CLIENTS_COUNTRY_KEY,
                         response.website_status.clients_country,
                     )
+                    setCryptoConfig(response.website_status.crypto_config)
                 }
 
                 binary_socket.close()
@@ -127,6 +129,7 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
             is_eu_country={clients_country ? isEuCountry(clients_country) : undefined}
             show_cookie_banner={show_cookie_banner}
             toggleModal={toggleModal}
+            crypto_config={crypto_config}
             setModalPayload={setModalPayload}
             is_livechat_interactive={is_livechat_interactive}
             LC_API={LC_API}

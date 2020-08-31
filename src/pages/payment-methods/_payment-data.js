@@ -451,7 +451,7 @@ const payment_data = [
                 method: <BiananceIC />,
                 currencies: 'BUSD',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '25',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -463,7 +463,7 @@ const payment_data = [
                 method: <BitcoinIc />,
                 currencies: 'BTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '0.0022',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -476,7 +476,7 @@ const payment_data = [
                 method: <DaiIc />,
                 currencies: 'DAI',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '25',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -488,7 +488,7 @@ const payment_data = [
                 method: <EthereumIc />,
                 currencies: 'ETH',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '0.013',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -500,7 +500,7 @@ const payment_data = [
                 method: <StasisEuroIc />,
                 currencies: 'EURS',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '25',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -512,7 +512,7 @@ const payment_data = [
                 method: <IdkIc />,
                 currencies: 'IDK',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '5',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -524,7 +524,7 @@ const payment_data = [
                 method: <LitecoinIc />,
                 currencies: 'LTC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '0.085',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -537,7 +537,7 @@ const payment_data = [
                 method: <PaxosIc />,
                 currencies: 'PAX',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '25',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -549,7 +549,7 @@ const payment_data = [
                 method: <TrueIc />,
                 currencies: 'TUSD',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '25',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -561,7 +561,7 @@ const payment_data = [
                 method: <UsdCoinIc />,
                 currencies: 'USDC',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '25',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -573,7 +573,7 @@ const payment_data = [
                 method: <UsdkIc />,
                 currencies: 'USDK',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '25',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -583,9 +583,9 @@ const payment_data = [
             },
             {
                 method: <TetherIc />,
-                currencies: 'USDT',
+                currencies: 'UST',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '25',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (
@@ -597,7 +597,7 @@ const payment_data = [
                 method: <TetherIc />,
                 currencies: 'eUSDT',
                 min_max_deposit: <Localize translate_text="No minimum" />,
-                min_max_withdrawal: '25',
+                min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
                 withdrawal_time: <Localize translate_text="Subject to internal checks" />,
                 description: (

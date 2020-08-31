@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
 import Scrollbar from 'react-perfect-scrollbar'
+import { LocationContext } from '../../components/layout/location-context'
 import ExpandList from './_expanded-list'
 import payment_data from './_payment-data'
 import Layout from 'components/layout/layout'
@@ -57,7 +58,10 @@ const Notes = styled.div`
     left: 0;
     bottom: 0;
 `
-
+const TbodyContainer = ({ children }) => {
+    const { crypto_config } = React.useContext(LocationContext)
+    return children(crypto_config)
+}
 const PaymentMethods = () => {
     return (
         <Layout>
@@ -178,15 +182,28 @@ const PaymentMethods = () => {
                                                     <Th />
                                                 </Tr>
                                             </Thead>
-                                            <Tbody>
-                                                {pd.data.map((data, indx) => (
-                                                    <ExpandList
-                                                        key={indx}
-                                                        data={data}
-                                                        is_crypto={pd.is_crypto}
-                                                    />
-                                                ))}
-                                            </Tbody>
+                                            <TbodyContainer>
+                                                {(config) => (
+                                                    <Tbody>
+                                                        {pd.data.map((data, indx) => {
+                                                            return pd.is_crypto ? (
+                                                                <ExpandList
+                                                                    key={indx}
+                                                                    data={data}
+                                                                    is_crypto={pd.is_crypto}
+                                                                    config={config}
+                                                                />
+                                                            ) : (
+                                                                <ExpandList
+                                                                    key={indx}
+                                                                    data={data}
+                                                                    is_crypto={pd.is_crypto}
+                                                                />
+                                                            )
+                                                        })}
+                                                    </Tbody>
+                                                )}
+                                            </TbodyContainer>
                                         </StyledTable>
                                     </Scrollbar>
                                     {pd.note && (

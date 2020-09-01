@@ -8,7 +8,7 @@ import { isProduction } from 'common/websocket/config'
 
 const languages = Object.keys(language_config)
 
-const disabled_lang = ['ach']
+const disabled_lang = ['ach', 'pl']
 
 class LanguageSwitch extends Component {
     constructor(props) {

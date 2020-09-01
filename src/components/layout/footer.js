@@ -853,17 +853,31 @@ const Footer = () => {
                         </Show.Desktop>
                         <Show.Mobile>
                             <EuLogoWrapper mt="1rem" ai="center">
-                                <StyledCoatArms>
-                                    <QueryImage
-                                        data={image_query.iom}
-                                        alt={'IOM'}
-                                        width="6.4rem"
-                                        height="auto"
-                                    />
-                                </StyledCoatArms>
+                                <LocalizedLink
+                                    external
+                                    to="https://www.gov.im/categories/business-and-industries/gambling-and-e-gaming/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <StyledCoatArms>
+                                        <QueryImage
+                                            data={image_query.iom}
+                                            alt={'IOM'}
+                                            width="6.4rem"
+                                            height="auto"
+                                        />
+                                    </StyledCoatArms>
+                                </LocalizedLink>
                                 <Flex fd="column" width="auto">
                                     <StyledMgaLogo />
-                                    <StyledGamstop />
+                                    <LocalizedLink
+                                        external
+                                        to="https://www.gamstop.co.uk"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <StyledGamstop />
+                                    </LocalizedLink>
                                 </Flex>
                                 <Over18 />
                             </EuLogoWrapper>

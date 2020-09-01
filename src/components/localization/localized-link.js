@@ -122,7 +122,9 @@ export const LocalizedLink = React.forwardRef(({ to, ...props }, ref) => {
                             aria_label: ariaLabel,
                         })
                         toggleModal()
-                        onClick()
+                        if (onClick) {
+                            onClick()
+                        }
                     }}
                 >
                     {props.children}

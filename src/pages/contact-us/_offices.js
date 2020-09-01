@@ -304,8 +304,7 @@ export const Offices = () => {
                                     <Box mt="0.8rem" ml="1.6rem">
                                         <CountryText>Melaka</CountryText>
                                         <Text>
-                                            No.69, Jalan KLJ 6, Taman Kota Laksamana Jaya, 75200
-                                            Melaka
+                                            69, Jalan KLJ 6, Taman Kota Laksamana Jaya, 75200 Melaka
                                         </Text>
                                     </Box>
                                 </FullBox>

@@ -97,8 +97,8 @@ const ExpandList = ({ data, config, is_crypto }) => {
     const toggleExpand = () => {
         setIsExpanded(!is_expanded)
     }
-    function getCryptoConfig(currencies) {
-        return config === null ? null : config[currencies].minimum_withdrawal
+    function getCryptoConfig(name) {
+        return config === null ? null : config[name].minimum_withdrawal
     }
     return (
         <>
@@ -119,7 +119,7 @@ const ExpandList = ({ data, config, is_crypto }) => {
                         {Array.isArray(data.min_max_withdrawal) ? (
                             data.min_max_withdrawal.map((md, idx) => <Text key={idx}>{md}</Text>)
                         ) : is_crypto ? (
-                            <Text>{getCryptoConfig(data.currencies)}</Text>
+                            <Text>{getCryptoConfig(data.name)}</Text>
                         ) : (
                             <Text>{data.min_max_withdrawal}</Text>
                         )}

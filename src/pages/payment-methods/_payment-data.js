@@ -457,7 +457,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in Binance USD, a cryptocurrency that’s pegged to USD." />
                 ),
-                name: 'binance',
+                name: 'BUSD',
             },
             {
                 method: <BitcoinIc />,
@@ -469,7 +469,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in Bitcoin, the world’s first cryptocurrency." />
                 ),
-                name: 'bitcoin',
+                name: 'BTC',
                 reference: 'bitcoin-payment-method.pdf',
             },
             {
@@ -482,7 +482,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in Multi-Collateral DAI, a cryptocurrency that’s pegged to USD." />
                 ),
-                name: 'dai',
+                name: 'DAI',
             },
             {
                 method: <EthereumIc />,
@@ -494,7 +494,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies." />
                 ),
-                name: 'ethereum',
+                name: 'ETH',
             },
             {
                 method: <StasisEuroIc />,
@@ -506,7 +506,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in STASIS Euro, a cryptocurrency that’s pegged to EUR." />
                 ),
-                name: 'stasis euro',
+                name: 'EURS',
             },
             {
                 method: <IdkIc />,
@@ -518,7 +518,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in IDK, a cryptocurrency that's pegged to IDR (1:1,000)." />
                 ),
-                name: 'idk',
+                name: 'IDK',
             },
             {
                 method: <LitecoinIc />,
@@ -530,7 +530,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing." />
                 ),
-                name: 'litecoin',
+                name: 'LTC',
                 reference: 'litecoin-payment-method.pdf',
             },
             {
@@ -543,7 +543,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in Paxos Standard, a cryptocurrency that’s pegged to USD." />
                 ),
-                name: 'paxos',
+                name: 'PAX',
             },
             {
                 method: <TrueIc />,
@@ -555,7 +555,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in TrueUSD, a cryptocurrency that’s pegged to USD." />
                 ),
-                name: 'trueusd',
+                name: 'TUSD',
             },
             {
                 method: <UsdCoinIc />,
@@ -567,7 +567,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in USD Coin, a cryptocurrency that’s pegged to USD." />
                 ),
-                name: 'usdc',
+                name: 'USDC',
             },
             {
                 method: <UsdkIc />,
@@ -579,11 +579,11 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in USDK, a cryptocurrency that’s pegged to USD." />
                 ),
-                name: 'usdk',
+                name: 'USDK',
             },
             {
                 method: <TetherIc />,
-                currencies: 'UST',
+                currencies: 'USDT',
                 min_max_deposit: <Localize translate_text="No minimum" />,
                 min_max_withdrawal: undefined,
                 deposit_time: <Localize translate_text="Funds available as soon as confirmed" />,
@@ -591,7 +591,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in Tether Omni, a cryptocurrency that’s pegged to USD." />
                 ),
-                name: 'usdt',
+                name: 'UST',
             },
             {
                 method: <TetherIc />,
@@ -603,7 +603,7 @@ const payment_data = [
                 description: (
                     <Localize translate_text="Deposit and withdraw in Tether ERC20, a cryptocurrency that’s pegged to USD." />
                 ),
-                name: 'eusdt',
+                name: 'eUSDT',
             },
         ],
     },

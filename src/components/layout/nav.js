@@ -58,7 +58,7 @@ const InterimNav = styled.nav`
 `
 const LogoLink = styled(LocalizedLink)`
     text-decoration: none;
-    max-width: 16rem;
+    max-width: ${(props) => props.mw || '16rem'};
     width: 100%;
 
     @media ${device.tabletS} {
@@ -515,7 +515,7 @@ export const Nav = ({ base }) => {
                     <LogoLinkMobile to="/" aria-label={localize('Home')}>
                         <Flex>
                             <LogoOnly width="115px" />
-                            <LogoDescription fd="row" ai="center">
+                            <LogoDescription ai="center">
                                 <Line />
                                 <LogoCombinedShape />
                             </LogoDescription>
@@ -614,28 +614,13 @@ export const NavInterim = ({ interim_type }) => (
 
 export const NavStatic = () => (
     <StaticWrapper>
-        <LogoLink to="/" aria-label={localize('Home')}>
-            <Logo />
+        <LogoLink mw="31rem" to="/" aria-label={localize('Home')}>
+            <Flex ai="center">
+                <LogoOnly />
+                <Line />
+                <LogoCombinedShape />
+            </Flex>
         </LogoLink>
-        <LocalizedLink external to="home" is_binary_link target="_blank" rel="noopener noreferrer">
-            <BinaryLogo width="24" height="24" />
-        </LocalizedLink>
-        <Binary size="var(--text-size-xxs)" color="white">
-            <Localize
-                translate_text="A <0>Binary.com</0> brand"
-                components={[
-                    <BinaryLink
-                        key={0}
-                        external
-                        to={'home'}
-                        is_binary_link
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        color="white"
-                    />,
-                ]}
-            />
-        </Binary>
     </StaticWrapper>
 )
 

@@ -115,13 +115,15 @@ const TabItem = styled.div`
                       font-weight: unset;
                   }
               `}
-
+    
+    @media ${device.tabletS} {
+        padding: 17px 20px;
+    }
     @media ${device.mobileL} {
-        padding: 24px 24px;
+        max-width: 164px;
+        width: 100%;
+        padding: ${(props) => props.mobile_padding};
 
-        :last-child{
-            padding: 12px 24px;
-        }
     }
 `
 const StyledHeader = styled(Header)`
@@ -169,12 +171,20 @@ const StartTrader = () => {
                 {localize('How to get started with a DMT5 account')}
             </StyledHeader>
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }}>
-                <TabItem active={tab === 'Demo'} onClick={() => onTabClick('Demo')}>
+                <TabItem
+                    mobile_padding="21px 12px"
+                    active={tab === 'Demo'}
+                    onClick={() => onTabClick('Demo')}
+                >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Demo account')}
                     </StyledText>
                 </TabItem>
-                <TabItem active={tab === 'Real'} onClick={() => onTabClick('Real')}>
+                <TabItem
+                    mobile_padding="12px 24px"
+                    active={tab === 'Real'}
+                    onClick={() => onTabClick('Real')}
+                >
                     <StyledText size="var(--text-size-m)" align="center">
                         {localize('Real money account')}
                     </StyledText>

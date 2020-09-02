@@ -98,7 +98,7 @@ const ExpandList = ({ data, config, is_crypto }) => {
         setIsExpanded(!is_expanded)
     }
     function getCryptoConfig(name) {
-        return config === null ? null : config[name].minimum_withdrawal
+        return config == undefined ? null : config[name].minimum_withdrawal
     }
     return (
         <>

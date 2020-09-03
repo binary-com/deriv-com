@@ -122,7 +122,7 @@ export const ipoh = {
     display_name: 'Ipoh',
     country: 'Malaysia',
     thumbnail: 'thumbnail_ipoh',
-    header_p: `The third-largest city in Malaysia, Ipoh in the state of Perak is about 180 km to the north of Kuala Lumpur. Ipoh developed into a bustling town in the 1880s when tin was discovered there. It has now become a hit amongst tourists with its British colonial architecture, unique cuisine, bohemian hotels, and Buddist temples in nearby caves.`,
+    header_p: `The third-largest city in Malaysia, Ipoh in the state of Perak is about 180 km to the north of Kuala Lumpur. Ipoh developed into a bustling town in the 1880s when tin was discovered there. It has now become a hit amongst tourists with its British colonial architecture, unique cuisine, bohemian hotels, and Buddhist temples in nearby caves.`,
     first_p: `Ipoh matches KL in urban amenities but charges you less for them, and with its negligible traffic, you’ll spend far less time in getting to the entertainment hubs, sports facilities, and health and education centres that this city contains. The rich historical architecture of Ipoh’s famous old town, cave temples, treasured museums, beautiful street murals, hip cafes, thrilling water park, and gorgeous nature are only some of the charms that make Ipoh a lovely place where you can live and work.`,
     first_img: 'living_in_ipoh',
     grid_images: ['ipoh_grid_1', 'ipoh_grid_2', 'ipoh_grid_3', 'ipoh_grid_4'],

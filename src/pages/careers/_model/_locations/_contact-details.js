@@ -3,7 +3,7 @@ import { localize } from 'components/localization'
 const address_cyberjaya = localize(
     'C-13, iTech Tower, Jalan Impact, Cyber 6, 63000 Cyberjaya, Selangor, Malaysia.',
 )
-const address_dubai = localize('1902, Jumeirah Business Center 1, JLT Cluster G, Dubai, UAE.')
+const address_dubai = localize('Unit 3004, 1 Lake Plaza, Cluster T, Jumeriah Lake Towers')
 
 const address_asuncion = localize(
     'Edificio Australia, Oficina 1, Herib Campos Cervera 886, Asunción, Paraguay',

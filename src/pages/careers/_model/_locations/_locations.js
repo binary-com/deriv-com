@@ -7,7 +7,7 @@ import {
     address_ipoh,
     address_melaka,
     address_cyprus,
-} from 'common/contact-details'
+} from './_contact-details'
 
 export const cyberjaya = {
     name: 'cyberjaya',

@@ -5,27 +5,13 @@ import Footer from './footer'
 import Copyright from './copyright'
 import { Nav, NavStatic, NavPartners, NavCareers, NavInterim } from './nav'
 import { LocationProvider } from './location-context'
+import LiveChat from './livechat'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal.js'
 import CookieBanner from 'components/custom/cookie-banner'
 import { isEuCountry } from 'common/country-base'
 import { CookieStorage } from 'common/storage'
 import { BinarySocketBase } from 'common/websocket/socket_base'
 import { isBrowser } from 'common/utility'
-import LiveChatIC from 'images/svg/livechat.svg'
-import LiveChatHover from 'images/svg/livechat-hover.svg'
-
-const LiveChat = styled.div`
-    position: fixed;
-    bottom: 1.6rem;
-    right: 1.6rem;
-    background-color: var(--color-white);
-    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
-    padding: 1.6rem;
-    display: flex;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 9999;
-`
 
 const Main = styled.main`
     padding-top: ${(props) => props.padding_top || '7rem'};
@@ -42,28 +28,16 @@ const clients_country_cookie = new CookieStorage(CLIENTS_COUNTRY_KEY)
 const tracking_status_cookie = new CookieStorage(TRACKING_STATUS_KEY)
 
 const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) => {
-    const LC_API = (isBrowser() && window.LC_API) || {}
     const [clients_country, setClientCountry] = React.useState(
         clients_country_cookie.get(CLIENTS_COUNTRY_KEY),
     )
     const [show_cookie_banner, setShowCookieBanner] = React.useState(false)
-    const [is_livechat_hover, setLivechatHover] = React.useState(false)
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = useState({})
+    const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_livechat_interactive, setLiveChatInteractive] = React.useState(false)
 
     const is_static = type === 'static'
-
-    const loadLiveChatScript = (callback) => {
-        const livechat_script = document.createElement('script')
-        livechat_script.innerHTML = `
-            window.__lc = window.__lc || {};
-            window.__lc.license = 12049137;
-            ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can’t use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
-        `
-        document.body.appendChild(livechat_script)
-        if (callback) callback()
-    }
 
     React.useEffect(() => {
         if (!clients_country) {
@@ -89,13 +63,6 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
         }
         if (isBrowser()) {
             window.scrollTo(0, 0)
-            setTimeout(() => {
-                loadLiveChatScript(() => {
-                    window.LiveChatWidget.on('ready', () => {
-                        setLiveChatInteractive(true)
-                    })
-                })
-            }, 2000)
         }
     }, [])
 
@@ -175,19 +142,11 @@ const Layout = ({ children, type, interim_type, padding_top, no_login_signup }) 
                     is_open={show_cookie_banner}
                 />
             )}
-            {is_livechat_interactive && (
-                <LiveChat
-                    className="gtm-deriv-livechat"
-                    onClick={() => {
-                        LC_API.open_chat_window()
-                    }}
-                    onMouseEnter={() => setLivechatHover(true)}
-                    onMouseLeave={() => setLivechatHover(false)}
-                >
-                    {is_livechat_hover ? <LiveChatHover /> : <LiveChatIC />}
-                </LiveChat>
-            )}
-
+            <LiveChat
+                LC_API={LC_API}
+                is_livechat_interactive={is_livechat_interactive}
+                setLiveChatInteractive={setLiveChatInteractive}
+            />
             {FooterNav}
             <EURedirect
                 toggle={toggleModal}

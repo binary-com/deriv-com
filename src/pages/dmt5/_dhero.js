@@ -121,10 +121,8 @@ const LinkWrapper = styled.div`
 
 const StyledLinkButton = styled(LinkButton)`
     padding: 1.4rem 1.6rem;
-    width: 100%;
-    max-width: 20.2rem;
+    width: fit-content;
     font-size: 14px;
-    max-height: 4rem;
     height: 100%;
     margin-right: 2px;
     border: unset;
@@ -134,13 +132,13 @@ const StyledLinkButton = styled(LinkButton)`
         height: 42px;
         white-space: nowrap;
         display: inline-block;
-        max-width: 202px;
         max-height: 40px;
     }
 `
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 56.2rem;
+    z-index: 1;
 
     @media (max-width: 1376px) {
         max-width: 44rem;

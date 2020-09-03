@@ -151,7 +151,7 @@ const Card = ({ name }) => {
             </div>
 
             <Text weight="bold" mt="1.6rem">
-                {markets_type[name].title}
+                {localize(markets_type[name].title)}
             </Text>
             <Text mt="0.8rem">{markets_type[name].content}</Text>
             <LearnMore to={markets_type[name].to} visibility={button_visibility}>
@@ -187,7 +187,7 @@ const MarketsWrapper = styled(Flex)`
 `
 const Wrapper = styled(Box)`
     position: relative;
-    max-width: 103.8rem;
+    max-width: 103rem;
     width: 100%;
     height: 19.2rem;
     background: rgba(133, 172, 176, 0.24);
@@ -199,6 +199,7 @@ const CardWrapper = styled(Flex)`
 `
 const StyledHeader = styled(Header)`
     max-width: 25.8rem;
+    margin-right: 1rem;
 
     @media ${device.laptopM} {
         text-align: center;
@@ -225,7 +226,7 @@ const OtherMarkets = ({ except }) => {
                     <StyledHeader as="h3" align="left">
                         {localize('Other markets you might be interested in')}
                     </StyledHeader>
-                    <Box position="relative" width="100%" max_width="103.8rem" height="32rem">
+                    <Box position="relative" width="100%" max_width="103rem" height="32rem">
                         <Wrapper>
                             <CardWrapper
                                 max_width="93rem"

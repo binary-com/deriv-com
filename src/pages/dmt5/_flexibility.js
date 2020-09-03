@@ -66,8 +66,6 @@ const ClientCard = styled.article`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     width: 38.4rem;
     padding: 3.2rem 2.4rem 4rem;
-    max-height: 19.2rem;
-    height: 100%;
     position: relative;
 
     :first-child {
@@ -94,7 +92,6 @@ const StyledLinkButton = styled(LinkButton)`
     border: unset;
     max-width: 182px;
     width: 100%;
-    height: 40px;
     margin: auto;
 `
 const StyledHeader = styled(Header)`

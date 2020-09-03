@@ -32,7 +32,7 @@ const Card = styled(Flex)`
     flex-direction: column;
     min-width: 28.2rem;
     max-width: 28.2rem;
-    height: 29rem;
+    height: auto;
     padding: 2.4rem 2.4rem 4rem;
     border-radius: 8px;
     border: solid 1px var(--color-grey-21);
@@ -83,7 +83,9 @@ const WhyTrader = () => {
             </StyledHeader>
             <CardContainer>
                 <Card>
-                    <InstantAccess />
+                    <div>
+                        <InstantAccess />
+                    </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Quick demo account sign-up')}
                     </StyledCardHeader>
@@ -94,7 +96,9 @@ const WhyTrader = () => {
                     </StyledText>
                 </Card>
                 <Card>
-                    <SyntheticIndices />
+                    <div>
+                        <SyntheticIndices />
+                    </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Multiple assets on a single platform')}
                     </StyledCardHeader>
@@ -105,7 +109,9 @@ const WhyTrader = () => {
                     </StyledText>
                 </Card>
                 <Card>
-                    <Seven />
+                    <div>
+                        <Seven />
+                    </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('24/7 trading')}
                     </StyledCardHeader>
@@ -116,7 +122,9 @@ const WhyTrader = () => {
                     </StyledText>
                 </Card>
                 <Card>
-                    <MinimalRisk />
+                    <div>
+                        <MinimalRisk />
+                    </div>
                     <StyledCardHeader mt="0.8rem" mb="0.8rem" as="h4">
                         {localize('Licensed and regulated')}
                     </StyledCardHeader>

@@ -28,7 +28,7 @@ const StartTrading = () => {
                 <FixTimeline>
                     <FixTimeline.Item title={<Localize translate_text="Practise" />}>
                         {localize(
-                            'Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms – DTrader, SmartTrader, and DBot.',
+                            'Open a demo account and get unlimited virtual funds to practice on our platforms – DTrader, SmartTrader, and DBot.',
                         )}
                     </FixTimeline.Item>
                     <FixTimeline.Item title={<Localize translate_text="Trade" />}>

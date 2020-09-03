@@ -750,6 +750,7 @@ const Footer = () => {
                                                     />,
 
                                                     <BoldLink
+                                                        external
                                                         key={1}
                                                         target="_blank"
                                                         to="https://www.begambleaware.org/"
@@ -776,6 +777,7 @@ const Footer = () => {
                                                 />,
 
                                                 <BoldLink
+                                                    external
                                                     key={1}
                                                     target="_blank"
                                                     to="https://www.begambleaware.org/"

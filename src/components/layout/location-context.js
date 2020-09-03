@@ -9,10 +9,19 @@ export const LocationProvider = ({
     children,
     setModalPayload,
     toggleModal,
+    is_livechat_interactive,
+    LC_API,
 }) => {
     return (
         <LocationContext.Provider
-            value={{ is_eu_country, show_cookie_banner, setModalPayload, toggleModal }}
+            value={{
+                is_eu_country,
+                show_cookie_banner,
+                setModalPayload,
+                toggleModal,
+                is_livechat_interactive,
+                LC_API,
+            }}
         >
             {children}
         </LocationContext.Provider>
@@ -22,6 +31,8 @@ export const LocationProvider = ({
 LocationProvider.propTypes = {
     children: PropTypes.node.isRequired,
     is_eu_country: PropTypes.bool,
+    is_livechat_interactive: PropTypes.bool,
+    LC_API: PropTypes.object,
     setModalPayload: PropTypes.object,
     show_cookie_banner: PropTypes.bool,
     toggleModal: PropTypes.func,

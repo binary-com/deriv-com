@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Text, Header } from './typography.js'
-import { Flex, Show } from 'components/containers'
+import { Flex } from 'components/containers'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 // SVG
@@ -261,50 +261,53 @@ CardChildren.propTypes = {
 
 const NavContent = styled.div`
     width: 100%;
-    max-width: 21.3rem;
     display: flex;
     flex-direction: column;
-
-    ${Text} {
-        font-size: var(--text-size-xxs);
-        color: var(--color-grey-5);
-        transition: color 0.25s;
-    }
 `
 const RightDiagonal = styled(Diagonal)`
     opacity: 0;
     transition: opacity 0.2s;
     position: absolute;
-    right: 0;
+    width: 16px;
+    height: 16px;
+    right: 16px;
+    top: 16px;
+
+    @media ${device.tabletL} {
+        opacity: 1;
+        width: 16px;
+        height: 16px;
+        right: 0;
+        margin-right: 0;
+        top: 0;
+    }
 `
 
 const ResponsiveHeader = styled(Header)`
     transition: color 0.2s;
-    @media ${device.tabletS} {
+    @media ${device.tabletL} {
         font-size: 16px;
     }
 `
 const ResponsiveText = styled(Text)`
     transition: color 0.2s;
-    @media ${device.tabletS} {
-        font-size: 10.5px;
+    font-size: var(--text-size-xs);
+
+    @media ${device.tabletL} {
+        font-size: 14px;
     }
 `
 
 const FlexHover = styled(Flex)`
+    padding: 0.8rem 1.6rem;
     cursor: pointer;
-
-    & > svg {
-        width: 24px;
-        height: 24px;
-        margin-right: 1.6rem;
-
-        @media ${device.mobileL} {
-            width: 30px;
-            height: 30px;
-        }
+    @media ${device.mobileL} {
+        padding: 0;
     }
+
     &:hover {
+        background-color: var(--color-grey-30);
+
         ${RightDiagonal} {
             opacity: 1;
         }
@@ -313,10 +316,24 @@ const FlexHover = styled(Flex)`
         }
     }
 `
+
+const SvgWrapper = styled.div`
+    & > svg {
+        width: 33px;
+        height: 33px;
+        margin-right: 1.6rem;
+
+        @media ${device.mobileL} {
+            width: 24px;
+            height: 24px;
+        }
+    }
+`
 export const NavCard = ({
     icon: Icon,
     title,
     content,
+    onClick,
     to,
     style,
     external,
@@ -328,11 +345,12 @@ export const NavCard = ({
 }) => {
     return (
         <LocalizedLink
+            onClick={onClick}
             to={to}
             style={{
                 textDecoration: 'none',
                 width: '100%',
-                maxWidth: '27.7rem',
+                maxWidth: '33.6rem',
                 position: 'relative',
                 ...style,
             }}
@@ -344,18 +362,21 @@ export const NavCard = ({
             {...otherLinkProps}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
-                <Icon />
+                <SvgWrapper>
+                    <Icon />
+                </SvgWrapper>
+
                 <NavContent>
-                    <ResponsiveHeader size="var(--text-size-xs)" lh="1.14" mb="0.8rem">
+                    <ResponsiveHeader size="var(--text-size-s)" lh="1.14" mb="0.8rem">
                         {title}
                     </ResponsiveHeader>
-                    <ResponsiveText size="var(--text-size-xxs)" color="grey-5">
-                        {content}
-                    </ResponsiveText>
+                    <ResponsiveText color="grey-5">{content}</ResponsiveText>
                 </NavContent>
-                <Show.Desktop>
-                    <RightDiagonal />
-                </Show.Desktop>
+                {external && (
+                    <div>
+                        <RightDiagonal />
+                    </div>
+                )}
             </FlexHover>
         </LocalizedLink>
     )
@@ -368,6 +389,7 @@ NavCard.propTypes = {
     icon: PropTypes.func,
     is_binary_link: PropTypes.bool,
     is_smarttrader_link: PropTypes.bool,
+    onClick: PropTypes.func,
     otherLinkProps: PropTypes.object,
     style: PropTypes.object,
     target: PropTypes.string,
@@ -375,16 +397,21 @@ NavCard.propTypes = {
     to: PropTypes.string,
 }
 
-const LinkRightDiagonal = styled(RightDiagonal)`
+const LinkRightDiagonal = styled.div`
     opacity: 0;
-    right: -25px;
+    justify-self: flex-end;
+    align-self: center;
+
+    & > svg {
+        width: 16px;
+        height: 16px;
+    }
 `
 
 const HoverFlex = styled(Flex)`
     &:hover {
-        ${ResponsiveHeader} {
-            color: var(--color-red);
-        }
+        background-color: var(--color-grey-30);
+
         ${LinkRightDiagonal} {
             opacity: 1;
         }
@@ -392,35 +419,49 @@ const HoverFlex = styled(Flex)`
 `
 
 const RelativeFlex = styled(Flex)`
+    & > div > svg {
+        height: 24px;
+        width: 24px;
+        margin-right: 1.6rem;
+    }
+
     position: relative;
 `
 
-export const CardLink = ({ title, to, style, external, target }) => {
+export const CardLink = ({ icon: Icon, title, to, style, external, target, onClick }) => {
     return (
         <LocalizedLink
             target={target}
+            onClick={onClick}
             to={to}
             style={{
                 textDecoration: 'none',
                 width: '100%',
-                maxWidth: '20rem',
                 position: 'relative',
                 ...style,
             }}
             external={external}
         >
-            <HoverFlex jc="flex-start" direction="row" tablet_direction="row">
-                <RelativeFlex jc="flex-start" width="auto">
+            <HoverFlex p="1rem 1.6rem" jc="flex-start" direction="row" tablet_direction="row">
+                <RelativeFlex ai="center" jc="flex-start">
+                    {Icon && (
+                        <div>
+                            <Icon />
+                        </div>
+                    )}
                     <ResponsiveHeader
                         color="black-3"
                         size="var(--text-size-xs)"
                         lh="1.14"
-                        mb="1.6rem"
                         weight="normal"
                     >
                         {title}
                     </ResponsiveHeader>
-                    <LinkRightDiagonal />
+                    {external && (
+                        <LinkRightDiagonal>
+                            <Diagonal />
+                        </LinkRightDiagonal>
+                    )}
                 </RelativeFlex>
             </HoverFlex>
         </LocalizedLink>
@@ -430,7 +471,8 @@ export const CardLink = ({ title, to, style, external, target }) => {
 CardLink.propTypes = {
     content: PropTypes.string,
     external: PropTypes.bool,
-    icon: PropTypes.object,
+    icon: PropTypes.func,
+    onClick: PropTypes.func,
     style: PropTypes.object,
     target: PropTypes.string,
     title: PropTypes.string,

@@ -63,7 +63,7 @@ const DMT5 = () => {
             <WhyTrader />
             <StartTrader />
             <DownloadApp />
-            {/* This section is not ready yet */}
+            {/* TODO: add this section when trade tools are ready */}
             {/* <TradeControl /> */}
             <Flexibility />
             <DBanner

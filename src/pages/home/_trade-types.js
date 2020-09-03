@@ -1,13 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import styled, { css } from 'styled-components'
 import { Header, Text, Card } from 'components/elements'
-import { localize } from 'components/localization'
+import { localize, LocalizedLink } from 'components/localization'
 import { Container, Flex, Show } from 'components/containers'
-import MarginLogo from 'images/svg/margin_2.svg'
-import OptionsLogo from 'images/svg/options_2.svg'
-import MultipliersLogo from 'images/svg/multipliers_2.svg'
+import MarginLogo from 'components/svgs/margin'
+import OptionsLogo from 'components/svgs/options'
+import MultipliersLogo from 'components/svgs/multipliers'
 import { LinkButton } from 'components/form'
-//import device from 'themes/device'
+import device from 'themes/device'
+import Arrow from 'images/svg/arrow-right.svg'
 
 const StyledCard = styled(Card)`
     max-width: 28.2rem;
@@ -18,7 +19,11 @@ const StyledCard = styled(Card)`
     justify-content: center;
     align-items: center;
     min-height: 100%;
-
+    ${(props) =>
+        props.isShown &&
+        css`
+            box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1), 0 0 20px 0 rgba(0, 0, 0, 0.2);
+        `}
     &:nth-child(4) {
         margin-right: unset;
     }
@@ -40,7 +45,28 @@ const TradingButton = styled(LinkButton)`
     justify-content: center;
 `
 
+const StyledLink = styled(LocalizedLink)`
+    text-decoration: none;
+    width: 126px;
+    height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #ff444f;
+
+    @media ${device.tabletL} {
+        margin: 1rem 0;
+    }
+`
+
 const TradeTypes = () => {
+    const [isShownMargin, setIsShownMargin] = useState(false)
+    const [isShownOptions, setIsShownOptions] = useState(false)
+    const [isShownMultipliers, setIsShownMultipliers] = useState(false)
+
     return (
         <div>
             <Show.Desktop max_width="851">
@@ -56,9 +82,14 @@ const TradeTypes = () => {
                             {localize('Start trading')}
                         </TradingButton>
                     </Flex>
-                    <StyledCard>
+
+                    <StyledCard
+                        onMouseEnter={() => setIsShownMargin(true)}
+                        onMouseLeave={() => setIsShownMargin(false)}
+                        isShown={isShownMargin}
+                    >
                         <div>
-                            <MarginLogo />
+                            <MarginLogo dynamic_id="desktop-margin" />
                         </div>
                         <Header>{localize('Margin trading')}</Header>
                         <Text>
@@ -66,10 +97,23 @@ const TradeTypes = () => {
                                 'Trade with leverage and low spreads for better returns on successful trades.',
                             )}
                         </Text>
+
+                        {isShownMargin ? (
+                            <StyledLink ariaLabel={localize('Margin')} to="/trade-types/margin">
+                                Learn more <Arrow />
+                            </StyledLink>
+                        ) : (
+                            <></>
+                        )}
                     </StyledCard>
-                    <StyledCard>
+
+                    <StyledCard
+                        onMouseEnter={() => setIsShownOptions(true)}
+                        onMouseLeave={() => setIsShownOptions(false)}
+                        isShown={isShownOptions}
+                    >
                         <div>
-                            <OptionsLogo />
+                            <OptionsLogo dynamic_id="desktop-options" />
                         </div>
                         <Header>{localize('Options')}</Header>
                         <Text>
@@ -77,10 +121,24 @@ const TradeTypes = () => {
                                 'Earn fixed payouts by predicting an assets price movement within a fixed time.',
                             )}
                         </Text>
+
+                        {isShownOptions ? (
+                            <StyledLink ariaLabel={localize('Options')} to="/trade-types/options">
+                                {' '}
+                                Learn more <Arrow />
+                            </StyledLink>
+                        ) : (
+                            <></>
+                        )}
                     </StyledCard>
-                    <StyledCard>
+
+                    <StyledCard
+                        onMouseEnter={() => setIsShownMultipliers(true)}
+                        onMouseLeave={() => setIsShownMultipliers(false)}
+                        isShown={isShownMultipliers}
+                    >
                         <div>
-                            <MultipliersLogo />
+                            <MultipliersLogo dynamic_id="desktop-multipliers" />
                         </div>
                         <Header>{localize('Multipliers')}</Header>
                         <Text>
@@ -88,9 +146,22 @@ const TradeTypes = () => {
                                 'Get the best of both - the upside of margin trading with the simplicity of options.',
                             )}
                         </Text>
+
+                        {isShownMultipliers ? (
+                            <StyledLink
+                                ariaLabel={localize('Multipliers')}
+                                to="/trade-types/multipliers"
+                            >
+                                {' '}
+                                Learn more <Arrow />
+                            </StyledLink>
+                        ) : (
+                            <></>
+                        )}
                     </StyledCard>
                 </Container>
             </Show.Desktop>
+
             <Show.Mobile min_width="852">
                 <Container
                     ai="center"
@@ -112,7 +183,7 @@ const TradeTypes = () => {
                     <Flex>
                         <StyledCard>
                             <div>
-                                <MarginLogo />
+                                <MarginLogo dynamic_id="mobile-margin" />
                             </div>
                             <Header>{localize('Margin trading')}</Header>
                             <Text>
@@ -120,10 +191,13 @@ const TradeTypes = () => {
                                     'Trade with leverage and low spreads for better returns on successful trades.',
                                 )}
                             </Text>
+                            <StyledLink ariaLabel={localize('Margin')} to="/trade-types/margin">
+                                Learn more <Arrow />
+                            </StyledLink>
                         </StyledCard>
                         <StyledCard>
                             <div>
-                                <OptionsLogo />
+                                <OptionsLogo dynamic_id="mobile-options" />
                             </div>
                             <Header>{localize('Options')}</Header>
                             <Text>
@@ -131,10 +205,14 @@ const TradeTypes = () => {
                                     'Earn fixed payouts by predicting an assets price movement within a fixed time.',
                                 )}
                             </Text>
+                            <StyledLink ariaLabel={localize('Options')} to="/trade-types/options">
+                                {' '}
+                                Learn more <Arrow />
+                            </StyledLink>
                         </StyledCard>
                         <StyledCard>
                             <div>
-                                <MultipliersLogo />
+                                <MultipliersLogo dynamic_id="mobile-multipliers" />
                             </div>
                             <Header>{localize('Multipliers')}</Header>
                             <Text>
@@ -142,6 +220,13 @@ const TradeTypes = () => {
                                     'Get the best of both - the upside of margin trading with the simplicity of options.',
                                 )}
                             </Text>
+                            <StyledLink
+                                ariaLabel={localize('Multipliers')}
+                                to="/trade-types/multipliers"
+                            >
+                                {' '}
+                                Learn more <Arrow />
+                            </StyledLink>
                         </StyledCard>
                     </Flex>
                     <TradingButton mt="3rem" type="submit" secondary="true" to="/signup/">

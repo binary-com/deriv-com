@@ -6,7 +6,7 @@ import AvailableTrades from '../_available-trades.js'
 import Margin from './_margin.js'
 import DigitalOptions from './_digital-options.js'
 import SimpleSteps from 'components/custom/_simple-steps'
-import { Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import FriendlySupport from 'images/svg/friendly-support.svg'
 import ResponsiveWebsite from 'images/svg/responsive-website.svg'
 import Deposit from 'images/svg/deposit-and-withdrawal.svg'
@@ -14,8 +14,9 @@ import ExtendedTime from 'images/svg/extended-trading-times.svg'
 import MinimalCapital from 'images/svg/minimal-capital.svg'
 
 const StockIndices = ({ simple_step_content }) => {
-    simple_step_content[1].text =
-        'Open a real account, make a deposit, and start trading stock indices and other markets.'
+    simple_step_content[1].text = localize(
+        'Open a real account, make a deposit, and start trading stock indices and other markets.',
+    )
     return (
         <div>
             <WhyTrade

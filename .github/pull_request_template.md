@@ -1,19 +1,22 @@
 # Description
 
-Summary of the change and/or issue that is fixed.
+Summary
 
 Changes:
 
--   fixes issue with item
 -   ...
 
 ## Type of change
 
 -   [ ] Bug fix
 -   [ ] New feature
+-   [ ] Update feature
 -   [ ] Refactor code
--   [ ] Update translation text
--   [ ] Breaking change
+-   [ ] Translation to code
+-   [ ] Translation to crowdin
+-   [ ] Script configuration
+-   [ ] Improve performance
+-   [ ] Style only
 -   [ ] Dependency update
--   [ ] This change requires a documentation update
+-   [ ] Documentation update
 -   [ ] Release

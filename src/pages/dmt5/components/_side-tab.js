@@ -8,6 +8,11 @@ import device, { size } from 'themes/device'
 const TabContent = styled.div`
     width: 100%;
 `
+const Content = styled.div`
+    flex: 1;
+    opacity: ${(props) => (props.selected ? '1' : '0')};
+    transition: opacity 1s ease-in;
+`
 const TabButton = styled.div`
     position: relative;
     z-index: 2;
@@ -61,10 +66,6 @@ const TabList = styled.div`
     }
 `
 
-const Content = styled.div`
-    flex: 1;
-`
-
 const Desktop = styled(Show.Desktop)`
     flex: 1;
     width: 100%;
@@ -102,11 +103,13 @@ const Tabs = ({ children, is_reverse }) => {
     return (
         <Flex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
             <Desktop max_width={size.tabletS}>
-                <Content>
-                    {React.Children.map(children, (el, index) => {
-                        return selected_tab === index ? el : undefined
-                    })}
-                </Content>
+                {React.Children.map(children, (el, index) => {
+                    return (
+                        <Content selected={selected_tab === index}>
+                            {selected_tab === index ? el : undefined}
+                        </Content>
+                    )
+                })}
             </Desktop>
             <TabList role="tablist" is_reverse={is_reverse}>
                 {React.Children.map(children, (child, index) => {

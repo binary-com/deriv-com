@@ -250,10 +250,16 @@ export const LocationLayout = ({ location, images }) => {
                                             target="_blank"
                                             href={location.google_map_link}
                                         >
-                                            {location.address}
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
                                         </LinkText>
                                     ) : (
-                                        <Text>{location.address}</Text>
+                                        <Text>
+                                            {location.address.map((address, index) => (
+                                                <Text key={index}>{address}</Text>
+                                            ))}
+                                        </Text>
                                     )}
                                 </Flex>
                             </div>

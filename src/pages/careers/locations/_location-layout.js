@@ -5,6 +5,7 @@ import styled from 'styled-components'
 // import { LinkList } from '../_layout-components/_link-list'
 import { RoleBanner } from '../_layout-components/_banner'
 import Container from '../_layout-components/_container'
+// import { NoOpenPositionsHeader } from '../_layout-components/_no-open-positions'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
@@ -225,7 +226,7 @@ export const LocationLayout = ({ location, images }) => {
             </SectionContainer>
             <SectionContainer padding="12rem 0">
                 <LocationCard>
-                    <Flex jc="unset" tablet_direction="column">
+                    <Flex min_height="42.2rem" jc="unset" tablet_direction="column">
                         <ImageWrapper>
                             {location.has_iframe ? (
                                 <Iframe
@@ -271,9 +272,16 @@ export const LocationLayout = ({ location, images }) => {
             >
                 {`Open positions in ${display_name}`}
             </Header>
-            <div style={{ marginBottom: '12rem' }}>
-                <LinkList list_items={mapped_positions} />
-            </div> */}
+            {mapped_positions.length ? (
+                <div style={{ marginBottom: '12rem' }}>
+                    <LinkList list_items={mapped_positions} />
+                </div>
+            ) : (
+                <NoOpenPositionsHeader mb="8rem">
+                    {`Sorry, there are currently no open positions in ${location.display_name}`}
+                </NoOpenPositionsHeader>
+            )} */}
+
             <RoleBanner />
         </>
     )

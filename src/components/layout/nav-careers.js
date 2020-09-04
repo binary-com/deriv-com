@@ -6,6 +6,7 @@ import { localize } from 'components/localization'
 import { QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/utility'
+import device from 'themes/device'
 
 const query = graphql`
     query {
@@ -27,6 +28,12 @@ const CareerLogo = styled(LogoLink)`
     margin-right: 3.2rem;
 `
 
+const CareerNavLeft = styled(NavLeft)`
+    @media ${device.tabletL} {
+        display: none;
+    }
+`
+
 export const NavCareers = () => {
     const data = useStaticQuery(query)
     return (
@@ -34,7 +41,7 @@ export const NavCareers = () => {
             <NavWrapper>
                 <StyledNav>
                     <Wrapper>
-                        <NavLeft>
+                        <CareerNavLeft>
                             <CareerLogo to={'/'} aria-label={localize('Home')}>
                                 <QueryImage
                                     data={data['deriv']}
@@ -59,7 +66,7 @@ export const NavCareers = () => {
                             >
                                 LOCATIONS
                             </StyledLink>
-                        </NavLeft>
+                        </CareerNavLeft>
                         <CareerRight>
                             <LinkButton
                                 external

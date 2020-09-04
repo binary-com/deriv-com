@@ -72,7 +72,7 @@ const StyledLinkText = styled(LocalizedLinkText)`
     }
 `
 
-const TradeTypeSlide = ({ icon, title, description }) => {
+const TradeTypeSlide = ({ icon, title, description, link }) => {
     return (
         <Flex ai="center" height="unset">
             <TradeTypeCard>
@@ -90,13 +90,7 @@ const TradeTypeSlide = ({ icon, title, description }) => {
                         mt="16px"
                         size="16px"
                         ariaLabel={localize('Margin')}
-                        to={
-                            icon == <MarginLogo />
-                                ? '/trade-types/margin'
-                                : icon == <OptionsLogo />
-                                ? '/trade-types/options'
-                                : '/trade-types/multiplier'
-                        }
+                        to={link}
                     >
                         <span>{localize('Learn more')}</span>
                         <Arrow />
@@ -110,6 +104,7 @@ const TradeTypeSlide = ({ icon, title, description }) => {
 TradeTypeSlide.propTypes = {
     description: PropTypes.any,
     icon: PropTypes.any,
+    link: PropTypes.any,
     title: PropTypes.any,
 }
 
@@ -119,6 +114,7 @@ const margin = {
     description: (
         <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
     ),
+    link: '/trade-types/margin',
 }
 const options = {
     icon: <OptionsLogo />,
@@ -126,6 +122,7 @@ const options = {
     description: (
         <Localize translate_text="Earn fixed payouts by predicting an assets price movement within a fixed time." />
     ),
+    link: '/trade-types/options',
 }
 const multipliers = {
     icon: <MultipliersLogo />,
@@ -133,6 +130,7 @@ const multipliers = {
     description: (
         <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
     ),
+    link: '/trade-types/multiplier',
 }
 
 const trade_types = [margin, options, multipliers]
@@ -178,6 +176,7 @@ const TradeTypesMobile = () => {
                                         icon={trade_slide.icon}
                                         title={trade_slide.title}
                                         description={trade_slide.description}
+                                        link={trade_slide.link}
                                     />
                                 </div>
                             ))}

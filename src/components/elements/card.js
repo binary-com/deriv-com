@@ -234,8 +234,6 @@ Card.propTypes = {
     is_inline_icon: PropTypes.bool,
     is_selected: PropTypes.bool,
     min_height: PropTypes.string,
-    onMouseEnter: PropTypes.any,
-    onMouseLeave: PropTypes.any,
     padding: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.string,
@@ -332,59 +330,6 @@ const SvgWrapper = styled.div`
     }
 `
 
-export const TradeTypeCard = ({
-    icon: Icon,
-    title,
-    content,
-    onClick,
-    to,
-    style,
-    external,
-    target,
-    className,
-    is_binary_link,
-    is_smarttrader_link,
-    otherLinkProps,
-}) => {
-    return (
-        <LocalizedLink
-            onClick={onClick}
-            to={to}
-            style={{
-                textDecoration: 'none',
-                width: '100%',
-                maxWidth: '33.6rem',
-                position: 'relative',
-                ...style,
-            }}
-            external={external}
-            target={target}
-            className={className}
-            is_binary_link={is_binary_link}
-            is_smarttrader_link={is_smarttrader_link}
-            {...otherLinkProps}
-        >
-            <FlexHover jc="flex-start" direction="row" tablet_direction="row">
-                <SvgWrapper>
-                    <Icon />
-                </SvgWrapper>
-
-                <NavContent>
-                    <ResponsiveHeader size="var(--text-size-s)" lh="1.14" mb="0.8rem">
-                        {title}
-                    </ResponsiveHeader>
-                    <ResponsiveText color="grey-5">{content}</ResponsiveText>
-                </NavContent>
-                {external && (
-                    <div>
-                        <RightDiagonal />
-                    </div>
-                )}
-            </FlexHover>
-        </LocalizedLink>
-    )
-}
-
 export const NavCard = ({
     icon: Icon,
     title,
@@ -439,21 +384,6 @@ export const NavCard = ({
 }
 
 NavCard.propTypes = {
-    className: PropTypes.string,
-    content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
-    external: PropTypes.string,
-    icon: PropTypes.func,
-    is_binary_link: PropTypes.bool,
-    is_smarttrader_link: PropTypes.bool,
-    onClick: PropTypes.func,
-    otherLinkProps: PropTypes.object,
-    style: PropTypes.object,
-    target: PropTypes.string,
-    title: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    to: PropTypes.string,
-}
-
-TradeTypeCard.propTypes = {
     className: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     external: PropTypes.string,

@@ -26,11 +26,16 @@ const CareerRight = styled.div`
 
 const CareerLogo = styled(LogoLink)`
     margin-right: 3.2rem;
+
+    @media ${device.mobileL} {
+        margin-right: 0;
+        max-width: 100px;
+    }
 `
 
 const CareerNavLeft = styled(NavLeft)`
     @media ${device.tabletL} {
-        display: none;
+        display: flex;
     }
 `
 

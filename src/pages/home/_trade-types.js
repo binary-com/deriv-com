@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Header, Text, Card } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
-import { Container, Flex, Show } from 'components/containers'
+import { Header, Text, Card, LocalizedLinkText } from 'components/elements'
+import { localize } from 'components/localization'
+import { Container, Flex } from 'components/containers'
 import MarginLogo from 'components/svgs/margin'
 import OptionsLogo from 'components/svgs/options'
 import MultipliersLogo from 'components/svgs/multipliers'
 import { LinkButton } from 'components/form'
-import device from 'themes/device'
 import Arrow from 'images/svg/arrow-right.svg'
 
 const CustomLinkWrap = styled.div`
@@ -35,17 +34,22 @@ const StyledCard = styled(Card)`
     justify-content: center;
     align-items: center;
     min-height: 100%;
+    box-shadow: none;
+    border: 1px solid var(--color-grey-2);
 
     &:hover {
-        box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1), 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    }
-    &:hover ${CustomWrap} {
-        margin-bottom: 20px;
-        transition-duration: 0.2s;
-    }
-    &:hover ${CustomLinkWrap} {
-        visibility: visible;
-        opacity: 1;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
+
+        ${CustomWrap} {
+            margin-bottom: 20px;
+            transition-duration: 0.2s;
+        }
+        ${CustomLinkWrap} {
+            visibility: visible;
+            opacity: 1;
+        }
     }
     &:nth-child(4) {
         margin-right: unset;
@@ -68,177 +72,116 @@ const TradingButton = styled(LinkButton)`
     justify-content: center;
 `
 
-const StyledLink = styled(LocalizedLink)`
-    text-decoration: none;
-    width: 126px;
-    height: 24px;
-    font-size: 16px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    color: #ff444f;
+const StyledLinkText = styled(LocalizedLinkText)`
+    display: flex;
+    align-items: center;
 
-    @media ${device.tabletL} {
-        margin: 1rem 0;
+    &:hover {
+        color: var(--color-red);
+        text-decoration: none;
+    }
+    span {
+        margin-right: 8px;
     }
 `
 
 const TradeTypes = () => {
     return (
         <div>
-            <Show.Desktop max_width="851">
-                <Container m="0 auto 8rem !important" height="35rem" width="90% !important">
-                    <Flex direction="column" max_width="28.2rem">
-                        <Header size="3.2rem">{localize('Trade types')}</Header>
-                        <Text size="2.4rem" mt="1.6rem" mb="5rem">
-                            {localize(
-                                'Trade what you like, the way you like it, and on your preferred market.',
-                            )}
-                        </Text>
-                        <TradingButton type="submit" secondary="true" to="/signup/">
-                            {localize('Start trading')}
-                        </TradingButton>
-                    </Flex>
-
-                    <StyledCard>
-                        <CustomWrap>
-                            <LogoDiv>
-                                <MarginLogo dynamic_id="desktop-margin" />
-                            </LogoDiv>
-                            <Header>{localize('Margin trading')}</Header>
-                            <Text>
-                                {localize(
-                                    'Trade with leverage and low spreads for better returns on successful trades.',
-                                )}
-                            </Text>
-                        </CustomWrap>
-                        <CustomLinkWrap>
-                            <StyledLink ariaLabel={localize('Margin')} to="/trade-types/margin">
-                                {localize('Learn more')} <Arrow />
-                            </StyledLink>
-                        </CustomLinkWrap>
-                    </StyledCard>
-
-                    <StyledCard>
-                        <CustomWrap>
-                            <LogoDiv>
-                                <OptionsLogo dynamic_id="desktop-options" />
-                            </LogoDiv>
-                            <Header>{localize('Options')}</Header>
-                            <Text>
-                                {localize(
-                                    'Earn fixed payouts by predicting an assets price movement within a fixed time.',
-                                )}
-                            </Text>
-                        </CustomWrap>
-
-                        <CustomLinkWrap>
-                            <StyledLink ariaLabel={localize('Options')} to="/trade-types/options">
-                                {localize('Learn more')} <Arrow />
-                            </StyledLink>
-                        </CustomLinkWrap>
-                    </StyledCard>
-
-                    <StyledCard>
-                        <CustomWrap>
-                            <LogoDiv>
-                                <MultipliersLogo dynamic_id="desktop-multipliers" />
-                            </LogoDiv>
-                            <Header>{localize('Multipliers')}</Header>
-                            <Text>
-                                {localize(
-                                    'Get the best of both - the upside of margin trading with the simplicity of options.',
-                                )}
-                            </Text>
-                        </CustomWrap>
-
-                        <CustomLinkWrap>
-                            <StyledLink
-                                ariaLabel={localize('Multipliers')}
-                                to="/trade-types/multipliers"
-                            >
-                                {' '}
-                                {localize('Learn more')} <Arrow />
-                            </StyledLink>
-                        </CustomLinkWrap>
-                    </StyledCard>
-                </Container>
-            </Show.Desktop>
-
-            <Show.Mobile min_width="852">
-                <Container
-                    ai="center"
-                    direction="column"
-                    m="9rem auto 15rem !important"
-                    height="35rem"
-                    width="90% !important"
-                >
-                    <Flex direction="column">
-                        <Header align="center" size="3.2rem">
-                            {localize('Trade Types')}
-                        </Header>
-                        <Text align="center" size="2.4rem" mt="1.6rem" mb="5rem">
-                            {localize(
-                                'Trade what you like, the way you like it, and on your preferred market.',
-                            )}
-                        </Text>
-                    </Flex>
-                    <Flex>
-                        <StyledCard>
-                            <div>
-                                <MarginLogo dynamic_id="mobile-margin" />
-                            </div>
-                            <Header>{localize('Margin trading')}</Header>
-                            <Text>
-                                {localize(
-                                    'Trade with leverage and low spreads for better returns on successful trades.',
-                                )}
-                            </Text>
-                            <StyledLink ariaLabel={localize('Margin')} to="/trade-types/margin">
-                                {localize('Learn more')} <Arrow />
-                            </StyledLink>
-                        </StyledCard>
-                        <StyledCard>
-                            <div>
-                                <OptionsLogo dynamic_id="mobile-options" />
-                            </div>
-                            <Header>{localize('Options')}</Header>
-                            <Text>
-                                {localize(
-                                    'Earn fixed payouts by predicting an assets price movement within a fixed time.',
-                                )}
-                            </Text>
-                            <StyledLink ariaLabel={localize('Options')} to="/trade-types/options">
-                                {' '}
-                                {localize('Learn more')} <Arrow />
-                            </StyledLink>
-                        </StyledCard>
-                        <StyledCard>
-                            <div>
-                                <MultipliersLogo dynamic_id="mobile-multipliers" />
-                            </div>
-                            <Header>{localize('Multipliers')}</Header>
-                            <Text>
-                                {localize(
-                                    'Get the best of both - the upside of margin trading with the simplicity of options.',
-                                )}
-                            </Text>
-                            <StyledLink
-                                ariaLabel={localize('Multipliers')}
-                                to="/trade-types/multipliers"
-                            >
-                                {' '}
-                                {localize('Learn more')} <Arrow />
-                            </StyledLink>
-                        </StyledCard>
-                    </Flex>
-                    <TradingButton mt="3rem" type="submit" secondary="true" to="/signup/">
+            <Container m="0 auto 8rem !important" height="35rem" width="90% !important">
+                <Flex direction="column" max_width="28.2rem">
+                    <Header size="3.2rem">{localize('Trade types')}</Header>
+                    <Text size="2.4rem" mt="1.6rem" mb="5rem">
+                        {localize(
+                            'Trade what you like, the way you like it, and on your preferred market.',
+                        )}
+                    </Text>
+                    <TradingButton type="submit" secondary="true" to="/signup/">
                         {localize('Start trading')}
                     </TradingButton>
-                </Container>
-            </Show.Mobile>
+                </Flex>
+
+                <StyledCard>
+                    <CustomWrap>
+                        <LogoDiv>
+                            <MarginLogo dynamic_id="desktop-margin" />
+                        </LogoDiv>
+                        <Header>{localize('Margin trading')}</Header>
+                        <Text>
+                            {localize(
+                                'Trade with leverage and low spreads for better returns on successful trades.',
+                            )}
+                        </Text>
+                    </CustomWrap>
+                    <CustomLinkWrap>
+                        <StyledLinkText
+                            ariaLabel={localize('Margin')}
+                            weight="bold"
+                            color="red"
+                            mt="16px"
+                            size="16px"
+                            to="/trade-types/margin"
+                        >
+                            <span>{localize('Learn more')}</span> <Arrow />
+                        </StyledLinkText>
+                    </CustomLinkWrap>
+                </StyledCard>
+
+                <StyledCard>
+                    <CustomWrap>
+                        <LogoDiv>
+                            <OptionsLogo dynamic_id="desktop-options" />
+                        </LogoDiv>
+                        <Header>{localize('Options')}</Header>
+                        <Text>
+                            {localize(
+                                'Earn fixed payouts by predicting an assets price movement within a fixed time.',
+                            )}
+                        </Text>
+                    </CustomWrap>
+
+                    <CustomLinkWrap>
+                        <StyledLinkText
+                            ariaLabel={localize('Options')}
+                            weight="bold"
+                            color="red"
+                            mt="16px"
+                            size="16px"
+                            to="/trade-types/options"
+                        >
+                            <span>{localize('Learn more')}</span>
+                            <Arrow />
+                        </StyledLinkText>
+                    </CustomLinkWrap>
+                </StyledCard>
+
+                <StyledCard>
+                    <CustomWrap>
+                        <LogoDiv>
+                            <MultipliersLogo dynamic_id="desktop-multipliers" />
+                        </LogoDiv>
+                        <Header>{localize('Multipliers')}</Header>
+                        <Text>
+                            {localize(
+                                'Get the best of both - the upside of margin trading with the simplicity of options.',
+                            )}
+                        </Text>
+                    </CustomWrap>
+
+                    <CustomLinkWrap>
+                        <StyledLinkText
+                            ariaLabel={localize('Multipliers')}
+                            weight="bold"
+                            color="red"
+                            mt="16px"
+                            size="16px"
+                            to="/trade-types/multiplier"
+                        >
+                            <span>{localize('Learn more')}</span> <Arrow />
+                        </StyledLinkText>
+                    </CustomLinkWrap>
+                </StyledCard>
+            </Container>
         </div>
     )
 }

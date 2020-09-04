@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Swiper from 'react-id-swiper'
 import { Helmet } from 'react-helmet'
-import { Header, Text } from 'components/elements'
+import { Header, Text, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import MarginLogo from 'images/svg/margin_tt.svg'
 import OptionsLogo from 'images/svg/options_tt.svg'
@@ -63,6 +63,15 @@ const SwiperWrapper = styled.div`
     }
 `
 
+const StyledLinkText = styled(LocalizedLinkText)`
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-right: 8px;
+    }
+`
+
 const TradeTypeSlide = ({ icon, title, description }) => {
     return (
         <Flex ai="center" height="unset">
@@ -75,18 +84,23 @@ const TradeTypeSlide = ({ icon, title, description }) => {
                     <Text size="var(--text-size-sm)" align="center">
                         {description}
                     </Text>
-                    <StyledLink
+                    <StyledLinkText
+                        weight="bold"
+                        color="red"
+                        mt="16px"
+                        size="16px"
                         ariaLabel={localize('Margin')}
                         to={
                             icon == <MarginLogo />
                                 ? '/trade-types/margin'
                                 : icon == <OptionsLogo />
                                 ? '/trade-types/options'
-                                : '/trade-types/multipliers'
+                                : '/trade-types/multiplier'
                         }
                     >
-                        {localize('Learn more')} <Arrow />
-                    </StyledLink>
+                        <span>{localize('Learn more')}</span>
+                        <Arrow />
+                    </StyledLinkText>
                 </Flex>
             </TradeTypeCard>
         </Flex>
@@ -120,23 +134,6 @@ const multipliers = {
         <Localize translate_text="Get the best of both - the upside of margin trading with the simplicity of options." />
     ),
 }
-
-const StyledLink = styled(LocalizedLink)`
-    text-decoration: none;
-    width: 126px;
-    height: 24px;
-    font-size: 16px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    color: #ff444f;
-
-    @media ${device.tabletL} {
-        margin: 1rem 0;
-    }
-`
 
 const trade_types = [margin, options, multipliers]
 

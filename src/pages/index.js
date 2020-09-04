@@ -60,10 +60,10 @@ const Home = () => {
                 <Trade />
             </Show.Desktop>
 
-            <Show.Desktop max_width="599">
+            <Show.Desktop max_width="851">
                 <TradeTypes />
             </Show.Desktop>
-            <Show.Mobile min_width="600">
+            <Show.Mobile min_width="852">
                 <TradeTypesMobile />
             </Show.Mobile>
 
